@@ -116,7 +116,7 @@ dotclear.trimHtml = (html, options = {}) => {
   for (let i = 0; i < arr.length; i++) {
     row = arr[i];
     // count multiple spaces as one character
-    rowCut = row.replace(/[ ]+/g, ' ');
+    rowCut = row.replace(/ +/g, ' ');
 
     if (!row.length) {
       continue;

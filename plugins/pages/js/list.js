@@ -3,7 +3,7 @@
 
 Object.assign(dotclear.msg, dotclear.getData('pages_list'));
 
-dotclear.viewPostContent = (line, action = 'toggle', e = null) => {
+dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }

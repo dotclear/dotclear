@@ -17,7 +17,7 @@ $(() => {
       write: 1,
     };
 
-    if (msg == false) {
+    if (!msg) {
       msg = $('<p style="font-weight:bold; color:red;"></p>');
       $('#file_content').parent().after(msg);
     }

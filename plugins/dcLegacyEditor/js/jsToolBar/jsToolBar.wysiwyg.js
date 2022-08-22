@@ -567,7 +567,7 @@ jsToolBar.prototype.tagsoup2xhtml = function (html) {
   }
 
   /* tous les tags en minuscule */
-  html = html.replace(/<(\/?)([A-Z0-9]+)/g, (match0, match1, match2) => `<${match1}${match2.toLowerCase()}`);
+  html = html.replace(/<(\/?)([A-Z0-9]+)/g, (_match0, match1, match2) => `<${match1}${match2.toLowerCase()}`);
 
   /* IE laisse souvent des attributs sans guillemets */
   const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;

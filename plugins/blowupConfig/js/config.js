@@ -34,7 +34,7 @@ $(() => {
 
   const applyBlowupValues = (code) => {
     code = code.replace('\n', '');
-    const re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
+    const re = /(^| )(\w+):"([^"]*?)"(;|$)/g;
     const reg = /^(.+):"([^"]*)"(;?)\s*$/;
     const s = code.match(re);
 

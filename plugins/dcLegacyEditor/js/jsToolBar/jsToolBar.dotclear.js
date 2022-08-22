@@ -81,7 +81,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   let href;
   let title;
   let hreflang;
-  href = title = hreflang = '';
+  href = title = '';
   hreflang = this.elements.link.default_hreflang;
 
   const a = this.getAncestor();

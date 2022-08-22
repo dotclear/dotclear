@@ -53,7 +53,7 @@ class metaEditor {
 
     this.addMetaDialog();
 
-    if (this.post_id == false) {
+    if (!this.post_id) {
       this.target.append(this.meta_field);
     }
     this.displayMetaList();
@@ -66,7 +66,7 @@ class metaEditor {
       this.target.prepend(this.meta_list);
     }
 
-    if (this.post_id == false) {
+    if (!this.post_id) {
       const meta = this.splitMetaValues(this.meta_field.val());
 
       this.meta_list.empty();
@@ -207,7 +207,7 @@ class metaEditor {
 
   addMeta(str) {
     str = this.splitMetaValues(str).join(',');
-    if (this.post_id == false) {
+    if (!this.post_id) {
       str = this.splitMetaValues(`${this.meta_field.val()},${str}`);
       this.meta_field.val(str);
 
@@ -234,7 +234,7 @@ class metaEditor {
   }
 
   removeMeta(meta_id) {
-    if (this.post_id == false) {
+    if (!this.post_id) {
       const meta = this.splitMetaValues(this.meta_field.val());
       const i = meta.indexOf(meta_id);
       if (i >= 0) {

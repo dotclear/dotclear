@@ -12,7 +12,7 @@ $(() => {
 
     if (tags_edit.length > 0) {
       post_id = post_id.length > 0 ? post_id.get(0).value : false;
-      if (post_id == false) {
+      if (!post_id) {
         meta_field = $('<input type="hidden" name="post_tags" />');
         meta_field.val($('#post_tags').val());
       }

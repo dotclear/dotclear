@@ -8,7 +8,7 @@ if (typeof dotclear.post_remember_str === 'undefined' && typeof dotclear.getData
 window.addEventListener('load', () => {
   const bloc = new DOMParser().parseFromString(
     `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> <label for="c_remember">${dotclear.post_remember_str}</label></p>`,
-    'text/html'
+    'text/html',
   ).body.firstChild;
   // Looks for a preview input
   let point = document.querySelector('#comment-form input[type=submit][name=preview]');
@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
         name: document.getElementById('c_name').value,
         mail: document.getElementById('c_mail').value,
         site: document.getElementById('c_site').value,
-      })
+      }),
     );
   }
 
@@ -70,13 +70,13 @@ window.addEventListener('load', () => {
   }
 
   function readRememberInfo() {
-    const info = localStorage.getItem(remember_me_name);
+    const data = localStorage.getItem(remember_me_name);
 
-    if (info === null) {
+    if (data === null) {
       return false;
     }
 
-    const result = JSON.parse(info);
+    const result = JSON.parse(data);
 
     if (Object.keys(result).length != 3) {
       dropRememberInfo();

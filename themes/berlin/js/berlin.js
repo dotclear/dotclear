@@ -88,11 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   gotop.addEventListener('click', (e) => {
     function scrollTo(element, to, duration) {
-      const easeInOutQuad = (time, start, change, duration) => {
-        time /= duration / 2;
-        if (time < 1) return (change / 2) * time * time + start;
+      const easeInOutQuad = (time, ease_start, ease_change, ease_duration) => {
+        time /= ease_duration / 2;
+        if (time < 1) return (ease_change / 2) * time * time + ease_start;
         time--;
-        return (-change / 2) * (time * (time - 2) - 1) + start;
+        return (-ease_change / 2) * (time * (time - 2) - 1) + ease_start;
       };
       let currentTime = 0;
       const start = element.scrollTop;

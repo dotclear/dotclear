@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewPostContent = (line, action = 'toggle', e = null) => {
+dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }

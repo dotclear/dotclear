@@ -143,7 +143,9 @@ $.fn.toggleWithLegend = function (target, s) {
             value: p.hide ^ p.reverse_user_pref ? 1 : 0,
             xd_check: dotclear.nonce,
           },
-          () => {},
+          () => {
+            /* void */
+          },
         );
       }
       toggle(b);
@@ -254,16 +256,16 @@ $.fn.helpViewer = function () {
           return true;
         });
       hide = !hide;
-      const img = $(this).find('button.details-cmd');
+      const image = $(this).find('button.details-cmd');
       if (hide) {
-        img.html(p.img_on_txt);
-        img.attr('value', p.img_on_txt);
-        img.attr('aria-label', p.img_on_alt);
+        image.html(p.img_on_txt);
+        image.attr('value', p.img_on_txt);
+        image.attr('aria-label', p.img_on_alt);
         return;
       }
-      img.html(p.img_off_txt);
-      img.attr('value', p.img_off_txt);
-      img.attr('aria-label', p.img_off_alt);
+      image.html(p.img_off_txt);
+      image.attr('value', p.img_off_txt);
+      image.attr('aria-label', p.img_off_alt);
     });
   };
   this.addClass('help-box');
@@ -647,8 +649,12 @@ dotclear.passwordHelpers = () => {
 // REST services helper
 dotclear.services = (
   fn, // REST method
-  onSuccess = (data) => {}, // Used when fetch is successful
-  onError = (error) => {}, // Used when fetch failed
+  onSuccess = (_data) => {
+    // Used when fetch is successful
+  },
+  onError = (_error) => {
+    // Used when fetch failed
+  },
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
 ) => {
@@ -676,8 +682,12 @@ dotclear.services = (
 // REST services helpers, JSON only aliases
 dotclear.jsonServices = (
   fn, // REST method
-  onSuccess = (payload) => {}, // Used when fetch is successful
-  onError = (error) => {}, // Used when fetch failed
+  onSuccess = (_payload) => {
+    // Used when fetch is successful
+  },
+  onError = (_error) => {
+    // Used when fetch failed
+  },
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
 ) => {
@@ -704,14 +714,18 @@ dotclear.jsonServices = (
 };
 dotclear.jsonServicesGet = (
   fn, // REST method
-  onSuccess = (payload) => {}, // Used when fetch is successful
+  onSuccess = (_payload) => {
+    // Used when fetch is successful
+  },
   params = {}, // Optional parameters
 ) => {
   dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), true, params);
 };
 dotclear.jsonServicesPost = (
   fn, // REST method
-  onSuccess = (payload) => {}, // Used when fetch is successful
+  onSuccess = (_payload) => {
+    // Used when fetch is successful
+  },
   params = {}, // Optional parameters
 ) => {
   dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), false, params);
@@ -760,7 +774,7 @@ $(() => {
   // Watch data-theme attribute modification
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
-      let theme = 'light';
+      let theme;
       if (mutation.target.getAttribute('data-theme') === '') {
         theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
       } else {
@@ -779,7 +793,7 @@ $(() => {
   if (dotclear.debug) {
     // debug mode: double click on header switch current theme
     const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
-    header.addEventListener('dblclick', (e) => {
+    header.addEventListener('dblclick', (_e) => {
       const elt = document.documentElement;
       let { theme } = elt.dataset;
       if (theme == null || theme === '') {

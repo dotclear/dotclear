@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
+dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }

@@ -216,7 +216,7 @@ jsToolBar.prototype.toolbar_bottom = false;
 class jsButton {
   constructor(title, fn, scope, className, accesskey) {
     this.title = title || null;
-    this.fn = fn || (() => {});
+    this.fn = fn || (() => { /* void */ });
     this.scope = scope || null;
     this.className = className || null;
     this.accesskey = accesskey || null;
@@ -274,7 +274,7 @@ class jsCombo {
     this.title = title || null;
     this.options = options || null;
     this.scope = scope || null;
-    this.fn = fn || (() => {});
+    this.fn = fn || (() => { /* void */ });
     this.className = className || null;
   }
 

@@ -8,10 +8,8 @@ $(() => {
     if (dotclear.adblocker_check) {
       const ads = document.getElementById(ads_id);
       let adblocker_on = false;
-      if (ads === null) {
-        // An adblocker has remove the pseudo advertising block
-        adblocker_on = true;
-      } else if (window.getComputedStyle(ads).display === 'none') {
+      if (ads === null || window.getComputedStyle(ads).display === 'none') {
+        // An adblocker has remove the pseudo advertising block or
         // An adblocker has set display property of the pseudo advertising block to none
         adblocker_on = true;
       }

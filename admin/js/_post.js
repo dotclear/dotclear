@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
+dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }
@@ -49,10 +49,10 @@ $(() => {
   // Add today button near publication date entry
   const dtTodayHelper = (e) => {
     e.preventDefault();
-    const dtField = e.currentTarget.previousElementSibling;
+    const field = e.currentTarget.previousElementSibling;
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    dtField.value = now.toISOString().slice(0, 16);
+    field.value = now.toISOString().slice(0, 16);
   };
   const dtTodayButtonTemplate = new DOMParser().parseFromString(
     `<button type="button" class="dt-today" title="${dotclear.msg.set_today}"><span class="sr-only">${dotclear.msg.set_today}</span></button>`,

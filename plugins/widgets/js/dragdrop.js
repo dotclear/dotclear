@@ -17,11 +17,11 @@ $(() => {
     placeholder: 'ui-sortable-placeholder',
     items: 'li:not(.sortable-delete-placeholder,.empty-widgets)',
     connectWith: '.connected, .sortable-delete',
-    start(event, ui) {
+    start(_event, ui) {
       // petit décalage esthétique
       ui.item.css('left', ui.item.position().left + 20);
     },
-    update(event, ui) {
+    update(_event, ui) {
       const ul = $(this);
       const widget = ui.item;
       const field = ul.parents('.widgets');
@@ -66,12 +66,12 @@ $(() => {
     connectToSortable: '.connected',
     helper: 'clone',
     revert: 'invalid',
-    start(event, ui) {
+    start(_event, ui) {
       ui.helper.css({
         width: $('#widgets-ref > li').css('width'),
       });
     },
-    stop(event, ui) {
+    stop(_event, ui) {
       if (!dotclear.widget_noeditor) {
         ui.helper.find('textarea:not(.noeditor)').each(function () {
           if (typeof jsToolBar === 'function') {

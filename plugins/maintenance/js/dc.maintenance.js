@@ -5,13 +5,11 @@ Object.assign(dotclear.msg, dotclear.getData('maintenance'));
 
 $(() => {
   $('.step-box').each(function () {
-    const code = $('input[name=code]', this).val();
-
     $('.step-submit', this).remove();
     $('.step-back', this).hide();
     $('.step-msg', this).after($('<p>').addClass('step-wait').text(dotclear.msg.wait));
 
-    dcMaintenanceStep(this, code);
+    dcMaintenanceStep(this, $('input[name=code]', this).val());
 
     function dcMaintenanceStep(box, code) {
       const params = {
@@ -28,9 +26,9 @@ $(() => {
           return;
         }
         $('.step-msg', box).text($('rsp>step', data).attr('title'));
-        const code = $('rsp>step', data).attr('code');
-        if (code > 0) {
-          dcMaintenanceStep(box, code);
+        const next = $('rsp>step', data).attr('code');
+        if (next > 0) {
+          dcMaintenanceStep(box, next);
           return;
         }
         $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));

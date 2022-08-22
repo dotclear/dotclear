@@ -73,7 +73,9 @@ $(() => {
             }
           });
           if (!checked) {
-            //alert(dotclear.msg.no_selection);
+            if (dotclear.debug) {
+              alert(dotclear.msg.no_selection);
+            }
             return false;
           }
         }

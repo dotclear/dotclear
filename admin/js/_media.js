@@ -16,16 +16,16 @@
       }
 
       function displayMessageInQueue(n) {
-        let msg = '';
+        let message = '';
         if (n == 1) {
-          msg = dotclear.jsUpload.msg.file_in_queue;
+          message = dotclear.jsUpload.msg.file_in_queue;
         } else if (n > 1) {
-          msg = dotclear.jsUpload.msg.files_in_queue;
-          msg = msg.replace(/%d/, n);
+          message = dotclear.jsUpload.msg.files_in_queue;
+          message = message.replace(/%d/, n);
         } else {
-          msg = dotclear.jsUpload.msg.no_file_in_queue;
+          message = dotclear.jsUpload.msg.no_file_in_queue;
         }
-        $('.queue-message', me).html(msg);
+        $('.queue-message', me).html(message);
       }
 
       $('.button.choose_files').on('click', (e) => {
@@ -76,7 +76,7 @@
         .on('fileuploadadded', () => {
           displayMessageInQueue($('.files .template-upload', me).length);
         })
-        .on('fileuploaddone', (e, data) => {
+        .on('fileuploaddone', (_e, data) => {
           if (data.result.files[0].html !== undefined) {
             $('.media-list .media-items-bloc').append(data.result.files[0].html);
             $('#form-medias .hide').removeClass('hide');
