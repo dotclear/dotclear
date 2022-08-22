@@ -35,9 +35,6 @@ class dcPublic
      */
     public function __construct()
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            throw new Exception('Application is not in public context.', 500);
-        }
     }
 
     /**
