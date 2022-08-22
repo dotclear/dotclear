@@ -1288,7 +1288,7 @@ class dcTemplate extends template
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
                 $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
-                $p .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() === 1 ? 0 : (dcCore::app()->public->page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
+                $p .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() === 1 ? 0 : (dcCore::app()->public->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $p .= "} else {\n";
                 $p .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() - 1) * \$nb_entry_per_page,\$params['limit']];\n";
                 $p .= "}\n";

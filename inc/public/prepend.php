@@ -37,6 +37,13 @@ if (defined('DC_BLOG_ID')) {
 
 dcCore::app()->public = new dcPublic();
 
+/**
+ * @var        integer
+ *
+ * @deprecated Since 2.24
+ */
+$_page_number = 0;
+
 if (dcCore::app()->blog->id == null) {
     __error(__('Blog is not defined.'), __('Did you change your Blog ID?'), 630);
 }
