@@ -450,8 +450,6 @@ class dcImportDC1 extends dcIeModule
         $db     = $this->db();
         $prefix = $this->vars['db_prefix'];
 
-        $count = $db->select('SELECT COUNT(post_id) FROM ' . $prefix . 'post')->f(0);
-
         $rs = $db->select(
             'SELECT * FROM ' . $prefix . 'post ORDER BY post_id ASC ' .
             $db->limit($this->post_offset, $this->post_limit)

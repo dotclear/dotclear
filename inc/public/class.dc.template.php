@@ -293,7 +293,7 @@ class dcTemplate extends template
 
         foreach ($attr as $k => $v) {
             // attributes names must follow this rule
-            $k = preg_filter('/[a-zA-Z0-9_]/', '$0', $k);
+            $k = preg_filter('/\w/', '$0', $k);
             if ($k) {
                 // addslashes protect var_export, str_replace protect sprintf;
                 $p[$k] = str_replace('%', '%%', addslashes($v));
@@ -388,7 +388,7 @@ class dcTemplate extends template
 
     public static function getAge($attr)
     {
-        if (isset($attr['age']) && preg_match('/^(\-[0-9]+|last).*$/i', $attr['age'])) {
+        if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', $attr['age'])) {
             if (($ts = strtotime($attr['age'])) !== false) {
                 return dt::str('%Y-%m-%d %H:%m:%S', $ts);
             }
@@ -500,7 +500,6 @@ class dcTemplate extends template
                 "}\n";
         }
 
-        $order = 'desc';
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $p .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
@@ -1008,7 +1007,7 @@ class dcTemplate extends template
             $p .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
         }
 
-        if (isset($attr['with_empty']) && ((bool) $attr['with_empty'] == true)) {
+        if (isset($attr['with_empty']) && ((bool) $attr['with_empty'])) {
             $p .= '$params[\'without_empty\'] = false;';
         }
 
@@ -1121,7 +1120,7 @@ class dcTemplate extends template
 
         dcCore::app()->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
 
-        if (count($if) != 0) {
+        if (count($if)) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -1433,9 +1432,7 @@ class dcTemplate extends template
      */
     public function EntryIf($attr, $content)
     {
-        $if          = new ArrayObject();
-        $extended    = null;
-        $hascategory = null;
+        $if = new ArrayObject();
 
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 
@@ -1579,7 +1576,7 @@ class dcTemplate extends template
 
         dcCore::app()->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
 
-        if (count($if) != 0) {
+        if (count($if)) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -2178,7 +2175,6 @@ class dcTemplate extends template
             $p = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
         }
 
-        $order = 'desc';
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $p .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
@@ -2350,7 +2346,7 @@ class dcTemplate extends template
 
         dcCore::app()->callBehavior('tplIfConditions', 'PaginationIf', $attr, $content, $if);
 
-        if (count($if) != 0) {
+        if (count($if)) {
             return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -2625,8 +2621,7 @@ class dcTemplate extends template
      */
     public function CommentIf($attr, $content)
     {
-        $if      = [];
-        $is_ping = null;
+        $if = [];
 
         if (isset($attr['is_ping'])) {
             $sign = (bool) $attr['is_ping'] ? '' : '!';
@@ -2635,7 +2630,7 @@ class dcTemplate extends template
 
         dcCore::app()->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
 
-        if (count($if) != 0) {
+        if (count($if)) {
             return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -2877,7 +2872,7 @@ class dcTemplate extends template
     upddt    CDATA    #IMPLIED    -- if set, uses the comment update time
     >
      */
-    public function PingDate($attr, $type = '')
+    public function PingDate($attr)
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -3169,8 +3164,7 @@ class dcTemplate extends template
      */
     public function SysIf($attr, $content)
     {
-        $if      = new ArrayObject();
-        $is_ping = null;
+        $if = new ArrayObject();
 
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 
@@ -3253,7 +3247,7 @@ class dcTemplate extends template
             $if[] = $sign . 'dcCore::app()->blog->settings->system->wiki_comments';
         }
 
-        if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*[0-9]+$/', trim((string) $attr['search_count']))) {
+        if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim((string) $attr['search_count']))) {
             $if[] = '(isset(dcCore::app()->public->search_count) && dcCore::app()->public->search_count ' . html::decodeEntities($attr['search_count']) . ')';
         }
 
@@ -3264,7 +3258,7 @@ class dcTemplate extends template
 
         dcCore::app()->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
 
-        if (count($if) != 0) {
+        if (count($if)) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 

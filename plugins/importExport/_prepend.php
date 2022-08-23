@@ -28,7 +28,7 @@ $__autoload['flatExport'] = __DIR__ . '/inc/flat/class.flat.export.php';
 
 dcCore::app()->addBehavior('importExportModules', 'registerIeModules');
 
-function registerIeModules($modules, dcCore $core = null)
+function registerIeModules($modules)
 {
     $modules['import'] = array_merge($modules['import'], ['dcImportFlat']);
     $modules['import'] = array_merge($modules['import'], ['dcImportFeed']);

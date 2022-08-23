@@ -81,7 +81,7 @@ if (dcCore::app()->auth->sessionExists()) {
     }
 
     # Loading locales
-    dcAdminHelper::loadLocales(dcCore::app()->lang);
+    dcAdminHelper::loadLocales();
     /**
      * @var        string
      *
@@ -137,7 +137,7 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     # Loading resources and help files
     $locales_root = __DIR__ . '/../../locales/';
     require $locales_root . '/en/resources.php';
-    if (($f = l10n::getFilePath($locales_root, 'resources.php', dcCore::app()->lang))) {
+    if ($f = l10n::getFilePath($locales_root, 'resources.php', dcCore::app()->lang)) {
         require $f;
     }
     unset($f);

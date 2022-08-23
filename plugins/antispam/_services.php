@@ -17,12 +17,9 @@ class dcAntispamRest
     /**
      * Gets the spams count.
      *
-     * @param      dcCore  $core   The core
-     * @param      array   $get    The cleaned $_GET
-     *
      * @return     xmlTag  The spams count.
      */
-    public static function getSpamsCount(dcCore $core, $get)
+    public static function getSpamsCount()
     {
         $count = dcAntispam::countSpam(dcCore::app());
         if ($count > 0) {

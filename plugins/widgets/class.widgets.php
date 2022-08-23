@@ -203,9 +203,8 @@ class dcWidget
         if (empty($wtscheme)) {
             $wtscheme = '<div class="widget %1$s" %2$s>%3$s</div>';
         }
-        $ret = sprintf($wtscheme . "\n", 'widget ' . html::escapeHTML($class), $attr, $content);
 
-        return $ret;
+        return sprintf($wtscheme . "\n", 'widget ' . html::escapeHTML($class), $attr, $content);
     }
 
     public function renderTitle($title)
@@ -225,9 +224,8 @@ class dcWidget
                 $wtscheme = '<h3>%s</h3>';
             }
         }
-        $ret = sprintf($wtscheme, $title);
 
-        return $ret;
+        return sprintf($wtscheme, $title);
     }
 
     public function renderSubtitle($title, $render = true)
@@ -251,9 +249,7 @@ class dcWidget
             return $wtscheme;
         }
 
-        $ret = sprintf($wtscheme, $title);
-
-        return $ret;
+        return sprintf($wtscheme, $title);
     }
 
     /* Widget settings

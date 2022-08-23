@@ -37,20 +37,17 @@ class attachmentTpl
      */
     public static function Attachments($attr, $content)
     {
-        $res = "<?php\n" .
-            'if (dcCore::app()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
-            'dcCore::app()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(dcCore::app()->ctx->posts->post_id,null,"attachment"));' . "\n" .
-            "?>\n" .
-
-            '<?php foreach (dcCore::app()->ctx->attachments as $attach_i => $attach_f) : ' .
-            '$GLOBALS[\'attach_i\'] = $attach_i; $GLOBALS[\'attach_f\'] = $attach_f;' .
-            'dcCore::app()->ctx->file_url = $attach_f->file_url; ?>' .
-            $content .
-            '<?php endforeach; dcCore::app()->ctx->attachments = null; unset($attach_i,$attach_f,dcCore::app()->ctx->file_url); ?>' .
-
-            "<?php } ?>\n";
-
-        return $res;
+        return
+        "<?php\n" .
+        'if (dcCore::app()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
+        'dcCore::app()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(dcCore::app()->ctx->posts->post_id,null,"attachment"));' . "\n" .
+        "?>\n" .
+        '<?php foreach (dcCore::app()->ctx->attachments as $attach_i => $attach_f) : ' .
+        '$GLOBALS[\'attach_i\'] = $attach_i; $GLOBALS[\'attach_f\'] = $attach_f;' .
+        'dcCore::app()->ctx->file_url = $attach_f->file_url; ?>' .
+        $content .
+        '<?php endforeach; dcCore::app()->ctx->attachments = null; unset($attach_i,$attach_f,dcCore::app()->ctx->file_url); ?>' .
+        "<?php } ?>\n";
     }
 
     /*dtd
@@ -129,7 +126,7 @@ class attachmentTpl
             $if[] = $test;
         }
 
-        if (count($if) != 0) {
+        if (count($if)) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 

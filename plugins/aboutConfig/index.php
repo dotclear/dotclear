@@ -166,7 +166,7 @@ foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
     }
 }
 ksort($settings);
-if (count($settings) > 0) {
+if (count($settings)) {
     $ns_combo = [];
     foreach ($settings as $ns => $s) {
         $ns_combo[$ns] = '#l_' . $ns;
@@ -215,7 +215,7 @@ foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
 
 ksort($settings);
 
-if (count($settings) > 0) {
+if (count($settings)) {
     $ns_combo = [];
     foreach ($settings as $ns => $s) {
         $ns_combo[$ns] = '#g_' . $ns;

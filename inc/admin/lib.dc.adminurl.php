@@ -90,7 +90,7 @@ class dcAdminURL
         }
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
-            $u = preg_replace('/\%25(([0-9])+?\%24)*?s/', '%$2s', $u);
+            $u = preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', $u);
         }
 
         return $u;

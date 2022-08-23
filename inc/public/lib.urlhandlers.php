@@ -73,10 +73,10 @@ class dcUrlHandlers extends urlHandler
 
     protected static function getPageNumber(&$args)
     {
-        if (preg_match('#(^|/)page/([0-9]+)$#', $args, $m)) {
+        if (preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
             $n = (int) $m[2];
             if ($n > 0) {
-                $args = preg_replace('#(^|/)page/([0-9]+)$#', '', $args);
+                $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
                 return $n;
             }
@@ -320,7 +320,7 @@ class dcUrlHandlers extends urlHandler
         # Nothing or year and month
         if ($args == '') {
             self::serveDocument('archive.html');
-        } elseif (preg_match('|^/([0-9]{4})/([0-9]{2})$|', $args, $m)) {
+        } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
             $params = new ArrayObject([
                 'year'  => $m[1],
                 'month' => $m[2],
@@ -504,7 +504,7 @@ class dcUrlHandlers extends urlHandler
 
     public static function preview($args)
     {
-        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
+        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+)$#', $args, $m)) {
             # The specified Preview URL is malformed.
             self::p404();
         } else {
@@ -558,7 +558,7 @@ class dcUrlHandlers extends urlHandler
             self::serveDocument('rss2.xsl', 'text/xml');
 
             return;
-        } elseif (preg_match('#^(atom|rss2)/comments/([0-9]+)$#', $args, $m)) {
+        } elseif (preg_match('#^(atom|rss2)/comments/(\d+)$#', $args, $m)) {
             # Post comments feed
             $type     = $m[1];
             $comments = true;
@@ -639,7 +639,7 @@ class dcUrlHandlers extends urlHandler
 
     public static function trackback($args)
     {
-        if (!preg_match('/^[0-9]+$/', $args)) {
+        if (!preg_match('/^\d+$/', $args)) {
             # The specified trackback URL is not an number
             self::p404();
         } else {

@@ -72,11 +72,7 @@ class dcBlogroll
 
     public function getLink($id)
     {
-        $params['link_id'] = $id;
-
-        $rs = $this->getLinks($params);
-
-        return $rs;
+        return $this->getLinks(['link_id' => $id]);
     }
 
     public function addLink($title, $href, $desc = '', $lang = '', $xfn = '')
@@ -209,7 +205,7 @@ class dcBlogroll
     {
         $res = [];
 
-        foreach ($rs->rows() as $k => $v) {
+        foreach ($rs->rows() as $v) {
             if (!$v['is_cat']) {
                 $res[$v['cat_title']][] = $v;
             }

@@ -203,7 +203,7 @@ class dcStoreReader extends netHttp
                 @files::touch($cached_file);
 
                 return unserialize(file_get_contents($cached_file));
-            # Ok, parse feed
+                # Ok, parse feed
             case '200':
                 $modules = new dcStoreParser($this->getContent());
 
@@ -240,11 +240,6 @@ class dcStoreReader extends netHttp
                 $headers[] = 'If-Modified-Since: ' . $this->validators['IfModifiedSince'];
             }
             if (isset($this->validators['IfNoneMatch'])) {
-                if (is_array($this->validators['IfNoneMatch'])) {
-                    $etags = implode(',', $this->validators['IfNoneMatch']);
-                } else {
-                    $etags = $this->validators['IfNoneMatch'];
-                }
                 $headers[] = '';
             }
         }

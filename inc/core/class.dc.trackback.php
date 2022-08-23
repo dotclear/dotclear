@@ -566,8 +566,7 @@ class dcTrackback
      */
     private function getTargetPost($to_url)
     {
-        $reg  = '!^' . preg_quote(dcCore::app()->blog->url) . '(.*)!';
-        $type = $args = $next = '';
+        $reg = '!^' . preg_quote(dcCore::app()->blog->url) . '(.*)!';
 
         # Are you dumb?
         if (!preg_match($reg, $to_url, $m)) {

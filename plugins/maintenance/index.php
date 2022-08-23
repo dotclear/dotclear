@@ -16,7 +16,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcCore::app()->blog->settings->addNamespace('maintenance');
 
-$maintenance = new dcMaintenance(dcCore::app());
+$maintenance = new dcMaintenance();
 $tasks       = $maintenance->getTasks();
 
 $headers = '';

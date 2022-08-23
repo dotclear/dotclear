@@ -165,7 +165,7 @@ foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace)
     }
 }
 ksort($prefs);
-if (count($prefs) > 0) {
+if (count($prefs)) {
     $ws_combo = [];
     foreach ($prefs as $ws => $s) {
         $ws_combo[$ws] = '#l_' . $ws;
@@ -215,7 +215,7 @@ foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace)
 
 ksort($prefs);
 
-if (count($prefs) > 0) {
+if (count($prefs)) {
     $ws_combo = [];
     foreach ($prefs as $ws => $s) {
         $ws_combo[$ws] = '#g_' . $ws;

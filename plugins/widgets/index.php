@@ -237,7 +237,7 @@ if ($rte_flag) {
         'xhtml'
     );
 }
-echo(dcPage::jsConfirmClose('sidebarsWidgets'));
+echo dcPage::jsConfirmClose('sidebarsWidgets');
 ?>
 </head>
 <body>

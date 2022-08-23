@@ -79,7 +79,7 @@ class blowupConfig
     public static function fontDef($c)
     {
         if (empty(self::$fonts_list)) {
-            foreach (self::$fonts as $family => $g) {
+            foreach (self::$fonts as $g) {
                 foreach ($g as $code => $font) {
                     self::$fonts_list[$code] = $font;
                 }

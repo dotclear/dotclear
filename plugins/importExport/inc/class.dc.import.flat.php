@@ -269,7 +269,7 @@ class dcImportFlat extends dcIeModule
         if ($zip->isEmpty()) {
             $zip->close();
 
-            return false; //throw new Exception(__('File is empty or not a compressed file.'));
+            return false;
         }
 
         foreach ($zip->getFilesList() as $zip_file) {

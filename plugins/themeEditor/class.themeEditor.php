@@ -34,7 +34,7 @@ class dcThemeEditor
     public $po  = [];
     public $php = [];
 
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
         $this->core         = dcCore::app();
         $this->user_theme   = path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);

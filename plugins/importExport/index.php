@@ -38,11 +38,9 @@ if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'
 }
 
 $module = null;
-if ($type && !empty($_REQUEST['module'])) {
-    if (isset($modules[$type]) && in_array($_REQUEST['module'], $modules[$type])) {
-        $module = new $_REQUEST['module'](dcCore::app());
-        $module->init();
-    }
+if ($type && !empty($_REQUEST['module']) && isset($modules[$type]) && in_array($_REQUEST['module'], $modules[$type])) {
+    $module = new $_REQUEST['module'](dcCore::app());
+    $module->init();
 }
 
 if ($type && $module !== null && !empty($_REQUEST['do'])) {

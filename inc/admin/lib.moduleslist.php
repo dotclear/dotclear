@@ -340,7 +340,7 @@ class adminModulesList
 
         # Fetch modules required field
         $indexes = [];
-        foreach ($this->data as $id => $module) {
+        foreach ($this->data as $module) {
             if (!isset($module[$this->sort_field])) {
                 continue;
             }
@@ -524,7 +524,7 @@ class adminModulesList
     {
         $origin = $sorter = $final = [];
 
-        foreach ($modules as $id => $module) {
+        foreach ($modules as $module) {
             $origin[] = $module;
             $sorter[] = $module[$field] ?? $field;
         }
@@ -725,7 +725,7 @@ class adminModulesList
                     '<br/><span class="info">' .
                     __('This module cannot be enabled, because of the following reasons :') .
                         '<ul>';
-                    foreach ($module['cannot_enable'] as $m => $reason) {
+                    foreach ($module['cannot_enable'] as $reason) {
                         echo '<li>' . $reason . '</li>';
                     }
                     echo '</ul>' .
@@ -971,7 +971,7 @@ class adminModulesList
 
                     break;
 
-                # Activate
+                    # Activate
                 case 'deactivate':
                     if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
                         $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
@@ -979,7 +979,7 @@ class adminModulesList
 
                     break;
 
-                # Delete
+                    # Delete
                 case 'delete':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
@@ -988,7 +988,7 @@ class adminModulesList
 
                     break;
 
-                # Clone
+                    # Clone
                 case 'clone':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
@@ -996,7 +996,7 @@ class adminModulesList
 
                     break;
 
-                # Install (from store)
+                    # Install (from store)
                 case 'install':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="install[' . html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
@@ -1004,7 +1004,7 @@ class adminModulesList
 
                     break;
 
-                # Update (from store)
+                    # Update (from store)
                 case 'update':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="update[' . html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
@@ -1012,7 +1012,7 @@ class adminModulesList
 
                     break;
 
-                # Behavior
+                    # Behavior
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetActions
@@ -1057,7 +1057,7 @@ class adminModulesList
 
                     break;
 
-                # Activate
+                    # Activate
                 case 'deactivate':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="deactivate" value="' . (
@@ -1069,7 +1069,7 @@ class adminModulesList
 
                     break;
 
-                # Update (from store)
+                    # Update (from store)
                 case 'update':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="update" value="' . (
@@ -1081,7 +1081,7 @@ class adminModulesList
 
                     break;
 
-                # Behavior
+                    # Behavior
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetGlobalActions
@@ -1868,7 +1868,7 @@ class adminThemesList extends adminModulesList
 
                     break;
 
-                # Behavior
+                    # Behavior
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetGlobalActions

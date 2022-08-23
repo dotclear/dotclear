@@ -190,9 +190,8 @@ class context
 
         # --BEHAVIOR-- publicAfterContentFilter
         dcCore::app()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
-        $str = $args[0];
 
-        return $str;
+        return $args[0];
     }
 
     public static function encode_url($str)
@@ -266,14 +265,15 @@ class context
 
         $p['cat_url'] = preg_split('/\s*,\s*/', $p['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
 
+        $pattern = '/#self/';
         foreach ($p['cat_url'] as &$v) {
             if ($not) {
                 $v .= ' ?not';
             }
-            if (dcCore::app()->ctx->exists('categories') && preg_match('/#self/', $v)) {
-                $v = preg_replace('/#self/', dcCore::app()->ctx->categories->cat_url, $v);
-            } elseif (dcCore::app()->ctx->exists('posts') && preg_match('/#self/', $v)) {
-                $v = preg_replace('/#self/', dcCore::app()->ctx->posts->cat_url, $v);
+            if (dcCore::app()->ctx->exists('categories') && preg_match($pattern, $v)) {
+                $v = preg_replace($pattern, dcCore::app()->ctx->categories->cat_url, $v);
+            } elseif (dcCore::app()->ctx->exists('posts') && preg_match($pattern, $v)) {
+                $v = preg_replace($pattern, dcCore::app()->ctx->posts->cat_url, $v);
             }
         }
     }
@@ -341,7 +341,7 @@ class context
 
         $n = self::PaginationPosition($offset);
 
-        $args = preg_replace('#(^|/)page/([0-9]+)$#', '', $args);
+        $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
         $url = dcCore::app()->blog->url . $args;
 
@@ -545,7 +545,7 @@ class context
                             break;
                         }
                     }
-                };
+                }
             }
 
             if ($src) {

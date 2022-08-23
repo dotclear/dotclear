@@ -31,14 +31,12 @@ class dcMaintenance
 
     /**
      * Constructor.
-     *
-     * @param    dcCore    $core    dcCore instance
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
         $this->core  = dcCore::app();
         $this->p_url = dcCore::app()->adminurl->get('admin.plugin.maintenance');
-        $logs        = $this->getLogs();
+        $this->logs  = $this->getLogs();
         $this->init();
     }
 

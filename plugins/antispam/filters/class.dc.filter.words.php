@@ -354,6 +354,7 @@ class dcFilterWords extends dcSpamFilter
             try {
                 $this->addRule($w, true);
             } catch (Exception $e) {
+                // Ignore exceptions
             }
         }
     }

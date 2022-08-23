@@ -860,7 +860,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
     {
         $post_id = (int) $post_id;
 
-        $post = $this->getPostRS($post_id, $user, $pwd);
+        $this->getPostRS($post_id, $user, $pwd);
 
         $cat_id = (!empty($categories[0]['categoryId'])) ? $categories[0]['categoryId'] : null;
 
@@ -1399,9 +1399,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $cur->comment_content = $struct['content'];
         $cur->post_id         = (int) $post_id;
 
-        $id = dcCore::app()->blog->addComment($cur);
-
-        return $id;
+        return dcCore::app()->blog->addComment($cur);
     }
 
     private function updComment($user, $pwd, $comment_id, $struct)

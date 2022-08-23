@@ -12,7 +12,7 @@
 // BEHAVIORS
 class tagsBehaviors
 {
-    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
+    public static function adminPostEditor($editor = '', $context = '')
     {
         if (($editor != 'dcLegacyEditor' && $editor != 'dcCKEditor') || $context != 'post') {
             return;
@@ -171,8 +171,6 @@ class tagsBehaviors
             );
             $ap->redirect(true);
         } else {
-            $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
-
             $opts = dcCore::app()->auth->getOptions();
             $type = $opts['tag_list_format'] ?? 'more';
 
@@ -301,8 +299,6 @@ class tagsBehaviors
 
     public static function postHeaders()
     {
-        $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
-
         $opts = dcCore::app()->auth->getOptions();
         $type = $opts['tag_list_format'] ?? 'more';
 

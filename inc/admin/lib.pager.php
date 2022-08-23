@@ -69,7 +69,7 @@ class dcPager extends pager
             // Check parameter key (will prevent some forms of XSS)
             if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', $k)) {
                 if (is_array($v)) {
-                    foreach ($v as $k2 => $v2) {
+                    foreach ($v as $v2) {
                         $this->form_hidden .= form::hidden([$k . '[]'], html::escapeHTML($v2));
                     }
                 } else {

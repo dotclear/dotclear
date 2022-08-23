@@ -93,7 +93,7 @@ class publicWidgets
         return '<?php if(' . $res . ') : ?>' . $content . '<?php endif; ?>';
     }
 
-    public static function ifWidgetsHandler($type, $disable = '')
+    public static function ifWidgetsHandler($type)
     {
         $wtype = 'widgets_' . $type;
         dcCore::app()->blog->settings->addNameSpace('widgets');

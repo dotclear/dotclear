@@ -1083,7 +1083,7 @@ final class dcCore
         }
 
         if ($cur->user_url !== null && $cur->user_url != '') {
-            if (!preg_match('|^http(s?)://|', $cur->user_url)) {
+            if (!preg_match('|^https?://|', $cur->user_url)) {
                 $cur->user_url = 'http://' . $cur->user_url;
             }
         }

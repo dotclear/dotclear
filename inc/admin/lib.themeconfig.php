@@ -101,7 +101,7 @@ class dcThemeConfig
                 return '';
         }
 
-        $large = ((($s > 1.5) && ($bold == false)) || (($s > 1.2) && ($bold == true)));
+        $large = ((($s > 1.5) && (!$bold)) || (($s > 1.2) && ($bold)));
 
         // Check ratio
         if ($ratio > 7) {
@@ -176,7 +176,7 @@ class dcThemeConfig
             return '';
         }
 
-        if (!preg_match('/^[0-9]+(:[0-9]+)?$/', $p)) {
+        if (!preg_match('/^\d+(:\d+)?$/', $p)) {
             return '';
         }
         $p = explode(':', $p);

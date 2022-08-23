@@ -54,18 +54,18 @@ class l10nFaker
         $main   = "<?php\n";
         $plugin = "<?php\n";
         $main .= "# Media sizes\n\n";
-        foreach (dcCore::app()->media->thumb_sizes as $k => $v) {
+        foreach (dcCore::app()->media->thumb_sizes as $v) {
             $main .= $this->fake_l10n($v[2]);
         }
         $post_types = dcCore::app()->getPostTypes();
         $main .= "\n# Post types\n\n";
-        foreach ($post_types as $k => $v) {
+        foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v['label']);
         }
         $ws = dcCore::app()->auth->user_prefs->favorites; // Favs old school !
         if ($ws) {
             $main .= "\n# Favorites\n\n";
-            foreach ($ws->dumpPrefs() as $k => $v) {
+            foreach ($ws->dumpPrefs() as $v) {
                 $fav = unserialize($v['value']);
                 $main .= $this->fake_l10n($fav['title']);
             }

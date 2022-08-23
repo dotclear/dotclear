@@ -16,7 +16,6 @@ if (!defined('DC_RC_PATH')) {
 }
 
 \l10n::set(__DIR__ . '/locales/' . \dcCore::app()->lang . '/main');
-//__('Show menu').__('Hide menu').__('Navigation');
 
 \dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\behaviorBerlinTheme', 'publicHeadContent']);
 

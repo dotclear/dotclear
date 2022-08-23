@@ -193,16 +193,15 @@ class dcAdminNotices
 
         $tag = (isset($n['format']) && $n['format'] === 'html') ? 'div' : 'p';
         $ts  = '';
-        if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
+        if (!isset($n['with_ts']) || ($n['with_ts'])) {
             $ts = '<span class="notice-ts">' .
                 '<time datetime="' . dt::iso8601(strtotime($n['ts']), $core->auth->getInfo('user_tz')) . '">' .
                 dt::dt2str(__('%H:%M:%S'), $n['ts'], $core->auth->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';
         }
-        $res = '<' . $tag . ' class="' . $n['class'] . '" role="alert">' . $ts . $n['text'] . '</' . $tag . '>';
 
-        return $res;
+        return '<' . $tag . ' class="' . $n['class'] . '" role="alert">' . $ts . $n['text'] . '</' . $tag . '>';
     }
 
     /*  */

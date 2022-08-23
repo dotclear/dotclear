@@ -34,7 +34,8 @@ class dcCKEditorBehaviors
             $config_js .= '&context=' . $context;
         }
 
-        $res = dcPage::jsJson('ck_editor_ctx', [
+        return
+        dcPage::jsJson('ck_editor_ctx', [
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => $tags],
             'admin_base_url'        => DC_ADMIN_URL,
@@ -58,8 +59,6 @@ class dcCKEditorBehaviors
         dcPage::jsLoad(self::$p_url . '/js/ckeditor/ckeditor.js') .
         dcPage::jsLoad(self::$p_url . '/js/ckeditor/adapters/jquery.js') .
         dcPage::jsLoad($config_js);
-
-        return $res;
     }
 
     public static function adminPopupMedia($editor = '')

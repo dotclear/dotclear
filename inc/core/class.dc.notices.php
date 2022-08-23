@@ -72,7 +72,7 @@ class dcNotices
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
             if (is_array($params['notice_id'])) {
-                array_walk($params['notice_id'], function (&$v, $k) { if ($v !== null) {$v = (int) $v;}});
+                array_walk($params['notice_id'], function (&$v) { if ($v !== null) {$v = (int) $v;}});
             } else {
                 $params['notice_id'] = [(int) $params['notice_id']];
             }

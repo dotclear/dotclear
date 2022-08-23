@@ -86,6 +86,7 @@ class dcLog
 
         if (!empty($params['blog_id'])) {
             if ($params['blog_id'] === '*') {
+                // Nothing to add here
             } else {
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }

@@ -74,7 +74,7 @@ class behaviorsTags
         }
     }
 
-    public static function addTplPath(dcCore $core = null)
+    public static function addTplPath()
     {
         $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
         if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
@@ -186,17 +186,17 @@ class tplTags
         return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->meta->meta_id') . '; ?>';
     }
 
-    public static function TagCount($attr)
+    public static function TagCount()
     {
         return '<?php echo dcCore::app()->ctx->meta->count; ?>';
     }
 
-    public static function TagPercent($attr)
+    public static function TagPercent()
     {
         return '<?php echo dcCore::app()->ctx->meta->percent; ?>';
     }
 
-    public static function TagRoundPercent($attr)
+    public static function TagRoundPercent()
     {
         return '<?php echo dcCore::app()->ctx->meta->roundpercent; ?>';
     }
@@ -319,9 +319,8 @@ class urlTags extends dcUrlHandlers
         if ($args == '' && !$n) {
             self::p404();
         } elseif (preg_match('%(.*?)/feed/(rss2|atom)?$%u', $args, $m)) {
-            $type     = $m[2] == 'atom' ? 'atom' : 'rss2';
-            $mime     = 'application/xml';
-            $comments = !empty($m[3]);
+            $type = $m[2] == 'atom' ? 'atom' : 'rss2';
+            $mime = 'application/xml';
 
             dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
                 dcCore::app()->meta->getMetadata([
@@ -359,7 +358,7 @@ class urlTags extends dcUrlHandlers
         }
     }
 
-    public static function tags($args)
+    public static function tags()
     {
         self::serveDocument('tags.html');
     }

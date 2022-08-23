@@ -26,7 +26,7 @@ class dcImportFeed extends dcIeModule
         // otherwise returns false
 
         $dns = $this->gethostbynamel6($host, $try_a);
-        if ($dns == false) {
+        if (!$dns) {
             return false;
         }
 
@@ -40,7 +40,7 @@ class dcImportFeed extends dcIeModule
         // otherwise returns false
 
         $dns6 = dns_get_record($host, DNS_AAAA);
-        if ($try_a == true) {
+        if ($try_a) {
             $dns4 = dns_get_record($host, DNS_A);
             $dns  = array_merge($dns4, $dns6);
         } else {
@@ -56,9 +56,9 @@ class dcImportFeed extends dcIeModule
                 $ip6[] = $record['ipv6'];
             }
         }
-        if (count($ip6) < 1) {
-            if ($try_a == true) {
-                if (count($ip4) < 1) {
+        if (!count($ip6)) {
+            if ($try_a) {
+                if (!count($ip4)) {
                     return false;
                 }
 

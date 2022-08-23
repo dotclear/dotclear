@@ -578,7 +578,7 @@ class dcSqlStatement
      */
     public function isSame(string $local, string $external): bool
     {
-        $filter = function ($s) {
+        $filter       = function ($s) {
             $s        = strtoupper($s);
             $patterns = [
                 '\s+' => ' ', // Multiple spaces/tabs -> one space
@@ -1474,14 +1474,6 @@ class dcInsertStatement extends dcSqlStatement
  */
 class dcTruncateStatement extends dcSqlStatement
 {
-    /**
-     * Class constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * Returns the truncate statement
      *

@@ -252,16 +252,16 @@ abstract class dcActionsPage
      */
     public function getRedirection($with_selected_entries = false, $params = [])
     {
-        $redir_args = array_merge($params, $this->redir_args);
-        if (isset($redir_args['redir'])) {
-            unset($redir_args['redir']);
+        $redirect_args = array_merge($params, $this->redir_args);
+        if (isset($redirect_args['redir'])) {
+            unset($redirect_args['redir']);
         }
 
         if ($with_selected_entries && $this->enable_redir_selection) {
             $redir_args[$this->field_entries] = array_keys($this->entries);
         }
 
-        return $this->uri . '?' . http_build_query($redir_args) . $this->redir_anchor;
+        return $this->uri . '?' . http_build_query($redirect_args) . $this->redir_anchor;
     }
 
     /**
@@ -340,7 +340,6 @@ abstract class dcActionsPage
                     return true;
                 }
             } catch (Exception $e) {
-                // $this->error($e);
                 return true;
             }
         }

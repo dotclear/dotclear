@@ -33,7 +33,7 @@ class themeEditorBehaviors
         }
     }
 
-    public static function adminBeforeUserUpdate($cur, $userID)
+    public static function adminBeforeUserUpdate()
     {
         // Get and store user's prefs for plugin options
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
@@ -49,7 +49,7 @@ class themeEditorBehaviors
         }
     }
 
-    public static function adminPreferencesForm(dcCore $core = null)
+    public static function adminPreferencesForm()
     {
         // Add fieldset for plugin options
         dcCore::app()->auth->user_prefs->addWorkspace('interface');

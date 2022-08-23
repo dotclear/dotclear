@@ -92,10 +92,8 @@ class dcFilterIPv6 extends dcSpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        $res = $this->displayForms($url, 'blackv6', __('Blocklist')) .
+        return $this->displayForms($url, 'blackv6', __('Blocklist')) .
         $this->displayForms($url, 'whitev6', __('Allowlist'));
-
-        return $res;
     }
 
     private function displayForms($url, $type, $title)
@@ -358,7 +356,6 @@ class dcFilterIPv6 extends dcSpamFilter
                 $mask = $this->long2ip_v6($mask);
             }
         } else {
-            //$mask = ~((1 << (128 - min((integer) $bits[1], 128))) - 1);
             if (function_exists('gmp_init')) {
                 $mask = gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((int) $bits[1], 128)));
             } elseif (function_exists('bcadd')) {

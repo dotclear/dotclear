@@ -83,7 +83,7 @@ class dcSpamFilters
 
     public function trainFilters($rs, $status, $filter_name)
     {
-        foreach ($this->filters as $fid => $f) {
+        foreach ($this->filters as $f) {
             if (!$f->active) {
                 continue;
             }

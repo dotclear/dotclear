@@ -340,15 +340,17 @@ class dcAuth
         $p = array_map('trim', explode(',', $permissions));
         $b = $this->getPermissions($blog_id);
 
-        if ($b != false) {
-            if (isset($b['admin'])) {
-                return true;
-            }
+        if (!$b) {
+            return false;
+        }
 
-            foreach ($p as $v) {
-                if (isset($b[$v])) {
-                    return true;
-                }
+        if (isset($b['admin'])) {
+            return true;
+        }
+
+        foreach ($p as $v) {
+            if (isset($b[$v])) {
+                return true;
             }
         }
 

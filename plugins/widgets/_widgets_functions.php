@@ -267,7 +267,7 @@ class defaultWidgets
 
         try {
             $feed = feedReader::quickParse($w->url, DC_TPL_CACHE);
-            if ($feed == false || count($feed->items) == 0) {
+            if (!$feed || !count($feed->items)) {
                 return;
             }
         } catch (Exception $e) {

@@ -124,6 +124,7 @@ class dcStore
                         }
                     }
                 } catch (Exception $e) {
+                    // Ignore exceptions
                 }
             }
         }
@@ -236,7 +237,7 @@ class dcStore
     public function download($url, $dest)
     {
         // Check and add default protocol if necessary
-        if (!preg_match('%^http[s]?:\/\/%', $url)) {
+        if (!preg_match('%^https?:\/\/%', $url)) {
             $url = 'http://' . $url;
         }
         // Download package

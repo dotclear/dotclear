@@ -149,11 +149,9 @@ class dcBlog
             // Version not set, use default one
             $version = DC_DEFAULT_JQUERY; // defined in inc/prepend.php
         } else {
-            if (!$this->settings->system->jquery_allow_old_version) {
+            if ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, DC_DEFAULT_JQUERY, '<')) {
                 // Use the blog defined version only if more recent than default
-                if (version_compare($version, DC_DEFAULT_JQUERY, '<')) {
-                    $version = DC_DEFAULT_JQUERY; // defined in inc/prepend.php
-                }
+                $version = DC_DEFAULT_JQUERY; // defined in inc/prepend.php
             }
         }
 
@@ -261,8 +259,6 @@ class dcBlog
         $sql->where('blog_id = ' . $sql->quote($this->id));
 
         $sql->update($cur);
-
-        //        $cur->update("WHERE blog_id = '" . $this->con->escape($this->id) . "' ");
 
         # --BEHAVIOR-- coreBlogAfterTriggerBlog
         dcCore::app()->callBehavior('coreBlogAfterTriggerBlog', $cur);
@@ -400,10 +396,10 @@ class dcBlog
         }
         $counter = $this->getCategoriesCounter($c_params);
 
-        if (isset($params['without_empty']) && ($params['without_empty'] == false)) {
+        if (isset($params['without_empty']) && (!$params['without_empty'])) {
             $without_empty = false;
         } else {
-            $without_empty = dcCore::app()->auth->userID() == false; # Get all categories if in admin display
+            $without_empty = !dcCore::app()->auth->userID(); # Get all categories if in admin display
         }
 
         $start = isset($params['start']) ? (int) $params['start'] : 0;
@@ -840,7 +836,7 @@ class dcBlog
             natsort($a);
             $t_url = end($a);
 
-            if (preg_match('/(.*?)([0-9]+)$/', $t_url, $m)) {
+            if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
                 $i   = (int) $m[2];
                 $url = $m[1];
             } else {
@@ -1051,7 +1047,7 @@ class dcBlog
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
             if (is_array($params['post_id'])) {
-                array_walk($params['post_id'], function (&$v, $k) {
+                array_walk($params['post_id'], function (&$v) {
                     if ($v !== null) {
                         $v = (int) $v;
                     }
@@ -1064,7 +1060,7 @@ class dcBlog
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
             if (is_array($params['exclude_post_id'])) {
-                array_walk($params['exclude_post_id'], function (&$v, $k) {
+                array_walk($params['exclude_post_id'], function (&$v) {
                     if ($v !== null) {
                         $v = (int) $v;
                     }
@@ -1088,7 +1084,7 @@ class dcBlog
                 $params['cat_id'] = [$params['cat_id']];
             }
             if (!empty($params['cat_id_not'])) {
-                array_walk($params['cat_id'], function (&$v, $k) {
+                array_walk($params['cat_id'], function (&$v) {
                     $v = $v . ' ?not';
                 });
             }
@@ -1099,7 +1095,7 @@ class dcBlog
                 $params['cat_url'] = [$params['cat_url']];
             }
             if (!empty($params['cat_url_not'])) {
-                array_walk($params['cat_url'], function (&$v, $k) {
+                array_walk($params['cat_url'], function (&$v) {
                     $v = $v . ' ?not';
                 });
             }
@@ -2201,7 +2197,7 @@ class dcBlog
             natsort($a);
             $t_url = end($a);
 
-            if (preg_match('/(.*?)([0-9]+)$/', $t_url, $m)) {
+            if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
                 $i   = (int) $m[2];
                 $url = $m[1];
             } else {
@@ -2353,7 +2349,7 @@ class dcBlog
 
         if (isset($params['comment_id']) && $params['comment_id'] !== '') {
             if (is_array($params['comment_id'])) {
-                array_walk($params['comment_id'], function (&$v, $k) {
+                array_walk($params['comment_id'], function (&$v) {
                     if ($v !== null) {
                         $v = (int) $v;
                     }

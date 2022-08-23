@@ -212,7 +212,7 @@ class urlPages extends dcUrlHandlers
 
     public static function pagespreview($args)
     {
-        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
+        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+)$#', $args, $m)) {
             # The specified Preview URL is malformed.
             self::p404();
         } else {
@@ -273,7 +273,7 @@ class tplPages
 
         while ($rs->fetch()) {
             $class = '';
-            if ((dcCore::app()->url->type == 'pages' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->post_id == $rs->post_id)) {
+            if (dcCore::app()->url->type == 'pages' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="page-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

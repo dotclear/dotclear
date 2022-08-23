@@ -97,15 +97,11 @@ if (count($categories_combo)) {
 if (count($months_combo) > 1) {
     $items['archive'] = new ArrayObject([__('Archive'), true]);
 }
-if (dcCore::app()->plugins->moduleExists('pages')) {
-    if (count($pages_combo)) {
-        $items['pages'] = new ArrayObject([__('Page'), true]);
-    }
+if (dcCore::app()->plugins->moduleExists('pages') && count($pages_combo)) {
+    $items['pages'] = new ArrayObject([__('Page'), true]);
 }
-if (dcCore::app()->plugins->moduleExists('tags')) {
-    if (count($tags_combo) > 1) {
-        $items['tags'] = new ArrayObject([__('Tags'), true]);
-    }
+if (dcCore::app()->plugins->moduleExists('tags') && count($tags_combo) > 1) {
+    $items['tags'] = new ArrayObject([__('Tags'), true]);
 }
 
 # --BEHAVIOR-- adminSimpleMenuAddType

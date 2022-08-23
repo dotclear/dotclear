@@ -170,7 +170,7 @@ if (!empty($_POST) && $can_edit_page) {
     } else {
         try {
             $post_dt = strtotime($_POST['post_dt']);
-            if ($post_dt == false || $post_dt == -1) {
+            if (!$post_dt || $post_dt == -1) {
                 $bad_dt = true;
 
                 throw new Exception(__('Invalid publication date'));

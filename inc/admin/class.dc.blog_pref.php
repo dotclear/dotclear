@@ -25,11 +25,10 @@ class dcAdminBlogPref
             return;
         }
 
-        $res = dcPage::jsJson('admin.blog_pref', [
+        return
+        dcPage::jsJson('admin.blog_pref', [
             'base_url' => dcCore::app()->blog->url,
         ]) .
         dcPage::jsLoad('js/_blog_pref_popup_posts.js');
-
-        return $res;
     }
 }

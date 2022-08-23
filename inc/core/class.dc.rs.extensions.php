@@ -934,9 +934,6 @@ function.
  */
 class rsExtUser
 {
-    private static $sortfield;
-    private static $sortsign;
-
     /**
      * Returns a user option.
      *
@@ -990,9 +987,6 @@ class rsExtUser
 
 class rsExtBlog
 {
-    private static $sortfield;
-    private static $sortsign;
-
     /**
      * Converts this record to a {@link extStaticRecord} instance.
      *

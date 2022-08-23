@@ -27,7 +27,7 @@ adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 dcCore::app()->themes = new dcThemes(dcCore::app());
 dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 $T = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
-$o = new dcThemeEditor(dcCore::app());
+$o = new dcThemeEditor();
 
 try {
     try {

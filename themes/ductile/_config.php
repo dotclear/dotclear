@@ -39,13 +39,9 @@ $list_types = [
 $list_types_templates = files::scandir($tpl_path);
 if (is_array($list_types_templates)) {
     foreach ($list_types_templates as $v) {
-        if (preg_match('/^_entry\-(.*)\.html$/', $v, $m)) {
-            if (isset($m[1])) {
-                if (!in_array($m[1], $list_types)) {
-                    // template not already in full list
-                    $list_types[__($m[1])] = $m[1];
-                }
-            }
+        if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
+            // template not already in full list
+            $list_types[__($m[1])] = $m[1];
         }
     }
 }
@@ -197,14 +193,12 @@ if (is_array($ductile_stickers)) {
 $ductile_stickers_images = files::scandir($img_path);
 if (is_array($ductile_stickers_images)) {
     foreach ($ductile_stickers_images as $v) {
-        if (preg_match('/^sticker\-(.*)\.png$/', $v)) {
-            if (!in_array($v, $ductile_stickers_full)) {
-                // image not already used
-                $ductile_stickers[] = [
-                    'label' => null,
-                    'url'   => null,
-                    'image' => $v, ];
-            }
+        if (preg_match('/^sticker\-(.*)\.png$/', $v) && !in_array($v, $ductile_stickers_full)) {
+            // image not already used
+            $ductile_stickers[] = [
+                'label' => null,
+                'url'   => null,
+                'image' => $v, ];
         }
     }
 }

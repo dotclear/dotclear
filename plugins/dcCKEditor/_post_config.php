@@ -108,7 +108,7 @@ $(function() {
     <?php if (!empty(dcCore::app()->admin->editor_cke_custom_color_list)) : ?>
         CKEDITOR.config.colorButton_colors = '<?php echo dcCore::app()->admin->editor_cke_custom_color_list; ?>';
     <?php endif;?>
-    CKEDITOR.config.colorButton_colorsPerRow = <?php echo(dcCore::app()->admin->editor_cke_colors_per_row ?: 6); // @phpstan-ignore-line?>;
+    CKEDITOR.config.colorButton_colorsPerRow = <?php echo dcCore::app()->admin->editor_cke_colors_per_row ?: 6; // @phpstan-ignore-line?>;
 <?php endif;?>
 
     CKEDITOR.config.defaultLanguage = dotclear.user_language;

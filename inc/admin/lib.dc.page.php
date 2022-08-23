@@ -566,7 +566,7 @@ class dcPage
         return $res;
     }
 
-    public static function help($page, $index = '')
+    public static function help()
     {
         # Deprecated but we keep this for plugins.
     }
@@ -589,7 +589,7 @@ class dcPage
 
         if (!count($args)) {
             return;
-        };
+        }
 
         if (empty(dcCore::app()->resources['help'])) {
             return;
@@ -760,7 +760,7 @@ class dcPage
      *
      * @param      array  $vars   The variables
      *
-     * @return     string  javascript code (inside <script… ></script>)
+     * @return     string  javascript code (inside <script></script>)
      */
     public static function jsVars($vars)
     {
@@ -1158,10 +1158,9 @@ class dcPage
             ]];
         }
 
-        $ret = self::jsJson('codemirror', $js) .
+        return
+        self::jsJson('codemirror', $js) .
         self::jsLoad('js/codemirror.js');
-
-        return $ret;
     }
 
     /**

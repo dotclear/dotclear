@@ -42,10 +42,8 @@ class dcMeta
     {
         $res = [];
         foreach (explode(',', $str) as $i => $tag) {
-            $tag = trim((string) $tag);
-            $tag = self::sanitizeMetaID($tag);
-
-            if ($tag != false) {
+            $tag = self::sanitizeMetaID(trim((string) $tag));
+            if ($tag) {
                 $res[$i] = $tag;
             }
         }

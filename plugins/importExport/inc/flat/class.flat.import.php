@@ -26,12 +26,7 @@ class flatImport extends flatBackup
     private $dc_major_version;
     private $mode;
 
-    private $blog_url;
-    private $blog_name;
-    private $blog_desc;
     private $blog_id;
-
-    private $users = [];
 
     private $cur_blog;
     private $cur_category;
@@ -863,11 +858,6 @@ class flatImport extends flatBackup
 
     private function prepareDC12line(&$line)
     {
-        $settings = ['dc_theme', 'dc_nb_post_per_page', 'dc_allow_comments',
-            'dc_allow_trackbacks', 'dc_comment_pub', 'dc_comments_ttl',
-            'dc_wiki_comments', 'dc_use_smilies', 'dc_date_format', 'dc_time_format',
-            'dc_url_scan', ];
-
         switch ($line->__name) {
             case 'categorie':
                 $line->substitute('cat_libelle', 'cat_title');

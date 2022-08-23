@@ -589,6 +589,7 @@ class dcMedia extends filemanager
         try {
             usort($this->dir['files'], [$this, 'sortFileHandler']);
         } catch (Exception $e) {
+            // Ignore exceptions
         }
     }
 
@@ -690,9 +691,10 @@ class dcMedia extends filemanager
         try {
             usort($this->dir['files'], [$this, 'sortFileHandler']);
         } catch (Exception $e) {
+            // Ignore exceptions
         }
 
-        return (count($f_res) > 0 ? true : false);
+        return (count($f_res) ? true : false);
     }
 
     /**
@@ -1067,8 +1069,7 @@ class dcMedia extends filemanager
      */
     public function getDBDirs()
     {
-        $dir       = [];
-        $media_dir = $this->relpwd ?: '.';
+        $dir = [];
 
         $sql = new dcSelectStatement();
         $sql

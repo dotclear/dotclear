@@ -92,10 +92,9 @@ class dcFilterIP extends dcSpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        $res = $this->displayForms($url, 'black', __('Blocklist')) .
+        return
+        $this->displayForms($url, 'black', __('Blocklist')) .
         $this->displayForms($url, 'white', __('Allowlist'));
-
-        return $res;
     }
 
     private function displayForms($url, $type, $title)
@@ -132,8 +131,6 @@ class dcFilterIP extends dcSpamFilter
             while ($rs->fetch()) {
                 $bits    = explode(':', $rs->rule_content);
                 $pattern = $bits[0];
-                $ip      = $bits[1];
-                $bitmask = $bits[2];
 
                 $disabled_ip = false;
                 $p_style     = '';

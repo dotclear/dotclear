@@ -156,7 +156,6 @@ class dcMaintenanceTask
                 $this->expired = false;
             } else {
                 $this->expired = null;
-                $logs          = [];
                 foreach ($this->maintenance->getLogs() as $id => $log) {
                     if ($id != $this->id() || $this->blog && !$log['blog']) {
                         continue;

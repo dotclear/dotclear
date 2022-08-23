@@ -65,6 +65,7 @@ if (dcCore::app()->blog->settings->system->static_home) {
 try {
     dcCore::app()->media = new dcMedia(dcCore::app());
 } catch (Exception $e) {
+    // Ignore
 }
 
 # Creating template context
@@ -110,6 +111,7 @@ dcUtils::setlexicalLang('public', dcCore::app()->lang);
 try {
     dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'public', dcCore::app()->lang);
 } catch (Exception $e) {
+    // Ignore
 }
 
 # Loading themes
@@ -126,11 +128,9 @@ if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
 }
 
 dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
-if (dcCore::app()->public->parent_theme) {
-    if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->parent_theme)) {
-        dcCore::app()->public->theme        = dcCore::app()->blog->settings->system->theme        = DC_DEFAULT_THEME;
-        dcCore::app()->public->parent_theme = null;
-    }
+if (dcCore::app()->public->parent_theme && !dcCore::app()->themes->moduleExists(dcCore::app()->public->parent_theme)) {
+    dcCore::app()->public->theme        = dcCore::app()->blog->settings->system->theme        = DC_DEFAULT_THEME;
+    dcCore::app()->public->parent_theme = null;
 }
 
 # If theme doesn't exist, stop everything

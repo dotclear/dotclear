@@ -139,6 +139,7 @@ class dcModules
                 $this->deactivateModule($module['name']);
                 $reason[] = sprintf('<li>%s : %s</li>', $module['name'], join(',', $module['reason']));
             } catch (Exception $e) {
+                // Ignore exceptions
             }
         }
         if (count($reason)) {
@@ -360,9 +361,7 @@ class dcModules
         # Check module perms on admin side
         $permissions = $properties['permissions'];
         if ($this->ns == 'admin') {
-            if ($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) {
-                return;
-            } elseif (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id)) {
+            if (($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) || (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id))) {
                 return;
             }
         }

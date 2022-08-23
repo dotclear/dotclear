@@ -53,10 +53,8 @@ class dcAdminHelper
 
     /**
      * Loads locales.
-     *
-     * @param      string  $_lang  The language
      */
-    public static function loadLocales($_lang = null)
+    public static function loadLocales()
     {
         dcCore::app()->lang = dcCore::app()->auth->getInfo('user_lang');
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
@@ -108,7 +106,7 @@ class dcAdminHelper
  */
 function dc_load_locales()
 {
-    dcAdminHelper::loadLocales(dcCore::app()->lang);
+    dcAdminHelper::loadLocales();
 }
 
 /**

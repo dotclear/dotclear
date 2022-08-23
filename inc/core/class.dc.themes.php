@@ -80,7 +80,7 @@ class dcThemes extends dcModules
         if (substr($root, -1) != '/') {
             $root .= '/';
         }
-        if (($d = @dir($root)) === false) {
+        if ((@dir($root)) === false) {
             throw new Exception(__('Themes folder unreadable'));
         }
 
@@ -128,7 +128,7 @@ class dcThemes extends dcModules
                         if (preg_match('/^namespace\s*themes\\\([^;].*);$/m', $buf, $matches)) {
                             $pos     = strpos($buf, $matches[0]);
                             $rel_dir = substr($new_dir, strlen($root));
-                            $ns      = preg_replace('/[^a-zA-Z0-9_]/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
+                            $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
                             $buf     = substr($buf, 0, $pos) .
                                 'namespace themes\\' . $ns . ';' .
                                 substr($buf, $pos + strlen($matches[0]));

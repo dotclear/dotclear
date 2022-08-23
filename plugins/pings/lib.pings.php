@@ -36,7 +36,7 @@ class pingsAdminBehaviors
         return dcPage::jsModuleLoad('pings/js/post.js');
     }
 
-    public static function pingsFormItems($main, $sidebar, $post)
+    public static function pingsFormItems($main, $sidebar)
     {
         if (!dcCore::app()->blog->settings->pings->pings_active) {
             return;
@@ -64,7 +64,7 @@ class pingsAdminBehaviors
         $sidebar['options-box']['items']['pings'] = $item;
     }
 
-    public static function doPings($cur, $post_id)
+    public static function doPings()
     {
         if (empty($_POST['pings_do']) || !is_array($_POST['pings_do'])) {
             return;
@@ -92,7 +92,7 @@ class pingsAdminBehaviors
 
 class pingsCoreBehaviour
 {
-    public static function doPings($blog, $ids)
+    public static function doPings($blog)
     {
         if (!$blog->settings->pings->pings_active) {
             return;

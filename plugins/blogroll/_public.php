@@ -199,7 +199,7 @@ class urlBlogroll extends dcUrlHandlers
                 '<title>' . html::escapeHTML($cat_title) . "</title>\n";
             }
 
-            foreach ($links as $k => $v) {
+            foreach ($links as $v) {
                 $lang = $v['link_lang'] ? ' xml:lang="' . $v['link_lang'] . '"' : '';
 
                 echo

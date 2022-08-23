@@ -69,11 +69,9 @@ class tplDuctileTheme
             }
         }
 
-        if ($nb_other == 0) {
-            if ($nb) {
-                // Nb de billets par page défini par défaut dans le template
-                $nb_other = $nb_first = $nb;
-            }
+        if ($nb_other == 0 && $nb) {
+            // Nb de billets par page défini par défaut dans le template
+            $nb_other = $nb_first = $nb;
         }
 
         if ($nb_other > 0) {
@@ -116,13 +114,9 @@ class tplDuctileTheme
         $list_types_templates = \files::scandir($tpl_path);
         if (is_array($list_types_templates)) {
             foreach ($list_types_templates as $v) {
-                if (preg_match('/^_entry\-(.*)\.html$/', $v, $m)) {
-                    if (isset($m[1])) {
-                        if (!in_array($m[1], $list_types)) {
-                            // template not already in full list
-                            $list_types[] = $m[1];
-                        }
-                    }
+                if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
+                    // template not already in full list
+                    $list_types[] = $m[1];
                 }
             }
         }
@@ -150,19 +144,15 @@ class tplDuctileTheme
         $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_entries_lists');
         if ($s !== null) {
             $s = @unserialize($s);
-            if (is_array($s)) {
-                if (isset($s[\dcCore::app()->url->type])) {
-                    $model = $s[\dcCore::app()->url->type];
-
-                    return $model;
-                }
+            if (is_array($s) && isset($s[\dcCore::app()->url->type])) {
+                return $s[\dcCore::app()->url->type];
             }
         }
 
         return $default;
     }
 
-    public static function ductileLogoSrc($attr)
+    public static function ductileLogoSrc()
     {
         return '<?php echo ' . __NAMESPACE__ . '\tplDuctileTheme::ductileLogoSrcHelper(); ?>';
     }
@@ -182,17 +172,13 @@ class tplDuctileTheme
             return $img_url;
         }
 
-        if (isset($s['logo_src'])) {
-            if ($s['logo_src'] !== null) {
-                if ($s['logo_src'] != '') {
-                    if ((substr($s['logo_src'], 0, 1) == '/') || (parse_url($s['logo_src'], PHP_URL_SCHEME) != '')) {
-                        // absolute URL
-                        $img_url = $s['logo_src'];
-                    } else {
-                        // relative URL (base = img folder of ductile theme)
-                        $img_url = \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/img/' . $s['logo_src'];
-                    }
-                }
+        if (isset($s['logo_src']) && $s['logo_src'] !== null && $s['logo_src'] != '') {
+            if ((substr($s['logo_src'], 0, 1) == '/') || (parse_url($s['logo_src'], PHP_URL_SCHEME) != '')) {
+                // absolute URL
+                $img_url = $s['logo_src'];
+            } else {
+                // relative URL (base = img folder of ductile theme)
+                $img_url = \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/img/' . $s['logo_src'];
             }
         }
 
@@ -204,12 +190,8 @@ class tplDuctileTheme
         $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_style');
         if ($s !== null) {
             $s = @unserialize($s);
-            if (is_array($s)) {
-                if (isset($s['preview_not_mandatory'])) {
-                    if ($s['preview_not_mandatory']) {
-                        return $content;
-                    }
-                }
+            if (is_array($s) && isset($s['preview_not_mandatory']) && $s['preview_not_mandatory']) {
+                return $content;
             }
         }
 
@@ -257,12 +239,8 @@ class tplDuctileTheme
 
     protected static function cleanStickers($s)
     {
-        if (is_array($s)) {
-            if (isset($s['label']) && isset($s['url']) && isset($s['image'])) {
-                if ($s['label'] != null && $s['url'] != null && $s['image'] != null) {
-                    return true;
-                }
-            }
+        if (is_array($s) && isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null) {
+            return true;
         }
 
         return false;
@@ -310,44 +288,40 @@ class tplDuctileTheme
         $ret = '';
         $css = [];
         $uri = [];
-        if (!isset($s['body_font']) || ($s['body_font'] == '')) {
+        if (!isset($s['body_font']) || ($s['body_font'] == '') && isset($s['body_webfont_api']) && isset($s['body_webfont_family']) && isset($s['body_webfont_url'])) {
             // See if webfont defined for main font
-            if (isset($s['body_webfont_api']) && isset($s['body_webfont_family']) && isset($s['body_webfont_url'])) {
-                $uri[] = $s['body_webfont_url'];
-                switch ($s['body_webfont_api']) {
+            $uri[] = $s['body_webfont_url'];
+            switch ($s['body_webfont_api']) {
+                case 'js':
+                    $ret .= sprintf('<script src="%s"></script>', $s['body_webfont_url']) . "\n";
+
+                    break;
+                case 'css':
+                    $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['body_webfont_url']) . "\n";
+
+                    break;
+            }
+            # Main font
+            $selectors = 'body, .supranav li a span, #comments.me, a.comment-number';
+            \dcThemeConfig::prop($css, $selectors, 'font-family', $s['body_webfont_family']);
+        }
+        if (!isset($s['alternate_font']) || ($s['alternate_font'] == '') && isset($s['alternate_webfont_api']) && isset($s['alternate_webfont_family']) && isset($s['alternate_webfont_url'])) {
+            // See if webfont defined for secondary font
+            if (!in_array($s['alternate_webfont_url'], $uri)) {
+                switch ($s['alternate_webfont_api']) {
                     case 'js':
-                        $ret .= sprintf('<script src="%s"></script>', $s['body_webfont_url']) . "\n";
+                        $ret .= sprintf('<script src="%s"></script>', $s['alternate_webfont_url']) . "\n";
 
                         break;
                     case 'css':
-                        $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['body_webfont_url']) . "\n";
+                        $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['alternate_webfont_url']) . "\n";
 
                         break;
                 }
-                # Main font
-                $selectors = 'body, .supranav li a span, #comments.me, a.comment-number';
-                \dcThemeConfig::prop($css, $selectors, 'font-family', $s['body_webfont_family']);
             }
-        }
-        if (!isset($s['alternate_font']) || ($s['alternate_font'] == '')) {
-            // See if webfont defined for secondary font
-            if (isset($s['alternate_webfont_api']) && isset($s['alternate_webfont_family']) && isset($s['alternate_webfont_url'])) {
-                if (!in_array($s['alternate_webfont_url'], $uri)) {
-                    switch ($s['alternate_webfont_api']) {
-                        case 'js':
-                            $ret .= sprintf('<script src="%s"></script>', $s['alternate_webfont_url']) . "\n";
-
-                            break;
-                        case 'css':
-                            $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['alternate_webfont_url']) . "\n";
-
-                            break;
-                    }
-                }
-                # Secondary font
-                $selectors = '#blogdesc, .supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer';
-                \dcThemeConfig::prop($css, $selectors, 'font-family', $s['alternate_webfont_family']);
-            }
+            # Secondary font
+            $selectors = '#blogdesc, .supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer';
+            \dcThemeConfig::prop($css, $selectors, 'font-family', $s['alternate_webfont_family']);
         }
         # Style directives
         $res = '';

@@ -123,7 +123,7 @@ class dcMaintenanceAdmin
         }
 
         // Check expired tasks
-        $maintenance = new dcMaintenance(dcCore::app());
+        $maintenance = new dcMaintenance();
         $count       = 0;
         foreach ($maintenance->getTasks() as $t) {
             if ($t->expired() !== false) {
@@ -152,7 +152,7 @@ class dcMaintenanceAdmin
             return;
         }
 
-        $maintenance = new dcMaintenance(dcCore::app());
+        $maintenance = new dcMaintenance();
 
         $lines = [];
         foreach ($maintenance->getTasks() as $t) {
@@ -256,7 +256,7 @@ class dcMaintenanceAdmin
             return;
         }
 
-        $maintenance = new dcMaintenance(dcCore::app());
+        $maintenance = new dcMaintenance();
 
         $res_tab = '';
         foreach ($maintenance->getTabs() as $tab_obj) {

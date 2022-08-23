@@ -105,7 +105,7 @@ class dcUpdate
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $path) {
+            $http_get   = function ($http_url) use (&$status, $path) {
                 $client = netHttp::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(DC_QUERY_TIMEOUT);
@@ -229,7 +229,7 @@ class dcUpdate
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $dest, $path) {
+            $http_get   = function ($http_url) use (&$status, $dest, $path) {
                 $client = netHttp::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(DC_QUERY_TIMEOUT);
@@ -399,7 +399,9 @@ class dcUpdate
             }
 
             $dest = $dest_dir = $root . '/' . $file;
-            while (!is_dir($dest_dir = dirname($dest_dir)));
+            while (!is_dir($dest_dir = dirname($dest_dir))) {
+                // Nothing to do here (see inside loop condition)
+            }
 
             if ((file_exists($dest) && !is_writable($dest)) || (!file_exists($dest) && !is_writable($dest_dir))) {
                 $not_writable[] = $file;
@@ -476,7 +478,7 @@ class dcUpdate
         $changes = [];
 
         foreach ($contents as $digest) {
-            if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
+            if (!preg_match('#^([\da-f]{32})\s+(.+)$#', $digest, $m)) {
                 continue;
             }
 
@@ -499,7 +501,7 @@ class dcUpdate
 
     protected function parseLine(&$v, $k, $n)
     {
-        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $v, $m)) {
+        if (!preg_match('#^([\da-f]{32})\s+(.+)$#', $v, $m)) {
             return;
         }
 
