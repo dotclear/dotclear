@@ -315,15 +315,14 @@ $get_img_def  = function ($file) {
         if (!file_exists($local)) {
             $local .= '.json';
         }
-        if (file_exists($local)) {
-            if ($specifics = json_decode(file_get_contents($local) ?? '', true)) {  // @phpstan-ignore-line
-                foreach ($defaults as $key => $value) {
-                    $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
-                    $defaults['mediadef'] = true;
-                }
+        if (file_exists($local) && $specifics = json_decode(file_get_contents($local) ?? '', true)) {  // @phpstan-ignore-line
+            foreach ($defaults as $key => $value) {
+                $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
+                $defaults['mediadef'] = true;
             }
         }
     } catch (Exception $e) {
+        // Ignore exceptions
     }
 
     return $defaults;

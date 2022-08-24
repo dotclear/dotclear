@@ -170,6 +170,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
         $rs      = dcCore::app()->getBlogs();
         $nb_blog = $rs->count();
     } catch (Exception $e) {
+        // Ignore exceptions
     }
 
     foreach ($users as $u) {

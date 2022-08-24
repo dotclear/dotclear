@@ -71,5 +71,5 @@ function dcSystemCheck($con, &$err)
         }
     }
 
-    return count($err) == 0;
+    return !count($err);
 }

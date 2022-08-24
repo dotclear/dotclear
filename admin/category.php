@@ -252,7 +252,7 @@ if ($cat_id) {
         '</form>' .
         '</div>';
 
-    if (count($siblings) > 0) {
+    if (count($siblings)) {
         echo
         '<div class="col">' .
         '<form action="' . dcCore::app()->adminurl->get('admin.category') . '" method="post" class="fieldset">' .

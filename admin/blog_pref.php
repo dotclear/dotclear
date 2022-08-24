@@ -150,14 +150,10 @@ $robots_policy_options = [
 # jQuery available versions
 $jquery_root           = __DIR__ . '/../inc/js/jquery';
 $jquery_versions_combo = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => ''];
-if (is_dir($jquery_root) && is_readable($jquery_root)) {
-    if (($d = @dir($jquery_root)) !== false) {
-        while (($entry = $d->read()) !== false) {
-            if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root . '/' . $entry)) {
-                if ($entry != DC_DEFAULT_JQUERY) {
-                    $jquery_versions_combo[$entry] = $entry;
-                }
-            }
+if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root)) !== false) {
+    while (($entry = $d->read()) !== false) {
+        if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root . '/' . $entry) && $entry != DC_DEFAULT_JQUERY) {
+            $jquery_versions_combo[$entry] = $entry;
         }
     }
 }

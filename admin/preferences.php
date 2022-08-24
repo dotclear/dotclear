@@ -761,8 +761,7 @@ echo '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
 $count    = 0;
 $user_fav = dcCore::app()->favs->getFavoriteIDs(false);
 foreach ($user_fav as $id) {
-    $fav = dcCore::app()->favs->getFavorite($id);
-    if ($fav != false) {
+    if ($fav = dcCore::app()->favs->getFavorite($id)) {
         // User favorites only
         if ($count == 0) {
             echo '<ul class="fav-list">';

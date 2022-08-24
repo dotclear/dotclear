@@ -200,10 +200,8 @@ dcPage::open(
     )
 );
 
-if (!dcCore::app()->error->flag()) {
-    if (!empty($_GET['nocache'])) {
-        dcPage::success(__('Manual checking of update done successfully.'));
-    }
+if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
+    dcPage::success(__('Manual checking of update done successfully.'));
 }
 
 if (!$step) {

@@ -11,12 +11,11 @@ require __DIR__ . '/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $helpPage = function (...$args) {
-    $ret = ['content' => '', 'title' => ''];
+    $ret  = ['content' => '', 'title' => ''];
 
     if (empty($args)) {
         return $ret;
     }
-    ;
 
     if (empty(dcCore::app()->resources['help'])) {
         return $ret;

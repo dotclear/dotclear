@@ -108,10 +108,8 @@ dcPage::open(
 
 # -- Display modules lists --
 if (dcCore::app()->auth->isSuperAdmin()) {
-    if (!dcCore::app()->error->flag()) {
-        if (!empty($_GET['nocache'])) {
-            dcPage::success(__('Manual checking of themes update done successfully.'));
-        }
+    if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
+        dcPage::success(__('Manual checking of themes update done successfully.'));
     }
 
     # Updated modules from repo
@@ -209,7 +207,6 @@ if (dcCore::app()->auth->isSuperAdmin() && $list->isWritablePath()) {
         echo
         '<div class="multi-part" id="new" title="' . __('Add themes') . '">' .
         '<h3>' . __('Add themes from repository') . '</h3>';
-//        '<p>'.__('Search and install themes directly from repository.').'</p>';
 
         $list
             ->setList('theme-new')

@@ -217,9 +217,9 @@ class Minifier
                         break;
                     }
 
-                // otherwise we treat the newline like a space
+                    // otherwise we treat the newline like a space
 
-                // no break
+                    // no break
                 case ' ':
                     if (static::isAlphaNumeric($this->b)) {
                         echo $this->a;
@@ -238,10 +238,10 @@ class Minifier
 
                                 break;
                             }
-                                if (static::isAlphaNumeric($this->a)) {
-                                    echo $this->a;
-                                    $this->saveString();
-                                }
+                            if (static::isAlphaNumeric($this->a)) {
+                                echo $this->a;
+                                $this->saveString();
+                            }
 
                             break;
 
@@ -250,7 +250,7 @@ class Minifier
                                 break;
                             }
 
-                        // no break
+                            // no break
                         default:
                             // check for some regex that breaks stuff
                             if ($this->a === '/' && ($this->b === '\'' || $this->b === '"')) {
@@ -269,7 +269,7 @@ class Minifier
             // do reg check of doom
             $this->b = $this->getReal();
 
-            if (($this->b == '/' && strpos('(,=:[!&|?', $this->a) !== false)) {
+            if ($this->b == '/' && strpos('(,=:[!&|?', $this->a) !== false) {
                 $this->saveRegex();
             }
         }
@@ -494,10 +494,10 @@ class Minifier
                 case $stringType:
                     break 2;
 
-                // New lines in strings without line delimiters are bad- actual
-                // new lines will be represented by the string \n and not the actual
-                // character, so those will be treated just fine using the switch
-                // block below.
+                    // New lines in strings without line delimiters are bad- actual
+                    // new lines will be represented by the string \n and not the actual
+                    // character, so those will be treated just fine using the switch
+                    // block below.
                 case "\n":
                     if ($stringType === '`') {
                         echo $this->a;
@@ -507,7 +507,7 @@ class Minifier
 
                     break;
 
-                // Escaped characters get picked up here. If it's an escaped new line it's not really needed
+                    // Escaped characters get picked up here. If it's an escaped new line it's not really needed
                 case '\\':
 
                     // a is a slash. We want to keep it, and the next character,
@@ -525,8 +525,8 @@ class Minifier
 
                     break;
 
-                // Since we're not dealing with any special cases we simply
-                // output the character and continue our loop.
+                    // Since we're not dealing with any special cases we simply
+                    // output the character and continue our loop.
                 default:
                     echo $this->a;
             }

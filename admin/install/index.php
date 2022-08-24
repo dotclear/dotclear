@@ -87,21 +87,19 @@ if ($can_install && !empty($_POST)) {
 
         # Try to guess timezone
         $default_tz = 'Europe/London';
-        if (!empty($_POST['u_date']) && function_exists('timezone_open')) {
-            if (preg_match('/\((.+)\)$/', $_POST['u_date'], $_tz)) {
-                $_tz = $_tz[1];
-                $_tz = @timezone_open($_tz);
-                if ($_tz instanceof DateTimeZone) {
-                    $_tz = @timezone_name_get($_tz);
+        if (!empty($_POST['u_date']) && function_exists('timezone_open') && preg_match('/\((.+)\)$/', $_POST['u_date'], $_tz)) {
+            $_tz = $_tz[1];
+            $_tz = @timezone_open($_tz);
+            if ($_tz instanceof DateTimeZone) {
+                $_tz = @timezone_name_get($_tz);
 
-                    // check if timezone is valid
-                    // date_default_timezone_set throw E_NOTICE and/or E_WARNING if timezone is not valid and return false
-                    if (@date_default_timezone_set($_tz) !== false && $_tz) {
-                        $default_tz = $_tz;
-                    }
+                // check if timezone is valid
+                // date_default_timezone_set throw E_NOTICE and/or E_WARNING if timezone is not valid and return false
+                if (@date_default_timezone_set($_tz) !== false && $_tz) {
+                    $default_tz = $_tz;
                 }
-                unset($_tz);
             }
+            unset($_tz);
         }
 
         # Create schema

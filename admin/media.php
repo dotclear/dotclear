@@ -144,12 +144,10 @@ class adminMediaPage extends adminMediaFilter
     {
         $dir = $this->media_dir;
         // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
-        if (!defined('DC_SHOW_HIDDEN_DIRS') || (DC_SHOW_HIDDEN_DIRS == false)) {
+        if (!defined('DC_SHOW_HIDDEN_DIRS') || (!DC_SHOW_HIDDEN_DIRS)) {
             for ($i = count($dir['dirs']) - 1; $i >= 0; $i--) {
-                if ($dir['dirs'][$i]->d) {
-                    if (strpos($dir['dirs'][$i]->basename, '.') === 0) {
-                        unset($dir['dirs'][$i]);
-                    }
+                if ($dir['dirs'][$i]->d && strpos($dir['dirs'][$i]->basename, '.') === 0) {
+                    unset($dir['dirs'][$i]);
                 }
             }
         }
@@ -420,10 +418,8 @@ if (!empty($_GET['zipdl']) && dcCore::app()->auth->check('media_admin', dcCore::
 
 # User last and fav dirs
 if ($page->showLast()) {
-    if (!empty($_GET['fav'])) {
-        if ($page->updateFav(rtrim((string) $page->d, '/'), $_GET['fav'] == 'n')) {
-            dcCore::app()->adminurl->redirect('admin.media', $page->values());
-        }
+    if (!empty($_GET['fav']) && $page->updateFav(rtrim((string) $page->d, '/'), $_GET['fav'] == 'n')) {
+        dcCore::app()->adminurl->redirect('admin.media', $page->values());
     }
     $page->updateLast(rtrim((string) $page->d, '/'));
 }

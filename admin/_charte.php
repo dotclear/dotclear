@@ -371,7 +371,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                         </tr>
                         <tr class="line">
                             <td class="nowrap"><input type="checkbox" name="name1" value="value1"  /></td>
-                            <td class="maximal" scope="row"><a href="#">Mon cher Franck</a></td>
+                            <td class="maximal" ><a href="#">Mon cher Franck</a></td>
                             <td class="nowrap count">06/08/2013 19:16</td>
                             <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
                             <td class="nowrap">kozlika</td><td class="nowrap count">4</td>
@@ -379,7 +379,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                         </tr>
                         <tr class="line offline">
                             <td class="nowrap"><input type="checkbox" name="name2" value="value2"  /></td>
-                            <td class="maximal" scope="row"><a href="#">Dotclear 2.3.0</a></td>
+                            <td class="maximal" ><a href="#">Dotclear 2.3.0</a></td>
                             <td class="nowrap count">16/05/2011 22:29</td>
                             <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
                             <td class="nowrap">kozlika</td><td class="nowrap count">5</td>
@@ -387,7 +387,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                         </tr>
                         <tr class="line">
                             <td class="nowrap"><input type="checkbox" name="entries[]" value="2148" /></td>
-                            <td class="maximal" scope="row"><a href="#">Causons opéra au Tamm Bara</a></td>
+                            <td class="maximal" ><a href="#">Causons opéra au Tamm Bara</a></td>
                             <td class="nowrap count">24/11/2009 23:10</td>
                             <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
                             <td class="nowrap">kozlika</td>
@@ -396,14 +396,14 @@ echo dcUtils::jsJson('dotclear_init', $js);
                         </tr>
                         <tr class="line">
                             <td class="nowrap"><input type="checkbox" name="entries[]" value="2136"  /></td>
-                            <td class="maximal" scope="row"><a href="#">Souffler six bougies</a></td>
+                            <td class="maximal" ><a href="#">Souffler six bougies</a></td>
                             <td class="nowrap count">14/08/2009 00:00</td><td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
                             <td class="nowrap">kozlika</td>
                             <td class="nowrap count">4</td><td class="nowrap count">2</td><td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
                         </tr>
                         <tr class="line">
                             <td class="nowrap"><input type="checkbox" name="entries[]" value="2129"  /></td>
-                            <td class="maximal" scope="row"><a href="#">Dotclear et grenadine, troisième édition</a></td>
+                            <td class="maximal" ><a href="#">Dotclear et grenadine, troisième édition</a></td>
                             <td class="nowrap count">15/06/2009 07:39</td>
                             <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
                             <td class="nowrap">kozlika</td>
@@ -413,7 +413,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                         </tr>
                         <tr class="line">
                             <td class="nowrap"><input type="checkbox" name="entries[]" value="2111"  /></td>
-                            <td class="maximal" scope="row"><a href="#">L'abc dotclear est né</a></td>
+                            <td class="maximal" ><a href="#">L'abc dotclear est né</a></td>
                             <td class="nowrap count">19/03/2009 10:31</td><td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
                             <td class="nowrap">kozlika</td>
                             <td class="nowrap count">1</td><td class="nowrap count">0</td>

@@ -34,11 +34,8 @@ class dcRestMethods
 {
     /**
      * Serve method to get number of posts (whatever are their status) for current blog.
-     *
-     * @param     dcCore  $core     dcCore instance
-     * @param     array   $get     cleaned $_GET
      */
-    public static function getPostsCount(dcCore $core, $get)
+    public static function getPostsCount()
     {
         $count = dcCore::app()->blog->getPosts([], true)->f(0);
         $str   = sprintf(__('%d post', '%d posts', $count), $count);
@@ -51,11 +48,8 @@ class dcRestMethods
 
     /**
      * Serve method to get number of comments (whatever are their status) for current blog.
-     *
-     * @param     dcCore  $core     dcCore instance
-     * @param     array   $get     cleaned $_GET
      */
-    public static function getCommentsCount(dcCore $core, $get)
+    public static function getCommentsCount()
     {
         $count = dcCore::app()->blog->getComments([], true)->f(0);
         $str   = sprintf(__('%d comment', '%d comments', $count), $count);
@@ -66,7 +60,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function checkNewsUpdate(dcCore $core, $get)
+    public static function checkNewsUpdate()
     {
         # Dotclear news
 
@@ -104,6 +98,7 @@ class dcRestMethods
                     $rsp->check = true;
                 }
             } catch (Exception $e) {
+                // Ignore exceptions
             }
         }
         $rsp->ret = $ret;
@@ -111,7 +106,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function checkCoreUpdate(dcCore $core, $get)
+    public static function checkCoreUpdate()
     {
         # Dotclear updates notifications
 
@@ -400,7 +395,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function getZipMediaContent(dcCore $core, $get, $post)
+    public static function getZipMediaContent(dcCore $core, $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No media ID');
@@ -418,6 +413,7 @@ class dcRestMethods
             dcCore::app()->media = new dcMedia(dcCore::app());
             $file                = dcCore::app()->media->getFile($id);
         } catch (Exception $e) {
+            // Ignore exceptions
         }
 
         if ($file === null || $file->type != 'application/zip' || !$file->editable) {
@@ -618,7 +614,7 @@ class dcRestMethods
             // false == unfold section ==> add it to unfolded list
             if ($k === false) {
                 $toggles[] = $section;
-            };
+            }
         }
         dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
 
@@ -685,7 +681,7 @@ class dcRestMethods
         return $res;
     }
 
-    public static function getModuleById(dcCore $core, $get, $post)
+    public static function getModuleById(dcCore $core, $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No module ID');

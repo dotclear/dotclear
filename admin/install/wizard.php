@@ -59,17 +59,15 @@ $ADMINMAILFROM = !empty($_POST['ADMINMAILFROM']) ? $_POST['ADMINMAILFROM'] : '';
 
 if (!empty($_POST)) {
     try {
-        if ($DBDRIVER == 'sqlite') {
-            if (strpos($DBNAME, '/') === false) {
-                $sqlite_db_directory = dirname(DC_RC_PATH) . '/../db/';
-                files::makeDir($sqlite_db_directory, true);
+        if ($DBDRIVER == 'sqlite' && strpos($DBNAME, '/') === false) {
+            $sqlite_db_directory = dirname(DC_RC_PATH) . '/../db/';
+            files::makeDir($sqlite_db_directory, true);
 
-                # Can we write sqlite_db_directory ?
-                if (!is_writable($sqlite_db_directory)) {
-                    throw new Exception(sprintf(__('Cannot write "%s" directory.'), path::real($sqlite_db_directory, false)));
-                }
-                $DBNAME = $sqlite_db_directory . $DBNAME;
+            # Can we write sqlite_db_directory ?
+            if (!is_writable($sqlite_db_directory)) {
+                throw new Exception(sprintf(__('Cannot write "%s" directory.'), path::real($sqlite_db_directory, false)));
             }
+            $DBNAME = $sqlite_db_directory . $DBNAME;
         }
 
         # Tries to connect to database

@@ -26,11 +26,12 @@ try {
         $dc_langs = $dc_langs->items;
     }
 } catch (Exception $e) {
+    // Ignore exceptions
 }
 
 # Language installation function
 $lang_install = function ($file) {
-    $zip = new fileUnzip($file);
+    $zip      = new fileUnzip($file);
     $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
     if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', $zip->getRootDir())) {

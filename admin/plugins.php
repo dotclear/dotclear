@@ -117,10 +117,8 @@ if (!empty($plugins_install['failure'])) {
 
 # -- Display modules lists --
 if (dcCore::app()->auth->isSuperAdmin()) {
-    if (!dcCore::app()->error->flag()) {
-        if (!empty($_GET['nocache'])) {
-            dcPage::success(__('Manual checking of plugins update done successfully.'));
-        }
+    if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
+        dcPage::success(__('Manual checking of plugins update done successfully.'));
     }
 
     # Updated modules from repo

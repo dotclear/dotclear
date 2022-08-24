@@ -92,19 +92,16 @@ $__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);
 $dashboardItem = 0;
 
 # Documentation links
-if (dcCore::app()->auth->user_prefs->dashboard->doclinks) {
-    if (!empty(dcCore::app()->resources['doc'])) {
-        $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
+if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(dcCore::app()->resources['doc'])) {
+    $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
-        foreach (dcCore::app()->resources['doc'] as $k => $v) {
-            $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k .
-                ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
-        }
-
-        $doc_links .= '</ul></div>';
-        $__dashboard_items[$dashboardItem][] = $doc_links;  // @phpstan-ignore-line
-        $dashboardItem++;
+    foreach (dcCore::app()->resources['doc'] as $k => $v) {
+        $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
     }
+
+    $doc_links .= '</ul></div>';
+    $__dashboard_items[$dashboardItem][] = $doc_links;  // @phpstan-ignore-line
+    $dashboardItem++;
 }
 
 dcCore::app()->callBehavior('adminDashboardItems', dcCore::app(), $__dashboard_items);
@@ -222,7 +219,7 @@ if (dcCore::app()->auth->isSuperAdmin()) {
 }
 
 # Error list
-if (count($err) > 0) {
+if (count($err)) {
     echo '<div class="error"><p><strong>' . __('Error:') . '</strong></p>' .
     '<ul><li>' . implode('</li><li>', $err) . '</li></ul></div>';
 }
@@ -349,14 +346,13 @@ if (!dcCore::app()->auth->user_prefs->dashboard->nofavicons) {
     $dashboardIcons .= '</div>';
     $__dashboard_main[] = $dashboardIcons;
 }
-if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
-    if (dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
-        # Getting categories
-        $categories_combo = dcAdminCombos::getCategoriesCombo(
-            dcCore::app()->blog->getCategories([])
-        );
+if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+    # Getting categories
+    $categories_combo = dcAdminCombos::getCategoriesCombo(
+        dcCore::app()->blog->getCategories([])
+    );
 
-        $dashboardQuickEntry = '<div id="quick">' .
+    $__dashboard_main[] = '<div id="quick">' .
         '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', dcCore::app()->auth->getOption('post_format')) . '</h3>' .
         '<form id="quick-entry" action="' . dcCore::app()->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
         '<h4>' . __('New post') . '</h4>' .
@@ -396,8 +392,6 @@ if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
             '</p>' .
             '</form>' .
             '</div>';
-        $__dashboard_main[] = $dashboardQuickEntry;
-    }
 }
 if ($dashboardBoxes != '') {
     $__dashboard_main[] = '<div id="dashboard-boxes">' . $dashboardBoxes . '</div>';
