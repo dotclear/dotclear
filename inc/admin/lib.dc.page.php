@@ -332,7 +332,8 @@ class dcPage
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION);
 
         # --BEHAVIOR-- adminPageFooter
-        $textAlt = dcCore::app()->callBehavior('adminPageFooter', dcCore::app(), $text);
+        //$textAlt = dcCore::app()->callBehavior('adminPageFooter', dcCore::app(), $text);
+        $textAlt = dcCore::app()->callBehavior('adminPageFooterV2', $text);
         if ($textAlt != '') {
             $text = $textAlt;
         }

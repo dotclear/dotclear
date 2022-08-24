@@ -20,7 +20,8 @@ class dcCommentsActionsPage extends dcActionsPage
         $this->field_entries = 'comments';
         $this->cb_title      = __('Comments');
         $this->loadDefaults();
-        dcCore::app()->callBehavior('adminCommentsActionsPage', dcCore::app(), $this);
+        //dcCore::app()->callBehavior('adminCommentsActionsPage', dcCore::app(), $this);
+        dcCore::app()->callBehavior('adminCommentsActionsPageV2', $this);
     }
 
     protected function loadDefaults()

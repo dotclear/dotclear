@@ -25,7 +25,8 @@ class dcPostsActionsPage extends dcActionsPage
         // We could have added a behavior here, but we want default action
         // to be setup first
         dcDefaultPostActions::adminPostsActionsPage(dcCore::app(), $this);
-        dcCore::app()->callBehavior('adminPostsActionsPage', dcCore::app(), $this);
+        //dcCore::app()->callBehavior('adminPostsActionsPage', dcCore::app(), $this);
+        dcCore::app()->callBehavior('adminPostsActionsPageV2', $this);
     }
 
     public function beginPage($breadcrumb = '', $head = '')

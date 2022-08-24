@@ -218,8 +218,9 @@ class dcTemplate extends template
     public function getData(string $________): string
     {
         # --BEHAVIOR-- tplBeforeData
-        if (dcCore::app()->hasBehavior('tplBeforeData')) {
-            self::$_r = dcCore::app()->callBehavior('tplBeforeData', dcCore::app());
+        if (dcCore::app()->hasBehavior('tplBeforeData') || dcCore::app()->hasBehavior('tplBeforeDataV2')) {
+            //self::$_r = dcCore::app()->callBehavior('tplBeforeData', dcCore::app());
+            self::$_r = dcCore::app()->callBehavior('tplBeforeDataV2');
             if (self::$_r) {
                 return self::$_r;
             }
@@ -228,8 +229,9 @@ class dcTemplate extends template
         parent::getData($________);
 
         # --BEHAVIOR-- tplAfterData
-        if (dcCore::app()->hasBehavior('tplAfterData')) {
-            dcCore::app()->callBehavior('tplAfterData', dcCore::app(), self::$_r);
+        if (dcCore::app()->hasBehavior('tplAfterData') || dcCore::app()->hasBehavior('tplAfterDataV2')) {
+//            dcCore::app()->callBehavior('tplAfterData', dcCore::app(), self::$_r);
+            dcCore::app()->callBehavior('tplAfterDataV2', self::$_r);
         }
 
         return self::$_r;
@@ -240,15 +242,18 @@ class dcTemplate extends template
         $this->current_tag = $tag;
         $attr              = new ArrayObject($attr);
         # --BEHAVIOR-- templateBeforeBlock
-        $res = dcCore::app()->callBehavior('templateBeforeBlock', dcCore::app(), $this->current_tag, $attr);
+        //$res = dcCore::app()->callBehavior('templateBeforeBlock', dcCore::app(), $this->current_tag, $attr);
+        $res = dcCore::app()->callBehavior('templateBeforeBlockV2', $this->current_tag, $attr);
 
         # --BEHAVIOR-- templateInsideBlock
-        dcCore::app()->callBehavior('templateInsideBlock', dcCore::app(), $this->current_tag, $attr, [& $content]);
+        //dcCore::app()->callBehavior('templateInsideBlock', dcCore::app(), $this->current_tag, $attr, [& $content]);
+        dcCore::app()->callBehavior('templateInsideBlockV2', $this->current_tag, $attr, [& $content]);
 
         $res .= parent::compileBlockNode($this->current_tag, $attr, $content);
 
         # --BEHAVIOR-- templateAfterBlock
-        $res .= dcCore::app()->callBehavior('templateAfterBlock', dcCore::app(), $this->current_tag, $attr);
+        //$res .= dcCore::app()->callBehavior('templateAfterBlock', dcCore::app(), $this->current_tag, $attr);
+        $res .= dcCore::app()->callBehavior('templateAfterBlockV2', $this->current_tag, $attr);
 
         return $res;
     }
@@ -259,12 +264,14 @@ class dcTemplate extends template
 
         $attr = new ArrayObject($attr);
         # --BEHAVIOR-- templateBeforeValue
-        $res = dcCore::app()->callBehavior('templateBeforeValue', dcCore::app(), $this->current_tag, $attr);
+        //$res = dcCore::app()->callBehavior('templateBeforeValue', dcCore::app(), $this->current_tag, $attr);
+        $res = dcCore::app()->callBehavior('templateBeforeValueV2', $this->current_tag, $attr);
 
         $res .= parent::compileValueNode($this->current_tag, $attr, $str_attr);
 
         # --BEHAVIOR-- templateAfterValue
-        $res .= dcCore::app()->callBehavior('templateAfterValue', dcCore::app(), $this->current_tag, $attr);
+        //$res .= dcCore::app()->callBehavior('templateAfterValue', dcCore::app(), $this->current_tag, $attr);
+        $res .= dcCore::app()->callBehavior('templateAfterValueV2', $this->current_tag, $attr);
 
         return $res;
     }

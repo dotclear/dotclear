@@ -261,7 +261,8 @@ class dcModules
         }
 
         // Give opportunity to do something before loading context (admin,public,xmlrpc) files
-        dcCore::app()->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $this, $lang);
+        //dcCore::app()->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $this, $lang);
+        dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
         foreach ($this->modules as $id => $m) {
             # If _prepend.php file returns null (ie. it has a void return statement)

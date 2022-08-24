@@ -51,7 +51,8 @@ class dcPagesActionsPage extends dcPostsActionsPage
     {
         DefaultPagesActions::adminPagesActionsPage(dcCore::app(), $this);
         $this->actions['reorder'] = ['dcPagesActionsPage', 'doReorderPages'];
-        dcCore::app()->callBehavior('adminPagesActionsPage', dcCore::app(), $this);
+        //dcCore::app()->callBehavior('adminPagesActionsPage', dcCore::app(), $this);
+        dcCore::app()->callBehavior('adminPagesActionsPageV2', $this);
     }
     public function process()
     {

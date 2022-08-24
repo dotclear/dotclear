@@ -119,7 +119,8 @@ if (!dcCore::app()->error->flag()) {
         '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
 
         # --BEHAVIOR-- adminCommentsSpamForm
-        dcCore::app()->callBehavior('adminCommentsSpamForm', dcCore::app());
+        //dcCore::app()->callBehavior('adminCommentsSpamForm', dcCore::app());
+        dcCore::app()->callBehavior('adminCommentsSpamForm');
 
         echo '</form>';
     }

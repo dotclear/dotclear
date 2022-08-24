@@ -37,7 +37,8 @@ if ($list->setConfiguration()) {
         __('Plugins management'),
 
         # --BEHAVIOR-- pluginsToolsHeaders
-        dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), true),
+//        dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), true),
+        dcCore::app()->callBehavior('pluginsToolsHeadersV2', true),
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name)                          => '',
@@ -79,7 +80,8 @@ dcPage::open(
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- pluginsToolsHeaders
-    dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), false),
+    //dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), false),
+    dcCore::app()->callBehavior('pluginsToolsHeadersV2', false),
     dcPage::breadcrumb(
         [
             __('System')             => '',
@@ -255,7 +257,8 @@ if (dcCore::app()->auth->isSuperAdmin() && $list->isWritablePath()) {
 }
 
 # --BEHAVIOR-- pluginsToolsTabs
-dcCore::app()->callBehavior('pluginsToolsTabs', dcCore::app());
+//dcCore::app()->callBehavior('pluginsToolsTabs', dcCore::app());
+dcCore::app()->callBehavior('pluginsToolsTabsV2');
 
 # -- Notice for super admin --
 if (dcCore::app()->auth->isSuperAdmin() && !$list->isWritablePath()) {

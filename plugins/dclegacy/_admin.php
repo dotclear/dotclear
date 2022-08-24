@@ -35,14 +35,16 @@ class dcLegacyPosts
 
     public static function onActionLegacy(dcCore $core, dcPostsActionsPage $as, $post)
     {
-        dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
+        //dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
+        dcCore::app()->callBehavior('adminPostsActionsV2', $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
             '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
             dcCore::app()->callBehavior('adminPostsActionsHeaders')
         );
-        dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
+        //dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
+        dcCore::app()->callBehavior('adminPostsActionsContentV2', $as->getAction(), $as->getHiddenFields(true));
         $as->endPage();
     }
 }
@@ -73,7 +75,8 @@ class dcLegacyComments
             dcCore::app()->callBehavior('adminCommentsActionsHeaders')
         );
         ob_start();
-        dcCore::app()->callBehavior('adminCommentsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
+        //dcCore::app()->callBehavior('adminCommentsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
+        dcCore::app()->callBehavior('adminCommentsActionsContentV2', $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
         ob_end_clean();
         $res = str_replace('comments_actions.php', $as->getURI(), $res);
@@ -99,7 +102,8 @@ class dcLegacyPages
 
     public static function onActionLegacy(dcCore $core, dcPagesActionsPage $as, $post)
     {
-        dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
+        //dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
+        dcCore::app()->callBehavior('adminPostsActionsV2', $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
             '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
@@ -107,7 +111,8 @@ class dcLegacyPages
             dcCore::app()->callBehavior('adminPostsActionsHeaders')
         );
         ob_start();
-        dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
+        //dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
+        dcCore::app()->callBehavior('adminPostsActionsContentV2', $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
         ob_end_clean();
         $res = str_replace('posts_actions.php', 'plugin.php', $res);

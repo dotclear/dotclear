@@ -30,7 +30,8 @@ function listImportExportModules(dcCore $core, $modules)
 $modules = new ArrayObject(['import' => [], 'export' => []]);
 
 # --BEHAVIOR-- importExportModules
-dcCore::app()->callBehavior('importExportModules', $modules, dcCore::app());
+//dcCore::app()->callBehavior('importExportModules', $modules, dcCore::app());
+dcCore::app()->callBehavior('importExportModulesV2', $modules);
 
 $type = null;
 if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'])) {

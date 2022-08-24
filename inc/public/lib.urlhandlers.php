@@ -67,7 +67,8 @@ class dcUrlHandlers extends urlHandler
         echo dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl);
 
         # --BEHAVIOR-- publicAfterDocument
-        dcCore::app()->callBehavior('publicAfterDocument', dcCore::app());
+        //dcCore::app()->callBehavior('publicAfterDocument', dcCore::app());
+        dcCore::app()->callBehavior('publicAfterDocumentV2');
         exit;
     }
 
@@ -654,7 +655,8 @@ class dcUrlHandlers extends urlHandler
             $args['type']    = 'trackback';
 
             # --BEHAVIOR-- publicBeforeReceiveTrackback
-            dcCore::app()->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
+            //dcCore::app()->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
+            dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
             $tb = new dcTrackback(dcCore::app());
             $tb->receiveTrackback($post_id);
@@ -670,7 +672,8 @@ class dcUrlHandlers extends urlHandler
         $args['type'] = 'webmention';
 
         # --BEHAVIOR-- publicBeforeReceiveTrackback
-        dcCore::app()->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
+        //dcCore::app()->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
+        dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
         $tb = new dcTrackback(dcCore::app());
         $tb->receiveWebmention();

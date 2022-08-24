@@ -434,7 +434,8 @@ class adminPostFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminPostFilter
-        dcCore::app()->callBehavior('adminPostFilter', dcCore::app(), $filters);
+        //dcCore::app()->callBehavior('adminPostFilter', dcCore::app(), $filters);
+        dcCore::app()->callBehavior('adminPostFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -729,7 +730,8 @@ class adminCommentFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminCommentFilter
-        dcCore::app()->callBehavior('adminCommentFilter', dcCore::app(), $filters);
+        //dcCore::app()->callBehavior('adminCommentFilter', dcCore::app(), $filters);
+        dcCore::app()->callBehavior('adminCommentFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -811,7 +813,8 @@ class adminUserFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminUserFilter
-        dcCore::app()->callBehavior('adminUserFilter', dcCore::app(), $filters);
+        //dcCore::app()->callBehavior('adminUserFilter', dcCore::app(), $filters);
+        dcCore::app()->callBehavior('adminUserFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -832,7 +835,8 @@ class adminBlogFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminBlogFilter
-        dcCore::app()->callBehavior('adminBlogFilter', dcCore::app(), $filters);
+        //dcCore::app()->callBehavior('adminBlogFilter', dcCore::app(), $filters);
+        dcCore::app()->callBehavior('adminBlogFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -877,8 +881,9 @@ class adminMediaFilter extends adminGenericFilter
             $this->getSelectFilter(),
         ]);
 
-        # --BEHAVIOR-- adminBlogFilter
-        dcCore::app()->callBehavior('adminMediaFilter', dcCore::app(), $filters);
+        # --BEHAVIOR-- adminMediaFilter
+        //dcCore::app()->callBehavior('adminMediaFilter', dcCore::app(), $filters);
+        dcCore::app()->callBehavior('adminMediaFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

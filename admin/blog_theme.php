@@ -63,7 +63,8 @@ if ($list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
         dcPage::jsPageTabs() .
 
         # --BEHAVIOR-- themesToolsHeaders
-        dcCore::app()->callBehavior('themesToolsHeaders', dcCore::app(), true),
+        //dcCore::app()->callBehavior('themesToolsHeaders', dcCore::app(), true),
+        dcCore::app()->callBehavior('themesToolsHeadersV2', true),
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name)                         => '',
@@ -97,7 +98,8 @@ dcPage::open(
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- themesToolsHeaders
-    dcCore::app()->callBehavior('themesToolsHeaders', dcCore::app(), false),
+    //dcCore::app()->callBehavior('themesToolsHeaders', dcCore::app(), false),
+    dcCore::app()->callBehavior('themesToolsHeadersV2', false),
     dcPage::breadcrumb(
         [
             html::escapeHTML(dcCore::app()->blog->name)                     => '',
@@ -246,7 +248,8 @@ if (dcCore::app()->auth->isSuperAdmin() && $list->isWritablePath()) {
 }
 
 # --BEHAVIOR-- themesToolsTabs
-dcCore::app()->callBehavior('themesToolsTabs', dcCore::app());
+//dcCore::app()->callBehavior('themesToolsTabs', dcCore::app());
+dcCore::app()->callBehavior('themesToolsTabsV2');
 
 # -- Notice for super admin --
 if (dcCore::app()->auth->isSuperAdmin() && !$list->isWritablePath()) {

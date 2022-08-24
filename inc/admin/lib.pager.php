@@ -268,7 +268,8 @@ class adminPostList extends adminGenericList
                 'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
             $cols = new ArrayObject($cols);
-            dcCore::app()->callBehavior('adminPostListHeader', dcCore::app(), $this->rs, $cols);
+            //dcCore::app()->callBehavior('adminPostListHeader', dcCore::app(), $this->rs, $cols);
+            dcCore::app()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -400,7 +401,8 @@ class adminPostList extends adminGenericList
             'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
         ];
         $cols = new ArrayObject($cols);
-        dcCore::app()->callBehavior('adminPostListValue', dcCore::app(), $this->rs, $cols);
+        //dcCore::app()->callBehavior('adminPostListValue', dcCore::app(), $this->rs, $cols);
+        dcCore::app()->callBehavior('adminPostListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);
@@ -439,7 +441,8 @@ class adminPostMiniList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            dcCore::app()->callBehavior('adminPostMiniListHeader', dcCore::app(), $this->rs, $cols);
+            //dcCore::app()->callBehavior('adminPostMiniListHeader', dcCore::app(), $this->rs, $cols);
+            dcCore::app()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -529,7 +532,8 @@ class adminPostMiniList extends adminGenericList
         ];
 
         $cols = new ArrayObject($cols);
-        dcCore::app()->callBehavior('adminPostMiniListValue', dcCore::app(), $this->rs, $cols);
+        //dcCore::app()->callBehavior('adminPostMiniListValue', dcCore::app(), $this->rs, $cols);
+        dcCore::app()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);
@@ -640,7 +644,8 @@ class adminCommentList extends adminGenericList
             $cols['entry'] = '<th scope="col" abbr="entry">' . __('Entry') . '</th>';
 
             $cols = new ArrayObject($cols);
-            dcCore::app()->callBehavior('adminCommentListHeader', dcCore::app(), $this->rs, $cols);
+            //dcCore::app()->callBehavior('adminCommentListHeader', dcCore::app(), $this->rs, $cols);
+            dcCore::app()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
 
@@ -764,7 +769,8 @@ class adminCommentList extends adminGenericList
             ($this->rs->post_type != 'post' ? ' (' . html::escapeHTML($this->rs->post_type) . ')' : '') . '</td>';
 
         $cols = new ArrayObject($cols);
-        dcCore::app()->callBehavior('adminCommentListValue', dcCore::app(), $this->rs, $cols);
+        //dcCore::app()->callBehavior('adminCommentListValue', dcCore::app(), $this->rs, $cols);
+        dcCore::app()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
 
         $res .= implode(iterator_to_array($cols));
         $res .= '</tr>';
@@ -813,7 +819,8 @@ class adminBlogList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            dcCore::app()->callBehavior('adminBlogListHeader', dcCore::app(), $this->rs, $cols);
+            //dcCore::app()->callBehavior('adminBlogListHeader', dcCore::app(), $this->rs, $cols);
+            dcCore::app()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
 
             $html_block = '<div class="table-outer"><table>' .
             (
@@ -903,7 +910,8 @@ class adminBlogList extends adminGenericList
         ];
 
         $cols = new ArrayObject($cols);
-        dcCore::app()->callBehavior('adminBlogListValue', dcCore::app(), $this->rs, $cols);
+        //dcCore::app()->callBehavior('adminBlogListValue', dcCore::app(), $this->rs, $cols);
+        dcCore::app()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
 
         return
         '<tr class="line" id="b' . $blog_id . '">' .
@@ -951,7 +959,8 @@ class adminUserList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            dcCore::app()->callBehavior('adminUserListHeader', dcCore::app(), $this->rs, $cols);
+            //dcCore::app()->callBehavior('adminUserListHeader', dcCore::app(), $this->rs, $cols);
+            dcCore::app()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
             if ($enclose_block) {
@@ -1018,7 +1027,8 @@ class adminUserList extends adminGenericList
         ];
 
         $cols = new ArrayObject($cols);
-        dcCore::app()->callBehavior('adminUserListValue', dcCore::app(), $this->rs, $cols);
+        //dcCore::app()->callBehavior('adminUserListValue', dcCore::app(), $this->rs, $cols);
+        dcCore::app()->callBehavior('adminUserListValueV2', $this->rs, $cols);
 
         $res .= implode(iterator_to_array($cols));
         $res .= '</tr>';

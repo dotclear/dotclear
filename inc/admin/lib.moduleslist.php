@@ -1752,7 +1752,8 @@ class adminThemesList extends adminModulesList
                 }
 
                 # --BEHAVIOR-- adminCurrentThemeDetails
-                $line .= dcCore::app()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $module);
+                //$line .= dcCore::app()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $module);
+                $line .= dcCore::app()->callBehavior('adminCurrentThemeDetailsV2', $id, $module);
 
                 $line .= '</div>';
             }
