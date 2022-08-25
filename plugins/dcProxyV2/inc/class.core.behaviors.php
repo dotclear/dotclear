@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-// Public behaviours
+// Core behaviours
 
 class dcProxyV2CoreBehaviors
 {

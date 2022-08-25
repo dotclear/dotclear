@@ -12,33 +12,28 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-// Load core stuff
+class dcProxyV2
+{
+    public const SUFFIX = 'V2';
 
-$__autoload['dcProxyV2CoreBehaviors'] = __DIR__ . '/inc/class.core.behaviors.php';
+    public static function loadBehaviors(string $class, string $file)
+    {
+        global $__autoload;
 
-$reflectionCore = new ReflectionClass('dcProxyV2CoreBehaviors');
-foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-    dcCore::app()->addBehavior($method->name . 'V2', [$method->class, $method->name]);
+        $__autoload[$class] = $file;
+
+        $reflectionCore = new ReflectionClass($class);
+        foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
+            dcCore::app()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
+        }
+    }
 }
 
-// Load public stuff
-
-$__autoload['dcProxyV2PublicBehaviors'] = __DIR__ . '/inc/class.public.behaviors.php';
-
-$reflectionPublic = new ReflectionClass('dcProxyV2PublicBehaviors');
-foreach ($reflectionPublic->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-    dcCore::app()->addBehavior($method->name . 'V2', [$method->class, $method->name]);
-}
+dcProxyV2::loadBehaviors('dcProxyV2CoreBehaviors', __DIR__ . '/inc/class.core.behaviors.php');  // Load core stuff
+dcProxyV2::loadBehaviors('dcProxyV2PublicBehaviors', __DIR__ . '/inc/class.public.behaviors.php');  // Load public stuff
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return false;
 }
 
-// Load admin stuff
-
-$__autoload['dcProxyV2AdminBehaviors'] = __DIR__ . '/inc/class.admin.behaviors.php';
-
-$reflectionAdmin = new ReflectionClass('dcProxyV2AdminBehaviors');
-foreach ($reflectionAdmin->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-    dcCore::app()->addBehavior($method->name . 'V2', [$method->class, $method->name]);
-}
+dcProxyV2::loadBehaviors('dcProxyV2AdminBehaviors', __DIR__ . '/inc/class.admin.behaviors.php');  // Load admin stuff
