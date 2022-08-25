@@ -31,10 +31,8 @@ class dcSpamFilter
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
         $this->core = dcCore::app();
         $this->setInfo();

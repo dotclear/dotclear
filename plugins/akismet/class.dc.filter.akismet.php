@@ -19,9 +19,9 @@ class dcFilterAkismet extends dcSpamFilter
     public $active  = false;
     public $help    = 'akismet-filter';
 
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app());
+        parent::__construct();
 
         if (defined('DC_AKISMET_SUPER') && DC_AKISMET_SUPER && !dcCore::app()->auth->isSuperAdmin()) {
             $this->has_gui = false;

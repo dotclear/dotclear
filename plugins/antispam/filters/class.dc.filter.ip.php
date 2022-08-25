@@ -21,9 +21,9 @@ class dcFilterIP extends dcSpamFilter
     private $con;
     private $table;
 
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app());
+        parent::__construct();
         $this->con   = dcCore::app()->con;
         $this->table = dcCore::app()->prefix . 'spamrule';
     }

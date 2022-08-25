@@ -19,11 +19,6 @@ class dcFilterFairTrackbacks extends dcSpamFilter
     public $active  = true;
     public $order   = -10;
 
-    public function __construct(dcCore $core = null)
-    {
-        parent::__construct(dcCore::app());
-    }
-
     protected function setInfo()
     {
         $this->description = __('Checks trackback source for a link to the post');

@@ -43,7 +43,7 @@ $changes = $si->synchronize($s);
 
 # Creating default wordslist
 if (dcCore::app()->getVersion('antispam') === null) {
-    $_o = new dcFilterWords(dcCore::app());
+    $_o = new dcFilterWords();
     $_o->defaultWordsList();
     unset($_o);
 }

@@ -20,9 +20,9 @@ class dcFilterIpLookup extends dcSpamFilter
 
     private $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app());
+        parent::__construct();
 
         if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !dcCore::app()->auth->isSuperAdmin()) {
             $this->has_gui = false;

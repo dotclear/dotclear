@@ -237,16 +237,13 @@ class dcDefaultCommentActions
 
         $rs = $ap->getRS();
 
-        $ip_filter_v4 = new dcFilterIP(dcCore::app());
-        $ip_filter_v6 = new dcFilterIPv6(dcCore::app());
-
         while ($rs->fetch()) {
             if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
                 // IP is an IPv6
-                $ip_filter_v6->addIP('blackv6', $rs->comment_ip, $global);
+                (new dcFilterIPv6())->addIP('blackv6', $rs->comment_ip, $global);
             } else {
                 // Assume that IP is IPv4
-                $ip_filter_v4->addIP('black', $rs->comment_ip, $global);
+                (new dcFilterIP())->addIP('black', $rs->comment_ip, $global);
             }
         }
 
