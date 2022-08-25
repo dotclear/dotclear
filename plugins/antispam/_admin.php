@@ -57,7 +57,8 @@ dcCore::app()->addBehavior(
 );
 
 if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
-    dcCore::app()->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
+    //dcCore::app()->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
+    dcCore::app()->addBehavior('adminBlogPreferencesFormV2', ['antispamBehaviors', 'adminBlogPreferencesForm']);
     dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['antispamBehaviors', 'adminBeforeBlogSettingsUpdate']);
     dcCore::app()->addBehavior('adminCommentsSpamForm', ['antispamBehaviors', 'adminCommentsSpamForm']);
     dcCore::app()->addBehavior('adminPageHelpBlock', ['antispamBehaviors', 'adminPageHelpBlock']);
@@ -92,7 +93,8 @@ class antispamBehaviors
         }
     }
 
-    public static function adminBlogPreferencesForm(dcCore $core, $settings)
+    //public static function adminBlogPreferencesForm(dcCore $core, $settings)
+    public static function adminBlogPreferencesForm($settings)
     {
         $ttl = $settings->antispam->antispam_moderation_ttl;
         echo
