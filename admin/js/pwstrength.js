@@ -31,7 +31,6 @@ dotclear.passwordStrength = (opts) => {
         }
         if (repeated) {
           i += rLen - 1;
-          repeated = false;
         } else {
           res += str.charAt(i);
         }
@@ -46,7 +45,7 @@ dotclear.passwordStrength = (opts) => {
     score += checkRepetition(3, password).length - password.length;
     score += checkRepetition(4, password).length - password.length;
     // password has 3 numbers
-    if (password.match(/(.*[0-9].*[0-9].*[0-9])/)) {
+    if (password.match(/(.*\d.*\d.*\d)/)) {
       score += 5;
     }
     // password has at least 2 symbols
@@ -58,11 +57,11 @@ dotclear.passwordStrength = (opts) => {
       score += 10;
     }
     // password has number and chars
-    if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) {
+    if (password.match(/([a-zA-Z])/) && password.match(/(\d)/)) {
       score += 15;
     }
     // password has number and symbol
-    if (password.match(check) && password.match(/([0-9])/)) {
+    if (password.match(check) && password.match(/(\d)/)) {
       score += 15;
     }
     // password has char and symbol
