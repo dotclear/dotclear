@@ -478,7 +478,7 @@ class dcUpdate
         $changes = [];
 
         foreach ($contents as $digest) {
-            if (!preg_match('#^([\da-f]{32})\s+(.+)$#', $digest, $m)) {
+            if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
                 continue;
             }
 
@@ -501,7 +501,7 @@ class dcUpdate
 
     protected function parseLine(&$v, $k, $n)
     {
-        if (!preg_match('#^([\da-f]{32})\s+(.+)$#', $v, $m)) {
+        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $v, $m)) {
             return;
         }
 
