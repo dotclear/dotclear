@@ -337,14 +337,6 @@ if (isset($__top_behaviors) && is_array($__top_behaviors)) {
 
 http::trimRequest();
 
-try {
-    http::unsetGlobals();
-} catch (Exception $e) {
-    header('Content-Type: text/plain');
-    echo $e->getMessage();
-    exit;
-}
-
 dcCore::app()->url->registerDefault(['dcUrlHandlers', 'home']);
 dcCore::app()->url->registerError(['dcUrlHandlers', 'default404']);
 dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
