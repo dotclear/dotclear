@@ -16,6 +16,6 @@ dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', ['urlTags', 'tag']);
 dcCore::app()->url->register('tags', 'tags', '^tags$', ['urlTags', 'tags']);
 dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', ['urlTags', 'tagFeed']);
 
-$__autoload['tagsBehaviors'] = __DIR__ . '/inc/tags.behaviors.php';
+Clearbricks::lib()->autoload(['tagsBehaviors' => __DIR__ . '/inc/tags.behaviors.php']);
 
 dcCore::app()->addBehavior('coreInitWikiPost', ['tagsBehaviors', 'coreInitWikiPost']);

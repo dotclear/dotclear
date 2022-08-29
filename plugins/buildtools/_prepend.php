@@ -8,4 +8,8 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-$__autoload['dcMaintenanceBuildtools'] = __DIR__ . '/class.dc.maintenance.buildtools.php';
+if (!defined('DC_RC_PATH')) {
+    return;
+}
+
+Clearbricks::lib()->autoload(['dcMaintenanceBuildtools' => __DIR__ . '/class.dc.maintenance.buildtools.php']);

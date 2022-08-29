@@ -12,19 +12,24 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcIeModule'] = __DIR__ . '/inc/class.dc.ieModule.php';
+Clearbricks::lib()->autoload([
+    'dcIeModule' => __DIR__ . '/inc/class.dc.ieModule.php',
 
-$__autoload['dcImportFlat'] = __DIR__ . '/inc/class.dc.import.flat.php';
-$__autoload['dcImportFeed'] = __DIR__ . '/inc/class.dc.import.feed.php';
+    'dcImportFlat' => __DIR__ . '/inc/class.dc.import.flat.php',
+    'dcImportFeed' => __DIR__ . '/inc/class.dc.import.feed.php',
 
-$__autoload['dcExportFlat'] = __DIR__ . '/inc/class.dc.export.flat.php';
+    'dcExportFlat' => __DIR__ . '/inc/class.dc.export.flat.php',
 
-$__autoload['dcImportDC1'] = __DIR__ . '/inc/class.dc.import.dc1.php';
-$__autoload['dcImportWP']  = __DIR__ . '/inc/class.dc.import.wp.php';
+    'dcImportDC1' => __DIR__ . '/inc/class.dc.import.dc1.php',
+    'dcImportWP'  => __DIR__ . '/inc/class.dc.import.wp.php',
 
-$__autoload['flatBackup'] = __DIR__ . '/inc/flat/class.flat.backup.php';
-$__autoload['flatImport'] = __DIR__ . '/inc/flat/class.flat.import.php';
-$__autoload['flatExport'] = __DIR__ . '/inc/flat/class.flat.export.php';
+    'flatBackup' => __DIR__ . '/inc/flat/class.flat.backup.php',
+    'flatImport' => __DIR__ . '/inc/flat/class.flat.import.php',
+    'flatExport' => __DIR__ . '/inc/flat/class.flat.export.php',
+
+    'ieMaintenanceExportblog' => __DIR__ . '/inc/lib.ie.maintenance.php',
+    'ieMaintenanceExportfull' => __DIR__ . '/inc/lib.ie.maintenance.php',
+]);
 
 dcCore::app()->addBehavior('importExportModules', 'registerIeModules');
 
@@ -40,6 +45,3 @@ function registerIeModules($modules)
         $modules['import'] = array_merge($modules['import'], ['dcImportWP']);
     }
 }
-
-$__autoload['ieMaintenanceExportblog'] = __DIR__ . '/inc/lib.ie.maintenance.php';
-$__autoload['ieMaintenanceExportfull'] = __DIR__ . '/inc/lib.ie.maintenance.php';

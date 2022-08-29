@@ -12,7 +12,9 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['pingsAPI']           = __DIR__ . '/lib.pings.php';
-$__autoload['pingsCoreBehaviour'] = __DIR__ . '/lib.pings.php';
+Clearbricks::lib()->autoload([
+    'pingsAPI'           => __DIR__ . '/lib.pings.php',
+    'pingsCoreBehaviour' => __DIR__ . '/lib.pings.php',
+]);
 
 dcCore::app()->addBehavior('coreFirstPublicationEntries', ['pingsCoreBehaviour', 'doPings']);

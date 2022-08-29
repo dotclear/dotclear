@@ -12,5 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcLegacyEditorBehaviors'] = __DIR__ . '/inc/dc.legacy.editor.behaviors.php';
-$__autoload['dcLegacyEditorRest']      = __DIR__ . '/_services.php';
+Clearbricks::lib()->autoload([
+    'dcLegacyEditorBehaviors' => __DIR__ . '/inc/dc.legacy.editor.behaviors.php',
+    'dcLegacyEditorRest'      => __DIR__ . '/_services.php',
+]);

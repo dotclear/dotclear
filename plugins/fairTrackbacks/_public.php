@@ -13,6 +13,6 @@ if (!defined('DC_RC_PATH')) {
 }
 
 if (DC_FAIRTRACKBACKS_FORCE) {
-    $__autoload['dcFilterFairTrackbacks'] = __DIR__ . '/class.dc.filter.fairtrackbacks.php';
-    dcCore::app()->spamfilters[]          = 'dcFilterFairTrackbacks';
+    Clearbricks::lib()->autoload(['dcFilterFairTrackbacks' => __DIR__ . '/class.dc.filter.fairtrackbacks.php']);
+    dcCore::app()->spamfilters[] = 'dcFilterFairTrackbacks';
 }

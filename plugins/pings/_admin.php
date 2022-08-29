@@ -20,7 +20,7 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     dcCore::app()->auth->isSuperAdmin()
 );
 
-$__autoload['pingsAdminBehaviors'] = __DIR__ . '/lib.pings.php';
+Clearbricks::lib()->autoload(['pingsAdminBehaviors' => __DIR__ . '/lib.pings.php']);
 
 dcCore::app()->addBehavior('adminPostHeaders', ['pingsAdminBehaviors', 'pingJS']);
 dcCore::app()->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems']);

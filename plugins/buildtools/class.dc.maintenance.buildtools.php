@@ -37,7 +37,7 @@ class l10nFaker
 {
     protected $bundled_plugins;
 
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
         $this->bundled_plugins = explode(',', DC_DISTRIB_PLUGINS);
         dcCore::app()->media   = new dcMedia(dcCore::app());
@@ -49,10 +49,7 @@ class l10nFaker
     }
     public function generate_file()
     {
-        global $__autoload;
-
-        $main   = "<?php\n";
-        $plugin = "<?php\n";
+        $main = $plugin = "<?php\n";
         $main .= "# Media sizes\n\n";
         foreach (dcCore::app()->media->thumb_sizes as $v) {
             $main .= $this->fake_l10n($v[2]);
@@ -70,7 +67,7 @@ class l10nFaker
                 $main .= $this->fake_l10n($fav['title']);
             }
         }
-        file_put_contents(dirname($__autoload['dcCore']) . '/_fake_l10n.php', $main);
+        file_put_contents(Clearbricks::lib()->autoloadSource('dcCore') . '/_fake_l10n.php', $main);
         $plugin .= "\n# Plugin names\n\n";
         foreach ($this->bundled_plugins as $id) {
             $p = dcCore::app()->plugins->getModules($id);

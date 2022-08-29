@@ -12,8 +12,10 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcPagesActionsPage'] = __DIR__ . '/class.actionpage.php';
-$__autoload['adminPagesList']     = __DIR__ . '/class.listpage.php';
+Clearbricks::lib()->autoload([
+    'dcPagesActionsPage' => __DIR__ . '/class.actionpage.php',
+    'adminPagesList'     => __DIR__ . '/class.listpage.php',
+]);
 
 dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', ['urlPages', 'pages']);
 dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', ['urlPages', 'pagespreview']);
