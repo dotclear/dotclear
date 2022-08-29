@@ -43,7 +43,6 @@ class attachmentTpl
         'dcCore::app()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(dcCore::app()->ctx->posts->post_id,null,"attachment"));' . "\n" .
         "?>\n" .
         '<?php foreach (dcCore::app()->ctx->attachments as $attach_i => $attach_f) : ' .
-        '$GLOBALS[\'attach_i\'] = $attach_i; $GLOBALS[\'attach_f\'] = $attach_f;' .
         'dcCore::app()->ctx->file_url = $attach_f->file_url; ?>' .
         $content .
         '<?php endforeach; dcCore::app()->ctx->attachments = null; unset($attach_i,$attach_f,dcCore::app()->ctx->file_url); ?>' .
