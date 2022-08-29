@@ -49,36 +49,32 @@ class l10nFaker
     }
     public function generate_file()
     {
-        $main = $plugin = "<?php\n";
-        $main .= "# Media sizes\n\n";
+        $main = $plugin = "<?php\n" . '// Generated on ' . dt::dt2str('%Y-%m-%d %H:%M %z', time(), dcCore::app()->auth->getInfo('user_tz')) . "\n";
+
+        $main .= "\n// Media sizes\n\n";
         foreach (dcCore::app()->media->thumb_sizes as $v) {
             $main .= $this->fake_l10n($v[2]);
         }
         $post_types = dcCore::app()->getPostTypes();
-        $main .= "\n# Post types\n\n";
+        $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v['label']);
         }
-        $ws = dcCore::app()->auth->user_prefs->favorites; // Favs old school !
-        if ($ws) {
-            $main .= "\n# Favorites\n\n";
-            foreach ($ws->dumpPrefs() as $v) {
-                $fav = unserialize($v['value']);
-                $main .= $this->fake_l10n($fav['title']);
-            }
-        }
-        file_put_contents(Clearbricks::lib()->autoloadSource('dcCore') . '/_fake_l10n.php', $main);
-        $plugin .= "\n# Plugin names\n\n";
+        file_put_contents(dirname(Clearbricks::lib()->autoloadSource('dcCore')) . '/_fake_l10n.php', $main);
+
+        $plugin .= "\n// Plugin names\n\n";
         foreach ($this->bundled_plugins as $id) {
             $p = dcCore::app()->plugins->getModules($id);
             $plugin .= $this->fake_l10n($p['desc']);
         }
-        $plugin .= "\n# Widget settings names\n\n";
+        $plugin .= "\n// Widget settings names\n\n";
         $widgets = dcCore::app()->widgets->elements();
         foreach ($widgets as $w) {
             $plugin .= $this->fake_l10n($w->desc());
         }
-        mkdir(__DIR__ . '/../_fake_plugin');
+        if (!is_dir(__DIR__ . '/../_fake_plugin')) {
+            mkdir(__DIR__ . '/../_fake_plugin');
+        }
         file_put_contents(__DIR__ . '/../_fake_plugin/_fake_l10n.php', $plugin);
     }
 }
