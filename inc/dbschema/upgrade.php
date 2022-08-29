@@ -1003,6 +1003,37 @@ class dcUpgrade
             }
         }
 
+        if (version_compare($version, '2.24', '<')) {
+            // A bit of housecleaning for no longer needed files
+            $remfiles = [
+                'admin/images/media/audio.png',
+                'admin/images/media/blank.png',
+                'admin/images/media/document.png',
+                'admin/images/media/executable.png',
+                'admin/images/media/folder-up.png',
+                'admin/images/media/folder.png',
+                'admin/images/media/html.png',
+                'admin/images/media/image.png',
+                'admin/images/media/package.png',
+                'admin/images/media/presentation.png',
+                'admin/images/media/spreadsheet.png',
+                'admin/images/media/text.png',
+                'admin/images/media/video.png',
+                'inc/clearbricks/common/_main.php',
+                'inc/clearbricks/ext/incutio.ixr_library.php',
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
+            // A bit of housecleaning for no longer needed folders
+            $remfolders = [
+                'inc/clearbricks/ext',
+            ];
+            foreach ($remfolders as $f) {
+                @rmdir(DC_ROOT . '/' . $f);
+            }
+        }
+
         dcCore::app()->setVersion('core', DC_VERSION);
         dcCore::app()->blogDefaults();
 
