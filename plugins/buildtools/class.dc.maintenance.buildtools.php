@@ -26,7 +26,7 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
         $widget = dcCore::app()->plugins->getModules('widgets');
         include $widget['root'] . '/_default_widgets.php';
 
-        $faker = new l10nFaker(dcCore::app());
+        $faker = new l10nFaker();
         $faker->generate_file();
 
         return true;

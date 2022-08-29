@@ -1020,6 +1020,14 @@ class dcUpgrade
                 'admin/images/media/text.png',
                 'admin/images/media/video.png',
                 'inc/clearbricks/common/_main.php',
+                'inc/clearbricks/debian/changelog',
+                'inc/clearbricks/debian/compat',
+                'inc/clearbricks/debian/control',
+                'inc/clearbricks/debian/copyright',
+                'inc/clearbricks/debian/dirs',
+                'inc/clearbricks/debian/docs',
+                'inc/clearbricks/debian/mkdcl.php',
+                'inc/clearbricks/debian/rules',
                 'inc/clearbricks/ext/incutio.ixr_library.php',
             ];
             foreach ($remfiles as $f) {
@@ -1027,6 +1035,7 @@ class dcUpgrade
             }
             // A bit of housecleaning for no longer needed folders
             $remfolders = [
+                'inc/clearbricks/debian',
                 'inc/clearbricks/ext',
             ];
             foreach ($remfolders as $f) {
