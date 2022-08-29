@@ -20,7 +20,7 @@ class dcProxyV2
     {
         global $__autoload;
 
-        $__autoload[$class] = $file;
+        Clearbricks::lib()->autoload([$class => $file]);
 
         $reflectionCore = new ReflectionClass($class);
         foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
