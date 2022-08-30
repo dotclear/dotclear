@@ -1138,7 +1138,6 @@ class dcBlog
             if (!empty($words)) {
                 # --BEHAVIOR-- corePostSearch
                 if (dcCore::app()->hasBehavior('corePostSearch')) {
-                    //dcCore::app()->callBehavior('corePostSearch', dcCore::app(), [&$words, &$params, $sql]);
                     dcCore::app()->callBehavior('corePostSearchV2', [&$words, &$params, $sql]);
                 }
 
@@ -2399,7 +2398,6 @@ class dcBlog
             if (!empty($words)) {
                 # --BEHAVIOR coreCommentSearch
                 if (dcCore::app()->hasBehavior('coreCommentSearch')) {
-                    //dcCore::app()->callBehavior('coreCommentSearch', dcCore::app(), [&$words, &$sql, &$params]);
                     dcCore::app()->callBehavior('coreCommentSearchV2', [&$words, &$sql, &$params]);
                 }
 

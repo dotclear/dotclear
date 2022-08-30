@@ -76,7 +76,6 @@ class dcFavorites
     {
         defaultFavorites::initDefaultFavorites(dcCore::app(), $this);
         $this->legacyFavorites();
-        //dcCore::app()->callBehavior('adminDashboardFavorites', dcCore::app(), $this);
         dcCore::app()->callBehavior('adminDashboardFavoritesV2', $this);
         $this->setUserPrefs();
     }
@@ -225,7 +224,6 @@ class dcFavorites
     protected function legacyFavorites()
     {
         $f = new ArrayObject();
-        //dcCore::app()->callBehavior('adminDashboardFavs', dcCore::app(), $f);
         dcCore::app()->callBehavior('adminDashboardFavsV2', $f);
         foreach ($f as $k => $v) {
             $fav = [
@@ -349,7 +347,6 @@ class dcFavorites
                 call_user_func($v['dashboard_cb'], dcCore::app(), $v);
             }
             $icons[$k] = new ArrayObject([$v['title'], $v['url'], $v['large-icon']]);
-            //dcCore::app()->callBehavior('adminDashboardFavsIcon', dcCore::app(), $k, $icons[$k]);
             dcCore::app()->callBehavior('adminDashboardFavsIconV2', $k, $icons[$k]);
         }
     }

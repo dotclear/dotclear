@@ -40,7 +40,6 @@ class adminPagesList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            //dcCore::app()->callBehavior('adminPagesListHeader', dcCore::app(), $this->rs, $cols);
             dcCore::app()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
@@ -162,7 +161,6 @@ class adminPagesList extends adminGenericList
         ];
 
         $cols = new ArrayObject($cols);
-        //dcCore::app()->callBehavior('adminPagesListValue', dcCore::app(), $this->rs, $cols);
         dcCore::app()->callBehavior('adminPagesListValueV2', $this->rs, $cols);
 
         // Cope with optional columns

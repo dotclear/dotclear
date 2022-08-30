@@ -183,7 +183,6 @@ class dcRestMethods
         } else {
 
             # --BEHAVIOR-- restCheckStoreUpdate
-            //dcCore::app()->callBehavior('restCheckStoreUpdate', dcCore::app(), $post['store'], [& $mod], [& $url]);
             dcCore::app()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line

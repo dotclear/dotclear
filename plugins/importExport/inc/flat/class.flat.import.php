@@ -114,7 +114,6 @@ class flatImport extends flatBackup
         $this->cur_version     = $this->con->openCursor($this->prefix . 'version');
 
         # --BEHAVIOR-- importInit
-        //dcCore::app()->callBehavior('importInit', $this, dcCore::app());
         dcCore::app()->callBehavior('importInitV2', $this);
     }
 
@@ -245,7 +244,6 @@ class flatImport extends flatBackup
                 }
 
                 # --BEHAVIOR-- importSingle
-                //dcCore::app()->callBehavior('importSingle', $line, $this, dcCore::app());
                 dcCore::app()->callBehavior('importSingleV2', $line, $this);
             }
 
@@ -350,7 +348,6 @@ class flatImport extends flatBackup
                         break;
                 }
                 # --BEHAVIOR-- importFull
-                //dcCore::app()->callBehavior('importFull', $line, $this, dcCore::app());
                 dcCore::app()->callBehavior('importFullV2', $line, $this);
             }
         } catch (Exception $e) {
@@ -923,7 +920,6 @@ class flatImport extends flatBackup
         }
 
         # --BEHAVIOR-- importPrepareDC12
-        //dcCore::app()->callBehavior('importPrepareDC12', $line, $this, dcCore::app());
         dcCore::app()->callBehavior('importPrepareDC12V2', $line, $this);
     }
 }

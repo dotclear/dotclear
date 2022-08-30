@@ -15,13 +15,11 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // dead but useful code, in order to have translations
 __('Breadcrumb') . __('Breadcrumb for Dotclear');
 
-//dcCore::app()->addBehavior('adminBlogPreferencesForm', ['breadcrumbBehaviors', 'adminBlogPreferencesForm']);
 dcCore::app()->addBehavior('adminBlogPreferencesFormV2', ['breadcrumbBehaviors', 'adminBlogPreferencesForm']);
 dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['breadcrumbBehaviors', 'adminBeforeBlogSettingsUpdate']);
 
 class breadcrumbBehaviors
 {
-    //public static function adminBlogPreferencesForm(dcCore $core, $settings)
     public static function adminBlogPreferencesForm($settings)
     {
         $settings->addNameSpace('breadcrumb');

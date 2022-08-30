@@ -80,7 +80,6 @@ dcPage::open(
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- pluginsToolsHeaders
-    //dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), false),
     dcCore::app()->callBehavior('pluginsToolsHeadersV2', false),
     dcPage::breadcrumb(
         [
@@ -257,7 +256,6 @@ if (dcCore::app()->auth->isSuperAdmin() && $list->isWritablePath()) {
 }
 
 # --BEHAVIOR-- pluginsToolsTabs
-//dcCore::app()->callBehavior('pluginsToolsTabs', dcCore::app());
 dcCore::app()->callBehavior('pluginsToolsTabsV2');
 
 # -- Notice for super admin --

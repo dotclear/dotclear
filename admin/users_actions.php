@@ -52,7 +52,6 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     }
 
     # --BEHAVIOR-- adminUsersActions
-    //dcCore::app()->callBehavior('adminUsersActions', dcCore::app(), $users, $blogs, $action, $redir);
     dcCore::app()->callBehavior('adminUsersActionsV2', $users, $blogs, $action, $redir);
 
     # Delete users
@@ -160,7 +159,6 @@ if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
 echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';
 
 # --BEHAVIOR-- adminUsersActionsContent
-//dcCore::app()->callBehavior('adminUsersActionsContent', dcCore::app(), $action, $hidden_fields);
 dcCore::app()->callBehavior('adminUsersActionsContentV2', $action, $hidden_fields);
 
 # Blog list where to set permissions

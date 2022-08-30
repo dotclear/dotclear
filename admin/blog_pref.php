@@ -834,7 +834,6 @@ if ($blog_id) {
     echo '<div id="plugins-pref"><h3>' . __('Plugins parameters') . '</h3>';
 
     # --BEHAVIOR-- adminBlogPreferencesForm
-    //dcCore::app()->callBehavior('adminBlogPreferencesForm', dcCore::app(), $blog_settings);
     dcCore::app()->callBehavior('adminBlogPreferencesFormV2', $blog_settings);
 
     echo '</div>'; // End 3rd party, aka plugins

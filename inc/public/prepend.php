@@ -153,7 +153,6 @@ if (dcCore::app()->public->parent_theme) {
 dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
 
 # --BEHAVIOR-- publicPrepend
-//dcCore::app()->callBehavior('publicPrepend', dcCore::app());
 dcCore::app()->callBehavior('publicPrependV2');
 
 # Prepare the HTTP cache thing
@@ -197,13 +196,11 @@ dcCore::app()->url->mode = dcCore::app()->blog->settings->system->url_scan;
 
 try {
     # --BEHAVIOR-- publicBeforeDocument
-    //dcCore::app()->callBehavior('publicBeforeDocument', dcCore::app());
     dcCore::app()->callBehavior('publicBeforeDocumentV2');
 
     dcCore::app()->url->getDocument();
 
     # --BEHAVIOR-- publicAfterDocument
-    //dcCore::app()->callBehavior('publicAfterDocument', dcCore::app());
     dcCore::app()->callBehavior('publicAfterDocumentV2');
 } catch (Exception $e) {
     __error($e->getMessage(), __('Something went wrong while loading template file for your blog.'), 660);

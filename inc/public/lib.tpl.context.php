@@ -169,13 +169,11 @@ class context
         $args[0] = &$str;
 
         # --BEHAVIOR-- publicBeforeContentFilter
-        //dcCore::app()->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
         dcCore::app()->callBehavior('publicBeforeContentFilterV2', $tag, $args);
         $str = $args[0];
 
         foreach ($filters as $filter) {
             # --BEHAVIOR-- publicContentFilter
-            //switch (dcCore::app()->callBehavior('publicContentFilter', dcCore::app(), $tag, $args, $filter)) {
             switch (dcCore::app()->callBehavior('publicContentFilterV2', $tag, $args, $filter)) {
                 case '1':
                     // 3rd party filter applied and must stop
@@ -191,7 +189,6 @@ class context
         }
 
         # --BEHAVIOR-- publicAfterContentFilter
-        //dcCore::app()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
         dcCore::app()->callBehavior('publicAfterContentFilterV2', $tag, $args);
 
         return $args[0];

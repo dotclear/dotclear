@@ -104,12 +104,10 @@ if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(dcCore::app()
     $dashboardItem++;
 }
 
-//dcCore::app()->callBehavior('adminDashboardItems', dcCore::app(), $__dashboard_items);
 dcCore::app()->callBehavior('adminDashboardItemsV2', $__dashboard_items);
 
 # Dashboard content
 $__dashboard_contents = new ArrayObject([new ArrayObject(), new ArrayObject()]);
-//dcCore::app()->callBehavior('adminDashboardContents', dcCore::app(), $__dashboard_contents);
 dcCore::app()->callBehavior('adminDashboardContentsV2', $__dashboard_contents);
 
 # Editor stuff

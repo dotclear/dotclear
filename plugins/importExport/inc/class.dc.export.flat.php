@@ -87,7 +87,6 @@ class dcExportFlat extends dcIeModule
                 );
 
                 # --BEHAVIOR-- exportSingle
-                //dcCore::app()->callBehavior('exportSingle', dcCore::app(), $exp, $blog_id);
                 dcCore::app()->callBehavior('exportSingleV2', $exp, $blog_id);
 
                 $_SESSION['export_file']     = $fullname;
@@ -126,7 +125,6 @@ class dcExportFlat extends dcIeModule
                 $exp->exportTable('version');
 
                 # --BEHAVIOR-- exportFull
-                //dcCore::app()->callBehavior('exportFull', dcCore::app(), $exp);
                 dcCore::app()->callBehavior('exportFullV2', $exp);
 
                 $_SESSION['export_file']     = $fullname;

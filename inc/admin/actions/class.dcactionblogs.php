@@ -19,7 +19,6 @@ class dcBlogsActionsPage extends dcActionsPage
         $this->field_entries   = 'blogs';
         $this->cb_title        = __('Blogs');
         $this->loadDefaults();
-        //dcCore::app()->callBehavior('adminBlogsActionsPage', dcCore::app(), $this);
         dcCore::app()->callBehavior('adminBlogsActionsPageV2', $this);
     }
 

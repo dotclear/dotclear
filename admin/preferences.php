@@ -120,7 +120,6 @@ $rte = [
     'cat_descr'  => [true, __('Category description')],
 ];
 $rte = new ArrayObject($rte);
-//dcCore::app()->callBehavior('adminRteFlags', dcCore::app(), $rte);
 dcCore::app()->callBehavior('adminRteFlagsV2', $rte);
 # Load user settings
 $rte_flags = @dcCore::app()->auth->user_prefs->interface->rte_flags;
@@ -737,7 +736,6 @@ echo
 '<h4 class="pretty-title">' . __('Other options') . '</h4>';
 
 # --BEHAVIOR-- adminPreferencesForm
-//dcCore::app()->callBehavior('adminPreferencesForm', dcCore::app());
 dcCore::app()->callBehavior('adminPreferencesFormV2');
 
 echo
@@ -918,7 +916,6 @@ if (dcCore::app()->auth->isSuperAdmin()) {
 echo '</div>';
 
 # --BEHAVIOR-- adminDashboardOptionsForm
-//dcCore::app()->callBehavior('adminDashboardOptionsForm', dcCore::app());
 dcCore::app()->callBehavior('adminDashboardOptionsFormV2');
 
 echo

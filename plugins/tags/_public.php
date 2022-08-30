@@ -42,12 +42,12 @@ dcCore::app()->tpl->addValue('MetaURL', ['tplTags', 'TagURL']);
 dcCore::app()->tpl->addValue('MetaAllURL', ['tplTags', 'TagCloudURL']);
 dcCore::app()->tpl->addBlock('EntryMetaData', ['tplTags', 'EntryTags']);
 
-dcCore::app()->addBehavior('templateBeforeBlock', ['behaviorsTags', 'templateBeforeBlock']);
-dcCore::app()->addBehavior('publicBeforeDocument', ['behaviorsTags', 'addTplPath']);
+dcCore::app()->addBehavior('templateBeforeBlockV2', ['behaviorsTags', 'templateBeforeBlock']);
+dcCore::app()->addBehavior('publicBeforeDocumentV2', ['behaviorsTags', 'addTplPath']);
 
 class behaviorsTags
 {
-    public static function templateBeforeBlock(dcCore $core, $b, $attr)
+    public static function templateBeforeBlock($b, $attr)
     {
         if (($b == 'Entries' || $b == 'Comments') && isset($attr['tag'])) {
             return

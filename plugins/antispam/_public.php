@@ -14,4 +14,4 @@ if (!defined('DC_RC_PATH')) {
 
 dcCore::app()->addBehavior('publicBeforeCommentCreate', ['dcAntispam', 'isSpam']);
 dcCore::app()->addBehavior('publicBeforeTrackbackCreate', ['dcAntispam', 'isSpam']);
-dcCore::app()->addBehavior('publicBeforeDocument', ['dcAntispam', 'purgeOldSpam']);
+dcCore::app()->addBehavior('publicBeforeDocumentV2', ['dcAntispam', 'purgeOldSpam']);

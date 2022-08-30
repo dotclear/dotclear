@@ -163,7 +163,7 @@ class dcAntispam
         return $rs->user_id;
     }
 
-    public static function purgeOldSpam(dcCore $core = null)
+    public static function purgeOldSpam()
     {
         $defaultDateLastPurge = time();
         $defaultModerationTTL = '7';
