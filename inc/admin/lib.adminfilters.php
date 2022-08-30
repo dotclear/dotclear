@@ -17,12 +17,6 @@ if (!defined('DC_RC_PATH')) {
  */
 class adminGenericFilter
 {
-    /** @var dcCore core instance */
-    /**
-     * @deprecated since 2.23
-     */
-    protected $core;
-
     /** @var string Filter form type (main id) */
     protected $type;
 
@@ -38,12 +32,10 @@ class adminGenericFilter
     /**
      * Constructs a new instance.
      *
-     * @param dcCore $core  core instance
      * @param string $type  The filter form main id
      */
-    public function __construct(dcCore $core, string $type)
+    public function __construct(string $type)
     {
-        $this->core = dcCore::app();
         $this->type = $type;
 
         $this->parseOptions();
@@ -409,9 +401,9 @@ class adminPostFilter extends adminGenericFilter
 {
     protected $post_type = 'post';
 
-    public function __construct(dcCore $core, string $type = 'posts', string $post_type = '')
+    public function __construct(string $type = 'posts', string $post_type = '')
     {
-        parent::__construct(dcCore::app(), $type);
+        parent::__construct($type);
 
         if (!empty($post_type) && array_key_exists($post_type, dcCore::app()->getPostTypes())) {
             $this->post_type = $post_type;
@@ -530,7 +522,7 @@ class adminPostFilter extends adminGenericFilter
     {
         $core_formaters    = dcCore::app()->getFormaters();
         $available_formats = [];
-        foreach ($core_formaters as $editor => $formats) {
+        foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
                 $available_formats[$format] = $format;
             }
@@ -714,9 +706,9 @@ class adminPostFilter extends adminGenericFilter
 
 class adminCommentFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app(), 'comments');
+        parent::__construct('comments');
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -801,9 +793,9 @@ class adminCommentFilter extends adminGenericFilter
 
 class adminUserFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app(), 'users');
+        parent::__construct('users');
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -821,9 +813,9 @@ class adminUserFilter extends adminGenericFilter
 
 class adminBlogFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app(), 'blogs');
+        parent::__construct('blogs');
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -860,9 +852,9 @@ class adminMediaFilter extends adminGenericFilter
     protected $post_type  = '';
     protected $post_title = '';
 
-    public function __construct(dcCore $core, string $type = 'media')
+    public function __construct(string $type = 'media')
     {
-        parent::__construct(dcCore::app(), $type);
+        parent::__construct($type);
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),

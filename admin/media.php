@@ -38,12 +38,10 @@ class adminMediaPage extends adminMediaFilter
 
     /**
      * Constructs a new instance.
-     *
-     * @param dcCore $core  core instance
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        parent::__construct(dcCore::app(), 'media');
+        parent::__construct('media');
 
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
         $this->media_uploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
@@ -385,7 +383,7 @@ class adminMediaPage extends adminMediaFilter
     }
 }
 
-$page = new adminMediaPage(dcCore::app());
+$page = new adminMediaPage();
 
 /* Actions
 -------------------------------------------------------- */

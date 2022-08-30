@@ -22,7 +22,7 @@ dcCore::app()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 
 /* Filters
 -------------------------------------------------------- */
-$user_filter = new adminUserFilter(dcCore::app());
+$user_filter = new adminUserFilter();
 
 # get list params
 $params = $user_filter->params();

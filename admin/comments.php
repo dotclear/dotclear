@@ -22,7 +22,7 @@ if (!empty($_POST['delete_all_spam'])) {
 
 /* Filters
 -------------------------------------------------------- */
-$comment_filter = new adminCommentFilter(dcCore::app());
+$comment_filter = new adminCommentFilter();
 
 # get list params
 $params = $comment_filter->params();

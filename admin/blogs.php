@@ -22,7 +22,7 @@ if (dcCore::app()->auth->isSuperAdmin()) {
 
 /* Filters
 -------------------------------------------------------- */
-$blog_filter = new adminBlogFilter(dcCore::app());
+$blog_filter = new adminBlogFilter();
 
 # get list params
 $params = $blog_filter->params();

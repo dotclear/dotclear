@@ -20,7 +20,7 @@ if ($posts_actions_page->process()) {
 
 /* Filters
 -------------------------------------------------------- */
-$post_filter = new adminPostFilter(dcCore::app());
+$post_filter = new adminPostFilter();
 
 # get list params
 $params = $post_filter->params();
