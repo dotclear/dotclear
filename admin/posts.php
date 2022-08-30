@@ -12,7 +12,7 @@ dcPage::check('usage,contentadmin');
 
 /* Actions
 -------------------------------------------------------- */
-$posts_actions_page = new dcPostsActionsPage(dcCore::app(), dcCore::app()->adminurl->get('admin.posts'));
+$posts_actions_page = new dcPostsActionsPage(dcCore::app()->adminurl->get('admin.posts'));
 
 if ($posts_actions_page->process()) {
     return;
