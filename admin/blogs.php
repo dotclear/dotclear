@@ -46,7 +46,7 @@ try {
         $rsStatic = $rsStatic->toExtStatic();
         $rsStatic->lexicalSort(($blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), $blog_filter->order);
     }
-    $blog_list = new adminBlogList(dcCore::app(), $rs, $counter->f(0));
+    $blog_list = new adminBlogList($rs, $counter->f(0));
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
 }

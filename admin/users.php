@@ -60,7 +60,7 @@ try {
         $rsStatic = $rsStatic->toExtStatic();
         $rsStatic->lexicalSort($user_filter->sortby, $user_filter->order);
     }
-    $user_list = new adminUserList(dcCore::app(), $rsStatic, $counter->f(0));
+    $user_list = new adminUserList($rsStatic, $counter->f(0));
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
 }

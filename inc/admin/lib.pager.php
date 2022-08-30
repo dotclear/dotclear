@@ -153,11 +153,6 @@ class dcPager extends pager
 
 class adminGenericList
 {
-    /**
-     * @deprecated  since 2.23, use dcCore::app() instead
-     */
-    protected $core;
-
     protected $rs;
     protected $rs_count;
     protected $html_prev;
@@ -166,13 +161,11 @@ class adminGenericList
     /**
      * Constructs a new instance.
      *
-     * @param      dcCore  $core      The core
      * @param      record  $rs        The record
      * @param      mixed   $rs_count  The rs count
      */
-    public function __construct(dcCore $core, $rs, $rs_count)
+    public function __construct($rs, $rs_count)
     {
-        $this->core      = dcCore::app();
         $this->rs        = &$rs;
         $this->rs_count  = $rs_count;
         $this->html_prev = __('&#171; prev.');

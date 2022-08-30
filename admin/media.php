@@ -710,7 +710,7 @@ if ($page->select) {
 }
 
 $rs         = $page->getDirsRecord();
-$media_list = new adminMediaList(dcCore::app(), $rs, $rs->count());
+$media_list = new adminMediaList($rs, $rs->count());
 
 // add file mode into the filter box
 $page->add((new dcAdminFilter('file_mode'))->value($page->file_mode)->html(

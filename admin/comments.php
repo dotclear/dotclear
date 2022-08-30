@@ -68,7 +68,7 @@ $comment_list = null;
 try {
     $comments     = dcCore::app()->blog->getComments($params);
     $counter      = dcCore::app()->blog->getComments($params, true);
-    $comment_list = new adminCommentList(dcCore::app(), $comments, $counter->f(0));
+    $comment_list = new adminCommentList($comments, $counter->f(0));
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
 }

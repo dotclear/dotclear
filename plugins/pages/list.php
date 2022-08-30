@@ -35,7 +35,7 @@ $post_list = null;
 try {
     $pages     = dcCore::app()->blog->getPosts($params);
     $counter   = dcCore::app()->blog->getPosts($params, true);
-    $post_list = new adminPagesList(dcCore::app(), $pages, $counter->f(0));
+    $post_list = new adminPagesList($pages, $counter->f(0));
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
 }
