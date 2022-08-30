@@ -33,7 +33,7 @@ class dcLegacyPosts
         }
     }
 
-    public static function onActionLegacy(dcCore $core, dcPostsActionsPageV2 $as, $post)
+    public static function onActionLegacy(dcPostsActionsPageV2 $as, $post)
     {
         dcCore::app()->callBehavior('adminPostsActionsV2', $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
@@ -63,7 +63,7 @@ class dcLegacyComments
         }
     }
 
-    public static function onActionLegacy(dcCore $core, dcCommentsActionsPageV2 $as, $Comment)
+    public static function onActionLegacy(dcCommentsActionsPageV2 $as, $Comment)
     {
         dcCore::app()->callBehavior('adminCommentsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
@@ -97,7 +97,7 @@ class dcLegacyPages
         }
     }
 
-    public static function onActionLegacy(dcCore $core, dcPagesActionsPageV2 $as, $post)
+    public static function onActionLegacy(dcPagesActionsPageV2 $as, $post)
     {
         dcCore::app()->callBehavior('adminPostsActionsV2', $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(

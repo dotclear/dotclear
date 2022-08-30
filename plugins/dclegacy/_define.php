@@ -18,6 +18,7 @@ $this->registerModule(
     'dc Team',                     // Author
     '1.0',                         // Version
     [
+        //        'requires' => [['dcProxyV2']],
         'priority' => 500,
         'type'     => 'plugin',
     ]

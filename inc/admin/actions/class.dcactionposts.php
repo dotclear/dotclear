@@ -152,7 +152,7 @@ class dcDefaultPostActions
         }
     }
 
-    public static function doChangePostStatus(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doChangePostStatus(dcPostsActionsPageV2 $ap, $post)
     {
         switch ($ap->getAction()) {
             case 'unpublish':
@@ -210,7 +210,7 @@ class dcDefaultPostActions
         $ap->redirect(true);
     }
 
-    public static function doUpdateSelectedPost(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doUpdateSelectedPost(dcPostsActionsPageV2 $ap, $post)
     {
         $posts_ids = $ap->getIDs();
         if (empty($posts_ids)) {
@@ -244,7 +244,7 @@ class dcDefaultPostActions
         $ap->redirect(true);
     }
 
-    public static function doDeletePost(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doDeletePost(dcPostsActionsPageV2 $ap, $post)
     {
         $posts_ids = $ap->getIDs();
         if (empty($posts_ids)) {
@@ -274,7 +274,7 @@ class dcDefaultPostActions
         $ap->redirect(false);
     }
 
-    public static function doChangePostCategory(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doChangePostCategory(dcPostsActionsPageV2 $ap, $post)
     {
         if (isset($post['new_cat_id'])) {
             $posts_ids = $ap->getIDs();
@@ -356,7 +356,7 @@ class dcDefaultPostActions
             $ap->endPage();
         }
     }
-    public static function doChangePostAuthor(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doChangePostAuthor(dcPostsActionsPageV2 $ap, $post)
     {
         if (isset($post['new_auth_id']) && dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
             $new_user_id = $post['new_auth_id'];
@@ -425,7 +425,7 @@ class dcDefaultPostActions
             $ap->endPage();
         }
     }
-    public static function doChangePostLang(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doChangePostLang(dcPostsActionsPageV2 $ap, $post)
     {
         $posts_ids = $ap->getIDs();
         if (empty($posts_ids)) {

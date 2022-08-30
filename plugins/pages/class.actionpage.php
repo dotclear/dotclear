@@ -64,7 +64,7 @@ class dcPagesActionsPageV2 extends dcPostsActionsPageV2
         return parent::process();
     }
 
-    public static function doReorderPages(dcCore $core, dcPostsActionsPageV2 $ap, $post)
+    public static function doReorderPages(dcPostsActionsPageV2 $ap, $post)
     {
         foreach ($post['order'] as $post_id => $value) {
             if (!dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {

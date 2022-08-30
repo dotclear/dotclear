@@ -173,7 +173,7 @@ class dcDefaultCommentActions
         }
     }
 
-    public static function doChangeCommentStatus(dcCore $core, dcCommentsActionsPageV2 $ap, $post)
+    public static function doChangeCommentStatus(dcCommentsActionsPageV2 $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();
@@ -205,7 +205,7 @@ class dcDefaultCommentActions
         $ap->redirect(true);
     }
 
-    public static function doDeleteComment(dcCore $core, dcCommentsActionsPageV2 $ap, $post)
+    public static function doDeleteComment(dcCommentsActionsPageV2 $ap, $post)
     {
         $co_ids = $ap->getIDs();
         if (empty($co_ids)) {
@@ -225,7 +225,7 @@ class dcDefaultCommentActions
         $ap->redirect(false);
     }
 
-    public static function doBlocklistIP(dcCore $core, dcCommentsActionsPageV2 $ap, $post)
+    public static function doBlocklistIP(dcCommentsActionsPageV2 $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();

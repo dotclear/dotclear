@@ -108,7 +108,7 @@ abstract class dcActionsPageV2
      *
      * @access public
      *
-     * @return dcActionsPage the actions page itself, enabling to chain addAction().
+     * @return dcActionsPageV2 the actions page itself, enabling to chain addAction().
      */
     public function addAction($actions, $callback)
     {
@@ -325,7 +325,7 @@ abstract class dcActionsPageV2
                 foreach ($this->actions as $k => $v) {
                     if ($this->from['action'] == $k) {
                         $performed = true;
-                        call_user_func($v, dcCore::app(), $this, $this->from);
+                        call_user_func($v, $this, $this->from);
                     }
                 }
                 if ($performed) {

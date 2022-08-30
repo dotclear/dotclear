@@ -133,7 +133,7 @@ class dcDefaultBlogActions
         );
     }
 
-    public static function doChangeBlogStatus(dcCore $core, dcBlogsActionsPageV2 $ap, $post)
+    public static function doChangeBlogStatus(dcBlogsActionsPageV2 $ap, $post)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
@@ -172,7 +172,7 @@ class dcDefaultBlogActions
         $ap->redirect(true);
     }
 
-    public static function doDeleteBlog(dcCore $core, dcBlogsActionsPageV2 $ap, $post)
+    public static function doDeleteBlog(dcBlogsActionsPageV2 $ap, $post)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
