@@ -16,7 +16,7 @@ if (!defined('DC_RC_PATH')) {
 
 class dcProxyV2AdminBehaviors
 {
-    // Count : 57
+    // Count : 55
 
     public static function adminBlogFilter($filters)
     {
@@ -57,10 +57,6 @@ class dcProxyV2AdminBehaviors
     public static function adminCommentsActions($getRS, $getAction, $getRedirection)
     {
         return dcCore::app()->callBehavior('adminCommentsActions', dcCore::app(), $getRS, $getAction, $getRedirection);
-    }
-    public static function adminCommentsActionsContent($getAction, $getHiddenFields)
-    {
-        return dcCore::app()->callBehavior('adminCommentsActionsContent', dcCore::app(), $getAction, $getHiddenFields);
     }
     public static function adminCommentsActionsPage($that)
     {
@@ -145,10 +141,6 @@ class dcProxyV2AdminBehaviors
     public static function adminPostsActions($getRS, $getAction, $getRedirection)
     {
         return dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $getRS, $getAction, $getRedirection);
-    }
-    public static function adminPostsActionsContent($getAction, $getHiddenFields)
-    {
-        return dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $getAction, $getHiddenFields);
     }
     public static function adminPostsActionsPage($that)
     {
