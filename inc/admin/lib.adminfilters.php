@@ -15,7 +15,7 @@ if (!defined('DC_RC_PATH')) {
 /**
  * @brief Generic class for admin list filters form
  */
-class adminGenericFilter
+class adminGenericFilterV2
 {
     /** @var string Filter form type (main id) */
     protected $type;
@@ -397,7 +397,7 @@ class adminGenericFilter
     }
 }
 
-class adminPostFilter extends adminGenericFilter
+class adminPostFilter extends adminGenericFilterV2
 {
     protected $post_type = 'post';
 
@@ -704,7 +704,7 @@ class adminPostFilter extends adminGenericFilter
     }
 }
 
-class adminCommentFilter extends adminGenericFilter
+class adminCommentFilter extends adminGenericFilterV2
 {
     public function __construct()
     {
@@ -791,7 +791,7 @@ class adminCommentFilter extends adminGenericFilter
     }
 }
 
-class adminUserFilter extends adminGenericFilter
+class adminUserFilter extends adminGenericFilterV2
 {
     public function __construct()
     {
@@ -811,7 +811,7 @@ class adminUserFilter extends adminGenericFilter
     }
 }
 
-class adminBlogFilter extends adminGenericFilter
+class adminBlogFilter extends adminGenericFilterV2
 {
     public function __construct()
     {
@@ -847,7 +847,7 @@ class adminBlogFilter extends adminGenericFilter
     }
 }
 
-class adminMediaFilter extends adminGenericFilter
+class adminMediaFilter extends adminGenericFilterV2
 {
     protected $post_type  = '';
     protected $post_title = '';

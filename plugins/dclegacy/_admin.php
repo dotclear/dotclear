@@ -24,7 +24,7 @@ dcCore::app()->addBehavior('adminFiltersListsV2', ['dcLegacyPreferences', 'admin
  */
 class dcLegacyPosts
 {
-    public static function adminPostsActionsPage(dcPostsActionsPage $as)
+    public static function adminPostsActionsPage(dcPostsActionsPageV2 $as)
     {
         $stub_actions = new ArrayObject();
         dcCore::app()->callBehavior('adminPostsActionsCombo', [$stub_actions]);
@@ -33,7 +33,7 @@ class dcLegacyPosts
         }
     }
 
-    public static function onActionLegacy(dcCore $core, dcPostsActionsPage $as, $post)
+    public static function onActionLegacy(dcCore $core, dcPostsActionsPageV2 $as, $post)
     {
         dcCore::app()->callBehavior('adminPostsActionsV2', $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
@@ -54,7 +54,7 @@ class dcLegacyPosts
  */
 class dcLegacyComments
 {
-    public static function adminCommentsActionsPage(dcCommentsActionsPage $as)
+    public static function adminCommentsActionsPage(dcCommentsActionsPageV2 $as)
     {
         $stub_actions = new ArrayObject();
         dcCore::app()->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
@@ -63,7 +63,7 @@ class dcLegacyComments
         }
     }
 
-    public static function onActionLegacy(dcCore $core, dcCommentsActionsPage $as, $Comment)
+    public static function onActionLegacy(dcCore $core, dcCommentsActionsPageV2 $as, $Comment)
     {
         dcCore::app()->callBehavior('adminCommentsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
@@ -88,7 +88,7 @@ class dcLegacyComments
  */
 class dcLegacyPages
 {
-    public static function adminPagesActionsPage(dcPagesActionsPage $as)
+    public static function adminPagesActionsPage(dcPagesActionsPageV2 $as)
     {
         $stub_actions = new ArrayObject();
         dcCore::app()->callBehavior('adminPagesActionsCombo', [$stub_actions]);
@@ -97,7 +97,7 @@ class dcLegacyPages
         }
     }
 
-    public static function onActionLegacy(dcCore $core, dcPagesActionsPage $as, $post)
+    public static function onActionLegacy(dcCore $core, dcPagesActionsPageV2 $as, $post)
     {
         dcCore::app()->callBehavior('adminPostsActionsV2', $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(

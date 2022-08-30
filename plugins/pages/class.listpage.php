@@ -11,7 +11,7 @@
 
 /* Pager class
 -------------------------------------------------------- */
-class adminPagesList extends adminGenericList
+class adminPagesList extends adminGenericListV2
 {
     public function display($page, $nb_per_page, $enclose_block = '')
     {

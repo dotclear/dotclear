@@ -13,8 +13,8 @@ if (!defined('DC_RC_PATH')) {
 }
 
 Clearbricks::lib()->autoload([
-    'dcPagesActionsPage' => __DIR__ . '/class.actionpage.php',
-    'adminPagesList'     => __DIR__ . '/class.listpage.php',
+    'dcPagesActionsPageV2' => __DIR__ . '/class.actionpage.php',
+    'adminPagesList'       => __DIR__ . '/class.listpage.php',
 ]);
 
 dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', ['urlPages', 'pages']);

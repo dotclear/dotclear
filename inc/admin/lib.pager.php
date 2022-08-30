@@ -151,7 +151,7 @@ class dcPager extends pager
     }
 }
 
-class adminGenericList
+class adminGenericListV2
 {
     protected $rs;
     protected $rs_count;
@@ -184,7 +184,7 @@ class adminGenericList
     }
 }
 
-class adminPostList extends adminGenericList
+class adminPostList extends adminGenericListV2
 {
     /**
      * Display admin post list
@@ -405,7 +405,7 @@ class adminPostList extends adminGenericList
     }
 }
 
-class adminPostMiniList extends adminGenericList
+class adminPostMiniList extends adminGenericListV2
 {
     /**
      * Display a mini post list
@@ -534,7 +534,7 @@ class adminPostMiniList extends adminGenericList
     }
 }
 
-class adminCommentList extends adminGenericList
+class adminCommentList extends adminGenericListV2
 {
     /**
      * Display a comment list
@@ -766,7 +766,7 @@ class adminCommentList extends adminGenericList
     }
 }
 
-class adminBlogList extends adminGenericList
+class adminBlogList extends adminGenericListV2
 {
     /**
      * Display a blog list
@@ -905,7 +905,7 @@ class adminBlogList extends adminGenericList
     }
 }
 
-class adminUserList extends adminGenericList
+class adminUserList extends adminGenericListV2
 {
     /**
      * Display a user list
@@ -1020,7 +1020,7 @@ class adminUserList extends adminGenericList
     }
 }
 
-class adminMediaList extends adminGenericList
+class adminMediaList extends adminGenericListV2
 {
     /**
      * Display a media list

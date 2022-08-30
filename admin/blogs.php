@@ -14,7 +14,7 @@ dcPage::check('usage,contentadmin');
 -------------------------------------------------------- */
 $blogs_actions_page = null;
 if (dcCore::app()->auth->isSuperAdmin()) {
-    $blogs_actions_page = new dcBlogsActionsPage(dcCore::app()->adminurl->get('admin.blogs'));
+    $blogs_actions_page = new dcBlogsActionsPageV2(dcCore::app()->adminurl->get('admin.blogs'));
     if ($blogs_actions_page->process()) {
         return;
     }

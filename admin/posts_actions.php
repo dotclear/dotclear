@@ -28,6 +28,6 @@ if (isset($_REQUEST['redir'])) {
     $args = [];
 }
 
-$posts_actions_page = new dcPostsActionsPage($uri, $args);
+$posts_actions_page = new dcPostsActionsPageV2($uri, $args);
 $posts_actions_page->setEnableRedirSelection(false);
 $posts_actions_page->process();

@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcPagesActionsPage extends dcPostsActionsPage
+class dcPagesActionsPageV2 extends dcPostsActionsPageV2
 {
     public function __construct($uri, $redirect_args = [])
     {
@@ -50,7 +50,7 @@ class dcPagesActionsPage extends dcPostsActionsPage
     public function loadDefaults()
     {
         DefaultPagesActions::adminPagesActionsPage(dcCore::app(), $this);
-        $this->actions['reorder'] = ['dcPagesActionsPage', 'doReorderPages'];
+        $this->actions['reorder'] = ['dcPagesActionsPageV2', 'doReorderPages'];
         dcCore::app()->callBehavior('adminPagesActionsPageV2', $this);
     }
     public function process()
@@ -64,7 +64,7 @@ class dcPagesActionsPage extends dcPostsActionsPage
         return parent::process();
     }
 
-    public static function doReorderPages(dcCore $core, dcPostsActionsPage $ap, $post)
+    public static function doReorderPages(dcCore $core, dcPostsActionsPageV2 $ap, $post)
     {
         foreach ($post['order'] as $post_id => $value) {
             if (!dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {

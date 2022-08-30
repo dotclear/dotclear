@@ -27,6 +27,7 @@ class dcProxyV2
     }
 }
 
+// Core and public behaviors
 dcProxyV2::loadBehaviors('dcProxyV2CoreBehaviors', __DIR__ . '/inc/class.core.behaviors.php');  // Load core stuff
 dcProxyV2::loadBehaviors('dcProxyV2PublicBehaviors', __DIR__ . '/inc/class.public.behaviors.php');  // Load public stuff
 
@@ -34,4 +35,18 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return false;
 }
 
+// Admin behaviors
 dcProxyV2::loadBehaviors('dcProxyV2AdminBehaviors', __DIR__ . '/inc/class.admin.behaviors.php');  // Load admin stuff
+
+// Admin proxy classes
+Clearbricks::lib()->autoload([
+    'adminGenericFilter' => __DIR__ . '/inc/lib.adminfilters.php',
+
+    'adminGenericList' => __DIR__ . '/inc/lib.pager.php',
+
+    'dcActionsPage'         => __DIR__ . '/inc/class.dcaction.php',
+    'dcPostsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
+    'dcCommentsActionsPage' => __DIR__ . '/inc/class.dcaction.php',
+    'dcBlogsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
+    'dcPagesActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
+]);

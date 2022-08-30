@@ -55,7 +55,7 @@ if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id) &
     $default = 'delete';
 }
 
-$comments_actions_page = new dcCommentsActionsPage(dcCore::app()->adminurl->get('admin.comments'));
+$comments_actions_page = new dcCommentsActionsPageV2(dcCore::app()->adminurl->get('admin.comments'));
 
 if ($comments_actions_page->process()) {
     return;

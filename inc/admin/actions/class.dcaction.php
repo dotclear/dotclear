@@ -13,7 +13,7 @@ if (!defined('DC_RC_PATH')) {
 /**
  * dcActionsPage -- handler for action page on selected entries
  */
-abstract class dcActionsPage
+abstract class dcActionsPageV2
 {
     /** @var string form submit uri */
     protected $uri;

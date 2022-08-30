@@ -10,7 +10,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-class dcBlogsActionsPage extends dcActionsPage
+class dcBlogsActionsPageV2 extends dcActionsPageV2
 {
     public function __construct($uri, $redirect_args = [])
     {
@@ -112,7 +112,7 @@ class dcBlogsActionsPage extends dcActionsPage
 
 class dcDefaultBlogActions
 {
-    public static function adminBlogsActionsPage(dcCore $core, dcBlogsActionsPage $ap)
+    public static function adminBlogsActionsPage(dcCore $core, dcBlogsActionsPageV2 $ap)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
@@ -133,7 +133,7 @@ class dcDefaultBlogActions
         );
     }
 
-    public static function doChangeBlogStatus(dcCore $core, dcBlogsActionsPage $ap, $post)
+    public static function doChangeBlogStatus(dcCore $core, dcBlogsActionsPageV2 $ap, $post)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
@@ -172,7 +172,7 @@ class dcDefaultBlogActions
         $ap->redirect(true);
     }
 
-    public static function doDeleteBlog(dcCore $core, dcBlogsActionsPage $ap, $post)
+    public static function doDeleteBlog(dcCore $core, dcBlogsActionsPageV2 $ap, $post)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;

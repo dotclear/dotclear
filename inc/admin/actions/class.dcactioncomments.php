@@ -10,7 +10,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-class dcCommentsActionsPage extends dcActionsPage
+class dcCommentsActionsPageV2 extends dcActionsPageV2
 {
     public function __construct($uri, $redirect_args = [])
     {
@@ -130,7 +130,7 @@ class dcCommentsActionsPage extends dcActionsPage
 
 class dcDefaultCommentActions
 {
-    public static function adminCommentsActionsPage(dcCore $core, dcCommentsActionsPage $ap)
+    public static function adminCommentsActionsPage(dcCore $core, dcCommentsActionsPageV2 $ap)
     {
         if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
@@ -173,7 +173,7 @@ class dcDefaultCommentActions
         }
     }
 
-    public static function doChangeCommentStatus(dcCore $core, dcCommentsActionsPage $ap, $post)
+    public static function doChangeCommentStatus(dcCore $core, dcCommentsActionsPageV2 $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();
@@ -205,7 +205,7 @@ class dcDefaultCommentActions
         $ap->redirect(true);
     }
 
-    public static function doDeleteComment(dcCore $core, dcCommentsActionsPage $ap, $post)
+    public static function doDeleteComment(dcCore $core, dcCommentsActionsPageV2 $ap, $post)
     {
         $co_ids = $ap->getIDs();
         if (empty($co_ids)) {
@@ -225,7 +225,7 @@ class dcDefaultCommentActions
         $ap->redirect(false);
     }
 
-    public static function doBlocklistIP(dcCore $core, dcCommentsActionsPage $ap, $post)
+    public static function doBlocklistIP(dcCore $core, dcCommentsActionsPageV2 $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();
