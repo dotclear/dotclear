@@ -18,8 +18,6 @@ class dcProxyV2
 
     public static function loadBehaviors(string $class, string $file)
     {
-        global $__autoload;
-
         Clearbricks::lib()->autoload([$class => $file]);
 
         $reflectionCore = new ReflectionClass($class);
