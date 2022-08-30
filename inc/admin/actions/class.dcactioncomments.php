@@ -12,9 +12,9 @@ if (!defined('DC_RC_PATH')) {
 
 class dcCommentsActionsPage extends dcActionsPage
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct($uri, $redirect_args = [])
     {
-        parent::__construct(dcCore::app(), $uri, $redirect_args);
+        parent::__construct($uri, $redirect_args);
         $this->redirect_fields = ['type', 'author', 'status',
             'sortby', 'ip', 'order', 'page', 'nb', 'section', ];
         $this->field_entries = 'comments';

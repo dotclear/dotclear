@@ -12,9 +12,9 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPostsActionsPage extends dcActionsPage
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct($uri, $redirect_args = [])
     {
-        parent::__construct(dcCore::app(), $uri, $redirect_args);
+        parent::__construct($uri, $redirect_args);
         $this->redirect_fields = ['user_id', 'cat_id', 'status',
             'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb', ];
         $this->loadDefaults();

@@ -18,12 +18,6 @@ abstract class dcActionsPage
     /** @var string form submit uri */
     protected $uri;
 
-    /** @var dcCore dotclear core instance */
-    /**
-     * @deprecated since 2.23
-     */
-    protected $core;
-
     /** @var array action combo box */
     protected $combo;
     /** @var ArrayObject list of defined actions (callbacks) */
@@ -61,16 +55,14 @@ abstract class dcActionsPage
     /**
      * Class constructor
      *
-     * @param mixed  $core   dotclear core
      * @param mixed  $uri   form uri
      *
      * @access public
      *
      * @return mixed Value.
      */
-    public function __construct($core, $uri, $redirect_args = [])
+    public function __construct($uri, $redirect_args = [])
     {
-        $this->core            = dcCore::app();
         $this->actions         = new ArrayObject();
         $this->combo           = [];
         $this->uri             = $uri;
