@@ -42,7 +42,7 @@ try {
 
 # Actions combo box
 
-$pages_actions_page = new dcPagesActionsPage(dcCore::app(), 'plugin.php', ['p' => 'pages']);
+$pages_actions_page = new dcPagesActionsPage('plugin.php', ['p' => 'pages']);
 
 if (!$pages_actions_page->process()) {
 
@@ -61,17 +61,17 @@ echo
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
     dcPage::jsModuleLoad('pages/js/list.js')
-  ?>
+    ?>
 </head>
 
 <body>
 <?php
 echo dcPage::breadcrumb(
-      [
-          html::escapeHTML(dcCore::app()->blog->name) => '',
-          __('Pages')                                 => '',
-      ]
-  ) . dcPage::notices();
+        [
+            html::escapeHTML(dcCore::app()->blog->name) => '',
+            __('Pages')                                 => '',
+        ]
+    ) . dcPage::notices();
 
     if (!empty($_GET['upd'])) {
         dcPage::success(__('Selected pages have been successfully updated.'));

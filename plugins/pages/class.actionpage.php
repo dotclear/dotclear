@@ -10,9 +10,9 @@
  */
 class dcPagesActionsPage extends dcPostsActionsPage
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct($uri, $redirect_args = [])
     {
-        parent::__construct(dcCore::app(), $uri, $redirect_args);
+        parent::__construct($uri, $redirect_args);
         $this->redirect_fields = [];
         $this->caller_title    = __('Pages');
     }

@@ -167,7 +167,7 @@ if (isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks') {
     $anchor = 'comments';
 }
 
-$comments_actions_page = new dcCommentsActionsPage(dcCore::app(), dcCore::app()->adminurl->get('admin.post'), ['id' => $post_id, '_ANCHOR' => $anchor, 'section' => $anchor]);
+$comments_actions_page = new dcCommentsActionsPage(dcCore::app()->adminurl->get('admin.post'), ['id' => $post_id, '_ANCHOR' => $anchor, 'section' => $anchor]);
 
 if ($comments_actions_page->process()) {
     return;

@@ -64,7 +64,7 @@ try {
     dcCore::app()->error->add($e->getMessage());
 }
 
-$posts_actions_page = new dcPostsActionsPage(dcCore::app(), 'plugin.php', ['p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag]);
+$posts_actions_page = new dcPostsActionsPage('plugin.php', ['p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag]);
 
 if ($posts_actions_page->process()) {
     return;
