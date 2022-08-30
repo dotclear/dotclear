@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior('adminColumnsLists', function (dcCore $core, $cols) {
+dcCore::app()->addBehavior('adminColumnsListsV2', function ($cols) {
     // Set optional columns in pages lists
     $cols['pages'] = [__('Pages'), [
         'date'       => [true, __('Date')],
@@ -22,7 +22,7 @@ dcCore::app()->addBehavior('adminColumnsLists', function (dcCore $core, $cols) {
     ]];
 });
 
-dcCore::app()->addBehavior('adminFiltersLists', function (dcCore $core, $sorts) {
+dcCore::app()->addBehavior('adminFiltersListsV2', function ($sorts) {
     $sorts['pages'] = [
         __('Pages'),
         null,
@@ -32,7 +32,7 @@ dcCore::app()->addBehavior('adminFiltersLists', function (dcCore $core, $sorts) 
     ];
 });
 
-dcCore::app()->addBehavior('adminDashboardFavorites', function (dcCore $core, $favs) {
+dcCore::app()->addBehavior('adminDashboardFavoritesV2', function ($favs) {
     $favs->register('pages', [
         'title'        => __('Pages'),
         'url'          => dcCore::app()->adminurl->get('admin.plugin.pages'),

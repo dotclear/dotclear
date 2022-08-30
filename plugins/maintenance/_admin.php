@@ -23,12 +23,12 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
 
 // Admin behaviors
 dcCore::app()->addBehavior('dcMaintenanceInit', ['dcMaintenanceAdmin', 'dcMaintenanceInit']);
-dcCore::app()->addBehavior('adminDashboardFavorites', ['dcMaintenanceAdmin', 'adminDashboardFavorites']);
-dcCore::app()->addBehavior('adminDashboardContents', ['dcMaintenanceAdmin', 'adminDashboardItems']);
-dcCore::app()->addBehavior('adminDashboardOptionsForm', ['dcMaintenanceAdmin', 'adminDashboardOptionsForm']);
+dcCore::app()->addBehavior('adminDashboardFavoritesV2', ['dcMaintenanceAdmin', 'adminDashboardFavorites']);
+dcCore::app()->addBehavior('adminDashboardContentsV2', ['dcMaintenanceAdmin', 'adminDashboardItems']);
+dcCore::app()->addBehavior('adminDashboardOptionsFormV2', ['dcMaintenanceAdmin', 'adminDashboardOptionsForm']);
 dcCore::app()->addBehavior('adminAfterDashboardOptionsUpdate', ['dcMaintenanceAdmin', 'adminAfterDashboardOptionsUpdate']);
 dcCore::app()->addBehavior('adminPageHelpBlock', ['dcMaintenanceAdmin', 'adminPageHelpBlock']);
-dcCore::app()->addBehavior('pluginsToolsHeaders', ['dcMaintenanceAdmin', 'pluginsToolsHeaders']);
+dcCore::app()->addBehavior('pluginsToolsHeadersV2', ['dcMaintenanceAdmin', 'pluginsToolsHeaders']);
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -76,10 +76,9 @@ class dcMaintenanceAdmin
     /**
      * Favorites
      *
-     * @param      dcCore        $core   dcCore instance
      * @param      dcFavorites   $favs   favs
      */
-    public static function adminDashboardFavorites(dcCore $core, dcFavorites $favs)
+    public static function adminDashboardFavorites(dcFavorites $favs)
     {
         $favs->register('maintenance', [
             'title'        => __('Maintenance'),
@@ -142,10 +141,9 @@ class dcMaintenanceAdmin
     /**
      * Dashboard items stack.
      *
-     * @param      dcCore       $core   The core
      * @param      arrayObject  $items  The items
      */
-    public static function adminDashboardItems(dcCore $core, $items)
+    public static function adminDashboardItems($items)
     {
         dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
         if (!dcCore::app()->auth->user_prefs->maintenance->dashboard_item) {
@@ -193,10 +191,8 @@ class dcMaintenanceAdmin
      *
      * This add options for superadmin user
      * to show or not expired taks.
-     *
-     * @param      dcCore  $core   The core
      */
-    public static function adminDashboardOptionsForm(dcCore $core = null)
+    public static function adminDashboardOptionsForm()
     {
         dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
 
@@ -299,12 +295,11 @@ class dcMaintenanceAdmin
     /**
      * Add javascript for plugin configuration.
      *
-     * @param      dcCore  $core    The core
      * @param      string  $module  The module
      *
      * @return     mixed
      */
-    public static function pluginsToolsHeaders(dcCore $core, $module)
+    public static function pluginsToolsHeaders($module)
     {
         if ($module == 'maintenance') {
             return dcPage::jsModuleLoad('maintenance/js/settings.js');

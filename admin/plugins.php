@@ -37,7 +37,6 @@ if ($list->setConfiguration()) {
         __('Plugins management'),
 
         # --BEHAVIOR-- pluginsToolsHeaders
-//        dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), true),
         dcCore::app()->callBehavior('pluginsToolsHeadersV2', true),
         dcPage::breadcrumb(
             [

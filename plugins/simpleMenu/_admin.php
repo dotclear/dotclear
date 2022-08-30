@@ -13,8 +13,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 
 dcCore::app()->addBehavior(
-    'adminDashboardFavorites',
-    function (dcCore $core, $favs) {
+    'adminDashboardFavoritesV2',
+    function ($favs) {
         $favs->register('simpleMenu', [
             'title'       => __('Simple menu'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.simpleMenu'),

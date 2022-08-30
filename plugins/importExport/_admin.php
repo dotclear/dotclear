@@ -21,8 +21,8 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
 );
 
 dcCore::app()->addBehavior(
-    'adminDashboardFavorites',
-    function (dcCore $core, $favs) {
+    'adminDashboardFavoritesV2',
+    function ($favs) {
         $favs->register('importExport', [
             'title'       => __('Import/Export'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.importExport'),

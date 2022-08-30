@@ -12,10 +12,10 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior('adminPostsActionsPage', ['dcLegacyPosts', 'adminPostsActionsPage']);
-dcCore::app()->addBehavior('adminPagesActionsPage', ['dcLegacyPages', 'adminPagesActionsPage']);
-dcCore::app()->addBehavior('adminCommentsActionsPage', ['dcLegacyComments', 'adminCommentsActionsPage']);
-dcCore::app()->addBehavior('adminFiltersLists', ['dcLegacyPreferences', 'adminFiltersLists']);
+dcCore::app()->addBehavior('adminPostsActionsPageV2', ['dcLegacyPosts', 'adminPostsActionsPage']);
+dcCore::app()->addBehavior('adminPagesActionsPageV2', ['dcLegacyPages', 'adminPagesActionsPage']);
+dcCore::app()->addBehavior('adminCommentsActionsPageV2', ['dcLegacyComments', 'adminCommentsActionsPage']);
+dcCore::app()->addBehavior('adminFiltersListsV2', ['dcLegacyPreferences', 'adminFiltersLists']);
 
 /* Handle deprecated behaviors :
  * adminPostsActionsCombo
@@ -24,7 +24,7 @@ dcCore::app()->addBehavior('adminFiltersLists', ['dcLegacyPreferences', 'adminFi
  */
 class dcLegacyPosts
 {
-    public static function adminPostsActionsPage(dcCore $core, dcPostsActionsPage $as)
+    public static function adminPostsActionsPage(dcPostsActionsPage $as)
     {
         $stub_actions = new ArrayObject();
         dcCore::app()->callBehavior('adminPostsActionsCombo', [$stub_actions]);
@@ -54,7 +54,7 @@ class dcLegacyPosts
  */
 class dcLegacyComments
 {
-    public static function adminCommentsActionsPage(dcCore $core, dcCommentsActionsPage $as)
+    public static function adminCommentsActionsPage(dcCommentsActionsPage $as)
     {
         $stub_actions = new ArrayObject();
         dcCore::app()->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
@@ -88,7 +88,7 @@ class dcLegacyComments
  */
 class dcLegacyPages
 {
-    public static function adminPagesActionsPage(dcCore $core, dcPagesActionsPage $as)
+    public static function adminPagesActionsPage(dcPagesActionsPage $as)
     {
         $stub_actions = new ArrayObject();
         dcCore::app()->callBehavior('adminPagesActionsCombo', [$stub_actions]);
@@ -121,7 +121,7 @@ class dcLegacyPages
  */
 class dcLegacyPreferences
 {
-    public static function adminFiltersLists(dcCore $core, $sorts)
+    public static function adminFiltersLists($sorts)
     {
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
 

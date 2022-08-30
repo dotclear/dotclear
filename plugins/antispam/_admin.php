@@ -29,8 +29,8 @@ dcCore::app()->addBehavior('adminAfterCommentDesc', ['dcAntispam', 'statusMessag
 dcCore::app()->addBehavior('adminDashboardHeaders', ['dcAntispam', 'dashboardHeaders']);
 
 dcCore::app()->addBehavior(
-    'adminDashboardFavorites',
-    function (dcCore $core, $favs) {
+    'adminDashboardFavoritesV2',
+    function ($favs) {
         $favs->register(
             'antispam',
             [
@@ -43,8 +43,8 @@ dcCore::app()->addBehavior(
     }
 );
 dcCore::app()->addBehavior(
-    'adminDashboardFavsIcon',
-    function (dcCore $core, $name, $icon) {
+    'adminDashboardFavsIconV2',
+    function ($name, $icon) {
         // Check if it is comments favs
         if ($name == 'comments') {
             // Hack comments title if there is at least one spam
@@ -59,7 +59,7 @@ dcCore::app()->addBehavior(
 if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
     dcCore::app()->addBehavior('adminBlogPreferencesFormV2', ['antispamBehaviors', 'adminBlogPreferencesForm']);
     dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['antispamBehaviors', 'adminBeforeBlogSettingsUpdate']);
-    dcCore::app()->addBehavior('adminCommentsSpamForm', ['antispamBehaviors', 'adminCommentsSpamForm']);
+    dcCore::app()->addBehavior('adminCommentsSpamFormV2', ['antispamBehaviors', 'adminCommentsSpamForm']);
     dcCore::app()->addBehavior('adminPageHelpBlock', ['antispamBehaviors', 'adminPageHelpBlock']);
 }
 
@@ -81,7 +81,7 @@ class antispamBehaviors
         $blocks[] = 'antispam_comments';
     }
 
-    public static function adminCommentsSpamForm(dcCore $core = null)
+    public static function adminCommentsSpamForm()
     {
         $ttl = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
         if ($ttl != null && $ttl >= 0) {

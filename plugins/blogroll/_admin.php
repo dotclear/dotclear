@@ -13,8 +13,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 
 dcCore::app()->addBehavior(
-    'adminDashboardFavorites',
-    function (dcCore $core, $favs) {
+    'adminDashboardFavoritesV2',
+    function ($favs) {
         $favs->register('blogroll', [
             'title'       => __('Blogroll'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.blogroll'),

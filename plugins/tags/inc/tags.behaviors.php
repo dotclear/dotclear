@@ -66,7 +66,7 @@ class tagsBehaviors
         $blocks[] = 'tag_post';
     }
 
-    public static function dashboardFavorites(dcCore $core, $favs)
+    public static function dashboardFavorites($favs)
     {
         $favs->register('tags', [
             'title'       => __('Tags'),
@@ -124,7 +124,7 @@ class tagsBehaviors
         }
     }
 
-    public static function adminPostsActionsPage(dcCore $core, $ap)
+    public static function adminPostsActionsPage($ap)
     {
         $ap->addAction(
             [__('Tags') => [__('Add tags') => 'tags']],
@@ -326,15 +326,9 @@ class tagsBehaviors
         dcPage::cssModuleLoad('tags/style.css');
     }
 
-    public static function adminUserForm($args)
+    public static function adminUserForm()
     {
-        if ($args instanceof dcCore) {
-            $opts = $args->auth->getOptions();
-        } elseif ($args instanceof record) {
-            $opts = $args->options();
-        } else {
-            $opts = [];
-        }
+        $opts = dcCore::app()->auth->getOptions();
 
         $combo                 = [];
         $combo[__('Short')]    = 'more';

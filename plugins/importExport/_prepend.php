@@ -31,7 +31,7 @@ Clearbricks::lib()->autoload([
     'ieMaintenanceExportfull' => __DIR__ . '/inc/lib.ie.maintenance.php',
 ]);
 
-dcCore::app()->addBehavior('importExportModules', 'registerIeModules');
+dcCore::app()->addBehavior('importExportModulesV2', 'registerIeModules');
 
 function registerIeModules($modules)
 {

@@ -28,8 +28,8 @@ dcCore::app()->addBehavior('adminAfterPostCreate', ['pingsAdminBehaviors', 'doPi
 dcCore::app()->addBehavior('adminAfterPostUpdate', ['pingsAdminBehaviors', 'doPings']);
 
 dcCore::app()->addBehavior(
-    'adminDashboardFavorites',
-    function (dcCore $core, $favs) {
+    'adminDashboardFavoritesV2',
+    function ($favs) {
         $favs->register('pings', [
             'title'      => __('Pings'),
             'url'        => dcCore::app()->adminurl->get('admin.plugin.pings'),

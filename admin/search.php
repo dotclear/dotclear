@@ -9,14 +9,14 @@
 require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
-dcCore::app()->addBehavior('adminSearchPageCombo', ['adminSearchPageDefault','typeCombo']);
-dcCore::app()->addBehavior('adminSearchPageHead', ['adminSearchPageDefault','pageHead']);
+dcCore::app()->addBehavior('adminSearchPageComboV2', ['adminSearchPageDefault','typeCombo']);
+dcCore::app()->addBehavior('adminSearchPageHeadV2', ['adminSearchPageDefault','pageHead']);
 // posts search
-dcCore::app()->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processPosts']);
-dcCore::app()->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayPosts']);
+dcCore::app()->addBehavior('adminSearchPageProcessV2', ['adminSearchPageDefault','processPosts']);
+dcCore::app()->addBehavior('adminSearchPageDisplayV2', ['adminSearchPageDefault','displayPosts']);
 // comments search
-dcCore::app()->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processComments']);
-dcCore::app()->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayComments']);
+dcCore::app()->addBehavior('adminSearchPageProcessV2', ['adminSearchPageDefault','processComments']);
+dcCore::app()->addBehavior('adminSearchPageDisplayV2', ['adminSearchPageDefault','displayComments']);
 
 $qtype_combo = [];
 
@@ -91,13 +91,13 @@ class adminSearchPageDefault
     protected static $list    = null;
     protected static $actions = null;
 
-    public static function typeCombo(dcCore $core, array $combo)
+    public static function typeCombo(array $combo)
     {
         $combo[0][__('Search in entries')]  = 'p';
         $combo[0][__('Search in comments')] = 'c';
     }
 
-    public static function pageHead(dcCore $core, array $args)
+    public static function pageHead(array $args)
     {
         if ($args['qtype'] == 'p') {
             return dcPage::jsLoad('js/_posts_list.js');
@@ -106,7 +106,7 @@ class adminSearchPageDefault
         }
     }
 
-    public static function processPosts(dcCore $core, array $args)
+    public static function processPosts(array $args)
     {
         if ($args['qtype'] != 'p') {
             return null;
@@ -131,7 +131,7 @@ class adminSearchPageDefault
         }
     }
 
-    public static function displayPosts(dcCore $core, array $args)
+    public static function displayPosts(array $args)
     {
         if ($args['qtype'] != 'p' || self::$count === null) {
             return null;
@@ -161,7 +161,7 @@ class adminSearchPageDefault
         );
     }
 
-    public static function processComments(dcCore $core, array $args)
+    public static function processComments(array $args)
     {
         if ($args['qtype'] != 'c') {
             return null;
@@ -186,7 +186,7 @@ class adminSearchPageDefault
         }
     }
 
-    public static function displayComments(dcCore $core, array $args)
+    public static function displayComments(array $args)
     {
         if ($args['qtype'] != 'c' || self::$count === null) {
             return null;

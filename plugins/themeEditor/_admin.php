@@ -16,14 +16,14 @@ if (!isset(dcCore::app()->resources['help']['themeEditor'])) {
     dcCore::app()->resources['help']['themeEditor'] = __DIR__ . '/help.html';
 }
 
-dcCore::app()->addBehavior('adminCurrentThemeDetails', ['themeEditorBehaviors', 'theme_editor_details']);
+dcCore::app()->addBehavior('adminCurrentThemeDetailsV2', ['themeEditorBehaviors', 'theme_editor_details']);
 
 dcCore::app()->addBehavior('adminBeforeUserOptionsUpdate', ['themeEditorBehaviors', 'adminBeforeUserUpdate']);
-dcCore::app()->addBehavior('adminPreferencesForm', ['themeEditorBehaviors', 'adminPreferencesForm']);
+dcCore::app()->addBehavior('adminPreferencesFormV2', ['themeEditorBehaviors', 'adminPreferencesForm']);
 
 class themeEditorBehaviors
 {
-    public static function theme_editor_details(dcCore $core, $id)
+    public static function theme_editor_details($id)
     {
         if (dcCore::app()->auth->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
