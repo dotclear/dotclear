@@ -24,7 +24,7 @@ class dcPostsActionsPageV2 extends dcActionsPageV2
     {
         // We could have added a behavior here, but we want default action
         // to be setup first
-        dcDefaultPostActions::adminPostsActionsPage(dcCore::app(), $this);
+        dcDefaultPostActions::adminPostsActionsPage($this);
         dcCore::app()->callBehavior('adminPostsActionsPageV2', $this);
     }
 
@@ -104,7 +104,7 @@ class dcPostsActionsPageV2 extends dcActionsPageV2
 
 class dcDefaultPostActions
 {
-    public static function adminPostsActionsPage(dcCore $core, $ap)
+    public static function adminPostsActionsPage($ap)
     {
         if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(

@@ -26,7 +26,7 @@ class dcBlogsActionsPageV2 extends dcActionsPageV2
     {
         // We could have added a behavior here, but we want default action
         // to be setup first
-        dcDefaultBlogActions::adminBlogsActionsPage(dcCore::app(), $this);
+        dcDefaultBlogActions::adminBlogsActionsPage($this);
     }
 
     public function beginPage($breadcrumb = '', $head = '')
@@ -112,7 +112,7 @@ class dcBlogsActionsPageV2 extends dcActionsPageV2
 
 class dcDefaultBlogActions
 {
-    public static function adminBlogsActionsPage(dcCore $core, dcBlogsActionsPageV2 $ap)
+    public static function adminBlogsActionsPage(dcBlogsActionsPageV2 $ap)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;

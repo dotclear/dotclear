@@ -27,7 +27,7 @@ class dcCommentsActionsPageV2 extends dcActionsPageV2
     {
         // We could have added a behavior here, but we want default action
         // to be setup first
-        dcDefaultCommentActions::adminCommentsActionsPage(dcCore::app(), $this);
+        dcDefaultCommentActions::adminCommentsActionsPage($this);
     }
 
     public function beginPage($breadcrumb = '', $head = '')
@@ -130,7 +130,7 @@ class dcCommentsActionsPageV2 extends dcActionsPageV2
 
 class dcDefaultCommentActions
 {
-    public static function adminCommentsActionsPage(dcCore $core, dcCommentsActionsPageV2 $ap)
+    public static function adminCommentsActionsPage(dcCommentsActionsPageV2 $ap)
     {
         if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
