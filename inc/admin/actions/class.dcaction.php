@@ -11,126 +11,141 @@ if (!defined('DC_RC_PATH')) {
 }
 
 /**
- * dcActionsPage -- handler for action page on selected entries
+ * dcActions -- handler for action page on selected entries
  */
-abstract class dcActionsPageV2
+abstract class dcActions
 {
-    /** @var string form submit uri */
+    /**
+     * @var string form submit uri
+     */
     protected $uri;
-
-    /** @var array action combo box */
-    protected $combo;
-    /** @var ArrayObject list of defined actions (callbacks) */
+    /**
+     * @var array action combo box
+     */
+    protected $combo = [];
+    /**
+     * @var ArrayObject list of defined actions (callbacks)
+     */
     protected $actions;
-    /** @var array selected entries (each key is the entry id, value contains the entry description) */
-    protected $entries;
-    /** @var record record that challenges ids against permissions */
+    /**
+     * @var array selected entries (each key is the entry id, value contains the entry description)
+     */
+    protected $entries = [];
+    /**
+     * @var record record that challenges ids against permissions
+     */
     protected $rs;
-    /** @var array redirection $_GET arguments, if any (does not contain ids by default, ids may be merged to it) */
+    /**
+     * @var array redirection $_GET arguments, if any (does not contain ids by default, ids may be merged to it)
+     */
     protected $redir_args;
-    /** @var array list of $_POST fields used to build the redirection  */
-    protected $redirect_fields;
-    /** @var string redirection anchor if any  */
-    protected $redir_anchor;
-
-    /** @var string current action, if any */
-    protected $action;
-    /** @var ArrayObject list of url parameters (usually $_POST) */
+    /**
+     * @var array list of $_POST fields used to build the redirection
+     */
+    protected $redirect_fields = [];
+    /**
+     * @var string redirection anchor if any
+     */
+    protected $redir_anchor = '';
+    /**
+     * @var string current action, if any
+     */
+    protected $action = '';
+    /**
+     * @var ArrayObject list of url parameters (usually $_POST)
+     */
     protected $from;
-    /** @var string form field name for "entries" (usually "entries") */
+    /**
+     * @var string form field name for "entries" (usually "entries")
+     */
     protected $field_entries;
-
-    /** @var string title for checkboxes list, if displayed */
+    /**
+     * @var string title for checkboxes list, if displayed
+     */
     protected $cb_title;
-
-    /** @var string title for caller page title */
+    /**
+     * @var string title for caller page title
+     */
     protected $caller_title;
-
-    /** @var boolean true if we are acting inside a plugin (different handling of begin/endpage) */
-    protected $in_plugin;
-
-    /** @var boolean true if we enable to keep selection when redirecting */
-    protected $enable_redir_selection;
+    /**
+     * @var boolean true if we are acting inside a plugin (different handling of begin/endpage)
+     */
+    protected $in_plugin = false;
+    /**
+     * @var boolean true if we enable to keep selection when redirecting
+     */
+    protected $enable_redir_selection = true;
 
     /**
-     * Class constructor
+     * Constructs a new instance.
      *
-     * @param mixed  $uri   form uri
-     *
-     * @access public
-     *
-     * @return mixed Value.
+     * @param      null|string  $uri            The form uri
+     * @param      array        $redirect_args  The redirect arguments
      */
-    public function __construct($uri, $redirect_args = [])
+    public function __construct(?string $uri, array $redirect_args = [])
     {
-        $this->actions         = new ArrayObject();
-        $this->combo           = [];
-        $this->uri             = $uri;
-        $this->redir_args      = $redirect_args;
-        $this->redirect_fields = [];
-        $this->action          = '';
-        $this->cb_title        = __('Title');
-        $this->entries         = [];
-        $this->from            = new ArrayObject($_POST);
-        $this->field_entries   = 'entries';
-        $this->caller_title    = __('Entries');
-        if (isset($this->redir_args['_ANCHOR'])) {
-            $this->redir_anchor = '#' . $this->redir_args['_ANCHOR'];
-            unset($this->redir_args['_ANCHOR']);
-        } else {
-            $this->redir_anchor = '';
+        $this->uri           = $uri;
+        $this->actions       = new ArrayObject();
+        $this->redir_args    = $redirect_args;
+        $this->from          = new ArrayObject($_POST);
+        $this->field_entries = 'entries';
+        $this->cb_title      = __('Title');
+        $this->caller_title  = __('Entries');
+
+        if (isset($this->redir_args['action_anchor'])) {
+            $this->redir_anchor = '#' . $this->redir_args['action_anchor'];
+            unset($this->redir_args['action_anchor']);
         }
-        $u                            = explode('?', $_SERVER['REQUEST_URI']);
-        $this->in_plugin              = (strpos($u[0], 'plugin.php') !== false);
-        $this->enable_redir_selection = true;
+
+        $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
+        if ($uri_parts !== false) {
+            $this->in_plugin = (strpos($uri_parts[0], 'plugin.php') !== false);
+        }
     }
 
     /**
-     * setEnableRedirSelection - define whether to keep selection when redirecting
-     *                            Can be usefull to be disabled to preserve some compatibility.
+     * Define whether to keep selection when redirecting
+     * Can be usefull to be disabled to preserve some compatibility.
      *
      * @param boolean $enable true to enable, false otherwise
-     *
-     * @access public
      */
-    public function setEnableRedirSelection($enable)
+    public function setEnableRedirSelection(bool $enable)
     {
         $this->enable_redir_selection = $enable;
     }
 
     /**
-     * addAction - adds an action
+     * Adds an action
      *
      * @param array    $actions  the actions names as if it was a standalone combo array.
      *                           It will be merged with other actions.
      *                           Can be bound to multiple values, if the same callback is to be called
      * @param callable $callback the callback for the action.
      *
-     * @access public
-     *
-     * @return dcActionsPageV2 the actions page itself, enabling to chain addAction().
+     * @return dcActions the actions page itself, enabling to chain addAction().
      */
-    public function addAction($actions, $callback)
+    public function addAction(array $actions, callable $callback): dcActions
     {
-        foreach ($actions as $k => $a) {
+        foreach ($actions as $group => $options) {
             // Check each case of combo definition
             // Store form values in $values
-            if (is_array($a)) {
-                $values = array_values($a);
-                if (!isset($this->combo[$k])) {
-                    $this->combo[$k] = [];
-                }
-                $this->combo[$k] = array_merge($this->combo[$k], $a);
-            } elseif ($a instanceof formSelectOption) {
-                $values          = [$a->value];
-                $this->combo[$k] = $a->value;
+            if (is_array($options)) {
+                $values              = array_values($options);
+                $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
+            } elseif (
+                $options instanceof formSelectOption || //  CB: common/lib.form.php
+                $options instanceof formsSelectOption || // CB: common/lib.forms.php
+                $options instanceof formOption           // CB: html.form/class.form.option.php
+            ) {
+                $values              = [$options->value];
+                $this->combo[$group] = $options->value;
             } else {
-                $values          = [$a];
-                $this->combo[$k] = $a;
+                $values              = [$options];
+                $this->combo[$group] = $options;
             }
             // Associate each potential value to the callback
-            foreach ($values as $v) {
-                $this->actions[$v] = $callback;
+            foreach ($values as $value) {
+                $this->actions[$value] = $callback;
             }
         }
 
@@ -138,60 +153,53 @@ abstract class dcActionsPageV2
     }
 
     /**
-     * getCombo - returns the actions combo, useable through form::combo
-     *
-     * @access public
+     * Returns the actions combo
+     * Useable through form::combo/forms::combo/formOption (see addAction() method)
      *
      * @return array the actions combo
      */
-    public function getCombo()
+    public function getCombo(): ?array
     {
         return $this->combo;
     }
 
     /**
-     * getIDS() - returns the list of selected entries
-     *
-     * @access public
+     * Returns the list of selected entries
      *
      * @return array the list
      */
-    public function getIDs()
+    public function getIDs(): array
     {
         return array_keys($this->entries);
     }
 
     /**
-     * getIDS() - returns the list of selected entries as HTML hidden fields string
-     *
-     * @access public
+     * Returns the list of selected entries as HTML hidden fields string
      *
      * @return string the HTML code for hidden fields
      */
-    public function getIDsHidden()
+    public function getIDsHidden(): string
     {
         $ret = '';
-        foreach ($this->entries as $id => $v) {
-            $ret .= form::hidden($this->field_entries . '[]', $id);
+        foreach (array_keys($this->entries) as $id) {
+            $ret .= (new formHidden($this->field_entries . '[]', $id))->render();
         }
 
         return $ret;
     }
 
     /**
-     * getHiddenFields() - returns all redirection parameters as HTML hidden fields
+     * Returns all redirection parameters as HTML hidden fields
      *
      * @param boolean $with_ids if true, also include ids in HTML code
      *
-     * @access public
-     *
      * @return string the HTML code for hidden fields
      */
-    public function getHiddenFields($with_ids = false)
+    public function getHiddenFields(bool $with_ids = false): string
     {
         $ret = '';
-        foreach ($this->redir_args as $k => $v) {
-            $ret .= form::hidden([$k], $v);
+        foreach ($this->redir_args as $name => $value) {
+            $ret .= (new formHidden([$name], $value))->render();
         }
         if ($with_ids) {
             $ret .= $this->getIDsHidden();
@@ -201,9 +209,7 @@ abstract class dcActionsPageV2
     }
 
     /**
-     * getRS() - get record from DB Query containing requested IDs
-     *
-     * @access public
+     * Get record from DB Query containing requested IDs
      *
      * @return record the HTML code for hidden fields
      */
@@ -213,36 +219,32 @@ abstract class dcActionsPageV2
     }
 
     /**
-     * setupRedir - setup redirection arguments
+     * Setup redirection arguments
+     *
      *  by default, $_POST fields as defined in redirect_fields attributes
      *  are set into redirect_args.
      *
      * @param array|ArrayObject     $from   input to parse fields from (usually $_POST)
-     *
-     * @access protected
      */
     protected function setupRedir($from)
     {
-        foreach ($this->redirect_fields as $p) {
-            if (isset($from[$p])) {
-                $this->redir_args[$p] = $from[$p];
+        foreach ($this->redirect_fields as $field) {
+            if (isset($from[$field])) {
+                $this->redir_args[$field] = $from[$field];
             }
         }
     }
 
     /**
-     * getRedirection - returns redirection URL
+     * Returns redirection URL
      *
-     * @param array $params extra parameters to append to redirection
-     *                        must be an array : each key is the name,
-     *                        each value is the wanted value
      * @param boolean $with_selected_entries if true, add selected entries in url
-     *
-     * @access public
+     * @param array $params extra parameters to append to redirection
+     *  must be an array : each key is the name, each value is the wanted value
      *
      * @return string the redirection url
      */
-    public function getRedirection($with_selected_entries = false, $params = [])
+    public function getRedirection(bool $with_selected_entries = false, array $params = []): string
     {
         $redirect_args = array_merge($params, $this->redir_args);
         if (isset($redirect_args['redir'])) {
@@ -257,61 +259,55 @@ abstract class dcActionsPageV2
     }
 
     /**
-     * redirect - redirects to redirection page
+     * Redirects to redirection page
+     *
+     * @param boolean $with_selected_entries if true, add selected entries in url
+     * @param array $params extra parameters to append to redirection
+     *  must be an array : each key is the name, each value is the wanted value
      *
      * @see getRedirection for arguments details
-     *
-     * @access public
      */
-    public function redirect($with_selected_entries = false, $params = [])
+    public function redirect(bool $with_selected_entries = false, array $params = [])
     {
         http::redirect($this->getRedirection($with_selected_entries, $params));
         exit;
     }
 
     /**
-     * getURI - returns current form URI, if any
-     *
-     * @access public
+     * Returns current form URI, if any
      *
      * @return string the form URI
      */
-    public function getURI()
+    public function getURI(): ?string
     {
         return $this->uri;
     }
 
     /**
-     * getCallerTitle - returns current form URI, if any
-     *
-     * @access public
+     * Returns current form URI, if any
      *
      * @return string the form URI
      */
-    public function getCallerTitle()
+    public function getCallerTitle(): ?string
     {
         return $this->caller_title;
     }
 
     /**
-     * getAction - returns current action, if any
-     *
-     * @access public
+     * Returns current action, if any
      *
      * @return string the action
      */
-    public function getAction()
+    public function getAction(): ?string
     {
         return $this->action;
     }
 
     /**
-     * process - proceeds action handling, if any
-     *             this method may issue an exit() if
-     *            an action is being processed. If it
-     *            returns, no action has been performed
+     * Proceeds action handling, if any
      *
-     * @access public
+     * This method may issue an exit() if an action is being processed.
+     *  If it returns, no action has been performed
      */
     public function process()
     {
@@ -322,10 +318,10 @@ abstract class dcActionsPageV2
 
             try {
                 $performed = false;
-                foreach ($this->actions as $k => $v) {
-                    if ($this->from['action'] == $k) {
+                foreach ($this->actions as $action => $callback) {
+                    if ($this->from['action'] == $action) {
                         $performed = true;
-                        call_user_func($v, $this, $this->from);
+                        call_user_func($callback, $this, $this->from);
                     }
                 }
                 if ($performed) {
@@ -338,14 +334,11 @@ abstract class dcActionsPageV2
     }
 
     /**
-     * getcheckboxes -returns html code for selected entries
-     *             as a table containing entries checkboxes
-     *
-     * @access public
+     * Returns html code for selected entries as a table containing entries checkboxes
      *
      * @return string the html code for checkboxes
      */
-    public function getCheckboxes()
+    public function getCheckboxes(): string
     {
         $ret = '<table class="posts-list"><tr>' .
         '<th colspan="2">' . $this->cb_title . '</th>' .
@@ -364,25 +357,30 @@ abstract class dcActionsPageV2
     }
 
     /**
-     * beginPage, endPage - displays the beginning/ending of a page, if action does not redirects dirtectly
+     * Displays the beginning of a page, if action does not redirects dirtectly
      *
-     * These methods are called from the actions themselves.
+     * This method is called from the actions themselves.
      *
      * @param string $breadcrumb breadcrumb to display
      * @param string $head    page header to include
-     *
-     * @access public
      */
-    abstract public function beginPage($breadcrumb = '', $head = '');
+    abstract public function beginPage(string $breadcrumb = '', string $head = '');
+
+    /**
+     * Displays the ending of a page, if action does not redirects dirtectly
+     *
+     * This method is called from the actions themselves.
+     */
     abstract public function endPage();
 
     /**
-     * fetchEntries - fills-in information by requesting into db
-     *     this method may setup the following attributes
-     *   * entries : list of entries (checked against permissions)
-     *      entries ids are array keys, values contain entry description (if relevant)
-     *   * rs : record given by db request
-     * @access protected
+     * Fills-in information by requesting into db
+     * This method may setup the following attributes
+     * - entries : list of entries (checked against permissions)
+     *   entries ids are array keys, values contain entry description (if relevant)
+     * - rs : record given by db request
+     *
+     * @param ArrayObject $from
      */
-    abstract protected function fetchEntries($from);
+    abstract protected function fetchEntries(ArrayObject $from);
 }

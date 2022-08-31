@@ -139,7 +139,7 @@ class tagsBehaviors
         }
     }
 
-    public static function adminAddTags(dcPostsActionsPageV2 $ap, $post)
+    public static function adminAddTags(dcPostsActions $ap, $post)
     {
         if (!empty($post['new_tags'])) {
             $meta  = dcCore::app()->meta;
@@ -219,7 +219,7 @@ class tagsBehaviors
             $ap->endPage();
         }
     }
-    public static function adminRemoveTags(dcPostsActionsPageV2 $ap, $post)
+    public static function adminRemoveTags(dcPostsActions $ap, $post)
     {
         if (!empty($post['meta_id']) && dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
             $meta  = dcCore::app()->meta;

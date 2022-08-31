@@ -10,26 +10,44 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-class dcBlogsActionsPageV2 extends dcActionsPageV2
+class dcBlogsActions extends dcActions
 {
-    public function __construct($uri, $redirect_args = [])
+    /**
+     * Constructs a new instance.
+     *
+     * @param      null|string  $uri            The uri
+     * @param      array        $redirect_args  The redirect arguments
+     */
+    public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
-        $this->redirect_fields = ['status', 'sortby', 'order', 'page', 'nb'];
-        $this->field_entries   = 'blogs';
-        $this->cb_title        = __('Blogs');
+
+        $this->redirect_fields = [
+            'status', 'sortby', 'order', 'page', 'nb',
+        ];
+        $this->field_entries = 'blogs';
+        $this->cb_title      = __('Blogs');
+
         $this->loadDefaults();
-        dcCore::app()->callBehavior('adminBlogsActionsPageV2', $this);
+        dcCore::app()->callBehavior('adminBlogsActions', $this);
     }
 
+    /**
+     * Loads defaults.
+     */
     protected function loadDefaults()
     {
-        // We could have added a behavior here, but we want default action
-        // to be setup first
+        // We could have added a behavior here, but we want default action to be setup first
         dcDefaultBlogActions::adminBlogsActionsPage($this);
     }
 
-    public function beginPage($breadcrumb = '', $head = '')
+    /**
+     * Begins a page.
+     *
+     * @param      string  $breadcrumb  The breadcrumb
+     * @param      string  $head        The head
+     */
+    public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
             echo '<html><head><title>' . __('Blogs') . '</title>' .
@@ -48,11 +66,19 @@ class dcBlogsActionsPageV2 extends dcActionsPageV2
         echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to blogs list') . '</a></p>';
     }
 
+    /**
+     * Ends a page.
+     */
     public function endPage()
     {
         dcPage::close();
     }
 
+    /**
+     * Display error page
+     *
+     * @param      Exception  $e
+     */
     public function error(Exception $e)
     {
         dcCore::app()->error->add($e->getMessage());
@@ -68,7 +94,12 @@ class dcBlogsActionsPageV2 extends dcActionsPageV2
         $this->endPage();
     }
 
-    public function getCheckboxes()
+    /**
+     * Returns html code for selected blogs as a table containing blogs checkboxes
+     *
+     * @return string the html code for checkboxes
+     */
+    public function getCheckboxes(): string
     {
         $ret = '';
         foreach ($this->entries as $id => $res) {
@@ -92,27 +123,37 @@ class dcBlogsActionsPageV2 extends dcActionsPageV2
             '</tr>' . $ret . '</table>';
     }
 
-    protected function fetchEntries($from)
+    /**
+     * Fetches entries.
+     *
+     * @param      ArrayObject  $from   The parameters ($_POST)
+     */
+    protected function fetchEntries(ArrayObject $from)
     {
         $params = [];
         if (!empty($from['blogs'])) {
             $params['blog_id'] = $from['blogs'];
         }
 
-        $bl = dcCore::app()->getBlogs($params);
-        while ($bl->fetch()) {
-            $this->entries[$bl->blog_id] = [
-                'blog' => $bl->blog_id,
-                'name' => $bl->blog_name,
+        $rs = dcCore::app()->getBlogs($params);
+        while ($rs->fetch()) {
+            $this->entries[$rs->blog_id] = [
+                'blog' => $rs->blog_id,
+                'name' => $rs->blog_name,
             ];
         }
-        $this->rs = $bl;
+        $this->rs = $rs;
     }
 }
 
 class dcDefaultBlogActions
 {
-    public static function adminBlogsActionsPage(dcBlogsActionsPageV2 $ap)
+    /**
+     * Set blog actions
+     *
+     * @param      dcBlogsActions  $ap     { parameter_description }
+     */
+    public static function adminBlogsActionsPage(dcBlogsActions $ap)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
@@ -133,18 +174,25 @@ class dcDefaultBlogActions
         );
     }
 
-    public static function doChangeBlogStatus(dcBlogsActionsPageV2 $ap, $post)
+    /**
+     * Does a change blog status.
+     *
+     * @param      dcBlogsActions  $ap
+     *
+     * @throws     Exception             If no blog selected
+     */
+    public static function doChangeBlogStatus(dcBlogsActions $ap)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
         }
 
-        $action = $ap->getAction();
-        $ids    = $ap->getIDs();
+        $ids = $ap->getIDs();
         if (empty($ids)) {
             throw new Exception(__('No blog selected'));
         }
-        switch ($action) {
+
+        switch ($ap->getAction()) {
             case 'online':
                 $status = 1;
 
@@ -165,21 +213,27 @@ class dcDefaultBlogActions
 
         $cur              = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
         $cur->blog_status = $status;
-        //$cur->blog_upddt = date('Y-m-d H:i:s');
         $cur->update('WHERE blog_id ' . dcCore::app()->con->in($ids));
 
         dcPage::addSuccessNotice(__('Selected blogs have been successfully updated.'));
         $ap->redirect(true);
     }
 
-    public static function doDeleteBlog(dcBlogsActionsPageV2 $ap, $post)
+    /**
+     * Does a delete blog.
+     *
+     * @param      dcBlogsActions  $ap
+     *
+     * @throws     Exception             If no blog selected
+     */
+    public static function doDeleteBlog(dcBlogsActions $ap)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
         }
 
-        $ap_ids = $ap->getIDs();
-        if (empty($ap_ids)) {
+        $ids = $ap->getIDs();
+        if (empty($ids)) {
             throw new Exception(__('No blog selected'));
         }
 
@@ -187,20 +241,20 @@ class dcDefaultBlogActions
             throw new Exception(__('Password verification failed'));
         }
 
-        $ids = [];
-        foreach ($ap_ids as $id) {
-            if ($id == dcCore::app()->blog->id) {
+        $checked_ids = [];
+        foreach ($ids as $id) {
+            if ($id === dcCore::app()->blog->id) {
                 dcPage::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
-                $ids[] = $id;
+                $checked_ids[] = $id;
             }
         }
 
-        if (!empty($ids)) {
+        if (!empty($checked_ids)) {
             # --BEHAVIOR-- adminBeforeBlogsDelete
-            dcCore::app()->callBehavior('adminBeforeBlogsDelete', $ids);
+            dcCore::app()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 
-            foreach ($ids as $id) {
+            foreach ($checked_ids as $id) {
                 dcCore::app()->delBlog($id);
             }
 
@@ -209,9 +263,9 @@ class dcDefaultBlogActions
                     __(
                         '%d blog has been successfully deleted',
                         '%d blogs have been successfully deleted',
-                        count($ids)
+                        count($checked_ids)
                     ),
-                    count($ids)
+                    count($checked_ids)
                 )
             );
         }

@@ -10,27 +10,44 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-class dcCommentsActionsPageV2 extends dcActionsPageV2
+class dcCommentsActions extends dcActions
 {
-    public function __construct($uri, $redirect_args = [])
+    /**
+     * Constructs a new instance.
+     *
+     * @param      null|string  $uri            The uri
+     * @param      array        $redirect_args  The redirect arguments
+     */
+    public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
-        $this->redirect_fields = ['type', 'author', 'status',
-            'sortby', 'ip', 'order', 'page', 'nb', 'section', ];
+
+        $this->redirect_fields = [
+            'type', 'author', 'status', 'sortby', 'ip', 'order', 'page', 'nb', 'section',
+        ];
         $this->field_entries = 'comments';
         $this->cb_title      = __('Comments');
+
         $this->loadDefaults();
-        dcCore::app()->callBehavior('adminCommentsActionsPageV2', $this);
+        dcCore::app()->callBehavior('adminCommentsActions', $this);
     }
 
+    /**
+     * Loads comments actions.
+     */
     protected function loadDefaults()
     {
-        // We could have added a behavior here, but we want default action
-        // to be setup first
+        // We could have added a behavior here, but we want default action to be setup first
         dcDefaultCommentActions::adminCommentsActionsPage($this);
     }
 
-    public function beginPage($breadcrumb = '', $head = '')
+    /**
+     * Begins a page.
+     *
+     * @param      string  $breadcrumb  The breadcrumb
+     * @param      string  $head        The head
+     */
+    public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
             echo '<html><head><title>' . __('Comments') . '</title>' .
@@ -49,11 +66,19 @@ class dcCommentsActionsPageV2 extends dcActionsPageV2
         echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to comments list') . '</a></p>';
     }
 
+    /**
+     * Ends a page.
+     */
     public function endPage()
     {
         dcPage::close();
     }
 
+    /**
+     * Display error page
+     *
+     * @param      Exception  $e      { parameter_description }
+     */
     public function error(Exception $e)
     {
         dcCore::app()->error->add($e->getMessage());
@@ -70,36 +95,32 @@ class dcCommentsActionsPageV2 extends dcActionsPageV2
     }
 
     /**
-     * getcheckboxes -returns html code for selected entries
-     *             as a table containing entries checkboxes
-     *
-     * @access public
+     * Returns html code for selected entries as a table containing entries checkboxes
      *
      * @return string the html code for checkboxes
      */
-    public function getCheckboxes()
+    public function getCheckboxes(): string
     {
         $ret = '<table class="posts-list"><tr>' .
         '<th colspan="2">' . __('Author') . '</th><th>' . __('Title') . '</th>' .
             '</tr>';
-        foreach ($this->entries as $id => $title) {
+        foreach ($this->entries as $id => $description) {
             $ret .= '<tr><td class="minimal">' .
-            form::checkbox(
-                [$this->field_entries . '[]'],
-                $id,
-                [
-                    'checked' => true,
-                ]
-            ) .
+            (new formCheckbox([$this->field_entries . '[]'], true))->value($id)->render() .
                 '</td>' .
-                '<td>' . $title['author'] . '</td><td>' . $title['title'] . '</td></tr>';
+                '<td>' . $description['author'] . '</td><td>' . $description['title'] . '</td></tr>';
         }
         $ret .= '</table>';
 
         return $ret;
     }
 
-    protected function fetchEntries($from)
+    /**
+     * Fetches entries.
+     *
+     * @param      ArrayObject  $from   The parameters ($_POST)
+     */
+    protected function fetchEntries(ArrayObject $from)
     {
         $params = [];
         if (!empty($from['comments'])) {
@@ -117,20 +138,25 @@ class dcCommentsActionsPageV2 extends dcActionsPageV2
         if (!isset($from['full_content']) || empty($from['full_content'])) {
             $params['no_content'] = true;
         }
-        $co = dcCore::app()->blog->getComments($params);
-        while ($co->fetch()) {
-            $this->entries[$co->comment_id] = [
-                'title'  => $co->post_title,
-                'author' => $co->comment_author,
+        $rs = dcCore::app()->blog->getComments($params);
+        while ($rs->fetch()) {
+            $this->entries[$rs->comment_id] = [
+                'title'  => $rs->post_title,
+                'author' => $rs->comment_author,
             ];
         }
-        $this->rs = $co;
+        $this->rs = $rs;
     }
 }
 
 class dcDefaultCommentActions
 {
-    public static function adminCommentsActionsPage(dcCommentsActionsPageV2 $ap)
+    /**
+     * Set comments actions
+     *
+     * @param      dcCommentsActions  $ap
+     */
+    public static function adminCommentsActionsPage(dcCommentsActions $ap)
     {
         if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
@@ -173,70 +199,91 @@ class dcDefaultCommentActions
         }
     }
 
-    public static function doChangeCommentStatus(dcCommentsActionsPageV2 $ap, $post)
+    /**
+     * Does a change comment status.
+     *
+     * @param      dcCommentsActions  $ap
+     *
+     * @throws     Exception                If no comment selected
+     */
+    public static function doChangeCommentStatus(dcCommentsActions $ap)
     {
-        $action = $ap->getAction();
-        $co_ids = $ap->getIDs();
-        if (empty($co_ids)) {
+        $ids = $ap->getIDs();
+        if (empty($ids)) {
             throw new Exception(__('No comment selected'));
         }
-        switch ($action) {
+
+        switch ($ap->getAction()) {
             case 'unpublish':
-                $status = 0;
+                $status = dcBlog::COMMENT_UNPUBLISHED;
 
                 break;
             case 'pending':
-                $status = -1;
+                $status = dcBlog::COMMENT_PENDING;
 
                 break;
             case 'junk':
-                $status = -2;
+                $status = dcBlog::COMMENT_JUNK;
 
                 break;
             default:
-                $status = 1;
+                $status = dcBlog::COMMENT_PUBLISHED;
 
                 break;
         }
 
-        dcCore::app()->blog->updCommentsStatus($co_ids, $status);
+        dcCore::app()->blog->updCommentsStatus($ids, $status);
 
         dcPage::addSuccessNotice(__('Selected comments have been successfully updated.'));
         $ap->redirect(true);
     }
 
-    public static function doDeleteComment(dcCommentsActionsPageV2 $ap, $post)
+    /**
+     * Does a delete comment.
+     *
+     * @param      dcCommentsActions  $ap
+     *
+     * @throws     Exception                If no comment selected
+     */
+    public static function doDeleteComment(dcCommentsActions $ap)
     {
-        $co_ids = $ap->getIDs();
-        if (empty($co_ids)) {
+        $ids = $ap->getIDs();
+        if (empty($ids)) {
             throw new Exception(__('No comment selected'));
         }
         // Backward compatibility
-        foreach ($co_ids as $comment_id) {
+        foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforeCommentDelete
-            dcCore::app()->callBehavior('adminBeforeCommentDelete', $comment_id);
+            dcCore::app()->callBehavior('adminBeforeCommentDelete', $id);
         }
 
         # --BEHAVIOR-- adminBeforeCommentsDelete
-        dcCore::app()->callBehavior('adminBeforeCommentsDelete', $co_ids);
+        dcCore::app()->callBehavior('adminBeforeCommentsDelete', $ids);
 
-        dcCore::app()->blog->delComments($co_ids);
+        dcCore::app()->blog->delComments($ids);
+
         dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
         $ap->redirect(false);
     }
 
-    public static function doBlocklistIP(dcCommentsActionsPageV2 $ap, $post)
+    /**
+     * Add comments IP in an antispam blacklist.
+     *
+     * @param      dcCommentsActions  $ap
+     *
+     * @throws     Exception                If no comment selected
+     */
+    public static function doBlocklistIP(dcCommentsActions $ap)
     {
-        $action = $ap->getAction();
-        $co_ids = $ap->getIDs();
-        if (empty($co_ids)) {
+        $ids = $ap->getIDs();
+        if (empty($ids)) {
             throw new Exception(__('No comment selected'));
         }
 
+        $action = $ap->getAction();
         $global = !empty($action) && $action == 'blocklist_global' && dcCore::app()->auth->isSuperAdmin();
 
         $rs = $ap->getRS();
-
         while ($rs->fetch()) {
             if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
                 // IP is an IPv6

@@ -52,7 +52,7 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     }
 
     # --BEHAVIOR-- adminUsersActions
-    dcCore::app()->callBehavior('adminUsersActionsV2', $users, $blogs, $action, $redir);
+    dcCore::app()->callBehavior('adminUsersActions', $users, $blogs, $action, $redir);
 
     # Delete users
     if ($action == 'deleteuser' && !empty($users)) {

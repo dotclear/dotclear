@@ -42,7 +42,7 @@ try {
 
 # Actions combo box
 
-$pages_actions_page = new dcPagesActionsPageV2('plugin.php', ['p' => 'pages']);
+$pages_actions_page = new dcPagesActions('plugin.php', ['p' => 'pages']);
 
 if (!$pages_actions_page->process()) {
 

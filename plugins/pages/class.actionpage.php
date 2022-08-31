@@ -8,15 +8,27 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcPagesActionsPageV2 extends dcPostsActionsPageV2
+class dcPagesActions extends dcPostsActions
 {
-    public function __construct($uri, $redirect_args = [])
+    /**
+     * Constructs a new instance.
+     *
+     * @param      null|string  $uri            The uri
+     * @param      array        $redirect_args  The redirect arguments
+     */
+    public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
+
         $this->redirect_fields = [];
         $this->caller_title    = __('Pages');
     }
 
+    /**
+     * Display error page
+     *
+     * @param      Exception  $e      { parameter_description }
+     */
     public function error(Exception $e)
     {
         dcCore::app()->error->add($e->getMessage());
@@ -32,7 +44,13 @@ class dcPagesActionsPageV2 extends dcPostsActionsPageV2
         $this->endPage();
     }
 
-    public function beginPage($breadcrumb = '', $head = '')
+    /**
+     * Begins a page.
+     *
+     * @param      string  $breadcrumb  The breadcrumb
+     * @param      string  $head        The head
+     */
+    public function beginPage(string $breadcrumb = '', string $head = '')
     {
         echo '<html><head><title>' . __('Pages') . '</title>' .
         dcPage::jsLoad('js/_posts_actions.js') .
@@ -42,17 +60,30 @@ class dcPagesActionsPageV2 extends dcPostsActionsPageV2
         echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
     }
 
+    /**
+     * Ends a page.
+     */
     public function endPage()
     {
         echo '</body></html>';
     }
 
+    /**
+     * Set pages actions
+     */
     public function loadDefaults()
     {
-        DefaultPagesActions::adminPagesActionsPage(dcCore::app(), $this);
-        $this->actions['reorder'] = ['dcPagesActionsPageV2', 'doReorderPages'];
-        dcCore::app()->callBehavior('adminPagesActionsPageV2', $this);
+        // We could have added a behavior here, but we want default action to be setup first
+        dcDefaultPageActions::adminPagesActionsPage($this);
+        dcCore::app()->callBehavior('adminPagesActions', $this);
     }
+
+    /**
+     * Proceeds action handling, if any
+     *
+     * This method may issue an exit() if an action is being processed.
+     *  If it returns, no action has been performed
+     */
     public function process()
     {
         // fake action for pages reordering
@@ -63,39 +94,16 @@ class dcPagesActionsPageV2 extends dcPostsActionsPageV2
 
         return parent::process();
     }
-
-    public static function doReorderPages(dcPostsActionsPageV2 $ap, $post)
-    {
-        foreach ($post['order'] as $post_id => $value) {
-            if (!dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
-                throw new Exception(__('You are not allowed to change this entry status'));
-            }
-
-            $strReq = "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
-            'AND post_id ' . dcCore::app()->con->in($post_id);
-
-            #If user can only publish, we need to check the post's owner
-            if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
-                $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
-            }
-
-            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
-
-            $cur->post_position = (int) $value - 1;
-            $cur->post_upddt    = date('Y-m-d H:i:s');
-
-            $cur->update($strReq);
-            dcCore::app()->blog->triggerBlog();
-        }
-
-        dcPage::addSuccessNotice(__('Selected pages have been successfully reordered.'));
-        $ap->redirect(false);
-    }
 }
 
-class DefaultPagesActions
+class dcDefaultPageActions
 {
-    public static function adminPagesActionsPage(dcCore $core, $ap)
+    /**
+     * Set pages actions
+     *
+     * @param      dcPagesActions  $ap     { parameter_description }
+     */
+    public static function adminPagesActionsPage(dcPagesActions $ap)
     {
         if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
@@ -122,5 +130,46 @@ class DefaultPagesActions
                 ['dcDefaultPostActions', 'doDeletePost']
             );
         }
+        $ap->addAction(
+            [__('Order') => [
+                __('Save order') => 'reorder', ]],
+            ['dcDefaultPageActions', 'doReorderPages']
+        );
+    }
+
+    /**
+     * Does reorder pages.
+     *
+     * @param      dcPagesActions  $ap
+     * @param      ArrayObject           $post   The post
+     *
+     * @throws     Exception             If user permission not granted
+     */
+    public static function doReorderPages(dcPagesActions $ap, ArrayObject $post)
+    {
+        foreach ($post['order'] as $post_id => $value) {
+            if (!dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
+                throw new Exception(__('You are not allowed to change this entry status'));
+            }
+
+            $strReq = "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
+            'AND post_id ' . dcCore::app()->con->in($post_id);
+
+            #If user can only publish, we need to check the post's owner
+            if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+                $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
+            }
+
+            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+
+            $cur->post_position = (int) $value - 1;
+            $cur->post_upddt    = date('Y-m-d H:i:s');
+
+            $cur->update($strReq);
+            dcCore::app()->blog->triggerBlog();
+        }
+
+        dcPage::addSuccessNotice(__('Selected pages have been successfully reordered.'));
+        $ap->redirect(false);
     }
 }

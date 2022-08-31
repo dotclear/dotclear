@@ -122,7 +122,7 @@ class adminSearchPageDefault
         try {
             self::$count   = dcCore::app()->blog->getPosts($params, true)->f(0);
             self::$list    = new adminPostList(dcCore::app()->blog->getPosts($params), self::$count);
-            self::$actions = new dcPostsActionsPageV2(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$actions = new dcPostsActions(dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
@@ -177,7 +177,7 @@ class adminSearchPageDefault
         try {
             self::$count   = dcCore::app()->blog->getComments($params, true)->f(0);
             self::$list    = new adminCommentList(dcCore::app()->blog->getComments($params), self::$count);
-            self::$actions = new dcCommentsActionsPageV2(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$actions = new dcCommentsActions(dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }

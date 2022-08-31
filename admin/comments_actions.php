@@ -24,6 +24,6 @@ if (isset($_REQUEST['redir'])) {
     $args = [];
 }
 
-$comments_actions_page = new dcCommentsActionsPageV2($uri, $args);
+$comments_actions_page = new dcCommentsActions($uri, $args);
 $comments_actions_page->setEnableRedirSelection(false);
 $comments_actions_page->process();
