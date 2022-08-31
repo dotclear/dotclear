@@ -109,7 +109,7 @@ class adminGenericFilterV2
      *
      * @return array            The filters
      */
-    public function values($escape = false, $ui_only = false)
+    public function values(bool $escape = false, bool $ui_only = false): array
     {
         $res = [];
         foreach ($this->filters as $id => $filter) {
@@ -128,12 +128,12 @@ class adminGenericFilterV2
     /**
      * Get a filter value
      *
-     * @param  string $id The filter id
-     * @param  string $id The filter value if not exists
+     * @param  string       $id The filter id
+     * @param  null|string  $undefined The filter value if not exists
      *
      * @return mixed      The filter value
      */
-    public function value(string $id, $undefined = null)
+    public function value(string $id, ?string $undefined = null)
     {
         return isset($this->filters[$id]) ? $this->filters[$id]->value : $undefined;
     }
@@ -145,7 +145,7 @@ class adminGenericFilterV2
      *
      * @return mixed            The filter value
      */
-    public function __get($id)
+    public function __get(string $id)
     {
         return $this->value($id);
     }
@@ -206,7 +206,7 @@ class adminGenericFilterV2
      *
      * @return boolean      The success
      */
-    public function remove(string $id)
+    public function remove(string $id): bool
     {
         if (array_key_exists($id, $this->filters)) {
             unset($this->filters[$id]);
@@ -222,7 +222,7 @@ class adminGenericFilterV2
      *
      * @return array    The query params
      */
-    public function params()
+    public function params(): array
     {
         $filters = $this->values();
 
@@ -266,7 +266,7 @@ class adminGenericFilterV2
      *
      * @return boolean          Show filter form
      */
-    public function show($set = false): bool
+    public function show(bool $set = false): bool
     {
         if ($set === true) {
             $this->show = true;
@@ -280,12 +280,9 @@ class adminGenericFilterV2
      *
      * @param string $reset_url     The filter reset url
      */
-    public function js(string $reset_url = '')
+    public function js(string $reset_url = ''): string
     {
-        $var = '';
-        if (!empty($reset_url)) {
-            $var = dcPage::jsVars(['dotclear.filter_reset_url' => $reset_url]);
-        }
+        $var = empty($reset_url) ? '' : dcPage::jsJson('filter_reset_url', $reset_url);
 
         return $var . dcPage::jsFilterControl($this->show());
     }
@@ -626,12 +623,12 @@ class adminPostFilter extends adminGenericFilterV2
             ));
     }
 
-    public static function getPostMonthParam($f)
+    public static function getPostMonthParam($f): string
     {
         return substr($f[0], 4, 2);
     }
 
-    public static function getPostYearParam($f)
+    public static function getPostYearParam($f): string
     {
         return substr($f[0], 0, 4);
     }
@@ -678,7 +675,7 @@ class adminPostFilter extends adminGenericFilterV2
             ]);
     }
 
-    public static function getPostCommentParam($f)
+    public static function getPostCommentParam($f): string
     {
         return " AND post_open_comment = '" . $f[0] . "' ";
     }
@@ -698,7 +695,7 @@ class adminPostFilter extends adminGenericFilterV2
             ]);
     }
 
-    public static function getPostTrackbackParam($f)
+    public static function getPostTrackbackParam($f): string
     {
         return " AND post_open_tb = '" . $f[0] . "' ";
     }
@@ -755,7 +752,7 @@ class adminCommentFilter extends adminGenericFilterV2
             ->prime(true);
     }
 
-    public static function getCommentTypeParam($f)
+    public static function getCommentTypeParam($f): bool
     {
         return $f[0] == 'tb';
     }
@@ -897,7 +894,7 @@ class adminMediaFilter extends adminGenericFilterV2
         }
     }
 
-    protected function getPostIdFilter()
+    protected function getPostIdFilter(): dcAdminFilter
     {
         $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
         if ($post_id) {
@@ -913,17 +910,17 @@ class adminMediaFilter extends adminGenericFilterV2
         return new dcAdminFilter('post_id', $post_id);
     }
 
-    public function getPostTitle()
+    public function getPostTitle(): string
     {
         return $this->post_title;
     }
 
-    public function getPostType()
+    public function getPostType(): string
     {
         return $this->post_type;
     }
 
-    protected function getDirFilter()
+    protected function getDirFilter(): dcAdminFilter
     {
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
@@ -939,7 +936,7 @@ class adminMediaFilter extends adminGenericFilterV2
         return new dcAdminFilter('d', $get);
     }
 
-    protected function getFileModeFilter()
+    protected function getFileModeFilter(): dcAdminFilter
     {
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
@@ -956,28 +953,28 @@ class adminMediaFilter extends adminGenericFilterV2
         return new dcAdminFilter('file_mode', $get);
     }
 
-    protected function getPluginIdFilter()
+    protected function getPluginIdFilter(): dcAdminFilter
     {
         $get = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 
         return new dcAdminFilter('plugin_id', $get);
     }
 
-    protected function getLinkTypeFilter()
+    protected function getLinkTypeFilter(): dcAdminFilter
     {
         $get = !empty($_REQUEST['link_type']) ? html::escapeHTML($_REQUEST['link_type']) : null;
 
         return new dcAdminFilter('link_type', $get);
     }
 
-    protected function getPopupFilter()
+    protected function getPopupFilter(): dcAdminFilter
     {
         $get = (int) !empty($_REQUEST['popup']);
 
         return new dcAdminFilter('popup', $get);
     }
 
-    protected function getSelectFilter()
+    protected function getSelectFilter(): dcAdminFilter
     {
         // 0 : none, 1 : single media, >1 : multiple media
         $get = !empty($_REQUEST['select']) ? (int) $_REQUEST['select'] : 0;
@@ -1028,7 +1025,7 @@ class dcAdminFilter
      *
      * @return boolean              Is set
      */
-    public function __isset(string $property)
+    public function __isset(string $property): bool
     {
         return isset($this->properties[$property]);
     }
@@ -1040,7 +1037,7 @@ class dcAdminFilter
      *
      * @return mixed  Property
      */
-    public function __get($property)
+    public function __get(string $property)
     {
         return $this->get($property);
     }
@@ -1065,7 +1062,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter    The filter instance
      */
-    public function __set($property, $value)
+    public function __set(string $property, $value)
     {
         return $this->set($property, $value);
     }
@@ -1078,7 +1075,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter    The filter instance
      */
-    public function set($property, $value)
+    public function set(string $property, $value)
     {
         if (isset($this->properties[$property]) && method_exists($this, $property)) {
             return call_user_func([$this, $property], $value);
@@ -1094,7 +1091,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter    The filter instance
      */
-    public function form(string $type)
+    public function form(string $type): dcAdminFilter
     {
         if (in_array($type, ['none', 'input', 'select', 'html'])) {
             $this->properties['form'] = $type;
@@ -1110,7 +1107,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter    The filter instance
      */
-    public function title(string $title)
+    public function title(string $title): dcAdminFilter
     {
         $this->properties['title'] = $title;
 
@@ -1127,7 +1124,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter        The filter instance
      */
-    public function options(array $options, $set_form = true)
+    public function options(array $options, bool $set_form = true): dcAdminFilter
     {
         $this->properties['options'] = $options;
         if ($set_form) {
@@ -1144,7 +1141,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter    The filter instance
      */
-    public function value($value)
+    public function value($value): dcAdminFilter
     {
         $this->properties['value'] = $value;
 
@@ -1158,7 +1155,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter    The filter instance
      */
-    public function prime(bool $prime)
+    public function prime(bool $prime): dcAdminFilter
     {
         $this->properties['prime'] = $prime;
 
@@ -1173,7 +1170,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter        The filter instance
      */
-    public function html(string $contents, $set_form = true)
+    public function html(string $contents, bool $set_form = true): dcAdminFilter
     {
         $this->properties['html'] = $contents;
         if ($set_form) {
@@ -1191,7 +1188,7 @@ class dcAdminFilter
      *
      * @return dcAdminFilter         The filter instance
      */
-    public function param($name = null, $value = null)
+    public function param(?string $name = null, $value = null): dcAdminFilter
     {
         # filter id as param name
         if ($name === null) {

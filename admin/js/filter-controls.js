@@ -5,10 +5,8 @@ $(() => {
   // Get some DATA
   Object.assign(dotclear.msg, dotclear.getData('filter_controls'));
 
-  let reset_url = '?';
-  if (dotclear.filter_reset_url != undefined) {
-    reset_url = dotclear.filter_reset_url;
-  }
+  const filter_reset_url = dotclear.getData('filter_reset_url');
+  const reset_url = dotclear.isEmptyObject(filter_reset_url) ? '?' : filter_reset_url;
 
   const $filtersform = $('#filters-form');
   $filtersform.before(

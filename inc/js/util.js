@@ -35,6 +35,10 @@ Object.assign(dotclear, {
     return item && typeof item === 'object' && !Array.isArray(item);
   },
 
+  isEmptyObject(item) {
+    return this.isObject(item) && Object.keys(item).length === 0;
+  },
+
   /**
    * Deep merge two objects.
    * @param target
@@ -63,7 +67,9 @@ Object.assign(dotclear, {
 
   // Returns the cookie with the given name or false if not found
   getCookie(name) {
-    const matches = document.cookie.match(new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`));
+    const matches = document.cookie.match(
+      new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`),
+    );
     return matches ? decodeURIComponent(matches[1]) : false; // may be undefined rather than false?
   },
 

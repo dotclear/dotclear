@@ -54,6 +54,8 @@ dotclear.getData = (id, clear = true, remove = false) => {
 
 dotclear.isObject = (item) => item && typeof item === 'object' && !Array.isArray(item);
 
+dotclear.isEmptyObject = (item) => dotclear.isObject(item) && Object.keys(item).length === 0;
+
 /**
  * Deep merge two objects.
  * @param target
@@ -83,7 +85,7 @@ dotclear.mergeDeep = (target, ...sources) => {
 /**
  * Gracefully cut an HTML string
  * @param      {string}  html     The html
- * @param      {<type>}  options  The options
+ * @param      {Object}  options  The options
  * @return     {Object}  cutted HTML string
  *
  * Source: Muhammad Tahir (https://stackoverflow.com/questions/830283/cutting-html-strings-without-breaking-html-tags)
