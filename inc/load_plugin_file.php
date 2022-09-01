@@ -58,9 +58,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'svg', 'woff', 'woff2', 'ttf', 'otf', 'eot'];
-
-$pf = path::clean($_GET['pf']);
+$requested_file = path::clean($_GET['pf']);
 
 $paths = array_reverse(explode(PATH_SEPARATOR, DC_PLUGINS_ROOT));
 
@@ -69,31 +67,35 @@ $paths[] = __DIR__ . '/js';
 $paths[] = __DIR__ . '/css';
 
 foreach ($paths as $m) {
-    $PF = path::real($m . '/' . $pf);
+    $plugin_file = path::real($m . '/' . $requested_file);
 
-    if ($PF !== false) {
+    if ($plugin_file !== false) {
         break;
     }
 }
-unset($paths);
+unset($paths, $requested_file);
 
-if ($PF === false || !is_file($PF) || !is_readable($PF)) {
+if ($plugin_file === false || !is_file($plugin_file) || !is_readable($plugin_file)) {
+    unset($plugin_file);
     header('Content-Type: text/plain');
     http::head(404, 'Not Found');
     exit;
 }
 
-if (!in_array(files::getExtension($PF), $allow_types)) {
+if (!in_array(
+    files::getExtension($plugin_file),
+    ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'svg', 'woff', 'woff2', 'ttf', 'otf', 'eot']
+)) {
+    unset($plugin_file);
     header('Content-Type: text/plain');
     http::head(404, 'Not Found');
     exit;
 }
 
-http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=… is better than old 2 hours
-http::cache(array_merge([$PF], get_included_files()));
+http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=…
+http::cache(array_merge([$plugin_file], get_included_files()));
 
-header('Content-Type: ' . files::getMimeType($PF));
-// Content-length is not mandatory and must be the exact size of content transfered AFTER possible compression (gzip, deflate, …)
-//header('Content-Length: '.filesize($PF));
-readfile($PF);
+header('Content-Type: ' . files::getMimeType($plugin_file));
+readfile($plugin_file);
+unset($plugin_file);
 exit;

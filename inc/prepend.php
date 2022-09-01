@@ -401,11 +401,10 @@ files::registerMimeTypes([
     'webm' => 'video/webm',
 ]);
 
-# Shutdown
-register_shutdown_function('__shutdown');
-
-function __shutdown()
-{
+/*
+ * Register local shutdown handler
+ */
+register_shutdown_function(function () {
     global $__shutdown;
     if (is_array($__shutdown)) {
         foreach ($__shutdown as $f) {
@@ -414,17 +413,26 @@ function __shutdown()
             }
         }
     }
-    # Explicitly close session before DB connection
+
     try {
         if (session_id()) {
+            // Explicitly close session before DB connection
             session_write_close();
         }
+        dcCore::app()->con->close();
     } catch (Exception $e) {    // @phpstan-ignore-line
+        // Ignore exceptions
     }
-    dcCore::app()->con->close();
-}
+});
 
-function __error($summary, $message, $code = 0)
+/**
+ * Local error handler
+ *
+ * @param      string  $summary  The summary
+ * @param      string  $message  The message
+ * @param      int     $code     The code
+ */
+function __error(string $summary, string $message, int $code = 0)
 {
     # Error codes
     # 10 : no config file
@@ -446,14 +454,17 @@ function __error($summary, $message, $code = 0)
     exit;
 }
 
+/**
+ * Loading locales for detected language
+ */
 function init_prepend_l10n()
 {
-    # Loading locales for detected language
-    $dlang = http::getAcceptLanguages();
-    foreach ($dlang as $l) {
-        if ($l == 'en' || l10n::set(__DIR__ . '/../locales/' . $l . '/main') !== false) {
-            l10n::lang($l);
+    $detected_languages = http::getAcceptLanguages();
+    foreach ($detected_languages as $language) {
+        if ($language === 'en' || l10n::set(__DIR__ . '/../locales/' . $language . '/main') !== false) {
+            l10n::lang($language);
 
+            // We stop at first accepted language
             break;
         }
     }

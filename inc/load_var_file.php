@@ -53,30 +53,33 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'html', 'xml', 'json', 'txt'];
-
 if (!defined('DC_VAR')) {
     define('DC_VAR', path::real(__DIR__ . '/..') . '/var');
 }
 
-$vf = path::clean($_GET['vf']);
-$VF = path::real(DC_VAR . '/' . $vf);
+$var_file = path::real(DC_VAR . '/' . path::clean($_GET['vf']));
 
-if ($VF === false || !is_file($VF) || !is_readable($VF)) {
+if ($var_file === false || !is_file($var_file) || !is_readable($var_file)) {
+    unset($var_file);
     header('Content-Type: text/plain');
     http::head(404, 'Not Found');
     exit;
 }
 
-if (!in_array(files::getExtension($VF), $allow_types)) {
+if (!in_array(
+    files::getExtension($var_file),
+    ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'html', 'xml', 'json', 'txt']
+)) {
+    unset($var_file);
     header('Content-Type: text/plain');
     http::head(404, 'Not Found');
     exit;
 }
 
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for var files served by ?vf=…
-http::cache(array_merge([$VF], get_included_files()));
+http::cache(array_merge([$var_file], get_included_files()));
 
-header('Content-Type: ' . files::getMimeType($VF));
-readfile($VF);
+header('Content-Type: ' . files::getMimeType($var_file));
+readfile($var_file);
+unset($var_file);
 exit;
