@@ -17,16 +17,32 @@ if (!defined('DC_RC_PATH')) {
  */
 class adminGenericFilterV2
 {
-    /** @var string Filter form type (main id) */
+    /**
+     * Filter form type (main id)
+     *
+     * @var string
+     */
     protected $type;
 
-    /** @var array Filters objects */
+    /**
+     * Filters objects
+     *
+     * @var array
+     */
     protected $filters = [];
 
-    /** @var boolean Show filter indicator */
+    /**
+     * Show filter indicator
+     *
+     * @var boolean
+     */
     protected $show = false;
 
-    /** @var boolean Has user preferences */
+    /**
+     * Has user preferences
+     *
+     * @var boolean
+     */
     protected $has_user_pref = false;
 
     /**

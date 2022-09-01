@@ -15,22 +15,18 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcAdminURL
 {
-    /** @var dcCore dcCore instance */
     /**
-     * @deprecated since 2.23
+     * List of registered admin URLs
+     *
+     * @var ArrayObject
      */
-    protected $core;
-
     protected $urls;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core = dcCore::app();
         $this->urls = new ArrayObject();
     }
 
@@ -41,9 +37,12 @@ class dcAdminURL
      * @param  string $url    url value
      * @param  array  $params query string params (optional)
      */
-    public function register($name, $url, $params = [])
+    public function register(string $name, string $url, array $params = [])
     {
-        $this->urls[$name] = ['url' => $url, 'qs' => $params];
+        $this->urls[$name] = [
+            'url' => $url,
+            'qs'  => $params,
+        ];
     }
 
     /**
@@ -54,7 +53,7 @@ class dcAdminURL
      * @param  array  $params extra parameters to add
      * @param  string $newurl new url if different from the original
      */
-    public function registercopy($name, $orig, $params = [], $newurl = '')
+    public function registercopy(string $name, string $orig, array $params = [], string $newurl = '')
     {
         if (!isset($this->urls[$orig])) {
             throw new exception('Unknown URL handler for ' . $orig);
@@ -70,40 +69,44 @@ class dcAdminURL
     /**
      * retrieves a URL given its name, and optional parameters
      *
-     * @param  string   $name       URL Name
-     * @param  array    $params     query string parameters, given as an associative array
-     * @param  string   $separator  separator to use between QS parameters
-     * @param  boolean  $parametric set to true if url will be used as (s)printf() format.
+     * @param      string     $name        The URL name
+     * @param      array      $params      The query string parameters (associative array)
+     * @param      string     $separator   The separator (used between query string parameters)
+     * @param      bool       $parametric  Set to true if url will be used as (s)printf() format
      *
-     * @return string            the forged url
+     * @throws     exception  If unknown URL
+     *
+     * @return     string     The forged URL
      */
-    public function get($name, $params = [], $separator = '&amp;', $parametric = false)
+    public function get(string $name, array $params = [], string $separator = '&amp;', bool $parametric = false): string
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
         }
         $url = $this->urls[$name];
-        $p   = array_merge($url['qs'], $params);
-        $u   = $url['url'];
-        if (!empty($p)) {
-            $u .= '?' . http_build_query($p, '', $separator);
+        $qs  = array_merge($url['qs'], $params);
+        $url = $url['url'];
+        if (!empty($qs)) {
+            $url .= '?' . http_build_query($qs, '', $separator);
         }
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
-            $u = preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', $u);
+            $url = preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', $url);
         }
 
-        return $u;
+        return $url;
     }
 
     /**
      * Redirect to an URL given its name, and optional parameters
      *
-     * @param  string $name      URL Name
-     * @param  array  $params    query string parameters, given as an associative array
-     * @param  string $suffix suffix to be added to the QS parameters
+     * @param      string     $name    The name
+     * @param      array      $params  The parameters
+     * @param      string     $suffix  The suffix
+     *
+     * @throws     exception  If unknown URL
      */
-    public function redirect($name, $params = [], $suffix = '')
+    public function redirect(string $name, array $params = [], string $suffix = '')
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
@@ -112,13 +115,18 @@ class dcAdminURL
     }
 
     /**
-     * retrieves a php page given its name, and optional parameters
+     * Gets the URL base.
+     *
+     * Retrieves a PHP page given its name, and optional parameters
      * acts like get, but without the query string, should be used within forms actions
      *
-     * @param  string $name      URL Name
-     * @return string            the forged url
+     * @param      string     $name   The name
+     *
+     * @throws     exception  If unknown URL
+     *
+     * @return     string     The URL base.
      */
-    public function getBase($name)
+    public function getBase(string $name): string
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
@@ -128,39 +136,45 @@ class dcAdminURL
     }
 
     /**
-     * forges form hidden fields to pass to a generated <form>. Should be used in combination with
+     * Gets the hidden form fields.
+     *
+     * Forges form hidden fields to pass to a generated <form>. Should be used in combination with
      * form action retrieved from getBase()
      *
-     * @param  string $name      URL Name
-     * @param  array  $params    query string parameters, given as an associative array
-     * @return string            the forged form data
+     * @param      string     $name    The name
+     * @param      array      $params  The parameters
+     *
+     * @throws     exception  If unknown URL
+     *
+     * @return     string     The hidden form fields.
      */
-    public function getHiddenFormFields($name, $params = [])
+    public function getHiddenFormFields(string $name, array $params = []): string
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
         }
         $url = $this->urls[$name];
-        $p   = array_merge($url['qs'], $params);
+        $qs  = array_merge($url['qs'], $params);
         $str = '';
-        foreach ((array) $p as $k => $v) {
-            $str .= form::hidden([$k], $v);
+        foreach ($qs as $field => $value) {
+            $str .= (new formHidden([$field], $value))->render();
         }
 
         return $str;
     }
 
     /**
-     * retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
+     * Retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
      *
      * @deprecated     should be used carefully, parameters are no more escaped
      *
      * @param  string $name      URL Name
      * @param  array  $params    query string parameters, given as an associative array
      * @param  string $separator separator to use between QS parameters
+     *
      * @return string            the forged decoded url
      */
-    public function decode($name, $params = [], $separator = '&')
+    public function decode(string $name, array $params = [], string $separator = '&'): string
     {
         return urldecode($this->get($name, $params, $separator));
     }
@@ -170,7 +184,7 @@ class dcAdminURL
      *
      * @return  ArrayObject
      */
-    public function dumpUrls()
+    public function dumpUrls(): ArrayObject
     {
         return $this->urls;
     }

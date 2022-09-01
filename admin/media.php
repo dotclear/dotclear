@@ -161,9 +161,9 @@ class adminMediaPage extends adminMediaFilter
      *
      * @return string The element
      */
-    public function mediaLine($file_id)
+    public function mediaLine(string $file_id): string
     {
-        return adminMediaList::mediaLine(dcCore::app(), $this, dcCore::app()->media->getFile($file_id), 1, $this->media_has_query);
+        return adminMediaList::mediaLine($this, dcCore::app()->media->getFile($file_id), 1, $this->media_has_query);
     }
 
     /**

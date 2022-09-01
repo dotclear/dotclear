@@ -94,7 +94,7 @@ if (!empty($plugins_install['success'])) {
     '<div class="static-msg">' . __('Following plugins have been installed:') . '<ul>';
 
     foreach ($plugins_install['success'] as $k => $v) {
-        $info = implode(' - ', $list->getSettingsUrls(dcCore::app(), $k, true));
+        $info = implode(' - ', $list->getSettingsUrls($k, true));
         echo
             '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
     }

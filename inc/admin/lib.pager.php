@@ -12,7 +12,18 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPager extends pager
 {
+    /**
+     * Form-handler
+     *
+     * @var null|string
+     */
     protected $form_action;
+
+    /**
+     * Form hidden fields
+     *
+     * @var null|string
+     */
     protected $form_hidden;
 
     /**
@@ -27,7 +38,7 @@ class dcPager extends pager
      *
      * @return     string  The link.
      */
-    protected function getLink($li_class, $href, $img_src, $img_src_nolink, $img_alt, $enable_link)
+    protected function getLink(string $li_class, string $href, string $img_src, string $img_src_nolink, string $img_alt, bool $enable_link): string
     {
         if ($enable_link) {
             $formatter = '<li class="%s btn"><a href="%s"><img src="%s" alt="%s"/></a><span class="hidden">%s</span></li>';
@@ -87,7 +98,7 @@ class dcPager extends pager
      *
      * @return string
      */
-    public function getLinks()
+    public function getLinks(): string
     {
         $this->setURL();
         $htmlFirst = $this->getLink(
@@ -153,9 +164,24 @@ class dcPager extends pager
 
 class adminGenericListV2
 {
+    /**
+     * record Elements listed
+     */
     protected $rs;
+
+    /**
+     * int|null Count of elements listed
+     */
     protected $rs_count;
+
+    /**
+     * string Previous page label
+     */
     protected $html_prev;
+
+    /**
+     * string Next page label
+     */
     protected $html_next;
 
     /**
@@ -164,7 +190,7 @@ class adminGenericListV2
      * @param      record  $rs        The record
      * @param      mixed   $rs_count  The rs count
      */
-    public function __construct($rs, $rs_count)
+    public function __construct(record $rs, $rs_count)
     {
         $this->rs        = &$rs;
         $this->rs_count  = $rs_count;
@@ -178,7 +204,7 @@ class adminGenericListV2
      * @param      string               $type   The type
      * @param      array|ArrayObject    $cols   The columns
      */
-    public function userColumns($type, $cols)
+    public function userColumns(string $type, $cols)
     {
         $cols = adminUserPref::getUserColumns($type, $cols);
     }
@@ -189,12 +215,12 @@ class adminPostList extends adminGenericListV2
     /**
      * Display admin post list
      *
-     * @param      integer  $page           The page
-     * @param      integer  $nb_per_page    The number of per page
-     * @param      string   $enclose_block  The enclose block
-     * @param      bool     $filter         The filter
+     * @param      int     $page           The page
+     * @param      int     $nb_per_page    The number of posts per page
+     * @param      string  $enclose_block  The enclose block
+     * @param      bool    $filter         The filter
      */
-    public function display($page, $nb_per_page, $enclose_block = '', $filter = false)
+    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false)
     {
         if ($this->rs->isEmpty()) {
             if ($filter) {
@@ -307,7 +333,7 @@ class adminPostList extends adminGenericListV2
      *
      * @return     string
      */
-    private function postLine($checked)
+    private function postLine(bool $checked): string
     {
         if (dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
             $cat_link = '<a href="' . dcCore::app()->adminurl->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
@@ -410,11 +436,11 @@ class adminPostMiniList extends adminGenericListV2
     /**
      * Display a mini post list
      *
-     * @param      integer  $page           The page
-     * @param      integer  $nb_per_page    The number of per page
-     * @param      string   $enclose_block  The enclose block
+     * @param      int     $page           The page
+     * @param      int     $nb_per_page    The number of posts per page
+     * @param      string  $enclose_block  The enclose block
      */
-    public function display($page, $nb_per_page, $enclose_block = '')
+    public function display(int $page, int $nb_per_page, string $enclose_block = '')
     {
         if ($this->rs->isEmpty()) {
             echo '<p><strong>' . __('No entry') . '</strong></p>';
@@ -463,7 +489,7 @@ class adminPostMiniList extends adminGenericListV2
      *
      * @return     string
      */
-    private function postLine()
+    private function postLine(): string
     {
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -539,14 +565,14 @@ class adminCommentList extends adminGenericListV2
     /**
      * Display a comment list
      *
-     * @param      integer  $page           The page
-     * @param      integer  $nb_per_page    The number of per page
-     * @param      string   $enclose_block  The enclose block
-     * @param      bool     $filter         The filter flag
-     * @param      bool     $spam           The spam flag
-     * @param      bool     $show_ip        The show ip flag
+     * @param      int     $page           The page
+     * @param      int     $nb_per_page    The number of comments per page
+     * @param      string  $enclose_block  The enclose block
+     * @param      bool    $filter         The spam filter
+     * @param      bool    $spam           Show spam
+     * @param      bool    $show_ip        Show ip
      */
-    public function display($page, $nb_per_page, $enclose_block = '', $filter = false, $spam = false, $show_ip = true)
+    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false, bool $spam = false, bool $show_ip = true)
     {
         if ($this->rs->isEmpty()) {
             if ($filter) {
@@ -627,7 +653,9 @@ class adminCommentList extends adminGenericListV2
                 'status' => '<th scope="col" class="txt-center">' . __('Status') . '</th>',
             ];
             if ($spam) {
-                $cols['ip']          = '<th scope="col">' . __('IP') . '</th>';
+                if ($show_ip) {
+                    $cols['ip'] = '<th scope="col">' . __('IP') . '</th>';
+                }
                 $cols['spam_filter'] = '<th scope="col">' . __('Spam filter') . '</th>';
             }
             $cols['entry'] = '<th scope="col" abbr="entry">' . __('Entry') . '</th>';
@@ -676,7 +704,7 @@ class adminCommentList extends adminGenericListV2
      *
      * @return     string
      */
-    private function commentLine($checked = false, $spam = false, $filters = [])
+    private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): string
     {
         $author_url = dcCore::app()->adminurl->get('admin.comments', [
             'author' => $this->rs->comment_author,
@@ -748,9 +776,11 @@ class adminCommentList extends adminGenericListV2
                     $filter_name = $this->rs->comment_spam_filter;
                 }
             }
-            $cols['ip'] = '<td class="nowrap"><a href="' .
-            dcCore::app()->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
-            $this->rs->comment_ip . '</a></td>';
+            if ($show_ip) {
+                $cols['ip'] = '<td class="nowrap"><a href="' .
+                    dcCore::app()->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+                    $this->rs->comment_ip . '</a></td>';
+            }
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';
         }
         $cols['entry'] = '<td class="nowrap discrete"><a href="' . $post_url . '">' . $post_title . '</a>' .
@@ -758,6 +788,9 @@ class adminCommentList extends adminGenericListV2
 
         $cols = new ArrayObject($cols);
         dcCore::app()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
+
+        // Cope with optional columns
+        $this->userColumns('comments', $cols);
 
         $res .= implode(iterator_to_array($cols));
         $res .= '</tr>';
@@ -771,12 +804,12 @@ class adminBlogList extends adminGenericListV2
     /**
      * Display a blog list
      *
-     * @param      integer  $page           The page
-     * @param      integer  $nb_per_page    The number of per page
-     * @param      string   $enclose_block  The enclose block
-     * @param      bool     $filter         The filter flag
+     * @param      int     $page           The page
+     * @param      int     $nb_per_page    The number of blogs per page
+     * @param      string  $enclose_block  The enclose block
+     * @param      bool    $filter         The filter
      */
-    public function display($page, $nb_per_page, $enclose_block = '', $filter = false)
+    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false)
     {
         if ($this->rs->isEmpty()) {
             if ($filter) {
@@ -855,7 +888,7 @@ class adminBlogList extends adminGenericListV2
      *
      * @return     string
      */
-    private function blogLine($checked = false)
+    private function blogLine(bool $checked = false): string
     {
         $blog_id = html::escapeHTML($this->rs->blog_id);
 
@@ -898,6 +931,9 @@ class adminBlogList extends adminGenericListV2
         $cols = new ArrayObject($cols);
         dcCore::app()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
 
+        // Cope with optional columns
+        $this->userColumns('blogs', $cols);
+
         return
         '<tr class="line" id="b' . $blog_id . '">' .
         implode(iterator_to_array($cols)) .
@@ -910,12 +946,12 @@ class adminUserList extends adminGenericListV2
     /**
      * Display a user list
      *
-     * @param      integer  $page           The page
-     * @param      integer  $nb_per_page    The number of per page
-     * @param      string   $enclose_block  The enclose block
-     * @param      bool     $filter         The filter flag
+     * @param      int     $page           The page
+     * @param      int     $nb_per_page    The number of users per page
+     * @param      string  $enclose_block  The enclose block
+     * @param      bool    $filter         The filter
      */
-    public function display($page, $nb_per_page, $enclose_block = '', $filter = false)
+    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false)
     {
         if ($this->rs->isEmpty()) {
             if ($filter) {
@@ -980,7 +1016,7 @@ class adminUserList extends adminGenericListV2
      *
      * @return     string
      */
-    private function userLine()
+    private function userLine(): string
     {
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -1013,6 +1049,9 @@ class adminUserList extends adminGenericListV2
         $cols = new ArrayObject($cols);
         dcCore::app()->callBehavior('adminUserListValueV2', $this->rs, $cols);
 
+        // Cope with optional columns
+        $this->userColumns('users', $cols);
+
         $res .= implode(iterator_to_array($cols));
         $res .= '</tr>';
 
@@ -1025,10 +1064,12 @@ class adminMediaList extends adminGenericListV2
     /**
      * Display a media list
      *
-     * @param      adminMediaFilter     $filters        The filters
-     * @param      string               $enclose_block  The enclose block
+     * @param      adminMediaFilter  $filters        The filters
+     * @param      string            $enclose_block  The enclose block
+     * @param      bool              $query          The query
+     * @param      string            $page_adminurl  The page adminurl
      */
-    public function display($filters, $enclose_block = '', $query = false, $page_adminurl = 'admin.media')
+    public function display(adminMediaFilter $filters, string $enclose_block = '', $query = false, $page_adminurl = 'admin.media')
     {
         $nb_items   = $this->rs_count - ($filters->d ? 1 : 0);
         $nb_folders = $filters->d ? -1 : 0;
@@ -1059,8 +1100,8 @@ class adminMediaList extends adminGenericListV2
             }
 
             $group = ['dirs' => [], 'files' => []];
-            for ($i = $pager->index_start, $j = 0; $i <= $pager->index_end; $i++, $j++) {
-                $group[$items[$i]->d ? 'dirs' : 'files'][] = $this->mediaLine(dcCore::app(), $filters, $items[$i], $j, $query, $page_adminurl);
+            for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
+                $group[$items[$index]->d ? 'dirs' : 'files'][] = $this->mediaLine($filters, $items[$index], $index_in_page, $query, $page_adminurl);
             }
 
             if ($filters->file_mode == 'list') {
@@ -1093,42 +1134,53 @@ class adminMediaList extends adminGenericListV2
         }
     }
 
-    public static function mediaLine(dcCore $core, $filters, $f, $i, $query = false, $page_adminurl = 'admin.media')
+    /**
+     * Display a media item
+     *
+     * @param      adminMediaFilter  $filters        The filters
+     * @param      fileItem          $file           The media file
+     * @param      int               $index          Current index in page
+     * @param      bool              $query          The query
+     * @param      string            $page_adminurl  The page adminurl
+     *
+     * @return     string            ( description_of_the_return_value )
+     */
+    public static function mediaLine(adminMediaFilter $filters, fileItem $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {
-        $fname = $f->basename;
-        $file  = $query ? $f->relname : $f->basename;
+        $display_name = $file->basename;
+        $filename     = $query ? $file->relname : $file->basename;
 
         $class = 'media-item-bloc'; // cope with js message for grid AND list
-        $class .= $filters->file_mode == 'list' ? '' : ' media-item media-col-' . ($i % 2);
+        $class .= $filters->file_mode == 'list' ? '' : ' media-item media-col-' . ($index % 2);
 
-        if ($f->d) {
+        if ($file->d) {
             // Folder
-            $link = dcCore::app()->adminurl->get('admin.media', array_merge($filters->values(), ['d' => html::sanitizeURL($f->relname)]));
-            if ($f->parent) {
-                $fname = '..';
+            $link = dcCore::app()->adminurl->get('admin.media', array_merge($filters->values(), ['d' => html::sanitizeURL($file->relname)]));
+            if ($file->parent) {
+                $display_name = '..';
                 $class .= ' media-folder-up';
             } else {
                 $class .= ' media-folder';
             }
         } else {
             // Item
-            $params = new ArrayObject(array_merge($filters->values(), ['id' => $f->media_id]));
+            $params = new ArrayObject(array_merge($filters->values(), ['id' => $file->media_id]));
 
             dcCore::app()->callBehavior('adminMediaURLParams', $params);
 
             $link = dcCore::app()->adminurl->get('admin.media.item', (array) $params);
-            if ($f->media_priv) {
+            if ($file->media_priv) {
                 $class .= ' media-private';
             }
         }
 
         $maxchars = 34; // cope with design
-        if (strlen($fname) > $maxchars) {
-            $fname = substr($fname, 0, $maxchars - 4) . '...' . ($f->d ? '' : files::getExtension($fname));
+        if (strlen($display_name) > $maxchars) {
+            $display_name = substr($display_name, 0, $maxchars - 4) . '...' . ($file->d ? '' : files::getExtension($display_name));
         }
 
         $act = '';
-        if (!$f->d) {
+        if (!$file->d) {
             if ($filters->select > 0) {
                 if ($filters->select == 1) {
                     // Single media selection button
@@ -1136,7 +1188,7 @@ class adminMediaList extends adminGenericListV2
                     'title="' . __('Select this file') . '" /></a> ';
                 } else {
                     // Multiple media selection checkbox
-                    $act .= form::checkbox(['medias[]', 'media_' . rawurlencode($file)], $file);
+                    $act .= form::checkbox(['medias[]', 'media_' . rawurlencode($filename)], $filename);
                 }
             } else {
                 // Item
@@ -1145,7 +1197,7 @@ class adminMediaList extends adminGenericListV2
                     $act .= '<a class="attach-media" title="' . __('Attach this file to entry') . '" href="' .
                     dcCore::app()->adminurl->get(
                         'admin.post.media',
-                        ['media_id' => $f->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
+                        ['media_id' => $file->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
                     '">' .
                     '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '"/>' .
@@ -1158,42 +1210,42 @@ class adminMediaList extends adminGenericListV2
                 }
             }
         }
-        if ($f->del) {
+        if ($file->del) {
             // Deletion button or checkbox
-            if (!$filters->popup && !$f->d) {
+            if (!$filters->popup && !$file->d) {
                 if ($filters->select < 2) {
                     // Already set for multiple media selection
-                    $act .= form::checkbox(['medias[]', 'media_' . rawurlencode($file)], $file);
+                    $act .= form::checkbox(['medias[]', 'media_' . rawurlencode($filename)], $filename);
                 }
             } else {
                 $act .= '<a class="media-remove" ' .
-                'href="' . dcCore::app()->adminurl->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($file)])) . '">' .
+                'href="' . dcCore::app()->adminurl->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
                 '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
             }
         }
 
-        $file_type  = explode('/', (string) $f->type);
+        $file_type  = explode('/', (string) $file->type);
         $class_open = 'class="modal-' . $file_type[0] . '" ';
 
         // Render markup
         if ($filters->file_mode != 'list') {
             $res = '<div class="' . $class . '"><p><a class="media-icon media-link" href="' . rawurldecode($link) . '">' .
-            '<img class="media-icon-square' . (!$f->d && $f->media_preview ? ' media-icon-preview' : '') . '" src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a></p>';
+            '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="" />' . ($query ? $filename : $display_name) . '</a></p>';
 
             $lst = '';
-            if (!$f->d) {
-                $lst .= '<li>' . ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $f->media_title . '</li>' .
+            if (!$file->d) {
+                $lst .= '<li>' . ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
                 '<li>' .
-                $f->media_dtstr . ' - ' .
-                files::size($f->size) . ' - ' .
-                '<a ' . $class_open . 'href="' . $f->file_url . '">' . __('open') . '</a>' .
+                $file->media_dtstr . ' - ' .
+                files::size($file->size) . ' - ' .
+                '<a ' . $class_open . 'href="' . $file->file_url . '">' . __('open') . '</a>' .
                     '</li>';
             }
             $lst .= ($act != '' ? '<li class="media-action">&nbsp;' . $act . '</li>' : '');
 
             // Show player if relevant
             if ($file_type[0] == 'audio') {
-                $lst .= '<li>' . dcMedia::audioPlayer($f->type, $f->file_url, null, null, false, false) . '</li>';
+                $lst .= '<li>' . dcMedia::audioPlayer($file->type, $file->file_url, null, null, false, false) . '</li>';
             }
 
             $res .= ($lst != '' ? '<ul>' . $lst . '</ul>' : '');
@@ -1202,11 +1254,11 @@ class adminMediaList extends adminGenericListV2
             $res = '<tr class="' . $class . '">';
             $res .= '<td class="media-action">' . $act . '</td>';
             $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
-            '<img class="media-icon-square' . (!$f->d && $f->media_preview ? ' media-icon-preview' : '') . '" src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a>' .
-                '<br />' . ($f->d ? '' : ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $f->media_title) . '</td>';
-            $res .= '<td class="nowrap count">' . ($f->d ? '' : $f->media_dtstr) . '</td>';
-            $res .= '<td class="nowrap count">' . ($f->d ? '' : files::size($f->size) . ' - ' .
-                '<a ' . $class_open . 'href="' . $f->file_url . '">' . __('open') . '</a>') . '</td>';
+            '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="" />' . ($query ? $file : $display_name) . '</a>' .
+                '<br />' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
+            $res .= '<td class="nowrap count">' . ($file->d ? '' : $file->media_dtstr) . '</td>';
+            $res .= '<td class="nowrap count">' . ($file->d ? '' : files::size($file->size) . ' - ' .
+                '<a ' . $class_open . 'href="' . $file->file_url . '">' . __('open') . '</a>') . '</td>';
             $res .= '</tr>';
         }
 

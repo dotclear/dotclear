@@ -12,10 +12,32 @@ if (!defined('DC_RC_PATH')) {
 
 class dcMenu
 {
+    /**
+     * Menu id
+     *
+     * @var string
+     */
     private $id;
-    protected $itemSpace;
-    protected $pinned;
-    protected $items;
+
+    /**
+     * List of items pinned at top of menu
+     *
+     * @var array
+     */
+    protected $pinned = [];
+
+    /**
+     * List of unpinned items
+     *
+     * @var array
+     */
+    protected $items = [];
+
+    /**
+     * Menu title
+     *
+     * @var string
+     */
     public $title;
 
     /**
@@ -23,30 +45,26 @@ class dcMenu
      *
      * @param      string  $id         The identifier
      * @param      string  $title      The title
-     * @param      string  $itemSpace  The item space
      */
-    public function __construct($id, $title, $itemSpace = '')
+    public function __construct(string $id, string $title)
     {
-        $this->id        = $id;
-        $this->title     = $title;
-        $this->itemSpace = $itemSpace;
-        $this->pinned    = [];
-        $this->items     = [];
+        $this->id    = $id;
+        $this->title = $title;
     }
 
     /**
      * Adds an item.
      *
-     * @param      string  $title   The title
-     * @param      string  $url     The url
-     * @param      mixed   $img     The image(s)
-     * @param      mixed   $active  The active flag
-     * @param      bool    $show    The show flag
-     * @param      mixed   $id      The identifier
-     * @param      mixed   $class   The class
-     * @param      bool    $pinned  The pinned flag
+     * @param      string       $title   The title
+     * @param      string       $url     The url
+     * @param      mixed        $img     The image(s)
+     * @param      mixed        $active  The active flag
+     * @param      bool         $show    The show flag
+     * @param      null|string  $id      The identifier
+     * @param      null|string  $class   The class
+     * @param      bool         $pinned  The pinned flag
      */
-    public function addItem($title, $url, $img, $active, $show = true, $id = null, $class = null, $pinned = false)
+    public function addItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false)
     {
         if ($show) {
             $item = $this->itemDef($title, $url, $img, $active, $id, $class);
@@ -61,16 +79,16 @@ class dcMenu
     /**
      * Prepends an item.
      *
-     * @param      string  $title   The title
-     * @param      string  $url     The url
-     * @param      mixed   $img     The image(s)
-     * @param      mixed   $active  The active flag
-     * @param      bool    $show    The show flag
-     * @param      mixed   $id      The identifier
-     * @param      mixed   $class   The class
-     * @param      bool    $pinned  The pinned flag
+     * @param      string       $title   The title
+     * @param      string       $url     The url
+     * @param      mixed        $img     The image(s)
+     * @param      mixed        $active  The active flag
+     * @param      bool         $show    The show flag
+     * @param      null|string  $id      The identifier
+     * @param      null|string  $class   The class
+     * @param      bool         $pinned  The pinned flag
      */
-    public function prependItem($title, $url, $img, $active, $show = true, $id = null, $class = null, $pinned = false)
+    public function prependItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false)
     {
         if ($show) {
             $item = $this->itemDef($title, $url, $img, $active, $id, $class);
@@ -85,39 +103,25 @@ class dcMenu
     /**
      * Draw a menu
      *
-     * @return     string  ( description_of_the_return_value )
+     * @return     string
      */
-    public function draw()
+    public function draw(): string
     {
-        if (count($this->items) + count($this->pinned) == 0) {
+        if (count($this->items) + count($this->pinned) === 0) {
             return '';
         }
 
-        $res = '<div id="' . $this->id . '">' .
-            ($this->title ? '<h3>' . $this->title . '</h3>' : '') .
-            '<ul>' . "\n";
+        $res = '<div id="' . $this->id . '">' . ($this->title ? '<h3>' . $this->title . '</h3>' : '') . '<ul>' . "\n";
 
         // 1. Display pinned items (unsorted)
-        for ($i = 0; $i < count($this->pinned); $i++) {
-            if ($i + 1 < count($this->pinned) && $this->itemSpace != '') {
-                $res .= preg_replace('|</li>$|', $this->itemSpace . '</li>', $this->pinned[$i]);
-                $res .= "\n";
-            } else {
-                $res .= $this->pinned[$i] . "\n";
-            }
+        foreach ($this->pinned as $item) {
+            $res .= $item . "\n";
         }
 
         // 2. Display unpinned itmes (sorted)
-        $i = 0;
         dcUtils::lexicalKeySort($this->items);
-        foreach ($this->items as $title => $item) {
-            if ($i + 1 < count($this->items) && $this->itemSpace != '') {
-                $res .= preg_replace('|</li>$|', $this->itemSpace . '</li>', $item);
-                $res .= "\n";
-            } else {
-                $res .= $item . "\n";
-            }
-            $i++;
+        foreach ($this->items as $item) {
+            $res .= $item . "\n";
         }
 
         $res .= '</ul></div>' . "\n";
@@ -128,28 +132,20 @@ class dcMenu
     /**
      * Get a menu item HTML code
      *
-     * @param      string  $title   The title
-     * @param      mixed   $url     The url
-     * @param      mixed   $img     The image(s)
-     * @param      mixed   $active  The active flag
-     * @param      mixed   $id      The identifier
-     * @param      mixed   $class   The class
+     * @param      string       $title   The title
+     * @param      string       $url     The url
+     * @param      mixed        $img     The image(s)
+     * @param      mixed        $active  The active flag
+     * @param      null|string  $id      The identifier
+     * @param      null|string  $class   The class
      *
-     * @return     string  ( description_of_the_return_value )
+     * @return     string
      */
-    protected function itemDef($title, $url, $img, $active, $id = null, $class = null)
+    protected function itemDef(string $title, string $url, $img, $active, ?string $id = null, ?string $class = null): string
     {
-        if (is_array($url)) {
-            $link  = $url[0];
-            $ahtml = (!empty($url[1])) ? ' ' . $url[1] : '';
-        } else {
-            $link  = $url;
-            $ahtml = '';
-        }
-
-        return '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . (($class) ? $class : '') . '"' : '') .
-            (($id) ? ' id="' . $id . '"' : '') .
-            '>' .
-            '<a href="' . $link . '"' . $ahtml . '>' . dcAdminHelper::adminIcon($img) . $title . '</a></li>' . "\n";
+        return
+        '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="' . $id . '"' : '') . '>' .
+        '<a href="' . $url . '">' . dcAdminHelper::adminIcon($img) . $title . '</a>' .
+        '</li>' . "\n";
     }
 }

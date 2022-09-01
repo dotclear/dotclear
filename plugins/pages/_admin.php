@@ -59,14 +59,14 @@ dcCore::app()->addBehavior(
 
 class pagesDashboard
 {
-    public static function pagesDashboardCB(dcCore $core, $v)
+    public static function pagesDashboardCB(ArrayObject $icon)
     {
         $params              = new ArrayObject();
         $params['post_type'] = 'page';
         $page_count          = dcCore::app()->blog->getPosts($params, true)->f(0);
         if ($page_count > 0) {
-            $str_pages  = ($page_count > 1) ? __('%d pages') : __('%d page');
-            $v['title'] = sprintf($str_pages, $page_count);
+            $str_pages     = ($page_count > 1) ? __('%d pages') : __('%d page');
+            $icon['title'] = sprintf($str_pages, $page_count);
         }
     }
 

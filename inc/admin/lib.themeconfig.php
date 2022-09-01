@@ -26,7 +26,7 @@ class dcThemeConfig
      *
      * @return float             computed ratio
      */
-    public static function computeContrastRatio($color, $background)
+    public static function computeContrastRatio(string $color, string $background): float
     {
         // Compute contrast ratio between two colors
 
@@ -44,13 +44,11 @@ class dcThemeConfig
 
         $l2 = (0.2126 * pow(hexdec(substr($background, 1, 2)) / 255, 2.2)) + (0.7152 * pow(hexdec(substr($background, 3, 2)) / 255, 2.2)) + (0.0722 * pow(hexdec(substr($background, 5, 2)) / 255, 2.2));
 
-        if ($l1 > $l2) {
-            $ratio = ($l1 + 0.05) / ($l2 + 0.05);
-        } else {
-            $ratio = ($l2 + 0.05) / ($l1 + 0.05);
+        if ($l1 <= $l2) {
+            [$l1, $l2] = [$l2, $l1];
         }
 
-        return $ratio;
+        return ($l1 + 0.05) / ($l2 + 0.05);
     }
 
     /**
@@ -62,56 +60,52 @@ class dcThemeConfig
      *
      * @return string         WCAG contrast ratio level (AAA, AA or <nothing>)
      */
-    public static function contrastRatioLevel($ratio, $size, $bold = false)
+    public static function contrastRatioLevel(float $ratio, string $size, bool $bold = false): string
     {
-        if ($size == '') {
-            return '';
-        }
+        if ($size !== '') {
+            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
+                if (empty($matches[2])) {
+                    $matches[2] = 'em';
+                }
+                switch ($matches[2]) {
+                    case '%':
+                        $absolute_size = (float) $matches[1] / 100;
 
-        // Eval font size in em (assume base font size in pixels equal to 16)
-        if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem)?$/', $size, $m)) {
-            if (empty($m[2])) {
-                $m[2] = 'em';
+                        break;
+                    case 'pt':
+                        $absolute_size = (float) $matches[1] / 12;
+
+                        break;
+                    case 'px':
+                        $absolute_size = (float) $matches[1] / 16;
+
+                        break;
+                    case 'rem':
+                    case 'em':
+                        $absolute_size = (float) $matches[1];
+
+                        break;
+                    case 'ex':
+                    case 'ch':
+                        $absolute_size = (float) $matches[1] / 2;
+
+                        break;
+                    default:
+                        $absolute_size = 0;
+
+                        break;
+                }
+                if ($absolute_size) {
+                    $large = ((($absolute_size > 1.5) && (!$bold)) || (($absolute_size > 1.2) && ($bold)));
+
+                    // Check ratio
+                    if ($ratio > 7 || (($ratio > 4.5) && $large)) {
+                        return 'AAA';
+                    } elseif ($ratio > 4.5 || (($ratio > 3) && $large)) {
+                        return 'AA';
+                    }
+                }
             }
-        } else {
-            return '';
-        }
-        switch ($m[2]) {
-            case '%':
-                $s = (float) $m[1] / 100;
-
-                break;
-            case 'pt':
-                $s = (float) $m[1] / 12;
-
-                break;
-            case 'px':
-                $s = (float) $m[1] / 16;
-
-                break;
-            case 'em':
-                $s = (float) $m[1];
-
-                break;
-            case 'ex':
-                $s = (float) $m[1] / 2;
-
-                break;
-            default:
-                return '';
-        }
-
-        $large = ((($s > 1.5) && (!$bold)) || (($s > 1.2) && ($bold)));
-
-        // Check ratio
-        if ($ratio > 7) {
-            return 'AAA';
-        } elseif (($ratio > 4.5) && $large) {
-            return 'AAA';
-        } elseif ($ratio > 4.5) {
-            return 'AA';
-        } elseif (($ratio > 3) && $large) {
-            return 'AA';
         }
 
         return '';
@@ -127,15 +121,14 @@ class dcThemeConfig
      *
      * @return string              contrast ratio including WCAG level
      */
-    public static function contrastRatio($color, $background, $size = '', $bold = false)
+    public static function contrastRatio(string $color, string $background, string $size = '', bool $bold = false): string
     {
-        if (($color != '') && ($background != '')) {
+        if (($color !== '') && ($background !== '')) {
             $ratio = self::computeContrastRatio($color, $background);
             $level = self::contrastRatioLevel($ratio, $size, $bold);
 
             return
-            sprintf(__('ratio %.1f'), $ratio) .
-                ($level != '' ? ' ' . sprintf(__('(%s)'), $level) : '');
+            sprintf(__('ratio %.1f'), $ratio) . ($level !== '' ? ' ' . sprintf(__('(%s)'), $level) : '');
         }
 
         return '';
@@ -144,69 +137,69 @@ class dcThemeConfig
     /**
      * Check font size
      *
-     * @param  string $s font size
+     * @param  string $size font size
      *
-     * @return mixed    checked font size
+     * @return string    checked font size
      */
-    public static function adjustFontSize($s)
+    public static function adjustFontSize(string $size): string
     {
-        if ($s) {
-            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $s, $m)) {
-                if (empty($m[2])) {
-                    $m[2] = 'em';
+        if ($size) {
+            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
+                if (empty($matches[2])) {
+                    $matches[2] = 'em';
                 }
 
-                return $m[1] . $m[2];
+                return $matches[1] . $matches[2];
             }
         }
 
-        return $s;
+        return $size;
     }
 
     /**
      * Check object position, should be x:y
      *
-     * @param  string $p position
+     * @param  string $position position
      *
-     * @return mixed    checked position
+     * @return string    checked position
      */
-    public static function adjustPosition($p)
+    public static function adjustPosition(string $position): string
     {
-        if (!$p) {
+        if (!$position) {
             return '';
         }
 
-        if (!preg_match('/^\d+(:\d+)?$/', $p)) {
+        if (!preg_match('/^\d+(:\d+)?$/', $position)) {
             return '';
         }
-        $p = explode(':', $p);
+        $position = explode(':', $position);
 
-        return $p[0] . (count($p) == 1 ? ':0' : ':' . $p[1]);
+        return $position[0] . (count($position) == 1 ? ':0' : ':' . $position[1]);
     }
 
     /**
      * Check a CSS color
      *
-     * @param  string $c CSS color
+     * @param  string $color CSS color
      *
      * @return string    checked CSS color
      */
-    public static function adjustColor($c)
+    public static function adjustColor(string $color): string
     {
-        if (!$c) {
+        if (!$color) {
             return '';
         }
 
-        $c = strtoupper($c);
+        $color = strtoupper($color);
 
-        if (preg_match('/^[A-F0-9]{3,6}$/', $c)) {
-            $c = '#' . $c;
+        if (preg_match('/^[A-F0-9]{3,6}$/', $color)) {
+            $color = '#' . $color;
         }
-        if (preg_match('/^#[A-F0-9]{6}$/', $c)) {
-            return $c;
+        if (preg_match('/^#[A-F0-9]{6}$/', $color)) {
+            return $color;
         }
-        if (preg_match('/^#[A-F0-9]{3,}$/', $c)) {
-            return '#' . substr($c, 1, 1) . substr($c, 1, 1) . substr($c, 2, 1) . substr($c, 2, 1) . substr($c, 3, 1) . substr($c, 3, 1);
+        if (preg_match('/^#[A-F0-9]{3,}$/', $color)) {
+            return '#' . substr($color, 1, 1) . substr($color, 1, 1) . substr($color, 2, 1) . substr($color, 2, 1) . substr($color, 3, 1) . substr($color, 3, 1);
         }
 
         return '';
@@ -219,9 +212,9 @@ class dcThemeConfig
      *
      * @return string      checked CSS
      */
-    public static function cleanCSS($css)
+    public static function cleanCSS(string $css): string
     {
-        // TODO ?
+        // TODO
         return $css;
     }
 
@@ -232,7 +225,7 @@ class dcThemeConfig
      *
      * @return string         real path of CSS
      */
-    public static function cssPath($folder)
+    public static function cssPath(string $folder): string
     {
         return path::real(dcCore::app()->blog->public_path) . '/' . $folder;
     }
@@ -244,7 +237,7 @@ class dcThemeConfig
      *
      * @return string         CSS URL
      */
-    public static function cssURL($folder)
+    public static function cssURL(string $folder): string
     {
         return dcCore::app()->blog->settings->system->public_url . '/' . $folder;
     }
@@ -257,7 +250,7 @@ class dcThemeConfig
      *
      * @return boolean          true if CSS folder exists and may be written, else false
      */
-    public static function canWriteCss($folder, $create = false)
+    public static function canWriteCss(string $folder, bool $create = false): bool
     {
         $public = path::real(dcCore::app()->blog->public_path);
         $css    = self::cssPath($folder);
@@ -298,7 +291,7 @@ class dcThemeConfig
      * @param  string $prop     property
      * @param  string $value    value
      */
-    public static function prop(&$css, $selector, $prop, $value)
+    public static function prop(array &$css, string $selector, string $prop, string $value)
     {
         if ($value) {
             $css[$selector][$prop] = $value;
@@ -314,7 +307,7 @@ class dcThemeConfig
      * @param  boolean $value   false for default, true if image should be set
      * @param  string $image    image filename
      */
-    public static function backgroundImg($folder, &$css, $selector, $value, $image)
+    public static function backgroundImg(string $folder, array &$css, string $selector, bool $value, string $image)
     {
         $file = self::imagesPath($folder) . '/' . $image;
         if ($value && file_exists($file)) {
@@ -329,7 +322,7 @@ class dcThemeConfig
      * @param  string $theme  CSS filename
      * @param  string $css    CSS file content
      */
-    public static function writeCss($folder, $theme, $css)
+    public static function writeCss(string $folder, string $theme, string $css)
     {
         file_put_contents(self::cssPath($folder) . '/' . $theme . '.css', $css);
     }
@@ -340,7 +333,7 @@ class dcThemeConfig
      * @param  string $folder CSS folder
      * @param  string $theme  CSS filename to be removed
      */
-    public static function dropCss($folder, $theme)
+    public static function dropCss(string $folder, string $theme)
     {
         $file = path::real(self::cssPath($folder) . '/' . $theme . '.css');
         if (is_writable(dirname($file))) {
@@ -355,7 +348,7 @@ class dcThemeConfig
      *
      * @return mixed         CSS file URL
      */
-    public static function publicCssUrlHelper($folder)
+    public static function publicCssUrlHelper(string $folder)
     {
         $theme = dcCore::app()->blog->settings->system->theme;
         $url   = self::cssURL($folder);
@@ -371,9 +364,9 @@ class dcThemeConfig
      *
      * @param  string $folder images folder
      *
-     * @return string         real path of folder
+     * @return string|false         real path of folder
      */
-    public static function imagesPath($folder)
+    public static function imagesPath(string $folder)
     {
         return path::real(dcCore::app()->blog->public_path) . '/' . $folder;
     }
@@ -385,7 +378,7 @@ class dcThemeConfig
      *
      * @return string         URL of images folder
      */
-    public static function imagesURL($folder)
+    public static function imagesURL(string $folder): string
     {
         return dcCore::app()->blog->settings->system->public_url . '/' . $folder;
     }
@@ -398,7 +391,7 @@ class dcThemeConfig
      *
      * @return boolean          true if folder exists and may be written
      */
-    public static function canWriteImages($folder, $create = false)
+    public static function canWriteImages(string $folder, bool $create = false): bool
     {
         $public = path::real(dcCore::app()->blog->public_path);
         $imgs   = self::imagesPath($folder);
@@ -442,18 +435,18 @@ class dcThemeConfig
      * Upload an image in images folder
      *
      * @param  string $folder images folder
-     * @param  array  $f      selected image file (as $_FILES[<file input fieldname>])
+     * @param  array  $file   selected image file (as $_FILES[<file input fieldname>])
      * @param  int    $width  check accurate width of uploaded image if <> 0
      *
      * @return string         full pathname of uploaded image
      */
-    public static function uploadImage($folder, $f, $width = 0)
+    public static function uploadImage(string $folder, array $file, int $width = 0): string
     {
         if (!self::canWriteImages($folder, true)) {
             throw new Exception(__('Unable to create images.'));
         }
 
-        $name = $f['name'];
+        $name = $file['name'];
         $type = files::getMimeType($name);
 
         if ($type != 'image/jpeg' && $type != 'image/png') {
@@ -462,13 +455,13 @@ class dcThemeConfig
 
         $dest = self::imagesPath($folder) . '/uploaded' . ($type == 'image/png' ? '.png' : '.jpg');
 
-        if (@move_uploaded_file($f['tmp_name'], $dest) === false) {
+        if (@move_uploaded_file($file['tmp_name'], $dest) === false) {
             throw new Exception(__('An error occurred while writing the file.'));
         }
 
         if ($width) {
-            $s = getimagesize($dest);
-            if ($s[0] != $width) {
+            $size = getimagesize($dest);
+            if ($size[0] != $width) {
                 throw new Exception(sprintf(__('Uploaded image is not %s pixels wide.'), $width));
             }
         }
@@ -482,7 +475,7 @@ class dcThemeConfig
      * @param  string $folder images folder
      * @param  string $img    image filename
      */
-    public static function dropImage($folder, $img)
+    public static function dropImage(string $folder, string $img)
     {
         $img = path::real(self::imagesPath($folder) . '/' . $img);
         if (is_writable(dirname($img))) {

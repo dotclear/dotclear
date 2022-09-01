@@ -377,7 +377,6 @@ dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandler
 dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);
 dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);
 
-// Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
 dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
 # Store upload_max_filesize in bytes

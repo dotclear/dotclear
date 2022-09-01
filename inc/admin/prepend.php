@@ -18,6 +18,11 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 // HTTP/1.0
 header('Pragma: no-cache');
 
+dcCore::app()->admin = new dcAdmin();
+
+dcCore::app()->adminurl = new dcAdminURL();
+dcCore::app()->adminurl->register('admin.auth', 'auth.php');
+
 if (dcCore::app()->auth->sessionExists()) {
     # If we have a session we launch it now
     try {
@@ -27,7 +32,7 @@ if (dcCore::app()->auth->sessionExists()) {
             $p[3] = '/';
             setcookie(...$p);
 
-            http::redirect('auth.php');
+            http::redirect(dcCore::app()->adminurl->get('admin.auth'));
         }
     } catch (Exception $e) {
         __error(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), 20);
@@ -93,13 +98,9 @@ if (dcCore::app()->auth->sessionExists()) {
         dcCore::app()->setBlog($_SESSION['sess_blog_id']);
     } else {
         dcCore::app()->session->destroy();
-        http::redirect('auth.php');
+        http::redirect(dcCore::app()->adminurl->get('admin.auth'));
     }
 }
-
-dcCore::app()->admin = new dcAdmin();
-
-dcCore::app()->adminurl = new dcAdminURL(dcCore::app());
 
 dcCore::app()->adminurl->register('admin.posts', 'posts.php');
 dcCore::app()->adminurl->register('admin.popup_posts', 'popup_posts.php');
@@ -126,7 +127,6 @@ dcCore::app()->adminurl->register('admin.user.preferences', 'preferences.php');
 dcCore::app()->adminurl->register('admin.user', 'user.php');
 dcCore::app()->adminurl->register('admin.user.actions', 'users_actions.php');
 dcCore::app()->adminurl->register('admin.users', 'users.php');
-dcCore::app()->adminurl->register('admin.auth', 'auth.php');
 dcCore::app()->adminurl->register('admin.help', 'help.php');
 dcCore::app()->adminurl->register('admin.update', 'update.php');
 
@@ -156,8 +156,8 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     dcCore::app()->auth->user_prefs->addWorkspace('interface');
     $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
-    dcCore::app()->notices = new dcNotices(dcCore::app());
-    dcCore::app()->favs    = new dcFavorites(dcCore::app());
+    dcCore::app()->notices = new dcNotices();
+    dcCore::app()->favs    = new dcFavorites();
     # [] : Title, URL, small icon, large icon, permissions, id, class
     # NB : '*' in permissions means any, null means super admin only
 

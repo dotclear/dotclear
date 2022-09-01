@@ -264,7 +264,7 @@ if ($can_install && !empty($_POST)) {
         dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', null, true);
 
         # Add default favorites
-        dcCore::app()->favs = new dcFavorites(dcCore::app());
+        dcCore::app()->favs = new dcFavorites();
         $init_favs          = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
         dcCore::app()->favs->setFavoriteIDs($init_favs, true);
 

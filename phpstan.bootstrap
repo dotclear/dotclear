@@ -1,5 +1,6 @@
 <?php
 // Mock some global constants
+define('DC_ADBLOCKER_CHECK', true);
 define('DC_ADMIN_URL', '');
 define('DC_DBDRIVER', '');
 define('DC_DBHOST', '');
@@ -7,6 +8,7 @@ define('DC_DBNAME', '');
 define('DC_DBPASSWORD', '');
 define('DC_DBPREFIX', '');
 define('DC_DBUSER', '');
+define('DC_DEV', true);
 define('DC_DISTRIB_PLUGINS', '');
 define('DC_ERRORFILE', '');
 define('DC_FORCE_SCHEME_443', false);
@@ -15,3 +17,7 @@ define('DC_MAX_UPLOAD_SIZE', 42);
 define('DC_PLUGINS_ROOT', '');
 define('DC_REVERSE_PROXY', false);
 define('DC_SESSION_NAME', '');
+
+// Xdebug method()
+function xdebug_time_index() {}
+function xdebug_get_profiler_filename() {}

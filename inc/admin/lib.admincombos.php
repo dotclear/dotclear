@@ -26,7 +26,7 @@ class dcAdminCombos
      *
      * @return     array   The categories combo.
      */
-    public static function getCategoriesCombo($categories, $include_empty = true, $use_url = false)
+    public static function getCategoriesCombo(record $categories, bool $include_empty = true, bool $use_url = false): array
     {
         $categories_combo = [];
         if ($include_empty) {
@@ -49,7 +49,7 @@ class dcAdminCombos
      *
      * @return     array  The post statuses combo.
      */
-    public static function getPostStatusesCombo()
+    public static function getPostStatusesCombo(): array
     {
         $status_combo = [];
         foreach (dcCore::app()->blog->getAllPostStatus() as $k => $v) {
@@ -66,7 +66,7 @@ class dcAdminCombos
      *
      * @return     array   The users combo.
      */
-    public static function getUsersCombo($users)
+    public static function getUsersCombo(record $users): array
     {
         $users_combo = [];
         while ($users->fetch()) {
@@ -94,7 +94,7 @@ class dcAdminCombos
      *
      * @return     array   The dates combo.
      */
-    public static function getDatesCombo($dates)
+    public static function getDatesCombo(record $dates): array
     {
         $dt_m_combo = [];
         while ($dates->fetch()) {
@@ -108,12 +108,11 @@ class dcAdminCombos
      * Gets the langs combo.
      *
      * @param      record  $langs           The langs
-     * @param      bool    $with_available  If false, only list items from
-     * record if true, also list available languages
+     * @param      bool    $with_available  If false, only list items from record if true, also list available languages
      *
      * @return     array   The langs combo.
      */
-    public static function getLangsCombo($langs, $with_available = false)
+    public static function getLangsCombo(record $langs, bool $with_available = false): array
     {
         $all_langs = l10n::getISOcodes(false, true);
         if ($with_available) {
@@ -143,7 +142,7 @@ class dcAdminCombos
      *
      * @return     array  The admin langs combo.
      */
-    public static function getAdminLangsCombo()
+    public static function getAdminLangsCombo(): array
     {
         $lang_combo = [];
         $langs      = l10n::getISOcodes(true, true);
@@ -160,7 +159,7 @@ class dcAdminCombos
      *
      * @return     array  The editors combo.
      */
-    public static function getEditorsCombo()
+    public static function getEditorsCombo(): array
     {
         $editors_combo = [];
 
@@ -178,7 +177,7 @@ class dcAdminCombos
      *
      * @return     array   The formaters combo.
      */
-    public static function getFormatersCombo($editor_id = '')
+    public static function getFormatersCombo(string $editor_id = ''): array
     {
         $formaters_combo = [];
 
@@ -202,7 +201,7 @@ class dcAdminCombos
      *
      * @return     array  The blog statuses combo.
      */
-    public static function getBlogStatusesCombo()
+    public static function getBlogStatusesCombo(): array
     {
         $status_combo = [];
         foreach (dcCore::app()->getAllBlogStatus() as $k => $v) {
@@ -217,7 +216,7 @@ class dcAdminCombos
      *
      * @return     array  The comment statuses combo.
      */
-    public static function getCommentStatusesCombo()
+    public static function getCommentStatusesCombo(): array
     {
         $status_combo = [];
         foreach (dcCore::app()->blog->getAllCommentStatus() as $k => $v) {
@@ -227,7 +226,7 @@ class dcAdminCombos
         return $status_combo;
     }
 
-    public static function getOrderCombo()
+    public static function getOrderCombo(): array
     {
         return [
             __('Descending') => 'desc',
@@ -235,7 +234,7 @@ class dcAdminCombos
         ];
     }
 
-    public static function getPostsSortbyCombo()
+    public static function getPostsSortbyCombo(): array
     {
         $sortby_combo = [
             __('Date')                 => 'post_dt',
@@ -253,7 +252,7 @@ class dcAdminCombos
         return $sortby_combo;
     }
 
-    public static function getCommentsSortbyCombo()
+    public static function getCommentsSortbyCombo(): array
     {
         $sortby_combo = [
             __('Date')        => 'comment_dt',
@@ -270,7 +269,7 @@ class dcAdminCombos
         return $sortby_combo;
     }
 
-    public static function getBlogsSortbyCombo()
+    public static function getBlogsSortbyCombo(): array
     {
         $sortby_combo = [
             __('Last update') => 'blog_upddt',
@@ -284,7 +283,7 @@ class dcAdminCombos
         return $sortby_combo;
     }
 
-    public static function getUsersSortbyCombo()
+    public static function getUsersSortbyCombo(): array
     {
         $sortby_combo = [];
         if (dcCore::app()->auth->isSuperAdmin()) {

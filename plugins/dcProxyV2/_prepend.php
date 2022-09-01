@@ -41,8 +41,7 @@ dcProxyV2::loadBehaviors('dcProxyV2AdminBehaviors', __DIR__ . '/inc/class.admin.
 // Admin proxy classes
 Clearbricks::lib()->autoload([
     'adminGenericFilter' => __DIR__ . '/inc/lib.adminfilters.php',
-
-    'adminGenericList' => __DIR__ . '/inc/lib.pager.php',
+    'adminGenericList'   => __DIR__ . '/inc/lib.pager.php',
 
     'dcActionsPage'         => __DIR__ . '/inc/class.dcaction.php',
     'dcPostsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
@@ -50,3 +49,6 @@ Clearbricks::lib()->autoload([
     'dcBlogsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
     'dcPagesActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
 ]);
+
+// Deprecated functions (outside classes)
+require_once __DIR__ . '/inc/lib.helper.php';

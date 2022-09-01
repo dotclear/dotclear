@@ -19,38 +19,142 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 class adminModulesList
 {
     /**
-     * @deprecated since 2.23
+     * Stack of known modules
+     *
+     * @var dcModules
      */
-    public $core; /**< @var    object    dcCore instance */
+    public $modules;
 
-    public $modules; /**< @var    object    dcModules instance */
-    public $store; /**< @var    object    dcStore instance */
+    /**
+     * Store instance
+     *
+     * @var dcStore
+     */
+    public $store;
 
-    public static $allow_multi_install = false; /**< @var    boolean    Work with multiple root directories */
-    public static $distributed_modules = []; /**< @var    array    List of modules distributed with Dotclear */
+    /**
+     * Work with multiple root directories
+     *
+     * @var        bool
+     */
+    public static $allow_multi_install = false;
 
-    protected $list_id = 'unknown'; /**< @var    string    Current list ID */
-    protected $data    = []; /**< @var    array    Current modules */
+    /**
+     * List of modules distributed with Dotclear
+     *
+     * @var        array
+     */
+    public static $distributed_modules = [];
 
-    protected $config_module  = ''; /**< @var    string    Module ID to configure */
-    protected $config_file    = ''; /**< @var    string    Module path to configure */
-    protected $config_content = ''; /**< @var    string    Module configuration page content */
+    /**
+     * Current list ID
+     *
+     * @var        string
+     */
+    protected $list_id = 'unknown';
 
-    protected $path          = false; /**< @var    string    Modules root directory */
-    protected $path_writable = false; /**< @var    boolean    Indicate if modules root directory is writable */
-    protected $path_pattern  = false; /**< @var    string    Directory pattern to work on */
+    /**
+     * Current modules
+     *
+     * @var        array
+     */
+    protected $data = [];
 
-    protected $page_url   = ''; /**< @var    string    Page URL */
-    protected $page_qs    = '?'; /**< @var    string    Page query string */
-    protected $page_tab   = ''; /**< @var    string    Page tab */
-    protected $page_redir = ''; /**< @var    string    Page redirection */
+    /**
+     * Module to configure
+     *
+     * @var        array
+     */
+    protected $config_module = [];
+    /**
+     * Module path to configure
+     *
+     * @var        string
+     */
+    protected $config_file = '';
+    /**
+     * Module configuration page content
+     *
+     * @var        string
+     */
+    protected $config_content = '';
 
-    public static $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789'; /**< @var    string    Index list */
-    protected $nav_list        = []; /**< @var    array    Index list with special index */
-    protected $nav_special     = 'other'; /**< @var    string    Text for other special index */
+    /**
+     * Modules root directories
+     *
+     * @var        string|null
+     */
+    protected $path;
+    /**
+     * Indicate if modules root directory is writable
+     *
+     * @var        bool
+     */
+    protected $path_writable = false;
+    /**
+     * Directory pattern to work on
+     *
+     * @var        string
+     */
+    protected $path_pattern = '';
 
-    protected $sort_field = 'sname'; /**< @var    string    Field used to sort modules */
-    protected $sort_asc   = true; /**< @var    boolean    Sort order asc */
+    /**
+     * Page URL
+     *
+     * @var        string
+     */
+    protected $page_url = '';
+    /**
+     * Page query string
+     *
+     * @var        string
+     */
+    protected $page_qs = '?';
+    /**
+     * Page tab
+     *
+     * @var        string
+     */
+    protected $page_tab = '';
+    /**
+     * Page redirection
+     *
+     * @var        string
+     */
+    protected $page_redir = '';
+
+    /**
+     * Index list
+     *
+     * @var        string
+     */
+    public static $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+    /**
+     * Index list with special index
+     *
+     * @var        array
+     */
+    protected $nav_list = [];
+    /**
+     * Text for other special index
+     *
+     * @var        string
+     */
+    protected $nav_special = 'other';
+
+    /**
+     * Field used to sort modules
+     *
+     * @var        string
+     */
+    protected $sort_field = 'sname';
+    /**
+     * Ascendant sort order?
+     *
+     * @var        bool
+     */
+    protected $sort_asc = true;
 
     /**
      * Constructor.
@@ -62,9 +166,8 @@ class adminModulesList
      * @param    string       $xml_url        URL of modules feed from repository
      * @param    boolean      $force          Force query repository
      */
-    public function __construct(dcModules $modules, $modules_root, $xml_url, $force = false)
+    public function __construct(dcModules $modules, string $modules_root, string $xml_url, bool $force = false)
     {
-        $this->core    = dcCore::app();
         $this->modules = $modules;
         $this->store   = new dcStore($modules, $xml_url, $force);
 
@@ -81,7 +184,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function setList($id)
+    public function setList(string $id): adminModulesList
     {
         $this->data     = [];
         $this->page_tab = '';
@@ -93,15 +196,16 @@ class adminModulesList
     /**
      * Get list ID.
      *
-     * @return    List ID
+     * @return     string
      */
-    public function getList()
+    public function getList(): string
     {
         return $this->list_id;
     }
 
     /// @name Modules root directory methods
     //@{
+
     /**
      * Set path info.
      *
@@ -109,7 +213,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    protected function setPath($root)
+    protected function setPath(string $root): adminModulesList
     {
         $paths = explode(PATH_SEPARATOR, $root);
         $path  = array_pop($paths);
@@ -125,11 +229,11 @@ class adminModulesList
     }
 
     /**
-     * Get modules root directory.
+     * Get modules root directories.
      *
-     * @return    string    directory to work on
+     * @return    null|string    directory to work on
      */
-    public function getPath()
+    public function getPath(): ?string
     {
         return $this->path;
     }
@@ -139,7 +243,7 @@ class adminModulesList
      *
      * @return    bool  True if directory is writable
      */
-    public function isWritablePath()
+    public function isWritablePath(): bool
     {
         return $this->path_writable;
     }
@@ -151,16 +255,18 @@ class adminModulesList
      *
      * @return    bool  True if directory is delatable
      */
-    public function isDeletablePath($root)
+    public function isDeletablePath(string $root): bool
     {
         return $this->path_writable
         && (preg_match('!^' . $this->path_pattern . '!', $root) || defined('DC_DEV') && DC_DEV)
         && dcCore::app()->auth->isSuperAdmin();
     }
+
     //@}
 
     /// @name Page methods
     //@{
+
     /**
      * Set page base URL.
      *
@@ -168,7 +274,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function setURL($url)
+    public function setURL(string $url): adminModulesList
     {
         $this->page_qs  = strpos('?', $url) ? '&amp;' : '?';
         $this->page_url = $url;
@@ -179,12 +285,12 @@ class adminModulesList
     /**
      * Get page URL.
      *
-     * @param    string|array    $queries    Additionnal query string
-     * @param    bool    $with_tab        Add current tab to URL end
+     * @param    string|array   $queries    Additionnal query string
+     * @param    bool           $with_tab   Add current tab to URL end
      *
      * @return   string Clean page URL
      */
-    public function getURL($queries = '', $with_tab = true)
+    public function getURL($queries = '', bool $with_tab = true): string
     {
         return $this->page_url .
             (!empty($queries) ? $this->page_qs : '') .
@@ -199,7 +305,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function setTab($tab)
+    public function setTab(string $tab): adminModulesList
     {
         $this->page_tab = $tab;
 
@@ -211,7 +317,7 @@ class adminModulesList
      *
      * @return  string  Page tab
      */
-    public function getTab()
+    public function getTab(): string
     {
         return $this->page_tab;
     }
@@ -223,7 +329,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function setRedir($default = '')
+    public function setRedir(string $default = ''): adminModulesList
     {
         $this->page_redir = empty($_REQUEST['redir']) ? $default : $_REQUEST['redir'];
 
@@ -235,14 +341,16 @@ class adminModulesList
      *
      * @return  string  Page redirection
      */
-    public function getRedir()
+    public function getRedir(): string
     {
         return empty($this->page_redir) ? $this->getURL() : $this->page_redir;
     }
+
     //@}
 
     /// @name Search methods
     //@{
+
     /**
      * Get search query.
      *
@@ -260,7 +368,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function displaySearch()
+    public function displaySearch(): adminModulesList
     {
         $query = $this->getSearch();
 
@@ -300,18 +408,22 @@ class adminModulesList
 
         return $this;
     }
+
     //@}
 
     /// @name Navigation menu methods
     //@{
+
     /**
      * Set navigation special index.
      *
+     * @param     string     $str   Index
+     *
      * @return    adminModulesList self instance
      */
-    public function setIndex($str)
+    public function setIndex(string $str): adminModulesList
     {
-        $this->nav_special = (string) $str;
+        $this->nav_special = $str;
         $this->nav_list    = array_merge(str_split(self::$nav_indexes), [$this->nav_special]);
 
         return $this;
@@ -320,9 +432,9 @@ class adminModulesList
     /**
      * Get index from query.
      *
-     * @return  mixed  Query index or default one
+     * @return  string  Query index or default one
      */
-    public function getIndex()
+    public function getIndex(): string
     {
         return isset($_REQUEST['m_nav']) && in_array($_REQUEST['m_nav'], $this->nav_list) ? $_REQUEST['m_nav'] : $this->nav_list[0];
     }
@@ -332,7 +444,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function displayIndex()
+    public function displayIndex(): adminModulesList
     {
         if (empty($this->data) || $this->getSearch() !== null) {
             return $this;
@@ -379,15 +491,19 @@ class adminModulesList
 
     /// @name Sort methods
     //@{
+
     /**
      * Set default sort field.
      *
-     * @return    adminModulesList self instance
+     * @param      string                 $field  The field
+     * @param      bool                   $asc    The ascending
+     *
+     * @return     adminModulesList     self instance
      */
-    public function setSort($field, $asc = true)
+    public function setSort(string $field, bool $asc = true): adminModulesList
     {
         $this->sort_field = $field;
-        $this->sort_asc   = (bool) $asc;
+        $this->sort_asc   = $asc;
 
         return $this;
     }
@@ -397,7 +513,7 @@ class adminModulesList
      *
      * @return    string    Query sort field or default one
      */
-    public function getSort()
+    public function getSort(): string
     {
         return !empty($_REQUEST['m_sort']) ? $_REQUEST['m_sort'] : $this->sort_field;
     }
@@ -405,29 +521,33 @@ class adminModulesList
     /**
      * Display sort field form.
      *
-     * @note    This method is not implemented yet
+     * @todo      This method is not implemented yet
      *
      * @return    adminModulesList self instance
      */
-    public function displaySort()
+    public function displaySort(): adminModulesList
     {
-        //
+        // TODO
 
         return $this;
     }
+
     //@}
 
     /// @name Modules methods
     //@{
+
     /**
      * Set modules and sanitize them.
      *
+     * @param   array   $modules
+     *
      * @return    adminModulesList self instance
      */
-    public function setModules($modules)
+    public function setModules(array $modules): adminModulesList
     {
         $this->data = [];
-        if (!empty($modules) && is_array($modules)) {
+        if (!empty($modules)) {
             foreach ($modules as $id => $module) {
                 $this->data[$id] = self::sanitizeModule($id, $module);
             }
@@ -441,7 +561,7 @@ class adminModulesList
      *
      * @return    array        Array of modules
      */
-    public function getModules()
+    public function getModules(): array
     {
         return $this->data;
     }
@@ -453,9 +573,12 @@ class adminModulesList
      * and clean some of them, sanitize module can safely
      * be used in lists.
      *
+     * @param      string  $id      The identifier
+     * @param      array   $module  The module
+     *
      * @return   array  Array of the module informations
      */
-    public static function sanitizeModule($id, $module)
+    public static function sanitizeModule(string $id, array $module): array
     {
         $label = empty($module['label']) ? $id : $module['label'];
         $name  = __(empty($module['name']) ? $label : $module['name']);
@@ -504,11 +627,9 @@ class adminModulesList
      *
      * @return   bool  True if module is part of the distribution
      */
-    public static function isDistributedModule($id)
+    public static function isDistributedModule(string $id): bool
     {
-        $distributed_modules = self::$distributed_modules;
-
-        return is_array($distributed_modules) && in_array($id, $distributed_modules);
+        return in_array($id, self::$distributed_modules);
     }
 
     /**
@@ -520,7 +641,7 @@ class adminModulesList
      *
      * @return   array  Array of sorted modules
      */
-    public static function sortModules($modules, $field, $asc = true)
+    public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
         $origin = $sorter = $final = [];
 
@@ -541,13 +662,13 @@ class adminModulesList
     /**
      * Display list of modules.
      *
-     * @param    array    $cols        List of colones (module field) to display
-     * @param    array    $actions    List of predefined actions to show on form
-     * @param    boolean    $nav_limit    Limit list to previously selected index
+     * @param    array    $cols         List of colones (module field) to display
+     * @param    array    $actions      List of predefined actions to show on form
+     * @param    bool     $nav_limit    Limit list to previously selected index
      *
      * @return    adminModulesList self instance
      */
-    public function displayModules($cols = ['name', 'version', 'desc'], $actions = [], $nav_limit = false)
+    public function displayModules(array $cols = ['name', 'version', 'desc'], array $actions = [], bool $nav_limit = false): adminModulesList
     {
         echo
         '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
@@ -804,7 +925,7 @@ class adminModulesList
                     echo
                         '<div><ul class="mod-more">';
 
-                    $settings = $this->getSettingsUrls(dcCore::app(), $id);
+                    $settings = $this->getSettingsUrls($id);
                     if (!empty($settings) && $module['enabled']) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
@@ -860,21 +981,20 @@ class adminModulesList
     /**
      * Get settings URLs if any
      *
-     * @param object $core
-     * @param string $id module ID
-     * @param boolean $check check permission
-     * @param boolean $self include self URL (→ plugin index.php URL)
+     * @param   string  $id     Module ID
+     * @param   boolean $check  Check permission
+     * @param   boolean $self   Include self URL (→ plugin index.php URL)
      *
      * @return array    Array of settings URLs
      */
-    public static function getSettingsUrls($core, $id, $check = false, $self = true)
+    public static function getSettingsUrls(string $id, bool $check = false, bool $self = true): array
     {
-        $st = [];
+        $settings_urls = [];
 
-        $mr       = dcCore::app()->plugins->moduleRoot($id);
-        $config   = !empty($mr) && file_exists(path::real($mr . '/_config.php'));
-        $index    = !empty($mr) && file_exists(path::real($mr . '/index.php'));
-        $settings = dcCore::app()->plugins->moduleInfo($id, 'settings');
+        $module_root = dcCore::app()->plugins->moduleRoot($id);
+        $config      = !empty($module_root) && file_exists(path::real($module_root . '/_config.php'));
+        $index       = !empty($module_root) && file_exists(path::real($module_root . '/index.php'));
+        $settings    = dcCore::app()->plugins->moduleInfo($id, 'settings');
         if ($self) {
             if (isset($settings['self']) && $settings['self'] === false) {
                 $self = false;
@@ -887,7 +1007,7 @@ class adminModulesList
                     if (!dcCore::app()->plugins->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = dcCore::app()->adminurl->get('admin.plugin.' . $id);
                     }
-                    $st[] = '<a class="module-config" href="' .
+                    $settings_urls[] = '<a class="module-config" href="' .
                     dcCore::app()->adminurl->get('admin.plugins', $params) .
                     '">' . __('Configure plugin') . '</a>';
                 }
@@ -897,7 +1017,7 @@ class adminModulesList
                     switch ($sk) {
                         case 'blog':
                             if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
-                                $st[] = '<a class="module-config" href="' .
+                                $settings_urls[] = '<a class="module-config" href="' .
                                 dcCore::app()->adminurl->get('admin.blog.pref') . $sv .
                                 '">' . __('Plugin settings (in blog parameters)') . '</a>';
                             }
@@ -905,7 +1025,7 @@ class adminModulesList
                             break;
                         case 'pref':
                             if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
-                                $st[] = '<a class="module-config" href="' .
+                                $settings_urls[] = '<a class="module-config" href="' .
                                 dcCore::app()->adminurl->get('admin.user.preferences') . $sv .
                                 '">' . __('Plugin settings (in user preferences)') . '</a>';
                             }
@@ -914,7 +1034,7 @@ class adminModulesList
                         case 'self':
                             if ($self) {
                                 if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
-                                    $st[] = '<a class="module-config" href="' .
+                                    $settings_urls[] = '<a class="module-config" href="' .
                                     dcCore::app()->adminurl->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
                                 }
@@ -925,7 +1045,7 @@ class adminModulesList
                             break;
                         case 'other':
                             if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
-                                $st[] = '<a class="module-config" href="' .
+                                $settings_urls[] = '<a class="module-config" href="' .
                                 $sv .
                                 '">' . __('Plugin settings') . '</a>';
                             }
@@ -936,14 +1056,14 @@ class adminModulesList
             }
             if ($index && $self) {
                 if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
-                    $st[] = '<a class="module-config" href="' .
+                    $settings_urls[] = '<a class="module-config" href="' .
                     dcCore::app()->adminurl->get('admin.plugin.' . $id) .
                     '">' . __('Plugin settings') . '</a>';
                 }
             }
         }
 
-        return $st;
+        return $settings_urls;
     }
 
     /**
@@ -955,7 +1075,7 @@ class adminModulesList
      *
      * @return   array    Array of actions buttons
      */
-    protected function getActions($id, $module, $actions)
+    protected function getActions(string $id, array $module, array $actions): array
     {
         $submits = [];
 
@@ -1032,12 +1152,12 @@ class adminModulesList
     /**
      * Get global action buttons to add to modules list.
      *
-     * @param    array    $actions          Actions keys
-     * @param boolean   $with_selection Limit action to selected modules
+     * @param   array   $actions            Actions keys
+     * @param   bool    $with_selection     Limit action to selected modules
      *
      * @return  array  Array of actions buttons
      */
-    protected function getGlobalActions($actions, $with_selection = false)
+    protected function getGlobalActions(array $actions, bool $with_selection = false): array
     {
         $submits = [];
 
@@ -1101,7 +1221,7 @@ class adminModulesList
     /**
      * Execute POST action.
      *
-     * @note    Set a notice on success through dcPage::addSuccessNotice
+     * Set a notice on success through dcPage::addSuccessNotice
      *
      * @throws    Exception    Module not find or command failed
      */
@@ -1412,10 +1532,12 @@ class adminModulesList
 
         return $this;
     }
+
     //@}
 
     /// @name Module configuration methods
     //@{
+
     /**
      * Prepare module configuration.
      *
@@ -1433,7 +1555,7 @@ class adminModulesList
      *
      * @return   bool  True if config set
      */
-    public function setConfiguration($id = null)
+    public function setConfiguration(string $id = null): bool
     {
         if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) && !$id) {
             return false;
@@ -1504,7 +1626,7 @@ class adminModulesList
      *
      * @return bool     True if content has been captured
      */
-    public function getConfiguration()
+    public function getConfiguration(): bool
     {
         if ($this->config_file) {
             $this->config_content = ob_get_contents();
@@ -1522,7 +1644,7 @@ class adminModulesList
      *
      * @return    adminModulesList self instance
      */
-    public function displayConfiguration()
+    public function displayConfiguration(): adminModulesList
     {
         if ($this->config_file) {
             if (!$this->config_module['standalone_config']) {
@@ -1546,6 +1668,7 @@ class adminModulesList
 
         return $this;
     }
+
     //@}
 
     /**
@@ -1557,7 +1680,7 @@ class adminModulesList
      *
      * @return   string     Sanitized string
      */
-    public static function sanitizeString($str)
+    public static function sanitizeString(string $str): string
     {
         return preg_replace('/[^A-Za-z0-9\@\#+_-]/', '', strtolower($str));
     }
@@ -1580,7 +1703,7 @@ class adminThemesList extends adminModulesList
      * @param    string       $xml_url        URL of modules feed from repository
      * @param    boolean      $force          Force query repository
      */
-    public function __construct(dcModules $modules, $modules_root, $xml_url, $force = false)
+    public function __construct(dcModules $modules, string $modules_root, string $xml_url, bool $force = false)
     {
         parent::__construct($modules, $modules_root, $xml_url, $force);
         $this->page_url = dcCore::app()->adminurl->get('admin.blog.theme');
@@ -1593,7 +1716,7 @@ class adminThemesList extends adminModulesList
      * @param      array  $actions    The actions
      * @param      bool   $nav_limit  The navigation limit
      */
-    public function displayModules($cols = ['name', 'config', 'version', 'desc'], $actions = [], $nav_limit = false)
+    public function displayModules(array $cols = ['name', 'config', 'version', 'desc'], array $actions = [], bool $nav_limit = false): adminThemesList
     {
         echo
         '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
@@ -1806,7 +1929,7 @@ class adminThemesList extends adminModulesList
      *
      * @return     array  The actions.
      */
-    protected function getActions($id, $module, $actions)
+    protected function getActions(string $id, array $module, array $actions): array
     {
         $submits = [];
 
@@ -1848,7 +1971,7 @@ class adminThemesList extends adminModulesList
      *
      * @return     array   The global actions.
      */
-    protected function getGlobalActions($actions, $with_selection = false)
+    protected function getGlobalActions(array $actions, bool $with_selection = false): array
     {
         $submits = [];
 

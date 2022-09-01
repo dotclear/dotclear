@@ -74,7 +74,7 @@ if (file_exists($p_file)) {
     echo $p_content;
     if (!$popup) {
         // Add direct links to plugin settings if any
-        $settings = adminModulesList::getSettingsUrls(dcCore::app(), $p, true, false);
+        $settings = adminModulesList::getSettingsUrls($p, true, false);
         if (!empty($settings)) {
             echo '<hr class="clear"/><p class="right modules">' . implode(' - ', $settings) . '</p>';
         }

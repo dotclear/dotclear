@@ -32,6 +32,7 @@ final class dcCore
     public $log;        ///< <b>dcLog</b>               dcLog object
     public $stime;      ///< <b>float</b>               starting time
     public $meta;       ///< <b>dcMeta</b>              dcMeta object
+    public $notices;    ///< <b>dcNotices</b>           dcNotices object
 
     public $lang;       ///< <b>string</b>
 
@@ -39,7 +40,6 @@ final class dcCore
     public $admin;      // dcAdmin object
 
     public $adminurl;   ///< <b>dcAdminURL</b>          dcAdminURL object
-    public $notices;    ///< <b>dcAdminNotices</b>      dcNotices object
     public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
     public $menu;       // ArrayObject of several dcMenu
 

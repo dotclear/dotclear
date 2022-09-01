@@ -22,7 +22,7 @@ class dcAdminHelper
      *
      * @return string
      */
-    public static function adminIcon($img, $fallback = true, $alt = '', $title = '', $class = '')
+    public static function adminIcon($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
     {
         $unknown_img = 'images/menu/no-icon.svg';
         $dark_img    = '';
@@ -52,7 +52,7 @@ class dcAdminHelper
     }
 
     /**
-     * Loads locales.
+     * Loads user locales (English if not defined).
      */
     public static function loadLocales()
     {
@@ -75,14 +75,14 @@ class dcAdminHelper
      * Adds a menu item.
      *
      * @param      string  $section   The section
-     * @param      string  $desc      The description
-     * @param      string  $adminurl  The adminurl
+     * @param      string  $desc      The item description
+     * @param      string  $adminurl  The URL scheme
      * @param      mixed   $icon      The icon(s)
-     * @param      mixed   $perm      The permission
-     * @param      bool    $pinned    The pinned
-     * @param      bool    $strict    The strict
+     * @param      mixed   $perm      The permission(s)
+     * @param      bool    $pinned    Is pinned at begining
+     * @param      bool    $strict    Strict URL scheme or allow query string parameters
      */
-    public static function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false, $strict = false)
+    public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false)
     {
         $url     = dcCore::app()->adminurl->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(\?.*)?') . '$@';
@@ -97,63 +97,4 @@ class dcAdminHelper
             $pinned
         );
     }
-}
-
-/**
- * Load locales
- *
- * @deprecated     since 2.21  use dcAdminHelper::loadLocales()
- */
-function dc_load_locales()
-{
-    dcAdminHelper::loadLocales();
-}
-
-/**
- * Get icon URL
- *
- * @param      string  $img    The image
- *
- * @deprecated  since 2.21
- *
- * @return     string
- */
-function dc_admin_icon_url($img)
-{
-    return $img;
-}
-
-/**
- * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)
- *
- * @param mixed     $img        string (default) or array (0 : light, 1 : dark)
- * @param bool      $fallback   use fallback image if none given
- * @param string    $alt        alt attribute
- * @param string    $title      title attribute
- *
- * @deprecated  since 2.21  use dcAdminHelper::adminIcon()
- *
- * @return string
- */
-function dc_admin_icon_theme($img, $fallback = true, $alt = '', $title = '', $class = '')
-{
-    return dcAdminHelper::adminIcon($img, $fallback, $alt, $title, $class);
-}
-
-/**
- * Adds a menu item.
- *
- * @param      string  $section   The section
- * @param      string  $desc      The description
- * @param      string  $adminurl  The adminurl
- * @param      mixed   $icon      The icon(s)
- * @param      mixed   $perm      The permission
- * @param      bool    $pinned    The pinned
- * @param      bool    $strict    The strict
- *
- * @deprecated  since 2.21  use dcAdminHelper::addMenuItem()
- */
-function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false, $strict = false)
-{
-    dcAdminHelper::addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
 }

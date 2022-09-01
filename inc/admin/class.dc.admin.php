@@ -15,7 +15,11 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcAdmin
 {
-    // User-defined - experimental (may be changed in near future)
+    /**
+     * User-defined - experimental (may be changed in near future)
+     *
+     * @var        array
+     */
     protected $properties = [];
 
     // Constants

@@ -15,27 +15,14 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcNotices
 {
-    /** @var dcCore dotclear core instance */
-    /**
-     * @deprecated since 2.23
-     */
-    protected $core;
-
     protected $table_name = 'notice';
     protected $table;
 
     /**
      * Class constructor
-     *
-     * @param dcCore  $core   dotclear core
-     *
-     * @access public
-     *
-     * @return mixed Value.
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core  = dcCore::app();
         $this->table = dcCore::app()->prefix . $this->table_name;
     }
 

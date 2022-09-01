@@ -110,10 +110,9 @@ class dcMaintenanceAdmin
      * This updates maintenance fav icon text
      * if there are tasks required maintenance.
      *
-     * @param      dcCore       $core   The core
-     * @param      arrayObject  $fav    The fav
+     * @param      arrayObject  $icon    The icon
      */
-    public static function adminDashboardFavoritesCallback(dcCore $core, $fav)
+    public static function adminDashboardFavoritesCallback(ArrayObject $icon)
     {
         // Check user option
         dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
@@ -134,8 +133,8 @@ class dcMaintenanceAdmin
             return;
         }
 
-        $fav['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
-        $fav['large-icon'] = [dcPage::getPF('maintenance/icon-update.svg'), dcPage::getPF('maintenance/icon-dark-update.svg')];
+        $icon['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
+        $icon['large-icon'] = [dcPage::getPF('maintenance/icon-update.svg'), dcPage::getPF('maintenance/icon-dark-update.svg')];
     }
 
     /**

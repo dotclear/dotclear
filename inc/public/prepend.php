@@ -54,7 +54,7 @@ if ((int) dcCore::app()->blog->status !== dcBlog::BLOG_ONLINE) {
 }
 
 # Prepare for further notices, if any
-dcCore::app()->notices = new dcNotices(dcCore::app());
+dcCore::app()->notices = new dcNotices();
 
 # Cope with static home page option
 if (dcCore::app()->blog->settings->system->static_home) {

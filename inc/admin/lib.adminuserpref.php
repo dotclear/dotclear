@@ -17,13 +17,26 @@ if (!defined('DC_RC_PATH')) {
  */
 class adminUserPref
 {
-    /** @var arrayObject columns preferences */
+    /**
+     * Columns preferences
+     *
+     * @var arrayObject
+     */
     protected static $cols = null;
 
-    /** @var arrayObject sorts filters preferences*/
+    /**
+     * Sorts filters preferences
+     *
+     * @var arrayObject
+     */
     protected static $sorts = null;
 
-    public static function getDefaultColumns()
+    /**
+     * Gets the default columns.
+     *
+     * @return     array  The default columns.
+     */
+    public static function getDefaultColumns(): array
     {
         return ['posts' => [__('Posts'), [
             'date'       => [true, __('Date')],
@@ -34,7 +47,15 @@ class adminUserPref
         ]]];
     }
 
-    public static function getUserColumns($type = null, $columns = null)
+    /**
+     * Gets the user columns.
+     *
+     * @param      null|string          $type     The type
+     * @param      array|arrayObject    $columns  The columns
+     *
+     * @return     arrayObject  The user columns.
+     */
+    public static function getUserColumns(?string $type = null, $columns = null): ArrayObject
     {
         # Get default colums (admin lists)
         $cols = self::getDefaultColumns();
@@ -69,7 +90,12 @@ class adminUserPref
         return $cols;
     }
 
-    public static function getDefaultFilters()
+    /**
+     * Gets the default filters.
+     *
+     * @return     array  The default filters.
+     */
+    public static function getDefaultFilters(): array
     {
         $users = [null, null, null, null, null];
         if (dcCore::app()->auth->isSuperAdmin()) {
@@ -129,10 +155,12 @@ class adminUserPref
     /**
      * Get sorts filters users preference for a given type
      *
-     * @param       string      $type   The filter list type
-     * @return      mixed               Filters or typed filter or field value(s)
+     * @param      null|string  $type    The type
+     * @param      null|string  $option  The option
+     *
+     * @return     mixed       Filters or typed filter or field value(s)
      */
-    public static function getUserFilters($type = null, $option = null)
+    public static function getUserFilters(?string $type = null, ?string $option = null)
     {
         if (self::$sorts === null) {
             $sorts = self::getDefaultFilters();

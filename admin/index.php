@@ -229,7 +229,7 @@ if (!empty($plugins_install['success'])) {
     echo '<div class="success">' . __('Following plugins have been installed:') . '<ul>';
     $list = new adminModulesList(dcCore::app()->plugins, DC_PLUGINS_ROOT, dcCore::app()->blog->settings->system->store_plugin_url);
     foreach ($plugins_install['success'] as $k => $v) {
-        $info = implode(' - ', $list->getSettingsUrls(dcCore::app(), $k, true));
+        $info = implode(' - ', $list->getSettingsUrls($k, true));
         echo '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
     }
     echo '</ul></div>';

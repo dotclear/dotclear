@@ -15,13 +15,13 @@ class dcAdminBlogPref
     /**
      * JS Popup helper for static home linked to an entry
      *
-     * @param      string  $editor  The editor
+     * @param      string  $plugin_id  Plugin id (or admin URL)
      *
      * @return     mixed
      */
-    public static function adminPopupPosts($editor = '')
+    public static function adminPopupPosts(string $plugin_id = '')
     {
-        if (empty($editor) || $editor != 'admin.blog_pref') {
+        if (empty($plugin_id) || $plugin_id != 'admin.blog_pref') {
             return;
         }
 

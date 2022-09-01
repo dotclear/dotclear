@@ -37,6 +37,7 @@ parameters:
     - inc/libs/clearbricks/tests/unit/*/*
 
   dynamicConstantNames:
+    - DC_ADBLOCKER_CHECK
     - DC_ADMIN_SSL
     - DC_ADMIN_URL
     - DC_ALLOW_MULTI_MODULES
@@ -53,6 +54,7 @@ parameters:
     - DC_DEFAULT_JQUERY
     - DC_DEFAULT_THEME
     - DC_DEFAULT_TPLSET
+    - DC_DEV
     - DC_DIGESTS
     - DC_DISTRIB_PLUGINS
     - DC_DISTRIB_THEMES

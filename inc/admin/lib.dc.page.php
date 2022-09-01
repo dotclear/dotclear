@@ -10,13 +10,34 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-define('DC_AUTH_PAGE', 'auth.php');
-
 class dcPage
 {
-    private static $loaded_js     = [];
-    private static $loaded_css    = [];
-    private static $preloaded     = [];
+    /**
+     * Stack of loaded JS
+     *
+     * @var        array
+     */
+    private static $loaded_js = [];
+
+    /**
+     * Stack of loaded CSS
+     *
+     * @var        array
+     */
+    private static $loaded_css = [];
+
+    /**
+     * Stack of preloaded resources (Js, CSS)
+     *
+     * @var        array
+     */
+    private static $preloaded = [];
+
+    /**
+     * Flag to avoid loading more than once the x-frame-options header
+     *
+     * @var        bool
+     */
     private static $xframe_loaded = false;
 
     /**
@@ -25,7 +46,7 @@ class dcPage
      * @param      string  $permissions  The permissions
      * @param      bool    $home         The home
      */
-    public static function check($permissions, $home = false)
+    public static function check(string $permissions, bool $home = false)
     {
         if (dcCore::app()->blog && dcCore::app()->auth->check($permissions, dcCore::app()->blog->id)) {
             return;
@@ -40,7 +61,7 @@ class dcPage
         if (session_id()) {
             dcCore::app()->session->destroy();
         }
-        http::redirect(DC_AUTH_PAGE);
+        http::redirect(dcCore::app()->adminurl->get('admin.auth'));
     }
 
     /**
@@ -48,7 +69,7 @@ class dcPage
      *
      * @param      bool  $home   The home
      */
-    public static function checkSuper($home = false)
+    public static function checkSuper(bool $home = false)
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
@@ -60,7 +81,7 @@ class dcPage
             if (session_id()) {
                 dcCore::app()->session->destroy();
             }
-            http::redirect(DC_AUTH_PAGE);
+            http::redirect(dcCore::app()->adminurl->get('admin.auth'));
         }
     }
 
@@ -72,7 +93,7 @@ class dcPage
      * @param      string  $breadcrumb  The breadcrumb
      * @param      array   $options     The options
      */
-    public static function open($title = '', $head = '', $breadcrumb = '', $options = [])
+    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = [])
     {
         $js = [];
 
@@ -214,8 +235,8 @@ class dcPage
         echo dcUtils::jsJson('dotclear_init', $js);
 
         echo
-        self::jsCommon() .
-        self::jsToggles() .
+            self::jsCommon() .
+            self::jsToggles() .
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead
@@ -276,33 +297,123 @@ class dcPage
         echo dcAdminNotices::getNotices();
     }
 
-    public static function notices()
+    /**
+     * Get current notices
+     *
+     * @return     string
+     */
+    public static function notices(): string
     {
         return dcAdminNotices::getNotices();
     }
 
-    public static function addNotice($type, $message, $options = [])
+    /**
+     * Adds a message notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
+    public static function addMessageNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice($type, $message, $options);
-    }
-
-    public static function addSuccessNotice($message, $options = [])
-    {
-        self::addNotice('success', $message, $options);
-    }
-
-    public static function addWarningNotice($message, $options = [])
-    {
-        self::addNotice('warning', $message, $options);
-    }
-
-    public static function addErrorNotice($message, $options = [])
-    {
-        self::addNotice('error', $message, $options);
+        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_MESSAGE, $message, $options);
     }
 
     /**
-     * The end
+     * Adds a success notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
+    public static function addSuccessNotice(string $message, array $options = [])
+    {
+        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_SUCCESS, $message, $options);
+    }
+
+    /**
+     * Adds a warning notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
+    public static function addWarningNotice(string $message, array $options = [])
+    {
+        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_WARNING, $message, $options);
+    }
+
+    /**
+     * Adds an error notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
+    public static function addErrorNotice(string $message, array $options = [])
+    {
+        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_ERROR, $message, $options);
+    }
+
+    /**
+     * Return/display a notice
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     * @param      string  $class      The class to use
+     *
+     * @return     string  The notice
+     */
+    public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
+    {
+        return dcAdminNotices::message($msg, $timestamp, $div, $echo, $class);
+    }
+
+    /**
+     * Return/display a success notice
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     *
+     * @return     string  The notice
+     */
+    public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        return dcAdminNotices::success($msg, $timestamp, $div, $echo);
+    }
+
+    /**
+     * Return/display a warning notice
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     *
+     * @return     string  The notice
+     */
+    public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        return dcAdminNotices::warning($msg, $timestamp, $div, $echo);
+    }
+
+    /**
+     * Return/display a error notice
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     *
+     * @return     string  The notice
+     */
+    public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        return dcAdminNotices::error($msg, $timestamp, $div, $echo);
+    }
+
+    /**
+     * End of admin page
      */
     public static function close()
     {
@@ -325,7 +436,7 @@ class dcPage
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
-        foreach (dcCore::app()->menu as $k => $v) {
+        foreach (array_keys((array) dcCore::app()->menu) as $k) {
             echo dcCore::app()->menu[$k]->draw();
         }
 
@@ -374,7 +485,7 @@ class dcPage
      * @param      string  $head        The head
      * @param      string  $breadcrumb  The breadcrumb
      */
-    public static function openPopup($title = '', $head = '', $breadcrumb = '')
+    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = '')
     {
         $js = [];
 
@@ -471,16 +582,17 @@ class dcPage
     /**
      * Get breadcrumb
      *
-     * @param      mixed   $elements  The elements
-     * @param      array   $options   The options
+     * @param      array|null   $elements  The elements
+     * @param      array        $options   The options
      *
      * @return     string
      */
-    public static function breadcrumb($elements = null, $options = [])
+    public static function breadcrumb(?array $elements = null, array $options = []): string
     {
         $with_home_link = $options['home_link'] ?? true;
         $hl             = $options['hl']        ?? true;
         $hl_pos         = $options['hl_pos']    ?? -1;
+
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2>' . ($with_home_link ?
             '<a class="go_home" href="' . dcCore::app()->adminurl->get('admin.home') . '">' .
@@ -489,36 +601,23 @@ class dcPage
             '</a>' :
             '<img class="go_home light-only" src="style/dashboard-alt.svg" alt="" />' .
             '<img class="go_home dark-only" src="style/dashboard-alt-dark.svg" alt="" />');
+
         $index = 0;
         if ($hl_pos < 0) {
             $hl_pos = count($elements) + $hl_pos;
         }
         foreach ($elements as $element => $url) {
-            if ($hl && $index == $hl_pos) {
+            if ($hl && $index === $hl_pos) {
                 $element = sprintf('<span class="page-title">%s</span>', $element);
             }
-            $res .= ($with_home_link ? ($index == 1 ? ' : ' : ' &rsaquo; ') : ($index == 0 ? ' ' : ' &rsaquo; ')) .
+            $res .= ($with_home_link ? ($index === 1 ? ' : ' : ' &rsaquo; ') : ($index === 0 ? ' ' : ' &rsaquo; ')) .
                 ($url ? '<a href="' . $url . '">' : '') . $element . ($url ? '</a>' : '');
             $index++;
         }
+
         $res .= '</h2>';
 
         return $res;
-    }
-
-    public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
-    {
-        return dcAdminNotices::message($msg, $timestamp, $div, $echo, $class);
-    }
-
-    public static function success($msg, $timestamp = true, $div = false, $echo = true)
-    {
-        return self::message($msg, $timestamp, $div, $echo, 'success');
-    }
-
-    public static function warning($msg, $timestamp = true, $div = false, $echo = true)
-    {
-        return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
     }
 
     /**
@@ -526,7 +625,7 @@ class dcPage
      *
      * @return     string
      */
-    private static function debugInfo()
+    private static function debugInfo(): string
     {
         $global_vars = implode(', ', array_keys($GLOBALS));
 
@@ -547,28 +646,25 @@ class dcPage
             }
 
             /* xdebug configuration:
-        zend_extension = /.../xdebug.so
-        xdebug.auto_trace = On
-        xdebug.trace_format = 0
-        xdebug.trace_options = 1
-        xdebug.show_mem_delta = On
-        xdebug.profiler_enable = 0
-        xdebug.profiler_enable_trigger = 1
-        xdebug.profiler_output_dir = /tmp
-        xdebug.profiler_append = 0
-        xdebug.profiler_output_name = timestamp
-         */
+
+                zend_extension = /.../xdebug.so
+
+                xdebug.auto_trace = On
+                xdebug.trace_format = 0
+                xdebug.trace_options = 1
+                xdebug.show_mem_delta = On
+                xdebug.profiler_enable = 0
+                xdebug.profiler_enable_trigger = 1
+                xdebug.profiler_output_dir = /tmp
+                xdebug.profiler_append = 0
+                xdebug.profiler_output_name = timestamp
+            */
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .
             '</div></div>';
 
         return $res;
-    }
-
-    public static function help()
-    {
-        # Deprecated but we keep this for plugins.
     }
 
     /**
@@ -596,26 +692,26 @@ class dcPage
         }
 
         $content = '';
-        foreach ($args as $v) {
-            if (is_object($v) && isset($v->content)) {
-                $content .= $v->content;
+        foreach ($args as $arg) {
+            if (is_object($arg) && isset($arg->content)) {
+                $content .= $arg->content;
 
                 continue;
             }
 
-            if (!isset(dcCore::app()->resources['help'][$v])) {
+            if (!isset(dcCore::app()->resources['help'][$arg])) {
                 continue;
             }
-            $f = dcCore::app()->resources['help'][$v];
-            if (!file_exists($f) || !is_readable($f)) {
+            $file = dcCore::app()->resources['help'][$arg];
+            if (!file_exists($file) || !is_readable($file)) {
                 continue;
             }
 
-            $fc = file_get_contents($f);
-            if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $fc, $matches)) {
+            $file_content = file_get_contents($file);
+            if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
                 $content .= $matches[1];
             } else {
-                $content .= $fc;
+                $content .= $file_content;
             }
         }
 
@@ -640,137 +736,105 @@ class dcPage
     /**
      * Get HTML code to preload resource
      *
-     * @param      string  $src    The source
-     * @param      string  $v      The version
-     * @param      string  $type   The type
+     * @param      string       $src         The source
+     * @param      null|string  $version     The version
+     * @param      string       $type        The type
      *
-     * @return     mixed
+     * @return     string
      */
-    public static function preload($src, $v = '', $type = 'style')
+    public static function preload(string $src, ?string $version = '', string $type = 'style'): string
     {
         $escaped_src = html::escapeHTML($src);
         if (!isset(self::$preloaded[$escaped_src])) {
             self::$preloaded[$escaped_src] = true;
-            $escaped_src                   = self::appendVersion($escaped_src, $v);
 
-            return '<link rel="preload" href="' . $escaped_src . '" as="' . $type . '" />' . "\n";
+            return '<link rel="preload" href="' . self::appendVersion($escaped_src, $version) . '" as="' . $type . '" />' . "\n";
         }
+
+        return '';
     }
 
     /**
      * Get HTML code to load CSS stylesheet
      *
-     * @param      string  $src    The source
-     * @param      string  $media  The media
-     * @param      string  $v      The version
+     * @param      string       $src         The source
+     * @param      string       $media       The media
+     * @param      null|string  $version     The version
      *
-     * @return     mixed
+     * @return     string
      */
-    public static function cssLoad($src, $media = 'screen', $v = '')
+    public static function cssLoad(string $src, string $media = 'screen', ?string $version = ''): string
     {
         $escaped_src = html::escapeHTML($src);
         if (!isset(self::$loaded_css[$escaped_src])) {
             self::$loaded_css[$escaped_src] = true;
-            $escaped_src                    = self::appendVersion($escaped_src, $v);
 
-            return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+            return '<link rel="stylesheet" href="' . self::appendVersion($escaped_src, $version) . '" type="text/css" media="' . $media . '" />' . "\n";
         }
+
+        return '';
     }
 
     /**
      * Wrapper for cssLoad to be used by module
      *
-     * @param      string  $src    The source
-     * @param      string  $media  The media
-     * @param      string  $v      The version
+     * @param      string       $src         The source
+     * @param      string       $media       The media
+     * @param      null|string  $version     The version
      *
-     * @return     mixed
+     * @return     string
      */
-    public static function cssModuleLoad($src, $media = 'screen', $v = '')
+    public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = ''): string
     {
-        return self::cssLoad(urldecode(self::getPF($src)), $media, $v);
+        return self::cssLoad(urldecode(self::getPF($src)), $media, $version);
     }
 
     /**
      * Get HTML code to load JS script
      *
-     * @param      string  $src    The source
-     * @param      string  $v      The version
+     * @param      string       $src         The source
+     * @param      null|string  $version     The version
      *
-     * @return     mixed
+     * @return     string
      */
-    public static function jsLoad($src, $v = '')
+    public static function jsLoad(string $src, ?string $version = ''): string
     {
         $escaped_src = html::escapeHTML($src);
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
-            $escaped_src                   = self::appendVersion($escaped_src, $v);
 
-            return '<script src="' . $escaped_src . '"></script>' . "\n";
+            return '<script src="' . self::appendVersion($escaped_src, $version) . '"></script>' . "\n";
         }
+
+        return '';
     }
 
     /**
      * Wrapper for jsLoad to be used by module
      *
-     * @param      string  $src    The source
-     * @param      string  $v      The version
+     * @param      string       $src         The source
+     * @param      null|string  $version     The version
      *
-     * @return     mixed
+     * @return     string
      */
-    public static function jsModuleLoad($src, $v = '')
+    public static function jsModuleLoad(string $src, ?string $version = ''): string
     {
-        return self::jsLoad(urldecode(self::getPF($src)), $v);
+        return self::jsLoad(urldecode(self::getPF($src)), $version);
     }
 
     /**
      * Appends a version to force cache refresh if necessary.
      *
-     * @param      string  $src    The source
-     * @param      string  $v      The version
+     * @param      string       $src         The source
+     * @param      null|string  $version     The version
      *
      * @return     string
      */
-    private static function appendVersion(string $src, ?string $v = ''): string
+    private static function appendVersion(string $src, ?string $version = ''): string
     {
         return $src .
             (strpos($src, '?')                  === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v ?: DC_VERSION));
-    }
-
-    /**
-     * return a javascript variable definition line code
-     *
-     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
-     *
-     * @param      string  $n      variable name
-     * @param      mixed   $v      value
-     *
-     * @return     string  javascript code
-     */
-    public static function jsVar($n, $v)
-    {
-        return $n . " = '" . html::escapeJS($v) . "';\n";
-    }
-
-    /**
-     * return a list of javascript variables définitions code
-     *
-     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
-     *
-     * @param      array  $vars   The variables
-     *
-     * @return     string  javascript code (inside <script></script>)
-     */
-    public static function jsVars($vars)
-    {
-        $ret = '<script>' . "\n";
-        foreach ($vars as $var => $value) {
-            $ret .= $var . ' = ' . (is_string($value) ? "'" . html::escapeJS($value) . "'" : $value) . ';' . "\n";
-        }
-        $ret .= "</script>\n";
-
-        return $ret;
+            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
     }
 
     /**
@@ -781,7 +845,7 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsJson($id, $vars)
+    public static function jsJson(string $id, $vars): string
     {
         return dcUtils::jsJson($id, $vars);
     }
@@ -791,14 +855,14 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsToggles()
+    public static function jsToggles(): string
     {
         $js = [];
         if (dcCore::app()->auth->user_prefs->toggles) {
             $unfolded_sections = explode(',', (string) dcCore::app()->auth->user_prefs->toggles->unfolded_sections);
-            foreach ($unfolded_sections as $k => &$v) {
+            foreach ($unfolded_sections as $section => &$v) {
                 if ($v !== '') {
-                    $js[$unfolded_sections[$k]] = true;
+                    $js[$unfolded_sections[$section]] = true;
                 }
             }
         }
@@ -813,7 +877,7 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsCommon()
+    public static function jsCommon(): string
     {
         if (dcCore::app()->auth->user_prefs) {
             dcCore::app()->auth->user_prefs->addWorkspace('interface');
@@ -927,23 +991,13 @@ class dcPage
     }
 
     /**
-     * @deprecated since version 2.11
-     *
-     * @return     string  ( description_of_the_return_value )
-     */
-    public static function jsLoadIE7()
-    {
-        return '';
-    }
-
-    /**
      * Get HTML code to load ConfirmClose JS
      *
      * @param      mixed  ...$args  The arguments
      *
      * @return     string
      */
-    public static function jsConfirmClose(...$args)
+    public static function jsConfirmClose(...$args): string
     {
         $js = [
             'prompt' => __('You have unsaved changes.'),
@@ -962,7 +1016,7 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsPageTabs($default = null)
+    public static function jsPageTabs($default = null): string
     {
         $js = [
             'default' => $default,
@@ -979,48 +1033,21 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsModal()
+    public static function jsModal(): string
     {
         return
         self::jsLoad('js/jquery/jquery.magnific-popup.js');
     }
 
     /**
-     * @deprecated since version 2.16
-     *
-     * @return     string
-     */
-    public static function jsColorPicker()
-    {
-        return '';
-    }
-
-    /**
-     * Get HTML code for date picker JS utility
-     *
-     * @deprecated since 2.21
-     *
-     * @return     string
-     */
-    public static function jsDatePicker()
-    {
-        return '';
-    }
-
-    public static function jsToolBar()
-    {
-        # Deprecated but we keep this for plugins.
-    }
-
-    /**
      * Get HTML to load Upload JS utility
      *
-     * @param      array   $params    The parameters
-     * @param      mixed   $base_url  The base url
+     * @param      array        $params    The parameters
+     * @param      null|string  $base_url  The base url
      *
      * @return     string
      */
-    public static function jsUpload($params = [], $base_url = null)
+    public static function jsUpload(array $params = [], ?string $base_url = null): string
     {
         if (!$base_url) {
             $base_url = path::clean(dirname(preg_replace('/(\?.*$)?/', '', $_SERVER['REQUEST_URI']))) . '/';
@@ -1079,7 +1106,7 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsMetaEditor()
+    public static function jsMetaEditor(): string
     {
         return self::jsLoad('js/meta-editor.js');
     }
@@ -1091,7 +1118,7 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsFilterControl($show = true)
+    public static function jsFilterControl(bool $show = true): string
     {
         $js = [
             'show_filters'      => (bool) $show,
@@ -1114,7 +1141,7 @@ class dcPage
      *
      * @return     string
      */
-    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike'])
+    public static function jsLoadCodeMirror(string $theme = '', bool $multi = true, array $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike']): string
     {
         $ret = self::cssLoad('js/codemirror/lib/codemirror.css') .
         self::jsLoad('js/codemirror/lib/codemirror.js');
@@ -1139,13 +1166,13 @@ class dcPage
      * Get HTML code to run Codemirror
      *
      * @param      mixed        $name   The HTML name attribute
-     * @param      mixed        $id     The HTML id attribute
+     * @param      null|string  $id     The HTML id attribute
      * @param      mixed        $mode   The Codemirror mode
      * @param      string       $theme  The theme
      *
      * @return     string
      */
-    public static function jsRunCodeMirror($name, $id = null, $mode = null, $theme = '')
+    public static function jsRunCodeMirror($name, ?string $id = null, $mode = null, string $theme = ''): string
     {
         if (is_array($name)) {
             $js = $name;
@@ -1168,7 +1195,7 @@ class dcPage
      *
      * @return     array  The code mirror themes.
      */
-    public static function getCodeMirrorThemes()
+    public static function getCodeMirrorThemes(): array
     {
         $themes      = [];
         $themes_root = __DIR__ . '/../../admin' . '/js/codemirror/theme/';
@@ -1193,7 +1220,7 @@ class dcPage
      *
      * @return     string  The URL.
      */
-    public static function getPF($file)
+    public static function getPF(string $file): string
     {
         return dcCore::app()->adminurl->get('load.plugin.file', ['pf' => $file]);
     }
@@ -1205,7 +1232,7 @@ class dcPage
      *
      * @return     string  The URL.
      */
-    public static function getVF($file)
+    public static function getVF(string $file): string
     {
         return dcCore::app()->adminurl->get('load.var.file', ['vf' => $file]);
     }
@@ -1231,5 +1258,97 @@ class dcPage
             $headers['x-frame-options'] = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
         }
         self::$xframe_loaded = true;
+    }
+
+    // Deprecated methods
+    // ------------------
+
+    /**
+     * @deprecated since 2.24
+     */
+    public static function help()
+    {
+        # Deprecated but we keep this for plugins.
+    }
+
+    /**
+     * @deprecated since version 2.16
+     *
+     * @return     string
+     */
+    public static function jsColorPicker(): string
+    {
+        return '';
+    }
+
+    /**
+     * Get HTML code for date picker JS utility
+     *
+     * @deprecated since 2.21
+     *
+     * @return     string
+     */
+    public static function jsDatePicker(): string
+    {
+        return '';
+    }
+
+    /**
+     * Load jsToolBar
+     *
+     * @deprecated since 2.??
+     *
+     * @return  string
+     */
+    public static function jsToolBar()
+    {
+        # Deprecated but we keep this for plugins.
+
+        return '';
+    }
+
+    /**
+     * return a javascript variable definition line code
+     *
+     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
+     *
+     * @param      string  $name      variable name
+     * @param      mixed   $value      value
+     *
+     * @return     string  javascript code
+     */
+    public static function jsVar(string $name, $value): string
+    {
+        return $name . " = '" . html::escapeJS($value) . "';\n";
+    }
+
+    /**
+     * return a list of javascript variables définitions code
+     *
+     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
+     *
+     * @param      array  $vars   The variables
+     *
+     * @return     string  javascript code (inside <script></script>)
+     */
+    public static function jsVars(array $vars): string
+    {
+        $ret = '<script>' . "\n";
+        foreach ($vars as $var => $value) {
+            $ret .= $var . ' = ' . (is_string($value) ? "'" . html::escapeJS($value) . "'" : $value) . ';' . "\n";
+        }
+        $ret .= "</script>\n";
+
+        return $ret;
+    }
+
+    /**
+     * @deprecated since version 2.11
+     *
+     * @return     string  ( description_of_the_return_value )
+     */
+    public static function jsLoadIE7()
+    {
+        return '';
     }
 }

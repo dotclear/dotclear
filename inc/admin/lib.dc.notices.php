@@ -11,18 +11,36 @@ if (!defined('DC_RC_PATH')) {
 }
 
 /**
- * dcNotices -- Backend notices handling facilities
+ * dcAdminNotices -- Backend notices handling facilities
  */
 class dcAdminNotices
 {
-    private static $N_TYPES = [
-        // id → CSS class
-        'success' => 'success',
-        'warning' => 'warning-msg',
-        'error'   => 'error',
-        'message' => 'message',
-        'static'  => 'static-msg', ];
+    /* Constants */
+    public const NOTICE_SUCCESS = 'success';
+    public const NOTICE_WARNING = 'warning';
+    public const NOTICE_ERROR   = 'error';
+    public const NOTICE_MESSAGE = 'message';
+    public const NOTICE_STATIC  = 'static';
 
+    /**
+     * List of supported types
+     *
+     * @var        array
+     */
+    private static $notice_types = [
+        // id → CSS class
+        self::NOTICE_SUCCESS => 'success',
+        self::NOTICE_WARNING => 'warning-msg',
+        self::NOTICE_ERROR   => 'error',
+        self::NOTICE_MESSAGE => 'message',
+        self::NOTICE_STATIC  => 'static-msg',
+    ];
+
+    /**
+     * Error has been displayed?
+     *
+     * @var        bool
+     */
     private static $error_displayed = false;
 
     /**
@@ -30,7 +48,7 @@ class dcAdminNotices
      *
      * @return     string  The notices.
      */
-    public static function getNotices()
+    public static function getNotices(): string
     {
         // Update transition from 2.22 to 2.23
         if (version_compare(DC_VERSION, '2.23', '<')) {
@@ -67,20 +85,20 @@ class dcAdminNotices
             if ($step == 2) {
                 // Static notifications
                 $params = [
-                    'notice_type' => 'static',
+                    'notice_type' => self::NOTICE_STATIC,
                 ];
             } else {
                 // Normal notifications
                 $params = [
-                    'sql' => "AND notice_type != 'static'",
+                    'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
             $counter = $core->notices->getNotices($params, true);
             if ($counter) {
                 $lines = $core->notices->getNotices($params);
                 while ($lines->fetch()) {
-                    if (isset(self::$N_TYPES[$lines->notice_type])) {
-                        $class = self::$N_TYPES[$lines->notice_type];
+                    if (isset(self::$notice_types[$lines->notice_type])) {
+                        $class = self::$notice_types[$lines->notice_type];
                     } else {
                         $class = $lines->notice_type;
                     }
@@ -115,7 +133,7 @@ class dcAdminNotices
      * @param      string  $message  The message
      * @param      array   $options  The options
      */
-    public static function addNotice($type, $message, $options = [])
+    public static function addNotice(string $type, string $message, array $options = [])
     {
         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCore::app()->notices->getTable());
 
@@ -143,14 +161,25 @@ class dcAdminNotices
     }
 
     /**
+     * Adds a message (informational) notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
+    public static function addMessageNotice(string $message, array $options = [])
+    {
+        self::addNotice(self::NOTICE_MESSAGE, $message, $options);
+    }
+
+    /**
      * Adds a success notice.
      *
      * @param      string  $message  The message
      * @param      array   $options  The options
      */
-    public static function addSuccessNotice($message, $options = [])
+    public static function addSuccessNotice(string $message, array $options = [])
     {
-        self::addNotice('success', $message, $options);
+        self::addNotice(self::NOTICE_SUCCESS, $message, $options);
     }
 
     /**
@@ -159,9 +188,9 @@ class dcAdminNotices
      * @param      string  $message  The message
      * @param      array   $options  The options
      */
-    public static function addWarningNotice($message, $options = [])
+    public static function addWarningNotice(string $message, array $options = [])
     {
-        self::addNotice('warning', $message, $options);
+        self::addNotice(self::NOTICE_WARNING, $message, $options);
     }
 
     /**
@@ -170,19 +199,19 @@ class dcAdminNotices
      * @param      string  $message  The message
      * @param      array   $options  The options
      */
-    public static function addErrorNotice($message, $options = [])
+    public static function addErrorNotice(string $message, array $options = [])
     {
-        self::addNotice('error', $message, $options);
+        self::addNotice(self::NOTICE_ERROR, $message, $options);
     }
 
     /**
      * Gets the notification.
      *
-     * @param      array  $n      The notification
+     * @param      array  $notice      The notification
      *
      * @return     string  The notification.
      */
-    private static function getNotification($n)
+    private static function getNotification(array $notice): string
     {
         // Update transition from 2.22 to 2.23
         if (version_compare(DC_VERSION, '2.23', '<')) {
@@ -191,34 +220,38 @@ class dcAdminNotices
             $core = dcCore::app();
         }
 
-        $tag = (isset($n['format']) && $n['format'] === 'html') ? 'div' : 'p';
-        $ts  = '';
-        if (!isset($n['with_ts']) || ($n['with_ts'])) {
-            $ts = '<span class="notice-ts">' .
-                '<time datetime="' . dt::iso8601(strtotime($n['ts']), $core->auth->getInfo('user_tz')) . '">' .
-                dt::dt2str(__('%H:%M:%S'), $n['ts'], $core->auth->getInfo('user_tz')) .
+        $container = (isset($notice['format']) && $notice['format'] === 'html') ? 'div' : 'p';
+        $timestamp = '';
+        if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
+            $timestamp = '<span class="notice-ts">' .
+                '<time datetime="' . dt::iso8601(strtotime($notice['ts']), $core->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%H:%M:%S'), $notice['ts'], $core->auth->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';
         }
 
-        return '<' . $tag . ' class="' . $n['class'] . '" role="alert">' . $ts . $n['text'] . '</' . $tag . '>';
+        return
+            '<' . $container . ' class="' . $notice['class'] . '" role="alert">' .
+            $timestamp . $notice['text'] .
+            '</' . $container . '>';
     }
 
-    /*  */
+    // Direct messages
 
     /**
      * Direct messages, usually immediately displayed
      *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  With the timestamp
-     * @param      bool    $div        Inside a div (else in a p)
-     * @param      bool    $echo       Display the message?
-     * @param      string  $class      The class of block (div/p)
+     * @param      string       $msg        The message
+     * @param      bool         $timestamp  With the timestamp
+     * @param      bool         $div        Inside a div (else in a p)
+     * @param      bool         $echo       Display the message?
+     * @param      null|string  $class      The class of block (div/p)
      *
      * @return     string
      */
-    public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
+    public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
     {
+        $class ??= self::$notice_types[self::NOTICE_MESSAGE];
         $res = '';
         if ($msg != '') {
             $ts = '';
@@ -250,9 +283,9 @@ class dcAdminNotices
      *
      * @return     string
      */
-    public static function success($msg, $timestamp = true, $div = false, $echo = true)
+    public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return self::message($msg, $timestamp, $div, $echo, 'success');
+        return self::message($msg, $timestamp, $div, $echo, self::$notice_types[self::NOTICE_SUCCESS]);
     }
 
     /**
@@ -265,8 +298,23 @@ class dcAdminNotices
      *
      * @return     string
      */
-    public static function warning($msg, $timestamp = true, $div = false, $echo = true)
+    public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
+        return self::message($msg, $timestamp, $div, $echo, self::$notice_types[self::NOTICE_WARNING]);
+    }
+
+    /**
+     * Display an error message
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  With the timestamp
+     * @param      bool    $div        Inside a div (else in a p)
+     * @param      bool    $echo       Display the message?
+     *
+     * @return     string
+     */
+    public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        return self::message($msg, $timestamp, $div, $echo, self::$notice_types[self::NOTICE_ERROR]);
     }
 }
