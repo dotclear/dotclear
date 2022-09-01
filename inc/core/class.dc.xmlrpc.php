@@ -12,11 +12,6 @@ if (!defined('DC_RC_PATH')) {
 
 class dcXmlRpc extends xmlrpcIntrospectionServer
 {
-    /**
-     * @deprecated since 2.23
-     */
-    public $core;
-
     private $blog_id;
     private $blog_loaded    = false;
     private $debug          = false;
@@ -24,11 +19,10 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
     private $trace_args     = true;
     private $trace_response = true;
 
-    public function __construct($core, $blog_id)
+    public function __construct($blog_id)
     {
         parent::__construct();
 
-        $this->core    = dcCore::app();
         $this->blog_id = $blog_id;
 
         # Blogger methods

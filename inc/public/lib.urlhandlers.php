@@ -709,7 +709,7 @@ class dcUrlHandlers extends urlHandler
     public static function xmlrpc($args)
     {
         $blog_id = preg_replace('#^([^/]*).*#', '$1', $args);
-        $server  = new dcXmlRpc(dcCore::app(), $blog_id);
+        $server  = new dcXmlRpc($blog_id);
         $server->serve();
     }
 

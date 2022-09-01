@@ -29,5 +29,5 @@ dcCore::app()->setBlog($blog_id);
 dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
 
 # Start XML-RPC server
-$server = new dcXmlRpc(dcCore::app(), $blog_id);
+$server = new dcXmlRpc($blog_id);
 $server->serve();
