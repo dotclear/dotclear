@@ -16,22 +16,62 @@
  */
 class dcSqlStatement
 {
+    /**
+     * DB handle
+     */
     protected $con;
 
-    protected $columns;
-    protected $from;
-    protected $where;
-    protected $cond;
-    protected $sql;
+    /**
+     * DB SQL syntax
+     *
+     * should be 'mysql', 'postgresql' or 'sqlite'
+     *
+     * @var string
+     */
+    protected $syntax;
+
+    /**
+     * Stack of fields
+     *
+     * @var        array
+     */
+    protected $columns = [];
+
+    /**
+     * Stack of from clauses
+     *
+     * @var        array
+     */
+    protected $from = [];
+
+    /**
+     * Stack of where clauses
+     *
+     * @var        array
+     */
+    protected $where = [];
+
+    /**
+     * Additionnal stack of where clauses
+     *
+     * @var        array
+     */
+    protected $cond = [];
+
+    /**
+     * Stack of generic SQL clauses
+     *
+     * @var        array
+     */
+    protected $sql = [];
 
     /**
      * Class constructor
      */
     public function __construct()
     {
-        $this->con = dcCore::app()->con;
-
-        $this->columns = $this->from = $this->where = $this->cond = $this->sql = [];
+        $this->con    = dcCore::app()->con;
+        $this->syntax = dcCore::app()->con->syntax();
     }
 
     /**
@@ -388,6 +428,19 @@ class dcSqlStatement
     public function quote($value, bool $escape = true): string
     {
         return "'" . ($escape ? $this->con->escape($value) : $value) . "'";
+    }
+
+    /**
+     * Return a SQL table/column fragment using an alias for a name
+     *
+     * @param      string  $name   The name (table, field)
+     * @param      string  $alias  The alias
+     *
+     * @return     string
+     */
+    public function alias(string $name, string $alias): string
+    {
+        return $name . ' ' . ($this->syntax === 'sqlite' ? 'AS ' : '') . $alias;
     }
 
     /**
