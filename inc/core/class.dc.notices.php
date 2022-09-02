@@ -15,7 +15,22 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcNotices
 {
-    protected $table_name = 'notice';
+    // Constants
+
+    /**
+     * Table name
+     *
+     * @var        string
+     */
+    protected const NOTICE_TABLE_NAME = 'notice';
+
+    // Properties
+
+    /**
+     * Full table name (including db prefix)
+     *
+     * @var        string
+     */
     protected $table;
 
     /**
@@ -23,17 +38,30 @@ class dcNotices
      */
     public function __construct()
     {
-        $this->table = dcCore::app()->prefix . $this->table_name;
+        $this->table = dcCore::app()->prefix . self::NOTICE_TABLE_NAME;
     }
 
-    public function getTable()
+    /**
+     * Gets the table name
+     *
+     * @return     string
+     */
+    public function getTable(): string
     {
-        return $this->table_name;
+        return self::NOTICE_TABLE_NAME;
     }
 
     /* Get notices */
 
-    public function getNotices($params = [], $count_only = false)
+    /**
+     * Gets the notices.
+     *
+     * @param      array              $params      The parameters
+     * @param      bool               $count_only  The count only
+     *
+     * @return     record|staticRecord  The notices.
+     */
+    public function getNotices(array $params = [], bool $count_only = false)
     {
         $sql = new dcSelectStatement();
         $sql
@@ -90,12 +118,17 @@ class dcNotices
             $sql->limit($params['limit']);
         }
 
-        $rs = $sql->select();
-
-        return $rs;
+        return $sql->select();
     }
 
-    public function addNotice($cur)
+    /**
+     * Adds a notice.
+     *
+     * @param      cursor  $cur    The cursor
+     *
+     * @return     int     The notice id
+     */
+    public function addNotice(cursor $cur): int
     {
         dcCore::app()->con->writeLock($this->table);
 
@@ -111,7 +144,7 @@ class dcNotices
             $cur->notice_id = (int) $rs->f(0) + 1;
             $cur->ses_id    = (string) session_id();
 
-            $this->getNoticeCursor($cur, $cur->notice_id);
+            $this->fillNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate
             dcCore::app()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
@@ -130,22 +163,15 @@ class dcNotices
         return $cur->notice_id;
     }
 
-    public function delNotices($id, $all = false)
-    {
-        $sql = new dcDeleteStatement();
-        $sql
-            ->from($this->table);
-
-        if ($all) {
-            $sql->where('ses_id = ' . $sql->quote((string) session_id()));
-        } else {
-            $sql->where('notice_id' . $sql->in($id));
-        }
-
-        $sql->delete();
-    }
-
-    private function getNoticeCursor($cur, $notice_id = null)
+    /**
+     * Fills the notice cursor.
+     *
+     * @param      cursor     $cur        The current
+     * @param      int|null   $notice_id  The notice identifier
+     *
+     * @throws     Exception  (description)
+     */
+    private function fillNoticeCursor(cursor $cur, ?int $notice_id = null)
     {
         if ($cur->notice_msg === '') {
             throw new Exception(__('No notice message'));
@@ -160,5 +186,26 @@ class dcNotices
         }
 
         $notice_id = is_int($notice_id) ? $notice_id : $cur->notice_id;
+    }
+
+    /**
+     * Delete notice(s)
+     *
+     * @param      int|null  $id     The identifier
+     * @param      bool      $all    All
+     */
+    public function delNotices(?int $id, bool $all = false)
+    {
+        $sql = new dcDeleteStatement();
+        $sql
+            ->from($this->table);
+
+        if ($all) {
+            $sql->where('ses_id = ' . $sql->quote((string) session_id()));
+        } else {
+            $sql->where('notice_id' . $sql->in($id));
+        }
+
+        $sql->delete();
     }
 }

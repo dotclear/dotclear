@@ -17,12 +17,6 @@ require __DIR__ . '/lib/class.blowup.config.php';
 $can_write_images = blowupConfig::canWriteImages();
 $can_write_css    = blowupConfig::canWriteCss();
 
-$notices = '';
-if (dcCore::app()->error->flag()) {
-    $notices = dcCore::app()->error->toHTML();
-    dcCore::app()->error->reset();
-}
-
 $blowup_base = [
     'body_bg_c' => null,
     'body_bg_g' => 'light',
@@ -203,13 +197,13 @@ if (!empty($_POST)) {
   <title><?php echo __('Blowup configuration'); ?></title>
   <?php
 $js = [
-      'blowup_public_url' => blowupConfig::imagesURL(),
-      'msg'               => [
-          'predefined_styles'      => __('Predefined styles'),
-          'apply_code'             => __('Apply code'),
-          'predefined_style_title' => __('Choose a predefined style'),
-      ],
-  ];
+    'blowup_public_url' => blowupConfig::imagesURL(),
+    'msg'               => [
+        'predefined_styles'      => __('Predefined styles'),
+        'apply_code'             => __('Apply code'),
+        'predefined_style_title' => __('Choose a predefined style'),
+    ],
+];
 echo dcPage::jsJson('blowup', $js);
 echo dcPage::jsModuleLoad('blowupConfig/js/config.js');
 ?>
@@ -227,11 +221,6 @@ echo dcPage::breadcrumb(
 
 echo
 '<p><a class="back" href="' . dcCore::app()->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>';
-
-if (!$can_write_images) {
-    dcPage::message(__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.') .
-        $notices, false, true);
-}
 
 echo '<form id="theme_config" action="' . $p_url . '" method="post" enctype="multipart/form-data">';
 

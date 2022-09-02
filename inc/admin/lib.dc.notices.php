@@ -68,9 +68,9 @@ class dcAdminNotices
             if (isset($notice_error) && !empty($notice_error)) {
                 $res .= $notice_error;
             } else {
-                $res .= '<div class="error" role="alert"><p>' .
-                '<strong>' . (count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')) . '</strong>' .
-                '</p>' . $core->error->toHTML() . '</div>';
+                $res .= '<div role="alert"><p><strong>' . ($core->error->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>' .
+                    $core->error->toHTML() .
+                    '</div>';
             }
             self::$error_displayed = true;
         } else {

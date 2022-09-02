@@ -556,7 +556,7 @@ class context
                 return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '" />';
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            // Ignore exception as it is not important not finding any image in content in a public context
         }
     }
 
@@ -604,7 +604,7 @@ class context
                 }
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            // Ignore exception as it is not important not finding any image in content in a public context
         }
 
         if ($res) {

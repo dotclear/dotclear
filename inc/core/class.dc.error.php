@@ -18,39 +18,26 @@ if (!defined('DC_RC_PATH')) {
 
 class dcError
 {
-    /** @var array Errors stack */
+    /**
+     * Errors stack
+     *
+     * @var        array
+     */
     protected $errors = [];
-    /** @var boolean True if stack is not empty */
-    protected $flag = false;
-    /** @var string HTML errors list pattern */
-    protected $html_list = "<ul>\n%s</ul>\n";
-    /** @var string HTML error item pattern */
-    protected $html_item = "<li>%s</li>\n";
-    /** @var string HTML error single pattern */
-    protected $html_single = "<p>%s</p>\n";
 
     /**
-     * Object string representation. Returns errors stack.
+     * True if stack is not empty
      *
-     * @return string
+     * @var        bool
      */
-    public function __toString()
-    {
-        $res = '';
-
-        foreach ($this->errors as $msg) {
-            $res .= $msg . "\n";
-        }
-
-        return $res;
-    }
+    protected $flag = false;
 
     /**
      * Adds an error to stack.
      *
      * @param string    $msg            Error message
      */
-    public function add($msg)
+    public function add(string $msg)
     {
         $this->flag     = true;
         $this->errors[] = $msg;
@@ -59,9 +46,9 @@ class dcError
     /**
      * Returns the value of <var>flag</var> property. True if errors stack is not empty
      *
-     * @return boolean
+     * @return bool
      */
-    public function flag()
+    public function flag(): bool
     {
         return $this->flag;
     }
@@ -69,55 +56,36 @@ class dcError
     /**
      * Resets errors stack.
      */
-    public function reset()
+    private function reset()
     {
         $this->flag   = false;
         $this->errors = [];
     }
 
     /**
-     * Returns <var>errors</var> property.
+     * Return number of stacked errors
      *
-     * @return array
+     * @return     int
      */
-    public function getErrors()
+    public function count(): int
     {
-        return $this->errors;
+        return count($this->errors);
     }
 
     /**
-     * Sets <var>list</var> and <var>item</var> properties.
-     *
-     * @param string    $list        HTML errors list pattern
-     * @param string    $item        HTML error item pattern
-     */
-    public function setHTMLFormat($list, $item, $single = null)
-    {
-        $this->html_list = $list;
-        $this->html_item = $item;
-        if ($single) {
-            $this->html_single = $single;
-        }
-    }
-
-    /**
-     * Returns errors stack as HTML.
+     * Returns errors stack as HTML and reset it.
      *
      * @return string
      */
-    public function toHTML()
+    public function toHTML(): string
     {
         $res = '';
 
         if ($this->flag) {
-            if (count($this->errors) == 1) {
-                $res = sprintf($this->html_single, $this->errors[0]);
-            } else {
-                foreach ($this->errors as $msg) {
-                    $res .= sprintf($this->html_item, $msg);
-                }
-                $res = sprintf($this->html_list, $res);
+            foreach ($this->errors as $msg) {
+                $res .= dcAdminNotices::error($msg, true, false, false);
             }
+            $this->reset();
         }
 
         return $res;
