@@ -444,6 +444,14 @@ class dcSqlStatement
     }
 
     /**
+     * alias() alias
+     */
+    public function as(string $name, string $alias): string
+    {
+        return $this->alias($name, $alias);
+    }
+
+    /**
      * Return an SQL IN (…) fragment
      *
      * @param      mixed  $list         The list of values
@@ -525,9 +533,9 @@ class dcSqlStatement
      */
     public function regexp(string $value): string
     {
-        if ($this->con->syntax() == 'mysql') {
+        if ($this->syntax == 'mysql') {
             $clause = "REGEXP '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
-        } elseif ($this->con->syntax() == 'postgresql') {
+        } elseif ($this->syntax == 'postgresql') {
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
