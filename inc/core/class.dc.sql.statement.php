@@ -16,6 +16,19 @@
  */
 class dcSqlStatement
 {
+    // Constants
+
+    /**
+     * Use AS for aliases anywhere (if true) else only for SQLite syntax (if false)
+     *
+     * @see self::alias(), self::as(), self::count(), self::avg(), self::min(), self::max(), self::sum() methods
+     *
+     * @var        bool
+     */
+    protected const VERBOSE_SQL_ALIAS = false;
+
+    // Properties
+
     /**
      * DB handle
      */
@@ -29,6 +42,13 @@ class dcSqlStatement
      * @var string
      */
     protected $syntax;
+
+    /**
+     * Keyword use between name and its alias
+     *
+     * @var        string
+     */
+    protected $_AS = ' ';
 
     /**
      * Stack of fields
@@ -72,6 +92,8 @@ class dcSqlStatement
     {
         $this->con    = dcCore::app()->con;
         $this->syntax = dcCore::app()->con->syntax();
+
+        $this->_AS = ($this->syntax === 'sqlite' || self::VERBOSE_SQL_ALIAS ? ' AS ' : ' ');
     }
 
     /**
@@ -440,7 +462,7 @@ class dcSqlStatement
      */
     public function alias(string $name, string $alias): string
     {
-        return $name . ' ' . ($this->syntax === 'sqlite' ? 'AS ' : '') . $alias;
+        return $name . $this->_AS . $alias;
     }
 
     /**
@@ -568,7 +590,7 @@ class dcSqlStatement
      */
     public function count(string $field, ?string $as = null, bool $unique = false): string
     {
-        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as ? ' AS ' . $as : '');
+        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as ? $this->_AS . $as : '');
     }
 
     /**
@@ -581,7 +603,7 @@ class dcSqlStatement
      */
     public function avg(string $field, ?string $as = null): string
     {
-        return 'AVG(' . $field . ')' . ($as ? ' AS ' . $as : '');
+        return 'AVG(' . $field . ')' . ($as ? $this->_AS . $as : '');
     }
 
     /**
@@ -594,7 +616,7 @@ class dcSqlStatement
      */
     public function max(string $field, ?string $as = null): string
     {
-        return 'MAX(' . $field . ')' . ($as ? ' AS ' . $as : '');
+        return 'MAX(' . $field . ')' . ($as ? $this->_AS . $as : '');
     }
 
     /**
@@ -607,7 +629,7 @@ class dcSqlStatement
      */
     public function min(string $field, ?string $as = null): string
     {
-        return 'MIN(' . $field . ')' . ($as ? ' AS ' . $as : '');
+        return 'MIN(' . $field . ')' . ($as ? $this->_AS . $as : '');
     }
 
     /**
@@ -620,7 +642,7 @@ class dcSqlStatement
      */
     public function sum(string $field, ?string $as = null): string
     {
-        return 'SUM(' . $field . ')' . ($as ? ' AS ' . $as : '');
+        return 'SUM(' . $field . ')' . ($as ? $this->_AS . $as : '');
     }
 
     /**
