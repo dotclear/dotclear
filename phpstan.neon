@@ -33,8 +33,7 @@ parameters:
 
   excludePaths:
     - inc/config.php
-    - inc/libs/clearbricks/debian/*
-    - inc/libs/clearbricks/tests/unit/*/*
+    - inc/libs/clearbricks/tests/*/*
 
   dynamicConstantNames:
     - DC_ADBLOCKER_CHECK

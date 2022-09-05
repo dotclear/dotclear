@@ -155,7 +155,8 @@ class urlPages extends dcUrlHandlers
                         dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
-                        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+                        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
+
                         $cur->comment_author  = $name;
                         $cur->comment_site    = html::clean($site);
                         $cur->comment_email   = html::clean($mail);

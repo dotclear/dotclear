@@ -45,7 +45,7 @@ class dcPrefs
     {
         $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
-        $this->table   = dcCore::app()->prefix . 'pref';
+        $this->table   = dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {

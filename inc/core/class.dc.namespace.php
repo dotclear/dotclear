@@ -14,6 +14,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcNamespace
 {
+    // Constants
+
+    /**
+     * Namespace (blog parameters) table name
+     *
+     * @var        string
+     */
+    public const NS_TABLE_NAME = 'setting';
+
     /**
      * @deprecated since 2.23
      */
@@ -52,7 +61,7 @@ class dcNamespace
 
         $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
-        $this->table   = dcCore::app()->prefix . 'setting';
+        $this->table   = dcCore::app()->prefix . self::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
 
         $this->getSettings($rs);

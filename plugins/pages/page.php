@@ -219,7 +219,7 @@ if (!empty($_POST['delete']) && $can_delete) {
 
 # Create or update page
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
-    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
 
     # Magic tweak :)
     dcCore::app()->blog->settings->system->post_url_format = '{t}';

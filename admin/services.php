@@ -312,7 +312,7 @@ class dcRestMethods
     {
         # Create category
         if (!empty($post['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
-            $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
+            $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
 
@@ -327,7 +327,7 @@ class dcRestMethods
             dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
 
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
         $cur->user_id           = dcCore::app()->auth->userID();

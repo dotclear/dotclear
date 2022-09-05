@@ -16,6 +16,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcMedia extends filemanager
 {
+    // Constants
+
+    /**
+     * Media table name
+     *
+     * @var        string
+     */
+    public const MEDIA_TABLE_NAME = 'media';
+
     /**
      * @deprecated since 2.23
      */
@@ -72,7 +81,7 @@ class dcMedia extends filemanager
             throw new Exception(__('No blog defined.'));
         }
 
-        $this->table = dcCore::app()->prefix . 'media';
+        $this->table = dcCore::app()->prefix . self::MEDIA_TABLE_NAME;
         $root        = dcCore::app()->blog->public_path;
 
         if (preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->public_url)) {

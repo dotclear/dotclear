@@ -352,7 +352,7 @@ class dcDefaultPostActions
             }
             $new_cat_id = $post['new_cat_id'];
             if (!empty($post['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
-                $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
+                $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
                 $cur_cat->cat_title = $post['new_cat_title'];
                 $cur_cat->cat_url   = '';
                 $title              = $cur_cat->cat_title;
@@ -446,7 +446,7 @@ class dcDefaultPostActions
                 throw new Exception(__('This user does not exist'));
             }
 
-            $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+            $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->user_id = $new_user_id;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($ids));
             dcPage::addSuccessNotice(
@@ -520,7 +520,7 @@ class dcDefaultPostActions
         }
         if (isset($post['new_lang'])) {
             $new_lang       = $post['new_lang'];
-            $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+            $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->post_lang = $new_lang;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($post_ids));
             dcPage::addSuccessNotice(

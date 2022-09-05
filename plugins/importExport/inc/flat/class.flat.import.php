@@ -96,22 +96,22 @@ class flatImport extends flatBackup
         $this->con    = dcCore::app()->con;
         $this->prefix = dcCore::app()->prefix;
 
-        $this->cur_blog        = $this->con->openCursor($this->prefix . 'blog');
-        $this->cur_category    = $this->con->openCursor($this->prefix . 'category');
-        $this->cur_link        = $this->con->openCursor($this->prefix . 'link');
-        $this->cur_setting     = $this->con->openCursor($this->prefix . 'setting');
-        $this->cur_user        = $this->con->openCursor($this->prefix . 'user');
-        $this->cur_pref        = $this->con->openCursor($this->prefix . 'pref');
-        $this->cur_permissions = $this->con->openCursor($this->prefix . 'permissions');
-        $this->cur_post        = $this->con->openCursor($this->prefix . 'post');
-        $this->cur_meta        = $this->con->openCursor($this->prefix . 'meta');
-        $this->cur_media       = $this->con->openCursor($this->prefix . 'media');
-        $this->cur_post_media  = $this->con->openCursor($this->prefix . 'post_media');
-        $this->cur_log         = $this->con->openCursor($this->prefix . 'log');
-        $this->cur_ping        = $this->con->openCursor($this->prefix . 'ping');
-        $this->cur_comment     = $this->con->openCursor($this->prefix . 'comment');
-        $this->cur_spamrule    = $this->con->openCursor($this->prefix . 'spamrule');
-        $this->cur_version     = $this->con->openCursor($this->prefix . 'version');
+        $this->cur_blog        = $this->con->openCursor($this->prefix . dcBlog::BLOG_TABLE_NAME);
+        $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
+        $this->cur_link        = $this->con->openCursor($this->prefix . dcBlogroll::LINK_TABLE_NAME);
+        $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
+        $this->cur_user        = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
+        $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
+        $this->cur_permissions = $this->con->openCursor($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME);
+        $this->cur_post        = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
+        $this->cur_meta        = $this->con->openCursor($this->prefix . dcMeta::META_TABLE_NAME);
+        $this->cur_media       = $this->con->openCursor($this->prefix . dcMedia::MEDIA_TABLE_NAME);
+        $this->cur_post_media  = $this->con->openCursor($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME);
+        $this->cur_log         = $this->con->openCursor($this->prefix . dcLog::LOG_TABLE_NAME);
+        $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
+        $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
+        $this->cur_spamrule    = $this->con->openCursor($this->prefix . dcAntispam::SPAMRULE_TABLE_NAME);
+        $this->cur_version     = $this->con->openCursor($this->prefix . dcCore::VERSION_TABLE_NAME);
 
         # --BEHAVIOR-- importInit
         dcCore::app()->callBehavior('importInitV2', $this);
@@ -136,30 +136,30 @@ class flatImport extends flatBackup
 
         $this->stack['categories'] = $this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
-            'FROM ' . $this->prefix . 'category ' .
+            'FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
         );
 
-        $rs                    = $this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . 'category');
+        $rs                    = $this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = $this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . 'link');
+        $rs                     = $this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME);
         $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = $this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . 'post');
+        $rs                     = $this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME);
         $this->stack['post_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                      = $this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . 'media');
+        $rs                      = $this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME);
         $this->stack['media_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                        = $this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . 'comment');
+        $rs                        = $this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME);
         $this->stack['comment_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                    = $this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . 'log');
+        $rs                    = $this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME);
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
         $rs = $this->con->select(
-            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . 'category ' .
+            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape(dcCore::app()->blog->id) . "'"
         );
 
@@ -275,11 +275,11 @@ class flatImport extends flatBackup
         }
 
         $this->con->begin();
-        $this->con->execute('DELETE FROM ' . $this->prefix . 'blog');
-        $this->con->execute('DELETE FROM ' . $this->prefix . 'media');
-        $this->con->execute('DELETE FROM ' . $this->prefix . 'spamrule');
-        $this->con->execute('DELETE FROM ' . $this->prefix . 'setting');
-        $this->con->execute('DELETE FROM ' . $this->prefix . 'log');
+        $this->con->execute('DELETE FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . dcAntispam::SPAMRULE_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . dcNamespace::NS_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME);
 
         $line = false;
 
@@ -817,7 +817,7 @@ class flatImport extends flatBackup
         }
 
         $strReq = 'SELECT user_id ' .
-        'FROM ' . $this->prefix . 'user ' .
+        'FROM ' . $this->prefix . dcAuth::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
 
         $rs = $this->con->select($strReq);
@@ -830,7 +830,7 @@ class flatImport extends flatBackup
     private function prefExists($pref_ws, $pref_id, $user_id)
     {
         $strReq = 'SELECT pref_id,pref_ws,user_id ' .
-        'FROM ' . $this->prefix . 'pref ' .
+        'FROM ' . $this->prefix . dcWorkspace::WS_TABLE_NAME . ' ' .
         "WHERE pref_id = '" . $this->con->escape($pref_id) . "' " .
         "AND pref_ws = '" . $this->con->escape($pref_ws) . "' ";
         if (!$user_id) {
@@ -847,7 +847,7 @@ class flatImport extends flatBackup
     private function mediaExists()
     {
         $strReq = 'SELECT media_id ' .
-        'FROM ' . $this->prefix . 'media ' .
+        'FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME . ' ' .
         "WHERE media_path = '" . $this->con->escape($this->cur_media->media_path) . "' " .
         "AND media_file = '" . $this->con->escape($this->cur_media->media_file) . "' ";
 

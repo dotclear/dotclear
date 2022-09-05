@@ -31,7 +31,7 @@ class dcMaintenanceLogs extends dcMaintenanceTask
     {
         if (dcMaintenanceLogs::$keep_maintenance_logs) {
             dcCore::app()->con->execute(
-                'DELETE FROM ' . dcCore::app()->prefix . 'log ' .
+                'DELETE FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
                 "WHERE log_table <> 'maintenance' "
             );
         } else {

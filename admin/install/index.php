@@ -36,7 +36,7 @@ if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {
 
 # Check if dotclear is already installed
 $schema = dbSchema::init(dcCore::app()->con);
-if (in_array(dcCore::app()->prefix . 'post', $schema->getTables())) {
+if (in_array(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, $schema->getTables())) {
     $can_install = false;
     $err         = '<p>' . __('Dotclear is already installed.') . '</p>';
 }
@@ -110,7 +110,7 @@ if ($can_install && !empty($_POST)) {
         $changes = $si->synchronize($_s);
 
         # Create user
-        $cur                 = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
+        $cur                 = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
         $cur->user_id        = $u_login;
         $cur->user_super     = 1;
         $cur->user_pwd       = dcCore::app()->auth->crypt($u_pwd);
@@ -130,7 +130,7 @@ if ($can_install && !empty($_POST)) {
         $root_url  = preg_replace('%/admin/install/index.php$%', '', $_SERVER['REQUEST_URI']);
 
         # Create blog
-        $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
+        $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
         $cur->blog_id   = 'default';
         $cur->blog_url  = http::getHost() . $root_url . '/index.php?';
         $cur->blog_name = __('My first blog');
@@ -211,7 +211,7 @@ if ($can_install && !empty($_POST)) {
         );
 
         # Add Dotclear version
-        $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'version');
+        $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCore::VERSION_TABLE_NAME);
         $cur->module  = 'core';
         $cur->version = (string) DC_VERSION;
         $cur->insert();
@@ -219,7 +219,7 @@ if ($can_install && !empty($_POST)) {
         # Create first post
         dcCore::app()->setBlog('default');
 
-        $cur               = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur               = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
         $cur->user_id      = $u_login;
         $cur->post_format  = 'xhtml';
         $cur->post_lang    = $dlang;
@@ -233,7 +233,7 @@ if ($can_install && !empty($_POST)) {
         $post_id                 = dcCore::app()->blog->addPost($cur);
 
         # Add a comment to it
-        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
         $cur->post_id         = $post_id;
         $cur->comment_tz      = $default_tz;
         $cur->comment_author  = __('Dotclear Team');

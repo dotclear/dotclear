@@ -104,7 +104,7 @@ if ($cat_id && isset($_POST['cat_sibling'])) {
 
 # Create or update a category
 if (isset($_POST['cat_title'])) {
-    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
+    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
 
     $cur->cat_title = $cat_title = $_POST['cat_title'];
 

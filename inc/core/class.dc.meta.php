@@ -16,6 +16,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcMeta
 {
+    // Constants
+
+    /**
+     * Meta table name
+     *
+     * @var        string
+     */
+    public const META_TABLE_NAME = 'meta';
+
     private $con;   ///< <b>connection</b>    Database connection object
     private $table; ///< <b>string</b> Media table name
 
@@ -27,7 +36,7 @@ class dcMeta
     public function __construct(dcCore $core)
     {
         $this->con   = dcCore::app()->con;
-        $this->table = dcCore::app()->prefix . 'meta';
+        $this->table = dcCore::app()->prefix . self::META_TABLE_NAME;
     }
 
     /**
@@ -152,7 +161,7 @@ class dcMeta
         if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
             $sql = new dcSelectStatement();
             $sql
-                ->from(dcCore::app()->prefix . 'post')
+                ->from(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
                 ->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
@@ -192,7 +201,7 @@ class dcMeta
 
         $post_meta = serialize($meta);
 
-        $cur            = $this->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur            = $this->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
         $cur->post_meta = $post_meta;
 
         $sql = new dcUpdateStatement();
@@ -307,11 +316,11 @@ class dcMeta
         }
 
         $sql
-            ->from($this->table . ' M')
+            ->from($sql->as($this->table, 'M'))
             ->join(
                 (new dcJoinStatement())
                 ->left()
-                ->from(dcCore::app()->prefix . 'post P')
+                ->from($sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
@@ -482,8 +491,8 @@ class dcMeta
         $sql = new dcSelectStatement();
         $sql
             ->from([
-                $this->table . ' M',
-                dcCore::app()->prefix . 'post P',
+                $sql->as($this->table, 'M'),
+                $sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'),
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
@@ -585,8 +594,8 @@ class dcMeta
         $sql
             ->column('M.post_id')
             ->from([
-                $this->table . ' M',
-                dcCore::app()->prefix . 'post P',
+                $sql->as($this->table, 'M'),
+                $sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote(dcCore::app()->blog->id))

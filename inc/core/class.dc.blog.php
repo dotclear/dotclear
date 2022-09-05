@@ -17,6 +17,48 @@ if (!defined('DC_RC_PATH')) {
 
 class dcBlog
 {
+    // Constants
+
+    /**
+     * Blog table name
+     *
+     * @var        string
+     */
+    public const BLOG_TABLE_NAME = 'blog';
+
+    /**
+     * Post table name
+     *
+     * @var        string
+     */
+    public const POST_TABLE_NAME = 'post';
+
+    /**
+     * Comment table name
+     *
+     * @var        string
+     */
+    public const COMMENT_TABLE_NAME = 'comment';
+
+    // Blog statuses
+    public const BLOG_ONLINE  = 1;
+    public const BLOG_OFFLINE = 0;
+    public const BLOG_REMOVED = -1;
+
+    // Post statuses
+    public const POST_PENDING     = -2;
+    public const POST_SCHEDULED   = -1;
+    public const POST_UNPUBLISHED = 0;
+    public const POST_PUBLISHED   = 1;
+
+    // Comment statuses
+    public const COMMENT_JUNK        = -2;
+    public const COMMENT_PENDING     = -1;
+    public const COMMENT_UNPUBLISHED = 0;
+    public const COMMENT_PUBLISHED   = 1;
+
+    // Properties
+
     /** @var dcCore dcCore instance */
     /**
      * @deprecated since 2.23
@@ -61,22 +103,6 @@ class dcBlog
 
     /** @var boolean Disallow entries password protection */
     public $without_password = true;
-
-    /* Constants */
-
-    public const BLOG_ONLINE  = 1;
-    public const BLOG_OFFLINE = 0;
-    public const BLOG_REMOVED = -1;
-
-    public const POST_PENDING     = -2;
-    public const POST_SCHEDULED   = -1;
-    public const POST_UNPUBLISHED = 0;
-    public const POST_PUBLISHED   = 1;
-
-    public const COMMENT_JUNK        = -2;
-    public const COMMENT_PENDING     = -1;
-    public const COMMENT_UNPUBLISHED = 0;
-    public const COMMENT_PUBLISHED   = 1;
 
     /**
      * Constructs a new instance.
@@ -251,7 +277,7 @@ class dcBlog
      */
     public function triggerBlog()
     {
-        $cur = $this->con->openCursor($this->prefix . 'blog');
+        $cur = $this->con->openCursor($this->prefix . self::BLOG_TABLE_NAME);
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
@@ -293,7 +319,7 @@ class dcBlog
             $sql = new dcSelectStatement();
             $sql
                 ->column('post_id')
-                ->from($this->prefix . 'comment')
+                ->from($this->prefix . self::COMMENT_TABLE_NAME)
                 ->where('comment_id' . $sql->in($comments_ids))
                 ->group('post_id');
 
@@ -317,7 +343,7 @@ class dcBlog
                 $sql->count('post_id', 'nb_comment'),
                 'comment_trackback',
             ])
-            ->from($this->prefix . 'comment')
+            ->from($this->prefix . self::COMMENT_TABLE_NAME)
             ->where('comment_status = ' . (string) self::COMMENT_PUBLISHED)
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
@@ -337,7 +363,7 @@ class dcBlog
         }
 
         # Update number of comments on affected posts
-        $cur = $this->con->openCursor($this->prefix . 'post');
+        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
         foreach ($affected_posts as $post_id) {
             $cur->clean();
 
@@ -575,10 +601,10 @@ class dcBlog
                 'C.cat_id',
                 $sql->count('P.post_id', 'nb_post'),
             ])
-            ->from($this->prefix . 'category AS C')
+            ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
             ->join(
                 (new dcJoinStatement())
-                    ->from($this->prefix . 'post P')
+                    ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
                     ->on('C.cat_id = P.cat_id')
                     ->and('P.blog_id = ' . $sql->quote($this->id))
                     ->statement()
@@ -758,7 +784,7 @@ class dcBlog
         $sql = new dcSelectStatement();
         $sql
             ->column($sql->count('post_id', 'nb_post'))
-            ->from($this->prefix . 'post')
+            ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('cat_id = ' . (int) $id)
             ->and('blog_id = ' . $sql->quote($this->id));
 
@@ -799,7 +825,7 @@ class dcBlog
         $sql = new dcSelectStatement();
         $sql
             ->column('cat_url')
-            ->from($this->prefix . 'category')
+            ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
             ->where('cat_url = ' . $sql->quote($url))
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('cat_url DESC');
@@ -813,7 +839,7 @@ class dcBlog
             $sql = new dcSelectStatement();
             $sql
                 ->column('cat_url')
-                ->from($this->prefix . 'category')
+                ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
                 ->where('cat_url' . $sql->regexp($url))
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('cat_url DESC');
@@ -991,18 +1017,18 @@ class dcBlog
         }
 
         $sql
-            ->from($this->prefix . 'post P', false, true)
+            ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'), false, true)
             ->join(
                 (new dcJoinStatement())
                     ->inner()
-                    ->from($this->prefix . 'user U')
+                    ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
                     ->on('U.user_id = P.user_id')
                     ->statement()
             )
             ->join(
                 (new dcJoinStatement())
                     ->left()
-                    ->from($this->prefix . 'category C')
+                    ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             );
@@ -1151,7 +1177,7 @@ class dcBlog
         if (isset($params['media'])) {
             $sqlExists = new dcSelectStatement();
             $sqlExists
-                ->from($this->prefix . 'post_media M')
+                ->from($sql->as($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME, 'M'))
                 ->column('M.post_id')
                 ->where('M.post_id = P.post_id');
 
@@ -1271,7 +1297,7 @@ class dcBlog
                 $sql->count('post_id', 'nb_post'),
                 'post_lang',
             ])
-            ->from($this->prefix . 'post')
+            ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('post_lang <> ' . $sql->quote(''))
             ->and('post_lang IS NOT NULL');
@@ -1353,11 +1379,11 @@ class dcBlog
                 $sql->dateFormat('post_dt', $dt_f) . ' AS dt',
                 $sql->count('P.post_id', 'nb_post'),
             ])
-            ->from($this->prefix . 'post P')
+            ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
             ->join(
                 (new dcJoinStatement())
                     ->left()
-                    ->from($this->prefix . 'category C')
+                    ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             )
@@ -1452,14 +1478,14 @@ class dcBlog
             throw new Exception(__('You are not allowed to create an entry'));
         }
 
-        $this->con->writeLock($this->prefix . 'post');
+        $this->con->writeLock($this->prefix . self::POST_TABLE_NAME);
 
         try {
             # Get ID
             $sql = new dcSelectStatement();
             $sql
                 ->column($sql->max('post_id'))
-                ->from($this->prefix . 'post');
+                ->from($this->prefix . self::POST_TABLE_NAME);
             $rs = $sql->select();
 
             $cur->post_id     = (int) $rs->f(0) + 1;
@@ -1540,7 +1566,7 @@ class dcBlog
             $sql = new dcSelectStatement();
             $sql
                 ->column('post_id')
-                ->from($this->prefix . 'post')
+                ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_id = ' . (int) $id)
                 ->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
 
@@ -1600,7 +1626,7 @@ class dcBlog
             $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . 'post');
+        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
 
         $cur->post_status = $status;
         $cur->post_upddt  = date('Y-m-d H:i:s');
@@ -1649,7 +1675,7 @@ class dcBlog
             $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . 'post');
+        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
 
         $cur->post_selected = (int) $selected;
         $cur->post_upddt    = date('Y-m-d H:i:s');
@@ -1696,7 +1722,7 @@ class dcBlog
             $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . 'post');
+        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
 
         $cur->cat_id     = ($cat_id ?: null);
         $cur->post_upddt = date('Y-m-d H:i:s');
@@ -1727,7 +1753,7 @@ class dcBlog
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('cat_id = ' . (int) $old_cat_id);
 
-        $cur = $this->con->openCursor($this->prefix . 'post');
+        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
 
         $cur->cat_id     = ($new_cat_id ?: null);
         $cur->post_upddt = date('Y-m-d H:i:s');
@@ -1767,7 +1793,7 @@ class dcBlog
 
         $sql = new dcDeleteStatement();
         $sql
-            ->from($this->prefix . 'post')
+            ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('post_id' . $sql->in($posts_ids));
 
@@ -1792,7 +1818,7 @@ class dcBlog
                 'post_dt',
                 'post_tz',
             ])
-            ->from($this->prefix . 'post')
+            ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('post_status = ' . (string) self::POST_SCHEDULED)
             ->and('blog_id = ' . $sql->quote($this->id));
 
@@ -1823,7 +1849,7 @@ class dcBlog
 
             $sql = new dcUpdateStatement();
             $sql
-                ->ref($this->prefix . 'post')
+                ->ref($this->prefix . self::POST_TABLE_NAME)
                 ->set('post_status = ' . (string) self::POST_PUBLISHED)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
@@ -1859,7 +1885,7 @@ class dcBlog
         if (count($to_change)) {
             $sql = new dcUpdateStatement();
             $sql
-                ->ref($this->prefix . 'post')
+                ->ref($this->prefix . self::POST_TABLE_NAME)
                 ->set('post_firstpub = 1')
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
@@ -1890,8 +1916,8 @@ class dcBlog
                 'user_email',
             ])
             ->from([
-                $this->prefix . 'post P',
-                $this->prefix . 'user U',
+                $sql->as($this->prefix . self::POST_TABLE_NAME, 'P'),
+                $sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'),
             ])
             ->where('P.user_id = U.user_id')
             ->and('blog_id = ' . $sql->quote($this->id))
@@ -1950,7 +1976,7 @@ class dcBlog
                     'cat_lft',
                     'cat_rgt',
                 ])
-                ->from($this->prefix . 'category')
+                ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and($field . $sql->in(array_keys($sub)));
 
@@ -2170,7 +2196,7 @@ class dcBlog
         $sql = new dcSelectStatement();
         $sql
             ->column('post_url')
-            ->from($this->prefix . 'post')
+            ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('post_url = ' . $sql->quote($url))
             ->and('post_id <> ' . (int) $post_id)
             ->and('blog_id = ' . $sql->quote($this->id))
@@ -2182,7 +2208,7 @@ class dcBlog
             $sql = new dcSelectStatement();
             $sql
                 ->column('post_url')
-                ->from($this->prefix . 'post')
+                ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_url' . $sql->regexp($url))
                 ->and('post_id <> ' . (int) $post_id)
                 ->and('blog_id = ' . $sql->quote($this->id))
@@ -2289,18 +2315,18 @@ class dcBlog
         }
 
         $sql
-            ->from($this->prefix . 'comment C')
+            ->from($sql->as($this->prefix . self::COMMENT_TABLE_NAME, 'C'))
             ->join(
                 (new dcJoinStatement())
                     ->inner()
-                    ->from($this->prefix . 'post P')
+                    ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
                     ->on('C.post_id = P.post_id')
                     ->statement()
             )
             ->join(
                 (new dcJoinStatement())
                     ->inner()
-                    ->from($this->prefix . 'user U')
+                    ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
                     ->on('P.user_id = U.user_id')
                     ->statement()
             );
@@ -2447,14 +2473,14 @@ class dcBlog
      */
     public function addComment($cur)
     {
-        $this->con->writeLock($this->prefix . 'comment');
+        $this->con->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
 
         try {
             # Get ID
             $sql = new dcSelectStatement();
             $sql
                 ->column($sql->max('comment_id'))
-                ->from($this->prefix . 'comment');
+                ->from($this->prefix . self::COMMENT_TABLE_NAME);
 
             $rs = $sql->select();
 
@@ -2579,14 +2605,14 @@ class dcBlog
 
         $sql = new dcUpdateStatement();
         $sql
-            ->ref($this->prefix . 'comment')
+            ->ref($this->prefix . self::COMMENT_TABLE_NAME)
             ->set('comment_status = ' . $status)
             ->where('comment_id' . $sql->in($co_ids));
 
         $sqlIn = new dcSelectStatement();
         $sqlIn
             ->column('tp.post_id')
-            ->from($this->prefix . 'post tp')
+            ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!dcCore::app()->auth->check('contentadmin', $this->id)) {
             $sqlIn->and('tp.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
@@ -2633,7 +2659,7 @@ class dcBlog
         $sql            = new dcSelectStatement();
         $sql
             ->column('post_id')
-            ->from($this->prefix . 'comment')
+            ->from($this->prefix . self::COMMENT_TABLE_NAME)
             ->where('comment_id' . $sql->in($co_ids))
             ->group('post_id');
 
@@ -2644,13 +2670,13 @@ class dcBlog
 
         $sql = new dcDeleteStatement();
         $sql
-            ->from($this->prefix . 'comment')
+            ->from($this->prefix . self::COMMENT_TABLE_NAME)
             ->where('comment_id' . $sql->in($co_ids));
 
         $sqlIn = new dcSelectStatement();
         $sqlIn
             ->column('tp.post_id')
-            ->from($this->prefix . 'post tp')
+            ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!dcCore::app()->auth->check('contentadmin', $this->id)) {
             $sqlIn->and('tp.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
@@ -2676,13 +2702,13 @@ class dcBlog
 
         $sql = new dcDeleteStatement();
         $sql
-            ->from($this->prefix . 'comment')
+            ->from($this->prefix . self::COMMENT_TABLE_NAME)
             ->where('comment_status = ' . (string) self::COMMENT_JUNK);
 
         $sqlIn = new dcSelectStatement();
         $sqlIn
             ->column('tp.post_id')
-            ->from($this->prefix . 'post tp')
+            ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!dcCore::app()->auth->check('contentadmin', $this->id)) {
             $sqlIn->and('tp.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));

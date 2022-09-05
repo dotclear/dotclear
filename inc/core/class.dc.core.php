@@ -13,6 +13,24 @@
  */
 final class dcCore
 {
+    // Constants
+
+    /**
+     * Session table name
+     *
+     * @var        string
+     */
+    public const SESSION_TABLE_NAME = 'session';
+
+    /**
+     * Versions table name
+     *
+     * @var        string
+     */
+    public const VERSION_TABLE_NAME = 'version';
+
+    // Properties
+
     private static $instance = null;
 
     public $con;        ///< <b>connection</b>          Database connection object
@@ -124,16 +142,16 @@ final class dcCore
 
         $this->error   = new dcError();
         $this->auth    = $this->authInstance();
-        $this->session = new sessionDB($this->con, $this->prefix . 'session', DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
+        $this->session = new sessionDB($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
         $this->url     = new dcUrlHandlers();
 
         $this->plugins = new dcPlugins($this);
 
-        $this->rest = new dcRestServer($this);
+        $this->rest = new dcRestServer();
 
         $this->meta = new dcMeta($this);
 
-        $this->log = new dcLog($this);
+        $this->log = new dcLog();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*
@@ -602,7 +620,7 @@ final class dcCore
                     'module',
                     'version',
                 ])
-                ->from($this->prefix . 'version')
+                ->from($this->prefix . self::VERSION_TABLE_NAME)
                 ->select();
 
             while ($rs->fetch()) {
@@ -625,7 +643,7 @@ final class dcCore
     {
         $cur_version = $this->getVersion($module);
 
-        $cur          = $this->con->openCursor($this->prefix . 'version');
+        $cur          = $this->con->openCursor($this->prefix . self::VERSION_TABLE_NAME);
         $cur->module  = (string) $module;
         $cur->version = (string) $version;
 
@@ -650,7 +668,7 @@ final class dcCore
     {
         $sql = new dcDeleteStatement();
         $sql
-            ->from($this->prefix . 'version')
+            ->from($this->prefix . self::VERSION_TABLE_NAME)
             ->where('module = ' . $sql->quote($module));
 
         $sql->delete();
@@ -698,7 +716,7 @@ final class dcCore
         if ($count_only) {
             $sql
                 ->column($sql->count('U.user_id'))
-                ->from($this->prefix . 'user U')
+                ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
                 ->where('NULL IS NULL');
         } else {
             $sql
@@ -720,7 +738,7 @@ final class dcCore
                     'user_options',
                     $sql->count('P.post_id', 'nb_post'),
                 ])
-                ->from($this->prefix . 'user U');
+                ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'));
 
             if (!empty($params['columns'])) {
                 $sql->columns($params['columns']);
@@ -729,7 +747,7 @@ final class dcCore
                 ->join(
                     (new dcJoinStatement())
                         ->left()
-                        ->from($this->prefix . 'post P')
+                        ->from($sql->as($this->prefix . dcBlog::POST_TABLE_NAME, 'P'))
                         ->on('U.user_id = P.user_id')
                         ->statement()
                 )
@@ -864,7 +882,7 @@ final class dcCore
         $sql
             ->distinct()
             ->column('blog_id')
-            ->from($this->prefix . 'post')
+            ->from($this->prefix . dcBlog::POST_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -903,7 +921,7 @@ final class dcCore
 
         $sql = new dcDeleteStatement();
         $sql
-            ->from($this->prefix . 'user')
+            ->from($this->prefix . dcAuth::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -923,7 +941,7 @@ final class dcCore
         $sql = new dcSelectStatement();
         $sql
             ->column('user_id')
-            ->from($this->prefix . 'user')
+            ->from($this->prefix . dcAuth::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -955,11 +973,11 @@ final class dcCore
                 'blog_url',
                 'permissions',
             ])
-            ->from($this->prefix . 'permissions P')
+            ->from($sql->as($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME, 'P'))
             ->join(
                 (new dcJoinStatement())
                 ->inner()
-                ->from($this->prefix . 'blog B')
+                ->from($sql->as($this->prefix . dcBlog::BLOG_TABLE_NAME, 'B'))
                 ->on('P.blog_id = B.blog_id')
                 ->statement()
             )
@@ -999,7 +1017,7 @@ final class dcCore
 
         $sql = new dcDeleteStatement();
         $sql
-            ->from($this->prefix . 'permissions')
+            ->from($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -1029,7 +1047,7 @@ final class dcCore
 
         $perms = '|' . implode('|', array_keys($perms)) . '|';
 
-        $cur = $this->con->openCursor($this->prefix . 'permissions');
+        $cur = $this->con->openCursor($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME);
 
         $cur->user_id     = (string) $id;
         $cur->blog_id     = (string) $blog_id;
@@ -1038,7 +1056,7 @@ final class dcCore
         if ($delete_first || $no_perm) {
             $sql = new dcDeleteStatement();
             $sql
-                ->from($this->prefix . 'permissions')
+                ->from($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id))
                 ->and('user_id = ' . $sql->quote($id));
 
@@ -1058,7 +1076,7 @@ final class dcCore
      */
     public function setUserDefaultBlog($id, $blog_id)
     {
-        $cur = $this->con->openCursor($this->prefix . 'user');
+        $cur = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
 
         $cur->user_default_blog = (string) $blog_id;
 
@@ -1157,9 +1175,9 @@ final class dcCore
                 'user_email',
                 'permissions',
             ])
-            ->from($this->prefix . 'user U')
+            ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
             ->join((new dcJoinStatement())
-                ->from($this->prefix . 'permissions P')
+                ->from($sql->as($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME, 'P'))
                 ->on('U.user_id = P.user_id')
                 ->statement())
             ->where('blog_id = ' . $sql->quote($id));
@@ -1176,7 +1194,7 @@ final class dcCore
                     'user_email',
                     'NULL AS permissions',
                 ])
-                ->from($this->prefix . 'user U')
+                ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
                 ->where('user_super = 1')
                 ->statement()
             );
@@ -1238,7 +1256,7 @@ final class dcCore
 
         if ($count_only) {
             $strReq = 'SELECT count(B.blog_id) ' .
-            'FROM ' . $this->prefix . 'blog B ' .
+            'FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME . ' B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -1254,7 +1272,7 @@ final class dcCore
                 }
                 $strReq .= ' ';
             }
-            $strReq .= 'FROM ' . $this->prefix . 'blog B ' .
+            $strReq .= 'FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME . ' B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -1271,7 +1289,7 @@ final class dcCore
         }
 
         if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
-            $join  = 'INNER JOIN ' . $this->prefix . 'permissions PE ON B.blog_id = PE.blog_id ';
+            $join  = 'INNER JOIN ' . $this->prefix . dcAuth::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
             $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
                 'AND blog_status IN (' . (string) dcBlog::BLOG_ONLINE . ',' . (string) dcBlog::BLOG_OFFLINE . ') ';
@@ -1383,7 +1401,7 @@ final class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'blog ' .
+        $strReq = 'DELETE FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME . ' ' .
         "WHERE blog_id = '" . $this->con->escape($id) . "' ";
 
         $this->con->execute($strReq);
@@ -1399,7 +1417,7 @@ final class dcCore
     public function blogExists($id)
     {
         $strReq = 'SELECT blog_id ' .
-        'FROM ' . $this->prefix . 'blog ' .
+        'FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME . ' ' .
         "WHERE blog_id = '" . $this->con->escape($id) . "' ";
 
         $rs = $this->con->select($strReq);
@@ -1418,7 +1436,7 @@ final class dcCore
     public function countBlogPosts($id, $type = null)
     {
         $strReq = 'SELECT COUNT(post_id) ' .
-        'FROM ' . $this->prefix . 'post ' .
+        'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' ' .
         "WHERE blog_id = '" . $this->con->escape($id) . "' ";
 
         if ($type) {
@@ -1804,12 +1822,12 @@ final class dcCore
     public function indexAllPosts($start = null, $limit = null)
     {
         $strReq = 'SELECT COUNT(post_id) ' .
-        'FROM ' . $this->prefix . 'post';
+        'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME;
         $rs    = $this->con->select($strReq);
         $count = $rs->f(0);
 
         $strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml ' .
-        'FROM ' . $this->prefix . 'post ';
+        'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' ';
 
         if ($start !== null && $limit !== null) {
             $strReq .= $this->con->limit($start, $limit);
@@ -1817,7 +1835,7 @@ final class dcCore
 
         $rs = $this->con->select($strReq, true);
 
-        $cur = $this->con->openCursor($this->prefix . 'post');
+        $cur = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
 
         while ($rs->fetch()) {
             $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
@@ -1846,12 +1864,12 @@ final class dcCore
     public function indexAllComments($start = null, $limit = null)
     {
         $strReq = 'SELECT COUNT(comment_id) ' .
-        'FROM ' . $this->prefix . 'comment';
+        'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME;
         $rs    = $this->con->select($strReq);
         $count = $rs->f(0);
 
         $strReq = 'SELECT comment_id, comment_content ' .
-        'FROM ' . $this->prefix . 'comment ';
+        'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME . ' ';
 
         if ($start !== null && $limit !== null) {
             $strReq .= $this->con->limit($start, $limit);
@@ -1859,7 +1877,7 @@ final class dcCore
 
         $rs = $this->con->select($strReq);
 
-        $cur = $this->con->openCursor($this->prefix . 'comment');
+        $cur = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
 
         while ($rs->fetch()) {
             $cur->comment_words = implode(' ', text::splitWords($rs->comment_content));
@@ -1879,15 +1897,15 @@ final class dcCore
      */
     public function countAllComments()
     {
-        $updCommentReq = 'UPDATE ' . $this->prefix . 'post P ' .
+        $updCommentReq = 'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
         'SET nb_comment = (' .
-        'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
+        'SELECT COUNT(C.comment_id) from ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
             'WHERE C.post_id = P.post_id AND C.comment_trackback <> 1 ' .
             'AND C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED .
             ')';
-        $updTrackbackReq = 'UPDATE ' . $this->prefix . 'post P ' .
+        $updTrackbackReq = 'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
         'SET nb_trackback = (' .
-        'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
+        'SELECT COUNT(C.comment_id) from ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
             'WHERE C.post_id = P.post_id AND C.comment_trackback = 1 ' .
             'AND C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED .
             ')';

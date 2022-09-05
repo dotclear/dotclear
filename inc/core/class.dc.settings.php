@@ -44,7 +44,7 @@ class dcSettings
     {
         $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
-        $this->table   = dcCore::app()->prefix . 'setting';
+        $this->table   = dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
         $this->loadSettings();
     }

@@ -17,6 +17,24 @@ if (!defined('DC_RC_PATH')) {
 
 class dcAuth
 {
+    // Constants
+
+    /**
+     * User table name
+     *
+     * @var        string
+     */
+    public const USER_TABLE_NAME = 'user';
+
+    /**
+     * User permissions table name
+     *
+     * @var        string
+     */
+    public const PERMISSIONS_TABLE_NAME = 'permissions';
+
+    // Properties
+
     /** @var dcCore dcCore instance */
     /**
      * @deprecated since 2.23
@@ -67,9 +85,9 @@ class dcAuth
     {
         $this->core       = dcCore::app();
         $this->con        = dcCore::app()->con;
-        $this->blog_table = dcCore::app()->prefix . 'blog';
-        $this->user_table = dcCore::app()->prefix . 'user';
-        $this->perm_table = dcCore::app()->prefix . 'permissions';
+        $this->blog_table = dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME;
+        $this->user_table = dcCore::app()->prefix . self::USER_TABLE_NAME;
+        $this->perm_table = dcCore::app()->prefix . self::PERMISSIONS_TABLE_NAME;
 
         $this->perm_types = [
             'admin'        => __('administrator'),

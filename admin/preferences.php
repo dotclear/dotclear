@@ -153,7 +153,7 @@ if (isset($_POST['user_name'])) {
             throw new Exception(__('If you want to change your email or password you must provide your current password.'));
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
 
         $cur->user_name        = $user_name        = $_POST['user_name'];
         $cur->user_firstname   = $user_firstname   = $_POST['user_firstname'];
@@ -209,7 +209,7 @@ if (isset($_POST['user_name'])) {
 # Update user options
 if (isset($_POST['user_options_submit'])) {
     try {
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
 
         $cur->user_name        = $user_name;
         $cur->user_firstname   = $user_firstname;

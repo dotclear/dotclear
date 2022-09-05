@@ -481,7 +481,7 @@ class rsExtPost
             return $rs->_nb_media[$rs->index()];
         }
         $strReq = 'SELECT count(media_id) ' .
-            'FROM ' . dcCore::app()->prefix . 'post_media ' .
+            'FROM ' . dcCore::app()->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME . ' ' .
             'WHERE post_id = ' . (int) $rs->post_id . ' ';
         if ($link_type != null) {
             $strReq .= "AND link_type = '" . dcCore::app()->con->escape($link_type) . "'";

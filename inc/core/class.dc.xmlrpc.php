@@ -495,7 +495,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             throw new Exception('Cannot create an empty entry');
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
 
         $cur->user_id            = dcCore::app()->auth->userID();
         $cur->post_lang          = dcCore::app()->auth->getInfo('user_lang');
@@ -594,7 +594,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             throw new Exception('Cannot create an empty entry');
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
 
         $cur->post_type          = $post_type;
         $cur->post_title         = trim((string) $title);
@@ -1230,7 +1230,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             throw new Exception('You mus give a category name.');
         }
 
-        $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
+        $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $cur->cat_title = $struct['name'];
 
         if (!empty($struct['slug'])) {
@@ -1274,7 +1274,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $this->setBlog();
 
         $strReq = 'SELECT cat_id, cat_title, cat_url ' .
-        'FROM ' . dcCore::app()->prefix . 'category ' .
+        'FROM ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
         "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
         "AND LOWER(cat_title) LIKE LOWER('%" . dcCore::app()->con->escape($category) . "%') " .
             ($limit > 0 ? dcCore::app()->con->limit($limit) : '');
@@ -1384,7 +1384,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             throw new Exception('Sorry, no such post.', 404);
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
         $cur->comment_author = dcCore::app()->auth->getInfo('user_cn');
         $cur->comment_email  = dcCore::app()->auth->getInfo('user_email');
@@ -1401,7 +1401,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $this->setUser($user, $pwd);
         $this->setBlog();
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
         if (isset($struct['status'])) {
             $cur->comment_status = $this->translateWpCommentstatus($struct['status']);
@@ -1674,7 +1674,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         $done         = [];
         $blog_changes = false;
-        $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
+        $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
 
         dcCore::app()->blog->settings->addNamespace('system');
 

@@ -25,7 +25,7 @@ class dcFilterWords extends dcSpamFilter
     {
         parent::__construct();
         $this->con   = dcCore::app()->con;
-        $this->table = dcCore::app()->prefix . 'spamrule';
+        $this->table = dcCore::app()->prefix . dcAntispam::SPAMRULE_TABLE_NAME;
     }
 
     protected function setInfo()

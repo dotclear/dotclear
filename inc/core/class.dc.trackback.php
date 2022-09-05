@@ -17,6 +17,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcTrackback
 {
+    // Constants
+
+    /**
+     * Trackbacks table name
+     *
+     * @var        string
+     */
+    public const PING_TABLE_NAME = 'ping';
+
     /**
      * @deprecated since 2.23
      */
@@ -32,7 +41,7 @@ class dcTrackback
     public function __construct(dcCore $core = null)
     {
         $this->core  = dcCore::app();
-        $this->table = dcCore::app()->prefix . 'ping';
+        $this->table = dcCore::app()->prefix . self::PING_TABLE_NAME;
     }
 
     /// @name Send
@@ -483,7 +492,7 @@ class dcTrackback
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
-        $cur                    = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+        $cur                    = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
         $cur->comment_author    = (string) $blog_name;
         $cur->comment_site      = (string) $url;
         $cur->comment_content   = (string) $comment;
@@ -511,7 +520,7 @@ class dcTrackback
     private function delBacklink($post_id, $url)
     {
         dcCore::app()->con->execute(
-            'DELETE FROM ' . dcCore::app()->prefix . 'comment ' .
+            'DELETE FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' ' .
             'WHERE post_id = ' . ((int) $post_id) . ' ' .
             "AND comment_site = '" . dcCore::app()->con->escape((string) $url) . "' " .
             'AND comment_trackback = 1 '

@@ -12,31 +12,44 @@ if (!defined('DC_RC_PATH')) {
 
 class dcLog
 {
-    /**
-     * @deprecated since 2.23
-     */
-    protected $core;
+    // Constants
 
-    protected $con;
+    /**
+     * Table name
+     *
+     * @var        string
+     */
+    public const LOG_TABLE_NAME = 'log';
+
+    // Properties
+
+    /**
+     * Full log table name (including db prefix)
+     *
+     * @var        string
+     */
     protected $log_table;
+
+    /**
+     * Full user table name (including db prefix)
+     *
+     * @var        string
+     */
     protected $user_table;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core       = dcCore::app();
-        $this->con        = dcCore::app()->con;
-        $this->log_table  = dcCore::app()->prefix . 'log';
-        $this->user_table = dcCore::app()->prefix . 'user';
+        $this->log_table  = dcCore::app()->prefix . self::LOG_TABLE_NAME;
+        $this->user_table = dcCore::app()->prefix . dcAuth::USER_TABLE_NAME;
     }
 
     /**
-     * Retrieves logs. <b>$params</b> is an array taking the following
-     * optionnal parameters:
+     * Retrieves logs.
+     *
+     * <b>$params</b> is an array taking the following optionnal parameters:
      *
      * - blog_id: Get logs belonging to given blog ID
      * - user_id: Get logs belonging to given user ID
@@ -48,9 +61,9 @@ class dcLog
      * @param      array   $params      The parameters
      * @param      bool    $count_only  Count only resultats
      *
-     * @return     record  The logs.
+     * @return     record|staticRecord  The logs.
      */
-    public function getLogs($params = [], $count_only = false)
+    public function getLogs(array $params = [], bool $count_only = false)
     {
         $sql = new dcSelectStatement();
 
@@ -129,9 +142,9 @@ class dcLog
      *
      * @return     integer
      */
-    public function addLog($cur)
+    public function addLog(cursor $cur): int
     {
-        $this->con->writeLock($this->log_table);
+        dcCore::app()->con->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -146,15 +159,15 @@ class dcLog
             $cur->blog_id = (string) dcCore::app()->blog->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
-            $this->getLogCursor($cur, $cur->log_id);
+            $this->fillLogCursor($cur);
 
             # --BEHAVIOR-- coreBeforeLogCreate
             dcCore::app()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            $this->con->unlock();
+            dcCore::app()->con->unlock();
         } catch (Exception $e) {
-            $this->con->unlock();
+            dcCore::app()->con->unlock();
 
             throw $e;
         }
@@ -166,36 +179,13 @@ class dcLog
     }
 
     /**
-     * Deletes a log.
+     * Fills the log cursor.
      *
-     * @param      mixed    $id     The identifier
-     * @param      bool     $all    Remove all logs
-     */
-    public function delLogs($id, $all = false)
-    {
-        if ($all) {
-            $sql = new dcTruncateStatement();
-            $sql
-                ->from($this->log_table);
-        } else {
-            $sql = new dcDeleteStatement();
-            $sql
-                ->from($this->log_table)
-                ->where('log_id ' . $sql->in($id));
-        }
-
-        $sql->run();
-    }
-
-    /**
-     * Gets the log cursor.
-     *
-     * @param      cursor     $cur     The current
-     * @param      mixed      $log_id  The log identifier
+     * @param      cursor   $cur     The current
      *
      * @throws     Exception
      */
-    private function getLogCursor($cur, $log_id = null)
+    private function fillLogCursor(cursor $cur)
     {
         if ($cur->log_msg === '') {
             throw new Exception(__('No log message'));
@@ -216,8 +206,28 @@ class dcLog
         if ($cur->log_ip === null) {
             $cur->log_ip = http::realIP();
         }
+    }
 
-        $log_id = is_int($log_id) ? $log_id : $cur->log_id;
+    /**
+     * Deletes a log.
+     *
+     * @param      mixed    $id     The identifier
+     * @param      bool     $all    Remove all logs
+     */
+    public function delLogs($id, bool $all = false)
+    {
+        if ($all) {
+            $sql = new dcTruncateStatement();
+            $sql
+                ->from($this->log_table);
+        } else {
+            $sql = new dcDeleteStatement();
+            $sql
+                ->from($this->log_table)
+                ->where('log_id ' . $sql->in($id));
+        }
+
+        $sql->run();
     }
 }
 
@@ -227,13 +237,13 @@ class dcLog
 class rsExtLog
 {
     /**
-     * Gets the user cn.
+     * Gets the user common name.
      *
-     * @param      record  $rs     Invisible parameter
+     * @param      record|staticRecord  $rs     Invisible parameter
      *
-     * @return     string  The user cn.
+     * @return     string  The user common name.
      */
-    public static function getUserCN($rs)
+    public static function getUserCN($rs): string
     {
         $user = dcUtils::getUserCN(
             $rs->user_id,

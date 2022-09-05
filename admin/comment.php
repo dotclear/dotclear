@@ -37,7 +37,7 @@ if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
             throw new Exception(__('Entry does not exist.'));
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
         $cur->comment_author  = $_POST['comment_author'];
         $cur->comment_email   = html::clean($_POST['comment_email']);
@@ -110,7 +110,7 @@ if (!dcCore::app()->error->flag() && isset($rs)) {
 
     # update comment
     if (!empty($_POST['update']) && $can_edit) {
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
         $cur->comment_author  = $_POST['comment_author'];
         $cur->comment_email   = html::clean($_POST['comment_email']);

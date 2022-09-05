@@ -26,7 +26,7 @@ class dcUtils
      *
      * @return     string  The user cn.
      */
-    public static function getUserCN($user_id, $user_name, $user_firstname, $user_displayname)
+    public static function getUserCN(string $user_id, string $user_name, string $user_firstname, string $user_displayname): string
     {
         if (!empty($user_displayname)) {
             return $user_displayname;
@@ -52,7 +52,7 @@ class dcUtils
      *
      * @return     array
      */
-    public static function cleanIds($ids)
+    public static function cleanIds($ids): array
     {
         $clean_ids = [];
 
@@ -81,11 +81,11 @@ class dcUtils
      * @param  string    $current_version    Current version
      * @param  string    $required_version    Required version
      * @param  string    $operator            Comparison operand
-     * @param  boolean    $strict                Use full version
+     * @param  bool      $strict                Use full version
      *
-     * @return boolean    True if comparison success
+     * @return bool      True if comparison success
      */
-    public static function versionsCompare($current_version, $required_version, $operator = '>=', $strict = true)
+    public static function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
         if ($strict) {
             $current_version  = preg_replace('!-r(\d+)$!', '-p$1', $current_version);
@@ -98,45 +98,87 @@ class dcUtils
         return (bool) version_compare($current_version, $required_version, $operator);
     }
 
-    private static function appendVersion(string $src, ?string $v = ''): string
+    /**
+     * Appends a version to a resource URL fragment.
+     *
+     * @param      string       $src      The source
+     * @param      null|string  $version  The version
+     *
+     * @return     string
+     */
+    private static function appendVersion(string $src, ?string $version = ''): string
     {
         return $src .
             (strpos($src, '?')                  === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v ?: DC_VERSION));
+            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
     }
 
-    public static function cssLoad($src, $media = 'screen', $v = null)
+    /**
+     * Return a HTML CSS resource load (usually in HTML head)
+     *
+     * @param      string       $src        The source
+     * @param      string       $media      The media
+     * @param      null|string  $version    The version
+     *
+     * @return     string
+     */
+    public static function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
         $escaped_src = html::escapeHTML($src);
-        if ($v !== null) {
-            $escaped_src = dcUtils::appendVersion($escaped_src, $v);
+        if ($version !== null) {
+            $escaped_src = dcUtils::appendVersion($escaped_src, $version);
         }
 
         return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
     }
 
-    public static function cssModuleLoad($src, $media = 'screen', $v = null)
+    /**
+     * Return a HTML CSS resource (from module) load (usually in HTML head)
+     *
+     * @param      string       $src        The source
+     * @param      string       $media      The media
+     * @param      null|string  $version    The version
+     *
+     * @return     string
+     */
+    public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        return self::cssLoad(dcCore::app()->blog->getPF($src), $media, $v);
+        return self::cssLoad(dcCore::app()->blog->getPF($src), $media, $version);
     }
 
-    public static function jsLoad($src, $v = null)
+    /**
+     * Return a HTML JS resource load (usually in HTML head)
+     *
+     * @param      string       $src        The source
+     * @param      null|string  $version    The version
+     *
+     * @return     string
+     */
+    public static function jsLoad(string $src, ?string $version = null): string
     {
         $escaped_src = html::escapeHTML($src);
-        if ($v !== null) {
-            $escaped_src = dcUtils::appendVersion($escaped_src, $v);
+        if ($version !== null) {
+            $escaped_src = dcUtils::appendVersion($escaped_src, $version);
         }
 
         return '<script src="' . $escaped_src . '"></script>' . "\n";
     }
 
-    public static function jsModuleLoad($src, $v = null)
+    /**
+     * Return a HTML JS resource (from a module) load (usually in HTML head)
+     *
+     * @param      string       $src        The source
+     * @param      null|string  $version    The version
+     *
+     * @return     string
+     */
+    public static function jsModuleLoad(string $src, ?string $version = null): string
     {
-        return self::jsLoad(dcCore::app()->blog->getPF($src), $v);
+        return self::jsLoad(dcCore::app()->blog->getPF($src), $version);
     }
 
     /**
-     * return a list of javascript variables définitions code
+     * Return a list of javascript variables définitions code
      *
      * @deprecated 2.15 use dcUtils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
@@ -144,7 +186,7 @@ class dcUtils
      *
      * @return     string  javascript code (inside <script… ></script>)
      */
-    public static function jsVars($vars)
+    public static function jsVars(array $vars): string
     {
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
@@ -156,21 +198,29 @@ class dcUtils
     }
 
     /**
-     * return a javascript variable definition line code
+     * Return a javascript variable definition line code
      *
      * @deprecated 2.15 use dcUtils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
-     * @param      string  $n      variable name
-     * @param      mixed   $v      value
+     * @param      string  $name       variable name
+     * @param      mixed   $value      value
      *
      * @return     string  javascript code
      */
-    public static function jsVar($n, $v)
+    public static function jsVar(string $name, $value): string
     {
-        return dcUtils::jsVars([$n => $v]);
+        return dcUtils::jsVars([$name => $value]);
     }
 
-    public static function jsJson($id, $vars)
+    /**
+     * Return a list of variables into a HML script (application/json) container
+     *
+     * @param      string  $id     The identifier
+     * @param      mixed   $vars   The variables
+     *
+     * @return     string
+     */
+    public static function jsJson(string $id, $vars): string
     {
         // Use echo dcUtils::jsLoad(dcCore::app()->blog->getPF('util.js'));
         // to use the JS dotclear.getData() decoder in public mode
@@ -182,14 +232,14 @@ class dcUtils
      * Locale specific array sorting function
      *
      * @param array $arr single array of strings
-     * @param string $ns admin/public/lang
+     * @param string $namespace admin/public/lang
      * @param string $lang language to be used if $ns = 'lang'
+     *
+     * @return bool
      */
-    public static function lexicalSort(&$arr, $ns = '', $lang = 'en_US')
+    public static function lexicalSort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        if ($ns != '') {
-            dcUtils::setLexicalLang($ns, $lang);
-        }
+        dcUtils::setLexicalLang($namespace, $lang);
 
         return usort($arr, ['dcUtils', 'lexicalSortHelper']);
     }
@@ -198,14 +248,14 @@ class dcUtils
      * Locale specific array sorting function (preserving keys)
      *
      * @param array $arr single array of strings
-     * @param string $ns admin/public/lang
+     * @param string $namespace admin/public/lang
      * @param string $lang language to be used if $ns = 'lang'
+     *
+     * @return bool
      */
-    public static function lexicalArraySort(&$arr, $ns = '', $lang = 'en_US')
+    public static function lexicalArraySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        if ($ns != '') {
-            dcUtils::setLexicalLang($ns, $lang);
-        }
+        dcUtils::setLexicalLang($namespace, $lang);
 
         return uasort($arr, ['dcUtils', 'lexicalSortHelper']);
     }
@@ -214,32 +264,36 @@ class dcUtils
      * Locale specific array sorting function (sorting keys)
      *
      * @param array $arr single array of strings
-     * @param string $ns admin/public/lang
+     * @param string $namespace admin/public/lang
      * @param string $lang language to be used if $ns = 'lang'
+     *
+     * @return bool
      */
-    public static function lexicalKeySort(&$arr, $ns = '', $lang = 'en_US')
+    public static function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        if ($ns != '') {
-            dcUtils::setLexicalLang($ns, $lang);
-        }
+        dcUtils::setLexicalLang($namespace, $lang);
 
         return uksort($arr, ['dcUtils', 'lexicalSortHelper']);
     }
 
-    public static function setLexicalLang($ns = '', $lang = 'en_US')
+    /**
+     * Sets the lexical language.
+     *
+     * @param      string  $namespace   The namespace (admin/public/lang)
+     * @param      string  $lang        The language
+     */
+    public static function setLexicalLang(string $namespace = '', string $lang = 'en_US')
     {
         // Switch to appropriate locale depending on $ns
-        switch ($ns) {
+        switch ($namespace) {
             case 'admin':
                 // Set locale with user prefs
-                $user_language = dcCore::app()->auth->getInfo('user_lang');
-                setlocale(LC_COLLATE, $user_language);
+                setlocale(LC_COLLATE, dcCore::app()->auth->getInfo('user_lang'));
 
                 break;
             case 'public':
                 // Set locale with blog params
-                $blog_language = dcCore::app()->blog->settings->system->lang;
-                setlocale(LC_COLLATE, $blog_language);
+                setlocale(LC_COLLATE, dcCore::app()->blog->settings->system->lang);
 
                 break;
             case 'lang':
@@ -250,13 +304,24 @@ class dcUtils
         }
     }
 
-    private static function lexicalSortHelper($a, $b)
+    /**
+     * Callback helper for lexical sort
+     *
+     * @param      mixed  $a
+     * @param      mixed  $b
+     *
+     * @return     int
+     */
+    private static function lexicalSortHelper($a, $b): int
     {
         return strcoll(strtolower(dcUtils::removeDiacritics($a)), strtolower(dcUtils::removeDiacritics($b)));
     }
 
     // removeDiacritics function (see https://github.com/infralabs/DiacriticsRemovePHP)
 
+    /**
+     * @var        array
+     */
     protected static $defaultDiacriticsRemovalMap = [
         [
             'base'    => 'A',
@@ -620,12 +685,18 @@ class dcUtils
         ],
     ];
 
-    public static function removeDiacritics($str)
+    /**
+     * Removes diacritics from a string.
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
+     */
+    public static function removeDiacritics(string $str): string
     {
-        $flags = 'um';
         for ($i = 0; $i < sizeof(dcUtils::$defaultDiacriticsRemovalMap); $i++) {
             $str = preg_replace(
-                dcUtils::$defaultDiacriticsRemovalMap[$i]['letters'] . $flags,
+                dcUtils::$defaultDiacriticsRemovalMap[$i]['letters'] . 'um',
                 dcUtils::$defaultDiacriticsRemovalMap[$i]['base'],
                 $str
             );

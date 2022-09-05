@@ -18,26 +18,18 @@ if (!defined('DC_RC_PATH')) {
 class dcRestServer extends restServer
 {
     /**
-     * @deprecated since 2.23
-     */
-    public $core; ///< dcCore instance
-    /**
      * Payload (JSON)
      */
     public $json;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
         parent::__construct();
 
         $this->json = null;
-
-        $this->core = dcCore::app();
     }
 
     /**
@@ -129,7 +121,12 @@ class dcRestServer extends restServer
         return parent::serve($encoding);
     }
 
-    private function getJSON($encoding = 'UTF-8')
+    /**
+     * Stream the json data (header and body)
+     *
+     * @param      string  $encoding  The encoding
+     */
+    private function getJSON(string $encoding = 'UTF-8')
     {
         header('Content-Type: application/json; charset=' . $encoding);
         echo json_encode($this->json, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES);

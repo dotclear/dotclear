@@ -160,7 +160,7 @@ class dcDefaultPageActions
                 $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
             }
 
-            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
 
             $cur->post_position = (int) $value - 1;
             $cur->post_upddt    = date('Y-m-d H:i:s');

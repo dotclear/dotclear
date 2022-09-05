@@ -14,6 +14,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcWorkspace
 {
+    // Constants
+
+    /**
+     * Workspace (user preferences) table name
+     *
+     * @var        string
+     */
+    public const WS_TABLE_NAME = 'pref';
+
     /**
      * @deprecated since 2.23
      */
@@ -52,7 +61,7 @@ class dcWorkspace
 
         $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
-        $this->table   = dcCore::app()->prefix . 'pref';
+        $this->table   = dcCore::app()->prefix . self::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {

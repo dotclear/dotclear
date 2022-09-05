@@ -154,7 +154,7 @@ elseif ($change_pwd) {
             throw new Exception(__("You didn't change your password."));
         }
 
-        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
+        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
         $cur->user_change_pwd = 0;
         $cur->user_pwd        = $_POST['new_pwd'];
         dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);

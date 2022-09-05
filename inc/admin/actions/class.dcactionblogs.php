@@ -211,7 +211,7 @@ class dcDefaultBlogActions
                 break;
         }
 
-        $cur              = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
+        $cur              = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
         $cur->blog_status = $status;
         $cur->update('WHERE blog_id ' . dcCore::app()->con->in($ids));
 

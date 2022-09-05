@@ -773,7 +773,7 @@ if (empty($_GET['find_posts'])) {
     echo '<h3>' . __('Entries containing this media') . '</h3>';
     $params = [
         'post_type' => '',
-        'join'      => 'LEFT OUTER JOIN ' . dcCore::app()->prefix . 'post_media PM ON P.post_id = PM.post_id ',
+        'join'      => 'LEFT OUTER JOIN ' . dcCore::app()->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
         'sql'       => 'AND (' .
         'PM.media_id = ' . (int) $id . ' ' .
         "OR post_content_xhtml LIKE '%" . dcCore::app()->con->escape($file->relname) . "%' " .

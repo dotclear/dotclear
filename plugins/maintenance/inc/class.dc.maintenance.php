@@ -208,7 +208,7 @@ class dcMaintenance
         // Get logs from this task
         $rs = dcCore::app()->con->select(
             'SELECT log_id ' .
-            'FROM ' . dcCore::app()->prefix . 'log ' .
+            'FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
             "WHERE log_msg = '" . dcCore::app()->con->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         );
@@ -224,7 +224,7 @@ class dcMaintenance
         }
 
         // Add new log
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'log');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';

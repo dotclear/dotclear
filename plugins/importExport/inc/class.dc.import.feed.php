@@ -136,7 +136,7 @@ class dcImportFeed extends dcIeModule
             throw new Exception(__('No items in feed.'));
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
         dcCore::app()->con->begin();
         foreach ($feed->items as $item) {
             $cur->clean();

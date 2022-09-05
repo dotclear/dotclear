@@ -17,6 +17,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcCategories extends nestedTree
 {
+    // Constants
+
+    /**
+     * Categories table name
+     *
+     * @var        string
+     */
+    public const CATEGORY_TABLE_NAME = 'category';
+
     protected $f_left  = 'cat_lft';
     protected $f_right = 'cat_rgt';
     protected $f_id    = 'cat_id';
@@ -38,7 +47,7 @@ class dcCategories extends nestedTree
         $this->core          = dcCore::app();
         $this->con           = dcCore::app()->con;
         $this->blog_id       = dcCore::app()->blog->id;
-        $this->table         = dcCore::app()->prefix . 'category';
+        $this->table         = dcCore::app()->prefix . self::CATEGORY_TABLE_NAME;
         $this->add_condition = ['blog_id' => "'" . $this->con->escape($this->blog_id) . "'"];
     }
 

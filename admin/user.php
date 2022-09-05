@@ -76,7 +76,7 @@ if (isset($_POST['user_name'])) {
             throw new Exception(__('Password verification failed'));
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
 
         $cur->user_id          = $_POST['user_id'];
         $cur->user_super       = $user_super       = !empty($_POST['user_super']) ? 1 : 0;

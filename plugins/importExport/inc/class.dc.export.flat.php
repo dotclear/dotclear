@@ -34,54 +34,54 @@ class dcExportFlat extends dcIeModule
 
                 $exp->export(
                     'category',
-                    'SELECT * FROM ' . dcCore::app()->prefix . 'category ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . dcCore::app()->prefix . 'link ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . dcBlogroll::LINK_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'setting',
-                    'SELECT * FROM ' . dcCore::app()->prefix . 'setting ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'post',
-                    'SELECT * FROM ' . dcCore::app()->prefix . 'post ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
-                    'FROM ' . dcCore::app()->prefix . 'meta M, ' . dcCore::app()->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . dcMeta::META_TABLE_NAME . ' M, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . dcCore::app()->prefix . "media WHERE media_path = '" .
+                    'SELECT * FROM ' . dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME . " WHERE media_path = '" .
                     dcCore::app()->con->escape(dcCore::app()->blog->settings->system->public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
                     'SELECT media_id, M.post_id ' .
-                    'FROM ' . dcCore::app()->prefix . 'post_media M, ' . dcCore::app()->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME . ' M, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
-                    'FROM ' . dcCore::app()->prefix . 'ping ping, ' . dcCore::app()->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . dcTrackback::PING_TABLE_NAME . ' ping, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'comment',
                     'SELECT C.* ' .
-                    'FROM ' . dcCore::app()->prefix . 'comment C, ' . dcCore::app()->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . dcblog::COMMENT_TABLE_NAME . ' C, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );

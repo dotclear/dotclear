@@ -12,6 +12,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPostMedia
 {
+    // Constants
+
+    /**
+     * Post media table name
+     *
+     * @var        string
+     */
+    public const POST_MEDIA_TABLE_NAME = 'post_media';
+
     /**
      * @deprecated since 2.23
      */
@@ -29,7 +38,7 @@ class dcPostMedia
     {
         $this->core  = dcCore::app();
         $this->con   = dcCore::app()->con;
-        $this->table = dcCore::app()->prefix . 'post_media';
+        $this->table = dcCore::app()->prefix . self::POST_MEDIA_TABLE_NAME;
     }
 
     /**
@@ -62,7 +71,7 @@ class dcPostMedia
         }
 
         $sql
-            ->from(dcCore::app()->prefix . 'media M')
+            ->from($sql->as(dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME, 'M'))
             ->join(
                 (new dcJoinStatement())
                 ->inner()

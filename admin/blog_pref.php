@@ -160,7 +160,7 @@ if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root
 
 # Update a blog
 if ($blog_id && !empty($_POST) && dcCore::app()->auth->check('admin', $blog_id)) {
-    $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
+    $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
     $cur->blog_id   = $_POST['blog_id'];
     $cur->blog_url  = preg_replace('/\?+$/', '?', $_POST['blog_url']);
     $cur->blog_name = $_POST['blog_name'];

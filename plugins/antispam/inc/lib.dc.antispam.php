@@ -14,6 +14,15 @@ if (!defined('DC_RC_PATH')) {
 
 class dcAntispam
 {
+    // Constants
+
+    /**
+     * Spam rules table name
+     *
+     * @var        string
+     */
+    public const SPAMRULE_TABLE_NAME = 'spamrule';
+
     public static $filters;
 
     public static function initFilters()
@@ -97,8 +106,8 @@ class dcAntispam
     public static function delAllSpam(dcCore $core, $beforeDate = null)
     {
         $strReq = 'SELECT comment_id ' .
-        'FROM ' . dcCore::app()->prefix . 'comment C ' .
-        'JOIN ' . dcCore::app()->prefix . 'post P ON P.post_id = C.post_id ' .
+        'FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
+        'JOIN ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
         "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
             'AND comment_status = ' . (string) dcBlog::COMMENT_JUNK . ' ';
         if ($beforeDate) {
@@ -115,7 +124,7 @@ class dcAntispam
             return;
         }
 
-        $strReq = 'DELETE FROM ' . dcCore::app()->prefix . 'comment ' .
+        $strReq = 'DELETE FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' ' .
         'WHERE comment_id ' . dcCore::app()->con->in($r) . ' ';
 
         dcCore::app()->con->execute($strReq);
@@ -141,7 +150,7 @@ class dcAntispam
         }
 
         $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . dcCore::app()->prefix . 'user ' .
+        'FROM ' . dcCore::app()->prefix . dcAuth::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . dcCore::app()->con->escape($user_id) . "' ";
 
         $rs = dcCore::app()->con->select($strReq);

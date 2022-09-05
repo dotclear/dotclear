@@ -17,7 +17,7 @@ $blog_desc = '';
 
 # Create a blog
 if (!isset($_POST['id']) && (isset($_POST['create']))) {
-    $cur       = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
+    $cur       = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
     $blog_id   = $cur->blog_id   = $_POST['blog_id'];
     $blog_url  = $cur->blog_url  = $_POST['blog_url'];
     $blog_name = $cur->blog_name = $_POST['blog_name'];

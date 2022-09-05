@@ -41,7 +41,7 @@ class dcUpgrade
 
                 # Drop content from session table if changes or if needed
                 if ($changes != 0 || $cleanup_sessions) {
-                    dcCore::app()->con->execute('DELETE FROM ' . dcCore::app()->prefix . 'session ');
+                    dcCore::app()->con->execute('DELETE FROM ' . dcCore::app()->prefix . dcCore::SESSION_TABLE_NAME);
                 }
 
                 # Empty templates cache directory
@@ -71,10 +71,10 @@ class dcUpgrade
 
         # Populate media_dir field (since 2.0-beta3.3)
         if (version_compare($version, '2.0-beta3.3', '<')) {
-            $strReq = 'SELECT media_id, media_file FROM ' . dcCore::app()->prefix . 'media ';
+            $strReq = 'SELECT media_id, media_file FROM ' . dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME . ' ';
             $rs_m   = dcCore::app()->con->select($strReq);
             while ($rs_m->fetch()) {
-                $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'media');
+                $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME);
                 $cur->media_dir = dirname($rs_m->media_file);
                 $cur->update('WHERE media_id = ' . (int) $rs_m->media_id);
             }
@@ -82,7 +82,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.0-beta7.3', '<')) {
             # Blowup becomes default theme
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
                 "SET setting_value = '%s' " .
                 "WHERE setting_id = 'theme' " .
                 "AND setting_value = '%s' " .
@@ -93,12 +93,12 @@ class dcUpgrade
 
         if (version_compare($version, '2.1-alpha2-r2383', '<')) {
             $schema = dbSchema::init(dcCore::app()->con);
-            $schema->dropUnique(dcCore::app()->prefix . 'category', dcCore::app()->prefix . 'uk_cat_title');
+            $schema->dropUnique(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME, dcCore::app()->prefix . 'uk_cat_title');
 
             # Reindex categories
             $rs = dcCore::app()->con->select(
                 'SELECT cat_id, cat_title, blog_id ' .
-                'FROM ' . dcCore::app()->prefix . 'category ' .
+                'FROM ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
                 'ORDER BY blog_id ASC , cat_position ASC '
             );
             $cat_blog = $rs->blog_id;
@@ -108,7 +108,7 @@ class dcUpgrade
                     $i = 2;
                 }
                 dcCore::app()->con->execute(
-                    'UPDATE ' . dcCore::app()->prefix . 'category SET '
+                    'UPDATE ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' SET '
                     . 'cat_lft = ' . ($i++) . ', cat_rgt = ' . ($i++) . ' ' .
                     'WHERE cat_id = ' . (int) $rs->cat_id
                 );
@@ -154,14 +154,14 @@ class dcUpgrade
 
             # Tags template class has been renamed
             $sqlstr = 'SELECT blog_id, setting_id, setting_value ' .
-            'FROM ' . dcCore::app()->prefix . 'setting ' .
+            'FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
                 'WHERE (setting_id = \'widgets_nav\' OR setting_id = \'widgets_extra\') ' .
                 'AND setting_ns = \'widgets\';';
             $rs = dcCore::app()->con->select($sqlstr);
             while ($rs->fetch()) {
                 $widgetsettings     = base64_decode($rs->setting_value);
                 $widgetsettings     = str_replace('s:11:"tplMetadata"', 's:7:"tplTags"', $widgetsettings);
-                $cur                = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'setting');
+                $cur                = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME);
                 $cur->setting_value = base64_encode($widgetsettings);
                 $sqlstr             = 'WHERE setting_id = \'' . $rs->setting_id . '\' AND setting_ns = \'widgets\' ' .
                     'AND blog_id ' .
@@ -194,7 +194,7 @@ class dcUpgrade
             foreach ($init_fav as $k => $f) {
                 $t = ['name'     => $f[0], 'title' => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
                     'large-icon' => $f[4], 'permissions' => $f[5], 'id' => $f[6], 'class' => $f[7], ];
-                $sqlstr = 'INSERT INTO ' . dcCore::app()->prefix . 'pref (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
+                $sqlstr = 'INSERT INTO ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME . ' (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
                 '\'' . sprintf('g%03s', $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
                 dcCore::app()->con->execute($sqlstr);
                 $count++;
@@ -369,11 +369,11 @@ class dcUpgrade
             }
 
             # Some settings change, prepare db queries
-            $strReqFormat = 'INSERT INTO ' . dcCore::app()->prefix . 'setting';
+            $strReqFormat = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
             $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
             $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
 
-            $strReqSelect = 'SELECT count(1) FROM ' . dcCore::app()->prefix . 'setting';
+            $strReqSelect = 'SELECT count(1) FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
             $strReqSelect .= ' WHERE setting_id = \'%s\'';
             $strReqSelect .= ' AND setting_ns = \'system\'';
             $strReqSelect .= ' AND blog_id IS NULL';
@@ -413,16 +413,16 @@ class dcUpgrade
 
         if (version_compare($version, '2.7', '<=')) {
             # Some new settings should be initialized, prepare db queries
-            $strReqFormat = 'INSERT INTO ' . dcCore::app()->prefix . 'setting';
+            $strReqFormat = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
             $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
             $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
 
-            $strReqCount = 'SELECT count(1) FROM ' . dcCore::app()->prefix . 'setting';
+            $strReqCount = 'SELECT count(1) FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
             $strReqCount .= ' WHERE setting_id = \'%s\'';
             $strReqCount .= ' AND setting_ns = \'system\'';
             $strReqCount .= ' AND blog_id IS NULL';
 
-            $strReqSelect = 'SELECT setting_value FROM ' . dcCore::app()->prefix . 'setting';
+            $strReqSelect = 'SELECT setting_value FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
             $strReqSelect .= ' WHERE setting_id = \'%s\'';
             $strReqSelect .= ' AND setting_ns = \'system\'';
             $strReqSelect .= ' AND blog_id IS NULL';
@@ -438,14 +438,14 @@ class dcUpgrade
 
         if (version_compare($version, '2.8.1', '<=')) {
             # switch from jQuery 1.11.1 to 1.11.2
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '1.11.3' " .
                 " WHERE setting_id = 'jquery_version' " .
                 " AND setting_ns = 'system' " .
                 " AND setting_value = '1.11.1' ";
             dcCore::app()->con->execute($strReq);
             # Some new settings should be initialized, prepare db queries
-            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . 'setting' .
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'boolean\',\'%s\')';
             dcCore::app()->con->execute(sprintf($strReq, 'no_search', '0', 'Disable internal search system'));
@@ -453,7 +453,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.9', '<=')) {
             # Some new settings should be initialized, prepare db queries
-            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . 'setting' .
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
@@ -493,7 +493,7 @@ class dcUpgrade
             }
 
             # Some new settings should be initialized, prepare db queries
-            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . 'setting' .
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             # Import feed control
@@ -532,7 +532,7 @@ class dcUpgrade
             @unlink(DC_ROOT . '/admin/csp_report.txt');
 
             # Some new settings should be initialized, prepare db queries
-            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . 'setting' .
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
@@ -545,25 +545,25 @@ class dcUpgrade
             $csp_suffix = dcCore::app()->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
             # Try to fix some CSP directive wrongly stored for SQLite drivers
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '" . $csp_prefix . "''self''" . $csp_suffix . "' " .
                 " WHERE setting_id = 'csp_admin_default' " .
                 " AND setting_ns = 'system' " .
                 " AND setting_value = 'self' ";
             dcCore::app()->con->execute($strReq);
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline'' ''unsafe-eval''" . $csp_suffix . "' " .
                 " WHERE setting_id = 'csp_admin_script' " .
                 " AND setting_ns = 'system' " .
                 " AND setting_value = 'self'' ''unsafe-inline'' ''unsafe-eval' ";
             dcCore::app()->con->execute($strReq);
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline''" . $csp_suffix . "' " .
                 " WHERE setting_id = 'csp_admin_style' " .
                 " AND setting_ns = 'system' " .
                 " AND setting_value = 'self'' ''unsafe-inline' ";
             dcCore::app()->con->execute($strReq);
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
                 " WHERE setting_id = 'csp_admin_img' " .
                 " AND setting_ns = 'system' " .
@@ -571,7 +571,7 @@ class dcUpgrade
             dcCore::app()->con->execute($strReq);
 
             # Update CSP img-src default directive
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
                 " WHERE setting_id = 'csp_admin_img' " .
                 " AND setting_ns = 'system' " .
@@ -579,9 +579,9 @@ class dcUpgrade
             dcCore::app()->con->execute($strReq);
 
             # Update first publication on published posts
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'post ' .
-                'SET post_firstpub = 1 ' .
-                'WHERE post_status = ' . (string) dcBlog::POST_PUBLISHED;
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME .
+                ' SET post_firstpub = 1' .
+                ' WHERE post_status = ' . (string) dcBlog::POST_PUBLISHED;
             dcCore::app()->con->execute($strReq);
 
             # A bit of housecleaning for no longer needed files
@@ -625,7 +625,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.12', '<')) {
             # switch from jQuery 2.2.0 to 2.2.4
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '2.2.4' " .
                 " WHERE setting_id = 'jquery_version' " .
                 " AND setting_ns = 'system' " .
@@ -639,7 +639,7 @@ class dcUpgrade
             $csp_prefix = dcCore::app()->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
 
             # Update CSP img-src default directive
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '" . $csp_prefix . "''self'' data: http://media.dotaddict.org blob:' " .
                 " WHERE setting_id = 'csp_admin_img' " .
                 " AND setting_ns = 'system' " .
@@ -654,7 +654,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.14.3', '<')) {
             # Update flie exclusion upload regex
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '/\\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i' " .
                 " WHERE setting_id = 'media_exclusion' " .
                 " AND setting_ns = 'system' " .
@@ -668,7 +668,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.15', '<')) {
             # switch from jQuery 1.11.3 to 1.12.4
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = '1.12.4' " .
                 " WHERE setting_id = 'jquery_version' " .
                 " AND setting_ns = 'system' " .
@@ -687,7 +687,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.15.1', '<')) {
             // Remove unsafe-inline from CSP script directives
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = REPLACE(setting_value, '''unsafe-inline''', '') " .
                 " WHERE setting_id = 'csp_admin_script' " .
                 " AND setting_ns = 'system' ";
@@ -696,25 +696,25 @@ class dcUpgrade
 
         if (version_compare($version, '2.16', '<')) {
             // Update DotAddict plugins store URL
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
                 " WHERE setting_id = 'store_plugin_url' " .
                 " AND setting_ns = 'system' ";
             dcCore::app()->con->execute($strReq);
             // Update DotAddict themes store URL
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
                 " WHERE setting_id = 'store_theme_url' " .
                 " AND setting_ns = 'system' ";
             dcCore::app()->con->execute($strReq);
             // Update CSP img-src default directive for media.dotaddict.org
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 " SET setting_value = REPLACE(setting_value, 'http://media.dotaddict.org', 'https://media.dotaddict.org') " .
                 " WHERE setting_id = 'csp_admin_img' " .
                 " AND setting_ns = 'system' ";
             dcCore::app()->con->execute($strReq);
             // Set default jQuery loading for blog
-            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . 'setting' .
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
@@ -782,7 +782,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.16.9', '<')) {
             // Fix 87,5% which should be 87.5% in pref for htmlfontsize
-            $strReq = 'UPDATE ' . dcCore::app()->prefix . 'pref ' .
+            $strReq = 'UPDATE ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME .
                 " SET pref_value = REPLACE(pref_value, '87,5%', '87.5%') " .
                 " WHERE pref_id = 'htmlfontsize' " .
                 " AND pref_ws = 'interface' ";
@@ -846,7 +846,7 @@ class dcUpgrade
             }
 
             # Global settings
-            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . 'setting' .
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
@@ -1057,7 +1057,7 @@ class dcUpgrade
      */
     public static function settings2array($ns, $setting)
     {
-        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . dcCore::app()->prefix . 'setting ' .
+        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
             "WHERE setting_id = '%s' " .
             "AND setting_ns = '%s' " .
             "AND setting_type = 'string'";
@@ -1069,7 +1069,7 @@ class dcUpgrade
             }
             settype($value, 'array');
             $value = json_encode($value);
-            $rs2   = 'UPDATE ' . dcCore::app()->prefix . 'setting ' .
+            $rs2   = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
             "SET setting_type='array', setting_value = '" . dcCore::app()->con->escape($value) . "' " .
             "WHERE setting_id='" . dcCore::app()->con->escape($rs->setting_id) . "' " .
             "AND setting_ns='" . dcCore::app()->con->escape($rs->setting_ns) . "' ";
@@ -1090,7 +1090,7 @@ class dcUpgrade
      */
     public static function prefs2array($ws, $pref)
     {
-        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . dcCore::app()->prefix . 'pref ' .
+        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME . ' ' .
             "WHERE pref_id = '%s' " .
             "AND pref_ws = '%s' " .
             "AND pref_type = 'string'";
@@ -1102,7 +1102,7 @@ class dcUpgrade
             }
             settype($value, 'array');
             $value = json_encode($value);
-            $rs2   = 'UPDATE ' . dcCore::app()->prefix . 'pref ' .
+            $rs2   = 'UPDATE ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME . ' ' .
             "SET pref_type='array', pref_value = '" . dcCore::app()->con->escape($value) . "' " .
             "WHERE pref_id='" . dcCore::app()->con->escape($rs->pref_id) . "' " .
             "AND pref_ws='" . dcCore::app()->con->escape($rs->pref_ws) . "' ";

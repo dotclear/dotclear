@@ -14,15 +14,25 @@ if (!defined('DC_RC_PATH')) {
 
 class dcBlogroll
 {
+    // Constants
+
+    /**
+     * Links table name
+     *
+     * @var        string
+     */
+    public const LINK_TABLE_NAME = 'link';
+
     private $blog;
     private $con;
     private $table;
 
     public function __construct($blog)
     {
-        $this->blog  = &$blog;
-        $this->con   = &$blog->con;
-        $this->table = $this->blog->prefix . 'link';
+        $this->blog = $blog;
+        $this->con  = $blog->con;
+
+        $this->table = dcCore::app()->prefix . self::LINK_TABLE_NAME;
     }
 
     public function getLinks($params = [])

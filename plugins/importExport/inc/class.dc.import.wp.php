@@ -350,9 +350,9 @@ class dcImportWP extends dcIeModule
     # Users import
     protected function importUsers()
     {
-        $db     = $this->db();
-        $prefix = $this->vars['db_prefix'];
-        $rs     = $db->select('SELECT * FROM ' . $prefix . 'users');
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+        $rs        = $db->select('SELECT * FROM ' . $wp_prefix . 'users');
 
         try {
             $this->con->begin();
@@ -361,7 +361,7 @@ class dcImportWP extends dcIeModule
                 $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', $rs->user_login);
                 $this->vars['user_ids'][$rs->ID] = $user_login;
                 if (!dcCore::app()->userExists($user_login)) {
-                    $cur                   = $this->con->openCursor($this->prefix . 'user');
+                    $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
                     $cur->user_id          = $user_login;
                     $cur->user_pwd         = crypt::createPassword();
                     $cur->user_displayname = $rs->user_nicename;
@@ -372,7 +372,7 @@ class dcImportWP extends dcIeModule
                     $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
                     $permissions           = [];
 
-                    $rs_meta = $db->select('SELECT * FROM ' . $prefix . 'usermeta WHERE user_id = ' . $rs->ID);
+                    $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
                     while ($rs_meta->fetch()) {
                         switch ($rs_meta->meta_key) {
                             case 'first_name':
@@ -454,10 +454,10 @@ class dcImportWP extends dcIeModule
     # Categories import
     protected function importCategories()
     {
-        $db     = $this->db();
-        $prefix = $this->vars['db_prefix'];
-        $rs     = $db->select(
-            'SELECT * FROM ' . $prefix . 'terms AS t, ' . $prefix . 'term_taxonomy AS x ' .
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+        $rs        = $db->select(
+            'SELECT * FROM ' . $wp_prefix . 'terms AS t, ' . $wp_prefix . 'term_taxonomy AS x ' .
             'WHERE x.taxonomy = \'category\' ' .
             'AND t.term_id = x.term_id ' .
             ($this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '') .
@@ -466,13 +466,13 @@ class dcImportWP extends dcIeModule
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . 'category ' .
+                'DELETE FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
             $ord = 2;
             while ($rs->fetch()) {
-                $cur            = $this->con->openCursor($this->prefix . 'category');
+                $cur            = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
                 $cur->blog_id   = $this->blog_id;
                 $cur->cat_title = $this->cleanStr($rs->name);
                 $cur->cat_desc  = $this->cleanStr($rs->description);
@@ -481,7 +481,7 @@ class dcImportWP extends dcIeModule
                 $cur->cat_rgt   = $ord++;
 
                 $cur->cat_id = $this->con->select(
-                    'SELECT MAX(cat_id) FROM ' . $this->prefix . 'category'
+                    'SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME
                 )->f(0) + 1;
                 $this->vars['cat_ids'][$rs->term_id] = $cur->cat_id;
                 $cur->insert();
@@ -498,18 +498,18 @@ class dcImportWP extends dcIeModule
     # Blogroll import
     protected function importLinks()
     {
-        $db     = $this->db();
-        $prefix = $this->vars['db_prefix'];
-        $rs     = $db->select('SELECT * FROM ' . $prefix . 'links ORDER BY link_id ASC');
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+        $rs        = $db->select('SELECT * FROM ' . $wp_prefix . 'links ORDER BY link_id ASC');
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . 'link ' .
+                'DELETE FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME . ' ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
             while ($rs->fetch()) {
-                $cur             = $this->con->openCursor($this->prefix . 'link');
+                $cur             = $this->con->openCursor($this->prefix . dcBlogroll::LINK_TABLE_NAME);
                 $cur->blog_id    = $this->blog_id;
                 $cur->link_href  = $this->cleanStr($rs->link_url);
                 $cur->link_title = $this->cleanStr($rs->link_name);
@@ -517,7 +517,7 @@ class dcImportWP extends dcIeModule
                 $cur->link_xfn   = $this->cleanStr($rs->link_rel);
 
                 $cur->link_id = $this->con->select(
-                    'SELECT MAX(link_id) FROM ' . $this->prefix . 'link'
+                    'SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME
                 )->f(0) + 1;
                 $cur->insert();
             }
@@ -533,11 +533,11 @@ class dcImportWP extends dcIeModule
     # Entries import
     protected function importPosts(&$percent)
     {
-        $db     = $this->db();
-        $prefix = $this->vars['db_prefix'];
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
 
         $plink = $db->select(
-            'SELECT option_value FROM ' . $prefix . 'options ' .
+            'SELECT option_value FROM ' . $wp_prefix . 'options ' .
             "WHERE option_name = 'permalink_structure'"
         )->option_value;
         if ($plink) {
@@ -545,7 +545,7 @@ class dcImportWP extends dcIeModule
         }
 
         $rs = $db->select(
-            'SELECT * FROM ' . $prefix . 'posts ' .
+            'SELECT * FROM ' . $wp_prefix . 'posts ' .
             'WHERE post_type = \'post\' OR post_type = \'page\' ' .
             'ORDER BY ID ASC ' .
             $db->limit($this->post_offset, $this->post_limit)
@@ -554,7 +554,7 @@ class dcImportWP extends dcIeModule
         try {
             if ($this->post_offset == 0) {
                 $this->con->execute(
-                    'DELETE FROM ' . $this->prefix . 'post ' .
+                    'DELETE FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
                 );
             }
@@ -591,7 +591,7 @@ class dcImportWP extends dcIeModule
             $user_id = $this->vars['user_ids'][$rs->post_author];
         }
 
-        $cur              = $this->con->openCursor($this->prefix . 'post');
+        $cur              = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
         $cur->blog_id     = $this->blog_id;
         $cur->user_id     = $user_id;
         $cur->post_dt     = $post_date;
@@ -684,7 +684,7 @@ class dcImportWP extends dcIeModule
         ));
 
         $cur->post_id = $this->con->select(
-            'SELECT MAX(post_id) FROM ' . $this->prefix . 'post'
+            'SELECT MAX(post_id) FROM ' . $this->prefix . dcblog::POST_TABLE_NAME
         )->f(0) + 1;
 
         $cur->post_url = dcCore::app()->blog->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
@@ -715,7 +715,7 @@ class dcImportWP extends dcIeModule
         );
 
         while ($rs->fetch()) {
-            $cur                    = $this->con->openCursor($this->prefix . 'comment');
+            $cur                    = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
             $cur->post_id           = (int) $new_post_id;
             $cur->comment_author    = $this->cleanStr($rs->comment_author);
             $cur->comment_status    = (int) $rs->comment_approved;
@@ -736,7 +736,7 @@ class dcImportWP extends dcIeModule
             $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
 
             $cur->comment_id = $this->con->select(
-                'SELECT MAX(comment_id) FROM ' . $this->prefix . 'comment'
+                'SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME
             )->f(0) + 1;
 
             $cur->insert();
@@ -752,7 +752,7 @@ class dcImportWP extends dcIeModule
 
         if ($count_t > 0 || $count_c > 0) {
             $this->con->execute(
-                'UPDATE ' . $this->prefix . 'post SET ' .
+                'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' SET ' .
                 'nb_comment = ' . $count_c . ', ' .
                 'nb_trackback = ' . $count_t . ' ' .
                 'WHERE post_id = ' . (int) $new_post_id . ' '
@@ -779,7 +779,7 @@ class dcImportWP extends dcIeModule
                 continue;
             }
 
-            $cur           = $this->con->openCursor($this->prefix . 'ping');
+            $cur           = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
             $cur->post_id  = (int) $new_post_id;
             $cur->ping_url = $url;
             $cur->insert();

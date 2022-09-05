@@ -274,7 +274,7 @@ if (!empty($_POST['delete']) && $can_delete) {
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
     # Create category
     if (!empty($_POST['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
-        $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
+        $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $cur_cat->cat_title = $_POST['new_cat_title'];
         $cur_cat->cat_url   = '';
 
@@ -289,7 +289,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
         dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $cat_id);
     }
 
-    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
 
     $cur->cat_id             = ($cat_id ?: null);
     $cur->post_dt            = $post_dt ? date('Y-m-d H:i:00', strtotime($post_dt)) : '';

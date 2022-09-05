@@ -31,7 +31,7 @@ if (dcCore::app()->getVersion('pages') == null) {
     if ($counter->f(0) == 0 && dcCore::app()->blog->settings->pages->firstpage == null) {
         dcCore::app()->blog->settings->pages->put('firstpage', true, 'boolean');
 
-        $cur                     = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        $cur                     = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
         $cur->user_id            = dcCore::app()->auth->userID();
         $cur->post_type          = 'page';
         $cur->post_format        = 'xhtml';
