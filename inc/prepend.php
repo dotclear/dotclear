@@ -106,11 +106,6 @@ Clearbricks::lib()->autoload([
     'dcUrlHandlers' => __DIR__ . '/public/lib.urlhandlers.php',
 ]);
 
-# Clearbricks extensions
-html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
-html::$absolute_regs[] = '/(<param\s+name="FlashVars"\s+value=".*?(?:mp3|flv)=)(.*?)(&|")/msu';
-/* ------------------------------------------------------------------------------------------- */
-
 mb_internal_encoding('UTF-8');
 
 # Setting timezone
