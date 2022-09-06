@@ -26,7 +26,7 @@ class dcUtils
      *
      * @return     string  The user cn.
      */
-    public static function getUserCN(string $user_id, string $user_name, string $user_firstname, string $user_displayname): string
+    public static function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string
     {
         if (!empty($user_displayname)) {
             return $user_displayname;
