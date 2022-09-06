@@ -684,7 +684,7 @@ class dcImportWP extends dcIeModule
         ));
 
         $cur->post_id = $this->con->select(
-            'SELECT MAX(post_id) FROM ' . $this->prefix . dcblog::POST_TABLE_NAME
+            'SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME
         )->f(0) + 1;
 
         $cur->post_url = dcCore::app()->blog->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);

@@ -81,7 +81,7 @@ class dcExportFlat extends dcIeModule
                 $exp->export(
                     'comment',
                     'SELECT C.* ' .
-                    'FROM ' . dcCore::app()->prefix . dcblog::COMMENT_TABLE_NAME . ' C, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' C, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
