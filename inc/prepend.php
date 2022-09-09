@@ -293,7 +293,7 @@ if (!defined('DC_CRYPT_ALGO')) {
 }
 
 if (!defined('DC_TPL_CACHE')) {
-    define('DC_TPL_CACHE', path::real(__DIR__ . '/..') . '/cache');
+    define('DC_TPL_CACHE', (string) path::real(__DIR__ . '/..') . '/cache');
 }
 // Check existence of cache directory
 if (!is_dir(DC_TPL_CACHE)) {
@@ -311,7 +311,7 @@ if (!is_dir(DC_TPL_CACHE)) {
 }
 
 if (!defined('DC_VAR')) {
-    define('DC_VAR', path::real(__DIR__ . '/..') . '/var');
+    define('DC_VAR', (string) path::real(__DIR__ . '/..') . '/var');
 }
 // Check existence of var directory
 if (!is_dir(DC_VAR)) {
@@ -398,7 +398,6 @@ dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', ['dcUrlHan
 dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', ['dcUrlHandlers', 'feed']);
 dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', ['dcUrlHandlers', 'trackback']);
 dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', ['dcUrlHandlers', 'webmention']);
-dcCore::app()->url->register('rsd', 'rsd', '^rsd$', ['dcUrlHandlers', 'rsd']);
 dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandlers', 'xmlrpc']);
 
 dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);

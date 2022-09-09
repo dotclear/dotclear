@@ -1729,8 +1729,6 @@ final class dcCore
                     'Person responsible of the content', ],
                 ['enable_html_filter', 'boolean', 0,
                     'Enable HTML filter', ],
-                ['enable_xmlrpc', 'boolean', 0,
-                    'Enable XML/RPC interface', ],
                 ['lang', 'string', 'en',
                     'Default blog language', ],
                 ['media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i',

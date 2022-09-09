@@ -1035,6 +1035,7 @@ class dcUpgrade
                 'inc/clearbricks/net.nntp/class.net.nntp.php',
                 'inc/clearbricks/net.nntp/class.nntp.message.php',
                 'inc/clearbricks/xmlsql/class.xmlsql.php',
+                'plugins/tags/_xmlrpc.php',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);

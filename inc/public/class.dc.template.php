@@ -870,13 +870,16 @@ class dcTemplate extends template
     }
 
     /*dtd
-    <!ELEMENT tpl:BlogRSDURL - O -- Blog RSD URL -->
+     <!ELEMENT tpl:BlogRSDURL - O -- Blog RSD URL -->
+      */
+    /**
+     * @deprecated since 2.24
      */
     public function BlogRSDURL($attr)
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor(\'rsd\')') . '; ?>';
+        return '<?php echo ' . sprintf($f, '#') . '; ?>';
     }
 
     /*dtd

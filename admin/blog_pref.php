@@ -266,7 +266,6 @@ if ($blog_id && !empty($_POST) && dcCore::app()->auth->check('admin', $blog_id))
         $blog_settings->system->put('comments_nofollow', !empty($_POST['comments_nofollow']));
         $blog_settings->system->put('wiki_comments', !empty($_POST['wiki_comments']));
         $blog_settings->system->put('comment_preview_optional', !empty($_POST['comment_preview_optional']));
-        $blog_settings->system->put('enable_xmlrpc', !empty($_POST['enable_xmlrpc']));
         $blog_settings->system->put('note_title_tag', $_POST['note_title_tag']);
         $blog_settings->system->put('nb_post_for_home', $nb_post_for_home);
         $blog_settings->system->put('nb_post_per_page', $nb_post_per_page);
@@ -771,29 +770,9 @@ if ($blog_id) {
 
     '<p><label for="note_title_tag">' . __('HTML tag for the title of the notes on the blog:') . '</label>' .
     form::combo('note_title_tag', $note_title_tag_combo, $blog_settings->system->note_title_tag) .
-    '</p>' .
+    '</p>';
 
-    '<p><label for="enable_xmlrpc" class="classic">' .
-    form::checkbox('enable_xmlrpc', '1', $blog_settings->system->enable_xmlrpc, '', '', false, 'aria-describedby="enable_xmlrpc_help"') .
-    __('Enable XML/RPC interface') . '</label>' . '</p>' .
-    '<p class="form-note info" id="enable_xmlrpc_help">' . __('XML/RPC interface allows you to edit your blog with an external client.') . '</p>';
-
-    if ($blog_settings->system->enable_xmlrpc) {
-        echo
-        '<p>' . __('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:') . '</p>' .
-        '<ul>' .
-        '<li>' . __('Server URL:') . ' <strong><code>' .
-        sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id) .
-        '</code></strong></li>' .
-        '<li>' . __('Blogging system:') . ' <strong><code>Movable Type</code></strong></li>' .
-        '<li>' . __('User name:') . ' <strong><code>' . dcCore::app()->auth->userID() . '</code></strong></li>' .
-        '<li>' . __('Password:') . ' <strong><code>&lt;' . __('your password') . '&gt;</code></strong></li>' .
-        '<li>' . __('Blog ID:') . ' <strong><code>1</code></strong></li>' .
-            '</ul>';
-    }
-
-    echo
-        '</div>';
+    echo '</div>';
 
     // Search engines policies
     echo '<div class="fieldset"><h4>' . __('Search engines robots policy') . '</h4>';

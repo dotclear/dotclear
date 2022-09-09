@@ -312,7 +312,7 @@ class dcTrackback
      *
      * @return     string
      */
-    public function receivePingback($from_url, $to_url)
+    public function receivePingback(string $from_url, string $to_url): string
     {
         try {
             $posts = $this->getTargetPost($to_url);
@@ -877,7 +877,7 @@ class dcTrackback
      *
      * @throws     Exception
      */
-    public static function checkURLs($from_url, $to_url)
+    public static function checkURLs(string $from_url, string $to_url): void
     {
         if (!(filter_var($from_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!', $from_url))) {
             throw new Exception(__('No valid source URL provided? Try again!'), 0);

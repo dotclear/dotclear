@@ -815,41 +815,6 @@ class dcUrlHandlers extends urlHandler
     }
 
     /**
-     * Output the RSD page, used to give XML-RPC services URLs
-     *
-     * @param      null|string  $args   The arguments
-     */
-    public static function rsd(?string $args)
-    {
-        http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
-
-        header('Content-Type: text/xml; charset=UTF-8');
-        echo
-        '<?xml version="1.0" encoding="UTF-8"?>' . "\n" .
-        '<rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">' . "\n" .
-        "<service>\n" .
-        "  <engineName>Dotclear</engineName>\n" .
-        "  <engineLink>https://dotclear.org/</engineLink>\n" .
-        '  <homePageLink>' . html::escapeHTML(dcCore::app()->blog->url) . "</homePageLink>\n";
-
-        if (dcCore::app()->blog->settings->system->enable_xmlrpc) {
-            $url = sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id);
-
-            echo
-                "  <apis>\n" .
-                '    <api name="WordPress" blogID="1" preferred="true" apiLink="' . $url . '"/>' . "\n" .
-                '    <api name="Movable Type" blogID="1" preferred="false" apiLink="' . $url . '"/>' . "\n" .
-                '    <api name="MetaWeblog" blogID="1" preferred="false" apiLink="' . $url . '"/>' . "\n" .
-                '    <api name="Blogger" blogID="1" preferred="false" apiLink="' . $url . '"/>' . "\n" .
-                "  </apis>\n";
-        }
-
-        echo
-            "</service>\n" .
-            "</rsd>\n";
-    }
-
-    /**
      * Cope with XML-RPC services URLs
      *
      * Limited to pingbacks only
