@@ -1029,6 +1029,12 @@ class dcUpgrade
                 'inc/clearbricks/debian/mkdcl.php',
                 'inc/clearbricks/debian/rules',
                 'inc/clearbricks/ext/incutio.ixr_library.php',
+                'inc/clearbricks/common/lib.forms.php',
+                'inc/clearbricks/mail.convert/class.mail.convert.php',
+                'inc/clearbricks/mail.mime/class.mime.message.php',
+                'inc/clearbricks/net.nntp/class.net.nntp.php',
+                'inc/clearbricks/net.nntp/class.nntp.message.php',
+                'inc/clearbricks/xmlsql/class.xmlsql.php',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -1037,6 +1043,10 @@ class dcUpgrade
             $remfolders = [
                 'inc/clearbricks/debian',
                 'inc/clearbricks/ext',
+                'inc/clearbricks/mail.convert',
+                'inc/clearbricks/mail.mime',
+                'inc/clearbricks/net.nntp',
+                'inc/clearbricks/xmlsql',
             ];
             foreach ($remfolders as $f) {
                 @rmdir(DC_ROOT . '/' . $f);
