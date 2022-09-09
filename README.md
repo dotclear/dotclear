@@ -36,7 +36,6 @@ tool allowing anyone to publish on the web, regardless of their technical skills
 - Syndication feeds
 - Complete trackback/pingback/webmention support
 - Full Unicode support
-- XML/RPC client support
 - Extensible
 - Performance and scalability
 - Twice free
@@ -46,7 +45,7 @@ tool allowing anyone to publish on the web, regardless of their technical skills
 In order to run Dotclear you need:
 
 - A web server (Apache, Cherokee, Nginx, lighttpd, etc.)
-- PHP 7.4/8.0 with the following modules:
+- PHP 7.4/8.0/8.1 with the following modules:
   - mbstring
   - iconv
   - simplexml
