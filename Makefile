@@ -35,7 +35,7 @@ config: clean config-stamp
 	## Remove config file if any
 	rm -f ./$(DC)/inc/config.php
 
-	## Copy built-in themes
+	## Copy built-in themes (same list that DC_DISTRIB_THEMES constant in inc/prepend.php)
 	cp -pRf \
 	./themes/default \
 	./themes/blueSilence \
@@ -44,10 +44,29 @@ config: clean config-stamp
 	./themes/berlin \
 	./$(DC)/themes/
 
-	## Copy built-in plugins based on DC_DISTRIB_PLUGINS constant
-	cp -pRf $$(grep DC_DISTRIB_PLUGINS inc/prepend.php | \
-		sed -e "s/.*, *'//" -e "s/'.*//" | \
-		sed -e  's/\(^\|,\)/ .\/plugins\//g') \
+	## Copy built-in plugins (same list that DC_DISTRIB_PLUGINS constant in inc/prepend.php)
+	cp -pRf \
+	./plugins/aboutConfig \
+	./plugins/akismet \
+	./plugins/antispam \
+	./plugins/attachments \
+	./plugins/blogroll \
+	./plugins/blowupConfig \
+	./plugins/breadcrumb \
+	./plugins/dcCKEditor \
+	./plugins/dclegacy \
+	./plugins/dcLegacyEditor \
+	./plugins/dcProxyV2 \
+	./plugins/fairTrackbacks \
+	./plugins/importExport \
+	./plugins/maintenance \
+	./plugins/pages \
+	./plugins/pings \
+	./plugins/simpleMenu \
+	./plugins/tags \
+	./plugins/themeEditor \
+	./plugins/userPref \
+	./plugins/widgets \
 	./$(DC)/plugins/
 
 	## "Compile" .po files
