@@ -47,7 +47,8 @@ class dcFilterFairTrackbacks extends dcSpamFilter
                 throw new Exception('Same source and destination');
             }
 
-            $o = netHttp::initClient($site, $path);
+            $path = '';
+            $o    = netHttp::initClient($site, $path);
             $o->setTimeout(DC_QUERY_TIMEOUT);
             $o->get($path);
 

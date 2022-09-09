@@ -12,9 +12,20 @@ if (!defined('DC_RC_PATH')) {
 
 class context
 {
+    /**
+     * Stack of context variables
+     *
+     * @var        array
+     */
     public $stack = [];
 
-    public function __set($name, $var)
+    /**
+     * Set a context variable
+     *
+     * @param      string  $name   The name
+     * @param      mixed   $var    The variable
+     */
+    public function __set(string $name, $var)
     {
         if ($var === null) {
             $this->pop($name);
@@ -26,24 +37,44 @@ class context
         }
     }
 
-    public function __get($name)
+    /**
+     * Gets the last saved value of a context variable.
+     *
+     * @param      string  $name   The variable name
+     *
+     * @return     mixed
+     */
+    public function __get(string $name)
     {
         if (!isset($this->stack[$name])) {
             return;
         }
 
-        $n = count($this->stack[$name]);
-        if ($n > 0) {
-            return $this->stack[$name][($n - 1)];
+        // Return last saved value
+        $count = count($this->stack[$name]);
+        if ($count > 0) {
+            return $this->stack[$name][$count - 1];
         }
     }
 
-    public function exists($name)
+    /**
+     * Check if a context variable exists
+     *
+     * @param      string  $name   The name
+     *
+     * @return     bool
+     */
+    public function exists(string $name): bool
     {
         return isset($this->stack[$name][0]);
     }
 
-    public function pop($name)
+    /**
+     * Pops the last saved value of a context variable.
+     *
+     * @param      string  $name   The name
+     */
+    public function pop(string $name)
     {
         if (isset($this->stack[$name])) {
             $v = array_pop($this->stack[$name]);
@@ -54,8 +85,19 @@ class context
         }
     }
 
-    # Loop position tests
-    public function loopPosition($start, $length = null, $even = null, $modulo = null)
+    // Loop position tests
+
+    /**
+     * Loop position helper
+     *
+     * @param      int       $start   The start
+     * @param      int       $length  The length
+     * @param      int       $even    The even
+     * @param      int       $modulo  The modulo
+     *
+     * @return     bool
+     */
+    public function loopPosition(int $start, ?int $length = null, ?int $even = null, ?int $modulo = null): bool
     {
         if (!$this->cur_loop) {
             return false;
@@ -66,96 +108,116 @@ class context
 
         $test = false;
         if ($start >= 0) {
-            $test = $index >= $start;
+            $test = ($index >= $start);
             if ($length !== null) {
                 if ($length >= 0) {
-                    $test = $test && $index < $start + $length;
+                    $test = $test && $index < ($start + $length);
                 } else {
-                    $test = $test && $index < $size + $length;
+                    $test = $test && $index < ($size + $length);
                 }
             }
         } else {
-            $test = $index >= $size + $start;
+            $test = $index >= ($size + $start);
             if ($length !== null) {
                 if ($length >= 0) {
-                    $test = $test && $index < $size + $start + $length;
+                    $test = $test && $index < ($size + $start + $length);
                 } else {
-                    $test = $test && $index < $size + $length;
+                    $test = $test && $index < ($size + $length);
                 }
             }
         }
 
         if ($even !== null) {
-            $test = $test && $index % 2 == $even;
+            $test = $test && (($index % 2) === $even);
         }
 
         if ($modulo !== null) {
-            $test = $test && ($index % $modulo == 0);
+            $test = $test && (($index % $modulo) === 0);
         }
 
         return $test;
     }
 
     /**
-    @deprecated since version 2.11 , use tpl_context::global_filters instead
+     * @deprecated since version 2.11 , use tpl_context::global_filters instead
      */
-    public static function global_filter(
-        $str,
-        $encode_xml,
-        $remove_html,
-        $cut_string,
-        $lower_case,
-        $upper_case,
-        $encode_url,
-        $tag = ''
-    ) {
+    public static function global_filter($str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
+    {
         return self::global_filters(
             $str,
-            [0                => null,
-                'encode_xml'  => $encode_xml,
-                'remove_html' => $remove_html,
+            [
+                0             => null,
+                'encode_xml'  => $enc_xml,
+                'remove_html' => $rem_html,
                 'cut_string'  => $cut_string,
                 'lower_case'  => $lower_case,
                 'upper_case'  => ($upper_case == 1 ? 1 : 0),
                 'capitalize'  => ($upper_case == 2 ? 1 : 0),
-                'encode_url'  => $encode_url, ],
+                'encode_url'  => $enc_url,
+            ],
             $tag
         );
     }
 
-    private static function default_filters($filter, $str, $arg)
+    /**
+     * Apply a filter on string
+     *
+     * @param string    $filter     The filter
+     * @param string    $str        The string
+     * @param mixed     $arg        The arguments (filter option as length, …)
+     *
+     * @return string
+     */
+    private static function default_filters($filter, string $str, $arg): string
     {
         switch ($filter) {
             case 'strip_tags':
+                // Remove HTML tags
                 return self::strip_tags($str);
 
             case 'remove_html':
-                return preg_replace('/\s+/', ' ', self::remove_html($str));
+                // Remove all HTML from string
+                return (string) preg_replace('/\s+/', ' ', self::remove_html($str));
 
             case 'encode_xml':
             case 'encode_html':
+                // Encode entities
                 return self::encode_xml($str);
 
             case 'cut_string':
+                // Cut string to specified length
                 return self::cut_string($str, (int) $arg);
 
             case 'lower_case':
+                // Lowercase string
                 return self::lower_case($str);
 
             case 'capitalize':
+                // Capitalize string
                 return self::capitalize($str);
 
             case 'upper_case':
+                // Uppercase string
                 return self::upper_case($str);
 
             case 'encode_url':
+                // Encode URL in string
                 return self::encode_url($str);
         }
 
         return $str;
     }
 
-    public static function global_filters($str, $args, $tag = '')
+    /**
+     * Apply all required filters on a string
+     *
+     * @param string    $str    The string
+     * @param array     $args   The arguments containing required filter(s) to apply
+     * @param string    $tag    The tag
+     *
+     * @return string
+     */
+    public static function global_filters(string $str, array $args, string $tag = ''): string
     {
         $filters = [
             'strip_tags',                             // Removes HTML tags (mono line)
@@ -194,60 +256,130 @@ class context
         return $args[0];
     }
 
-    public static function encode_url($str)
+    /**
+     * Encode URL in a string
+     *
+     * @param string    $str    The string
+     *
+     * @return string
+     */
+    public static function encode_url(string $str): string
     {
         return urlencode($str);
     }
 
-    public static function cut_string($str, $l)
+    /**
+     * Cut a string to the specified length
+     *
+     * @param string    $str        The string
+     * @param int       $length     The length
+     *
+     * @return string
+     */
+    public static function cut_string(string $str, int $length): string
     {
-        return text::cutString($str, $l);
+        return text::cutString($str, $length);
     }
 
-    public static function encode_xml($str)
+    /**
+     * Encode HTML entities in a string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function encode_xml(string $str): string
     {
         return html::escapeHTML($str);
     }
 
-    public static function remove_isolated_figcaption($str)
+    /**
+     * Remove potentially isolated figcaption's text from a string
+     *
+     * When using remove_html() or stript_tags(), we may have remaining figcaption's text without any image/audio media
+     * This function will remove those cases from string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function remove_isolated_figcaption(string $str): string
     {
-        // When using remove_html() or stript_tags(), we may have remaining figcaption's text without any image/audio media
-        // This function will remove those cases from string
-
         // <figure><img …><figcaption>isolated text</figcaption></figure>
-        $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)(<a[^>]*>)*<img[^>]*>([\t\n\r\s]*)(<\/a[^>]*>)*([\t\n\r\s]*)<figcaption[^>]*>(.*?)<\/figcaption>([\t\n\r\s]*)<\/figure>/', '', $str);
+        $ret = preg_replace('/<figure[^>]*>([\t\n\r\s]*)(<a[^>]*>)*<img[^>]*>([\t\n\r\s]*)(<\/a[^>]*>)*([\t\n\r\s]*)<figcaption[^>]*>(.*?)<\/figcaption>([\t\n\r\s]*)<\/figure>/', '', $str);
+        if ($ret !== null) {
+            $str = $ret;
+        }
 
         // <figure><figcaption>isolated text</figcaption><audio…>…</audio></figure>
-        $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)<figcaption[^>]*>(.*)<\/figcaption>([\t\n\r\s]*)<audio[^>]*>(([\t\n\r\s]|.)*)<\/audio>([\t\n\r\s]*)<\/figure>/', '', $str);
+        $ret = preg_replace('/<figure[^>]*>([\t\n\r\s]*)<figcaption[^>]*>(.*)<\/figcaption>([\t\n\r\s]*)<audio[^>]*>(([\t\n\r\s]|.)*)<\/audio>([\t\n\r\s]*)<\/figure>/', '', $str);
+        if ($ret !== null) {
+            $str = $ret;
+        }
 
         return $str;
     }
 
-    public static function remove_html($str)
+    /**
+     * Remove HTML from a string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function remove_html(string $str): string
     {
         $str = self::remove_isolated_figcaption($str);
 
         return html::decodeEntities(html::clean($str));
     }
 
-    public static function strip_tags($str)
+    /**
+     * Encode HTML tags from a string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function strip_tags(string $str): string
     {
         $str = self::remove_isolated_figcaption($str);
 
         return trim(preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', html::clean($str))));
     }
 
-    public static function lower_case($str)
+    /**
+     * Lowercase a string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function lower_case(string $str): string
     {
         return mb_strtolower($str);
     }
 
-    public static function upper_case($str)
+    /**
+     * Uppercase a string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function upper_case(string $str): string
     {
         return mb_strtoupper($str);
     }
 
-    public static function capitalize($str)
+    /**
+     * Capitalize a string
+     *
+     * @param string    $str The string
+     *
+     * @return string
+     */
+    public static function capitalize(string $str): string
     {
         if ($str != '') {
             $str[0] = mb_strtoupper($str[0]);
@@ -256,29 +388,40 @@ class context
         return $str;
     }
 
-    public static function categoryPostParam(&$p)
+    /**
+     * Cope with cat_url argument
+     *
+     * @param array     $args
+     */
+    public static function categoryPostParam(array &$args): void
     {
-        $not = substr($p['cat_url'], 0, 1) == '!';
+        $not = substr($args['cat_url'], 0, 1) == '!';
         if ($not) {
-            $p['cat_url'] = substr($p['cat_url'], 1);
+            $args['cat_url'] = substr($args['cat_url'], 1);
         }
 
-        $p['cat_url'] = preg_split('/\s*,\s*/', $p['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
+        $args['cat_url'] = preg_split('/\s*,\s*/', $args['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
 
         $pattern = '/#self/';
-        foreach ($p['cat_url'] as &$v) {
+        foreach ($args['cat_url'] as &$cat_url) {
             if ($not) {
-                $v .= ' ?not';
+                $cat_url .= ' ?not';
             }
-            if (dcCore::app()->ctx->exists('categories') && preg_match($pattern, $v)) {
-                $v = preg_replace($pattern, dcCore::app()->ctx->categories->cat_url, $v);
-            } elseif (dcCore::app()->ctx->exists('posts') && preg_match($pattern, $v)) {
-                $v = preg_replace($pattern, dcCore::app()->ctx->posts->cat_url, $v);
+            if (dcCore::app()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
+                $cat_url = preg_replace($pattern, dcCore::app()->ctx->categories->cat_url, $cat_url);
+            } elseif (dcCore::app()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
+                $cat_url = preg_replace($pattern, dcCore::app()->ctx->posts->cat_url, $cat_url);
             }
         }
     }
 
-    # Static methods for pagination
+    // Static methods for pagination
+
+    /**
+     * Return total number of pages depending on current URL type
+     *
+     * @return false|int
+     */
     public static function PaginationNbPages()
     {
         if (dcCore::app()->ctx->pagination === null) {
@@ -286,38 +429,52 @@ class context
         }
 
         $nb_posts = dcCore::app()->ctx->pagination->f(0);
-        if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {
-            $nb_pages = ceil(($nb_posts - dcCore::app()->ctx->nb_entry_first_page) / dcCore::app()->ctx->nb_entry_per_page + 1);
+        if ((dcCore::app()->url->type === 'default') || (dcCore::app()->url->type === 'default-page')) {
+            // Home page (not static)
+            $nb_pages = (int) ceil(($nb_posts - dcCore::app()->ctx->nb_entry_first_page) / dcCore::app()->ctx->nb_entry_per_page + 1);
         } else {
-            $nb_pages = ceil($nb_posts / dcCore::app()->ctx->nb_entry_per_page);
+            $nb_pages = (int) ceil($nb_posts / dcCore::app()->ctx->nb_entry_per_page);
         }
 
         return $nb_pages;
     }
 
-    public static function PaginationPosition($offset = 0)
+    /**
+     * Return current page number
+     *
+     * @param int   $offset     The offset
+     *
+     * @return int
+     */
+    public static function PaginationPosition(int $offset = 0): int
     {
         if ((int) dcCore::app()->public->getPageNumber() !== 0) {
-            $p = (int) dcCore::app()->public->getPageNumber();
+            $current_page = (int) dcCore::app()->public->getPageNumber();
         } else {
-            $p = 1;
+            $current_page = 1;
         }
 
-        $p = $p + $offset;
+        $current_page = $current_page + $offset;
 
-        $n = self::PaginationNbPages();
-        if (!$n) {
-            return $p;
+        $page_number = self::PaginationNbPages();
+        if (!$page_number) {
+            return $current_page;
         }
 
-        if ($p > $n || $p <= 0) {
+        if ($current_page > $page_number || $current_page <= 0) {
+            // Outside range of pages
             return 1;
         }
 
-        return $p;
+        return $current_page;
     }
 
-    public static function PaginationStart()
+    /**
+     * Check if the current page is the first one
+     *
+     * @return bool
+     */
+    public static function PaginationStart(): bool
     {
         if ((int) dcCore::app()->public->getPageNumber() !== 0) {
             return self::PaginationPosition() == 1;
@@ -326,7 +483,12 @@ class context
         return true;
     }
 
-    public static function PaginationEnd()
+    /**
+     * Check if the current page is the last one
+     *
+     * @return bool
+     */
+    public static function PaginationEnd(): bool
     {
         if ((int) dcCore::app()->public->getPageNumber() !== 0) {
             return self::PaginationPosition() == self::PaginationNbPages();
@@ -335,22 +497,28 @@ class context
         return false;
     }
 
-    public static function PaginationURL($offset = 0)
+    /**
+     * Update the page number in the current requested URL
+     *
+     * If first page, remove it, else put /page/<page_number> in it.
+     *
+     * @param int   $offset     The offset
+     *
+     * @return string
+     */
+    public static function PaginationURL(int $offset = 0): string
     {
         $args = $_SERVER['URL_REQUEST_PART'];
-
-        $n = self::PaginationPosition($offset);
-
         $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
-        $url = dcCore::app()->blog->url . $args;
-
-        if ($n > 1) {
+        $page_number = self::PaginationPosition($offset);
+        $url         = dcCore::app()->blog->url . $args;
+        if ($page_number > 1) {
             $url = preg_replace('#/$#', '', $url);
-            $url .= '/page/' . $n;
+            $url .= '/page/' . $page_number;
         }
 
-        # If search param
+        // Cope with search param if any
         if (!empty($_GET['q'])) {
             $s = strpos($url, '?') !== false ? '&amp;' : '?';
             $url .= $s . 'q=' . rawurlencode($_GET['q']);
@@ -359,126 +527,172 @@ class context
         return $url;
     }
 
-    # Robots policy
-    public static function robotsPolicy($base, $over)
+    /**
+     * Return the robots policy
+     *
+     * @param null|string $base
+     * @param null|string $over
+     *
+     * @return string
+     */
+    public static function robotsPolicy(?string $base, ?string $over): string
     {
-        $pol  = ['INDEX' => 'INDEX', 'FOLLOW' => 'FOLLOW', 'ARCHIVE' => 'ARCHIVE'];
-        $base = array_flip(preg_split('/\s*,\s*/', $base));
-        $over = array_flip(preg_split('/\s*,\s*/', $over));
+        $policies = [
+            'INDEX'   => 'INDEX',
+            'FOLLOW'  => 'FOLLOW',
+            'ARCHIVE' => 'ARCHIVE',
+        ];
+        $bases = array_flip(preg_split('/\s*,\s*/', $base));
+        $overs = array_flip(preg_split('/\s*,\s*/', $over));
 
-        foreach ($pol as $k => &$v) {
-            if (isset($base[$k]) || isset($base['NO' . $k])) {
-                $v = isset($base['NO' . $k]) ? 'NO' . $k : $k;
+        foreach ($policies as $key => &$value) {
+            if (isset($bases[$key]) || isset($bases['NO' . $key])) {
+                $value = isset($bases['NO' . $key]) ? 'NO' . $key : $key;
             }
-            if (isset($over[$k]) || isset($over['NO' . $k])) {
-                $v = isset($over['NO' . $k]) ? 'NO' . $k : $k;
+            if (isset($overs[$key]) || isset($overs['NO' . $key])) {
+                $value = isset($overs['NO' . $key]) ? 'NO' . $key : $key;
             }
         }
 
-        if ($pol['ARCHIVE'] === 'ARCHIVE') {
-            unset($pol['ARCHIVE']);
+        if ($policies['ARCHIVE'] === 'ARCHIVE') {
+            // No need of ARCHIVE in robots policy, only NOARCHIVE
+            unset($policies['ARCHIVE']);
         }
 
-        return implode(', ', $pol);
+        return implode(', ', $policies);
     }
 
-    # Smilies static methods
-    public static function getSmilies($blog)
+    // Smilies static methods
+
+    /**
+     * Get the smilies defined for a blog
+     *
+     * @param dcBlog    $blog   The blog
+     *
+     * @return array|false
+     */
+    public static function getSmilies(dcBlog $blog)
     {
-        $path = [];
+        $paths = [];
         if (isset(dcCore::app()->public->theme)) {
-            $path[] = dcCore::app()->public->theme;
+            $paths[] = dcCore::app()->public->theme;
             if (isset(dcCore::app()->public->parent_theme)) {
-                $path[] = dcCore::app()->public->parent_theme;
+                $paths[] = dcCore::app()->public->parent_theme;
             }
         }
-        $path[]     = 'default';    // Also use smilies from this old default theme (Blowup). May be deleted in a near future
+        $paths[] = 'default';    // Also use smilies from this old default theme (Blowup). May be deleted in a near future
+
         $definition = $blog->themes_path . '/%s/smilies/smilies.txt';
         $base_url   = $blog->settings->system->themes_url . '/%s/smilies/';
 
-        foreach ($path as $t) {
-            if (file_exists(sprintf($definition, $t))) {
-                $base_url = sprintf($base_url, $t);
+        foreach ($paths as $path) {
+            if (file_exists(sprintf($definition, $path))) {
+                $base_url = sprintf($base_url, $path);
 
-                return self::smiliesDefinition(sprintf($definition, $t), $base_url);
+                return self::smiliesDefinition(sprintf($definition, $path), $base_url);
             }
         }
 
         return false;
     }
 
-    public static function smiliesDefinition($f, $url)
+    /**
+     * Read smilies definition from a file
+     *
+     * @param      string  $f      The file
+     * @param      string  $url    The image base url
+     *
+     * @return     array
+     */
+    public static function smiliesDefinition(string $f, string $url): array
     {
-        $def = file($f);
-
-        $res = [];
-        foreach ($def as $v) {
-            $v = trim($v);
-            if (preg_match('|^([^\t\s]*)[\t\s]+(.*)$|', $v, $matches)) {
-                $r = '/(\G|[\s]+|>)(' . preg_quote($matches[1], '/') . ')([\s]+|[<]|\Z)/ms';
-                $s = '$1<img src="' . $url . $matches[2] . '" ' .
+        $definitions = [];
+        if ($smilies = file($f)) {
+            foreach ($smilies as $smiley) {
+                $smiley = trim($smiley);
+                if (preg_match('|^([^\t\s]*)[\t\s]+(.*)$|', $smiley, $matches)) {
+                    $smiley_code = '/(\G|[\s]+|>)(' . preg_quote($matches[1], '/') . ')([\s]+|[<]|\Z)/ms';
+                    $smiley_img  = '$1<img src="' . $url . $matches[2] . '" ' .
                     'alt="$2" class="smiley" />$3';
-                $res[$r] = $s;
+                    $definitions[$smiley_code] = $smiley_img;
+                }
             }
         }
 
-        return $res;
+        return $definitions;
     }
 
-    public static function addSmilies($str)
+    /**
+     * Replace textual smilies in string by their image representation
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
+     */
+    public static function addSmilies(string $str): string
     {
         if (!isset(dcCore::app()->public->smilies) || !is_array(dcCore::app()->public->smilies)) {
             return $str;
         }
 
-        # Process part adapted from SmartyPants engine (J. Gruber et al.) :
+        // Process part adapted from SmartyPants engine (J. Gruber et al.) :
 
         $tokens = self::tokenizeHTML($str);
         $result = '';
-        $in_pre = 0; # Keep track of when we're inside <pre> or <code> tags.
+        $in_pre = false; // Keep track of when we're inside <pre>, <code>, ... tags.
 
         foreach ($tokens as $cur_token) {
-            if ($cur_token[0] == 'tag') {
-                # Don't mess with quotes inside tags.
+            if ($cur_token[0] === 'tag') {
+                // Don't mess with quotes inside tags.
                 $result .= $cur_token[1];
                 if (preg_match('@<(/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
-                    $in_pre = isset($matches[1]) && $matches[1] == '/' ? 0 : 1;
+                    $in_pre = isset($matches[1]) && $matches[1] === '/';
                 }
             } else {
-                $t = $cur_token[1];
+                $text = $cur_token[1];
                 if (!$in_pre) {
-                    $t = preg_replace(array_keys(dcCore::app()->public->smilies), array_values(dcCore::app()->public->smilies), $t);
+                    // Not inside a pre/code, replace smileys
+                    $text = preg_replace(
+                        array_keys(dcCore::app()->public->smilies),
+                        array_values(dcCore::app()->public->smilies),
+                        $text
+                    );
                 }
-                $result .= $t;
+                $result .= $text;
             }
         }
 
         return $result;
     }
 
-    private static function tokenizeHTML($str)
+    /**
+     * Get HTML tokens from a string
+     *
+     * Function from SmartyPants engine (J. Gruber et al.)
+     *
+     *   Returns:    An array of the tokens comprising the input
+     *               string. Each token is either a tag (possibly with nested,
+     *               tags contained therein, such as \<a href="...">, or a
+     *               run of text between tags. Each element of the array is a
+     *               two-element array; the first is either 'tag' or 'text';
+     *               the second is the actual value.
+     *
+     *   Regular expression derived from the _tokenize() subroutine in
+     *   Brad Choate's MTRegex plugin.
+     *   <http://www.bradchoate.com/past/mtregex.php>
+     *
+     * @param      string  $str    The HTML string
+     *
+     * @return     array
+     */
+    private static function tokenizeHTML(string $str): array
     {
-        # Function from SmartyPants engine (J. Gruber et al.)
-        #
-        #   Parameter:  String containing HTML markup.
-        #   Returns:    An array of the tokens comprising the input
-        #               string. Each token is either a tag (possibly with nested,
-        #               tags contained therein, such as <a href="<MTFoo>">, or a
-        #               run of text between tags. Each element of the array is a
-        #               two-element array; the first is either 'tag' or 'text';
-        #               the second is the actual value.
-        #
-        #
-        #   Regular expression derived from the _tokenize() subroutine in
-        #   Brad Choate's MTRegex plugin.
-        #   <http://www.bradchoate.com/past/mtregex.php>
-        #
         $index  = 0;
         $tokens = [];
 
-        $match = '(?s:<!(?:--.*?--\s*)+>)|' . # comment
-        '(?s:<\?.*?\?>)|' . # processing instruction
-        # regular tags
+        $match = '(?s:<!(?:--.*?--\s*)+>)|' .   // comment
+        '(?s:<\?.*?\?>)|' .                     // processing instruction
+                                                // regular tags
         '(?:<[/!$]?[-a-zA-Z0-9:]+\b(?>[^"\'>]+|"[^"]*"|\'[^\']*\')*>)';
 
         $parts = preg_split("{($match)}", $str, -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -494,8 +708,23 @@ class context
         return $tokens;
     }
 
-    # First post image helpers
-    public static function EntryFirstImageHelper($size, $with_category, $class = '', $no_tag = false, $content_only = false, $cat_only = false)
+    // First post image helpers
+
+    /**
+     * Search an image in post content
+     *
+     * The search of a requested size is done from this size up to and including the original size, in ascending order
+     *
+     * @param      string  $size           The size
+     * @param      bool    $with_category  Also search in category description if no image in content
+     * @param      string  $class          The CSS class to apply to found image
+     * @param      bool    $no_tag         Return only the found image URI if true
+     * @param      bool    $content_only   Only content only, else search in excerpt too
+     * @param      bool    $cat_only       Search only in category description
+     *
+     * @return     string
+     */
+    public static function EntryFirstImageHelper(string $size, bool $with_category, string $class = '', bool $no_tag = false, bool $content_only = false, bool $cat_only = false): string
     {
         try {
             $media = new dcMedia(dcCore::app());
@@ -508,7 +737,7 @@ class context
             $p_root = dcCore::app()->blog->public_path;
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
-            $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp))"[^>]+/msui', $pattern);
+            $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);
 
             $src = '';
             $alt = '';
@@ -558,12 +787,24 @@ class context
         } catch (Exception $e) {
             // Ignore exception as it is not important not finding any image in content in a public context
         }
+
+        // Nothing found
+        return '';
     }
 
-    private static function ContentFirstImageLookup($root, $img, $size)
+    /**
+     * Search an existing thumbnail image (according to the requested size) of an image
+     *
+     * @param      string       $root   The root
+     * @param      string       $img    The image
+     * @param      string       $size   The size
+     *
+     * @return     false|string
+     */
+    private static function ContentFirstImageLookup(string $root, string $img, string $size)
     {
         # Image extensions
-        $formats = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'wepb'];
+        $formats = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'wepb', 'avif'];
 
         # Get base name and extension
         $info = path::info($img);
@@ -579,17 +820,26 @@ class context
             }
 
             $res = false;
-            if ($size != 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.jpg')) {
+            if ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.jpg')) {
+                // Found a JPG thumbnail
                 $res = '.' . $base . '_' . $size . '.jpg';
-            } elseif ($size != 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.png')) {
+            } elseif ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.png')) {
+                // Found a PNG thumbnail
                 $res = '.' . $base . '_' . $size . '.png';
-            } elseif ($size != 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.webp')) {
+            } elseif ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.webp')) {
+                // Found a WEBP thumbnail
                 $res = '.' . $base . '_' . $size . '.webp';
+            } elseif ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.avif')) {
+                // Found an AVIF thumbnail
+                $res = '.' . $base . '_' . $size . '.avif';
             } else {
+                // Look for original size
                 $f = $root . '/' . $info['dirname'] . '/' . $base;
                 if (file_exists($f . '.' . $info['extension'])) {
+                    // Original file found (same format)
                     $res = $base . '.' . $info['extension'];
                 } else {
+                    // Look for original files with other formats
                     foreach ($formats as $format) {
                         if (file_exists($f . '.' . $format)) {
                             $res = $base . '.' . $format;

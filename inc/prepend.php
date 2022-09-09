@@ -385,7 +385,9 @@ if (isset($__top_behaviors) && is_array($__top_behaviors)) {
 http::trimRequest();
 
 dcCore::app()->url->registerDefault(['dcUrlHandlers', 'home']);
+
 dcCore::app()->url->registerError(['dcUrlHandlers', 'default404']);
+
 dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
 dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
 dcCore::app()->url->register('post', 'post', '^post/(.+)$', ['dcUrlHandlers', 'post']);

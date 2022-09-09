@@ -12,19 +12,42 @@ if (!defined('DC_RC_PATH')) {
 
 class dcUrlHandlers extends urlHandler
 {
+    /**
+     * URI arguments (depends on URL representation)
+     */
     public $args;
 
-    protected function getHomeType()
+    /**
+     * Gets the home type set for the blog.
+     *
+     * @return     string  The home type (static or default)
+     */
+    protected function getHomeType(): string
     {
         return dcCore::app()->blog->settings->system->static_home ? 'static' : 'default';
     }
 
-    public function isHome($type)
+    /**
+     * Determines whether the specified type is blog home page.
+     *
+     * @param      string  $type   The type
+     *
+     * @return     bool    True if the specified type is home, False otherwise.
+     */
+    public function isHome(string $type): bool
     {
-        return $type == $this->getHomeType();
+        return $type === $this->getHomeType();
     }
 
-    public function getURLFor($type, $value = '')
+    /**
+     * Gets the URL for a specified type.
+     *
+     * @param      string  $type   The type
+     * @param      string  $value  The value
+     *
+     * @return     string
+     */
+    public function getURLFor(string $type, string $value = ''): string
     {
         $url = dcCore::app()->callBehavior('publicGetURLFor', $type, $value);
         if (!$url) {
@@ -50,35 +73,28 @@ class dcUrlHandlers extends urlHandler
      */
     public function register(string $type, string $url, string $representation, $handler): void
     {
-        $t = new ArrayObject([$type, $url, $representation, $handler]);
-        dcCore::app()->callBehavior('publicRegisterURL', $t);
-        parent::register($t[0], $t[1], $t[2], $t[3]);
+        $url_handler = new ArrayObject([$type, $url, $representation, $handler]);
+        dcCore::app()->callBehavior('publicRegisterURL', $url_handler);
+        parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);
     }
 
-    public static function p404()
+    /**
+     * Throws a 404 (page not found) exception
+     *
+     * @throws     Exception
+     */
+    public static function p404(): void
     {
         throw new Exception('Page not found', 404);
     }
 
-    public static function default404($args, $type, $e)
-    {
-        if ($e->getCode() != 404) {
-            throw $e;
-        }
-
-        header('Content-Type: text/html; charset=UTF-8');
-        http::head(404, 'Not Found');
-        dcCore::app()->url->type         = '404';
-        dcCore::app()->ctx->current_tpl  = '404.html';
-        dcCore::app()->ctx->content_type = 'text/html';
-
-        echo dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl);
-
-        # --BEHAVIOR-- publicAfterDocument
-        dcCore::app()->callBehavior('publicAfterDocumentV2');
-        exit;
-    }
-
+    /**
+     * Gets the page number from URI arguments.
+     *
+     * @param      mixed     $args   The arguments
+     *
+     * @return     false|int  The page number or false if none found.
+     */
     protected static function getPageNumber(&$args)
     {
         if (preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
@@ -93,7 +109,17 @@ class dcUrlHandlers extends urlHandler
         return false;
     }
 
-    protected static function serveDocument($tpl, $content_type = 'text/html', $http_cache = true, $http_etag = true)
+    /**
+     * Serve a page using a template file
+     *
+     * @param      string     $tpl_name           The template file
+     * @param      string     $content_type  The content type
+     * @param      bool       $http_cache    The http cache
+     * @param      bool       $http_etag     The http etag
+     *
+     * @throws     Exception
+     */
+    protected static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
         if (dcCore::app()->ctx->nb_entry_per_page === null) {
             dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_page;
@@ -102,7 +128,7 @@ class dcUrlHandlers extends urlHandler
             dcCore::app()->ctx->nb_entry_first_page = dcCore::app()->ctx->nb_entry_per_page;
         }
 
-        $tpl_file = dcCore::app()->tpl->getFilePath($tpl);
+        $tpl_file = dcCore::app()->tpl->getFilePath($tpl_name);
 
         if (!$tpl_file) {
             throw new Exception('Unable to find template ');
@@ -110,10 +136,11 @@ class dcUrlHandlers extends urlHandler
 
         $result = new ArrayObject();
 
-        dcCore::app()->ctx->current_tpl  = $tpl;
+        dcCore::app()->ctx->current_tpl  = $tpl_name;
         dcCore::app()->ctx->content_type = $content_type;
         dcCore::app()->ctx->http_cache   = $http_cache;
         dcCore::app()->ctx->http_etag    = $http_etag;
+
         dcCore::app()->callBehavior('urlHandlerBeforeGetData', dcCore::app()->ctx);
 
         if (dcCore::app()->ctx->http_cache) {
@@ -147,11 +174,13 @@ class dcUrlHandlers extends urlHandler
             header($header);
         }
 
-        $result['content']      = dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl);
-        $result['content_type'] = dcCore::app()->ctx->content_type;
-        $result['tpl']          = dcCore::app()->ctx->current_tpl;
-        $result['blogupddt']    = dcCore::app()->blog->upddt;
-        $result['headers']      = headers_list();
+        $result = [
+            'content'      => dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl),
+            'content_type' => dcCore::app()->ctx->content_type,
+            'tpl'          => dcCore::app()->ctx->current_tpl,
+            'blogupddt'    => dcCore::app()->blog->upddt,
+            'headers'      => headers_list(),
+        ];
 
         # --BEHAVIOR-- urlHandlerServeDocument
         dcCore::app()->callBehavior('urlHandlerServeDocument', $result);
@@ -162,6 +191,9 @@ class dcUrlHandlers extends urlHandler
         echo $result['content'];
     }
 
+    /**
+     * Gets the appropriate page based on requested URI.
+     */
     public function getDocument(): void
     {
         $type = '';
@@ -171,22 +203,22 @@ class dcUrlHandlers extends urlHandler
         } else {
             $part = '';
 
-            $qs = $this->parseQueryString();
+            $query_string = $this->parseQueryString();
 
             # Recreates some _GET and _REQUEST pairs
-            if (!empty($qs)) {
-                foreach ($_GET as $k => $v) {
-                    if (isset($_REQUEST[$k])) {
-                        unset($_REQUEST[$k]);
+            if (!empty($query_string)) {
+                foreach ($_GET as $key => $value) {
+                    if (isset($_REQUEST[$key])) {
+                        unset($_REQUEST[$key]);
                     }
                 }
-                $_GET     = $qs;
-                $_REQUEST = array_merge($qs, $_REQUEST);
+                $_GET     = $query_string;
+                $_REQUEST = array_merge($query_string, $_REQUEST);
 
-                foreach ($qs as $k => $v) {
-                    if ($v === null) {
-                        $part = $k;
-                        unset($_GET[$k], $_REQUEST[$k]);
+                foreach ($query_string as $parameter => $value) {
+                    if ($value === null) {
+                        $part = $parameter;
+                        unset($_GET[$parameter], $_REQUEST[$parameter]);
                     }
 
                     break;
@@ -196,6 +228,7 @@ class dcUrlHandlers extends urlHandler
 
         $_SERVER['URL_REQUEST_PART'] = $part;
 
+        // Determine URI type and optional arguments
         $this->getArgs($part, $type, $this->args);
 
         # --BEHAVIOR-- urlHandlerGetArgsDocument
@@ -210,20 +243,52 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function home($args)
+    /**
+     * Output 404 (not found) page
+     *
+     * @param      null|string  $args   The arguments
+     * @param      string       $type   The type
+     * @param      Exception    $e      The exception
+     */
+    public static function default404(?string $args, string $type, Exception $e): void
+    {
+        if ($e->getCode() !== 404) {
+            throw $e;
+        }
+
+        header('Content-Type: text/html; charset=UTF-8');
+        http::head(404, 'Not Found');
+
+        dcCore::app()->url->type         = '404';
+        dcCore::app()->ctx->current_tpl  = '404.html';
+        dcCore::app()->ctx->content_type = 'text/html';
+
+        echo dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl);
+
+        # --BEHAVIOR-- publicAfterDocument
+        dcCore::app()->callBehavior('publicAfterDocumentV2');
+        exit;
+    }
+
+    /**
+     * Output the Home page (last posts, paginated)
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function home(?string $args): void
     {
         // Page number may have been set by self::lang() which ends with a call to self::home(null)
-        $n = $args ? self::getPageNumber($args) : dcCore::app()->public->getPageNumber();
+        $page_number = $args ? self::getPageNumber($args) : dcCore::app()->public->getPageNumber();
 
-        if ($args && !$n) {
-            # Then specified URL went unrecognized by all URL handlers and
-            # defaults to the home page, but is not a page number.
+        if ($args && !$page_number) {
+            // Then specified URL went unrecognized by all URL handlers and
+            // defaults to the home page, but is not a page number.
             self::p404();
         } else {
             dcCore::app()->url->type = 'default';
-            if ($n) {
-                dcCore::app()->public->setPageNumber($n);
-                if ($n > 1) {
+            if ($page_number) {
+                dcCore::app()->public->setPageNumber($page_number);
+                if ($page_number > 1) {
                     dcCore::app()->url->type = 'default-page';
                 }
             }
@@ -240,7 +305,12 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function static_home($args)
+    /**
+     * Output the Static home page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function static_home(?string $args): void
     {
         dcCore::app()->url->type = 'static';
 
@@ -252,11 +322,17 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function search()
+    /**
+     * Output the Search page (found posts, paginated)
+     *
+     * Note: This handler is not called directly by the URL handler,
+     *       but if necessary by one of them, so no need to set page number here.
+     */
+    public static function search(): void
     {
         if (dcCore::app()->blog->settings->system->no_search) {
 
-            # Search is disabled for this blog.
+            // Search is disabled for this blog.
             self::p404();
         } else {
             dcCore::app()->url->type = 'search';
@@ -272,120 +348,146 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function lang($args)
+    /**
+     * Output the Home page (last posts, paginated) for a specified language
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function lang(?string $args): void
     {
-        $n      = self::getPageNumber($args);
-        $params = new ArrayObject([
-            'lang' => $args, ]);
-
+        $page_number = self::getPageNumber($args);
+        $params      = new ArrayObject(
+            [
+                'lang' => $args,
+            ]
+        );
         dcCore::app()->callBehavior('publicLangBeforeGetLangs', $params, $args);
-
         dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params);
 
         if (dcCore::app()->ctx->langs->isEmpty()) {
             # The specified language does not exist.
             self::p404();
         } else {
-            if ($n) {
-                dcCore::app()->public->setPageNumber($n);
+            if ($page_number) {
+                dcCore::app()->public->setPageNumber($page_number);
             }
             dcCore::app()->ctx->cur_lang = $args;
             self::home(null);
         }
     }
 
-    public static function category($args)
+    /**
+     * Output the Category page (last posts of category, paginated)
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function category(?string $args): void
     {
-        $n = self::getPageNumber($args);
+        $page_number = self::getPageNumber($args);
 
-        if ($args == '' && !$n) {
-            # No category was specified.
+        if ($args == '' && !$page_number) {
+            // No category was specified.
             self::p404();
         } else {
-            $params = new ArrayObject([
-                'cat_url'       => $args,
-                'post_type'     => 'post',
-                'without_empty' => false, ]);
-
+            $params = new ArrayObject(
+                [
+                    'cat_url'       => $args,
+                    'post_type'     => 'post',
+                    'without_empty' => false,
+                ]
+            );
             dcCore::app()->callBehavior('publicCategoryBeforeGetCategories', $params, $args);
-
             dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);
 
             if (dcCore::app()->ctx->categories->isEmpty()) {
-                # The specified category does no exist.
+                // The specified category does no exist.
                 self::p404();
             } else {
-                if ($n) {
-                    dcCore::app()->public->setPageNumber($n);
+                if ($page_number) {
+                    dcCore::app()->public->setPageNumber($page_number);
                 }
                 self::serveDocument('category.html');
             }
         }
     }
 
-    public static function archive($args)
+    /**
+     * Output the Archive page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function archive(?string $args): void
     {
-        # Nothing or year and month
+        // Nothing or year and month
         if ($args == '') {
             self::serveDocument('archive.html');
         } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
-            $params = new ArrayObject([
-                'year'  => $m[1],
-                'month' => $m[2],
-                'type'  => 'month', ]);
-
+            $params = new ArrayObject(
+                [
+                    'year'  => $m[1],
+                    'month' => $m[2],
+                    'type'  => 'month',
+                ]
+            );
             dcCore::app()->callBehavior('publicArchiveBeforeGetDates', $params, $args);
-
             dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params);
 
             if (dcCore::app()->ctx->archives->isEmpty()) {
-                # There is no entries for the specified period.
+                // There is no entries for the specified month.
                 self::p404();
             } else {
                 self::serveDocument('archive_month.html');
             }
         } else {
-            # The specified URL is not a date.
+            // The specified URL is not a month.
             self::p404();
         }
     }
 
-    public static function post($args)
+    /**
+     * Output the Post page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function post(?string $args): void
     {
         if ($args == '') {
-            # No entry was specified.
+            // No entry was specified.
             self::p404();
         } else {
             dcCore::app()->blog->withoutPassword(false);
 
-            $params = new ArrayObject([
-                'post_url' => $args, ]);
-
+            $params = new ArrayObject(
+                [
+                    'post_url' => $args,
+                ]
+            );
             dcCore::app()->callBehavior('publicPostBeforeGetPosts', $params, $args);
-
             dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
-            dcCore::app()->ctx->comment_preview               = new ArrayObject();
-            dcCore::app()->ctx->comment_preview['content']    = '';
-            dcCore::app()->ctx->comment_preview['rawcontent'] = '';
-            dcCore::app()->ctx->comment_preview['name']       = '';
-            dcCore::app()->ctx->comment_preview['mail']       = '';
-            dcCore::app()->ctx->comment_preview['site']       = '';
-            dcCore::app()->ctx->comment_preview['preview']    = false;
-            dcCore::app()->ctx->comment_preview['remember']   = false;
+            $init_preview = [
+                'content'    => '',
+                'rawcontent' => '',
+                'name'       => '',
+                'mail'       => '',
+                'site'       => '',
+                'preview'    => false,
+                'remember'   => false,
+            ];
+            dcCore::app()->ctx->comment_preview = new ArrayObject($init_preview);
 
             dcCore::app()->blog->withoutPassword(true);
 
             if (dcCore::app()->ctx->posts->isEmpty()) {
-                # The specified entry does not exist.
+                // The specified entry does not exist.
                 self::p404();
             } else {
                 $post_id       = dcCore::app()->ctx->posts->post_id;
                 $post_password = dcCore::app()->ctx->posts->post_password;
 
-                # Password protected entry
+                // Password protected entry
                 if ($post_password != '' && !dcCore::app()->ctx->preview) {
-                    # Get passwords cookie
+                    // Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd']);
                         if ($pwd_cookie === null) {
@@ -397,9 +499,10 @@ class dcUrlHandlers extends urlHandler
                         $pwd_cookie = [];
                     }
 
-                    # Check for match
-                    # Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
-                    # because MyArray["12345"] is treated as MyArray[12345]
+                    // Check for match
+                    //
+                    // Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
+                    // because MyArray["12345"] is treated as MyArray[12345] by PHP
                     if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
                         || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] == $post_password)) {
                         $pwd_cookie['#' . $post_id] = $post_password;
@@ -413,14 +516,14 @@ class dcUrlHandlers extends urlHandler
 
                 $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && dcCore::app()->ctx->posts->commentsActive();
 
-                # Posting a comment
+                // Posting a comment
                 if ($post_comment) {
-                    # Spam trap
+                    // Spam honeypot
                     if (!empty($_POST['f_mail'])) {
                         http::head(412, 'Precondition Failed');
                         header('Content-Type: text/plain');
                         echo 'So Long, and Thanks For All the Fish';
-                        # Exits immediately the application to preserve the server.
+                        // Exits immediately the application to preserve the server.
                         exit;
                     }
 
@@ -458,7 +561,7 @@ class dcUrlHandlers extends urlHandler
 
                         dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
-                        # Post the comment
+                        // Post the comment
                         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
                         $cur->comment_author  = $name;
@@ -501,8 +604,9 @@ class dcUrlHandlers extends urlHandler
                     }
                 }
 
-                # The entry
+                // The entry
                 if (dcCore::app()->ctx->posts->trackbacksActive()) {
+                    // Send additional headers if pingbacks/webmentions are allowed
                     header('X-Pingback: ' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('xmlrpc', dcCore::app()->blog->id));
                     header('Link: <' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('webmention') . '>; rel="webmention"');
                 }
@@ -511,17 +615,22 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function preview($args)
+    /**
+     * Output the Post preview page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function preview(?string $args): void
     {
         if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
-            # The specified Preview URL is malformed.
+            // The specified Preview URL is malformed.
             self::p404();
         } else {
             $user_id  = $m[1];
             $user_key = $m[2];
             $post_url = $m[3];
             if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
-                # The user has no access to the entry.
+                // The user has no access to the entry.
                 self::p404();
             } else {
                 dcCore::app()->ctx->preview = true;
@@ -533,7 +642,12 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function feed($args)
+    /**
+     * Output the Feed page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function feed(?string $args): void
     {
         $type     = null;
         $comments = false;
@@ -543,60 +657,64 @@ class dcUrlHandlers extends urlHandler
 
         $mime = 'application/xml';
 
-        if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', $args, $m)) {
-            $params = new ArrayObject(['lang' => $m[1]]);
-
-            $args = $m[3];
-
+        if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', $args, $matches)) {
+            // Specific language feed
+            $params = new ArrayObject(
+                [
+                    'lang' => $matches[1],
+                ]
+            );
+            $args = $matches[3];
             dcCore::app()->callBehavior('publicFeedBeforeGetLangs', $params, $args);
-
             dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params);
 
             if (dcCore::app()->ctx->langs->isEmpty()) {
-                # The specified language does not exist.
+                // The specified language does not exist.
                 self::p404();
 
                 return;
             }
-            dcCore::app()->ctx->cur_lang = $m[1];
+            dcCore::app()->ctx->cur_lang = $matches[1];
         }
 
-        if (preg_match('#^rss2/xslt$#', $args, $m)) {
-            # RSS XSLT stylesheet
-            http::$cache_max_age = 60 * 60; // 1 hour cache for feed
+        if (preg_match('#^rss2/xslt$#', $args, $matches)) {
+            // RSS XSLT stylesheet
+            http::$cache_max_age = 60 * 60 * 24 * 7; // One week cache for XSLT
             self::serveDocument('rss2.xsl', 'text/xml');
 
             return;
-        } elseif (preg_match('#^(atom|rss2)/comments/(\d+)$#', $args, $m)) {
-            # Post comments feed
-            $type     = $m[1];
+        } elseif (preg_match('#^(atom|rss2)/comments/(\d+)$#', $args, $matches)) {
+            // Post comments feed
+            $type     = $matches[1];
             $comments = true;
-            $post_id  = (int) $m[2];
-        } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', $args, $m)) {
-            # All posts or comments feed
-            $type     = $m[2];
-            $comments = !empty($m[3]);
-            if (!empty($m[1])) {
-                $cat_url = $m[1];
+            $post_id  = (int) $matches[2];
+        } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', $args, $matches)) {
+            // All posts or comments feed
+            $type     = $matches[2];
+            $comments = !empty($matches[3]);
+            if (!empty($matches[1])) {
+                $cat_url = $matches[1];
             }
         } else {
-            # The specified Feed URL is malformed.
+            // The specified Feed URL is malformed.
             self::p404();
 
             return;
         }
 
         if ($cat_url) {
-            $params = new ArrayObject([
-                'cat_url'   => $cat_url,
-                'post_type' => 'post', ]);
-
+            // Category feed
+            $params = new ArrayObject(
+                [
+                    'cat_url'   => $cat_url,
+                    'post_type' => 'post',
+                ]
+            );
             dcCore::app()->callBehavior('publicFeedBeforeGetCategories', $params, $args);
-
             dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);
 
             if (dcCore::app()->ctx->categories->isEmpty()) {
-                # The specified category does no exist.
+                // The specified category does no exist.
                 self::p404();
 
                 return;
@@ -604,12 +722,14 @@ class dcUrlHandlers extends urlHandler
 
             $subtitle = ' - ' . dcCore::app()->ctx->categories->cat_title;
         } elseif ($post_id) {
-            $params = new ArrayObject([
-                'post_id'   => $post_id,
-                'post_type' => '', ]);
-
+            // Specific post
+            $params = new ArrayObject(
+                [
+                    'post_id'   => $post_id,
+                    'post_type' => '',
+                ]
+            );
             dcCore::app()->callBehavior('publicFeedBeforeGetPosts', $params, $args);
-
             dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
             if (dcCore::app()->ctx->posts->isEmpty()) {
@@ -624,9 +744,11 @@ class dcUrlHandlers extends urlHandler
 
         $tpl = $type;
         if ($comments) {
+            // Comments feed
             $tpl .= '-comments';
             dcCore::app()->ctx->nb_comment_per_page = dcCore::app()->blog->settings->system->nb_comment_per_feed;
         } else {
+            // Posts feed
             dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_feed;
             dcCore::app()->ctx->short_feed_items  = dcCore::app()->blog->settings->system->short_feed_items;
         }
@@ -642,25 +764,29 @@ class dcUrlHandlers extends urlHandler
         http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {
+            // Check if some entries must be published
             dcCore::app()->blog->publishScheduledEntries();
         }
     }
 
-    public static function trackback($args)
+    /**
+     * Cope with incoming Trackbacks
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function trackback(?string $args): void
     {
         if (!preg_match('/^\d+$/', $args)) {
-            # The specified trackback URL is not an number
+            // The specified trackback URL is not an number
             self::p404();
         } else {
             // Save locally post_id from args
             $post_id = (int) $args;
 
-            if (!is_array($args)) {
-                $args = [];
-            }
-
-            $args['post_id'] = $post_id;
-            $args['type']    = 'trackback';
+            $args = [
+                'post_id' => $post_id,
+                'type'    => 'trackback',
+            ];
 
             # --BEHAVIOR-- publicBeforeReceiveTrackback
             dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
@@ -670,13 +796,16 @@ class dcUrlHandlers extends urlHandler
         }
     }
 
-    public static function webmention($args)
+    /**
+     * Cope with incoming Webmention
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function webmention(?string $args): void
     {
-        if (!is_array($args)) {
-            $args = [];
-        }
-
-        $args['type'] = 'webmention';
+        $args = [
+            'type' => 'webmention',
+        ];
 
         # --BEHAVIOR-- publicBeforeReceiveTrackback
         dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
@@ -685,7 +814,12 @@ class dcUrlHandlers extends urlHandler
         $tb->receiveWebmention();
     }
 
-    public static function rsd($args)
+    /**
+     * Output the RSD page, used to give XML-RPC services URLs
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function rsd(?string $args)
     {
         http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
 
@@ -699,14 +833,14 @@ class dcUrlHandlers extends urlHandler
         '  <homePageLink>' . html::escapeHTML(dcCore::app()->blog->url) . "</homePageLink>\n";
 
         if (dcCore::app()->blog->settings->system->enable_xmlrpc) {
-            $u = sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id);
+            $url = sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id);
 
             echo
                 "  <apis>\n" .
-                '    <api name="WordPress" blogID="1" preferred="true" apiLink="' . $u . '"/>' . "\n" .
-                '    <api name="Movable Type" blogID="1" preferred="false" apiLink="' . $u . '"/>' . "\n" .
-                '    <api name="MetaWeblog" blogID="1" preferred="false" apiLink="' . $u . '"/>' . "\n" .
-                '    <api name="Blogger" blogID="1" preferred="false" apiLink="' . $u . '"/>' . "\n" .
+                '    <api name="WordPress" blogID="1" preferred="true" apiLink="' . $url . '"/>' . "\n" .
+                '    <api name="Movable Type" blogID="1" preferred="false" apiLink="' . $url . '"/>' . "\n" .
+                '    <api name="MetaWeblog" blogID="1" preferred="false" apiLink="' . $url . '"/>' . "\n" .
+                '    <api name="Blogger" blogID="1" preferred="false" apiLink="' . $url . '"/>' . "\n" .
                 "  </apis>\n";
         }
 
@@ -715,14 +849,28 @@ class dcUrlHandlers extends urlHandler
             "</rsd>\n";
     }
 
-    public static function xmlrpc($args)
+    /**
+     * Cope with XML-RPC services URLs
+     *
+     * Limited to pingbacks only
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function xmlrpc(?string $args): void
     {
         $blog_id = preg_replace('#^([^/]*).*#', '$1', $args);
         $server  = new dcXmlRpc($blog_id);
         $server->serve();
     }
 
-    public static function wpfaker($args)
+    /**
+     * Rick Roll script kiddies which try the administrative page wordpress URLs on the blog :-)
+     *
+     * https://example.com/wp-admin and https://example.com/wp-login (see inc/prepend.php)
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function wpfaker(?string $args): void
     {
         // Rick Roll script kiddies
         http::redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');

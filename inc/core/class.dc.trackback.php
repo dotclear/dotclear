@@ -105,6 +105,7 @@ class dcTrackback
             ]);
 
             try {
+                $path = '';
                 $http = self::initHttp($ping_parts[0], $path);
                 $http->setMoreHeader('Content-Type: application/x-www-form-urlencoded');
                 $http->post($path, $payload, 'UTF-8');
@@ -133,6 +134,7 @@ class dcTrackback
 
             # Ping
             try {
+                $path = '';
                 $http = self::initHttp($url, $path);
                 $http->post($path, $data, 'UTF-8');
                 $res = $http->getContent();
@@ -632,7 +634,8 @@ class dcTrackback
      */
     private function getRemoteContent($from_url)
     {
-        $http = self::initHttp($from_url, $from_path);
+        $from_path = '';
+        $http      = self::initHttp($from_url, $from_path);
 
         # First round : just to be sure the ping comes from an acceptable resource type.
         $http->setHeadersOnly(true);
@@ -768,6 +771,7 @@ class dcTrackback
         }
 
         try {
+            $path = '';
             $http = self::initHttp($url, $path);
             $http->get($path);
             $page_content = $http->getContent();

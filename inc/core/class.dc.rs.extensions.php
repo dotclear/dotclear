@@ -435,12 +435,12 @@ class rsExtPost
      * Returns post content. If <var>$absolute_urls</var> is true, appends full
      * blog URL to each relative post URLs.
      *
-     * @param      record  $rs              Invisible parameter
-     * @param      bool    $absolute_urls   With absolute URLs
+     * @param      record|staticRecord  $rs              Invisible parameter
+     * @param      bool                 $absolute_urls   With absolute URLs
      *
      * @return     string  The content.
      */
-    public static function getContent($rs, $absolute_urls = false)
+    public static function getContent($rs, bool $absolute_urls = false): string
     {
         if ($absolute_urls) {
             return html::absoluteURLs($rs->post_content_xhtml, $rs->getURL());
@@ -453,12 +453,12 @@ class rsExtPost
      * Returns post excerpt. If <var>$absolute_urls</var> is true, appends full
      * blog URL to each relative post URLs.
      *
-     * @param      record  $rs              Invisible parameter
-     * @param      bool    $absolute_urls   With absolute URLs
+     * @param      record|staticRecord  $rs              Invisible parameter
+     * @param      bool                 $absolute_urls   With absolute URLs
      *
      * @return     string  The excerpt.
      */
-    public static function getExcerpt($rs, $absolute_urls = false)
+    public static function getExcerpt($rs, bool $absolute_urls = false): string
     {
         if ($absolute_urls) {
             return html::absoluteURLs($rs->post_excerpt_xhtml, $rs->getURL());
@@ -621,12 +621,12 @@ class rsExtComment
      * Returns comment content. If <var>$absolute_urls</var> is true, appends full
      * blog URL to each relative post URLs.
      *
-     * @param      record  $rs              Invisible parameter
-     * @param      bool    $absolute_urls   With absolute URLs
+     * @param      record|staticRecord  $rs              Invisible parameter
+     * @param      bool                 $absolute_urls   With absolute URLs
      *
      * @return     string  The content.
      */
-    public static function getContent($rs, $absolute_urls = false)
+    public static function getContent($rs, bool $absolute_urls = false): string
     {
         $res = $rs->comment_content;
 

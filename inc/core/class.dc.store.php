@@ -241,6 +241,7 @@ class dcStore
             $url = 'http://' . $url;
         }
         // Download package
+        $path = '';
         if ($client = netHttp::initClient($url, $path)) {
             try {
                 $client->setUserAgent($this->user_agent);

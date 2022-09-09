@@ -15,17 +15,54 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcPublic
 {
-    public $search;         // Searched term
-    public $search_count;   // Search count
+    /**
+     * Searched term
+     *
+     * @var string
+     */
+    public $search;
 
-    public $theme;          // Current theme
-    public $parent_theme;   // Current theme's parent
+    /**
+     * Searched count
+     *
+     * @var string
+     */
+    public $search_count;
 
-    public $smilies;        // Smilies array
+    /**
+     * Current theme
+     *
+     * @var mixed
+     */
+    public $theme;
 
-    protected $page_number; // Current page number
+    /**
+     * Current theme's parent, if any
+     *
+     * @var mixed
+     */
+    public $parent_theme;
 
-    // User-defined - experimental (may be changed in near future)
+    /**
+     * Smilies definitions
+     *
+     * @var array
+     */
+    public $smilies;
+
+    /**
+     * Current page number
+     *
+     * @var int
+     */
+    protected $page_number;
+
+    /**
+     * User-defined variables
+     * Experimental (may be changed in near future)
+     *
+     * @var        array
+     */
     protected $properties = [];
 
     /**
@@ -89,7 +126,7 @@ class dcPublic
      *
      * @param      int  $value  The value
      */
-    public function setPageNumber(int $value)
+    public function setPageNumber(int $value): void
     {
         $this->page_number = $value;
 

@@ -15,11 +15,21 @@ dcCore::app()->addBehavior('coreBlogGetComments', ['rsExtendPublic', 'coreBlogGe
 
 class rsExtendPublic
 {
+    /**
+     * Extend Posts recordset methods
+     *
+     * @param      record|staticRecord  $rs     Posts recordset
+     */
     public static function coreBlogGetPosts($rs)
     {
         $rs->extend('rsExtPostPublic');
     }
 
+    /**
+     * Extend Comments recordset methods
+     *
+     * @param      record|staticRecord  $rs     Comments recordset
+     */
     public static function coreBlogGetComments($rs)
     {
         $rs->extend('rsExtCommentPublic');
@@ -28,19 +38,30 @@ class rsExtendPublic
 
 class rsExtPostPublic extends rsExtPost
 {
-    public static function getContent($rs, $absolute_urls = false)
+    /**
+     * Gets the post's content.
+     *
+     * Return content cut to 350 characters in short feed context
+     * Replace textual smilies by their image representation if requested
+     *
+     * @param      record|staticRecord  $rs             Posts recordset
+     * @param      bool                 $absolute_urls  Use absolute urls
+     *
+     * @return     string  The content.
+     */
+    public static function getContent($rs, bool $absolute_urls = false): string
     {
-        # Not very nice hack but it does the job :)
+        // Not very nice hack but it does the job :)
         if (isset(dcCore::app()->ctx) && dcCore::app()->ctx->short_feed_items === true) {
-            $c = parent::getContent($rs, $absolute_urls);
-            $c = context::remove_html($c);
-            $c = context::cut_string($c, 350);
+            $content = parent::getContent($rs, $absolute_urls);
+            $content = context::remove_html($content);
+            $content = context::cut_string($content, 350);
 
-            $c = '<p>' . $c . '... ' .
+            $content = '<p>' . $content . '... ' .
             '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .
             html::escapeHTML($rs->post_title) . '</a></p>';
 
-            return $c;
+            return $content;
         }
 
         if (dcCore::app()->blog->settings->system->use_smilies) {
@@ -50,7 +71,17 @@ class rsExtPostPublic extends rsExtPost
         return parent::getContent($rs, $absolute_urls);
     }
 
-    public static function getExcerpt($rs, $absolute_urls = false)
+    /**
+     * Gets the post's excerpt.
+     *
+     * Replace textual smilies by their image representation if requested
+     *
+     * @param      record|staticRecord  $rs             Posts recordset
+     * @param      bool                 $absolute_urls  Use absolute urls
+     *
+     * @return     string  The excerpt.
+     */
+    public static function getExcerpt($rs, bool $absolute_urls = false): string
     {
         if (dcCore::app()->blog->settings->system->use_smilies) {
             return self::smilies(parent::getExcerpt($rs, $absolute_urls), dcCore::app()->blog);
@@ -59,28 +90,46 @@ class rsExtPostPublic extends rsExtPost
         return parent::getExcerpt($rs, $absolute_urls);
     }
 
-    protected static function smilies($c, $blog)
+    /**
+     * Cope with smileys in content
+     *
+     * @param      string  $content  The content
+     * @param      dcBlog  $blog     The blog
+     *
+     * @return     string
+     */
+    protected static function smilies(string $content, dcBlog $blog): string
     {
         if (!isset(dcCore::app()->public->smilies)) {
             dcCore::app()->public->smilies = context::getSmilies($blog);
         }
 
-        return context::addSmilies($c);
+        return context::addSmilies($content);
     }
 }
 
 class rsExtCommentPublic extends rsExtComment
 {
-    public static function getContent($rs, $absolute_urls = false)
+    /**
+     * Gets the comment's content.
+     *
+     * Replace textual smilies by their image representation if requested
+     *
+     * @param      record|staticRecord  $rs             Comments recordset
+     * @param      bool                 $absolute_urls  Use absolute urls
+     *
+     * @return     string  The content.
+     */
+    public static function getContent($rs, bool $absolute_urls = false): string
     {
         if (dcCore::app()->blog->settings->system->use_smilies) {
-            $c = parent::getContent($rs, $absolute_urls);
+            $content = parent::getContent($rs, $absolute_urls);
 
             if (!isset(dcCore::app()->public->smilies)) {
                 dcCore::app()->public->smilies = context::getSmilies(dcCore::app()->blog);
             }
 
-            return context::addSmilies($c);
+            return context::addSmilies($content);
         }
 
         return parent::getContent($rs, $absolute_urls);

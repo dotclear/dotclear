@@ -94,6 +94,7 @@ if ($is_writable && !empty($_POST['pkg_url'])) {
             throw new Exception(__('Invalid language file URL.'));
         }
 
+        $path   = '';
         $client = netHttp::initClient($url, $path);
         $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);
