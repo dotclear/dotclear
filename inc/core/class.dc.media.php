@@ -155,7 +155,7 @@ class dcMedia extends filemanager
      *
      * @param      string  $dir    The directory name
      */
-    public function chdir($dir)
+    public function chdir(?string $dir): void
     {
         parent::chdir($dir);
         $this->relpwd = preg_replace('/^' . preg_quote($this->root, '/') . '\/?/', '', $this->pwd);
@@ -169,9 +169,9 @@ class dcMedia extends filemanager
      * - update: file update
      * - remove: file deletion
      *
-     * @param      string    $type      The media type
-     * @param      string    $event     The event
-     * @param      callable  $function  The callback
+     * @param      string           $type      The media type
+     * @param      string           $event     The event
+     * @param      callable|array   $function  The callback
      */
     public function addFileHandler($type, $event, $function)
     {
@@ -455,7 +455,7 @@ class dcMedia extends filemanager
      *
      * @throws     Exception
      */
-    public function getDir($type = null)
+    public function getDir($type = null): void
     {
         if ($type) {
             $this->type = $type;
@@ -812,7 +812,7 @@ class dcMedia extends filemanager
      *
      * @param      string  $d      the directory to create
      */
-    public function makeDir($d)
+    public function makeDir($d): void
     {
         $d = files::tidyFileName($d);
         parent::makeDir($d);
@@ -1012,13 +1012,13 @@ class dcMedia extends filemanager
      * Creates a file from binary content.
      *
      * @param      string     $name   The file name (relative to working directory)
-     * @param      mixed      $bits   The binary file contentits
+     * @param      string     $bits   The binary file contentits
      *
      * @throws     Exception
      *
-     * @return     mixed      New media ID or false
+     * @return     string     New media ID or false
      */
-    public function uploadBits($name, $bits)
+    public function uploadBits(string $name, string $bits): string
     {
         if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
@@ -1028,7 +1028,9 @@ class dcMedia extends filemanager
 
         parent::uploadBits($name, $bits);
 
-        return $this->createFile($name, null, false);
+        $id = $this->createFile($name, null, false);
+
+        return $id === false ? '' : (string) $id;
     }
 
     /**
@@ -1038,7 +1040,7 @@ class dcMedia extends filemanager
      *
      * @throws     Exception
      */
-    public function removeFile($f)
+    public function removeFile($f): void
     {
         if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));

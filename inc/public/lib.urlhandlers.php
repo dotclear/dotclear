@@ -40,7 +40,15 @@ class dcUrlHandlers extends urlHandler
         return $url;
     }
 
-    public function register($type, $url, $representation, $handler)
+    /**
+     * Register an URL handler
+     *
+     * @param      string           $type            The type
+     * @param      string           $url             The url
+     * @param      string           $representation  The representation
+     * @param      callable|array   $handler         The handler
+     */
+    public function register(string $type, string $url, string $representation, $handler): void
     {
         $t = new ArrayObject([$type, $url, $representation, $handler]);
         dcCore::app()->callBehavior('publicRegisterURL', $t);
@@ -154,7 +162,7 @@ class dcUrlHandlers extends urlHandler
         echo $result['content'];
     }
 
-    public function getDocument()
+    public function getDocument(): void
     {
         $type = '';
 

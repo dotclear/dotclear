@@ -971,11 +971,11 @@ class rsExtUser
     /**
      * Converts this record to a {@link extStaticRecord} instance.
      *
-     * @param      record  $rs       Invisible parameter
+     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
      *
      * @return     extStaticRecord  The extent static record.
      */
-    public static function toExtStatic($rs)
+    public static function toExtStatic($rs): extStaticRecord
     {
         if ($rs instanceof extStaticRecord) {
             return $rs;
@@ -990,11 +990,11 @@ class rsExtBlog
     /**
      * Converts this record to a {@link extStaticRecord} instance.
      *
-     * @param      record  $rs       Invisible parameter
+     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
      *
      * @return     extStaticRecord  The extent static record.
      */
-    public static function toExtStatic($rs)
+    public static function toExtStatic($rs): extStaticRecord
     {
         if ($rs instanceof extStaticRecord) {
             return $rs;

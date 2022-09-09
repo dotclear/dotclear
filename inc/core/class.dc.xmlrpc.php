@@ -360,7 +360,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         );
     }
 
-    public function serve($data = false)
+    public function serve($data = false): void
     {
         parent::serve(false);
     }

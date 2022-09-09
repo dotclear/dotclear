@@ -43,13 +43,13 @@ class dcRestServer extends restServer
      */
     protected function callFunction($name, $get, $post)
     {
-        if (isset($this->functions[$name])) {
+        if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
             return call_user_func($this->functions[$name], dcCore::app(), $get, $post);
         }
     }
 
     /**
-     * Rest method call.
+     * Rest method call. $this->callFunction() alias
      *
      * @param      string  $name   The method name
      * @param      array   $get    The GET parameters copy
@@ -59,9 +59,7 @@ class dcRestServer extends restServer
      */
     protected function callMethod($name, $get, $post)
     {
-        if (isset($this->functions[$name])) {
-            return ($this->functions[$name])($get, $post);
-        }
+        $this->callFunction($name, $get, $post);
     }
 
     /**
@@ -71,7 +69,7 @@ class dcRestServer extends restServer
      *
      * @param string    $encoding        Server charset
      */
-    public function serve($encoding = 'UTF-8')
+    public function serve(string $encoding = 'UTF-8'): bool
     {
         if (isset($_REQUEST['json'])) {
             if (!isset($_REQUEST['f'])) {

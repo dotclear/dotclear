@@ -117,14 +117,14 @@ abstract class dcActions
     /**
      * Adds an action
      *
-     * @param array    $actions  the actions names as if it was a standalone combo array.
-     *                           It will be merged with other actions.
-     *                           Can be bound to multiple values, if the same callback is to be called
-     * @param callable $callback the callback for the action.
+     * @param array             $actions  the actions names as if it was a standalone combo array.
+     *                                    It will be merged with other actions.
+     *                                    Can be bound to multiple values, if the same callback is to be called
+     * @param callable|array    $callback the callback for the action.
      *
      * @return dcActions the actions page itself, enabling to chain addAction().
      */
-    public function addAction(array $actions, callable $callback): dcActions
+    public function addAction(array $actions, $callback): dcActions
     {
         foreach ($actions as $group => $options) {
             // Check each case of combo definition
@@ -133,9 +133,8 @@ abstract class dcActions
                 $values              = array_values($options);
                 $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
             } elseif (
-                $options instanceof formSelectOption || //  CB: common/lib.form.php
-                $options instanceof formsSelectOption || // CB: common/lib.forms.php
-                $options instanceof formOption           // CB: html.form/class.form.option.php
+                $options instanceof formSelectOption || // CB: common/lib.form.php
+                $options instanceof formOption          // CB: html.form/class.form.option.php
             ) {
                 $values              = [$options->value];
                 $this->combo[$group] = $options->value;
@@ -154,7 +153,7 @@ abstract class dcActions
 
     /**
      * Returns the actions combo
-     * Useable through form::combo/forms::combo/formOption (see addAction() method)
+     * Useable through form::combo/formOption (see addAction() method)
      *
      * @return array the actions combo
      */

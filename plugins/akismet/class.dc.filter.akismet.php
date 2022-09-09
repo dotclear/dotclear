@@ -150,7 +150,7 @@ class dcFilterAkismet extends dcSpamFilter
     }
 }
 
-class akismet extends HttpClient
+class akismet extends netHttp
 {
     protected $base_host  = 'rest.akismet.com';
     protected $ak_host    = '';
@@ -241,7 +241,7 @@ class akismet extends HttpClient
         $path       = sprintf($this->ak_path, $function);
 
         if (!$this->post($path, $data, 'UTF-8')) {
-            throw new Exception('HTTP error: ' . $this->getError());    // @php-stan-ignore-line
+            throw new Exception('HTTP error: ' . $this->getStatus());
         }
 
         return $this->getContent() == 'true';

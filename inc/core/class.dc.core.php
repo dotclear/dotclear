@@ -113,11 +113,12 @@ final class dcCore
 
         $this->con = dbLayer::init($driver, $host, $db, $user, $password, $persist);
 
-        # define weak_locks for mysql
-        if ($this->con instanceof mysqliConnection) {
-            mysqliConnection::$weak_locks = true;
-        } elseif ($this->con instanceof mysqlimb4Connection) {
+        // Define weak_locks for mysql
+        // Begin test by mysqlimb4Connection as it extends mysqliConnection
+        if ($this->con instanceof mysqlimb4Connection) {
             mysqlimb4Connection::$weak_locks = true;
+        } elseif ($this->con instanceof mysqliConnection) {
+            mysqliConnection::$weak_locks = true;
         }
 
         # define searchpath for postgresql

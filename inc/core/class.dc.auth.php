@@ -392,14 +392,14 @@ class dcAuth
      * Calls $f function with super admin rights.
      * Returns the function result.
      *
-     * @param callable    $f            Callback function
+     * @param callable|array    $f            Callback function
      *
      * @return mixed
      */
     public function sudo($f, ...$args)
     {
         if (!is_callable($f)) {
-            throw new Exception($f . ' function doest not exist');
+            throw new Exception(print_r($f, true) . ' function doest not exist');
         }
 
         if ($this->user_admin) {

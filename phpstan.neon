@@ -106,6 +106,10 @@ parameters:
     - message: '#Access to an undefined property record::#'
       path: %currentWorkingDirectory%
 
+    # staticRecord object and auto properties
+    - message: '#Access to an undefined property staticRecord::#'
+      path: %currentWorkingDirectory%
+
     # dcWidgets object and auto properties
     - message: '#Access to an undefined property dcWidgets::#'
       path: %currentWorkingDirectory%
@@ -140,6 +144,10 @@ parameters:
 
     # static record extensions
     - message: '#Call to an undefined method record::#'
+      path: %currentWorkingDirectory%
+
+    # static staticRecord extensions
+    - message: '#Call to an undefined method staticRecord::#'
       path: %currentWorkingDirectory%
 
     # static property rsExtUser

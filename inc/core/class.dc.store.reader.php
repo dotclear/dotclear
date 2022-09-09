@@ -230,7 +230,7 @@ class dcStoreReader extends netHttp
      *
      * @return    array    Query headers
      */
-    protected function buildRequest()
+    protected function buildRequest(): array
     {
         $headers = parent::buildRequest();
 

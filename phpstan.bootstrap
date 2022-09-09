@@ -1,4 +1,5 @@
 <?php
+
 // Mock some global constants
 define('DC_ADBLOCKER_CHECK', true);
 define('DC_ADMIN_URL', '');
@@ -10,6 +11,7 @@ define('DC_DBPREFIX', '');
 define('DC_DBUSER', '');
 define('DC_DEV', true);
 define('DC_DISTRIB_PLUGINS', '');
+define('DC_DISTRIB_THEMES', '');
 define('DC_ERRORFILE', '');
 define('DC_FORCE_SCHEME_443', false);
 define('DC_MASTER_KEY', 'PASSWORD');

@@ -63,6 +63,7 @@ Clearbricks::lib()->autoload([
     'rsExtComment'      => __DIR__ . '/core/class.dc.rs.extensions.php',
     'rsExtDates'        => __DIR__ . '/core/class.dc.rs.extensions.php',
     'rsExtUser'         => __DIR__ . '/core/class.dc.rs.extensions.php',
+    'rsExtBlog'         => __DIR__ . '/core/class.dc.rs.extensions.php',
 
     'dcUpgrade' => __DIR__ . '/dbschema/upgrade.php',
 
@@ -116,8 +117,20 @@ define('CLI_MODE', PHP_SAPI == 'cli');
 
 # Disallow every special wrapper
 if (function_exists('stream_wrapper_unregister')) {
-    $special_wrappers = array_intersect(['http', 'https', 'ftp', 'ftps', 'ssh2.shell', 'ssh2.exec',
-        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect', 'phar', ], stream_get_wrappers());
+    $special_wrappers = array_intersect([
+        'http',
+        'https',
+        'ftp',
+        'ftps',
+        'ssh2.shell',
+        'ssh2.exec',
+        'ssh2.tunnel',
+        'ssh2.sftp',
+        'ssh2.scp',
+        'ogg',
+        'expect',
+        // 'phar',   // Used by PharData to manage Zip/Tar archive
+    ], stream_get_wrappers());
     foreach ($special_wrappers as $p) {
         @stream_wrapper_unregister($p);
     }

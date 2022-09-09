@@ -93,6 +93,7 @@ class dcSqlStatement
         $this->con    = dcCore::app()->con;
         $this->syntax = dcCore::app()->con->syntax();
 
+        /* @phpstan-ignore-next-line */
         $this->_AS = ($this->syntax === 'sqlite' || self::VERBOSE_SQL_ALIAS ? ' AS ' : ' ');
     }
 

@@ -235,7 +235,7 @@ class dcTemplate extends template
         return self::$_r;
     }
 
-    public function compileBlockNode($tag, $attr, $content)
+    public function compileBlockNode(string $tag, $attr, string $content): string
     {
         $this->current_tag = $tag;
         $attr              = new ArrayObject($attr);
@@ -253,7 +253,7 @@ class dcTemplate extends template
         return $res;
     }
 
-    public function compileValueNode($tag, $attr, $str_attr)
+    public function compileValueNode(string $tag, $attr, string $str_attr): string
     {
         $this->current_tag = $tag;
 
