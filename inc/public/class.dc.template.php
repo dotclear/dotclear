@@ -877,9 +877,7 @@ class dcTemplate extends template
      */
     public function BlogRSDURL($attr)
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, '#') . '; ?>';
+        return '';
     }
 
     /*dtd
