@@ -19,7 +19,7 @@ $dlang = http::getAcceptLanguage();
 $dlang = ($dlang == '' ? 'en' : $dlang);
 if ($dlang != 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $dlang)) {
     l10n::lang($dlang);
-    l10n::set(__DIR__ . '/../locales/' . $dlang . '/main');
+    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/main');
 }
 
 if (defined('DC_ADMIN_URL')) {

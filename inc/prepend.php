@@ -487,7 +487,7 @@ function init_prepend_l10n()
 {
     $detected_languages = http::getAcceptLanguages();
     foreach ($detected_languages as $language) {
-        if ($language === 'en' || l10n::set(__DIR__ . '/../locales/' . $language . '/main') !== false) {
+        if ($language === 'en' || l10n::set(DC_L10N_ROOT . '/' . $language . '/main') !== false) {
             l10n::lang($language);
 
             // We stop at first accepted language

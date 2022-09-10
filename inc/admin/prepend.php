@@ -135,21 +135,20 @@ dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'd
 
 if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     # Loading resources and help files
-    $locales_root = __DIR__ . '/../../locales/';
-    require $locales_root . '/en/resources.php';
-    if ($f = l10n::getFilePath($locales_root, 'resources.php', dcCore::app()->lang)) {
+    require DC_L10N_ROOT . '/en/resources.php';
+    if ($f = l10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
         require $f;
     }
     unset($f);
 
-    if (($hfiles = @scandir($locales_root . dcCore::app()->lang . '/help')) !== false) {
+    if (($hfiles = @scandir(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/help')) !== false) {
         foreach ($hfiles as $hfile) {
             if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                dcCore::app()->resources['help'][$m[1]] = $locales_root . dcCore::app()->lang . '/help/' . $hfile;
+                dcCore::app()->resources['help'][$m[1]] = DC_L10N_ROOT . '/' . dcCore::app()->lang . '/help/' . $hfile;
             }
         }
     }
-    unset($hfiles, $locales_root);
+    unset($hfiles);
     // Contextual help flag
     dcCore::app()->resources['ctxhelp'] = false;
 

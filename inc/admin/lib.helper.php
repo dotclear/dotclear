@@ -60,12 +60,12 @@ class dcAdminHelper
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
         l10n::lang(dcCore::app()->lang);
-        if (l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
-            l10n::set(__DIR__ . '/../../locales/en/date');
+        if (l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+            l10n::set(DC_L10N_ROOT . '/en/date');
         }
-        l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/main');
-        l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/public');
-        l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/plugins');
+        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/main');
+        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
+        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
 
         // Set lexical lang
         dcUtils::setlexicalLang('admin', dcCore::app()->lang);

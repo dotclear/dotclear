@@ -24,9 +24,9 @@ $err         = '';
 $dlang = http::getAcceptLanguage();
 if ($dlang != 'en') {
     l10n::init($dlang);
-    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/date');
-    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
-    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/plugins');
+    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/date');
+    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/main');
+    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/plugins');
 }
 
 if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {
