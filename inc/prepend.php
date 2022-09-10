@@ -71,7 +71,7 @@ Clearbricks::lib()->autoload([
     'dcMenu'               => __DIR__ . '/admin/class.dc.menu.php',
     'dcFavorites'          => __DIR__ . '/admin/class.dc.favorites.php',
     'dcPage'               => __DIR__ . '/admin/lib.dc.page.php',
-    'adminGenericListV2'   => __DIR__ . '/admin/lib.pager.php',
+    'adminGenericListV2'   => __DIR__ . '/admin/lib.pager.php',             // V2
     'adminPostList'        => __DIR__ . '/admin/lib.pager.php',
     'adminPostMiniList'    => __DIR__ . '/admin/lib.pager.php',
     'adminCommentList'     => __DIR__ . '/admin/lib.pager.php',
@@ -82,7 +82,7 @@ Clearbricks::lib()->autoload([
     'dcAdminCombos'        => __DIR__ . '/admin/lib.admincombos.php',
     'dcAdminFilter'        => __DIR__ . '/admin/lib.adminfilters.php',
     'dcAdminFilters'       => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminGenericFilterV2' => __DIR__ . '/admin/lib.adminfilters.php',
+    'adminGenericFilterV2' => __DIR__ . '/admin/lib.adminfilters.php',      // V2
     'adminPostFilter'      => __DIR__ . '/admin/lib.adminfilters.php',
     'adminCommentFilter'   => __DIR__ . '/admin/lib.adminfilters.php',
     'adminUserFilter'      => __DIR__ . '/admin/lib.adminfilters.php',

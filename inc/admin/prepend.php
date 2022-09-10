@@ -12,14 +12,17 @@ define('DC_ADMIN_CONTEXT', true); // For dyslexic devs ;-)
 require_once __DIR__ . '/../prepend.php';
 
 // HTTP/1.1
-header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
 header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 
 // HTTP/1.0
 header('Pragma: no-cache');
 
+// New admin instance
 dcCore::app()->admin = new dcAdmin();
 
+// New adminurl instance
+// May be moved to property of dcCore::app()->admin in a near future
 dcCore::app()->adminurl = new dcAdminURL();
 dcCore::app()->adminurl->register('admin.auth', 'auth.php');
 
