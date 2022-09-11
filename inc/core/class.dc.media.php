@@ -883,7 +883,7 @@ class dcMedia extends filemanager
                 if ($dt) {
                     $cur->media_dt = (string) $dt;
                 } else {
-                    $cur->media_dt = @strftime('%Y-%m-%d %H:%M:%S', filemtime($file));
+                    $cur->media_dt = dt::strftime('%Y-%m-%d %H:%M:%S', filemtime($file));
                 }
 
                 try {

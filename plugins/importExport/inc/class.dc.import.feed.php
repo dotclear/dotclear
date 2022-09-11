@@ -145,7 +145,7 @@ class dcImportFeed extends dcIeModule
             $cur->post_title   = $item->title ?: text::cutString(html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
             $cur->post_status  = dcBlog::POST_PENDING;
-            $cur->post_dt      = @strftime('%Y-%m-%d %H:%M:%S', $item->TS);
+            $cur->post_dt      = dt::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
 
             try {
                 $post_id = dcCore::app()->blog->addPost($cur);
