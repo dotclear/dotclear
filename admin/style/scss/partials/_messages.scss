@@ -67,6 +67,10 @@ p.warning-msg {
   color: var(--msg-error-color);
   animation-name: kf-error;
   animation-duration: 0.5s;
+
+  a {
+    color: var(--msg-error-color);
+  }
 }
 
 @keyframes kf-error {

@@ -134,8 +134,6 @@ class dcUrlHandlers extends urlHandler
             throw new Exception('Unable to find template ');
         }
 
-        $result = new ArrayObject();
-
         dcCore::app()->ctx->current_tpl  = $tpl_name;
         dcCore::app()->ctx->content_type = $content_type;
         dcCore::app()->ctx->http_cache   = $http_cache;
@@ -174,13 +172,13 @@ class dcUrlHandlers extends urlHandler
             header($header);
         }
 
-        $result = [
+        $result = new ArrayObject([
             'content'      => dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl),
             'content_type' => dcCore::app()->ctx->content_type,
             'tpl'          => dcCore::app()->ctx->current_tpl,
             'blogupddt'    => dcCore::app()->blog->upddt,
             'headers'      => headers_list(),
-        ];
+        ]);
 
         # --BEHAVIOR-- urlHandlerServeDocument
         dcCore::app()->callBehavior('urlHandlerServeDocument', $result);

@@ -5,9 +5,9 @@ a pull request (on Github mirror, see below), or feel free to use any other way 
 
 There are many way to contribute :
 
-* Report bugs (https://git.dotclear.org/dev/dotclear and https://git.dotclear.org/dev/dotclear/issues/new)
-* Add documentation (https://dotclear.org/documentation/2.0 in English, https://fr.dotclear.org/documentation/2.0 in French)
-* Add/improve translations (https://dotclear.crowdin.com/dotclear)
+* Report bugs (<https://git.dotclear.org/dev/dotclear> and <https://git.dotclear.org/dev/dotclear/issues/new>)
+* Add documentation (<https://dotclear.org/documentation/2.0> in English, <https://fr.dotclear.org/documentation/2.0> in French)
+* Add/improve translations (<https://dotclear.crowdin.com/dotclear>)
 
 ## Repositories
 
