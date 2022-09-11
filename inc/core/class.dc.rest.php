@@ -33,7 +33,7 @@ class dcRestServer extends restServer
     }
 
     /**
-     * Rest method call.
+     * Rest method call (XML form).
      *
      * @param      string  $name   The method name
      * @param      array   $get    The GET parameters copy
@@ -49,7 +49,7 @@ class dcRestServer extends restServer
     }
 
     /**
-     * Rest method call. $this->callFunction() alias
+     * Rest method call (JSON form).
      *
      * @param      string  $name   The method name
      * @param      array   $get    The GET parameters copy
@@ -59,7 +59,9 @@ class dcRestServer extends restServer
      */
     protected function callMethod($name, $get, $post)
     {
-        $this->callFunction($name, $get, $post);
+        if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
+            return call_user_func($this->functions[$name], $get, $post);
+        }
     }
 
     /**
