@@ -3,76 +3,39 @@
 
 dotclear.passwordStrength = (opts) => {
   /**
-   * Calculates the meter.
+   * Calculates the entropy (source: https://github.com/autonomoussoftware/fast-password-entropy).
    *
-   * @param      DOMElement  e       input password field
-   * @return     integer   The strength (from 0 to 99).
+   * @param      DOMElement   e       input password field
+   * @return     integer              The entropy (from 0 to 99).
    */
-  const computeMeter = (e) => {
-    const password = e.value;
-    let score = 0;
-    const symbols = '[!,@,#,$,%,^,&,*,?,_,~]';
+  const computeEntropy = (e) => {
+    const stdCharsets = [
+      {
+        re: /[a-z]/, // abcdefghijklmnopqrstuvwxyz
+        length: 26,
+      },
+      {
+        re: /[A-Z]/, // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+        length: 26,
+      },
+      {
+        re: /[0-9]/, // 1234567890
+        length: 10,
+      },
+      {
+        re: /[^a-zA-Z0-9]/, //  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ (and any other)
+        length: 33,
+      },
+    ];
+    const calcCharsetLengthWith = (charsets) => (string) =>
+      charsets.reduce((length, charset) => length + (charset.re.test(string) ? charset.length : 0), 0);
 
-    // Regexp
-    const check = new RegExp(`(${symbols})`);
-    const doublecheck = new RegExp(`(.*${symbols}.*${symbols})`);
+    const calcCharsetLength = calcCharsetLengthWith(stdCharsets);
+    const calcEntropy = (charset, length) => Math.round((length * Math.log(charset)) / Math.LN2);
 
-    const checkRepetition = (rLen, str) => {
-      let res = '';
-      let repeated = false;
-      for (let i = 0; i < str.length; i++) {
-        repeated = true;
-        let j;
-        for (j = 0; j < rLen && j + i + rLen < str.length; j++) {
-          repeated = repeated && str.charAt(j + i) === str.charAt(j + i + rLen);
-        }
-        if (j < rLen) {
-          repeated = false;
-        }
-        if (repeated) {
-          i += rLen - 1;
-        } else {
-          res += str.charAt(i);
-        }
-      }
-      return res;
-    };
+    const passwordEntropy = (string) => (string ? calcEntropy(calcCharsetLength(string), string.length) : 0);
 
-    // password length
-    score += password.length * 4;
-    score += checkRepetition(1, password).length - password.length;
-    score += checkRepetition(2, password).length - password.length;
-    score += checkRepetition(3, password).length - password.length;
-    score += checkRepetition(4, password).length - password.length;
-    // password has 3 numbers
-    if (password.match(/(.*\d.*\d.*\d)/)) {
-      score += 5;
-    }
-    // password has at least 2 symbols
-    if (password.match(doublecheck)) {
-      score += 5;
-    }
-    // password has Upper and Lower chars
-    if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
-      score += 10;
-    }
-    // password has number and chars
-    if (password.match(/([a-zA-Z])/) && password.match(/(\d)/)) {
-      score += 15;
-    }
-    // password has number and symbol
-    if (password.match(check) && password.match(/(\d)/)) {
-      score += 15;
-    }
-    // password has char and symbol
-    if (password.match(check) && password.match(/([a-zA-Z])/)) {
-      score += 15;
-    }
-    // password is just numbers or chars
-    if (password.match(/^\w+$/) || password.match(/^\d+$/)) {
-      score -= 10;
-    }
-    return Math.max(Math.min(score, 99), 0);
+    return Math.max(Math.min(passwordEntropy(e.value), 99), 0);
   };
 
   const updateMeter = (e) => {
@@ -90,7 +53,7 @@ dotclear.passwordStrength = (opts) => {
     }
 
     // Get current strength
-    const meterValue = computeMeter(password);
+    const meterValue = computeEntropy(password);
     let meterContent = '';
     if (meterValue >= meter.getAttribute('high')) {
       meterContent = options.max;
@@ -108,8 +71,8 @@ dotclear.passwordStrength = (opts) => {
 
   // Compose meter
   const meterTemplate = new DOMParser().parseFromString(
-    `<meter aria-live="polite" class="pw-strength-meter" value="" title="" min="0" max="99" optimum="99" low="33" high="66"></meter>`,
-    'text/html'
+    `<meter aria-live="polite" class="pw-strength-meter" value="" title="" min="0" max="99" optimum="99" low="30" high="60"></meter>`,
+    'text/html',
   ).body.firstChild;
 
   const options = opts || {
