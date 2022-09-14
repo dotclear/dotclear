@@ -10,11 +10,22 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
+dcCore::app()->addBehavior('publicHeadContent', ['rsExtendPublic', 'publicHeadContent']);
 dcCore::app()->addBehavior('coreBlogGetPosts', ['rsExtendPublic', 'coreBlogGetPosts']);
 dcCore::app()->addBehavior('coreBlogGetComments', ['rsExtendPublic', 'coreBlogGetComments']);
 
 class rsExtendPublic
 {
+    /**
+     * Add smilies.css in head if necessary
+     */
+    public static function publicHeadContent()
+    {
+        if (dcCore::app()->blog->settings->system->use_smilies) {
+            echo dcUtils::cssLoad(dcCore::app()->blog->getQmarkURL() . 'pf=smilies.css');
+        }
+    }
+
     /**
      * Extend Posts recordset methods
      *

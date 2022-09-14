@@ -65,6 +65,7 @@ $paths = array_reverse(explode(PATH_SEPARATOR, DC_PLUGINS_ROOT));
 # Adding some folders here to load some stuff
 $paths[] = __DIR__ . '/js';
 $paths[] = __DIR__ . '/css';
+$paths[] = __DIR__ . '/smilies';
 
 foreach ($paths as $m) {
     $plugin_file = path::real($m . '/' . $requested_file);

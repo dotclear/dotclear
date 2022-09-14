@@ -146,7 +146,7 @@ class context
         return self::global_filters(
             $str,
             [
-                0             => null,
+                0             => null,      // Will receive the string to filter
                 'encode_xml'  => $enc_xml,
                 'remove_html' => $rem_html,
                 'cut_string'  => $cut_string,
@@ -580,17 +580,25 @@ class context
                 $paths[] = dcCore::app()->public->parent_theme;
             }
         }
-        $paths[] = 'default';    // Also use smilies from this old default theme (Blowup). May be deleted in a near future
 
-        $definition = $blog->themes_path . '/%s/smilies/smilies.txt';
-        $base_url   = $blog->settings->system->themes_url . '/%s/smilies/';
+        $definition_pattern = $blog->themes_path . '/%s/smilies/smilies.txt';
+        $base_url_pattern   = $blog->settings->system->themes_url . '/%s/smilies/';
 
         foreach ($paths as $path) {
-            if (file_exists(sprintf($definition, $path))) {
-                $base_url = sprintf($base_url, $path);
+            $definition = sprintf($definition_pattern, $path);
+            $base_url   = sprintf($base_url_pattern, $path);
 
-                return self::smiliesDefinition(sprintf($definition, $path), $base_url);
+            if (file_exists($definition)) {
+                return self::smiliesDefinition($definition, $base_url);
             }
+        }
+
+        // Use default set
+        $definition = __DIR__ . '/../smilies/smilies.txt';
+        $base_url   = dcCore::app()->blog->getQmarkURL() . 'pf=';
+
+        if (file_exists($definition)) {
+            return self::smiliesDefinition($definition, $base_url);
         }
 
         return false;
