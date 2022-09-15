@@ -101,10 +101,13 @@ Clearbricks::lib()->autoload([
     'adminUserPref'        => __DIR__ . '/admin/lib.adminuserpref.php',
     'dcAdminHelper'        => __DIR__ . '/admin/lib.helper.php',
 
-    'dcPublic'      => __DIR__ . '/public/class.dc.public.php',
-    'dcTemplate'    => __DIR__ . '/public/class.dc.template.php',
-    'context'       => __DIR__ . '/public/lib.tpl.context.php',
-    'dcUrlHandlers' => __DIR__ . '/public/lib.urlhandlers.php',
+    'dcPublic'           => __DIR__ . '/public/class.dc.public.php',
+    'dcTemplate'         => __DIR__ . '/public/class.dc.template.php',
+    'context'            => __DIR__ . '/public/lib.tpl.context.php',
+    'dcUrlHandlers'      => __DIR__ . '/public/lib.urlhandlers.php',
+    'rsExtendPublic'     => __DIR__ . '/public/rs.extension.php',
+    'rsExtPostPublic'    => __DIR__ . '/public/rs.extension.php',
+    'rsExtCommentPublic' => __DIR__ . '/public/rs.extension.php',
 ]);
 
 mb_internal_encoding('UTF-8');

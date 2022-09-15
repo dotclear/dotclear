@@ -26,7 +26,6 @@ if (!isset($_SERVER['PATH_INFO'])) {
 }
 
 require_once __DIR__ . '/../prepend.php';
-require_once __DIR__ . '/rs.extension.php';
 
 // New public instance
 dcCore::app()->public = new dcPublic();

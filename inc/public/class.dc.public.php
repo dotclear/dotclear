@@ -104,6 +104,9 @@ class dcPublic
             __error(__('Blog is offline.'), __('This blog is offline. Please try again later.'), 670);
         }
 
+        // Load some class extents and set some public behaviors (was in public prepend before)
+        rsExtendPublic::init();
+
         /*
          * @var        integer
          *
