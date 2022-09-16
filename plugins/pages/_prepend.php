@@ -12,6 +12,13 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
+class dcPages
+{
+    // Constants
+
+    public const PERMISSION_PAGES = 'pages';
+}
+
 Clearbricks::lib()->autoload([
     'dcPagesActions'       => __DIR__ . '/class.actionpage.php',
     'dcDefaultPageActions' => __DIR__ . '/class.actionpage.php',

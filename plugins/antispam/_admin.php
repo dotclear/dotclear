@@ -21,7 +21,9 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     dcCore::app()->adminurl->get('admin.plugin.antispam'),
     [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
     preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    dcCore::app()->auth->check('admin', dcCore::app()->blog->id)
+    dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_ADMIN,
+    ]), dcCore::app()->blog->id)
 );
 
 dcCore::app()->addBehavior('coreAfterCommentUpdate', ['dcAntispam', 'trainFilters']);

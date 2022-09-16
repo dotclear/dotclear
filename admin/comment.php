@@ -8,9 +8,14 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
-$show_ip = dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id);
+$show_ip = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id);
 
 $comment_id          = null;
 $comment_dt          = '';
@@ -96,14 +101,22 @@ if (!$comment_id && !dcCore::app()->error->flag()) {
 
 $can_edit = $can_delete = $can_publish = false;
 if (!dcCore::app()->error->flag() && isset($rs)) {
-    $can_edit = $can_delete = $can_publish = dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id);
+    $can_edit = $can_delete = $can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id);
 
-    if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id) && dcCore::app()->auth->userID() == $rs->user_id) {
+    if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id) && dcCore::app()->auth->userID() == $rs->user_id) {
         $can_edit = true;
-        if (dcCore::app()->auth->check('delete', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_DELETE,
+        ]), dcCore::app()->blog->id)) {
             $can_delete = true;
         }
-        if (dcCore::app()->auth->check('publish', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
+        ]), dcCore::app()->blog->id)) {
             $can_publish = true;
         }
     }

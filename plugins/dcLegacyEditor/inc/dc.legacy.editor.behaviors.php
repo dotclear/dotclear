@@ -149,7 +149,10 @@ class dcLegacyEditorBehaviors
         $js['iframe_css'] = $css;
         // End of tricky code
 
-        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_MEDIA,
+            dcAuth::PERMISSION_MEDIA_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }
 

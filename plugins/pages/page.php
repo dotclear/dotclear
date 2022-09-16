@@ -11,7 +11,10 @@
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
-dcPage::check('pages,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcPages::PERMISSION_PAGES,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 dt::setTZ(dcCore::app()->auth->getInfo('user_tz'));
 
@@ -41,9 +44,16 @@ $post_media = [];
 $page_title = __('New page');
 
 $can_view_page = true;
-$can_edit_page = dcCore::app()->auth->check('pages,usage', dcCore::app()->blog->id);
-$can_publish   = dcCore::app()->auth->check('pages,publish,contentadmin', dcCore::app()->blog->id);
-$can_delete    = false;
+$can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcPages::PERMISSION_PAGES,
+    dcAuth::PERMISSION_USAGE,
+]), dcCore::app()->blog->id);
+$can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcPages::PERMISSION_PAGES,
+    dcAuth::PERMISSION_PUBLISH,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id);
+$can_delete = false;
 
 $post_headlink = '<link rel="%s" title="%s" href="' . html::escapeURL($redir_url) . '&amp;id=%s" />';
 $post_link     = '<a href="' . html::escapeURL($redir_url) . '&amp;id=%s" title="%s">%s</a>';
@@ -659,14 +669,20 @@ if ($post_id) {
 
     # Actions combo box
     $combo_action = [];
-    if ($can_edit_page && dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
+    if ($can_edit_page && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_PUBLISH,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id)) {
         $combo_action[__('Publish')]         = 'publish';
         $combo_action[__('Unpublish')]       = 'unpublish';
         $combo_action[__('Mark as pending')] = 'pending';
         $combo_action[__('Mark as junk')]    = 'junk';
     }
 
-    if ($can_edit_page && dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
+    if ($can_edit_page && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_DELETE,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id)) {
         $combo_action[__('Delete')] = 'delete';
     }
 

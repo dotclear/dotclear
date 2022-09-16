@@ -219,21 +219,28 @@ final class dcCore
         }
     }
 
+    /**
+     * Create a new instance of authentication class (user-defined or default)
+     *
+     * @throws     Exception
+     *
+     * @return     dcAuth|mixed
+     */
     private function authInstance()
     {
-        # You can set DC_AUTH_CLASS to whatever you want.
-        # Your new class *should* inherits dcAuth.
-        $c = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : 'dcAuth';
+        // You can set DC_AUTH_CLASS to whatever you want.
+        // Your new class *should* inherits dcAuth.
+        $class = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : 'dcAuth';
 
-        if (!class_exists($c)) {
-            throw new Exception('Authentication class ' . $c . ' does not exist.');
+        if (!class_exists($class)) {
+            throw new Exception('Authentication class ' . $class . ' does not exist.');
         }
 
-        if ($c != 'dcAuth' && !is_subclass_of($c, 'dcAuth')) {
-            throw new Exception('Authentication class ' . $c . ' does not inherit dcAuth.');
+        if ($class !== 'dcAuth' && !is_subclass_of($class, 'dcAuth')) {
+            throw new Exception('Authentication class ' . $class . ' does not inherit dcAuth.');
         }
 
-        return new $c($this);
+        return new $class($this);
     }
 
     /// @name Blog init methods

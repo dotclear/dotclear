@@ -34,7 +34,10 @@ if (isset($_POST['new_tag_id'])) {
 }
 
 # Delete a tag
-if (!empty($_POST['delete']) && dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
+if (!empty($_POST['delete']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_PUBLISH,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id)) {
     try {
         dcCore::app()->meta->delMeta($tag, 'tag');
         dcPage::addSuccessNotice(__('Tag has been successfully removed'));
@@ -113,7 +116,9 @@ if (!dcCore::app()->error->flag()) {
         dcCore::app()->formNonce() .
             '</p></form>';
         # Remove tag
-        if (dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             echo
             '<form id="tag_delete" action="' . $this_url . '" method="post">' .
             '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .

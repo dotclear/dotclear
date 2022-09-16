@@ -335,7 +335,9 @@ class adminPostList extends adminGenericListV2
      */
     private function postLine(bool $checked): string
     {
-        if (dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CATEGORIES,
+        ]), dcCore::app()->blog->id)) {
             $cat_link = '<a href="' . dcCore::app()->adminurl->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
             $cat_link = '%2$s';

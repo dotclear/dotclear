@@ -27,7 +27,10 @@ if (!empty($_GET['default_blog'])) {
     }
 }
 
-dcPage::check('usage,contentadmin', true);
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.home', []))) {
     exit;
@@ -114,7 +117,10 @@ dcCore::app()->callBehavior('adminDashboardContentsV2', $__dashboard_contents);
 $quickentry          = '';
 $admin_post_behavior = '';
 if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
-    if (dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+    if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_USAGE,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id)) {
         $post_format = dcCore::app()->auth->getOption('post_format');
         $post_editor = dcCore::app()->auth->getOption('editor');
         if ($post_editor && !empty($post_editor[$post_format])) {
@@ -346,7 +352,11 @@ if (!dcCore::app()->auth->user_prefs->dashboard->nofavicons) {
     $dashboardIcons .= '</div>';
     $__dashboard_main[] = $dashboardIcons;
 }
-if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+
+if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id)) {
     # Getting categories
     $categories_combo = dcAdminCombos::getCategoriesCombo(
         dcCore::app()->blog->getCategories([])
@@ -368,7 +378,9 @@ if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->aut
         '</div>' .
         '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
         form::combo('cat_id', $categories_combo) . '</p>' .
-        (dcCore::app()->auth->check('categories', dcCore::app()->blog->id)
+        (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CATEGORIES,
+        ]), dcCore::app()->blog->id)
             ? '<div>' .
             '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
             '<p class="q-cat"><label for="new_cat_title">' . __('Title:') . '</label> ' .
@@ -380,7 +392,9 @@ if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->aut
             '</div>'
             : '') .
         '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
-        (dcCore::app()->auth->check('publish', dcCore::app()->blog->id)
+        (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
+        ]), dcCore::app()->blog->id)
             ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
             : '') .
         dcCore::app()->formNonce() .

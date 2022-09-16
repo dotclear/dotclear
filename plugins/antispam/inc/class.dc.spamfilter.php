@@ -120,7 +120,9 @@ class dcSpamFilter
 
     public function hasGUI()
     {
-        if (!dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             return false;
         }
 

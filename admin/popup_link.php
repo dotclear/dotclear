@@ -8,7 +8,10 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 $href      = !empty($_GET['href']) ? $_GET['href'] : '';
 $hreflang  = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';

@@ -12,7 +12,11 @@ $blog_id = false;
 
 if ($standalone) {
     require __DIR__ . '/../inc/admin/prepend.php';
-    dcPage::check('admin');
+
+    dcPage::check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_ADMIN,
+    ]));
+
     $blog_id       = dcCore::app()->blog->id;
     $blog_status   = dcCore::app()->blog->status;
     $blog_name     = dcCore::app()->blog->name;
@@ -159,7 +163,9 @@ if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root
 }
 
 # Update a blog
-if ($blog_id && !empty($_POST) && dcCore::app()->auth->check('admin', $blog_id)) {
+if ($blog_id && !empty($_POST) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_ADMIN,
+]), $blog_id)) {
     $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
     $cur->blog_id   = $_POST['blog_id'];
     $cur->blog_url  = preg_replace('/\?+$/', '?', $_POST['blog_url']);

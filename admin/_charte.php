@@ -8,7 +8,12 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(
+    dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_USAGE,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ])
+);
 dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
 $js         = [];

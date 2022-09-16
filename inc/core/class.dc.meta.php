@@ -153,12 +153,17 @@ class dcMeta
     {
         $post_id = (int) $post_id;
 
-        if (!dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
         # If user can only publish, we need to check the post's owner
-        if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $sql = new dcSelectStatement();
             $sql
                 ->from(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME)
@@ -338,7 +343,9 @@ class dcMeta
             $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
-        if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $user_id = dcCore::app()->auth->userID();
 
             $and = ['post_status = ' . (string) dcBlog::POST_PUBLISHED];
@@ -498,7 +505,9 @@ class dcMeta
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote(dcCore::app()->blog->id));
 
-        if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $sql->and('P.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
         if ($post_type !== null) {

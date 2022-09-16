@@ -11,7 +11,10 @@
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
-dcPage::check('pages,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcPages::PERMISSION_PAGES,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 /* Getting pages
 -------------------------------------------------------- */

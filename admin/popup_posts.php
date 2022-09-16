@@ -8,7 +8,10 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 $q         = !empty($_GET['q']) ? $_GET['q'] : null;
 $plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';

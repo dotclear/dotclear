@@ -8,7 +8,9 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('categories');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_CATEGORIES,
+]));
 
 # Remove a categories
 if (!empty($_POST['delete'])) {
@@ -99,7 +101,9 @@ $starting_script = '';
 
 dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
 if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop
-    && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)
+    && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_CATEGORIES,
+    ]), dcCore::app()->blog->id)
     && $rs->count() > 1) {
     $starting_script .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
     $starting_script .= dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
@@ -199,7 +203,9 @@ if ($rs->isEmpty()) {
 
     echo '<div class="clear">';
 
-    if (dcCore::app()->auth->check('categories', dcCore::app()->blog->id) && $rs->count() > 1) {
+    if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_CATEGORIES,
+    ]), dcCore::app()->blog->id) && $rs->count() > 1) {
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
         }

@@ -793,7 +793,9 @@ class adminCommentFilter extends adminGenericFilterV2
      */
     public function getCommentIpFilter(): ?dcAdminFilter
     {
-        if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             return null;
         }
 

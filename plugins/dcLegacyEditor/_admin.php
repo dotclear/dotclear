@@ -17,7 +17,10 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     dcCore::app()->adminurl->get('admin.plugin.dcLegacyEditor'),
     [dcPage::getPF('dcLegacyEditor/icon.svg'), dcPage::getPF('dcLegacyEditor/icon-dark.svg')],
     preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.dcLegacyEditor')) . '/', $_SERVER['REQUEST_URI']),
-    dcCore::app()->auth->check('admin,contentadmin', dcCore::app()->blog->id)
+    dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_ADMIN,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id)
 );
 
 $self_ns = dcCore::app()->blog->settings->addNamespace('dclegacyeditor');

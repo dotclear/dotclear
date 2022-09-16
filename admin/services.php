@@ -311,7 +311,9 @@ class dcRestMethods
     public static function quickPost(dcCore $core, $get, $post)
     {
         # Create category
-        if (!empty($post['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+        if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CATEGORIES,
+        ]), dcCore::app()->blog->id)) {
             $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
@@ -403,7 +405,10 @@ class dcRestMethods
 
         $id = (int) $get['id'];
 
-        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_MEDIA,
+            dcAuth::PERMISSION_MEDIA_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             throw new Exception('Permission denied');
         }
 

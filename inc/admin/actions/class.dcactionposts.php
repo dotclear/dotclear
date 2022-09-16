@@ -141,7 +141,10 @@ class dcDefaultPostActions
      */
     public static function adminPostsActionsPage(dcPostsActions $ap)
     {
-        if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -171,14 +174,19 @@ class dcDefaultPostActions
             ]],
             ['dcDefaultPostActions', 'doChangePostLang']
         );
-        if (dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
                 ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
-        if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_DELETE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -351,7 +359,9 @@ class dcDefaultPostActions
                 throw new Exception(__('No entry selected'));
             }
             $new_cat_id = $post['new_cat_id'];
-            if (!empty($post['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+            if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_CATEGORIES,
+            ]), dcCore::app()->blog->id)) {
                 $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
                 $cur_cat->cat_title = $post['new_cat_title'];
                 $cur_cat->cat_url   = '';
@@ -404,7 +414,9 @@ class dcDefaultPostActions
             '<p><label for="new_cat_id" class="classic">' . __('Category:') . '</label> ' .
             form::combo(['new_cat_id'], $categories_combo);
 
-            if (dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+            if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_CATEGORIES,
+            ]), dcCore::app()->blog->id)) {
                 echo
                 '<div>' .
                 '<p id="new_cat">' . __('Create a new category for the post(s)') . '</p>' .
@@ -436,7 +448,9 @@ class dcDefaultPostActions
      */
     public static function doChangePostAuthor(dcPostsActions $ap, ArrayObject $post)
     {
-        if (isset($post['new_auth_id']) && dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+        if (isset($post['new_auth_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $new_user_id = $post['new_auth_id'];
             $ids         = $ap->getIDs();
             if (empty($ids)) {
@@ -464,7 +478,9 @@ class dcDefaultPostActions
             $ap->redirect(true);
         } else {
             $usersList = [];
-            if (dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+            if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_ADMIN,
+            ]), dcCore::app()->blog->id)) {
                 $params = [
                     'limit' => 100,
                     'order' => 'nb_post DESC',

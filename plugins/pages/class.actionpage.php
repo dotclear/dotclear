@@ -105,7 +105,10 @@ class dcDefaultPageActions
      */
     public static function adminPagesActionsPage(dcPagesActions $ap)
     {
-        if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -116,14 +119,19 @@ class dcDefaultPageActions
                 ['dcDefaultPostActions', 'doChangePostStatus']
             );
         }
-        if (dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
                 ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
-        if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_DELETE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -148,7 +156,10 @@ class dcDefaultPageActions
     public static function doReorderPages(dcPagesActions $ap, ArrayObject $post)
     {
         foreach ($post['order'] as $post_id => $value) {
-            if (!dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
+            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_PUBLISH,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]), dcCore::app()->blog->id)) {
                 throw new Exception(__('You are not allowed to change this entry status'));
             }
 
@@ -156,7 +167,9 @@ class dcDefaultPageActions
             'AND post_id ' . dcCore::app()->con->in($post_id);
 
             #If user can only publish, we need to check the post's owner
-            if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]), dcCore::app()->blog->id)) {
                 $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
             }
 

@@ -44,7 +44,7 @@ class dcPage
      * Auth check
      *
      * @param      string  $permissions  The permissions
-     * @param      bool    $home         The home
+     * @param      bool    $home         Currently on dashboard
      */
     public static function check(string $permissions, bool $home = false)
     {
@@ -53,7 +53,10 @@ class dcPage
         }
 
         // Check if dashboard is not the current page et if it is granted for the user
-        if (!$home && dcCore::app()->blog && dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+        if (!$home && dcCore::app()->blog && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             // Go back to the dashboard
             http::redirect(DC_ADMIN_URL);
         }
@@ -73,7 +76,10 @@ class dcPage
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
-            if (!$home && dcCore::app()->blog && dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+            if (!$home && dcCore::app()->blog && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_USAGE,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]), dcCore::app()->blog->id)) {
                 // Go back to the dashboard
                 http::redirect(DC_ADMIN_URL);
             }
@@ -229,7 +235,9 @@ class dcPage
 
         $js['debug'] = !!DC_DEBUG;
 
-        $js['showIp'] = dcCore::app()->blog && dcCore::app()->blog->id ? dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id) : false;
+        $js['showIp'] = dcCore::app()->blog && dcCore::app()->blog->id ? dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id) : false;
 
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);

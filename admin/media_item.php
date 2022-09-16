@@ -8,7 +8,10 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('media,media_admin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_MEDIA,
+    dcAuth::PERMISSION_MEDIA_ADMIN,
+]));
 
 $tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 

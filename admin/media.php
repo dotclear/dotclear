@@ -8,7 +8,10 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('media,media_admin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_MEDIA,
+    dcAuth::PERMISSION_MEDIA_ADMIN,
+]));
 
 /**
  * @brief class for admin media page
@@ -110,7 +113,9 @@ class adminMediaPage extends adminMediaFilter
         if ($this->media_archivable === null) {
             $rs = $this->getDirsRecord();
 
-            $this->media_archivable = dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)
+            $this->media_archivable = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_MEDIA_ADMIN,
+            ]), dcCore::app()->blog->id)
                 && !(count($rs) == 0 || (count($rs) == 1 && $rs->__data[0]->parent));
         }
 
@@ -389,7 +394,9 @@ $page = new adminMediaPage();
 -------------------------------------------------------- */
 
 # Zip download
-if (!empty($_GET['zipdl']) && dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)) {
+if (!empty($_GET['zipdl']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_MEDIA_ADMIN,
+]), dcCore::app()->blog->id)) {
     try {
         if (strpos(realpath(dcCore::app()->media->root . '/' . $page->d), realpath(dcCore::app()->media->root)) === 0) {
             // Media folder or one of it's sub-folder(s)

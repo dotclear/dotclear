@@ -8,7 +8,10 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 $post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
 $media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;

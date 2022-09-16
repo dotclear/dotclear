@@ -128,7 +128,9 @@ class flatImport extends flatBackup
             throw new Exception(__('File is not a single blog export.'));
         }
 
-        if (!dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
         }
 

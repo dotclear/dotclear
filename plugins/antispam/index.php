@@ -11,7 +11,9 @@
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
-dcPage::check('admin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_ADMIN,
+]));
 
 dcAntispam::initFilters();
 $filters = dcAntispam::$filters->getFilters();

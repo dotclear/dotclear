@@ -24,7 +24,9 @@ class dcExportFlat extends dcIeModule
     public function process($do)
     {
         # Export a blog
-        if ($do == 'export_blog' && dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+        if ($do == 'export_blog' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
             $blog_id  = dcCore::app()->con->escape(dcCore::app()->blog->id);
 

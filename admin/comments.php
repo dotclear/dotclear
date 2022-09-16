@@ -8,7 +8,10 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 if (!empty($_POST['delete_all_spam'])) {
     try {
@@ -51,7 +54,10 @@ $params['no_content'] = true;
 -------------------------------------------------------- */
 $combo_action = [];
 $default      = '';
-if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id) && $comment_filter->status == -2) {
+if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_DELETE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id) && $comment_filter->status == -2) {
     $default = 'delete';
 }
 
@@ -151,7 +157,9 @@ if (!dcCore::app()->error->flag()) {
         '</form>',
         $comment_filter->show(),
         ($comment_filter->show() || ($comment_filter->status == -2)),
-        dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)
+        dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)
     );
 }
 

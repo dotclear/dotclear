@@ -34,7 +34,10 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     dcCore::app()->adminurl->get('admin.plugin.blogroll'),
     [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
     preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.blogroll')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)
+    dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_USAGE,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id)
 );
 
 dcCore::app()->auth->setPermissionType('blogroll', __('manage blogroll'));

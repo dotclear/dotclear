@@ -131,7 +131,10 @@ class tagsBehaviors
             ['tagsBehaviors', 'adminAddTags']
         );
 
-        if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_DELETE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Tags') => [__('Remove tags') => 'tags_remove']],
                 ['tagsBehaviors', 'adminRemoveTags']
@@ -221,7 +224,10 @@ class tagsBehaviors
     }
     public static function adminRemoveTags(dcPostsActions $ap, $post)
     {
-        if (!empty($post['meta_id']) && dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
+        if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_DELETE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
             $meta  = dcCore::app()->meta;
             $posts = $ap->getRS();
             while ($posts->fetch()) {

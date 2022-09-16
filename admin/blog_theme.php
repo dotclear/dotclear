@@ -8,7 +8,9 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('admin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_ADMIN,
+]));
 
 # -- Loading themes --
 dcCore::app()->themes = new dcThemes(dcCore::app());

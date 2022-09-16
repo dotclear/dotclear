@@ -8,11 +8,16 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]));
 
 dt::setTZ(dcCore::app()->auth->getInfo('user_tz'));
 
-$show_ip = dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id);
+$show_ip = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id);
 
 $post_id            = '';
 $cat_id             = '';
@@ -36,9 +41,15 @@ $post_open_tb       = dcCore::app()->blog->settings->system->allow_trackbacks;
 $page_title = __('New post');
 
 $can_view_page = true;
-$can_edit_post = dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id);
-$can_publish   = dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id);
-$can_delete    = false;
+$can_edit_post = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_USAGE,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id);
+$can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_PUBLISH,
+    dcAuth::PERMISSION_CONTENT_ADMIN,
+]), dcCore::app()->blog->id);
+$can_delete = false;
 
 $post_headlink = '<link rel="%s" title="%s" href="' . dcCore::app()->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
 $post_link     = '<a href="' . dcCore::app()->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
@@ -273,7 +284,9 @@ if (!empty($_POST['delete']) && $can_delete) {
 # Create or update post
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
     # Create category
-    if (!empty($_POST['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+    if (!empty($_POST['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        dcAuth::PERMISSION_CATEGORIES,
+    ]), dcCore::app()->blog->id)) {
         $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $cur_cat->cat_title = $_POST['new_cat_title'];
         $cur_cat->cat_url   = '';
@@ -645,7 +658,9 @@ if ($can_edit_post) {
                 '<p><label for="cat_id">' . __('Category:') . '</label>' .
                 form::combo('cat_id', $categories_combo, $cat_id, 'maximal') .
                 '</p>' .
-                (dcCore::app()->auth->check('categories', dcCore::app()->blog->id) ?
+                (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                    dcAuth::PERMISSION_CATEGORIES,
+                ]), dcCore::app()->blog->id) ?
                     '<div>' .
                     '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
                     '<p><label for="new_cat_title">' . __('Title:') . ' ' .

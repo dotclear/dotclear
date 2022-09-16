@@ -1016,7 +1016,9 @@ class adminModulesList
                 foreach ($settings as $sk => $sv) {
                     switch ($sk) {
                         case 'blog':
-                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                                dcAuth::PERMISSION_ADMIN,
+                            ]), dcCore::app()->blog->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 dcCore::app()->adminurl->get('admin.blog.pref') . $sv .
                                 '">' . __('Plugin settings (in blog parameters)') . '</a>';
@@ -1024,7 +1026,10 @@ class adminModulesList
 
                             break;
                         case 'pref':
-                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
+                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                                dcAuth::PERMISSION_USAGE,
+                                dcAuth::PERMISSION_CONTENT_ADMIN,
+                            ]), dcCore::app()->blog->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 dcCore::app()->adminurl->get('admin.user.preferences') . $sv .
                                 '">' . __('Plugin settings (in user preferences)') . '</a>';

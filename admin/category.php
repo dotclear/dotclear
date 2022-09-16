@@ -8,7 +8,9 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check('categories');
+dcPage::check(dcCore::app()->auth->makePermissions([
+    dcAuth::PERMISSION_CATEGORIES,
+]));
 
 $cat_id       = '';
 $cat_title    = '';
