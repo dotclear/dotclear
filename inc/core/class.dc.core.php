@@ -462,14 +462,25 @@ final class dcCore
      * Adds a new behavior to behaviors stack. <var>$func</var> must be a valid
      * and callable callback.
      *
-     * @param      string    $behavior  The behavior
-     * @param      callable  $func      The function
+     * @param      string           $behavior  The behavior
+     * @param      callable|array   $func      The function
      */
-    public function addBehavior($behavior, $func)
+    public function addBehavior(string $behavior, $func): void
     {
         if (is_callable($func)) {
             $this->behaviors[$behavior][] = $func;
         }
+    }
+
+    /**
+     * Adds a behaviour (alias).
+     *
+     * @param      string           $behaviour  The behaviour
+     * @param      callable|array   $func       The function
+     */
+    public function addBehaviour(string $behaviour, $func): void
+    {
+        $this->addBehavior($behaviour, $func);
     }
 
     /**
@@ -479,9 +490,21 @@ final class dcCore
      *
      * @return     bool    True if behavior exists, False otherwise.
      */
-    public function hasBehavior($behavior)
+    public function hasBehavior(string $behavior): bool
     {
         return isset($this->behaviors[$behavior]);
+    }
+
+    /**
+     * Determines if behaviour exists (alias).
+     *
+     * @param      string  $behaviour  The behavior
+     *
+     * @return     bool    True if behaviour, False otherwise.
+     */
+    public function hasBehaviour(string $behaviour): bool
+    {
+        return $this->hasBehavior($behaviour);
     }
 
     /**
@@ -491,7 +514,7 @@ final class dcCore
      *
      * @return     mixed   The behaviors.
      */
-    public function getBehaviors($behavior = '')
+    public function getBehaviors(string $behavior = '')
     {
         if (empty($this->behaviors)) {
             return;
@@ -504,6 +527,18 @@ final class dcCore
         }
 
         return [];
+    }
+
+    /**
+     * Gets the behaviours stack (alias).
+     *
+     * @param      string  $behaviour  The behaviour
+     *
+     * @return     mixed  The behaviours.
+     */
+    public function getBehaviours(string $behaviour = '')
+    {
+        return $this->getBehaviors($behaviour);
     }
 
     /**
@@ -529,6 +564,19 @@ final class dcCore
 
             return $res;
         }
+    }
+
+    /**
+     * Calls every funcction in behaviours stack
+     *
+     * @param      string  $behaviour  The behaviour
+     * @param      mixed   ...$args    The arguments
+     *
+     * @return     mixed
+     */
+    public function callBehaviour(string $behaviour, ...$args)
+    {
+        return $this->callBehavior($behaviour, ...$args);
     }
     //@}
 

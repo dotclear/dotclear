@@ -864,11 +864,10 @@ class rsExtDates
      * Returns date month archive full URL.
      *
      * @param      record  $rs       Invisible parameter
-     * @param      dcCore  $core     The core
      *
      * @return     string
      */
-    public static function url($rs, dcCore $core = null)
+    public static function url($rs)
     {
         $url = date('Y/m', strtotime($rs->dt));
 

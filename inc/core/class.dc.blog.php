@@ -154,9 +154,9 @@ class dcBlog
      *
      * @return     string  The qmark url.
      */
-    public function getQmarkURL()
+    public function getQmarkURL(): string
     {
-        if (substr($this->url, -1) != '?') {
+        if (substr($this->url, -1) !== '?') {
             return $this->url . '?';
         }
 

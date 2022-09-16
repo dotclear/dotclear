@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Public
@@ -8,31 +9,39 @@
  */
 class dcTemplate extends template
 {
+    /**
+     * Current tag
+     *
+     * @var string
+     */
     private $current_tag;
 
-    protected $unknown_value_handler = null;
-    protected $unknown_block_handler = null;
-
-    public function __construct($cache_dir, $self_name, $core = null)
+    /**
+     * Constructs a new instance.
+     *
+     * @param      string  $cache_dir  The cache dir
+     * @param      string  $self_name  The self name (used in compiled template code)
+     */
+    public function __construct(string $cache_dir, string $self_name)
     {
         parent::__construct($cache_dir, $self_name);
 
         $this->remove_php = !dcCore::app()->blog->settings->system->tpl_allow_php;
         $this->use_cache  = dcCore::app()->blog->settings->system->tpl_use_cache;
 
-        # Transitional tags
+        // Transitional tags
         $this->addValue('EntryTrackbackCount', [$this, 'EntryPingCount']);
         $this->addValue('EntryTrackbackData', [$this, 'EntryPingData']);
         $this->addValue('EntryTrackbackLink', [$this, 'EntryPingLink']);
 
-        # l10n
+        // l10n
         $this->addValue('lang', [$this, 'l10n']);
 
-        # Loops test tags
+        // Loops test tags
         $this->addBlock('LoopPosition', [$this, 'LoopPosition']);
         $this->addValue('LoopIndex', [$this, 'LoopIndex']);
 
-        # Archives
+        // Archives
         $this->addBlock('Archives', [$this, 'Archives']);
         $this->addBlock('ArchivesHeader', [$this, 'ArchivesHeader']);
         $this->addBlock('ArchivesFooter', [$this, 'ArchivesFooter']);
@@ -44,7 +53,7 @@ class dcTemplate extends template
         $this->addValue('ArchiveEntriesCount', [$this, 'ArchiveEntriesCount']);
         $this->addValue('ArchiveURL', [$this, 'ArchiveURL']);
 
-        # Blog
+        // Blog
         $this->addValue('BlogArchiveURL', [$this, 'BlogArchiveURL']);
         $this->addValue('BlogCopyrightNotice', [$this, 'BlogCopyrightNotice']);
         $this->addValue('BlogDescription', [$this, 'BlogDescription']);
@@ -71,7 +80,7 @@ class dcTemplate extends template
         $this->addValue('BlogNbEntriesFirstPage', [$this, 'BlogNbEntriesFirstPage']);
         $this->addValue('BlogNbEntriesPerPage', [$this, 'BlogNbEntriesPerPage']);
 
-        # Categories
+        // Categories
         $this->addBlock('Categories', [$this, 'Categories']);
         $this->addBlock('CategoriesHeader', [$this, 'CategoriesHeader']);
         $this->addBlock('CategoriesFooter', [$this, 'CategoriesFooter']);
@@ -86,7 +95,7 @@ class dcTemplate extends template
         $this->addValue('CategoryTitle', [$this, 'CategoryTitle']);
         $this->addValue('CategoryEntriesCount', [$this, 'CategoryEntriesCount']);
 
-        # Comments
+        // Comments
         $this->addBlock('Comments', [$this, 'Comments']);
         $this->addValue('CommentAuthor', [$this, 'CommentAuthor']);
         $this->addValue('CommentAuthorDomain', [$this, 'CommentAuthorDomain']);
@@ -101,6 +110,7 @@ class dcTemplate extends template
         $this->addValue('CommentFeedID', [$this, 'CommentFeedID']);
         $this->addValue('CommentID', [$this, 'CommentID']);
         $this->addBlock('CommentIf', [$this, 'CommentIf']);
+        $this->addValue('CommentIfEven', [$this, 'CommentIfEven']);
         $this->addValue('CommentIfFirst', [$this, 'CommentIfFirst']);
         $this->addValue('CommentIfMe', [$this, 'CommentIfMe']);
         $this->addValue('CommentIfOdd', [$this, 'CommentIfOdd']);
@@ -112,7 +122,7 @@ class dcTemplate extends template
         $this->addBlock('IfCommentAuthorEmail', [$this, 'IfCommentAuthorEmail']);
         $this->addValue('CommentHelp', [$this, 'CommentHelp']);
 
-        # Comment preview
+        // Comment preview
         $this->addBlock('IfCommentPreview', [$this, 'IfCommentPreview']);
         $this->addBlock('IfCommentPreviewOptional', [$this, 'IfCommentPreviewOptional']);
         $this->addValue('CommentPreviewName', [$this, 'CommentPreviewName']);
@@ -121,7 +131,7 @@ class dcTemplate extends template
         $this->addValue('CommentPreviewContent', [$this, 'CommentPreviewContent']);
         $this->addValue('CommentPreviewCheckRemember', [$this, 'CommentPreviewCheckRemember']);
 
-        # Entries
+        // Entries
         $this->addBlock('DateFooter', [$this, 'DateFooter']);
         $this->addBlock('DateHeader', [$this, 'DateHeader']);
         $this->addBlock('Entries', [$this, 'Entries']);
@@ -150,6 +160,7 @@ class dcTemplate extends template
         $this->addValue('EntryID', [$this, 'EntryID']);
         $this->addBlock('EntryIf', [$this, 'EntryIf']);
         $this->addBlock('EntryIfContentCut', [$this, 'EntryIfContentCut']);
+        $this->addValue('EntryIfEven', [$this, 'EntryIfEven']);
         $this->addValue('EntryIfFirst', [$this, 'EntryIfFirst']);
         $this->addValue('EntryIfOdd', [$this, 'EntryIfOdd']);
         $this->addValue('EntryIfSelected', [$this, 'EntryIfSelected']);
@@ -163,7 +174,7 @@ class dcTemplate extends template
         $this->addValue('EntryTime', [$this, 'EntryTime']);
         $this->addValue('EntryURL', [$this, 'EntryURL']);
 
-        # Languages
+        // Languages
         $this->addBlock('Languages', [$this, 'Languages']);
         $this->addBlock('LanguagesHeader', [$this, 'LanguagesHeader']);
         $this->addBlock('LanguagesFooter', [$this, 'LanguagesFooter']);
@@ -172,20 +183,21 @@ class dcTemplate extends template
         $this->addValue('LanguageURL', [$this, 'LanguageURL']);
         $this->addValue('FeedLanguage', [$this, 'FeedLanguage']);
 
-        # Pagination
+        // Pagination
         $this->addBlock('Pagination', [$this, 'Pagination']);
         $this->addValue('PaginationCounter', [$this, 'PaginationCounter']);
         $this->addValue('PaginationCurrent', [$this, 'PaginationCurrent']);
         $this->addBlock('PaginationIf', [$this, 'PaginationIf']);
         $this->addValue('PaginationURL', [$this, 'PaginationURL']);
 
-        # Trackbacks
+        // Trackbacks
         $this->addValue('PingBlogName', [$this, 'PingBlogName']);
         $this->addValue('PingContent', [$this, 'PingContent']);
         $this->addValue('PingDate', [$this, 'PingDate']);
         $this->addValue('PingEntryTitle', [$this, 'PingEntryTitle']);
         $this->addValue('PingFeedID', [$this, 'PingFeedID']);
         $this->addValue('PingID', [$this, 'PingID']);
+        $this->addValue('PingIfEven', [$this, 'PingIfEven']);
         $this->addValue('PingIfFirst', [$this, 'PingIfFirst']);
         $this->addValue('PingIfOdd', [$this, 'PingIfOdd']);
         $this->addValue('PingIP', [$this, 'PingIP']);
@@ -199,7 +211,7 @@ class dcTemplate extends template
         $this->addValue('PingTitle', [$this, 'PingTitle']);
         $this->addValue('PingAuthorURL', [$this, 'PingAuthorURL']);
 
-        # System
+        // System
         $this->addValue('SysBehavior', [$this, 'SysBehavior']);
         $this->addBlock('SysIf', [$this, 'SysIf']);
         $this->addBlock('SysIfCommentPublished', [$this, 'SysIfCommentPublished']);
@@ -211,10 +223,17 @@ class dcTemplate extends template
         $this->addValue('SysSearchString', [$this, 'SysSearchString']);
         $this->addValue('SysSelfURI', [$this, 'SysSelfURI']);
 
-        # Generic
+        // Generic
         $this->addValue('else', [$this, 'GenericElse']);
     }
 
+    /**
+     * Gets the template file content.
+     *
+     * @param      string  $________  The template filename
+     *
+     * @return     string  The data.
+     */
     public function getData(string $________): string
     {
         # --BEHAVIOR-- tplBeforeData
@@ -235,10 +254,20 @@ class dcTemplate extends template
         return self::$_r;
     }
 
+    /**
+     * Compile block node
+     *
+     * @param      string               $tag      The tag
+     * @param      array|ArrayObject    $attr     The attributes
+     * @param      string               $content  The content
+     *
+     * @return     string
+     */
     public function compileBlockNode(string $tag, $attr, string $content): string
     {
         $this->current_tag = $tag;
         $attr              = new ArrayObject($attr);
+
         # --BEHAVIOR-- templateBeforeBlock
         $res = dcCore::app()->callBehavior('templateBeforeBlockV2', $this->current_tag, $attr);
 
@@ -253,11 +282,20 @@ class dcTemplate extends template
         return $res;
     }
 
+    /**
+     * Compile value node
+     *
+     * @param      string               $tag       The tag
+     * @param      array|ArrayObject    $attr      The attributes
+     * @param      string               $str_attr  The attributes (one string form)
+     *
+     * @return     string
+     */
     public function compileValueNode(string $tag, $attr, string $str_attr): string
     {
         $this->current_tag = $tag;
+        $attr              = new ArrayObject($attr);
 
-        $attr = new ArrayObject($attr);
         # --BEHAVIOR-- templateBeforeValue
         $res = dcCore::app()->callBehavior('templateBeforeValueV2', $this->current_tag, $attr);
 
@@ -269,15 +307,19 @@ class dcTemplate extends template
         return $res;
     }
 
-    public function getFilters($attr, $default = [])
+    /**
+     * Return the PHP code to filter a given value.
+     *
+     * @param      array|ArrayObject   $attr     The attributes
+     * @param      array|ArrayObject   $default  The default filters
+     *
+     * @return     string  The filters.
+     */
+    public function getFilters($attr, $default = []): string
     {
-        if (!is_array($attr) && !($attr instanceof arrayObject)) {
-            $attr = [];
-        }
-
-        $p = array_merge(
+        $params = array_merge(
             [
-                0             => null,
+                0             => null,  // Will receive the string to filter
                 'encode_xml'  => 0,
                 'encode_html' => 0,
                 'cut_string'  => 0,
@@ -291,19 +333,29 @@ class dcTemplate extends template
             $default
         );
 
-        foreach ($attr as $k => $v) {
+        foreach ($attr as $filter => $value) {
             // attributes names must follow this rule
-            $k = preg_filter('/\w/', '$0', $k);
-            if ($k) {
+            $filter = preg_filter('/\w/', '$0', $filter);
+            if ($filter) {
                 // addslashes protect var_export, str_replace protect sprintf;
-                $p[$k] = str_replace('%', '%%', addslashes($v));
+                $params[$filter] = str_replace('%', '%%', addslashes($value));
             }
         }
 
-        return 'context::global_filters(%s,' . var_export($p, true) . ",'" . addslashes($this->current_tag) . "')";
+        return 'context::global_filters(%s,' . var_export($params, true) . ",'" . addslashes($this->current_tag) . "')";
     }
 
-    public static function getOperator($op)
+    /**
+     * Gets the operator.
+     *
+     * "or" (in any case) and "||"" are aliases
+     * "and" (in any case) and "&&"" are aliases
+     *
+     * @param      string  $op     The operation
+     *
+     * @return     string  The operator.
+     */
+    public static function getOperator(string $op): string
     {
         switch (strtolower($op)) {
             case 'or':
@@ -316,7 +368,15 @@ class dcTemplate extends template
         }
     }
 
-    public function getSortByStr($attr, $table = null)
+    /**
+     * Gets the sort by field depending on given table.
+     *
+     * @param      ArrayObject     $attr      The attributes
+     * @param      string          $table     The table
+     *
+     * @return     string
+     */
+    public function getSortByStr(ArrayObject $attr, ?string $table = null): string
     {
         $res = [];
 
@@ -386,7 +446,14 @@ class dcTemplate extends template
         return implode(', ', $res);
     }
 
-    public static function getAge($attr)
+    /**
+     * Gets the maximum date corresponding to a given age.
+     *
+     * @param      ArrayObject  $attr   The attributes
+     *
+     * @return     string  The age.
+     */
+    public static function getAge(ArrayObject $attr): string
     {
         if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', $attr['age'])) {
             if (($ts = strtotime($attr['age'])) !== false) {
@@ -397,40 +464,50 @@ class dcTemplate extends template
         return '';
     }
 
-    public function displayCounter($variable, $values, $attr, $count_only_by_default = false)
+    /**
+     * Return PHP code to display a counter
+     *
+     * @param      string         $variable               The variable
+     * @param      array          $values                 The values
+     * @param      ArrayObject    $attr                   The attributes
+     * @param      bool           $count_only_by_default  Display only counter value by default
+     *
+     * @return     string
+     */
+    public function displayCounter(string $variable, array $values, ArrayObject $attr, bool $count_only_by_default = false): string
     {
-        if (isset($attr['count_only'])) {
-            $count_only = ($attr['count_only'] == 1);
-        } else {
-            $count_only = $count_only_by_default;
-        }
-        if ($count_only) {
+        if (isset($attr['count_only']) ? (bool) $attr['count_only'] : $count_only_by_default) {
             return '<?php echo ' . $variable . '; ?>';
         }
-        $v = $values;
-        if (isset($attr['none'])) {
-            $v['none'] = addslashes($attr['none']);
-        }
-        if (isset($attr['one'])) {
-            $v['one'] = addslashes($attr['one']);
-        }
-        if (isset($attr['more'])) {
-            $v['more'] = addslashes($attr['more']);
-        }
+
+        $patterns = array_map('addslashes', $values);
 
         return
                 '<?php if (' . $variable . " == 0) {\n" .
-                "  printf(__('" . $v['none'] . "')," . $variable . ");\n" .
+                "  printf(__('" . $patterns['none'] . "')," . $variable . ");\n" .
                 '} elseif (' . $variable . " == 1) {\n" .
-                "  printf(__('" . $v['one'] . "')," . $variable . ");\n" .
+                "  printf(__('" . $patterns['one'] . "')," . $variable . ");\n" .
                 "} else {\n" .
-                "  printf(__('" . $v['more'] . "')," . $variable . ");\n" .
+                "  printf(__('" . $patterns['more'] . "')," . $variable . ");\n" .
                 '} ?>';
     }
-    /* TEMPLATE FUNCTIONS
-    ------------------------------------------------------- */
 
-    public function l10n($attr, $str_attr)
+    // TEMPLATE FUNCTIONS
+    // -------------------------------------------------------
+
+    /**
+     * tpl:lang [string] : Localized string (tpl value)
+     *
+     * attributes:
+     *
+     *      string      string to localized without quotes
+     *
+     * @param      ArrayObject    $attr      The attributes
+     * @param      string         $str_attr  The attributes (one string form)
+     *
+     * @return     string
+     */
+    public function l10n(ArrayObject $attr, string $str_attr): string
     {
         # Normalize content
         $str_attr = preg_replace('/\s+/x', ' ', $str_attr);
@@ -438,7 +515,22 @@ class dcTemplate extends template
         return "<?php echo __('" . str_replace("'", "\\'", $str_attr) . "'); ?>";
     }
 
-    public function LoopPosition($attr, $content)
+    /**
+     * tpl:LoopPosition [attributes] : Display content depending on current position (tpl block)
+     *
+     * attributes:
+     *
+     *      start       int       Start (first = 1)
+     *      length      int       Length
+     *      even        (1|0)     Even / Odd
+     *      modulo      int       Modulo
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
+     */
+    public function LoopPosition(ArrayObject $attr, string $content): string
     {
         $start  = isset($attr['start']) ? (int) $attr['start'] : '0';
         $length = isset($attr['length']) ? (int) $attr['length'] : 'null';
@@ -446,84 +538,108 @@ class dcTemplate extends template
         $modulo = isset($attr['modulo']) ? (int) $attr['modulo'] : 'null';
 
         if ($start > 0) {
+            // PHP array is 0 based index
             $start--;
         }
 
         return
-            '<?php if (dcCore::app()->ctx->loopPosition(' . $start . ',' . $length . ',' . $even . ',' . $modulo . ')) : ?>' .
+            '<?php if (dcCore::app()->ctx->loopPosition(' .
+            (string) $start . ',' .
+            (string) $length . ',' .
+            (string) $even . ',' .
+            (string) $modulo . ')) : ?>' .
             $content .
             '<?php endif; ?>';
     }
 
-    public function LoopIndex($attr)
+    /**
+     * tpl:LoopPosition [attributes] : Display current loop index (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function LoopIndex(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, '(!dcCore::app()->ctx->cur_loop ? 0 : dcCore::app()->ctx->cur_loop->index() + 1)') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), '(!dcCore::app()->ctx->cur_loop ? 0 : dcCore::app()->ctx->cur_loop->index() + 1)') . '; ?>';
     }
 
-    /* Archives ------------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:Archives - - -- Archives dates loop -->
-    <!ATTLIST tpl:Archives
-    type        (day|month|year)    #IMPLIED    -- Get days, months or years, default to month --
-    category    CDATA            #IMPLIED  -- Get dates of given category --
-    no_context (1|0)            #IMPLIED  -- Override context information
-    order    (asc|desc)        #IMPLIED  -- Sort asc or desc --
-    post_type    CDATA            #IMPLIED  -- Get dates of given type of entries, default to post --
-    post_lang    CDATA        #IMPLIED  -- Filter on the given language
-    >
+    // Archives
+    // --------
+
+    /**
+     * tpl:Archives [attributes] : Archives dates loop (tpl block)
+     *
+     * attributes:
+     *
+     *      type           (day|month|year)        Get days, months or years, default to "month"
+     *      category       category URL            Get dates of given category
+     *      no_context     (1|0)                   Override context information
+     *      order          (asc|desc)              Sort asc or desc
+     *      post_type      type                    Get dates of given type of entries, default to "post"
+     *      post_lang      lang                    Filter on the given language
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Archives($attr, $content)
+    public function Archives(ArrayObject $attr, string $content): string
     {
-        $p = "if (!isset(\$params)) \$params = [];\n";
-        $p .= "\$params['type'] = 'month';\n";
+        $params = "if (!isset(\$params)) \$params = [];\n" .
+            "\$params['type'] = 'month';\n";
+
         if (isset($attr['type'])) {
-            $p .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
+            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
         }
-
         if (isset($attr['category'])) {
-            $p .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
+            $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
         }
-
         if (isset($attr['post_type'])) {
-            $p .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
-
         if (isset($attr['post_lang'])) {
-            $p .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
+            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
-
         if (empty($attr['no_context']) && !isset($attr['category'])) {
-            $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
                 "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id; " .
                 "}\n";
         }
 
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
-            $p .= "\$params['order'] = '" . $attr['order'] . "';\n ";
+            $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
-        $res = "<?php\n";
-        $res .= $p;
-        $res .= dcCore::app()->callBehavior(
-            'templatePrepareParams',
-            ['tag' => 'Archives', 'method' => 'blog::getDates'],
-            $attr,
-            $content
-        );
-        $res .= 'dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
-        $res .= "?>\n";
+        $res = "<?php\n" .
+            $params .
+             dcCore::app()->callBehavior(
+                 'templatePrepareParams',
+                 ['tag' => 'Archives', 'method' => 'blog::getDates'],
+                 $attr,
+                 $content
+             ) .
+            'dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n" .
+            "?>\n";
 
         $res .= '<?php while (dcCore::app()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->archives = null; ?>';
 
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchivesHeader - - -- First archives result container -->
+    /**
+     * tpl:ArchivesHeader : Display content on first archive element (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function ArchivesHeader($attr, $content)
+    public function ArchivesHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->archives->isStart()) : ?>' .
@@ -531,10 +647,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchivesFooter - - -- Last archives result container -->
+    /**
+     * tpl:ArchivesFooter : Display content on last archive element (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function ArchivesFooter($attr, $content)
+    public function ArchivesFooter(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->archives->isEnd()) : ?>' .
@@ -542,10 +663,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchivesYearHeader - - -- First result of year in archives container -->
+    /**
+     * tpl:ArchivesYearHeader : Display content on first archive element of year (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function ArchivesYearHeader($attr, $content)
+    public function ArchivesYearHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->archives->yearHeader()) : ?>' .
@@ -553,10 +679,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchivesYearFooter - - -- Last result of year in archives container -->
+    /**
+     * tpl:ArchivesYearFooter : Display content on last archive element of year (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function ArchivesYearFooter($attr, $content)
+    public function ArchivesYearFooter(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->archives->yearFooter()) : ?>' .
@@ -564,33 +695,43 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchiveDate - O -- Archive result date -->
-    <!ATTLIST tpl:ArchiveDate
-    format    CDATA    #IMPLIED  -- Date format (Default %B %Y) --
-    >
+    /**
+     * tpl:ArchivesDate [attributes] : Display archive element date (tpl value)
+     *
+     * attributes:
+     *
+     *      format          Date format (default %B %Y)
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function ArchiveDate($attr)
+    public function ArchiveDate(ArrayObject $attr): string
     {
         $format = '%B %Y';
         if (!empty($attr['format'])) {
             $format = addslashes($attr['format']);
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, "dt::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), "dt::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchiveEntriesCount - O -- Current archive result number of entries -->
+    /**
+     * tpl:ArchivesEntriesCount [attributes] : Display archive number of entries (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function ArchiveEntriesCount($attr)
+    public function ArchiveEntriesCount(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
         return $this->displayCounter(
-            sprintf($f, 'dcCore::app()->ctx->archives->nb_post'),
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->archives->nb_post'),
             [
                 'none' => 'no archive',
                 'one'  => 'one archive',
@@ -601,34 +742,40 @@ class dcTemplate extends template
         );
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchiveNext - - -- Next archive result container -->
-    <!ATTLIST tpl:ArchiveNext
-    type        (day|month|year)    #IMPLIED    -- Get days, months or years, default to month --
-    post_type    CDATA            #IMPLIED  -- Get dates of given type of entries, default to post --
-    post_lang    CDATA        #IMPLIED  -- Filter on the given language
-    >
+    /**
+     * tpl:ArchiveNext [attributes] : Archives next entries (tpl block)
+     *
+     * attributes:
+     *
+     *      type           (day|month|year)        Get days, months or years, default to "month"
+     *      post_type      type                    Get dates of given type of entries, default to "post"
+     *      post_lang      lang                    Filter on the given language
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function ArchiveNext($attr, $content)
+    public function ArchiveNext(ArrayObject $attr, string $content): string
     {
-        $p = "if (!isset(\$params)) \$params = [];\n";
-        $p .= "\$params['type'] = 'month';\n";
+        $params = "if (!isset(\$params)) \$params = [];\n";
+        $params .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
-            $p .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
+            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
         }
 
         if (isset($attr['post_type'])) {
-            $p .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
 
         if (isset($attr['post_lang'])) {
-            $p .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
+            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
-        $p .= "\$params['next'] = dcCore::app()->ctx->archives->dt;";
+        $params .= "\$params['next'] = dcCore::app()->ctx->archives->dt;";
 
         $res = "<?php\n";
-        $res .= $p;
+        $res .= $params;
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'ArchiveNext', 'method' => 'blog::getDates'],
@@ -643,31 +790,37 @@ class dcTemplate extends template
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchivePrevious - - -- Previous archive result container -->
-    <!ATTLIST tpl:ArchivePrevious
-    type        (day|month|year)    #IMPLIED    -- Get days, months or years, default to month --
-    post_type    CDATA            #IMPLIED  -- Get dates of given type of entries, default to post --
-    post_lang    CDATA        #IMPLIED  -- Filter on the given language
-    >
+    /**
+     * tpl:ArchivePrevious [attributes] : Archives previous entries (tpl block)
+     *
+     * attributes:
+     *
+     *      type           (day|month|year)        Get days, months or years, default to "month"
+     *      post_type      type                    Get dates of given type of entries, default to "post"
+     *      post_lang      lang                    Filter on the given language
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function ArchivePrevious($attr, $content)
+    public function ArchivePrevious(ArrayObject $attr, string $content): string
     {
-        $p = 'if (!isset($params)) $params = [];';
-        $p .= "\$params['type'] = 'month';\n";
+        $params = 'if (!isset($params)) $params = [];';
+        $params .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
-            $p .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
+            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
         }
 
         if (isset($attr['post_type'])) {
-            $p .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
 
         if (isset($attr['post_lang'])) {
-            $p .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
+            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
-        $p .= "\$params['previous'] = dcCore::app()->ctx->archives->dt;";
+        $params .= "\$params['previous'] = dcCore::app()->ctx->archives->dt;";
 
         $res = "<?php\n";
         $res .= dcCore::app()->callBehavior(
@@ -676,7 +829,7 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= $p;
+        $res .= $params;
         $res .= 'dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
@@ -685,158 +838,245 @@ class dcTemplate extends template
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:ArchiveURL - O -- Current archive result URL -->
+    /**
+     * tpl:ArchivesURL [attributes] : Display archive result URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function ArchiveURL($attr)
+    public function ArchiveURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->archives->url(dcCore::app())') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->archives->url()') . '; ?>';
     }
 
-    /* Blog ----------------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:BlogArchiveURL - O -- Blog Archives URL -->
-     */
-    public function BlogArchiveURL($attr)
-    {
-        $f = $this->getFilters($attr);
+    // Blog
+    // ----
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("archive")') . '; ?>';
+    /**
+     * tpl:BlogArchiveURL [attributes] : Display blog archives URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function BlogArchiveURL(ArrayObject $attr): string
+    {
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("archive")') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogCopyrightNotice - O -- Blog copyrght notices -->
+    /**
+     * tpl:BlogCopyrightNotice [attributes] : Display blog copyright notice (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogCopyrightNotice($attr)
+    public function BlogCopyrightNotice(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->copyright_notice') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->copyright_notice') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogDescription - O -- Blog Description -->
+    /**
+     * tpl:BlogDescription [attributes] : Display blog description (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogDescription($attr)
+    public function BlogDescription(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->desc') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->desc') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogEditor - O -- Blog Editor -->
+    /**
+     * tpl:BlogEditor [attributes] : Display blog editor (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogEditor($attr)
+    public function BlogEditor(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->editor') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->editor') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogFeedID - O -- Blog Feed ID -->
+    /**
+     * tpl:BlogFeedID [attributes] : Display blog feed ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogFeedID($attr)
+    public function BlogFeedID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, '"urn:md5:".dcCore::app()->blog->uid') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), '"urn:md5:".dcCore::app()->blog->uid') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogFeedURL - O -- Blog Feed URL -->
-    <!ATTLIST tpl:BlogFeedURL
-    type    (rss2|atom)    #IMPLIED    -- feed type (default : rss2)
-    >
+    /**
+     * tpl:BlogFeedURL [attributes] : Display blog feed URL (tpl value)
+     *
+     * attributes:
+     *
+     *      type            (rss2|atom)     Feed type, default to "atom"
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogFeedURL($attr)
+    public function BlogFeedURL(ArrayObject $attr): string
     {
-        $type = !empty($attr['type']) ? $attr['type'] : 'atom';
-
-        if (!preg_match('#^(rss2|atom)$#', $type)) {
+        $type = !empty($attr['type']) ? strtolower($attr['type']) : 'atom';
+        if (!in_array($type, ['rss2', 'atom'])) {
             $type = 'atom';
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","' . $type . '")') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","' . $type . '")') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogName - O -- Blog Name -->
+    /**
+     * tpl:BlogName [attributes] : Display blog name (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogName($attr)
+    public function BlogName(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->name') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->name') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogLanguage - O -- Blog Language -->
+    /**
+     * tpl:BlogLanguage [attributes] : Display blog language (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogLanguage($attr)
+    public function BlogLanguage(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->lang') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogLanguageURL - O -- Blog Localized URL -->
+    /**
+     * tpl:BlogLanguageURL [attributes] : Display blog localized URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogLanguageURL($attr)
+    public function BlogLanguageURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
-        return '<?php if (dcCore::app()->ctx->exists("cur_lang")) echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
-            'dcCore::app()->ctx->cur_lang)') . ';
-            else echo ' . sprintf($f, 'dcCore::app()->blog->url') . '; ?>';
+        return '<?php if (dcCore::app()->ctx->exists("cur_lang")) echo ' .
+            sprintf($filters, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",dcCore::app()->ctx->cur_lang)') .
+            '; else echo ' .
+            sprintf($filters, 'dcCore::app()->blog->url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogThemeURL - O -- Blog's current Theme URL -->
+    /**
+     * tpl:BlogThemeURL [attributes] : Display blog's current theme URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogThemeURL($attr)
+    public function BlogThemeURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->themes_url."/".dcCore::app()->blog->settings->system->theme') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->themes_url."/".dcCore::app()->blog->settings->system->theme') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogParentThemeURL - O -- Blog's current Theme's parent URL -->
+    /**
+     * tpl:BlogParentThemeURL [attributes] : Display blog's current theme parent URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogParentThemeURL($attr)
+    public function BlogParentThemeURL(ArrayObject $attr): string
     {
-        $f      = $this->getFilters($attr);
         $parent = 'dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme,\'parent\')';
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : dcCore::app()->blog->settings->system->theme)') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : dcCore::app()->blog->settings->system->theme)') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogPublicURL - O -- Blog Public directory URL -->
+    /**
+     * tpl:BlogPublicURL [attributes] : Display blog's public directory URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogPublicURL($attr)
+    public function BlogPublicURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->public_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->public_url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogUpdateDate - O -- Blog last update date -->
-    <!ATTLIST tpl:BlogUpdateDate
-    format    CDATA    #IMPLIED    -- date format (encoded in dc:str by default if iso8601 or rfc822 not specified)
-    iso8601    CDATA    #IMPLIED    -- if set, tells that date format is ISO 8601
-    rfc822    CDATA    #IMPLIED    -- if set, tells that date format is RFC 822
-    >
+    /**
+     * tpl:BlogUpdateDate [attributes] : Display blog last update date (tpl value)
+     *
+     * attributes:
+     *
+     *      format                  Use dt::str() (if iso8601 nor rfc822 were specified default to %Y-%m-%d %H:%M:%S)
+     *      iso8601         (1|0)   Use dt::iso8601()
+     *      rfc822          (1|0)   Use dt::rfc822()
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogUpdateDate($attr)
+    public function BlogUpdateDate(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -848,105 +1088,163 @@ class dcTemplate extends template
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
 
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, 'dt::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($filters, 'dt::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, 'dt::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($filters, 'dt::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "dt::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
+        return '<?php echo ' . sprintf($filters, "dt::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogID - 0 -- Blog ID -->
-     */
-    public function BlogID($attr)
-    {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->id') . '; ?>';
-    }
-
-    /*dtd
-     <!ELEMENT tpl:BlogRSDURL - O -- Blog RSD URL -->
-      */
     /**
+     * tpl:BlogID [attributes] : Display blog ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function BlogID(ArrayObject $attr): string
+    {
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->id') . '; ?>';
+    }
+
+    /**
+     * tpl:BlogRSDURL [attributes] : Display blog RSD URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     *
      * @deprecated since 2.24
      */
-    public function BlogRSDURL($attr)
+    public function BlogRSDURL(ArrayObject $attr): string
     {
         return '';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogXMLRPCURL - O -- Blog XML-RPC URL -->
+    /**
+     * tpl:BlogXMLRPCURL [attributes] : Display blog XML-RPC URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogXMLRPCURL($attr)
+    public function BlogXMLRPCURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor(\'xmlrpc\',dcCore::app()->blog->id)') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor(\'xmlrpc\',dcCore::app()->blog->id)') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogURL - O -- Blog URL -->
+    /**
+     * tpl:BlogURL [attributes] : Display blog URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogURL($attr)
+    public function BlogURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogQmarkURL - O -- Blog URL, ending with a question mark -->
+    /**
+     * tpl:BlogQmarkURL [attributes] : Display blog URL including the question mark (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogQmarkURL($attr)
+    public function BlogQmarkURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->getQmarkURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->getQmarkURL()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogMetaRobots - O -- Blog meta robots tag definition, overrides robots_policy setting -->
-    <!ATTLIST tpl:BlogMetaRobots
-    robots    CDATA    #IMPLIED    -- can be INDEX,FOLLOW,NOINDEX,NOFOLLOW,ARCHIVE,NOARCHIVE
-    >
+    /**
+     * tpl:BlogMetaRobots [attributes] : Display blog robots policy (tpl value)
+     *
+     * attributes:
+     *
+     *      robots          (INDEX|NOINDEX|FOLLOW|NOFOLLOW|ARCHIVE|NOARCHIVE)   will surcharge the blog's parameters
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogMetaRobots($attr)
+    public function BlogMetaRobots(ArrayObject $attr): string
     {
         $robots = isset($attr['robots']) ? addslashes($attr['robots']) : '';
 
         return "<?php echo context::robotsPolicy(dcCore::app()->blog->settings->system->robots_policy,'" . $robots . "'); ?>";
     }
 
-    /*dtd
-    <!ELEMENT gpl:BlogJsJQuery - 0 -- Blog Js jQuery version selected -->
+    /**
+     * tpl:BlogJsJQuery [attributes] : Include the jQuery javascript library (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogJsJQuery($attr)
+    public function BlogJsJQuery(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->getJsJQuery()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->blog->getJsJQuery()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogPostsURL - O -- Blog Posts URL -->
+    /**
+     * tpl:BlogPostsURL [attributes] : Display the blog's posts URL (tpl value)
+     *
+     * Depends on blog's setting:
+     * - with a static home : URL of last posts
+     * - without : URL of the blog
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogPostsURL($attr)
+    public function BlogPostsURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, ('dcCore::app()->blog->settings->system->static_home ? dcCore::app()->blog->url.dcCore::app()->url->getURLFor("posts") : dcCore::app()->blog->url')) . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), ('dcCore::app()->blog->settings->system->static_home ? dcCore::app()->blog->url.dcCore::app()->url->getURLFor("posts") : dcCore::app()->blog->url')) . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:IfBlogStaticEntryURL - O -- Test if Blog has a static home entry URL -->
+    /**
+     * tpl:IfBlogStaticEntryURL : Test if the blog has a static home entry (URL) (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function IfBlogStaticEntryURL($attr, $content)
+    public function IfBlogStaticEntryURL(ArrayObject $attr, string $content): string
     {
         return
             "<?php if (dcCore::app()->blog->settings->system->static_home_url != '') : ?>" .
@@ -954,83 +1252,124 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogStaticEntryURL - O -- Set Blog static home entry URL -->
+    /**
+     * tpl:BlogStaticEntryURL [attributes] : Prepare the blog's static home URL entry (tpl value)
+     *
+     * Should be set before a tpl:Entries block to display the according entry (post, page, …)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogStaticEntryURL($attr)
+    public function BlogStaticEntryURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
+        $code = "\$params['post_type'] = array_keys(dcCore::app()->getPostTypes());\n";
+        $code .= "\$params['post_url'] = " . sprintf($this->getFilters($attr), 'urldecode(dcCore::app()->blog->settings->system->static_home_url)') . ";\n";
 
-        $p = "\$params['post_type'] = array_keys(dcCore::app()->getPostTypes());\n";
-        $p .= "\$params['post_url'] = " . sprintf($f, 'urldecode(dcCore::app()->blog->settings->system->static_home_url)') . ";\n";
-
-        return "<?php\n" . $p . ' ?>';
+        return "<?php\n" . $code . ' ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogNbEntriesFirstPage - O -- Number of entries for 1st page -->
+    /**
+     * tpl:BlogNbEntriesFirstPage [attributes] : Display the number fo entries for home page (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogNbEntriesFirstPage($attr)
+    public function BlogNbEntriesFirstPage(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->nb_post_for_home') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->nb_post_for_home') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:BlogNbEntriesPerPage - O -- Number of entries per page -->
+    /**
+     * tpl:BlogNbEntriesPerPage [attributes] : Display the number fo entries per page (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function BlogNbEntriesPerPage($attr)
+    public function BlogNbEntriesPerPage(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->nb_post_per_page') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->blog->settings->system->nb_post_per_page') . '; ?>';
     }
 
-    /* Categories ----------------------------------------- */
+    // Categories
+    // ----------
 
-    /*dtd
-    <!ELEMENT tpl:Categories - - -- Categories loop -->
+    /**
+     * tpl:Categories [attributes] : Categories loop (tpl block)
+     *
+     * attributes:
+     *
+     *      cat_url                     Restrict to a category URL
+     *      post_type   (post|page|…)   Restrict to categories containing this type of entries
+     *      level       int             Restrict to categories of this level (>= 1)
+     *      with_empty  (0|1)           Include empty categories
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Categories($attr, $content)
+    public function Categories(ArrayObject $attr, string $content): string
     {
-        $p = "if (!isset(\$params)) \$params = [];\n";
-
+        $params = "if (!isset(\$params)) \$params = [];\n";
         if (isset($attr['url'])) {
-            $p .= "\$params['cat_url'] = '" . addslashes($attr['url']) . "';\n";
+            $params .= "\$params['cat_url'] = '" . addslashes($attr['url']) . "';\n";
         }
-
         if (!empty($attr['post_type'])) {
-            $p .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
-
         if (!empty($attr['level'])) {
-            $p .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
+            $params .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
         }
-
         if (isset($attr['with_empty']) && ((bool) $attr['with_empty'])) {
-            $p .= '$params[\'without_empty\'] = false;';
+            $params .= "\$params['without_empty'] = false;\n";
         }
-
-        $res = "<?php\n";
-        $res .= $p;
-        $res .= dcCore::app()->callBehavior(
+        $params .= dcCore::app()->callBehavior(
             'templatePrepareParams',
-            ['tag' => 'Categories', 'method' => 'blog::getCategories'],
+            [
+                'tag'    => 'Categories',
+                'method' => 'blog::getCategories',
+            ],
             $attr,
             $content
         );
-        $res .= 'dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);' . "\n";
-        $res .= "?>\n";
-        $res .= '<?php while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; unset($params); ?>';
+
+        $res = "<?php\n" .
+            $params .
+            'dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);' . "\n" .
+             "?>\n" .
+             '<?php while (dcCore::app()->ctx->categories->fetch()) : ?>' .
+             $content .
+             '<?php endwhile; dcCore::app()->ctx->categories = null; unset($params); ?>';
 
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoriesHeader - - -- First Categories result container -->
+    /**
+     * tpl:CategoriesHeader : Display content on first category element (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CategoriesHeader($attr, $content)
+    public function CategoriesHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->categories->isStart()) : ?>' .
@@ -1038,10 +1377,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoriesFooter - - -- Last Categories result container -->
+    /**
+     * tpl:CategoriesFooter : Display content on last category element (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CategoriesFooter($attr, $content)
+    public function CategoriesFooter(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->categories->isEnd()) : ?>' .
@@ -1049,16 +1393,26 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryIf - - -- tests on current entry -->
-    <!ATTLIST tpl:CategoryIf
-    url        CDATA    #IMPLIED    -- category has given url
-    urls    CDATA    #IMPLIED    -- category has one of given urls
-    has_entries    (0|1)    #IMPLIED    -- post is the first post from list (value : 1) or not (value : 0)
-    has_description     (0|1)     #IMPLIED  -- category has description (value : 1) or not (value : 0)
-    >
+    /**
+     * tpl:CategoryIf [attributes] : Include content if category tests is true (tpl block)
+     *
+     * attributes:
+     *
+     *      url                     Category has the given URL (see note 1)
+     *      urls                    Category has one of the given comma separated urls (see note 1 for each)
+     *      has_entries     (0|1)   Category has entries (if 1), or not (if 0)
+     *      has_description (0|1)   Category has description (if 1), or not (if 0)
+     *
+     *      Notes:
+     *
+     *      1) Use ! as prefix to inverse test, use ' sub' as suffix to includes category's sub-categories
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CategoryIf($attr, $content)
+    public function CategoryIf(ArrayObject $attr, string $content): string
     {
         $if       = new ArrayObject();
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
@@ -1128,10 +1482,15 @@ class dcTemplate extends template
         return $content;
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryFirstChildren - - -- Current category first children loop -->
+    /**
+     * tpl:CategoryFirstChildren : Current category first children loop (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CategoryFirstChildren($attr, $content)
+    public function CategoryFirstChildren(ArrayObject $attr, string $content): string
     {
         return
             "<?php\n" .
@@ -1139,10 +1498,15 @@ class dcTemplate extends template
             'while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryParents - - -- Current category parents loop -->
+    /**
+     * tpl:CategoryParents : Current category parents loop (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CategoryParents($attr, $content)
+    public function CategoryParents(ArrayObject $attr, string $content): string
     {
         return
             "<?php\n" .
@@ -1150,13 +1514,19 @@ class dcTemplate extends template
             'while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryFeedURL - O -- Category feed URL -->
-    <!ATTLIST tpl:CategoryFeedURL
-    type    (rss2|atom)    #IMPLIED    -- feed type (default : rss2)
-    >
+    /**
+     * tpl:CategoryFeedURL [attributes] : Category feed URL (tpl value)
+     *
+     * attributes:
+     *
+     *      type            (rss2|atom)     Feed type, default to "atom"
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryFeedURL($attr)
+    public function CategoryFeedURL(ArrayObject $attr): string
     {
         $type = !empty($attr['type']) ? $attr['type'] : 'atom';
 
@@ -1164,72 +1534,109 @@ class dcTemplate extends template
             $type = 'atom';
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","category/".' .
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","category/".' .
             'dcCore::app()->ctx->categories->cat_url."/' . $type . '")') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryID - O -- Category ID -->
+    /**
+     * tpl:CategoryID [attributes] : Category ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryID($attr)
+    public function CategoryID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->categories->cat_id') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryURL - O -- Category URL (complete iabsolute URL, including blog URL) -->
+    /**
+     * tpl:CategoryURL [attributes] : Category full URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryURL($attr)
+    public function CategoryURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("category",' .
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("category",' .
             'dcCore::app()->ctx->categories->cat_url)') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryShortURL - O -- Category short URL (relative URL, from /category/) -->
+    /**
+     * tpl:CategoryShortURL [attributes] : Category short URL, relative from /category/ (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryShortURL($attr)
+    public function CategoryShortURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->categories->cat_url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryDescription - O -- Category description -->
+    /**
+     * tpl:CategoryDescription [attributes] : Category description (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryDescription($attr)
+    public function CategoryDescription(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_desc') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->categories->cat_desc') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryTitle - O -- Category title -->
+    /**
+     * tpl:CategoryTitle [attributes] : Category title (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryTitle($attr)
+    public function CategoryTitle(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->categories->cat_title') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CategoryEntriesCount - O -- Category number of entries -->
+    /**
+     * tpl:CategoryEntriesCount [attributes] : Category number of entries (tpl value)
+     *
+     * attributes:
+     *
+     *      count_only      (1|0)   Display only counter value
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CategoryEntriesCount($attr)
+    public function CategoryEntriesCount(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
         return $this->displayCounter(
-            sprintf($f, 'dcCore::app()->ctx->categories->nb_post'),
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->categories->nb_post'),
             [
                 'none' => 'No post',
                 'one'  => 'One post',
@@ -1240,137 +1647,152 @@ class dcTemplate extends template
         );
     }
 
-    /* Entries -------------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:Entries - - -- Blog Entries loop -->
-    <!ATTLIST tpl:Entries
-    lastn    CDATA    #IMPLIED    -- limit number of results to specified value
-    author    CDATA    #IMPLIED    -- get entries for a given user id
-    category    CDATA    #IMPLIED    -- get entries for specific categories only (multiple comma-separated categories can be specified. Use "!" as prefix to exclude a category)
-    no_category    CDATA    #IMPLIED    -- get entries without category
-    with_category    CDATA    #IMPLIED    -- get entries with category
-    no_context (1|0)    #IMPLIED  -- Override context information
-    sortby    (title|selected|author|date|id)    #IMPLIED    -- specify entries sort criteria (default : date) (multiple comma-separated sortby can be specified. Use "?asc" or "?desc" as suffix to provide an order for each sorby)
-    order    (desc|asc)    #IMPLIED    -- specify entries order (default : desc)
-    no_content    (0|1)    #IMPLIED    -- do not retrieve entries content
-    selected    (0|1)    #IMPLIED    -- retrieve posts marked as selected only (value: 1) or not selected only (value: 0)
-    url        CDATA    #IMPLIED    -- retrieve post by its url
-    type        CDATA    #IMPLIED    -- retrieve post with given post_type (there can be many ones separated by comma)
-    age        CDATA    #IMPLIED    -- retrieve posts by maximum age (ex: -2 days, last month, last week)
-    ignore_pagination    (0|1)    #IMPLIED    -- ignore page number provided in URL (useful when using multiple tpl:Entries on the same page)
-    >
+    // Entries
+    // -------
+
+    /**
+     * tpl:Entries [attributes] : Entries loop (tpl block)
+     *
+     * attributes:
+     *
+     *      lastn               int         Limit number of results to specified value
+     *      author              string      Get entries for a given user id
+     *      category            string      Get entries for specific categories only (comma-separated categories), see note 1
+     *      no_category         (1|0)       Get entries without category
+     *      with_category       (1|0)       Get entries with a category
+     *      no_context          (1|0)       Override context information
+     *      sortby              (title|selected|author|date|id)     Specify entries sort criteria (default : date), see note 2
+     *      order               (desc|asc)  specify entries order (default : desc)
+     *      no_content          (0|1)       Do not retrieve entries content
+     *      selected            (0|1)       Retrieve posts marked as selected only (if 1) or not selected only (if 0)
+     *      url                 string      Retrieve post by its url
+     *      type                (post|page|…)   Restrict to entries with this type (comma separated types)
+     *      age                 string      Retrieve posts by maximum age, see note 3
+     *      ignore_pagination   (0|1)       Ignore page number provided in URL, see note 4
+     *
+     *      Notes:
+     *
+     *      1) Use ! as prefix to inverse test
+     *      2) Comma-separated sortbies can be specified. Use "?asc" or "?desc" as suffix to provide an order for each
+     *      3) Examples: -2 days, last month, last week
+     *      4) Useful when using multiple tpl:Entries on the same page
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Entries($attr, $content)
+    public function Entries(ArrayObject $attr, string $content): string
     {
         $lastn = -1;
         if (isset($attr['lastn'])) {
             $lastn = abs((int) $attr['lastn']) + 0;
         }
 
-        $p = 'if (dcCore::app()->public->getPageNumber() === 0) { dcCore::app()->public->setPageNumber(1); }' . "\n";
+        $params = 'if (dcCore::app()->public->getPageNumber() === 0) { dcCore::app()->public->setPageNumber(1); }' . "\n";
 
         if ($lastn != 0) {
             // Set limit (aka nb of entries needed)
             if ($lastn > 0) {
                 // nb of entries per page specified in template -> regular pagination
-                $p .= "\$params['limit'] = " . $lastn . ";\n";
-                $p .= '$nb_entry_first_page = $nb_entry_per_page = ' . $lastn . ";\n";
+                $params .= "\$params['limit'] = " . $lastn . ";\n";
+                $params .= '$nb_entry_first_page = $nb_entry_per_page = ' . $lastn . ";\n";
             } else {
                 // nb of entries per page not specified -> use ctx settings
-                $p .= "\$nb_entry_first_page=dcCore::app()->ctx->nb_entry_first_page; \$nb_entry_per_page = dcCore::app()->ctx->nb_entry_per_page;\n";
-                $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
-                $p .= "    \$params['limit'] = (dcCore::app()->public->getPageNumber() === 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
-                $p .= "} else {\n";
-                $p .= "    \$params['limit'] = \$nb_entry_per_page;\n";
-                $p .= "}\n";
+                $params .= "\$nb_entry_first_page=dcCore::app()->ctx->nb_entry_first_page; \$nb_entry_per_page = dcCore::app()->ctx->nb_entry_per_page;\n";
+                $params .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
+                $params .= "    \$params['limit'] = (dcCore::app()->public->getPageNumber() === 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
+                $params .= "} else {\n";
+                $params .= "    \$params['limit'] = \$nb_entry_per_page;\n";
+                $params .= "}\n";
             }
             // Set offset (aka index of first entry)
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
-                $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
-                $p .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() === 1 ? 0 : (dcCore::app()->public->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
-                $p .= "} else {\n";
-                $p .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() - 1) * \$nb_entry_per_page,\$params['limit']];\n";
-                $p .= "}\n";
+                $params .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
+                $params .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() === 1 ? 0 : (dcCore::app()->public->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
+                $params .= "} else {\n";
+                $params .= "    \$params['limit'] = [(dcCore::app()->public->getPageNumber() - 1) * \$nb_entry_per_page,\$params['limit']];\n";
+                $params .= "}\n";
             } else {
                 // no pagination, get all posts from 0 to limit
-                $p .= "\$params['limit'] = [0, \$params['limit']];\n";
+                $params .= "\$params['limit'] = [0, \$params['limit']];\n";
             }
         }
 
         if (isset($attr['author'])) {
-            $p .= "\$params['user_id'] = '" . addslashes($attr['author']) . "';\n";
+            $params .= "\$params['user_id'] = '" . addslashes($attr['author']) . "';\n";
         }
 
         if (isset($attr['category'])) {
-            $p .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
-            $p .= "context::categoryPostParam(\$params);\n";
+            $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
+            $params .= "context::categoryPostParam(\$params);\n";
         }
 
         if (isset($attr['with_category']) && $attr['with_category']) {
-            $p .= "@\$params['sql'] .= ' AND P.cat_id IS NOT NULL ';\n";
+            $params .= "@\$params['sql'] .= ' AND P.cat_id IS NOT NULL ';\n";
         }
 
         if (isset($attr['no_category']) && $attr['no_category']) {
-            $p .= "@\$params['sql'] .= ' AND P.cat_id IS NULL ';\n";
-            $p .= "unset(\$params['cat_url']);\n";
+            $params .= "@\$params['sql'] .= ' AND P.cat_id IS NULL ';\n";
+            $params .= "unset(\$params['cat_url']);\n";
         }
 
         if (!empty($attr['type'])) {
-            $p .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes($attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+            $params .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes($attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
 
         if (!empty($attr['url'])) {
-            $p .= "\$params['post_url'] = '" . addslashes($attr['url']) . "';\n";
+            $params .= "\$params['post_url'] = '" . addslashes($attr['url']) . "';\n";
         }
 
         if (empty($attr['no_context'])) {
             if (!isset($attr['author'])) {
-                $p .= 'if (dcCore::app()->ctx->exists("users")) { ' .
+                $params .= 'if (dcCore::app()->ctx->exists("users")) { ' .
                     "\$params['user_id'] = dcCore::app()->ctx->users->user_id; " .
                     "}\n";
             }
 
             if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category'])) {
-                $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+                $params .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
                     "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id.(dcCore::app()->blog->settings->system->inc_subcats?' ?sub':'');" .
                     "}\n";
             }
 
-            $p .= 'if (dcCore::app()->ctx->exists("archives")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("archives")) { ' .
                 "\$params['post_year'] = dcCore::app()->ctx->archives->year(); " .
                 "\$params['post_month'] = dcCore::app()->ctx->archives->month(); ";
             if (!isset($attr['lastn'])) {
-                $p .= "unset(\$params['limit']); ";
+                $params .= "unset(\$params['limit']); ";
             }
-            $p .= "}\n";
+            $params .= "}\n";
 
-            $p .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
                 "\$params['post_lang'] = dcCore::app()->ctx->langs->post_lang; " .
                 "}\n";
 
-            $p .= 'if (isset(dcCore::app()->public->search)) { ' .
+            $params .= 'if (isset(dcCore::app()->public->search)) { ' .
                 "\$params['search'] = dcCore::app()->public->search; " .
                 "}\n";
         }
 
-        $p .= "\$params['order'] = '" . $this->getSortByStr($attr, 'post') . "';\n";
+        $params .= "\$params['order'] = '" . $this->getSortByStr($attr, 'post') . "';\n";
 
         if (isset($attr['no_content']) && $attr['no_content']) {
-            $p .= "\$params['no_content'] = true;\n";
+            $params .= "\$params['no_content'] = true;\n";
         }
 
         if (isset($attr['selected'])) {
-            $p .= "\$params['post_selected'] = " . (int) (bool) $attr['selected'] . ';';
+            $params .= "\$params['post_selected'] = " . (int) (bool) $attr['selected'] . ';';
         }
 
         if (isset($attr['age'])) {
             $age = $this->getAge($attr);
-            $p .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
+            $params .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
         }
 
         $res = "<?php\n";
-        $res .= $p;
+        $res .= $params;
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Entries', 'method' => 'blog::getPosts'],
@@ -1386,10 +1808,15 @@ class dcTemplate extends template
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:DateHeader - O -- Displays date, if post is the first post of the given day -->
+    /**
+     * tpl:DateHeader : Displays content, if post is the first post of the given day (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function DateHeader($attr, $content)
+    public function DateHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->posts->firstPostOfDay()) : ?>' .
@@ -1397,10 +1824,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:DateFooter - O -- Displays date,  if post is the last post of the given day -->
+    /**
+     * tpl:DateFooter : Displays content, if post is the last post of the given day (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function DateFooter($attr, $content)
+    public function DateFooter(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->posts->lastPostOfDay()) : ?>' .
@@ -1408,30 +1840,42 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryIf - - -- tests on current entry -->
-    <!ATTLIST tpl:EntryIf
-    type    CDATA    #IMPLIED    -- post has a given type (default: "post")
-    category    CDATA    #IMPLIED    -- post has a given category
-    categories    CDATA    #IMPLIED    -- post has a one of given categories
-    first    (0|1)    #IMPLIED    -- post is the first post from list (value : 1) or not (value : 0)
-    odd    (0|1)    #IMPLIED    -- post is in an odd position (value : 1) or not (value : 0)
-    even    (0|1)    #IMPLIED    -- post is in an even position (value : 1) or not (value : 0)
-    extended    (0|1)    #IMPLIED    -- post has an excerpt (value : 1) or not (value : 0)
-    selected    (0|1)    #IMPLIED    -- post is selected (value : 1) or not (value : 0)
-    has_category    (0|1)    #IMPLIED    -- post has a category (value : 1) or not (value : 0)
-    has_attachment    (0|1)    #IMPLIED    -- post has attachments (value : 1) or not (value : 0) (see Attachment plugin for code)
-    comments_active    (0|1)    #IMPLIED    -- comments are active for this post (value : 1) or not (value : 0)
-    pings_active    (0|1)    #IMPLIED    -- trackbacks are active for this post (value : 1) or not (value : 0)
-    show_comments    (0|1)    #IMPLIED    -- there are comments for this post (value : 1) or not (value : 0)
-    show_pings    (0|1)    #IMPLIED    -- there are trackbacks for this post (value : 1) or not (value : 0)
-    republished    (0|1)    #IMPLIED    -- post has been updated since publication (value : 1) or not (value : 0)
-    operator    (and|or)    #IMPLIED    -- combination of conditions, if more than 1 specifiec (default: and)
-    url        CDATA    #IMPLIED    -- post has given url
-    author        CDATA    #IMPLIED    -- post has given user_id
-    >
+    /**
+     * tpl:EntryIf [attributes] : Include content if entry tests is true (tpl block)
+     *
+     * attributes:
+     *
+     *      type            (post|page|…)   Post has a given type (default: "post")
+     *      url             string          Post has given url
+     *      author          string          Post has given user_id
+     *      category        string          Post has a given category URL, see note 1
+     *      categories      string          Post has a given categories (comma separated) URL, see note 1
+     *      first           (0|1)           Post is the first post from list (if 1) or not (if 0)
+     *      odd             (0|1)           Post is in an odd position (if 1) or not (if 0)
+     *      even            (0|1)           Post is in an even position (if 1) or not (if 0)
+     *      extended        (0|1)           Post has an excerpt (if 1) or not (if 0)
+     *      selected        (0|1)           Post is selected (if 1) or not (if 0)
+     *      has_category    (0|1)           Post has a category (if 1) or not (if 0)
+     *      has_attachment  (0|1)           Post has attachments (if 1) or not (if 0)
+     *      comments_active (0|1)           Comments are active for this post (if 1) or not (if 0)
+     *      pings_active    (0|1)           Trackbacks are active for this post (if 1) or not (if 0)
+     *      has_comments    (0|1)           There are comments for this post (if 1) or not (if 0)
+     *      has_pings       (0|1)           There are trackbacks for this post (if 1) or not (if 0)
+     *      show_comments   (0|1)           Comments are enabled for this post (if 1) or not (if 0)
+     *      show_pings      (0|1)           Trackbacks are enabled for this post (if 1) or not (if 0)
+     *      republished     (0|1)           Post has been updated since publication (if 1) or not (if 0)
+     *      operator        (and|or)        Combination of conditions, if more than 1 specified (default: and)
+     *
+     *      Notes:
+     *
+     *      1) Use ! as prefix to inverse test, use ' sub' as suffix to includes category's sub-categories
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntryIf($attr, $content)
+    public function EntryIf(ArrayObject $attr, string $content): string
     {
         $if = new ArrayObject();
 
@@ -1509,6 +1953,11 @@ class dcTemplate extends template
             $if[] = '(dcCore::app()->ctx->posts->index()+1)%2 ' . $sign . '= 1';
         }
 
+        if (isset($attr['even'])) {
+            $sign = (bool) $attr['even'] ? '=' : '!';
+            $if[] = '(dcCore::app()->ctx->posts->index()+1)%2 ' . $sign . '= 0';
+        }
+
         if (isset($attr['extended'])) {
             $sign = (bool) $attr['extended'] ? '' : '!';
             $if[] = $sign . 'dcCore::app()->ctx->posts->isExtended()';
@@ -1584,13 +2033,18 @@ class dcTemplate extends template
         return $content;
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryIfFirst - O -- displays value if entry is the first one -->
-    <!ATTLIST tpl:EntryIfFirst
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: first)
-    >
+    /**
+     * tpl:EntryIfFirst [attributes] : Displays value if entry is the first one (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: first)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryIfFirst($attr)
+    public function EntryIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
         $ret = html::escapeHTML($ret);
@@ -1600,14 +2054,19 @@ class dcTemplate extends template
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryIfOdd - O -- displays value if entry is in an odd position -->
-    <!ATTLIST tpl:EntryIfOdd
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
-    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
-    >
+    /**
+     * tpl:EntryIfOdd [attributes] : Displays value if entry is in odd position (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: odd)
+     *      even        string      Value to display if not (default: <empty>)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryIfOdd($attr)
+    public function EntryIfOdd(ArrayObject $attr): string
     {
         $odd = $attr['return'] ?? 'odd';
         $odd = html::escapeHTML($odd);
@@ -1620,13 +2079,43 @@ class dcTemplate extends template
         '"' . addslashes($even) . '"); ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryIfSelected - O -- displays value if entry is selected -->
-    <!ATTLIST tpl:EntryIfSelected
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: selected)
-    >
+    /**
+     * tpl:EntryIfEven [attributes] : Displays value if entry is in even position (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: even)
+     *      odd         string      Value to display if not (default: <empty>)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryIfSelected($attr)
+    public function EntryIfEven(ArrayObject $attr): string
+    {
+        $even = $attr['return'] ?? 'even';
+        $even = html::escapeHTML($even);
+
+        $odd = $attr['odd'] ?? '';
+        $odd = html::escapeHTML($odd);
+
+        return '<?php echo ((dcCore::app()->ctx->posts->index()+1)%2+1 ? ' .
+        '"' . addslashes($even) . '" : ' .
+        '"' . addslashes($odd) . '"); ?>';
+    }
+
+    /**
+     * tpl:EntryIfSelected [attributes] : Displays value if entry is selected (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: selected)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function EntryIfSelected(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'selected';
         $ret = html::escapeHTML($ret);
@@ -1636,25 +2125,31 @@ class dcTemplate extends template
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryContent -  -- Entry content -->
-    <!ATTLIST tpl:EntryContent
-    absolute_urls    CDATA    #IMPLIED -- transforms local URLs to absolute one
-    full            (1|0)    #IMPLIED -- returns full content with excerpt
-    >
+    /**
+     * tpl:EntryContent [attributes] : Displays entry content (tpl value)
+     *
+     * attributes:
+     *
+     *      absolute_urls   (1|0)   Transforms local URLs to absolute one
+     *      full            (1|0)   Returns full content with excerpt
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryContent($attr)
+    public function EntryContent(ArrayObject $attr): string
     {
         $urls = '0';
         if (!empty($attr['absolute_urls'])) {
             $urls = '1';
         }
 
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf(
-                $f,
+                $filters,
                 'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ').' .
                 '(strlen(dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
                 'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
@@ -1662,19 +2157,26 @@ class dcTemplate extends template
         }
 
         return '<?php echo ' . sprintf(
-            $f,
+            $filters,
             'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
         ) . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryIfContentCut - - -- Test if Entry content has been cut -->
-    <!ATTLIST tpl:EntryIfContentCut
-    absolute_urls    CDATA    #IMPLIED -- transforms local URLs to absolute one
-    full            (1|0)    #IMPLIED -- test with full content and excerpt
-    >
+    /**
+     * tpl:EntryIfContentCut [attributes] : Displays ccontent if entry content has been cut (tpl block)
+     *
+     * attributes:
+     *
+     *      cut_string      int     Cut length, see self::getFilters()
+     *      absolute_urls   (1|0)   Transforms local URLs to absolute one
+     *      full            (1|0)   Returns full content with excerpt
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntryIfContentCut($attr, $content)
+    public function EntryIfContentCut(ArrayObject $attr, string $content): string
     {
         if (empty($attr['cut_string'])) {
             return '';
@@ -1720,137 +2222,206 @@ class dcTemplate extends template
                 '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryExcerpt - O -- Entry excerpt -->
-    <!ATTLIST tpl:EntryExcerpt
-    absolute_urls    CDATA    #IMPLIED -- transforms local URLs to absolute one
-    >
+    /**
+     * tpl:EntryExcerpt [attributes] : Displays entry excerpt (tpl value)
+     *
+     * attributes:
+     *
+     *      absolute_urls   (1|0)   Transforms local URLs to absolute one
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryExcerpt($attr)
+    public function EntryExcerpt(ArrayObject $attr): string
     {
         $urls = '0';
         if (!empty($attr['absolute_urls'])) {
             $urls = '1';
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorCommonName - O -- Entry author common name -->
+    /**
+     * tpl:EntryAuthorCommonName [attributes] : Displays entry author common name (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorCommonName($attr)
+    public function EntryAuthorCommonName(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getAuthorCN()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getAuthorCN()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorDisplayName - O -- Entry author display name -->
+    /**
+     * tpl:EntryAuthorDisplayName [attributes] : Displays entry author display name (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorDisplayName($attr)
+    public function EntryAuthorDisplayName(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->user_displayname') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->user_displayname') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorID - O -- Entry author ID -->
+    /**
+     * tpl:EntryAuthorID [attributes] : Displays entry author ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorID($attr)
+    public function EntryAuthorID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->user_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->user_id') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorEmail - O -- Entry author email -->
-    <!ATTLIST tpl:EntryAuthorEmail
-    spam_protected    (0|1)    #IMPLIED    -- protect email from spam (default: 1)
-    >
+    /**
+     * tpl:EntryAuthorEmail [attributes] : Displays entry author email (tpl value)
+     *
+     * attributes:
+     *
+     *      spam_protected  (1|0)   Protect email from spam (default: 1)
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorEmail($attr)
+    public function EntryAuthorEmail(ArrayObject $attr): string
     {
-        $p = 'true';
+        $protect = 'true';
         if (isset($attr['spam_protected']) && !$attr['spam_protected']) {
-            $p = 'false';
+            $protect = 'false';
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getAuthorEmail(' . $p . ')') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getAuthorEmail(' . $protect . ')') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorEmailMD5 - O -- Entry author email MD5 sum -->
-    >
+    /**
+     * tpl:EntryAuthorEmailMD5 [attributes] : Displays entry author email MD5 sum (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorEmailMD5($attr)
+    public function EntryAuthorEmailMD5(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'md5(dcCore::app()->ctx->posts->getAuthorEmail(false))') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'md5(dcCore::app()->ctx->posts->getAuthorEmail(false))') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorLink - O -- Entry author link -->
+    /**
+     * tpl:EntryAuthorLink [attributes] : Displays entry author link (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorLink($attr)
+    public function EntryAuthorLink(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getAuthorLink()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getAuthorLink()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryAuthorURL - O -- Entry author URL -->
+    /**
+     * tpl:EntryAuthorURL [attributes] : Displays entry author URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryAuthorURL($attr)
+    public function EntryAuthorURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->user_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->user_url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryBasename - O -- Entry short URL (relative to /post) -->
+    /**
+     * tpl:EntryBasename [attributes] : Displays entry basename URL, relative to /post (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryBasename($attr)
+    public function EntryBasename(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->post_url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCategory - O -- Entry category (full name) -->
+    /**
+     * tpl:EntryCategory [attributes] : Displays entry fullname category (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryCategory($attr)
+    public function EntryCategory(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->cat_title') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCategoryDescription - O -- Entry category description -->
+    /**
+     * tpl:EntryCategoryDescription [attributes] : Displays entry category description (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryCategoryDescription($attr)
+    public function EntryCategoryDescription(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_desc') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->cat_desc') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCategoriesBreadcrumb - - -- Current entry parents loop (without last one) -->
+    /**
+     * tpl:EntryCategoriesBreadcrumb : Current entry category's parents loop (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntryCategoriesBreadcrumb($attr, $content)
+    public function EntryCategoriesBreadcrumb(ArrayObject $attr, string $content): string
     {
         return
             "<?php\n" .
@@ -1858,58 +2429,87 @@ class dcTemplate extends template
             'while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCategoryID - O -- Entry category ID -->
+    /**
+     * tpl:EntryCategoryID [attributes] : Displays entry category ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryCategoryID($attr)
+    public function EntryCategoryID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->cat_id') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCategoryURL - O -- Entry category URL -->
+    /**
+     * tpl:EntryCategoryURL [attributes] : Displays entry category URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryCategoryURL($attr)
+    public function EntryCategoryURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getCategoryURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getCategoryURL()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCategoryShortURL - O -- Entry category short URL (relative URL, from /category/) -->
+    /**
+     * tpl:EntryCategoryShortURL [attributes] : Displays entry category short URL, relative to /category/ (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryCategoryShortURL($attr)
+    public function EntryCategoryShortURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->cat_url') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryFeedID - O -- Entry feed ID -->
+    /**
+     * tpl:EntryFeedID [attributes] : Displays entry feed ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryFeedID($attr)
+    public function EntryFeedID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getFeedID()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryFirstImage - O -- Extracts entry first image if exists -->
-    <!ATTLIST tpl:EntryAuthorEmail
-    size            (sq|t|s|m|o)    #IMPLIED    -- Image size to extract
-    class        CDATA        #IMPLIED    -- Class to add on image tag
-    with_category    (1|0)        #IMPLIED    -- Search in entry category description if present (default 0)
-    no_tag    (1|0)    #IMPLIED    -- Return image URL without HTML tag (default 0)
-    content_only    (1|0)        #IMPLIED    -- Search in content entry only, not in excerpt (default 0)
-    cat_only    (1|0)        #IMPLIED    -- Search in category description only (default 0)
-    >
+    /**
+     * tpl:EntryFirstImage [attributes] : Extracts entry first image if exists (tpl value)
+     *
+     * attributes:
+     *
+     *      size            (sq|t|s|m|o)    Image size to extract
+     *      class           string          Class to add on image tag
+     *      with_category   (1|0)           Search in entry category description if present (default 0)
+     *      no_tag          (1|0)           Return image URL without HTML tag (default 0)
+     *      content_only    (1|0)           Search in content entry only, not in excerpt (default 0)
+     *      cat_only        (1|0)           Search in category description only (default 0)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryFirstImage($attr)
+    public function EntryFirstImage(ArrayObject $attr): string
     {
         $size          = !empty($attr['size']) ? $attr['size'] : '';
         $class         = !empty($attr['class']) ? $attr['class'] : '';
@@ -1922,39 +2522,59 @@ class dcTemplate extends template
             $no_tag . ',' . $content_only . ',' . $cat_only . '); ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryID - O -- Entry ID -->
+    /**
+     * tpl:EntryID [attributes] : Displays entry ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryID($attr)
+    public function EntryID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->post_id') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryLang - O --  Entry language or blog lang if not defined -->
+    /**
+     * tpl:EntryLang [attributes] : Displays entry lang or blog lang if not defined (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryLang($attr)
+    public function EntryLang(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         return
         '<?php if (dcCore::app()->ctx->posts->post_lang) { ' .
-        'echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_lang') . '; ' .
+        'echo ' . sprintf($filters, 'dcCore::app()->ctx->posts->post_lang') . '; ' .
         '} else {' .
-        'echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; ' .
+        'echo ' . sprintf($filters, 'dcCore::app()->blog->settings->system->lang') . '; ' .
             '} ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryNext - - -- Next entry block -->
-    <!ATTLIST tpl:EntryNext
-    restrict_to_category    (0|1)    #IMPLIED    -- find next post in the same category (default: 0)
-    restrict_to_lang        (0|1)    #IMPLIED    -- find next post in the same language (default: 0)
-    >
+    /**
+     * tpl:EntryNext [attributes] : Next entry block (tpl block)
+     *
+     * attributes:
+     *
+     *      restrict_to_category    (0|1)    Find next post in the same category (default 0)
+     *      restrict_to_lang        (0|1)    Find next post in the same language (default 0)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntryNext($attr, $content)
+    public function EntryNext(ArrayObject $attr, string $content): string
     {
         $restrict_to_category = !empty($attr['restrict_to_category']) ? '1' : '0';
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
@@ -1970,14 +2590,20 @@ class dcTemplate extends template
             "<?php endif; ?>\n";
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryPrevious - - -- Previous entry block -->
-    <!ATTLIST tpl:EntryPrevious
-    restrict_to_category    (0|1)    #IMPLIED    -- find previous post in the same category (default: 0)
-    restrict_to_lang        (0|1)    #IMPLIED    -- find next post in the same language (default: 0)
-    >
+    /**
+     * tpl:EntryPrevious [attributes] : Previous entry block (tpl block)
+     *
+     * attributes:
+     *
+     *      restrict_to_category    (0|1)    Find next post in the same category (default 0)
+     *      restrict_to_lang        (0|1)    Find next post in the same language (default 0)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntryPrevious($attr, $content)
+    public function EntryPrevious(ArrayObject $attr, string $content): string
     {
         $restrict_to_category = !empty($attr['restrict_to_category']) ? '1' : '0';
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
@@ -1993,37 +2619,55 @@ class dcTemplate extends template
             "<?php endif; ?>\n";
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryTitle - O -- Entry title -->
+    /**
+     * tpl:EntryTitle [attributes] : Displays entry title (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryTitle($attr)
+    public function EntryTitle(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->post_title') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryURL - O -- Entry URL -->
+    /**
+     * tpl:EntryURL [attributes] : Displays entry URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryURL($attr)
+    public function EntryURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->posts->getURL()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryDate - O -- Entry date -->
-    <!ATTLIST tpl:EntryDate
-    format    CDATA    #IMPLIED    -- date format (encoded in dc:str by default if iso8601 or rfc822 not specified)
-    iso8601    CDATA    #IMPLIED    -- if set, tells that date format is ISO 8601
-    rfc822    CDATA    #IMPLIED    -- if set, tells that date format is RFC 822
-    upddt    CDATA    #IMPLIED    -- if set, uses the post update time
-    creadt    CDATA    #IMPLIED    -- if set, uses the post creation time
-    >
+    /**
+     * tpl:EntryDate [attributes] : Displays entry date (tpl value)
+     *
+     * attributes:
+     *
+     *      format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      iso8601     (1|0)       If set, display date in ISO 8601 format
+     *      rfc822      (1|0)       If set, display date in RFC 822 format
+     *      upddt       (1|0)       If set, uses the post update time
+     *      creadt      (1|0)       If set, uses the post creation time
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryDate($attr)
+    public function EntryDate(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -2035,26 +2679,35 @@ class dcTemplate extends template
         $type    = (!empty($attr['creadt']) ? 'creadt' : '');
         $type    = (!empty($attr['upddt']) ? 'upddt' : $type);
 
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, "\dcCore::app()->ctx->posts->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' .
+                sprintf($filters, "\dcCore::app()->ctx->posts->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->posts->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' .
+                sprintf($filters, "dcCore::app()->ctx->posts->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' .
+            sprintf($filters, "dcCore::app()->ctx->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryTime - O -- Entry date -->
-    <!ATTLIST tpl:EntryTime
-    format    CDATA    #IMPLIED    -- time format
-    upddt    CDATA    #IMPLIED    -- if set, uses the post update time
-    creadt    CDATA    #IMPLIED    -- if set, uses the post creation time
-    >
+    /**
+     * tpl:EntryTime [attributes] : Displays entry date (tpl value)
+     *
+     * attributes:
+     *
+     *      format      string      Time format
+     *      upddt       (1|0)       If set, uses the post update time
+     *      creadt      (1|0)       If set, uses the post creation time
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryTime($attr)
+    public function EntryTime(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -2064,15 +2717,19 @@ class dcTemplate extends template
         $type = (!empty($attr['creadt']) ? 'creadt' : '');
         $type = (!empty($attr['upddt']) ? 'upddt' : $type);
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), "dcCore::app()->ctx->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntriesHeader - - -- First entries result container -->
+    /**
+     * tpl:EntriesHeader : First entries result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntriesHeader($attr, $content)
+    public function EntriesHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->posts->isStart()) : ?>' .
@@ -2080,10 +2737,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntriesFooter - - -- Last entries result container -->
+    /**
+     * tpl:EntriesFooter : Last entries result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function EntriesFooter($attr, $content)
+    public function EntriesFooter(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->posts->isEnd()) : ?>' .
@@ -2091,16 +2753,25 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryCommentCount - O -- Number of comments for entry -->
-    <!ATTLIST tpl:EntryCommentCount
-    none        CDATA    #IMPLIED    -- text to display for "no comments" (default: no comments)
-    one        CDATA    #IMPLIED    -- text to display for "one comment" (default: one comment)
-    more        CDATA    #IMPLIED    -- text to display for "more comments" (default: %s comments, %s is replaced by the number of comment)
-    count_all    CDATA    #IMPLIED    -- count comments and trackbacks
-    >
+    /**
+     * tpl:EntryCommentCount [attributes] : Number of comments for entry (tpl value)
+     *
+     * attributes:
+     *
+     *      none        string      Text to display for "no comments" (default: no comments)
+     *      one         string      Text to display for "one comment" (default: one comment)
+     *      more        string      Text to display for "more comments" (default: %s comments, see note 1)
+     *      count_all   (1|0)       Count comments plus trackbacks
+     *
+     *      Notes:
+     *
+     *      1) %s will be replaced by the number of comments
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryCommentCount($attr)
+    public function EntryCommentCount(ArrayObject $attr): string
     {
         if (empty($attr['count_all'])) {
             $operation = 'dcCore::app()->ctx->posts->nb_comment';
@@ -2120,15 +2791,25 @@ class dcTemplate extends template
         );
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryPingCount - O -- Number of trackbacks for entry -->
-    <!ATTLIST tpl:EntryPingCount
-    none    CDATA    #IMPLIED    -- text to display for "no pings" (default: no pings)
-    one    CDATA    #IMPLIED    -- text to display for "one ping" (default: one ping)
-    more    CDATA    #IMPLIED    -- text to display for "more pings" (default: %s trackbacks, %s is replaced by the number of pings)
-    >
+    /**
+     * tpl:EntryPingCount [attributes] : Number of pings (see note 1) for entry (tpl value)
+     *
+     * attributes:
+     *
+     *      none        string      Text to display for "no pings" (default: no pings)
+     *      one         string      Text to display for "one ping" (default: one ping)
+     *      more        string      Text to display for "more pings" (default: %s pings, see note 2)
+     *
+     *      Notes:
+     *
+     *      1) A ping may be a trackback, a pingback or a webmention
+     *      2) %s will be replaced by the number of pings
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryPingCount($attr)
+    public function EntryPingCount(ArrayObject $attr): string
     {
         return $this->displayCounter(
             'dcCore::app()->ctx->posts->nb_trackback',
@@ -2142,46 +2823,66 @@ class dcTemplate extends template
         );
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryPingData - O -- Display trackback RDF information -->
+    /**
+     * tpl:EntryPingData [attributes] : Display trackback RDF information (tpl value)
+     *
+     * attributes:
+     *
+     *      format      (xml|html)  Format (default: html)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryPingData($attr)
+    public function EntryPingData(ArrayObject $attr): string
     {
         $format = !empty($attr['format']) && $attr['format'] == 'xml' ? 'xml' : 'html';
 
         return "<?php if (dcCore::app()->ctx->posts->trackbacksActive()) { echo dcCore::app()->ctx->posts->getTrackbackData('" . $format . "'); } ?>\n";
     }
 
-    /*dtd
-    <!ELEMENT tpl:EntryPingLink - O -- Entry trackback link -->
+    /**
+     * tpl:EntryPingLink : Display trackback link (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function EntryPingLink($attr)
+    public function EntryPingLink(ArrayObject $attr): string
     {
         return "<?php if (dcCore::app()->ctx->posts->trackbacksActive()) { echo dcCore::app()->ctx->posts->getTrackbackLink(); } ?>\n";
     }
 
-    /* Languages -------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:Languages - - -- Languages loop -->
-    <!ATTLIST tpl:Languages
-    lang    CDATA    #IMPLIED    -- restrict loop on given lang
-    order    (desc|asc)    #IMPLIED    -- languages ordering (default: desc)
-    >
+    // Languages
+    // ---------
+
+    /**
+     * tpl:Languages [attributes] : Languages loop (tpl block)
+     *
+     * attributes:
+     *
+     *      lang        string      Restrict loop on given lang
+     *      order       (desc|asc)  Languages ordering (default: desc)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Languages($attr, $content)
+    public function Languages(ArrayObject $attr, string $content): string
     {
-        $p = "if (!isset(\$params)) \$params = [];\n";
+        $params = "if (!isset(\$params)) \$params = [];\n";
 
         if (isset($attr['lang'])) {
-            $p = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
+            $params = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
         }
 
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
-            $p .= "\$params['order'] = '" . $attr['order'] . "';\n ";
+            $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
         $res = "<?php\n";
-        $res .= $p;
+        $res .= $params;
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Languages', 'method' => 'blog::getLangs'],
@@ -2198,10 +2899,15 @@ class dcTemplate extends template
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:LanguagesHeader - - -- First languages result container -->
+    /**
+     * tpl:LanguagesHeader : First languages result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function LanguagesHeader($attr, $content)
+    public function LanguagesHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->langs->isStart()) : ?>' .
@@ -2209,10 +2915,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:LanguagesFooter - - -- Last languages result container -->
+    /**
+     * tpl:LanguagesFooter : Last languages result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function LanguagesFooter($attr, $content)
+    public function LanguagesFooter(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->langs->isEnd()) : ?>' .
@@ -2220,20 +2931,31 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:LanguageCode - O -- Language code -->
+    /**
+     * tpl:LanguageCode [attributes] : Display language code (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function LanguageCode($attr)
+    public function LanguageCode(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->langs->post_lang') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->langs->post_lang') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:LanguageIfCurrent - - -- tests if post language is current language -->
+    /**
+     * tpl:LanguageIfCurrent : Includes content if post language is current language (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function LanguageIfCurrent($attr, $content)
+    public function LanguageIfCurrent(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->cur_lang == dcCore::app()->ctx->langs->post_lang) : ?>' .
@@ -2241,97 +2963,139 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:LanguageURL - O -- Language URL -->
+    /**
+     * tpl:LanguageURL [attributes] : Display language URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function LanguageURL($attr)
+    public function LanguageURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
             'dcCore::app()->ctx->langs->post_lang)') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:FeedLanguage - O -- Feed Language -->
+    /**
+     * tpl:FeedLanguage [attributes] : Display feed language (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function FeedLanguage($attr)
+    public function FeedLanguage(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         return
         '<?php if (dcCore::app()->ctx->exists("cur_lang")) ' . "\n" .
-        '   { echo ' . sprintf($f, 'dcCore::app()->ctx->cur_lang') . '; }' . "\n" .
+        '   { echo ' . sprintf($filters, 'dcCore::app()->ctx->cur_lang') . '; }' . "\n" .
         'elseif (dcCore::app()->ctx->exists("posts") && dcCore::app()->ctx->posts->exists("post_lang")) ' . "\n" .
-        '   { echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_lang') . '; }' . "\n" .
+        '   { echo ' . sprintf($filters, 'dcCore::app()->ctx->posts->post_lang') . '; }' . "\n" .
         'else ' . "\n" .
-        '   { echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; } ?>';
+        '   { echo ' . sprintf($filters, 'dcCore::app()->blog->settings->system->lang') . '; } ?>';
     }
 
-    /* Pagination ------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:Pagination - - -- Pagination container -->
-    <!ATTLIST tpl:Pagination
-    no_context    (0|1)    #IMPLIED    -- override test on posts count vs number of posts per page
-    >
+    // Pagination
+    // ----------
+
+    /**
+     * tpl:Pagination [attributes] : Pagination container (tpl block)
+     *
+     * attributes:
+     *
+     *      no_context  (0|1)       Override test on posts count vs number of posts per page
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Pagination($attr, $content)
+    public function Pagination(ArrayObject $attr, string $content): string
     {
-        $p = "<?php\n";
-        $p .= '$params = dcCore::app()->ctx->post_params;' . "\n";
-        $p .= dcCore::app()->callBehavior(
-            'templatePrepareParams',
-            ['tag' => 'Pagination', 'method' => 'blog::getPosts'],
-            $attr,
-            $content
-        );
-        $p .= 'dcCore::app()->ctx->pagination = dcCore::app()->blog->getPosts($params,true); unset($params);' . "\n";
-        $p .= "?>\n";
+        $params = "<?php\n" .
+            '$params = dcCore::app()->ctx->post_params;' . "\n" .
+            dcCore::app()->callBehavior(
+                'templatePrepareParams',
+                [
+                    'tag'    => 'Pagination',
+                    'method' => 'blog::getPosts',
+                ],
+                $attr,
+                $content
+            ) .
+            'dcCore::app()->ctx->pagination = dcCore::app()->blog->getPosts($params,true); unset($params);' . "\n" .
+            "?>\n";
 
         if (isset($attr['no_context']) && $attr['no_context']) {
-            return $p . $content;
+            return $params . $content;
         }
 
         return
-            $p .
+            $params .
             '<?php if (dcCore::app()->ctx->pagination->f(0) > dcCore::app()->ctx->posts->count()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PaginationCounter - O -- Number of pages -->
+    /**
+     * tpl:PaginationCounter [attributes] : Display the number of pages (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PaginationCounter($attr)
+    public function PaginationCounter(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'context::PaginationNbPages()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'context::PaginationNbPages()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PaginationCurrent - O -- current page -->
+    /**
+     * tpl:PaginationCurrent [attributes] : Display the number of current page (tpl value)
+     *
+     * attributes:
+     *
+     *      offset      int     Current offset
+     *      any filters         See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PaginationCurrent($attr)
+    public function PaginationCurrent(ArrayObject $attr): string
     {
-        $offset = 0;
-        if (isset($attr['offset'])) {
-            $offset = (int) $attr['offset'];
-        }
+        $offset = isset($attr['offset']) ? (int) $attr['offset'] : 0;
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'context::PaginationPosition(' . $offset . ')') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'context::PaginationPosition(' . $offset . ')') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PaginationIf - - -- pages tests -->
-    <!ATTLIST tpl:PaginationIf
-    start    (0|1)    #IMPLIED    -- test if we are at first page (value : 1) or not (value : 0)
-    end    (0|1)    #IMPLIED    -- test if we are at last page (value : 1) or not (value : 0)
-    >
+    /**
+     * tpl:PaginationIf [attributes] : Includes content depending on pagination test (tpl block)
+     *
+     * attributes:
+     *
+     *      start   (0|1)       First page (if 1) or not (if 0)
+     *      end     (0|1)       Last page (if 1) or not (if 0)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function PaginationIf($attr, $content)
+    public function PaginationIf(ArrayObject $attr, string $content): string
     {
         $if = [];
 
@@ -2354,41 +3118,58 @@ class dcTemplate extends template
         return $content;
     }
 
-    /*dtd
-    <!ELEMENT tpl:PaginationURL - O -- link to previoux/next page -->
-    <!ATTLIST tpl:PaginationURL
-    offset    CDATA    #IMPLIED    -- page offset (negative for previous pages), default: 0
-    >
+    /**
+     * tpl:PaginationURL [attributes] : Display link to previous/next page (tpl value)
+     *
+     * attributes:
+     *
+     *      offset      int     Page offset (negative for previous pages), default: 0
+     *      any filters         See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PaginationURL($attr)
+    public function PaginationURL(ArrayObject $attr): string
     {
         $offset = 0;
         if (isset($attr['offset'])) {
             $offset = (int) $attr['offset'];
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'context::PaginationURL(' . $offset . ')') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'context::PaginationURL(' . $offset . ')') . '; ?>';
     }
 
-    /* Comments --------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:Comments - - -- Comments container -->
-    <!ATTLIST tpl:Comments
-    with_pings    (0|1)    #IMPLIED    -- include trackbacks in request
-    lastn    CDATA    #IMPLIED    -- restrict the number of entries
-    no_context (1|0)        #IMPLIED  -- Override context information
-    sortby    (title|selected|author|date|id)    #IMPLIED    -- specify comments sort criteria (default : date) (multiple comma-separated sortby can be specified. Use "?asc" or "?desc" as suffix to provide an order for each sorby)
-    order    (desc|asc)    #IMPLIED    -- result ordering (default: asc)
-    age        CDATA    #IMPLIED    -- retrieve comments by maximum age (ex: -2 days, last month, last week)
-    >
+    // Comments
+    // --------
+
+    /**
+     * tpl:Comments [attributes] : Comments container (tpl block)
+     *
+     * attributes:
+     *
+     *      with_pings  (0|1)       Include trackbacks
+     *      lastn       int         Restrict the number of comments
+     *      no_context  (0|1)       Override context information
+     *      sortby      (title|selected|author|date|id)    Specify comments sort criteria (default: date), see note 1
+     *      order       (desc|asc)  Result ordering (default: asc)
+     *      age         string      Retrieve comments by maximum age (ex: -2 days, last month, last week)
+     *      no_content  (0|1)       Do not include comments' content
+     *
+     * Notes:
+     *
+     *  1) Multiple comma-separated sortby can be specified. Use "?asc" or "?desc" as suffix to provide an order for each sorby
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Comments($attr, $content)
+    public function Comments(ArrayObject $attr, string $content): string
     {
-        $p = '';
+        $params = '';
         if (empty($attr['with_pings'])) {
-            $p .= "\$params['comment_trackback'] = false;\n";
+            $params .= "\$params['comment_trackback'] = false;\n";
         }
 
         $lastn = 0;
@@ -2397,21 +3178,21 @@ class dcTemplate extends template
         }
 
         if ($lastn > 0) {
-            $p .= "\$params['limit'] = " . $lastn . ";\n";
+            $params .= "\$params['limit'] = " . $lastn . ";\n";
         } else {
-            $p .= "if (dcCore::app()->ctx->nb_comment_per_page !== null) { \$params['limit'] = dcCore::app()->ctx->nb_comment_per_page; }\n";
+            $params .= "if (dcCore::app()->ctx->nb_comment_per_page !== null) { \$params['limit'] = dcCore::app()->ctx->nb_comment_per_page; }\n";
         }
 
         if (empty($attr['no_context'])) {
-            $p .= 'if (dcCore::app()->ctx->posts !== null) { ' .
+            $params .= 'if (dcCore::app()->ctx->posts !== null) { ' .
                 "\$params['post_id'] = dcCore::app()->ctx->posts->post_id; " .
                 "dcCore::app()->blog->withoutPassword(false);\n" .
                 "}\n";
-            $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
                 "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id; " .
                 "}\n";
 
-            $p .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
                 "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(dcCore::app()->ctx->langs->post_lang).\"' \"; " .
                 "}\n";
         }
@@ -2420,15 +3201,15 @@ class dcTemplate extends template
             $attr['order'] = 'asc';
         }
 
-        $p .= "\$params['order'] = '" . $this->getSortByStr($attr, 'comment') . "';\n";
+        $params .= "\$params['order'] = '" . $this->getSortByStr($attr, 'comment') . "';\n";
 
         if (isset($attr['no_content']) && $attr['no_content']) {
-            $p .= "\$params['no_content'] = true;\n";
+            $params .= "\$params['no_content'] = true;\n";
         }
 
         if (isset($attr['age'])) {
             $age = $this->getAge($attr);
-            $p .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
+            $params .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
         }
 
         $res = "<?php\n";
@@ -2438,7 +3219,7 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= $p;
+        $res .= $params;
         $res .= 'dcCore::app()->ctx->comments = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
         $res .= "if (dcCore::app()->ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
 
@@ -2453,80 +3234,117 @@ class dcTemplate extends template
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentAuthor - O -- Comment author -->
+    /**
+     * tpl:CommentAuthor [attributes] : Comment author (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentAuthor($attr)
+    public function CommentAuthor(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->comment_author') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->comment_author') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentAuthorDomain - O -- Comment author website domain -->
+    /**
+     * tpl:CommentAuthorDomain : Comment author website domain (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentAuthorDomain($attr)
+    public function CommentAuthorDomain(ArrayObject $attr): string
     {
         return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',dcCore::app()->ctx->comments->comment_site); ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentAuthorLink - O -- Comment author link -->
+    /**
+     * tpl:CommentAuthorLink [attributes] : Comment author link (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentAuthorLink($attr)
+    public function CommentAuthorLink(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getAuthorLink()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->getAuthorLink()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentAuthorMailMD5 - O -- Comment author email MD5 sum -->
+    /**
+     * tpl:CommentAuthorMailMD5 : Comment author mail MD5 sum (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentAuthorMailMD5($attr)
+    public function CommentAuthorMailMD5(ArrayObject $attr): string
     {
         return '<?php echo md5(dcCore::app()->ctx->comments->comment_email) ; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentAuthorURL - O -- Comment author URL -->
+    /**
+     * tpl:CommentAuthorURL [attributes] : Comment author URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
     public function CommentAuthorURL($attr)
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getAuthorURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->getAuthorURL()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentContent - O --  Comment content -->
-    <!ATTLIST tpl:CommentContent
-    absolute_urls    (0|1)    #IMPLIED    -- convert URLS to absolute urls
-    >
+    /**
+     * tpl:CommentContent [attributes] : Comment content (tpl value)
+     *
+     * attributes:
+     *
+     *      absolute_urls   (10)        Convert URLs to absolutes URLs
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentContent($attr)
+    public function CommentContent(ArrayObject $attr): string
     {
         $urls = '0';
         if (!empty($attr['absolute_urls'])) {
             $urls = '1';
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getContent(' . $urls . ')') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->getContent(' . $urls . ')') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentDate - O -- Comment date -->
-    <!ATTLIST tpl:CommentDate
-    format    CDATA    #IMPLIED    -- date format (encoded in dc:str by default if iso8601 or rfc822 not specified)
-    iso8601    CDATA    #IMPLIED    -- if set, tells that date format is ISO 8601
-    rfc822    CDATA    #IMPLIED    -- if set, tells that date format is RFC 822
-    upddt    CDATA    #IMPLIED    -- if set, uses the comment update time
-    >
+    /**
+     * tpl:CommentDate [attributes] : Displays comment date (tpl value)
+     *
+     * attributes:
+     *
+     *      format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      iso8601     (1|0)       If set, display date in ISO 8601 format
+     *      rfc822      (1|0)       If set, display date in RFC 822 format
+     *      upddt       (1|0)       If set, uses the comment update time
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentDate($attr)
+    public function CommentDate(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -2537,25 +3355,31 @@ class dcTemplate extends template
         $rfc822  = !empty($attr['rfc822']);
         $type    = (!empty($attr['upddt']) ? 'upddt' : '');
 
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "dcCore::app()->ctx->comments->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "dcCore::app()->ctx->comments->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($filters, "dcCore::app()->ctx->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentTime - O -- Comment date -->
-    <!ATTLIST tpl:CommentTime
-    format    CDATA    #IMPLIED    -- time format
-    upddt    CDATA    #IMPLIED    -- if set, uses the comment update time
-    >
+    /**
+     * tpl:CommentTime [attributes] : Displays comment date (tpl value)
+     *
+     * attributes:
+     *
+     *      format      string      Time format
+     *      upddt       (1|0)       If set, uses the comment update time
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentTime($attr)
+    public function CommentTime(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -2563,64 +3387,91 @@ class dcTemplate extends template
         }
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), "dcCore::app()->ctx->comments->getTime('" . $format . "','" . $type . "')") .
+            '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentEmail - O -- Comment author email -->
-    <!ATTLIST tpl:CommentEmail
-    spam_protected    (0|1)    #IMPLIED    -- protect email from spam (default: 1)
-    >
+    /**
+     * tpl:CommentEmail [attributes] : Displays author email (tpl value)
+     *
+     * attributes:
+     *
+     *      spam_protected       (1|0)      Protect email from spam (default: 1)
+     *      any filters                     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentEmail($attr)
+    public function CommentEmail(ArrayObject $attr): string
     {
-        $p = 'true';
+        $protect = 'true';
         if (isset($attr['spam_protected']) && !$attr['spam_protected']) {
-            $p = 'false';
+            $protect = 'false';
         }
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getEmail(' . $p . ')') . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->getEmail(' . $protect . ')') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentEntryTitle - O -- Title of the comment entry -->
+    /**
+     * tpl:CommentEntryTitle [attributes] : Displays title of the comment entry (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentEntryTitle($attr)
+    public function CommentEntryTitle(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->post_title') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentFeedID - O -- Comment feed ID -->
+    /**
+     * tpl:CommentFeedID [attributes] : Displays comment feed ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentFeedID($attr)
+    public function CommentFeedID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->getFeedID()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentID - O -- Comment ID -->
+    /**
+     * tpl:CommentID : Displays comment ID (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentID($attr)
+    public function CommentID(ArrayObject $attr): string
     {
         return '<?php echo dcCore::app()->ctx->comments->comment_id; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentIf - - -- test container for comments -->
-    <!ATTLIST tpl:CommentIf
-    is_ping    (0|1)    #IMPLIED    -- test if comment is a trackback (value : 1) or not (value : 0)
-    >
+    /**
+     * tpl:CommentIf [attributes] : Includes content depending on comment test (tpl block)
+     *
+     * attributes:
+     *
+     *      is_ping     (0|1)       Tracckback (if 1) or not (if 0)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CommentIf($attr, $content)
+    public function CommentIf(ArrayObject $attr, string $content): string
     {
         $if = [];
 
@@ -2638,13 +3489,18 @@ class dcTemplate extends template
         return $content;
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentIfFirst - O -- displays value if comment is the first one -->
-    <!ATTLIST tpl:CommentIfFirst
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: first)
-    >
+    /**
+     * tpl:CommentIfFirst [attributes] : Displays value if comment is the first one (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: first)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentIfFirst($attr)
+    public function CommentIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
         $ret = html::escapeHTML($ret);
@@ -2654,13 +3510,18 @@ class dcTemplate extends template
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentIfMe - O -- displays value if comment is the from the entry author -->
-    <!ATTLIST tpl:CommentIfMe
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: me)
-    >
+    /**
+     * tpl:CommentIfMe [attributes] : Displays value if comment is from the entry author (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: me)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentIfMe($attr)
+    public function CommentIfMe(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'me';
         $ret = html::escapeHTML($ret);
@@ -2670,14 +3531,19 @@ class dcTemplate extends template
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentIfOdd - O -- displays value if comment is  at an odd position -->
-    <!ATTLIST tpl:CommentIfOdd
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
-    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
-    >
+    /**
+     * tpl:CommentIfOdd [attributes] : Displays value if comment is at an odd position (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: odd)
+     *      even        string      Value to display if it is not the case (default: <empty>)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentIfOdd($attr)
+    public function CommentIfOdd(ArrayObject $attr): string
     {
         $odd = $attr['return'] ?? 'odd';
         $odd = html::escapeHTML($odd);
@@ -2690,37 +3556,64 @@ class dcTemplate extends template
         '"' . addslashes($even) . '"); ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentIP - O -- Comment author IP -->
+    /**
+     * tpl:CommentIfEven [attributes] : Displays value if comment is at an even position (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: even)
+     *      odd         string      Value to display if it is not the case (default: <empty>)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentIP($attr)
+    public function CommentIfEven(ArrayObject $attr): string
+    {
+        $even = $attr['return'] ?? 'even';
+        $even = html::escapeHTML($even);
+
+        $odd = $attr['odd'] ?? '';
+        $odd = html::escapeHTML($odd);
+
+        return '<?php echo ((dcCore::app()->ctx->comments->index()+1)%2+1 ? ' .
+        '"' . addslashes($even) . '" : ' .
+        '"' . addslashes($odd) . '"); ?>';
+    }
+
+    /**
+     * tpl:CommentIP : Displays comment IP (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function CommentIP(ArrayObject $attr): string
     {
         return '<?php echo dcCore::app()->ctx->comments->comment_ip; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentOrderNumber - O -- Comment order in page -->
+    /**
+     * tpl:CommentOrderNumber : Displays comment order in page (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentOrderNumber($attr)
+    public function CommentOrderNumber(ArrayObject $attr): string
     {
         return '<?php echo dcCore::app()->ctx->comments->index()+1; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentsFooter - - -- Last comments result container -->
+    /**
+     * tpl:CommentsHeader : First comments result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CommentsFooter($attr, $content)
-    {
-        return
-            '<?php if (dcCore::app()->ctx->comments->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
-    }
-
-    /*dtd
-    <!ELEMENT tpl:CommentsHeader - - -- First comments result container -->
-     */
-    public function CommentsHeader($attr, $content)
+    public function CommentsHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->comments->isStart()) : ?>' .
@@ -2728,20 +3621,47 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentPostURL - O -- Comment Entry URL -->
+    /**
+     * tpl:CommentsFooter : Last comments result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CommentPostURL($attr)
+    public function CommentsFooter(ArrayObject $attr, string $content): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getPostURL()') . '; ?>';
+        return
+            '<?php if (dcCore::app()->ctx->comments->isEnd()) : ?>' .
+            $content .
+            '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:IfCommentAuthorEmail - - -- Container displayed if comment author email is set -->
+    /**
+     * tpl:CommentPostURL [attributes] : Displays comment entry URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function IfCommentAuthorEmail($attr, $content)
+    public function CommentPostURL(ArrayObject $attr): string
+    {
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comments->getPostURL()') . '; ?>';
+    }
+
+    /**
+     * tpl:IfCommentAuthorEmail : Includes content if comment author email is set (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
+     */
+    public function IfCommentAuthorEmail(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->comments->comment_email) : ?>' .
@@ -2749,10 +3669,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentHelp - 0 -- Comment syntax mini help -->
+    /**
+     * tpl:CommentHelp : Includes syntax localized mini help (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function CommentHelp($attr, $content)
+    public function CommentHelp(ArrayObject $attr, string $content): string
     {
         return
             "<?php if (dcCore::app()->blog->settings->system->wiki_comments) {\n" .
@@ -2762,11 +3687,15 @@ class dcTemplate extends template
             '} ?>';
     }
 
-    /* Comment preview -------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:IfCommentPreviewOptional - - -- Container displayed if comment preview is optional or currently previewed -->
+    /**
+     * tpl:IfCommentPreviewOptional : Includes content if comment preview is optional or currently previewed (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function IfCommentPreviewOptional($attr, $content)
+    public function IfCommentPreviewOptional(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->blog->settings->system->comment_preview_optional || (dcCore::app()->ctx->comment_preview !== null && dcCore::app()->ctx->comment_preview["preview"])) : ?>' .
@@ -2774,10 +3703,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:IfCommentPreview - - -- Container displayed if comment is being previewed -->
+    /**
+     * tpl:IfCommentPreview : Includes content if comment is being previewed (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function IfCommentPreview($attr, $content)
+    public function IfCommentPreview(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->comment_preview !== null && dcCore::app()->ctx->comment_preview["preview"]) : ?>' .
@@ -2785,95 +3719,141 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentPreviewName - O -- Author name for the previewed comment -->
+    /**
+     * tpl:CommentPreviewName [attributes] : Displays Author name for the previewed comment (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentPreviewName($attr)
+    public function CommentPreviewName(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comment_preview["name"]') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comment_preview["name"]') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentPreviewEmail - O -- Author email for the previewed comment -->
+    /**
+     * tpl:CommentPreviewEmail [attributes] : Displays Author email for the previewed comment (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentPreviewEmail($attr)
+    public function CommentPreviewEmail(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comment_preview["mail"]') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comment_preview["mail"]') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentPreviewSite - O -- Author site for the previewed comment -->
+    /**
+     * tpl:CommentPreviewSite [attributes] : Displays Author site for the previewed comment (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentPreviewSite($attr)
+    public function CommentPreviewSite(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comment_preview["site"]') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->comment_preview["site"]') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentPreviewContent - O -- Content of the previewed comment -->
-    <!ATTLIST tpl:CommentPreviewContent
-    raw    (0|1)    #IMPLIED    -- display comment in raw content
-    >
+    /**
+     * tpl:CommentPreviewContent [attributes] : Displays content of the previewed comment (tpl value)
+     *
+     * attributes:
+     *
+     *      raw         (1|0)   Display comment in raw content
+     *      any filters         See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentPreviewContent($attr)
+    public function CommentPreviewContent(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
         if (!empty($attr['raw'])) {
-            $co = 'dcCore::app()->ctx->comment_preview["rawcontent"]';
+            $content = 'dcCore::app()->ctx->comment_preview["rawcontent"]';
         } else {
-            $co = 'dcCore::app()->ctx->comment_preview["content"]';
+            $content = 'dcCore::app()->ctx->comment_preview["content"]';
         }
 
-        return '<?php echo ' . sprintf($f, $co) . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), $content) . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:CommentPreviewCheckRemember - O -- checkbox attribute for "remember me" (same value as before preview) -->
+    /**
+     * tpl:CommentPreviewCheckRemember : checkbox attribute for "remember me" (same value as before preview) (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function CommentPreviewCheckRemember($attr)
+    public function CommentPreviewCheckRemember(ArrayObject $attr): string
     {
         return
             "<?php if (dcCore::app()->ctx->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
     }
 
-    /* Trackbacks ------------------------------------- */
-    /*dtd
-    <!ELEMENT tpl:PingBlogName - O -- Trackback blog name -->
-     */
-    public function PingBlogName($attr)
-    {
-        $f = $this->getFilters($attr);
+    // Trackbacks
+    // ----------
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->comment_author') . '; ?>';
+    /**
+     * tpl:PingBlogName [attributes] : Displays trackback blog name (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters         See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function PingBlogName(ArrayObject $attr): string
+    {
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->comment_author') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingContent - O -- Trackback content -->
+    /**
+     * tpl:PingContent [attributes] : Displays trackback content (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters         See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingContent($attr)
+    public function PingContent(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getTrackbackContent()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->getTrackbackContent()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingDate - O -- Trackback date -->
-    <!ATTLIST tpl:PingDate
-    format    CDATA    #IMPLIED    -- date format (encoded in dc:str by default if iso8601 or rfc822 not specified)
-    iso8601    CDATA    #IMPLIED    -- if set, tells that date format is ISO 8601
-    rfc822    CDATA    #IMPLIED    -- if set, tells that date format is RFC 822
-    upddt    CDATA    #IMPLIED    -- if set, uses the comment update time
-    >
+    /**
+     * tpl:PingDate [attributes] : Displays trackback date (tpl value)
+     *
+     * attributes:
+     *
+     *      format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      iso8601     (1|0)       If set, display date in ISO 8601 format
+     *      rfc822      (1|0)       If set, display date in RFC 822 format
+     *      upddt       (1|0)       If set, uses the ping update time
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingDate($attr)
+    public function PingDate(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -2884,25 +3864,31 @@ class dcTemplate extends template
         $rfc822  = !empty($attr['rfc822']);
         $type    = (!empty($attr['upddt']) ? 'upddt' : '');
 
-        $f = $this->getFilters($attr);
+        $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "dcCore::app()->ctx->pings->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "dcCore::app()->ctx->pings->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($filters, "dcCore::app()->ctx->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingTime - O -- Trackback date -->
-    <!ATTLIST tpl:PingTime
-    format    CDATA    #IMPLIED    -- time format
-    upddt    CDATA    #IMPLIED    -- if set, uses the comment update time
-    >
+    /**
+     * tpl:PingTime [attributes] : Displays trackback date (tpl value)
+     *
+     * attributes:
+     *
+     *      format      string      Time format
+     *      upddt       (1|0)       If set, uses the ping update time
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingTime($attr)
+    public function PingTime(ArrayObject $attr): string
     {
         $format = '';
         if (!empty($attr['format'])) {
@@ -2910,46 +3896,66 @@ class dcTemplate extends template
         }
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), "dcCore::app()->ctx->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingEntryTitle - O -- Trackback entry title -->
+    /**
+     * tpl:PingEntryTitle [attributes] : Displays trackback entry title (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingEntryTitle($attr)
+    public function PingEntryTitle(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->post_title') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingFeedID - O -- Trackback feed ID -->
+    /**
+     * tpl:PingFeedID [attributes] : Displays trackback feed ID (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingFeedID($attr)
+    public function PingFeedID(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->getFeedID()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingID - O -- Trackback ID -->
+    /**
+     * tpl:PingID : Displays ping ID (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingID($attr)
+    public function PingID(ArrayObject $attr): string
     {
         return '<?php echo dcCore::app()->ctx->pings->comment_id; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingIfFirst - O -- displays value if trackback is the first one -->
-    <!ATTLIST tpl:PingIfFirst
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: first)
-    >
+    /**
+     * tpl:PingIfFirst [attributes] : Displays value if trackback is the first one (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: first)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingIfFirst($attr)
+    public function PingIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
         $ret = html::escapeHTML($ret);
@@ -2959,14 +3965,19 @@ class dcTemplate extends template
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingIfOdd - O -- displays value if trackback is  at an odd position -->
-    <!ATTLIST tpl:PingIfOdd
-    return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
-    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
-    >
+    /**
+     * tpl:PingIfOdd [attributes] : Displays value if trackback is at an odd position (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: odd)
+     *      even        string      Value to display if it is not the case (default: <empty>)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingIfOdd($attr)
+    public function PingIfOdd(ArrayObject $attr): string
     {
         $odd = $attr['return'] ?? 'odd';
         $odd = html::escapeHTML($odd);
@@ -2979,18 +3990,51 @@ class dcTemplate extends template
         '"' . addslashes($even) . '"); ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingIP - O -- Trackback author IP -->
+    /**
+     * tpl:PingIfEven [attributes] : Displays value if trackback is at an even position (tpl value)
+     *
+     * attributes:
+     *
+     *      return      string      Value to display if it is the case (default: even)
+     *      odd         string      Value to display if it is not the case (default: <empty>)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingIP($attr)
+    public function PingIfEven(ArrayObject $attr): string
+    {
+        $even = $attr['return'] ?? 'even';
+        $even = html::escapeHTML($even);
+
+        $odd = $attr['odd'] ?? '';
+        $odd = html::escapeHTML($odd);
+
+        return '<?php echo ((dcCore::app()->ctx->pings->index()+1)%2+1 ? ' .
+        '"' . addslashes($even) . '" : ' .
+        '"' . addslashes($odd) . '"); ?>';
+    }
+
+    /**
+     * tpl:PingIP : Displays ping author IP (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function PingIP(ArrayObject $attr): string
     {
         return '<?php echo dcCore::app()->ctx->pings->comment_ip; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingNoFollow - O -- displays 'rel="nofollow"' if set in blog -->
+    /**
+     * tpl:PingNoFollow : Displays 'rel="nofollow"' if set in blog (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingNoFollow($attr)
+    public function PingNoFollow(ArrayObject $attr): string
     {
         return
             '<?php if(dcCore::app()->blog->settings->system->comments_nofollow) { ' .
@@ -2998,41 +4042,57 @@ class dcTemplate extends template
             '} ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingOrderNumber - O -- Trackback order in page -->
+    /**
+     * tpl:PingOrderNumber : Displays trackback order in page, 1 based (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingOrderNumber($attr)
+    public function PingOrderNumber(ArrayObject $attr): string
     {
         return '<?php echo dcCore::app()->ctx->pings->index()+1; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingPostURL - O -- Trackback Entry URL -->
+    /**
+     * tpl:PingPostURL [attributes] : Displays trackback entry URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingPostURL($attr)
+    public function PingPostURL(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getPostURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->getPostURL()') . '; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:Pings - - -- Trackbacks container -->
-    <!ATTLIST tpl:Pings
-    with_pings    (0|1)    #IMPLIED    -- include trackbacks in request
-    lastn    CDATA        #IMPLIED    -- restrict the number of entries
-    no_context (1|0)        #IMPLIED  -- Override context information
-    order    (desc|asc)    #IMPLIED    -- result ordering (default: asc)
-    >
+    /**
+     * tpl:Pings [attributes] : Pings container (tpl block)
+     *
+     * attributes:
+     *
+     *      lastn       int         Restrict the number of pings
+     *      no_context  (0|1)       Override context information
+     *      order       (desc|asc)  Result ordering (default: asc)
+     *      no_content  (0|1)       Do not include pings' content
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function Pings($attr, $content)
+    public function Pings(ArrayObject $attr, string $content): string
     {
-        $p = 'if (dcCore::app()->ctx->posts !== null) { ' .
+        $params = 'if (dcCore::app()->ctx->posts !== null) { ' .
             "\$params['post_id'] = dcCore::app()->ctx->posts->post_id; " .
             "dcCore::app()->blog->withoutPassword(false);\n" .
             "}\n";
 
-        $p .= "\$params['comment_trackback'] = true;\n";
+        $params .= "\$params['comment_trackback'] = true;\n";
 
         $lastn = 0;
         if (isset($attr['lastn'])) {
@@ -3040,17 +4100,17 @@ class dcTemplate extends template
         }
 
         if ($lastn > 0) {
-            $p .= "\$params['limit'] = " . $lastn . ";\n";
+            $params .= "\$params['limit'] = " . $lastn . ";\n";
         } else {
-            $p .= "if (dcCore::app()->ctx->nb_comment_per_page !== null) { \$params['limit'] = dcCore::app()->ctx->nb_comment_per_page; }\n";
+            $params .= "if (dcCore::app()->ctx->nb_comment_per_page !== null) { \$params['limit'] = dcCore::app()->ctx->nb_comment_per_page; }\n";
         }
 
         if (empty($attr['no_context'])) {
-            $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
                 "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id; " .
                 "}\n";
 
-            $p .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
+            $params .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
                 "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(dcCore::app()->ctx->langs->post_lang).\"' \"; " .
                 "}\n";
         }
@@ -3060,14 +4120,14 @@ class dcTemplate extends template
             $order = $attr['order'];
         }
 
-        $p .= "\$params['order'] = 'comment_dt " . $order . "';\n";
+        $params .= "\$params['order'] = 'comment_dt " . $order . "';\n";
 
         if (isset($attr['no_content']) && $attr['no_content']) {
-            $p .= "\$params['no_content'] = true;\n";
+            $params .= "\$params['no_content'] = true;\n";
         }
 
         $res = "<?php\n";
-        $res .= $p;
+        $res .= $params;
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Pings', 'method' => 'blog::getComments'],
@@ -3083,21 +4143,15 @@ class dcTemplate extends template
         return $res;
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingsFooter - - -- Last trackbacks result container -->
+    /**
+     * tpl:PingsHeader : First pings result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function PingsFooter($attr, $content)
-    {
-        return
-            '<?php if (dcCore::app()->ctx->pings->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
-    }
-
-    /*dtd
-    <!ELEMENT tpl:PingsHeader - - -- First trackbacks result container -->
-     */
-    public function PingsHeader($attr, $content)
+    public function PingsHeader(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->pings->isStart()) : ?>' .
@@ -3105,65 +4159,113 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingTitle - O -- Trackback title -->
+    /**
+     * tpl:PingsFooter : Last pings result container (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function PingTitle($attr)
+    public function PingsFooter(ArrayObject $attr, string $content): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getTrackbackTitle()') . '; ?>';
+        return
+            '<?php if (dcCore::app()->ctx->pings->isEnd()) : ?>' .
+            $content .
+            '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:PingAuthorURL - O -- Trackback author URL -->
+    /**
+     * tpl:PingTitle [attributes] : Displays trackback title (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function PingAuthorURL($attr)
+    public function PingTitle(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getAuthorURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->getTrackbackTitle()') . '; ?>';
     }
 
-    # System
-    /*dtd
-    <!ELEMENT tpl:SysBehavior - O -- Call a given behavior -->
-    <!ATTLIST tpl:SysBehavior
-    behavior    CDATA    #IMPLIED    -- behavior to call
-    >
+    /**
+     * tpl:PingAuthorURL [attributes] : Displays trackback author URL (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function SysBehavior($attr, $raw)
+    public function PingAuthorURL(ArrayObject $attr): string
+    {
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'dcCore::app()->ctx->pings->getAuthorURL()') . '; ?>';
+    }
+
+    // System
+    // ------
+
+    /**
+     * tpl:SysBehavior [attributes] : Call a given behavior (tpl value)
+     *
+     * attributes:
+     *
+     *      behavior        string      Behavior to call
+     *      any filters                 See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function SysBehavior(ArrayObject $attr): string
     {
         if (!isset($attr['behavior'])) {
-            return;
+            return '';
         }
 
-        $b = addslashes($attr['behavior']);
+        $behavior = addslashes($attr['behavior']);
 
         return
-            '<?php if (dcCore::app()->hasBehavior(\'' . $b . '\')) { ' .
-            'dcCore::app()->callBehavior(\'' . $b . '\',dcCore::app(),dcCore::app()->ctx);' .
+            '<?php if (dcCore::app()->hasBehavior(\'' . $behavior . '\')) { ' .
+            'dcCore::app()->callBehavior(\'' . $behavior . '\',dcCore::app(),dcCore::app()->ctx);' .
             '} ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:SysIf - - -- System settings tester container -->
-    <!ATTLIST tpl:SysIf
-    categories        (0|1)    #IMPLIED    -- test if categories are set in current context (value : 1) or not (value : 0)
-    posts            (0|1)    #IMPLIED    -- test if posts are set in current context (value : 1) or not (value : 0)
-    blog_lang            CDATA    #IMPLIED    -- tests if blog language is the one given in parameter
-    current_tpl        CDATA    #IMPLIED    -- tests if current template is the one given in paramater
-    current_mode        CDATA    #IMPLIED    -- tests if current URL mode is the one given in parameter
-    has_tpl            CDATA     #IMPLIED  -- tests if a named template exists
-    has_tag            CDATA     #IMPLIED  -- tests if a named template block or value exists
-    blog_id            CDATA     #IMPLIED  -- tests if current blog ID is the one given in parameter
-    comments_active    (0|1)    #IMPLIED    -- test if comments are enabled blog-wide
-    pings_active        (0|1)    #IMPLIED    -- test if trackbacks are enabled blog-wide
-    wiki_comments        (0|1)    #IMPLIED    -- test if wiki syntax is enabled for comments
-    operator            (and|or)    #IMPLIED    -- combination of conditions, if more than 1 specifiec (default: and)
-    >
+    /**
+     * tpl:SysIf [attributes] : Includes content depending on system test (tpl block)
+     *
+     * attributes:
+     *
+     *      categories      (0|1)                   Categories are set in current context (if 1) or not (if 0)
+     *      posts           (0|1)                   Posts are set in current context (if 1) or not (if 0)
+     *      blog_lang       string                  Blog language is the one given in parameter, see note 1
+     *      current_tpl     string                  Current template is the one given in paramater, see note 1
+     *      current_mode    string                  Current URL mode is the one given in parameter, see note 1
+     *      has_tpl         string                  Named template exists, see note 1
+     *      has_tag         string                  Named template block or value exists, see note 1
+     *      blog_id         string                  Current blog ID is the one given in parameter, see note 1
+     *      comments_active (0|1)                   Comments are enabled blog-wide
+     *      pings_active    (0|1)                   Trackbacks are enabled blog-wide
+     *      wiki_comments   (0|1)                   Wiki syntax is enabled for comments
+     *      search_count    (=|!|>=|<=|>|<) int     Search count valids condition
+     *      jquery_needed   (0|1)                   jQuery javascript library is requested (if 1) or not (if 0)
+     *      operator        (and|or)                Combination of conditions, if more than 1 specifiec (default: and)
+     *
+     * Notes:
+     *
+     *  1) Prefix with a ! to reverse test
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function SysIf($attr, $content)
+    public function SysIf(ArrayObject $attr, string $content): string
     {
         $if = new ArrayObject();
 
@@ -3266,10 +4368,15 @@ class dcTemplate extends template
         return $content;
     }
 
-    /*dtd
-    <!ELEMENT tpl:SysIfCommentPublished - - -- Container displayed if comment has been published -->
+    /**
+     * tpl:SysIfCommentPublished : Includes content if comment has been published (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function SysIfCommentPublished($attr, $content)
+    public function SysIfCommentPublished(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (!empty($_GET[\'pub\'])) : ?>' .
@@ -3277,10 +4384,15 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:SysIfCommentPending - - -- Container displayed if comment is pending after submission -->
+    /**
+     * tpl:SysIfCommentPending : Includes content if comment is pending after submission (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function SysIfCommentPending($attr, $content)
+    public function SysIfCommentPending(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (isset($_GET[\'pub\']) && $_GET[\'pub\'] == 0) : ?>' .
@@ -3288,20 +4400,32 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:SysFeedSubtitle - O -- Feed subtitle -->
+    /**
+     * tpl:SysFeedSubtitle [attributes] : Displays feed subtitle (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function SysFeedSubtitle($attr)
+    public function SysFeedSubtitle(ArrayObject $attr): string
     {
-        $f = $this->getFilters($attr);
-
-        return '<?php if (dcCore::app()->ctx->feed_subtitle !== null) { echo ' . sprintf($f, 'dcCore::app()->ctx->feed_subtitle') . ';} ?>';
+        return '<?php if (dcCore::app()->ctx->feed_subtitle !== null) { echo ' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->ctx->feed_subtitle') . ';} ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:SysIfFormError - O -- Container displayed if an error has been detected after form submission -->
+    /**
+     * tpl:SysIfFormError : Includes content if an error has been detected after form submission (tpl block)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     * @param      string         $content  The content
+     *
+     * @return     string
      */
-    public function SysIfFormError($attr, $content)
+    public function SysIfFormError(ArrayObject $attr, string $content): string
     {
         return
             '<?php if (dcCore::app()->ctx->form_error !== null) : ?>' .
@@ -3309,41 +4433,77 @@ class dcTemplate extends template
             '<?php endif; ?>';
     }
 
-    /*dtd
-    <!ELEMENT tpl:SysFormError - O -- Form error -->
+    /**
+     * tpl:SysFormError : Displays form error (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function SysFormError($attr)
+    public function SysFormError(ArrayObject $attr): string
     {
         return
             '<?php if (dcCore::app()->ctx->form_error !== null) { echo dcCore::app()->ctx->form_error; } ?>';
     }
 
-    public function SysPoweredBy($attr)
+    /**
+     * tpl:SysPoweredBy : Displays localized powered by (tpl value)
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function SysPoweredBy(ArrayObject $attr): string
     {
         return
             '<?php printf(__("Powered by %s"),"<a href=\"https://dotclear.org/\">Dotclear</a>"); ?>';
     }
 
-    public function SysSearchString($attr)
-    {
-        $s = $attr['string'] ?? '%1$s';
-
-        $f = $this->getFilters($attr);
-
-        return '<?php if (isset(dcCore::app()->public->search)) { echo sprintf(__(\'' . $s . '\'),' . sprintf($f, 'dcCore::app()->public->search') . ',dcCore::app()->public->search_count);} ?>';
-    }
-
-    public function SysSelfURI($attr)
-    {
-        $f = $this->getFilters($attr);
-
-        return '<?php echo ' . sprintf($f, 'http::getSelfURI()') . '; ?>';
-    }
-
-    /*dtd
-    <!ELEMENT tpl:else - O -- else: statement -->
+    /**
+     * tpl:SysSearchString [attributes] : Displays search string if any (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
      */
-    public function GenericElse($attr)
+    public function SysSearchString(ArrayObject $attr): string
+    {
+        $string = $attr['string'] ?? '%1$s';
+
+        return '<?php if (isset(dcCore::app()->public->search)) { echo sprintf(__(\'' . $string . '\'),' .
+            sprintf($this->getFilters($attr), 'dcCore::app()->public->search') . ',dcCore::app()->public->search_count);} ?>';
+    }
+
+    /**
+     * tpl:SysSelfURI [attributes] : Displays self URI (tpl value)
+     *
+     * attributes:
+     *
+     *      any filters     See self::getFilters()
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function SysSelfURI(ArrayObject $attr): string
+    {
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'http::getSelfURI()') . '; ?>';
+    }
+
+    /**
+     * tpl:SysPoweredBy : Displays else: statement (tpl value)
+     *
+     * May be used inside a tpl:If… block
+     *
+     * @param      ArrayObject    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function GenericElse(ArrayObject $attr): string
     {
         return '<?php else: ?>';
     }
