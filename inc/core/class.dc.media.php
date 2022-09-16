@@ -953,7 +953,6 @@ class dcMedia extends filemanager
         }
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), dcCore::app()->blog->id)
             && dcCore::app()->auth->userID() != $file->media_user) {
