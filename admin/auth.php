@@ -41,7 +41,7 @@ if (empty($_GET) && empty($_POST)) {
     require __DIR__ . '/../inc/dbschema/upgrade.php';
 
     try {
-        if (($changes = dcUpgrade::dotclearUpgrade(dcCore::app())) !== false) {
+        if (($changes = dcUpgrade::dotclearUpgrade()) !== false) {
             $msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
         }
     } catch (Exception $e) {

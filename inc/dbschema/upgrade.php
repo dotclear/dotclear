@@ -14,7 +14,14 @@ if (!defined('DC_RC_PATH')) {
 
 class dcUpgrade
 {
-    public static function dotclearUpgrade(dcCore $core = null)
+    /**
+     * Do Dotclear upgrade if necessary
+     *
+     * @throws     Exception
+     *
+     * @return     bool|dbStruct|int
+     */
+    public static function dotclearUpgrade()
     {
         $version = dcCore::app()->getVersion('core');
 
@@ -37,7 +44,7 @@ class dcUpgrade
 
                 /* Some other upgrades
                 ------------------------------------ */
-                $cleanup_sessions = self::growUp(dcCore::app(), $version);
+                $cleanup_sessions = self::growUp($version);
 
                 # Drop content from session table if changes or if needed
                 if ($changes != 0 || $cleanup_sessions) {
@@ -61,13 +68,25 @@ class dcUpgrade
         return false;
     }
 
-    public static function growUp(dcCore $core, $version)
+    /**
+     * Make necessary updates in DB and in filesystem
+     *
+     * @param      mixed  $version  The version
+     *
+     * @return     bool     true if a session cleanup is requested
+     */
+    public static function growUp($version): bool
     {
         if ($version === null) {
             return false;
         }
 
-        $cleanup_sessions = false; // update it in a step that needed sessions to be removed
+        /**
+         * Update it in a step that needed sessions to be removed
+         *
+         * @var        bool
+         */
+        $cleanup_sessions = false;
 
         # Populate media_dir field (since 2.0-beta3.3)
         if (version_compare($version, '2.0-beta3.3', '<')) {
@@ -1066,7 +1085,7 @@ class dcUpgrade
      * @param      string  $ns        namespace name
      * @param      string  $setting   The setting ID
      */
-    public static function settings2array($ns, $setting)
+    public static function settings2array(string $ns, string $setting)
     {
         $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
             "WHERE setting_id = '%s' " .
@@ -1099,7 +1118,7 @@ class dcUpgrade
      * @param      string  $ws     workspace name
      * @param      string  $pref   The preference ID
      */
-    public static function prefs2array($ws, $pref)
+    public static function prefs2array(string $ws, string $pref)
     {
         $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME . ' ' .
             "WHERE pref_id = '%s' " .
@@ -1131,7 +1150,7 @@ class dcUpgrade
      *
      * @param      string  $src    The folder
      */
-    private static function rrmdir($src)
+    private static function rrmdir(string $src)
     {
         if (($dir = @opendir($src)) !== false) {
             while (($file = @readdir($dir)) !== false) {

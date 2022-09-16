@@ -35,7 +35,7 @@ try {
     dcCore::app()->con->begin();
 
     try {
-        $changes = dcUpgrade::dotclearUpgrade(dcCore::app());
+        $changes = dcUpgrade::dotclearUpgrade();
     } catch (Exception $e) {
         dcCore::app()->con->rollback();
 
