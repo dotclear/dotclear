@@ -69,13 +69,13 @@ class dcRecord implements Iterator, Countable
         if ($this->static instanceof staticRecord) {
             $extensions = $this->static->extensions();
             if (isset($extensions[$f])) {
-                return $extensions[$f]($this->static, ...$args);
+                return $extensions[$f]($this, ...$args);
             }
         }
         if ($this->dynamic instanceof record) {
             $extensions = $this->dynamic->extensions();
             if (isset($extensions[$f])) {
-                return $extensions[$f]($this->dynamic, ...$args);
+                return $extensions[$f]($this, ...$args);
             }
         }
 
@@ -214,9 +214,9 @@ class dcRecord implements Iterator, Countable
     public function index(?int $row = null)
     {
         if ($this->static instanceof staticRecord) {
-            return $this->static->index();
+            return $this->static->index($row);
         } elseif ($this->dynamic instanceof record) {
-            return $this->dynamic->index();
+            return $this->dynamic->index($row);
         }
 
         return null;
