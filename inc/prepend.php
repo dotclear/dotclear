@@ -59,6 +59,7 @@ Clearbricks::lib()->autoload([
     'dcUpdateStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
     'dcDeleteStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
     'dcInsertStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
+    'dcRecord'          => __DIR__ . '/core/class.dc.record.php',
     'rsExtPost'         => __DIR__ . '/core/class.dc.rs.extensions.php',
     'rsExtComment'      => __DIR__ . '/core/class.dc.rs.extensions.php',
     'rsExtDates'        => __DIR__ . '/core/class.dc.rs.extensions.php',
