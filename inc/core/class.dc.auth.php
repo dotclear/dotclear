@@ -810,49 +810,4 @@ class dcAuth
     }
 
     //@}
-
-    /// @name User management callbacks
-    /**
-     * This 3 functions only matter if you extend this class and use DC_AUTH_CLASS constant.
-     * These are called after core user management functions.
-     * Could be useful if you need to add/update/remove stuff in your LDAP directory or
-     * other third party authentication database.
-     */
-    //@{
-
-    /**
-     * Called after core->addUser
-     *
-     * @see dcCore::addUser
-     *
-     * @param cursor    $cur            User cursor
-     */
-    public function afterAddUser(cursor $cur)
-    {
-    }
-
-    /**
-     * Called after core->updUser
-     *
-     * @see dcCore::updUser
-     *
-     * @param string    $id            User ID
-     * @param cursor    $cur            User cursor
-     */
-    public function afterUpdUser(string $id, cursor $cur)
-    {
-    }
-
-    /**
-     * Called after core->delUser
-     *
-     * @see dcCore::delUser
-     *
-     * @param string    $id            User ID
-     */
-    public function afterDelUser(string $id)
-    {
-    }
-
-    //@}
 }

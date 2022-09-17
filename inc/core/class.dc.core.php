@@ -898,8 +898,7 @@ final class dcCore
         }
 
         $cur->insert();
-
-        $this->auth->afterAddUser($cur);
+        $this->callBehavior('coreAfterAddUser', $cur);
 
         return $cur->user_id;
     }
@@ -926,8 +925,7 @@ final class dcCore
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
-
-        $this->auth->afterUpdUser($id, $cur);
+        $this->callBehavior('coreAfterUpdUser', $cur);
 
         if ($cur->user_id !== null) {
             $id = $cur->user_id;
@@ -981,8 +979,7 @@ final class dcCore
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
-
-        $this->auth->afterDelUser($id);
+        $this->callBehavior('coreAfterDelUser', $id);
     }
 
     /**
