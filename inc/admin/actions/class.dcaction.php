@@ -32,7 +32,7 @@ abstract class dcActions
      */
     protected $entries = [];
     /**
-     * @var record record that challenges ids against permissions
+     * @var record|staticRecord|dcRecord record that challenges ids against permissions
      */
     protected $rs;
     /**

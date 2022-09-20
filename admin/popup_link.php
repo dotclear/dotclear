@@ -20,7 +20,7 @@ $plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) 
 
 if (dcCore::app()->themes === null) {
     # -- Loading themes, may be useful for some configurable theme --
-    dcCore::app()->themes = new dcThemes(dcCore::app());
+    dcCore::app()->themes = new dcThemes();
     dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 }
 

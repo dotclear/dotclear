@@ -22,7 +22,7 @@ dcCore::app()->addBehavior('publicHeadContent', ['tplBlowupTheme', 'publicHeadCo
 
 class tplBlowUpTheme
 {
-    public static function publicHeadContent(dcCore $core = null)
+    public static function publicHeadContent()
     {
         $url = blowupConfig::publicCssUrlHelper();
         if ($url) {

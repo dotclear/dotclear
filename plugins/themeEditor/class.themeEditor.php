@@ -14,11 +14,6 @@ if (!defined('DC_RC_PATH')) {
 
 class dcThemeEditor
 {
-    /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    protected $core;
-
     protected $user_theme;
     protected $parent_theme;
     protected $tplset_theme;
@@ -36,7 +31,6 @@ class dcThemeEditor
 
     public function __construct()
     {
-        $this->core         = dcCore::app();
         $this->user_theme   = path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/default-templates/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;

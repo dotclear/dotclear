@@ -18,11 +18,25 @@ if (!defined('DC_RC_PATH')) {
 
 class dcStoreParser
 {
-    /** @var    object    XML object of feed contents */
+    /**
+     * XML object of feed contents
+     *
+     * @var    object
+     */
     protected $xml;
-    /** @var    array    Array of feed contents */
+
+    /**
+     * Array of feed contents
+     *
+     * @var    array
+     */
     protected $items;
-    /** @var    string    XML bloc tag */
+
+    /**
+     * XML bloc tag
+     *
+     * @var    string
+     */
     protected static $bloc = 'http://dotaddict.org/da/';
 
     /**
@@ -30,7 +44,7 @@ class dcStoreParser
      *
      * @param    string    $data        Feed content
      */
-    public function __construct($data)
+    public function __construct(string $data)
     {
         if (!is_string($data)) {
             throw new Exception(__('Failed to read data feed'));
@@ -96,7 +110,7 @@ class dcStoreParser
      *
      * @return    array        Modules list
      */
-    public function getModules()
+    public function getModules(): array
     {
         return $this->items;
     }

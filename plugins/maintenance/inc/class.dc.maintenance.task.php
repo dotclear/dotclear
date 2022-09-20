@@ -21,11 +21,6 @@ class dcMaintenanceTask
 {
     protected $maintenance;
 
-    /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    protected $core;
-
     protected $p_url;
     protected $code;
     protected $ts      = 0;
@@ -56,7 +51,6 @@ class dcMaintenanceTask
     public function __construct(dcMaintenance $maintenance)
     {
         $this->maintenance = $maintenance;
-        $this->core        = dcCore::app();
         $this->init();
         $this->id = null;
 

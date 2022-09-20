@@ -93,8 +93,7 @@ class dcAdminNotices
                     'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
-            $counter = $core->notices->getNotices($params, true);
-            if ($counter) {
+            if ($core->notices->getNotices($params, true)->f(0)) {
                 $lines = $core->notices->getNotices($params);
                 while ($lines->fetch()) {
                     if (isset(self::$notice_types[$lines->notice_type])) {

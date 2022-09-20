@@ -24,7 +24,7 @@ $user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsy
 # Loading themes
 adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-dcCore::app()->themes = new dcThemes(dcCore::app());
+dcCore::app()->themes = new dcThemes();
 dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 $T = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
 $o = new dcThemeEditor();

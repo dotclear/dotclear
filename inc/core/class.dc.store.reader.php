@@ -18,19 +18,52 @@ if (!defined('DC_RC_PATH')) {
 
 class dcStoreReader extends netHttp
 {
-    /** @var    string    User agent used to query repository */
+    /**
+     * User agent used to query repository
+     *
+     * @var    string
+     */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
-    /** @var    array     HTTP Cache validators */
+
+    /**
+     * HTTP Cache validators
+     *
+     * @var    array|null
+     */
     protected $validators = null;
-    /** @var    mixed     Cache temporary directory */
+
+    /**
+     * Cache temporary directory
+     *
+     * @var    string|null
+     */
     protected $cache_dir = null;
-    /** @var    string    Cache file prefix */
+
+    /**
+     * Cache file prefix
+     *
+     * @var    string
+     */
     protected $cache_file_prefix = 'dcrepo';
-    /** @var    string    Cache TTL */
+
+    /**
+     * Cache TTL
+     *
+     * @var    string
+     */
     protected $cache_ttl = '-1440 minutes';
-    /** @var    boolean    'Cache' TTL on server failed */
+
+    /**
+     * 'Cache' TTL on server failed
+     *
+     * @var    bool     */
     protected $cache_touch_on_fail = true;
-    /** @var    boolean    Force query server */
+
+    /**
+     * Force query server
+     *
+     * @var    bool
+     */
     protected $force = false;
 
     /**
@@ -49,9 +82,10 @@ class dcStoreReader extends netHttp
      * Parse modules feed.
      *
      * @param    string    $url        XML feed URL
-     * @return   mixed     dcStore instance
+     *
+     * @return   mixed     Feed content, dcStoreParser instance or false
      */
-    public function parse($url)
+    public function parse(string $url)
     {
         $this->validators = [];
 
@@ -67,12 +101,13 @@ class dcStoreReader extends netHttp
     /**
      * Quick parse modules feed.
      *
-     * @param    string    $url        XML feed URL
+     * @param    string    $url          XML feed URL
      * @param    string    $cache_dir    Cache directoy or null for no cache
-     * @param    boolean    $force        Force query repository
-     * @return    object    Self instance
+     * @param    bool      $force        Force query repository
+     *
+     * @return   mixed     Feed content, dcStoreParser instance or false
      */
-    public static function quickParse($url, $cache_dir = null, $force = false)
+    public static function quickParse(string $url, ?string $cache_dir = null, bool $force = false)
     {
         $parser = new self();
         if ($cache_dir) {
@@ -89,9 +124,10 @@ class dcStoreReader extends netHttp
      * Set cache directory.
      *
      * @param    string    $dir        Cache directory
-     * @return    boolean    True if cache dierctory is useable
+     *
+     * @return    bool    True if cache dierctory is useable
      */
-    public function setCacheDir($dir)
+    public function setCacheDir(string $dir): bool
     {
         $this->cache_dir = null;
 
@@ -109,9 +145,9 @@ class dcStoreReader extends netHttp
      *
      * @param    string    $str        Cache TTL
      */
-    public function setCacheTTL($str)
+    public function setCacheTTL(string $str): void
     {
-        $str = trim((string) $str);
+        $str = trim($str);
 
         if (!empty($str)) {
             $this->cache_ttl = substr($str, 0, 1) == '-' ? $str : '-' . $str;
@@ -121,20 +157,21 @@ class dcStoreReader extends netHttp
     /**
      * Set force query repository.
      *
-     * @param    boolean    $force    True to force query
+     * @param    bool    $force    True to force query
      */
-    public function setForce($force)
+    public function setForce(bool $force): void
     {
         $this->force = $force;
     }
 
     /**
-     * Get repository XML feed URL content.
+     * Request repository XML feed.
      *
      * @param    string    $url        XML feed URL
-     * @return   mixed     Feed content
+     *
+     * @return   bool      True on success, else false
      */
-    protected function getModulesXML($url)
+    protected function getModulesXML(string $url): bool
     {
         $ssl  = false;
         $host = '';
@@ -162,9 +199,10 @@ class dcStoreReader extends netHttp
      * Get repository modules list using cache.
      *
      * @param    string    $url        XML feed URL
+     *
      * @return   mixed     Feed content or False on fail
      */
-    protected function withCache($url)
+    protected function withCache(string $url)
     {
         $url_md5     = md5($url);
         $cached_file = sprintf(
@@ -260,7 +298,7 @@ class dcStoreReader extends netHttp
      * @param    string    $key        Validator key
      * @param    mixed     $value      Validator value
      */
-    private function setValidator($key, $value)
+    private function setValidator(string $key, $value): void
     {
         if ($key == 'IfModifiedSince') {
             $value = gmdate('D, d M Y H:i:s', $value) . ' GMT';

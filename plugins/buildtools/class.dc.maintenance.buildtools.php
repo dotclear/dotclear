@@ -40,7 +40,7 @@ class l10nFaker
     public function __construct()
     {
         $this->bundled_plugins = explode(',', DC_DISTRIB_PLUGINS);
-        dcCore::app()->media   = new dcMedia(dcCore::app());
+        dcCore::app()->media   = new dcMedia();
     }
 
     protected function fake_l10n($str)

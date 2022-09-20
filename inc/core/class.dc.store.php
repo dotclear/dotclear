@@ -18,16 +18,18 @@ if (!defined('DC_RC_PATH')) {
 
 class dcStore
 {
-    /** @var    object    dcCore instance */
     /**
-     * @deprecated since 2.23
+     * dcModules instance
+     *
+     * @var    object
      */
-    public $core;
-
-    /** @var    object    dcModules instance */
     public $modules;
 
-    /** @var    array    Modules fields to search on and their weighting */
+    /**
+     * Modules fields to search on and their weight
+     *
+     * @var    array
+     */
     public static $weighting = [
         'id'     => 10,
         'name'   => 8,
@@ -36,11 +38,25 @@ class dcStore
         'author' => 2,
     ];
 
-    /** @var    string    User agent used to query repository */
+    /**
+     * User agent used to query repository
+     *
+     * @var    string
+     */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
-    /** @var    string    XML feed URL */
+
+    /**
+     * XML feed URL
+     *
+     * @var    string
+     */
     protected $xml_url;
-    /** @var    array    Array of new/update modules from repository */
+
+    /**
+     * Array of new/update modules from repository
+     *
+     * @var    array
+     */
     protected $data = [];
 
     /**
@@ -48,11 +64,10 @@ class dcStore
      *
      * @param    dcModules $modules        dcModules instance
      * @param    string    $xml_url        XML feed URL
-     * @param    boolean   $force          Force query repository
+     * @param    bool      $force          Force query repository
      */
-    public function __construct(dcModules $modules, $xml_url, $force = false)
+    public function __construct(dcModules $modules, string $xml_url, bool $force = false)
     {
-        $this->core       = dcCore::app();
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
         $this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);
@@ -63,10 +78,11 @@ class dcStore
     /**
      * Check repository.
      *
-     * @param    boolean    $force        Force query repository
-     * @return    boolean    True if get feed or cache
+     * @param    bool    $force        Force query repository
+     *
+     * @return    bool    True if get feed or cache
      */
-    public function check($force = false)
+    public function check(bool $force = false): bool
     {
         if (!$this->xml_url) {
             return false;
@@ -140,11 +156,11 @@ class dcStore
     /**
      * Get a list of modules.
      *
-     * @param    boolean    $update    True to get update modules, false for new ones
+     * @param    bool    $update    True to get update modules, false for new ones
      *
      * @return    array    List of update/new modules
      */
-    public function get($update = false)
+    public function get(bool $update = false): array
     {
         return $this->data[$update ? 'update' : 'new'];
     }
@@ -161,9 +177,10 @@ class dcStore
      * result accuracy grow. Result is sorted by accuracy.
      *
      * @param    string    $pattern    String to search
+     *
      * @return    array    Match modules
      */
-    public function search($pattern)
+    public function search(string $pattern): array
     {
         $result = [];
         $sorter = [];
@@ -219,9 +236,10 @@ class dcStore
      *
      * @param    string    $url    Module package URL
      * @param    string    $dest    Path to install module
-     * @return    integer        1 = installed, 2 = update
+     *
+     * @return    int      dcModules::PACKAGE_INSTALLED (1), dcModules::PACKAGE_UPDATED (2)
      */
-    public function process($url, $dest)
+    public function process(string $url, string $dest): int
     {
         $this->download($url, $dest);
 
@@ -234,7 +252,7 @@ class dcStore
      * @param    string    $url    Module package URL
      * @param    string    $dest    Path to put module package
      */
-    public function download($url, $dest)
+    public function download(string $url, string $dest): void
     {
         // Check and add default protocol if necessary
         if (!preg_match('%^https?:\/\/%', $url)) {
@@ -263,11 +281,11 @@ class dcStore
     /**
      * Install a previously downloaded module.
      *
-     * @param    string    $path    Module package URL
      * @param    string    $path    Path to module package
-     * @return    integer        1 = installed, 2 = update
+     *
+     * @return    int        1 = installed, 2 = update
      */
-    public function install($path)
+    public function install(string $path): int
     {
         return dcModules::installPackage($path, $this->modules);
     }
@@ -277,7 +295,7 @@ class dcStore
      *
      * @param    string    $str        User agent string
      */
-    public function agent($str)
+    public function agent(string $str)
     {
         $this->user_agent = $str;
     }
@@ -286,9 +304,10 @@ class dcStore
      * Split and clean pattern.
      *
      * @param    string    $str        String to sanitize
-     * @return    array    Array of cleaned pieces of string or false if none
+     *
+     * @return    array|false    Array of cleaned pieces of string or false if none
      */
-    public static function patternize($str)
+    private static function patternize(string $str)
     {
         $arr = [];
 

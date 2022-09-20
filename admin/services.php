@@ -174,7 +174,7 @@ class dcRestMethods
         }
 
         if ($post['store'] == 'themes') {
-            $mod = new dcThemes(dcCore::app());
+            $mod = new dcThemes();
             $mod->loadModules(dcCore::app()->blog->themes_path, null);
             $url = dcCore::app()->blog->settings->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
@@ -415,8 +415,8 @@ class dcRestMethods
         $file = null;
 
         try {
-            dcCore::app()->media = new dcMedia(dcCore::app());
-            $file                = dcCore::app()->media->getFile($id);
+            dcCore::app()->media = new dcMedia();
+            $file                = dcCore::app()->media->getFile((int) $id);
         } catch (Exception $e) {
             // Ignore exceptions
         }

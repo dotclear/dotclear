@@ -735,7 +735,7 @@ class context
     public static function EntryFirstImageHelper(string $size, bool $with_category, string $class = '', bool $no_tag = false, bool $content_only = false, bool $cat_only = false): string
     {
         try {
-            $media = new dcMedia(dcCore::app());
+            $media = new dcMedia();
             $sizes = implode('|', array_keys($media->thumb_sizes)) . '|o';
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
@@ -821,7 +821,7 @@ class context
         $res = false;
 
         try {
-            $media = new dcMedia(dcCore::app());
+            $media = new dcMedia();
             $sizes = implode('|', array_keys($media->thumb_sizes));
             if (preg_match('/^\.(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];

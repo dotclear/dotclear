@@ -165,7 +165,7 @@ class dcPager extends pager
 class adminGenericListV2
 {
     /**
-     * record Elements listed
+     * record|staticRecord|dcRecord Elements listed
      */
     protected $rs;
 
@@ -187,10 +187,10 @@ class adminGenericListV2
     /**
      * Constructs a new instance.
      *
-     * @param      record  $rs        The record
-     * @param      mixed   $rs_count  The rs count
+     * @param      record|staticRecord|dcRecord  $rs        The record
+     * @param      mixed                         $rs_count  The rs count
      */
-    public function __construct(record $rs, $rs_count)
+    public function __construct($rs, $rs_count)
     {
         $this->rs        = &$rs;
         $this->rs_count  = $rs_count;

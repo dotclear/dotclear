@@ -139,7 +139,7 @@ if ($can_install && !empty($_POST)) {
         # Create global blog settings
         dcCore::app()->blogDefaults();
 
-        $blog_settings = new dcSettings(dcCore::app(), 'default');
+        $blog_settings = new dcSettings('default');
         $blog_settings->addNamespace('system');
         $blog_settings->system->put('blog_timezone', $default_tz);
         $blog_settings->system->put('lang', $dlang);

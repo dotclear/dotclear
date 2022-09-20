@@ -302,7 +302,7 @@ class dcAuth
 
         $this->user_options = array_merge(dcCore::app()->userDefaults(), $rs->options());
 
-        $this->user_prefs = new dcPrefs(dcCore::app(), $this->user_id);
+        $this->user_prefs = new dcPrefs($this->user_id);
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {

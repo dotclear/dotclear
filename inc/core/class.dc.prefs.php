@@ -18,32 +18,45 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPrefs
 {
+    // Properties
+
     /**
-     * @deprecated since 2.23
+     * Database connection object
+     *
+     * @var object
      */
-    protected $core;    ///< <b>core</b> Dotclear core object
+    protected $con;
 
-    protected $con;     ///< <b>connection</b> Database connection object
-    protected $table;   ///< <b>string</b> Prefs table name
-    protected $user_id; ///< <b>string</b> User ID
+    /**
+     * Preferences table name
+     *
+     * @var string
+     */
+    protected $table;
 
-    protected $workspaces = []; ///< <b>array</b> Associative workspaces array
+    /**
+     * User ID
+     *
+     * @var string
+     */
+    protected $user_id;
 
-    protected $ws; ///< <b>string</b> Current workspace
-
-    protected const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    /**
+     * Associative workspaces array
+     *
+     * @var        array
+     */
+    protected $workspaces = [];
 
     /**
      * Object constructor. Retrieves user prefs and puts them in $workspaces
      * array. Local (user) prefs have a highest priority than global prefs.
      *
-     * @param      dcCore      $core      The core
      * @param      string      $user_id   The user identifier
-     * @param      string|null $workspace The workspace to load
+     * @param      string      $workspace The workspace to load
      */
-    public function __construct(dcCore $core, $user_id, $workspace = null)
+    public function __construct(string $user_id, ?string $workspace = null)
     {
-        $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
         $this->table   = dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME;
         $this->user_id = $user_id;
@@ -51,16 +64,16 @@ class dcPrefs
         try {
             $this->loadPrefs($workspace);
         } catch (Exception $e) {
-            if (version_compare(dcCore::app()->getVersion('core'), '2.3', '>')) {
-                trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
-            }
+            trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
         }
     }
 
     /**
-    Retrieves all (or only one) workspaces (and their prefs) from database, with one query.
+     * Loads preferences.
+     *
+     * @param      null|string  $workspace  The workspace
      */
-    private function loadPrefs($workspace = null)
+    private function loadPrefs(?string $workspace = null): void
     {
         $sql = new dcSelectStatement();
         $sql
@@ -86,7 +99,7 @@ class dcPrefs
         }
 
         try {
-            $rs = $sql->select();
+            $rs = new dcRecord($sql->select());
         } catch (Exception $e) {
             throw $e;
         }
@@ -97,62 +110,62 @@ class dcPrefs
         }
 
         do {
-            $ws = trim((string) $rs->f('pref_ws'));
+            $workspace = trim((string) $rs->f('pref_ws'));
             if (!$rs->isStart()) {
                 // we have to go up 1 step, since workspaces construction performs a fetch()
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ws] = new dcWorkspace(dcCore::app(), $this->user_id, $ws, $rs);
+            $this->workspaces[$workspace] = new dcWorkspace($this->user_id, $workspace, $rs);
         } while (!$rs->isStart());
     }
 
     /**
      * Create a new workspace. If the workspace already exists, return it without modification.
      *
-     * @param      string  $ws     Workspace name
+     * @param      string  $workspace     Workspace name
      *
      * @return     dcWorkspace
      */
-    public function addWorkspace($ws)
+    public function addWorkspace(string $workspace): dcWorkspace
     {
-        if (!$this->exists($ws)) {
-            $this->workspaces[$ws] = new dcWorkspace(dcCore::app(), $this->user_id, $ws);
+        if (!$this->exists($workspace)) {
+            $this->workspaces[$workspace] = new dcWorkspace($this->user_id, $workspace);
         }
 
-        return $this->workspaces[$ws];
+        return $this->workspaces[$workspace];
     }
 
     /**
      * Rename a workspace.
      *
-     * @param      string     $oldWs  The old workspace name
-     * @param      string     $newWs  The new workspace name
+     * @param      string     $old_workspace  The old workspace name
+     * @param      string     $new_workspace  The new workspace name
      *
      * @throws     Exception  (description)
      *
      * @return     bool
      */
-    public function renWorkspace($oldWs, $newWs)
+    public function renWorkspace(string $old_workspace, string $new_workspace): bool
     {
-        if (!$this->exists($oldWs) || $this->exists($newWs)) {
+        if (!$this->exists($old_workspace) || $this->exists($new_workspace)) {
             return false;
         }
 
-        if (!preg_match(self::WS_NAME_SCHEMA, $newWs)) {
-            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $newWs));
+        if (!preg_match(dcWorkspace::WS_NAME_SCHEMA, $new_workspace)) {
+            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $new_workspace));
         }
 
         // Rename the workspace in the workspace array
-        $this->workspaces[$newWs] = $this->workspaces[$oldWs];
-        unset($this->workspaces[$oldWs]);
+        $this->workspaces[$new_workspace] = $this->workspaces[$old_workspace];
+        unset($this->workspaces[$old_workspace]);
 
         // Rename the workspace in the database
         $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
-            ->set('pref_ws = ' . $sql->quote($newWs))
-            ->where('pref_ws = ' . $sql->quote($oldWs));
+            ->set('pref_ws = ' . $sql->quote($new_workspace))
+            ->where('pref_ws = ' . $sql->quote($old_workspace));
         $sql->update();
 
         return true;
@@ -161,24 +174,24 @@ class dcPrefs
     /**
      * Delete a whole workspace with all preferences pertaining to it.
      *
-     * @param      string  $ws     Workspace name
+     * @param      string  $workspace     Workspace name
      *
      * @return     bool
      */
-    public function delWorkspace($ws)
+    public function delWorkspace(string $workspace): bool
     {
-        if (!$this->exists($ws)) {
+        if (!$this->exists($workspace)) {
             return false;
         }
 
         // Remove the workspace from the workspace array
-        unset($this->workspaces[$ws]);
+        unset($this->workspaces[$workspace]);
 
         // Delete all preferences from the workspace in the database
         $sql = new dcDeleteStatement();
         $sql
             ->from($this->table)
-            ->where('pref_ws = ' . $sql->quote($ws));
+            ->where('pref_ws = ' . $sql->quote($workspace));
 
         $sql->delete();
 
@@ -188,14 +201,14 @@ class dcPrefs
     /**
      * Returns full workspace with all prefs pertaining to it.
      *
-     * @param      string  $ws     Workspace name
+     * @param      string  $workspace     Workspace name
      *
      * @return     mixed
      */
-    public function get($ws)
+    public function get(string $workspace)
     {
-        if ($this->exists($ws)) {
-            return $this->workspaces[$ws];
+        if ($this->exists($workspace)) {
+            return $this->workspaces[$workspace];
         }
     }
 
@@ -204,25 +217,25 @@ class dcPrefs
      *
      * @copydoc ::get
      *
-     * @param      string  $n     Workspace name
+     * @param      string  $workspace     Workspace name
      *
      * @return     mixed
      */
-    public function __get($n)
+    public function __get(string $workspace)
     {
-        return $this->get($n);
+        return $this->get($workspace);
     }
 
     /**
      * Check if a workspace exists
      *
-     * @param      string  $ws     Workspace name
+     * @param      string  $workspace     Workspace name
      *
      * @return     boolean
      */
-    public function exists($ws)
+    public function exists(string $workspace): bool
     {
-        return array_key_exists($ws, $this->workspaces);
+        return array_key_exists($workspace, $this->workspaces);
     }
 
     /**
@@ -230,7 +243,7 @@ class dcPrefs
      *
      * @return     array
      */
-    public function dumpWorkspaces()
+    public function dumpWorkspaces(): array
     {
         return $this->workspaces;
     }

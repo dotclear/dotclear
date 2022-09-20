@@ -18,7 +18,7 @@ $cat_url      = '';
 $cat_desc     = '';
 $cat_position = '';
 
-$blog_settings = new dcSettings(dcCore::app(), dcCore::app()->blog->id);
+$blog_settings = new dcSettings(dcCore::app()->blog->id);
 $blog_lang     = $blog_settings->system->lang;
 
 # Getting existing category

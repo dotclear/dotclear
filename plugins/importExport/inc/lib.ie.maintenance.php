@@ -41,7 +41,7 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
             }
 
             // This process make an http redirect
-            $ie = new maintenanceDcExportFlat(dcCore::app());
+            $ie = new maintenanceDcExportFlat();
             $ie->setURL($this->id);
             $ie->process($this->export_type);
         }
@@ -60,7 +60,7 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
             $this->log();
 
             // This process send file by http and stop script
-            $ie = new maintenanceDcExportFlat(dcCore::app());
+            $ie = new maintenanceDcExportFlat();
             $ie->setURL($this->id);
             $ie->process('ok');
         } else {
@@ -115,7 +115,7 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
             }
 
             // This process make an http redirect
-            $ie = new maintenanceDcExportFlat(dcCore::app());
+            $ie = new maintenanceDcExportFlat();
             $ie->setURL($this->id);
             $ie->process($this->export_type);
         }
@@ -133,7 +133,7 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
             $this->log();
 
             // This process send file by http and stop script
-            $ie = new maintenanceDcExportFlat(dcCore::app());
+            $ie = new maintenanceDcExportFlat();
             $ie->setURL($this->id);
             $ie->process('ok');
         } else {

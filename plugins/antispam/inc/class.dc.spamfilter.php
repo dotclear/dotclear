@@ -25,16 +25,10 @@ class dcSpamFilter
     protected $gui_url = null;
 
     /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    protected $core;
-
-    /**
      * Constructs a new instance.
      */
     public function __construct()
     {
-        $this->core = dcCore::app();
         $this->setInfo();
 
         if (!$this->name) {

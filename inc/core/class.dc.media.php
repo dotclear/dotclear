@@ -25,26 +25,88 @@ class dcMedia extends filemanager
      */
     public const MEDIA_TABLE_NAME = 'media';
 
-    /**
-     * @deprecated since 2.23
-     */
-    protected $core;  ///< <b>dcCore</b> dcCore instance
+    // Properties
 
-    protected $con;   ///< <b>connection</b> Database connection
-    protected $table; ///< <b>string</b> Media table name
-    protected $type;  ///< <b>string</b> Media type filter
+    /**
+     * Database connection
+     *
+     * @var object
+     */
+    protected $con;
+
+    /**
+     * Media table name
+     *
+     * @var string
+     */
+    protected $table;
+
+    /**
+     * Media type filter
+     *
+     * Correspond, if set, to the base mimetype (ex: "image" for "image/jpg" mimetype)
+     * Might be image, audio, text, vidéo, application
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
+     * Sort criteria
+     *
+     * @var string
+     */
     protected $file_sort = 'name-asc';
 
+    /**
+     * Current path
+     *
+     * @var string
+     */
     protected $path;
+
+    /**
+     * Ccurrent relative path
+     *
+     * @var string
+     */
     protected $relpwd;
 
-    protected $file_handler = []; ///< <b>array</b> Array of callbacks
+    /**
+     * Stack of callbacks
+     *
+     * @var array
+     */
+    protected $file_handler = [];
 
+    /**
+     * Post media instance
+     *
+     * @var dcPostMedia
+     */
     protected $postmedia;
 
-    public $thumb_tp       = '%s/.%s_%s.jpg';  ///< <b>string</b> Thumbnail file pattern
-    public $thumb_tp_alpha = '%s/.%s_%s.png';  ///< <b>string</b> Thumbnail file pattern (with alpha layer)
-    public $thumb_tp_webp  = '%s/.%s_%s.webp'; ///< <b>string</b> Thumbnail file pattern (webp)
+    /**
+     * Thumbnail file pattern
+     *
+     * @var string
+     */
+    public $thumb_tp = '%s/.%s_%s.jpg';
+
+    /**
+     * Thumbnail file pattern (PNG with alpha layer)
+     *
+     * @var string
+     */
+    public $thumb_tp_alpha = '%s/.%s_%s.png';
+
+    /**
+     * Thumbnail file pattern (WebP)
+     *
+     * @var string
+     */
+    public $thumb_tp_webp = '%s/.%s_%s.webp';
+
     /**
      * Tubmnail sizes:
      * - m: medium image
@@ -52,7 +114,7 @@ class dcMedia extends filemanager
      * - t: thumbnail image
      * - sq: square image
      *
-     * @var        array
+     * @var array(<string>, <array>(<int>, <string>, <string>))
      */
     public $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],
@@ -61,21 +123,24 @@ class dcMedia extends filemanager
         'sq' => [48, 'crop', 'square'],
     ];
 
-    public $icon_img = 'images/media/%s.svg'; ///< <b>string</b> Icon file pattern
+    /**
+     * Icon file pattern
+     *
+     * @var string
+     */
+    public $icon_img = 'images/media/%s.svg';
 
     /**
      * Constructs a new instance.
      *
-     * @param      dcCore     $core   The core
      * @param      string     $type   The media type filter
      *
-     * @throws     Exception  (description)
+     * @throws     Exception
      */
-    public function __construct(dcCore $core = null, $type = '')
+    public function __construct(string $type = '')
     {
-        $this->core      = dcCore::app();
         $this->con       = dcCore::app()->con;
-        $this->postmedia = new dcPostMedia(dcCore::app());
+        $this->postmedia = new dcPostMedia();
 
         if (dcCore::app()->blog == null) {
             throw new Exception(__('No blog defined.'));
@@ -173,14 +238,21 @@ class dcMedia extends filemanager
      * @param      string           $event     The event
      * @param      callable|array   $function  The callback
      */
-    public function addFileHandler($type, $event, $function)
+    public function addFileHandler(string $type, string $event, $function)
     {
         if (is_callable($function)) {
             $this->file_handler[$type][$event][] = $function;
         }
     }
 
-    protected function callFileHandler($type, $event, ...$args)
+    /**
+     * Call filehandler depending on media type and event
+     *
+     * @param      string  $type     The type
+     * @param      string  $event    The event
+     * @param      mixed   ...$args  The arguments
+     */
+    protected function callFileHandler(string $type, string $event, ...$args)
     {
         if (!empty($this->file_handler[$type][$event])) {
             foreach ($this->file_handler[$type][$event] as $f) {
@@ -197,7 +269,7 @@ class dcMedia extends filemanager
      *
      * @return     string  HTML code
      */
-    public function breadCrumb($href, $last = '')
+    public function breadCrumb(string $href, string $last = ''): string
     {
         $res = '';
         if ($this->relpwd && $this->relpwd != '.') {
@@ -217,87 +289,95 @@ class dcMedia extends filemanager
         return $res;
     }
 
-    protected function fileRecord($rs)
+    /**
+     * Get media file information from recordset
+     *
+     * @param      record|staticRecord|extStaticRecord    $rs  The recordset
+     *
+     * @return     fileItem  The file item.
+     */
+    protected function fileRecord($rs): ?fileItem
     {
         if ($rs->isEmpty()) {
-            return;
+            return null;
         }
 
         if (!$this->isFileExclude($this->root . '/' . $rs->media_file) && is_file($this->root . '/' . $rs->media_file)) {
-            $f = new fileItem($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
+            $fi = new fileItem($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
 
-            if ($this->type && $f->type_prefix != $this->type) {
-                return;
+            if ($this->type && $fi->type_prefix !== $this->type) {
+                // Check file mimetype base (before 1st /)
+                return null;
             }
 
             $meta = @simplexml_load_string((string) $rs->media_meta);
 
-            $f->editable    = true;
-            $f->media_id    = $rs->media_id;
-            $f->media_title = $rs->media_title;
-            $f->media_meta  = $meta instanceof SimpleXMLElement ? $meta : simplexml_load_string('<meta></meta>');
-            $f->media_user  = $rs->user_id;
-            $f->media_priv  = (bool) $rs->media_private;
-            $f->media_dt    = strtotime($rs->media_dt);
-            $f->media_dtstr = dt::str('%Y-%m-%d %H:%M', $f->media_dt);
+            $fi->editable    = true;
+            $fi->media_id    = $rs->media_id;
+            $fi->media_title = $rs->media_title;
+            $fi->media_meta  = $meta instanceof SimpleXMLElement ? $meta : simplexml_load_string('<meta></meta>');
+            $fi->media_user  = $rs->user_id;
+            $fi->media_priv  = (bool) $rs->media_private;
+            $fi->media_dt    = strtotime($rs->media_dt);
+            $fi->media_dtstr = dt::str('%Y-%m-%d %H:%M', $fi->media_dt);
 
-            $f->media_image   = false;
-            $f->media_preview = false;
+            $fi->media_image   = false;
+            $fi->media_preview = false;
 
             if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_MEDIA_ADMIN,
             ]), dcCore::app()->blog->id)
-                && dcCore::app()->auth->userID() != $f->media_user) {
-                $f->del      = false;
-                $f->editable = false;
+                && dcCore::app()->auth->userID() != $fi->media_user) {
+                $fi->del      = false;
+                $fi->editable = false;
             }
 
-            $type_prefix = explode('/', $f->type);
+            $type_prefix = explode('/', $fi->type);
             $type_prefix = $type_prefix[0];
 
             switch ($type_prefix) {
                 case 'image':
-                    $f->media_image = true;
-                    $f->media_icon  = 'image';
+                    $fi->media_image = true;
+                    $fi->media_icon  = 'image';
 
                     break;
                 case 'audio':
-                    $f->media_icon = 'audio';
+                    $fi->media_icon = 'audio';
 
                     break;
                 case 'text':
-                    $f->media_icon = 'text';
+                    $fi->media_icon = 'text';
 
                     break;
                 case 'video':
-                    $f->media_icon = 'video';
+                    $fi->media_icon = 'video';
 
                     break;
                 default:
-                    $f->media_icon = 'blank';
+                    $fi->media_icon = 'blank';
             }
-            switch ($f->type) {
+            switch ($fi->type) {
                 case 'application/msword':
                 case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 case 'application/vnd.oasis.opendocument.text':
                 case 'application/vnd.sun.xml.writer':
                 case 'application/pdf':
                 case 'application/postscript':
-                    $f->media_icon = 'document';
+                    $fi->media_icon = 'document';
 
                     break;
                 case 'application/msexcel':
                 case 'vnd.openxmlformats-officedocument.spreadsheetml.sheet':
                 case 'application/vnd.oasis.opendocument.spreadsheet':
                 case 'application/vnd.sun.xml.calc':
-                    $f->media_icon = 'spreadsheet';
+                    $fi->media_icon = 'spreadsheet';
 
                     break;
                 case 'application/mspowerpoint':
                 case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
                 case 'application/vnd.oasis.opendocument.presentation':
                 case 'application/vnd.sun.xml.impress':
-                    $f->media_icon = 'presentation';
+                    $fi->media_icon = 'presentation';
 
                     break;
                 case 'application/x-debian-package':
@@ -310,33 +390,33 @@ class dcMedia extends filemanager
                 case 'application/x-tar':
                 case 'application/x-gtar':
                 case 'application/zip':
-                    $f->media_icon = 'package';
+                    $fi->media_icon = 'package';
 
                     break;
                 case 'application/octet-stream':
-                    $f->media_icon = 'executable';
+                    $fi->media_icon = 'executable';
 
                     break;
                 case 'application/x-shockwave-flash':
-                    $f->media_icon = 'video';
+                    $fi->media_icon = 'video';
 
                     break;
                 case 'application/ogg':
-                    $f->media_icon = 'audio';
+                    $fi->media_icon = 'audio';
 
                     break;
                 case 'text/html':
-                    $f->media_icon = 'html';
+                    $fi->media_icon = 'html';
 
                     break;
             }
 
-            $f->media_type = $f->media_icon;
-            $f->media_icon = sprintf($this->icon_img, $f->media_icon);
+            $fi->media_type = $fi->media_icon;
+            $fi->media_icon = sprintf($this->icon_img, $fi->media_icon);
 
             # Thumbnails
-            $f->media_thumb = [];
-            $p              = path::info($f->relname);
+            $fi->media_thumb = [];
+            $p               = path::info($fi->relname);
 
             $alpha = strtolower($p['extension']) === 'png';
             $webp  = strtolower($p['extension']) === 'webp';
@@ -371,25 +451,27 @@ class dcMedia extends filemanager
                 $thumb_url_alt = preg_replace('#(?<!:)/+#', '/', $thumb_url_alt);
             }
 
-            foreach ($this->thumb_sizes as $suffix => $s) {
+            foreach (array_keys($this->thumb_sizes) as $suffix) {
                 if (file_exists(sprintf($thumb, $suffix))) {
-                    $f->media_thumb[$suffix] = sprintf($thumb_url, $suffix);
+                    $fi->media_thumb[$suffix] = sprintf($thumb_url, $suffix);
                 } elseif (($alpha || $webp) && file_exists(sprintf($thumb_alt, $suffix))) {
-                    $f->media_thumb[$suffix] = sprintf($thumb_url_alt, $suffix);
+                    $fi->media_thumb[$suffix] = sprintf($thumb_url_alt, $suffix);
                 }
             }
 
-            if ($f->media_type === 'image') {
-                $f->media_preview = true;
-                if (isset($f->media_thumb['sq'])) {
-                    $f->media_icon = $f->media_thumb['sq'];
+            if ($fi->media_type === 'image') {
+                $fi->media_preview = true;
+                if (isset($fi->media_thumb['sq'])) {
+                    $fi->media_icon = $fi->media_thumb['sq'];
                 } elseif (strtolower($p['extension']) === 'svg') {
-                    $f->media_icon = $this->root_url . $p['dirname'] . '/' . $p['base'] . '.' . $p['extension'];
+                    $fi->media_icon = $this->root_url . $p['dirname'] . '/' . $p['base'] . '.' . $p['extension'];
                 }
             }
 
-            return $f;
+            return $fi;
         }
+
+        return null;
     }
 
     /**
@@ -397,14 +479,22 @@ class dcMedia extends filemanager
      *
      * @param      string  $type   The type
      */
-    public function setFileSort($type = 'name')
+    public function setFileSort(string $type = 'name')
     {
         if (in_array($type, ['size-asc', 'size-desc', 'name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
             $this->file_sort = $type;
         }
     }
 
-    protected function sortFileHandler($a, $b)
+    /**
+     * Sort calllback
+     *
+     * @param      fileItem  $a      1st media
+     * @param      fileItem  $b      2nd media
+     *
+     * @return     int
+     */
+    protected function sortFileHandler(?fileItem $a, ?fileItem $b): int
     {
         if (is_null($a) || is_null($b)) {
             return (is_null($a) ? 1 : -1);
@@ -550,19 +640,18 @@ class dcMedia extends filemanager
             }
 
             if ($this->inFiles($rs->media_file)) {
-                $f = $this->fileRecord($rs);
-                if ($f !== null) {
+                if ($f = $this->fileRecord($rs)) {
                     if (isset($f_reg[$rs->media_file])) {
                         # That media is duplicated in the database,
                         # time to do a bit of house cleaning.
                         $sql = new dcDeleteStatement();
                         $sql
                             ->from($this->table)
-                            ->where('media_id = ' . $this->fileRecord($rs)->media_id);
+                            ->where('media_id = ' . $f->media_id);
 
                         $sql->delete();
                     } else {
-                        $f_res[]                = $this->fileRecord($rs);
+                        $f_res[]                = $f;
                         $f_reg[$rs->media_file] = 1;
                     }
                 }
@@ -612,11 +701,11 @@ class dcMedia extends filemanager
     /**
      * Gets file by its id. Returns a filteItem object.
      *
-     * @param      mixed  $id     The file identifier
+     * @param      int     $id     The file identifier
      *
      * @return     fileItem  The file.
      */
-    public function getFile($id)
+    public function getFile(int $id): ?fileItem
     {
         $sql = new dcSelectStatement();
         $sql
@@ -658,9 +747,9 @@ class dcMedia extends filemanager
      *
      * @return     bool    true or false if nothing found
      */
-    public function searchMedia($query)
+    public function searchMedia(string $query): bool
     {
-        if ($query == '') {
+        if ($query === '') {
             return false;
         }
 
@@ -701,8 +790,7 @@ class dcMedia extends filemanager
         $this->dir = ['dirs' => [], 'files' => []];
         $f_res     = [];
         while ($rs->fetch()) {
-            $fr = $this->fileRecord($rs);
-            if ($fr) {
+            if ($fr = $this->fileRecord($rs)) {
                 $f_res[] = $fr;
             }
         }
@@ -721,13 +809,13 @@ class dcMedia extends filemanager
      * Returns media items attached to a blog post. Result is an array containing
      * fileItems objects.
      *
-     * @param      integer  $post_id    The post identifier
-     * @param      mixed    $media_id   The media identifier
-     * @param      mixed    $link_type  The link type
+     * @param      int      $post_id    The post identifier
+     * @param      mixed    $media_id   The media identifier(s)
+     * @param      mixed    $link_type  The link type(s)
      *
      * @return     array   Array of fileItems.
      */
-    public function getPostMedia($post_id, $media_id = null, $link_type = null)
+    public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array
     {
         $params = [
             'post_id'    => $post_id,
@@ -744,8 +832,7 @@ class dcMedia extends filemanager
         $res = [];
 
         while ($rs->fetch()) {
-            $f = $this->fileRecord($rs);
-            if ($f !== null) {
+            if ($f = $this->fileRecord($rs)) {
                 $res[] = $f;
             }
         }
@@ -761,7 +848,7 @@ class dcMedia extends filemanager
      *
      * @throws     Exception
      */
-    public function rebuild($pwd = '')
+    public function rebuild(string $pwd = ''): void
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
@@ -786,7 +873,15 @@ class dcMedia extends filemanager
         $this->rebuildDB($pwd);
     }
 
-    protected function rebuildDB($pwd)
+    /**
+     * Rebuilds database items collection. Optional <var>$pwd</var> parameter is
+     * the path where to start rebuild else its the current directory
+     *
+     * @param      string     $pwd    The directory to rebuild
+     *
+     * @throws     Exception
+     */
+    protected function rebuildDB(?string $pwd)
     {
         $media_dir = $pwd ?: '.';
 
@@ -821,12 +916,30 @@ class dcMedia extends filemanager
     /**
      * Makes a dir.
      *
-     * @param      string  $d      the directory to create
+     * @param      string  $directory      the directory to create
      */
-    public function makeDir($d): void
+    public function makeDir(?string $directory): void
     {
-        $d = files::tidyFileName($d);
-        parent::makeDir($d);
+        $directory = files::tidyFileName($directory);
+        parent::makeDir($directory);
+
+        # --BEHAVIOR-- coreAfterMediaDirCreate
+        dcCore::app()->callBehavior('coreAfterMediaDirCreate', $directory);
+    }
+
+    /**
+     * Remove a dir.
+     *
+     * Removes a directory which is relative to working directory.
+     *
+     * @param string    $directory            Directory to remove
+     */
+    public function removeDir(?string $directory): void
+    {
+        parent::removeDir($directory);
+
+        # --BEHAVIOR-- coreAfterMediaDirDelete
+        dcCore::app()->callBehavior('coreAfterMediaDirDelete', $directory);
     }
 
     /**
@@ -834,7 +947,7 @@ class dcMedia extends filemanager
      * file does not exist.
      *
      * @param      string     $name     The file name (relative to working directory)
-     * @param      mixed      $title    The file title
+     * @param      string     $title    The file title
      * @param      bool       $private  File is private
      * @param      mixed      $dt       File date
      * @param      bool       $force    The force flag
@@ -843,7 +956,7 @@ class dcMedia extends filemanager
      *
      * @return     integer|bool     New media ID or false
      */
-    public function createFile($name, $title = null, $private = false, $dt = null, $force = true)
+    public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -937,7 +1050,7 @@ class dcMedia extends filemanager
      *
      * @throws     Exception
      */
-    public function updateFile($file, $newFile)
+    public function updateFile(fileItem $file, fileItem $newFile)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -1006,15 +1119,15 @@ class dcMedia extends filemanager
      *
      * @param      string     $tmp        The full path of temporary uploaded file
      * @param      string     $name       The file name (relative to working directory)me
-     * @param      mixed      $title      The file title
-     * @param      bool       $private    File is private
      * @param      bool       $overwrite  File should be overwrite
+     * @param      string     $title      The file title (should be string|null)
+     * @param      bool       $private    File is private
      *
      * @throws     Exception
      *
-     * @return     mixed      New media ID or false
+     * @return     mixed      New media ID or false (should be int|false)
      */
-    public function uploadFile($tmp, $name, $title = null, $private = false, $overwrite = false)
+    public function uploadFile(string $tmp, string $name, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -1061,11 +1174,11 @@ class dcMedia extends filemanager
     /**
      * Removes a file.
      *
-     * @param      string     $f      filename
+     * @param      string     $name      filename
      *
      * @throws     Exception
      */
-    public function removeFile($f): void
+    public function removeFile(?string $name): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -1074,7 +1187,7 @@ class dcMedia extends filemanager
             throw new Exception(__('Permission denied.'));
         }
 
-        $media_file = $this->relpwd ? path::clean($this->relpwd . '/' . $f) : path::clean($f);
+        $media_file = $this->relpwd ? path::clean($this->relpwd . '/' . $name) : path::clean($name);
 
         $sql = new dcDeleteStatement();
         $sql
@@ -1094,9 +1207,9 @@ class dcMedia extends filemanager
             throw new Exception(__('File does not exist in the database.'));
         }
 
-        parent::removeFile($f);
+        parent::removeFile($name);
 
-        $this->callFileHandler(files::getMimeType($media_file), 'remove', $f);
+        $this->callFileHandler(files::getMimeType($media_file), 'remove', $name);
     }
 
     /**
@@ -1108,7 +1221,7 @@ class dcMedia extends filemanager
      *
      * @return array
      */
-    public function getDBDirs()
+    public function getDBDirs(): array
     {
         $dir = [];
 
@@ -1138,7 +1251,7 @@ class dcMedia extends filemanager
      *
      * @return     string     destination
      */
-    public function inflateZipFile($f, $create_dir = true)
+    public function inflateZipFile(fileItem $f, bool $create_dir = true): string
     {
         $zip = new fileUnzip($f->file);
         $zip->setExcludePattern($this->exclude_pattern);
@@ -1193,7 +1306,7 @@ class dcMedia extends filemanager
      *
      * @return     array  The zip content.
      */
-    public function getZipContent($f)
+    public function getZipContent(fileItem $f): array
     {
         $zip  = new fileUnzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
@@ -1207,7 +1320,7 @@ class dcMedia extends filemanager
      *
      * @param      fileItem  $f      fileItem object
      */
-    public function mediaFireRecreateEvent($f)
+    public function mediaFireRecreateEvent(fileItem $f): void
     {
         $media_type = files::getMimeType($f->basename);
         $this->callFileHandler($media_type, 'recreate', null, $f->basename); // Args list to be completed as necessary (Franck)
@@ -1218,13 +1331,13 @@ class dcMedia extends filemanager
     /**
      * Create image thumbnails
      *
-     * @param      mixed   $cur    The cursor
+     * @param      cursor  $cur    The cursor
      * @param      string  $f      Image filename
      * @param      bool    $force  Force creation
      *
-     * @return     mixed
+     * @return     bool
      */
-    public function imageThumbCreate($cur, $f, $force = true)
+    public function imageThumbCreate(?cursor $cur, string $f, bool $force = true): bool
     {
         $file = $this->pwd . '/' . $f;
 
@@ -1271,6 +1384,8 @@ class dcMedia extends filemanager
                 throw $e;
             }
         }
+
+        return true;
     }
 
     /**
@@ -1278,10 +1393,12 @@ class dcMedia extends filemanager
      *
      * @param      fileItem  $file     The file
      * @param      fileItem  $newFile  The new file
+     *
+     * @return  bool
      */
-    protected function imageThumbUpdate($file, $newFile)
+    protected function imageThumbUpdate(fileItem $file, fileItem $newFile): bool
     {
-        if ($file->relname != $newFile->relname) {
+        if ($file->relname !== $newFile->relname) {
             $p         = path::info($file->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
@@ -1312,15 +1429,21 @@ class dcMedia extends filemanager
                 } catch (Exception $e) {
                 }
             }
+
+            return true;
         }
+
+        return false;
     }
 
     /**
      * Remove image thumbnails
      *
      * @param      string  $f      Image filename
+     *
+     * @return  bool
      */
-    public function imageThumbRemove($f)
+    public function imageThumbRemove(string $f): bool
     {
         $p     = path::info($f);
         $alpha = strtolower($p['extension']) === 'png';
@@ -1334,12 +1457,14 @@ class dcMedia extends filemanager
             '%s'
         );
 
-        foreach ($this->thumb_sizes as $suffix => $s) {
+        foreach (array_keys($this->thumb_sizes) as $suffix) {
             try {
                 parent::removeFile(sprintf($thumb, $suffix));
             } catch (Exception $e) {
             }
         }
+
+        return true;
     }
 
     /**
@@ -1347,11 +1472,11 @@ class dcMedia extends filemanager
      *
      * @param      cursor  $cur    The cursor
      * @param      string  $f      Image filename
-     * @param      mixed   $id     The media identifier
+     * @param      int     $id     The media identifier
      *
-     * @return     mixed
+     * @return     bool
      */
-    protected function imageMetaCreate($cur, $f, $id)
+    protected function imageMetaCreate(cursor $cur, string $f, int $id): bool
     {
         $file = $this->pwd . '/' . $f;
 
@@ -1382,27 +1507,29 @@ class dcMedia extends filemanager
         }
 
         # --BEHAVIOR-- coreBeforeImageMetaCreate
-        $this->core->callBehavior('coreBeforeImageMetaCreate', $c);
+        dcCore::app()->callBehavior('coreBeforeImageMetaCreate', $c);
 
         $sql = new dcUpdateStatement();
         $sql->where('media_id = ' . $id);
 
         $sql->update($c);
+
+        return true;
     }
 
     /**
      * Returns HTML code for audio player (HTML5)
      *
-     * @param      string  $type      The audio mime type (not used)
+     * @param      string  $type      The audio mime type
      * @param      string  $url       The audio URL to play
-     * @param      mixed   $player    The player URL (not used)
-     * @param      mixed   $args      The player arguments (not used)
-     * @param      bool    $fallback  The fallback (not more used)
+     * @param      string  $player    The player URL
+     * @param      mixed   $args      The player arguments
+     * @param      bool    $fallback  The fallback
      * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
      *
      * @return     string
      */
-    public static function audioPlayer($type, $url, $player = null, $args = null, $fallback = false, $preload = true)
+    public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         return
             '<audio controls preload="' . ($preload ? 'auto' : 'none') . '">' .
@@ -1415,14 +1542,14 @@ class dcMedia extends filemanager
      *
      * @param      string  $type      The video mime type
      * @param      string  $url       The video URL to play
-     * @param      mixed   $player    The player URL
+     * @param      string  $player    The player URL
      * @param      mixed   $args      The player arguments
      * @param      bool    $fallback  The fallback (not more used)
      * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
      *
      * @return     string
      */
-    public static function videoPlayer($type, $url, $player = null, $args = null, $fallback = false, $preload = true)
+    public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         $video = '';
 
@@ -1453,14 +1580,14 @@ class dcMedia extends filemanager
      * Returns HTML code for MP3 player (HTML5)
      *
      * @param      string  $url       The audio URL to play
-     * @param      mixed   $player    The player URL
+     * @param      string  $player    The player URL
      * @param      mixed   $args      The player arguments
      * @param      bool    $fallback  The fallback (not more used)
      * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
      *
      * @return     string
      */
-    public static function mp3player($url, $player = null, $args = null, $fallback = false, $preload = true)
+    public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         return self::audioPlayer('audio/mp3', $url, $player, $args, false, $preload);
     }
@@ -1471,12 +1598,12 @@ class dcMedia extends filemanager
      * @obsolete since 2.15
      *
      * @param      string  $url     The url
-     * @param      mixed   $player  The player
+     * @param      string  $player  The player
      * @param      mixed   $args    The arguments
      *
      * @return     string
      */
-    public static function flvplayer($url, $player = null, $args = null)
+    public static function flvplayer(string $url, ?string $player = null, $args = null): string
     {
         return '';
     }

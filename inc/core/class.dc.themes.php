@@ -17,6 +17,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcThemes extends dcModules
 {
+    /**
+     * Module type
+     *
+     * @var        string
+     */
     protected static $type = 'theme';
 
     /**
@@ -26,7 +31,7 @@ class dcThemes extends dcModules
      *
      * @return     bool
      */
-    public function safeMode($disabled = false)
+    public function safeMode(bool $disabled = false): bool
     {
         // We load all themes, as in standard mode, in safe mode
         return false;
@@ -46,11 +51,11 @@ class dcThemes extends dcModules
      * @param      string  $desc        The description
      * @param      string  $author      The author
      * @param      string  $version     The version
-     * @param      array   $properties  The properties
+     * @param      mixed   $properties  The properties
      */
-    public function registerModule($name, $desc, $author, $version, $properties = [])
+    public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        # Fallback to legacy registerModule parameters
+        // Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
             $properties = [];
@@ -61,17 +66,29 @@ class dcThemes extends dcModules
                 $properties['priority'] = (int) $args[5];
             }
         }
-        # Themes specifics properties
+        // Themes specifics properties
         $properties = array_merge(
-            ['parent' => null, 'tplset' => DC_DEFAULT_TPLSET],
+            [
+                'parent' => null,
+                'tplset' => DC_DEFAULT_TPLSET,
+            ],
             $properties,
-            ['permissions' => 'admin']// force themes perms
+            [
+                'permissions' => 'admin', // overwrite themes permisions
+            ]
         );
 
         parent::registerModule($name, $desc, $author, $version, $properties);
     }
 
-    public function cloneModule($id)
+    /**
+     * Clone a theme module
+     *
+     * @param      string     $id     The identifier
+     *
+     * @throws     Exception
+     */
+    public function cloneModule(string $id): void
     {
         $root = end($this->path); // Use last folder set in folders list (should be only one for theme)
         if (!is_dir($root) || !is_readable($root)) {
@@ -153,7 +170,7 @@ class dcThemes extends dcModules
      * @param      string  $id     Module ID
      * @param      string  $ns     Namespace name
      */
-    public function loadNsFile($id, $ns = null)
+    public function loadNsFile(string $id, ?string $ns = null): void
     {
         switch ($ns) {
             case 'public':

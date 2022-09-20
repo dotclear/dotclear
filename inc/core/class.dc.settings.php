@@ -18,31 +18,44 @@ if (!defined('DC_RC_PATH')) {
 
 class dcSettings
 {
+    // Properties
+
     /**
-     * @deprecated since 2.23
+     * Database connection object
+     *
+     * @var object
      */
-    protected $core;    ///< <b>core</b> Dotclear core object
+    protected $con;
 
-    protected $con;     ///< <b>connection</b> Database connection object
-    protected $table;   ///< <b>string</b> Settings table name
-    protected $blog_id; ///< <b>string</b> Blog ID
+    /**
+     * Settings table name
+     *
+     * @var string
+     */
+    protected $table;
 
-    protected $namespaces = []; ///< <b>array</b> Associative namespaces array
+    /**
+     * Blog ID
+     *
+     * @var string
+     */
+    protected $blog_id;
 
-    protected $ns; ///< <b>string</b> Current namespace
-
-    protected const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    /**
+     * Associative namespaces array
+     *
+     * @var        array
+     */
+    protected $namespaces = [];
 
     /**
      * Object constructor. Retrieves blog settings and puts them in $namespaces
      * array. Local (blog) settings have a highest priority than global settings.
      *
-     * @param      dcCore   $core     The core
      * @param      mixed    $blog_id  The blog identifier
      */
-    public function __construct(dcCore $core, $blog_id)
+    public function __construct($blog_id)
     {
-        $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
         $this->table   = dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
@@ -52,7 +65,7 @@ class dcSettings
     /**
     Retrieves all namespaces (and their settings) from database, with one query.
      */
-    private function loadSettings()
+    private function loadSettings(): void
     {
         $sql = new dcSelectStatement();
         $sql
@@ -73,7 +86,7 @@ class dcSettings
             ]);
 
         try {
-            $rs = $sql->select();
+            $rs = new dcRecord($sql->select());
         } catch (Exception $e) {
             trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
         }
@@ -90,56 +103,56 @@ class dcSettings
                 // at very first time
                 $rs->movePrev();
             }
-            $this->namespaces[$ns] = new dcNamespace(dcCore::app(), $this->blog_id, $ns, $rs);
+            $this->namespaces[$ns] = new dcNamespace($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
     /**
      * Create a new namespace. If the namespace already exists, return it without modification.
      *
-     * @param      string  $ns     Namespace name
+     * @param      string  $namespace     Namespace name
      *
      * @return     dcNamespace
      */
-    public function addNamespace($ns)
+    public function addNamespace(string $namespace): dcNamespace
     {
-        if (!$this->exists($ns)) {
-            $this->namespaces[$ns] = new dcNamespace(dcCore::app(), $this->blog_id, $ns);
+        if (!$this->exists($namespace)) {
+            $this->namespaces[$namespace] = new dcNamespace($this->blog_id, $namespace);
         }
 
-        return $this->namespaces[$ns];
+        return $this->namespaces[$namespace];
     }
 
     /**
      * Rename a namespace.
      *
-     * @param      string     $oldNs  The old ns
-     * @param      string     $newNs  The new ns
+     * @param      string     $old_namespace  The old ns
+     * @param      string     $new_namespace  The new ns
      *
      * @throws     Exception
      *
      * @return     bool      return true if no error, else false
      */
-    public function renNamespace($oldNs, $newNs)
+    public function renNamespace(string $old_namespace, string $new_namespace): bool
     {
-        if (!$this->exists($oldNs) || $this->exists($newNs)) {
+        if (!$this->exists($old_namespace) || $this->exists($new_namespace)) {
             return false;
         }
 
-        if (!preg_match(self::NS_NAME_SCHEMA, $newNs)) {
-            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $newNs));
+        if (!preg_match(dcNamespace::NS_NAME_SCHEMA, $new_namespace)) {
+            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_namespace));
         }
 
         // Rename the namespace in the namespace array
-        $this->namespaces[$newNs] = $this->namespaces[$oldNs];
-        unset($this->namespaces[$oldNs]);
+        $this->namespaces[$new_namespace] = $this->namespaces[$old_namespace];
+        unset($this->namespaces[$old_namespace]);
 
         // Rename the namespace in the database
         $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
-            ->set('setting_ns = ' . $sql->quote($newNs))
-            ->where('setting_ns = ' . $sql->quote($oldNs));
+            ->set('setting_ns = ' . $sql->quote($new_namespace))
+            ->where('setting_ns = ' . $sql->quote($old_namespace));
         $sql->update();
 
         return true;
@@ -148,24 +161,24 @@ class dcSettings
     /**
      * Delete a whole namespace with all settings pertaining to it.
      *
-     * @param      string  $ns     Namespace name
+     * @param      string  $namespace     Namespace name
      *
      * @return     bool
      */
-    public function delNamespace($ns)
+    public function delNamespace(string $namespace): bool
     {
-        if (!$this->exists($ns)) {
+        if (!$this->exists($namespace)) {
             return false;
         }
 
         // Remove the namespace from the namespace array
-        unset($this->namespaces[$ns]);
+        unset($this->namespaces[$namespace]);
 
         // Delete all settings from the namespace in the database
         $sql = new dcDeleteStatement();
         $sql
             ->from($this->table)
-            ->where('setting_ns = ' . $sql->quote($ns));
+            ->where('setting_ns = ' . $sql->quote($namespace));
 
         $sql->delete();
 
@@ -175,39 +188,37 @@ class dcSettings
     /**
      * Returns full namespace with all settings pertaining to it.
      *
-     * @param      string  $ns     Namespace name
+     * @param      string  $namespace     Namespace name
      *
      * @return     dcNamespace
      */
-    public function get($ns)
+    public function get(string $namespace): ?dcNamespace
     {
-        return ($this->namespaces[$ns] ?? null);
+        return ($this->namespaces[$namespace] ?? null);
     }
 
     /**
      * Magic __get method.
      *
-     * @copydoc ::get
-     *
-     * @param      string  $n      namespace name
+     * @param      string  $namespace      namespace name
      *
      * @return     dcNamespace
      */
-    public function __get($n)
+    public function __get(string $namespace): ?dcNamespace
     {
-        return $this->get($n);
+        return $this->get($namespace);
     }
 
     /**
      * Check if a namespace exists
      *
-     * @param      string  $ns     Namespace name
+     * @param      string  $namespace     Namespace name
      *
-     * @return     boolean
+     * @return     bool
      */
-    public function exists($ns)
+    public function exists(string $namespace): bool
     {
-        return array_key_exists($ns, $this->namespaces);
+        return array_key_exists($namespace, $this->namespaces);
     }
 
     /**
@@ -215,93 +226,8 @@ class dcSettings
      *
      * @return     array
      */
-    public function dumpNamespaces()
+    public function dumpNamespaces(): array
     {
         return $this->namespaces;
-    }
-
-    /**
-     * Returns a list of settings matching given criteria, for any blog.
-     * <b>$params</b> is an array taking the following
-     * optionnal parameters:
-     *
-     * - ns : retrieve setting from given namespace
-     * - id : retrieve only settings corresponding to the given id
-     *
-     * @param      array   $params  The parameters
-     *
-     * @return     record  The global settings.
-     */
-    public function getGlobalSettings($params = [])
-    {
-        $sql = new dcSelectStatement();
-        $sql->from($this->table);
-        if (!empty($params['ns'])) {
-            $sql->and('setting_ns = ' . $sql->quote($params['ns']));
-        }
-        if (!empty($params['id'])) {
-            $sql->and('setting_id = ' . $sql->quote($params['id']));
-        }
-        if (isset($params['blog_id'])) {
-            if (!empty($params['blog_id'])) {
-                $sql->and('blog_id = ' . $sql->quote($params['blog_id']));
-            } else {
-                $sql->and('blog_id IS NULL');
-            }
-        }
-        $sql->order('blog_id');
-
-        return $sql->select();
-    }
-
-    /**
-     * Updates a setting from a given record.
-     *
-     * @param      record  $rs     The setting to update
-     */
-    public function updateSetting($rs)
-    {
-        $cur                = $this->con->openCursor($this->table);
-        $cur->setting_id    = $rs->setting_id;
-        $cur->setting_value = $rs->setting_value;
-        $cur->setting_type  = $rs->setting_type;
-        $cur->setting_label = $rs->setting_label;
-        $cur->blog_id       = $rs->blog_id;
-        $cur->setting_ns    = $rs->setting_ns;
-
-        $sql = new dcUpdateStatement();
-        if ($cur->blog_id == null) {
-            $sql->where('blog_id IS NULL');
-        } else {
-            $sql->where('blog_id = ' . $sql->quote($cur->blog_id));
-        }
-        $sql
-            ->and('setting_id = ' . $sql->quote($cur->setting_id))
-            ->and('setting_ns = ' . $sql->quote($cur->setting_ns));
-
-        $sql->update($cur);
-    }
-
-    /**
-     * Drops a setting from a given record.
-     *
-     * @param      record  $rs     The setting to drop
-     *
-     * @return     bool
-     */
-    public function dropSetting($rs)
-    {
-        $sql = new dcDeleteStatement();
-        $sql->from($this->table);
-        if ($rs->blog_id == null) {
-            $sql->where('blog_id IS NULL');
-        } else {
-            $sql->where('blog_id = ' . $sql->quote($rs->blog_id));
-        }
-        $sql
-            ->and('setting_id = ' . $sql->quote($rs->setting_id))
-            ->and('setting_ns = ' . $sql->quote($rs->setting_ns));
-
-        return $sql->delete();
     }
 }

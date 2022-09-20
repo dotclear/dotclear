@@ -481,7 +481,7 @@ class dcThemeConfig
         if (is_writable(dirname($img))) {
             // Delete thumbnails if any
             try {
-                $media = new dcMedia(dcCore::app());
+                $media = new dcMedia();
                 $media->imageThumbRemove($img);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

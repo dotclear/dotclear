@@ -102,7 +102,7 @@ class dcUtils
      * Appends a version to a resource URL fragment.
      *
      * @param      string       $src      The source
-     * @param      null|string  $version  The version
+     * @param      string       $version  The version
      *
      * @return     string
      */
@@ -118,7 +118,7 @@ class dcUtils
      *
      * @param      string       $src        The source
      * @param      string       $media      The media
-     * @param      null|string  $version    The version
+     * @param      string       $version    The version
      *
      * @return     string
      */
@@ -137,7 +137,7 @@ class dcUtils
      *
      * @param      string       $src        The source
      * @param      string       $media      The media
-     * @param      null|string  $version    The version
+     * @param      string       $version    The version
      *
      * @return     string
      */
@@ -150,7 +150,7 @@ class dcUtils
      * Return a HTML JS resource load (usually in HTML head)
      *
      * @param      string       $src        The source
-     * @param      null|string  $version    The version
+     * @param      string       $version    The version
      *
      * @return     string
      */
@@ -168,7 +168,7 @@ class dcUtils
      * Return a HTML JS resource (from a module) load (usually in HTML head)
      *
      * @param      string       $src        The source
-     * @param      null|string  $version    The version
+     * @param      string       $version    The version
      *
      * @return     string
      */
@@ -223,7 +223,7 @@ class dcUtils
     public static function jsJson(string $id, $vars): string
     {
         // Use echo dcUtils::jsLoad(dcCore::app()->blog->getPF('util.js'));
-        // to use the JS dotclear.getData() decoder in public mode
+        // to call the JS dotclear.getData() decoder in public mode
         return '<script type="application/json" id="' . html::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
     }
@@ -316,8 +316,6 @@ class dcUtils
     {
         return strcoll(strtolower(dcUtils::removeDiacritics($a)), strtolower(dcUtils::removeDiacritics($b)));
     }
-
-    // removeDiacritics function (see https://github.com/infralabs/DiacriticsRemovePHP)
 
     /**
      * @var        array
@@ -687,6 +685,11 @@ class dcUtils
 
     /**
      * Removes diacritics from a string.
+     *
+     * Removes diacritics from strings containing Latin-1 Supplement, Latin Extended-A,
+     * Latin Extended-B and Latin Extended Additional special characters.
+     *
+     * see https://github.com/infralabs/DiacriticsRemovePHP
      *
      * @param      string  $str    The string
      *

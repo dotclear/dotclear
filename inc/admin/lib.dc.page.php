@@ -162,7 +162,7 @@ class dcPage
             $csp_prefix . "'self' data: https://media.dotaddict.org blob:";
 
             # Cope with blog post preview (via public URL in iframe)
-            if (!is_null(dcCore::app()->blog->host)) {
+            if (dcCore::app()->blog->host) {
                 $csp['default-src'] .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
                 $csp['script-src']  .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
                 $csp['style-src']   .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
@@ -887,9 +887,7 @@ class dcPage
      */
     public static function jsCommon(): string
     {
-        if (dcCore::app()->auth->user_prefs) {
-            dcCore::app()->auth->user_prefs->addWorkspace('interface');
-        }
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
         $js = [
             'nonce' => dcCore::app()->getNonce(),

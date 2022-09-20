@@ -789,8 +789,7 @@ class dcUrlHandlers extends urlHandler
             # --BEHAVIOR-- publicBeforeReceiveTrackback
             dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-            $tb = new dcTrackback(dcCore::app());
-            $tb->receiveTrackback($post_id);
+            (new dcTrackback())->receiveTrackback($post_id);
         }
     }
 
@@ -808,8 +807,7 @@ class dcUrlHandlers extends urlHandler
         # --BEHAVIOR-- publicBeforeReceiveTrackback
         dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-        $tb = new dcTrackback(dcCore::app());
-        $tb->receiveWebmention();
+        (new dcTrackback())->receiveWebmention();
     }
 
     /**

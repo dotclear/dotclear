@@ -30,7 +30,7 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
         dcCore::app()->addBlog($cur);
 
         # Default settings and override some
-        $blog_settings = new dcSettings(dcCore::app(), $cur->blog_id);
+        $blog_settings = new dcSettings($cur->blog_id);
         $blog_settings->addNamespace('system');
         $blog_settings->system->put('lang', dcCore::app()->auth->getInfo('user_lang'));
         $blog_settings->system->put('blog_timezone', dcCore::app()->auth->getInfo('user_tz'));

@@ -25,29 +25,39 @@ class dcMeta
      */
     public const META_TABLE_NAME = 'meta';
 
-    private $con;   ///< <b>connection</b>    Database connection object
-    private $table; ///< <b>string</b> Media table name
+    // Properties
+
+    /**
+     * Database connection
+     *
+     * @var object
+     */
+    private $con;
+
+    /**
+     * Meta table name
+     *
+     * @var string
+     */
+    private $table;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct()
     {
         $this->con   = dcCore::app()->con;
         $this->table = dcCore::app()->prefix . self::META_TABLE_NAME;
     }
 
     /**
-     * Splits up comma-separated values into an array of
-     * unique, URL-proof metadata values.
+     * Splits up comma-separated values into an array of unique, URL-proof metadata values.
      *
      * @param      string  $str    Comma-separated metadata
      *
      * @return     array  The array of sanitized metadata
      */
-    public function splitMetaValues($str)
+    public function splitMetaValues(string $str): array
     {
         $res = [];
         foreach (explode(',', $str) as $i => $tag) {
@@ -67,23 +77,25 @@ class dcMeta
      *
      * @return     string
      */
-    public static function sanitizeMetaID($str)
+    public static function sanitizeMetaID(string $str): string
     {
         return text::tidyURL($str, false, true);
     }
 
     /**
-     * Converts serialized metadata (for instance in dc_post post_meta)
-     * into a meta array.
+     * Converts serialized metadata (for instance in dc_post post_meta) into a meta array.
      *
      * @param      string  $str    The serialized metadata
      *
      * @return     array   The meta array.
      */
-    public function getMetaArray($str)
+    public function getMetaArray(?string $str): array
     {
-        $meta = @unserialize((string) $str);
+        if (!$str) {
+            return [];
+        }
 
+        $meta = @unserialize((string) $str);
         if (!is_array($meta)) {
             return [];
         }
@@ -100,10 +112,13 @@ class dcMeta
      *
      * @return     string  The comma-separated list of meta.
      */
-    public function getMetaStr($str, $type)
+    public function getMetaStr(?string $str, string $type): string
     {
-        $meta = $this->getMetaArray($str);
+        if (!$str) {
+            return '';
+        }
 
+        $meta = $this->getMetaArray($str);
         if (!isset($meta[$type])) {
             return '';
         }
@@ -120,7 +135,7 @@ class dcMeta
      *
      * @return     staticRecord  The meta recordset.
      */
-    public function getMetaRecordset($str, $type)
+    public function getMetaRecordset(string $str, string $type): staticRecord
     {
         $meta = $this->getMetaArray($str);
         $data = [];
@@ -184,7 +199,7 @@ class dcMeta
      *
      * @param      mixed  $post_id  The post identifier
      */
-    private function updatePostMeta($post_id)
+    private function updatePostMeta($post_id): void
     {
         $post_id = (int) $post_id;
 
@@ -229,7 +244,7 @@ class dcMeta
      *
      * @return     mixed   The resulting posts record.
      */
-    public function getPostsByMeta($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getPostsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         if (!isset($params['meta_id'])) {
             return;
@@ -265,7 +280,7 @@ class dcMeta
      *
      * @return     mixed   The resulting comments record.
      */
-    public function getCommentsByMeta($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         if (!isset($params['meta_id'])) {
             return;
@@ -304,7 +319,7 @@ class dcMeta
      *
      * @return     record  The metadata.
      */
-    public function getMetadata($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getMetadata(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
 
@@ -387,11 +402,11 @@ class dcMeta
      * Computes statistics from a metadata recordset.
      * Each record gets enriched with lowercase name, percent and roundpercent columns
      *
-     * @param      record  $rs     The metadata recordset
+     * @param      record|staticRecord  $rs     The metadata recordset
      *
      * @return     staticRecord  The meta statistics.
      */
-    public function computeMetaStats($rs)
+    public function computeMetaStats($rs): staticRecord
     {
         $rs_static = $rs->toStatic();
 
@@ -424,10 +439,10 @@ class dcMeta
      * Adds a metadata to a post.
      *
      * @param      mixed   $post_id  The post identifier
-     * @param      mixed   $type     The type
-     * @param      mixed   $value    The value
+     * @param      string  $type     The type
+     * @param      string  $value    The value
      */
-    public function setPostMeta($post_id, $type, $value)
+    public function setPostMeta($post_id, ?string $type, ?string $value): void
     {
         $this->checkPermissionsOnPost($post_id);
 
@@ -449,11 +464,11 @@ class dcMeta
     /**
      * Removes metadata from a post.
      *
-     * @param      mixed   $post_id  The post identifier
-     * @param      mixed   $type     The meta type (if null, delete all types)
-     * @param      mixed   $meta_id  The meta identifier (if null, delete all values)
+     * @param      mixed    $post_id  The post identifier
+     * @param      string   $type     The meta type (if null, delete all types)
+     * @param      string   $meta_id  The meta identifier (if null, delete all values)
      */
-    public function delPostMeta($post_id, $type = null, $meta_id = null)
+    public function delPostMeta($post_id, ?string $type = null, ?string $meta_id = null): void
     {
         $post_id = (int) $post_id;
 
@@ -482,12 +497,12 @@ class dcMeta
      *
      * @param      string  $meta_id      The old meta value
      * @param      string  $new_meta_id  The new meta value
-     * @param      mixed   $type         The type (if null, select all types)
-     * @param      mixed   $post_type    The post type (if null, select all types)
+     * @param      string  $type         The type (if null, select all types)
+     * @param      string  $post_type    The post type (if null, select all types)
      *
      * @return     bool   true if at least 1 post has been impacted
      */
-    public function updateMeta($meta_id, $new_meta_id, $type = null, $post_type = null)
+    public function updateMeta(string $meta_id, string $new_meta_id, ?string $type = null, ?string $post_type = null): bool
     {
         $new_meta_id = self::sanitizeMetaID($new_meta_id);
 
@@ -591,13 +606,13 @@ class dcMeta
     /**
      * Mass delete metadata for a given post_type.
      *
-     * @param      string  $meta_id    The meta identifier
-     * @param      mixed   $type       The meta type (if null, select all types)
-     * @param      mixed   $post_type  The post type (if null, select all types)
+     * @param      string   $meta_id    The meta identifier
+     * @param      string   $type       The meta type (if null, select all types)
+     * @param      string   $post_type  The post type (if null, select all types)
      *
      * @return     array   The list of impacted post_ids
      */
-    public function delMeta($meta_id, $type = null, $post_type = null)
+    public function delMeta(string $meta_id, ?string $type = null, ?string $post_type = null): array
     {
         $sql = new dcSelectStatement();
         $sql

@@ -31,7 +31,7 @@ class dcPlugins extends dcModules
      *
      * @return     bool
      */
-    public function safeMode($disabled = false)
+    public function safeMode(bool $disabled = false): bool
     {
         // We load all plugins only in standard mode
         return $disabled;
@@ -51,9 +51,9 @@ class dcPlugins extends dcModules
      * @param      string  $version     The version
      * @param      mixed   $properties  The properties
      */
-    public function registerModule($name, $desc, $author, $version, $properties = [])
+    public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        # Fallback to legacy registerModule parameters
+        // Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
             $properties = [];

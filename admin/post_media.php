@@ -27,7 +27,7 @@ if ($rs->isEmpty()) {
 
 try {
     if ($media_id && !empty($_REQUEST['attach'])) {
-        $pm = new dcPostMedia(dcCore::app());
+        $pm = new dcPostMedia();
         $pm->addPostMedia($post_id, $media_id, $link_type);
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
             header('Content-type: application/json');
@@ -37,7 +37,7 @@ try {
         http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, $post_id, false));
     }
 
-    dcCore::app()->media = new dcMedia(dcCore::app());
+    dcCore::app()->media = new dcMedia();
     $f                   = dcCore::app()->media->getPostMedia($post_id, $media_id, $link_type);
     if (empty($f)) {
         $post_id = $media_id = null;
@@ -52,7 +52,7 @@ try {
 # Remove a media from en
 if (($post_id && $media_id) || dcCore::app()->error->flag()) {
     if (!empty($_POST['remove'])) {
-        $pm = new dcPostMedia(dcCore::app());
+        $pm = new dcPostMedia();
         $pm->removePostMedia($post_id, $media_id, $link_type);
 
         dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));

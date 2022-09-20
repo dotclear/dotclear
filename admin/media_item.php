@@ -62,10 +62,10 @@ $is_media_writable = false;
 $dirs_combo = [];
 
 try {
-    dcCore::app()->media = new dcMedia(dcCore::app());
+    dcCore::app()->media = new dcMedia();
 
     if ($id) {
-        $file = dcCore::app()->media->getFile($id);
+        $file = dcCore::app()->media->getFile((int) $id);
     }
 
     if ($file === null) {
@@ -88,7 +88,7 @@ try {
 
     if (dcCore::app()->themes === null) {
         # -- Loading themes, may be useful for some configurable theme --
-        dcCore::app()->themes = new dcThemes(dcCore::app());
+        dcCore::app()->themes = new dcThemes();
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
     }
 } catch (Exception $e) {
@@ -99,7 +99,7 @@ try {
 if ($file && !empty($_FILES['upfile']) && $file->editable && $is_media_writable) {
     try {
         files::uploadStatus($_FILES['upfile']);
-        dcCore::app()->media->uploadFile($_FILES['upfile']['tmp_name'], $file->basename, null, false, true);
+        dcCore::app()->media->uploadFile($_FILES['upfile']['tmp_name'], $file->basename, true, null, false);
 
         dcPage::addSuccessNotice(__('File has been successfully updated.'));
         dcCore::app()->adminurl->redirect('admin.media.item', $page_url_params);

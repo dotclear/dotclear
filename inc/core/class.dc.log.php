@@ -61,9 +61,9 @@ class dcLog
      * @param      array   $params      The parameters
      * @param      bool    $count_only  Count only resultats
      *
-     * @return     record|staticRecord  The logs.
+     * @return     dcRecord  The logs.
      */
-    public function getLogs(array $params = [], bool $count_only = false)
+    public function getLogs(array $params = [], bool $count_only = false): dcRecord
     {
         $sql = new dcSelectStatement();
 
@@ -85,13 +85,13 @@ class dcLog
             ]);
         }
 
-        $sql->from($this->log_table . ' L');
+        $sql->from($sql->alias($this->log_table, 'L'));
 
         if (!$count_only) {
             $sql->join(
                 (new dcJoinStatement())
                 ->left()
-                ->from($this->user_table . ' U')
+                ->from($sql->alias($this->user_table, 'U'))
                 ->on('U.user_id = L.user_id')
                 ->statement()
             );
@@ -129,7 +129,7 @@ class dcLog
             $sql->limit($params['limit']);
         }
 
-        $rs = $sql->select();
+        $rs = new dcRecord($sql->select());
         $rs->extend('rsExtLog');
 
         return $rs;
@@ -239,7 +239,7 @@ class rsExtLog
     /**
      * Gets the user common name.
      *
-     * @param      record|staticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The user common name.
      */

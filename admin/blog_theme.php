@@ -13,7 +13,7 @@ dcPage::check(dcCore::app()->auth->makePermissions([
 ]));
 
 # -- Loading themes --
-dcCore::app()->themes = new dcThemes(dcCore::app());
+dcCore::app()->themes = new dcThemes();
 dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 
 # -- Page helper --

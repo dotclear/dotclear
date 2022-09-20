@@ -26,25 +26,39 @@ class dcCategories extends nestedTree
      */
     public const CATEGORY_TABLE_NAME = 'category';
 
-    protected $f_left  = 'cat_lft';
-    protected $f_right = 'cat_rgt';
-    protected $f_id    = 'cat_id';
+    /**
+     * Left cat field name (integer type)
+     *
+     * @var        string
+     */
+    protected $f_left = 'cat_lft';
 
     /**
-     * @deprecated since 2.23
+     * Right cat field name (integer type)
+     *
+     * @var        string
      */
-    protected $core;
+    protected $f_right = 'cat_rgt';
 
+    /**
+     * Cat ID field name (integer type)
+     *
+     * @var        string
+     */
+    protected $f_id = 'cat_id';
+
+    /**
+     * Blog ID
+     *
+     * @var string
+     */
     protected $blog_id;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core          = dcCore::app();
         $this->con           = dcCore::app()->con;
         $this->blog_id       = dcCore::app()->blog->id;
         $this->table         = dcCore::app()->prefix . self::CATEGORY_TABLE_NAME;
@@ -55,13 +69,13 @@ class dcCategories extends nestedTree
      * Gets the category children.
      *
      * @param      int     $start   The start
-     * @param      mixed   $id      The identifier
+     * @param      int     $id      The identifier
      * @param      string  $sort    The sort
      * @param      array   $fields  The fields
      *
      * @return     record  The children.
      */
-    public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
+    public function getChildren(int $start = 0, int $id = null, string $sort = 'asc', array $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
 
@@ -76,7 +90,7 @@ class dcCategories extends nestedTree
      *
      * @return     record  The parents.
      */
-    public function getParents($id, $fields = [])
+    public function getParents(int $id, array $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
 
@@ -86,12 +100,12 @@ class dcCategories extends nestedTree
     /**
      * Gets the parent.
      *
-     * @param      integer  $id      The category identifier
+     * @param      int      $id      The category identifier
      * @param      array    $fields  The fields
      *
      * @return     record  The parent.
      */
-    public function getParent($id, $fields = [])
+    public function getParent(int $id, array $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
 
@@ -103,14 +117,40 @@ abstract class nestedTree
 {
     protected $con;
 
+    /**
+     * Table name
+     *
+     * @var        string
+     */
     protected $table;
+
+    /**
+     * Left cat field name (integer type)
+     *
+     * @var        string
+     */
     protected $f_left;
+
+    /**
+     * Right cat field name (integer type)
+     *
+     * @var        string
+     */
     protected $f_right;
+
+    /**
+     * Cat ID field name (integer type)
+     *
+     * @var        string
+     */
     protected $f_id;
 
+    /**
+     * Additional conditions
+     *
+     * @var        array
+     */
     protected $add_condition = [];
-
-    protected $parents;
 
     /**
      * Constructs a new instance.
@@ -125,14 +165,14 @@ abstract class nestedTree
     /**
      * Gets the children.
      *
-     * @param      mixed         $start   The start
-     * @param      mixed         $id      The identifier
+     * @param      int           $start   The start
+     * @param      int           $id      The identifier
      * @param      string        $sort    The sort
      * @param      array         $fields  The fields
      *
-     * @return     record        The children.
+     * @return     record|staticRecord        The children.
      */
-    public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
+    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = [])
     {
         $fields = count($fields) > 0 ? ', C2.' . implode(', C2.', $fields) : '';
 
@@ -147,7 +187,7 @@ abstract class nestedTree
 
         $having = '';
         if ($id !== null) {
-            $having = ' HAVING C2.' . $this->f_id . ' = ' . (int) $id;
+            $having = ' HAVING C2.' . $this->f_id . ' = ' . $id;
         }
 
         $sql = sprintf($sql, $from, $where, $having);
@@ -158,40 +198,41 @@ abstract class nestedTree
     /**
      * Gets the parents.
      *
-     * @param      mixed         $id      The identifier
+     * @param      int           $id      The identifier
      * @param      array         $fields  The fields
      *
-     * @return     record        The parents.
+     * @return     record|staticRecord        The parents.
      */
-    public function getParents($id, $fields = [])
+    public function getParents(int $id, array $fields = [])
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
 
         return $this->con->select(
-            'SELECT C1.' . $this->f_id . ' ' . $fields . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . (int) $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' ASC '
+            'SELECT C1.' . $this->f_id . ' ' . $fields . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' ASC '
         );
     }
 
     /**
      * Gets the parent.
      *
-     * @param      mixed        $id      The identifier
+     * @param      int          $id      The identifier
      * @param      array        $fields  The fields
      *
-     * @return     record        The parent.
+     * @return     record|staticRecord        The parents.
      */
-    public function getParent($id, $fields = [])
+    public function getParent(int $id, array $fields = [])
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
 
         return $this->con->select(
-            'SELECT C1.' . $this->f_id . ' ' . $fields . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . (int) $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . $this->con->limit(1)
+            'SELECT C1.' . $this->f_id . ' ' . $fields . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . $this->con->limit(1)
         );
     }
 
     /* ------------------------------------------------
      * Tree manipulations
      * ---------------------------------------------- */
+
     /**
      * Adds a node.
      *
@@ -202,7 +243,7 @@ abstract class nestedTree
      *
      * @return     mixed
      */
-    public function addNode($data, $target = 0)
+    public function addNode($data, int $target = 0)
     {
         if (!is_array($data) && !($data instanceof cursor)) {
             throw new Exception('Invalid data block');
@@ -222,14 +263,14 @@ abstract class nestedTree
 
         try {
             $rs = $this->con->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table);
-            $id = $rs->n_id;
+            $id = (int) $rs->n_id;
 
             $rs = $this->con->select(
                 'SELECT MAX(' . $this->f_right . ') as n_r ' .
                 'FROM ' . $this->table .
                 $this->getCondition('WHERE')
             );
-            $last = $rs->n_r == 0 ? 1 : $rs->n_r;
+            $last = (int) $rs->n_r === 0 ? 1 : $rs->n_r;
 
             $data->{$this->f_id}    = $id   + 1;
             $data->{$this->f_left}  = $last + 1;
@@ -243,7 +284,8 @@ abstract class nestedTree
 
                 return $data->{$this->f_id};
             } catch (Exception $e) {
-            } # We don't mind error in this case
+                // We don't mind error in this case
+            }
         } catch (Exception $e) {
             $this->con->unlock();
 
@@ -254,17 +296,13 @@ abstract class nestedTree
     /**
      * Update position
      *
-     * @param      mixed  $id     The identifier
-     * @param      mixed  $left   The left
-     * @param      mixed  $right  The right
+     * @param      int    $id     The identifier
+     * @param      int    $left   The left
+     * @param      int    $right  The right
      */
-    public function updatePosition($id, $left, $right)
+    public function updatePosition(int $id, int $left, int $right)
     {
-        $node_left  = (int) $left;
-        $node_right = (int) $right;
-        $node_id    = (int) $id;
-
-        $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . $node_left . ', ' . $this->f_right . ' = ' . $node_right . ' WHERE ' . $this->f_id . ' = ' . $node_id . $this->getCondition();
+        $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . $left . ', ' . $this->f_right . ' = ' . $right . ' WHERE ' . $this->f_id . ' = ' . $id . $this->getCondition();
 
         $this->con->begin();
 
@@ -281,15 +319,13 @@ abstract class nestedTree
     /**
      * Delete a node
      *
-     * @param      mixed      $node           The node
+     * @param      int        $node           The node
      * @param      bool       $keep_children  keep children
      *
      * @throws     Exception
      */
-    public function deleteNode($node, $keep_children = true)
+    public function deleteNode(int $node, bool $keep_children = true)
     {
-        $node = (int) $node;
-
         $rs = $this->getChildren(0, $node);
         if ($rs->isEmpty()) {
             throw new Exception('Node does not exist.');
@@ -349,18 +385,16 @@ abstract class nestedTree
     /**
      * Sets the node parent.
      *
-     * @param      mixed        $node    The node
-     * @param      mixed        $target  The target
+     * @param      int        $node    The node
+     * @param      int        $target  The target
      *
      * @throws     Exception
      */
-    public function setNodeParent($node, $target = 0)
+    public function setNodeParent(int $node, int $target = 0)
     {
-        if ($node == $target) {
+        if ($node === $target) {
             return;
         }
-        $node   = (int) $node;
-        $target = (int) $target;
 
         $rs = $this->getChildren(0, $node);
         if ($rs->isEmpty()) {
@@ -383,7 +417,7 @@ abstract class nestedTree
 
         if ($node_left == $target_left
             || ($target_left >= $node_left && $target_left <= $node_right)
-            || ($node_level == $target_level + 1 && $node_left > $target_left && $node_right < $target_right)
+            || ($node_level === $target_level + 1 && $node_left > $target_left && $node_right < $target_right)
         ) {
             throw new Exception('Cannot move tree');
         }
@@ -403,43 +437,40 @@ abstract class nestedTree
     /**
      * Sets the node position.
      *
-     * @param      mixed     $nodeA     The node a
-     * @param      mixed     $nodeB     The node b
+     * @param      int       $nodeA     The node a
+     * @param      int       $nodeB     The node b
      * @param      string    $position  The position
      *
      * @throws     Exception
      */
-    public function setNodePosition($nodeA, $nodeB, $position = 'after')
+    public function setNodePosition(int $nodeA, int $nodeB, string $position = 'after')
     {
-        $nodeA = (int) $nodeA;
-        $nodeB = (int) $nodeB;
-
         $rs = $this->getChildren(0, $nodeA);
         if ($rs->isEmpty()) {
             throw new Exception('Node does not exist.');
         }
-        $A_left  = $rs->{$this->f_left};
-        $A_right = $rs->{$this->f_right};
-        $A_level = $rs->level;
+        $A_left  = (int) $rs->{$this->f_left};
+        $A_right = (int) $rs->{$this->f_right};
+        $A_level = (int) $rs->level;
 
         $rs = $this->getChildren(0, $nodeB);
         if ($rs->isEmpty()) {
             throw new Exception('Node does not exist.');
         }
-        $B_left  = $rs->{$this->f_left};
-        $B_right = $rs->{$this->f_right};
-        $B_level = $rs->level;
+        $B_left  = (int) $rs->{$this->f_left};
+        $B_right = (int) $rs->{$this->f_right};
+        $B_level = (int) $rs->level;
 
-        if ($A_level != $B_level) {
+        if ($A_level !== $B_level) {
             throw new Exception('Cannot change position');
         }
 
         $rs      = $this->getParents($nodeA);
-        $parentA = $rs->isEmpty() ? 0 : $rs->{$this->f_id};
+        $parentA = $rs->isEmpty() ? 0 : (int) $rs->{$this->f_id};
         $rs      = $this->getParents($nodeB);
-        $parentB = $rs->isEmpty() ? 0 : $rs->{$this->f_id};
+        $parentB = $rs->isEmpty() ? 0 : (int) $rs->{$this->f_id};
 
-        if ($parentA != $parentB) {
+        if ($parentA !== $parentB) {
             throw new Exception('Cannot change position');
         }
 
@@ -469,7 +500,7 @@ abstract class nestedTree
      *
      * @return     string  The condition.
      */
-    protected function getCondition($start = 'AND', $prefix = '')
+    protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
         if (empty($this->add_condition)) {
             return '';

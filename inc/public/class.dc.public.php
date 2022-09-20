@@ -18,7 +18,7 @@ class dcPublic
     /**
      * Searched term
      *
-     * @var string
+     * @var string|null
      */
     public $search;
 
@@ -46,7 +46,7 @@ class dcPublic
     /**
      * Smilies definitions
      *
-     * @var array
+     * @var array|null
      */
     public $smilies;
 
@@ -124,7 +124,7 @@ class dcPublic
 
         # Loading media
         try {
-            dcCore::app()->media = new dcMedia(dcCore::app());
+            dcCore::app()->media = new dcMedia();
         } catch (Exception $e) {
             // Ignore
         }
@@ -176,7 +176,7 @@ class dcPublic
         }
 
         # Loading themes
-        dcCore::app()->themes = new dcThemes(dcCore::app());
+        dcCore::app()->themes = new dcThemes();
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
 
         # Defining theme if not defined

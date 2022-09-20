@@ -51,7 +51,7 @@ class adminMediaPage extends adminMediaFilter
 
         // try to load core media and themes
         try {
-            dcCore::app()->media = new dcMedia(dcCore::app());
+            dcCore::app()->media = new dcMedia();
             dcCore::app()->media->setFileSort($this->sortby . '-' . $this->order);
 
             if ($this->q != '') {
@@ -75,7 +75,7 @@ class adminMediaPage extends adminMediaFilter
 
             if (dcCore::app()->themes === null) {
                 # -- Loading themes, may be useful for some configurable theme --
-                dcCore::app()->themes = new dcThemes(dcCore::app());
+                dcCore::app()->themes = new dcThemes();
                 dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
             }
         } catch (Exception $e) {
@@ -168,7 +168,7 @@ class adminMediaPage extends adminMediaFilter
      */
     public function mediaLine(string $file_id): string
     {
-        return adminMediaList::mediaLine($this, dcCore::app()->media->getFile($file_id), 1, $this->media_has_query);
+        return adminMediaList::mediaLine($this, dcCore::app()->media->getFile((int) $file_id), 1, $this->media_has_query);
     }
 
     /**
@@ -471,7 +471,7 @@ if ($page->getDirs() && !empty($_FILES['upfile'])) {
 
         try {
             files::uploadStatus($upfile);
-            $new_file_id = dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], $upfile['title']);
+            $new_file_id = dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $upfile['title']);
 
             $message['files'][] = [
                 'name' => $upfile['name'],
@@ -495,7 +495,7 @@ if ($page->getDirs() && !empty($_FILES['upfile'])) {
         $f_title   = (isset($_POST['upfiletitle']) ? html::escapeHTML($_POST['upfiletitle']) : '');
         $f_private = ($_POST['upfilepriv'] ?? false);
 
-        dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], $f_title, $f_private);
+        dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
 
         dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
         dcCore::app()->adminurl->redirect('admin.media', $page->values());

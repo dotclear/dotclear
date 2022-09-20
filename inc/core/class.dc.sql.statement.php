@@ -647,6 +647,30 @@ class dcSqlStatement
     }
 
     /**
+     * Return an IS NULL clause
+     *
+     * @param      string       $field     The field
+     *
+     * @return     string
+     */
+    public function isNull(string $field): string
+    {
+        return $field . ' IS NULL';
+    }
+
+    /**
+     * Return an IS NOT NULL clause
+     *
+     * @param      string       $field     The field
+     *
+     * @return     string
+     */
+    public function isNotNull(string $field): string
+    {
+        return $field . ' IS NOT NULL';
+    }
+
+    /**
      * Compare two SQL queries
      *
      * May be used for debugging purpose as:

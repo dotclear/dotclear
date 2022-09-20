@@ -27,20 +27,15 @@ class dcTrackback
     public const PING_TABLE_NAME = 'ping';
 
     /**
-     * @deprecated since 2.23
+     * Pings table name
      */
-    public $core;  ///< <b>dcCore</b> dcCore instance
-
-    public $table; ///< <b>string</b> done pings table name
+    public $table;
 
     /**
      * Object constructor
-     *
-     * @param    dcCore $core  dcCore instance
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core  = dcCore::app();
         $this->table = dcCore::app()->prefix . self::PING_TABLE_NAME;
     }
 
@@ -51,9 +46,9 @@ class dcTrackback
      *
      * @param      integer  $post_id  The post identifier
      *
-     * @return     record   The post pings.
+     * @return     staticRecord|record   The post pings.
      */
-    public function getPostPings($post_id)
+    public function getPostPings(int $post_id)
     {
         $strReq = 'SELECT ping_url, ping_dt ' .
         'FROM ' . $this->table . ' ' .
@@ -66,7 +61,7 @@ class dcTrackback
      * Sends a ping to given <var>$url</var>.
      *
      * @param      string     $url           The url
-     * @param      string     $post_id       The post identifier
+     * @param      int        $post_id       The post identifier
      * @param      string     $post_title    The post title
      * @param      string     $post_excerpt  The post excerpt
      * @param      string     $post_url      The post url
@@ -75,13 +70,11 @@ class dcTrackback
      *
      * @return     mixed    false if error
      */
-    public function ping($url, $post_id, $post_title, $post_excerpt, $post_url)
+    public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url)
     {
         if (dcCore::app()->blog === null) {
             return false;
         }
-
-        $post_id = (int) $post_id;
 
         # Check for previously done trackback
         $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
@@ -185,9 +178,9 @@ class dcTrackback
     /**
      * Receives a trackback and insert it as a comment of given post.
      *
-     * @param      integer  $post_id  The post identifier
+     * @param      int      $post_id  The post identifier
      */
-    public function receiveTrackback($post_id)
+    public function receiveTrackback(int $post_id)
     {
         header('Content-Type: text/xml; charset=UTF-8');
         if (empty($_POST)) {
@@ -452,12 +445,12 @@ class dcTrackback
     /**
      * Check if a post previously received a ping a from an URL.
      *
-     * @param      integer  $post_id   The post identifier
+     * @param      int      $post_id   The post identifier
      * @param      string   $from_url  The from url
      *
      * @return     bool
      */
-    private function pingAlreadyDone($post_id, $from_url)
+    private function pingAlreadyDone(int $post_id, string $from_url): bool
     {
         $params = [
             'post_id'           => $post_id,
@@ -476,14 +469,14 @@ class dcTrackback
     /**
      * Create a comment marked as trackback for a given post.
      *
-     * @param      integer  $post_id    The post identifier
+     * @param      int      $post_id    The post identifier
      * @param      string   $url        The url
      * @param      string   $blog_name  The blog name
      * @param      string   $title      The title
      * @param      string   $excerpt    The excerpt
      * @param      string   $comment    The comment
      */
-    private function addBacklink($post_id, $url, $blog_name, $title, $excerpt, &$comment)
+    private function addBacklink(int $post_id, string $url, string $blog_name, string $title, string $excerpt, string &$comment)
     {
         if (empty($blog_name)) {
             // Let use title as text link for this backlink
@@ -516,10 +509,10 @@ class dcTrackback
     /**
      * Delete previously received comment made from an URL for a given post.
      *
-     * @param      integer  $post_id  The post identifier
+     * @param      int      $post_id  The post identifier
      * @param      string   $url      The url
      */
-    private function delBacklink($post_id, $url)
+    private function delBacklink(int $post_id, string $url)
     {
         dcCore::app()->con->execute(
             'DELETE FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' ' .
@@ -536,7 +529,7 @@ class dcTrackback
      *
      * @return     mixed   The charset from request.
      */
-    private static function getCharsetFromRequest($header = '')
+    private static function getCharsetFromRequest(string $header = '')
     {
         if (!$header && isset($_SERVER['CONTENT_TYPE'])) {
             $header = $_SERVER['CONTENT_TYPE'];
@@ -556,7 +549,7 @@ class dcTrackback
      *
      * @return     string
      */
-    private static function detectCharset($content)
+    private static function detectCharset(string $content): string
     {
         return mb_detect_encoding(
             $content,
@@ -573,9 +566,9 @@ class dcTrackback
      *
      * @throws     Exception
      *
-     * @return     mixed     The target post.
+     * @return     staticRecord|record     The target post.
      */
-    private function getTargetPost($to_url)
+    private function getTargetPost(string $to_url)
     {
         $reg = '!^' . preg_quote(dcCore::app()->blog->url) . '(.*)!';
 
@@ -632,7 +625,7 @@ class dcTrackback
      *
      * @return     string
      */
-    private function getRemoteContent($from_url)
+    private function getRemoteContent(string $from_url): string
     {
         $from_path = '';
         $http      = self::initHttp($from_url, $from_path);
@@ -674,7 +667,7 @@ class dcTrackback
      *
      * @return     array
      */
-    public function discover($text)
+    public function discover(string $text): array
     {
         $res = [];
 
@@ -692,8 +685,10 @@ class dcTrackback
      * Used when receive a webmention or a pingback
      *
      * @param      string  $content  The content
+     *
+     * @return  string
      */
-    private function getSourceName($content)
+    private function getSourceName(string $content): string
     {
         // Clean text utility function
         $clean = fn ($text, $size = 255) => text::cutString(html::escapeHTML(html::decodeEntities(html::clean(trim($text)))), $size);
@@ -731,7 +726,7 @@ class dcTrackback
      *
      * @return     array  The text links.
      */
-    private function getTextLinks($text)
+    private function getTextLinks(string $text): array
     {
         $res = [];
 
@@ -764,7 +759,7 @@ class dcTrackback
      *
      * @return     mixed   The ping url.
      */
-    private function getPingURL($url)
+    private function getPingURL(string $url)
     {
         if (strpos($url, '/') === 0) {
             $url = http::getHost() . $url;
@@ -856,9 +851,9 @@ class dcTrackback
      * @param      string  $url    The url
      * @param      string  $path   The path
      *
-     * @return     netHttp
+     * @return     false|netHttp
      */
-    private static function initHttp($url, &$path)
+    private static function initHttp(string $url, string &$path)
     {
         $client = netHttp::initClient($url, $path);
         $client->setTimeout(DC_QUERY_TIMEOUT);

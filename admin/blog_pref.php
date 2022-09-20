@@ -49,7 +49,7 @@ if ($standalone) {
         $blog_status   = $rs->blog_status;
         $blog_name     = $rs->blog_name;
         $blog_desc     = $rs->blog_desc;
-        $blog_settings = new dcSettings(dcCore::app(), $blog_id);
+        $blog_settings = new dcSettings($blog_id);
         $blog_url      = $rs->blog_url;
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
@@ -120,7 +120,8 @@ if (!in_array($blog_settings->system->media_img_title_pattern, $img_title_combo)
 $img_default_size_combo = [];
 
 try {
-    $media                                  = new dcMedia(dcCore::app());
+    $media = new dcMedia();
+
     $img_default_size_combo[__('original')] = 'o';
     foreach ($media->thumb_sizes as $code => $size) {
         $img_default_size_combo[__($size[2])] = $code;
@@ -248,7 +249,7 @@ if ($blog_id && !empty($_POST) && dcCore::app()->auth->check(dcCore::app()->auth
                 $_SESSION['sess_blog_id'] = $cur->blog_id;
                 $blog_settings            = dcCore::app()->blog->settings;
             } else {
-                $blog_settings = new dcSettings(dcCore::app(), $cur->blog_id);
+                $blog_settings = new dcSettings($cur->blog_id);
             }
 
             $blog_id = $cur->blog_id;

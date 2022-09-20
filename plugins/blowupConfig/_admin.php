@@ -13,8 +13,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 
 dcCore::app()->addBehavior(
-    'adminCurrentThemeDetails',
-    function (dcCore $core, $id) {
+    'adminCurrentThemeDetailsV2',
+    function ($id) {
         if ($id == 'default' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {

@@ -17,11 +17,6 @@ Main class to call everything related to maintenance.
  */
 class dcMaintenance
 {
-    /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    public $core;
-
     public $p_url;
 
     private $tasks  = [];
@@ -34,7 +29,6 @@ class dcMaintenance
      */
     public function __construct()
     {
-        $this->core  = dcCore::app();
         $this->p_url = dcCore::app()->adminurl->get('admin.plugin.maintenance');
         $this->logs  = $this->getLogs();
         $this->init();

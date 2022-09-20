@@ -256,7 +256,7 @@ class tplDuctileTheme
             '</li>' . "\n";
     }
 
-    public static function publicHeadContent(dcCore $core = null)
+    public static function publicHeadContent()
     {
         echo
         '<style type="text/css">' . "\n" .

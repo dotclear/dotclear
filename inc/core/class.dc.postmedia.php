@@ -21,22 +21,27 @@ class dcPostMedia
      */
     public const POST_MEDIA_TABLE_NAME = 'post_media';
 
-    /**
-     * @deprecated since 2.23
-     */
-    protected $core;  ///< <b>dcCore</b> dcCore instance
+    // Properties
 
-    protected $con;   ///< <b>connection</b> Database connection
-    protected $table; ///< <b>string</b> Post-Media table name
+    /**
+     * Database connection
+     *
+     * @var object
+     */
+    protected $con;
+
+    /**
+     * Post-Media table name
+     *
+     * @var string
+     */
+    protected $table;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core  = dcCore::app();
         $this->con   = dcCore::app()->con;
         $this->table = dcCore::app()->prefix . self::POST_MEDIA_TABLE_NAME;
     }
@@ -46,9 +51,9 @@ class dcPostMedia
      *
      * @param      array   $params  The parameters
      *
-     * @return     record  The post media.
+     * @return     record|staticRecord  The post media.
      */
-    public function getPostMedia($params = [])
+    public function getPostMedia(array $params = [])
     {
         $sql = new dcSelectStatement();
         $sql
@@ -112,16 +117,17 @@ class dcPostMedia
     /**
      * Attaches a media to a post.
      *
-     * @param      mixed   $post_id    The post identifier
-     * @param      mixed   $media_id   The media identifier
+     * @param      int     $post_id    The post identifier
+     * @param      int     $media_id   The media identifier
      * @param      string  $link_type  The link type (default: attachment)
      */
-    public function addPostMedia($post_id, $media_id, $link_type = 'attachment')
+    public function addPostMedia(int $post_id, int $media_id, string $link_type = 'attachment')
     {
-        $post_id  = (int) $post_id;
-        $media_id = (int) $media_id;
-
-        $f = $this->getPostMedia(['post_id' => $post_id, 'media_id' => $media_id, 'link_type' => $link_type]);
+        $f = $this->getPostMedia([
+            'post_id'   => $post_id,
+            'media_id'  => $media_id,
+            'link_type' => $link_type,
+        ]);
 
         if (!$f->isEmpty()) {
             return;
@@ -139,11 +145,11 @@ class dcPostMedia
     /**
      * Detaches a media from a post.
      *
-     * @param      mixed   $post_id    The post identifier
-     * @param      mixed   $media_id   The media identifier
-     * @param      mixed   $link_type  The link type
+     * @param      int      $post_id    The post identifier
+     * @param      int      $media_id   The media identifier
+     * @param      string   $link_type  The link type
      */
-    public function removePostMedia($post_id, $media_id, $link_type = null)
+    public function removePostMedia(int $post_id, int $media_id, ?string $link_type = null)
     {
         $post_id  = (int) $post_id;
         $media_id = (int) $media_id;
@@ -154,7 +160,7 @@ class dcPostMedia
             ->where('post_id = ' . $post_id)
             ->and('media_id = ' . $media_id);
 
-        if ($link_type != null) {
+        if ($link_type !== null) {
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
         $sql->delete();

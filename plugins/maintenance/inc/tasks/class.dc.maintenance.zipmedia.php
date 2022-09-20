@@ -29,7 +29,7 @@ class dcMaintenanceZipmedia extends dcMaintenanceTask
     public function execute()
     {
         // Instance media
-        dcCore::app()->media = new dcMedia(dcCore::app());
+        dcCore::app()->media = new dcMedia();
         dcCore::app()->media->chdir('');
         dcCore::app()->media->getDir();
 

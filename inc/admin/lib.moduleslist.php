@@ -1469,7 +1469,7 @@ class adminModulesList
             dcCore::app()->callBehavior('pluginAfterAdd', null);
 
             dcPage::addSuccessNotice(
-                $ret_code == 2 ?
+                $ret_code === dcModules::PACKAGE_UPDATED ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
@@ -2299,7 +2299,7 @@ class adminThemesList extends adminModulesList
                 dcCore::app()->callBehavior('themeAfterAdd', null);
 
                 dcPage::addSuccessNotice(
-                    $ret_code == 2 ?
+                    $ret_code == dcModules::PACKAGE_UPDATED ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')
                 );

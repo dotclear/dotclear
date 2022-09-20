@@ -19,6 +19,8 @@ class dcRestServer extends restServer
 {
     /**
      * Payload (JSON)
+     *
+     * @var null|array
      */
     public $json;
 
@@ -41,7 +43,7 @@ class dcRestServer extends restServer
      *
      * @return     mixed    Rest method result
      */
-    protected function callFunction($name, $get, $post)
+    protected function callFunction(string $name, array $get, array $post)
     {
         if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
             return call_user_func($this->functions[$name], dcCore::app(), $get, $post);
@@ -57,7 +59,7 @@ class dcRestServer extends restServer
      *
      * @return     mixed    Rest method result
      */
-    protected function callMethod($name, $get, $post)
+    protected function callMethod(string $name, array $get, array $post)
     {
         if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
             return call_user_func($this->functions[$name], $get, $post);

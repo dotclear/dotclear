@@ -59,9 +59,9 @@ class dcNotices
      * @param      array              $params      The parameters
      * @param      bool               $count_only  The count only
      *
-     * @return     record|staticRecord  The notices.
+     * @return     dcRecord  The notices.
      */
-    public function getNotices(array $params = [], bool $count_only = false)
+    public function getNotices(array $params = [], bool $count_only = false): dcRecord
     {
         $sql = new dcSelectStatement();
         $sql
@@ -118,7 +118,7 @@ class dcNotices
             $sql->limit($params['limit']);
         }
 
-        return $sql->select();
+        return new dcRecord($sql->select());
     }
 
     /**
@@ -167,11 +167,11 @@ class dcNotices
      * Fills the notice cursor.
      *
      * @param      cursor     $cur        The current
-     * @param      int|null   $notice_id  The notice identifier
+     * @param      int        $notice_id  The notice identifier
      *
-     * @throws     Exception  (description)
+     * @throws     Exception
      */
-    private function fillNoticeCursor(cursor $cur, ?int $notice_id = null)
+    private function fillNoticeCursor(cursor $cur, ?int $notice_id = null): void
     {
         if ($cur->notice_msg === '') {
             throw new Exception(__('No notice message'));
@@ -194,7 +194,7 @@ class dcNotices
      * @param      int|null  $id     The identifier
      * @param      bool      $all    All
      */
-    public function delNotices(?int $id, bool $all = false)
+    public function delNotices(?int $id, bool $all = false): void
     {
         $sql = new dcDeleteStatement();
         $sql

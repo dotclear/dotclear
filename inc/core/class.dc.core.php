@@ -18,71 +18,282 @@ final class dcCore
     /**
      * Session table name
      *
-     * @var        string
+     * @var string
      */
     public const SESSION_TABLE_NAME = 'session';
 
     /**
      * Versions table name
      *
-     * @var        string
+     * @var string
      */
     public const VERSION_TABLE_NAME = 'version';
 
     // Properties
 
+    /**
+     * dcCore singleton instance
+     *
+     * @var dcCore|null
+     */
     private static $instance = null;
 
-    public $con;        ///< <b>connection</b>          Database connection object
-    public $prefix;     ///< <b>string</b>              Database tables prefix
+    /**
+     * Database connection
+     *
+     * @var object
+     */
+    public $con;
 
-    public $blog;       ///< <b>dcBlog</b>              dcBlog object
-    public $error;      ///< <b>dcError</b>             dcError object
-    public $auth;       ///< <b>dcAuth</b>              dcAuth object
-    public $session;    ///< <b>sessionDB</b>           sessionDB object
-    public $url;        ///< <b>urlHandler</b>          urlHandler object
-    public $wiki2xhtml; ///< <b>wiki2xhtml</b>          wiki2xhtml object
-    public $plugins;    ///< <b>dcModules</b>           dcModules object
-    public $themes;     ///< <b>dcThemes</b>            dcThemes object
-    public $media;      ///< <b>dcMedia</b>             dcMedia object
-    public $postmedia;  ///< <b>dcPostMedia</b>         dcPostMedia object
-    public $rest;       ///< <b>dcRestServer</b>        dcRestServer object
-    public $log;        ///< <b>dcLog</b>               dcLog object
-    public $stime;      ///< <b>float</b>               starting time
-    public $meta;       ///< <b>dcMeta</b>              dcMeta object
-    public $notices;    ///< <b>dcNotices</b>           dcNotices object
+    /**
+     * Database tables prefix
+     *
+     * @var string
+     */
+    public $prefix;
 
-    public $lang;       ///< <b>string</b>
+    /**
+     * dcBlog instance
+     *
+     * @var dcBlog|null
+     */
+    public $blog;
+
+    /**
+     * dcAuth instance
+     *
+     * @var dcAuth|null
+     */
+    public $auth;
+
+    /**
+     * sessionDB instance
+     *
+     * @var sessionDB
+     */
+    public $session;
+
+    /**
+     * dcUrlHandlers instance
+     *
+     * @var dcUrlHandlers
+     */
+    public $url;
+
+    /**
+     * dcRestServer instance
+     *
+     * @var dcRestServer
+     */
+    public $rest;
+
+    /**
+     * wiki2xhtml instance
+     *
+     * @var wiki2xhtml
+     */
+    public $wiki2xhtml;
+
+    /**
+     * Plugins
+     *
+     * @var dcPlugins
+     */
+    public $plugins;
+
+    /**
+     * Themes
+     *
+     * @var dcThemes
+     */
+    public $themes;
+
+    /**
+     * dcMedia instance
+     *
+     * @var dcMedia|null
+     */
+    public $media;
+
+    /**
+     * dcPostMedia instance
+     *
+     * @var dcPostMedia
+     */
+    public $postmedia;
+
+    /**
+     * dcMeta instance
+     *
+     * @var dcMeta
+     */
+    public $meta;
+
+    /**
+     * dcError instance
+     *
+     * @var dcError
+     */
+    public $error;
+
+    /**
+     * dcNotices instance
+     *
+     * @var dcNotices
+     */
+    public $notices;
+
+    /**
+     * dcLog instance
+     *
+     * @var dcLog
+     */
+    public $log;
+
+    /**
+     * Starting time
+     *
+     * @var float
+     */
+    public $stime;
+
+    /**
+     * Current language
+     *
+     * @var string
+     */
+    public $lang;
 
     // Admin context
-    public $admin;      // dcAdmin object
 
-    public $adminurl;   ///< <b>dcAdminURL</b>          dcAdminURL object
-    public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
-    public $menu;       // ArrayObject of several dcMenu
+    /**
+     * dcAdmin instance
+     *
+     * @var dcAdmin
+     */
+    public $admin;
 
-    public $resources = [];  // Array of resources
+    /**
+     * dcAdminURL instance
+     *
+     * May be transfered as property of dcAdmin instance in future
+     *
+     * @var dcAdminURL|null
+     */
+    public $adminurl;
+
+    /**
+     * dcFavorites instance
+     *
+     * May be transfered as property of dcAdmin instance in future
+     *
+     * @var dcFavorites
+     */
+    public $favs;
+
+    /**
+     * Array of several dcMenu instance
+     *
+     * May be transfered as property of dcAdmin instance in future
+     *
+     * @var ArrayObject
+     */
+    public $menu;
+
+    /**
+     * Array of resources
+     *
+     * May be transfered as property of dcAdmin instance in future
+     *
+     * @var array
+     */
+    public $resources = [];
 
     // Public context
-    public $public;     // dcPublic object
 
-    public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
-    public $ctx;        ///< <b>context</b>             context object
+    /**
+     * dcPublic instance
+     *
+     * @var dcPublic
+     */
+    public $public;
 
-    public $cache = [   // HTTP Cache stack
+    /**
+     * dcTemplate instance
+     *
+     * May be transfered as property of dcPublic instance in future
+     *
+     * @var dcTemplate
+     */
+    public $tpl;
+
+    /**
+     * context instance
+     *
+     * May be transfered as property of dcPublic instance in future
+     *
+     * @var context|null
+     */
+    public $ctx;
+
+    /**
+     * HTTP Cache stack
+     *
+     * May be transfered as property of dcPublic instance in future
+     *
+     * @var array
+     */
+    public $cache = [
         'mod_files' => [],
         'mod_ts'    => [],
     ];
 
-    public $spamfilters = [];   // Array of filters (names)
+    /**
+     * Array of antispam filters (names)
+     *
+     * May be transfered as property of dcPublic instance in future
+     *
+     * @var array|null
+     */
+    public $spamfilters = [];
 
-    // User-defined - experimental (may be changed in near future)
+    // User-defined - experimental (may be changed in future)
+
+    /**
+     * User-defined properties
+     *
+     * @var        array(<string>, <mixed>)
+     */
     protected $properties = [];
 
     // Private
-    private $versions   = null;
-    private $formaters  = [];
-    private $behaviors  = [];
+
+    /**
+     * Stack of registered versions (core, modules)
+     *
+     * @var       array|null
+     */
+    private $versions = null;
+
+    /**
+     * Stack of registered content formaters
+     *
+     * @var        array
+     */
+    private $formaters = [];
+
+    /**
+     * Stack of registered behaviors
+     *
+     * @var        array
+     */
+    private $behaviors = [];
+
+    /**
+     * List of known post types
+     *
+     * @var        array
+     */
     private $post_types = [];
 
     /**
@@ -97,7 +308,7 @@ final class dcCore
      * @param      string  $prefix    The tables prefix
      * @param      bool    $persist   Persistent database connection
      */
-    public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
+    public function __construct(string $driver, string $host, string $db, string $user, string $password, string $prefix, bool $persist)
     {
         // Singleton mode
         if (self::$instance) {
@@ -146,11 +357,11 @@ final class dcCore
         $this->session = new sessionDB($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
         $this->url     = new dcUrlHandlers();
 
-        $this->plugins = new dcPlugins($this);
+        $this->plugins = new dcPlugins();
 
         $this->rest = new dcRestServer();
 
-        $this->meta = new dcMeta($this);
+        $this->meta = new dcMeta();
 
         $this->log = new dcLog();
 
@@ -252,7 +463,7 @@ final class dcCore
      */
     public function setBlog($id)
     {
-        $this->blog = new dcBlog($this, $id);
+        $this->blog = new dcBlog($id);
     }
 
     /**
@@ -898,6 +1109,8 @@ final class dcCore
         }
 
         $cur->insert();
+
+        # --BEHAVIOR-- coreAfterAddUser
         $this->callBehavior('coreAfterAddUser', $cur);
 
         return $cur->user_id;
@@ -925,6 +1138,8 @@ final class dcCore
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
+
+        # --BEHAVIOR-- coreAfterUpdUser
         $this->callBehavior('coreAfterUpdUser', $cur);
 
         if ($cur->user_id !== null) {
@@ -942,7 +1157,7 @@ final class dcCore
         $rs = $sql->select();
 
         while ($rs->fetch()) {
-            $b = new dcBlog($this, $rs->blog_id);
+            $b = new dcBlog($rs->blog_id);
             $b->triggerBlog();
             unset($b);
         }
@@ -979,6 +1194,8 @@ final class dcCore
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
+
+        # --BEHAVIOR-- coreAfterDelUser
         $this->callBehavior('coreAfterDelUser', $id);
     }
 
@@ -1388,7 +1605,7 @@ final class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $this->getBlogCursor($cur);
+        $this->fillBlogCursor($cur);
 
         $cur->blog_creadt = date('Y-m-d H:i:s');
         $cur->blog_upddt  = date('Y-m-d H:i:s');
@@ -1405,7 +1622,7 @@ final class dcCore
      */
     public function updBlog($id, $cur)
     {
-        $this->getBlogCursor($cur);
+        $this->fillBlogCursor($cur);
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
@@ -1413,13 +1630,13 @@ final class dcCore
     }
 
     /**
-     * Gets the blog cursor.
+     * Fills the blog cursor.
      *
      * @param      cursor  $cur    The cursor
      *
      * @throws     Exception
      */
-    private function getBlogCursor($cur)
+    private function fillBlogCursor($cur)
     {
         if (($cur->blog_id !== null
             && !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id)) || (!$cur->blog_id)) {
@@ -1854,7 +2071,7 @@ final class dcCore
             ];
         }
 
-        $settings = new dcSettings($this, null);
+        $settings = new dcSettings(null);
         $settings->addNamespace('system');
 
         foreach ($defaults as $v) {
@@ -1907,12 +2124,12 @@ final class dcCore
     /**
      * Recreates comments search engine index.
      *
-     * @param      mixed   $start  The start comment index
-     * @param      mixed   $limit  The limit of comment to index
+     * @param      int   $start  The start comment index
+     * @param      int   $limit  The limit of comment to index
      *
      * @return     mixed   sum of <var>$start</var> and <var>$limit</var>
      */
-    public function indexAllComments($start = null, $limit = null)
+    public function indexAllComments(?int $start = null, ?int $limit = null)
     {
         $strReq = 'SELECT COUNT(comment_id) ' .
         'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME;
@@ -1946,28 +2163,37 @@ final class dcCore
     /**
      * Reinits nb_comment and nb_trackback in post table.
      */
-    public function countAllComments()
+    public function countAllComments(): void
     {
-        $updCommentReq = 'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
-        'SET nb_comment = (' .
-        'SELECT COUNT(C.comment_id) from ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
-            'WHERE C.post_id = P.post_id AND C.comment_trackback <> 1 ' .
-            'AND C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED .
-            ')';
-        $updTrackbackReq = 'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
-        'SET nb_trackback = (' .
-        'SELECT COUNT(C.comment_id) from ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
-            'WHERE C.post_id = P.post_id AND C.comment_trackback = 1 ' .
-            'AND C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED .
-            ')';
-        $this->con->execute($updCommentReq);
-        $this->con->execute($updTrackbackReq);
+        $sql_com = new dcUpdateStatement();
+        $sql_com
+            ->ref($sql_com->alias($this->prefix . dcBlog::POST_TABLE_NAME, 'P'));
+
+        $sql_tb = clone $sql_com;
+
+        $sql_count_com = new dcSelectStatement();
+        $sql_count_com
+            ->field($sql_count_com->count('C.comment_id'))
+            ->from($sql_count_com->alias($this->prefix . dcBlog::COMMENT_TABLE_NAME, 'C'))
+            ->where('C.post_id = P.post_id')
+            ->and('C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED);
+
+        $sql_count_tb = clone $sql_count_com;
+
+        $sql_count_com->and('C.comment_trackback <> 1');    // Count comment only
+        $sql_count_tb->and('C.comment_trackback = 1');      // Count trackback only
+
+        $sql_com->set('nb_comment = (' . $sql_count_com->statement() . ')');
+        $sql_com->update();
+
+        $sql_tb->set('nb_trackback = (' . $sql_count_tb->statement() . ')');
+        $sql_tb->update();
     }
 
     /**
      * Empty templates cache directory
      */
-    public function emptyTemplatesCache()
+    public function emptyTemplatesCache(): void
     {
         if (is_dir(DC_TPL_CACHE . '/cbtpl')) {
             files::deltree(DC_TPL_CACHE . '/cbtpl');
@@ -1977,12 +2203,11 @@ final class dcCore
     /**
      * Return elapsed time since script has been started
      *
-     * @param      mixed   $mtime  timestamp (microtime format) to evaluate
-     * delta from current time is taken if null
+     * @param      float   $mtime  timestamp (microtime format) to evaluate delta from current time is taken if null
      *
-     * @return     mixed   The elapsed time.
+     * @return     float   The elapsed time.
      */
-    public function getElapsedTime($mtime = null)
+    public function getElapsedTime(?float $mtime = null): float
     {
         if ($mtime !== null) {
             return $mtime - $this->stime;

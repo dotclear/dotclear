@@ -37,7 +37,7 @@ class dcError
      *
      * @param string    $msg            Error message
      */
-    public function add(string $msg)
+    public function add(string $msg): void
     {
         $this->flag     = true;
         $this->errors[] = $msg;

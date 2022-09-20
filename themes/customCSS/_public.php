@@ -11,8 +11,6 @@
 
 namespace themes\customcss;
 
-use dcCore;
-
 if (!defined('DC_RC_PATH')) {
     return;
 }
@@ -21,7 +19,7 @@ if (!defined('DC_RC_PATH')) {
 
 class tplCustomTheme
 {
-    public static function publicHeadContent(dcCore $core = null)
+    public static function publicHeadContent()
     {
         echo '<link rel="stylesheet" type="text/css" href="' . \dcCore::app()->blog->settings->system->public_url . '/custom_style.css" media="screen">' . "\n";
     }

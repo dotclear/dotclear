@@ -155,7 +155,7 @@ if (!empty($_REQUEST['id'])) {
         }
 
         try {
-            dcCore::app()->media = new dcMedia(dcCore::app());
+            dcCore::app()->media = new dcMedia();
             $post_media          = dcCore::app()->media->getPostMedia($post_id);
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

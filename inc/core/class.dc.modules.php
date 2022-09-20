@@ -16,53 +16,158 @@ if (!defined('DC_RC_PATH')) {
 
 class dcModules
 {
-    protected $path;
-    protected $ns;
-    protected $modules       = [];
-    protected $disabled      = [];
-    protected $errors        = [];
-    protected $modules_names = [];
-    protected $all_modules   = [];
-    protected $disabled_mode = false;
-    protected $disabled_meta = [];
-    protected $to_disable    = [];
+    // Constants
 
+    /**
+     * Return code for package installation
+     *
+     * @var        int
+     */
+    public const PACKAGE_INSTALLED = 1;
+    public const PACKAGE_UPDATED   = 2;
+
+    // Properties
+
+    /**
+     * Stack of modules paths
+     *
+     * @var array
+     */
+    protected $path;
+
+    /**
+     * Current namespace
+     *
+     * @var string
+     */
+    protected $ns;
+
+    /**
+     * Stack of enabled modules
+     *
+     * @var        array
+     */
+    protected $modules = [];
+
+    /**
+     * Stack of disabled modules
+     *
+     * @var        array
+     */
+    protected $disabled = [];
+
+    /**
+     * Stack of error messages
+     *
+     * @var        array<string>
+     */
+    protected $errors = [];
+
+    /**
+     * Stack of modules name
+     *
+     * @var        array
+     */
+    protected $modules_names = [];
+
+    /**
+     * Stack of all modules
+     *
+     * @var        array
+     */
+    protected $all_modules = [];
+
+    /**
+     * Current deactivation mode
+     *
+     * @var        bool
+     */
+    protected $disabled_mode = false;
+
+    /**
+     * Current disabled module info
+     *
+     * @var        array
+     */
+    protected $disabled_meta = [];
+
+    /**
+     * Stack of modules to disable
+     *
+     * Each item contains ['name' => module ID, 'reason' => reason of deactivation]
+     *
+     * @var        array(<array>(<string>, <string>))
+     */
+    protected $to_disable = [];
+
+    /**
+     * Current module identifier
+     *
+     * @var string|null
+     */
     protected $id;
+
+    /**
+     * Module root path (where _define.php is located)
+     *
+     * @var string|null
+     */
     protected $mroot;
 
-    # Inclusion variables
-    protected static $superglobals = ['GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES', '_ENV', '_REQUEST', '_SESSION'];
+    /**
+     * Inclusion variables
+     *
+     * @var        array
+     */
+    protected static $superglobals = [
+        'GLOBALS',
+        '_SERVER',
+        '_GET',
+        '_POST',
+        '_COOKIE',
+        '_FILES',
+        '_ENV',
+        '_REQUEST',
+        '_SESSION',
+    ];
+
+    /**
+     * Superglobals array keys
+     *
+     * @var        array<string>
+     */
     protected static $_k;
+
+    /**
+     * Superglobals key name
+     *
+     * @var        string
+     */
     protected static $_n;
 
-    protected static $type = null;
-
     /**
-     * @deprecated since 2.23
-     */
-    public $core; ///< <b>dcCore</b>    dcCore instance
-
-    /**
-     * Constructs a new instance.
+     * Module type
      *
-     * @param      dcCore  $core   The core
+     * @var string|null
      */
-    public function __construct(dcCore $core = null)
-    {
-        $this->core = dcCore::app();
-    }
+    protected static $type = null;
 
     /**
      * Checks all modules dependencies
      *
-     *     Fills in the following information in module :
-     *       * cannot_enable : list reasons why module cannot be enabled. Not set if module can be enabled
-     *       * cannot_disable : list reasons why module cannot be disabled. Not set if module can be disabled
-     *       * implies : reverse dependencies
+     * Fills in the following information in module :
+     *
+     *  - cannot_enable : list reasons why module cannot be enabled. Not set if module can be enabled
+     *
+     *  - cannot_disable : list reasons why module cannot be disabled. Not set if module can be disabled
+     *
+     *  - implies : reverse dependencies
      */
-    public function checkDependencies()
+    public function checkDependencies(): void
     {
-        $dc_version       = preg_replace('/\-dev.*$/', '', DC_VERSION);
+        // Sanitize current Dotclear version
+        $dc_version = preg_replace('/\-dev.*$/', '', DC_VERSION);
+
         $this->to_disable = [];
         foreach ($this->all_modules as $k => &$m) {
             if (isset($m['requires'])) {
@@ -127,7 +232,7 @@ class dcModules
      *
      * @return bool  true if a redirection has been performed
      */
-    public function disableDepModules($redirect_url)
+    public function disableDepModules(string $redirect_url): bool
     {
         if (isset($_GET['dep'])) {
             // Avoid infinite redirects
@@ -165,7 +270,7 @@ class dcModules
      *
      * @return     bool
      */
-    public function safeMode($disabled = false)
+    public function safeMode(bool $disabled = false): bool
     {
         return $disabled;
     }
@@ -183,11 +288,11 @@ class dcModules
      * <var>$lang</var> indicates if we need to load a lang file on plugin
      * loading.
      *
-     * @param      string  $path   The path
-     * @param      mixed   $ns
-     * @param      mixed   $lang   The language
+     * @param      string   $path   The path
+     * @param      string   $ns     The namespace (context as 'public', 'admin', ...)
+     * @param      string   $lang   The language
      */
-    public function loadModules($path, $ns = null, $lang = null)
+    public function loadModules(string $path, ?string $ns = null, ?string $lang = null): void
     {
         $this->path = explode(PATH_SEPARATOR, $path);
         $this->ns   = $ns;
@@ -273,7 +378,13 @@ class dcModules
         }
     }
 
-    public function requireDefine($dir, $id)
+    /**
+     * Load the _define.php file of the given module
+     *
+     * @param      string  $dir    The dir
+     * @param      string  $id     The module identifier
+     */
+    public function requireDefine(string $dir, string $id)
     {
         if (file_exists($dir . '/_define.php')) {
             $this->id = $id;
@@ -301,7 +412,7 @@ class dcModules
      * @param      string  $version     The module version
      * @param      mixed   $properties  The properties
      */
-    public function registerModule($name, $desc, $author, $version, $properties = [])
+    public function registerModule(string $name, string $desc, string $author, string $version, $properties = [])
     {
         if ($this->disabled_mode) {
             $this->disabled_meta = array_merge(
@@ -319,7 +430,7 @@ class dcModules
 
             return;
         }
-        # Fallback to legacy registerModule parameters
+        // Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
             $properties = [];
@@ -331,7 +442,7 @@ class dcModules
             }
         }
 
-        # Default module properties
+        // Default module properties
         $properties = array_merge(
             [
                 'permissions'       => null,
@@ -346,8 +457,8 @@ class dcModules
             $properties
         );
 
-        # Check module type
-        if (self::$type !== null && $properties['type'] !== null && $properties['type'] != self::$type) {
+        // Check module type
+        if (self::$type !== null && $properties['type'] !== null && $properties['type'] !== self::$type) {
             $this->errors[] = sprintf(
                 __('Module "%s" has type "%s" that mismatch required module type "%s".'),
                 '<strong>' . html::escapeHTML($name) . '</strong>',
@@ -358,9 +469,9 @@ class dcModules
             return;
         }
 
-        # Check module perms on admin side
+        // Check module perms on admin side
         $permissions = $properties['permissions'];
-        if ($this->ns == 'admin') {
+        if ($this->ns === 'admin') {
             if (($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) || (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id))) {
                 return;
             }
@@ -384,8 +495,9 @@ class dcModules
                     ]
                 );
             } else {
-                $path1          = path::real($this->moduleInfo($name, 'root') ?? '');
-                $path2          = path::real($this->mroot                     ?? '');
+                $path1 = path::real($this->moduleInfo($name, 'root') ?? '');
+                $path2 = path::real($this->mroot                     ?? '');
+
                 $this->errors[] = sprintf(
                     __('Module "%s" is installed twice in "%s" and "%s".'),
                     '<strong>' . $name . '</strong>',
@@ -399,7 +511,7 @@ class dcModules
     /**
      * Reset modules list
      */
-    public function resetModulesList()
+    public function resetModulesList(): void
     {
         $this->modules       = [];
         $this->modules_names = [];
@@ -416,7 +528,7 @@ class dcModules
      *
      * @return     int
      */
-    public static function installPackage($zip_file, dcModules &$modules)
+    public static function installPackage(string $zip_file, dcModules &$modules): int
     {
         $zip = new fileUnzip($zip_file);
         $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
@@ -449,7 +561,7 @@ class dcModules
             throw new Exception(__('The zip file does not appear to be a valid Dotclear module.'));
         }
 
-        $ret_code = 1;
+        $ret_code = self::PACKAGE_INSTALLED;
 
         if (!is_dir($destination)) {
             try {
@@ -496,7 +608,7 @@ class dcModules
                     if (!files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
                     }
-                    $ret_code = 2;
+                    $ret_code = self::PACKAGE_UPDATED;
                 } else {
                     $zip->close();
                     unlink($zip_file);
@@ -518,23 +630,24 @@ class dcModules
     }
 
     /**
-
-     */
-    /**
      * This method installs all modules having a _install file.
      *
      * @see dcModules::installModule
      *
      * @return     array
      */
-    public function installModules()
+    public function installModules(): array
     {
-        $res = ['success' => [], 'failure' => []];
-        foreach ($this->modules as $id => &$m) {
-            $i = $this->installModule($id, $msg);
-            if ($i === true) {
+        $res = [
+            'success' => [],
+            'failure' => [],
+        ];
+        $msg = '';
+        foreach (array_keys($this->modules) as $id) {
+            $ret = $this->installModule($id, $msg);
+            if ($ret === true) {
                 $res['success'][$id] = true;
-            } elseif ($i === false) {
+            } elseif ($ret === false) {
                 $res['failure'][$id] = $msg;
             }
         }
@@ -554,15 +667,14 @@ class dcModules
      *
      * @return     mixed
      */
-    public function installModule($id, &$msg)
+    public function installModule(string $id, string &$msg)
     {
         if (!isset($this->modules[$id])) {
             return;
         }
 
         try {
-            $i = $this->loadModuleFile($this->modules[$id]['root'] . '/_install.php');
-            if ($i === true) {
+            if ($this->loadModuleFile($this->modules[$id]['root'] . '/_install.php') === true) {
                 return true;
             }
         } catch (Exception $e) {
@@ -578,21 +690,21 @@ class dcModules
      * @param      string     $id        The module identifier
      * @param      bool       $disabled  Is module disabled
      *
-     * @throws     Exception  (description)
+     * @throws     Exception
      */
-    public function deleteModule($id, $disabled = false)
+    public function deleteModule(string $id, bool $disabled = false): void
     {
         if ($disabled) {
-            $p = &$this->disabled;
+            $stack = &$this->disabled;
         } else {
-            $p = &$this->modules;
+            $stack = &$this->modules;
         }
 
-        if (!isset($p[$id])) {
+        if (!isset($stack[$id])) {
             throw new Exception(__('No such module.'));
         }
 
-        if (!files::deltree($p[$id]['root'])) {
+        if (!files::deltree($stack[$id]['root'])) {
             throw new Exception(__('Cannot remove module files'));
         }
     }
@@ -604,7 +716,7 @@ class dcModules
      *
      * @throws     Exception
      */
-    public function deactivateModule($id)
+    public function deactivateModule(string $id): void
     {
         if (!isset($this->modules[$id])) {
             throw new Exception(__('No such module.'));
@@ -626,7 +738,7 @@ class dcModules
      *
      * @throws     Exception
      */
-    public function activateModule($id)
+    public function activateModule(string $id): void
     {
         if (!isset($this->disabled[$id])) {
             throw new Exception(__('No such module.'));
@@ -646,7 +758,7 @@ class dcModules
      *
      * @param      string  $id     The module identifier
      */
-    public function cloneModule($id)
+    public function cloneModule(string $id): void
     {
     }
 
@@ -660,15 +772,13 @@ class dcModules
      * @param      string  $lang   The language code
      * @param      string  $file   The filename (without extension)
      */
-    public function loadModuleL10N($id, $lang, $file)
+    public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
-        if (!$lang || !isset($this->modules[$id])) {
-            return;
-        }
-
-        $lfile = $this->modules[$id]['root'] . '/locales/%s/%s';
-        if (l10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
-            l10n::set(sprintf($lfile, 'en', $file));
+        if ($lang && isset($this->modules[$id])) {
+            $lfile = $this->modules[$id]['root'] . '/locales/%s/%s';
+            if (l10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
+                l10n::set(sprintf($lfile, 'en', $file));
+            }
         }
     }
 
@@ -678,15 +788,12 @@ class dcModules
      * @param      string  $id     The module identifier
      * @param      string  $lang   The language code
      */
-    public function loadModuleL10Nresources($id, $lang)
+    public function loadModuleL10Nresources(string $id, ?string $lang): void
     {
-        if (!$lang || !isset($this->modules[$id])) {
-            return;
-        }
-
-        $f = l10n::getFilePath($this->modules[$id]['root'] . '/locales', 'resources.php', $lang);
-        if ($f) {
-            $this->loadModuleFile($f);
+        if ($lang && isset($this->modules[$id])) {
+            if ($f = l10n::getFilePath($this->modules[$id]['root'] . '/locales', 'resources.php', $lang)) {
+                $this->loadModuleFile($f);
+            }
         }
     }
 
@@ -694,11 +801,11 @@ class dcModules
      * Returns all modules associative array or only one module if <var>$id</var>
      * is present.
      *
-     * @param      mixed  $id     The optionnal module identifier
+     * @param      string  $id     The optionnal module identifier
      *
-     * @return     mixed  The modules.
+     * @return     array  The module(s).
      */
-    public function getModules($id = null)
+    public function getModules(?string $id = null): array
     {
         if ($id && isset($this->modules[$id])) {
             return $this->modules[$id];
@@ -714,7 +821,7 @@ class dcModules
      *
      * @return     bool  True if module exists, False otherwise.
      */
-    public function moduleExists($id)
+    public function moduleExists(string $id): bool
     {
         return isset($this->modules[$id]);
     }
@@ -724,7 +831,7 @@ class dcModules
      *
      * @return     array  The disabled modules.
      */
-    public function getDisabledModules()
+    public function getDisabledModules(): array
     {
         return $this->disabled;
     }
@@ -734,9 +841,9 @@ class dcModules
      *
      * @param      string  $id     The module identifier
      *
-     * @return     string
+     * @return     mixed
      */
-    public function moduleRoot($id)
+    public function moduleRoot(string $id)
     {
         return $this->moduleInfo($id, 'root');
     }
@@ -757,7 +864,7 @@ class dcModules
      *
      * @return     mixed
      */
-    public function moduleInfo($id, $info)
+    public function moduleInfo(string $id, string $info)
     {
         return $this->modules[$id][$info] ?? null;
     }
@@ -765,11 +872,11 @@ class dcModules
     /**
      * Loads namespace <var>$ns</var> specific files for all modules.
      *
-     * @param      mixed  $ns
+     * @param      string  $ns
      */
-    public function loadNsFiles($ns = null)
+    public function loadNsFiles(?string $ns = null): void
     {
-        foreach ($this->modules as $k => $v) {
+        foreach (array_keys($this->modules) as $k) {
             $this->loadNsFile($k, $ns);
         }
     }
@@ -779,9 +886,9 @@ class dcModules
      * <var>$id</var>
      *
      * @param      string  $id     The module identifier
-     * @param      mixed   $ns     Namespace name
+     * @param      string  $ns     Namespace name
      */
-    public function loadNsFile($id, $ns = null)
+    public function loadNsFile(string $id, ?string $ns = null): void
     {
         if (!isset($this->modules[$id])) {
             return;
@@ -807,12 +914,20 @@ class dcModules
      *
      * @return     array  The errors.
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }
 
-    protected function loadModuleFile($________, $catch = true)
+    /**
+     * Loads a module file.
+     *
+     * @param      string  $________  Module filename
+     * @param      bool    $catch     Should catch output to prevent hacked/corrupted modules
+     *
+     * @return     mixed
+     */
+    protected function loadModuleFile(string $________, bool $catch = true)
     {
         if (!file_exists($________)) {
             return;
@@ -838,15 +953,23 @@ class dcModules
         return require $________;
     }
 
-    private function sortModules($a, $b)
+    /**
+     * Sort callback
+     *
+     * @param      array      $first_module       1st module
+     * @param      array      $second_module      2nd module
+     *
+     * @return     int
+     */
+    private function sortModules(array $first_module, array $second_module): int
     {
-        if (!isset($a['priority']) || !isset($b['priority'])) {
+        if (!isset($first_module['priority']) || !isset($second_module['priority'])) {
             return 1;
         }
-        if ($a['priority'] == $b['priority']) {
-            return strcasecmp($a['name'], $b['name']);
+        if ($first_module['priority'] == $second_module['priority']) {
+            return strcasecmp($first_module['name'], $second_module['name']);
         }
 
-        return ($a['priority'] < $b['priority']) ? -1 : 1;
+        return ($first_module['priority'] < $second_module['priority']) ? -1 : 1;
     }
 }

@@ -59,75 +59,154 @@ class dcBlog
 
     // Properties
 
-    /** @var dcCore dcCore instance */
     /**
-     * @deprecated since 2.23
+     * Database connection object
+     *
+     * @var object
      */
-    protected $core;
-
-    /** @var object Database connection object */
     public $con;
-    /** @var string Database table prefix */
+
+    /**
+     * Database table prefix
+     *
+     * @var string
+     */
     public $prefix;
 
-    /** @var string Blog ID */
+    /**
+     * Blog ID
+     *
+     * @var string
+     */
     public $id;
-    /** @var string Blog unique ID */
+
+    /**
+     * Blog unique ID
+     *
+     * @var string
+     */
     public $uid;
-    /** @var string Blog name */
+
+    /**
+     * Blog name
+     *
+     * @var string
+     */
     public $name;
-    /** @var string Blog description */
+
+    /**
+     * Blog description
+     *
+     * @var string
+     */
     public $desc;
-    /** @var string Blog URL */
+
+    /**
+     * Blog URL
+     *
+     * @var string
+     */
     public $url;
-    /** @var string Blog host */
+
+    /**
+     * Blog host
+     *
+     * @var string
+     */
     public $host;
-    /** @var mixed Blog creation date */
+
+    /**
+     * Blog creation date
+     *
+     * @var mixed
+     */
     public $creadt;
-    /** @var mixed Blog last update date */
+
+    /**
+     * Blog last update date
+     *
+     * @var mixed
+     */
     public $upddt;
-    /** @var string Blog status */
+
+    /**
+     * Blog status
+     *
+     * @var string
+     */
     public $status;
 
-    /** @var dcSettings dcSettings object */
+    /**
+     * Blog parameters
+     *
+     * @var dcSettings
+     */
     public $settings;
-    /** @var string Blog theme path */
+
+    /**
+     * Blog theme path
+     *
+     * @var string
+     */
     public $themes_path;
-    /** @var string Blog public path */
+
+    /**
+     * Blog public path
+     *
+     * @var string
+     */
     public $public_path;
 
-    private $post_status    = [];
+    /**
+     * Stack of entries statuses
+     *
+     * @var array
+     */
+    private $post_status = [];
+
+    /**
+     * Stack of comment statuses
+     *
+     * @var array
+     */
     private $comment_status = [];
 
+    /**
+     * Blog's categories
+     *
+     * @var dcCategories
+     */
     private $categories;
 
-    /** @var boolean Disallow entries password protection */
+    /**
+     * Disallow entries password protection
+     *
+     * @var bool
+     */
     public $without_password = true;
 
     /**
      * Constructs a new instance.
      *
-     * @param      dcCore  $core   The core
      * @param      string  $id     The blog identifier
      */
-    public function __construct(dcCore $core, $id)
+    public function __construct($id)
     {
         $this->con    = dcCore::app()->con;
         $this->prefix = dcCore::app()->prefix;
-        $this->core   = dcCore::app();
 
-        if (($b = dcCore::app()->getBlog($id)) !== false) {
+        if (($blog = dcCore::app()->getBlog($id)) !== false) {
             $this->id     = $id;
-            $this->uid    = $b->blog_uid;
-            $this->name   = $b->blog_name;
-            $this->desc   = $b->blog_desc;
-            $this->url    = $b->blog_url;
+            $this->uid    = $blog->blog_uid;
+            $this->name   = $blog->blog_name;
+            $this->desc   = $blog->blog_desc;
+            $this->url    = $blog->blog_url;
             $this->host   = http::getHostFromURL($this->url);
-            $this->creadt = strtotime($b->blog_creadt);
-            $this->upddt  = strtotime($b->blog_upddt);
-            $this->status = $b->blog_status;
+            $this->creadt = strtotime($blog->blog_creadt);
+            $this->upddt  = strtotime($blog->blog_upddt);
+            $this->status = $blog->blog_status;
 
-            $this->settings = new dcSettings(dcCore::app(), $this->id);
+            $this->settings = new dcSettings($this->id);
 
             $this->themes_path = path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
             $this->public_path = path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
@@ -149,6 +228,7 @@ class dcBlog
 
     /// @name Common public methods
     //@{
+
     /**
      * Returns blog URL ending with a question mark.
      *
@@ -168,7 +248,7 @@ class dcBlog
      *
      * @return     string
      */
-    public function getJsJQuery()
+    public function getJsJQuery(): string
     {
         $version = $this->settings->system->jquery_version;
         if ($version == '') {
@@ -192,7 +272,7 @@ class dcBlog
      *
      * @return     string
      */
-    public function getPF($pf, $strip_host = true)
+    public function getPF(string $pf, bool $strip_host = true): string
     {
         $ret = $this->getQmarkURL() . 'pf=' . $pf;
         if ($strip_host) {
@@ -210,7 +290,7 @@ class dcBlog
      *
      * @return     string
      */
-    public function getVF($vf, $strip_host = true)
+    public function getVF(string $vf, bool $strip_host = true): string
     {
         $ret = $this->getQmarkURL() . 'vf=' . $vf;
         if ($strip_host) {
@@ -224,14 +304,14 @@ class dcBlog
      * Returns an entry status name given to a code. Status are translated, never
      * use it for tests. If status code does not exist, returns <i>unpublished</i>.
      *
-     * @param      integer  $s      The status code
+     * @param      int     $status      The status code
      *
      * @return     string  The post status.
      */
-    public function getPostStatus($s)
+    public function getPostStatus(int $status): string
     {
-        if (isset($this->post_status[$s])) {
-            return $this->post_status[$s];
+        if (isset($this->post_status[$status])) {
+            return $this->post_status[$status];
         }
 
         return $this->post_status[(string) self::POST_UNPUBLISHED];
@@ -242,7 +322,7 @@ class dcBlog
      *
      * @return     array  Simple array with codes in keys and names in value.
      */
-    public function getAllPostStatus()
+    public function getAllPostStatus(): array
     {
         return $this->post_status;
     }
@@ -252,7 +332,7 @@ class dcBlog
      *
      * @return    array Simple array with codes in keys and names in value
      */
-    public function getAllCommentStatus()
+    public function getAllCommentStatus(): array
     {
         return $this->comment_status;
     }
@@ -261,16 +341,18 @@ class dcBlog
      * Disallows entries password protection. You need to set it to
      * <var>false</var> while serving a public blog.
      *
-     * @param      mixed  $v
+     * @param      bool  $value
      */
-    public function withoutPassword($v)
+    public function withoutPassword(bool $value)
     {
-        $this->without_password = (bool) $v;
+        $this->without_password = $value;
     }
+
     //@}
 
     /// @name Triggers methods
     //@{
+
     /**
      * Updates blog last update date. Should be called every time you change
      * an element related to the blog.
@@ -294,10 +376,10 @@ class dcBlog
      * Updates comment and trackback counters in post table. Should be called
      * every time a comment or trackback is added, removed or changed its status.
      *
-     * @param      integer  $id     The comment identifier
+     * @param      int      $id     The comment identifier
      * @param      bool     $del    If comment is deleted, set this to true
      */
-    public function triggerComment($id, $del = false)
+    public function triggerComment(int $id, bool $del = false)
     {
         $this->triggerComments($id, $del);
     }
@@ -310,11 +392,11 @@ class dcBlog
      * @param      bool    $del             If comment is delete, set this to true
      * @param      mixed   $affected_posts  The affected posts IDs
      */
-    public function triggerComments($ids, $del = false, $affected_posts = null)
+    public function triggerComments($ids, bool $del = false, $affected_posts = null)
     {
         $comments_ids = dcUtils::cleanIds($ids);
 
-        # Get posts affected by comments edition
+        // Get posts affected by comments edition
         if (empty($affected_posts)) {
             $sql = new dcSelectStatement();
             $sql
@@ -335,7 +417,7 @@ class dcBlog
             return;
         }
 
-        # Count number of comments if exists for affected posts
+        // Count number of comments if exists for affected posts
         $sql = new dcSelectStatement();
         $sql
             ->columns([
@@ -362,7 +444,7 @@ class dcBlog
             }
         }
 
-        # Update number of comments on affected posts
+        // Update number of comments on affected posts
         $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
         foreach ($affected_posts as $post_id) {
             $cur->clean();
@@ -385,15 +467,16 @@ class dcBlog
 
     /// @name Categories management methods
     //@{
+
     /**
      * Get dcCategories instance
      *
      * @return     dcCategories
      */
-    public function categories()
+    public function categories(): dcCategories
     {
         if (!($this->categories instanceof dcCategories)) {
-            $this->categories = new dcCategories(dcCore::app());
+            $this->categories = new dcCategories();
         }
 
         return $this->categories;
@@ -409,11 +492,11 @@ class dcBlog
      * - start: start with a given category
      * - level: categories level to retrieve
      *
-     * @param      array   $params  The parameters
+     * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     record  The categories.
+     * @return     staticRecord  The categories.
      */
-    public function getCategories($params = [])
+    public function getCategories($params = []): staticRecord
     {
         $c_params = [];
         if (isset($params['post_type'])) {
@@ -425,26 +508,26 @@ class dcBlog
         if (isset($params['without_empty']) && (!$params['without_empty'])) {
             $without_empty = false;
         } else {
-            $without_empty = !dcCore::app()->auth->userID(); # Get all categories if in admin display
+            $without_empty = !dcCore::app()->auth->userID(); // Get all categories if in admin display
         }
 
         $start = isset($params['start']) ? (int) $params['start'] : 0;
-        $l     = isset($params['level']) ? (int) $params['level'] : 0;
+        $level = isset($params['level']) ? (int) $params['level'] : 0;
 
         $rs = $this->categories()->getChildren($start, null, 'desc');
 
-        # Get each categories total posts count
-        $data  = [];
-        $stack = [];
-        $level = 0;
-        $cols  = $rs->columns();
+        // Get each categories total posts count
+        $data          = [];
+        $stack         = [];
+        $current_level = 0;
+        $cols          = $rs->columns();
         while ($rs->fetch()) {
             $nb_post = isset($counter[$rs->cat_id]) ? (int) $counter[$rs->cat_id] : 0;
 
-            if ($rs->level > $level) {
+            if ($rs->level > $current_level) {
                 $nb_total          = $nb_post;
-                $stack[$rs->level] = (int) $nb_post;
-            } elseif ($rs->level == $level) {
+                $stack[$rs->level] = $nb_post;
+            } elseif ($rs->level == $current_level) {
                 $nb_total = $nb_post;
                 $stack[$rs->level] += $nb_post;
             } else {
@@ -457,31 +540,31 @@ class dcBlog
                 unset($stack[$rs->level + 1]);
             }
 
-            if ($nb_total == 0 && $without_empty) {
+            if ($nb_total === 0 && $without_empty) {
                 continue;
             }
 
-            $level = $rs->level;
+            $current_level = $rs->level;
 
-            $t = [];
+            $counters = [];
             foreach ($cols as $c) {
-                $t[$c] = $rs->f($c);
+                $counters[$c] = $rs->f($c);
             }
-            $t['nb_post']  = $nb_post;
-            $t['nb_total'] = $nb_total;
+            $counters['nb_post']  = $nb_post;
+            $counters['nb_total'] = $nb_total;
 
-            if ($l == 0 || ($l > 0 && $l == $rs->level)) {
-                array_unshift($data, $t);
+            if ($level == 0 || ($level > 0 && $level == $rs->level)) {
+                array_unshift($data, $counters);
             }
         }
 
-        # We need to apply filter after counting
+        // We need to apply filter after counting
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
             $found = false;
-            foreach ($data as $v) {
-                if ($v['cat_id'] == $params['cat_id']) {
+            foreach ($data as $value) {
+                if ($value['cat_id'] == $params['cat_id']) {
                     $found = true;
-                    $data  = [$v];
+                    $data  = [$value];
 
                     break;
                 }
@@ -496,10 +579,10 @@ class dcBlog
             && !isset($params['cat_id'])
         ) {
             $found = false;
-            foreach ($data as $v) {
-                if ($v['cat_url'] == $params['cat_url']) {
+            foreach ($data as $value) {
+                if ($value['cat_url'] == $params['cat_url']) {
                     $found = true;
-                    $data  = [$v];
+                    $data  = [$value];
 
                     break;
                 }
@@ -515,11 +598,11 @@ class dcBlog
     /**
      * Gets the category by its ID.
      *
-     * @param      integer  $id     The category identifier
+     * @param      int      $id     The category identifier
      *
-     * @return     record  The category.
+     * @return     staticRecord  The category.
      */
-    public function getCategory($id)
+    public function getCategory(int $id): staticRecord
     {
         return $this->getCategories(['cat_id' => $id]);
     }
@@ -527,11 +610,11 @@ class dcBlog
     /**
      * Gets the category parents.
      *
-     * @param      integer  $id     The category identifier
+     * @param      int      $id     The category identifier
      *
-     * @return     record  The category parents.
+     * @return     record|staticRecord  The category parents.
      */
-    public function getCategoryParents($id)
+    public function getCategoryParents(int $id)
     {
         return $this->categories()->getParents($id);
     }
@@ -539,11 +622,11 @@ class dcBlog
     /**
      * Gets the category first parent.
      *
-     * @param      integer  $id     The category identifier
+     * @param      int      $id     The category identifier
      *
-     * @return     record  The category parent.
+     * @return     record|staticRecord  The category parent.
      */
-    public function getCategoryParent($id)
+    public function getCategoryParent(int $id)
     {
         return $this->categories()->getParent($id);
     }
@@ -553,11 +636,11 @@ class dcBlog
      *
      * @param      int     $id     The category identifier
      *
-     * @return     record  The category first children.
+     * @return     staticRecord  The category first children.
      */
-    public function getCategoryFirstChildren($id)
+    public function getCategoryFirstChildren(int $id): staticRecord
     {
-        return $this->getCategories(['start' => $id, 'level' => $id == 0 ? 1 : 2]);
+        return $this->getCategories(['start' => $id, 'level' => $id === 0 ? 1 : 2]);
     }
 
     /**
@@ -566,9 +649,9 @@ class dcBlog
      * @param      string   $cat_url    The cat url
      * @param      string   $start_url  The top cat url
      *
-     * @return     boolean  true if cat_url is in given start_url cat subtree
+     * @return     bool     true if cat_url is in given start_url cat subtree
      */
-    public function IsInCatSubtree($cat_url, $start_url)
+    public function IsInCatSubtree(string $cat_url, string $start_url): bool
     {
         // Get cat_id from start_url
         $cat = $this->getCategories(['cat_url' => $start_url]);
@@ -589,11 +672,11 @@ class dcBlog
     /**
      * Gets the categories posts counter.
      *
-     * @param      array  $params  The parameters
+     * @param      array|ArrayObject  $params  The parameters
      *
      * @return     array  The categories counter.
      */
-    private function getCategoriesCounter($params = [])
+    private function getCategoriesCounter($params = []): array
     {
         $sql = new dcSelectStatement();
         $sql
@@ -640,7 +723,7 @@ class dcBlog
      *
      * @return     int  New category ID
      */
-    public function addCategory($cur, $parent = 0)
+    public function addCategory(cursor $cur, int $parent = 0): int
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -666,14 +749,15 @@ class dcBlog
 
         $cur->cat_url = implode('/', $url);
 
-        $this->getCategoryCursor($cur);
+        $this->fillCategoryCursor($cur);
         $cur->blog_id = (string) $this->id;
 
         # --BEHAVIOR-- coreBeforeCategoryCreate
         dcCore::app()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
 
         $id = $this->categories()->addNode($cur, $parent);
-        # Update category's cursor
+
+        // Update category's cursor in order to give an updated cursor to callback behaviors
         $rs = $this->getCategory($id);
         if (!$rs->isEmpty()) {
             $cur->cat_lft = $rs->cat_lft;
@@ -690,12 +774,12 @@ class dcBlog
     /**
      * Updates an existing category.
      *
-     * @param      integer     $id     The category ID
+     * @param      int         $id     The category ID
      * @param      cursor      $cur    The category cursor
      *
      * @throws     Exception
      */
-    public function updCategory($id, $cur)
+    public function updCategory(int $id, cursor $cur)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -716,7 +800,7 @@ class dcBlog
             $cur->cat_url = implode('/', $url);
         }
 
-        $this->getCategoryCursor($cur, $id);
+        $this->fillCategoryCursor($cur, $id);
 
         # --BEHAVIOR-- coreBeforeCategoryUpdate
         dcCore::app()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
@@ -737,11 +821,11 @@ class dcBlog
     /**
      * Set category position.
      *
-     * @param      integer  $id     The category ID
-     * @param      integer  $left   The category ID before
-     * @param      integer  $right  The category ID after
+     * @param      int   $id     The category ID
+     * @param      int   $left   The category ID before
+     * @param      int   $right  The category ID after
      */
-    public function updCategoryPosition($id, $left, $right)
+    public function updCategoryPosition(int $id, int $left, int $right)
     {
         $this->categories()->updatePosition($id, $left, $right);
         $this->triggerBlog();
@@ -750,10 +834,10 @@ class dcBlog
     /**
      * Sets the category parent.
      *
-     * @param      integer  $id      The category ID
-     * @param      integer  $parent  The parent category ID
+     * @param      int   $id      The category ID
+     * @param      int   $parent  The parent category ID
      */
-    public function setCategoryParent($id, $parent)
+    public function setCategoryParent(int $id, int $parent)
     {
         $this->categories()->setNodeParent($id, $parent);
         $this->triggerBlog();
@@ -762,11 +846,11 @@ class dcBlog
     /**
      * Sets the category position.
      *
-     * @param      integer  $id       The category ID
-     * @param      integer  $sibling  The sibling category ID
+     * @param      int      $id       The category ID
+     * @param      int      $sibling  The sibling category ID
      * @param      string   $move     The move (before|after)
      */
-    public function setCategoryPosition($id, $sibling, $move)
+    public function setCategoryPosition(int $id, int $sibling, string $move)
     {
         $this->categories()->setNodePosition($id, $sibling, $move);
         $this->triggerBlog();
@@ -775,11 +859,11 @@ class dcBlog
     /**
      * Delete a category.
      *
-     * @param      integer     $id     The category ID
+     * @param      int     $id     The category ID
      *
      * @throws     Exception
      */
-    public function delCategory($id)
+    public function delCategory(int $id)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -823,11 +907,11 @@ class dcBlog
      * Check if the category url is unique.
      *
      * @param      string  $url    The url
-     * @param      mixed   $id     The identifier
+     * @param      int     $id     The identifier
      *
      * @return     string
      */
-    private function checkCategory($url, $id = null)
+    private function checkCategory(string $url, ?int $id = null)
     {
         # Let's check if URL is taken...
         $sql = new dcSelectStatement();
@@ -881,8 +965,8 @@ class dcBlog
             return $url . ($i + 1);
         }
 
-        # URL is empty?
-        if ($url == '') {
+        // URL empty?
+        if ($url === '') {
             throw new Exception(__('Empty category URL'));
         }
 
@@ -890,14 +974,14 @@ class dcBlog
     }
 
     /**
-     * Gets the category cursor.
+     * Fills the category cursor.
      *
      * @param      cursor     $cur    The category cursor
-     * @param      mixed      $id     The category ID
+     * @param      int        $id     The category ID
      *
      * @throws     Exception
      */
-    private function getCategoryCursor($cur, $id = null)
+    private function fillCategoryCursor(cursor $cur, ?int $id = null)
     {
         if ($cur->cat_title == '') {
             throw new Exception(__('You must provide a category title'));
@@ -921,10 +1005,12 @@ class dcBlog
             $cur->cat_desc = dcCore::app()->HTMLfilter($cur->cat_desc);
         }
     }
+
     //@}
 
     /// @name Entries management methods
     //@{
+
     /**
      * Retrieves entries. <b>$params</b> is an array taking the following
      * optionnal parameters:
@@ -957,13 +1043,13 @@ class dcBlog
      * Please note that on every cat_id or cat_url, you can add ?not to exclude
      * the category and ?sub to get subcategories.
      *
-     * @param    array              $params        Parameters
+     * @param    array|ArrayObject  $params        Parameters
      * @param    bool               $count_only    Only counts results
      * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
      *
      * @return   mixed    A record with some more capabilities or the SQL request
      */
-    public function getPosts($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getPosts($params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
@@ -1218,8 +1304,8 @@ class dcBlog
             return $sql->statement();
         }
 
-        $rs            = $sql->select();
-        $rs->core      = dcCore::app();
+        $rs = $sql->select();
+
         $rs->_nb_media = [];
         $rs->extend('rsExtPost');
 
@@ -1248,7 +1334,7 @@ class dcBlog
      *
      * @return     mixed   The next post.
      */
-    public function getNextPost($post, $dir, $restrict_to_category = false, $restrict_to_lang = false)
+    public function getNextPost($post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false)
     {
         $dt      = $post->post_dt;
         $post_id = (int) $post->post_id;
@@ -1295,7 +1381,7 @@ class dcBlog
      * - lang: retrieve post count for selected lang
      * - order: order statement (default post_lang DESC)
      *
-     * @param      array   $params  The parameters
+     * @param      array|ArrayObject   $params  The parameters
      *
      * @return     record  The langs.
      */
@@ -1364,7 +1450,7 @@ class dcBlog
      * - previous: Get date before match
      * - order: Sort by date "ASC" or "DESC"
      *
-     * @param      array   $params  The parameters
+     * @param      array|ArrayObject   $params  The parameters
      *
      * @return     record  The dates.
      */
@@ -2317,7 +2403,7 @@ class dcBlog
      * - limit: Limit parameter
      * - sql_only : return the sql request instead of results. Only ids are selected
      *
-     * @param    array              $params        Parameters
+     * @param    array|ArrayObject  $params        Parameters
      * @param    bool               $count_only    Only counts results
      * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
      *
@@ -2507,8 +2593,7 @@ class dcBlog
             return $sql->statement();
         }
 
-        $rs       = $sql->select();
-        $rs->core = dcCore::app();
+        $rs = $sql->select();
         $rs->extend('rsExtComment');
 
         # --BEHAVIOR-- coreBlogGetComments

@@ -98,6 +98,14 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
+    # dcAdmin  object and auto properties
+    - message: '#Access to an undefined property dcAdmin::#'
+      path: %currentWorkingDirectory%
+
+    # dcNamespace  object and auto properties
+    - message: '#Access to an undefined property dcNamespace::#'
+      path: %currentWorkingDirectory%
+
     # context object and auto properties
     - message: '#Access to an undefined property context::#'
       path: %currentWorkingDirectory%
@@ -150,6 +158,10 @@ parameters:
     - message: '#Call to an undefined method staticRecord::#'
       path: %currentWorkingDirectory%
 
+    # dcRecord object and auto properties
+    - message: '#Access to an undefined property dcRecord::#'
+      path: %currentWorkingDirectory%
+
     # static property rsExtUser
     - message: '#Static property rsExtUser::#'
       path: %currentWorkingDirectory%
@@ -190,7 +202,7 @@ parameters:
     - message: '#Access to an undefined property dcCore::\$default_widgets.#'
       path: %currentWorkingDirectory%
 
-    # Temporary until 2.24 (or later)
+    # Plugin dcProxyV2
     # -------------------------------
 
     # $core as class constructor parameter

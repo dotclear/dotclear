@@ -58,7 +58,7 @@ if (!empty($_REQUEST['id'])) {
 
         $user_options = array_merge($user_options, $rs->options());
 
-        $user_prefs = new dcPrefs(dcCore::app(), $user_id, 'profile');
+        $user_prefs = new dcPrefs($user_id, 'profile');
         $user_prefs->addWorkspace('profile');
         $user_profile_mails = $user_prefs->profile->mails;
         $user_profile_urls  = $user_prefs->profile->urls;
@@ -129,7 +129,7 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['user_profile_urls'])) {
                 $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
             }
-            $user_prefs = new dcPrefs(dcCore::app(), $user_id, 'profile');
+            $user_prefs = new dcPrefs($user_id, 'profile');
             $user_prefs->addWorkspace('profile');
             $user_prefs->profile->put('mails', $mails, 'string');
             $user_prefs->profile->put('urls', $urls, 'string');
@@ -164,7 +164,7 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['user_profile_urls'])) {
                 $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
             }
-            $user_prefs = new dcPrefs(dcCore::app(), $new_id, 'profile');
+            $user_prefs = new dcPrefs($new_id, 'profile');
             $user_prefs->addWorkspace('profile');
             $user_prefs->profile->put('mails', $mails, 'string');
             $user_prefs->profile->put('urls', $urls, 'string');
@@ -457,8 +457,8 @@ if ($user_id) {
     echo '<p><a href="' . dcCore::app()->adminurl->get(
         'admin.comments',
         [
-            'email' => dcCore::app()->auth->getInfo('user_email', $user_id),
-            'site'  => dcCore::app()->auth->getInfo('user_url', $user_id),
+            'email' => $user_email,
+            'site'  => $user_url,
         ]
     ) . '">' . __('List of comments') . '</a>';
     echo '</div>';

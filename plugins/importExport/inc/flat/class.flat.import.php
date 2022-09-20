@@ -14,11 +14,6 @@ if (!defined('DC_RC_PATH')) {
 
 class flatImport extends flatBackup
 {
-    /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    private $core;
-
     private $con;
     private $prefix;
 
@@ -92,7 +87,6 @@ class flatImport extends flatBackup
             $this->dc_major_version = '2.0';
         }
 
-        $this->core   = dcCore::app();
         $this->con    = dcCore::app()->con;
         $this->prefix = dcCore::app()->prefix;
 

@@ -86,7 +86,7 @@ $lang_combo = dcAdminCombos::getLangsCombo($rs, true);
 $bad_dt = false;
 
 # Trackbacks
-$TB      = new dcTrackback(dcCore::app());
+$TB      = new dcTrackback();
 $tb_urls = $tb_excerpt = '';
 
 # Get entry informations
@@ -158,7 +158,7 @@ if (!empty($_REQUEST['id'])) {
         }
 
         try {
-            dcCore::app()->media = new dcMedia(dcCore::app());
+            dcCore::app()->media = new dcMedia();
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -200,7 +200,7 @@ if (!empty($_POST['ping'])) {
                 # --BEHAVIOR-- adminBeforePingTrackback
                 dcCore::app()->callBehavior('adminBeforePingTrackback', $tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
 
-                $TB->ping($tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
+                $TB->ping($tb_url, (int) $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -996,7 +996,7 @@ if ($post_id && $post_status == dcBlog::POST_PUBLISHED) {
             '</p>' .
             '</form>';
 
-        $pings = $TB->getPostPings($post_id);
+        $pings = $TB->getPostPings((int) $post_id);
 
         if (!$pings->isEmpty()) {
             echo '<h3>' . __('Previously sent pings') . '</h3>';

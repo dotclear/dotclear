@@ -12,14 +12,54 @@ if (!defined('DC_RC_PATH')) {
 
 class dcXmlRpc extends xmlrpcIntrospectionServer
 {
+    /**
+     * Blog ID
+     *
+     * @var null|string
+     */
     private $blog_id;
-    private $blog_loaded    = false;
-    private $debug          = false;
-    private $debug_file     = '/tmp/dotclear-xmlrpc.log';
-    private $trace_args     = true;
+
+    /**
+     * Set to true as soon as Blog is set (using Blog ID)
+     *
+     * @var        bool
+     */
+    private $blog_loaded = false;
+
+    /**
+     * Debug mode
+     *
+     * @var        bool
+     */
+    private $debug = false;
+
+    /**
+     * Debug file log
+     *
+     * @var        string
+     */
+    private $debug_file = DC_TPL_CACHE . '/dotclear-xmlrpc.log';
+
+    /**
+     * Trace arguments
+     *
+     * @var        bool
+     */
+    private $trace_args = true;
+
+    /**
+     * Trace response
+     *
+     * @var        bool
+     */
     private $trace_response = true;
 
-    public function __construct($blog_id)
+    /**
+     * Constructs a new instance.
+     *
+     * @param      string  $blog_id  The blog ID
+     */
+    public function __construct(string $blog_id)
     {
         parent::__construct();
 
@@ -34,12 +74,25 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         );
     }
 
+    /**
+     * Start the XML-RPC server
+     *
+     * @param      bool  $data   The data
+     */
     public function serve($data = false): void
     {
         parent::serve(false);
     }
 
-    public function call($methodname, $args)
+    /**
+     * Call a XML-RPC method
+     *
+     * @param      string  $methodname  The methodname
+     * @param      mixed   $args        The arguments
+     *
+     * @return     mixed
+     */
+    public function call(string $methodname, $args)
     {
         try {
             $rsp = @parent::call($methodname, $args);
@@ -53,7 +106,14 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         }
     }
 
-    private function debugTrace($methodname, $args, $rsp)
+    /**
+     * Trace method response
+     *
+     * @param      string  $methodname  The methodname
+     * @param      mixed   $args        The arguments
+     * @param      mixed   $rsp         The response
+     */
+    private function debugTrace(string $methodname, $args, $rsp)
     {
         if (!$this->debug) {
             return;
@@ -74,8 +134,16 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         }
     }
 
-    /* Internal methods
-    --------------------------------------------------- */
+    // Internal methods
+    // ----------------
+
+    /**
+     * Sets the blog.
+     *
+     * @throws     Exception
+     *
+     * @return     bool
+     */
     private function setBlog()
     {
         if (!$this->blog_id) {
@@ -102,9 +170,16 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         return true;
     }
 
-    /* Pingback support
-    --------------------------------------------------- */
+    // XML-RPC methods
 
+    /**
+     * Receive a pingback
+     *
+     * @param      string  $from_url  The from url
+     * @param      string  $to_url    To url
+     *
+     * @return     string  Message sent back to the sender
+     */
     public function pingback_ping(string $from_url, string $to_url): string
     {
         dcTrackback::checkURLs($from_url, $to_url);
@@ -121,8 +196,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         # --BEHAVIOR-- publicBeforeReceiveTrackback
         dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-        $tb = new dcTrackback(dcCore::app());
-
-        return $tb->receivePingback($from_url, $to_url);
+        return (new dcTrackback())->receivePingback($from_url, $to_url);
     }
 }

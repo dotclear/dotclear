@@ -24,42 +24,88 @@ class dcWorkspace
     public const WS_TABLE_NAME = 'pref';
 
     /**
-     * @deprecated since 2.23
+     * Regexp workspace name schema
+     *
+     * @var        string
      */
-    protected $core;    ///< <b>core</b> Dotclear core object
+    public const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
-    protected $con;     ///< <b>connection</b> Database connection object
-    protected $table;   ///< <b>string</b> Preferences table name
-    protected $user_id; ///< <b>string</b> User ID
+    /**
+     * Regexp workspace ID schema
+     *
+     * @var        string
+     */
+    protected const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
-    protected $global_prefs = []; ///< <b>array</b> Global prefs array
-    protected $local_prefs  = []; ///< <b>array</b> Local prefs array
-    protected $prefs        = []; ///< <b>array</b> Associative prefs array
-    protected $ws;                ///< <b>string</b> Current workspace
+    // Properties
 
-    protected const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
-    protected const WS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    /**
+     * Database connection object
+     *
+     * @var object
+     */
+    protected $con;
+
+    /**
+     * Preferences table name
+     *
+     * @var string
+     */
+    protected $table;
+
+    /**
+     * User ID
+     *
+     * @var string
+     */
+    protected $user_id;
+
+    /**
+     * Global preferences
+     *
+     * @var array
+     */
+    protected $global_prefs = [];
+
+    /**
+     * Local preferences
+     *
+     * @var array
+     */
+    protected $local_prefs = [];
+
+    /**
+     * User preferences
+     *
+     * @var array
+     */
+    protected $prefs = [];
+
+    /**
+     * Current workspace name
+     *
+     * @var string
+     */
+    protected $workspace;
 
     /**
      * Object constructor. Retrieves user prefs and puts them in $prefs
      * array. Local (user) prefs have a highest priority than global prefs.
      *
-     * @param      dcCore     $core     The core
-     * @param      string     $user_id  The user identifier
-     * @param      string     $name     The name
-     * @param      mixed      $rs       The recordset
+     * @param      string        $user_id  The user identifier
+     * @param      string        $name     The workspace name
+     * @param      dcRecord      $rs       The recordset
      *
      * @throws     Exception
      */
-    public function __construct($core, $user_id, $name, $rs = null)
+    public function __construct(string $user_id, string $name, ?dcRecord $rs = null)
     {
         if (preg_match(self::WS_NAME_SCHEMA, $name)) {
-            $this->ws = $name;
+            $this->workspace = $name;
         } else {
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
         }
 
-        $this->core    = dcCore::app();
         $this->con     = dcCore::app()->con;
         $this->table   = dcCore::app()->prefix . self::WS_TABLE_NAME;
         $this->user_id = $user_id;
@@ -67,15 +113,18 @@ class dcWorkspace
         try {
             $this->getPrefs($rs);
         } catch (Exception $e) {
-            if (version_compare(dcCore::app()->getVersion('core'), '2.3', '>')) {
-                trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
-            }
+            trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
         }
     }
 
-    private function getPrefs($rs = null)
+    /**
+     * Gets the preferences.
+     *
+     * @param      dcRecord      $rs       The recordset
+     */
+    private function getPrefs(?dcRecord $rs = null): void
     {
-        if ($rs == null) {
+        if ($rs === null) {
             $sql = new dcSelectStatement();
             $sql
                 ->columns([
@@ -91,109 +140,104 @@ class dcWorkspace
                     'user_id = ' . $sql->quote($this->user_id),
                     'user_id IS NULL',
                 ]))
-                ->and('pref_ws = ' . $sql->quote($this->ws))
+                ->and('pref_ws = ' . $sql->quote($this->workspace))
                 ->order('pref_id ASC');
 
             try {
-                $rs = $sql->select();
+                $rs = new dcRecord($sql->select());
             } catch (Exception $e) {
                 throw $e;
             }
         }
         while ($rs->fetch()) {
-            if ($rs->f('pref_ws') != $this->ws) {
+            if ($rs->f('pref_ws') !== $this->workspace) {
                 break;
             }
-            $id    = trim((string) $rs->f('pref_id'));
+            $name  = trim((string) $rs->f('pref_id'));
             $value = $rs->f('pref_value');
             $type  = $rs->f('pref_type');
 
-            if ($type == 'array') {
+            if ($type === 'array') {
                 $value = @json_decode($value, true);
             } else {
-                if ($type == 'float' || $type == 'double') {
+                if ($type === 'float' || $type === 'double') {
                     $type = 'float';
-                } elseif ($type != 'boolean' && $type != 'integer') {
+                } elseif ($type !== 'boolean' && $type !== 'integer') {
                     $type = 'string';
                 }
             }
 
             settype($value, $type);
 
-            $array = $rs->user_id ? 'local' : 'global';
+            $array = ($rs->user_id ? 'local' : 'global') . '_prefs';
 
-            $this->{$array . '_prefs'}[$id] = [
-                'ws'     => $this->ws,
+            $this->{$array}[$name] = [
+                'ws'     => $this->workspace,
                 'value'  => $value,
                 'type'   => $type,
                 'label'  => (string) $rs->f('pref_label'),
-                'global' => $rs->user_id == '',
+                'global' => (!$rs->user_id),
             ];
         }
 
-        $this->prefs = $this->global_prefs;
-
-        foreach ($this->local_prefs as $id => $v) {
-            $this->prefs[$id] = $v;
-        }
-
-        return true;
+        // User preferences (local) overwrite global ones
+        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
     /**
      * Returns true if a pref exist, else false
      *
-     * @param      string   $id      The identifier
-     * @param      boolean  $global  The global
+     * @param      string   $name    The identifier
+     * @param      bool     $global  The global
      *
-     * @return     boolean
+     * @return     bool
      */
-    public function prefExists($id, $global = false)
+    public function prefExists(string $name, bool $global = false): bool
     {
-        $array = $global ? 'global' : 'local';
+        $array = ($global ? 'global' : 'local') . '_prefs';
 
-        return isset($this->{$array . '_prefs'}[$id]);
+        return isset($this->{$array}[$name]);
     }
 
     /**
      * Returns pref value if exists.
      *
-     * @param      string  $n      Pref name
+     * @param      string  $name      Pref name
      *
      * @return     mixed
      */
-    public function get($n)
+    public function get(string $name)
     {
-        if (isset($this->prefs[$n]) && isset($this->prefs[$n]['value'])) {
-            return $this->prefs[$n]['value'];
+        if (isset($this->prefs[$name]) && isset($this->prefs[$name]['value'])) {
+            return $this->prefs[$name]['value'];
         }
     }
 
     /**
      * Returns global pref value if exists.
      *
-     * @param      string  $n      Pref name
+     * @param      string  $name      Pref name
      *
      * @return     mixed
      */
-    public function getGlobal($n)
+    public function getGlobal(string $name)
     {
-        if (isset($this->global_prefs[$n]) && isset($this->global_prefs[$n]['value'])) {
-            return $this->global_prefs[$n]['value'];
+        if (isset($this->global_prefs[$name]) && isset($this->global_prefs[$name]['value'])) {
+            return $this->global_prefs[$name]['value'];
         }
     }
 
     /**
      * Returns local pref value if exists.
      *
-     * @param      string  $n      Pref name
+     * @param      string  $name      Pref name
      *
      * @return     mixed
      */
-    public function getLocal($n)
+    public function getLocal(string $name)
     {
-        if (isset($this->local_prefs[$n]) && isset($this->local_prefs[$n]['value'])) {
-            return $this->local_prefs[$n]['value'];
+        if (isset($this->local_prefs[$name]) && isset($this->local_prefs[$name]['value'])) {
+            return $this->local_prefs[$name]['value'];
         }
     }
     /**
@@ -202,42 +246,38 @@ class dcWorkspace
     /**
      * Magic __get method.
      *
-     * @copydoc ::get
-     *
-     * @param      string  $n      Pref name
+     * @param      string  $name      Pref name
      *
      * @return     mixed
      */
-    public function __get($n)
+    public function __get(string $name)
     {
-        return $this->get($n);
+        return $this->get($name);
     }
 
     /**
      * Sets a pref in $prefs property. This sets the pref for script
      * execution time only and if pref exists.
      *
-     * @param      string  $n      The pref name
-     * @param      mixed   $v      The pref value
+     * @param      string  $name      The pref name
+     * @param      mixed   $value     The pref value
      */
-    public function set($n, $v)
+    public function set(string $name, $value)
     {
-        if (isset($this->prefs[$n])) {
-            $this->prefs[$n]['value'] = $v;
+        if (isset($this->prefs[$name])) {
+            $this->prefs[$name]['value'] = $value;
         }
     }
 
     /**
      * Magic __set method.
      *
-     * @copydoc ::set
-     *
-     * @param      string  $n      The pref name
-     * @param      mixed   $v      The pref value
+     * @param      string  $name      The pref name
+     * @param      mixed   $value     The pref value
      */
-    public function __set($n, $v)
+    public function __set(string $name, $value)
     {
-        $this->set($n, $v);
+        $this->set($name, $value);
     }
 
     /**
@@ -246,41 +286,41 @@ class dcWorkspace
      * $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
      * null and pref exists, it will keep current pref type.
      *
-     * $value_change allow you to not change pref. Useful if you need to change
+     * $ignore_value allow you to not change pref. Useful if you need to change
      * a pref label or type and don't want to change its value.
      *
-     * @param      string     $id            The pref identifier
+     * @param      string     $name          The pref identifier
      * @param      mixed      $value         The pref value
      * @param      string     $type          The pref type
      * @param      string     $label         The pref label
-     * @param      bool       $value_change  Change pref value or not
+     * @param      bool       $ignore_value  Change pref value or not
      * @param      bool       $global        Pref is global
      *
      * @throws     Exception
      */
-    public function put($id, $value, $type = null, $label = null, $value_change = true, $global = false)
+    public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
-        if (!preg_match(self::WS_ID_SCHEMA, $id)) {
-            throw new Exception(sprintf(__('%s is not a valid pref id'), $id));
+        if (!preg_match(self::WS_ID_SCHEMA, $name)) {
+            throw new Exception(sprintf(__('%s is not a valid pref id'), $name));
         }
 
-        # We don't want to change pref value
-        if (!$value_change) {
-            if (!$global && $this->prefExists($id, false)) {
-                $value = $this->local_prefs[$id]['value'];
-            } elseif ($this->prefExists($id, true)) {
-                $value = $this->global_prefs[$id]['value'];
+        // We don't want to change pref value
+        if (!$ignore_value) {
+            if (!$global && $this->prefExists($name, false)) {
+                $value = $this->local_prefs[$name]['value'];
+            } elseif ($this->prefExists($name, true)) {
+                $value = $this->global_prefs[$name]['value'];
             }
         }
 
-        # Pref type
-        if ($type == 'double') {
+        // Pref type
+        if ($type === 'double') {
             $type = 'float';
         } elseif ($type === null) {
-            if (!$global && $this->prefExists($id, false)) {
-                $type = $this->local_prefs[$id]['type'];
-            } elseif ($this->prefExists($id, true)) {
-                $type = $this->global_prefs[$id]['type'];
+            if (!$global && $this->prefExists($name, false)) {
+                $type = $this->local_prefs[$name]['type'];
+            } elseif ($this->prefExists($name, true)) {
+                $type = $this->global_prefs[$name]['type'];
             } else {
                 if (is_array($value)) {
                     $type = 'array';
@@ -288,44 +328,45 @@ class dcWorkspace
                     $type = 'string';
                 }
             }
-        } elseif ($type != 'boolean' && $type != 'integer' && $type != 'float' && $type != 'array') {
+        } elseif ($type !== 'boolean' && $type !== 'integer' && $type !== 'float' && $type !== 'array') {
             $type = 'string';
         }
 
-        # We don't change label
-        if ($label == null) {
-            if (!$global && $this->prefExists($id, false)) {
-                $label = $this->local_prefs[$id]['label'];
-            } elseif ($this->prefExists($id, true)) {
-                $label = $this->global_prefs[$id]['label'];
+        // We don't change label
+        if (!$label) {
+            if (!$global && $this->prefExists($name, false)) {
+                $label = $this->local_prefs[$name]['label'];
+            } elseif ($this->prefExists($name, true)) {
+                $label = $this->global_prefs[$name]['label'];
             }
         }
 
-        if ($type != 'array') {
+        if ($type !== 'array') {
             settype($value, $type);
         } else {
             $value = json_encode($value);
         }
 
-        $cur             = $this->con->openCursor($this->table);
-        $cur->pref_value = ($type == 'boolean') ? (string) (int) $value : (string) $value;
+        $cur = $this->con->openCursor($this->table);
+
+        $cur->pref_value = ($type === 'boolean') ? (string) (int) $value : (string) $value;
         $cur->pref_type  = $type;
         $cur->pref_label = $label;
 
         #If we are local, compare to global value
-        if (!$global && $this->prefExists($id, true)) {
-            $g         = $this->global_prefs[$id];
-            $same_pref = ($g['ws'] == $this->ws && $g['value'] == $value && $g['type'] == $type && $g['label'] == $label);
+        if (!$global && $this->prefExists($name, true)) {
+            $g         = $this->global_prefs[$name];
+            $same_pref = ($g['ws'] === $this->workspace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
 
             # Drop pref if same value as global
-            if ($same_pref && $this->prefExists($id, false)) {
-                $this->drop($id);
+            if ($same_pref && $this->prefExists($name, false)) {
+                $this->drop($name);
             } elseif ($same_pref) {
                 return;
             }
         }
 
-        if ($this->prefExists($id, $global) && $this->ws == $this->prefs[$id]['ws']) {
+        if ($this->prefExists($name, $global) && $this->workspace === $this->prefs[$name]['ws']) {
             $sql = new dcUpdateStatement();
 
             if ($global) {
@@ -334,14 +375,14 @@ class dcWorkspace
                 $sql->where('user_id = ' . $sql->quote($this->user_id));
             }
             $sql
-                ->and('pref_id = ' . $sql->quote($id))
-                ->and('pref_ws = ' . $sql->quote($this->ws));
+                ->and('pref_id = ' . $sql->quote($name))
+                ->and('pref_ws = ' . $sql->quote($this->workspace));
 
             $sql->update($cur);
         } else {
-            $cur->pref_id = $id;
+            $cur->pref_id = $name;
             $cur->user_id = $global ? null : $this->user_id;
-            $cur->pref_ws = $this->ws;
+            $cur->pref_ws = $this->workspace;
 
             $cur->insert();
         }
@@ -350,40 +391,44 @@ class dcWorkspace
     /**
      * Rename an existing pref in a Workspace
      *
-     * @param      string     $oldId  The old identifier
-     * @param      string     $newId  The new identifier
+     * @param      string     $old_name  The old identifier
+     * @param      string     $new_name  The new identifier
      *
      * @throws     Exception
      *
      * @return     bool       false is error, true if renamed
      */
-    public function rename($oldId, $newId)
+    public function rename(string $old_name, string $new_name): bool
     {
-        if (!$this->ws) {
+        if (!$this->workspace) {
             throw new Exception(__('No workspace specified'));
         }
 
-        if (!array_key_exists($oldId, $this->prefs) || array_key_exists($newId, $this->prefs)) {
+        if (!array_key_exists($old_name, $this->prefs) || array_key_exists($new_name, $this->prefs)) {
             return false;
         }
 
-        if (!preg_match(self::WS_ID_SCHEMA, $newId)) {
-            throw new Exception(sprintf(__('%s is not a valid pref id'), $newId));
+        if (!preg_match(self::WS_ID_SCHEMA, $new_name)) {
+            throw new Exception(sprintf(__('%s is not a valid pref id'), $new_name));
         }
 
         // Rename the pref in the prefs array
-        $this->prefs[$newId] = $this->prefs[$oldId];
-        unset($this->prefs[$oldId]);
+        $this->prefs[$new_name] = $this->prefs[$old_name];
+        unset($this->prefs[$old_name]);
 
         // Rename the pref in the database
         $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
-            ->set('pref_id = ' . $sql->quote($newId))
-            ->where('pref_ws = ' . $sql->quote($this->ws))
-            ->and('pref_id = ' . $sql->quote($oldId));
+            ->set('pref_id = ' . $sql->quote($new_name))
+            ->where('pref_ws = ' . $sql->quote($this->workspace))
+            ->and('pref_id = ' . $sql->quote($old_name));
 
         $sql->update();
+
+        // Reload preferences from database
+        $this->global_prefs = $this->local_prefs = $this->prefs = [];
+        $this->getPrefs();
 
         return true;
     }
@@ -391,14 +436,14 @@ class dcWorkspace
     /**
      * Removes an existing pref. Workspace
      *
-     * @param      string     $id            The pref identifier
+     * @param      string     $name          The pref identifier
      * @param      bool       $force_global  Force global pref drop
      *
-     * @throws     Exception  (description)
+     * @throws     Exception
      */
-    public function drop($id, $force_global = false)
+    public function drop(string $name, bool $force_global = false): void
     {
-        if (!$this->ws) {
+        if (!$this->workspace) {
             throw new Exception(__('No workspace specified'));
         }
 
@@ -415,31 +460,29 @@ class dcWorkspace
         }
 
         $sql
-            ->and('pref_id = ' . $sql->quote($id))
-            ->and('pref_ws = ' . $sql->quote($this->ws));
+            ->and('pref_id = ' . $sql->quote($name))
+            ->and('pref_ws = ' . $sql->quote($this->workspace));
 
         $sql->delete();
 
-        if ($this->prefExists($id, $global)) {
-            $array = $global ? 'global' : 'local';
-            unset($this->{$array . '_prefs'}[$id]);
+        if ($this->prefExists($name, $global)) {
+            $array = ($global ? 'global' : 'local') . '_prefs';
+            unset($this->{$array}[$name]);
         }
 
-        $this->prefs = $this->global_prefs;
-        foreach ($this->local_prefs as $id => $v) {
-            $this->prefs[$id] = $v;
-        }
+        // User preferences (local) overwrite global ones
+        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
     /**
      * Removes every existing specific pref. in a workspace
      *
-     * @param      string     $id      Pref ID
-     * @param      boolean    $global  Remove global pref too
+     * @param      string     $name    Pref ID
+     * @param      bool       $global  Remove global pref too
      */
-    public function dropEvery($id, $global = false)
+    public function dropEvery(string $name, bool $global = false): void
     {
-        if (!$this->ws) {
+        if (!$this->workspace) {
             throw new Exception(__('No workspace specified'));
         }
 
@@ -448,13 +491,23 @@ class dcWorkspace
             ->from($this->table);
 
         if (!$global) {
-            $sql->where('user_id IS NOT NULL');
+            $sql->where($sql->isNotNull('user_id'));
         }
         $sql
-            ->and('pref_id = ' . $sql->quote($id))
-            ->and('pref_ws = ' . $sql->quote($this->ws));
+            ->and('pref_id = ' . $sql->quote($name))
+            ->and('pref_ws = ' . $sql->quote($this->workspace));
 
         $sql->delete();
+
+        if ($this->prefExists($name, false)) {
+            unset($this->local_prefs[$name]);
+        }
+        if ($global && $this->prefExists($name, true)) {
+            unset($this->global_prefs[$name]);
+        }
+
+        // User preferences (local) overwrite global ones
+        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
     /**
@@ -464,9 +517,9 @@ class dcWorkspace
      *
      * @throws     Exception
      */
-    public function dropAll($force_global = false)
+    public function dropAll(bool $force_global = false): void
     {
-        if (!$this->ws) {
+        if (!$this->workspace) {
             throw new Exception(__('No workspace specified'));
         }
 
@@ -482,16 +535,16 @@ class dcWorkspace
             $global = false;
         }
 
-        $sql->and('pref_ws = ' . $sql->quote($this->ws));
+        $sql->and('pref_ws = ' . $sql->quote($this->workspace));
 
         $sql->delete();
 
-        $array = $global ? 'global' : 'local';
-        unset($this->{$array . '_prefs'});
-        $this->{$array . '_prefs'} = [];
+        // Reset global/local preferencess
+        $array          = ($global ? 'global' : 'local') . '_prefs';
+        $this->{$array} = [];
 
-        $array       = $global ? 'local' : 'global';
-        $this->prefs = $this->{$array . '_prefs'};
+        // User preferences (local) overwrite global ones
+        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
     /**
@@ -499,9 +552,9 @@ class dcWorkspace
      *
      * @return     string
      */
-    public function dumpWorkspace()
+    public function dumpWorkspace(): string
     {
-        return $this->ws;
+        return $this->workspace;
     }
 
     /**
@@ -509,7 +562,7 @@ class dcWorkspace
      *
      * @return     array
      */
-    public function dumpPrefs()
+    public function dumpPrefs(): array
     {
         return $this->prefs;
     }
@@ -519,7 +572,7 @@ class dcWorkspace
      *
      * @return     array
      */
-    public function dumpLocalPrefs()
+    public function dumpLocalPrefs(): array
     {
         return $this->local_prefs;
     }
@@ -529,7 +582,7 @@ class dcWorkspace
      *
      * @return     array
      */
-    public function dumpGlobalPrefs()
+    public function dumpGlobalPrefs(): array
     {
         return $this->global_prefs;
     }

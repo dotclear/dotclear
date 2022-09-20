@@ -22,16 +22,10 @@ abstract class dcIeModule
     protected $import_url;
     protected $export_url;
 
-    /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    protected $core;
-
     protected $url;
 
-    public function __construct(dcCore $core = null)
+    public function __construct()
     {
-        $this->core = dcCore::app();
         $this->setInfo();
 
         if (!in_array($this->type, ['import', 'export'])) {
