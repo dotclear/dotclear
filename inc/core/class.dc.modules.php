@@ -961,8 +961,11 @@ class dcModules
      *
      * @return     int
      */
-    private function sortModules(array $first_module, array $second_module): int
+    private function sortModules(?array $first_module, ?array $second_module): int
     {
+        if (!$first_module || !$second_module) {
+            return 1;
+        }
         if (!isset($first_module['priority']) || !isset($second_module['priority'])) {
             return 1;
         }
