@@ -147,7 +147,7 @@ class dcAuth
     /**
      * dcPrefs (user preferences) object
      *
-     * @var dcPrefs
+     * @var dcPrefs|null
      */
     public $user_prefs;
 

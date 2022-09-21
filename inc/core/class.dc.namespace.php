@@ -92,13 +92,13 @@ class dcNamespace
      * Object constructor. Retrieves blog settings and puts them in $settings
      * array. Local (blog) settings have a highest priority than global settings.
      *
-     * @param      string     $blog_id  The blog identifier
+     * @param      mixed      $blog_id  The blog identifier
      * @param      string     $name     The namespace ID
      * @param      dcRecord   $rs       The recordset
      *
      * @throws     Exception
      */
-    public function __construct(string $blog_id, string $name, ?dcRecord $rs = null)
+    public function __construct($blog_id, string $name, ?dcRecord $rs = null)
     {
         if (preg_match(self::NS_NAME_SCHEMA, $name)) {
             $this->namespace = $name;
