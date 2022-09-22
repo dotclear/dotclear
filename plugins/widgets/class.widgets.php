@@ -444,7 +444,7 @@ class dcWidgetExt extends dcWidget
 
     public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
     {
-        if (isset($this->settings['homeonly']) && $this->settings['homeonly']['value']) {
+        if (isset($this->settings['homeonly']) && isset($this->settings['homeonly']['value'])) {
             if (($this->settings['homeonly']['value'] == self::HOME_ONLY && !dcCore::app()->url->isHome($type) && $alt_not_home) || ($this->settings['homeonly']['value'] == self::EXCEPT_HOME && (dcCore::app()->url->isHome($type) || $alt_home))) {
                 return false;
             }
