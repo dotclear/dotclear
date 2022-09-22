@@ -419,8 +419,6 @@ class dcWidget
 
 class dcWidgetExt extends dcWidget
 {
-    public $homeonly;
-
     public const ALL_PAGES   = 0; // Widget displayed on every page
     public const HOME_ONLY   = 1; // Widget displayed on home page only
     public const EXCEPT_HOME = 2; // Widget displayed on every page but home page
@@ -437,14 +435,19 @@ class dcWidgetExt extends dcWidget
             __('Display on:'),
             self::ALL_PAGES,
             'combo',
-            [__('All pages') => self::ALL_PAGES, __('Home page only') => self::HOME_ONLY, __('Except on home page') => self::EXCEPT_HOME]
+            [
+                __('All pages')           => self::ALL_PAGES,
+                __('Home page only')      => self::HOME_ONLY,
+                __('Except on home page') => self::EXCEPT_HOME, ]
         );
     }
 
     public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
     {
-        if (($this->homeonly == self::HOME_ONLY && !dcCore::app()->url->isHome($type) && $alt_not_home) || ($this->homeonly == self::EXCEPT_HOME && (dcCore::app()->url->isHome($type) || $alt_home))) {
-            return false;
+        if (isset($this->settings['homeonly']) && $this->settings['homeonly']['value']) {
+            if (($this->settings['homeonly']['value'] == self::HOME_ONLY && !dcCore::app()->url->isHome($type) && $alt_not_home) || ($this->settings['homeonly']['value'] == self::EXCEPT_HOME && (dcCore::app()->url->isHome($type) || $alt_home))) {
+                return false;
+            }
         }
 
         return true;
