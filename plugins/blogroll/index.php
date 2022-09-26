@@ -71,7 +71,7 @@ if (!empty($_POST['import_links_do'])) {
     }
 
     dcPage::addSuccessNotice(__('links have been successfully imported.'));
-    http::redirect($p_url);
+    http::redirect(dcCore::app()->admin->getPluginURL());
 }
 
 if (!empty($_POST['cancel_import'])) {
@@ -90,7 +90,7 @@ if (!empty($_POST['add_link'])) {
         dcCore::app()->admin->blogroll->addLink($link_title, $link_href, $link_desc, $link_lang);
 
         dcPage::addSuccessNotice(__('Link has been successfully created.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
         dcCore::app()->admin->default_tab = 'add-link';
@@ -104,7 +104,7 @@ if (!empty($_POST['add_cat'])) {
     try {
         dcCore::app()->admin->blogroll->addCategory($cat_title);
         dcPage::addSuccessNotice(__('category has been successfully created.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
         dcCore::app()->admin->default_tab = 'add-cat';
@@ -125,7 +125,7 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
 
     if (!dcCore::app()->error->flag()) {
         dcPage::addSuccessNotice(__('Items have been successfully removed.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     }
 }
 
@@ -152,7 +152,7 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
 
     if (!dcCore::app()->error->flag()) {
         dcPage::addSuccessNotice(__('Items order has been successfully updated'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     }
 }
 
@@ -234,11 +234,11 @@ while ($rs->fetch()) {
 
     if ($rs->is_cat) {
         echo
-        '<td colspan="5"><strong><a href="' . $p_url . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+        '<td colspan="5"><strong><a href="' . dcCore::app()->admin->getPluginURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
         html::escapeHTML($rs->link_desc) . '</a></strong></td>';
     } else {
         echo
-        '<td><a href="' . $p_url . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+        '<td><a href="' . dcCore::app()->admin->getPluginURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
         html::escapeHTML($rs->link_title) . '</a></td>' .
         '<td>' . html::escapeHTML($rs->link_desc) . '</td>' .
         '<td>' . html::escapeHTML($rs->link_href) . '</td>' .

@@ -80,7 +80,7 @@ echo dcPage::breadcrumb(
         dcPage::success(__('Selected pages have been successfully reordered.'));
     }
     echo
-    '<p class="top-add"><a class="button add" href="' . $p_url . '&amp;act=page">' . __('New page') . '</a></p>';
+    '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->getPluginURL() . '&amp;act=page">' . __('New page') . '</a></p>';
 
     if (!dcCore::app()->error->flag()) {
         # Show pages

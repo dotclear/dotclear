@@ -41,7 +41,7 @@ try {
         dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
         dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     }
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
@@ -63,7 +63,7 @@ echo dcPage::breadcrumb(
 );
 
 echo
-'<form action="' . $p_url . '" method="post">' .
+'<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
 '<p><label for="pings_active" class="classic">' . form::checkbox('pings_active', 1, dcCore::app()->blog->settings->pings->pings_active) .
 __('Activate pings extension') . '</label></p>';
 
@@ -106,7 +106,7 @@ __('Auto pings all services on first publication of entry (current blog only)') 
 dcCore::app()->formNonce() . '</p>' .
     '</form>';
 
-echo '<p><a class="button" href="' . $p_url . '&amp;test=1">' . __('Test ping services') . '</a></p>';
+echo '<p><a class="button" href="' . dcCore::app()->admin->getPluginURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
 ?>
 
 <?php dcPage::helpBlock('pings');?>

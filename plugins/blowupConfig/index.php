@@ -186,7 +186,7 @@ if (!empty($_POST)) {
         dcCore::app()->blog->triggerBlog();
 
         dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -222,7 +222,7 @@ echo dcPage::breadcrumb(
 echo
 '<p><a class="back" href="' . dcCore::app()->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>';
 
-echo '<form id="theme_config" action="' . $p_url . '" method="post" enctype="multipart/form-data">';
+echo '<form id="theme_config" action="' . dcCore::app()->admin->getPluginURL() . '" method="post" enctype="multipart/form-data">';
 
 echo '<div class="fieldset"><h3>' . __('Customization') . '</h3>' .
 '<h4>' . __('General') . '</h4>';

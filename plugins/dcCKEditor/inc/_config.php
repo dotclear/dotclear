@@ -78,7 +78,7 @@ if (!empty($_POST['saveconfig'])) {
         }
 
         dcPage::addSuccessNotice(__('The configuration has been updated.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }

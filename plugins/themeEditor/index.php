@@ -58,7 +58,7 @@ try {
     if (!empty($_POST['delete'])) {
         $o->deleteFile($file['type'], $file['f']);
         dcPage::addSuccessNotice(__('The file has been reset.'));
-        http::redirect($p_url . '&' . $file['type'] . '=' . $file['f']);
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&' . $file['type'] . '=' . $file['f']);
     }
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
@@ -112,7 +112,7 @@ if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->
         echo '<p>' . __('Please select a file to edit.') . '</p>';
     } else {
         echo
-        '<form id="file-form" action="' . $p_url . '" method="post">' .
+        '<form id="file-form" action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
         '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
         '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . $file['f']) . '</strong></label></p>' .
         '<p>' . form::textarea('file_content', 72, 25, [
@@ -153,19 +153,19 @@ if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->
 
     '<div id="file-chooser">' .
     '<h3>' . __('Templates files') . '</h3>' .
-    $o->filesList('tpl', '<a href="' . $p_url . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
+    $o->filesList('tpl', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
 
     '<h3>' . __('CSS files') . '</h3>' .
-    $o->filesList('css', '<a href="' . $p_url . '&amp;css=%2$s" class="css-link">%1$s</a>') .
+    $o->filesList('css', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;css=%2$s" class="css-link">%1$s</a>') .
 
     '<h3>' . __('JavaScript files') . '</h3>' .
-    $o->filesList('js', '<a href="' . $p_url . '&amp;js=%2$s" class="js-link">%1$s</a>') .
+    $o->filesList('js', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;js=%2$s" class="js-link">%1$s</a>') .
 
     '<h3>' . __('Locales files') . '</h3>' .
-    $o->filesList('po', '<a href="' . $p_url . '&amp;po=%2$s" class="po-link">%1$s</a>') .
+    $o->filesList('po', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;po=%2$s" class="po-link">%1$s</a>') .
 
     '<h3>' . __('PHP files') . '</h3>' .
-    $o->filesList('php', '<a href="' . $p_url . '&amp;php=%2$s" class="php-link">%1$s</a>') .
+    $o->filesList('php', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;php=%2$s" class="php-link">%1$s</a>') .
     '</div>';
 
     dcPage::helpBlock('themeEditor');

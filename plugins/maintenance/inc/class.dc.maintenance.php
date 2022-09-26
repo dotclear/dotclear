@@ -17,8 +17,6 @@ Main class to call everything related to maintenance.
  */
 class dcMaintenance
 {
-    public $p_url;
-
     private $tasks  = [];
     private $tabs   = [];
     private $groups = [];
@@ -29,8 +27,7 @@ class dcMaintenance
      */
     public function __construct()
     {
-        $this->p_url = dcCore::app()->adminurl->get('admin.plugin.maintenance');
-        $this->logs  = $this->getLogs();
+        $this->logs = $this->getLogs();
         $this->init();
     }
 

@@ -14,7 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $tag = $_REQUEST['tag'] ?? '';
 
-$this_url = $p_url . '&amp;m=tag_posts&amp;tag=' . rawurlencode($tag);
+$this_url = dcCore::app()->admin->getPluginURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode($tag);
 
 $page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
 $nb_per_page = 30;
@@ -26,7 +26,7 @@ if (isset($_POST['new_tag_id'])) {
     try {
         if (dcCore::app()->meta->updateMeta($tag, $new_id, 'tag')) {
             dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
-            http::redirect($p_url . '&m=tag_posts&tag=' . $new_id);
+            http::redirect(dcCore::app()->admin->getPluginURL() . '&m=tag_posts&tag=' . $new_id);
         }
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
@@ -41,7 +41,7 @@ if (!empty($_POST['delete']) && dcCore::app()->auth->check(dcCore::app()->auth->
     try {
         dcCore::app()->meta->delMeta($tag, 'tag');
         dcPage::addSuccessNotice(__('Tag has been successfully removed'));
-        http::redirect($p_url . '&m=tags');
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&m=tags');
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -93,7 +93,7 @@ dcPage::jsConfirmClose('tag_rename');
 echo dcPage::breadcrumb(
     [
         html::escapeHTML(dcCore::app()->blog->name)                 => '',
-        __('Tags')                                                  => $p_url . '&amp;m=tags',
+        __('Tags')                                                  => dcCore::app()->admin->getPluginURL() . '&amp;m=tags',
         __('Tag') . ' &ldquo;' . html::escapeHTML($tag) . '&rdquo;' => '',
     ]
 ) .
@@ -101,7 +101,7 @@ dcPage::notices();
 ?>
 
 <?php
-echo '<p><a class="back" href="' . $p_url . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
+echo '<p><a class="back" href="' . dcCore::app()->admin->getPluginURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
 if (!dcCore::app()->error->flag()) {
     if (!$posts->isEmpty()) {

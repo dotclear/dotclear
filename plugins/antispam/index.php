@@ -45,7 +45,7 @@ try {
         dcAntispam::delAllSpam(dcCore::app(), $ts);
 
         dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     }
 
     # Update filters
@@ -89,7 +89,7 @@ try {
         dcAntispam::$filters->saveFilterOpts($filters_opt);
 
         dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     }
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
@@ -119,13 +119,13 @@ if ($filter_gui !== false) {
     echo dcPage::breadcrumb(
         [
             __('Plugins') => '',
-            $page_name    => $p_url,
+            $page_name    => dcCore::app()->admin->getPluginURL(),
             sprintf(__('%s filter configuration'), $filter->name) => '',
         ]
     ) .
     dcPage::notices();
 
-    echo '<p><a href="' . $p_url . '" class="back">' . __('Back to filters list') . '</a></p>';
+    echo '<p><a href="' . dcCore::app()->admin->getPluginURL() . '" class="back">' . __('Back to filters list') . '</a></p>';
 
     echo $filter_gui;
 
@@ -147,7 +147,7 @@ if ($filter_gui !== false) {
     $moderationTTL   = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
 
     echo
-    '<form action="' . $p_url . '" method="post" class="fieldset">' .
+    '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post" class="fieldset">' .
     '<h3>' . __('Information') . '</h3>';
 
     echo
@@ -174,7 +174,7 @@ if ($filter_gui !== false) {
 
     # Filters
     echo
-        '<form action="' . $p_url . '" method="post" id="filters-list-form">';
+        '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post" id="filters-list-form">';
 
     if (!empty($_GET['upd'])) {
         dcPage::success(__('Filters configuration has been successfully saved.'));

@@ -26,7 +26,7 @@ if (!empty($_POST['saveconfig'])) {
         dcCore::app()->blog->settings->dclegacyeditor->put('active', dcCore::app()->admin->editor_std_active, 'boolean');
 
         dcPage::addSuccessNotice(__('The configuration has been updated.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }

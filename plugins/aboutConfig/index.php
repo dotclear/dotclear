@@ -14,11 +14,11 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 # Local navigation
 if (!empty($_POST['gs_nav'])) {
-    http::redirect($p_url . $_POST['gs_nav']);
+    http::redirect(dcCore::app()->admin->getPluginURL() . $_POST['gs_nav']);
     exit;
 }
 if (!empty($_POST['ls_nav'])) {
-    http::redirect($p_url . $_POST['ls_nav']);
+    http::redirect(dcCore::app()->admin->getPluginURL() . $_POST['ls_nav']);
     exit;
 }
 
@@ -37,7 +37,7 @@ if (!empty($_POST['s']) && is_array($_POST['s'])) {
         }
 
         dcPage::addSuccessNotice(__('Configuration successfully updated'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -58,7 +58,7 @@ if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
         }
 
         dcPage::addSuccessNotice(__('Configuration successfully updated'));
-        http::redirect($p_url . '&part=global');
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&part=global');
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }

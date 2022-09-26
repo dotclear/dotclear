@@ -16,6 +16,13 @@ if (!defined('DC_RC_PATH')) {
 class dcAdmin
 {
     /**
+     * Current plugin URL
+     *
+     * @var string
+     */
+    protected $p_url;
+
+    /**
      * User-defined - experimental (may be changed in near future)
      *
      * @var        array
@@ -399,5 +406,28 @@ class dcAdmin
         if (array_key_exists($identifier, $this->properties)) {
             unset($this->properties[$identifier]);
         }
+    }
+
+    /**
+     * Sets the plugin URL.
+     *
+     * @param      string  $value  The value
+     */
+    public function setPluginURL(string $value): void
+    {
+        $this->p_url = $value;
+
+        // Obsolete since 2.24, may be removed in near future
+        $GLOBALS['p_url'] = $value;
+    }
+
+    /**
+     * Gets the plugin URL.
+     *
+     * @return     string   The URL.
+     */
+    public function getPluginURL(): string
+    {
+        return (string) $this->p_url;
     }
 }

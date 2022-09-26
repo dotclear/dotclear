@@ -21,7 +21,6 @@ class dcMaintenanceTask
 {
     protected $maintenance;
 
-    protected $p_url;
     protected $code;
     protected $ts      = 0;
     protected $expired = 0;
@@ -59,8 +58,7 @@ class dcMaintenanceTask
             return;
         }
 
-        $this->p_url = $maintenance->p_url;
-        $this->id    = get_class($this);
+        $this->id = get_class($this);
 
         if (!$this->name) {
             $this->name = get_class($this);

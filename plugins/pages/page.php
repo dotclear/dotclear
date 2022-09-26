@@ -18,7 +18,7 @@ dcPage::check(dcCore::app()->auth->makePermissions([
 
 dt::setTZ(dcCore::app()->auth->getInfo('user_tz'));
 
-$redir_url = $p_url . '&act=page';
+$redir_url = dcCore::app()->admin->getPluginURL() . '&act=page';
 
 $post_id            = '';
 $post_dt            = '';
@@ -221,7 +221,7 @@ if (!empty($_POST['delete']) && $can_delete) {
         # --BEHAVIOR-- adminBeforePageDelete
         dcCore::app()->callBehavior('adminBeforePageDelete', $post_id);
         dcCore::app()->blog->delPost($post_id);
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -386,7 +386,7 @@ if ($post_id) {
 echo dcPage::breadcrumb(
     [
         html::escapeHTML(dcCore::app()->blog->name) => '',
-        __('Pages')                                 => $p_url,
+        __('Pages')                                 => dcCore::app()->admin->getPluginURL(),
         $edit_entry_title                           => '',
     ]
 );

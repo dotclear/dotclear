@@ -72,7 +72,7 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link'])) {
     try {
         dcCore::app()->admin->blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim((string) $link_xfn));
         dcPage::addSuccessNotice(__('Link has been successfully updated'));
-        http::redirect($p_url . '&edit=1&id=' . $id);
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&edit=1&id=' . $id);
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -85,7 +85,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
     try {
         dcCore::app()->admin->blogroll->updateCategory($id, $link_desc);
         dcPage::addSuccessNotice(__('Category has been successfully updated'));
-        http::redirect($p_url . '&edit=1&id=' . $id);
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&edit=1&id=' . $id);
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -106,18 +106,18 @@ $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 echo dcPage::breadcrumb(
     [
         html::escapeHTML(dcCore::app()->blog->name) => '',
-        __('Blogroll')                              => $p_url,
+        __('Blogroll')                              => dcCore::app()->admin->getPluginURL(),
     ]
 ) .
 dcPage::notices();
 ?>
 
-<?php echo '<p><a class="back" href="' . $p_url . '">' . __('Return to blogroll') . '</a></p>'; ?>
+<?php echo '<p><a class="back" href="' . dcCore::app()->admin->getPluginURL() . '">' . __('Return to blogroll') . '</a></p>'; ?>
 
 <?php
 if (isset($rs) && $rs->is_cat) {
     echo
-    '<form action="' . $p_url . '" method="post">' .
+    '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
     '<h3>' . __('Edit category') . '</h3>' .
 
     '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .

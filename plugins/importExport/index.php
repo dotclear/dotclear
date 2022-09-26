@@ -67,7 +67,7 @@ if ($type && $module !== null) {
     echo dcPage::breadcrumb(
         [
             __('Plugins')                   => '',
-            $title                          => $p_url,
+            $title                          => dcCore::app()->admin->getPluginURL(),
             html::escapeHTML($module->name) => '',
         ]
     ) .

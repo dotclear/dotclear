@@ -18,9 +18,6 @@ dcPage::check(dcCore::app()->auth->makePermissions([
 
 $page_title = __('Simple menu');
 
-# Url de base
-$p_url = dcCore::app()->adminurl->get('admin.plugin.simpleMenu');
-
 # Url du blog
 $blog_url = html::stripHostURL(dcCore::app()->blog->url);
 
@@ -145,7 +142,7 @@ if (!empty($_POST['saveconfig'])) {
 
         // All done successfully, return to menu items list
         dcPage::addSuccessNotice(__('Configuration successfully updated.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -281,7 +278,7 @@ if (!empty($_POST['saveconfig'])) {
 
                         // All done successfully, return to menu items list
                         dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
-                        http::redirect($p_url);
+                        http::redirect(dcCore::app()->admin->getPluginURL());
                     } else {
                         $step              = 3;
                         $item_select_label = $item_label;
@@ -320,7 +317,7 @@ if (!empty($_POST['saveconfig'])) {
 
                     // All done successfully, return to menu items list
                     dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
-                    http::redirect($p_url);
+                    http::redirect(dcCore::app()->admin->getPluginURL());
                 } else {
                     throw new Exception(__('No menu items selected.'));
                 }
@@ -386,7 +383,7 @@ if (!empty($_POST['saveconfig'])) {
 
                 // All done successfully, return to menu items list
                 dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
-                http::redirect($p_url);
+                http::redirect(dcCore::app()->admin->getPluginURL());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -440,7 +437,7 @@ if ($step) {
     echo dcPage::breadcrumb(
         [
             html::escapeHTML(dcCore::app()->blog->name) => '',
-            $page_title                                 => $p_url,
+            $page_title                                 => dcCore::app()->admin->getPluginURL(),
             __('Add item')                              => '',
             $step_label                                 => '',
         ],
@@ -463,7 +460,7 @@ if ($step) {
     switch ($step) {
         case 1:
             // Selection du type d'item
-            echo '<form id="additem" action="' . $p_url . '&amp;add=2" method="post">';
+            echo '<form id="additem" action="' . dcCore::app()->admin->getPluginURL() . '&amp;add=2" method="post">';
             echo '<fieldset><legend>' . __('Select type') . '</legend>';
             echo '<p class="field"><label for="item_type" class="classic">' . __('Type of item menu:') . '</label>' . form::combo('item_type', $items_combo) . '</p>';
             echo '<p>' . dcCore::app()->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" />' . '</p>';
@@ -474,7 +471,7 @@ if ($step) {
         case 2:
             if ($items[$item_type][1]) {    // @phpstan-ignore-line
                 // Choix à faire
-                echo '<form id="additem" action="' . $p_url . '&amp;add=3" method="post">';
+                echo '<form id="additem" action="' . dcCore::app()->admin->getPluginURL() . '&amp;add=3" method="post">';
                 echo '<fieldset><legend>' . $item_type_label . '</legend>';
                 switch ($item_type) {
                     case 'lang':
@@ -517,7 +514,7 @@ if ($step) {
             }
         case 3:
             // Libellé et description
-            echo '<form id="additem" action="' . $p_url . '&amp;add=4" method="post">';
+            echo '<form id="additem" action="' . dcCore::app()->admin->getPluginURL() . '&amp;add=4" method="post">';
             echo '<fieldset><legend>' . $item_type_label . ($item_select_label != '' ? ' (' . $item_select_label . ')' : '') . '</legend>';
             echo '<p class="field"><label for="item_label" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
             __('Label of item menu:') . '</label>' .
@@ -556,7 +553,7 @@ if ($step) {
 
 // Formulaire d'activation
 if (!$step) {
-    echo '<form id="settings" action="' . $p_url . '" method="post">' .
+    echo '<form id="settings" action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
     '<p>' . form::checkbox('active', 1, $menu_active) .
     '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
     '<p>' . dcCore::app()->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' .
@@ -567,14 +564,14 @@ if (!$step) {
 
 // Liste des items
 if (!$step) {
-    echo '<form id="menuitemsappend" action="' . $p_url . '&amp;add=1" method="post">';
+    echo '<form id="menuitemsappend" action="' . dcCore::app()->admin->getPluginURL() . '&amp;add=1" method="post">';
     echo '<p class="top-add">' . dcCore::app()->formNonce() . '<input class="button add" type="submit" name="appendaction" value="' . __('Add an item') . '" /></p>';
     echo '</form>';
 }
 
 if (count($menu)) {
     if (!$step) {
-        echo '<form id="menuitems" action="' . $p_url . '" method="post">';
+        echo '<form id="menuitems" action="' . dcCore::app()->admin->getPluginURL() . '" method="post">';
     }
     // Entête table
     echo

@@ -20,7 +20,6 @@ $maintenance = new dcMaintenance();
 $tasks       = $maintenance->getTasks();
 
 $headers = '';
-$p_url   = dcCore::app()->adminurl->get('admin.plugin.maintenance');
 $task    = null;
 $expired = [];
 
@@ -51,7 +50,7 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
             $maintenance->setLog($task->id());
 
             dcPage::addSuccessNotice($task->success());
-            http::redirect($p_url . '&task=' . $task->id() . '&tab=' . $tab . '#' . $tab);
+            http::redirect(dcCore::app()->admin->getPluginURL() . '&task=' . $task->id() . '&tab=' . $tab . '#' . $tab);
         }
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
@@ -92,7 +91,7 @@ if (!empty($_POST['save_settings'])) {
         }
 
         dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
-        http::redirect($p_url . '&tab=' . $tab . '#' . $tab);
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&tab=' . $tab . '#' . $tab);
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -117,7 +116,7 @@ if (!empty($_POST['save_system'])) {
             dcPage::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
         }
 
-        http::redirect($p_url . '&tab=' . $tab . '#' . $tab);
+        http::redirect(dcCore::app()->admin->getPluginURL() . '&tab=' . $tab . '#' . $tab);
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -171,9 +170,9 @@ if ($task && ($res = $task->step()) !== null) {
 
     echo dcPage::breadcrumb(
         [
-            __('Plugins')                                            => '',
-            '<a href="' . $p_url . '">' . __('Maintenance') . '</a>' => '',
-            html::escapeHTML($task->name())                          => '',
+            __('Plugins')                                                                          => '',
+            '<a href="' . dcCore::app()->admin->getPluginURL() . '">' . __('Maintenance') . '</a>' => '',
+            html::escapeHTML($task->name())                                                        => '',
         ]
     ) . dcPage::notices();
 
@@ -187,10 +186,10 @@ if ($task && ($res = $task->step()) !== null) {
     echo
     '<div class="step-box" id="' . $task->id() . '">' .
     '<p class="step-back">' .
-    '<a class="back" href="' . $p_url . '&amp;tab=' . $task->tab() . '#' . $task->tab() . '">' . __('Back') . '</a>' .
+    '<a class="back" href="' . dcCore::app()->admin->getPluginURL() . '&amp;tab=' . $task->tab() . '#' . $task->tab() . '">' . __('Back') . '</a>' .
     '</p>' .
     '<h3>' . html::escapeHTML($task->name()) . '</h3>' .
-    '<form action="' . $p_url . '" method="post">' .
+    '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
     $res .
     '<p class="step-submit">' .
     '<input type="submit" value="' . $task->task() . '" /> ' .
@@ -261,7 +260,7 @@ if ($task && ($res = $task->step()) !== null) {
             '<div id="' . $tab_obj->id() . '" class="multi-part" title="' . $tab_obj->name() . '">' .
             '<h3>' . $tab_obj->name() . '</h3>' .
             // ($tab_obj->option('summary') ? '<p>'.$tab_obj->option('summary').'</p>' : '').
-            '<form action="' . $p_url . '" method="post">' .
+            '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
             $res_group .
             '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
@@ -283,7 +282,7 @@ if ($task && ($res = $task->step()) !== null) {
         echo
         '<div id="' . $t->id() . '" class="multi-part" title="' . $t->name() . '">' .
         '<h3>' . $t->name() . '</h3>' .
-        '<form action="' . $p_url . '" method="post">' .
+        '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
         $t->content() .
         '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
@@ -299,7 +298,7 @@ if ($task && ($res = $task->step()) !== null) {
     echo
     '<div id="settings" class="multi-part" title="' . __('Alert settings') . '">' .
     '<h3>' . __('Alert settings') . '</h3>' .
-    '<form action="' . $p_url . '" method="post">' .
+    '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
 
     '<h4 class="pretty-title">' . __('Activation') . '</h4>' .
     '<p><label for="settings_plugin_message" class="classic">' .
@@ -353,7 +352,7 @@ if ($task && ($res = $task->step()) !== null) {
         echo
         '<div id="system" class="multi-part" title="' . __('System') . '">' .
         '<h3>' . __('System settings') . '</h3>' .
-            '<form action="' . $p_url . '" method="post">';
+            '<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">';
 
         echo
         '<div class="fieldset two-cols clearfix">' .

@@ -34,7 +34,7 @@ if (file_exists($p_file)) {
     $p_info = dcCore::app()->plugins->getModules($p);
 
     $p_name = $p;
-    $p_url  = 'plugin.php?p=' . $p;
+    dcCore::app()->admin->setPluginURL('plugin.php?p=' . $p);
 
     $p_title   = 'no content - plugin';
     $p_head    = '';

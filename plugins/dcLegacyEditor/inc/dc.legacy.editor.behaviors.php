@@ -10,8 +10,6 @@
  */
 class dcLegacyEditorBehaviors
 {
-    protected static $p_url = 'index.php?pf=dcLegacyEditor';
-
     /**
      * adminPostEditor add javascript to the DOM to load legacy editor depending on context
      *

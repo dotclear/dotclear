@@ -50,7 +50,7 @@ while ($tags->fetch()) {
     }
 
     $cols[$col] .= '<tr class="line">' .
-    '<td class="maximal"><a href="' . $p_url .
+    '<td class="maximal"><a href="' . dcCore::app()->admin->getPluginURL() .
     '&amp;m=tag_posts&amp;tag=' . rawurlencode($tags->meta_id) . '">' . $tags->meta_id . '</a></td>' .
     '<td class="nowrap count"><strong>' . $tags->count . '</strong> ' .
         (($tags->count == 1) ? __('entry') : __('entries')) . '</td>' .

@@ -98,7 +98,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw'])) {
             dcCore::app()->blog->settings->widgets->put('widgets_extra', $widgets_extra->store());
             dcCore::app()->blog->settings->widgets->put('widgets_custom', $widgets_custom->store());
             dcCore::app()->blog->triggerBlog();
-            http::redirect($p_url);
+            http::redirect(dcCore::app()->admin->getPluginURL());
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -185,7 +185,7 @@ if (!empty($_POST['wup']) || $removing || $move) {
         dcCore::app()->blog->triggerBlog();
 
         dcPage::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -198,7 +198,7 @@ if (!empty($_POST['wup']) || $removing || $move) {
         dcCore::app()->blog->triggerBlog();
 
         dcPage::addSuccessNotice(__('Sidebars have been resetting.'));
-        http::redirect($p_url);
+        http::redirect(dcCore::app()->admin->getPluginURL());
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
     }
@@ -252,7 +252,7 @@ dcPage::notices();
 
 # All widgets
 echo
-'<form id="listWidgets" action="' . $p_url . '" method="post"  class="widgets">' .
+'<form id="listWidgets" action="' . dcCore::app()->admin->getPluginURL() . '" method="post"  class="widgets">' .
 '<h3>' . __('Available widgets') . '</h3>' .
 '<p>' . __('Drag widgets from this list to one of the sidebars, for add.') . '</p>' .
     '<ul id="widgets-ref">';
@@ -282,7 +282,7 @@ echo
 '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
     '</form>';
 
-echo '<form id="sidebarsWidgets" action="' . $p_url . '" method="post">';
+echo '<form id="sidebarsWidgets" action="' . dcCore::app()->admin->getPluginURL() . '" method="post">';
 # Nav sidebar
 echo
 '<div id="sidebarNav" class="widgets fieldset">' .
