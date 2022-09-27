@@ -8,9 +8,6 @@ $(() => {
     document.getElementById(id.substring(1)).caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
   $('#gp_submit,#lp_submit').hide();
-  $('#part-local,#part-global').on('tabload', () => {
-    $('.multi-part.active select.navigation option:first').attr('selected', true);
-  });
   $('#gp_nav').on('change', () => {
     move('#gp_nav');
   });

@@ -7,8 +7,7 @@ $(() => {
     window.location = id;
     document.getElementById(id.substring(1)).caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
-  $('#gs_submit').hide();
-  $('#ls_submit').hide();
+  $('#gs_submit,#ls_submit').hide();
   $('#gs_nav').on('change', () => {
     move('#gs_nav');
   });
