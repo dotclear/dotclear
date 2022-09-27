@@ -2868,6 +2868,10 @@ table.posts-list {
 table.settings,
 table.prefs {
   margin-bottom: 3em; }
+  table.settings:target caption::before,
+  table.prefs:target caption::before {
+    content: '▶';
+    margin-right: 5px; }
   table.settings th:first-child,
   table.prefs th:first-child {
     width: 20%; }

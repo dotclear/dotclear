@@ -221,7 +221,7 @@ if (count($settings)) {
         $ns_combo[$ns] = '#g_' . $ns;
     }
     echo
-    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
     '<p class="anchor-nav">' .
     '<label for="gs_nav" class="classic">' . __('Goto:') . '</label> ' . form::combo('gs_nav', $ns_combo) . ' ' .
     '<input type="submit" value="' . __('Ok') . '" id="gs_submit" />' .

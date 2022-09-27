@@ -2,15 +2,20 @@
 'use strict';
 
 $(() => {
+  const move = (select) => {
+    const id = $(`${select} option:selected`).val();
+    window.location = id;
+    document.getElementById(id.substring(1)).caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  };
   $('#gp_submit,#lp_submit').hide();
   $('#part-local,#part-global').on('tabload', () => {
     $('.multi-part.active select.navigation option:first').attr('selected', true);
   });
   $('#gp_nav').on('change', () => {
-    window.location = $('#gp_nav option:selected').val();
+    move('#gp_nav');
   });
   $('#lp_nav').on('change', () => {
-    window.location = $('#lp_nav option:selected').val();
+    move('#lp_nav');
   });
   dotclear.responsiveCellHeaders(document.querySelector('table.prefs'), 'table.prefs', 0, true);
   $('table.prefs').addClass('rch rch-thead');

@@ -221,7 +221,7 @@ if (count($prefs)) {
         $ws_combo[$ws] = '#g_' . $ws;
     }
     echo
-    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
     '<p class="anchor-nav">' .
     '<label for="gp_nav" class="classic">' . __('Goto:') . '</label> ' .
     form::combo('gp_nav', $ws_combo, ['class' => 'navigation']) .

@@ -2,13 +2,18 @@
 'use strict';
 
 $(() => {
+  const move = (select) => {
+    const id = $(`${select} option:selected`).val();
+    window.location = id;
+    document.getElementById(id.substring(1)).caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  };
   $('#gs_submit').hide();
   $('#ls_submit').hide();
   $('#gs_nav').on('change', () => {
-    window.location = $('#gs_nav option:selected').val();
+    move('#gs_nav');
   });
   $('#ls_nav').on('change', () => {
-    window.location = $('#ls_nav option:selected').val();
+    move('#ls_nav');
   });
   dotclear.responsiveCellHeaders(document.querySelector('table.settings'), 'table.settings', 0, true);
   $('table.settings').addClass('rch rch-thead');

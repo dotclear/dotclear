@@ -99,6 +99,11 @@ table.settings,
 table.prefs {
   margin-bottom: 3em;
 
+  &:target caption::before {
+    content: '▶';
+    margin-right: 5px;
+  }
+
   th:first-child {
     width: 20%;
   }
