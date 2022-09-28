@@ -1155,14 +1155,10 @@ h1,
 #wrapper {
   background: var(--wrapper-background);
   position: relative;
-  padding-top: 1.5em;
   float: left;
   width: 100%;
   z-index: 10;
   flex: 1; }
-
-.with-js #wrapper {
-  padding-top: 0; }
 
 #main {
   width: 100%;
