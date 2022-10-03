@@ -12,12 +12,19 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-if (!empty($_REQUEST['m'])) {
-    switch ($_REQUEST['m']) {
-        case 'tags':
-        case 'tag_posts':
-            require __DIR__ . '/' . $_REQUEST['m'] . '.php';
-
-            break;
+class adminTagsRoute
+{
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        if (($_REQUEST['m'] ?? 'tags') === 'tag_posts') {
+            include __DIR__ . '/tag_posts.php';
+        } else {
+            include __DIR__ . '/tags.php';
+        }
     }
 }
+
+adminTagsRoute::init();

@@ -135,7 +135,7 @@ class dcMeta
      *
      * @return     staticRecord  The meta recordset.
      */
-    public function getMetaRecordset(string $str, string $type): staticRecord
+    public function getMetaRecordset(?string $str, string $type): staticRecord
     {
         $meta = $this->getMetaArray($str);
         $data = [];

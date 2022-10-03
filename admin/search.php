@@ -8,93 +8,116 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check(dcCore::app()->auth->makePermissions([
-    dcAuth::PERMISSION_USAGE,
-    dcAuth::PERMISSION_CONTENT_ADMIN,
-]));
-
-dcCore::app()->addBehavior('adminSearchPageComboV2', ['adminSearchPageDefault','typeCombo']);
-dcCore::app()->addBehavior('adminSearchPageHeadV2', ['adminSearchPageDefault','pageHead']);
-// posts search
-dcCore::app()->addBehavior('adminSearchPageProcessV2', ['adminSearchPageDefault','processPosts']);
-dcCore::app()->addBehavior('adminSearchPageDisplayV2', ['adminSearchPageDefault','displayPosts']);
-// comments search
-dcCore::app()->addBehavior('adminSearchPageProcessV2', ['adminSearchPageDefault','processComments']);
-dcCore::app()->addBehavior('adminSearchPageDisplayV2', ['adminSearchPageDefault','displayComments']);
-
-$qtype_combo = [];
-
-# --BEHAVIOR-- adminSearchPageCombo
-dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
-
-$q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
-$qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
-if (!empty($q) && !in_array($qtype, $qtype_combo)) {
-    $qtype = 'p';
-}
-
-dcCore::app()->auth->user_prefs->addWorkspace('interface');
-$page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-$nb   = adminUserPref::getUserFilters('search', 'nb');
-if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-    $nb = (int) $_GET['nb'];
-}
-
-$args = ['q' => $q, 'qtype' => $qtype, 'page' => $page, 'nb' => $nb];
-
-# --BEHAVIOR-- adminSearchPageHead
-$starting_scripts = $q ? dcCore::app()->callBehavior('adminSearchPageHeadV2', $args) : '';
-
-if ($q) {
-
-    # --BEHAVIOR-- adminSearchPageProcess
-    dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
-}
-
-dcPage::open(
-    __('Search'),
-    $starting_scripts,
-    dcPage::breadcrumb(
-        [
-            html::escapeHTML(dcCore::app()->blog->name) => '',
-            __('Search')                                => '',
-        ]
-    )
-);
-
-echo
-'<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
-'<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
-'<p><label for="q">' . __('Query:') . ' </label>' .
-form::field('q', 30, 255, html::escapeHTML($q)) . '</p>' .
-'<p><label for="qtype">' . __('In:') . '</label> ' .
-form::combo('qtype', $qtype_combo, $qtype) . '</p>' .
-'<p><input type="submit" value="' . __('Search') . '" />' .
-' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-'</p>' .
-'</div>' .
-'</form>';
-
-if ($q && !dcCore::app()->error->flag()) {
-    ob_start();
-
-    # --BEHAVIOR-- adminSearchPageDisplay
-    dcCore::app()->callBehavior('adminSearchPageDisplayV2', $args);
-
-    $res = ob_get_contents();
-    ob_end_clean();
-    echo $res ?: '<p>' . __('No results found') . '</p>';
-}
-
-dcPage::helpBlock('core_search');
-dcPage::close();
-
-class adminSearchPageDefault
+class adminSearch
 {
+    // Local properties (used by behavior callbacks)
+
     protected static $count   = null;
     protected static $list    = null;
     protected static $actions = null;
 
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        dcPage::check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]));
+
+        dcCore::app()->addBehavior('adminSearchPageComboV2', [adminSearch::class,'typeCombo']);
+        dcCore::app()->addBehavior('adminSearchPageHeadV2', [adminSearch::class,'pageHead']);
+        // posts search
+        dcCore::app()->addBehavior('adminSearchPageProcessV2', [adminSearch::class,'processPosts']);
+        dcCore::app()->addBehavior('adminSearchPageDisplayV2', [adminSearch::class,'displayPosts']);
+        // comments search
+        dcCore::app()->addBehavior('adminSearchPageProcessV2', [adminSearch::class,'processComments']);
+        dcCore::app()->addBehavior('adminSearchPageDisplayV2', [adminSearch::class,'displayComments']);
+
+        $qtype_combo = [];
+        # --BEHAVIOR-- adminSearchPageCombo
+        dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
+        dcCore::app()->admin->qtype_combo = $qtype_combo;
+    }
+
+    /**
+     * Processes the request(s).
+     */
+    public static function process()
+    {
+        dcCore::app()->admin->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
+        dcCore::app()->admin->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
+
+        if (!empty(dcCore::app()->admin->q) && !in_array(dcCore::app()->admin->qtype, dcCore::app()->admin->qtype_combo)) {
+            dcCore::app()->admin->qtype = 'p';
+        }
+
+        dcCore::app()->admin->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        dcCore::app()->admin->nb   = adminUserPref::getUserFilters('search', 'nb');
+        if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
+            dcCore::app()->admin->nb = (int) $_GET['nb'];
+        }
+    }
+
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
+        $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
+
+        # --BEHAVIOR-- adminSearchPageHead
+        $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->callBehavior('adminSearchPageHeadV2', $args) : '';
+
+        if (dcCore::app()->admin->q) {
+
+            # --BEHAVIOR-- adminSearchPageProcess
+            dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
+        }
+
+        dcPage::open(
+            __('Search'),
+            $starting_scripts,
+            dcPage::breadcrumb(
+                [
+                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    __('Search')                                => '',
+                ]
+            )
+        );
+
+        echo
+        '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
+        '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
+        '<p><label for="q">' . __('Query:') . ' </label>' .
+        form::field('q', 30, 255, html::escapeHTML(dcCore::app()->admin->q)) . '</p>' .
+        '<p><label for="qtype">' . __('In:') . '</label> ' .
+        form::combo('qtype', dcCore::app()->admin->qtype_combo, dcCore::app()->admin->qtype) . '</p>' .
+        '<p><input type="submit" value="' . __('Search') . '" />' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '</p>' .
+        '</div>' .
+        '</form>';
+
+        if (dcCore::app()->admin->q && !dcCore::app()->error->flag()) {
+            ob_start();
+
+            # --BEHAVIOR-- adminSearchPageDisplay
+            dcCore::app()->callBehavior('adminSearchPageDisplayV2', $args);
+
+            $res = ob_get_contents();
+            ob_end_clean();
+            echo $res ?: '<p>' . __('No results found') . '</p>';
+        }
+
+        dcPage::helpBlock('core_search');
+        dcPage::close();
+    }
+
+    /**
+     * Behaviors callbacks
+     */
     public static function typeCombo(array $combo)
     {
         $combo[0][__('Search in entries')]  = 'p';
@@ -220,3 +243,7 @@ class adminSearchPageDefault
         );
     }
 }
+
+adminSearch::init();
+adminSearch::process();
+adminSearch::render();

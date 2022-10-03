@@ -7,7 +7,7 @@
 
     <?php if (dcCore::app()->admin->editor_is_admin): ?>
       <h3 class="hidden-if-js"><?php echo __('Settings'); ?></h3>
-      <form action="<?php echo dcCore::app()->admin->getPluginURL(); ?>" method="post" enctype="multipart/form-data">
+      <form action="<?php echo dcCore::app()->admin->getPageURL(); ?>" method="post" enctype="multipart/form-data">
         <div class="fieldset">
           <h3><?php echo __('Plugin activation'); ?></h3>
           <p>

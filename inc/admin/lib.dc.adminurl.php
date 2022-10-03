@@ -164,6 +164,34 @@ class dcAdminURL
     }
 
     /**
+     * Gets the hidden form fields as an array of formHidden object.
+     *
+     * Forges form hidden fields to pass to a generated <form>. Should be used in combination with
+     * form action retrieved from getBase()
+     *
+     * @param      string     $name    The name
+     * @param      array      $params  The parameters
+     *
+     * @throws     exception  If unknown URL
+     *
+     * @return     array      The hidden form fields.
+     */
+    public function hiddenFormFields(string $name, array $params = []): array
+    {
+        if (!isset($this->urls[$name])) {
+            throw new exception('Unknown URL handler for ' . $name);
+        }
+        $url   = $this->urls[$name];
+        $qs    = array_merge($url['qs'], $params);
+        $stack = [];
+        foreach ($qs as $field => $value) {
+            $stack[] = new formHidden([$field], $value);
+        }
+
+        return $stack;
+    }
+
+    /**
      * Retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
      *
      * @deprecated     should be used carefully, parameters are no more escaped

@@ -101,6 +101,11 @@ Clearbricks::lib()->autoload([
     'dcAdminBlogPref'      => __DIR__ . '/admin/class.dc.blog_pref.php',
     'adminUserPref'        => __DIR__ . '/admin/lib.adminuserpref.php',
     'dcAdminHelper'        => __DIR__ . '/admin/lib.helper.php',
+    'formDiv'              => __DIR__ . '/admin/html.form/class.form.div.php',
+    'formLink'             => __DIR__ . '/admin/html.form/class.form.link.php',
+    'formNote'             => __DIR__ . '/admin/html.form/class.form.note.php',
+    'formPara'             => __DIR__ . '/admin/html.form/class.form.para.php',
+    'formText'             => __DIR__ . '/admin/html.form/class.form.text.php',
 
     'dcPublic'           => __DIR__ . '/public/class.dc.public.php',
     'dcTemplate'         => __DIR__ . '/public/class.dc.template.php',

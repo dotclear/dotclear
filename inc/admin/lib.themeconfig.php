@@ -286,12 +286,12 @@ class dcThemeConfig
     /**
      * Store CSS property value in associated array
      *
-     * @param  array $css       CSS associated array
+     * @param  array  $css       CSS associated array
      * @param  string $selector selector
      * @param  string $prop     property
-     * @param  string $value    value
+     * @param  mixed  $value    value
      */
-    public static function prop(array &$css, string $selector, string $prop, string $value)
+    public static function prop(array &$css, string $selector, string $prop, $value)
     {
         if ($value) {
             $css[$selector][$prop] = $value;

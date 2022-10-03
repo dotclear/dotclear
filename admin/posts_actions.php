@@ -14,23 +14,34 @@
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcPage::check(dcCore::app()->auth->makePermissions([
-    dcAuth::PERMISSION_USAGE,
-    dcAuth::PERMISSION_CONTENT_ADMIN,
-]));
+class adminPostsActions
+{
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        dcPage::check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]));
 
-if (isset($_REQUEST['redir'])) {
-    $u   = explode('?', $_REQUEST['redir']);
-    $uri = $u[0];
-    if (isset($u[1])) {
-        parse_str($u[1], $args);
+        if (isset($_REQUEST['redir'])) {
+            $url_parts = explode('?', $_REQUEST['redir']);
+            $base_url  = $url_parts[0];
+            if (isset($url_parts[1])) {
+                parse_str($url_parts[1], $args);
+            }
+            $args['redir'] = $_REQUEST['redir'];
+        } else {
+            $base_url = dcCore::app()->adminurl->get('admin.posts');
+            $args     = [];
+        }
+
+        $posts_actions_page = new dcPostsActions($base_url, $args);
+        $posts_actions_page->setEnableRedirSelection(false);
+        $posts_actions_page->process();
     }
-    $args['redir'] = $_REQUEST['redir'];
-} else {
-    $uri  = dcCore::app()->adminurl->get('admin.posts');
-    $args = [];
 }
 
-$posts_actions_page = new dcPostsActions($uri, $args);
-$posts_actions_page->setEnableRedirSelection(false);
-$posts_actions_page->process();
+adminPostsActions::init();

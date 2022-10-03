@@ -12,166 +12,213 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-require __DIR__ . '/class.themeEditor.php';
+class adminThemeEditor
+{
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        require __DIR__ . '/class.themeEditor.php';
 
-$file_default = $file = ['c' => null, 'w' => false, 'type' => null, 'f' => null, 'default_file' => false];
+        dcCore::app()->admin->file_default = dcCore::app()->admin->file = [
+            'c'            => null,
+            'w'            => false,
+            'type'         => null,
+            'f'            => null,
+            'default_file' => false,
+        ];
 
-# Get interface setting
-dcCore::app()->auth->user_prefs->addWorkspace('interface');
-$user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsyntax;
-$user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
+        # Get interface setting
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+        dcCore::app()->admin->user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsyntax;
+        dcCore::app()->admin->user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 
-# Loading themes
-adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        # Loading themes
+        adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-dcCore::app()->themes = new dcThemes();
-dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
-$T = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
-$o = new dcThemeEditor();
+        dcCore::app()->themes = new dcThemes();
+        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 
-try {
-    try {
-        if (!empty($_REQUEST['tpl'])) {
-            $file = $o->getFileContent('tpl', $_REQUEST['tpl']);
-        } elseif (!empty($_REQUEST['css'])) {
-            $file = $o->getFileContent('css', $_REQUEST['css']);
-        } elseif (!empty($_REQUEST['js'])) {
-            $file = $o->getFileContent('js', $_REQUEST['js']);
-        } elseif (!empty($_REQUEST['po'])) {
-            $file = $o->getFileContent('po', $_REQUEST['po']);
-        } elseif (!empty($_REQUEST['php'])) {
-            $file = $o->getFileContent('php', $_REQUEST['php']);
+        dcCore::app()->admin->theme  = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
+        dcCore::app()->admin->editor = new dcThemeEditor();
+    }
+
+    /**
+     * Processes the request(s).
+     */
+    public static function process()
+    {
+        try {
+            try {
+                if (!empty($_REQUEST['tpl'])) {
+                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('tpl', $_REQUEST['tpl']);
+                } elseif (!empty($_REQUEST['css'])) {
+                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('css', $_REQUEST['css']);
+                } elseif (!empty($_REQUEST['js'])) {
+                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('js', $_REQUEST['js']);
+                } elseif (!empty($_REQUEST['po'])) {
+                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('po', $_REQUEST['po']);
+                } elseif (!empty($_REQUEST['php'])) {
+                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('php', $_REQUEST['php']);
+                }
+            } catch (Exception $e) {
+                dcCore::app()->admin->file = dcCore::app()->admin->file_default;
+
+                throw $e;
+            }
+
+            if (!empty($_POST['write'])) {
+                // Write file
+
+                dcCore::app()->admin->file['c'] = $_POST['file_content'];
+                dcCore::app()->admin->editor->writeFile(
+                    dcCore::app()->admin->file['type'], // @phpstan-ignore-line
+                    dcCore::app()->admin->file['f'],    // @phpstan-ignore-line
+                    dcCore::app()->admin->file['c']
+                );
+            }
+
+            if (!empty($_POST['delete'])) {
+                // Delete file
+
+                dcCore::app()->admin->editor->deleteFile(
+                    dcCore::app()->admin->file['type'],
+                    dcCore::app()->admin->file['f']
+                );
+                dcPage::addSuccessNotice(__('The file has been reset.'));
+                http::redirect(dcCore::app()->admin->getPageURL() . '&' . dcCore::app()->admin->file['type'] . '=' . dcCore::app()->admin->file['f']);
+            }
+        } catch (Exception $e) {
+            dcCore::app()->error->add($e->getMessage());
         }
-    } catch (Exception $e) {
-        $file = $file_default;
-
-        throw $e;
     }
 
-    # Write file
-    if (!empty($_POST['write'])) {
-        $file['c'] = $_POST['file_content'];
-        $o->writeFile($file['type'], $file['f'], $file['c']);
-    }
-
-    # Delete file
-    if (!empty($_POST['delete'])) {
-        $o->deleteFile($file['type'], $file['f']);
-        dcPage::addSuccessNotice(__('The file has been reset.'));
-        http::redirect(dcCore::app()->admin->getPluginURL() . '&' . $file['type'] . '=' . $file['f']);
-    }
-} catch (Exception $e) {
-    dcCore::app()->error->add($e->getMessage());
-}
-?>
-
-<html>
-<head>
-    <title><?php echo __('Edit theme files'); ?></title>
-    <?php
-if ($user_ui_colorsyntax) {
-    echo dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => $user_ui_colorsyntax]);
-}
-echo dcPage::jsJson('theme_editor_msg', [
-    'saving_document'    => __('Saving document...'),
-    'document_saved'     => __('Document saved'),
-    'error_occurred'     => __('An error occurred:'),
-    'confirm_reset_file' => __('Are you sure you want to reset this file?'),
-]) .
-dcPage::jsModuleLoad('themeEditor/js/script.js') .
-dcPage::jsConfirmClose('file-form') ;
-if ($user_ui_colorsyntax) {
-    echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme);
-}
-echo dcPage::cssModuleLoad('themeEditor/style.css');
-?>
-</head>
-
-<body>
-<?php
-echo dcPage::breadcrumb(
-    [
-        html::escapeHTML(dcCore::app()->blog->name) => '',
-        __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
-        __('Edit theme files')                      => '',
-    ]
-) .
-dcPage::notices();
-?>
-
-<p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'), html::escapeHTML($T['name'])); ?></strong></p>
-
-<?php
-
-if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule(dcCore::app()->blog->settings->system->theme)) {
-    echo
-        '<div id="file-box">' .
-        '<div id="file-editor">';
-
-    if ($file['c'] === null) {
-        echo '<p>' . __('Please select a file to edit.') . '</p>';
-    } else {
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
         echo
-        '<form id="file-form" action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
-        '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
-        '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . $file['f']) . '</strong></label></p>' .
-        '<p>' . form::textarea('file_content', 72, 25, [
-            'default'  => html::escapeHTML($file['c']),
-            'class'    => 'maximal',
-            'disabled' => !$file['w'],
-        ]) . '</p>';
+        '<html>' .
+        '<head>' .
+        '<title>' . __('Edit theme files') . '</title>';
 
-        if ($file['w']) {
+        if (dcCore::app()->admin->user_ui_colorsyntax) {
             echo
-            '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
-            ($o->deletableFile($file['type'], $file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
-            dcCore::app()->formNonce() .
-                ($file['type'] ? form::hidden([$file['type']], $file['f']) : '') .
-                '</p>';
+            dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => dcCore::app()->admin->user_ui_colorsyntax]);
+        }
+        echo
+        dcPage::jsJson('theme_editor_msg', [
+            'saving_document'    => __('Saving document...'),
+            'document_saved'     => __('Document saved'),
+            'error_occurred'     => __('An error occurred:'),
+            'confirm_reset_file' => __('Are you sure you want to reset this file?'),
+        ]) .
+        dcPage::jsModuleLoad('themeEditor/js/script.js') .
+        dcPage::jsConfirmClose('file-form');
+        if (dcCore::app()->admin->user_ui_colorsyntax) {
+            echo
+            dcPage::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
+        }
+        echo
+        dcPage::cssModuleLoad('themeEditor/style.css') .
+        '</head>' .
+        '<body>' .
+        dcPage::breadcrumb(
+            [
+                html::escapeHTML(dcCore::app()->blog->name) => '',
+                __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
+                __('Edit theme files')                      => '',
+            ]
+        ) .
+        dcPage::notices() .
+        '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), html::escapeHTML(dcCore::app()->admin->theme['name'])) . '</strong></p>';
+
+        if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule(dcCore::app()->blog->settings->system->theme)) {
+            echo
+            '<div id="file-box">' .
+            '<div id="file-editor">';
+
+            if (dcCore::app()->admin->file['c'] === null) {
+                echo
+                '<p>' . __('Please select a file to edit.') . '</p>';
+            } else {
+                echo
+                '<form id="file-form" action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
+                '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
+                '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . dcCore::app()->admin->file['f']) . '</strong></label></p>' .
+                '<p>' . form::textarea('file_content', 72, 25, [
+                    'default'  => html::escapeHTML(dcCore::app()->admin->file['c']),
+                    'class'    => 'maximal',
+                    'disabled' => !dcCore::app()->admin->file['w'],
+                ]) . '</p>';
+
+                if (dcCore::app()->admin->file['w']) {
+                    echo
+                    '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
+                    (dcCore::app()->admin->editor->deletableFile(dcCore::app()->admin->file['type'], dcCore::app()->admin->file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
+                    dcCore::app()->formNonce() .
+                        (dcCore::app()->admin->file['type'] ? form::hidden([dcCore::app()->admin->file['type']], dcCore::app()->admin->file['f']) : '') .
+                        '</p>';
+                } else {
+                    echo
+                    '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';
+                }
+
+                echo
+                '</div></form>';
+
+                if (dcCore::app()->admin->user_ui_colorsyntax) {
+                    $editorMode = (!empty($_REQUEST['css']) ?
+                        'css' :
+                        (!empty($_REQUEST['js']) ?
+                            'javascript' :
+                            (!empty($_REQUEST['po']) ?
+                                'text/plain' :
+                                (!empty($_REQUEST['php']) ?
+                                    'php' :
+                                    'text/html'))));
+                    echo
+                    dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]) .
+                    dcPage::jsModuleLoad('themeEditor/js/mode.js') .
+                    dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', dcCore::app()->admin->user_ui_colorsyntax_theme);
+                }
+            }
+
+            echo
+            '</div>' .
+            '</div>' .
+
+            '<div id="file-chooser">' .
+            '<h3>' . __('Templates files') . '</h3>' .
+            dcCore::app()->admin->editor->filesList('tpl', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
+
+            '<h3>' . __('CSS files') . '</h3>' .
+            dcCore::app()->admin->editor->filesList('css', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;css=%2$s" class="css-link">%1$s</a>') .
+
+            '<h3>' . __('JavaScript files') . '</h3>' .
+            dcCore::app()->admin->editor->filesList('js', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;js=%2$s" class="js-link">%1$s</a>') .
+
+            '<h3>' . __('Locales files') . '</h3>' .
+            dcCore::app()->admin->editor->filesList('po', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;po=%2$s" class="po-link">%1$s</a>') .
+
+            '<h3>' . __('PHP files') . '</h3>' .
+            dcCore::app()->admin->editor->filesList('php', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;php=%2$s" class="php-link">%1$s</a>') .
+            '</div>';
+
+            dcPage::helpBlock('themeEditor');
         } else {
-            echo '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';
+            echo
+            '<div class="error"><p>' . __("You can't edit a distributed theme.") . '</p></div>';
         }
 
         echo
-            '</div></form>';
-
-        if ($user_ui_colorsyntax) {
-            $editorMode = (!empty($_REQUEST['css']) ? 'css' :
-                (!empty($_REQUEST['js']) ? 'javascript' :
-                (!empty($_REQUEST['po']) ? 'text/plain' :
-                (!empty($_REQUEST['php']) ? 'php' :
-                'text/html'))));
-            echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
-            echo dcPage::jsModuleLoad('themeEditor/js/mode.js');
-            echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);
-        }
+        '</body>' .
+        '</html>';
     }
-
-    echo
-    '</div>' .
-    '</div>' .
-
-    '<div id="file-chooser">' .
-    '<h3>' . __('Templates files') . '</h3>' .
-    $o->filesList('tpl', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
-
-    '<h3>' . __('CSS files') . '</h3>' .
-    $o->filesList('css', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;css=%2$s" class="css-link">%1$s</a>') .
-
-    '<h3>' . __('JavaScript files') . '</h3>' .
-    $o->filesList('js', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;js=%2$s" class="js-link">%1$s</a>') .
-
-    '<h3>' . __('Locales files') . '</h3>' .
-    $o->filesList('po', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;po=%2$s" class="po-link">%1$s</a>') .
-
-    '<h3>' . __('PHP files') . '</h3>' .
-    $o->filesList('php', '<a href="' . dcCore::app()->admin->getPluginURL() . '&amp;php=%2$s" class="php-link">%1$s</a>') .
-    '</div>';
-
-    dcPage::helpBlock('themeEditor');
-} else {
-    echo '<div class="error"><p>' . __("You can't edit a distributed theme.") . '</p></div>';
 }
-?>
-</body>
-</html>
+
+adminThemeEditor::init();
+adminThemeEditor::process();
+adminThemeEditor::render();

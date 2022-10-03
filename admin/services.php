@@ -8,24 +8,24 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-dcCore::app()->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
-dcCore::app()->rest->addFunction('getCommentsCount', ['dcRestMethods', 'getCommentsCount']);
-dcCore::app()->rest->addFunction('checkNewsUpdate', ['dcRestMethods', 'checkNewsUpdate']);
-dcCore::app()->rest->addFunction('checkCoreUpdate', ['dcRestMethods', 'checkCoreUpdate']);
-dcCore::app()->rest->addFunction('checkStoreUpdate', ['dcRestMethods', 'checkStoreUpdate']);
-dcCore::app()->rest->addFunction('getPostById', ['dcRestMethods', 'getPostById']);
-dcCore::app()->rest->addFunction('getCommentById', ['dcRestMethods', 'getCommentById']);
-dcCore::app()->rest->addFunction('quickPost', ['dcRestMethods', 'quickPost']);
-dcCore::app()->rest->addFunction('validatePostMarkup', ['dcRestMethods', 'validatePostMarkup']);
-dcCore::app()->rest->addFunction('getZipMediaContent', ['dcRestMethods', 'getZipMediaContent']);
-dcCore::app()->rest->addFunction('getMeta', ['dcRestMethods', 'getMeta']);
-dcCore::app()->rest->addFunction('delMeta', ['dcRestMethods', 'delMeta']);
-dcCore::app()->rest->addFunction('setPostMeta', ['dcRestMethods', 'setPostMeta']);
-dcCore::app()->rest->addFunction('searchMeta', ['dcRestMethods', 'searchMeta']);
-dcCore::app()->rest->addFunction('setSectionFold', ['dcRestMethods', 'setSectionFold']);
-dcCore::app()->rest->addFunction('getModuleById', ['dcRestMethods', 'getModuleById']);
-dcCore::app()->rest->addFunction('setDashboardPositions', ['dcRestMethods', 'setDashboardPositions']);
-dcCore::app()->rest->addFunction('setListsOptions', ['dcRestMethods', 'setListsOptions']);
+dcCore::app()->rest->addFunction('getPostsCount', [dcRestMethods::class, 'getPostsCount']);
+dcCore::app()->rest->addFunction('getCommentsCount', [dcRestMethods::class, 'getCommentsCount']);
+dcCore::app()->rest->addFunction('checkNewsUpdate', [dcRestMethods::class, 'checkNewsUpdate']);
+dcCore::app()->rest->addFunction('checkCoreUpdate', [dcRestMethods::class, 'checkCoreUpdate']);
+dcCore::app()->rest->addFunction('checkStoreUpdate', [dcRestMethods::class, 'checkStoreUpdate']);
+dcCore::app()->rest->addFunction('getPostById', [dcRestMethods::class, 'getPostById']);
+dcCore::app()->rest->addFunction('getCommentById', [dcRestMethods::class, 'getCommentById']);
+dcCore::app()->rest->addFunction('quickPost', [dcRestMethods::class, 'quickPost']);
+dcCore::app()->rest->addFunction('validatePostMarkup', [dcRestMethods::class, 'validatePostMarkup']);
+dcCore::app()->rest->addFunction('getZipMediaContent', [dcRestMethods::class, 'getZipMediaContent']);
+dcCore::app()->rest->addFunction('getMeta', [dcRestMethods::class, 'getMeta']);
+dcCore::app()->rest->addFunction('delMeta', [dcRestMethods::class, 'delMeta']);
+dcCore::app()->rest->addFunction('setPostMeta', [dcRestMethods::class, 'setPostMeta']);
+dcCore::app()->rest->addFunction('searchMeta', [dcRestMethods::class, 'searchMeta']);
+dcCore::app()->rest->addFunction('setSectionFold', [dcRestMethods::class, 'setSectionFold']);
+dcCore::app()->rest->addFunction('getModuleById', [dcRestMethods::class, 'getModuleById']);
+dcCore::app()->rest->addFunction('setDashboardPositions', [dcRestMethods::class, 'setDashboardPositions']);
+dcCore::app()->rest->addFunction('setListsOptions', [dcRestMethods::class, 'setListsOptions']);
 
 dcCore::app()->rest->serve();
 

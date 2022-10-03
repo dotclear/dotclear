@@ -130,11 +130,9 @@ $(() => {
 
   $(a).on('click', () => {
     const code = e.find('#export_code');
-    if (code.size() == 0) {
-      return false;
+    if (code.size() != 0) {
+      applyBlowupValues(code.val());
     }
-
-    applyBlowupValues(code.val());
     return false;
   });
 });

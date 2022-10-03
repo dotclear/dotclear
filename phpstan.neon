@@ -39,10 +39,13 @@ parameters:
     - DC_ADBLOCKER_CHECK
     - DC_ADMIN_SSL
     - DC_ADMIN_URL
+    - DC_AKISMET_SUPER
     - DC_ALLOW_MULTI_MODULES
     - DC_ALLOW_REPOSITORIES
     - DC_ANTISPAM_CONF_SUPER
+    - DC_BACKUP_PATH
     - DC_CRYPT_ALGO
+    - DC_CSP_LOGFILE
     - DC_DBDRIVER
     - DC_DBHOST
     - DC_DBNAME
@@ -200,6 +203,10 @@ parameters:
 
     # dcAdmin::$default_widgets user-defined properties
     - message: '#Access to an undefined property dcCore::\$default_widgets.#'
+      path: %currentWorkingDirectory%
+
+    # formXXX
+    - message: '#Access to an undefined property \$this\(form[a-zA-Z0-9\\_]+\)::#'
       path: %currentWorkingDirectory%
 
     # Plugin dcProxyV2

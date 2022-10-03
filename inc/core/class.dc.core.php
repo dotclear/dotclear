@@ -543,15 +543,19 @@ final class dcCore
     /**
      * Get the nonce HTML code
      *
+     * @param bool  $render     Should render element?
+     *
      * @return     mixed
      */
-    public function formNonce()
+    public function formNonce(bool $render = true)
     {
         if (!session_id()) {
             return;
         }
 
-        return (new formHidden('xd_check', $this->getNonce()))->render();
+        $element = new formHidden('xd_check', $this->getNonce());
+
+        return $render ? $element->render() : $element;
     }
     //@}
 

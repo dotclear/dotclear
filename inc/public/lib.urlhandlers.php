@@ -820,8 +820,7 @@ class dcUrlHandlers extends urlHandler
     public static function xmlrpc(?string $args): void
     {
         $blog_id = preg_replace('#^([^/]*).*#', '$1', $args);
-        $server  = new dcXmlRpc($blog_id);
-        $server->serve();
+        (new dcXmlRpc($blog_id))->serve();
     }
 
     /**

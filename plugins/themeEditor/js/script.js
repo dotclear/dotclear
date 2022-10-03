@@ -33,9 +33,9 @@ $(() => {
       msg.text(dotclear.msg.document_saved);
       $('#file-chooser').empty();
       $(res).find('#file-chooser').children().appendTo('#file-chooser');
-      if (typeof confirmClosePage.getCurrentForms === 'function') {
-        confirmClosePage.forms = [];
-        confirmClosePage.getCurrentForms();
+      if (typeof dotclear.confirmClosePage.getCurrentForms === 'function') {
+        dotclear.confirmClosePage.forms = [];
+        dotclear.confirmClosePage.getCurrentForms();
       }
     });
 

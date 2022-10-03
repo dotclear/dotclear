@@ -12,147 +12,178 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$tag = $_REQUEST['tag'] ?? '';
+class adminTag
+{
+    /**
+     * Initializes the page.
+     *
+     * @return bool     True if we should return
+     */
+    public static function init()
+    {
+        dcCore::app()->admin->tag = $_REQUEST['tag'] ?? '';
 
-$this_url = dcCore::app()->admin->getPluginURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode($tag);
+        dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        dcCore::app()->admin->nb_per_page = 30;
 
-$page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-$nb_per_page = 30;
+        // Get posts
 
-# Rename a tag
-if (isset($_POST['new_tag_id'])) {
-    $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
+        $params               = [];
+        $params['limit']      = [((dcCore::app()->admin->page - 1) * dcCore::app()->admin->nb_per_page), dcCore::app()->admin->nb_per_page];
+        $params['no_content'] = true;
+        $params['meta_id']    = dcCore::app()->admin->tag;
+        $params['meta_type']  = 'tag';
+        $params['post_type']  = '';
 
-    try {
-        if (dcCore::app()->meta->updateMeta($tag, $new_id, 'tag')) {
-            dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
-            http::redirect(dcCore::app()->admin->getPluginURL() . '&m=tag_posts&tag=' . $new_id);
+        dcCore::app()->admin->posts     = null;
+        dcCore::app()->admin->post_list = null;
+
+        try {
+            dcCore::app()->admin->posts     = dcCore::app()->meta->getPostsByMeta($params);
+            $counter                        = dcCore::app()->meta->getPostsByMeta($params, true);
+            dcCore::app()->admin->post_list = new adminPostList(dcCore::app()->admin->posts, $counter->f(0));
+        } catch (Exception $e) {
+            dcCore::app()->error->add($e->getMessage());
         }
-    } catch (Exception $e) {
-        dcCore::app()->error->add($e->getMessage());
+
+        dcCore::app()->admin->posts_actions_page = new dcPostsActions(
+            'plugin.php',
+            ['p' => 'tags', 'm' => 'tag_posts', 'tag' => dcCore::app()->admin->tag]
+        );
+
+        if (dcCore::app()->admin->posts_actions_page->process()) {
+            return true;
+        }
+
+        return false;
     }
-}
 
-# Delete a tag
-if (!empty($_POST['delete']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-    dcAuth::PERMISSION_PUBLISH,
-    dcAuth::PERMISSION_CONTENT_ADMIN,
-]), dcCore::app()->blog->id)) {
-    try {
-        dcCore::app()->meta->delMeta($tag, 'tag');
-        dcPage::addSuccessNotice(__('Tag has been successfully removed'));
-        http::redirect(dcCore::app()->admin->getPluginURL() . '&m=tags');
-    } catch (Exception $e) {
-        dcCore::app()->error->add($e->getMessage());
-    }
-}
+    /**
+     * Processes the request(s).
+     */
+    public static function process()
+    {
+        if (isset($_POST['new_tag_id'])) {
+            // Rename a tag
 
-$params               = [];
-$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
-$params['no_content'] = true;
+            $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
 
-$params['meta_id']   = $tag;
-$params['meta_type'] = 'tag';
-$params['post_type'] = '';
+            try {
+                if (dcCore::app()->meta->updateMeta(dcCore::app()->admin->tag, $new_id, 'tag')) {
+                    dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
+                    http::redirect(dcCore::app()->admin->getPageURL() . '&m=tag_posts&tag=' . $new_id);
+                }
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
+        }
 
-# Get posts
-$posts     = null;
-$post_list = null;
-
-try {
-    $posts     = dcCore::app()->meta->getPostsByMeta($params);
-    $counter   = dcCore::app()->meta->getPostsByMeta($params, true);
-    $post_list = new adminPostList($posts, $counter->f(0));
-} catch (Exception $e) {
-    dcCore::app()->error->add($e->getMessage());
-}
-
-$posts_actions_page = new dcPostsActions('plugin.php', ['p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag]);
-
-if ($posts_actions_page->process()) {
-    return;
-}
-
-?>
-<html>
-<head>
-    <title><?php echo __('Tags'); ?></title>
-<?php
-echo dcPage::cssModuleLoad('tags/style.css') .
-dcPage::jsLoad('js/_posts_list.js') .
-dcPage::jsJson('posts_tags_msg', [
-    'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML($tag)),
-]) .
-dcPage::jsModuleLoad('tags/js/posts.js') .
-dcPage::jsConfirmClose('tag_rename');
-?>
-</head>
-<body>
-
-<?php
-echo dcPage::breadcrumb(
-    [
-        html::escapeHTML(dcCore::app()->blog->name)                 => '',
-        __('Tags')                                                  => dcCore::app()->admin->getPluginURL() . '&amp;m=tags',
-        __('Tag') . ' &ldquo;' . html::escapeHTML($tag) . '&rdquo;' => '',
-    ]
-) .
-dcPage::notices();
-?>
-
-<?php
-echo '<p><a class="back" href="' . dcCore::app()->admin->getPluginURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
-
-if (!dcCore::app()->error->flag()) {
-    if (!$posts->isEmpty()) {
-        echo
-        '<div class="tag-actions vertical-separator">' .
-        '<h3>' . html::escapeHTML($tag) . '</h3>' .
-        '<form action="' . $this_url . '" method="post" id="tag_rename">' .
-        '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
-        form::field('new_tag_id', 20, 255, html::escapeHTML($tag)) .
-        '<input type="submit" value="' . __('OK') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        dcCore::app()->formNonce() .
-            '</p></form>';
-        # Remove tag
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!empty($_POST['delete']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
-            echo
-            '<form id="tag_delete" action="' . $this_url . '" method="post">' .
-            '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
-            dcCore::app()->formNonce() .
-                '</p></form>';
+            // Delete a tag
+
+            try {
+                dcCore::app()->meta->delMeta(dcCore::app()->admin->tag, 'tag');
+                dcPage::addSuccessNotice(__('Tag has been successfully removed'));
+                http::redirect(dcCore::app()->admin->getPageURL() . '&m=tags');
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
         }
-        echo '</div>';
     }
 
-    # Show posts
-    echo '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), html::escapeHTML($tag)) . '</h4>';
-    $post_list->display(
-        $page,
-        $nb_per_page,
-        '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
+        $this_url = dcCore::app()->admin->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(dcCore::app()->admin->tag);
 
-        '%s' .
+        echo
+        '<html>' .
+        '<head>' .
+        '<title>' . __('Tags') . '</title>' .
+        dcPage::cssModuleLoad('tags/style.css') .
+        dcPage::jsLoad('js/_posts_list.js') .
+        dcPage::jsJson('posts_tags_msg', [
+            'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML(dcCore::app()->admin->tag)),
+        ]) .
+        dcPage::jsModuleLoad('tags/js/posts.js') .
+        dcPage::jsConfirmClose('tag_rename') .
+        '</head>' .
+        '<body>' .
+        dcPage::breadcrumb(
+            [
+                html::escapeHTML(dcCore::app()->blog->name)                                      => '',
+                __('Tags')                                                                       => dcCore::app()->admin->getPageURL() . '&amp;m=tags',
+                __('Tag') . ' &ldquo;' . html::escapeHTML(dcCore::app()->admin->tag) . '&rdquo;' => '',
+            ]
+        ) .
+        dcPage::notices() .
+        '<p><a class="back" href="' . dcCore::app()->admin->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
-        '<div class="two-cols">' .
-        '<p class="col checkboxes-helpers"></p>' .
+        if (!dcCore::app()->error->flag()) {
+            if (!dcCore::app()->admin->posts->isEmpty()) {
+                echo
+                '<div class="tag-actions vertical-separator">' .
+                '<h3>' . html::escapeHTML(dcCore::app()->admin->tag) . '</h3>' .
+                '<form action="' . $this_url . '" method="post" id="tag_rename">' .
+                '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
+                form::field('new_tag_id', 20, 255, html::escapeHTML(dcCore::app()->admin->tag)) .
+                '<input type="submit" value="' . __('OK') . '" />' .
+                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+                dcCore::app()->formNonce() .
+                '</p></form>';
 
-        '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-        form::combo('action', $posts_actions_page->getCombo()) .
-        '<input id="do-action" type="submit" value="' . __('OK') . '" /></p>' .
-        form::hidden('post_type', '') .
-        form::hidden('p', 'tags') .
-        form::hidden('m', 'tag_posts') .
-        form::hidden('tag', $tag) .
-        dcCore::app()->formNonce() .
-        '</div>' .
-        '</form>'
-    );
+                // Remove tag
+                if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                ]), dcCore::app()->blog->id)) {
+                    echo
+                    '<form id="tag_delete" action="' . $this_url . '" method="post">' .
+                    '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
+                    dcCore::app()->formNonce() .
+                    '</p></form>';
+                }
+
+                echo
+                '</div>';
+            }
+
+            // Show posts
+            echo
+            '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), html::escapeHTML(dcCore::app()->admin->tag)) . '</h4>';
+            dcCore::app()->admin->post_list->display(
+                dcCore::app()->admin->page,
+                dcCore::app()->admin->nb_per_page,
+                '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
+                '%s' .
+                '<div class="two-cols">' .
+                '<p class="col checkboxes-helpers"></p>' .
+                '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
+                form::combo('action', dcCore::app()->admin->posts_actions_page->getCombo()) .
+                '<input id="do-action" type="submit" value="' . __('OK') . '" /></p>' .
+                form::hidden('post_type', '') .
+                form::hidden('p', 'tags') .
+                form::hidden('m', 'tag_posts') .
+                form::hidden('tag', dcCore::app()->admin->tag) .
+                dcCore::app()->formNonce() .
+                '</div>' .
+                '</form>'
+            );
+        }
+        dcPage::helpBlock('tag_posts');
+
+        echo
+        '</body>' .
+        '</html>';
+    }
 }
-dcPage::helpBlock('tag_posts');
-?>
-</body>
-</html>
+
+if (adminTag::init()) {
+    return;
+}
+adminTag::process();
+adminTag::render();

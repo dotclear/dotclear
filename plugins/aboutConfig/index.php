@@ -12,245 +12,274 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-# Local navigation
-if (!empty($_POST['gs_nav'])) {
-    http::redirect(dcCore::app()->admin->getPluginURL() . $_POST['gs_nav']);
-    exit;
-}
-if (!empty($_POST['ls_nav'])) {
-    http::redirect(dcCore::app()->admin->getPluginURL() . $_POST['ls_nav']);
-    exit;
-}
-
-# Local settings update
-if (!empty($_POST['s']) && is_array($_POST['s'])) {
-    try {
-        foreach ($_POST['s'] as $ns => $s) {
-            dcCore::app()->blog->settings->addNamespace($ns);
-            foreach ($s as $k => $v) {
-                if ($_POST['s_type'][$ns][$k] == 'array') {
-                    $v = json_decode($v, true);
-                }
-                dcCore::app()->blog->settings->$ns->put($k, $v);
-            }
-            dcCore::app()->blog->triggerBlog();
-        }
-
-        dcPage::addSuccessNotice(__('Configuration successfully updated'));
-        http::redirect(dcCore::app()->admin->getPluginURL());
-    } catch (Exception $e) {
-        dcCore::app()->error->add($e->getMessage());
-    }
-}
-
-# Global settings update
-if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
-    try {
-        foreach ($_POST['gs'] as $ns => $s) {
-            dcCore::app()->blog->settings->addNamespace($ns);
-            foreach ($s as $k => $v) {
-                if ($_POST['gs_type'][$ns][$k] == 'array') {
-                    $v = json_decode($v, true);
-                }
-                dcCore::app()->blog->settings->$ns->put($k, $v, null, null, true, true);
-            }
-            dcCore::app()->blog->triggerBlog();
-        }
-
-        dcPage::addSuccessNotice(__('Configuration successfully updated'));
-        http::redirect(dcCore::app()->admin->getPluginURL() . '&part=global');
-    } catch (Exception $e) {
-        dcCore::app()->error->add($e->getMessage());
-    }
-}
-
-$part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
-
-function settingLine($id, $s, $ns, $field_name, $strong_label)
+class adminAboutConfig
 {
-    switch ($s['type']) {
-        case 'boolean':
-            $field = form::combo(
-                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                [__('yes') => 1, __('no') => 0],
-                $s['value'] ? 1 : 0
-            );
-
-            break;
-
-        case 'array':
-            $field = form::field(
-                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                40,
-                null,
-                html::escapeHTML(json_encode($s['value']))
-            );
-
-            break;
-
-        case 'integer':
-            $field = form::number(
-                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                null,
-                null,
-                html::escapeHTML($s['value'])
-            );
-
-            break;
-
-        default:
-            $field = form::field(
-                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                40,
-                null,
-                html::escapeHTML($s['value'])
-            );
-
-            break;
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
     }
 
-    $type = form::hidden(
-        [$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
-        html::escapeHTML($s['type'])
-    );
+    /**
+     * Processes the request(s).
+     */
+    public static function process()
+    {
+        // Local navigation
+        if (!empty($_POST['gs_nav'])) {
+            http::redirect(dcCore::app()->admin->getPageURL() . $_POST['gs_nav']);
+            exit;
+        }
+        if (!empty($_POST['ls_nav'])) {
+            http::redirect(dcCore::app()->admin->getPageURL() . $_POST['ls_nav']);
+            exit;
+        }
 
-    $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
+        // Local settings update
+        if (!empty($_POST['s']) && is_array($_POST['s'])) {
+            try {
+                foreach ($_POST['s'] as $ns => $s) {
+                    dcCore::app()->blog->settings->addNamespace($ns);
+                    foreach ($s as $k => $v) {
+                        if ($_POST['s_type'][$ns][$k] == 'array') {
+                            $v = json_decode($v, true);
+                        }
+                        dcCore::app()->blog->settings->$ns->put($k, $v);
+                    }
+                    dcCore::app()->blog->triggerBlog();
+                }
 
-    return
-    '<tr class="line">' .
-    '<td scope="row"><label for="' . $field_name . '_' . $ns . '_' . $id . '">' . sprintf($slabel, html::escapeHTML($id)) . '</label></td>' .
-    '<td>' . $field . '</td>' .
-    '<td>' . $s['type'] . $type . '</td>' .
-    '<td>' . html::escapeHTML($s['label']) . '</td>' .
-        '</tr>';
-}
-?>
-<html>
-<head>
-  <title>about:config</title>
-  <?php echo dcPage::jsPageTabs($part) . dcPage::jsModuleLoad('aboutConfig/js/index.js'); ?>
-</head>
+                dcPage::addSuccessNotice(__('Configuration successfully updated'));
+                http::redirect(dcCore::app()->admin->getPageURL());
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
+        }
 
-<body>
-<?php
-echo dcPage::breadcrumb(
-    [
-        __('System')                                => '',
-        html::escapeHTML(dcCore::app()->blog->name) => '',
-        __('about:config')                          => '',
-    ]
-) .
-dcPage::notices();
-?>
+        // Global settings update
+        if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
+            try {
+                foreach ($_POST['gs'] as $ns => $s) {
+                    dcCore::app()->blog->settings->addNamespace($ns);
+                    foreach ($s as $k => $v) {
+                        if ($_POST['gs_type'][$ns][$k] == 'array') {
+                            $v = json_decode($v, true);
+                        }
+                        dcCore::app()->blog->settings->$ns->put($k, $v, null, null, true, true);
+                    }
+                    dcCore::app()->blog->triggerBlog();
+                }
 
-<div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)); ?>">
-<h3 class="out-of-screen-if-js"><?php echo sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)); ?></h3>
+                dcPage::addSuccessNotice(__('Configuration successfully updated'));
+                http::redirect(dcCore::app()->admin->getPageURL() . '&part=global');
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
+        }
+    }
 
-<?php
-$table_header = '<div class="table-outer"><table class="settings" id="%s"><caption class="as_h3">%s</caption>' .
-'<thead>' .
-'<tr>' . "\n" .
-'  <th class="nowrap">' . __('Setting ID') . '</th>' . "\n" .
-'  <th>' . __('Value') . '</th>' . "\n" .
-'  <th>' . __('Type') . '</th>' . "\n" .
-'  <th>' . __('Description') . '</th>' . "\n" .
-    '</tr>' . "\n" .
-    '</thead>' . "\n" .
-    '<tbody>';
-$table_footer = '</tbody></table></div>';
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
+        echo
+        '<html>' .
+        '<head>' .
+        '<title>about:config</title>' .
+        dcPage::jsPageTabs(dcCore::app()->admin->part) .
+        dcPage::jsModuleLoad('aboutConfig/js/index.js') .
+        '</head>' .
+        '<body>' .
+        dcPage::breadcrumb(
+            [
+                __('System')                                => '',
+                html::escapeHTML(dcCore::app()->blog->name) => '',
+                __('about:config')                          => '',
+            ]
+        ) .
+        dcPage::notices() .
+        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)) . '">' .
+        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)) . '</h3>';
 
-$settings = [];
-foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
-    foreach ($namespace->dumpSettings() as $k => $v) {
-        $settings[$ns][$k] = $v;
+        self::settingsTable(false);
+
+        echo
+        '</div>' .
+
+        '<div id="global" class="multi-part" title="' . __('Global settings') . '">' .
+        '<h3 class="out-of-screen-if-js">' . __('Global settings') . '</h3>';
+
+        self::settingsTable(true);
+
+        echo
+        '</div>';
+
+        dcPage::helpBlock('aboutConfig');
+
+        echo
+        '</body>' .
+        '</html>';
+    }
+
+    /**
+     * Display local or global settings
+     *
+     * @param      bool  $global  The global
+     */
+    protected static function settingsTable(bool $global = false): void
+    {
+        $table_header = '<div class="table-outer">' .
+            '<table class="settings" id="%s"><caption class="as_h3">%s</caption>' .
+            '<thead>' .
+            '<tr>' . "\n" .
+            '  <th class="nowrap">' . __('Setting ID') . '</th>' . "\n" .
+            '  <th>' . __('Value') . '</th>' . "\n" .
+            '  <th>' . __('Type') . '</th>' . "\n" .
+            '  <th>' . __('Description') . '</th>' . "\n" .
+                '</tr>' . "\n" .
+                '</thead>' . "\n" .
+                '<tbody>';
+        $table_footer = '</tbody></table></div>';
+
+        $settings = [];
+        if ($global) {
+            $prefix     = 'g_';
+            $prefix_id  = '#' . $prefix;
+            $field_name = 'gs';
+            $nav_id     = 'gs_nav';
+            $submit_id  = 'gs_submit';
+
+            foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
+                foreach ($namespace->dumpGlobalSettings() as $k => $v) {
+                    $settings[$ns][$k] = $v;
+                }
+            }
+        } else {
+            $prefix     = 'l_';
+            $prefix_id  = '#' . $prefix;
+            $field_name = 's';
+            $nav_id     = 'ls_nav';
+            $submit_id  = 'ls_submit';
+
+            foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
+                foreach ($namespace->dumpSettings() as $k => $v) {
+                    $settings[$ns][$k] = $v;
+                }
+            }
+        }
+
+        ksort($settings);
+        if (count($settings)) {
+            $ns_combo = [];
+            foreach ($settings as $ns => $s) {
+                $ns_combo[$ns] = $prefix_id . $ns;
+            }
+            echo
+            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<p class="anchor-nav">' .
+            '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
+            form::combo($nav_id, $ns_combo, ['class' => 'navigation']) .
+            ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
+            '<input type="hidden" name="p" value="aboutConfig" />' .
+            dcCore::app()->formNonce() .
+            '</p></form>';
+        }
+
+        echo
+        '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post">';
+        foreach ($settings as $ns => $s) {
+            ksort($s);
+            echo sprintf($table_header, $prefix . $ns, $ns);
+            foreach ($s as $k => $v) {
+                $strong = $global ? false : !$v['global'];
+                echo self::settingLine($k, $v, $ns, $field_name, $strong);
+            }
+            echo $table_footer;
+        }
+
+        echo
+        '<p><input type="submit" value="' . __('Save') . '" />' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="hidden" name="p" value="aboutConfig" />' .
+        dcCore::app()->formNonce() .
+        '</p>' .
+        '</form>';
+    }
+
+    /**
+     * Return table line (td) to display a setting
+     *
+     * @param      string  $id            The identifier
+     * @param      array   $s             The setting
+     * @param      string  $ns            The namespace
+     * @param      string  $field_name    The field name
+     * @param      bool    $strong_label  The strong label
+     *
+     * @return     string
+     */
+    protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
+    {
+        switch ($s['type']) {
+            case 'boolean':
+                $field = form::combo(
+                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                    [__('yes') => 1, __('no') => 0],
+                    $s['value'] ? 1 : 0
+                );
+
+                break;
+
+            case 'array':
+                $field = form::field(
+                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                    40,
+                    null,
+                    html::escapeHTML(json_encode($s['value']))
+                );
+
+                break;
+
+            case 'integer':
+                $field = form::number(
+                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                    null,
+                    null,
+                    html::escapeHTML($s['value'])
+                );
+
+                break;
+
+            default:
+                $field = form::field(
+                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                    40,
+                    null,
+                    html::escapeHTML($s['value'])
+                );
+
+                break;
+        }
+
+        $type = form::hidden(
+            [$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
+            html::escapeHTML($s['type'])
+        );
+
+        $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
+
+        return
+            '<tr class="line">' .
+            '<td scope="row"><label for="' . $field_name . '_' . $ns . '_' . $id . '">' . sprintf($slabel, html::escapeHTML($id)) . '</label></td>' .
+            '<td>' . $field . '</td>' .
+            '<td>' . $s['type'] . $type . '</td>' .
+            '<td>' . html::escapeHTML($s['label']) . '</td>' .
+            '</tr>';
     }
 }
-ksort($settings);
-if (count($settings)) {
-    $ns_combo = [];
-    foreach ($settings as $ns => $s) {
-        $ns_combo[$ns] = '#l_' . $ns;
-    }
-    echo
-    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
-    '<p class="anchor-nav">' .
-    '<label for="ls_nav" class="classic">' . __('Goto:') . '</label> ' . form::combo('ls_nav', $ns_combo) .
-    ' <input type="submit" value="' . __('Ok') . '" id="ls_submit" />' .
-    '<input type="hidden" name="p" value="aboutConfig" />' .
-    dcCore::app()->formNonce() . '</p></form>';
-}
-?>
 
-<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
-
-<?php
-foreach ($settings as $ns => $s) {
-    ksort($s);
-    echo sprintf($table_header, 'l_' . $ns, $ns);
-    foreach ($s as $k => $v) {
-        echo settingLine($k, $v, $ns, 's', !$v['global']);
-    }
-    echo $table_footer;
-}
-?>
-
-<p><input type="submit" value="<?php echo __('Save'); ?>" />
- <input type="button" value="<?php echo __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
-<input type="hidden" name="p" value="aboutConfig" />
-<?php echo dcCore::app()->formNonce(); ?></p>
-</form>
-</div>
-
-<div id="global" class="multi-part" title="<?php echo __('Global settings'); ?>">
-<h3 class="out-of-screen-if-js"><?php echo __('Global settings'); ?></h3>
-
-<?php
-$settings = [];
-
-foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
-    foreach ($namespace->dumpGlobalSettings() as $k => $v) {
-        $settings[$ns][$k] = $v;
-    }
-}
-
-ksort($settings);
-
-if (count($settings)) {
-    $ns_combo = [];
-    foreach ($settings as $ns => $s) {
-        $ns_combo[$ns] = '#g_' . $ns;
-    }
-    echo
-    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
-    '<p class="anchor-nav">' .
-    '<label for="gs_nav" class="classic">' . __('Goto:') . '</label> ' . form::combo('gs_nav', $ns_combo) . ' ' .
-    '<input type="submit" value="' . __('Ok') . '" id="gs_submit" />' .
-    '<input type="hidden" name="p" value="aboutConfig" />' .
-    dcCore::app()->formNonce() . '</p></form>';
-}
-?>
-
-<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
-
-<?php
-foreach ($settings as $ns => $s) {
-    ksort($s);
-    echo sprintf($table_header, 'g_' . $ns, $ns);
-    foreach ($s as $k => $v) {
-        echo settingLine($k, $v, $ns, 'gs', false);
-    }
-    echo $table_footer;
-}
-?>
-
-<p><input type="submit" value="<?php echo __('Save'); ?>" />
- <input type="button" value="<?php echo __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
-<input type="hidden" name="p" value="aboutConfig" />
-<?php echo dcCore::app()->formNonce(); ?></p>
-</form>
-</div>
-
-<?php dcPage::helpBlock('aboutConfig');?>
-
-</body>
-</html>
+adminAboutConfig::init();
+adminAboutConfig::process();
+adminAboutConfig::render();

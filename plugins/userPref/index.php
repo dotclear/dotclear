@@ -12,246 +12,270 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-# Local navigation
-if (!empty($_POST['gp_nav'])) {
-    http::redirect(dcCore::app()->admin->getPluginURL() . $_POST['gp_nav']);
-    exit;
-}
-if (!empty($_POST['lp_nav'])) {
-    http::redirect(dcCore::app()->admin->getPluginURL() . $_POST['lp_nav']);
-    exit;
-}
-
-# Local prefs update
-if (!empty($_POST['s']) && is_array($_POST['s'])) {
-    try {
-        foreach ($_POST['s'] as $ws => $s) {
-            dcCore::app()->auth->user_prefs->addWorkspace($ws);
-            foreach ($s as $k => $v) {
-                if ($_POST['s_type'][$ws][$k] == 'array') {
-                    $v = json_decode($v, true);
-                }
-                dcCore::app()->auth->user_prefs->$ws->put($k, $v);
-            }
-        }
-
-        dcPage::addSuccessNotice(__('Preferences successfully updated'));
-        http::redirect(dcCore::app()->admin->getPluginURL());
-    } catch (Exception $e) {
-        dcCore::app()->error->add($e->getMessage());
-    }
-}
-
-# Global prefs update
-if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
-    try {
-        foreach ($_POST['gs'] as $ws => $s) {
-            dcCore::app()->auth->user_prefs->addWorkspace($ws);
-            foreach ($s as $k => $v) {
-                if ($_POST['gs_type'][$ws][$k] == 'array') {
-                    $v = json_decode($v, true);
-                }
-                dcCore::app()->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
-            }
-        }
-
-        dcPage::addSuccessNotice(__('Preferences successfully updated'));
-        http::redirect(dcCore::app()->admin->getPluginURL() . '&part=global');
-    } catch (Exception $e) {
-        dcCore::app()->error->add($e->getMessage());
-    }
-}
-
-$part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
-
-function prefLine($id, $s, $ws, $field_name, $strong_label)
+class adminUserPreferences
 {
-    switch ($s['type']) {
-        case 'boolean':
-            $field = form::combo(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                [__('yes') => 1, __('no') => 0],
-                $s['value'] ? 1 : 0
-            );
-
-            break;
-
-        case 'array':
-            $field = form::field(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                40,
-                null,
-                html::escapeHTML(json_encode($s['value']))
-            );
-
-            break;
-
-        case 'integer':
-            $field = form::number(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                null,
-                null,
-                html::escapeHTML($s['value'])
-            );
-
-            break;
-
-        default:
-            $field = form::field(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                40,
-                null,
-                html::escapeHTML($s['value'])
-            );
-
-            break;
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
     }
 
-    $type = form::hidden(
-        [$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],
-        html::escapeHTML($s['type'])
-    );
+    /**
+     * Processes the request(s).
+     */
+    public static function process()
+    {
+        // Local navigation
+        if (!empty($_POST['gp_nav'])) {
+            http::redirect(dcCore::app()->admin->getPageURL() . $_POST['gp_nav']);
+            exit;
+        }
+        if (!empty($_POST['lp_nav'])) {
+            http::redirect(dcCore::app()->admin->getPageURL() . $_POST['lp_nav']);
+            exit;
+        }
 
-    $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
+        // Local prefs update
+        if (!empty($_POST['s']) && is_array($_POST['s'])) {
+            try {
+                foreach ($_POST['s'] as $ws => $s) {
+                    dcCore::app()->auth->user_prefs->addWorkspace($ws);
+                    foreach ($s as $k => $v) {
+                        if ($_POST['s_type'][$ws][$k] == 'array') {
+                            $v = json_decode($v, true);
+                        }
+                        dcCore::app()->auth->user_prefs->$ws->put($k, $v);
+                    }
+                }
 
-    return
-    '<tr class="line">' .
-    '<td scope="row"><label for="' . $field_name . '_' . $ws . '_' . $id . '">' . sprintf($slabel, html::escapeHTML($id)) . '</label></td>' .
-    '<td>' . $field . '</td>' .
-    '<td>' . $s['type'] . $type . '</td>' .
-    '<td>' . html::escapeHTML($s['label']) . '</td>' .
-        '</tr>';
-}
-?>
-<html>
-<head>
-  <title>user:preferences</title>
-  <?php echo dcPage::jsPageTabs($part) . dcPage::jsModuleLoad('userPref/js/index.js'); ?>
-</head>
+                dcPage::addSuccessNotice(__('Preferences successfully updated'));
+                http::redirect(dcCore::app()->admin->getPageURL());
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
+        }
 
-<body>
-<?php
-echo dcPage::breadcrumb(
-    [
-        __('System')                                    => '',
-        html::escapeHTML(dcCore::app()->auth->userID()) => '',
-        __('user:preferences')                          => '',
-    ]
-) .
-dcPage::notices();
+        // Global prefs update
+        if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
+            try {
+                foreach ($_POST['gs'] as $ws => $s) {
+                    dcCore::app()->auth->user_prefs->addWorkspace($ws);
+                    foreach ($s as $k => $v) {
+                        if ($_POST['gs_type'][$ws][$k] == 'array') {
+                            $v = json_decode($v, true);
+                        }
+                        dcCore::app()->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
+                    }
+                }
 
-?>
+                dcPage::addSuccessNotice(__('Preferences successfully updated'));
+                http::redirect(dcCore::app()->admin->getPageURL() . '&part=global');
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
+        }
+    }
 
-<div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">
-<h3 class="out-of-screen-if-js"><?php echo __('User preferences'); ?></h3>
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
+        echo
+        '<html>' .
+        '<head>' .
+        '<title>user:preferences</title>' .
+        dcPage::jsPageTabs(dcCore::app()->admin->part) .
+        dcPage::jsModuleLoad('userPref/js/index.js') .
+        '</head>' .
+        '<body>' .
+        dcPage::breadcrumb(
+            [
+                __('System')                                    => '',
+                html::escapeHTML(dcCore::app()->auth->userID()) => '',
+                __('user:preferences')                          => '',
+            ]
+        ) .
+        dcPage::notices() .
+        '<div id="local" class="multi-part" title="' . __('User preferences') . '">' .
+        '<h3 class="out-of-screen-if-js">' . __('User preferences') . '</h3>';
 
-<?php
-$table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption class="as_h3">%s</caption>' .
-'<thead>' .
-'<tr>' . "\n" .
-'  <th class="nowrap">' . __('Setting ID') . '</th>' . "\n" .
-'  <th>' . __('Value') . '</th>' . "\n" .
-'  <th>' . __('Type') . '</th>' . "\n" .
-'  <th>' . __('Description') . '</th>' . "\n" .
-    '</tr>' . "\n" .
-    '</thead>' . "\n" .
-    '<tbody>';
-$table_footer = '</tbody></table></div>';
+        self::prefsTable(false);
 
-$prefs = [];
-foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
-    foreach ($workspace->dumpPrefs() as $k => $v) {
-        $prefs[$ws][$k] = $v;
+        echo
+        '</div>' .
+
+        '<div id="global" class="multi-part" title="' . __('Global preferences') . '">' .
+        '<h3 class="out-of-screen-if-js">' . __('Global preferences') . '</h3>';
+
+        self::prefsTable(true);
+
+        echo
+        '</div>';
+
+        dcPage::helpBlock('userPref');
+
+        echo
+        '</body>' .
+        '</html>';
+    }
+
+    /**
+     * Display local or global settings
+     *
+     * @param      bool  $global  The global
+     */
+    protected static function prefsTable(bool $global = false): void
+    {
+        $table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption class="as_h3">%s</caption>' .
+            '<thead>' .
+            '<tr>' . "\n" .
+            '  <th class="nowrap">' . __('Setting ID') . '</th>' . "\n" .
+            '  <th>' . __('Value') . '</th>' . "\n" .
+            '  <th>' . __('Type') . '</th>' . "\n" .
+            '  <th>' . __('Description') . '</th>' . "\n" .
+            '</tr>' . "\n" .
+            '</thead>' . "\n" .
+            '<tbody>';
+        $table_footer = '</tbody></table></div>';
+
+        $prefs = [];
+        if ($global) {
+            $prefix     = 'g_';
+            $prefix_id  = '#' . $prefix;
+            $field_name = 'gs';
+            $nav_id     = 'gp_nav';
+            $submit_id  = 'gp_submit';
+
+            foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
+                foreach ($workspace->dumpGlobalPrefs() as $k => $v) {
+                    $prefs[$ws][$k] = $v;
+                }
+            }
+        } else {
+            $prefix     = 'l_';
+            $prefix_id  = '#' . $prefix;
+            $field_name = 's';
+            $nav_id     = 'lp_nav';
+            $submit_id  = 'lp_submit';
+
+            foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
+                foreach ($workspace->dumpPrefs() as $k => $v) {
+                    $prefs[$ws][$k] = $v;
+                }
+            }
+        }
+
+        ksort($prefs);
+        if (count($prefs)) {
+            $ws_combo = [];
+            foreach ($prefs as $ws => $s) {
+                $ws_combo[$ws] = $prefix_id . $ws;
+            }
+            echo
+            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<p class="anchor-nav">' .
+            '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
+            form::combo($nav_id, $ws_combo, ['class' => 'navigation']) .
+            ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
+            '<input type="hidden" name="p" value="userPref" />' .
+            dcCore::app()->formNonce() .
+            '</p></form>';
+        }
+
+        echo
+        '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post">';
+        foreach ($prefs as $ws => $s) {
+            ksort($s);
+            echo sprintf($table_header, $prefix . $ws, $ws);
+            foreach ($s as $k => $v) {
+                $strong = $global ? false : !$v['global'];
+                echo self::prefLine($k, $v, $ws, $field_name, $strong);
+            }
+            echo $table_footer;
+        }
+
+        echo
+        '<p><input type="submit" value="' . __('Save') . '" />' .
+        '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="hidden" name="p" value="userPref" />' .
+        dcCore::app()->formNonce() .
+        '</p></form>';
+    }
+
+    /**
+     * Return table line (td) to display a setting
+     *
+     * @param      string  $id            The identifier
+     * @param      array   $s             The setting
+     * @param      string  $ws            The workspace
+     * @param      string  $field_name    The field name
+     * @param      bool    $strong_label  The strong label
+     *
+     * @return     string
+     */
+    protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
+    {
+        switch ($s['type']) {
+            case 'boolean':
+                $field = form::combo(
+                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                    [__('yes') => 1, __('no') => 0],
+                    $s['value'] ? 1 : 0
+                );
+
+                break;
+
+            case 'array':
+                $field = form::field(
+                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                    40,
+                    null,
+                    html::escapeHTML(json_encode($s['value']))
+                );
+
+                break;
+
+            case 'integer':
+                $field = form::number(
+                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                    null,
+                    null,
+                    html::escapeHTML($s['value'])
+                );
+
+                break;
+
+            default:
+                $field = form::field(
+                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                    40,
+                    null,
+                    html::escapeHTML($s['value'])
+                );
+
+                break;
+        }
+
+        $type = form::hidden(
+            [$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],
+            html::escapeHTML($s['type'])
+        );
+
+        $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
+
+        return
+            '<tr class="line">' .
+            '<td scope="row"><label for="' . $field_name . '_' . $ws . '_' . $id . '">' . sprintf($slabel, html::escapeHTML($id)) . '</label></td>' .
+            '<td>' . $field . '</td>' .
+            '<td>' . $s['type'] . $type . '</td>' .
+            '<td>' . html::escapeHTML($s['label']) . '</td>' .
+            '</tr>';
     }
 }
-ksort($prefs);
-if (count($prefs)) {
-    $ws_combo = [];
-    foreach ($prefs as $ws => $s) {
-        $ws_combo[$ws] = '#l_' . $ws;
-    }
-    echo
-    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
-    '<p class="anchor-nav">' .
-    '<label for="lp_nav" class="classic">' . __('Goto:') . '</label> ' .
-    form::combo('lp_nav', $ws_combo, ['class' => 'navigation']) .
-    ' <input type="submit" value="' . __('Ok') . '" id="lp_submit" />' .
-    '<input type="hidden" name="p" value="userPref" />' .
-    dcCore::app()->formNonce() . '</p></form>';
-}
-?>
 
-<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
-
-<?php
-foreach ($prefs as $ws => $s) {
-    ksort($s);
-    echo sprintf($table_header, 'l_' . $ws, $ws);
-    foreach ($s as $k => $v) {
-        echo prefLine($k, $v, $ws, 's', !$v['global']);
-    }
-    echo $table_footer;
-}
-?>
-
-<p><input type="submit" value="<?php echo __('Save'); ?>" />
-<input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
-<input type="hidden" name="p" value="userPref" />
-<?php echo dcCore::app()->formNonce(); ?></p>
-</form>
-</div>
-
-<div id="global" class="multi-part" title="<?php echo __('Global preferences'); ?>">
-<h3 class="out-of-screen-if-js"><?php echo __('Global preferences'); ?></h3>
-
-<?php
-$prefs = [];
-
-foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
-    foreach ($workspace->dumpGlobalPrefs() as $k => $v) {
-        $prefs[$ws][$k] = $v;
-    }
-}
-
-ksort($prefs);
-
-if (count($prefs)) {
-    $ws_combo = [];
-    foreach ($prefs as $ws => $s) {
-        $ws_combo[$ws] = '#g_' . $ws;
-    }
-    echo
-    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
-    '<p class="anchor-nav">' .
-    '<label for="gp_nav" class="classic">' . __('Goto:') . '</label> ' .
-    form::combo('gp_nav', $ws_combo, ['class' => 'navigation']) .
-    ' <input type="submit" value="' . __('Ok') . '" id="gp_submit" />' .
-    '<input type="hidden" name="p" value="userPref" />' .
-    dcCore::app()->formNonce() . '</p></form>';
-}
-?>
-
-<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
-
-<?php
-foreach ($prefs as $ws => $s) {
-    ksort($s);
-    echo sprintf($table_header, 'g_' . $ws, $ws);
-    foreach ($s as $k => $v) {
-        echo prefLine($k, $v, $ws, 'gs', false);
-    }
-    echo $table_footer;
-}
-?>
-
-<p><input type="submit" value="<?php echo __('Save'); ?>" />
-<input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
-<input type="hidden" name="p" value="userPref" />
-<?php echo dcCore::app()->formNonce(); ?></p>
-</form>
-</div>
-
-<?php dcPage::helpBlock('userPref');?>
-
-</body>
-</html>
+adminUserPreferences::init();
+adminUserPreferences::process();
+adminUserPreferences::render();

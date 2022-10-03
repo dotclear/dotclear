@@ -11,108 +11,127 @@
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
-dcPage::check(dcCore::app()->auth->makePermissions([
-    dcPages::PERMISSION_PAGES,
-    dcAuth::PERMISSION_CONTENT_ADMIN,
-]));
 
-/* Getting pages
--------------------------------------------------------- */
-$params = [
-    'post_type' => 'page',
-];
+class adminPages
+{
+    /**
+     * Initializes the page.
+     *
+     * @return bool     True if we should return
+     */
+    public static function init(): bool
+    {
+        dcPage::check(dcCore::app()->auth->makePermissions([
+            dcPages::PERMISSION_PAGES,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]));
 
-$page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-$nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
+        $params = [
+            'post_type' => 'page',
+        ];
 
-if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-    $nb_per_page = (int) $_GET['nb'];
-}
+        dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        dcCore::app()->admin->nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
 
-$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
-$params['no_content'] = true;
-$params['order']      = 'post_position ASC, post_title ASC';
+        if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
+            dcCore::app()->admin->nb_per_page = (int) $_GET['nb'];
+        }
 
-$post_list = null;
+        $params['limit'] = [((dcCore::app()->admin->page - 1) * dcCore::app()->admin->nb_per_page), dcCore::app()->admin->nb_per_page];
 
-try {
-    $pages     = dcCore::app()->blog->getPosts($params);
-    $counter   = dcCore::app()->blog->getPosts($params, true);
-    $post_list = new adminPagesList($pages, $counter->f(0));
-} catch (Exception $e) {
-    dcCore::app()->error->add($e->getMessage());
-}
+        $params['no_content'] = true;
+        $params['order']      = 'post_position ASC, post_title ASC';
 
-# Actions combo box
+        dcCore::app()->admin->post_list = null;
 
-$pages_actions_page = new dcPagesActions('plugin.php', ['p' => 'pages']);
+        try {
+            $pages   = dcCore::app()->blog->getPosts($params);
+            $counter = dcCore::app()->blog->getPosts($params, true);
 
-if (!$pages_actions_page->process()) {
+            dcCore::app()->admin->post_list = new adminPagesList($pages, $counter->f(0));
+        } catch (Exception $e) {
+            dcCore::app()->error->add($e->getMessage());
+        }
 
-    /* Display
-    -------------------------------------------------------- */ ?>
-<html>
-<head>
-  <title><?php echo __('Pages'); ?></title>
-  <?php
-echo
-    dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-    dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
-    dcPage::jsModuleLoad('pages/js/list.js')
-    ?>
-</head>
+        // Actions combo box
+        dcCore::app()->admin->pages_actions_page = new dcPagesActions('plugin.php', ['p' => 'pages']);
+        if (dcCore::app()->admin->pages_actions_page->process()) {
+            return true;
+        }
 
-<body>
-<?php
-echo dcPage::breadcrumb(
-        [
-            html::escapeHTML(dcCore::app()->blog->name) => '',
-            __('Pages')                                 => '',
-        ]
-    ) . dcPage::notices();
-
-    if (!empty($_GET['upd'])) {
-        dcPage::success(__('Selected pages have been successfully updated.'));
-    } elseif (!empty($_GET['del'])) {
-        dcPage::success(__('Selected pages have been successfully deleted.'));
-    } elseif (!empty($_GET['reo'])) {
-        dcPage::success(__('Selected pages have been successfully reordered.'));
+        return false;
     }
-    echo
-    '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->getPluginURL() . '&amp;act=page">' . __('New page') . '</a></p>';
 
-    if (!dcCore::app()->error->flag()) {
-        # Show pages
-        $post_list->display(
-            $page,
-            $nb_per_page,
-            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
+        echo
+        '<html>' .
+        '<head>' .
+        '<title>' . __('Pages') . '</title>' .
+        dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+        dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+        dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
+        dcPage::jsModuleLoad('pages/js/list.js') .
+        '</head>' .
+        '<body>' .
+        dcPage::breadcrumb(
+            [
+                html::escapeHTML(dcCore::app()->blog->name) => '',
+                __('Pages')                                 => '',
+            ]
+        ) .
+        dcPage::notices();
 
-            '%s' .
+        if (!empty($_GET['upd'])) {
+            dcPage::success(__('Selected pages have been successfully updated.'));
+        } elseif (!empty($_GET['del'])) {
+            dcPage::success(__('Selected pages have been successfully deleted.'));
+        } elseif (!empty($_GET['reo'])) {
+            dcPage::success(__('Selected pages have been successfully reordered.'));
+        }
+        echo
+        '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';
 
-            '<div class="two-cols">' .
-            '<p class="col checkboxes-helpers"></p>' .
+        if (!dcCore::app()->error->flag() && dcCore::app()->admin->post_list) {
+            // Show pages
+            dcCore::app()->admin->post_list->display(
+                dcCore::app()->admin->page,
+                dcCore::app()->admin->nb_per_page,
+                '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
 
-            '<p class="col right"><label for="action" class="classic">' . __('Selected pages action:') . '</label> ' .
-            form::combo('action', $pages_actions_page->getCombo()) .
-            '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
-            form::hidden(['post_type'], 'page') .
-            form::hidden(['p'], 'pages') .
-            form::hidden(['act'], 'list') .
-            dcCore::app()->formNonce() .
-            '</p></div>' .
-            '<p class="clear form-note hidden-if-js">' .
-            __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .
-            '<p class="clear form-note hidden-if-no-js">' .
-            __('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.') . '</p>' .
-            '<p><input type="submit" value="' . __('Save pages order') . '" name="reorder" class="clear" /></p>' .
-            '</form>'
-        );
+                '%s' .
+
+                '<div class="two-cols">' .
+                '<p class="col checkboxes-helpers"></p>' .
+
+                '<p class="col right"><label for="action" class="classic">' . __('Selected pages action:') . '</label> ' .
+                form::combo('action', dcCore::app()->admin->pages_actions_page->getCombo()) .
+                '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
+                form::hidden(['post_type'], 'page') .
+                form::hidden(['p'], 'pages') .
+                form::hidden(['act'], 'list') .
+                dcCore::app()->formNonce() .
+                '</p></div>' .
+                '<p class="clear form-note hidden-if-js">' .
+                __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .
+                '<p class="clear form-note hidden-if-no-js">' .
+                __('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.') . '</p>' .
+                '<p><input type="submit" value="' . __('Save pages order') . '" name="reorder" class="clear" /></p>' .
+                '</form>'
+            );
+        }
+        dcPage::helpBlock('pages');
+
+        echo
+        '</body>' .
+        '</html>';
     }
-    dcPage::helpBlock('pages'); ?>
-</body>
-</html>
-<?php
 }
-?>
+
+if (adminPages::init()) {
+    return;
+}
+adminPages::render();

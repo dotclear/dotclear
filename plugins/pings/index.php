@@ -12,104 +12,131 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcPage::checkSuper();
+class adminPings
+{
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        dcPage::checkSuper();
 
-$pings_uris = [];
+        dcCore::app()->admin->pings_uris = [];
 
-try {
-    // Pings URIs are managed globally (for all blogs)
-    $pings_uris = dcCore::app()->blog->settings->pings->getGlobal('pings_uris');
-    if (!$pings_uris) {
-        $pings_uris = [];
-    }
-
-    if (isset($_POST['pings_srv_name'])) {
-        $pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : [];
-        $pings_srv_uri  = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : [];
-        $pings_uris     = [];
-
-        foreach ($pings_srv_name as $k => $v) {
-            if (trim((string) $v) && trim((string) $pings_srv_uri[$k])) {
-                $pings_uris[trim((string) $v)] = trim((string) $pings_srv_uri[$k]);
-            }
-        }
-        dcCore::app()->blog->settings->addNamespace('pings');
-        // Settings for all blogs
-        dcCore::app()->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
-        dcCore::app()->blog->settings->pings->put('pings_uris', $pings_uris, null, null, true, true);
-        // Settings for current blog only
-        dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
-
-        dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
-        http::redirect(dcCore::app()->admin->getPluginURL());
-    }
-} catch (Exception $e) {
-    dcCore::app()->error->add($e->getMessage());
-}
-?>
-<html>
-<head>
-  <title><?php echo __('Pings'); ?></title>
-</head>
-
-<body>
-<?php
-
-echo dcPage::breadcrumb(
-    [
-        __('Plugins')             => '',
-        __('Pings configuration') => '',
-    ]
-);
-
-echo
-'<form action="' . dcCore::app()->admin->getPluginURL() . '" method="post">' .
-'<p><label for="pings_active" class="classic">' . form::checkbox('pings_active', 1, dcCore::app()->blog->settings->pings->pings_active) .
-__('Activate pings extension') . '</label></p>';
-
-$i = 0;
-foreach ($pings_uris as $n => $u) {
-    echo
-    '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
-    form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, html::escapeHTML($n)) . ' ' .
-    '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
-    form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
-        'size'    => 40,
-        'default' => html::escapeHTML($u),
-    ]);
-
-    if (!empty($_GET['test'])) {
         try {
-            pingsAPI::doPings($u, 'Example site', 'http://example.com');
-            echo ' <img src="images/check-on.png" alt="OK" />';
+            // Pings URIs are managed globally (for all blogs)
+            dcCore::app()->admin->pings_uris = dcCore::app()->blog->settings->pings->getGlobal('pings_uris');
+            if (!dcCore::app()->admin->pings_uris) {
+                dcCore::app()->admin->pings_uris = [];
+            }
         } catch (Exception $e) {
-            echo ' <img src="images/check-off.png" alt="' . __('Error') . '" /> ' . $e->getMessage();
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
-    echo '</p>';
-    $i++;
+    /**
+     * Processes the request(s).
+     */
+    public static function process()
+    {
+        try {
+            if (isset($_POST['pings_srv_name'])) {
+                $pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : [];
+                $pings_srv_uri  = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : [];
+                $pings_uris     = [];
+
+                foreach ($pings_srv_name as $k => $v) {
+                    if (trim((string) $v) && trim((string) $pings_srv_uri[$k])) {
+                        $pings_uris[trim((string) $v)] = trim((string) $pings_srv_uri[$k]);
+                    }
+                }
+                dcCore::app()->blog->settings->addNamespace('pings');
+                // Settings for all blogs
+                dcCore::app()->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
+                dcCore::app()->blog->settings->pings->put('pings_uris', $pings_uris, null, null, true, true);
+                // Settings for current blog only
+                dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
+
+                dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
+                http::redirect(dcCore::app()->admin->getPageURL());
+            }
+        } catch (Exception $e) {
+            dcCore::app()->error->add($e->getMessage());
+        }
+    }
+
+    /**
+     * Renders the page.
+     */
+    public static function render()
+    {
+        echo
+        '<html>' .
+        '<head>' .
+        '<title>' . __('Pings') . '</title>' .
+        '</head>' .
+        '<body>' .
+        dcPage::breadcrumb(
+            [
+                __('Plugins')             => '',
+                __('Pings configuration') => '',
+            ]
+        ) .
+        '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
+        '<p><label for="pings_active" class="classic">' .
+        form::checkbox('pings_active', 1, dcCore::app()->blog->settings->pings->pings_active) .
+        __('Activate pings extension') . '</label></p>';
+
+        $i = 0;
+        foreach (dcCore::app()->admin->pings_uris as $n => $u) {
+            echo
+            '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
+            form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, html::escapeHTML($n)) . ' ' .
+            '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
+            form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
+                'size'    => 40,
+                'default' => html::escapeHTML($u),
+            ]);
+
+            if (!empty($_GET['test'])) {
+                try {
+                    pingsAPI::doPings($u, 'Example site', 'http://example.com');
+                    echo ' <img src="images/check-on.png" alt="OK" />';
+                } catch (Exception $e) {
+                    echo ' <img src="images/check-off.png" alt="' . __('Error') . '" /> ' . $e->getMessage();
+                }
+            }
+
+            echo '</p>';
+            $i++;
+        }
+
+        echo
+        '<p><label for="pings_srv_name2" class="classic">' . __('Service name:') . '</label> ' .
+        form::field(['pings_srv_name[]', 'pings_srv_name2'], 20, 128) . ' ' .
+        '<label for="pings_srv_uri2" class="classic">' . __('Service URI:') . '</label> ' .
+        form::url(['pings_srv_uri[]', 'pings_srv_uri2'], 40) .
+        '</p>' .
+
+        '<p><label for="pings_auto" class="classic">' .
+        form::checkbox('pings_auto', 1, dcCore::app()->blog->settings->pings->pings_auto) .
+        __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
+
+        '<p><input type="submit" value="' . __('Save') . '" />' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        dcCore::app()->formNonce() . '</p>' .
+        '</form>' .
+
+        '<p><a class="button" href="' . dcCore::app()->admin->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
+
+        dcPage::helpBlock('pings');
+
+        echo
+        '</body>' .
+        '</html>';
+    }
 }
 
-echo
-'<p><label for="pings_srv_name2" class="classic">' . __('Service name:') . '</label> ' .
-form::field(['pings_srv_name[]', 'pings_srv_name2'], 20, 128) . ' ' .
-'<label for="pings_srv_uri2" class="classic">' . __('Service URI:') . '</label> ' .
-form::url(['pings_srv_uri[]', 'pings_srv_uri2'], 40) .
-'</p>' .
-
-'<p><label for="pings_auto" class="classic">' . form::checkbox('pings_auto', 1, dcCore::app()->blog->settings->pings->pings_auto) .
-__('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
-
-'<p><input type="submit" value="' . __('Save') . '" />' .
-' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-dcCore::app()->formNonce() . '</p>' .
-    '</form>';
-
-echo '<p><a class="button" href="' . dcCore::app()->admin->getPluginURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
-?>
-
-<?php dcPage::helpBlock('pings');?>
-
-</body>
-</html>
+adminPings::init();
+adminPings::process();
+adminPings::render();

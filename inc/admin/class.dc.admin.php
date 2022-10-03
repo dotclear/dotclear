@@ -16,7 +16,7 @@ if (!defined('DC_RC_PATH')) {
 class dcAdmin
 {
     /**
-     * Current plugin URL
+     * Current admin page URL
      *
      * @var string
      */
@@ -409,11 +409,11 @@ class dcAdmin
     }
 
     /**
-     * Sets the plugin URL.
+     * Sets the admin page URL.
      *
      * @param      string  $value  The value
      */
-    public function setPluginURL(string $value): void
+    public function setPageURL(string $value): void
     {
         $this->p_url = $value;
 
@@ -422,11 +422,11 @@ class dcAdmin
     }
 
     /**
-     * Gets the plugin URL.
+     * Gets the admin page URL.
      *
      * @return     string   The URL.
      */
-    public function getPluginURL(): string
+    public function getPageURL(): string
     {
         return (string) $this->p_url;
     }

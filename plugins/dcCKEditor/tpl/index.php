@@ -10,7 +10,7 @@
     <h3 class="hidden-if-js">
       <?php echo __('Settings'); ?>
     </h3>
-    <form action="<?php echo dcCore::app()->admin->getPluginURL(); ?>" enctype="multipart/form-data" method="post">
+    <form action="<?php echo dcCore::app()->admin->getPageURL(); ?>" enctype="multipart/form-data" method="post">
       <div class="fieldset">
         <h3>
           <?php echo __('Plugin activation'); ?>

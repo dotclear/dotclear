@@ -78,7 +78,7 @@ class dcThemeEditor
                     $list_tpl .= sprintf($li, $k, html::escapeHTML($k));
                 }
             }
-            $list .= ($list_theme  != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
+            $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
             $list .= ($list_parent != '' ? sprintf(
                 '<li class="group-file">' . __('From parent:') . ' %s<ul>%s</ul></li>',
                 $this->parent_name,
@@ -105,7 +105,7 @@ class dcThemeEditor
         return sprintf('<ul>%s</ul>', $list);
     }
 
-    public function getFileContent($type, $f)
+    public function getFileContent($type, $f): array
     {
         $files = $this->getFilesFromType($type);
 
@@ -249,7 +249,7 @@ class dcThemeEditor
         return false;
     }
 
-    protected function getFilesFromType($type)
+    protected function getFilesFromType(string $type): array
     {
         switch ($type) {
             case 'tpl':
@@ -267,7 +267,7 @@ class dcThemeEditor
         }
     }
 
-    protected function updateFileInList($type, $f, $file)
+    protected function updateFileInList(string $type, $f, $file)
     {
         switch ($type) {
             case 'tpl':
@@ -337,7 +337,7 @@ class dcThemeEditor
     protected function findLocales()
     {
         $langs = l10n::getISOcodes(true, true);
-        foreach ($langs as $k => $v) {
+        foreach ($langs as $v) {
             if ($this->parent_theme) {
                 $this->po = array_merge($this->po, $this->getFilesInDir($this->parent_theme . '/locales/' . $v, 'po', $v . '/'));
             }

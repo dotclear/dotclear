@@ -12,10 +12,19 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$act = !empty($_REQUEST['act']) ? $_REQUEST['act'] : 'list';
-
-if ($act == 'page') {
-    include __DIR__ . '/page.php';
-} else {
-    include __DIR__ . '/list.php';
+class adminPagesRoute
+{
+    /**
+     * Initializes the page.
+     */
+    public static function init()
+    {
+        if (($_REQUEST['act'] ?? 'list') === 'page') {
+            include __DIR__ . '/page.php';
+        } else {
+            include __DIR__ . '/list.php';
+        }
+    }
 }
+
+adminPagesRoute::init();
