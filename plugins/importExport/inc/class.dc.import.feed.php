@@ -14,17 +14,35 @@ if (!defined('DC_RC_PATH')) {
 
 class dcImportFeed extends dcIeModule
 {
-    protected $status   = false;
+    /**
+     * Current status
+     *
+     * @var        bool
+     */
+    protected $status = false;
+
+    /**
+     * Feed URL
+     *
+     * @var        string
+     */
     protected $feed_url = '';
 
-    // IPv6 functions (from https://gist.github.com/tbaschak/7866688)
-    private function gethostbyname6($host, $try_a = false)
+    /**
+     * get AAAA record for $host
+     *
+     * If $try_a is true, if AAAA fails, it tries for A
+     * The first match found is returned otherwise returns false
+     *
+     * IPv6 functions (from https://gist.github.com/tbaschak/7866688)
+     *
+     * @param      string  $host   The host
+     * @param      bool    $try_a  The try a
+     *
+     * @return     bool|string
+     */
+    private function gethostbyname6(string $host, bool $try_a = false)
     {
-        // get AAAA record for $host
-        // if $try_a is true, if AAAA fails, it tries for A
-        // the first match found is returned
-        // otherwise returns false
-
         $dns = $this->gethostbynamel6($host, $try_a);
         if (!$dns) {
             return false;
@@ -32,13 +50,20 @@ class dcImportFeed extends dcIeModule
 
         return $dns[0];
     }
-    private function gethostbynamel6($host, $try_a = false)
-    {
-        // get AAAA records for $host,
-        // if $try_a is true, if AAAA fails, it tries for A
-        // results are returned in an array of ips found matching type
-        // otherwise returns false
 
+    /**
+     * get AAAA records for $host
+     *
+     * If $try_a is true, if AAAA fails, it tries for A
+     * Results are returned in an array of ips found matching type otherwise returns false
+     *
+     * @param      string      $host   The host
+     * @param      bool        $try_a  The try a
+     *
+     * @return     array|bool
+     */
+    private function gethostbynamel6(string $host, bool $try_a = false)
+    {
         $dns6 = dns_get_record($host, DNS_AAAA);
         if ($try_a) {
             $dns4 = dns_get_record($host, DNS_A);
@@ -71,16 +96,24 @@ class dcImportFeed extends dcIeModule
         return $ip6;
     }
 
-    public function setInfo()
+    /**
+     * Sets the module information.
+     */
+    public function setInfo(): void
     {
         $this->type        = 'import';
         $this->name        = __('RSS or Atom feed import');
         $this->description = __('Add a feed content to the blog.');
     }
 
-    public function process($do)
+    /**
+     * Processes the import/export.
+     *
+     * @param      string  $do     action
+     */
+    public function process(string $do): void
     {
-        if ($do == 'ok') {
+        if ($do === 'ok') {
             $this->status = true;
 
             return;
@@ -164,7 +197,10 @@ class dcImportFeed extends dcIeModule
         http::redirect($this->getURL() . '&do=ok');
     }
 
-    public function gui()
+    /**
+     * GUI for import/export module
+     */
+    public function gui(): void
     {
         if ($this->status) {
             dcPage::success(__('Content successfully imported.'));
@@ -182,6 +218,6 @@ class dcImportFeed extends dcIeModule
         form::hidden(['do'], 1) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
-            '</form>';
+        '</form>';
     }
 }

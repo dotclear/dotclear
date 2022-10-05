@@ -13,6 +13,6 @@ if (!defined('DC_RC_PATH')) {
 }
 
 Clearbricks::lib()->autoload([
-    'dcLegacyEditorBehaviors' => __DIR__ . '/inc/dc.legacy.editor.behaviors.php',
+    'dcLegacyEditorBehaviors' => __DIR__ . '/inc/admin.behaviors.php',
     'dcLegacyEditorRest'      => __DIR__ . '/_services.php',
 ]);

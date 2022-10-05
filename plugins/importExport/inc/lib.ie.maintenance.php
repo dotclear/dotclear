@@ -21,7 +21,10 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
     protected $export_name;
     protected $export_type;
 
-    protected function init()
+    /**
+     * Initialize task object.
+     */
+    protected function init(): void
     {
         $this->name = __('Database export');
         $this->task = __('Download database of current blog');
@@ -30,6 +33,14 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
         $this->export_type = 'export_blog';
     }
 
+    /**
+     * Execute task.
+     *
+     * @return    mixed
+     *    - FALSE on error,
+     *    - TRUE if task is finished
+     *    - INT if task required a next step
+     */
     public function execute()
     {
         // Create zip file
@@ -51,11 +62,17 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
         }
     }
 
+    /**
+     * Get step message.
+     *
+     * This message is displayed during task step execution.
+     *
+     * @return    mixed    Message or null
+     */
     public function step()
     {
         // Download zip file
         if (isset($_SESSION['export_file']) && file_exists($_SESSION['export_file'])) {
-
             // Log task execution here as we sent file and stop script
             $this->log();
 
@@ -95,7 +112,10 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
     protected $export_name;
     protected $export_type;
 
-    protected function init()
+    /**
+     * Initialize task object.
+     */
+    protected function init(): void
     {
         $this->name = __('Database export');
         $this->task = __('Download database of all blogs');
@@ -104,6 +124,14 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
         $this->export_type = 'export_all';
     }
 
+    /**
+     * Execute task.
+     *
+     * @return    mixed
+     *    - FALSE on error,
+     *    - TRUE if task is finished
+     *    - INT if task required a next step
+     */
     public function execute()
     {
         // Create zip file
@@ -125,6 +153,13 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
         }
     }
 
+    /**
+     * Get step message.
+     *
+     * This message is displayed during task step execution.
+     *
+     * @return    mixed    Message or null
+     */
     public function step()
     {
         // Download zip file
@@ -169,7 +204,7 @@ class maintenanceDcExportFlat extends dcExportFlat
      *
      * @param      string  $id     Task ID
      */
-    public function setURL($id)
+    public function setURL(string $id): void
     {
         $this->url = sprintf('plugin.php?p=maintenance&task=%s', $id);
     }

@@ -12,4 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-Clearbricks::lib()->autoload(['dcMaintenanceBuildtools' => __DIR__ . '/class.dc.maintenance.buildtools.php']);
+Clearbricks::lib()->autoload([
+    'dcMaintenanceBuildtools' => __DIR__ . '/inc/maintenance.buildtools.php',
+    'dcBuildTools'            => __DIR__ . '/inc/buildtools.php',
+]);

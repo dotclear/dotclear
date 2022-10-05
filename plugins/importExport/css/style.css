@@ -1,0 +1,14 @@
+dl.modules dt {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 1em 0 0 0;
+}
+dl.modules dd {
+  margin: 0 0 1.5em 0;
+}
+div.ie-progress progress {
+  width: 100%;
+}
+div.ie-progress {
+  margin: 1em 0;
+}

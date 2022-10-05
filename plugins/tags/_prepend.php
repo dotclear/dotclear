@@ -12,10 +12,16 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', ['urlTags', 'tag']);
-dcCore::app()->url->register('tags', 'tags', '^tags$', ['urlTags', 'tags']);
-dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', ['urlTags', 'tagFeed']);
+Clearbricks::lib()->autoload([
+    'tagsBehaviors'       => __DIR__ . '/inc/admin.behaviors.php',
+    'publicBehaviorsTags' => __DIR__ . '/inc/public.behaviors.php',
+    'urlTags'             => __DIR__ . '/inc/public.url.php',
+    'tplTags'             => __DIR__ . '/inc/public.tpl.php',
+    'tagsWidgets'         => __DIR__ . '/inc/widgets.php',
+]);
 
-Clearbricks::lib()->autoload(['tagsBehaviors' => __DIR__ . '/inc/tags.behaviors.php']);
+dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', [urlTags::class, 'tag']);
+dcCore::app()->url->register('tags', 'tags', '^tags$', [urlTags::class, 'tags']);
+dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', [urlTags::class, 'tagFeed']);
 
-dcCore::app()->addBehavior('coreInitWikiPost', ['tagsBehaviors', 'coreInitWikiPost']);
+dcCore::app()->addBehavior('coreInitWikiPost', [tagsBehaviors::class, 'coreInitWikiPost']);

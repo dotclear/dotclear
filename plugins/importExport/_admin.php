@@ -24,20 +24,27 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
 
 dcCore::app()->addBehavior(
     'adminDashboardFavoritesV2',
-    function ($favs) {
+    function (dcFavorites $favs) {
         $favs->register('importExport', [
             'title'       => __('Import/Export'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.importExport'),
             'small-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
             'large-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
-            'permissions' => 'admin',
+            'permissions' => dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_ADMIN,
+            ]),
         ]);
     }
 );
 
 dcCore::app()->addBehavior(
+    'importExportModulesV2',
+    [importExportBehaviors::class, 'registerIeModules']
+);
+
+dcCore::app()->addBehavior(
     'dcMaintenanceInit',
-    function ($maintenance) {
+    function (dcMaintenance $maintenance) {
         $maintenance
             ->addTask('ieMaintenanceExportblog')
             ->addTask('ieMaintenanceExportfull')

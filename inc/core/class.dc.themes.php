@@ -74,7 +74,10 @@ class dcThemes extends dcModules
             ],
             $properties,
             [
-                'permissions' => 'admin', // overwrite themes permisions
+                // overwrite themes permisions
+                'permissions' => dcCore::app()->auth->makePermissions([
+                    dcAuth::PERMISSION_ADMIN,
+                ]),
             ]
         );
 
@@ -94,9 +97,7 @@ class dcThemes extends dcModules
         if (!is_dir($root) || !is_readable($root)) {
             throw new Exception(__('Themes folder unreachable'));
         }
-        if (substr($root, -1) != '/') {
-            $root .= '/';
-        }
+        $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         if ((@dir($root)) === false) {
             throw new Exception(__('Themes folder unreadable'));
         }
@@ -112,18 +113,26 @@ class dcThemes extends dcModules
             try {
                 // Create destination folder named $new_dir in themes folder
                 files::makeDir($new_dir, false);
-                // Copy files
+
+                // Clone directories and files
+
                 $content = files::getDirList($this->modules[$id]['root']);
+
+                // Create sub directories if necessary
                 foreach ($content['dirs'] as $dir) {
                     $rel = substr($dir, strlen($this->modules[$id]['root']));
                     if ($rel !== '') {
                         files::makeDir($new_dir . $rel);
                     }
                 }
+
+                // Copy files from source to destination
                 foreach ($content['files'] as $file) {
+                    // Copy file
                     $rel = substr($file, strlen($this->modules[$id]['root']));
                     copy($file, $new_dir . $rel);
-                    if ($rel === '/_define.php') {
+
+                    if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
                         $buf = file_get_contents($new_dir . $rel);
                         // Find offset of registerModule function call
                         $pos = strpos($buf, '$this->registerModule');
@@ -135,9 +144,10 @@ class dcThemes extends dcModules
                             $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $this->modules[$id]['name']);
                             file_put_contents($new_dir . $rel, $buf);
                         } else {
-                            throw new Exception(__('Unable to modify _config.php'));
+                            throw new Exception(__('Unable to modify _define.php'));
                         }
                     }
+
                     if (substr($rel, -4) === '.php') {
                         // Change namespace in *.php
                         // ex: namespace themes\berlin; → namespace themes\berlinClone;
@@ -179,9 +189,9 @@ class dcThemes extends dcModules
                     // This is not a real cascade - since we don't call loadNsFile -,
                     // thus limiting inclusion process.
                     // TODO : See if we have to change this.
-                    $this->loadModuleFile($this->modules[$parent]['root'] . '/_public.php');
+                    $this->loadModuleFile($this->modules[$parent]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
                 }
-                $this->loadModuleFile($this->modules[$id]['root'] . '/_public.php');
+                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
 
                 break;
         }

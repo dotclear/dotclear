@@ -18,8 +18,11 @@ $this->registerModule(
     'Olivier Meunier',          // Author
     '1.1.1',                    // Version
     [
-        'permissions' => 'usage,contentadmin',
-        'priority'    => 200,
-        'type'        => 'plugin',
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'priority' => 200,
+        'type'     => 'plugin',
     ]
 );

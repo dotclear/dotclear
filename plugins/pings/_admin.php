@@ -20,16 +20,14 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     dcCore::app()->auth->isSuperAdmin()
 );
 
-Clearbricks::lib()->autoload(['pingsAdminBehaviors' => __DIR__ . '/lib.pings.php']);
-
-dcCore::app()->addBehavior('adminPostHeaders', ['pingsAdminBehaviors', 'pingJS']);
-dcCore::app()->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems']);
-dcCore::app()->addBehavior('adminAfterPostCreate', ['pingsAdminBehaviors', 'doPings']);
-dcCore::app()->addBehavior('adminAfterPostUpdate', ['pingsAdminBehaviors', 'doPings']);
+dcCore::app()->addBehavior('adminPostHeaders', [pingsAdminBehaviors::class, 'pingJS']);
+dcCore::app()->addBehavior('adminPostFormItems', [pingsAdminBehaviors::class, 'pingsFormItems']);
+dcCore::app()->addBehavior('adminAfterPostCreate', [pingsAdminBehaviors::class, 'doPings']);
+dcCore::app()->addBehavior('adminAfterPostUpdate', [pingsAdminBehaviors::class, 'doPings']);
 
 dcCore::app()->addBehavior(
     'adminDashboardFavoritesV2',
-    function ($favs) {
+    function (dcFavorites $favs) {
         $favs->register('pings', [
             'title'      => __('Pings'),
             'url'        => dcCore::app()->adminurl->get('admin.plugin.pings'),
@@ -39,17 +37,8 @@ dcCore::app()->addBehavior(
     }
 );
 
-dcCore::app()->addBehavior('adminPageHelpBlock', function ($blocks) {
-    $found = false;
-    foreach ($blocks as $block) {
-        if ($block == 'core_post') {
-            $found = true;
-
-            break;
-        }
+dcCore::app()->addBehavior('adminPageHelpBlock', function (ArrayObject $blocks) {
+    if (array_search('core_post', $blocks->getArrayCopy(), true) !== false) {
+        $blocks->append('pings_post');
     }
-    if (!$found) {
-        return;
-    }
-    $blocks[] = 'pings_post';
 });

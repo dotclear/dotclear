@@ -18,6 +18,8 @@ $this->registerModule(
     'dcTeam',                                 // Author
     '1.0',                                    // Version
     [
-        'permissions' => 'admin',
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]),
     ]
 );

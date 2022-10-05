@@ -59,14 +59,20 @@ class dcImportWP extends dcIeModule
     ];
     protected $formaters;
 
-    protected function setInfo()
+    /**
+     * Sets the module information.
+     */
+    protected function setInfo(): void
     {
         $this->type        = 'import';
         $this->name        = __('WordPress import');
         $this->description = __('Import a WordPress installation into your current blog.');
     }
 
-    public function init()
+    /**
+     * Initializes the module.
+     */
+    public function init(): void
     {
         $this->con     = dcCore::app()->con;
         $this->prefix  = dcCore::app()->prefix;
@@ -84,20 +90,30 @@ class dcImportWP extends dcIeModule
         $this->formaters = dcAdminCombos::getFormatersCombo();
     }
 
-    public function resetVars()
+    public function resetVars(): void
     {
         $this->vars = $this->base_vars;
         unset($_SESSION['wp_import_vars']);
     }
 
-    public function process($do)
+    /**
+     * Processes the import/export.
+     *
+     * @param      string  $do     action
+     */
+    public function process(string $do): void
     {
         $this->action = $do;
     }
 
-    # We handle process in another way to always display something to
-    # user
-    protected function guiprocess($do)
+    /**
+     * Processes the import/export with GUI feedback.
+     *
+     * We handle process in another way to always display something to user
+     *
+     * @param      string  $do     action
+     */
+    protected function guiprocess(string $do): void
     {
         switch ($do) {
             case 'step1':
@@ -165,7 +181,10 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    public function gui()
+    /**
+     * GUI for import/export module
+     */
+    public function gui(): void
     {
         try {
             $this->guiprocess($this->action);
@@ -283,8 +302,16 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    # Simple form for step by step process
-    protected function imForm($step, $legend, $submit_value = null)
+    /**
+     * Return a simple form for step by step process
+     *
+     * @param      int          $step          The step
+     * @param      string       $legend        The legend
+     * @param      string       $submit_value  The submit value
+     *
+     * @return     string
+     */
+    protected function imForm(int $step, string $legend, ?string $submit_value = null)
     {
         if (!$submit_value) {
             $submit_value = __('next step') . ' >';
@@ -298,17 +325,28 @@ class dcImportWP extends dcIeModule
         '%s' . '</div>' .
         '<p><input type="submit" value="' . $submit_value . '" /></p>' .
         '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
-            '</form>';
+        '</form>';
     }
 
-    # Error display
-    protected function error($e)
+    /**
+     * Error display
+     *
+     * @param      Exception  $e      The error
+     */
+    protected function error(Exception $e): void
     {
-        echo '<div class="error"><strong>' . __('Errors:') . '</strong>' .
+        echo
+        '<div class="error"><strong>' . __('Errors:') . '</strong>' .
         '<p>' . $e->getMessage() . '</p></div>';
     }
 
-    # Database init
+    /**
+     * DB init
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
     protected function db()
     {
         $db = dbLayer::init('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
@@ -342,13 +380,22 @@ class dcImportWP extends dcIeModule
         return $db;
     }
 
-    protected function cleanStr($str)
+    /**
+     * Clean a string
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
+     */
+    protected function cleanStr(string $str): string
     {
         return text::cleanUTF8(@text::toUTF8($str));
     }
 
-    # Users import
-    protected function importUsers()
+    /**
+     * Users import
+     */
+    protected function importUsers(): void
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
@@ -451,8 +498,10 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    # Categories import
-    protected function importCategories()
+    /**
+     * Categories import
+     */
+    protected function importCategories(): void
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
@@ -495,8 +544,10 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    # Blogroll import
-    protected function importLinks()
+    /**
+     * Blogroll import
+     */
+    protected function importLinks(): void
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
@@ -530,7 +581,13 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    # Entries import
+    /**
+     * Entries import
+     *
+     * @param      int     $percent  The percent
+     *
+     * @return     mixed
+     */
     protected function importPosts(&$percent)
     {
         $db        = $this->db();
@@ -582,7 +639,13 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    protected function importPost($rs, $db)
+    /**
+     * Entry import
+     *
+     * @param      mixed    $rs     The record
+     * @param      mixed    $db     The database
+     */
+    protected function importPost($rs, $db): void
     {
         $post_date = !@strtotime($rs->post_date) ? '1970-01-01 00:00' : $rs->post_date;
         if (!isset($this->vars['user_ids'][$rs->post_author])) {
@@ -704,8 +767,14 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    # Comments import
-    protected function importComments($post_id, $new_post_id, $db)
+    /**
+     * Comments import
+     *
+     * @param      string  $post_id      The post identifier
+     * @param      int     $new_post_id  The new post identifier
+     * @param      mixed   $db           The database
+     */
+    protected function importComments(string $post_id, int $new_post_id, $db): void
     {
         $count_c = $count_t = 0;
 
@@ -755,13 +824,19 @@ class dcImportWP extends dcIeModule
                 'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' SET ' .
                 'nb_comment = ' . $count_c . ', ' .
                 'nb_trackback = ' . $count_t . ' ' .
-                'WHERE post_id = ' . (int) $new_post_id . ' '
+                'WHERE post_id = ' . $new_post_id . ' '
             );
         }
     }
 
-    # Pings import
-    protected function importPings($post_id, $new_post_id, $db)
+    /**
+     * Pings import
+     *
+     * @param      string  $post_id      The post identifier
+     * @param      int     $new_post_id  The new post identifier
+     * @param      mixed   $db           The database
+     */
+    protected function importPings(string $post_id, int $new_post_id, $db): void
     {
         $urls  = [];
         $pings = [];
@@ -780,7 +855,7 @@ class dcImportWP extends dcIeModule
             }
 
             $cur           = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
-            $cur->post_id  = (int) $new_post_id;
+            $cur->post_id  = $new_post_id;
             $cur->ping_url = $url;
             $cur->insert();
 
@@ -788,8 +863,14 @@ class dcImportWP extends dcIeModule
         }
     }
 
-    # Meta import
-    protected function importTags($post_id, $new_post_id, $db)
+    /**
+     * Meta import
+     *
+     * @param      string  $post_id      The post identifier
+     * @param      int     $new_post_id  The new post identifier
+     * @param      mixed   $db           The database
+     */
+    protected function importTags(string $post_id, int $new_post_id, $db): void
     {
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'terms AS t, ' .

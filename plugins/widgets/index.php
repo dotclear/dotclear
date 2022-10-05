@@ -19,9 +19,10 @@ class adminWidgets
      */
     public static function init()
     {
-        include __DIR__ . '/_default_widgets.php';
+        // Init default widgets
+        defaultWidgets::init();
 
-        # Loading navigation, extra widgets and custom widgets
+        // Loading navigation, extra widgets and custom widgets
         dcCore::app()->admin->widgets_nav = null;
         if (dcCore::app()->blog->settings->widgets->widgets_nav) {
             dcCore::app()->admin->widgets_nav = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_nav);

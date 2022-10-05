@@ -21,6 +21,10 @@ class adminBlogroll
      */
     public static function init()
     {
+        dcPage::check(dcCore::app()->auth->makePermissions([
+            dcLinks::PERMISSION_BLOGROLL,
+        ]));
+
         dcCore::app()->admin->blogroll = new dcBlogroll(dcCore::app()->blog);
 
         if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
@@ -45,7 +49,6 @@ class adminBlogroll
     public static function process()
     {
         if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
-
             // Import links - download file
 
             dcCore::app()->admin->default_tab = 'import-links';
@@ -79,7 +82,6 @@ class adminBlogroll
         }
 
         if (!empty($_POST['import_links_do'])) {
-
             // Import links - import entries
 
             foreach ($_POST['entries'] as $idx) {
@@ -100,7 +102,6 @@ class adminBlogroll
         }
 
         if (!empty($_POST['cancel_import'])) {
-
             // Cancel import
 
             dcCore::app()->error->add(__('Import operation cancelled.'));
@@ -108,7 +109,6 @@ class adminBlogroll
         }
 
         if (!empty($_POST['add_link'])) {
-
             // Add link
 
             dcCore::app()->admin->link_title = html::escapeHTML($_POST['link_title']);
@@ -128,7 +128,6 @@ class adminBlogroll
         }
 
         if (!empty($_POST['add_cat'])) {
-
             // Add category
 
             dcCore::app()->admin->cat_title = html::escapeHTML($_POST['cat_title']);
@@ -144,7 +143,6 @@ class adminBlogroll
         }
 
         if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
-
             // Delete link
 
             foreach ($_POST['remove'] as $k => $v) {
@@ -175,7 +173,6 @@ class adminBlogroll
         }
 
         if (!empty($_POST['saveorder']) && !empty($order)) {
-
             // Order links
 
             foreach ($order as $pos => $l) {

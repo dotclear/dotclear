@@ -19,6 +19,10 @@ class adminBlogrollEdit
      */
     public static function init()
     {
+        dcPage::check(dcCore::app()->auth->makePermissions([
+            dcLinks::PERMISSION_BLOGROLL,
+        ]));
+
         dcCore::app()->admin->id = html::escapeHTML($_REQUEST['id']);
 
         dcCore::app()->admin->rs = null;
@@ -51,7 +55,6 @@ class adminBlogrollEdit
     public static function process()
     {
         if (isset(dcCore::app()->admin->rs) && !dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_link'])) {
-
             // Update a link
 
             dcCore::app()->admin->link_title = html::escapeHTML($_POST['link_title']);
@@ -94,7 +97,6 @@ class adminBlogrollEdit
         }
 
         if (isset(dcCore::app()->admin->rs) && dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_cat'])) {
-
             // Update a category
 
             dcCore::app()->admin->link_desc = html::escapeHTML($_POST['link_desc']);

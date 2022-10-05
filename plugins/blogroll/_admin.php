@@ -12,15 +12,20 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
+dcCore::app()->auth->setPermissionType(dcLinks::PERMISSION_BLOGROLL, __('manage blogroll'));
+
 dcCore::app()->addBehavior(
     'adminDashboardFavoritesV2',
-    function ($favs) {
+    function (dcFavorites $favs) {
         $favs->register('blogroll', [
             'title'       => __('Blogroll'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.blogroll'),
             'small-icon'  => [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
             'large-icon'  => [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
-            'permissions' => 'usage,contentadmin',
+            'permissions' => dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_USAGE,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]),
         ]);
     }
 );
@@ -39,7 +44,5 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
         dcAuth::PERMISSION_CONTENT_ADMIN,
     ]), dcCore::app()->blog->id)
 );
-
-dcCore::app()->auth->setPermissionType('blogroll', __('manage blogroll'));
 
 require __DIR__ . '/_widgets.php';

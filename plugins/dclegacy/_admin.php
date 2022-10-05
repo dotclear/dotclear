@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior('adminFiltersListsV2', ['dcLegacyPreferences', 'adminFiltersLists']);
+dcCore::app()->addBehavior('adminFiltersListsV2', [dcLegacyPreferences::class, 'adminFiltersLists']);
 
 /* Handle deprecated 2.20 filter-controls user preferences :
  * Now all in dcCore::app()->auth->user_prefs->interface->sorts

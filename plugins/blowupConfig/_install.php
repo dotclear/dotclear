@@ -12,14 +12,27 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = dcCore::app()->plugins->moduleInfo('blowupConfig', 'version');
-if (version_compare(dcCore::app()->getVersion('blowupConfig'), $version, '>=')) {
-    return;
+class installBlowupConfig
+{
+    /**
+     * Installs the plugin.
+     *
+     * @return     mixed
+     */
+    public static function install()
+    {
+        $version = dcCore::app()->plugins->moduleInfo('blowupConfig', 'version');
+        if (version_compare(dcCore::app()->getVersion('blowupConfig'), $version, '>=')) {
+            return;
+        }
+
+        dcCore::app()->blog->settings->addNamespace('themes');
+        dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
+
+        dcCore::app()->setVersion('blowupConfig', $version);
+
+        return true;
+    }
 }
 
-dcCore::app()->blog->settings->addNamespace('themes');
-dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up  custom style', false);
-
-dcCore::app()->setVersion('blowupConfig', $version);
-
-return true;
+return installBlowupConfig::install();

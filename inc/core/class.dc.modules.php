@@ -26,6 +26,27 @@ class dcModules
     public const PACKAGE_INSTALLED = 1;
     public const PACKAGE_UPDATED   = 2;
 
+    /**
+     * Default module priority
+     *
+     * @var        int
+     */
+    public const DEFAULT_PRIORITY = 1000;
+
+    /**
+     * Module's files
+     *
+     * @var        string
+     */
+    public const MODULE_FILE_INSTALL  = '_install.php';
+    public const MODULE_FILE_INIT     = '_init.php';
+    public const MODULE_FILE_DEFINE   = '_define.php';
+    public const MODULE_FILE_PREPEND  = '_prepend.php';
+    public const MODULE_FILE_ADMIN    = '_admin.php';
+    public const MODULE_FILE_PUBLIC   = '_public.php';
+    public const MODULE_FILE_XMLRPC   = '_xmlrpc.php';
+    public const MODULE_FILE_DISABLED = '_disabled';
+
     // Properties
 
     /**
@@ -276,6 +297,37 @@ class dcModules
     }
 
     /**
+     * Get list of modules in a directory
+     *
+     * @param      string  $root   The root modules directory to parse
+     *
+     * @return     array   List of modules, may be an empty array
+     */
+    protected function parsePathModules(string $root): array
+    {
+        if (!is_dir($root) || !is_readable($root)) {
+            return [];
+        }
+
+        $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+        if (($d = @dir($root)) === false) {
+            return [];
+        }
+
+        // Dir cache
+        $stack = [];
+        while (($entry = $d->read()) !== false) {
+            $full_entry = $root . $entry;
+            if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
+                $stack[] = $entry;
+            }
+        }
+        $d->close();
+
+        return $stack;
+    }
+
+    /**
      * Loads modules. <var>$path</var> could be a separated list of paths
      * (path separator depends on your OS).
      *
@@ -301,56 +353,66 @@ class dcModules
 
         $ignored = [];
 
+        // First loop to init
         foreach ($this->path as $root) {
-            if (!is_dir($root) || !is_readable($root)) {
-                continue;
-            }
+            $stack = $this->parsePathModules($root);
 
-            if (substr($root, -1) != '/') {
-                $root .= '/';
-            }
-
-            if (($d = @dir($root)) === false) {
-                continue;
-            }
-
-            while (($entry = $d->read()) !== false) {
+            // Init loop
+            $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+            foreach ($stack as $entry) {
                 $full_entry = $root . $entry;
-
-                if ($entry != '.' && $entry != '..' && is_dir($full_entry) && file_exists($full_entry . '/_define.php')) {
-                    $this->id       = $entry;
-                    $this->mroot    = $full_entry;
-                    $module_enabled = !file_exists($full_entry . '/_disabled') && !$disabled;
-                    if (!$module_enabled) {
-                        $this->disabled_mode = true;
-                    }
+                if (!file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) && !$disabled && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
                     ob_start();
-                    require $full_entry . '/_define.php';
+                    require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
                     ob_end_clean();
-                    if ($module_enabled) {
-                        $this->all_modules[$entry] = &$this->modules[$entry];
-                    } else {
-                        $this->disabled_mode       = false;
-                        $this->disabled[$entry]    = $this->disabled_meta;
-                        $this->all_modules[$entry] = &$this->disabled[$entry];
-                    }
-                    $this->id    = null;
-                    $this->mroot = null;
                 }
             }
-            $d->close();
+        }
+
+        // Second loop to register
+        foreach ($this->path as $root) {
+            $stack = $this->parsePathModules($root);
+
+            // Register loop
+            $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+            foreach ($stack as $entry) {
+                $full_entry     = $root . $entry;
+                $this->id       = $entry;
+                $this->mroot    = $full_entry;
+                $module_enabled = !file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) && !$disabled;
+                if (!$module_enabled) {
+                    $this->disabled_mode = true;
+                }
+                ob_start();
+                require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
+                ob_end_clean();
+                if ($module_enabled) {
+                    $this->all_modules[$entry] = &$this->modules[$entry];
+                } else {
+                    $this->disabled_mode       = false;
+                    $this->disabled[$entry]    = $this->disabled_meta;
+                    $this->all_modules[$entry] = &$this->disabled[$entry];
+                }
+                $this->id    = null;
+                $this->mroot = null;
+            }
         }
         $this->checkDependencies();
-        # Sort plugins
+
+        // Sort plugins
+        //
+        // Plugins with lower priority are loaded first (in alphabetic order for the same priority)
+        // Plugins without priority are set to dcModules::DEFAULT_PRIORITY (1000)
         uasort($this->modules, [$this, 'sortModules']);
 
+        // Context loop
         foreach ($this->modules as $id => $m) {
             # Load translation and _prepend
-            if (isset($m['root']) && file_exists($m['root'] . '/_prepend.php')) {
-                $r = $this->loadModuleFile($m['root'] . '/_prepend.php');
+            if (isset($m['root']) && file_exists($m['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
+                $r = $this->loadModuleFile($m['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND);
 
-                # If _prepend.php file returns null (ie. it has a void return statement)
                 if (is_null($r)) {
+                    // If _prepend.php file returns null (ie. it has a void return statement)
                     $ignored[] = $id;
 
                     continue;
@@ -368,14 +430,39 @@ class dcModules
         // Give opportunity to do something before loading context (admin,public,xmlrpc) files
         dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
-        foreach ($this->modules as $id => $m) {
-            # If _prepend.php file returns null (ie. it has a void return statement)
-            if (in_array($id, $ignored)) {
-                continue;
+        foreach (array_keys($this->modules) as $id) {
+            if (!in_array($id, $ignored)) {
+                // Load ns_file
+                $this->loadNsFile($id, $ns);
             }
-            # Load ns_file
-            $this->loadNsFile($id, $ns);
         }
+    }
+
+    /**
+     * Sort callback
+     *
+     * @param      array      $first_module       1st module
+     * @param      array      $second_module      2nd module
+     *
+     * @return     int
+     */
+    private function sortModules(?array $first_module, ?array $second_module): int
+    {
+        if (!$first_module || !$second_module) {
+            // One or both of modules is not defined
+            return 0;
+        }
+
+        $first  = $first_module['priority']  ?? dcModules::DEFAULT_PRIORITY;
+        $second = $second_module['priority'] ?? dcModules::DEFAULT_PRIORITY;
+
+        if ($first === $second) {
+            // Use alphabetic order
+            return strcasecmp($first_module['name'], $second_module['name']);
+        }
+
+        // Compare priorities
+        return $first <=> $second;
     }
 
     /**
@@ -386,10 +473,13 @@ class dcModules
      */
     public function requireDefine(string $dir, string $id)
     {
-        if (file_exists($dir . '/_define.php')) {
+        if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
             $this->id = $id;
             ob_start();
-            require $dir . '/_define.php';
+            if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+                require $dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
+            }
+            require $dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
             ob_end_clean();
             $this->id = null;
         }
@@ -446,7 +536,7 @@ class dcModules
         $properties = array_merge(
             [
                 'permissions'       => null,
-                'priority'          => 1000,
+                'priority'          => dcModules::DEFAULT_PRIORITY,
                 'standalone_config' => false,
                 'type'              => null,
                 'enabled'           => true,
@@ -496,7 +586,7 @@ class dcModules
                 );
             } else {
                 $path1 = path::real($this->moduleInfo($name, 'root') ?? '');
-                $path2 = path::real($this->mroot                     ?? '');
+                $path2 = path::real($this->mroot ?? '');
 
                 $this->errors[] = sprintf(
                     __('Module "%s" is installed twice in "%s" and "%s".'),
@@ -537,13 +627,13 @@ class dcModules
         $define       = '';
         if ($zip_root_dir != false) {
             $target      = dirname($zip_file);
-            $destination = $target . '/' . $zip_root_dir;
-            $define      = $zip_root_dir . '/_define.php';
+            $destination = $target . DIRECTORY_SEPARATOR . $zip_root_dir;
+            $define      = $zip_root_dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
             $has_define  = $zip->hasFile($define);
         } else {
-            $target      = dirname($zip_file) . '/' . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
+            $target      = dirname($zip_file) . DIRECTORY_SEPARATOR . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
             $destination = $target;
-            $define      = '_define.php';
+            $define      = self::MODULE_FILE_DEFINE;
             $has_define  = $zip->hasFile($define);
         }
 
@@ -568,11 +658,11 @@ class dcModules
                 files::makeDir($destination, true);
 
                 $sandbox = clone $modules;
-                $zip->unzip($define, $target . '/_define.php');
+                $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
-                unlink($target . '/_define.php');
+                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $new_errors = $sandbox->getErrors();
                 if (!empty($new_errors)) {
@@ -592,11 +682,11 @@ class dcModules
         } else {
             # test for update
             $sandbox = clone $modules;
-            $zip->unzip($define, $target . '/_define.php');
+            $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
-            unlink($target . '/_define.php');
+            unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
             $new_modules = $sandbox->getModules();
 
             if (!empty($new_modules)) {
@@ -619,7 +709,7 @@ class dcModules
                 $zip->close();
                 unlink($zip_file);
 
-                throw new Exception(sprintf(__('Unable to read new _define.php file')));
+                throw new Exception(sprintf(__('Unable to read new %s file', self::MODULE_FILE_DEFINE)));
             }
         }
         $zip->unzipAll($target);
@@ -674,7 +764,7 @@ class dcModules
         }
 
         try {
-            if ($this->loadModuleFile($this->modules[$id]['root'] . '/_install.php') === true) {
+            if ($this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL) === true) {
                 return true;
             }
         } catch (Exception $e) {
@@ -726,7 +816,7 @@ class dcModules
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
-        if (@file_put_contents($this->modules[$id]['root'] . '/_disabled', '')) {
+        if (@file_put_contents($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
     }
@@ -748,7 +838,7 @@ class dcModules
             throw new Exception(__('Cannot activate plugin.'));
         }
 
-        if (@unlink($this->disabled[$id]['root'] . '/_disabled') === false) {
+        if (@unlink($this->disabled[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) === false) {
             throw new Exception(__('Cannot activate plugin.'));
         }
     }
@@ -775,7 +865,7 @@ class dcModules
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
         if ($lang && isset($this->modules[$id])) {
-            $lfile = $this->modules[$id]['root'] . '/locales/%s/%s';
+            $lfile = $this->modules[$id]['root'] . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             if (l10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
                 l10n::set(sprintf($lfile, 'en', $file));
             }
@@ -791,7 +881,7 @@ class dcModules
     public function loadModuleL10Nresources(string $id, ?string $lang): void
     {
         if ($lang && isset($this->modules[$id])) {
-            if ($f = l10n::getFilePath($this->modules[$id]['root'] . '/locales', 'resources.php', $lang)) {
+            if ($f = l10n::getFilePath($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
                 $this->loadModuleFile($f);
             }
         }
@@ -895,15 +985,15 @@ class dcModules
         }
         switch ($ns) {
             case 'admin':
-                $this->loadModuleFile($this->modules[$id]['root'] . '/_admin.php');
+                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_ADMIN);
 
                 break;
             case 'public':
-                $this->loadModuleFile($this->modules[$id]['root'] . '/_public.php');
+                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
 
                 break;
             case 'xmlrpc':
-                $this->loadModuleFile($this->modules[$id]['root'] . '/_xmlrpc.php');
+                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_XMLRPC);
 
                 break;
         }
@@ -951,28 +1041,5 @@ class dcModules
         }
 
         return require $________;
-    }
-
-    /**
-     * Sort callback
-     *
-     * @param      array      $first_module       1st module
-     * @param      array      $second_module      2nd module
-     *
-     * @return     int
-     */
-    private function sortModules(?array $first_module, ?array $second_module): int
-    {
-        if (!$first_module || !$second_module) {
-            return 1;
-        }
-        if (!isset($first_module['priority']) || !isset($second_module['priority'])) {
-            return 1;
-        }
-        if ($first_module['priority'] == $second_module['priority']) {
-            return strcasecmp($first_module['name'], $second_module['name']);
-        }
-
-        return ($first_module['priority'] < $second_module['priority']) ? -1 : 1;
     }
 }

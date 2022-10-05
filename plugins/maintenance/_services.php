@@ -32,7 +32,7 @@ class dcMaintenanceRest
      *
      * @return     xmlTag     XML representation of response.
      */
-    public static function step(dcCore $core, $get, $post)
+    public static function step(dcCore $core, array $get, array $post): xmlTag
     {
         if (!isset($post['task'])) {
             throw new Exception('No task ID');

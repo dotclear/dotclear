@@ -18,8 +18,12 @@ $this->registerModule(
     'Dotclear Team',           // Author
     '1.1',                     // Version
     [
-        'permissions' => 'usage,contentadmin,pages',
-        'priority'    => 999,
-        'type'        => 'plugin',
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcPages::PERMISSION_PAGES,
+        ]),
+        'priority' => 999,
+        'type'     => 'plugin',
     ]
 );

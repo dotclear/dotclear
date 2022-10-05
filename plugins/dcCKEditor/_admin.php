@@ -28,12 +28,12 @@ $self_ns = dcCore::app()->blog->settings->addNamespace('dcckeditor');
 if ($self_ns->active) {
     dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
 
-    dcCore::app()->addBehavior('adminPostEditor', ['dcCKEditorBehaviors', 'adminPostEditor']);
-    dcCore::app()->addBehavior('adminPopupMedia', ['dcCKEditorBehaviors', 'adminPopupMedia']);
-    dcCore::app()->addBehavior('adminPopupLink', ['dcCKEditorBehaviors', 'adminPopupLink']);
-    dcCore::app()->addBehavior('adminPopupPosts', ['dcCKEditorBehaviors', 'adminPopupPosts']);
+    dcCore::app()->addBehavior('adminPostEditor', [dcCKEditorBehaviors::class, 'adminPostEditor']);
+    dcCore::app()->addBehavior('adminPopupMedia', [dcCKEditorBehaviors::class, 'adminPopupMedia']);
+    dcCore::app()->addBehavior('adminPopupLink', [dcCKEditorBehaviors::class, 'adminPopupLink']);
+    dcCore::app()->addBehavior('adminPopupPosts', [dcCKEditorBehaviors::class, 'adminPopupPosts']);
 
-    dcCore::app()->addBehavior('adminMediaURL', ['dcCKEditorBehaviors', 'adminMediaURL']);
+    dcCore::app()->addBehavior('adminMediaURL', [dcCKEditorBehaviors::class, 'adminMediaURL']);
 
-    dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', ['dcCKEditorBehaviors', 'adminPageHTTPHeaderCSP']);
+    dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', [dcCKEditorBehaviors::class, 'adminPageHTTPHeaderCSP']);
 }

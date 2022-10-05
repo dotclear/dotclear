@@ -14,18 +14,31 @@ if (!defined('DC_RC_PATH')) {
 
 class dcImportFlat extends dcIeModule
 {
-    protected $status = false;
+    /**
+     * Current import type (full|single)
+     *
+     * @var        string
+     */
+    protected $status = '';
 
-    public function setInfo()
+    /**
+     * Sets the module information.
+     */
+    public function setInfo(): void
     {
         $this->type        = 'import';
         $this->name        = __('Flat file import');
         $this->description = __('Imports a blog or a full Dotclear installation from flat file.');
     }
 
-    public function process($do)
+    /**
+     * Processes the import/export.
+     *
+     * @param      string  $do     action
+     */
+    public function process(string $do): void
     {
-        if ($do == 'single' || $do == 'full') {
+        if ($do === 'single' || $do === 'full') {
             $this->status = $do;
 
             return;
@@ -141,14 +154,17 @@ class dcImportFlat extends dcIeModule
         exit;
     }
 
-    public function gui()
+    /**
+     * GUI for import/export module
+     */
+    public function gui(): void
     {
-        if ($this->status == 'single') {
+        if ($this->status === 'single') {
             dcPage::success(__('Single blog successfully imported.'));
 
             return;
         }
-        if ($this->status == 'full') {
+        if ($this->status === 'full') {
             dcPage::success(__('Content successfully imported.'));
 
             return;
@@ -229,7 +245,12 @@ class dcImportFlat extends dcIeModule
         }
     }
 
-    protected function getPublicFiles()
+    /**
+     * Gets the public files.
+     *
+     * @return     array  The public files.
+     */
+    protected function getPublicFiles(): array
     {
         $public_files = [];
         $dir          = @dir(dcCore::app()->blog->public_path);
@@ -238,7 +259,7 @@ class dcImportFlat extends dcIeModule
                 $entry_path = $dir->path . '/' . $entry;
 
                 if (is_file($entry_path) && is_readable($entry_path)) {
-                    # Do not test each zip file content here, its too long
+                    // Do not test each zip file content here, its too long
                     if (substr($entry_path, -4) == '.zip') {
                         $public_files[$entry] = $entry_path;
                     } elseif (self::checkFileContent($entry_path)) {
@@ -251,7 +272,14 @@ class dcImportFlat extends dcIeModule
         return $public_files;
     }
 
-    protected static function checkFileContent($entry_path)
+    /**
+     * Check if the file is in flat export format
+     *
+     * @param      string  $entry_path  The entry path
+     *
+     * @return     bool    ( description_of_the_return_value )
+     */
+    protected static function checkFileContent(string $entry_path): bool
     {
         $ret = false;
 
@@ -262,7 +290,16 @@ class dcImportFlat extends dcIeModule
         return $ret;
     }
 
-    private function unzip($file)
+    /**
+     * Unzip a file
+     *
+     * @param      string     $file   The file
+     *
+     * @throws     Exception
+     *
+     * @return     bool|string
+     */
+    private function unzip(string $file)
     {
         $zip = new fileUnzip($file);
 

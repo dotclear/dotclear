@@ -33,11 +33,11 @@ if ($self_ns->active) {
     dcCore::app()->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
     dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki2xhtml, 'transform']);
 
-    dcCore::app()->addBehavior('adminPostEditor', ['dcLegacyEditorBehaviors', 'adminPostEditor']);
-    dcCore::app()->addBehavior('adminPopupMedia', ['dcLegacyEditorBehaviors', 'adminPopupMedia']);
-    dcCore::app()->addBehavior('adminPopupLink', ['dcLegacyEditorBehaviors', 'adminPopupLink']);
-    dcCore::app()->addBehavior('adminPopupPosts', ['dcLegacyEditorBehaviors', 'adminPopupPosts']);
+    dcCore::app()->addBehavior('adminPostEditor', [dcLegacyEditorBehaviors::class, 'adminPostEditor']);
+    dcCore::app()->addBehavior('adminPopupMedia', [dcLegacyEditorBehaviors::class, 'adminPopupMedia']);
+    dcCore::app()->addBehavior('adminPopupLink', [dcLegacyEditorBehaviors::class, 'adminPopupLink']);
+    dcCore::app()->addBehavior('adminPopupPosts', [dcLegacyEditorBehaviors::class, 'adminPopupPosts']);
 
     // Register REST methods
-    dcCore::app()->rest->addFunction('wikiConvert', ['dcLegacyEditorRest', 'convert']);
+    dcCore::app()->rest->addFunction('wikiConvert', [dcLegacyEditorRest::class, 'convert']);
 }

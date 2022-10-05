@@ -39,14 +39,20 @@ class dcImportDC1 extends dcIeModule
         'cat_ids'    => [],
     ];
 
-    protected function setInfo()
+    /**
+     * Sets the module information.
+     */
+    protected function setInfo(): void
     {
         $this->type        = 'import';
         $this->name        = __('Dotclear 1.2 import');
         $this->description = __('Import a Dotclear 1.2 installation into your current blog.');
     }
 
-    public function init()
+    /**
+     * Initializes the module.
+     */
+    public function init(): void
     {
         $this->con     = dcCore::app()->con;
         $this->prefix  = dcCore::app()->prefix;
@@ -68,14 +74,24 @@ class dcImportDC1 extends dcIeModule
         unset($_SESSION['dc1_import_vars']);
     }
 
-    public function process($do)
+    /**
+     * Processes the import/export.
+     *
+     * @param      string  $do     action
+     */
+    public function process(string $do): void
     {
         $this->action = $do;
     }
 
-    # We handle process in another way to always display something to
-    # user
-    protected function guiprocess($do)
+    /**
+     * Processes the import/export with GUI feedback.
+     *
+     * We handle process in another way to always display something to user
+     *
+     * @param      string  $do     action
+     */
+    protected function guiprocess(string $do): void
     {
         switch ($do) {
             case 'step1':
@@ -138,7 +154,10 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    public function gui()
+    /**
+     * GUI for import/export module
+     */
+    public function gui(): void
     {
         try {
             $this->guiprocess($this->action);
@@ -238,8 +257,16 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Simple form for step by step process
-    protected function imForm($step, $legend, $submit_value = null)
+    /**
+     * Return a simple form for step by step process
+     *
+     * @param      int          $step          The step
+     * @param      string       $legend        The legend
+     * @param      string       $submit_value  The submit value
+     *
+     * @return     string
+     */
+    protected function imForm(int $step, string $legend, ?string $submit_value = null): string
     {
         if (!$submit_value) {
             $submit_value = __('next step') . ' >';
@@ -253,17 +280,27 @@ class dcImportDC1 extends dcIeModule
         '%s' . '</div>' .
         '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '" /></p>' .
         '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
-            '</form>';
+        '</form>';
     }
 
-    # Error display
-    protected function error($e)
+    /**
+     * Error display
+     *
+     * @param      Exception  $e      The error
+     */
+    protected function error(Exception $e)
     {
-        echo '<div class="error"><strong>' . __('Errors:') . '</strong>' .
-        '<p>' . $e->getMessage() . '</p></div>';
+        echo
+        '<div class="error"><strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p></div>';
     }
 
-    # Database init
+    /**
+     * DB init
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
     protected function db()
     {
         $db = dbLayer::init($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
@@ -277,7 +314,7 @@ class dcImportDC1 extends dcIeModule
             $this->has_table[$rs->f(0)] = true;
         }
 
-        # Set this to read data as they were written in Dotclear 1
+        // Set this to read data as they were written in Dotclear 1
         try {
             $db->execute('SET NAMES DEFAULT');
         } catch (Exception $e) {
@@ -296,13 +333,22 @@ class dcImportDC1 extends dcIeModule
         return $db;
     }
 
-    protected function cleanStr($str)
+    /**
+     * Clean a string
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
+     */
+    protected function cleanStr(string $str): string
     {
         return text::cleanUTF8(@text::toUTF8($str));
     }
 
-    # Users import
-    protected function importUsers()
+    /**
+     * User import
+     */
+    protected function importUsers(): void
     {
         $db         = $this->db();
         $dc1_prefix = $this->vars['db_prefix'];
@@ -369,8 +415,10 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Categories import
-    protected function importCategories()
+    /**
+     * Categories import
+     */
+    protected function importCategories(): void
     {
         $db         = $this->db();
         $dc1_prefix = $this->vars['db_prefix'];
@@ -407,8 +455,10 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Blogroll import
-    protected function importLinks()
+    /**
+     * Blogroll import
+     */
+    protected function importLinks(): void
     {
         $db         = $this->db();
         $dc1_prefix = $this->vars['db_prefix'];
@@ -444,7 +494,13 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Entries import
+    /**
+     * Entries import
+     *
+     * @param      int     $percent  The progress (in %)
+     *
+     * @return     mixed
+     */
     protected function importPosts(&$percent)
     {
         $db         = $this->db();
@@ -486,7 +542,13 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    protected function importPost($rs, $db)
+    /**
+     * Entry import
+     *
+     * @param      mixed    $rs     The record
+     * @param      mixed    $db     The database
+     */
+    protected function importPost($rs, $db): void
     {
         $cur              = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
         $cur->blog_id     = $this->blog_id;
@@ -539,8 +601,14 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Comments import
-    protected function importComments($post_id, $new_post_id, $db)
+    /**
+     * Comments import
+     *
+     * @param      string  $post_id      The post identifier
+     * @param      int     $new_post_id  The new post identifier
+     * @param      mixed   $db           The database
+     */
+    protected function importComments(string $post_id, int $new_post_id, $db): void
     {
         $count_c = $count_t = 0;
 
@@ -551,7 +619,7 @@ class dcImportDC1 extends dcIeModule
 
         while ($rs->fetch()) {
             $cur                    = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
-            $cur->post_id           = (int) $new_post_id;
+            $cur->post_id           = $new_post_id;
             $cur->comment_author    = $this->cleanStr($rs->comment_auteur);
             $cur->comment_status    = (int) $rs->comment_pub;
             $cur->comment_dt        = $rs->comment_dt;
@@ -597,8 +665,14 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Pings import
-    protected function importPings($post_id, $new_post_id, $db)
+    /**
+     * Pings import
+     *
+     * @param      string  $post_id      The post identifier
+     * @param      int     $new_post_id  The new post identifier
+     * @param      mixed   $db           The database
+     */
+    protected function importPings(string $post_id, int $new_post_id, $db): void
     {
         $urls = [];
 
@@ -623,8 +697,14 @@ class dcImportDC1 extends dcIeModule
         }
     }
 
-    # Meta import
-    protected function importMeta($post_id, $new_post_id, $db)
+    /**
+     * Meta import
+     *
+     * @param      string  $post_id      The post identifier
+     * @param      int     $new_post_id  The new post identifier
+     * @param      mixed   $db           The database
+     */
+    protected function importMeta(string $post_id, int $new_post_id, $db): void
     {
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'post_meta ' .

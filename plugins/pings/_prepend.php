@@ -13,8 +13,9 @@ if (!defined('DC_RC_PATH')) {
 }
 
 Clearbricks::lib()->autoload([
-    'pingsAPI'           => __DIR__ . '/lib.pings.php',
-    'pingsCoreBehaviour' => __DIR__ . '/lib.pings.php',
+    'pingsAPI'            => __DIR__ . '/inc/lib.pings.php',
+    'pingsCoreBehaviour'  => __DIR__ . '/inc/core.behaviors.php',
+    'pingsAdminBehaviors' => __DIR__ . '/inc/admin.behaviors.php',
 ]);
 
-dcCore::app()->addBehavior('coreFirstPublicationEntries', ['pingsCoreBehaviour', 'doPings']);
+dcCore::app()->addBehavior('coreFirstPublicationEntries', [pingsCoreBehaviour::class, 'doPings']);

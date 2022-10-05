@@ -18,9 +18,11 @@ $this->registerModule(
     'Olivier Meunier & Association Dotclear', // Author
     '1.3.1',                                  // Version
     [
-        'permissions' => 'admin',
-        'type'        => 'plugin',
-        'settings'    => [
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]),
+        'type'     => 'plugin',
+        'settings' => [
             'self' => '#settings',
         ],
     ]

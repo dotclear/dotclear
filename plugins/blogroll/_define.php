@@ -18,7 +18,9 @@ $this->registerModule(
     'Olivier Meunier',      // Author
     '1.5',                  // Version
     [
-        'permissions' => 'blogroll',
-        'type'        => 'plugin',
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcLinks::PERMISSION_BLOGROLL,
+        ]),
+        'type' => 'plugin',
     ]
 );

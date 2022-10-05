@@ -357,7 +357,7 @@ class dcAdmin
             dcCore::app()->blog->settings->addNamespace('themes');
 
             # Admin behaviors
-            dcCore::app()->addBehavior('adminPopupPosts', ['dcAdminBlogPref', 'adminPopupPosts']);
+            dcCore::app()->addBehavior('adminPopupPosts', [dcAdminBlogPref::class, 'adminPopupPosts']);
         }
     }
 

@@ -19,9 +19,9 @@ class dcAntispamRest
      *
      * @return     xmlTag  The spams count.
      */
-    public static function getSpamsCount()
+    public static function getSpamsCount(): xmlTag
     {
-        $count = dcAntispam::countSpam(dcCore::app());
+        $count = dcAntispam::countSpam();
         if ($count > 0) {
             $str = sprintf(($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)'), $count);
         } else {

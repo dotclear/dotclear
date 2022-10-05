@@ -18,10 +18,13 @@ $this->registerModule(
     'Olivier Meunier', // Author
     '1.6',             // Version
     [
-        'permissions' => 'usage,contentadmin',
-        'priority'    => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
-        'type'        => 'plugin',
-        'settings'    => [
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'priority' => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
+        'type'     => 'plugin',
+        'settings' => [
             'pref' => '#user-options.tags_prefs',
         ],
     ]

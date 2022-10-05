@@ -19,8 +19,6 @@ class adminBlowupConfig
      */
     public static function init()
     {
-        Clearbricks::lib()->autoload(['blowupConfig' => __DIR__ . '/lib/class.blowup.config.php']);
-
         dcCore::app()->admin->can_write_images = blowupConfig::canWriteImages();
         dcCore::app()->admin->can_write_css    = blowupConfig::canWriteCss();
 

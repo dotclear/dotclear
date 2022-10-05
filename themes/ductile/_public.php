@@ -11,6 +11,7 @@
 
 namespace themes\ductile;
 
+use ArrayObject;
 use dcCore;
 
 if (!defined('DC_RC_PATH')) {
@@ -32,7 +33,7 @@ if (!defined('DC_RC_PATH')) {
 
 class tplDuctileTheme
 {
-    public static function ductileNbEntryPerPage($attr)
+    public static function ductileNbEntryPerPage(ArrayObject $attr): string
     {
         $nb = $attr['nb'] ?? null;
 
@@ -82,7 +83,7 @@ class tplDuctileTheme
         }
     }
 
-    public static function EntryIfContentIsCut($attr, $content)
+    public static function EntryIfContentIsCut(ArrayObject $attr, string $content): string
     {
         if (empty($attr['cut_string']) || !empty($attr['full'])) {
             return '';
@@ -105,7 +106,7 @@ class tplDuctileTheme
             '<?php endif; ?>';
     }
 
-    public static function ductileEntriesList($attr)
+    public static function ductileEntriesList(ArrayObject $attr): string
     {
         $tpl_path   = __DIR__ . '/tpl/';
         $list_types = ['title', 'short', 'full'];
@@ -139,7 +140,7 @@ class tplDuctileTheme
         return $ret;
     }
 
-    public static function ductileEntriesListHelper($default)
+    public static function ductileEntriesListHelper(?string $default): string
     {
         $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_entries_lists');
         if ($s !== null) {
@@ -152,12 +153,12 @@ class tplDuctileTheme
         return $default;
     }
 
-    public static function ductileLogoSrc()
+    public static function ductileLogoSrc(): string
     {
         return '<?php echo ' . __NAMESPACE__ . '\tplDuctileTheme::ductileLogoSrcHelper(); ?>';
     }
 
-    public static function ductileLogoSrcHelper()
+    public static function ductileLogoSrcHelper(): string
     {
         $img_url = \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/img/logo.png';
 
@@ -185,7 +186,7 @@ class tplDuctileTheme
         return $img_url;
     }
 
-    public static function IfPreviewIsNotMandatory($attr, $content)
+    public static function IfPreviewIsNotMandatory(ArrayObject $attr, string $content): string
     {
         $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_style');
         if ($s !== null) {
@@ -213,7 +214,7 @@ class tplDuctileTheme
             if (!is_array($s)) {
                 $default = true;
             } else {
-                $s = array_filter($s, 'self::cleanStickers');
+                $s = array_filter($s, [self::class, 'cleanStickers']);
                 if (count($s) == 0) {
                     $default = true;
                 } else {
@@ -237,7 +238,7 @@ class tplDuctileTheme
         }
     }
 
-    protected static function cleanStickers($s)
+    protected static function cleanStickers(array $s): bool
     {
         if (is_array($s) && isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null) {
             return true;
@@ -246,7 +247,7 @@ class tplDuctileTheme
         return false;
     }
 
-    protected static function setSticker($position, $last, $label, $url, $image)
+    protected static function setSticker(int $position, bool $last, ?string $label = '', ?string $url = '', ?string $image = ''): string
     {
         return '<li id="sticker' . $position . '"' . ($last ? ' class="last"' : '') . '>' . "\n" .
             '<a href="' . $url . '">' . "\n" .

@@ -19,8 +19,6 @@ class adminThemeEditor
      */
     public static function init()
     {
-        require __DIR__ . '/class.themeEditor.php';
-
         dcCore::app()->admin->file_default = dcCore::app()->admin->file = [
             'c'            => null,
             'w'            => false,

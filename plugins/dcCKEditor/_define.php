@@ -18,9 +18,12 @@ $this->registerModule(
     'dotclear Team',                 // Author
     '1.2',                           // Version
     [
-        'permissions' => 'usage,contentadmin',
-        'type'        => 'plugin',
-        'settings'    => [
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'type'     => 'plugin',
+        'settings' => [
             'self' => '',
             'pref' => '#user-options.user_options_edition',
         ],

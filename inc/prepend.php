@@ -12,10 +12,10 @@ define('DC_START_TIME', microtime(true));
 
 /* ------------------------------------------------------------------------------------------- */
 #  ClearBricks, DotClear classes auto-loader
-if (@is_dir('/usr/lib/clearbricks')) {
-    define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
-} elseif (is_dir(__DIR__ . '/libs/clearbricks')) {
-    define('CLEARBRICKS_PATH', __DIR__ . '/libs/clearbricks');
+if (@is_dir(DIRECTORY_SEPARATOR . 'usr' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'clearbricks')) {
+    define('CLEARBRICKS_PATH', DIRECTORY_SEPARATOR . 'usr' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'clearbricks');
+} elseif (is_dir(__DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'clearbricks')) {
+    define('CLEARBRICKS_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'clearbricks');
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }
@@ -24,96 +24,101 @@ if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
     exit('No clearbricks path defined');
 }
 
-require CLEARBRICKS_PATH . '/_common.php';
+require CLEARBRICKS_PATH . DIRECTORY_SEPARATOR . '_common.php';
 
 Clearbricks::lib()->autoload([
-    'dcCore' => __DIR__ . '/core/class.dc.core.php',
+    'dcCore' => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.core.php',
 
-    'dcAuth'            => __DIR__ . '/core/class.dc.auth.php',
-    'dcBlog'            => __DIR__ . '/core/class.dc.blog.php',
-    'dcCategories'      => __DIR__ . '/core/class.dc.categories.php',
-    'dcError'           => __DIR__ . '/core/class.dc.error.php',
-    'dcMeta'            => __DIR__ . '/core/class.dc.meta.php',
-    'dcMedia'           => __DIR__ . '/core/class.dc.media.php',
-    'dcPostMedia'       => __DIR__ . '/core/class.dc.postmedia.php',
-    'dcModules'         => __DIR__ . '/core/class.dc.modules.php',
-    'dcPlugins'         => __DIR__ . '/core/class.dc.plugins.php',
-    'dcThemes'          => __DIR__ . '/core/class.dc.themes.php',
-    'dcRestServer'      => __DIR__ . '/core/class.dc.rest.php',
-    'dcNamespace'       => __DIR__ . '/core/class.dc.namespace.php',
-    'dcNotices'         => __DIR__ . '/core/class.dc.notices.php',
-    'dcSettings'        => __DIR__ . '/core/class.dc.settings.php',
-    'dcTrackback'       => __DIR__ . '/core/class.dc.trackback.php',
-    'dcUpdate'          => __DIR__ . '/core/class.dc.update.php',
-    'dcUtils'           => __DIR__ . '/core/class.dc.utils.php',
-    'dcXmlRpc'          => __DIR__ . '/core/class.dc.xmlrpc.php',
-    'dcLog'             => __DIR__ . '/core/class.dc.log.php',
-    'rsExtLog'          => __DIR__ . '/core/class.dc.log.php',
-    'dcWorkspace'       => __DIR__ . '/core/class.dc.workspace.php',
-    'dcPrefs'           => __DIR__ . '/core/class.dc.prefs.php',
-    'dcStore'           => __DIR__ . '/core/class.dc.store.php',
-    'dcStoreReader'     => __DIR__ . '/core/class.dc.store.reader.php',
-    'dcStoreParser'     => __DIR__ . '/core/class.dc.store.parser.php',
-    'dcSqlStatement'    => __DIR__ . '/core/class.dc.sql.statement.php',
-    'dcSelectStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
-    'dcUpdateStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
-    'dcDeleteStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
-    'dcInsertStatement' => __DIR__ . '/core/class.dc.sql.statement.php',
-    'dcRecord'          => __DIR__ . '/core/class.dc.record.php',
-    'rsExtPost'         => __DIR__ . '/core/class.dc.rs.extensions.php',
-    'rsExtComment'      => __DIR__ . '/core/class.dc.rs.extensions.php',
-    'rsExtDates'        => __DIR__ . '/core/class.dc.rs.extensions.php',
-    'rsExtUser'         => __DIR__ . '/core/class.dc.rs.extensions.php',
-    'rsExtBlog'         => __DIR__ . '/core/class.dc.rs.extensions.php',
+    'dcAuth'            => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.auth.php',
+    'dcBlog'            => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.blog.php',
+    'dcCategories'      => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.categories.php',
+    'dcError'           => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.error.php',
+    'dcMeta'            => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.meta.php',
+    'dcMedia'           => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.media.php',
+    'dcPostMedia'       => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.postmedia.php',
+    'dcModules'         => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.modules.php',
+    'dcPlugins'         => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.plugins.php',
+    'dcThemes'          => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.themes.php',
+    'dcRestServer'      => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.rest.php',
+    'dcNamespace'       => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.namespace.php',
+    'dcNotices'         => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.notices.php',
+    'dcSettings'        => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.settings.php',
+    'dcTrackback'       => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.trackback.php',
+    'dcUpdate'          => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.update.php',
+    'dcUtils'           => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.utils.php',
+    'dcXmlRpc'          => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.xmlrpc.php',
+    'dcLog'             => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.log.php',
+    'rsExtLog'          => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.log.php',
+    'dcWorkspace'       => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.workspace.php',
+    'dcPrefs'           => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.prefs.php',
+    'dcStore'           => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.store.php',
+    'dcStoreReader'     => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.store.reader.php',
+    'dcStoreParser'     => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.store.parser.php',
+    'dcSqlStatement'    => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.sql.statement.php',
+    'dcSelectStatement' => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.sql.statement.php',
+    'dcUpdateStatement' => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.sql.statement.php',
+    'dcDeleteStatement' => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.sql.statement.php',
+    'dcInsertStatement' => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.sql.statement.php',
+    'dcRecord'          => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.record.php',
+    'rsExtPost'         => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.rs.extensions.php',
+    'rsExtComment'      => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.rs.extensions.php',
+    'rsExtDates'        => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.rs.extensions.php',
+    'rsExtUser'         => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.rs.extensions.php',
+    'rsExtBlog'         => __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'class.dc.rs.extensions.php',
 
-    'dcUpgrade' => __DIR__ . '/dbschema/upgrade.php',
+    // Upgrade
+    'dcUpgrade' => __DIR__ . DIRECTORY_SEPARATOR . 'dbschema' . DIRECTORY_SEPARATOR . 'upgrade.php',
 
-    'dcAdmin'              => __DIR__ . '/admin/class.dc.admin.php',
-    'dcMenu'               => __DIR__ . '/admin/class.dc.menu.php',
-    'dcFavorites'          => __DIR__ . '/admin/class.dc.favorites.php',
-    'dcPage'               => __DIR__ . '/admin/lib.dc.page.php',
-    'adminGenericListV2'   => __DIR__ . '/admin/lib.pager.php',             // V2
-    'adminPostList'        => __DIR__ . '/admin/lib.pager.php',
-    'adminPostMiniList'    => __DIR__ . '/admin/lib.pager.php',
-    'adminCommentList'     => __DIR__ . '/admin/lib.pager.php',
-    'adminBlogList'        => __DIR__ . '/admin/lib.pager.php',
-    'adminUserList'        => __DIR__ . '/admin/lib.pager.php',
-    'adminMediaList'       => __DIR__ . '/admin/lib.pager.php',
-    'dcPager'              => __DIR__ . '/admin/lib.pager.php',
-    'dcAdminCombos'        => __DIR__ . '/admin/lib.admincombos.php',
-    'dcAdminFilter'        => __DIR__ . '/admin/lib.adminfilters.php',
-    'dcAdminFilters'       => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminGenericFilterV2' => __DIR__ . '/admin/lib.adminfilters.php',      // V2
-    'adminPostFilter'      => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminCommentFilter'   => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminUserFilter'      => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminBlogFilter'      => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminMediaFilter'     => __DIR__ . '/admin/lib.adminfilters.php',
-    'adminModulesList'     => __DIR__ . '/admin/lib.moduleslist.php',
-    'adminThemesList'      => __DIR__ . '/admin/lib.moduleslist.php',
-    'dcThemeConfig'        => __DIR__ . '/admin/lib.themeconfig.php',
-    'dcAdminURL'           => __DIR__ . '/admin/lib.dc.adminurl.php',
-    'dcAdminNotices'       => __DIR__ . '/admin/lib.dc.notices.php',
-    'dcPostsActions'       => __DIR__ . '/admin/actions/class.dcactionposts.php',
-    'dcCommentsActions'    => __DIR__ . '/admin/actions/class.dcactioncomments.php',
-    'dcBlogsActions'       => __DIR__ . '/admin/actions/class.dcactionblogs.php',
-    'dcActions'            => __DIR__ . '/admin/actions/class.dcaction.php',
-    'dcAdminBlogPref'      => __DIR__ . '/admin/class.dc.blog_pref.php',
-    'adminUserPref'        => __DIR__ . '/admin/lib.adminuserpref.php',
-    'dcAdminHelper'        => __DIR__ . '/admin/lib.helper.php',
-    'formDiv'              => __DIR__ . '/admin/html.form/class.form.div.php',
-    'formLink'             => __DIR__ . '/admin/html.form/class.form.link.php',
-    'formNote'             => __DIR__ . '/admin/html.form/class.form.note.php',
-    'formPara'             => __DIR__ . '/admin/html.form/class.form.para.php',
-    'formText'             => __DIR__ . '/admin/html.form/class.form.text.php',
+    // Admin
+    'dcAdmin'              => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'class.dc.admin.php',
+    'dcMenu'               => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'class.dc.menu.php',
+    'dcFavorites'          => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'class.dc.favorites.php',
+    'dcPage'               => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.dc.page.php',
+    'adminGenericListV2'   => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',             // V2
+    'adminPostList'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'adminPostMiniList'    => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'adminCommentList'     => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'adminBlogList'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'adminUserList'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'adminMediaList'       => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'dcPager'              => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.pager.php',
+    'dcAdminCombos'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.admincombos.php',
+    'dcAdminFilter'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'dcAdminFilters'       => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'adminGenericFilterV2' => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',      // V2
+    'adminPostFilter'      => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'adminCommentFilter'   => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'adminUserFilter'      => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'adminBlogFilter'      => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'adminMediaFilter'     => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminfilters.php',
+    'adminModulesList'     => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.moduleslist.php',
+    'adminThemesList'      => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.moduleslist.php',
+    'dcThemeConfig'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.themeconfig.php',
+    'dcAdminURL'           => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.dc.adminurl.php',
+    'dcAdminNotices'       => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.dc.notices.php',
+    'dcAdminBlogPref'      => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'class.dc.blog_pref.php',
+    'adminUserPref'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.adminuserpref.php',
+    'dcAdminHelper'        => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'lib.helper.php',
 
-    'dcPublic'           => __DIR__ . '/public/class.dc.public.php',
-    'dcTemplate'         => __DIR__ . '/public/class.dc.template.php',
-    'context'            => __DIR__ . '/public/lib.tpl.context.php',
-    'dcUrlHandlers'      => __DIR__ . '/public/lib.urlhandlers.php',
-    'rsExtendPublic'     => __DIR__ . '/public/rs.extension.php',
-    'rsExtPostPublic'    => __DIR__ . '/public/rs.extension.php',
-    'rsExtCommentPublic' => __DIR__ . '/public/rs.extension.php',
+    'dcPostsActions'    => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'actions' . DIRECTORY_SEPARATOR . 'class.dcactionposts.php',
+    'dcCommentsActions' => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'actions' . DIRECTORY_SEPARATOR . 'class.dcactioncomments.php',
+    'dcBlogsActions'    => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'actions' . DIRECTORY_SEPARATOR . 'class.dcactionblogs.php',
+    'dcActions'         => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'actions' . DIRECTORY_SEPARATOR . 'class.dcaction.php',
+
+    'formDiv'  => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'html.form' . DIRECTORY_SEPARATOR . 'class.form.div.php',
+    'formLink' => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'html.form' . DIRECTORY_SEPARATOR . 'class.form.link.php',
+    'formNote' => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'html.form' . DIRECTORY_SEPARATOR . 'class.form.note.php',
+    'formPara' => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'html.form' . DIRECTORY_SEPARATOR . 'class.form.para.php',
+    'formText' => __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'html.form' . DIRECTORY_SEPARATOR . 'class.form.text.php',
+
+    // Public
+    'dcPublic'           => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'class.dc.public.php',
+    'dcTemplate'         => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'class.dc.template.php',
+    'context'            => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'lib.tpl.context.php',
+    'dcUrlHandlers'      => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'lib.urlhandlers.php',
+    'rsExtendPublic'     => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'rs.extension.php',
+    'rsExtPostPublic'    => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'rs.extension.php',
+    'rsExtCommentPublic' => __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'rs.extension.php',
 ]);
 
 mb_internal_encoding('UTF-8');
@@ -150,14 +155,16 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
 } else {
-    define('DC_RC_PATH', __DIR__ . '/config.php');
+    define('DC_RC_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'config.php');
 }
 
 if (!is_file(DC_RC_PATH)) {
-    if (strpos($_SERVER['SCRIPT_FILENAME'], '/admin') === false) {
-        $path = 'admin/install/wizard.php';
+    if (strpos($_SERVER['SCRIPT_FILENAME'], DIRECTORY_SEPARATOR . 'admin') === false) {
+        $path = 'admin' . DIRECTORY_SEPARATOR . 'install' . DIRECTORY_SEPARATOR . 'wizard.php';
     } else {
-        $path = strpos($_SERVER['PHP_SELF'], '/install') === false ? 'install/wizard.php' : 'wizard.php';
+        $path = strpos($_SERVER['PHP_SELF'], DIRECTORY_SEPARATOR . 'install') === false ?
+            'install' . DIRECTORY_SEPARATOR . 'wizard.php' :
+            'wizard.php';
     }
     http::redirect($path);
 }
@@ -179,10 +186,10 @@ if (!defined('DC_DEBUG')) {
 }
 
 # Constants
-define('DC_ROOT', path::real(__DIR__ . '/..'));
+define('DC_ROOT', path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
 define('DC_VERSION', '2.24-dev');
-define('DC_DIGESTS', __DIR__ . '/digests');
-define('DC_L10N_ROOT', __DIR__ . '/../locales');
+define('DC_DIGESTS', __DIR__ . DIRECTORY_SEPARATOR . 'digests');
+define('DC_L10N_ROOT', __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'locales');
 define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
 
 // Update Makefile if the following list is modified
@@ -302,7 +309,7 @@ if (!defined('DC_CRYPT_ALGO')) {
 }
 
 if (!defined('DC_TPL_CACHE')) {
-    define('DC_TPL_CACHE', (string) path::real(__DIR__ . '/..') . '/cache');
+    define('DC_TPL_CACHE', DC_ROOT . DIRECTORY_SEPARATOR . 'cache');
 }
 // Check existence of cache directory
 if (!is_dir(DC_TPL_CACHE)) {
@@ -320,7 +327,7 @@ if (!is_dir(DC_TPL_CACHE)) {
 }
 
 if (!defined('DC_VAR')) {
-    define('DC_VAR', (string) path::real(__DIR__ . '/..') . '/var');
+    define('DC_VAR', DC_ROOT . DIRECTORY_SEPARATOR . 'var');
 }
 // Check existence of var directory
 if (!is_dir(DC_VAR)) {
@@ -393,24 +400,24 @@ if (isset($__top_behaviors) && is_array($__top_behaviors)) {
 
 http::trimRequest();
 
-dcCore::app()->url->registerDefault(['dcUrlHandlers', 'home']);
+dcCore::app()->url->registerDefault([dcUrlHandlers::class, 'home']);
 
-dcCore::app()->url->registerError(['dcUrlHandlers', 'default404']);
+dcCore::app()->url->registerError([dcUrlHandlers::class, 'default404']);
 
-dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
-dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
-dcCore::app()->url->register('post', 'post', '^post/(.+)$', ['dcUrlHandlers', 'post']);
-dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', ['dcUrlHandlers', 'preview']);
-dcCore::app()->url->register('category', 'category', '^category/(.+)$', ['dcUrlHandlers', 'category']);
-dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', ['dcUrlHandlers', 'archive']);
+dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', [dcUrlHandlers::class, 'lang']);
+dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', [dcUrlHandlers::class, 'home']);
+dcCore::app()->url->register('post', 'post', '^post/(.+)$', [dcUrlHandlers::class, 'post']);
+dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', [dcUrlHandlers::class, 'preview']);
+dcCore::app()->url->register('category', 'category', '^category/(.+)$', [dcUrlHandlers::class, 'category']);
+dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', [dcUrlHandlers::class, 'archive']);
 
-dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', ['dcUrlHandlers', 'feed']);
-dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', ['dcUrlHandlers', 'trackback']);
-dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', ['dcUrlHandlers', 'webmention']);
-dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandlers', 'xmlrpc']);
+dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', [dcUrlHandlers::class, 'feed']);
+dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', [dcUrlHandlers::class, 'trackback']);
+dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', [dcUrlHandlers::class, 'webmention']);
+dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', [dcUrlHandlers::class, 'xmlrpc']);
 
-dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);
-dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);
+dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
+dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
 
 dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
@@ -484,7 +491,7 @@ function __error(string $summary, string $message, int $code = 0)
     if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
         include DC_ERRORFILE;
     } else {
-        include __DIR__ . '/core_error.php';
+        include __DIR__ . DIRECTORY_SEPARATOR . 'core_error.php';
     }
     exit;
 }
@@ -496,7 +503,7 @@ function init_prepend_l10n()
 {
     $detected_languages = http::getAcceptLanguages();
     foreach ($detected_languages as $language) {
-        if ($language === 'en' || l10n::set(DC_L10N_ROOT . '/' . $language . '/main') !== false) {
+        if ($language === 'en' || l10n::set(DC_L10N_ROOT . DIRECTORY_SEPARATOR . $language . DIRECTORY_SEPARATOR . 'main') !== false) {
             l10n::lang($language);
 
             // We stop at first accepted language

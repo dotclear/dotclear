@@ -348,8 +348,8 @@ class dcTemplate extends template
     /**
      * Gets the operator.
      *
-     * "or" (in any case) and "||"" are aliases
-     * "and" (in any case) and "&&"" are aliases
+     * - "or" (in any case) and "||"" are aliases
+     * - "and" (in any case) and "&&"" are aliases
      *
      * @param      string  $op     The operation
      *
@@ -500,7 +500,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      string      string to localized without quotes
+     *      - string      string to localized without quotes
      *
      * @param      ArrayObject    $attr      The attributes
      * @param      string         $str_attr  The attributes (one string form)
@@ -520,10 +520,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      start       int       Start (first = 1)
-     *      length      int       Length
-     *      even        (1|0)     Even / Odd
-     *      modulo      int       Modulo
+     *      - start       int       Start (first = 1)
+     *      - length      int       Length
+     *      - even        (1|0)     Even / Odd
+     *      - modulo      int       Modulo
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -557,7 +557,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -576,12 +576,12 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      type           (day|month|year)        Get days, months or years, default to "month"
-     *      category       category URL            Get dates of given category
-     *      no_context     (1|0)                   Override context information
-     *      order          (asc|desc)              Sort asc or desc
-     *      post_type      type                    Get dates of given type of entries, default to "post"
-     *      post_lang      lang                    Filter on the given language
+     *      - type           (day|month|year)        Get days, months or years, default to "month"
+     *      - category       category URL            Get dates of given category
+     *      - no_context     (1|0)                   Override context information
+     *      - order          (asc|desc)              Sort asc or desc
+     *      - post_type      type                    Get dates of given type of entries, default to "post"
+     *      - post_lang      lang                    Filter on the given language
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -700,8 +700,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format          Date format (default %B %Y)
-     *      any filters     See self::getFilters()
+     *      - format          Date format (default %B %Y)
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -722,7 +722,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -747,9 +747,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      type           (day|month|year)        Get days, months or years, default to "month"
-     *      post_type      type                    Get dates of given type of entries, default to "post"
-     *      post_lang      lang                    Filter on the given language
+     *      - type           (day|month|year)        Get days, months or years, default to "month"
+     *      - post_type      type                    Get dates of given type of entries, default to "post"
+     *      - post_lang      lang                    Filter on the given language
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -795,9 +795,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      type           (day|month|year)        Get days, months or years, default to "month"
-     *      post_type      type                    Get dates of given type of entries, default to "post"
-     *      post_lang      lang                    Filter on the given language
+     *      - type           (day|month|year)        Get days, months or years, default to "month"
+     *      - post_type      type                    Get dates of given type of entries, default to "post"
+     *      - post_lang      lang                    Filter on the given language
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -843,7 +843,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -862,7 +862,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -878,7 +878,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -894,7 +894,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -910,7 +910,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -926,7 +926,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -942,8 +942,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      type            (rss2|atom)     Feed type, default to "atom"
-     *      any filters     See self::getFilters()
+     *      - type            (rss2|atom)     Feed type, default to "atom"
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -964,7 +964,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -980,7 +980,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -996,7 +996,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1017,7 +1017,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1033,7 +1033,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1051,7 +1051,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1067,10 +1067,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format                  Use dt::str() (if iso8601 nor rfc822 were specified default to %Y-%m-%d %H:%M:%S)
-     *      iso8601         (1|0)   Use dt::iso8601()
-     *      rfc822          (1|0)   Use dt::rfc822()
-     *      any filters     See self::getFilters()
+     *      - format                  Use dt::str() (if iso8601 nor rfc822 were specified default to %Y-%m-%d %H:%M:%S)
+     *      - iso8601         (1|0)   Use dt::iso8601()
+     *      - rfc822          (1|0)   Use dt::rfc822()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1104,7 +1104,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1120,7 +1120,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1138,7 +1138,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1155,7 +1155,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1171,7 +1171,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1187,7 +1187,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      robots          (INDEX|NOINDEX|FOLLOW|NOFOLLOW|ARCHIVE|NOARCHIVE)   will surcharge the blog's parameters
+     *      - robots          (INDEX|NOINDEX|FOLLOW|NOFOLLOW|ARCHIVE|NOARCHIVE)   will surcharge the blog's parameters
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1205,7 +1205,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1220,12 +1220,13 @@ class dcTemplate extends template
      * tpl:BlogPostsURL [attributes] : Display the blog's posts URL (tpl value)
      *
      * Depends on blog's setting:
+     *
      * - with a static home : URL of last posts
      * - without : URL of the blog
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1259,7 +1260,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1278,7 +1279,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1295,7 +1296,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1315,10 +1316,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      cat_url                     Restrict to a category URL
-     *      post_type   (post|page|…)   Restrict to categories containing this type of entries
-     *      level       int             Restrict to categories of this level (>= 1)
-     *      with_empty  (0|1)           Include empty categories
+     *      - cat_url                     Restrict to a category URL
+     *      - post_type   (post|page|…)   Restrict to categories containing this type of entries
+     *      - level       int             Restrict to categories of this level (>= 1)
+     *      - with_empty  (0|1)           Include empty categories
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -1398,10 +1399,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      url                     Category has the given URL (see note 1)
-     *      urls                    Category has one of the given comma separated urls (see note 1 for each)
-     *      has_entries     (0|1)   Category has entries (if 1), or not (if 0)
-     *      has_description (0|1)   Category has description (if 1), or not (if 0)
+     *      - url                     Category has the given URL (see note 1)
+     *      - urls                    Category has one of the given comma separated urls (see note 1 for each)
+     *      - has_entries     (0|1)   Category has entries (if 1), or not (if 0)
+     *      - has_description (0|1)   Category has description (if 1), or not (if 0)
      *
      *      Notes:
      *
@@ -1519,8 +1520,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      type            (rss2|atom)     Feed type, default to "atom"
-     *      any filters     See self::getFilters()
+     *      - type            (rss2|atom)     Feed type, default to "atom"
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1544,7 +1545,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1560,7 +1561,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1578,7 +1579,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1594,7 +1595,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1610,7 +1611,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1626,8 +1627,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      count_only      (1|0)   Display only counter value
-     *      any filters     See self::getFilters()
+     *      - count_only      (1|0)   Display only counter value
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -1655,20 +1656,20 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      lastn               int         Limit number of results to specified value
-     *      author              string      Get entries for a given user id
-     *      category            string      Get entries for specific categories only (comma-separated categories), see note 1
-     *      no_category         (1|0)       Get entries without category
-     *      with_category       (1|0)       Get entries with a category
-     *      no_context          (1|0)       Override context information
-     *      sortby              (title|selected|author|date|id)     Specify entries sort criteria (default : date), see note 2
-     *      order               (desc|asc)  specify entries order (default : desc)
-     *      no_content          (0|1)       Do not retrieve entries content
-     *      selected            (0|1)       Retrieve posts marked as selected only (if 1) or not selected only (if 0)
-     *      url                 string      Retrieve post by its url
-     *      type                (post|page|…)   Restrict to entries with this type (comma separated types)
-     *      age                 string      Retrieve posts by maximum age, see note 3
-     *      ignore_pagination   (0|1)       Ignore page number provided in URL, see note 4
+     *      - lastn               int         Limit number of results to specified value
+     *      - author              string      Get entries for a given user id
+     *      - category            string      Get entries for specific categories only (comma-separated categories), see note 1
+     *      - no_category         (1|0)       Get entries without category
+     *      - with_category       (1|0)       Get entries with a category
+     *      - no_context          (1|0)       Override context information
+     *      - sortby              (title|selected|author|date|id)     Specify entries sort criteria (default : date), see note 2
+     *      - order               (desc|asc)  specify entries order (default : desc)
+     *      - no_content          (0|1)       Do not retrieve entries content
+     *      - selected            (0|1)       Retrieve posts marked as selected only (if 1) or not selected only (if 0)
+     *      - url                 string      Retrieve post by its url
+     *      - type                (post|page|…)   Restrict to entries with this type (comma separated types)
+     *      - age                 string      Retrieve posts by maximum age, see note 3
+     *      - ignore_pagination   (0|1)       Ignore page number provided in URL, see note 4
      *
      *      Notes:
      *
@@ -1845,26 +1846,26 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      type            (post|page|…)   Post has a given type (default: "post")
-     *      url             string          Post has given url
-     *      author          string          Post has given user_id
-     *      category        string          Post has a given category URL, see note 1
-     *      categories      string          Post has a given categories (comma separated) URL, see note 1
-     *      first           (0|1)           Post is the first post from list (if 1) or not (if 0)
-     *      odd             (0|1)           Post is in an odd position (if 1) or not (if 0)
-     *      even            (0|1)           Post is in an even position (if 1) or not (if 0)
-     *      extended        (0|1)           Post has an excerpt (if 1) or not (if 0)
-     *      selected        (0|1)           Post is selected (if 1) or not (if 0)
-     *      has_category    (0|1)           Post has a category (if 1) or not (if 0)
-     *      has_attachment  (0|1)           Post has attachments (if 1) or not (if 0)
-     *      comments_active (0|1)           Comments are active for this post (if 1) or not (if 0)
-     *      pings_active    (0|1)           Trackbacks are active for this post (if 1) or not (if 0)
-     *      has_comments    (0|1)           There are comments for this post (if 1) or not (if 0)
-     *      has_pings       (0|1)           There are trackbacks for this post (if 1) or not (if 0)
-     *      show_comments   (0|1)           Comments are enabled for this post (if 1) or not (if 0)
-     *      show_pings      (0|1)           Trackbacks are enabled for this post (if 1) or not (if 0)
-     *      republished     (0|1)           Post has been updated since publication (if 1) or not (if 0)
-     *      operator        (and|or)        Combination of conditions, if more than 1 specified (default: and)
+     *      - type            (post|page|…)   Post has a given type (default: "post")
+     *      - url             string          Post has given url
+     *      - author          string          Post has given user_id
+     *      - category        string          Post has a given category URL, see note 1
+     *      - categories      string          Post has a given categories (comma separated) URL, see note 1
+     *      - first           (0|1)           Post is the first post from list (if 1) or not (if 0)
+     *      - odd             (0|1)           Post is in an odd position (if 1) or not (if 0)
+     *      - even            (0|1)           Post is in an even position (if 1) or not (if 0)
+     *      - extended        (0|1)           Post has an excerpt (if 1) or not (if 0)
+     *      - selected        (0|1)           Post is selected (if 1) or not (if 0)
+     *      - has_category    (0|1)           Post has a category (if 1) or not (if 0)
+     *      - has_attachment  (0|1)           Post has attachments (if 1) or not (if 0)
+     *      - comments_active (0|1)           Comments are active for this post (if 1) or not (if 0)
+     *      - pings_active    (0|1)           Trackbacks are active for this post (if 1) or not (if 0)
+     *      - has_comments    (0|1)           There are comments for this post (if 1) or not (if 0)
+     *      - has_pings       (0|1)           There are trackbacks for this post (if 1) or not (if 0)
+     *      - show_comments   (0|1)           Comments are enabled for this post (if 1) or not (if 0)
+     *      - show_pings      (0|1)           Trackbacks are enabled for this post (if 1) or not (if 0)
+     *      - republished     (0|1)           Post has been updated since publication (if 1) or not (if 0)
+     *      - operator        (and|or)        Combination of conditions, if more than 1 specified (default: and)
      *
      *      Notes:
      *
@@ -2038,7 +2039,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: first)
+     *      - return      string      Value to display if it is the case (default: first)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2059,8 +2060,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: odd)
-     *      even        string      Value to display if not (default: <empty>)
+     *      - return      string      Value to display if it is the case (default: odd)
+     *      - even        string      Value to display if not (default: <empty>)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2084,8 +2085,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: even)
-     *      odd         string      Value to display if not (default: <empty>)
+     *      - return      string      Value to display if it is the case (default: even)
+     *      - odd         string      Value to display if not (default: <empty>)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2109,7 +2110,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: selected)
+     *      - return      string      Value to display if it is the case (default: selected)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2130,9 +2131,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      absolute_urls   (1|0)   Transforms local URLs to absolute one
-     *      full            (1|0)   Returns full content with excerpt
-     *      any filters     See self::getFilters()
+     *      - absolute_urls   (1|0)   Transforms local URLs to absolute one
+     *      - full            (1|0)   Returns full content with excerpt
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2167,9 +2168,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      cut_string      int     Cut length, see self::getFilters()
-     *      absolute_urls   (1|0)   Transforms local URLs to absolute one
-     *      full            (1|0)   Returns full content with excerpt
+     *      - cut_string      int     Cut length, see self::getFilters()
+     *      - absolute_urls   (1|0)   Transforms local URLs to absolute one
+     *      - full            (1|0)   Returns full content with excerpt
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -2227,8 +2228,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      absolute_urls   (1|0)   Transforms local URLs to absolute one
-     *      any filters     See self::getFilters()
+     *      - absolute_urls   (1|0)   Transforms local URLs to absolute one
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2250,7 +2251,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2266,7 +2267,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2282,7 +2283,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2298,8 +2299,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      spam_protected  (1|0)   Protect email from spam (default: 1)
-     *      any filters     See self::getFilters()
+     *      - spam_protected  (1|0)   Protect email from spam (default: 1)
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2321,7 +2322,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2338,7 +2339,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2354,7 +2355,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2370,7 +2371,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2386,7 +2387,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2402,7 +2403,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2434,7 +2435,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2450,7 +2451,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2466,7 +2467,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2482,7 +2483,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2498,12 +2499,12 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      size            (sq|t|s|m|o)    Image size to extract
-     *      class           string          Class to add on image tag
-     *      with_category   (1|0)           Search in entry category description if present (default 0)
-     *      no_tag          (1|0)           Return image URL without HTML tag (default 0)
-     *      content_only    (1|0)           Search in content entry only, not in excerpt (default 0)
-     *      cat_only        (1|0)           Search in category description only (default 0)
+     *      - size            (sq|t|s|m|o)    Image size to extract
+     *      - class           string          Class to add on image tag
+     *      - with_category   (1|0)           Search in entry category description if present (default 0)
+     *      - no_tag          (1|0)           Return image URL without HTML tag (default 0)
+     *      - content_only    (1|0)           Search in content entry only, not in excerpt (default 0)
+     *      - cat_only        (1|0)           Search in category description only (default 0)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2527,7 +2528,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2543,7 +2544,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2566,8 +2567,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      restrict_to_category    (0|1)    Find next post in the same category (default 0)
-     *      restrict_to_lang        (0|1)    Find next post in the same language (default 0)
+     *      - restrict_to_category    (0|1)    Find next post in the same category (default 0)
+     *      - restrict_to_lang        (0|1)    Find next post in the same language (default 0)
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -2595,8 +2596,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      restrict_to_category    (0|1)    Find next post in the same category (default 0)
-     *      restrict_to_lang        (0|1)    Find next post in the same language (default 0)
+     *      - restrict_to_category    (0|1)    Find next post in the same category (default 0)
+     *      - restrict_to_lang        (0|1)    Find next post in the same language (default 0)
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -2624,7 +2625,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2640,7 +2641,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2656,12 +2657,12 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
-     *      iso8601     (1|0)       If set, display date in ISO 8601 format
-     *      rfc822      (1|0)       If set, display date in RFC 822 format
-     *      upddt       (1|0)       If set, uses the post update time
-     *      creadt      (1|0)       If set, uses the post creation time
-     *      any filters     See self::getFilters()
+     *      - format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      - iso8601     (1|0)       If set, display date in ISO 8601 format
+     *      - rfc822      (1|0)       If set, display date in RFC 822 format
+     *      - upddt       (1|0)       If set, uses the post update time
+     *      - creadt      (1|0)       If set, uses the post creation time
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2698,10 +2699,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      string      Time format
-     *      upddt       (1|0)       If set, uses the post update time
-     *      creadt      (1|0)       If set, uses the post creation time
-     *      any filters     See self::getFilters()
+     *      - format      string      Time format
+     *      - upddt       (1|0)       If set, uses the post update time
+     *      - creadt      (1|0)       If set, uses the post creation time
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2758,10 +2759,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      none        string      Text to display for "no comments" (default: no comments)
-     *      one         string      Text to display for "one comment" (default: one comment)
-     *      more        string      Text to display for "more comments" (default: %s comments, see note 1)
-     *      count_all   (1|0)       Count comments plus trackbacks
+     *      - none        string      Text to display for "no comments" (default: no comments)
+     *      - one         string      Text to display for "one comment" (default: one comment)
+     *      - more        string      Text to display for "more comments" (default: %s comments, see note 1)
+     *      - count_all   (1|0)       Count comments plus trackbacks
      *
      *      Notes:
      *
@@ -2796,9 +2797,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      none        string      Text to display for "no pings" (default: no pings)
-     *      one         string      Text to display for "one ping" (default: one ping)
-     *      more        string      Text to display for "more pings" (default: %s pings, see note 2)
+     *      - none        string      Text to display for "no pings" (default: no pings)
+     *      - one         string      Text to display for "one ping" (default: one ping)
+     *      - more        string      Text to display for "more pings" (default: %s pings, see note 2)
      *
      *      Notes:
      *
@@ -2828,7 +2829,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      (xml|html)  Format (default: html)
+     *      - format      (xml|html)  Format (default: html)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2861,8 +2862,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      lang        string      Restrict loop on given lang
-     *      order       (desc|asc)  Languages ordering (default: desc)
+     *      - lang        string      Restrict loop on given lang
+     *      - order       (desc|asc)  Languages ordering (default: desc)
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -2936,7 +2937,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2968,7 +2969,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -2986,7 +2987,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3013,7 +3014,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      no_context  (0|1)       Override test on posts count vs number of posts per page
+     *      - no_context  (0|1)       Override test on posts count vs number of posts per page
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -3052,7 +3053,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3068,8 +3069,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      offset      int     Current offset
-     *      any filters         See self::getFilters()
+     *      - offset      int     Current offset
+     *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3087,8 +3088,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      start   (0|1)       First page (if 1) or not (if 0)
-     *      end     (0|1)       Last page (if 1) or not (if 0)
+     *      - start   (0|1)       First page (if 1) or not (if 0)
+     *      - end     (0|1)       Last page (if 1) or not (if 0)
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -3097,7 +3098,7 @@ class dcTemplate extends template
      */
     public function PaginationIf(ArrayObject $attr, string $content): string
     {
-        $if = [];
+        $if = new ArrayObject();
 
         if (isset($attr['start'])) {
             $sign = (bool) $attr['start'] ? '' : '!';
@@ -3123,8 +3124,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      offset      int     Page offset (negative for previous pages), default: 0
-     *      any filters         See self::getFilters()
+     *      - offset      int     Page offset (negative for previous pages), default: 0
+     *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3148,13 +3149,13 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      with_pings  (0|1)       Include trackbacks
-     *      lastn       int         Restrict the number of comments
-     *      no_context  (0|1)       Override context information
-     *      sortby      (title|selected|author|date|id)    Specify comments sort criteria (default: date), see note 1
-     *      order       (desc|asc)  Result ordering (default: asc)
-     *      age         string      Retrieve comments by maximum age (ex: -2 days, last month, last week)
-     *      no_content  (0|1)       Do not include comments' content
+     *      - with_pings  (0|1)       Include trackbacks
+     *      - lastn       int         Restrict the number of comments
+     *      - no_context  (0|1)       Override context information
+     *      - sortby      (title|selected|author|date|id)    Specify comments sort criteria (default: date), see note 1
+     *      - order       (desc|asc)  Result ordering (default: asc)
+     *      - age         string      Retrieve comments by maximum age (ex: -2 days, last month, last week)
+     *      - no_content  (0|1)       Do not include comments' content
      *
      * Notes:
      *
@@ -3239,7 +3240,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3267,7 +3268,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3295,7 +3296,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3311,8 +3312,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      absolute_urls   (10)        Convert URLs to absolutes URLs
-     *      any filters     See self::getFilters()
+     *      - absolute_urls   (10)        Convert URLs to absolutes URLs
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3334,11 +3335,11 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
-     *      iso8601     (1|0)       If set, display date in ISO 8601 format
-     *      rfc822      (1|0)       If set, display date in RFC 822 format
-     *      upddt       (1|0)       If set, uses the comment update time
-     *      any filters     See self::getFilters()
+     *      - format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      - iso8601     (1|0)       If set, display date in ISO 8601 format
+     *      - rfc822      (1|0)       If set, display date in RFC 822 format
+     *      - upddt       (1|0)       If set, uses the comment update time
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3371,9 +3372,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      string      Time format
-     *      upddt       (1|0)       If set, uses the comment update time
-     *      any filters     See self::getFilters()
+     *      - format      string      Time format
+     *      - upddt       (1|0)       If set, uses the comment update time
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3397,8 +3398,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      spam_protected       (1|0)      Protect email from spam (default: 1)
-     *      any filters                     See self::getFilters()
+     *      - spam_protected       (1|0)      Protect email from spam (default: 1)
+     *      - any filters                     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3420,7 +3421,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3436,7 +3437,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3464,7 +3465,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      is_ping     (0|1)       Tracckback (if 1) or not (if 0)
+     *      - is_ping     (0|1)       Tracckback (if 1) or not (if 0)
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -3473,7 +3474,7 @@ class dcTemplate extends template
      */
     public function CommentIf(ArrayObject $attr, string $content): string
     {
-        $if = [];
+        $if = new ArrayObject();
 
         if (isset($attr['is_ping'])) {
             $sign = (bool) $attr['is_ping'] ? '' : '!';
@@ -3494,7 +3495,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: first)
+     *      - return      string      Value to display if it is the case (default: first)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3515,7 +3516,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: me)
+     *      - return      string      Value to display if it is the case (default: me)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3536,8 +3537,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: odd)
-     *      even        string      Value to display if it is not the case (default: <empty>)
+     *      - return      string      Value to display if it is the case (default: odd)
+     *      - even        string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3561,8 +3562,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: even)
-     *      odd         string      Value to display if it is not the case (default: <empty>)
+     *      - return      string      Value to display if it is the case (default: even)
+     *      - odd         string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3642,7 +3643,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3724,7 +3725,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3740,7 +3741,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3756,7 +3757,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3772,8 +3773,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      raw         (1|0)   Display comment in raw content
-     *      any filters         See self::getFilters()
+     *      - raw         (1|0)   Display comment in raw content
+     *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3811,7 +3812,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters         See self::getFilters()
+     *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3827,7 +3828,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters         See self::getFilters()
+     *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3843,11 +3844,11 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
-     *      iso8601     (1|0)       If set, display date in ISO 8601 format
-     *      rfc822      (1|0)       If set, display date in RFC 822 format
-     *      upddt       (1|0)       If set, uses the ping update time
-     *      any filters     See self::getFilters()
+     *      - format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      - iso8601     (1|0)       If set, display date in ISO 8601 format
+     *      - rfc822      (1|0)       If set, display date in RFC 822 format
+     *      - upddt       (1|0)       If set, uses the ping update time
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3880,9 +3881,9 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      format      string      Time format
-     *      upddt       (1|0)       If set, uses the ping update time
-     *      any filters     See self::getFilters()
+     *      - format      string      Time format
+     *      - upddt       (1|0)       If set, uses the ping update time
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3905,7 +3906,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3921,7 +3922,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3949,7 +3950,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: first)
+     *      - return      string      Value to display if it is the case (default: first)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3970,8 +3971,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: odd)
-     *      even        string      Value to display if it is not the case (default: <empty>)
+     *      - return      string      Value to display if it is the case (default: odd)
+     *      - even        string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -3995,8 +3996,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      return      string      Value to display if it is the case (default: even)
-     *      odd         string      Value to display if it is not the case (default: <empty>)
+     *      - return      string      Value to display if it is the case (default: even)
+     *      - odd         string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4059,7 +4060,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4075,10 +4076,10 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      lastn       int         Restrict the number of pings
-     *      no_context  (0|1)       Override context information
-     *      order       (desc|asc)  Result ordering (default: asc)
-     *      no_content  (0|1)       Do not include pings' content
+     *      - lastn       int         Restrict the number of pings
+     *      - no_context  (0|1)       Override context information
+     *      - order       (desc|asc)  Result ordering (default: asc)
+     *      - no_content  (0|1)       Do not include pings' content
      *
      * @param      ArrayObject    $attr     The attributes
      * @param      string         $content  The content
@@ -4180,7 +4181,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4196,7 +4197,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4215,8 +4216,8 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      behavior        string      Behavior to call
-     *      any filters                 See self::getFilters()
+     *      - behavior        string      Behavior to call
+     *      - any filters                 See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4241,20 +4242,20 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      categories      (0|1)                   Categories are set in current context (if 1) or not (if 0)
-     *      posts           (0|1)                   Posts are set in current context (if 1) or not (if 0)
-     *      blog_lang       string                  Blog language is the one given in parameter, see note 1
-     *      current_tpl     string                  Current template is the one given in paramater, see note 1
-     *      current_mode    string                  Current URL mode is the one given in parameter, see note 1
-     *      has_tpl         string                  Named template exists, see note 1
-     *      has_tag         string                  Named template block or value exists, see note 1
-     *      blog_id         string                  Current blog ID is the one given in parameter, see note 1
-     *      comments_active (0|1)                   Comments are enabled blog-wide
-     *      pings_active    (0|1)                   Trackbacks are enabled blog-wide
-     *      wiki_comments   (0|1)                   Wiki syntax is enabled for comments
-     *      search_count    (=|!|>=|<=|>|<) int     Search count valids condition
-     *      jquery_needed   (0|1)                   jQuery javascript library is requested (if 1) or not (if 0)
-     *      operator        (and|or)                Combination of conditions, if more than 1 specifiec (default: and)
+     *      - categories      (0|1)                   Categories are set in current context (if 1) or not (if 0)
+     *      - posts           (0|1)                   Posts are set in current context (if 1) or not (if 0)
+     *      - blog_lang       string                  Blog language is the one given in parameter, see note 1
+     *      - current_tpl     string                  Current template is the one given in paramater, see note 1
+     *      - current_mode    string                  Current URL mode is the one given in parameter, see note 1
+     *      - has_tpl         string                  Named template exists, see note 1
+     *      - has_tag         string                  Named template block or value exists, see note 1
+     *      - blog_id         string                  Current blog ID is the one given in parameter, see note 1
+     *      - comments_active (0|1)                   Comments are enabled blog-wide
+     *      - pings_active    (0|1)                   Trackbacks are enabled blog-wide
+     *      - wiki_comments   (0|1)                   Wiki syntax is enabled for comments
+     *      - search_count    (=|!|>=|<=|>|<) int     Search count valids condition
+     *      - jquery_needed   (0|1)                   jQuery javascript library is requested (if 1) or not (if 0)
+     *      - operator        (and|or)                Combination of conditions, if more than 1 specifiec (default: and)
      *
      * Notes:
      *
@@ -4405,7 +4406,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4464,7 +4465,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4483,7 +4484,7 @@ class dcTemplate extends template
      *
      * attributes:
      *
-     *      any filters     See self::getFilters()
+     *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -4495,7 +4496,7 @@ class dcTemplate extends template
     }
 
     /**
-     * tpl:SysPoweredBy : Displays else: statement (tpl value)
+     * tpl:else : Displays else: statement (tpl value)
      *
      * May be used inside a tpl:If… block
      *

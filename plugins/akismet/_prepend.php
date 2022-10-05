@@ -12,5 +12,8 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-Clearbricks::lib()->autoload(['dcFilterAkismet' => __DIR__ . '/class.dc.filter.akismet.php']);
+Clearbricks::lib()->autoload([
+    'dcFilterAkismet' => __DIR__ . '/filters/filter.akismet.php',
+]);
+
 dcCore::app()->spamfilters[] = 'dcFilterAkismet';

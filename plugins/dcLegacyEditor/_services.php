@@ -14,7 +14,16 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 class dcLegacyEditorRest
 {
-    public static function convert(dcCore $core, $get, $post)
+    /**
+     * Convert wiki to HTML REST service
+     *
+     * @param      dcCore  $core   The core
+     * @param      array   $get    The get
+     * @param      array   $post   The post
+     *
+     * @return     xmlTag  The xml tag.
+     */
+    public static function convert(dcCore $core, array $get, array $post): xmlTag
     {
         $wiki = $post['wiki'] ?? '';
         $rsp  = new xmlTag('wiki');

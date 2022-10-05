@@ -12,4 +12,6 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-Clearbricks::lib()->autoload(['dcCKEditorBehaviors' => __DIR__ . '/inc/dc.ckeditor.behaviors.php']);
+Clearbricks::lib()->autoload([
+    'dcCKEditorBehaviors' => __DIR__ . '/inc/admin.behaviors.php',
+]);

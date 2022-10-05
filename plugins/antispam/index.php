@@ -56,7 +56,7 @@ class adminAntispam
             if (!empty($_POST['delete_all'])) {
                 $ts = dt::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], dcCore::app()->blog->settings->system->blog_timezone);
 
-                dcAntispam::delAllSpam(dcCore::app(), $ts);
+                dcAntispam::delAllSpam($ts);
 
                 dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
                 http::redirect(dcCore::app()->admin->getPageURL());
@@ -141,8 +141,8 @@ class adminAntispam
             echo
             dcPage::breadcrumb(
                 [
-                    __('Plugins')                   => '',
-                    dcCore::app()->admin->page_name => dcCore::app()->admin->getPageURL(),
+                    __('Plugins')                                                              => '',
+                    dcCore::app()->admin->page_name                                            => dcCore::app()->admin->getPageURL(),
                     sprintf(__('%s filter configuration'), dcCore::app()->admin->filter->name) => '',
                 ]
             ) .
@@ -165,8 +165,8 @@ class adminAntispam
             dcPage::notices();
 
             # Information
-            $spam_count      = dcAntispam::countSpam(dcCore::app());
-            $published_count = dcAntispam::countPublishedComments(dcCore::app());
+            $spam_count      = dcAntispam::countSpam();
+            $published_count = dcAntispam::countPublishedComments();
             $moderationTTL   = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
 
             echo
@@ -269,11 +269,11 @@ class adminAntispam
             if (DC_ADMIN_URL) {
                 $ham_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
                     'hamfeed',
-                    dcAntispam::getUserCode(dcCore::app())
+                    dcAntispam::getUserCode()
                 );
                 $spam_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
                     'spamfeed',
-                    dcAntispam::getUserCode(dcCore::app())
+                    dcAntispam::getUserCode()
                 );
 
                 echo

@@ -12,7 +12,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior('adminColumnsListsV2', function ($cols) {
+dcCore::app()->auth->setPermissionType(dcPages::PERMISSION_PAGES, __('manage pages'));
+
+dcCore::app()->addBehavior('adminColumnsListsV2', function (ArrayObject $cols) {
     // Set optional columns in pages lists
     $cols['pages'] = [__('Pages'), [
         'date'       => [true, __('Date')],
@@ -22,7 +24,7 @@ dcCore::app()->addBehavior('adminColumnsListsV2', function ($cols) {
     ]];
 });
 
-dcCore::app()->addBehavior('adminFiltersListsV2', function ($sorts) {
+dcCore::app()->addBehavior('adminFiltersListsV2', function (ArrayObject $sorts) {
     $sorts['pages'] = [
         __('Pages'),
         null,
@@ -32,23 +34,29 @@ dcCore::app()->addBehavior('adminFiltersListsV2', function ($sorts) {
     ];
 });
 
-dcCore::app()->addBehavior('adminDashboardFavoritesV2', function ($favs) {
+dcCore::app()->addBehavior('adminDashboardFavoritesV2', function (dcFavorites $favs) {
     $favs->register('pages', [
-        'title'        => __('Pages'),
-        'url'          => dcCore::app()->adminurl->get('admin.plugin.pages'),
-        'small-icon'   => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
-        'large-icon'   => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
-        'permissions'  => 'contentadmin,pages',
-        'dashboard_cb' => ['pagesDashboard', 'pagesDashboardCB'],
-        'active_cb'    => ['pagesDashboard', 'pagesActiveCB'],
+        'title'       => __('Pages'),
+        'url'         => dcCore::app()->adminurl->get('admin.plugin.pages'),
+        'small-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+        'large-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+        'permissions' => dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcPages::PERMISSION_PAGES,
+        ]), dcCore::app()->blog->id),
+        'dashboard_cb' => [pagesDashboard::class, 'pagesDashboardCB'],
+        'active_cb'    => [pagesDashboard::class, 'pagesActiveCB'],
     ]);
     $favs->register('newpage', [
         'title'       => __('New page'),
         'url'         => dcCore::app()->adminurl->get('admin.plugin.pages', ['act' => 'page']),
         'small-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
         'large-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
-        'permissions' => 'contentadmin,pages',
-        'active_cb'   => ['pagesDashboard', 'newPageActiveCB'],
+        'permissions' => dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcPages::PERMISSION_PAGES,
+        ]), dcCore::app()->blog->id),
+        'active_cb' => [pagesDashboard::class, 'newPageActiveCB'],
     ]);
 });
 
@@ -56,30 +64,6 @@ dcCore::app()->addBehavior(
     'adminUsersActionsHeaders',
     fn () => dcPage::jsLoad('index.php?pf=pages/js/_users_actions.js')
 );
-
-class pagesDashboard
-{
-    public static function pagesDashboardCB(ArrayObject $icon)
-    {
-        $params              = new ArrayObject();
-        $params['post_type'] = 'page';
-        $page_count          = dcCore::app()->blog->getPosts($params, true)->f(0);
-        if ($page_count > 0) {
-            $str_pages     = ($page_count > 1) ? __('%d pages') : __('%d page');
-            $icon['title'] = sprintf($str_pages, $page_count);
-        }
-    }
-
-    public static function pagesActiveCB($request, $params)
-    {
-        return ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && !(isset($params['act']) && $params['act'] == 'page');
-    }
-
-    public static function newPageActiveCB($request, $params)
-    {
-        return ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && isset($params['act']) && $params['act'] == 'page';
-    }
-}
 
 dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Pages'),
@@ -91,7 +75,5 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
         dcAuth::PERMISSION_CONTENT_ADMIN,
     ]), dcCore::app()->blog->id)
 );
-
-dcCore::app()->auth->setPermissionType(dcPages::PERMISSION_PAGES, __('manage pages'));
 
 require __DIR__ . '/_widgets.php';

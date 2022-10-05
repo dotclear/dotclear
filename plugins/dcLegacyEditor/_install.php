@@ -12,15 +12,28 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = dcCore::app()->plugins->moduleInfo('dcLegacyEditor', 'version');
-if (version_compare(dcCore::app()->getVersion('dcLegacyEditor'), $version, '>=')) {
-    return;
+class installLegacyEditor
+{
+    /**
+     * Installs the plugin.
+     *
+     * @return     mixed
+     */
+    public static function install()
+    {
+        $version = dcCore::app()->plugins->moduleInfo('dcLegacyEditor', 'version');
+        if (version_compare(dcCore::app()->getVersion('dcLegacyEditor'), $version, '>=')) {
+            return;
+        }
+
+        $settings = dcCore::app()->blog->settings;
+        $settings->addNamespace('dclegacyeditor');
+        $settings->dclegacyeditor->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);
+
+        dcCore::app()->setVersion('dcLegacyEditor', $version);
+
+        return true;
+    }
 }
 
-$settings = dcCore::app()->blog->settings;
-$settings->addNamespace('dclegacyeditor');
-$settings->dclegacyeditor->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);
-
-dcCore::app()->setVersion('dcLegacyEditor', $version);
-
-return true;
+return installLegacyEditor::install();

@@ -12,21 +12,9 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-if (dcCore::app()->blog->settings->system->theme != 'default') {
+if (dcCore::app()->blog->settings->system->theme !== 'default') {
     // It's not Blowup
     return;
 }
 
-require __DIR__ . '/lib/class.blowup.config.php';
-dcCore::app()->addBehavior('publicHeadContent', ['tplBlowupTheme', 'publicHeadContent']);
-
-class tplBlowUpTheme
-{
-    public static function publicHeadContent()
-    {
-        $url = blowupConfig::publicCssUrlHelper();
-        if ($url) {
-            echo '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
-        }
-    }
-}
+dcCore::app()->addBehavior('publicHeadContent', [tplBlowUpTheme::class, 'publicHeadContent']);

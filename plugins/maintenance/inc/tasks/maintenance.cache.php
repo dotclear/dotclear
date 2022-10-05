@@ -1,0 +1,50 @@
+<?php
+/**
+ * @brief maintenance, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+if (!defined('DC_RC_PATH')) {
+    return;
+}
+
+class dcMaintenanceCache extends dcMaintenanceTask
+{
+    /**
+     * Task group container
+     *
+     * @var string
+     */
+    protected $group = 'purge';
+
+    /**
+     * Initialize task object.
+     */
+    protected function init(): void
+    {
+        $this->task    = __('Empty templates cache directory');
+        $this->success = __('Templates cache directory emptied.');
+        $this->error   = __('Failed to empty templates cache directory.');
+
+        $this->description = __("It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software.");
+    }
+
+    /**
+     * Execute task.
+     *
+     * @return    bool|int
+     *    - FALSE on error,
+     *    - TRUE if task is finished
+     *    - INT if task required a next step
+     */
+    public function execute()
+    {
+        dcCore::app()->emptyTemplatesCache();
+
+        return true;
+    }
+}

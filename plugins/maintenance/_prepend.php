@@ -13,21 +13,21 @@ if (!defined('DC_RC_PATH')) {
 }
 
 Clearbricks::lib()->autoload([
-    'dcMaintenance'           => __DIR__ . '/inc/class.dc.maintenance.php',
-    'dcMaintenanceDescriptor' => __DIR__ . '/inc/class.dc.maintenance.descriptor.php',
-    'dcMaintenanceTask'       => __DIR__ . '/inc/class.dc.maintenance.task.php',
-    'dcMaintenanceRest'       => __DIR__ . '/_services.php',
-
-    'dcMaintenanceCache'          => __DIR__ . '/inc/tasks/class.dc.maintenance.cache.php',
-    'dcMaintenanceCSP'            => __DIR__ . '/inc/tasks/class.dc.maintenance.csp.php',
-    'dcMaintenanceCountcomments'  => __DIR__ . '/inc/tasks/class.dc.maintenance.countcomments.php',
-    'dcMaintenanceIndexcomments'  => __DIR__ . '/inc/tasks/class.dc.maintenance.indexcomments.php',
-    'dcMaintenanceIndexposts'     => __DIR__ . '/inc/tasks/class.dc.maintenance.indexposts.php',
-    'dcMaintenanceSynchpostsmeta' => __DIR__ . '/inc/tasks/class.dc.maintenance.synchpostsmeta.php',
-    'dcMaintenanceLogs'           => __DIR__ . '/inc/tasks/class.dc.maintenance.logs.php',
-    'dcMaintenanceVacuum'         => __DIR__ . '/inc/tasks/class.dc.maintenance.vacuum.php',
-    'dcMaintenanceZipmedia'       => __DIR__ . '/inc/tasks/class.dc.maintenance.zipmedia.php',
-    'dcMaintenanceZiptheme'       => __DIR__ . '/inc/tasks/class.dc.maintenance.ziptheme.php',
+    'dcMaintenance'               => __DIR__ . '/inc/maintenance.php',
+    'dcMaintenanceDescriptor'     => __DIR__ . '/inc/maintenance.descriptor.php',
+    'dcMaintenanceTask'           => __DIR__ . '/inc/maintenance.task.php',
+    'dcMaintenanceAdmin'          => __DIR__ . '/inc/admin.behaviors.php',
+    'dcMaintenanceRest'           => __DIR__ . '/_services.php',
+    'dcMaintenanceCache'          => __DIR__ . '/inc/tasks/maintenance.cache.php',
+    'dcMaintenanceCSP'            => __DIR__ . '/inc/tasks/maintenance.csp.php',
+    'dcMaintenanceCountcomments'  => __DIR__ . '/inc/tasks/maintenance.countcomments.php',
+    'dcMaintenanceIndexcomments'  => __DIR__ . '/inc/tasks/maintenance.indexcomments.php',
+    'dcMaintenanceIndexposts'     => __DIR__ . '/inc/tasks/maintenance.indexposts.php',
+    'dcMaintenanceLogs'           => __DIR__ . '/inc/tasks/maintenance.logs.php',
+    'dcMaintenanceSynchpostsmeta' => __DIR__ . '/inc/tasks/maintenance.synchpostsmeta.php',
+    'dcMaintenanceVacuum'         => __DIR__ . '/inc/tasks/maintenance.vacuum.php',
+    'dcMaintenanceZipmedia'       => __DIR__ . '/inc/tasks/maintenance.zipmedia.php',
+    'dcMaintenanceZiptheme'       => __DIR__ . '/inc/tasks/maintenance.ziptheme.php',
 ]);
 
-dcCore::app()->rest->addFunction('dcMaintenanceStep', ['dcMaintenanceRest', 'step']);
+dcCore::app()->rest->addFunction('dcMaintenanceStep', [dcMaintenanceRest::class, 'step']);

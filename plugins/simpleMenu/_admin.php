@@ -14,13 +14,16 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcCore::app()->addBehavior(
     'adminDashboardFavoritesV2',
-    function ($favs) {
+    function (dcFavorites $favs) {
         $favs->register('simpleMenu', [
             'title'       => __('Simple menu'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.simpleMenu'),
             'small-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
             'large-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
-            'permissions' => 'usage,contentadmin',
+            'permissions' => dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_USAGE,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]), dcCore::app()->blog->id),
         ]);
     }
 );

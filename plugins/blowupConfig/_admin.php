@@ -14,8 +14,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcCore::app()->addBehavior(
     'adminCurrentThemeDetailsV2',
-    function ($id) {
-        if ($id == 'default' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+    function (string $id) {
+        if ($id === 'default' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             return '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.blowupConfig') . '" class="button submit">' . __('Configure theme') . '</a></p>';

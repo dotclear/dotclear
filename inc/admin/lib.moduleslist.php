@@ -594,7 +594,7 @@ class adminModulesList
                 'root_writable'     => false,
                 'permissions'       => null,
                 'parent'            => null,
-                'priority'          => 1000,
+                'priority'          => dcModules::DEFAULT_PRIORITY,
                 'standalone_config' => false,
                 'support'           => '',
                 'section'           => '',
@@ -1087,7 +1087,6 @@ class adminModulesList
         # Use loop to keep requested order
         foreach ($actions as $action) {
             switch ($action) {
-
                 # Deactivate
                 case 'activate':
                     if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
@@ -1169,7 +1168,6 @@ class adminModulesList
         # Use loop to keep requested order
         foreach ($actions as $action) {
             switch ($action) {
-
                 # Deactivate
                 case 'activate':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
@@ -1233,7 +1231,7 @@ class adminModulesList
     public function doActions()
     {
         if (empty($_POST) || !empty($_REQUEST['conf'])
-            || !$this->isWritablePath()) {
+                          || !$this->isWritablePath()) {
             return;
         }
 
@@ -1417,7 +1415,7 @@ class adminModulesList
                 } else {
                     $dest = $this->getPath() . '/' . basename($module['file']);
                     if ($module['root'] != $dest) {
-                        @file_put_contents($module['root'] . '/_disabled', '');
+                        @file_put_contents($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_DISABLED, '');
                     }
                 }
 
@@ -1442,7 +1440,7 @@ class adminModulesList
 
         # Manual actions
         elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
-            || !empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url'])) {
+            || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
             if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
@@ -1475,7 +1473,6 @@ class adminModulesList
             );
             http::redirect($this->getURL() . '#plugins');
         } else {
-
             # --BEHAVIOR-- adminModulesListDoActions
             dcCore::app()->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
         }
@@ -1864,7 +1861,6 @@ class adminThemesList extends adminModulesList
 
             # Plugins actions
             if ($current) {
-
                 # _GET actions
                 if (file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . '/style.css')) {
                     $theme_url = preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url) ?
@@ -1940,7 +1936,6 @@ class adminThemesList extends adminModulesList
 
         dcCore::app()->blog->settings->addNamespace('system');
         if ($id != dcCore::app()->blog->settings->system->theme) {
-
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
                 $submits[] = '<input type="submit" name="select[' . html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
@@ -1982,7 +1977,6 @@ class adminThemesList extends adminModulesList
 
         foreach ($actions as $action) {
             switch ($action) {
-
                 # Update (from store)
                 case 'update':
 
@@ -2027,7 +2021,6 @@ class adminThemesList extends adminModulesList
         $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : [];
 
         if (!empty($_POST['select'])) {
-
             # Can select only one theme at a time!
             if (is_array($_POST['select'])) {
                 $modules = array_keys($_POST['select']);
@@ -2272,7 +2265,7 @@ class adminThemesList extends adminModulesList
 
             # Manual actions
             elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
-                || !empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url'])) {
+                || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
                 if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
                 }
@@ -2305,7 +2298,6 @@ class adminThemesList extends adminModulesList
                 );
                 http::redirect($this->getURL() . '#themes');
             } else {
-
                 # --BEHAVIOR-- adminModulesListDoActions
                 dcCore::app()->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
             }

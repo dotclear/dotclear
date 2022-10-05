@@ -9,7 +9,7 @@
 define('DC_CONTEXT_ADMIN', true);
 define('DC_ADMIN_CONTEXT', true); // For dyslexic devs ;-)
 
-require_once __DIR__ . '/../prepend.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'prepend.php';
 
 // HTTP/1.1
 header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');

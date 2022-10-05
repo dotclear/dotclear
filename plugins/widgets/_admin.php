@@ -14,7 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcCore::app()->addBehavior(
     'adminDashboardFavoritesV2',
-    function ($favs) {
+    function (dcFavorites $favs) {
         $favs->register('widgets', [
             'title'      => __('Presentation widgets'),
             'url'        => dcCore::app()->adminurl->get('admin.plugin.widgets'),
@@ -23,7 +23,7 @@ dcCore::app()->addBehavior(
         ]);
     }
 );
-dcCore::app()->addBehavior('adminRteFlagsV2', function ($rte) {
+dcCore::app()->addBehavior('adminRteFlagsV2', function (ArrayObject $rte) {
     $rte['widgets_text'] = [true, __('Widget\'s textareas')];
 });
 

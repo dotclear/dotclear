@@ -60,6 +60,7 @@ parameters:
     - DC_DIGESTS
     - DC_DISTRIB_PLUGINS
     - DC_DISTRIB_THEMES
+    - DC_DNSBL_SUPER
     - DC_ERRORFILE
     - DC_FAIRTRACKBACKS_FORCE
     - DC_FORCE_SCHEME_443
@@ -123,6 +124,10 @@ parameters:
 
     # dcWidgets object and auto properties
     - message: '#Access to an undefined property dcWidgets::#'
+      path: %currentWorkingDirectory%
+
+    # dcWidget object and auto properties
+    - message: '#Access to an undefined property dcWidget::#'
       path: %currentWorkingDirectory%
 
     # xmlTag object and auto properties

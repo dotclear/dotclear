@@ -18,9 +18,12 @@ $this->registerModule(
     'Alain Vagner',                         // Author
     '1.4.1',                                // Version
     [
-        'permissions' => 'usage,contentadmin',
-        'priority'    => 10,
-        'settings'    => [
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'priority' => 10,
+        'settings' => [
             'self' => '',
             'blog' => '#params.antispam_params',
         ],

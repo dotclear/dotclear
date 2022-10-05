@@ -14,6 +14,9 @@ if (!defined('DC_RC_PATH')) {
 
 class dcExportFlat extends dcIeModule
 {
+    /**
+     * Sets the module information.
+     */
     public function setInfo()
     {
         $this->type        = 'export';
@@ -21,10 +24,15 @@ class dcExportFlat extends dcIeModule
         $this->description = __('Exports a blog or a full Dotclear installation to flat file.');
     }
 
-    public function process($do)
+    /**
+     * Processes the import/export.
+     *
+     * @param      string  $do     action
+     */
+    public function process(string $do): void
     {
-        # Export a blog
-        if ($do == 'export_blog' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        // Export a blog
+        if ($do === 'export_blog' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
@@ -102,8 +110,8 @@ class dcExportFlat extends dcIeModule
             }
         }
 
-        # Export all content
-        if ($do == 'export_all' && dcCore::app()->auth->isSuperAdmin()) {
+        // Export all content
+        if ($do === 'export_all' && dcCore::app()->auth->isSuperAdmin()) {
             $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
 
             try {
@@ -140,8 +148,8 @@ class dcExportFlat extends dcIeModule
             }
         }
 
-        # Send file content
-        if ($do == 'ok') {
+        // Send file content
+        if ($do === 'ok') {
             if (!file_exists($_SESSION['export_file'])) {
                 throw new Exception(__('Export file not found.'));
             }
@@ -152,7 +160,7 @@ class dcExportFlat extends dcIeModule
                 $_SESSION['export_filename'] = substr($_SESSION['export_filename'], 0, -4); //.'.txt';
             }
 
-            # Flat export
+            // Flat export
             if (empty($_SESSION['export_filezip'])) {
                 header('Content-Disposition: attachment;filename=' . $_SESSION['export_filename']);
                 header('Content-Type: text/plain; charset=UTF-8');
@@ -162,7 +170,8 @@ class dcExportFlat extends dcIeModule
                 unset($_SESSION['export_file'], $_SESSION['export_filename'], $_SESSION['export_filezip']);
                 exit;
             }
-            # Zip export
+
+            // Zip export
 
             try {
                 $file_zipname = $_SESSION['export_filename'] . '.zip';
@@ -188,7 +197,10 @@ class dcExportFlat extends dcIeModule
         }
     }
 
-    public function gui()
+    /**
+     * GUI for import/export module
+     */
+    public function gui(): void
     {
         echo
         '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
@@ -209,9 +221,9 @@ class dcExportFlat extends dcIeModule
 
         '<p><input type="submit" value="' . __('Export') . '" />' .
         form::hidden(['do'], 'export_blog') .
-        dcCore::app()->formNonce() . '</p>' .
-
-            '</form>';
+        dcCore::app()->formNonce() .
+        '</p>' .
+        '</form>';
 
         if (dcCore::app()->auth->isSuperAdmin()) {
             echo
@@ -230,9 +242,9 @@ class dcExportFlat extends dcIeModule
 
             '<p><input type="submit" value="' . __('Export') . '" />' .
             form::hidden(['do'], 'export_all') .
-            dcCore::app()->formNonce() . '</p>' .
-
-                '</form>';
+            dcCore::app()->formNonce() .
+            '</p>' .
+            '</form>';
         }
     }
 }

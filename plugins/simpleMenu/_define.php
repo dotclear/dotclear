@@ -18,9 +18,12 @@ $this->registerModule(
     'Franck Paul',              // Author
     '1.6',                      // Version
     [
-        'permissions' => 'usage,contentadmin',
-        'type'        => 'plugin',
-        'settings'    => [
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'type'     => 'plugin',
+        'settings' => [
             'self' => '',
         ],
     ]

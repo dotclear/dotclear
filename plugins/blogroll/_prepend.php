@@ -12,4 +12,10 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-Clearbricks::lib()->autoload(['dcBlogroll' => __DIR__ . '/class.dc.blogroll.php']);
+Clearbricks::lib()->autoload([
+    'dcBlogroll'       => __DIR__ . '/inc/blogroll.php',
+    'dcImportBlogroll' => __DIR__ . '/inc/importblogroll.php',
+    'blogrollWidgets'  => __DIR__ . '/inc/widgets.php',
+    'tplBlogroll'      => __DIR__ . '/inc/public.tpl.php',
+    'urlBlogroll'      => __DIR__ . '/inc/public.url.php',
+]);

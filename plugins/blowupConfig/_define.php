@@ -18,7 +18,9 @@ $this->registerModule(
     'Olivier Meunier',             // Author
     '1.2',                         // Version
     [
-        'permissions' => 'admin',
-        'type'        => 'plugin',
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]),
+        'type' => 'plugin',
     ]
 );
