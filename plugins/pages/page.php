@@ -238,10 +238,10 @@ class adminPage
                 dcCore::app()->admin->post_id,
                 dcCore::app()->admin->post_format,
                 dcCore::app()->admin->post_lang,
-                dcCore::app()->admin->post_excerpt,
-                dcCore::app()->admin->post_excerpt_xhtml,
-                dcCore::app()->admin->post_content,
-                dcCore::app()->admin->post_content_xhtml
+                $post_excerpt,
+                $post_excerpt_xhtml,
+                $post_content,
+                $post_content_xhtml
             );
 
             [
