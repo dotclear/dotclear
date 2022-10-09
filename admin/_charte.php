@@ -53,7 +53,7 @@ class adminChartePage
      */
     public static function render(): void
     {
-        include __DIR__ . '/tpl/' . basename(__FILE__);
+        require_once __DIR__ . '/tpl/' . basename(__FILE__);
     }
 }
 

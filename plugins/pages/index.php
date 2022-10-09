@@ -20,9 +20,9 @@ class adminPagesRoute
     public static function init()
     {
         if (($_REQUEST['act'] ?? 'list') === 'page') {
-            include __DIR__ . '/page.php';
+            require __DIR__ . '/page.php';
         } else {
-            include __DIR__ . '/list.php';
+            require __DIR__ . '/list.php';
         }
     }
 }

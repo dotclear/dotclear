@@ -491,7 +491,7 @@ function __error(string $summary, string $message, int $code = 0)
     if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
         include DC_ERRORFILE;
     } else {
-        include __DIR__ . DIRECTORY_SEPARATOR . 'core_error.php';
+        require __DIR__ . DIRECTORY_SEPARATOR . 'core_error.php';
     }
     exit;
 }

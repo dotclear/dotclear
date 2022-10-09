@@ -51,7 +51,7 @@ class adminLegacyEditor
      */
     public static function render()
     {
-        include __DIR__ . '/tpl/' . basename(__FILE__);
+        require __DIR__ . '/tpl/' . basename(__FILE__);
     }
 }
 

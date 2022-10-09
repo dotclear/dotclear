@@ -32,8 +32,8 @@ class adminBlog
             // Create a blog
             $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
 
-            dcCore::app()->admin->blog_id   = $cur->blog_id   = $_POST['blog_id'];
-            dcCore::app()->admin->blog_url  = $cur->blog_url  = $_POST['blog_url'];
+            dcCore::app()->admin->blog_id   = $cur->blog_id = $_POST['blog_id'];
+            dcCore::app()->admin->blog_url  = $cur->blog_url = $_POST['blog_url'];
             dcCore::app()->admin->blog_name = $cur->blog_name = $_POST['blog_name'];
             dcCore::app()->admin->blog_desc = $cur->blog_desc = $_POST['blog_desc'];
 
@@ -72,7 +72,7 @@ class adminBlog
     {
         if (!empty($_REQUEST['id'])) {
             dcCore::app()->admin->edit_blog_mode = true;
-            include __DIR__ . '/blog_pref.php';
+            require __DIR__ . '/blog_pref.php';
         } else {
             dcPage::open(
                 __('New blog'),

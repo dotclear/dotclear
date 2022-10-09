@@ -42,7 +42,7 @@ class adminCKEditor
 
         if (!empty($_GET['config'])) {
             // text/javascript response stop stream just after including file
-            include_once __DIR__ . '/_post_config.php';
+            require_once __DIR__ . '/_post_config.php';
             exit();
         }
 
@@ -131,7 +131,7 @@ class adminCKEditor
      */
     public static function render()
     {
-        include __DIR__ . '/tpl/' . basename(__FILE__);
+        require __DIR__ . '/tpl/' . basename(__FILE__);
     }
 }
 

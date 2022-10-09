@@ -20,9 +20,9 @@ class adminTagsRoute
     public static function init()
     {
         if (($_REQUEST['m'] ?? 'tags') === 'tag_posts') {
-            include __DIR__ . '/tag_posts.php';
+            require __DIR__ . '/tag_posts.php';
         } else {
-            include __DIR__ . '/tags.php';
+            require __DIR__ . '/tags.php';
         }
     }
 }

@@ -28,7 +28,7 @@ class adminBlogroll
         dcCore::app()->admin->blogroll = new dcBlogroll(dcCore::app()->blog);
 
         if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
-            include __DIR__ . '/edit.php';
+            require __DIR__ . '/edit.php';
 
             return true;
         }
