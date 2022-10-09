@@ -222,7 +222,6 @@ class adminPost
     public static function process()
     {
         if (!empty($_POST['ping'])) {
-
             // Ping blogs
 
             if (!empty($_POST['tb_urls']) && dcCore::app()->admin->post_id && dcCore::app()->admin->post_status == dcBlog::POST_PUBLISHED && dcCore::app()->admin->can_edit_post) {
@@ -265,7 +264,6 @@ class adminPost
                 }
             }
         } elseif (!empty($_POST) && dcCore::app()->admin->can_edit_post) {
-
             // Format excerpt and content
 
             dcCore::app()->admin->post_format  = $_POST['post_format'];
@@ -308,19 +306,42 @@ class adminPost
                 dcCore::app()->admin->post_url = $_POST['post_url'];
             }
 
+            [
+                $post_excerpt,
+                $post_excerpt_xhtml,
+                $post_content,
+                $post_content_xhtml
+            ] = [
+                dcCore::app()->admin->post_excerpt,
+                dcCore::app()->admin->post_excerpt_xhtml,
+                dcCore::app()->admin->post_content,
+                dcCore::app()->admin->post_content_xhtml,
+            ];
+
             dcCore::app()->blog->setPostContent(
                 dcCore::app()->admin->post_id,
                 dcCore::app()->admin->post_format,
                 dcCore::app()->admin->post_lang,
+                $post_excerpt,
+                $post_excerpt_xhtml,
+                $post_content,
+                $post_content_xhtml
+            );
+
+            [
                 dcCore::app()->admin->post_excerpt,
                 dcCore::app()->admin->post_excerpt_xhtml,
                 dcCore::app()->admin->post_content,
                 dcCore::app()->admin->post_content_xhtml
-            );
+            ] = [
+                $post_excerpt,
+                $post_excerpt_xhtml,
+                $post_content,
+                $post_content_xhtml,
+            ];
         }
 
         if (!empty($_POST['delete']) && dcCore::app()->admin->can_delete) {
-
             // Delete post
 
             try {
@@ -334,13 +355,11 @@ class adminPost
         }
 
         if (!empty($_POST) && !empty($_POST['save']) && dcCore::app()->admin->can_edit_post && !dcCore::app()->admin->bad_dt) {
-
             // Create or update post
 
             if (!empty($_POST['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_CATEGORIES,
             ]), dcCore::app()->blog->id)) {
-
                 // Create category
 
                 $cur_cat = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
@@ -387,7 +406,6 @@ class adminPost
             dt::setTZ('UTC');
 
             if (dcCore::app()->admin->post_id) {
-
                 // Update post
 
                 try {
@@ -830,7 +848,6 @@ class adminPost
         }
 
         if (dcCore::app()->admin->post_id) {
-
             // Comments
 
             $params = ['post_id' => dcCore::app()->admin->post_id, 'order' => 'comment_dt ASC'];
@@ -918,7 +935,6 @@ class adminPost
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post_status == dcBlog::POST_PUBLISHED) {
-
             // Trackbacks
 
             $params     = ['post_id' => dcCore::app()->admin->post_id, 'order' => 'comment_dt ASC'];
@@ -967,7 +983,6 @@ class adminPost
             }
 
             if (dcCore::app()->admin->can_edit_post) {
-
                 // Add trackbacks
 
                 echo
