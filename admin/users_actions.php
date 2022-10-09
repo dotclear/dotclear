@@ -168,10 +168,10 @@ class adminUsersActions
             $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
         } else {
             $hidden_fields .= form::hidden(['q'], html::escapeHTML($_POST['q'] ?? '')) .
-                form::hidden(['sortby'], $_POST['sortby']                      ?? '') .
-                form::hidden(['order'], $_POST['order']                        ?? '') .
-                form::hidden(['page'], $_POST['page']                          ?? '') .
-                form::hidden(['nb'], $_POST['nb']                              ?? '');
+                form::hidden(['sortby'], $_POST['sortby'] ?? '') .
+                form::hidden(['order'], $_POST['order'] ?? '') .
+                form::hidden(['page'], $_POST['page'] ?? '') .
+                form::hidden(['nb'], $_POST['nb'] ?? '');
         }
 
         echo
@@ -181,7 +181,6 @@ class adminUsersActions
         dcCore::app()->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
 
         if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {
-
             // Blog list where to set permissions
 
             $rs      = null;
@@ -254,7 +253,6 @@ class adminUsersActions
                 '</form>';
             }
         } elseif (!empty(dcCore::app()->admin->blogs) && !empty(dcCore::app()->admin->users) && dcCore::app()->admin->action == 'perms') {
-
             // Permissions list for each selected blogs
 
             $user_perm = [];

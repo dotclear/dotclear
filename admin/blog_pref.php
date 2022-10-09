@@ -6,8 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-// Once as it may already be required by blog.php
 require_once __DIR__ . '/../inc/admin/prepend.php';
 
 class adminBlogPref

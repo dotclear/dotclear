@@ -1595,13 +1595,13 @@ class dcMedia extends filemanager
     /**
      * Returns HTML code for FLV player
      *
-     * @obsolete since 2.15
-     *
      * @param      string  $url     The url
      * @param      string  $player  The player
      * @param      mixed   $args    The arguments
      *
      * @return     string
+     *
+     * @deprecated since 2.15
      */
     public static function flvplayer(string $url, ?string $player = null, $args = null): string
     {

@@ -81,7 +81,6 @@ class adminUser
     public static function process()
     {
         if (isset($_POST['user_name'])) {
-
             // Add or update user
 
             try {
@@ -92,14 +91,14 @@ class adminUser
                 $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
 
                 $cur->user_id          = $_POST['user_id'];
-                $cur->user_super       = dcCore::app()->admin->user_super       = !empty($_POST['user_super']) ? 1 : 0;
-                $cur->user_name        = dcCore::app()->admin->user_name        = html::escapeHTML($_POST['user_name']);
-                $cur->user_firstname   = dcCore::app()->admin->user_firstname   = html::escapeHTML($_POST['user_firstname']);
+                $cur->user_super       = dcCore::app()->admin->user_super = !empty($_POST['user_super']) ? 1 : 0;
+                $cur->user_name        = dcCore::app()->admin->user_name = html::escapeHTML($_POST['user_name']);
+                $cur->user_firstname   = dcCore::app()->admin->user_firstname = html::escapeHTML($_POST['user_firstname']);
                 $cur->user_displayname = dcCore::app()->admin->user_displayname = html::escapeHTML($_POST['user_displayname']);
-                $cur->user_email       = dcCore::app()->admin->user_email       = html::escapeHTML($_POST['user_email']);
-                $cur->user_url         = dcCore::app()->admin->user_url         = html::escapeHTML($_POST['user_url']);
-                $cur->user_lang        = dcCore::app()->admin->user_lang        = html::escapeHTML($_POST['user_lang']);
-                $cur->user_tz          = dcCore::app()->admin->user_tz          = html::escapeHTML($_POST['user_tz']);
+                $cur->user_email       = dcCore::app()->admin->user_email = html::escapeHTML($_POST['user_email']);
+                $cur->user_url         = dcCore::app()->admin->user_url = html::escapeHTML($_POST['user_url']);
+                $cur->user_lang        = dcCore::app()->admin->user_lang = html::escapeHTML($_POST['user_lang']);
+                $cur->user_tz          = dcCore::app()->admin->user_tz = html::escapeHTML($_POST['user_tz']);
                 $cur->user_post_status = dcCore::app()->admin->user_post_status = (int) $_POST['user_post_status'];
 
                 if (dcCore::app()->admin->user_id && $cur->user_id == dcCore::app()->auth->userID() && dcCore::app()->auth->isSuperAdmin()) {
@@ -127,7 +126,6 @@ class adminUser
                 $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
 
                 if (dcCore::app()->admin->user_id) {
-
                     // Update user
 
                     # --BEHAVIOR-- adminBeforeUserUpdate
@@ -159,7 +157,6 @@ class adminUser
                     dcPage::addSuccessNotice(__('User has been successfully updated.'));
                     dcCore::app()->adminurl->redirect('admin.user', ['id' => $new_id]);
                 } else {
-
                     // Add user
 
                     if (dcCore::app()->getUsers(['user_id' => $cur->user_id], true)->f(0) > 0) {
@@ -276,7 +273,7 @@ class adminUser
         '<p class="form-note info" id="new_pwd_help">' . __('Password must contain at least 6 characters.') . '</p>' .
 
         '<p><label for="new_pwd_c" ' . (dcCore::app()->admin->user_id != '' ? '' : 'class="required"') . '>' .
-        (dcCore::app()->admin->user_id                                != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
+        (dcCore::app()->admin->user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
         form::password(
             'new_pwd_c',
             20,

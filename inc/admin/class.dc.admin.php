@@ -417,7 +417,11 @@ class dcAdmin
     {
         $this->p_url = $value;
 
-        // Obsolete since 2.24, may be removed in near future
+        /*
+         * @deprecated since 2.24, may be removed in near future
+         *
+         * @var string
+         */
         $GLOBALS['p_url'] = $value;
     }
 

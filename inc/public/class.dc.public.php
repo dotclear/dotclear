@@ -82,7 +82,6 @@ class dcPublic
      */
     public function init()
     {
-
         // Loading blog
         if (defined('DC_BLOG_ID')) {
             try {
@@ -190,7 +189,7 @@ class dcPublic
 
         $this->parent_theme = dcCore::app()->themes->moduleInfo($this->theme, 'parent');
         if ($this->parent_theme && !dcCore::app()->themes->moduleExists($this->parent_theme)) {
-            $this->theme        = dcCore::app()->blog->settings->system->theme        = DC_DEFAULT_THEME;
+            $this->theme        = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
             $this->parent_theme = null;
         }
 
@@ -324,7 +323,11 @@ class dcPublic
     {
         $this->page_number = $value;
 
-        // Obsolete since 2.24, may be removed in near future
+        /*
+         * @deprecated since 2.24, may be removed in near future
+         *
+         * @var int
+         */
         $GLOBALS['_page_number'] = $value;
     }
 
