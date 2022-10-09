@@ -235,7 +235,7 @@ class adminBlogroll
 
         if (!$rs->isEmpty()) {
             echo
-            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '>" method="post" id="links-form">' .
+            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="links-form">' .
             '<div class="table-outer">' .
             '<table class="dragable">' .
             '<thead>' .
