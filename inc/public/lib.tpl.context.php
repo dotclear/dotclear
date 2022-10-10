@@ -32,6 +32,9 @@ class context
         } else {
             $this->stack[$name][] = &$var;
             if ($var instanceof record) {
+                $this->stack['record'] = new dcRecord($var);
+            }
+            if ($var instanceof dcRecord) {
                 $this->stack['cur_loop'][] = &$var;
             }
         }
