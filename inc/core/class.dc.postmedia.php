@@ -51,9 +51,9 @@ class dcPostMedia
      *
      * @param      array   $params  The parameters
      *
-     * @return     record|staticRecord  The post media.
+     * @return     dcRecord  The post media.
      */
-    public function getPostMedia(array $params = [])
+    public function getPostMedia(array $params = []): dcRecord
     {
         $sql = new dcSelectStatement();
         $sql

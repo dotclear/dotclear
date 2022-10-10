@@ -99,7 +99,7 @@ class dcPrefs
         }
 
         try {
-            $rs = new dcRecord($sql->select());
+            $rs = $sql->select();
         } catch (Exception $e) {
             throw $e;
         }

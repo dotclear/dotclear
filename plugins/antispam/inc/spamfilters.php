@@ -112,11 +112,11 @@ class dcSpamFilters
     /**
      * Train antispam filters with current comment in record
      *
-     * @param      record|staticRecord|extStaticRecord      $rs             The comment record
-     * @param      string                                   $status         The status
-     * @param      string                                   $filter_name    The filter name
+     * @param      dcRecord      $rs             The comment record
+     * @param      string        $status         The status
+     * @param      string        $filter_name    The filter name
      */
-    public function trainFilters($rs, string $status, string $filter_name): void
+    public function trainFilters(dcRecord $rs, string $status, string $filter_name): void
     {
         foreach ($this->filters as $f) {
             if (!$f->active) {
@@ -137,12 +137,12 @@ class dcSpamFilters
     /**
      * Get filter status message
      *
-     * @param      record|staticRecord|extStaticRecord      $rs             The comment record
-     * @param      string                                   $filter_name    The filter name
+     * @param      dcRecord      $rs             The comment record
+     * @param      string        $filter_name    The filter name
      *
      * @return     string
      */
-    public function statusMessage($rs, string $filter_name): string
+    public function statusMessage(dcRecord $rs, string $filter_name): string
     {
         $filter = $this->filters[$filter_name] ?? null;
 

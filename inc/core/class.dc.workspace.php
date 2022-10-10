@@ -144,7 +144,7 @@ class dcWorkspace
                 ->order('pref_id ASC');
 
             try {
-                $rs = new dcRecord($sql->select());
+                $rs = $sql->select();
             } catch (Exception $e) {
                 throw $e;
             }

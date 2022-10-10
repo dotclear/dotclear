@@ -42,7 +42,7 @@ class flatExport
 
     public function export($name, $sql)
     {
-        $rs = $this->con->select($sql);
+        $rs = new dcRecord($this->con->select($sql));
 
         if (!$rs->isEmpty()) {
             fwrite($this->fp, "\n[" . $name . ' ' . implode(',', $rs->columns()) . "]\n");

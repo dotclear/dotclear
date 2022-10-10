@@ -29,11 +29,13 @@ class adminBlogDel
                 dcCore::app()->error->add($e->getMessage());
             }
 
-            if ($rs && $rs->isEmpty()) {
-                dcCore::app()->error->add(__('No such blog ID'));
-            } else {
-                dcCore::app()->admin->blog_id   = $rs->blog_id;
-                dcCore::app()->admin->blog_name = $rs->blog_name;
+            if ($rs) {
+                if ($rs->isEmpty()) {
+                    dcCore::app()->error->add(__('No such blog ID'));
+                } else {
+                    dcCore::app()->admin->blog_id   = $rs->blog_id;
+                    dcCore::app()->admin->blog_name = $rs->blog_name;
+                }
             }
         }
     }

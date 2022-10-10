@@ -686,7 +686,7 @@ class dcSqlStatement
      */
     public function isSame(string $local, string $external): bool
     {
-        $filter       = function ($s) {
+        $filter = function ($s) {
             $s        = strtoupper($s);
             $patterns = [
                 '\s+' => ' ', // Multiple spaces/tabs -> one space
@@ -1038,12 +1038,12 @@ class dcSelectStatement extends dcSqlStatement
     /**
      * Run the SQL select query and return result
      *
-     * @return     mixed  record or staticRecord (for sqlite)
+     * @return     dcRecord  record
      */
-    public function select()
+    public function select(): ?dcRecord
     {
         if ($this->con && ($sql = $this->statement())) {
-            return $this->con->select($sql);
+            return new dcRecord($this->con->select($sql));
         }
 
         return null;
@@ -1052,9 +1052,9 @@ class dcSelectStatement extends dcSqlStatement
     /**
      * select() alias
      *
-     * @return     mixed  record or staticRecord (for sqlite)
+     * @return     dcRecord  record
      */
-    public function run()
+    public function run(): ?dcRecord
     {
         return $this->select();
     }

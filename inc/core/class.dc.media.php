@@ -292,11 +292,11 @@ class dcMedia extends filemanager
     /**
      * Get media file information from recordset
      *
-     * @param      record|staticRecord|extStaticRecord    $rs  The recordset
+     * @param      dcRecord    $rs  The recordset
      *
      * @return     fileItem  The file item.
      */
-    protected function fileRecord($rs): ?fileItem
+    protected function fileRecord(dcRecord $rs): ?fileItem
     {
         if ($rs->isEmpty()) {
             return null;

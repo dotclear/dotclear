@@ -129,7 +129,7 @@ class dcLog
             $sql->limit($params['limit']);
         }
 
-        $rs = new dcRecord($sql->select());
+        $rs = $sql->select();
         $rs->extend('rsExtLog');
 
         return $rs;
@@ -243,7 +243,7 @@ class rsExtLog
      *
      * @return     string  The user common name.
      */
-    public static function getUserCN($rs): string
+    public static function getUserCN(dcRecord $rs): string
     {
         $user = dcUtils::getUserCN(
             $rs->user_id,

@@ -15,11 +15,14 @@ class adminGenericList extends adminGenericListV2
     /**
      * Constructs a new instance.
      *
-     * @param      record  $rs        The record
+     * @param      mixed   $rs        The record
      * @param      mixed   $rs_count  The rs count
      */
     public function __construct(dcCore $core, $rs, $rs_count)
     {
+        if ($rs && !($rs instanceof dcRecord)) {
+            $rs = new dcRecord($rs);
+        }
         parent::__construct($rs, $rs_count);
     }
 }

@@ -128,14 +128,14 @@ class dcMeta
 
     /**
      * Converts serialized metadata (for instance in dc_post post_meta)
-     * into a "fetchable" metadata record.
+     * into a "fetchable" metadata dcRecord.
      *
      * @param      string  $str    The serialized metadata
      * @param      string  $type   The meta type to retrieve metaIDs from
      *
-     * @return     staticRecord  The meta recordset.
+     * @return     dcRecord  The meta recordset.
      */
-    public function getMetaRecordset(?string $str, string $type): staticRecord
+    public function getMetaRecordset(?string $str, string $type): dcRecord
     {
         $meta = $this->getMetaArray($str);
         $data = [];
@@ -153,7 +153,7 @@ class dcMeta
             }
         }
 
-        return staticRecord::newFromArray($data);
+        return dcRecord::newFromArray($data);
     }
 
     /**
@@ -242,12 +242,12 @@ class dcMeta
      * @param      bool                     $count_only  Only count results
      * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
      *
-     * @return     mixed   The resulting posts record.
+     * @return     dcRecord   The resulting posts record.
      */
-    public function getPostsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getPostsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): ?dcRecord
     {
         if (!isset($params['meta_id'])) {
-            return;
+            return null;
         }
 
         $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
@@ -278,12 +278,12 @@ class dcMeta
      * @param      bool                     $count_only  Only count results
      * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
      *
-     * @return     mixed   The resulting comments record.
+     * @return     dcRecord   The resulting comments record.
      */
-    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): ?dcRecord
     {
         if (!isset($params['meta_id'])) {
-            return;
+            return null;
         }
 
         $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
@@ -317,9 +317,9 @@ class dcMeta
      * @param      bool                     $count_only  Only counts results
      * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
      *
-     * @return     record  The metadata.
+     * @return     dcRecord  The metadata.
      */
-    public function getMetadata(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getMetadata(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): dcRecord
     {
         $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
 
@@ -402,11 +402,11 @@ class dcMeta
      * Computes statistics from a metadata recordset.
      * Each record gets enriched with lowercase name, percent and roundpercent columns
      *
-     * @param      record|staticRecord  $rs     The metadata recordset
+     * @param      dcRecord  $rs     The metadata recordset
      *
-     * @return     staticRecord  The meta statistics.
+     * @return     dcRecord  The meta statistics.
      */
-    public function computeMetaStats($rs): staticRecord
+    public function computeMetaStats(dcRecord $rs): dcRecord
     {
         $rs_static = $rs->toStatic();
 

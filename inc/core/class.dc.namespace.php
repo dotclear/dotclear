@@ -140,7 +140,7 @@ class dcNamespace
                 ->order('setting_id DESC');
 
             try {
-                $rs = new dcRecord($sql->select());
+                $rs = $sql->select();
             } catch (Exception $e) {
                 trigger_error(__('Unable to retrieve settings:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
