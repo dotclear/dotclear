@@ -58,6 +58,34 @@ class dcRecord implements Iterator, Countable
     }
 
     /**
+     * To extStaticRecord
+     *
+     * Converts the static record to a {@link extStaticRecord} instance.
+     *
+     * Notes:
+     *
+     *  - The static record is created from the dynamic one if it does not exist
+     *  - All dcRecord methods (unless (ext)staticRecord spécific, see at end of this file) will try first
+     *  with the extStaticRecord|staticRecord instance, if exist.
+     *
+     * @return     self  Static representation of the object.
+     */
+    public function toExtStatic(): self
+    {
+        if ($this->static instanceof extStaticRecord) {
+            return $this;
+        }
+
+        if (!$this->static) {
+            // Convert to static if necessary
+            $this->static = $this->dynamic->toStatic();
+        }
+        $this->static = new extStaticRecord($this->static);
+
+        return $this;
+    }
+
+    /**
      * Magic call
      *
      * Magic call function. Calls function added by {@link extend()} if exists, passing it
