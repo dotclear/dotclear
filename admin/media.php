@@ -670,11 +670,11 @@ class adminMediaPage extends adminMediaFilter
     }
 
     /**
-     * Return static record instance of fileItem objects
+     * Return dcRecord instance of fileItem objects
      *
-     * @return staticRecord Dirs and/or files fileItem objects
+     * @return dcRecord Dirs and/or files fileItem objects
      */
-    public function getDirsRecord(): staticRecord
+    public function getDirsRecord(): dcRecord
     {
         $dir = $this->media_dir;
         // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
@@ -687,7 +687,7 @@ class adminMediaPage extends adminMediaFilter
         }
         $items = array_values(array_merge($dir['dirs'], $dir['files']));
 
-        return staticRecord::newFromArray($items);
+        return dcRecord::newFromArray($items);
     }
 
     /**

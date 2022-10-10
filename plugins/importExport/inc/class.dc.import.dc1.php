@@ -440,9 +440,9 @@ class dcImportDC1 extends dcIeModule
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
-                $cur->cat_id = $this->con->select(
+                $cur->cat_id = (new dcRecord($this->con->select(
                     'SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME
-                )->f(0) + 1;
+                )))->f(0) + 1;
                 $this->vars['cat_ids'][$rs->cat_id] = $cur->cat_id;
                 $cur->insert();
             }
@@ -480,9 +480,9 @@ class dcImportDC1 extends dcIeModule
                 $cur->link_xfn      = $this->cleanStr($rs->rel);
                 $cur->link_position = (int) $rs->position;
 
-                $cur->link_id = $this->con->select(
+                $cur->link_id = (new dcRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME
-                )->f(0) + 1;
+                )))->f(0) + 1;
                 $cur->insert();
             }
 
@@ -587,9 +587,9 @@ class dcImportDC1 extends dcIeModule
             $cur->post_content_xhtml
         ));
 
-        $cur->post_id = $this->con->select(
+        $cur->post_id = (new dcRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME
-        )->f(0) + 1;
+        )))->f(0) + 1;
 
         $cur->insert();
         $this->importComments($rs->post_id, $cur->post_id, $db);
@@ -640,9 +640,9 @@ class dcImportDC1 extends dcIeModule
 
             $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
 
-            $cur->comment_id = $this->con->select(
+            $cur->comment_id = (new dcRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME
-            )->f(0) + 1;
+            )))->f(0) + 1;
 
             $cur->insert();
 

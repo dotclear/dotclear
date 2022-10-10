@@ -461,7 +461,7 @@ final class dcCore
      *
      * @param      string  $id     The blog ID
      */
-    public function setBlog($id)
+    public function setBlog($id): void
     {
         $this->blog = new dcBlog($id);
     }
@@ -469,7 +469,7 @@ final class dcCore
     /**
      * Unsets blog property
      */
-    public function unsetBlog()
+    public function unsetBlog(): void
     {
         $this->blog = null;
     }
@@ -482,7 +482,7 @@ final class dcCore
      *
      * @return     array  An array of available blog status codes and names.
      */
-    public function getAllBlogStatus()
+    public function getAllBlogStatus(): array
     {
         return [
             dcBlog::BLOG_ONLINE  => __('online'),
@@ -496,11 +496,11 @@ final class dcCore
      * human-readable and will be translated, so never use it for tests.
      * If status code does not exist, returns <i>offline</i>.
      *
-     * @param      integer  $s      Status code
+     * @param      int      $s      Status code
      *
      * @return     string   The blog status name.
      */
-    public function getBlogStatus($s)
+    public function getBlogStatus(int $s): string
     {
         $r = $this->getAllBlogStatus();
         if (isset($r[$s])) {
@@ -518,7 +518,7 @@ final class dcCore
      *
      * @return     string  The nonce.
      */
-    public function getNonce()
+    public function getNonce(): string
     {
         return $this->auth->cryptLegacy(session_id());
     }
@@ -530,7 +530,7 @@ final class dcCore
      *
      * @return     bool
      */
-    public function checkNonce($secret)
+    public function checkNonce(string $secret): bool
     {
         // 40 alphanumeric characters min
         if (!preg_match('/^([0-9a-f]{40,})$/i', $secret)) {
@@ -570,7 +570,7 @@ final class dcCore
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
-    public function addEditorFormater($editor_id, $name, $func)
+    public function addEditorFormater(string $editor_id, string $name, $func): void
     {
         if (is_callable($func)) {
             $this->formaters[$editor_id][$name] = $func;
@@ -585,7 +585,7 @@ final class dcCore
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
-    public function addFormater($name, $func)
+    public function addFormater(string $name, $func): void
     {
         $this->addEditorFormater('dcLegacyEditor', $name, $func);
     }
@@ -595,7 +595,7 @@ final class dcCore
      *
      * @return     array  The editors.
      */
-    public function getEditors()
+    public function getEditors(): array
     {
         $editors = [];
 
@@ -621,7 +621,7 @@ final class dcCore
      *
      * @return     array   The formaters.
      */
-    public function getFormaters($editor_id = '')
+    public function getFormaters(string $editor_id = ''): array
     {
         $formaters_list = [];
 
@@ -648,7 +648,7 @@ final class dcCore
      *
      * @return     string
      */
-    public function callEditorFormater($editor_id, $name, $str)
+    public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
         if (isset($this->formaters[$editor_id]) && isset($this->formaters[$editor_id][$name])) {
             return call_user_func($this->formaters[$editor_id][$name], $str);
@@ -672,7 +672,7 @@ final class dcCore
      *
      * @return     string
      */
-    public function callFormater($name, $str)
+    public function callFormater(string $name, string $str): string
     {
         return $this->callEditorFormater('dcLegacyEditor', $name, $str);
     }
@@ -775,7 +775,7 @@ final class dcCore
      *
      * @return     mixed   Behavior concatened result
      */
-    public function callBehavior($behavior, ...$args)
+    public function callBehavior(string $behavior, ...$args)
     {
         if (isset($this->behaviors[$behavior])) {
             $res = '';
@@ -789,7 +789,7 @@ final class dcCore
     }
 
     /**
-     * Calls every funcction in behaviours stack
+     * Calls every function in behaviours stack (alias of self::callBehavior)
      *
      * @param      string  $behaviour  The behaviour
      * @param      mixed   ...$args    The arguments
@@ -814,7 +814,7 @@ final class dcCore
      *
      * @return     string    The post admin url.
      */
-    public function getPostAdminURL($type, $post_id, $escaped = true)
+    public function getPostAdminURL(string $type, $post_id, bool $escaped = true): string
     {
         if (!isset($this->post_types[$type])) {
             $type = 'post';
@@ -834,7 +834,7 @@ final class dcCore
      *
      * @return     string    The post public url.
      */
-    public function getPostPublicURL($type, $post_url, $escaped = true)
+    public function getPostPublicURL(string $type, string $post_url, bool $escaped = true): string
     {
         if (!isset($this->post_types[$type])) {
             $type = 'post';
@@ -853,12 +853,12 @@ final class dcCore
      * @param      string  $public_url  The public url
      * @param      string  $label       The label
      */
-    public function setPostType($type, $admin_url, $public_url, $label = '')
+    public function setPostType(string $type, string $admin_url, string $public_url, string $label = '')
     {
         $this->post_types[$type] = [
             'admin_url'  => $admin_url,
             'public_url' => $public_url,
-            'label'      => ($label != '' ? $label : $type),
+            'label'      => ($label !== '' ? $label : $type),
         ];
     }
 
@@ -867,7 +867,7 @@ final class dcCore
      *
      * @return     array  The post types.
      */
-    public function getPostTypes()
+    public function getPostTypes(): array
     {
         return $this->post_types;
     }
@@ -882,7 +882,7 @@ final class dcCore
      *
      * @return     mixed  The version.
      */
-    public function getVersion($module = 'core')
+    public function getVersion(string $module = 'core')
     {
         # Fetch versions if needed
         if (!is_array($this->versions)) {
@@ -910,13 +910,13 @@ final class dcCore
      * @param      string  $module   The module
      * @param      string  $version  The version
      */
-    public function setVersion($module, $version)
+    public function setVersion(string $module, string $version)
     {
         $cur_version = $this->getVersion($module);
 
         $cur          = $this->con->openCursor($this->prefix . self::VERSION_TABLE_NAME);
-        $cur->module  = (string) $module;
-        $cur->version = (string) $version;
+        $cur->module  = $module;
+        $cur->version = $version;
 
         if ($cur_version === null) {
             $cur->insert();
@@ -935,7 +935,7 @@ final class dcCore
      *
      * @param      string  $module  The module
      */
-    public function delVersion($module)
+    public function delVersion(string $module)
     {
         $sql = new dcDeleteStatement();
         $sql
@@ -957,9 +957,9 @@ final class dcCore
      *
      * @param      string  $id     The identifier
      *
-     * @return     record  The user.
+     * @return     dcRecord  The user.
      */
-    public function getUser($id)
+    public function getUser(string $id): dcRecord
     {
         $params['user_id'] = $id;
 
@@ -978,9 +978,9 @@ final class dcCore
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
      *
-     * @return     record  The users.
+     * @return     dcRecord  The users.
      */
-    public function getUsers($params = [], $count_only = false)
+    public function getUsers($params = [], bool $count_only = false): dcRecord
     {
         $sql = new dcSelectStatement();
 
@@ -1092,7 +1092,7 @@ final class dcCore
      *
      * @return     string
      */
-    public function addUser($cur)
+    public function addUser(cursor $cur): string
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1106,7 +1106,7 @@ final class dcCore
             throw new Exception(__('No password given'));
         }
 
-        $this->getUserCursor($cur);
+        $this->fillUserCursor($cur);
 
         if ($cur->user_creadt === null) {
             $cur->user_creadt = date('Y-m-d H:i:s');
@@ -1130,9 +1130,9 @@ final class dcCore
      *
      * @return     string
      */
-    public function updUser($id, $cur)
+    public function updUser(string $id, cursor $cur): string
     {
-        $this->getUserCursor($cur);
+        $this->fillUserCursor($cur);
 
         if (($cur->user_id !== null || $id != $this->auth->userID()) && !$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1176,7 +1176,7 @@ final class dcCore
      *
      * @throws     Exception
      */
-    public function delUser($id)
+    public function delUser(string $id): void
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1210,7 +1210,7 @@ final class dcCore
      *
      * @return      bool  True if user exists, False otherwise.
      */
-    public function userExists($id)
+    public function userExists(string $id): bool
     {
         $sql = new dcSelectStatement();
         $sql
@@ -1237,7 +1237,7 @@ final class dcCore
      *
      * @return     array   The user permissions.
      */
-    public function getUserPermissions($id)
+    public function getUserPermissions(string $id): array
     {
         $sql = new dcSelectStatement();
         $sql
@@ -1283,7 +1283,7 @@ final class dcCore
      *
      * @throws     Exception
      */
-    public function setUserPermissions($id, $perms)
+    public function setUserPermissions(string $id, array $perms): void
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1311,7 +1311,7 @@ final class dcCore
      *
      * @throws     Exception  (description)
      */
-    public function setUserBlogPermissions($id, $blog_id, $perms, $delete_first = true)
+    public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1348,7 +1348,7 @@ final class dcCore
      * @param      string  $id       The user identifier
      * @param      string  $blog_id  The blog identifier
      */
-    public function setUserDefaultBlog($id, $blog_id)
+    public function setUserDefaultBlog(string $id, string $blog_id): void
     {
         $cur = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
 
@@ -1361,13 +1361,13 @@ final class dcCore
     }
 
     /**
-     * Gets the user cursor.
+     * Fills the user cursor.
      *
      * @param      cursor     $cur    The user cursor
      *
      * @throws     Exception
      */
-    private function getUserCursor($cur)
+    private function fillUserCursor(cursor $cur)
     {
         if ($cur->isField('user_id')
             && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->user_id)) {
@@ -1405,7 +1405,7 @@ final class dcCore
      *
      * @return     array
      */
-    public function userDefaults()
+    public function userDefaults(): array
     {
         return [
             'edit_size'      => 24,
@@ -1436,7 +1436,7 @@ final class dcCore
      *
      * @return     array   The blog permissions.
      */
-    public function getBlogPermissions($id, $with_super = true)
+    public function getBlogPermissions(string $id, bool $with_super = true): array
     {
         $sql = new dcSelectStatement();
         $sql
@@ -1497,9 +1497,9 @@ final class dcCore
      *
      * @param      string  $id     The blog identifier
      *
-     * @return     mixed    The blog.
+     * @return     dcRecord|false    The blog.
      */
-    public function getBlog($id)
+    public function getBlog(string $id)
     {
         $blog = $this->getBlogs(['blog_id' => $id]);
 
@@ -1511,7 +1511,7 @@ final class dcCore
     }
 
     /**
-     * Returns a record of blogs. <b>$params</b> is an array with the following
+     * Returns a dcRecord of blogs. <b>$params</b> is an array with the following
      * optionnal parameters:
      *
      * - <var>blog_id</var>: Blog ID
@@ -1521,9 +1521,9 @@ final class dcCore
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
      *
-     * @return     record  The blogs.
+     * @return     dcRecord  The blogs.
      */
-    public function getBlogs($params = [], $count_only = false)
+    public function getBlogs($params = [], bool $count_only = false): dcRecord
     {
         $join  = ''; // %1$s
         $where = ''; // %2$s
@@ -1593,7 +1593,7 @@ final class dcCore
 
         $strReq = sprintf($strReq, $join, $where);
 
-        return $this->con->select($strReq);
+        return new dcRecord($this->con->select($strReq));
     }
 
     /**
@@ -1603,7 +1603,7 @@ final class dcCore
      *
      * @throws     Exception
      */
-    public function addBlog($cur)
+    public function addBlog(cursor $cur): void
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1624,7 +1624,7 @@ final class dcCore
      * @param      string  $id     The blog identifier
      * @param      cursor  $cur    The cursor
      */
-    public function updBlog($id, $cur)
+    public function updBlog(string $id, cursor $cur): void
     {
         $this->fillBlogCursor($cur);
 
@@ -1640,7 +1640,7 @@ final class dcCore
      *
      * @throws     Exception
      */
-    private function fillBlogCursor($cur)
+    private function fillBlogCursor(cursor $cur): void
     {
         if (($cur->blog_id !== null
             && !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id)) || (!$cur->blog_id)) {
@@ -1669,7 +1669,7 @@ final class dcCore
      *
      * @throws     Exception
      */
-    public function delBlog($id)
+    public function delBlog(string $id): void
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1688,13 +1688,13 @@ final class dcCore
      *
      * @return     bool  True if blog exists, False otherwise.
      */
-    public function blogExists($id)
+    public function blogExists(string $id): bool
     {
         $strReq = 'SELECT blog_id ' .
         'FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME . ' ' .
         "WHERE blog_id = '" . $this->con->escape($id) . "' ";
 
-        $rs = $this->con->select($strReq);
+        $rs = new dcRecord($this->con->select($strReq));
 
         return !$rs->isEmpty();
     }
@@ -1705,9 +1705,9 @@ final class dcCore
      * @param      string  $id     The blog identifier
      * @param      mixed   $type   The post type
      *
-     * @return     integer  Number of blog posts.
+     * @return     int  Number of blog posts.
      */
-    public function countBlogPosts($id, $type = null)
+    public function countBlogPosts(string $id, $type = null): int
     {
         $strReq = 'SELECT COUNT(post_id) ' .
         'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' ' .
@@ -1717,7 +1717,7 @@ final class dcCore
             $strReq .= "AND post_type = '" . $this->con->escape($type) . "' ";
         }
 
-        return $this->con->select($strReq)->f(0);
+        return (new dcRecord($this->con->select($strReq)))->f(0);
     }
     //@}
 
@@ -1732,7 +1732,7 @@ final class dcCore
      *
      * @return     string
      */
-    public function HTMLfilter($str)
+    public function HTMLfilter(string $str): string
     {
         if ($this->blog instanceof dcBlog && !$this->blog->settings->system->enable_html_filter) {
             return $str;
@@ -1757,7 +1757,7 @@ final class dcCore
     /**
      * Initializes the wiki2xhtml methods.
      */
-    private function initWiki()
+    private function initWiki(): void
     {
         $this->wiki2xhtml = new wiki2xhtml();
     }
@@ -1769,7 +1769,7 @@ final class dcCore
      *
      * @return     string
      */
-    public function wikiTransform($str)
+    public function wikiTransform(string $str): string
     {
         if (!($this->wiki2xhtml instanceof wiki2xhtml)) {
             $this->initWiki();
@@ -1781,7 +1781,7 @@ final class dcCore
     /**
      * Inits <var>wiki2xhtml</var> property for blog post.
      */
-    public function initWikiPost()
+    public function initWikiPost(): void
     {
         $this->initWiki();
 
@@ -1835,7 +1835,7 @@ final class dcCore
     /**
      * Inits <var>wiki2xhtml</var> property for simple blog comment (basic syntax).
      */
-    public function initWikiSimpleComment()
+    public function initWikiSimpleComment(): void
     {
         $this->initWiki();
 
@@ -1884,7 +1884,7 @@ final class dcCore
     /**
      * Inits <var>wiki2xhtml</var> property for blog comment.
      */
-    public function initWikiComment()
+    public function initWikiComment(): void
     {
         $this->initWiki();
 
@@ -1937,7 +1937,7 @@ final class dcCore
      *
      * @return     array
      */
-    public function wikiPostLink($url, $content)
+    public function wikiPostLink(string $url, string $content): array
     {
         if (!($this->blog instanceof dcBlog)) {
             return [];
@@ -1979,7 +1979,7 @@ final class dcCore
      *
      * @param      array  $defaults  The defaults settings
      */
-    public function blogDefaults($defaults = null)
+    public function blogDefaults(?array $defaults = null): void
     {
         if (!is_array($defaults)) {
             $defaults = [
@@ -2095,7 +2095,7 @@ final class dcCore
     {
         $strReq = 'SELECT COUNT(post_id) ' .
         'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME;
-        $rs    = $this->con->select($strReq);
+        $rs    = new dcRecord($this->con->select($strReq));
         $count = $rs->f(0);
 
         $strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml ' .
@@ -2105,7 +2105,7 @@ final class dcCore
             $strReq .= $this->con->limit($start, $limit);
         }
 
-        $rs = $this->con->select($strReq, true);
+        $rs = new dcRecord($this->con->select($strReq, true));
 
         $cur = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
 
@@ -2137,7 +2137,7 @@ final class dcCore
     {
         $strReq = 'SELECT COUNT(comment_id) ' .
         'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME;
-        $rs    = $this->con->select($strReq);
+        $rs    = new dcRecord($this->con->select($strReq));
         $count = $rs->f(0);
 
         $strReq = 'SELECT comment_id, comment_content ' .
@@ -2147,7 +2147,7 @@ final class dcCore
             $strReq .= $this->con->limit($start, $limit);
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = new dcRecord($this->con->select($strReq));
 
         $cur = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
 

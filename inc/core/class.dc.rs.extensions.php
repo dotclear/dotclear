@@ -23,11 +23,11 @@ class rsExtPost
     /**
      * Determines whether the specified post is editable.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool    True if the specified rs is editable, False otherwise.
      */
-    public static function isEditable($rs): bool
+    public static function isEditable(dcRecord $rs): bool
     {
         # If user is admin or contentadmin, true
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -55,11 +55,11 @@ class rsExtPost
     /**
      * Determines whether the specified post is deletable.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool    True if the specified rs is deletable, False otherwise.
      */
-    public static function isDeletable($rs): bool
+    public static function isDeletable(dcRecord $rs): bool
     {
         # If user is admin, or contentadmin, true
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -87,11 +87,11 @@ class rsExtPost
     /**
      * Returns whether post is the first one of its day.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function firstPostOfDay($rs): bool
+    public static function firstPostOfDay(dcRecord $rs): bool
     {
         if ($rs->isStart()) {
             return true;
@@ -108,11 +108,11 @@ class rsExtPost
     /**
      * Returns whether post is the last one of its day.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function lastPostOfDay($rs): bool
+    public static function lastPostOfDay(dcRecord $rs): bool
     {
         if ($rs->isEnd()) {
             return true;
@@ -129,11 +129,11 @@ class rsExtPost
     /**
      * Returns whether comments are enabled on post.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function commentsActive($rs): bool
+    public static function commentsActive(dcRecord $rs): bool
     {
         return
         dcCore::app()->blog->settings->system->allow_comments
@@ -144,11 +144,11 @@ class rsExtPost
     /**
      * Returns whether trackbacks are enabled on post.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function trackbacksActive($rs): bool
+    public static function trackbacksActive(dcRecord $rs): bool
     {
         return
         dcCore::app()->blog->settings->system->allow_trackbacks
@@ -159,11 +159,11 @@ class rsExtPost
     /**
      * Returns whether post has at least one comment.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function hasComments($rs): bool
+    public static function hasComments(dcRecord $rs): bool
     {
         return $rs->nb_comment > 0;
     }
@@ -171,11 +171,11 @@ class rsExtPost
     /**
      * Returns whether post has at least one trackbacks.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function hasTrackbacks($rs): bool
+    public static function hasTrackbacks(dcRecord $rs): bool
     {
         return $rs->nb_trackback > 0;
     }
@@ -183,11 +183,11 @@ class rsExtPost
     /**
      * Returns whether post has been updated since publication.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function isRepublished($rs): bool
+    public static function isRepublished(dcRecord $rs): bool
     {
         // Take care of post_dt does not store seconds
         return (($rs->getTS('upddt') + dt::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60));
@@ -196,11 +196,11 @@ class rsExtPost
     /**
      * Gets the full post url.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The url.
      */
-    public static function getURL($rs): string
+    public static function getURL(dcRecord $rs): string
     {
         return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
             $rs->post_type,
@@ -211,11 +211,11 @@ class rsExtPost
     /**
      * Returns full post category URL.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The category url.
      */
-    public static function getCategoryURL($rs): string
+    public static function getCategoryURL(dcRecord $rs): string
     {
         return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', html::sanitizeURL($rs->cat_url));
     }
@@ -223,11 +223,11 @@ class rsExtPost
     /**
      * Returns whether post has an excerpt.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function isExtended($rs): bool
+    public static function isExtended(dcRecord $rs): bool
     {
         return (string) $rs->post_excerpt_xhtml !== '';
     }
@@ -235,12 +235,12 @@ class rsExtPost
     /**
      * Gets the post timestamp.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
-     * @param      string                               $type   The type, (dt|upddt|creadt) defaults to post_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $type   The type, (dt|upddt|creadt) defaults to post_dt
      *
      * @return     integer  The ts.
      */
-    public static function getTS($rs, string $type = ''): int
+    public static function getTS(dcRecord $rs, string $type = ''): int
     {
         if ($type === 'upddt') {
             return strtotime((string) $rs->post_upddt);
@@ -254,12 +254,12 @@ class rsExtPost
     /**
      * Returns post date formating according to the ISO 8601 standard.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
-     * @param      string                               $type   The type, (dt|upddt|creadt) defaults to post_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $type   The type, (dt|upddt|creadt) defaults to post_dt
      *
      * @return     string  The iso 8601 date.
      */
-    public static function getISO8601Date($rs, string $type = ''): string
+    public static function getISO8601Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt' || $type === 'creadt') {
             return dt::iso8601($rs->getTS($type) + dt::getTimeOffset($rs->post_tz), $rs->post_tz);
@@ -271,12 +271,12 @@ class rsExtPost
     /**
      * Returns post date formating according to RFC 822.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
-     * @param      string                               $type   The type, (dt|upddt|creadt) defaults to post_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $type   The type, (dt|upddt|creadt) defaults to post_dt
      *
      * @return     string  The rfc 822 date.
      */
-    public static function getRFC822Date($rs, string $type = ''): string
+    public static function getRFC822Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt' || $type === 'creadt') {
             return dt::rfc822($rs->getTS($type) + dt::getTimeOffset($rs->post_tz), $rs->post_tz);
@@ -289,13 +289,13 @@ class rsExtPost
      * Returns post date with <var>$format</var> as formatting pattern. If format
      * is empty, uses <var>date_format</var> blog setting.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $format  The date format pattern
-     * @param      string                               $type    The type, (dt|upddt|creadt) defaults to post_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $format  The date format pattern
+     * @param      string    $type    The type, (dt|upddt|creadt) defaults to post_dt
      *
      * @return     string  The date.
      */
-    public static function getDate($rs, ?string $format, string $type = ''): string
+    public static function getDate(dcRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
             $format = dcCore::app()->blog->settings->system->date_format;
@@ -314,13 +314,13 @@ class rsExtPost
      * Returns post time with <var>$format</var> as formatting pattern. If format
      * is empty, uses <var>time_format</var> blog setting.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $format  The time format pattern
-     * @param      string                               $type    The type, (dt|upddt|creadt) defaults to post_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $format  The time format pattern
+     * @param      string    $type    The type, (dt|upddt|creadt) defaults to post_dt
      *
      * @return     string  The time.
      */
-    public static function getTime($rs, ?string $format, string $type = ''): string
+    public static function getTime(dcRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
             $format = dcCore::app()->blog->settings->system->time_format;
@@ -339,11 +339,11 @@ class rsExtPost
      * Returns author common name using user_id, user_name, user_firstname and
      * user_displayname fields.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The author common name.
      */
-    public static function getAuthorCN($rs): string
+    public static function getAuthorCN(dcRecord $rs): string
     {
         return dcUtils::getUserCN(
             $rs->user_id,
@@ -356,11 +356,11 @@ class rsExtPost
     /**
      * Returns author common name with a link if he specified one in its preferences.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string
      */
-    public static function getAuthorLink($rs): string
+    public static function getAuthorLink(dcRecord $rs): string
     {
         $res = '%1$s';
         $url = $rs->user_url;
@@ -375,12 +375,12 @@ class rsExtPost
      * Returns author e-mail address. If <var>$encoded</var> is true, "@" sign is
      * replaced by "%40" and "." by "%2e".
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
-     * @param      bool                                 $encoded  Encode address
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      bool      $encoded  Encode address
      *
      * @return     string  The author email.
      */
-    public static function getAuthorEmail($rs, bool $encoded = true): string
+    public static function getAuthorEmail(dcRecord $rs, bool $encoded = true): string
     {
         if ($encoded) {
             return strtr((string) $rs->user_email, ['@' => '%40', '.' => '%2e']);
@@ -392,11 +392,11 @@ class rsExtPost
     /**
      * Gets the post feed unique id.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The feed id.
      */
-    public static function getFeedID($rs): string
+    public static function getFeedID(dcRecord $rs): string
     {
         return 'urn:md5:' . md5(dcCore::app()->blog->uid . $rs->post_id);
     }
@@ -404,12 +404,12 @@ class rsExtPost
     /**
      * Returns trackback RDF information block in HTML comment.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
-     * @param      string                               $format   The format (html|xml)
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $format   The format (html|xml)
      *
      * @return     string
      */
-    public static function getTrackbackData($rs, string $format = 'html'): string
+    public static function getTrackbackData(dcRecord $rs, string $format = 'html'): string
     {
         return
         ($format === 'xml' ? "<![CDATA[>\n" : '') .
@@ -430,11 +430,11 @@ class rsExtPost
     /**
      * Gets the post trackback full URL.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The trackback link.
      */
-    public static function getTrackbackLink($rs): string
+    public static function getTrackbackLink(dcRecord $rs): string
     {
         return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('trackback', (string) $rs->post_id);
     }
@@ -443,12 +443,12 @@ class rsExtPost
      * Returns post content. If <var>$absolute_urls</var> is true, appends full
      * blog URL to each relative post URLs.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs              Invisible parameter
-     * @param      bool                                 $absolute_urls   With absolute URLs
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      bool      $absolute_urls   With absolute URLs
      *
      * @return     string  The content.
      */
-    public static function getContent($rs, bool $absolute_urls = false): string
+    public static function getContent(dcRecord $rs, bool $absolute_urls = false): string
     {
         if ($absolute_urls) {
             return html::absoluteURLs((string) $rs->post_content_xhtml, $rs->getURL());
@@ -461,12 +461,12 @@ class rsExtPost
      * Returns post excerpt. If <var>$absolute_urls</var> is true, appends full
      * blog URL to each relative post URLs.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs              Invisible parameter
-     * @param      bool                                 $absolute_urls   With absolute URLs
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      bool      $absolute_urls   With absolute URLs
      *
      * @return     string  The excerpt.
      */
-    public static function getExcerpt($rs, bool $absolute_urls = false): string
+    public static function getExcerpt(dcRecord $rs, bool $absolute_urls = false): string
     {
         if ($absolute_urls) {
             return html::absoluteURLs((string) $rs->post_excerpt_xhtml, $rs->getURL());
@@ -478,12 +478,12 @@ class rsExtPost
     /**
      * Returns post media count using a subquery.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs              Invisible parameter
-     * @param      string                               $link_type  The link type
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $link_type  The link type
      *
      * @return     integer Number of media.
      */
-    public static function countMedia($rs, ?string $link_type = null): int
+    public static function countMedia(dcRecord $rs, ?string $link_type = null): int
     {
         if (isset($rs->_nb_media[$rs->index()])) {
             return (int) $rs->_nb_media[$rs->index()];
@@ -495,7 +495,7 @@ class rsExtPost
             $strReq .= "AND link_type = '" . dcCore::app()->con->escape($link_type) . "'";
         }
 
-        $res = (int) dcCore::app()->con->select($strReq)->f(0);
+        $res = (int) (new dcRecord(dcCore::app()->con->select($strReq)))->f(0);
 
         $rs->_nb_media[$rs->index()] = $res;
 
@@ -505,12 +505,12 @@ class rsExtPost
     /**
      * Returns true if current category if in given cat_url subtree
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
-     * @param      string                               $cat_url  The cat url
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $cat_url  The cat url
      *
      * @return     bool     true if current cat is in given cat subtree
      */
-    public static function underCat($rs, string $cat_url): bool
+    public static function underCat(dcRecord $rs, string $cat_url): bool
     {
         return dcCore::app()->blog->IsInCatSubtree((string) $rs->cat_url, $cat_url);
     }
@@ -533,13 +533,13 @@ class rsExtComment
      * Returns comment date with <var>$format</var> as formatting pattern. If
      * format is empty, uses <var>date_format</var> blog setting.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $format  The date format pattern
-     * @param      string                               $type    The type, (dt|upddt) defaults to comment_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $format  The date format pattern
+     * @param      string    $type    The type, (dt|upddt) defaults to comment_dt
      *
      * @return     string  The date.
      */
-    public static function getDate($rs, ?string $format, string $type = ''): string
+    public static function getDate(dcRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
             $format = dcCore::app()->blog->settings->system->date_format;
@@ -556,13 +556,13 @@ class rsExtComment
      * Returns comment time with <var>$format</var> as formatting pattern. If
      * format is empty, uses <var>time_format</var> blog setting.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $format  The date format pattern
-     * @param      string                               $type    The type, (dt|upddt) defaults to comment_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $format  The date format pattern
+     * @param      string    $type    The type, (dt|upddt) defaults to comment_dt
      *
      * @return     string  The time.
      */
-    public static function getTime($rs, ?string $format, string $type = ''): string
+    public static function getTime(dcRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
             $format = dcCore::app()->blog->settings->system->time_format;
@@ -578,12 +578,12 @@ class rsExtComment
     /**
      * Returns comment timestamp.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $type    The type, (dt|upddt) defaults to comment_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $type    The type, (dt|upddt) defaults to comment_dt
      *
      * @return     integer The timestamp.
      */
-    public static function getTS($rs, string $type = ''): int
+    public static function getTS(dcRecord $rs, string $type = ''): int
     {
         if ($type === 'upddt') {
             return strtotime((string) $rs->comment_upddt);
@@ -595,12 +595,12 @@ class rsExtComment
     /**
      * Returns comment date formating according to the ISO 8601 standard.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $type    The type, (dt|upddt) defaults to comment_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $type    The type, (dt|upddt) defaults to comment_dt
      *
      * @return     string  The iso 8601 date.
      */
-    public static function getISO8601Date($rs, string $type = ''): string
+    public static function getISO8601Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt') {
             return dt::iso8601($rs->getTS($type) + dt::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
@@ -612,12 +612,12 @@ class rsExtComment
     /**
      * Returns comment date formating according to RFC 822.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs      Invisible parameter
-     * @param      string                               $type    The type, (dt|upddt) defaults to comment_dt
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      string    $type    The type, (dt|upddt) defaults to comment_dt
      *
      * @return     string  The rfc 822 date.
      */
-    public static function getRFC822Date($rs, string $type = ''): string
+    public static function getRFC822Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt') {
             return dt::rfc822($rs->getTS($type) + dt::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
@@ -630,12 +630,12 @@ class rsExtComment
      * Returns comment content. If <var>$absolute_urls</var> is true, appends full
      * blog URL to each relative post URLs.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs              Invisible parameter
-     * @param      bool                                 $absolute_urls   With absolute URLs
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      bool      $absolute_urls   With absolute URLs
      *
      * @return     string  The content.
      */
-    public static function getContent($rs, bool $absolute_urls = false): string
+    public static function getContent(dcRecord $rs, bool $absolute_urls = false): string
     {
         $res = (string) $rs->comment_content;
 
@@ -675,11 +675,11 @@ class rsExtComment
     /**
      * Returns comment author link to his website if he specified one.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     mixed  The author url.
      */
-    public static function getAuthorURL($rs)
+    public static function getAuthorURL(dcRecord $rs)
     {
         if (trim((string) $rs->comment_site)) {
             return trim((string) $rs->comment_site);
@@ -689,11 +689,11 @@ class rsExtComment
     /**
      * Returns comment post full URL.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The comment post url.
      */
-    public static function getPostURL($rs): string
+    public static function getPostURL(dcRecord $rs): string
     {
         return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
             $rs->post_type,
@@ -704,11 +704,11 @@ class rsExtComment
     /**
      * Returns comment author name in a link to his website if he specified one.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs     Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The author link.
      */
-    public static function getAuthorLink($rs): string
+    public static function getAuthorLink(dcRecord $rs): string
     {
         $res = '%1$s';
         $url = $rs->getAuthorURL();
@@ -728,12 +728,12 @@ class rsExtComment
      * Returns comment author e-mail address. If <var>$encoded</var> is true,
      * "@" sign is replaced by "%40" and "." by "%2e".
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
-     * @param      bool                                 $encoded  Encode address
+     * @param      dcRecord  $rs     Invisible parameter
+     * @param      bool      $encoded  Encode address
      *
      * @return     string  The email.
      */
-    public static function getEmail($rs, bool $encoded = true): string
+    public static function getEmail(dcRecord $rs, bool $encoded = true): string
     {
         return $encoded ? strtr((string) $rs->comment_email, ['@' => '%40', '.' => '%2e']) : $rs->comment_email;
     }
@@ -741,11 +741,11 @@ class rsExtComment
     /**
      * Returns trackback site title if comment is a trackback.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs       Invisible parameter
      *
      * @return     string  The trackback title.
      */
-    public static function getTrackbackTitle($rs): string
+    public static function getTrackbackTitle(dcRecord $rs): string
     {
         if ($rs->comment_trackback == 1 && preg_match(
             '|<p><strong>(.*?)</strong></p>|msU',
@@ -761,11 +761,11 @@ class rsExtComment
     /**
      * Returns trackback content if comment is a trackback.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The trackback content.
      */
-    public static function getTrackbackContent($rs): string
+    public static function getTrackbackContent(dcRecord $rs): string
     {
         if ($rs->comment_trackback == 1) {
             return preg_replace(
@@ -781,11 +781,11 @@ class rsExtComment
     /**
      * Returns comment feed unique ID.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string  The feed id.
      */
-    public static function getFeedID($rs): string
+    public static function getFeedID(dcRecord $rs): string
     {
         return 'urn:md5:' . md5(dcCore::app()->blog->uid . $rs->comment_id);
     }
@@ -793,11 +793,11 @@ class rsExtComment
     /**
      * Determines whether the specified comment is from the post author.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool    True if the specified comment is from the post author, False otherwise.
      */
-    public static function isMe($rs): bool
+    public static function isMe(dcRecord $rs): bool
     {
         $user_prefs = new dcPrefs((string) $rs->user_id, 'profile');
         $user_prefs->addWorkspace('profile');
@@ -828,11 +828,11 @@ class rsExtDates
     /**
      * Convert date to timestamp
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     integer
      */
-    public static function ts($rs): int
+    public static function ts(dcRecord $rs): int
     {
         return strtotime((string) $rs->dt);
     }
@@ -840,11 +840,11 @@ class rsExtDates
     /**
      * Get date year
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string
      */
-    public static function year($rs): string
+    public static function year(dcRecord $rs): string
     {
         return date('Y', strtotime((string) $rs->dt));
     }
@@ -852,11 +852,11 @@ class rsExtDates
     /**
      * Get date month
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string
      */
-    public static function month($rs): string
+    public static function month(dcRecord $rs): string
     {
         return date('m', strtotime((string) $rs->dt));
     }
@@ -864,11 +864,11 @@ class rsExtDates
     /**
      * Get date day
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string
      */
-    public static function day($rs): string
+    public static function day(dcRecord $rs): string
     {
         return date('d', strtotime((string) $rs->dt));
     }
@@ -876,11 +876,11 @@ class rsExtDates
     /**
      * Returns date month archive full URL.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     string
      */
-    public static function url($rs): string
+    public static function url(dcRecord $rs): string
     {
         $url = date('Y/m', strtotime((string) $rs->dt));
 
@@ -890,11 +890,11 @@ class rsExtDates
     /**
      * Returns whether date is the first of year.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function yearHeader($rs): bool
+    public static function yearHeader(dcRecord $rs): bool
     {
         if ($rs->isStart()) {
             return true;
@@ -911,11 +911,11 @@ class rsExtDates
     /**
      * Returns whether date is the last of year.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs     Invisible parameter
      *
      * @return     bool
      */
-    public static function yearFooter($rs): bool
+    public static function yearFooter(dcRecord $rs): bool
     {
         if ($rs->isEnd()) {
             return true;
@@ -949,12 +949,12 @@ class rsExtUser
     /**
      * Returns a user option.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
-     * @param      string                               $name     The name of option
+     * @param      dcRecord   $rs       Invisible parameter
+     * @param      string     $name     The name of option
      *
      * @return     mixed
      */
-    public static function option($rs, string $name)
+    public static function option(dcRecord $rs, string $name)
     {
         $options = self::options($rs);
 
@@ -966,11 +966,11 @@ class rsExtUser
     /**
      * Returns all user options.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord   $rs       Invisible parameter
      *
      * @return     array
      */
-    public static function options($rs): array
+    public static function options(dcRecord $rs): array
     {
         $options = @unserialize((string) $rs->user_options);
         if (is_array($options)) {
@@ -983,17 +983,15 @@ class rsExtUser
     /**
      * Converts this record to a {@link extStaticRecord} instance.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord   $rs       Invisible parameter
      *
-     * @return     extStaticRecord  The extent static record.
+     * @return     dcRecord  The extent static record.
      */
-    public static function toExtStatic($rs): extStaticRecord
+    public static function toExtStatic(dcRecord $rs): dcRecord
     {
-        if ($rs instanceof extStaticRecord) {
-            return $rs;
-        }
+        $rs->toExtStatic();
 
-        return new extStaticRecord($rs);
+        return $rs;
     }
 }
 
@@ -1002,17 +1000,15 @@ class rsExtBlog
     /**
      * Converts this record to a {@link extStaticRecord} instance.
      *
-     * @param      record|staticRecord|extStaticRecord  $rs       Invisible parameter
+     * @param      dcRecord  $rs       Invisible parameter
      *
-     * @return     extStaticRecord  The extent static record.
+     * @return     dcRecord  The extent static record.
      */
-    public static function toExtStatic($rs): extStaticRecord
+    public static function toExtStatic(dcRecord $rs): dcRecord
     {
-        if ($rs instanceof extStaticRecord) {
-            return $rs;
-        }
+        $rs->toExtStatic();
 
-        return new extStaticRecord($rs);
+        return $rs;
     }
 }
 

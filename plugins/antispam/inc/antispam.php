@@ -61,11 +61,11 @@ class dcAntispam
     /**
      * Train the filters with current record
      *
-     * @param      dcBlog                                   $blog   The blog
-     * @param      cursor                                   $cur    The cursor
-     * @param      record|staticRecord|extStaticRecord      $rs     The comment record
+     * @param      dcBlog        $blog   The blog
+     * @param      cursor        $cur    The cursor
+     * @param      dcRecord      $rs     The comment record
      */
-    public static function trainFilters(dcBlog $blog, cursor $cur, $rs): void
+    public static function trainFilters(dcBlog $blog, cursor $cur, dcRecord $rs): void
     {
         $status = null;
         // From ham to spam
@@ -90,11 +90,11 @@ class dcAntispam
     /**
      * Get filter status message
      *
-     * @param      record|staticRecord|extStaticRecord      $rs     The comment record
+     * @param      dcRecord      $rs     The comment record
      *
      * @return     string
      */
-    public static function statusMessage($rs): string
+    public static function statusMessage(dcRecord $rs): string
     {
         if ($rs->exists('comment_status') && $rs->comment_status == dcBlog::COMMENT_JUNK) {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : null;
@@ -172,7 +172,7 @@ class dcAntispam
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
 
-        $rs = dcCore::app()->con->select($strReq);
+        $rs = new dcRecord(dcCore::app()->con->select($strReq));
         $r  = [];
         while ($rs->fetch()) {
             $r[] = (int) $rs->comment_id;
@@ -223,7 +223,7 @@ class dcAntispam
         'FROM ' . dcCore::app()->prefix . dcAuth::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . dcCore::app()->con->escape($user_id) . "' ";
 
-        $rs = dcCore::app()->con->select($strReq);
+        $rs = new dcRecord(dcCore::app()->con->select($strReq));
 
         if ($rs->isEmpty()) {
             return false;

@@ -86,7 +86,7 @@ class dcSettings
             ]);
 
         try {
-            $rs = new dcRecord($sql->select());
+            $rs = $sql->select();
         } catch (Exception $e) {
             trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
         }

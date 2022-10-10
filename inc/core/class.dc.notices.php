@@ -118,7 +118,7 @@ class dcNotices
             $sql->limit($params['limit']);
         }
 
-        return new dcRecord($sql->select());
+        return $sql->select();
     }
 
     /**

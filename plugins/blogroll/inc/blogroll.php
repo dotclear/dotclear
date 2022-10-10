@@ -53,9 +53,9 @@ class dcBlogroll
      *
      * @param      array   $params  The parameters
      *
-     * @return     staticRecord|extStaticRecord  The links.
+     * @return     dcRecord  The links.
      */
-    public function getLinks(array $params = [])
+    public function getLinks(array $params = []): dcRecord
     {
         $strReq = 'SELECT link_id, link_title, link_desc, link_href, ' .
         'link_lang, link_xfn, link_position ' .
@@ -68,7 +68,7 @@ class dcBlogroll
 
         $strReq .= 'ORDER BY link_position ';
 
-        $rs = $this->blog->con->select($strReq);
+        $rs = new dcRecord($this->blog->con->select($strReq));
         $rs = $rs->toStatic();
 
         $this->setLinksData($rs);
@@ -81,9 +81,9 @@ class dcBlogroll
      *
      * @param      array   $params  The parameters
      *
-     * @return     staticRecord|extStaticRecord  The links.
+     * @return     dcRecord  The links.
      */
-    public function getLangs(array $params = [])
+    public function getLangs(array $params = []): dcRecord
     {
         // Use post_lang as an alias of link_lang to be able to use the dcAdminCombos::getLangsCombo() function
         $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
@@ -104,7 +104,7 @@ class dcBlogroll
         }
         $strReq .= 'ORDER BY link_lang ' . $order . ' ';
 
-        return $this->blog->con->select($strReq);
+        return new dcRecord($this->blog->con->select($strReq));
     }
 
     /**
@@ -112,9 +112,9 @@ class dcBlogroll
      *
      * @param      string  $id     The identifier
      *
-     * @return     staticRecord|extStaticRecord  The link.
+     * @return     dcRecord  The link.
      */
-    public function getLink(string $id)
+    public function getLink(string $id): dcRecord
     {
         return $this->getLinks(['link_id' => $id]);
     }
@@ -150,7 +150,7 @@ class dcBlogroll
         }
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = $this->blog->con->select($strReq);
+        $rs           = new dcRecord($this->blog->con->select($strReq));
         $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
@@ -238,7 +238,7 @@ class dcBlogroll
         }
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = $this->blog->con->select($strReq);
+        $rs           = new dcRecord($this->blog->con->select($strReq));
         $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
@@ -283,9 +283,9 @@ class dcBlogroll
     /**
      * Sets the links data.
      *
-     * @param      staticRecord|extStaticRecord  $rs     The links
+     * @param      dcRecord  $rs     The links
      */
-    private function setLinksData($rs): void
+    private function setLinksData(dcRecord $rs): void
     {
         $cat_title = null;
         while ($rs->fetch()) {
@@ -304,11 +304,11 @@ class dcBlogroll
     /**
      * Gets the links hierarchy.
      *
-     * @param      staticRecord|extStaticRecord  $rs     The links
+     * @param      dcRecord  $rs     The links
      *
      * @return     array   The links hierarchy.
      */
-    public function getLinksHierarchy($rs): array
+    public function getLinksHierarchy(dcRecord $rs): array
     {
         $res = [];
 

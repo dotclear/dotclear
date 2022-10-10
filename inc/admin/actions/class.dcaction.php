@@ -32,7 +32,7 @@ abstract class dcActions
      */
     protected $entries = [];
     /**
-     * @var record|staticRecord|dcRecord record that challenges ids against permissions
+     * @var dcRecord record that challenges ids against permissions
      */
     protected $rs;
     /**
@@ -210,9 +210,9 @@ abstract class dcActions
     /**
      * Get record from DB Query containing requested IDs
      *
-     * @return record the HTML code for hidden fields
+     * @return dcRecord
      */
-    public function getRS()
+    public function getRS(): dcRecord
     {
         return $this->rs;
     }
@@ -377,7 +377,7 @@ abstract class dcActions
      * This method may setup the following attributes
      * - entries : list of entries (checked against permissions)
      *   entries ids are array keys, values contain entry description (if relevant)
-     * - rs : record given by db request
+     * - rs : dcRecord given by db request
      *
      * @param ArrayObject $from
      */

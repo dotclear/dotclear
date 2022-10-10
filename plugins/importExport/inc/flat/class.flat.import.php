@@ -130,34 +130,34 @@ class flatImport extends flatBackup
 
         $this->blog_id = dcCore::app()->blog->id;
 
-        $this->stack['categories'] = $this->con->select(
+        $this->stack['categories'] = new dcRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
             'FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
-        );
+        ));
 
-        $rs                    = $this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME);
+        $rs                    = new dcRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME));
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = $this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME);
+        $rs                     = new dcRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME));
         $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = $this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME);
+        $rs                     = new dcRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME));
         $this->stack['post_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                      = $this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME);
+        $rs                      = new dcRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME));
         $this->stack['media_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                        = $this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME);
+        $rs                        = new dcRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME));
         $this->stack['comment_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                    = $this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME);
+        $rs                    = new dcRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME));
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs = $this->con->select(
+        $rs = new dcRecord($this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape(dcCore::app()->blog->id) . "'"
-        );
+        ));
 
         if ((int) $rs->cat_rgt > 0) {
             $this->has_categories                            = true;
@@ -816,7 +816,7 @@ class flatImport extends flatBackup
         'FROM ' . $this->prefix . dcAuth::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
 
-        $rs = $this->con->select($strReq);
+        $rs = new dcRecord($this->con->select($strReq));
 
         $this->stack['users'][$user_id] = !$rs->isEmpty();
 
@@ -835,7 +835,7 @@ class flatImport extends flatBackup
             $strReq .= "AND user_id = '" . $this->con->escape($user_id) . "' ";
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = new dcRecord($this->con->select($strReq));
 
         return !$rs->isEmpty();
     }
@@ -847,7 +847,7 @@ class flatImport extends flatBackup
         "WHERE media_path = '" . $this->con->escape($this->cur_media->media_path) . "' " .
         "AND media_file = '" . $this->con->escape($this->cur_media->media_file) . "' ";
 
-        $rs = $this->con->select($strReq);
+        $rs = new dcRecord($this->con->select($strReq));
 
         return !$rs->isEmpty();
     }

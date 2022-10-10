@@ -46,7 +46,7 @@ class dcTrackback
      *
      * @param      integer  $post_id  The post identifier
      *
-     * @return     staticRecord|record   The post pings.
+     * @return     dcRecord   The post pings.
      */
     public function getPostPings(int $post_id)
     {
@@ -54,7 +54,7 @@ class dcTrackback
         'FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . (int) $post_id;
 
-        return dcCore::app()->con->select($strReq);
+        return new dcRecord(dcCore::app()->con->select($strReq));
     }
 
     /**
@@ -81,7 +81,7 @@ class dcTrackback
         'WHERE post_id = ' . $post_id . ' ' .
         "AND ping_url = '" . dcCore::app()->con->escape($url) . "' ";
 
-        $rs = dcCore::app()->con->select($strReq);
+        $rs = new dcRecord(dcCore::app()->con->select($strReq));
 
         if (!$rs->isEmpty()) {
             throw new Exception(sprintf(__('%s has still been pinged'), $url));
@@ -459,7 +459,7 @@ class dcTrackback
         ];
 
         $rs = dcCore::app()->blog->getComments($params, true);
-        if ($rs && !$rs->isEmpty()) {
+        if (!$rs->isEmpty()) {
             return ($rs->f(0));
         }
 
@@ -566,9 +566,9 @@ class dcTrackback
      *
      * @throws     Exception
      *
-     * @return     staticRecord|record     The target post.
+     * @return     dcRecord     The target post.
      */
-    private function getTargetPost(string $to_url)
+    private function getTargetPost(string $to_url): dcRecord
     {
         $reg = '!^' . preg_quote(dcCore::app()->blog->url) . '(.*)!';
 

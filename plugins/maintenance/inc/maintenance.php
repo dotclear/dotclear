@@ -220,12 +220,12 @@ class dcMaintenance
         }
 
         // Get logs from this task
-        $rs = dcCore::app()->con->select(
+        $rs = new dcRecord(dcCore::app()->con->select(
             'SELECT log_id ' .
             'FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
             "WHERE log_msg = '" . dcCore::app()->con->escape($id) . "' " .
             "AND log_table = 'maintenance' "
-        );
+        ));
 
         $logs = [];
         while ($rs->fetch()) {

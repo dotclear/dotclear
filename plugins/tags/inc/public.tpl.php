@@ -332,12 +332,12 @@ class tplTags
         $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
-        if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record) {
+        if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord) {
             dcCore::app()->ctx->meta = dcCore::app()->meta->getMetaRecordset(dcCore::app()->ctx->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record) {
+            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord) {
                 while (dcCore::app()->ctx->meta->fetch()) {
                     if (dcCore::app()->ctx->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';

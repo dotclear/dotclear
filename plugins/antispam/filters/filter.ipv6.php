@@ -258,7 +258,7 @@ class dcFilterIPv6 extends dcSpamFilter
         $cur = dcCore::app()->con->openCursor($this->table);
 
         if ($old->isEmpty()) {
-            $id = dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table)->f(0) + 1;
+            $id = (new dcRecord(dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table)))->f(0) + 1;
 
             $cur->rule_id      = $id;
             $cur->rule_type    = (string) $type;
@@ -283,9 +283,9 @@ class dcFilterIPv6 extends dcSpamFilter
      *
      * @param      string  $type   The type
      *
-     * @return     record|staticRecord  The rules.
+     * @return     dcRecord  The rules.
      */
-    private function getRules(string $type = 'all')
+    private function getRules(string $type = 'all'): dcRecord
     {
         $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
@@ -293,7 +293,7 @@ class dcFilterIPv6 extends dcSpamFilter
         "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
-        return dcCore::app()->con->select($strReq);
+        return new dcRecord(dcCore::app()->con->select($strReq));
     }
 
     /**
@@ -303,9 +303,9 @@ class dcFilterIPv6 extends dcSpamFilter
      * @param      bool    $global  The global
      * @param      string  $pattern The pattern
      *
-     * @return     record|staticRecord  The rules.
+     * @return     dcRecord  The rules.
      */
-    private function getRuleCIDR(string $type, bool $global, string $pattern)
+    private function getRuleCIDR(string $type, bool $global, string $pattern): dcRecord
     {
         // Search if we already have a rule for the given IP (ignoring mask in pattern if any)
         $this->ipmask($pattern, $ip, $mask);
@@ -316,7 +316,7 @@ class dcFilterIPv6 extends dcSpamFilter
         "AND rule_content LIKE '" . $ip . "%' " .
         'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . dcCore::app()->blog->id . "' ");
 
-        return dcCore::app()->con->select($strReq);
+        return new dcRecord(dcCore::app()->con->select($strReq));
     }
 
     /**
@@ -335,7 +335,7 @@ class dcFilterIPv6 extends dcSpamFilter
         "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
             'ORDER BY rule_content ASC ';
 
-        $rs = dcCore::app()->con->select($strReq);
+        $rs = new dcRecord(dcCore::app()->con->select($strReq));
         while ($rs->fetch()) {
             $pattern = $rs->rule_content;
             if ($this->inrange($cip, $pattern)) {

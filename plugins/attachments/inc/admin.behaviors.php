@@ -31,9 +31,9 @@ class attachmentAdminBehaviors
      *
      * @param      ArrayObject  $main     The main part of the entry form
      * @param      ArrayObject  $sidebar  The sidebar part of the entry form
-     * @param      mixed        $post     The post (record)
+     * @param      dcRecord     $post     The post
      */
-    public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, $post): void
+    public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?dcRecord $post): void
     {
         if ($post !== null) {
             $post_media = dcCore::app()->media->getPostMedia($post->post_id, null, 'attachment');
@@ -81,9 +81,9 @@ class attachmentAdminBehaviors
     /**
      * Add attchment remove form template
      *
-     * @param      mixed  $post   The post (record)
+     * @param      dcRecord  $post   The post
      */
-    public static function adminPostAfterForm($post): void
+    public static function adminPostAfterForm(?dcRecord $post): void
     {
         if ($post !== null) {
             echo

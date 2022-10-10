@@ -136,9 +136,9 @@ class tagsBehaviors
      *
      * @param      ArrayObject  $main     The main part of the entry form
      * @param      ArrayObject  $sidebar  The sidebar part of the entry form
-     * @param      mixed        $post     The post (record)
+     * @param      dcRecord     $post     The post
      */
-    public static function tagsField(ArrayObject $main, ArrayObject $sidebar, $post): void
+    public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?dcRecord $post): void
     {
         $meta = dcCore::app()->meta;
 

@@ -241,9 +241,9 @@ class dcFilterWords extends dcSpamFilter
     /**
      * Gets the rules.
      *
-     * @return     record|staticRecord  The rules.
+     * @return     dcRecord  The rules.
      */
-    private function getRules()
+    private function getRules(): dcRecord
     {
         $strReq = 'SELECT rule_id, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
@@ -252,7 +252,7 @@ class dcFilterWords extends dcSpamFilter
             'OR blog_id IS NULL ) ' .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
-        return dcCore::app()->con->select($strReq);
+        return new dcRecord(dcCore::app()->con->select($strReq));
     }
 
     /**
@@ -271,7 +271,7 @@ class dcFilterWords extends dcSpamFilter
         if (!$general) {
             $strReq .= ' AND blog_id = \'' . dcCore::app()->blog->id . '\'';
         }
-        $rs = dcCore::app()->con->select($strReq);
+        $rs = new dcRecord(dcCore::app()->con->select($strReq));
 
         if (!$rs->isEmpty() && !$general) {
             throw new Exception(__('This word exists'));
@@ -290,7 +290,7 @@ class dcFilterWords extends dcSpamFilter
         if (!$rs->isEmpty() && $general) {
             $cur->update('WHERE rule_id = ' . $rs->rule_id);
         } else {
-            $rs_max       = dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table);
+            $rs_max       = new dcRecord(dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table));
             $cur->rule_id = (int) $rs_max->f(0) + 1;
             $cur->insert();
         }

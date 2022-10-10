@@ -170,6 +170,10 @@ parameters:
     - message: '#Access to an undefined property dcRecord::#'
       path: %currentWorkingDirectory%
 
+    # dcRecord object methods
+    - message: '#Call to an undefined method dcRecord::#'
+      path: %currentWorkingDirectory%
+
     # static property rsExtUser
     - message: '#Static property rsExtUser::#'
       path: %currentWorkingDirectory%

@@ -118,17 +118,17 @@ class dcSpamFilter
     /**
      * Train the antispam filter
      *
-     * @param      string                                   $status   The comment status
-     * @param      string                                   $filter   The filter
-     * @param      string                                   $type     The comment type
-     * @param      string                                   $author   The comment author
-     * @param      string                                   $email    The comment author email
-     * @param      string                                   $site     The comment author site
-     * @param      string                                   $ip       The comment author IP
-     * @param      string                                   $content  The comment content
-     * @param      record|staticRecord|extStaticRecord      $rs       The comment record
+     * @param      string        $status   The comment status
+     * @param      string        $filter   The filter
+     * @param      string        $type     The comment type
+     * @param      string        $author   The comment author
+     * @param      string        $email    The comment author email
+     * @param      string        $site     The comment author site
+     * @param      string        $ip       The comment author IP
+     * @param      string        $content  The comment content
+     * @param      dcRecord      $rs       The comment record
      */
-    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, $rs)
+    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, dcRecord $rs)
     {
     }
 

@@ -1061,12 +1061,12 @@ class adminPost
     /**
      * Shows the comments or trackbacks.
      *
-     * @param      mixed   $rs          The recordset
-     * @param      bool    $has_action  Indicates if action is possible
-     * @param      bool    $tb          Is trackbacks?
-     * @param      bool    $show_ip     Show ip?
+     * @param      dcRecord $rs          The recordset
+     * @param      bool     $has_action  Indicates if action is possible
+     * @param      bool     $tb          Is trackbacks?
+     * @param      bool     $show_ip     Show ip?
      */
-    protected static function showComments($rs, bool $has_action, bool $tb = false, bool $show_ip = true): void
+    protected static function showComments(dcRecord $rs, bool $has_action, bool $tb = false, bool $show_ip = true): void
     {
         echo
             '<div class="table-outer">' .

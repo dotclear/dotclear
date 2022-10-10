@@ -57,7 +57,7 @@ class tplPages
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type === 'pages' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type === 'pages' && dcCore::app()->ctx->posts instanceof dcRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="page-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

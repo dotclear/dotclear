@@ -343,7 +343,7 @@ class dcBlog
      *
      * @param      bool  $value
      */
-    public function withoutPassword(bool $value)
+    public function withoutPassword(bool $value): void
     {
         $this->without_password = $value;
     }
@@ -357,7 +357,7 @@ class dcBlog
      * Updates blog last update date. Should be called every time you change
      * an element related to the blog.
      */
-    public function triggerBlog()
+    public function triggerBlog(): void
     {
         $cur = $this->con->openCursor($this->prefix . self::BLOG_TABLE_NAME);
 
@@ -379,7 +379,7 @@ class dcBlog
      * @param      int      $id     The comment identifier
      * @param      bool     $del    If comment is deleted, set this to true
      */
-    public function triggerComment(int $id, bool $del = false)
+    public function triggerComment(int $id, bool $del = false): void
     {
         $this->triggerComments($id, $del);
     }
@@ -392,7 +392,7 @@ class dcBlog
      * @param      bool    $del             If comment is delete, set this to true
      * @param      mixed   $affected_posts  The affected posts IDs
      */
-    public function triggerComments($ids, bool $del = false, $affected_posts = null)
+    public function triggerComments($ids, bool $del = false, $affected_posts = null): void
     {
         $comments_ids = dcUtils::cleanIds($ids);
 
@@ -494,9 +494,9 @@ class dcBlog
      *
      * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     staticRecord  The categories.
+     * @return     dcRecord  The categories.
      */
-    public function getCategories($params = []): staticRecord
+    public function getCategories($params = []): dcRecord
     {
         $c_params = [];
         if (isset($params['post_type'])) {
@@ -576,7 +576,7 @@ class dcBlog
 
         if (
             isset($params['cat_url']) && ($params['cat_url'] !== '')
-            && !isset($params['cat_id'])
+                                      && !isset($params['cat_id'])
         ) {
             $found = false;
             foreach ($data as $value) {
@@ -592,7 +592,7 @@ class dcBlog
             }
         }
 
-        return staticRecord::newFromArray($data);
+        return dcRecord::newFromArray($data);
     }
 
     /**
@@ -600,9 +600,9 @@ class dcBlog
      *
      * @param      int      $id     The category identifier
      *
-     * @return     staticRecord  The category.
+     * @return     dcRecord  The category.
      */
-    public function getCategory(int $id): staticRecord
+    public function getCategory(int $id): dcRecord
     {
         return $this->getCategories(['cat_id' => $id]);
     }
@@ -612,9 +612,9 @@ class dcBlog
      *
      * @param      int      $id     The category identifier
      *
-     * @return     record|staticRecord  The category parents.
+     * @return     dcRecord  The category parents.
      */
-    public function getCategoryParents(int $id)
+    public function getCategoryParents(int $id): dcRecord
     {
         return $this->categories()->getParents($id);
     }
@@ -624,9 +624,9 @@ class dcBlog
      *
      * @param      int      $id     The category identifier
      *
-     * @return     record|staticRecord  The category parent.
+     * @return     dcRecord  The category parent.
      */
-    public function getCategoryParent(int $id)
+    public function getCategoryParent(int $id): dcRecord
     {
         return $this->categories()->getParent($id);
     }
@@ -636,9 +636,9 @@ class dcBlog
      *
      * @param      int     $id     The category identifier
      *
-     * @return     staticRecord  The category first children.
+     * @return     dcRecord  The category first children.
      */
-    public function getCategoryFirstChildren(int $id): staticRecord
+    public function getCategoryFirstChildren(int $id): dcRecord
     {
         return $this->getCategories(['start' => $id, 'level' => $id === 0 ? 1 : 2]);
     }
@@ -779,7 +779,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updCategory(int $id, cursor $cur)
+    public function updCategory(int $id, cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -825,7 +825,7 @@ class dcBlog
      * @param      int   $left   The category ID before
      * @param      int   $right  The category ID after
      */
-    public function updCategoryPosition(int $id, int $left, int $right)
+    public function updCategoryPosition(int $id, int $left, int $right): void
     {
         $this->categories()->updatePosition($id, $left, $right);
         $this->triggerBlog();
@@ -837,7 +837,7 @@ class dcBlog
      * @param      int   $id      The category ID
      * @param      int   $parent  The parent category ID
      */
-    public function setCategoryParent(int $id, int $parent)
+    public function setCategoryParent(int $id, int $parent): void
     {
         $this->categories()->setNodeParent($id, $parent);
         $this->triggerBlog();
@@ -850,7 +850,7 @@ class dcBlog
      * @param      int      $sibling  The sibling category ID
      * @param      string   $move     The move (before|after)
      */
-    public function setCategoryPosition(int $id, int $sibling, string $move)
+    public function setCategoryPosition(int $id, int $sibling, string $move): void
     {
         $this->categories()->setNodePosition($id, $sibling, $move);
         $this->triggerBlog();
@@ -863,7 +863,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function delCategory(int $id)
+    public function delCategory(int $id): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -891,7 +891,7 @@ class dcBlog
     /**
      * Reset categories order and relocate them to first level
      */
-    public function resetCategoriesOrder()
+    public function resetCategoriesOrder(): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -911,7 +911,7 @@ class dcBlog
      *
      * @return     string
      */
-    private function checkCategory(string $url, ?int $id = null)
+    private function checkCategory(string $url, ?int $id = null): string
     {
         # Let's check if URL is taken...
         $sql = new dcSelectStatement();
@@ -981,7 +981,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    private function fillCategoryCursor(cursor $cur, ?int $id = null)
+    private function fillCategoryCursor(cursor $cur, ?int $id = null): void
     {
         if ($cur->cat_title == '') {
             throw new Exception(__('You must provide a category title'));
@@ -1037,7 +1037,6 @@ class dcBlog
      * - from: Append another FROM source in query
      * - order: Order of results (default "ORDER BY post_dt DES")
      * - limit: Limit parameter
-     * - sql_only : return the sql request instead of results. Only ids are selected
      * - exclude_post_id : (integer or array) Exclude entries with given post_id
      *
      * Please note that on every cat_id or cat_url, you can add ?not to exclude
@@ -1047,9 +1046,9 @@ class dcBlog
      * @param    bool               $count_only    Only counts results
      * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
      *
-     * @return   mixed    A record with some more capabilities or the SQL request
+     * @return   dcRecord    A record with some more capabilities
      */
-    public function getPosts($params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getPosts($params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): dcRecord
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
@@ -1059,8 +1058,6 @@ class dcBlog
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('P.post_id')));
-        } elseif (!empty($params['sql_only'])) {
-            $sql->column('P.post_id');
         } else {
             if (empty($params['no_content'])) {
                 $sql->columns([
@@ -1300,10 +1297,6 @@ class dcBlog
             $sql->limit($params['limit']);
         }
 
-        if (!empty($params['sql_only'])) {
-            return $sql->statement();
-        }
-
         $rs = $sql->select();
 
         $rs->_nb_media = [];
@@ -1315,26 +1308,30 @@ class dcBlog
         # --BEHAVIOR-- coreBlogAfterGetPosts
         $alt = new arrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
         dcCore::app()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
-        if ($alt['rs'] instanceof record) { // @phpstan-ignore-line
-            $rs = $alt['rs'];
+        if ($alt['rs']) {
+            if ($alt['rs'] instanceof record) { // @phpstan-ignore-line
+                $rs = new dcRecord($alt['rs']);
+            } elseif ($alt['rs'] instanceof dcRecord) { // @phpstan-ignore-line
+                $rs = $alt['rs'];
+            }
         }
 
         return $rs;
     }
 
     /**
-     * Returns a record with post id, title and date for next or previous post
+     * Returns a dcRecord with post id, title and date for next or previous post
      * according to the post ID.
      * $dir could be 1 (next post) or -1 (previous post).
      *
-     * @param      record  $post                  The post ID
-     * @param      int     $dir                   The search direction
-     * @param      bool    $restrict_to_category  Restrict to same category
-     * @param      bool    $restrict_to_lang      Restrict to same language
+     * @param      dcRecord  $post                  The post ID
+     * @param      int       $dir                   The search direction
+     * @param      bool      $restrict_to_category  Restrict to same category
+     * @param      bool      $restrict_to_lang      Restrict to same language
      *
-     * @return     mixed   The next post.
+     * @return     dcRecord|null   The next post.
      */
-    public function getNextPost($post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false)
+    public function getNextPost(dcRecord $post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false): ?dcRecord
     {
         $dt      = $post->post_dt;
         $post_id = (int) $post->post_id;
@@ -1366,7 +1363,7 @@ class dcBlog
         $rs = $this->getPosts($params);
 
         if ($rs->isEmpty()) {
-            return;
+            return null;
         }
 
         return $rs;
@@ -1383,9 +1380,9 @@ class dcBlog
      *
      * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     record  The langs.
+     * @return     dcRecord  The langs.
      */
-    public function getLangs($params = [])
+    public function getLangs($params = []): dcRecord
     {
         $sql = new dcSelectStatement();
         $sql
@@ -1432,11 +1429,11 @@ class dcBlog
         }
         $sql->order('post_lang ' . $order);
 
-        return $this->con->select($sql->statement());
+        return $sql->select();
     }
 
     /**
-     * Returns a record with all distinct blog dates and post count.
+     * Returns a dcRecord with all distinct blog dates and post count.
      * <var>$params</var> is an array taking the following optionnal parameters:
      *
      * - type: (day|month|year) Get days, months or years
@@ -1452,9 +1449,9 @@ class dcBlog
      *
      * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     record  The dates.
+     * @return     dcRecord  The dates.
      */
-    public function getDates($params = [])
+    public function getDates($params = []): dcRecord
     {
         $dt_f  = '%Y-%m-%d';
         $dt_fc = '%Y%m%d';
@@ -1570,9 +1567,9 @@ class dcBlog
      *
      * @throws     Exception
      *
-     * @return     integer
+     * @return     int
      */
-    public function addPost($cur)
+    public function addPost(cursor $cur): int
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1635,12 +1632,12 @@ class dcBlog
     /**
      * Updates an existing post.
      *
-     * @param      integer     $id     The post identifier
+     * @param      int         $id     The post identifier
      * @param      cursor      $cur    The post cursor
      *
      * @throws     Exception
      */
-    public function updPost($id, $cur)
+    public function updPost(int $id, cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1705,10 +1702,10 @@ class dcBlog
     /**
      * Update post status.
      *
-     * @param      integer  $id      The identifier
-     * @param      integer  $status  The status
+     * @param      int      $id      The identifier
+     * @param      int      $status  The status
      */
-    public function updPostStatus($id, $status)
+    public function updPostStatus(int $id, int $status): void
     {
         $this->updPostsStatus($id, $status);
     }
@@ -1717,11 +1714,11 @@ class dcBlog
      * Updates posts status.
      *
      * @param      mixed       $ids     The identifiers
-     * @param      integer     $status  The status
+     * @param      int         $status  The status
      *
      * @throws     Exception
      */
-    public function updPostsStatus($ids, $status)
+    public function updPostsStatus($ids, int $status): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
@@ -1759,10 +1756,10 @@ class dcBlog
     /**
      * Updates post selection.
      *
-     * @param      integer  $id        The identifier
+     * @param      int      $id        The identifier
      * @param      mixed    $selected  The selected flag
      */
-    public function updPostSelected($id, $selected)
+    public function updPostSelected(int $id, $selected): void
     {
         $this->updPostsSelected($id, $selected);
     }
@@ -1775,7 +1772,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updPostsSelected($ids, $selected)
+    public function updPostsSelected($ids, $selected): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1811,10 +1808,10 @@ class dcBlog
     /**
      * Updates post category. <var>$cat_id</var> can be null.
      *
-     * @param      integer  $id      The identifier
+     * @param      int      $id      The identifier
      * @param      mixed    $cat_id  The cat identifier
      */
-    public function updPostCategory($id, $cat_id)
+    public function updPostCategory(int $id, $cat_id): void
     {
         $this->updPostsCategory($id, $cat_id);
     }
@@ -1827,7 +1824,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updPostsCategory($ids, $cat_id)
+    public function updPostsCategory($ids, $cat_id): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1868,7 +1865,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function changePostsCategory($old_cat_id, $new_cat_id)
+    public function changePostsCategory($old_cat_id, $new_cat_id): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -1897,9 +1894,9 @@ class dcBlog
     /**
      * Deletes a post.
      *
-     * @param      integer  $id     The post identifier
+     * @param      int      $id     The post identifier
      */
-    public function delPost($id)
+    public function delPost(int $id): void
     {
         $this->delPosts($id);
     }
@@ -1911,7 +1908,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function delPosts($ids)
+    public function delPosts($ids): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_DELETE,
@@ -1946,7 +1943,7 @@ class dcBlog
     /**
      * Publishes all entries flaged as "scheduled".
      */
-    public function publishScheduledEntries()
+    public function publishScheduledEntries(): void
     {
         $sql = new dcSelectStatement();
         $sql
@@ -2006,7 +2003,7 @@ class dcBlog
      *
      * @param      mixed  $ids    The posts identifiers
      */
-    public function firstPublicationEntries($ids)
+    public function firstPublicationEntries($ids): void
     {
         $posts = $this->getPosts([
             'post_id'       => dcUtils::cleanIds($ids),
@@ -2039,9 +2036,9 @@ class dcBlog
      *
      * @param    string     $post_type post_type filter (post)
      *
-     * @return    record
+     * @return    dcRecord
      */
-    public function getPostsUsers($post_type = 'post')
+    public function getPostsUsers(string $post_type = 'post'): dcRecord
     {
         $sql = new dcSelectStatement();
         $sql
@@ -2073,7 +2070,7 @@ class dcBlog
         return $sql->select();
     }
 
-    private function getPostsCategoryFilter($arr, $field = 'cat_id')
+    private function getPostsCategoryFilter(array $arr, string $field = 'cat_id'): string
     {
         $field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
 
@@ -2156,11 +2153,11 @@ class dcBlog
      * Gets the post cursor.
      *
      * @param      cursor      $cur      The post cursor
-     * @param      integer     $post_id  The post identifier
+     * @param      int         $post_id  The post identifier
      *
      * @throws     Exception
      */
-    private function getPostCursor($cur, $post_id = null)
+    private function getPostCursor(cursor $cur, ?int $post_id = null): void
     {
         if ($cur->post_title == '') {
             throw new Exception(__('No entry title'));
@@ -2187,10 +2184,7 @@ class dcBlog
         }
 
         # Words list
-        if (
-            $cur->post_title !== null && $cur->post_excerpt_xhtml !== null
-            && $cur->post_content_xhtml !== null
-        ) {
+        if ($cur->post_title !== null && $cur->post_excerpt_xhtml !== null) {
             $words = $cur->post_title . ' ' .
                 $cur->post_excerpt_xhtml . ' ' .
                 $cur->post_content_xhtml;
@@ -2207,9 +2201,9 @@ class dcBlog
      * Gets the post content.
      *
      * @param      cursor  $cur      The post cursor
-     * @param      integer $post_id  The post identifier
+     * @param      int     $post_id  The post identifier
      */
-    private function getPostContent($cur, $post_id)
+    private function getPostContent(cursor $cur, int $post_id): void
     {
         $post_excerpt       = $cur->post_excerpt;
         $post_excerpt_xhtml = $cur->post_excerpt_xhtml;
@@ -2235,7 +2229,7 @@ class dcBlog
     /**
      * Creates post HTML content, taking format and lang into account.
      *
-     * @param      integer  $post_id        The post identifier
+     * @param      int      $post_id        The post identifier
      * @param      string   $format         The format
      * @param      string   $lang           The language
      * @param      string   $excerpt        The excerpt
@@ -2243,7 +2237,7 @@ class dcBlog
      * @param      string   $content        The content
      * @param      string   $content_xhtml  The content xhtml
      */
-    public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml)
+    public function setPostContent(int $post_id, string $format, string $lang, string &$excerpt, string &$excerpt_xhtml, string &$content, string &$content_xhtml): void
     {
         if ($format == 'wiki') {
             dcCore::app()->initWikiPost();
@@ -2301,11 +2295,11 @@ class dcBlog
      * @param      string   $url         The url
      * @param      string   $post_dt     The post dt
      * @param      string   $post_title  The post title
-     * @param      integer  $post_id     The post identifier
+     * @param      int      $post_id     The post identifier
      *
      * @return     string  The post url.
      */
-    public function getPostURL($url, $post_dt, $post_title, $post_id)
+    public function getPostURL(string $url, string $post_dt, string $post_title, int $post_id): string
     {
         $url = trim((string) $url);
 
@@ -2401,22 +2395,19 @@ class dcBlog
      * - from: Append SQL string after "FROM" statement in query
      * - order: Order of results (default "ORDER BY comment_dt DES")
      * - limit: Limit parameter
-     * - sql_only : return the sql request instead of results. Only ids are selected
      *
      * @param    array|ArrayObject  $params        Parameters
      * @param    bool               $count_only    Only counts results
      * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
      *
-     * @return   mixed      A record with some more capabilities
+     * @return   dcRecord    A record with some more capabilities
      */
-    public function getComments($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
+    public function getComments($params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): dcRecord
     {
         $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count('comment_id'));
-        } elseif (!empty($params['sql_only'])) {
-            $sql->column('P.post_id');
         } else {
             if (empty($params['no_content'])) {
                 $sql->column('comment_content');
@@ -2589,10 +2580,6 @@ class dcBlog
             $sql->limit($params['limit']);
         }
 
-        if (!empty($params['sql_only'])) {
-            return $sql->statement();
-        }
-
         $rs = $sql->select();
         $rs->extend('rsExtComment');
 
@@ -2607,9 +2594,9 @@ class dcBlog
      *
      * @param      cursor  $cur    The comment cursor
      *
-     * @return     integer
+     * @return     int
      */
-    public function addComment($cur)
+    public function addComment(cursor $cur): int
     {
         $this->con->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
 
@@ -2660,12 +2647,12 @@ class dcBlog
     /**
      * Updates an existing comment.
      *
-     * @param      integer     $id     The comment identifier
+     * @param      int         $id     The comment identifier
      * @param      cursor      $cur    The comment cursor
      *
      * @throws     Exception
      */
-    public function updComment($id, $cur)
+    public function updComment(int $id, cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -2724,10 +2711,10 @@ class dcBlog
     /**
      * Updates comment status.
      *
-     * @param      integer  $id      The comment identifier
+     * @param      int      $id      The comment identifier
      * @param      mixed    $status  The comment status
      */
-    public function updCommentStatus($id, $status)
+    public function updCommentStatus(int $id, $status): void
     {
         $this->updCommentsStatus($id, $status);
     }
@@ -2740,7 +2727,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updCommentsStatus($ids, $status)
+    public function updCommentsStatus($ids, $status): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
@@ -2779,9 +2766,9 @@ class dcBlog
     /**
      * Delete a comment.
      *
-     * @param      integer  $id     The comment identifier
+     * @param      int      $id     The comment identifier
      */
-    public function delComment($id)
+    public function delComment(int $id): void
     {
         $this->delComments($id);
     }
@@ -2793,7 +2780,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function delComments($ids)
+    public function delComments($ids): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_DELETE,
@@ -2850,7 +2837,7 @@ class dcBlog
      *
      * @throws     Exception  (description)
      */
-    public function delJunkComments()
+    public function delJunkComments(): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_DELETE,
@@ -2888,7 +2875,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    private function getCommentCursor($cur)
+    private function getCommentCursor(cursor $cur): void
     {
         if ($cur->comment_content !== null && $cur->comment_content == '') {
             throw new Exception(__('You must provide a comment'));
