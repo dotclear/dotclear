@@ -3,17 +3,12 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * Generic class for admin list filters form
+ *
  * @since 2.20
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
- * @brief Generic class for admin list filters form
  */
 class adminGenericFilterV2
 {

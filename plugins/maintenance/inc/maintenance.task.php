@@ -1,21 +1,14 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @brief Maintenance plugin task class.
+ *
+ * Every task of maintenance must extend this class.
  *
  * @package Dotclear
  * @subpackage Plugins
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
-@brief Maintenance plugin task class.
-
-Every task of maintenance must extend this class.
  */
 class dcMaintenanceTask
 {

@@ -2,18 +2,14 @@
 /**
  * @brief dcProxyV2, a plugin for Dotclear 2
  *
+ * Admin behaviours
+ *
  * @package Dotclear
  * @subpackage Plugins
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-// Admin behaviours
-
 class dcProxyV2AdminBehaviors
 {
     // Count : 55

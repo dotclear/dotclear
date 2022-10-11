@@ -6,10 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcUrlHandlers extends urlHandler
 {
     /**
@@ -329,7 +325,6 @@ class dcUrlHandlers extends urlHandler
     public static function search(): void
     {
         if (dcCore::app()->blog->settings->system->no_search) {
-
             // Search is disabled for this blog.
             self::p404();
         } else {

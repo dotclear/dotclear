@@ -3,17 +3,13 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-/**
- * @brief Admin combo library
+ * Admin combo library
  *
  * Dotclear utility class that provides reuseable combos across all admin
  * form::combo -compatible format
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
  */
 class dcAdminCombos
 {

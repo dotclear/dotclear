@@ -8,9 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-/* Pager class
--------------------------------------------------------- */
 class adminPagesList extends adminGenericListV2
 {
     /**

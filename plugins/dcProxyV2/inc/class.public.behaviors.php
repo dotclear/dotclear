@@ -2,18 +2,14 @@
 /**
  * @brief dcProxyV2, a plugin for Dotclear 2
  *
+ * Public behaviours
+ *
  * @package Dotclear
  * @subpackage Plugins
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-// Public behaviours
-
 class dcProxyV2PublicBehaviors
 {
     // Count : 14

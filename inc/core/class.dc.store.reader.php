@@ -12,10 +12,6 @@
  *
  * @since 2.6
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcStoreReader extends netHttp
 {
     /**

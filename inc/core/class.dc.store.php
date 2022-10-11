@@ -12,10 +12,6 @@
  *
  * @since 2.6
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcStore
 {
     /**
@@ -196,7 +192,6 @@ class dcStore
 
             # Loop through required module fields
             foreach (self::$weighting as $field => $weight) {
-
                 # Skip fields which not exsist on module
                 if (empty($module[$field])) {
                     continue;

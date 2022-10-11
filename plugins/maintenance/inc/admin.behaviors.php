@@ -1,23 +1,14 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @brief Maintenance plugin admin class.
+ *
+ * Group of methods used on behaviors.
  *
  * @package Dotclear
  * @subpackage Plugins
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
-
-/**
-@ingroup PLUGIN_MAINTENANCE
-@nosubgrouping
-@brief Maintenance plugin admin class.
-
-Group of methods used on behaviors.
  */
 class dcMaintenanceAdmin
 {

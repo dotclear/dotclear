@@ -3,15 +3,10 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * dcAdminNotices -- Backend notices handling facilities
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
- * dcAdminNotices -- Backend notices handling facilities
  */
 class dcAdminNotices
 {
@@ -61,7 +56,6 @@ class dcAdminNotices
 
         // return error messages if any
         if ($core->error->flag() && !self::$error_displayed) {
-
             # --BEHAVIOR-- adminPageNotificationError
             $notice_error = $core->callBehavior('adminPageNotificationError', $core, $core->error);
 

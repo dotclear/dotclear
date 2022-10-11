@@ -1,15 +1,13 @@
 <?php
 /**
+ * Actions
+ *
  * @package Dotclear
  * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 abstract class dcActionsPage extends dcActions
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])

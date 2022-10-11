@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcUtils
 {
     /**
@@ -109,7 +105,7 @@ class dcUtils
     private static function appendVersion(string $src, ?string $version = ''): string
     {
         return $src .
-            (strpos($src, '?')                  === false ? '?' : '&amp;') .
+            (strpos($src, '?') === false ? '?' : '&amp;') .
             'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
     }
 

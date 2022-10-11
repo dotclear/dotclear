@@ -3,18 +3,12 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
-
-/**
- * @brief Helper for theme configurators.
+ * Helper for theme configurators
+ *
  * @since 2.7
  *
- * Provides helper tools for theme configurators.
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
  */
 class dcThemeConfig
 {

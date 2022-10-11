@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class blowupConfig
 {
     protected static $css_folder = 'blowup-css';
@@ -432,9 +428,9 @@ class blowupConfig
                 imagedestroy($mask);
 
                 $fill = imagecolorallocate($d_page_t, 255, 255, 255);
-                imagefilledrectangle($d_page_t, 0, 11, 3, $size     - 1, $fill);
+                imagefilledrectangle($d_page_t, 0, 11, 3, $size - 1, $fill);
                 imagefilledrectangle($d_page_t, 796, 11, 799, $size - 1, $fill);
-                imagefilledrectangle($d_page_t, 0, $size            - 9, 799, $size            - 1, $fill);
+                imagefilledrectangle($d_page_t, 0, $size - 9, 799, $size - 1, $fill);
             }
 
             $config['top_height'] = ($size) . 'px';

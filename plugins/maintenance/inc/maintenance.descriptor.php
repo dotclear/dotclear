@@ -1,22 +1,14 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @brief Simple descriptor for tabs, groups and more
+ *
+ * At this time this class is used in same way an arrayObject but in futur it could be completed with advance methods.
  *
  * @package Dotclear
  * @subpackage Plugins
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
-@brief Simple descriptor for tabs, groups and more
-
-At this time this class is used in same way an arrayObject
-but in futur it could be completed with advance methods.
  */
 class dcMaintenanceDescriptor
 {

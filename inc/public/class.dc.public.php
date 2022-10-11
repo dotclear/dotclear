@@ -3,15 +3,10 @@
  * @package Dotclear
  * @subpackage Frontend
  *
+ * Utility class for public context.
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
- * Utility class for public context.
  */
 class dcPublic
 {

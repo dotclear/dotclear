@@ -3,18 +3,14 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * Helper for admin list of modules.
+ *
+ * Provides an object to parse XML feed of modules from a repository.
+ *
+ * @since 2.6
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
-
-/**
- * @brief Helper for admin list of modules.
- * @since 2.6
-
- * Provides an object to parse XML feed of modules from a repository.
  */
 class adminModulesList
 {

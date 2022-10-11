@@ -2,18 +2,13 @@
 /**
  * @brief maintenance, a plugin for Dotclear 2
  *
+ * Main class to call everything related to maintenance.
+ *
  * @package Dotclear
  * @subpackage Plugins
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
-Main class to call everything related to maintenance.
  */
 class dcMaintenance
 {

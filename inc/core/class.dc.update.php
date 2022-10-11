@@ -6,10 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcUpdate
 {
     // Constants
@@ -133,7 +129,7 @@ class dcUpdate
         }
 
         $cache_dir = dirname($this->cache_file);
-        $can_write = (!is_dir($cache_dir)   && is_writable(dirname($cache_dir)))
+        $can_write = (!is_dir($cache_dir) && is_writable(dirname($cache_dir)))
         || (!file_exists($this->cache_file) && is_writable($cache_dir))
         || is_writable($this->cache_file);
 
@@ -155,7 +151,7 @@ class dcUpdate
             $path   = '';
             $status = 0;
 
-            $http_get   = function ($http_url) use (&$status, $path) {
+            $http_get = function ($http_url) use (&$status, $path) {
                 $client = netHttp::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(DC_QUERY_TIMEOUT);
@@ -335,7 +331,7 @@ class dcUpdate
             $path   = '';
             $status = 0;
 
-            $http_get   = function ($http_url) use (&$status, $dest, $path) {
+            $http_get = function ($http_url) use (&$status, $dest, $path) {
                 $client = netHttp::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(DC_QUERY_TIMEOUT);

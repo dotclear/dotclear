@@ -10,10 +10,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-/**
- * SQL Statement : small utility to build SQL queries
- */
 class dcSqlStatement
 {
     // Constants

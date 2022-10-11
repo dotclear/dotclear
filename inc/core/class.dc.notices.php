@@ -3,15 +3,10 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * dcNotices -- Backend notices handling facilities
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
- * dcNotices -- Backend notices handling facilities
  */
 class dcNotices
 {

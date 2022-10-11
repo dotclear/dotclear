@@ -3,15 +3,10 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * dcFavorites -- Favorites handling facilities
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
- * dcFavorites -- Favorites handling facilities
  */
 class dcFavorites
 {

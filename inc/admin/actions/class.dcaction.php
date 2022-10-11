@@ -3,15 +3,10 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * dcActions -- handler for action page on selected entries
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
- * dcActions -- handler for action page on selected entries
  */
 abstract class dcActions
 {

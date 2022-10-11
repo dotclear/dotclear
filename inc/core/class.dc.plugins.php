@@ -13,13 +13,6 @@
  *
  * @since 2.6
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
-@ingroup DC_CORE
- */
 class dcPlugins extends dcModules
 {
     protected static $type = 'plugin';

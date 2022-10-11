@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package Dotclear
  * @subpackage Core
@@ -11,10 +10,6 @@
  *
  * Dotclear blog class instance is provided by dcCore $blog property.
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcBlog
 {
     // Constants

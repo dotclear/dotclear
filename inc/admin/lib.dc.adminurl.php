@@ -3,15 +3,10 @@
  * @package Dotclear
  * @subpackage Backend
  *
+ * URL Handler for admin urls
+ *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-/**
-@brief URL Handler for admin urls
  */
 class dcAdminURL
 {

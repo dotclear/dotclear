@@ -3,17 +3,13 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-/**
- * @brief Admin user preference library
+ * Admin user preference library
  *
  * Dotclear utility class that provides reuseable user preference
  * across all admin page with lists and filters
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
  */
 class adminUserPref
 {

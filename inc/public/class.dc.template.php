@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package Dotclear
  * @subpackage Public
