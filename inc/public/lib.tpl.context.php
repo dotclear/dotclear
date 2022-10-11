@@ -220,8 +220,12 @@ class context
      *
      * @return string
      */
-    public static function global_filters(string $str, array $args, string $tag = ''): string
+    public static function global_filters(?string $str, array $args, string $tag = ''): string
     {
+        if ($str === null) {
+            return '';
+        }
+
         $filters = [
             'strip_tags',                             // Removes HTML tags (mono line)
             'remove_html',                            // Removes HTML tags
