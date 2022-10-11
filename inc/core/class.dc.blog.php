@@ -574,10 +574,7 @@ class dcBlog
             }
         }
 
-        if (
-            isset($params['cat_url']) && ($params['cat_url'] !== '')
-                                      && !isset($params['cat_id'])
-        ) {
+        if (isset($params['cat_url']) && ($params['cat_url'] !== '') && !isset($params['cat_id'])) {
             $found = false;
             foreach ($data as $value) {
                 if ($value['cat_url'] == $params['cat_url']) {
@@ -1637,7 +1634,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updPost(int $id, cursor $cur): void
+    public function updPost($id, cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1705,7 +1702,7 @@ class dcBlog
      * @param      int      $id      The identifier
      * @param      int      $status  The status
      */
-    public function updPostStatus(int $id, int $status): void
+    public function updPostStatus($id, $status): void
     {
         $this->updPostsStatus($id, $status);
     }
@@ -1718,7 +1715,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updPostsStatus($ids, int $status): void
+    public function updPostsStatus($ids, $status): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
@@ -1759,7 +1756,7 @@ class dcBlog
      * @param      int      $id        The identifier
      * @param      mixed    $selected  The selected flag
      */
-    public function updPostSelected(int $id, $selected): void
+    public function updPostSelected($id, $selected): void
     {
         $this->updPostsSelected($id, $selected);
     }
@@ -1811,7 +1808,7 @@ class dcBlog
      * @param      int      $id      The identifier
      * @param      mixed    $cat_id  The cat identifier
      */
-    public function updPostCategory(int $id, $cat_id): void
+    public function updPostCategory($id, $cat_id): void
     {
         $this->updPostsCategory($id, $cat_id);
     }
@@ -1896,7 +1893,7 @@ class dcBlog
      *
      * @param      int      $id     The post identifier
      */
-    public function delPost(int $id): void
+    public function delPost($id): void
     {
         $this->delPosts($id);
     }
@@ -2070,7 +2067,7 @@ class dcBlog
         return $sql->select();
     }
 
-    private function getPostsCategoryFilter(array $arr, string $field = 'cat_id'): string
+    private function getPostsCategoryFilter($arr, $field = 'cat_id'): string
     {
         $field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
 
@@ -2157,7 +2154,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    private function getPostCursor(cursor $cur, ?int $post_id = null): void
+    private function getPostCursor(cursor $cur, $post_id = null): void
     {
         if ($cur->post_title == '') {
             throw new Exception(__('No entry title'));
@@ -2203,7 +2200,7 @@ class dcBlog
      * @param      cursor  $cur      The post cursor
      * @param      int     $post_id  The post identifier
      */
-    private function getPostContent(cursor $cur, int $post_id): void
+    private function getPostContent(cursor $cur, $post_id): void
     {
         $post_excerpt       = $cur->post_excerpt;
         $post_excerpt_xhtml = $cur->post_excerpt_xhtml;
@@ -2237,7 +2234,7 @@ class dcBlog
      * @param      string   $content        The content
      * @param      string   $content_xhtml  The content xhtml
      */
-    public function setPostContent(int $post_id, string $format, string $lang, string &$excerpt, string &$excerpt_xhtml, string &$content, string &$content_xhtml): void
+    public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {
         if ($format == 'wiki') {
             dcCore::app()->initWikiPost();
@@ -2299,7 +2296,7 @@ class dcBlog
      *
      * @return     string  The post url.
      */
-    public function getPostURL(string $url, string $post_dt, string $post_title, int $post_id): string
+    public function getPostURL($url, $post_dt, $post_title, $post_id): string
     {
         $url = trim((string) $url);
 
@@ -2652,7 +2649,7 @@ class dcBlog
      *
      * @throws     Exception
      */
-    public function updComment(int $id, cursor $cur): void
+    public function updComment($id, cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -2714,7 +2711,7 @@ class dcBlog
      * @param      int      $id      The comment identifier
      * @param      mixed    $status  The comment status
      */
-    public function updCommentStatus(int $id, $status): void
+    public function updCommentStatus($id, $status): void
     {
         $this->updCommentsStatus($id, $status);
     }
@@ -2768,7 +2765,7 @@ class dcBlog
      *
      * @param      int      $id     The comment identifier
      */
-    public function delComment(int $id): void
+    public function delComment($id): void
     {
         $this->delComments($id);
     }
