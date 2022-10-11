@@ -50,7 +50,6 @@ class adminIndex
     public static function process()
     {
         if (!empty($_GET['logout'])) {
-
             // Logout
 
             dcCore::app()->session->destroy();
@@ -75,25 +74,25 @@ class adminIndex
         dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
         if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('doclinks')) {
             if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('doclinks', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', null, true);
+                dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
             }
             dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean');
         }
         if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('dcnews')) {
             if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('dcnews', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', null, true);
+                dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
             }
             dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean');
         }
         if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('quickentry')) {
             if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('quickentry', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('quickentry', false, 'boolean', '', null, true);
+                dcCore::app()->auth->user_prefs->dashboard->put('quickentry', false, 'boolean', '', false, true);
             }
             dcCore::app()->auth->user_prefs->dashboard->put('quickentry', false, 'boolean');
         }
         if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('nodcupdate')) {
             if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('nodcupdate', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', null, true);
+                dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
             }
             dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean');
         }
@@ -101,7 +100,7 @@ class adminIndex
         // Handle folded/unfolded sections in admin from user preferences
         dcCore::app()->auth->user_prefs->addWorkspace('toggles');
         if (!dcCore::app()->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
-            dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', null, true);
+            dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
         }
 
         // Dashboard icons
@@ -302,8 +301,8 @@ class adminIndex
         $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
         $composeItems = function ($list, $blocks, $flat = false) {
-            $ret      = [];
-            $items    = [];
+            $ret   = [];
+            $items = [];
 
             if ($flat) {
                 $items = $blocks;
@@ -372,7 +371,6 @@ class adminIndex
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
         if (!dcCore::app()->auth->user_prefs->dashboard->nofavicons) {
-
             // Dashboard icons
 
             $dashboardIcons = '<div id="icons">';
@@ -388,7 +386,6 @@ class adminIndex
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
-
             // Quick entry
 
             // Get categories

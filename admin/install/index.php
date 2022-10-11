@@ -250,18 +250,18 @@ if ($can_install && !empty($_POST)) {
 
         # Add dashboard module options
         dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
-        dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', null, true);
-        dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', null, true);
-        dcCore::app()->auth->user_prefs->dashboard->put('quickentry', true, 'boolean', '', null, true);
-        dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('quickentry', true, 'boolean', '', false, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
 
         # Add accessibility options
         dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
-        dcCore::app()->auth->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
 
         # Add user interface options
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
-        dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', false, true);
 
         # Add default favorites
         dcCore::app()->favs = new dcFavorites();
