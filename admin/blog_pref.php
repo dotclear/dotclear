@@ -900,8 +900,11 @@ class adminBlogPref
                     $user_url_p = '%1$s';
                 }
 
-                # Sort users list on user_id key
-                dcUtils::lexicalKeySort($da->blog_users);
+                // Sort users list on user_id key
+                $blog_users = $da->blog_users;
+                if (dcUtils::lexicalKeySort($blog_users)) {
+                    $da->blog_users = $blog_users;
+                }
 
                 $post_type       = dcCore::app()->getPostTypes();
                 $current_blog_id = dcCore::app()->blog->id;
