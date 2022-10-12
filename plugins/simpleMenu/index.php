@@ -279,10 +279,14 @@ class adminSimpleMenu
                                 # --BEHAVIOR-- adminSimpleMenuBeforeEdit
                                 # Should modify if necessary $item_label, $item_descr and $item_url
                                 # Should set if necessary $item_select_label (displayed on further admin step only)
-                                $item_url          = dcCore::app()->admin->item_url;
-                                $item_descr        = dcCore::app()->admin->item_descr;
-                                $item_label        = dcCore::app()->admin->item_label;
-                                $item_select_label = dcCore::app()->admin->item_select_label;
+                                [
+                                    $item_url, $item_descr, $item_label, $item_select_label
+                                ] = [
+                                    dcCore::app()->admin->item_url,
+                                    dcCore::app()->admin->item_descr,
+                                    dcCore::app()->admin->item_label,
+                                    dcCore::app()->admin->item_select_label,
+                                ];
                                 dcCore::app()->callBehavior(
                                     'adminSimpleMenuBeforeEdit',
                                     dcCore::app()->admin->item_type,
@@ -294,10 +298,14 @@ class adminSimpleMenu
                                         &$item_select_label,
                                     ]
                                 );
-                                dcCore::app()->admin->item_url          = $item_url;
-                                dcCore::app()->admin->item_descr        = $item_descr;
-                                dcCore::app()->admin->item_label        = $item_label;
-                                dcCore::app()->admin->item_select_label = $item_select_label;
+                                [
+                                    dcCore::app()->admin->item_url,
+                                    dcCore::app()->admin->item_descr,
+                                    dcCore::app()->admin->item_label,
+                                    dcCore::app()->admin->item_select_label,
+                                ] = [
+                                    $item_url, $item_descr, $item_label, $item_select_label,
+                                ];
 
                                 break;
                         }

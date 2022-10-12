@@ -307,10 +307,7 @@ class adminPost
             }
 
             [
-                $post_excerpt,
-                $post_excerpt_xhtml,
-                $post_content,
-                $post_content_xhtml
+                $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
             ] = [
                 dcCore::app()->admin->post_excerpt,
                 dcCore::app()->admin->post_excerpt_xhtml,
@@ -334,10 +331,7 @@ class adminPost
                 dcCore::app()->admin->post_content,
                 dcCore::app()->admin->post_content_xhtml
             ] = [
-                $post_excerpt,
-                $post_excerpt_xhtml,
-                $post_content,
-                $post_content_xhtml,
+                $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml,
             ];
         }
 

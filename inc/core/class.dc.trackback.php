@@ -346,6 +346,7 @@ class dcTrackback
                 $excerpt = '(&#8230;)';
             }
 
+            $comment = '';
             $this->addBacklink($posts->post_id, $from_url, $blog_name, $title, $excerpt, $comment);
         } catch (Exception $e) {
             throw new Exception(__('Sorry, an internal problem has occured.'), 0);
@@ -423,6 +424,7 @@ class dcTrackback
                 $excerpt = '(&#8230;)';
             }
 
+            $comment = '';
             $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks

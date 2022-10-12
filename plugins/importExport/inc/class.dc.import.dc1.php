@@ -133,6 +133,7 @@ class dcImportDC1 extends dcIeModule
             case 'step5':
                 $this->step        = 5;
                 $this->post_offset = !empty($_REQUEST['offset']) ? abs((int) $_REQUEST['offset']) : 0;
+                $percent           = 0;
                 if ($this->importPosts($percent) === -1) {
                     http::redirect($this->getURL() . '&do=ok');
                 } else {
