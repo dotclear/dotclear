@@ -1034,24 +1034,12 @@ class dcUpgrade
                 'admin/images/media/spreadsheet.png',
                 'admin/images/media/text.png',
                 'admin/images/media/video.png',
+
                 'inc/clearbricks/common/_main.php',
-                'inc/clearbricks/debian/changelog',
-                'inc/clearbricks/debian/compat',
-                'inc/clearbricks/debian/control',
-                'inc/clearbricks/debian/copyright',
-                'inc/clearbricks/debian/dirs',
-                'inc/clearbricks/debian/docs',
-                'inc/clearbricks/debian/mkdcl.php',
-                'inc/clearbricks/debian/rules',
-                'inc/clearbricks/ext/incutio.ixr_library.php',
                 'inc/clearbricks/common/lib.forms.php',
-                'inc/clearbricks/mail.convert/class.mail.convert.php',
-                'inc/clearbricks/mail.mime/class.mime.message.php',
-                'inc/clearbricks/net.nntp/class.net.nntp.php',
-                'inc/clearbricks/net.nntp/class.nntp.message.php',
-                'inc/clearbricks/xmlsql/class.xmlsql.php',
-                'plugins/dcCKEditor/inc/_config.php',
+
                 'plugins/akismet/class.dc.filter.akismet.php',                  // Moved to plugins/akismet/filters
+
                 'plugins/antispam/filters/class.dc.filter.ip.php',              // Renamed
                 'plugins/antispam/filters/class.dc.filter.iplookup.php',        // Renamed
                 'plugins/antispam/filters/class.dc.filter.ipv6.php',            // Renamed
@@ -1061,33 +1049,46 @@ class dcUpgrade
                 'plugins/antispam/inc/class.dc.spamfilters.php',                // Renamed
                 'plugins/antispam/inc/lib.dc.antispam.php',                     // Renamed
                 'plugins/antispam/inc/lib.dc.antispam.url.php',                 // Renamed
+
                 'plugins/blogroll/class.dc.blogroll.php',                       // Moved to plugins/blogroll/inc
                 'plugins/blogroll/class.dc.importblogroll.php',                 // Moved to plugins/blogroll/inc
+
                 'plugins/blowupConfig/lib/class.blowup.config.php',             // Moved to plugins/blowupConfig/inc
+
+                'plugins/dcCKEditor/inc/_config.php',
                 'plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php',             // Renamed
+
                 'plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php',    // Renamed
+
                 'plugins/fairTrackbacks/class.dc.filter.fairtrackbacks.php',    // Moved to plugins/fairTrackbacks/filters
+
                 'plugins/importExport/style.css',                               // Moved to plugins/importExport/css
                 'plugins/importExport/img/progress.png',
-                'plugins/maintenance/inc/class.dc.maintenance.php',             // Renamed
-                'plugins/maintenance/inc/class.dc.maintenance.descriptor.php',  // Renamed
-                'plugins/maintenance/inc/class.dc.maintenance.task.php',        // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.cache.php', // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.csp.php',   // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php', // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php', // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php',    // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php',      // Renamed
+
+                'plugins/maintenance/inc/class.dc.maintenance.php',                         // Renamed
+                'plugins/maintenance/inc/class.dc.maintenance.descriptor.php',              // Renamed
+                'plugins/maintenance/inc/class.dc.maintenance.task.php',                    // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.cache.php',             // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.csp.php',               // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php',     // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php',     // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php',        // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php',              // Renamed
                 'plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php',    // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php',    // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php',  // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php',  // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php',            // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php',          // Renamed
+                'plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php',          // Renamed
+
                 'plugins/pages/class.actionpage.php',                           // Moved to plugins/pages/inc
-                'plugins/pings/lib.pings.php',                                  // Moved to plugins/pings/inc
                 'plugins/pages/class.listpage.php',                             // Moved to plugins/pages/inc
+
+                'plugins/pings/lib.pings.php',                                  // Moved to plugins/pings/inc
+
                 'plugins/tags/_xmlrpc.php',
                 'plugins/tags/inc/tags.behaviors.php',                          // Renamed
+
                 'plugins/themeEditor/class.themeEditor.php',                    // Moved to plugins/themeEditor/inc
+
                 'plugins/widgets/_default_widgets.php',
                 'plugins/widgets/_widgets_functions.php',                       // Moved to plugins/widgets/inc
                 'plugins/widgets/class.widgets.php',                            // Moved to plugins/widgets/inc
@@ -1103,10 +1104,11 @@ class dcUpgrade
                 'inc/clearbricks/mail.mime',
                 'inc/clearbricks/net.nntp',
                 'inc/clearbricks/xmlsql',
+                'plugins/blowupConfig/lib/',
                 'plugins/importExport/img',
             ];
             foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
+                self::rrmdir(DC_ROOT . '/' . $f);
             }
         }
 
