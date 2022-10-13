@@ -138,7 +138,7 @@ class context
     }
 
     /**
-     * @deprecated since version 2.11 , use tpl_context::global_filters instead
+     * @deprecated since version 2.11 , use context::global_filters instead
      */
     public static function global_filter($str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
     {
