@@ -10,6 +10,10 @@
  */
 class dcPublic
 {
+    // Constants
+
+    public const TPL_ROOT = 'default-templates';
+
     /**
      * Searched term
      *
@@ -235,10 +239,10 @@ class dcPublic
             $tpl_path[] = dcCore::app()->blog->themes_path . '/' . $this->parent_theme . '/tpl';
         }
         $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
-        if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
+        if (!empty($tplset) && is_dir(__DIR__ . DIRECTORY_SEPARATOR . self::TPL_ROOT . DIRECTORY_SEPARATOR . $tplset)) {
             dcCore::app()->tpl->setPath(
                 $tpl_path,
-                __DIR__ . '/default-templates/' . $tplset,
+                __DIR__ . DIRECTORY_SEPARATOR . self::TPL_ROOT . DIRECTORY_SEPARATOR . $tplset,
                 dcCore::app()->tpl->getPath()
             );
         } else {

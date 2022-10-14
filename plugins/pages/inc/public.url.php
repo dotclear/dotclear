@@ -171,7 +171,7 @@ class urlPages extends dcUrlHandlers
                 }
 
                 $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
-                $default_template = substr(__DIR__, 0, -strlen(basename(__DIR__))) . 'default-templates' . DIRECTORY_SEPARATOR;
+                $default_template = substr(__DIR__, 0, -strlen(basename(__DIR__))) . dcPublic::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), $default_template . $tplset);
                 } else {

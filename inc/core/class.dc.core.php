@@ -2224,8 +2224,8 @@ final class dcCore
      */
     public function emptyTemplatesCache(): void
     {
-        if (is_dir(DC_TPL_CACHE . '/cbtpl')) {
-            files::deltree(DC_TPL_CACHE . '/cbtpl');
+        if (is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER)) {
+            files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER);
         }
     }
 
