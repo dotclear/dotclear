@@ -905,6 +905,31 @@ final class dcCore
     }
 
     /**
+     * Gets all known versions
+     *
+     * @return     mixed  The version.
+     */
+    public function getVersions(): array
+    {
+        // Fetch versions if needed
+        if (!is_array($this->versions)) {
+            $rs = (new dcSelectStatement())
+                ->columns([
+                    'module',
+                    'version',
+                ])
+                ->from($this->prefix . self::VERSION_TABLE_NAME)
+                ->select();
+
+            while ($rs->fetch()) {
+                $this->versions[$rs->module] = $rs->version;
+            }
+        }
+
+        return $this->versions;
+    }
+
+    /**
      * Sets the version of a module.
      *
      * @param      string  $module   The module
