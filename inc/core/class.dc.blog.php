@@ -594,7 +594,7 @@ class dcBlog
      *
      * @return     dcRecord  The category.
      */
-    public function getCategory(int $id): dcRecord
+    public function getCategory(?int $id): dcRecord
     {
         return $this->getCategories(['cat_id' => $id]);
     }
