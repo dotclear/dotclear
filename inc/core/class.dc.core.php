@@ -907,7 +907,7 @@ final class dcCore
     /**
      * Gets all known versions
      *
-     * @return     mixed  The version.
+     * @return     array  The versions.
      */
     public function getVersions(): array
     {
