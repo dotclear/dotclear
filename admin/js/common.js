@@ -370,7 +370,7 @@ dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
     .on('click', () => {
       if (target === undefined) {
-        $(e).parents('form').find('input[type="checkbox"]').check();
+        $(e).parents('form').find('input[type="checkbox"]:not(:disabled)').check();
       } else {
         target.check();
       }
@@ -384,7 +384,7 @@ dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
     .on('click', () => {
       if (target === undefined) {
-        $(e).parents('form').find('input[type="checkbox"]').unCheck();
+        $(e).parents('form').find('input[type="checkbox"]:not(:disabled)').unCheck();
       } else {
         target.unCheck();
       }
@@ -398,7 +398,7 @@ dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
     .on('click', () => {
       if (target === undefined) {
-        $(e).parents('form').find('input[type="checkbox"]').toggleCheck();
+        $(e).parents('form').find('input[type="checkbox"]:not(:disabled)').toggleCheck();
       } else {
         target.toggleCheck();
       }
