@@ -120,7 +120,7 @@ class dcDefaultPageActions
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending',
                 ]],
-                ['dcDefaultPostActions', 'doChangePostStatus']
+                [dcDefaultPostActions::class, 'doChangePostStatus']
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -129,7 +129,7 @@ class dcDefaultPageActions
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
-                ['dcDefaultPostActions', 'doChangePostAuthor']
+                [dcDefaultPostActions::class, 'doChangePostAuthor']
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -139,13 +139,13 @@ class dcDefaultPageActions
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                ['dcDefaultPostActions', 'doDeletePost']
+                [dcDefaultPostActions::class, 'doDeletePost']
             );
         }
         $ap->addAction(
             [__('Order') => [
                 __('Save order') => 'reorder', ]],
-            ['dcDefaultPageActions', 'doReorderPages']
+            [self::class, 'doReorderPages']
         );
     }
 

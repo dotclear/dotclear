@@ -148,7 +148,7 @@ class dcDefaultPostActions
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending',
                 ]],
-                ['dcDefaultPostActions', 'doChangePostStatus']
+                [self::class, 'doChangePostStatus']
             );
         }
         $ap->addAction(
@@ -156,19 +156,19 @@ class dcDefaultPostActions
                 __('Mark as selected')   => 'selected',
                 __('Mark as unselected') => 'unselected',
             ]],
-            ['dcDefaultPostActions', 'doUpdateSelectedPost']
+            [self::class, 'doUpdateSelectedPost']
         );
         $ap->addAction(
             [__('Change') => [
                 __('Change category') => 'category',
             ]],
-            ['dcDefaultPostActions', 'doChangePostCategory']
+            [self::class, 'doChangePostCategory']
         );
         $ap->addAction(
             [__('Change') => [
                 __('Change language') => 'lang',
             ]],
-            ['dcDefaultPostActions', 'doChangePostLang']
+            [self::class, 'doChangePostLang']
         );
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
@@ -176,7 +176,7 @@ class dcDefaultPostActions
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
-                ['dcDefaultPostActions', 'doChangePostAuthor']
+                [self::class, 'doChangePostAuthor']
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -186,7 +186,7 @@ class dcDefaultPostActions
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                ['dcDefaultPostActions', 'doDeletePost']
+                [self::class, 'doDeletePost']
             );
         }
     }

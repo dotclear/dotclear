@@ -117,7 +117,7 @@ class dcPublic
 
         # Cope with static home page option
         if (dcCore::app()->blog->settings->system->static_home) {
-            dcCore::app()->url->registerDefault(['dcUrlHandlers', 'static_home']);
+            dcCore::app()->url->registerDefault([dcUrlHandlers::class, 'static_home']);
         }
 
         # Loading media

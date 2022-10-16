@@ -237,7 +237,7 @@ class dcUtils
     {
         dcUtils::setLexicalLang($namespace, $lang);
 
-        return usort($arr, ['dcUtils', 'lexicalSortHelper']);
+        return usort($arr, [self::class, 'lexicalSortHelper']);
     }
 
     /**
@@ -253,7 +253,7 @@ class dcUtils
     {
         dcUtils::setLexicalLang($namespace, $lang);
 
-        return uasort($arr, ['dcUtils', 'lexicalSortHelper']);
+        return uasort($arr, [self::class, 'lexicalSortHelper']);
     }
 
     /**
@@ -269,7 +269,7 @@ class dcUtils
     {
         dcUtils::setLexicalLang($namespace, $lang);
 
-        return uksort($arr, ['dcUtils', 'lexicalSortHelper']);
+        return uksort($arr, [self::class, 'lexicalSortHelper']);
     }
 
     /**

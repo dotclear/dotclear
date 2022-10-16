@@ -161,12 +161,12 @@ class dcDefaultBlogActions
                 __('Set offline')    => 'offline',
                 __('Set as removed') => 'remove',
             ]],
-            ['dcDefaultBlogActions', 'doChangeBlogStatus']
+            [self::class, 'doChangeBlogStatus']
         );
         $ap->addAction(
             [__('Delete') => [
                 __('Delete') => 'delete', ]],
-            ['dcDefaultBlogActions', 'doDeleteBlog']
+            [self::class, 'doDeleteBlog']
         );
     }
 

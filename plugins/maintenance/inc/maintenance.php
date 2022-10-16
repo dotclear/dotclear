@@ -155,7 +155,7 @@ class dcMaintenance
      */
     public function addTask($task)
     {
-        if (class_exists($task) && is_subclass_of($task, 'dcMaintenanceTask')) {
+        if (class_exists($task) && is_subclass_of($task, dcMaintenanceTask::class)) {
             $this->tasks[$task] = new $task($this);
         }
 

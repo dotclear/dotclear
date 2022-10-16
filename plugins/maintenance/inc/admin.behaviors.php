@@ -33,16 +33,16 @@ class dcMaintenanceAdmin
 
             ->addGroup('l10n', __('Translations'), ['summary' => __('Maintain translations')])
 
-            ->addTask('dcMaintenanceCache')
-            ->addTask('dcMaintenanceCSP')
-            ->addTask('dcMaintenanceIndexposts')
-            ->addTask('dcMaintenanceIndexcomments')
-            ->addTask('dcMaintenanceCountcomments')
-            ->addTask('dcMaintenanceSynchpostsmeta')
-            ->addTask('dcMaintenanceLogs')
-            ->addTask('dcMaintenanceVacuum')
-            ->addTask('dcMaintenanceZipmedia')
-            ->addTask('dcMaintenanceZiptheme')
+            ->addTask(dcMaintenanceCache::class)
+            ->addTask(dcMaintenanceCSP::class)
+            ->addTask(dcMaintenanceIndexposts::class)
+            ->addTask(dcMaintenanceIndexcomments::class)
+            ->addTask(dcMaintenanceCountcomments::class)
+            ->addTask(dcMaintenanceSynchpostsmeta::class)
+            ->addTask(dcMaintenanceLogs::class)
+            ->addTask(dcMaintenanceVacuum::class)
+            ->addTask(dcMaintenanceZipmedia::class)
+            ->addTask(dcMaintenanceZiptheme::class)
         ;
     }
 

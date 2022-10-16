@@ -441,13 +441,13 @@ final class dcCore
     {
         // You can set DC_AUTH_CLASS to whatever you want.
         // Your new class *should* inherits dcAuth.
-        $class = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : 'dcAuth';
+        $class = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : dcAuth::class;
 
         if (!class_exists($class)) {
             throw new Exception('Authentication class ' . $class . ' does not exist.');
         }
 
-        if ($class !== 'dcAuth' && !is_subclass_of($class, 'dcAuth')) {
+        if ($class !== dcAuth::class && !is_subclass_of($class, dcAuth::class)) {
             throw new Exception('Authentication class ' . $class . ' does not inherit dcAuth.');
         }
 

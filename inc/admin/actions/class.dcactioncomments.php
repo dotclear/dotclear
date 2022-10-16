@@ -165,7 +165,7 @@ class dcDefaultCommentActions
                     __('Mark as pending') => 'pending',
                     __('Mark as junk')    => 'junk',
                 ]],
-                ['dcDefaultCommentActions', 'doChangeCommentStatus']
+                [self::class, 'doChangeCommentStatus']
             );
         }
 
@@ -176,15 +176,16 @@ class dcDefaultCommentActions
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                ['dcDefaultCommentActions', 'doDeleteComment']
+                [self::class, 'doDeleteComment']
             );
         }
 
-        $ip_filter_active = true;
+        $ip_filter_active = false;
         if (dcCore::app()->blog->settings->antispam->antispam_filters !== null) {
             $filters_opt = dcCore::app()->blog->settings->antispam->antispam_filters;
             if (is_array($filters_opt)) {
-                $ip_filter_active = isset($filters_opt['dcFilterIP']) && is_array($filters_opt['dcFilterIP']) && $filters_opt['dcFilterIP'][0] == 1;
+                $filterActive     = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
+                $ip_filter_active = $filterActive('dcFilterIP') || $filterActive('dcFilterIPv6');
             }
         }
 
@@ -196,7 +197,7 @@ class dcDefaultCommentActions
 
             $ap->addAction(
                 [__('IP address') => $blocklist_actions],
-                ['dcDefaultCommentActions', 'doBlocklistIP']
+                [self::class, 'doBlocklistIP']
             );
         }
     }
@@ -285,18 +286,37 @@ class dcDefaultCommentActions
         $action = $ap->getAction();
         $global = !empty($action) && $action == 'blocklist_global' && dcCore::app()->auth->isSuperAdmin();
 
-        $rs = $ap->getRS();
-        while ($rs->fetch()) {
-            if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
-                // IP is an IPv6
-                (new dcFilterIPv6())->addIP('blackv6', $rs->comment_ip, $global);
-            } else {
-                // Assume that IP is IPv4
-                (new dcFilterIP())->addIP('black', $rs->comment_ip, $global);
+        $filters_opt  = dcCore::app()->blog->settings->antispam->antispam_filters;
+        $filterActive = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
+        $filters      = [
+            'v4' => $filterActive('dcFilterIP'),
+            'v6' => $filterActive('dcFilterIPv6'),
+        ];
+
+        $count = 0;
+
+        if (is_array($filters_opt)) {
+            $rs = $ap->getRS();
+            while ($rs->fetch()) {
+                if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
+                    // IP is an IPv6
+                    if ($filters['v6']) {
+                        (new dcFilterIPv6())->addIP('blackv6', $rs->comment_ip, $global);
+                        $count++;
+                    }
+                } else {
+                    // Assume that IP is IPv4
+                    if ($filters['v4']) {
+                        (new dcFilterIP())->addIP('black', $rs->comment_ip, $global);
+                        $count++;
+                    }
+                }
+            }
+
+            if ($count) {
+                dcPage::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
             }
         }
-
-        dcPage::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
         $ap->redirect(true);
     }
 }

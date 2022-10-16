@@ -13,12 +13,11 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'dcLegacy',                    // Name
-    'Legacy modules for dotclear', // Description
-    'dc Team',                     // Author
-    '1.0',                         // Version
+    'dcLegacy',
+    'Legacy modules for dotclear',
+    'dc Team',
+    '1.0',
     [
-        //        'requires' => [['dcProxyV2']],
         'priority' => 500,
         'type'     => 'plugin',
     ]
