@@ -1136,15 +1136,20 @@ class adminMediaList extends adminGenericListV2
      * Display a media item
      *
      * @param      adminMediaFilter  $filters        The filters
-     * @param      fileItem          $file           The media file
+     * @param      fileItem|array    $file           The media file
      * @param      int               $index          Current index in page
      * @param      bool              $query          The query
      * @param      string            $page_adminurl  The page adminurl
      *
      * @return     string            ( description_of_the_return_value )
      */
-    public static function mediaLine(adminMediaFilter $filters, fileItem $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
+    public static function mediaLine(adminMediaFilter $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {
+        if (is_array($file)) {
+            // Convert array to object->properties (will then pretend to be like a fileItem object)
+            $file = (object) $file;
+        }
+
         $display_name = $file->basename;
         $filename     = $query ? $file->relname : $file->basename;
 

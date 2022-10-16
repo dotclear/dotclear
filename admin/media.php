@@ -687,6 +687,9 @@ class adminMediaPage extends adminMediaFilter
         }
         $items = array_values(array_merge($dir['dirs'], $dir['files']));
 
+        // Transform each fileItem array value to associative array if necessary
+        $items = array_map(fn ($v) => $v instanceof fileItem ? (array) $v : $v, $items);
+
         return dcRecord::newFromArray($items);
     }
 
