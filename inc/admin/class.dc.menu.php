@@ -115,8 +115,9 @@ class dcMenu
         }
 
         // 2. Display unpinned items (sorted)
-        dcUtils::lexicalKeySort($this->items);
-        foreach ($this->items as $item) {
+        $items = $this->items;
+        dcUtils::lexicalKeySort($items);
+        foreach ($items as $item) {
             $res .= $item . "\n";
         }
 

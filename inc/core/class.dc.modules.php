@@ -781,9 +781,9 @@ class dcModules
     public function deleteModule(string $id, bool $disabled = false): void
     {
         if ($disabled) {
-            $stack = &$this->disabled;
+            $stack = $this->disabled;
         } else {
-            $stack = &$this->modules;
+            $stack = $this->modules;
         }
 
         if (!isset($stack[$id])) {

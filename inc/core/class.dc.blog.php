@@ -2197,10 +2197,14 @@ class dcBlog
      */
     private function getPostContent(cursor $cur, $post_id): void
     {
-        $post_excerpt       = $cur->post_excerpt;
-        $post_excerpt_xhtml = $cur->post_excerpt_xhtml;
-        $post_content       = $cur->post_content;
-        $post_content_xhtml = $cur->post_content_xhtml;
+        [
+            $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
+        ] = [
+            $cur->post_excerpt,
+            $cur->post_excerpt_xhtml,
+            $cur->post_content,
+            $cur->post_content_xhtml,
+        ];
 
         $this->setPostContent(
             $post_id,
@@ -2212,10 +2216,14 @@ class dcBlog
             $post_content_xhtml
         );
 
-        $cur->post_excerpt       = $post_excerpt;
-        $cur->post_excerpt_xhtml = $post_excerpt_xhtml;
-        $cur->post_content       = $post_content;
-        $cur->post_content_xhtml = $post_content_xhtml;
+        [
+            $cur->post_excerpt,
+            $cur->post_excerpt_xhtml,
+            $cur->post_content,
+            $cur->post_content_xhtml,
+        ] = [
+            $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml,
+        ];
     }
 
     /**
