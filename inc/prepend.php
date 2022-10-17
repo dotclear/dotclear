@@ -67,7 +67,7 @@ Clearbricks::lib()->autoload([
     'rsExtBlog'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
 
     // Upgrade
-    'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'schema', 'upgrade.php']),
+    'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'dbschema', 'upgrade.php']),
 
     // Admin
     'dcAdmin'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'class.dc.admin.php']),
