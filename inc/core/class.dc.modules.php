@@ -357,7 +357,7 @@ class dcModules
             $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
                 $full_entry = $root . $entry;
-                if (!file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+                if (file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
                     ob_start();
                     require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
                     ob_end_clean();
