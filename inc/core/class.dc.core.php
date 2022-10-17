@@ -356,14 +356,10 @@ final class dcCore
         $this->auth    = $this->authInstance();
         $this->session = new sessionDB($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
         $this->url     = new dcUrlHandlers();
-
         $this->plugins = new dcPlugins();
-
-        $this->rest = new dcRestServer();
-
-        $this->meta = new dcMeta();
-
-        $this->log = new dcLog();
+        $this->rest    = new dcRestServer();
+        $this->meta    = new dcMeta();
+        $this->log     = new dcLog();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*

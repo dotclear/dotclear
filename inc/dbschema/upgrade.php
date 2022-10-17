@@ -67,11 +67,11 @@ class dcUpgrade
     /**
      * Make necessary updates in DB and in filesystem
      *
-     * @param      mixed  $version  The version
+     * @param      null|string  $version  The version
      *
      * @return     bool     true if a session cleanup is requested
      */
-    public static function growUp($version): bool
+    public static function growUp(?string $version): bool
     {
         if ($version === null) {
             return false;
