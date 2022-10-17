@@ -1083,6 +1083,10 @@ class adminMediaList extends adminGenericListV2
 
             $items = $this->rs->rows();
             foreach ($items as $item) {
+                if (is_array($item)) {
+                    // Convert array to object->properties (will then pretend to be like a fileItem object)
+                    $item = (object) $item;
+                }
                 if ($item->d) {
                     $nb_folders++;
                 }
@@ -1099,7 +1103,12 @@ class adminMediaList extends adminGenericListV2
 
             $group = ['dirs' => [], 'files' => []];
             for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
-                $group[$items[$index]->d ? 'dirs' : 'files'][] = $this->mediaLine($filters, $items[$index], $index_in_page, $query, $page_adminurl);
+                $item = $items[$index];
+                if (is_array($item)) {
+                    // Convert array to object->properties (will then pretend to be like a fileItem object)
+                    $item = (object) $item;
+                }
+                $group[$item->d ? 'dirs' : 'files'][] = $this->mediaLine($filters, $items[$index], $index_in_page, $query, $page_adminurl);
             }
 
             if ($filters->file_mode == 'list') {
