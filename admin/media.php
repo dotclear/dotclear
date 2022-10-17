@@ -647,7 +647,7 @@ class adminMediaPage extends adminMediaFilter
             $this->media_archivable = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_MEDIA_ADMIN,
             ]), dcCore::app()->blog->id)
-                && !(count($rs) == 0 || (count($rs) == 1 && $rs->__data[0]->parent));
+                && !(count($rs) === 0 || (count($rs) === 1 && $rs->parent));
         }
 
         return $this->media_archivable;
