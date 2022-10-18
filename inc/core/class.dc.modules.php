@@ -677,10 +677,14 @@ class dcModules
         $ret_code = self::PACKAGE_INSTALLED;
 
         if (!is_dir($destination)) {
+            // New plugin
             try {
                 files::makeDir($destination, true);
 
                 $sandbox = clone $modules;
+                // Force normal mode
+                $sandbox->safe_mode = false;
+
                 $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $sandbox->resetModulesList();
@@ -703,8 +707,11 @@ class dcModules
                 throw new Exception($e->getMessage());
             }
         } else {
-            # test for update
+            //
             $sandbox = clone $modules;
+            // Force normal mode
+            $sandbox->safe_mode = false;
+
             $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
             $sandbox->resetModulesList();

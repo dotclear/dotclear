@@ -94,7 +94,7 @@ class dcStore
 
         uasort($raw_datas, fn ($a, $b) => strtolower($a['id']) <=> strtolower($b['id']));
 
-        $skipped = array_keys($this->modules->getDisabledModules());
+        $skipped = array_keys($this->modules->getHardDisabledModules());
         foreach ($skipped as $p_id) {
             if (isset($raw_datas[$p_id])) {
                 unset($raw_datas[$p_id]);
