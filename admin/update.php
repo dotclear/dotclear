@@ -264,6 +264,7 @@ class adminUpdate
             '</div>';
 
             if (!empty(dcCore::app()->admin->archives)) {
+                $archives = dcCore::app()->admin->archives;
                 echo
                 '<div class="multi-part" id="files" title="' . __('Manage backup files') . '">';
 
@@ -273,7 +274,7 @@ class adminUpdate
 
                 echo
                 '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">';
-                foreach (dcCore::app()->admin->archives as $archive) {
+                foreach ($archives as $archive) {
                     echo
                     '<p><label class="classic">' . form::radio(['backup_file'], html::escapeHTML($archive)) . ' ' .
                     html::escapeHTML($archive) . '</label></p>';
@@ -281,7 +282,7 @@ class adminUpdate
 
                 echo
                 '<p><strong>' . __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.') . '</strong> ' .
-                sprintf(__('You should not revert to version prior to last one (%s).'), end(dcCore::app()->admin->archives)) . '</p>' .
+                sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)) . '</p>' .
                 '<p><input type="submit" class="delete" name="b_del" value="' . __('Delete selected file') . '" /> ' .
                 '<input type="submit" name="b_revert" value="' . __('Revert to selected file') . '" />' .
                 dcCore::app()->formNonce() . '</p>' .
