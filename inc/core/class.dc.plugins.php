@@ -20,14 +20,12 @@ class dcPlugins extends dcModules
     /**
      * Should run in safe mode?
      *
-     * @param      bool  $disabled  The disabled
-     *
      * @return     bool
      */
-    public function safeMode(bool $disabled = false): bool
+    public function safeMode(): bool
     {
         // We load all plugins only in standard mode
-        return $disabled;
+        return $this->safe_mode;
     }
 
     /**

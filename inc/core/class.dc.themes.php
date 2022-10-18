@@ -23,11 +23,9 @@ class dcThemes extends dcModules
     /**
      * Should run in safe mode?
      *
-     * @param      bool  $disabled  The disabled
-     *
      * @return     bool
      */
-    public function safeMode(bool $disabled = false): bool
+    public function safeMode(): bool
     {
         // We load all themes, as in standard mode, in safe mode
         return false;

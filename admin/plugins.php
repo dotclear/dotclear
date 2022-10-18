@@ -159,10 +159,18 @@ class adminPlugins
         '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
 
         # Activated modules
-        $modules = dcCore::app()->admin->list->modules->getModules();
+        $safe_mode = dcCore::app()->admin->list->modules->safeMode();
+        if (!$safe_mode) {
+            $modules = dcCore::app()->admin->list->modules->getModules();
+        } else {
+            $modules = dcCore::app()->admin->list->modules->getSoftDisabledModules();
+        }
         if (!empty($modules)) {
             echo
-            '<h3>' . (dcCore::app()->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) . '</h3>' .
+            '<h3>' .
+            (dcCore::app()->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
+            ($safe_mode ? ' ' . __('(in normal mode)') : '') .
+            '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
 
             dcCore::app()->admin->list
@@ -179,7 +187,7 @@ class adminPlugins
 
         # Deactivated modules
         if (dcCore::app()->auth->isSuperAdmin()) {
-            $modules = dcCore::app()->admin->list->modules->getDisabledModules();
+            $modules = dcCore::app()->admin->list->modules->getHardDisabledModules();
             if (!empty($modules)) {
                 echo
                 '<h3>' . __('Deactivated plugins') . '</h3>' .
@@ -202,7 +210,6 @@ class adminPlugins
         '</div>';
 
         if (dcCore::app()->auth->isSuperAdmin() && dcCore::app()->admin->list->isWritablePath()) {
-
             # New modules from repo
             $search  = dcCore::app()->admin->list->getSearch();
             $modules = $search ? dcCore::app()->admin->list->store->search($search) : dcCore::app()->admin->list->store->get();

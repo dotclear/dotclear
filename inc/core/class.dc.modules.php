@@ -46,6 +46,13 @@ class dcModules
     // Properties
 
     /**
+     * Safe mode activated?
+     *
+     * @var bool
+     */
+    public $safe_mode = false;
+
+    /**
      * Stack of modules paths
      *
      * @var array
@@ -72,6 +79,20 @@ class dcModules
      * @var        array
      */
     protected $disabled = [];
+
+    /**
+     * Stack of hard disabled modules (_disabled file in plugin root dir)
+     *
+     * @var        array
+     */
+    protected $hard_disabled = [];
+
+    /**
+     * Stack of soft disabled modules (safe mode enabled but no _disabled file in plugin root dir)
+     *
+     * @var        array
+     */
+    protected $soft_disabled = [];
 
     /**
      * Stack of error messages
@@ -283,13 +304,11 @@ class dcModules
     /**
      * Should run in safe mode?
      *
-     * @param      bool  $disabled  The disabled
-     *
      * @return     bool
      */
-    public function safeMode(bool $disabled = false): bool
+    public function safeMode(): bool
     {
-        return $disabled;
+        return $this->safe_mode;
     }
 
     /**
@@ -345,7 +364,7 @@ class dcModules
         $this->path = explode(PATH_SEPARATOR, $path);
         $this->ns   = $ns;
 
-        $disabled = $this->safeMode(isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode']);
+        $this->safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
         $ignored = [];
 
@@ -372,10 +391,11 @@ class dcModules
             // Register loop
             $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
-                $full_entry     = $root . $entry;
-                $this->id       = $entry;
-                $this->mroot    = $full_entry;
-                $module_enabled = !file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) && !$disabled;
+                $full_entry      = $root . $entry;
+                $this->id        = $entry;
+                $this->mroot     = $full_entry;
+                $module_disabled = file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
+                $module_enabled  = !$module_disabled && !$this->safe_mode;
                 if (!$module_enabled) {
                     $this->disabled_mode = true;
                 }
@@ -388,6 +408,13 @@ class dcModules
                     $this->disabled_mode       = false;
                     $this->disabled[$entry]    = $this->disabled_meta;
                     $this->all_modules[$entry] = &$this->disabled[$entry];
+                    if ($module_disabled) {
+                        // Add module in hard disabled stack (_disabled file exists)
+                        $this->hard_disabled[$entry] = $this->disabled_meta;
+                    } else {
+                        // Add module in soft disabled stack (safe mode enabled)
+                        $this->soft_disabled[$entry] = $this->disabled_meta;
+                    }
                 }
                 $this->id    = null;
                 $this->mroot = null;
@@ -804,15 +831,21 @@ class dcModules
      */
     public function deactivateModule(string $id): void
     {
-        if (!isset($this->modules[$id])) {
+        if ($this->safe_mode) {
+            $stack = &$this->soft_disabled;
+        } else {
+            $stack = &$this->modules;
+        }
+
+        if (!isset($stack[$id])) {
             throw new Exception(__('No such module.'));
         }
 
-        if (!$this->modules[$id]['root_writable']) {
+        if (!$stack[$id]['root_writable']) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
-        if (@file_put_contents($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+        if (@file_put_contents($stack[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
     }
@@ -893,11 +926,17 @@ class dcModules
      */
     public function getModules(?string $id = null): array
     {
-        if ($id && isset($this->modules[$id])) {
-            return $this->modules[$id];
+        if ($this->safe_mode) {
+            $stack = $this->soft_disabled;
+        } else {
+            $stack = $this->modules;
         }
 
-        return $this->modules;
+        if ($id && isset($stack[$id])) {
+            return $stack[$id];
+        }
+
+        return $stack;
     }
 
     /**
@@ -920,6 +959,26 @@ class dcModules
     public function getDisabledModules(): array
     {
         return $this->disabled;
+    }
+
+    /**
+     * Gets the hard disabled modules.
+     *
+     * @return     array  The hard disabled modules.
+     */
+    public function getHardDisabledModules(): array
+    {
+        return $this->hard_disabled;
+    }
+
+    /**
+     * Gets the soft disabled modules (safe mode and not hard disabled).
+     *
+     * @return     array  The soft disabled modules.
+     */
+    public function getSoftDisabledModules(): array
+    {
+        return $this->soft_disabled;
     }
 
     /**

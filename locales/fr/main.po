@@ -1715,6 +1715,9 @@ msgstr "Plugins installés"
 msgid "Activated plugins"
 msgstr "Plugins activés"
 
+msgid "(in normal mode)"
+msgstr "(en mode normal)"
+
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Vous pouvez configurer et gérer les plugins installés depuis cette liste."
 
