@@ -365,13 +365,14 @@ h6 {
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
   --msg-shadow: rgba(50, 50, 50, 0.1);
+  --msg-border: #868686;
   --msg-info-color: #323232;
   --msg-info-background: #d9edf7;
-  --msg-info-border: #bce8f1;
+  --msg-info-border: #868686;
   --msg-warn-color: #323232;
   --msg-warn-background: #fefacd;
   --msg-warn-background-alt: #ffd478;
-  --msg-warn-border: #ffd478;
+  --msg-warn-border: #868686;
   --msg-error-color: #000;
   --msg-error-background: #ffbaba;
   --msg-error-background-alt: #fefacd;
@@ -634,13 +635,14 @@ h6 {
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
   --msg-shadow: rgba(48, 50, 54, 0.1);
+  --msg-border: #82878f;
   --msg-info-color: #303236;
   --msg-info-background: #d9edf7;
-  --msg-info-border: #bce8f1;
+  --msg-info-border: #82878f;
   --msg-warn-color: #303236;
   --msg-warn-background: #fefacd;
   --msg-warn-background-alt: #ffd478;
-  --msg-warn-border: #ffd478;
+  --msg-warn-border: #82878f;
   --msg-error-color: #000;
   --msg-error-background: #ffbaba;
   --msg-error-background-alt: #fefacd;
@@ -904,13 +906,14 @@ h6 {
     --msg-background: #676e78;
     --msg-background-alt: #caced2;
     --msg-shadow: rgba(48, 50, 54, 0.1);
+    --msg-border: #82878f;
     --msg-info-color: #303236;
     --msg-info-background: #d9edf7;
-    --msg-info-border: #bce8f1;
+    --msg-info-border: #82878f;
     --msg-warn-color: #303236;
     --msg-warn-background: #fefacd;
     --msg-warn-background-alt: #ffd478;
-    --msg-warn-border: #ffd478;
+    --msg-warn-border: #82878f;
     --msg-error-color: #000;
     --msg-error-background: #ffbaba;
     --msg-error-background-alt: #fefacd;
@@ -2274,59 +2277,41 @@ a.metaGetMore {
 .info {
   font-style: normal;
   padding: 0.2em 0.66em 0.2em;
-  text-indent: 24px;
   display: inline-block;
   line-height: 1.5em;
-  border-radius: 3px; }
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px var(--msg-shadow); }
 
 .info {
   color: var(--msg-info-color);
-  background: url(msg-info.png) no-repeat 0.3em 0.3em;
-  background-color: var(--msg-info-background);
-  border: 1px solid var(--msg-info-border); }
+  border: 1px solid var(--msg-info-border);
+  box-shadow: none;
+  background: url(msg-info.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-info-background); }
 
 .warn,
 .warning {
   color: var(--msg-warn-color);
-  background: url(msg-warning.png) no-repeat 0.3em 0.3em;
-  background-color: var(--msg-warn-background);
-  border: 1px solid var(--msg-warn-border); }
-
-div.warn,
-div.warning,
-div.info {
-  display: block;
-  padding: 1em 1em 0.33em 1em;
-  margin-bottom: 1em; }
-
-span.warn,
-span.warning,
-span.info {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  background-position: 0.3em 0.2em; }
+  border: 1px solid var(--msg-warn-border);
+  box-shadow: none;
+  background: url(msg-warning.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-warn-background); }
 
 .error,
 .message,
 .static-msg,
 .success,
 .warning-msg {
-  padding: 1em 0.5em 0.5em 48px;
+  padding: 1.25em 0.5em 0.5em 4em;
   margin-bottom: 1em;
-  border-radius: 8px;
+  border-radius: 3px;
   box-shadow: 1px 1px 2px var(--msg-shadow); }
 
-p.error,
-p.message,
-p.static-msg,
-p.success,
-p.warning-msg {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  margin-top: 0.5em; }
-
 .error {
-  background: url(msg-error.png) no-repeat 0.7em 0.7em;
+  background: url(msg-error.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
   background-color: var(--msg-error-background);
   color: var(--msg-error-color);
   animation-name: kf-error;
@@ -2334,26 +2319,17 @@ p.warning-msg {
   .error a {
     color: var(--msg-error-color); }
 
-@keyframes kf-error {
-  0% {
-    background-color: var(--msg-error-background-alt); }
-  100% {
-    background-color: var(--msg-error-background); } }
 .message,
 .static-msg {
   color: var(--msg-color);
-  background: url(msg-std.png) no-repeat 0.7em 0.7em;
+  background: url(msg-std.svg) no-repeat 0.625em 1.125em;
+  background-size: 2.5em;
   background-color: var(--msg-background); }
 
 .message {
   animation-name: kf-message;
   animation-duration: 0.5s; }
 
-@keyframes kf-message {
-  0% {
-    background-color: var(--msg-background-alt); }
-  100% {
-    background-color: var(--msg-background); } }
 .message a,
 .static-msg a,
 .message h3,
@@ -2364,29 +2340,12 @@ p.warning-msg {
   color: var(--msg-success-color); }
 
 .success {
-  background: url(msg-success.png) no-repeat 0.7em 0.7em;
+  background: url(msg-success.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
   background-color: var(--msg-success-background);
   animation-name: kf-success;
   animation-duration: 0.5s; }
 
-@keyframes kf-success {
-  0% {
-    background-color: var(--msg-success-background-alt); }
-  100% {
-    background-color: var(--msg-success-background); } }
-.warning-msg {
-  color: var(--msg-warn-color);
-  background: url(msg-warning.png) no-repeat 0.7em 0.7em;
-  background-color: var(--msg-warn-background-alt);
-  border: 1px solid var(--msg-warn-border);
-  animation-name: kf-warning;
-  animation-duration: 0.5s; }
-
-@keyframes kf-warning {
-  0% {
-    background-color: var(--msg-warn-background); }
-  100% {
-    background-color: var(--msg-warn-background-alt); } }
 .success a,
 .warning-msg a,
 .info a {
@@ -2413,15 +2372,34 @@ p.warning-msg {
   position: absolute;
   top: 1em;
   right: 0.5em; }
+  .close-notice img {
+    width: 1.5em;
+    height: 1.5em; }
   .close-notice:hover, .close-notice:focus {
     background: none; }
 
+p .close-notice {
+  top: 0.125em;
+  right: 0; }
+  p .close-notice img {
+    width: 1.25em;
+    height: 1.25em; }
+
+.warning-msg {
+  color: var(--msg-warn-color);
+  background: url(msg-warning.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-warn-background-alt);
+  animation-name: kf-warning;
+  animation-duration: 0.5s; }
+
 .dc-update {
-  padding: 1em 48px 0.5em 48px;
+  padding: 1em 0.5em 0.5em 4em;
   margin-bottom: 1em;
-  border-radius: 8px;
+  border-radius: 3px;
   color: var(--dc-update-color);
-  background: url(msg-success.png) no-repeat 0.7em 0.7em;
+  background: url(msg-info.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
   background-color: var(--dc-update-background);
   box-shadow: 1px 1px 2px var(--msg-shadow); }
   .dc-update h3 {
@@ -2441,12 +2419,98 @@ p.warning-msg {
   border-color: var(--dc-update-color);
   font-weight: bold; }
 
+div.warn,
+div.warning,
+div.info {
+  display: block;
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 1em; }
+
+div.warn button.action,
+div.warn input.action,
+div.warning button.action,
+div.warning input.action,
+div.info button.action,
+div.info input.action,
+div.error button.action,
+div.error input.action,
+div.message button.action,
+div.message input.action,
+div.static-msg button.action,
+div.static-msg input.action,
+div.success button.action,
+div.success input.action,
+div.warning-msg button.action,
+div.warning-msg input.action {
+  margin-right: 0;
+  margin-left: auto;
+  display: block;
+  margin-bottom: -1em; }
+
+p.warn,
+p.warning,
+p.info {
+  background-position: 0.3em 0.2em;
+  background-size: 1.5em;
+  text-indent: 0;
+  padding-left: 2.25em; }
+
+p.error,
+p.message,
+p.static-msg,
+p.success,
+p.warning-msg {
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  margin-top: 0.5em; }
+
+span.warn,
+span.warning,
+span.info {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-position: 0.3em 0.1em;
+  background-size: 1.5em;
+  text-indent: 0;
+  padding-left: 2.25em; }
+
+@keyframes kf-error {
+  0% {
+    background-color: var(--msg-error-background-alt); }
+  100% {
+    background-color: var(--msg-error-background); } }
+@keyframes kf-message {
+  0% {
+    background-color: var(--msg-background-alt); }
+  100% {
+    background-color: var(--msg-background); } }
+@keyframes kf-success {
+  0% {
+    background-color: var(--msg-success-background-alt); }
+  100% {
+    background-color: var(--msg-success-background); } }
+@keyframes kf-warning {
+  0% {
+    background-color: var(--msg-warn-background); }
+  100% {
+    background-color: var(--msg-warn-background-alt); } }
 body.ajax-loader #header {
   border-bottom-color: var(--ajax-loader);
   transition: border-bottom-color 0.3s ease; }
 body.ajax-loader #collapser {
   background-color: var(--ajax-loader);
   transition: background-color 0.3s ease; }
+
+#main-menu > div.info p {
+  text-indent: 0;
+  margin-top: 3em; }
+
+#content > div.warn, #content > div.warning, #content > div.info, #content > div.error, #content > div.message, #content > div.static-msg, #content > div.success, #content > div.warning-msg, #content > div.dc-update {
+  margin-top: 1em;
+  margin-right: 10em; }
+@media screen and (max-width: 62em) {
+  #content > div.warn, #content > div.warning, #content > div.info, #content > div.error, #content > div.message, #content > div.static-msg, #content > div.success, #content > div.warning-msg, #content > div.dc-update {
+    margin-right: 2em; } }
 
 /** --------------------------------------------------
     Components
@@ -3111,12 +3175,6 @@ span.ibw {
   #quick h3 {
     margin-bottom: 0.2em;
     font-size: 1.2em; }
-  #quick p.qinfo {
-    background: url(msg-info.png) no-repeat 0.2em 0.2em;
-    background-color: var(--quick-info-background);
-    border: 1px solid var(--quick-info-border);
-    padding: 0.2em 1em 0.1em 32px;
-    color: var(--quick-info-color); }
   #quick #new_cat,
   #quick .q-cat,
   #quick .q-cat label {

@@ -163,7 +163,6 @@ class adminUserPrefs
     public static function process()
     {
         if (isset($_POST['user_name'])) {
-
             // Update user
 
             try {
@@ -175,13 +174,13 @@ class adminUserPrefs
 
                 $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
 
-                $cur->user_name        = dcCore::app()->admin->user_name        = $_POST['user_name'];
-                $cur->user_firstname   = dcCore::app()->admin->user_firstname   = $_POST['user_firstname'];
+                $cur->user_name        = dcCore::app()->admin->user_name = $_POST['user_name'];
+                $cur->user_firstname   = dcCore::app()->admin->user_firstname = $_POST['user_firstname'];
                 $cur->user_displayname = dcCore::app()->admin->user_displayname = $_POST['user_displayname'];
-                $cur->user_email       = dcCore::app()->admin->user_email       = $_POST['user_email'];
-                $cur->user_url         = dcCore::app()->admin->user_url         = $_POST['user_url'];
-                $cur->user_lang        = dcCore::app()->admin->user_lang        = $_POST['user_lang'];
-                $cur->user_tz          = dcCore::app()->admin->user_tz          = $_POST['user_tz'];
+                $cur->user_email       = dcCore::app()->admin->user_email = $_POST['user_email'];
+                $cur->user_url         = dcCore::app()->admin->user_url = $_POST['user_url'];
+                $cur->user_lang        = dcCore::app()->admin->user_lang = $_POST['user_lang'];
+                $cur->user_tz          = dcCore::app()->admin->user_tz = $_POST['user_tz'];
 
                 $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
 
@@ -227,11 +226,9 @@ class adminUserPrefs
         }
 
         if (isset($_POST['user_options_submit'])) {
-
             // Update user options
 
             try {
-
                 // Prepare user options
 
                 $user_options              = dcCore::app()->admin->user_options;
@@ -338,7 +335,6 @@ class adminUserPrefs
         }
 
         if (isset($_POST['db-options'])) {
-
             // Dashboard options
 
             try {
@@ -366,7 +362,6 @@ class adminUserPrefs
         }
 
         if (!empty($_POST['appendaction'])) {
-
             // Add selected favorites
 
             try {
@@ -391,7 +386,6 @@ class adminUserPrefs
         }
 
         if (!empty($_POST['removeaction'])) {
-
             // Delete selected favorites
 
             try {
@@ -430,7 +424,6 @@ class adminUserPrefs
         }
 
         if (!empty($_POST['saveorder']) && !empty($order)) {
-
             // Order favs
 
             foreach ($order as $k => $v) {
@@ -446,7 +439,6 @@ class adminUserPrefs
         }
 
         if (!empty($_POST['replace']) && dcCore::app()->auth->isSuperAdmin()) {
-
             // Replace default favorites by current set (super admin only)
 
             $user_favs = dcCore::app()->favs->getFavoriteIDs(false);
@@ -459,7 +451,6 @@ class adminUserPrefs
         }
 
         if (!empty($_POST['resetorder'])) {
-
             // Reset dashboard items order
 
             dcCore::app()->auth->user_prefs->dashboard->drop('main_order');
@@ -848,7 +839,7 @@ class adminUserPrefs
             (dcCore::app()->auth->isSuperAdmin() ?
                 '<div class="info">' .
                 '<p>' . __('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.') . '</p>' .
-                '<p><input class="reset" type="submit" name="replace" value="' . __('Define as default favorites') . '" />' . '</p>' .
+                '<p><input class="reset action" type="submit" name="replace" value="' . __('Define as default favorites') . '" />' . '</p>' .
                 '</div>' :
                 '') .
 

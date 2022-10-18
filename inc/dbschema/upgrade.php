@@ -1021,6 +1021,8 @@ class dcUpgrade
         if (version_compare($version, '2.24', '<')) {
             // A bit of housecleaning for no longer needed files
             $remfiles = [
+                'admin/images/close.png',
+
                 'admin/images/media/audio.png',
                 'admin/images/media/blank.png',
                 'admin/images/media/document.png',
@@ -1034,6 +1036,12 @@ class dcUpgrade
                 'admin/images/media/spreadsheet.png',
                 'admin/images/media/text.png',
                 'admin/images/media/video.png',
+
+                'admin/style/msg-error.png',
+                'admin/style/msg-info.png',
+                'admin/style/msg-std.png',
+                'admin/style/msg-success.png',
+                'admin/style/msg-warning.png',
 
                 'inc/clearbricks/common/_main.php',
                 'inc/clearbricks/common/lib.forms.php',

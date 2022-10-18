@@ -883,7 +883,7 @@ $(() => {
   $('p.success,p.warning,p.error,div.error').each(function () {
     $(this).addClass('close-notice-parent');
     $(this).append(
-      `<button class="close-notice" type="button"><img src="images/close.png" alt="${dotclear.msg.close_notice}" /></button>`,
+      `<button class="close-notice" type="button"><img src="images/close.svg" alt="${dotclear.msg.close_notice}" /></button>`,
     );
   });
   $('button.close-notice').on('click', function (e) {

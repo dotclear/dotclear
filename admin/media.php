@@ -530,10 +530,10 @@ class adminMedia
 
         if (!dcCore::app()->admin->page->popup) {
             echo
-            '<div class="info"><p>' . sprintf(
+            '<p class="info">' . sprintf(
                 __('Current settings for medias and images are defined in %s'),
                 '<a href="' . dcCore::app()->adminurl->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
-            ) . '</p></div>';
+            ) . '</p>';
 
             // Go back button
             echo

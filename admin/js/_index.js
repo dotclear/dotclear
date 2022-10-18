@@ -118,10 +118,10 @@ $(() => {
     $.post('services.php', params, (data) => {
       let msg;
       if ($('rsp[status=failed]', data).length > 0) {
-        msg = `<p class="qinfo"><strong>${dotclear.msg.error}</strong> ${$('rsp', data).text()}</p>`;
+        msg = `<p class="error"><strong>${dotclear.msg.error}</strong> ${$('rsp', data).text()}</p>`;
       } else {
         msg =
-          '<p class="qinfo">' +
+          '<p class="info">' +
           dotclear.msg.entry_created +
           ' - <a href="post.php?id=' +
           $('rsp>post', data).attr('id') +
