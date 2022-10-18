@@ -674,7 +674,8 @@ class dcModules
             throw new Exception(__('The zip file does not appear to be a valid Dotclear module.'));
         }
 
-        $ret_code = self::PACKAGE_INSTALLED;
+        $ret_code        = self::PACKAGE_INSTALLED;
+        $module_disabled = false;
 
         if (!is_dir($destination)) {
             // New plugin
@@ -720,14 +721,18 @@ class dcModules
             $new_modules = $sandbox->getModules();
 
             if (!empty($new_modules)) {
+                // Check if module is disabled
+                $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
+
                 $tmp        = array_keys($new_modules);
                 $id         = $tmp[0];
-                $cur_module = $modules->getModules($id);
+                $cur_module = $modules->getAnyModules($id);
                 if (!empty($cur_module) && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_modules[$id]['version'], $cur_module['version'], '>', true))) {
-                    # delete old module
+                    // delete old module
                     if (!files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
                     }
+
                     $ret_code = self::PACKAGE_UPDATED;
                 } else {
                     $zip->close();
@@ -745,6 +750,13 @@ class dcModules
         $zip->unzipAll($target);
         $zip->close();
         unlink($zip_file);
+
+        // Restore hard disabled status if necessary
+        if ($module_disabled) {
+            if (@file_put_contents($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+                throw new Exception(__('Cannot deactivate plugin.'));
+            }
+        }
 
         return $ret_code;
     }
@@ -924,8 +936,7 @@ class dcModules
     }
 
     /**
-     * Returns all modules associative array or only one module if <var>$id</var>
-     * is present.
+     * Returns all modules associative array or only one module if <var>$id</var> is present.
      *
      * @param      string  $id     The optionnal module identifier
      *
@@ -944,6 +955,22 @@ class dcModules
         }
 
         return $stack;
+    }
+
+    /**
+     * Gets all modules (whatever are their statuses) or only one module if <var>$id</var> is present.
+     *
+     * @param      string  $id     The optionnal module identifier
+     *
+     * @return     array  The module(s).
+     */
+    public function getAnyModules(?string $id = null): array
+    {
+        if ($id && isset($this->all_modules[$id])) {
+            return $this->all_modules[$id];
+        }
+
+        return $this->all_modules;
     }
 
     /**

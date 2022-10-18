@@ -94,15 +94,8 @@ class dcStore
 
         uasort($raw_datas, fn ($a, $b) => strtolower($a['id']) <=> strtolower($b['id']));
 
-        $skipped = array_keys($this->modules->getHardDisabledModules());
-        foreach ($skipped as $p_id) {
-            if (isset($raw_datas[$p_id])) {
-                unset($raw_datas[$p_id]);
-            }
-        }
-
         $updates = [];
-        $current = $this->modules->getModules();
+        $current = $this->modules->getAnyModules();
         foreach ($current as $p_id => $p_infos) {
             # non privileged user has no info
             if (!is_array($p_infos)) {
