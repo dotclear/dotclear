@@ -2365,6 +2365,7 @@ a.metaGetMore {
   padding-right: 3em; }
 
 .close-notice {
+  padding: 0.5em;
   background: none;
   border: none;
   border-radius: 0;
