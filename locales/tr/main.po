@@ -1928,7 +1928,7 @@ msgstr "Dosya eklenimi başarılı."
 msgid "Attachment has been successfully removed."
 msgstr "Eklenti silinimi başarılı."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
@@ -1975,8 +1975,8 @@ msgstr "Yazı dili:"
 msgid "Text formatting"
 msgstr "Zaman biçimi:"
 
-msgid "Convert to XHTML"
-msgstr "XHTML ye dönüştür"
+msgid "Convert to HTML"
+msgstr "HTML ye dönüştür"
 
 msgid "Filing"
 msgstr ""
@@ -2314,7 +2314,7 @@ msgstr "WYSIWYG kipini aç"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3264,14 +3264,14 @@ msgstr "Bu ahkamı düzenleyemezsiniz."
 msgid "Zip file content"
 msgstr "ZIP dosyası içeriği"
 
-msgid "XHTML markup validator"
-msgstr "XHTML tastikle"
+msgid "HTML markup validator"
+msgstr "HTML tastikle"
 
-msgid "XHTML content is valid."
-msgstr "XHTML içeriği geçerli."
+msgid "HTML content is valid."
+msgstr "HTML içeriği geçerli."
 
-msgid "There are XHTML markup errors."
-msgstr "XHTML markup hataları var."
+msgid "There are HTML markup errors."
+msgstr "HTML markup hataları var."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

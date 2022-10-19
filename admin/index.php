@@ -394,7 +394,7 @@ class adminIndex
             );
 
             $__dashboard_main[] = '<div id="quick">' .
-                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', dcCore::app()->auth->getOption('post_format')) . '</h3>' .
+                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->auth->getOption('post_format'))) . '</h3>' .
                 '<form id="quick-entry" action="' . dcCore::app()->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
                 '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .

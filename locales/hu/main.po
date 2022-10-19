@@ -1972,8 +1972,8 @@ msgstr "A fájlt hozzácsatoltam."
 msgid "Attachment has been successfully removed."
 msgstr "A csatolmányt eltávolítottam."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Ne fejeltsd el érvényesíteni az XHTML átalakítást azzal, hogy mentesz!"
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Ne fejeltsd el érvényesíteni az HTML átalakítást azzal, hogy mentesz!"
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -2019,8 +2019,8 @@ msgstr "Nyelv:"
 msgid "Text formatting"
 msgstr "Formátum:"
 
-msgid "Convert to XHTML"
-msgstr "Konvertálás XHTML-lé"
+msgid "Convert to HTML"
+msgstr "Konvertálás HTML-lé"
 
 msgid "Filing"
 msgstr ""
@@ -2361,7 +2361,7 @@ msgstr "WYSIWYG mód"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3317,14 +3317,14 @@ msgstr "Biztosan törölni szeretnéd?"
 msgid "Zip file content"
 msgstr "Zip fájl tartalma"
 
-msgid "XHTML markup validator"
-msgstr "XMTML érvényesítő"
+msgid "HTML markup validator"
+msgstr "HTML érvényesítő"
 
-msgid "XHTML content is valid."
-msgstr "XHTML tartalom érvényes."
+msgid "HTML content is valid."
+msgstr "HTML tartalom érvényes."
 
-msgid "There are XHTML markup errors."
-msgstr "Vannak hibák az XHTML kódban."
+msgid "There are HTML markup errors."
+msgstr "Vannak hibák az HTML kódban."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

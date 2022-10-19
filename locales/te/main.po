@@ -1934,7 +1934,7 @@ msgstr "ఫైలుని విజయవంతంగా జోడించా�
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
@@ -1981,8 +1981,8 @@ msgstr "టపా భాష:"
 msgid "Text formatting"
 msgstr "పాఠ్య ఛందస్సు:"
 
-msgid "Convert to XHTML"
-msgstr "XHTMLకి మార్చు"
+msgid "Convert to HTML"
+msgstr "HTMLకి మార్చు"
 
 msgid "Filing"
 msgstr ""
@@ -2318,7 +2318,7 @@ msgstr ""
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3263,13 +3263,13 @@ msgstr "నిజంగానే ఈ జోడింపుని తొలగి
 msgid "Zip file content"
 msgstr "టపాలో విషయం లేదు"
 
-msgid "XHTML markup validator"
+msgid "HTML markup validator"
 msgstr ""
 
-msgid "XHTML content is valid."
+msgid "HTML content is valid."
 msgstr ""
 
-msgid "There are XHTML markup errors."
+msgid "There are HTML markup errors."
 msgstr ""
 
 msgid "Attention: an audit of a content not yet registered."

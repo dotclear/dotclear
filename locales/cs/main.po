@@ -1943,8 +1943,8 @@ msgstr "Soubor byl úspěšně připojen."
 msgid "Attachment has been successfully removed."
 msgstr "Příloha byla úspěšně smazána."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Nezapoměňte zvalidovat XHTML kód před jeho uložením."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Nezapoměňte zvalidovat HTML kód před jeho uložením."
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1990,8 +1990,8 @@ msgstr "Jazyk:"
 msgid "Text formatting"
 msgstr "Formátování textu:"
 
-msgid "Convert to XHTML"
-msgstr "Convertovat do XHTML"
+msgid "Convert to HTML"
+msgstr "Convertovat do HTML"
 
 msgid "Filing"
 msgstr ""
@@ -2332,7 +2332,7 @@ msgstr "Zapnout WYSIWYG mód"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3283,14 +3283,14 @@ msgstr "Jste si jisti, že chcete odstranit tuto přílohu?"
 msgid "Zip file content"
 msgstr "Obsah zip archívu"
 
-msgid "XHTML markup validator"
-msgstr "Validátor XHTML"
+msgid "HTML markup validator"
+msgstr "Validátor HTML"
 
-msgid "XHTML content is valid."
-msgstr "XHTML obsah není validní."
+msgid "HTML content is valid."
+msgstr "HTML obsah není validní."
 
-msgid "There are XHTML markup errors."
-msgstr "Jsou tam XHTML chyby.."
+msgid "There are HTML markup errors."
+msgstr "Jsou tam HTML chyby.."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

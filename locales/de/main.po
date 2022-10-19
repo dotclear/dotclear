@@ -1861,8 +1861,8 @@ msgstr "Datei wurde erfolgreich zugefügt."
 msgid "Attachment has been successfully removed."
 msgstr "Dateianhang wurde erfolgreich beseitigt."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Vergiss nicht, deine XHTML-Umsetzung durch Speichern zu prüfen."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Vergiss nicht, deine HTML-Umsetzung durch Speichern zu prüfen."
 
 msgid "Go to this entry on the site"
 msgstr "Gehe zu diesem Eintrag auf dieser Site"
@@ -1903,8 +1903,8 @@ msgstr "Sprache des Eintrags"
 msgid "Text formatting"
 msgstr "Textformat"
 
-msgid "Convert to XHTML"
-msgstr "Konvertiere in XHTML"
+msgid "Convert to HTML"
+msgstr "Konvertiere in HTML"
 
 msgid "Filing"
 msgstr ""
@@ -2212,8 +2212,8 @@ msgstr "WYSIWYG benutzen"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
-msgstr "xhtml Editor verwenden für:"
+msgid "Use HTML editor for:"
+msgstr "HTML Editor verwenden für:"
 
 msgid "Other options"
 msgstr "Andere Optionen"
@@ -3077,14 +3077,14 @@ msgstr "Diesen Dateianhang wirklich entfernen?"
 msgid "Zip file content"
 msgstr "Inhalt des ZIP-Archivs"
 
-msgid "XHTML markup validator"
-msgstr "XHTML-Markup-Validator"
+msgid "HTML markup validator"
+msgstr "HTML-Markup-Validator"
 
-msgid "XHTML content is valid."
-msgstr "XHTML-Inhalt ist überprüft."
+msgid "HTML content is valid."
+msgstr "HTML-Inhalt ist überprüft."
 
-msgid "There are XHTML markup errors."
-msgstr "Es gibt XHTML-Markup-Fehler."
+msgid "There are HTML markup errors."
+msgstr "Es gibt HTML-Markup-Fehler."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

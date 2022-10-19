@@ -1942,8 +1942,8 @@ msgstr "Файл был успешно прикреплен."
 msgid "Attachment has been successfully removed."
 msgstr "Прикрепленный файл был успешно удален."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Не забудьте проверить правильность преобразования XHTML после сохранения записи."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Не забудьте проверить правильность преобразования HTML после сохранения записи."
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1989,8 +1989,8 @@ msgstr "Язык записи:"
 msgid "Text formatting"
 msgstr "Формат текста:"
 
-msgid "Convert to XHTML"
-msgstr "Преобразовать в XHTML"
+msgid "Convert to HTML"
+msgstr "Преобразовать в HTML"
 
 msgid "Filing"
 msgstr ""
@@ -2331,7 +2331,7 @@ msgstr "Активировать режим WYSIWYG"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3282,14 +3282,14 @@ msgstr "Вы уверены, что хотите удалить этот при�
 msgid "Zip file content"
 msgstr "Содержимое zip файла"
 
-msgid "XHTML markup validator"
-msgstr "Проверка разметки XHTML"
+msgid "HTML markup validator"
+msgstr "Проверка разметки HTML"
 
-msgid "XHTML content is valid."
-msgstr "Разметка XHTML не содержит ошибок."
+msgid "HTML content is valid."
+msgstr "Разметка HTML не содержит ошибок."
 
-msgid "There are XHTML markup errors."
-msgstr "В разметке XHTML есть ошибки."
+msgid "There are HTML markup errors."
+msgstr "В разметке HTML есть ошибки."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

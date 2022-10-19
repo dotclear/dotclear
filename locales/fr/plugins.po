@@ -70,6 +70,9 @@ msgstr "Widgets pour les volets de votre blog"
 msgid "dotclear legacy editor"
 msgstr "éditeur standard de Dotclear"
 
+msgid "Dotclear wiki"
+msgstr "Wiki Dotclear"
+
 msgid "dotclear CKEditor integration"
 msgstr "éditeur CKEditor pour Dotclear"
 

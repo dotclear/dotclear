@@ -2538,7 +2538,7 @@ msgid "Attachment has been successfully removed."
 msgstr ""
 
 #: admin/post.php:482
-msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr ""
 
 #: admin/post.php:486
@@ -2606,7 +2606,7 @@ msgid "Text formatting"
 msgstr ""
 
 #: admin/post.php:638
-msgid "Convert to XHTML"
+msgid "Convert to HTML"
 msgstr ""
 
 #: admin/post.php:640
@@ -3020,7 +3020,7 @@ msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
 #: admin/preferences.php:741
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #: admin/preferences.php:752
@@ -4146,15 +4146,15 @@ msgid "Zip file content"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:907
-msgid "XHTML markup validator"
+msgid "HTML markup validator"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:908
-msgid "XHTML content is valid."
+msgid "HTML content is valid."
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:909
-msgid "There are XHTML markup errors."
+msgid "There are HTML markup errors."
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:910

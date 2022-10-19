@@ -90,7 +90,7 @@ class adminUserPrefs
         }
         $available_formats = ['' => ''];
         foreach (array_keys($format_by_editors) as $format) {
-            $available_formats[$format] = $format;
+            $available_formats[dcCore::app()->getFormaterName($format)] = $format;
             if (!isset($user_options['editor'][$format])) {
                 $user_options['editor'][$format] = '';
             }
@@ -123,7 +123,7 @@ class adminUserPrefs
         // Language codes
         dcCore::app()->admin->lang_combo = dcAdminCombos::getAdminLangsCombo();
 
-        // Get 3rd parts xhtml editor flags
+        // Get 3rd parts HTML editor flags
         $rte = [
             'blog_descr' => [true, __('Blog description (in blog parameters)')],
             'cat_descr'  => [true, __('Category description')],
@@ -725,7 +725,7 @@ class adminUserPrefs
         '<div class="two-boxes odd">';
         foreach (dcCore::app()->admin->format_by_editors as $format => $editors) {
             echo
-            '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), $format) . '</label>' .
+            '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), dcCore::app()->getFormaterName($format)) . '</label>' .
             form::combo(
                 ['user_editor[' . $format . ']', 'user_editor_' . $format],
                 array_merge([__('Choose an editor') => ''], $editors),
@@ -755,7 +755,7 @@ class adminUserPrefs
 
         echo
         '<div class="two-boxes even">' .
-        '<h5>' . __('Use xhtml editor for:') . '</h5>';
+        '<h5>' . __('Use HTML editor for:') . '</h5>';
         foreach (dcCore::app()->admin->rte as $rk => $rv) {
             echo
             '<p><label for="rte_' . $rk . '" class="classic">' .

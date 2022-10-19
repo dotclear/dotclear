@@ -89,7 +89,7 @@ class adminPost
         $available_formats = ['' => ''];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[$format] = $format;
+                $available_formats[dcCore::app()->getFormaterName($format)] = $format;
             }
         }
         dcCore::app()->admin->available_formats = $available_formats;
@@ -642,7 +642,7 @@ class adminPost
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') . '" href="' .
                         dcCore::app()->adminurl->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'xconv' => '1']) .
                         '">' .
-                        __('Convert to XHTML') . '</a></p></div>',
+                        __('Convert to HTML') . '</a></p></div>',
                     ],
                 ],
                 'metas-box' => [
@@ -767,7 +767,7 @@ class adminPost
 
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit post') : __('New post')) .
-            sprintf(' &rsaquo; %s', dcCore::app()->admin->post_format) . '" id="edit-entry">' .
+            sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
             '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .

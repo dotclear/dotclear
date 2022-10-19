@@ -82,7 +82,7 @@ class adminPage
         $available_formats = ['' => ''];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[$format] = $format;
+                $available_formats[dcCore::app()->getFormaterName($format)] = $format;
             }
         }
         dcCore::app()->admin->available_formats = $available_formats;
@@ -441,13 +441,13 @@ class adminPage
             dcPage::success(__('Attachment has been successfully removed.'));
         }
 
-        # XHTML conversion
+        # HTML conversion
         if (!empty($_GET['xconv'])) {
             dcCore::app()->admin->post_excerpt = dcCore::app()->admin->post_excerpt_xhtml;
             dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
             dcCore::app()->admin->post_format  = 'xhtml';
 
-            dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
+            dcPage::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
@@ -517,7 +517,7 @@ class adminPage
                         '<p class="format_control control_wiki">' .
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') .
                         '" href="' . html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;xconv=1">' .
-                        __('Convert to XHTML') . '</a></p></div>', ], ],
+                        __('Convert to HTML') . '</a></p></div>', ], ],
                 'metas-box' => [
                     'title' => __('Filing'),
                     'items' => [
@@ -622,7 +622,7 @@ class adminPage
 
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
-            sprintf(' &rsaquo; %s', dcCore::app()->admin->post_format) . '" id="edit-entry">' .
+            sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
             '<form action="' . html::escapeURL(dcCore::app()->admin->redir_url) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .

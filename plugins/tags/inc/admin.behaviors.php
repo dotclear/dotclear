@@ -98,7 +98,7 @@ class tagsBehaviors
     /**
      * Init wiki tag URL scheme (tag:)
      *
-     * @param      wiki2xhtml  $wiki2xhtml  The wiki 2 xhtml
+     * @param      wiki2xhtml  $wiki2xhtml  The wiki 2 HTML
      */
     public static function coreInitWikiPost(wiki2xhtml $wiki2xhtml): void
     {

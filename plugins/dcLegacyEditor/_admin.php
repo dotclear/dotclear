@@ -31,7 +31,10 @@ if ($self_ns->active) {
     }
 
     dcCore::app()->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
+    dcCore::app()->addFormaterName('xhtml', __('HTML'));
+
     dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki2xhtml, 'transform']);
+    dcCore::app()->addFormaterName('wiki', __('Dotclear wiki'));
 
     dcCore::app()->addBehavior('adminPostEditor', [dcLegacyEditorBehaviors::class, 'adminPostEditor']);
     dcCore::app()->addBehavior('adminPopupMedia', [dcLegacyEditorBehaviors::class, 'adminPopupMedia']);

@@ -91,9 +91,9 @@ class dcBlogsActions extends dcActions
     }
 
     /**
-     * Returns html code for selected blogs as a table containing blogs checkboxes
+     * Returns HTML code for selected blogs as a table containing blogs checkboxes
      *
-     * @return string the html code for checkboxes
+     * @return string the HTML code for checkboxes
      */
     public function getCheckboxes(): string
     {

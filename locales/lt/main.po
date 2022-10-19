@@ -1941,8 +1941,8 @@ msgstr "Failas sėkmingai prikabintas."
 msgid "Attachment has been successfully removed."
 msgstr "Priedas sėkmingai pašalintas."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Nepamirškite patvirtinti XHTML išsaugodami savo įrašą."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Nepamirškite patvirtinti HTML išsaugodami savo įrašą."
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1988,8 +1988,8 @@ msgstr "Įrašo kalba:"
 msgid "Text formatting"
 msgstr "Teksto formatas:"
 
-msgid "Convert to XHTML"
-msgstr "Konvertuoti į XHTML"
+msgid "Convert to HTML"
+msgstr "Konvertuoti į HTML"
 
 msgid "Filing"
 msgstr ""
@@ -2329,7 +2329,7 @@ msgstr "Įjungti WYSIWYG rėžimą"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3279,14 +3279,14 @@ msgstr "Ar tikrai norite pašalinti šį prisegimą?"
 msgid "Zip file content"
 msgstr "Zip failo turinys"
 
-msgid "XHTML markup validator"
-msgstr "XHTML markup validator"
+msgid "HTML markup validator"
+msgstr "HTML markup validator"
 
-msgid "XHTML content is valid."
-msgstr "XHTML turinys tinkamas."
+msgid "HTML content is valid."
+msgstr "HTML turinys tinkamas."
 
-msgid "There are XHTML markup errors."
-msgstr "Yra XHTML markup klaidų."
+msgid "There are HTML markup errors."
+msgstr "Yra HTML markup klaidų."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

@@ -694,7 +694,7 @@ class adminMediaPage extends adminMediaFilter
     }
 
     /**
-     * Return html code of an element of list or grid items list
+     * Return HTML code of an element of list or grid items list
      *
      * @param string $file_id  The file id
      *
@@ -883,7 +883,7 @@ class adminMediaPage extends adminMediaFilter
      *
      * @param array $element  The additionnal element
      *
-     * @return string The html code of breadcrumb
+     * @return string The HTML code of breadcrumb
      */
     public function breadcrumb(array $element = []): string
     {

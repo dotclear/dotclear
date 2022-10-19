@@ -1944,8 +1944,8 @@ msgstr "O ficheiro foi anexado com sucesso."
 msgid "Attachment has been successfully removed."
 msgstr "O anexo foi removido com sucesso."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Não se esqueça de validar a conversão XHTML salvando o seu post."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Não se esqueça de validar a conversão HTML salvando o seu post."
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1991,8 +1991,8 @@ msgstr "Língua da entrada:"
 msgid "Text formatting"
 msgstr "Formato do texto:"
 
-msgid "Convert to XHTML"
-msgstr "Converter em XHTML"
+msgid "Convert to HTML"
+msgstr "Converter em HTML"
 
 msgid "Filing"
 msgstr ""
@@ -2333,7 +2333,7 @@ msgstr "Activar a interface WYSIWYG"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3271,14 +3271,14 @@ msgstr "Tem certeza de que deseja remover este anexo?"
 msgid "Zip file content"
 msgstr "Conteúdo do ficheiro zip"
 
-msgid "XHTML markup validator"
-msgstr "Validar o código XHTML"
+msgid "HTML markup validator"
+msgstr "Validar o código HTML"
 
-msgid "XHTML content is valid."
-msgstr "O conteúdo XHTML é válido."
+msgid "HTML content is valid."
+msgstr "O conteúdo HTML é válido."
 
-msgid "There are XHTML markup errors."
-msgstr "O código XHTML contem erros."
+msgid "There are HTML markup errors."
+msgstr "O código HTML contem erros."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

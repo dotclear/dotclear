@@ -2233,9 +2233,9 @@ class dcBlog
      * @param      string   $format         The format
      * @param      string   $lang           The language
      * @param      string   $excerpt        The excerpt
-     * @param      string   $excerpt_xhtml  The excerpt xhtml
+     * @param      string   $excerpt_xhtml  The excerpt HTML
      * @param      string   $content        The content
-     * @param      string   $content_xhtml  The content xhtml
+     * @param      string   $content_xhtml  The content HTML
      */
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {

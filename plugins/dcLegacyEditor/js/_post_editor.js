@@ -73,7 +73,7 @@ $(() => {
   });
 
   $('#edit-entry').on('onetabload', () => {
-    // Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
+    // Remove required attribut from #post_content in HTML mode as textarea is not more focusable
     if (
       formatField !== undefined &&
       formatField.value == 'xhtml' &&
@@ -88,7 +88,7 @@ $(() => {
       excerptTb.switchMode(formatField.value);
     }
 
-    // Check unsaved changes before XHTML conversion
+    // Check unsaved changes before HTML conversion
     const excerpt = $('#post_excerpt').val();
     const content = $('#post_content').val();
     $('#convert-xhtml').on('click', () => {

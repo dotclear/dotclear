@@ -1948,8 +1948,8 @@ msgstr "파일이 성공적으로 첨부되었습니다."
 msgid "Attachment has been successfully removed."
 msgstr "첨부파일이 성공적으로 제거되었습니다."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "XHTML로의 변환을 확정하려면 글꼭지를 저장하는 일을 잊지마세요."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "HTML로의 변환을 확정하려면 글꼭지를 저장하는 일을 잊지마세요."
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1995,8 +1995,8 @@ msgstr "글꼭지 언어 :"
 msgid "Text formatting"
 msgstr "편집 방식 :"
 
-msgid "Convert to XHTML"
-msgstr "XHTML로 변환"
+msgid "Convert to HTML"
+msgstr "HTML로 변환"
 
 msgid "Filing"
 msgstr ""
@@ -2337,7 +2337,7 @@ msgstr "위지윅모드 사용가능"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3276,14 +3276,14 @@ msgstr "이 첨부파일을 정말 제거합니까?"
 msgid "Zip file content"
 msgstr "Zip 파일 내용보기"
 
-msgid "XHTML markup validator"
-msgstr "XHTML 오류점검"
+msgid "HTML markup validator"
+msgstr "HTML 오류점검"
 
-msgid "XHTML content is valid."
-msgstr "XHTML 오류가 발견되지 않았습니다."
+msgid "HTML content is valid."
+msgstr "HTML 오류가 발견되지 않았습니다."
 
-msgid "There are XHTML markup errors."
-msgstr "XHTML 오류가 있습니다."
+msgid "There are HTML markup errors."
+msgstr "HTML 오류가 있습니다."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

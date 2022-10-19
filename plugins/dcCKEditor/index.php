@@ -59,7 +59,7 @@ class adminCKEditor
                 dcCore::app()->admin->editor_cke_active = (empty($_POST['dcckeditor_active'])) ? false : true;
                 dcCore::app()->blog->settings->dcckeditor->put('active', dcCore::app()->admin->editor_cke_active, 'boolean');
 
-                // change other settings only if they were in html page
+                // change other settings only if they were in HTML page
                 if (dcCore::app()->admin->editor_cke_was_actived) {
                     dcCore::app()->admin->editor_cke_alignement_buttons = (empty($_POST['dcckeditor_alignment_buttons'])) ? false : true;
                     dcCore::app()->blog->settings->dcckeditor->put('alignment_buttons', dcCore::app()->admin->editor_cke_alignement_buttons, 'boolean');

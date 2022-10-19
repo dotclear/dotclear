@@ -91,9 +91,9 @@ class dcCommentsActions extends dcActions
     }
 
     /**
-     * Returns html code for selected entries as a table containing entries checkboxes
+     * Returns HTML code for selected entries as a table containing entries checkboxes
      *
-     * @return string the html code for checkboxes
+     * @return string the HTML code for checkboxes
      */
     public function getCheckboxes(): string
     {

@@ -1951,8 +1951,8 @@ msgstr "ファイルは正常に添付されました。"
 msgid "Attachment has been successfully removed."
 msgstr "添付ファイルは正常に除去されました。"
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "投稿を保存することによって、XHTML 変換を有効にすることを忘れないでください。"
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "投稿を保存することによって、HTML 変換を有効にすることを忘れないでください。"
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1998,8 +1998,8 @@ msgstr "エントリの言語："
 msgid "Text formatting"
 msgstr "テキストの書式："
 
-msgid "Convert to XHTML"
-msgstr "XHTMLへコンバート"
+msgid "Convert to HTML"
+msgstr "HTMLへコンバート"
 
 msgid "Filing"
 msgstr ""
@@ -2340,7 +2340,7 @@ msgstr "WYSIWYG モードの有効化"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3279,14 +3279,14 @@ msgstr "本当に、この添付ファイルを除去してもよろしいです
 msgid "Zip file content"
 msgstr "zipファイルの内容"
 
-msgid "XHTML markup validator"
-msgstr "XHTMLマークアップバリデータ"
+msgid "HTML markup validator"
+msgstr "HTMLマークアップバリデータ"
 
-msgid "XHTML content is valid."
-msgstr "XHTMLコンテンツは適切です。"
+msgid "HTML content is valid."
+msgstr "HTMLコンテンツは適切です。"
 
-msgid "There are XHTML markup errors."
-msgstr "XHTMLマークアップエラーがあります。"
+msgid "There are HTML markup errors."
+msgstr "HTMLマークアップエラーがあります。"
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

@@ -1921,7 +1921,7 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
@@ -1968,7 +1968,7 @@ msgstr "Installer sprog"
 msgid "Text formatting"
 msgstr "Tid format:"
 
-msgid "Convert to XHTML"
+msgid "Convert to HTML"
 msgstr ""
 
 msgid "Filing"
@@ -2298,7 +2298,7 @@ msgstr ""
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 msgid "Other options"
@@ -3232,13 +3232,13 @@ msgstr "Du kan ikke redigere denne kommentar."
 msgid "Zip file content"
 msgstr "Tema zip fil URL:"
 
-msgid "XHTML markup validator"
+msgid "HTML markup validator"
 msgstr ""
 
-msgid "XHTML content is valid."
+msgid "HTML content is valid."
 msgstr ""
 
-msgid "There are XHTML markup errors."
+msgid "There are HTML markup errors."
 msgstr ""
 
 msgid "Attention: an audit of a content not yet registered."

@@ -1831,8 +1831,8 @@ msgstr "Tiedosto on liitetty."
 msgid "Attachment has been successfully removed."
 msgstr "Liitetiedosto poistettu."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Talleta merkintä XHTML-muunnoksen oikeellisuuden tarkistamiseksi."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Talleta merkintä HTML-muunnoksen oikeellisuuden tarkistamiseksi."
 
 msgid "Go to this entry on the site"
 msgstr "Hyppää tähän merkintää verkkosivustossa"
@@ -1873,8 +1873,8 @@ msgstr "Merkinnän kieli"
 msgid "Text formatting"
 msgstr "Tekstin muotoilu"
 
-msgid "Convert to XHTML"
-msgstr "Muunna XHTML-muotoon"
+msgid "Convert to HTML"
+msgstr "Muunna HTML-muotoon"
 
 msgid "Filing"
 msgstr "Arkistointi"
@@ -2177,8 +2177,8 @@ msgstr "Käytä WYSIWYG-muokkausta"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Näytä muokkaimen työkalupalkki tekstialueen alapuolella (jos mahdollista)"
 
-msgid "Use xhtml editor for:"
-msgstr "Käytä xhtml-muokkainta muokattaessa:"
+msgid "Use HTML editor for:"
+msgstr "Käytä HTML-muokkainta muokattaessa:"
 
 msgid "Other options"
 msgstr "Muut asetukset"
@@ -3026,14 +3026,14 @@ msgstr "Olet varma, että haluat palata tähän varmistettuun versioon?"
 msgid "Zip file content"
 msgstr "Zip-tiedoston sisältö"
 
-msgid "XHTML markup validator"
-msgstr "XHTML-koodauksen tarkistus"
+msgid "HTML markup validator"
+msgstr "HTML-koodauksen tarkistus"
 
-msgid "XHTML content is valid."
-msgstr "XHTML-koodattu sisältö on kunnossa."
+msgid "HTML content is valid."
+msgstr "HTML-koodattu sisältö on kunnossa."
 
-msgid "There are XHTML markup errors."
-msgstr "XHTML-koodausvirheitä on."
+msgid "There are HTML markup errors."
+msgstr "HTML-koodausvirheitä on."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Varoitus: tarkistus koskee vielä kirjaamatonta sisältöä."

@@ -27,6 +27,7 @@ $self_ns = dcCore::app()->blog->settings->addNamespace('dcckeditor');
 
 if ($self_ns->active) {
     dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
+    dcCore::app()->addFormaterName('xhtml', __('HTML'));
 
     dcCore::app()->addBehavior('adminPostEditor', [dcCKEditorBehaviors::class, 'adminPostEditor']);
     dcCore::app()->addBehavior('adminPopupMedia', [dcCKEditorBehaviors::class, 'adminPopupMedia']);

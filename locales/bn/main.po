@@ -1919,7 +1919,7 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
@@ -1966,8 +1966,8 @@ msgstr "এন্ট্রির ভাষা:"
 msgid "Text formatting"
 msgstr "টেক্সট ফরম্যাটিং:"
 
-msgid "Convert to XHTML"
-msgstr "XHTML-এ কনভার্ট"
+msgid "Convert to HTML"
+msgstr "HTML-এ কনভার্ট"
 
 msgid "Filing"
 msgstr ""
@@ -2303,7 +2303,7 @@ msgstr ""
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3243,13 +3243,13 @@ msgstr "আপনি কি আসলেই এই সংযুক্ত ফা�
 msgid "Zip file content"
 msgstr "এন্ট্রির কোনো কন্টেন্ট নেই"
 
-msgid "XHTML markup validator"
+msgid "HTML markup validator"
 msgstr ""
 
-msgid "XHTML content is valid."
+msgid "HTML content is valid."
 msgstr ""
 
-msgid "There are XHTML markup errors."
+msgid "There are HTML markup errors."
 msgstr ""
 
 msgid "Attention: an audit of a content not yet registered."

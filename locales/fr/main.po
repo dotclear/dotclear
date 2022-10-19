@@ -1828,8 +1828,8 @@ msgstr "Le fichier a été attaché."
 msgid "Attachment has been successfully removed."
 msgstr "L'annexe a été retirée."
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Enregistrez votre billet pour valider la transformation en XHTML."
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Enregistrez votre billet pour valider la transformation en HTML."
 
 msgid "Go to this entry on the site"
 msgstr "Voir ce billet sur le site"
@@ -1870,8 +1870,8 @@ msgstr "Langue du billet"
 msgid "Text formatting"
 msgstr "Formatage du texte"
 
-msgid "Convert to XHTML"
-msgstr "Convertir en XHTML"
+msgid "Convert to HTML"
+msgstr "Convertir en HTML"
 
 msgid "Filing"
 msgstr "Classement"
@@ -2174,8 +2174,8 @@ msgstr "Activer l'éditeur visuel"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Afficher la barre d'outil des éditeurs en bas de la zone de saisie (si possible)"
 
-msgid "Use xhtml editor for:"
-msgstr "Utiliser l'éditeur xhtml pour :"
+msgid "Use HTML editor for:"
+msgstr "Utiliser l'éditeur HTML pour :"
 
 msgid "Other options"
 msgstr "Autres options"
@@ -3017,14 +3017,14 @@ msgstr "Êtes-vous certain·e de vouloir restaurer cette sauvegarde ?"
 msgid "Zip file content"
 msgstr "Contenu de l'archive Zip"
 
-msgid "XHTML markup validator"
-msgstr "Validateur XHTML"
+msgid "HTML markup validator"
+msgstr "Validateur HTML"
 
-msgid "XHTML content is valid."
-msgstr "Le contenu XHTML est valide."
+msgid "HTML content is valid."
+msgstr "Le contenu HTML est valide."
 
-msgid "There are XHTML markup errors."
-msgstr "Il y a des erreurs de balisage XHTML."
+msgid "There are HTML markup errors."
+msgstr "Il y a des erreurs de balisage HTML."
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Attention : audit d'un contenu qui n'est pas encore enregistré."

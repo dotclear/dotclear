@@ -1938,8 +1938,8 @@ msgstr "成功附加文件。"
 msgid "Attachment has been successfully removed."
 msgstr "成功移除附件。"
 
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "请不要忘了通过保存您的文章检验您的 XHTML 转换。"
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "请不要忘了通过保存您的文章检验您的 HTML 转换。"
 
 msgid "Go to this entry on the site"
 msgstr ""
@@ -1985,8 +1985,8 @@ msgstr "文章语言："
 msgid "Text formatting"
 msgstr "文本格式："
 
-msgid "Convert to XHTML"
-msgstr "转换到 XHTML"
+msgid "Convert to HTML"
+msgstr "转换到 HTML"
 
 msgid "Filing"
 msgstr ""
@@ -2327,7 +2327,7 @@ msgstr "激活所见即所得模式"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-msgid "Use xhtml editor for:"
+msgid "Use HTML editor for:"
 msgstr ""
 
 #, fuzzy
@@ -3254,14 +3254,14 @@ msgstr "您确定要移除这个附件吗？"
 msgid "Zip file content"
 msgstr "zip 文件内容"
 
-msgid "XHTML markup validator"
-msgstr "XHTML 标记检查器"
+msgid "HTML markup validator"
+msgstr "HTML 标记检查器"
 
-msgid "XHTML content is valid."
-msgstr "XHTML 内容有效。"
+msgid "HTML content is valid."
+msgstr "HTML 内容有效。"
 
-msgid "There are XHTML markup errors."
-msgstr "这是 XHTML 标记的错误。"
+msgid "There are HTML markup errors."
+msgstr "这是 HTML 标记的错误。"
 
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""

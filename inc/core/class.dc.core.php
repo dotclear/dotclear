@@ -283,6 +283,13 @@ final class dcCore
     private $formaters = [];
 
     /**
+     * Stack of registered content formaters' name
+     *
+     * @var        array
+     */
+    private $formaters_names = [];
+
+    /**
      * Stack of registered behaviors
      *
      * @var        array
@@ -584,6 +591,29 @@ final class dcCore
     public function addFormater(string $name, $func): void
     {
         $this->addEditorFormater('dcLegacyEditor', $name, $func);
+    }
+
+    /**
+     * Adds a formater name.
+     *
+     * @param      string  $format  The format
+     * @param      string  $name    The name
+     */
+    public function addFormaterName(string $format, string $name): void
+    {
+        $this->formaters_names[$format] = $name;
+    }
+
+    /**
+     * Gets the formater name.
+     *
+     * @param      string  $format  The format
+     *
+     * @return     string  The formater name.
+     */
+    public function getFormaterName(string $format): string
+    {
+        return $this->formaters_names[$format] ?? $format;
     }
 
     /**
@@ -1745,7 +1775,7 @@ final class dcCore
     /// @name HTML Filter methods
     //@{
     /**
-     * Calls HTML filter to drop bad tags and produce valid XHTML output (if
+     * Calls HTML filter to drop bad tags and produce valid HTML output (if
      * tidy extension is present). If <b>enable_html_filter</b> blog setting is
      * false, returns not filtered string.
      *
