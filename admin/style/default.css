@@ -3223,7 +3223,9 @@ span.ibw {
   display: none; }
 
 .dc-box {
-  background: url(dc_logos/sq-logo-32.png) no-repeat top right;
+  background: url(dc_logos/dotclear-leaf.svg) no-repeat top right;
+  background-size: 2em;
+  background-origin: content-box;
   background-color: transparent; }
 
 #news dt {
@@ -3310,7 +3312,7 @@ li.user_admin {
   border: 1px solid var(--theme-box-border);
   position: relative; }
   .box.theme:hover {
-    background: var(--theme-box-over); }
+    background-color: var(--theme-box-over); }
 
 .module-name,
 .module-name label {
@@ -3379,9 +3381,6 @@ On adapte largeur et hauteur en fonction
 #theme-deactivate .box.theme {
   /* Thèmes désactivés */
   width: 278px; }
-  #theme-deactivate .box.theme:hover {
-    background: url(dc_logos/sq-logo-32.png) no-repeat top right;
-    background-color: transparent; }
 
 #theme-activate .box.theme {
   /* Thèmes installés */
@@ -3398,7 +3397,7 @@ On adapte largeur et hauteur en fonction
   width: 646px;
   margin: 5px;
   padding: 20px 18px 6px;
-  background: var(--theme-current-background);
+  background-color: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);
   border-radius: 0.5em;
   min-height: 326px;
@@ -3759,7 +3758,8 @@ div.template-upload {
   .modules td.module-icon img.expand {
     margin-bottom: 3px; }
 .modules td.module-distrib img {
-  display: block;
+  width: 1.5em;
+  height: 1.5em;
   float: right; }
 
 .modules tr.expand,

@@ -861,7 +861,7 @@ class adminModulesList
                 $tds++;
                 echo
                     '<td class="module-distrib">' . (self::isDistributedModule($id) ?
-                    '<img src="images/dotclear_pw.png" alt="' .
+                    '<img src="images/dotclear-leaf.svg" alt="' .
                     __('Plugin from official distribution') . '" title="' .
                     __('Plugin from official distribution') . '" />'
                     : '') . '</td>';

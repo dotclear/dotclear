@@ -1022,6 +1022,7 @@ class dcUpgrade
             // A bit of housecleaning for no longer needed files
             $remfiles = [
                 'admin/images/close.png',
+                'admin/images/dotclear_pw.png',
 
                 'admin/images/media/audio.png',
                 'admin/images/media/blank.png',
@@ -1042,6 +1043,8 @@ class dcUpgrade
                 'admin/style/msg-std.png',
                 'admin/style/msg-success.png',
                 'admin/style/msg-warning.png',
+
+                'admin/style/dc_logos/sq-logo-32.png',
 
                 'inc/clearbricks/common/_main.php',
                 'inc/clearbricks/common/lib.forms.php',

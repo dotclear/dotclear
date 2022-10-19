@@ -153,7 +153,9 @@
 }
 
 .dc-box {
-  background: url(dc_logos/sq-logo-32.png) no-repeat top right;
+  background: url(dc_logos/dotclear-leaf.svg) no-repeat top right;
+  background-size: 2em;
+  background-origin: content-box;
   background-color: transparent;
 }
 
