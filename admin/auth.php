@@ -65,13 +65,11 @@ class adminAuth
         }
 
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
-
             // If we have POST login informations, go throug auth process
 
             dcCore::app()->admin->user_id  = !empty($_POST['user_id']) ? $_POST['user_id'] : null;
             dcCore::app()->admin->user_pwd = !empty($_POST['user_pwd']) ? $_POST['user_pwd'] : null;
         } elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
-
             // If we have a remember cookie, go through auth process with user_key
 
             $user_id = substr($_COOKIE['dc_admin'], 40);
@@ -113,7 +111,6 @@ class adminAuth
                 dcCore::app()->admin->err = $e->getMessage();
             }
         } elseif (dcCore::app()->admin->akey) {
-
             // Send new password
 
             try {
@@ -130,7 +127,6 @@ class adminAuth
                 dcCore::app()->admin->err = $e->getMessage();
             }
         } elseif (dcCore::app()->admin->change_pwd) {
-
             // Change password and retry to log
 
             try {
@@ -194,7 +190,6 @@ class adminAuth
                 dcCore::app()->admin->err = $e->getMessage();
             }
         } elseif (dcCore::app()->admin->user_id !== null && (dcCore::app()->admin->user_pwd !== null || dcCore::app()->admin->user_key !== null)) {
-
             // Try to log
 
             // We check the user
@@ -215,7 +210,6 @@ class adminAuth
             $cookie_admin = http::browserUID(DC_MASTER_KEY . dcCore::app()->admin->user_id . dcCore::app()->auth->cryptLegacy(dcCore::app()->admin->user_id)) . bin2hex(pack('a32', dcCore::app()->admin->user_id));
 
             if ($check_perms && dcCore::app()->auth->mustChangePassword()) {
-
                 // User need to change password
 
                 dcCore::app()->admin->login_data = join('/', [
@@ -231,12 +225,10 @@ class adminAuth
                     dcCore::app()->admin->change_pwd = true;
                 }
             } elseif ($check_perms && dcCore::app()->admin->safe_mode && !dcCore::app()->auth->isSuperAdmin()) {
-
                 // Non super-admin user cannot use safe mode
 
                 dcCore::app()->admin->err = __('Safe Mode can only be used for super administrators.');
             } elseif ($check_perms) {
-
                 // User may log-in
 
                 dcCore::app()->session->start();
@@ -257,16 +249,13 @@ class adminAuth
 
                 dcCore::app()->adminurl->redirect('admin.home');
             } else {
-
                 // User cannot login
 
                 if ($check_user) {
-
                     // Insufficient permissions
 
                     dcCore::app()->admin->err = __('Insufficient permissions');
                 } else {
-
                     // Session expired
 
                     dcCore::app()->admin->err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
@@ -292,6 +281,7 @@ class adminAuth
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
         $dlang  = dcCore::app()->admin->dlang;
+        $vendor = html::escapeHTML(DC_VENDOR_NAME);
         $buffer = <<<HTML_BEGIN
             <!DOCTYPE html>
             <html lang="$dlang">
@@ -303,7 +293,7 @@ class adminAuth
               <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
               <meta name="GOOGLEBOT" content="NOSNIPPET" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
+              <title>$vendor</title>
               <link rel="icon" type="image/png" href="images/favicon96-logout.png" />
               <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
               <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
@@ -346,13 +336,11 @@ class adminAuth
         }
 
         if (dcCore::app()->admin->akey) {
-
             // Recovery key has been sent
 
             echo
             '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
         } elseif (dcCore::app()->admin->recover) {
-
             // User request a new password
 
             echo
@@ -388,7 +376,6 @@ class adminAuth
             '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
             '</details>';
         } elseif (dcCore::app()->admin->change_pwd) {
-
             // User need to change password
 
             echo
@@ -417,16 +404,13 @@ class adminAuth
             form::hidden('login_data', dcCore::app()->admin->login_data) . '</p>' .
             '</div>';
         } else {
-
             // Authentication
 
             if (is_callable([dcCore::app()->auth, 'authForm'])) {
-
                 // User-defined authentication form
 
                 echo dcCore::app()->auth->authForm(dcCore::app()->admin->user_id);
             } else {
-
                 // Standard authentication form
 
                 if (dcCore::app()->admin->safe_mode) {
