@@ -886,9 +886,9 @@ class dcPage
         // May not be set (auth page for example)
         if (dcCore::app()->auth->user_prefs) {
             dcCore::app()->auth->user_prefs->addWorkspace('interface');
-            $adblock = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true) && dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
+            $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true) && dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
         } else {
-            $adblock = false;
+            $adblockcheck = false;
         }
 
         $js = [
@@ -901,8 +901,6 @@ class dcPage
             'img_minus_src' => 'images/hide.svg',
             'img_minus_txt' => '▼',
             'img_minus_alt' => __('hide'),
-
-            'adblocker_check' => $adblock,
         ];
 
         $js_msg = [
@@ -989,7 +987,7 @@ class dcPage
         self::jsJson('dotclear_msg', $js_msg) .
 
         self::jsLoad('js/common.js') .
-        self::jsLoad('js/ads.js') .
+        ($adblockcheck ? self::jsLoad('js/ads.js') : '') .
         self::jsLoad('js/services.js') .
         self::jsLoad('js/prelude.js');
     }
