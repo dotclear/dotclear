@@ -1044,6 +1044,8 @@ class dcUpgrade
                 'admin/style/msg-success.png',
                 'admin/style/msg-warning.png',
 
+                'admin/style/dc_logos/dc_logo_footer.png',
+                'admin/style/dc_logos/w-dotclear180.png',
                 'admin/style/dc_logos/sq-logo-32.png',
 
                 'inc/clearbricks/common/_main.php',
