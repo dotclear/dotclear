@@ -365,7 +365,6 @@ h6 {
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
   --msg-shadow: rgba(50, 50, 50, 0.1);
-  --msg-border: #868686;
   --msg-info-color: #323232;
   --msg-info-background: #d9edf7;
   --msg-info-border: #868686;
@@ -635,14 +634,13 @@ h6 {
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
   --msg-shadow: rgba(48, 50, 54, 0.1);
-  --msg-border: #82878f;
   --msg-info-color: #303236;
   --msg-info-background: #d9edf7;
-  --msg-info-border: #82878f;
+  --msg-info-border: #d9edf7;
   --msg-warn-color: #303236;
   --msg-warn-background: #fefacd;
   --msg-warn-background-alt: #ffd478;
-  --msg-warn-border: #82878f;
+  --msg-warn-border: #fefacd;
   --msg-error-color: #000;
   --msg-error-background: #ffbaba;
   --msg-error-background-alt: #fefacd;
@@ -906,14 +904,13 @@ h6 {
     --msg-background: #676e78;
     --msg-background-alt: #caced2;
     --msg-shadow: rgba(48, 50, 54, 0.1);
-    --msg-border: #82878f;
     --msg-info-color: #303236;
     --msg-info-background: #d9edf7;
-    --msg-info-border: #82878f;
+    --msg-info-border: #d9edf7;
     --msg-warn-color: #303236;
     --msg-warn-background: #fefacd;
     --msg-warn-background-alt: #ffd478;
-    --msg-warn-border: #82878f;
+    --msg-warn-border: #fefacd;
     --msg-error-color: #000;
     --msg-error-background: #ffbaba;
     --msg-error-background-alt: #fefacd;
@@ -2502,9 +2499,15 @@ body.ajax-loader #collapser {
   background-color: var(--ajax-loader);
   transition: background-color 0.3s ease; }
 
-#main-menu > div.info p {
-  text-indent: 0;
-  margin-top: 3em; }
+.guideline #main-menu {
+  padding-bottom: 0;
+  position: sticky;
+  top: 0; }
+  .guideline #main-menu > div.info {
+    border: none;
+    margin-bottom: 0; }
+    .guideline #main-menu > div.info p {
+      text-indent: 0; }
 
 #content > div.warn, #content > div.warning, #content > div.info, #content > div.error, #content > div.message, #content > div.static-msg, #content > div.success, #content > div.warning-msg, #content > div.dc-update {
   margin-top: 1em;

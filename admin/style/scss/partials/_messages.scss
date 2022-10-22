@@ -287,11 +287,17 @@ body.ajax-loader {
   }
 }
 
-#main-menu {
-  & > div.info {
-    p {
-      text-indent: 0;
-      margin-top: 3em;
+.guideline {
+  #main-menu {
+    padding-bottom: 0;
+    position: sticky;
+    top: 0;
+    & > div.info {
+      border: none;
+      margin-bottom: 0;
+      p {
+        text-indent: 0;
+      }
     }
   }
 }

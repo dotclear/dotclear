@@ -253,16 +253,15 @@
   --msg-background: #{$gray-dark};
   --msg-background-alt: #{scale-color($gray-dark, $lightness: 66%)};
   --msg-shadow: #{rgba($gray-very-dark, 0.1)};
-  --msg-border: #{$gray-semi-dark};
 
   --msg-info-color: #{$gray-very-dark};
   --msg-info-background: #{$info};
-  --msg-info-border: #{$gray-semi-dark}; // #{$info-alt};
+  --msg-info-border: #{$info};
 
   --msg-warn-color: #{$gray-very-dark};
   --msg-warn-background: #{$warning};
   --msg-warn-background-alt: #{$warning-alt};
-  --msg-warn-border: #{$gray-semi-dark}; // #{$warning-alt};
+  --msg-warn-border: #{$warning};
 
   --msg-error-color: #{$black};
   --msg-error-background: #{$error};
@@ -322,7 +321,7 @@
   --index-link-border: #{$gray-semi-dark};
   --index-icon-background: #{$gray-darker};
   --index-icon-border: #{$gray-lighter};
-  --index-icon-outline: #{$submit-alt}; // $link-outline;
+  --index-icon-outline: #{$submit-alt};
   --index-icon-contrast: 130%;
 
   --quick-background: #{$gray-very-dark};

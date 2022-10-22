@@ -164,7 +164,7 @@
 
   // Forms
 
-  --fieldset-border: #{$marine}; // #{scale-color($gray-dark, $lightness: 66%)};
+  --fieldset-border: #{$marine};
   --fieldset-background: #{$white};
   --fieldset-focus-background: #{scale-color($white, $lightness: -7%)};
 
@@ -253,16 +253,15 @@
   --msg-background: #{$gray-dark};
   --msg-background-alt: #{scale-color($gray-dark, $lightness: 66%)};
   --msg-shadow: #{rgba($gray-very-dark, 0.1)};
-  --msg-border: #{$gray-semi-dark};
 
   --msg-info-color: #{$gray-very-dark};
   --msg-info-background: #{$info};
-  --msg-info-border: #{$gray-semi-dark}; // #{$info-alt};
+  --msg-info-border: #{$gray-semi-dark};
 
   --msg-warn-color: #{$gray-very-dark};
   --msg-warn-background: #{$warning};
   --msg-warn-background-alt: #{$warning-alt};
-  --msg-warn-border: #{$gray-semi-dark}; // #{$warning-alt};
+  --msg-warn-border: #{$gray-semi-dark};
 
   --msg-error-color: #{$black};
   --msg-error-background: #{$error};
@@ -321,17 +320,17 @@
   --index-link-color: #{$gray-very-dark};
   --index-link-border: #{$gray-semi-dark};
   --index-icon-background: #{scale-color($gray-very-light, $lightness: 50%)};
-  --index-icon-border: #{$marine}; // #{scale-color($gray-very-light, $lightness: -10%)};
+  --index-icon-border: #{$marine};
   --index-icon-outline: #{$link-outline};
   --index-icon-contrast: 100%;
 
-  --quick-background: #{scale-color($gray-very-light, $lightness: 50%)}; // $gray-very-light;
-  --quick-border: #{$marine}; // #{scale-color($gray-very-light, $lightness: -10%)};
+  --quick-background: #{scale-color($gray-very-light, $lightness: 50%)};
+  --quick-border: #{$marine};
   --quick-info-background: #{$info};
   --quick-info-border: #{$info-alt};
   --quick-info-color: #{$gray-very-dark};
 
-  --index-box-border: #{$marine}; // #{scale-color($gray-dark, $lightness: 66%)};
+  --index-box-border: #{$marine};
 
   --drag-n-drop-off: #{$gray-semi-dark};
   --drag-n-drop-on: #{$blue};

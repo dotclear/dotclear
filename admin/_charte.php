@@ -25,7 +25,10 @@ class adminChartePage
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
         dcCore::app()->admin->data_theme = dcCore::app()->auth->user_prefs->interface->theme;
-        dcCore::app()->admin->js         = ['htmlFontSize' => dcCore::app()->auth->user_prefs->interface->htmlfontsize];
+        dcCore::app()->admin->js         = [
+            'htmlFontSize' => dcCore::app()->auth->user_prefs->interface->htmlfontsize,
+            'debug'        => !!DC_DEBUG,
+        ];
     }
 
     /**
@@ -35,7 +38,7 @@ class adminChartePage
      */
     public static function getTheme(): string
     {
-        return dcCore::app()->admin->theme ?? '';
+        return dcCore::app()->admin->data_theme ?? '';
     }
 
     /**
