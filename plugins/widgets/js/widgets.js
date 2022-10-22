@@ -89,6 +89,20 @@ dotclear.reorder = (ul) => {
 $(() => {
   dotclear.mergeDeep(dotclear, dotclear.getData('widgets'));
 
+  // Blocs
+  $('#sidebarNav h3').toggleWithLegend($('#sidebarNav').children().not('h3'), {
+    legend_click: true,
+    hide: false,
+  });
+  $('#sidebarExtra h3').toggleWithLegend($('#sidebarExtra').children().not('h3'), {
+    legend_click: true,
+    hide: false,
+  });
+  $('#sidebarCustom h3').toggleWithLegend($('#sidebarCustom').children().not('h3'), {
+    legend_click: true,
+    hide: false,
+  });
+
   // reset
   $('input[name="wreset"]').on('click', () => window.confirm(dotclear.msg.confirm_widgets_reset));
 
