@@ -180,6 +180,8 @@ class adminIndex
             dcPage::jsLoad('js/_index.js') .
             $dragndrop_head .
             $admin_post_behavior .
+            dcPage::jsAdsBlockCheck() .
+
             # --BEHAVIOR-- adminDashboardHeaders
             dcCore::app()->callBehavior('adminDashboardHeaders'),
             dcPage::breadcrumb(

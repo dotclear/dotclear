@@ -3,6 +3,7 @@
 
 $(() => {
   const ads_id = 'WJxYFNKPMRlS';
+
   // Check adblocker helper
   dotclear.adblockCheck = (msg) => {
     const ads = document.getElementById(ads_id);
@@ -22,6 +23,7 @@ $(() => {
 
     return adblocker_on;
   };
+
   // Create pseudo advertising block in page
   const e = document.createElement('div');
   e.id = ads_id;
@@ -29,4 +31,7 @@ $(() => {
   e.classList.add('adsbox');
   e.innerHTML = '&nbsp;';
   document.body.appendChild(e);
+
+  // Check adblocker
+  new Promise((resolve) => setTimeout(resolve, 1000)).then(() => dotclear.adblockCheck(dotclear.msg.adblocker));
 });

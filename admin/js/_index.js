@@ -306,7 +306,4 @@ $(() => {
       $('#dragndrop-label').text(dotclear.dragndrop_off);
     });
   }
-
-  // Check adblocker
-  dotclear.adblockCheck(dotclear.msg.adblocker);
 });

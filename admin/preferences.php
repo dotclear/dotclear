@@ -484,6 +484,7 @@ class adminUserPrefs
             dcPage::jsLoad('js/_preferences.js') .
             dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
+            dcPage::jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminPreferencesHeaders
             dcCore::app()->callBehavior('adminPreferencesHeaders'),

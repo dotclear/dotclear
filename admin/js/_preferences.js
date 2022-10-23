@@ -23,8 +23,6 @@ $(() => {
     return true;
   });
 
-  // Check adblocker
-  dotclear.adblockCheck(dotclear.msg.adblocker);
   // Password strength
   dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });

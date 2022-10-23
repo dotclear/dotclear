@@ -883,14 +883,6 @@ class dcPage
      */
     public static function jsCommon(): string
     {
-        // May not be set (auth page for example)
-        if (dcCore::app()->auth->user_prefs) {
-            dcCore::app()->auth->user_prefs->addWorkspace('interface');
-            $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true) && dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
-        } else {
-            $adblockcheck = false;
-        }
-
         $js = [
             'nonce' => dcCore::app()->getNonce(),
 
@@ -987,9 +979,29 @@ class dcPage
         self::jsJson('dotclear_msg', $js_msg) .
 
         self::jsLoad('js/common.js') .
-        ($adblockcheck ? self::jsLoad('js/ads.js') : '') .
         self::jsLoad('js/services.js') .
         self::jsLoad('js/prelude.js');
+    }
+
+    /**
+     * Get HTML code to load ads blocker detector for admin pages (usually active on dashboard and user preferences pages)
+     *
+     * @return     string
+     */
+    public static function jsAdsBlockCheck(): string
+    {
+        $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true);
+        if ($adblockcheck) {
+            // May not be set (auth page for example)
+            if (dcCore::app()->auth->user_prefs) {
+                dcCore::app()->auth->user_prefs->addWorkspace('interface');
+                $adblockcheck = dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
+            } else {
+                $adblockcheck = false;
+            }
+        }
+
+        return $adblockcheck ? self::jsLoad('js/ads.js') : '';
     }
 
     /**
