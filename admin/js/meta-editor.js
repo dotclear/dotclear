@@ -30,8 +30,8 @@ class metaEditor {
     this.meta_dialog = $(
       `<input type="text" class="ib meta-helper" title="${this.text_add_meta.replace(
         /%s/,
-        this.meta_type
-      )}" id="${input_id}" />`
+        this.meta_type,
+      )}" id="${input_id}" />`,
     );
     // Meta dialog input
     this.meta_dialog.on('keypress', function (evt) {
@@ -73,7 +73,7 @@ class metaEditor {
       for (const m of meta) {
         li = $(`<li>${m}</li>`);
         const a_remove = $(
-          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>'
+          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>',
         );
         a_remove.get(0).caller = this;
         a_remove.get(0).meta_id = m;
@@ -106,7 +106,7 @@ class metaEditor {
         const meta_id = $(this).text();
         li = $(`<li><a href="${This.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
         const a_remove = $(
-          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>'
+          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>',
         );
         a_remove.get(0).caller = This;
         a_remove.get(0).meta_id = meta_id;
@@ -266,7 +266,12 @@ class metaEditor {
   }
 
   splitMetaValues(str) {
-    const list = new Set(str.split(',').map((s) => s.trim()).filter((i) => i));
-    return [...list].sort((a, b) => a.localeCompare(b));
+    const list = new Set(
+      str
+        .split(',')
+        .map((s) => s.trim())
+        .filter((i) => i),
+    );
+    return Array.from(list).sort((a, b) => a.localeCompare(b));
   }
 }
