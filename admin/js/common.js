@@ -14,12 +14,12 @@ if (typeof dotclear.data.htmlFontSize !== 'undefined') {
 dotclear.data.theme = 'light';
 if (document.documentElement.getAttribute('data-theme') !== '') {
   dotclear.data.theme = document.documentElement.getAttribute('data-theme');
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+} else if (window?.matchMedia('(prefers-color-scheme: dark)').matches) {
   dotclear.data.theme = 'dark';
 }
 // Cope with low data requirement
 dotclear.data.lowdata = false;
-if (window.matchMedia && window.matchMedia('(prefers-reduced-data: reduce)').matches) {
+if (window?.matchMedia('(prefers-reduced-data: reduce)').matches) {
   dotclear.data.lowdata = true;
 }
 document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);

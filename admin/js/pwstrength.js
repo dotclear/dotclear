@@ -87,7 +87,7 @@ dotclear.passwordStrength = (opts) => {
   for (const passwordField of passwordFields) {
     const meter = meterTemplate.cloneNode(true);
     const sibling = passwordField.nextElementSibling;
-    if (sibling && (sibling.classList.contains('pw-show') || sibling.classList.contains('pw-hide'))) {
+    if (sibling?.classList.contains('pw-show') || sibling?.classList.contains('pw-hide')) {
       sibling.after(meter);
     } else {
       passwordField.after(meter);
