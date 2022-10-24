@@ -1,7 +1,8 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
-$(() => {
+document.addEventListener('DOMContentLoaded', () => {
+  // DOM ready
   const ads_id = 'WJxYFNKPMRlS';
 
   // Check adblocker helper
@@ -31,7 +32,10 @@ $(() => {
   e.classList.add('adsbox');
   e.innerHTML = '&nbsp;';
   document.body.appendChild(e);
+});
 
+window.addEventListener('load', () => {
+  // DOM ready and content loaded
   // Check adblocker
   new Promise((resolve) => setTimeout(resolve, 1000)).then(() => dotclear.adblockCheck(dotclear.msg.adblocker));
 });
