@@ -55,7 +55,7 @@ input[type='time'],
 input[type='file'],
 input[type='number'],
 textarea {
-  font-family: $sans-serif-input;
+  font-family: var(--sans-serif-input);
   font-size: 100%;
 }
 

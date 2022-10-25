@@ -198,26 +198,7 @@ h6 {
   margin: 0; }
 
 /* Screen-reader only */
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap; }
-  .visually-hidden:focus, .visually-hidden:active {
-    clip: auto;
-    clip-path: none;
-    height: auto;
-    overflow: visible;
-    position: static;
-    width: auto;
-    white-space: normal; }
-
+.visually-hidden,
 .sr-only {
   border: 0;
   clip: rect(0 0 0 0);
@@ -229,6 +210,24 @@ h6 {
   position: absolute;
   width: 1px;
   white-space: nowrap; }
+
+.visually-hidden:focus,
+.visually-hidden:active {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: normal; }
+
+:root {
+  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --sans-serif-input: inherit;
+  --monospace: 'Andale Mono', AndaleMono, Consolas, Monaco, 'Courier New', monospace;
+  --html-font-size: 62.5%;
+  --body-font-size: 1.4rem;
+  --collapser-width: 10px; }
 
 /** --------------------------------------------------
   Colors
@@ -1052,19 +1051,15 @@ body:not(.dark-mode):not(.light-mode) .dark-only {
     Common rules
 --------------------------------------------------- */
 /* Typographie */
-:root {
-  --html-font-size: 62.5%; }
-
 html {
-  font-size: 62.5%;
   font-size: var(--html-font-size); }
 
 body {
   color: var(--body-color);
   background: var(--body-background);
-  font-size: 1.4rem;
+  font-size: var(--body-font-size);
   line-height: 1.5;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+  font-family: var(--sans-serif); }
 
 h2,
 h3,
@@ -1194,7 +1189,7 @@ h1,
   position: absolute;
   top: 0;
   left: 14em;
-  width: 10px;
+  width: var(--collapser-width);
   height: 100%;
   overflow: hidden;
   display: block;
@@ -1216,9 +1211,9 @@ h1,
 .hide-mm #main {
   margin-left: 0; }
 .hide-mm #content {
-  margin-left: 10px; }
+  margin-left: var(--collapser-width); }
   .hide-mm #content > h2 {
-    margin-left: calc(-1em - 10px); }
+    margin-left: calc(-1em - var(--collapser-width)); }
 .hide-mm #main-menu {
   display: none; }
 .hide-mm #collapser {
@@ -1674,7 +1669,7 @@ hr {
 pre,
 code,
 #debug {
-  font: 100% "Andale Mono", AndaleMono, Consolas, Monaco, "Courier New", monospace; }
+  font: 100% var(--monospace); }
 
 code {
   color: var(--code-color);
@@ -1795,7 +1790,7 @@ input[type='time'],
 input[type='file'],
 input[type='number'],
 textarea {
-  font-family: inherit;
+  font-family: var(--sans-serif-input);
   font-size: 100%; }
 
 legend {
@@ -2015,7 +2010,7 @@ input[type='button'],
 input[type='reset'],
 input[type='submit'] {
   border: 1px solid var(--button-border);
-  font-family: inherit;
+  font-family: var(--sans-serif-input);
   padding: 3px 10px;
   line-height: normal !important;
   display: inline-block;
@@ -3828,7 +3823,7 @@ div.template-upload {
 
 #entry-content {
   margin-left: 0; }
-  @media screen and (min-width: calc(82em + 0.01em)) {
+  @media screen and (min-width: 82.01em) {
     #entry-content {
       padding-right: 3em; } }
   @media screen and (max-width: 43em) {
@@ -4479,26 +4474,26 @@ div.ui-sortable-handle {
   .pseudo-tabs li:first-child {
     border-top: none; } }
 /** --------------------------------------------------
-	Plugins
+  Plugins
 --------------------------------------------------- */
 /* dcLegacyEditor */
 /* WYSIWYG Document */
 body.wysiwygDoc {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+  font-family: var(--sans-serif); }
 
 .wysiwygDoc pre,
 .wysiwygDoc code,
 .wysiwygDoc kbd,
 .wysiwygDoc samp {
-  font-family: "Andale Mono", AndaleMono, Consolas, Monaco, "Courier New", monospace; }
+  font-family: var(--monospace); }
 
 /* dcCKEditor */
 .cke textarea.cke_source {
-  font-family: "Andale Mono", AndaleMono, Consolas, Monaco, "Courier New", monospace;
+  font-family: var(--monospace);
   font-size: 100%; }
 
 /** --------------------------------------------------
-	3rd parties
+  3rd parties
 --------------------------------------------------- */
 /* Magnific Popup CSS */
 .mfp-bg {
@@ -4851,7 +4846,7 @@ img.mfp-img {
 /* CodeMirror CSS */
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: "Andale Mono", AndaleMono, Consolas, Monaco, "Courier New", monospace !important; }
+  font-family: var(--monospace) !important; }
 
 /** --------------------------------------------------
     Debug

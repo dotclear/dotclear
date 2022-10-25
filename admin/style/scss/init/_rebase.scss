@@ -245,15 +245,30 @@ h6 {
 
 /* Screen-reader only */
 
-.visually-hidden {
-  @include visually-hidden;
+// Mix from Nico3333 (https://github.com/nico3333fr/ROCSSTI/blob/master/src/css/rocssti-fr.css#L668)
+// and ffood (http://www.ffoodd.fr/cache-cache-css/)
 
-  &:focus,
-  &:active {
-    @include visually-hidden-focus;
-  }
+.visually-hidden,
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
 
-.sr-only {
-  @include visually-hidden;
+.visually-hidden:focus,
+.visually-hidden:active {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: normal;
 }

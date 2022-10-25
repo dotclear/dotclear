@@ -8,38 +8,25 @@ $critical-usage-threshold: 100;
 
 @import 'compass'; // gem
 
-// ========================================================================== //
-// =Typographie
-// ========================================================================== //
-
-$sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
-  sans-serif;
-
-$sans-serif-input: inherit; // Use OS default font for input fields
-
-$monospace: 'Andale Mono', AndaleMono, Consolas, Monaco, 'Courier New', monospace;
-
-$html-font-size: 62.5%; // Basically 10px (16px ⁄x 0.625) — Must be in %
-$body-font-size: 1.4rem;
-
-// Divers
-
-$css-img-path: 'img'; // utile pour le mixin de fallback svg
-
-// ========================================================================== //
-// =Breakpoints
-// ========================================================================== //
-
-// Screen sizes (up to)
+// Screen sizes (up to) - used in mediaqueries
 
 $mobile-screen: 43em;
 $tablet-screen: 62em;
 $laptop-screen: 82em;
 
-// =========================================================================== //
-// =Various dimensions
-// =========================================================================== //
+:root {
+  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
 
-// collapser width
+  --sans-serif-input: inherit; // Use OS default font for input fields
 
-$collapser-width: 10px;
+  --monospace: 'Andale Mono', AndaleMono, Consolas, Monaco, 'Courier New', monospace;
+
+  // May be superseed by user pref (typically from 50% to 75%, default 62.5%)
+  --html-font-size: 62.5%; // Basically 10px (16px ⁄x 0.625) — Must be in %
+
+  --body-font-size: 1.4rem;
+
+  // collapser width
+  --collapser-width: 10px;
+}

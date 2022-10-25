@@ -16,7 +16,7 @@ input[type='button'],
 input[type='reset'],
 input[type='submit'] {
   border: 1px solid var(--button-border);
-  font-family: $sans-serif-input;
+  font-family: var(--sans-serif-input);
   padding: 3px 10px;
   line-height: normal !important;
   display: inline-block;

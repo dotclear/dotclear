@@ -72,7 +72,7 @@ h1,
   position: absolute;
   top: 0;
   left: 14em;
-  width: $collapser-width;
+  width: var(--collapser-width);
   height: 100%;
   overflow: hidden;
   display: block;
@@ -108,10 +108,10 @@ h1,
   }
 
   #content {
-    margin-left: $collapser-width;
+    margin-left: var(--collapser-width);
 
     > h2 {
-      margin-left: calc(-1em - #{$collapser-width});
+      margin-left: calc(-1em - var(--collapser-width));
     }
   }
 

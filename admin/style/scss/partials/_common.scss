@@ -1,22 +1,16 @@
 /* Typographie */
 
-:root {
-  // May be superseed by user pref (typically from 50% to 75%, default 62.5%)
-  --html-font-size: #{$html-font-size};
-}
-
 // base //
 html {
-  font-size: $html-font-size; // html font-size for IE and Edge
   font-size: var(--html-font-size); // html font-size for modern browsers
 }
 
 body {
   color: var(--body-color);
   background: var(--body-background);
-  font-size: $body-font-size;
+  font-size: var(--body-font-size);
   line-height: 1.5;
-  font-family: $sans-serif;
+  font-family: var(--sans-serif);
 }
 
 // titres //

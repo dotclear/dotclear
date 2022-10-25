@@ -1048,6 +1048,8 @@ class dcUpgrade
                 'admin/style/dc_logos/w-dotclear180.png',
                 'admin/style/dc_logos/sq-logo-32.png',
 
+                'admin/style/scss/init/_mixins-functions.scss',
+
                 'inc/clearbricks/common/_main.php',
                 'inc/clearbricks/common/lib.forms.php',
 

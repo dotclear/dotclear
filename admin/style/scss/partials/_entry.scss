@@ -15,7 +15,7 @@
 #entry-content {
   margin-left: 0;
 
-  @media screen and (min-width: calc(#{$laptop-screen} + 0.01em)) {
+  @media screen and (min-width: ($laptop-screen + 0.01em)) {
     // Large padding on big screens
     padding-right: 3em;
   }

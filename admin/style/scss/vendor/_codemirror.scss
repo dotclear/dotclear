@@ -2,5 +2,5 @@
 
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: $monospace !important;
+  font-family: var(--monospace) !important;
 }
