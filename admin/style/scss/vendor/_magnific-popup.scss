@@ -1,49 +1,51 @@
 /* Magnific Popup CSS */
 
+@use 'sass:math';
+
 ////////////////////////
 //      Settings      //
 ////////////////////////
 
 // overlay
-$mfp-overlay-color:                   #0b0b0b !default;                    // Color of overlay screen
-$mfp-overlay-opacity:                 0.8 !default;                        // Opacity of overlay screen
-$mfp-shadow:                          0 0 8px rgba(0, 0, 0, 0.6) !default; // Shadow on image or iframe
+$mfp-overlay-color: #0b0b0b !default; // Color of overlay screen
+$mfp-overlay-opacity: 0.8 !default; // Opacity of overlay screen
+$mfp-shadow: 0 0 8px rgba(0, 0, 0, 0.6) !default; // Shadow on image or iframe
 
 // spacing
-$mfp-popup-padding-left:              8px !default;                        // Padding from left and from right side
-$mfp-popup-padding-left-mobile:       6px !default;                        // Same as above, but is applied when width of window is less than 800px
+$mfp-popup-padding-left: 8px !default; // Padding from left and from right side
+$mfp-popup-padding-left-mobile: 6px !default; // Same as above, but is applied when width of window is less than 800px
 
-$mfp-z-index-base:                    1040 !default;                       // Base z-index of popup
+$mfp-z-index-base: 1040 !default; // Base z-index of popup
 
 // controls
-$mfp-include-arrows:                  true !default;                       // Include styles for nav arrows
-$mfp-controls-opacity:                0.65 !default;                       // Opacity of controls
-$mfp-controls-color:                  #FFF !default;                       // Color of controls
-$mfp-controls-border-color:           #3F3F3F !default;                    // Border color of controls
-$mfp-inner-close-icon-color:          #333 !default;                       // Color of close button when inside
-$mfp-controls-text-color:             #CCC !default;                       // Color of preloader and "1 of X" indicator
-$mfp-controls-text-color-hover:       #FFF !default;                       // Hover color of preloader and "1 of X" indicator
+$mfp-include-arrows: true !default; // Include styles for nav arrows
+$mfp-controls-opacity: 0.65 !default; // Opacity of controls
+$mfp-controls-color: #fff !default; // Color of controls
+$mfp-controls-border-color: #3f3f3f !default; // Border color of controls
+$mfp-inner-close-icon-color: #333 !default; // Color of close button when inside
+$mfp-controls-text-color: #ccc !default; // Color of preloader and "1 of X" indicator
+$mfp-controls-text-color-hover: #fff !default; // Hover color of preloader and "1 of X" indicator
 
 // Iframe-type options
-$mfp-include-iframe-type:             true !default;                       // Enable Iframe-type popups
-$mfp-iframe-padding-top:              40px !default;                       // Iframe padding top
-$mfp-iframe-background:               #000 !default;                       // Background color of iframes
-$mfp-iframe-max-width:                98%; // 900px !default;                      // Maximum width of iframes
-$mfp-iframe-ratio:                    9/16 !default;                       // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
+$mfp-include-iframe-type: true !default; // Enable Iframe-type popups
+$mfp-iframe-padding-top: 40px !default; // Iframe padding top
+$mfp-iframe-background: #000 !default; // Background color of iframes
+$mfp-iframe-max-width: 98%; // 900px !default;                      // Maximum width of iframes
+$mfp-iframe-ratio: math.div(9, 16) !default; // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
 
 // Image-type options
-$mfp-include-image-type:              true !default;                       // Enable Image-type popups
-$mfp-image-background:                #444 !default;
-$mfp-image-padding-top:               40px !default;                       // Image padding top
-$mfp-image-padding-bottom:            40px !default;                       // Image padding bottom
-$mfp-include-mobile-layout-for-image: true !default;                       // Removes paddings from top and bottom
+$mfp-include-image-type: true !default; // Enable Image-type popups
+$mfp-image-background: #444 !default;
+$mfp-image-padding-top: 40px !default; // Image padding top
+$mfp-image-padding-bottom: 40px !default; // Image padding bottom
+$mfp-include-mobile-layout-for-image: true !default; // Removes paddings from top and bottom
 
 // Image caption options
-$mfp-caption-title-color:             #F3F3F3 !default;                    // Caption title color
-$mfp-caption-subtitle-color:          #BDBDBD !default;                    // Caption subtitle color
+$mfp-caption-title-color: #f3f3f3 !default; // Caption title color
+$mfp-caption-subtitle-color: #bdbdbd !default; // Caption subtitle color
 
 // A11y
-$mfp-use-visuallyhidden:              false !default;                      // Hide content from browsers, but make it available for screen readers
+$mfp-use-visuallyhidden: false !default; // Hide content from browsers, but make it available for screen readers
 
 ////////////////////////
 //
@@ -66,8 +68,6 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
 //    - IE7 support
 //
 ////////////////////////
-
-
 
 ////////////////////////
 // 1. General styles
@@ -152,7 +152,8 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
   cursor: progress;
 }
 .mfp-zoom-out-cur {
-  &, .mfp-image-holder .mfp-close {
+  &,
+  .mfp-image-holder .mfp-close {
     cursor: -moz-zoom-out;
     cursor: -webkit-zoom-out;
     cursor: zoom-out;
@@ -174,7 +175,7 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
 .mfp-arrow,
 .mfp-preloader,
 .mfp-counter {
-  -webkit-user-select:none;
+  -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
@@ -204,7 +205,6 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
     display: none !important;
   }
 }
-
 
 ////////////////////////
 // 2. Appearance
@@ -260,11 +260,10 @@ button {
     touch-action: manipulation;
   }
   &::-moz-focus-inner {
-      padding: 0;
-      border: 0
+    padding: 0;
+    border: 0;
   }
 }
-
 
 // Close icon
 .mfp-close {
@@ -332,7 +331,7 @@ button {
     padding: 0;
     width: 90px;
     height: 110px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     &:active {
       margin-top: -54px;
     }
@@ -355,10 +354,9 @@ button {
     }
 
     &:after {
-
       border-top-width: 13px;
       border-bottom-width: 13px;
-      top:8px;
+      top: 8px;
     }
 
     &:before {
@@ -366,7 +364,6 @@ button {
       border-bottom-width: 21px;
       opacity: 0.7;
     }
-
   }
 
   .mfp-arrow-left {
@@ -385,15 +382,13 @@ button {
     right: 0;
     &:after {
       border-left: 17px solid $mfp-controls-color;
-      margin-left: 39px
+      margin-left: 39px;
     }
     &:before {
       border-left: 27px solid $mfp-controls-border-color;
     }
   }
 }
-
-
 
 // Iframe content type
 @if $mfp-include-iframe-type {
@@ -427,11 +422,8 @@ button {
   }
 }
 
-
-
 // Image content type
 @if $mfp-include-image-type {
-
   /* Main image in popup */
   img {
     &.mfp-img {
@@ -503,9 +495,8 @@ button {
     }
   }
 
-
   @if $mfp-include-mobile-layout-for-image {
-    @media screen and (max-width: 800px) and (orientation:landscape), screen and (max-height: 300px) {
+    @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
       /**
        * Remove all paddings around the image on small screen
        */
@@ -531,7 +522,7 @@ button {
           }
         }
         .mfp-bottom-bar {
-          background: rgba(0,0,0,0.6);
+          background: rgba(0, 0, 0, 0.6);
           bottom: 0;
           margin: 0;
           top: auto;
@@ -561,8 +552,6 @@ button {
     }
   }
 }
-
-
 
 // Scale navigation arrows and reduce padding from sides
 @media all and (max-width: 900px) {

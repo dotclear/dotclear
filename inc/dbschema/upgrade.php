@@ -1049,6 +1049,7 @@ class dcUpgrade
                 'admin/style/dc_logos/sq-logo-32.png',
 
                 'admin/style/scss/init/_mixins-functions.scss',
+                'admin/style/config.rb',
 
                 'inc/clearbricks/common/_main.php',
                 'inc/clearbricks/common/lib.forms.php',

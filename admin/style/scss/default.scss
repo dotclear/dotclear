@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+/*
+ * In admin/style folder, run, for development:
+ * sass --watch ./scss:./
+ *
+ * And, for production
+ * sass --watch --no-source-map --style=compressed ./scss:./
+ */
+
 /** --------------------------------------------------
     Start
 --------------------------------------------------- */
