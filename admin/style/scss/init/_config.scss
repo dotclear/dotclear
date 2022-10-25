@@ -1,18 +1,12 @@
-// ----------------- LIBRAIRIES ------------------- //
-
-// ----------------- Compass config --------------- //
-// Do not support IE
-$supported-browsers: reject(browsers(), 'ie');
-$graceful-usage-threshold: 100;
-$critical-usage-threshold: 100;
-
-@import 'compass'; // gem
+// ----------------- CONFIG ------------------- //
 
 // Screen sizes (up to) - used in mediaqueries
 
 $mobile-screen: 43em;
 $tablet-screen: 62em;
 $laptop-screen: 82em;
+
+// CSS custom properties - variables
 
 :root {
   --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
