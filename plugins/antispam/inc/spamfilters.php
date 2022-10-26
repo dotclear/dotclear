@@ -83,7 +83,7 @@ class dcSpamFilters
             $ip      = $cur->comment_ip;
             $content = $cur->comment_content;
             $post_id = $cur->post_id;
-            $status  = null;
+            $status  = '';
 
             $is_spam = $f->isSpam($type, $author, $email, $site, $ip, $content, $post_id, $status);
 
