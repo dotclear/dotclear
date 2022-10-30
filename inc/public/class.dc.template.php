@@ -479,16 +479,32 @@ class dcTemplate extends template
             return '<?php echo ' . $variable . '; ?>';
         }
 
-        $patterns = array_map('addslashes', $values);
+        $patterns = $values;
+        /*
+                if (isset($attr['none'])) {
+                    $patterns['none'] = addslashes($attr['none']);
+                }
+                if (isset($attr['one'])) {
+                    $patterns['one'] = addslashes($attr['one']);
+                }
+                if (isset($attr['more'])) {
+                    $patterns['more'] = addslashes($attr['more']);
+                }
+        */
+        array_walk($patterns, function (&$v, $k) use ($attr) {
+            if (isset($attr[$k])) {
+                $v = addslashes($attr[$k]);
+            }
+        });
 
         return
-                '<?php if (' . $variable . " == 0) {\n" .
-                "  printf(__('" . $patterns['none'] . "')," . $variable . ");\n" .
-                '} elseif (' . $variable . " == 1) {\n" .
-                "  printf(__('" . $patterns['one'] . "')," . $variable . ");\n" .
-                "} else {\n" .
-                "  printf(__('" . $patterns['more'] . "')," . $variable . ");\n" .
-                '} ?>';
+            '<?php if (' . $variable . " == 0) {\n" .
+            "  printf(__('" . $patterns['none'] . "')," . $variable . ");\n" .
+            '} elseif (' . $variable . " == 1) {\n" .
+            "  printf(__('" . $patterns['one'] . "')," . $variable . ");\n" .
+            "} else {\n" .
+            "  printf(__('" . $patterns['more'] . "')," . $variable . ");\n" .
+            '} ?>';
     }
 
     // TEMPLATE FUNCTIONS

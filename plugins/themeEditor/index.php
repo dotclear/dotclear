@@ -19,13 +19,13 @@ class adminThemeEditor
      */
     public static function init()
     {
-        dcCore::app()->admin->file_default = dcCore::app()->admin->file = [
+        dcCore::app()->admin->file_default = dcCore::app()->admin->file = new ArrayObject([
             'c'            => null,
             'w'            => false,
             'type'         => null,
             'f'            => null,
             'default_file' => false,
-        ];
+        ]);
 
         # Get interface setting
         dcCore::app()->auth->user_prefs->addWorkspace('interface');
@@ -50,15 +50,15 @@ class adminThemeEditor
         try {
             try {
                 if (!empty($_REQUEST['tpl'])) {
-                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('tpl', $_REQUEST['tpl']);
+                    dcCore::app()->admin->file = new ArrayObject(dcCore::app()->admin->editor->getFileContent('tpl', $_REQUEST['tpl']));
                 } elseif (!empty($_REQUEST['css'])) {
-                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('css', $_REQUEST['css']);
+                    dcCore::app()->admin->file = new ArrayObject(dcCore::app()->admin->editor->getFileContent('css', $_REQUEST['css']));
                 } elseif (!empty($_REQUEST['js'])) {
-                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('js', $_REQUEST['js']);
+                    dcCore::app()->admin->file = new ArrayObject(dcCore::app()->admin->editor->getFileContent('js', $_REQUEST['js']));
                 } elseif (!empty($_REQUEST['po'])) {
-                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('po', $_REQUEST['po']);
+                    dcCore::app()->admin->file = new ArrayObject(dcCore::app()->admin->editor->getFileContent('po', $_REQUEST['po']));
                 } elseif (!empty($_REQUEST['php'])) {
-                    dcCore::app()->admin->file = dcCore::app()->admin->editor->getFileContent('php', $_REQUEST['php']);
+                    dcCore::app()->admin->file = new ArrayObject(dcCore::app()->admin->editor->getFileContent('php', $_REQUEST['php']));
                 }
             } catch (Exception $e) {
                 dcCore::app()->admin->file = dcCore::app()->admin->file_default;
@@ -69,7 +69,9 @@ class adminThemeEditor
             if (!empty($_POST['write'])) {
                 // Write file
 
+                // Overwrite content with new one
                 dcCore::app()->admin->file['c'] = $_POST['file_content'];
+
                 dcCore::app()->admin->editor->writeFile(
                     dcCore::app()->admin->file['type'], // @phpstan-ignore-line
                     dcCore::app()->admin->file['f'],    // @phpstan-ignore-line
