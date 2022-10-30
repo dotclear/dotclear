@@ -21,6 +21,7 @@ $laptop-screen: 82em;
 
   --body-font-size: 1.4rem;
 
-  // collapser width
-  --collapser-width: 10px;
+  // collapser widths
+  --collapser-width: 5px;
+  --collapser-width-focus: calc(var(--collapser-width) * 3);
 }
