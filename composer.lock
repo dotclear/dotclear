@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "b136d90704ffb6d52893279893a361fc49faacec"
+                "reference": "b20042710baa0d9c07636cc66d4c400f03f1477a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b136d90704ffb6d52893279893a361fc49faacec",
-                "reference": "b136d90704ffb6d52893279893a361fc49faacec",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b20042710baa0d9c07636cc66d4c400f03f1477a",
+                "reference": "b20042710baa0d9c07636cc66d4c400f03f1477a",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,6 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
-            "default-branch": true,
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -65,7 +64,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-28T08:50:54+00:00"
+            "time": "2022-10-29T12:56:57+00:00"
         }
     ],
     "aliases": [],
