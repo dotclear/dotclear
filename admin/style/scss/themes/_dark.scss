@@ -51,7 +51,7 @@
 
   $legacy: #eef1ec;
   $code: #fefacd;
-  $tooltip: #910ed3;
+  $tooltip: #fff;
 
   $submit: #25a6e1;
   $submit-alt: #188bc0;
@@ -301,7 +301,7 @@
   // Tooltip (in footer)
 
   --tooltip-color: #{$tooltip};
-  --tooltip-background: #{$gray-very-light};
+  --tooltip-background: #{rgba($black, 0.9)};
 
   // UI sortable
 

@@ -14,20 +14,24 @@ span.tooltip {
     font-size: 1em;
   }
 
+  a img:not(.outgoing-js) {
+    height: 2em;
+    width: auto;
+  }
+
   a:hover span.tooltip {
-    padding: 10px;
+    padding: 1em;
     color: var(--tooltip-color);
     height: auto;
     width: auto;
-    left: 0;
-    bottom: 0;
+    left: 0.5em;
+    bottom: 0.5em;
     background: var(--tooltip-background);
     z-index: 99;
     font-family: monospace;
     text-align: left;
-    border-top: 1px solid var(--tooltip-color);
-    border-right: 1px solid var(--tooltip-color);
-    border-radius: 0 2em 0 0;
+    border: 2px solid var(--tooltip-color);
+    border-radius: 1em;
   }
 }
 

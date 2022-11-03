@@ -573,7 +573,7 @@
       </div>
     </div>
     <div id="footer">
-      <a href="https://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/w-dotclear90.png" alt="Merci d'utiliser Dotclear 2.6-dev." /></a>
+      <a href="https://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="" /><img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="" /></a>
     </div>
   </div>
 </body>

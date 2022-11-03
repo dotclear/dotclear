@@ -1045,8 +1045,9 @@ class dcUpgrade
                 'admin/style/msg-warning.png',
 
                 'admin/style/dc_logos/dc_logo_footer.png',
-                'admin/style/dc_logos/w-dotclear180.png',
                 'admin/style/dc_logos/sq-logo-32.png',
+                'admin/style/dc_logos/w-dotclear180.png',
+                'admin/style/dc_logos/w-dotclear90.png',
 
                 'admin/style/scss/init/_mixins-functions.scss',
                 'admin/style/config.rb',

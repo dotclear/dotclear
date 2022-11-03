@@ -444,7 +444,7 @@ class dcPage
             echo dcCore::app()->menu[$k]->draw();
         }
 
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION);
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: So far so good)');
 
         # --BEHAVIOR-- adminPageFooter
         $textAlt = dcCore::app()->callBehavior('adminPageFooterV2', $text);
@@ -469,7 +469,9 @@ class dcPage
         echo
             '<footer id="footer" role="contentinfo">' .
             '<a href="https://dotclear.org/" title="' . $text . '">' .
-            '<img src="style/dc_logos/w-dotclear90.png" alt="' . $text . '" /></a></footer>' . "\n" .
+            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '" />' .
+            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '" />' .
+            '</a></footer>' . "\n" .
             '<!-- ' . "\n" .
             $figure .
             ' -->' . "\n";

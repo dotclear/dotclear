@@ -811,7 +811,7 @@ $(() => {
     .each(function () {
       if (this.nodeType == 8) {
         let { data } = this;
-        data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br/>');
+        data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />').replace(/\n/g, '<br/>');
         $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
       }
     });
