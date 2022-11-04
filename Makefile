@@ -54,7 +54,6 @@ config: clean config-stamp
 	./plugins/blowupConfig \
 	./plugins/breadcrumb \
 	./plugins/dcCKEditor \
-	./plugins/dclegacy \
 	./plugins/dcLegacyEditor \
 	./plugins/dcProxyV2 \
 	./plugins/fairTrackbacks \

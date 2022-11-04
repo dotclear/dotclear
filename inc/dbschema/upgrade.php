@@ -1072,6 +1072,9 @@ class dcUpgrade
 
                 'plugins/blowupConfig/lib/class.blowup.config.php',             // Moved to plugins/blowupConfig/inc
 
+                'plugins/dclegacy/_admin.php',
+                'plugins/dclegacy/_define.php',
+
                 'plugins/dcCKEditor/inc/_config.php',
                 'plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php',             // Renamed
 
@@ -1121,7 +1124,8 @@ class dcUpgrade
                 'inc/clearbricks/mail.mime',
                 'inc/clearbricks/net.nntp',
                 'inc/clearbricks/xmlsql',
-                'plugins/blowupConfig/lib/',
+                'plugins/blowupConfig/lib',
+                'plugins/dclegacy',
                 'plugins/importExport/img',
             ];
             foreach ($remfolders as $f) {

@@ -202,7 +202,6 @@ define('DC_DISTRIB_PLUGINS', implode(
         'blowupConfig',
         'breadcrumb',
         'dcCKEditor',
-        'dclegacy',
         'dcLegacyEditor',
         'dcProxyV2',
         'fairTrackbacks',

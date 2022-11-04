@@ -93,6 +93,11 @@ class adminUserPref
      */
     public static function getDefaultFilters(): array
     {
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+
+        // Helper for nb of element per page, use setting if set and > 0, else use default value
+        $nb_per_page = fn ($setting, $default = 30) => $setting ? ((int) $setting > 0 ? $setting : $default) : $default;
+
         $users = [null, null, null, null, null];
         if (dcCore::app()->auth->isSuperAdmin()) {
             $users = [
@@ -100,7 +105,7 @@ class adminUserPref
                 dcAdminCombos::getUsersSortbyCombo(),
                 'user_id',
                 'asc',
-                [__('users per page'), 30],
+                [__('users per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_users_per_page)],
             ] ;
         }
 
@@ -110,21 +115,21 @@ class adminUserPref
                 dcAdminCombos::getPostsSortbyCombo(),
                 'post_dt',
                 'desc',
-                [__('entries per page'), 30],
+                [__('entries per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_posts_per_page)],
             ],
             'comments' => [
                 __('Comments'),
                 dcAdminCombos::getCommentsSortbyCombo(),
                 'comment_dt',
                 'desc',
-                [__('comments per page'), 30],
+                [__('comments per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_comments_per_page)],
             ],
             'blogs' => [
                 __('Blogs'),
                 dcAdminCombos::getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
-                [__('blogs per page'), 30],
+                [__('blogs per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_blogs_per_page)],
             ],
             'users' => $users,
             'media' => [
@@ -136,14 +141,14 @@ class adminUserPref
                 ],
                 'name',
                 'asc',
-                [__('media per page'), 30],
+                [__('media per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->media_by_page)],
             ],
             'search' => [
                 __('Search'),
                 null,
                 null,
                 null,
-                [__('results per page'), 20],
+                [__('results per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_searchresults_per_page, 20)],
             ],
         ];
     }
