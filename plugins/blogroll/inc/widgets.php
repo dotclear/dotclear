@@ -46,6 +46,6 @@ class blogrollWidgets
      */
     public static function initDefaultWidgets(dcWidgets $widgets, array $default_widgets)
     {
-        $default_widgets['extra']->append($widgets->links);
+        $default_widgets[defaultWidgets::WIDGETS_EXTRA]->append($widgets->links);
     }
 }

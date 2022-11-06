@@ -38,9 +38,9 @@ class adminWidgets
 
         dcCore::app()->admin->append_combo = [
             '-'              => 0,
-            __('navigation') => 'nav',
-            __('extra')      => 'extra',
-            __('custom')     => 'custom',
+            __('navigation') => defaultWidgets::WIDGETS_NAV,
+            __('extra')      => defaultWidgets::WIDGETS_EXTRA,
+            __('custom')     => defaultWidgets::WIDGETS_CUSTOM,
         ];
     }
 
@@ -54,7 +54,7 @@ class adminWidgets
             # Filter selection
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
-                if (($v == 'extra' || $v == 'nav' || $v == 'custom') && dcCore::app()->widgets->{$k} !== null) {
+                if (($v == defaultWidgets::WIDGETS_EXTRA || $v == defaultWidgets::WIDGETS_NAV || $v == defaultWidgets::WIDGETS_CUSTOM) && dcCore::app()->widgets->{$k} !== null) {
                     $addw[$k] = $v;
                 }
             }
@@ -81,15 +81,15 @@ class adminWidgets
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         switch ($v) {
-                            case 'nav':
+                            case defaultWidgets::WIDGETS_NAV:
                                 dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k});
 
                                 break;
-                            case 'extra':
+                            case defaultWidgets::WIDGETS_EXTRA:
                                 dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k});
 
                                 break;
-                            case 'custom':
+                            case defaultWidgets::WIDGETS_CUSTOM:
                                 dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k});
 
                                 break;
@@ -169,19 +169,19 @@ class adminWidgets
                     }
                 }
 
-                if (!isset($_POST['w']['nav'])) {
-                    $_POST['w']['nav'] = [];
+                if (!isset($_POST['w'][defaultWidgets::WIDGETS_NAV])) {
+                    $_POST['w'][defaultWidgets::WIDGETS_NAV] = [];
                 }
-                if (!isset($_POST['w']['extra'])) {
-                    $_POST['w']['extra'] = [];
+                if (!isset($_POST['w'][defaultWidgets::WIDGETS_EXTRA])) {
+                    $_POST['w'][defaultWidgets::WIDGETS_EXTRA] = [];
                 }
-                if (!isset($_POST['w']['custom'])) {
-                    $_POST['w']['custom'] = [];
+                if (!isset($_POST['w'][defaultWidgets::WIDGETS_CUSTOM])) {
+                    $_POST['w'][defaultWidgets::WIDGETS_CUSTOM] = [];
                 }
 
-                dcCore::app()->admin->widgets_nav    = dcWidgets::loadArray($_POST['w']['nav'], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_extra  = dcWidgets::loadArray($_POST['w']['extra'], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_custom = dcWidgets::loadArray($_POST['w']['custom'], dcCore::app()->widgets);
+                dcCore::app()->admin->widgets_nav    = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_NAV], dcCore::app()->widgets);
+                dcCore::app()->admin->widgets_extra  = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_EXTRA], dcCore::app()->widgets);
+                dcCore::app()->admin->widgets_custom = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
                 dcCore::app()->blog->settings->addNamespace('widgets');
                 dcCore::app()->blog->settings->widgets->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
@@ -299,17 +299,17 @@ class adminWidgets
 
         // Nav sidebar
         '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), dcCore::app()->admin->widgets_nav, 'nav', dcCore::app()->default_widgets['nav'], $j) .
+        self::sidebarWidgets('dndnav', __('Navigation sidebar'), dcCore::app()->admin->widgets_nav, defaultWidgets::WIDGETS_NAV, dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV], $j) .
         '</div>' .
 
         // Extra sidebar
         '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), dcCore::app()->admin->widgets_extra, 'extra', dcCore::app()->default_widgets['extra'], $j) .
+        self::sidebarWidgets('dndextra', __('Extra sidebar'), dcCore::app()->admin->widgets_extra, defaultWidgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[defaultWidgets::WIDGETS_EXTRA], $j) .
         '</div>' .
 
         // Custom sidebar
         '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), dcCore::app()->admin->widgets_custom, 'custom', dcCore::app()->default_widgets['custom'], $j) .
+        self::sidebarWidgets('dndcustom', __('Custom sidebar'), dcCore::app()->admin->widgets_custom, defaultWidgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[defaultWidgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
         '<p id="sidebarsControl">' .

@@ -58,6 +58,6 @@ class tagsWidgets
      */
     public static function initDefaultWidgets(dcWidgets $widgets, array $default_widgets): void
     {
-        $default_widgets['nav']->append($widgets->tags);
+        $default_widgets[defaultWidgets::WIDGETS_NAV]->append($widgets->tags);
     }
 }

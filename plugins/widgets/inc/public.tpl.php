@@ -30,12 +30,12 @@ class publicWidgets
         $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type === '') {
-            $res = "publicWidgets::widgetsHandler('nav','" . addslashes($disable) . "');" . "\n" .
-            "   publicWidgets::widgetsHandler('extra','" . addslashes($disable) . "');" . "\n" .
-            "   publicWidgets::widgetsHandler('custom','" . addslashes($disable) . "');" . "\n";
+            $res = "publicWidgets::widgetsHandler(defaultWidgets::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
+            "   publicWidgets::widgetsHandler(defaultWidgets::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
+            "   publicWidgets::widgetsHandler(defaultWidgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
         } else {
-            if (!in_array($type, ['nav', 'extra', 'custom'])) {
-                $type = 'nav';
+            if (!in_array($type, [defaultWidgets::WIDGETS_NAV, defaultWidgets::WIDGETS_EXTRA, defaultWidgets::WIDGETS_CUSTOM])) {
+                $type = defaultWidgets::WIDGETS_NAV;
             }
             $res = "publicWidgets::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
         }
@@ -94,12 +94,12 @@ class publicWidgets
         $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type == '') {
-            $res = "publicWidgets::ifWidgetsHandler('nav','" . addslashes($disable) . "') &&" . "\n" .
-            "   publicWidgets::ifWidgetsHandler('extra','" . addslashes($disable) . "') &&" . "\n" .
-            "   publicWidgets::ifWidgetsHandler('custom','" . addslashes($disable) . "')" . "\n";
+            $res = "publicWidgets::ifWidgetsHandler(defaultWidgets::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
+            "   publicWidgets::ifWidgetsHandler(defaultWidgets::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
+            "   publicWidgets::ifWidgetsHandler(defaultWidgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
         } else {
-            if (!in_array($type, ['nav', 'extra', 'custom'])) {
-                $type = 'nav';
+            if (!in_array($type, [defaultWidgets::WIDGETS_NAV, defaultWidgets::WIDGETS_EXTRA, defaultWidgets::WIDGETS_CUSTOM])) {
+                $type = defaultWidgets::WIDGETS_NAV;
             }
             $res = "publicWidgets::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
         }

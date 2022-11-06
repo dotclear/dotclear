@@ -55,6 +55,6 @@ class pagesWidgets
      */
     public static function initDefaultWidgets(dcWidgets $widgets, array $default_widgets): void
     {
-        $default_widgets['nav']->append($widgets->pages);
+        $default_widgets[defaultWidgets::WIDGETS_NAV]->append($widgets->pages);
     }
 }

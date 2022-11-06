@@ -10,6 +10,12 @@
  */
 class defaultWidgets
 {
+    // Constants
+
+    public const WIDGETS_NAV    = 'nav';
+    public const WIDGETS_EXTRA  = 'extra';
+    public const WIDGETS_CUSTOM = 'custom';
+
     /**
      * Initializes the default widgets.
      */
@@ -135,12 +141,16 @@ class defaultWidgets
         dcCore::app()->callBehavior('initWidgets', dcCore::app()->widgets);
 
         # Default widgets
-        dcCore::app()->default_widgets = ['nav' => new dcWidgets(), 'extra' => new dcWidgets(), 'custom' => new dcWidgets()];
+        dcCore::app()->default_widgets = [
+            defaultWidgets::WIDGETS_NAV    => new dcWidgets(),
+            defaultWidgets::WIDGETS_EXTRA  => new dcWidgets(),
+            defaultWidgets::WIDGETS_CUSTOM => new dcWidgets(),
+        ];
 
-        dcCore::app()->default_widgets['nav']->append(dcCore::app()->widgets->search);
-        dcCore::app()->default_widgets['nav']->append(dcCore::app()->widgets->bestof);
-        dcCore::app()->default_widgets['nav']->append(dcCore::app()->widgets->categories);
-        dcCore::app()->default_widgets['custom']->append(dcCore::app()->widgets->subscribe);
+        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV]->append(dcCore::app()->widgets->search);
+        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV]->append(dcCore::app()->widgets->bestof);
+        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV]->append(dcCore::app()->widgets->categories);
+        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_CUSTOM]->append(dcCore::app()->widgets->subscribe);
 
         # --BEHAVIOR-- initDefaultWidgets
         dcCore::app()->callBehavior('initDefaultWidgets', dcCore::app()->widgets, dcCore::app()->default_widgets);
