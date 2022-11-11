@@ -651,7 +651,7 @@ class dcModules
         if ($zip_root_dir != false) {
             $target      = dirname($zip_file);
             $destination = $target . DIRECTORY_SEPARATOR . $zip_root_dir;
-            $define      = $zip_root_dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
+            $define      = $zip_root_dir . '/' . self::MODULE_FILE_DEFINE;
             $has_define  = $zip->hasFile($define);
         } else {
             $target      = dirname($zip_file) . DIRECTORY_SEPARATOR . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
