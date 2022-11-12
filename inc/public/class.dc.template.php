@@ -4232,7 +4232,6 @@ class dcTemplate extends template
      * attributes:
      *
      *      - behavior        string      Behavior to call
-     *      - any filters                 See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
