@@ -77,7 +77,7 @@ class context
     {
         if (isset($this->stack[$name])) {
             $v = array_pop($this->stack[$name]);
-            if ($v instanceof record) {
+            if ($v instanceof record && isset($this->stack['cur_loop'])) {
                 array_pop($this->stack['cur_loop']);
             }
             unset($v);
