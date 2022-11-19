@@ -173,7 +173,7 @@ class tagsBehaviors
      *
      * @param      dcPostsActions       $ap     The current action instance
      */
-    public static function adminPostsActionsPage(dcPostsActions $ap): void
+    public static function adminPostsActions(dcPostsActions $ap): void
     {
         $ap->addAction(
             [__('Tags') => [__('Add tags') => 'tags']],

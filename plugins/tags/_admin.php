@@ -32,7 +32,7 @@ dcCore::app()->addBehavior('adminAfterPostUpdate', [tagsBehaviors::class, 'setTa
 
 dcCore::app()->addBehavior('adminPostHeaders', [tagsBehaviors::class, 'postHeaders']);
 
-dcCore::app()->addBehavior('adminPostsActions', [tagsBehaviors::class, 'adminPostsActionsPage']);
+dcCore::app()->addBehavior('adminPostsActions', [tagsBehaviors::class, 'adminPostsActions']);
 
 dcCore::app()->addBehavior('adminPreferencesFormV2', [tagsBehaviors::class, 'adminUserForm']);
 dcCore::app()->addBehavior('adminBeforeUserOptionsUpdate', [tagsBehaviors::class, 'setTagListFormat']);
