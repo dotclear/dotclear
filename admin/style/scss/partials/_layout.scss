@@ -14,6 +14,10 @@
   position: relative;
 }
 
+body.safe-mode #header {
+  border-bottom-color: var(--header-border-safe);
+}
+
 h1,
 #top-info-blog,
 #top-info-user {
