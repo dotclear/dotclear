@@ -25,6 +25,7 @@ $(() => {
       if (editor.mode == 'wysiwyg') {
         const align = $('input[name="alignment"]:checked', insert_form).val();
         let media_legend = $('input[name="legend"]:checked', insert_form).val();
+        const img_title = $('input[name="title"]', insert_form).val();
         const img_description = $('input[name="description"]', insert_form).val();
         let style = '';
         let template = '';
@@ -53,7 +54,18 @@ $(() => {
         template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}/>`;
         if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {
           // With a link to original
-          template_link[0] = '<a class="media-link" href="{aHref}">';
+          template_link[0] = '<a class="media-link" href="{aHref}"';
+          let title = '';
+          if (media_legend == 'legend') {
+            if (img_description != '') {
+              title = ' title="{figCaption}"';
+            } else if (img_title != '') {
+              title = ' title="{imgAlt}"';
+            }
+          } else if (media_legend == 'title' && img_title != '') {
+            title = ' title="{imgAlt}"';
+          }
+          template_link[0] = `${template_link[0] + title}>`;
           template_link[1] = '</a>';
         }
         template = template_figure[0] + template_link[0] + template_image + template_link[1] + template_figure[1];
@@ -62,9 +74,12 @@ $(() => {
         const params = {};
 
         // Set parameters for template
-        params.imgAlt = media_legend != '' && media_legend != 'none' ? window.opener.CKEDITOR.tools.htmlEncodeAttr(
-          window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val())
-        ) : '';
+        params.imgAlt =
+          media_legend != '' && media_legend != 'none'
+            ? window.opener.CKEDITOR.tools.htmlEncodeAttr(
+                window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val()),
+              )
+            : '';
         params.imgSrc = window.opener.$.stripBaseURL($('input[name="src"]:checked', insert_form).val());
         if (align != '' && align != 'none') {
           params.figureStyle = media_align_grid[align];
