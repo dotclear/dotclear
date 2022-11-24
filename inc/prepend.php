@@ -464,7 +464,7 @@ files::registerMimeTypes([
  * Register local shutdown handler
  */
 register_shutdown_function(function () {
-    if (is_array($GLOBALS['__shutdown'])) {
+    if (isset($GLOBALS['__shutdown']) && is_array($GLOBALS['__shutdown'])) {
         foreach ($GLOBALS['__shutdown'] as $f) {
             if (is_callable($f)) {
                 call_user_func($f);
