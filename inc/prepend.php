@@ -146,6 +146,7 @@ if (function_exists('stream_wrapper_unregister')) {
     foreach ($special_wrappers as $p) {
         @stream_wrapper_unregister($p);
     }
+    unset($special_wrappers, $p);
 }
 
 if (isset($_SERVER['DC_RC_PATH'])) {
@@ -392,7 +393,7 @@ if (isset($__top_behaviors) && is_array($__top_behaviors)) {
     foreach ($__top_behaviors as $b) {
         dcCore::app()->addBehavior($b[0], $b[1]);
     }
-    unset($b);
+    unset($__top_behaviors, $b);
 }
 
 http::trimRequest();
