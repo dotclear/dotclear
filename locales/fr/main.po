@@ -114,8 +114,8 @@ msgstr "Connexion en mode sans échec"
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Ce mode vous permet de vous connecter sans activer de plugins. Il peut être utile pour résoudre un problème de compatibilité"
 
-msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr "Désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr "Mettez à jour, désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
 
 msgid "Remember my ID on this device"
 msgstr "Se souvenir de mon identifiant sur cet appareil"

@@ -120,8 +120,8 @@ msgstr "Logowanie w trybie bezpiecznym"
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Ten tryb pozwala na zalogowanie bez aktywowania wtyczek. Jest to pomocne w rozwiązywaniu problemów z kompatybilnością."
 
-msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr "Wyłącz lub usuń jakąkolwiek wtyczkę podejrzaną o powodowanie problemów a następnie wyloguj się i zaloguj ponownie."
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
 
 msgid "Remember my ID on this device"
 msgstr "Zapamiętaj moje ID na tym komputerze"

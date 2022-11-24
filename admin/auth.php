@@ -419,7 +419,7 @@ class adminAuth
                     '<h2>' . __('Safe mode login') . '</h2>' .
                     '<p class="form-note">' .
                     __('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems') . '&nbsp;</p>' .
-                    '<p class="form-note">' . __('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.') .
+                    '<p class="form-note">' . __('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.') .
                     '</p>';
                 } else {
                     echo

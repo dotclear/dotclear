@@ -117,8 +117,8 @@ msgstr "Abgesicherter Zugang"
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Diese Methode erlaubt das Einloggen mit abgeschalteten Plugins. So lassen sich Kompatibilitätsprobleme besser lösen"
 
-msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr "Plugins, die Probleme verursachen könnten, ausschalten oder löschen, dann ausloggen und wieder normal einloggen."
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
 
 msgid "Remember my ID on this device"
 msgstr "Diese ID auf diesem Computer speichern"
