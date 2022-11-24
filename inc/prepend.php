@@ -128,26 +128,28 @@ dt::setTZ('UTC');
 define('CLI_MODE', PHP_SAPI == 'cli');
 
 # Disallow every special wrapper
-if (function_exists('stream_wrapper_unregister')) {
-    $special_wrappers = array_intersect([
-        'http',
-        'https',
-        'ftp',
-        'ftps',
-        'ssh2.shell',
-        'ssh2.exec',
-        'ssh2.tunnel',
-        'ssh2.sftp',
-        'ssh2.scp',
-        'ogg',
-        'expect',
-        // 'phar',   // Used by PharData to manage Zip/Tar archive
-    ], stream_get_wrappers());
-    foreach ($special_wrappers as $p) {
-        @stream_wrapper_unregister($p);
+(function () {
+    if (function_exists('stream_wrapper_unregister')) {
+        $special_wrappers = array_intersect([
+            'http',
+            'https',
+            'ftp',
+            'ftps',
+            'ssh2.shell',
+            'ssh2.exec',
+            'ssh2.tunnel',
+            'ssh2.sftp',
+            'ssh2.scp',
+            'ogg',
+            'expect',
+            // 'phar',   // Used by PharData to manage Zip/Tar archive
+        ], stream_get_wrappers());
+        foreach ($special_wrappers as $p) {
+            @stream_wrapper_unregister($p);
+        }
+        unset($special_wrappers, $p);
     }
-    unset($special_wrappers, $p);
-}
+})();
 
 if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);
@@ -157,16 +159,18 @@ if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, 'config.php']));
 }
 
-if (!is_file(DC_RC_PATH)) {
-    if (strpos($_SERVER['SCRIPT_FILENAME'], DIRECTORY_SEPARATOR . 'admin') === false) {
-        $path = implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'wizard.php']);
-    } else {
-        $path = strpos($_SERVER['PHP_SELF'], DIRECTORY_SEPARATOR . 'install') === false ?
-            implode(DIRECTORY_SEPARATOR, ['install', 'wizard.php']) :
-            'wizard.php';
+(function () {
+    if (!is_file(DC_RC_PATH)) {
+        if (strpos($_SERVER['SCRIPT_FILENAME'], DIRECTORY_SEPARATOR . 'admin') === false) {
+            $path = implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'wizard.php']);
+        } else {
+            $path = strpos($_SERVER['PHP_SELF'], DIRECTORY_SEPARATOR . 'install') === false ?
+                implode(DIRECTORY_SEPARATOR, ['install', 'wizard.php']) :
+                'wizard.php';
+        }
+        http::redirect($path);
     }
-    http::redirect($path);
-}
+})();
 
 require DC_RC_PATH;
 
@@ -354,7 +358,18 @@ try {
      */
     $core = new dcCore(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPREFIX, DC_DBPERSIST);
 } catch (Exception $e) {
-    init_prepend_l10n();
+    // Loading locales for detected language
+    (function () {
+        $detected_languages = http::getAcceptLanguages();
+        foreach ($detected_languages as $language) {
+            if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                l10n::lang($language);
+
+                // We stop at first accepted language
+                break;
+            }
+        }
+    })();
     if (!defined('DC_CONTEXT_ADMIN')) {
         __error(
             __('Site temporarily unavailable'),
@@ -389,12 +404,14 @@ try {
 }
 
 # If we have some __top_behaviors, we load them
-if (isset($__top_behaviors) && is_array($__top_behaviors)) {
-    foreach ($__top_behaviors as $b) {
-        dcCore::app()->addBehavior($b[0], $b[1]);
+(function () {
+    if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
+        foreach ($GLOBALS['__top_behaviors'] as $b) {
+            dcCore::app()->addBehavior($b[0], $b[1]);
+        }
+        unset($GLOBALS['__top_behaviors'], $b);
     }
-    unset($__top_behaviors, $b);
-}
+})();
 
 http::trimRequest();
 
@@ -420,13 +437,15 @@ dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$',
 dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
 # Store upload_max_filesize in bytes
-$u_max_size = files::str2bytes(ini_get('upload_max_filesize'));
-$p_max_size = files::str2bytes(ini_get('post_max_size'));
-if ($p_max_size < $u_max_size) {
-    $u_max_size = $p_max_size;
-}
-define('DC_MAX_UPLOAD_SIZE', $u_max_size);
-unset($u_max_size, $p_max_size);
+(function () {
+    $u_max_size = files::str2bytes(ini_get('upload_max_filesize'));
+    $p_max_size = files::str2bytes(ini_get('post_max_size'));
+    if ($p_max_size < $u_max_size) {
+        $u_max_size = $p_max_size;
+    }
+    define('DC_MAX_UPLOAD_SIZE', $u_max_size);
+    unset($u_max_size, $p_max_size);
+})();
 
 # Register supplemental mime types
 files::registerMimeTypes([
@@ -445,9 +464,8 @@ files::registerMimeTypes([
  * Register local shutdown handler
  */
 register_shutdown_function(function () {
-    global $__shutdown;
-    if (is_array($__shutdown)) {
-        foreach ($__shutdown as $f) {
+    if (is_array($GLOBALS['__shutdown'])) {
+        foreach ($GLOBALS['__shutdown'] as $f) {
             if (is_callable($f)) {
                 call_user_func($f);
             }
@@ -492,20 +510,4 @@ function __error(string $summary, string $message, int $code = 0)
         require implode(DIRECTORY_SEPARATOR, [__DIR__, 'core_error.php']);
     }
     exit;
-}
-
-/**
- * Loading locales for detected language
- */
-function init_prepend_l10n()
-{
-    $detected_languages = http::getAcceptLanguages();
-    foreach ($detected_languages as $language) {
-        if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
-            l10n::lang($language);
-
-            // We stop at first accepted language
-            break;
-        }
-    }
 }
