@@ -608,7 +608,7 @@ class dcModules
                     ]
                 );
             } else {
-                $path1 = path::real($this->moduleInfo($name, 'root') ?? '');
+                $path1 = path::real($this->moduleInfo($this->id, 'root') ?? '');
                 $path2 = path::real($this->mroot ?? '');
 
                 $this->errors[] = sprintf(
