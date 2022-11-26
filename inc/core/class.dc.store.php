@@ -103,7 +103,7 @@ class dcStore
             }
             # main repository
             if (isset($raw_datas[$p_id])) {
-                if (dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
+                if (isset($p_infos['version']) && dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
                     $updates[$p_id]                    = $raw_datas[$p_id];
                     $updates[$p_id]['root']            = $p_infos['root'];
                     $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
