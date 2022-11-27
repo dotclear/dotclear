@@ -103,13 +103,15 @@ class dcStore
             }
             # main repository
             if (isset($raw_datas[$p_id])) {
-                if (isset($p_infos['version']) && dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
-                    $updates[$p_id]                    = $raw_datas[$p_id];
-                    $updates[$p_id]['root']            = $p_infos['root'];
-                    $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
-                    $updates[$p_id]['current_version'] = $p_infos['version'];
+                if (isset($p_infos['version'])) {
+                    if (dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
+                        $updates[$p_id]                    = $raw_datas[$p_id];
+                        $updates[$p_id]['root']            = $p_infos['root'];
+                        $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
+                        $updates[$p_id]['current_version'] = $p_infos['version'];
+                    }
+                    unset($raw_datas[$p_id]);
                 }
-                unset($raw_datas[$p_id]);
             }
             # per module third-party repository
             if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {
