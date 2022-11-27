@@ -22,7 +22,7 @@ class installSimpleMenu
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('simpleMenu', 'version');
-        if (version_compare(dcCore::app()->getVersion('simpleMenu'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('simpleMenu'), $version, '>=')) {
             return;
         }
 

@@ -23,7 +23,7 @@ class installBlogroll
     {
         $version = dcCore::app()->plugins->moduleInfo('blogroll', 'version');
 
-        if (version_compare(dcCore::app()->getVersion('blogroll'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('blogroll'), $version, '>=')) {
             return;
         }
 

@@ -22,7 +22,7 @@ class installLegacyEditor
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('dcLegacyEditor', 'version');
-        if (version_compare(dcCore::app()->getVersion('dcLegacyEditor'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('dcLegacyEditor'), $version, '>=')) {
             return;
         }
 

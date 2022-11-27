@@ -22,7 +22,7 @@ class installPings
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('pings', 'version');
-        if (version_compare(dcCore::app()->getVersion('pings'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('pings'), $version, '>=')) {
             return;
         }
 

@@ -22,7 +22,7 @@ class installAntispam
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('antispam', 'version');
-        if (version_compare(dcCore::app()->getVersion('antispam'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('antispam'), $version, '>=')) {
             return;
         }
 

@@ -22,7 +22,7 @@ class installBlowupConfig
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('blowupConfig', 'version');
-        if (version_compare(dcCore::app()->getVersion('blowupConfig'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('blowupConfig'), $version, '>=')) {
             return;
         }
 

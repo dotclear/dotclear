@@ -22,7 +22,7 @@ class installWidgets
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('widgets', 'version');
-        if (version_compare(dcCore::app()->getVersion('widgets'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('widgets'), $version, '>=')) {
             return;
         }
 

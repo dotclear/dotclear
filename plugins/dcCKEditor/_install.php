@@ -22,7 +22,7 @@ class installCKEditor
     public static function install()
     {
         $version = dcCore::app()->plugins->moduleInfo('dcCKEditor', 'version');
-        if (version_compare(dcCore::app()->getVersion('dcCKEditor'), $version, '>=')) {
+        if (version_compare((string) dcCore::app()->getVersion('dcCKEditor'), $version, '>=')) {
             return;
         }
 
