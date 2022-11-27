@@ -86,7 +86,18 @@ class dcPublic
             try {
                 dcCore::app()->setBlog(DC_BLOG_ID);
             } catch (Exception $e) {
-                init_prepend_l10n();
+                // Loading locales for detected language
+                (function () {
+                    $detected_languages = http::getAcceptLanguages();
+                    foreach ($detected_languages as $language) {
+                        if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                            l10n::lang($language);
+
+                            // We stop at first accepted language
+                            break;
+                        }
+                    }
+                })();
                 __error(__('Database problem'), DC_DEBUG ?
             __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
             __('Something went wrong while trying to read the database.'), 620);
