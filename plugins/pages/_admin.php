@@ -40,10 +40,10 @@ dcCore::app()->addBehavior('adminDashboardFavoritesV2', function (dcFavorites $f
         'url'         => dcCore::app()->adminurl->get('admin.plugin.pages'),
         'small-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
         'large-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
-        'permissions' => dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
             dcPages::PERMISSION_PAGES,
-        ]), dcCore::app()->blog->id),
+        ]),
         'dashboard_cb' => [pagesDashboard::class, 'pagesDashboardCB'],
         'active_cb'    => [pagesDashboard::class, 'pagesActiveCB'],
     ]);
@@ -52,10 +52,10 @@ dcCore::app()->addBehavior('adminDashboardFavoritesV2', function (dcFavorites $f
         'url'         => dcCore::app()->adminurl->get('admin.plugin.pages', ['act' => 'page']),
         'small-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
         'large-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
-        'permissions' => dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
             dcPages::PERMISSION_PAGES,
-        ]), dcCore::app()->blog->id),
+        ]),
         'active_cb' => [pagesDashboard::class, 'newPageActiveCB'],
     ]);
 });

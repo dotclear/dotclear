@@ -20,10 +20,10 @@ dcCore::app()->addBehavior(
             'url'         => dcCore::app()->adminurl->get('admin.plugin.simpleMenu'),
             'small-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
             'large-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
-            'permissions' => dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            'permissions' => dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_USAGE,
                 dcAuth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]),
         ]);
     }
 );
