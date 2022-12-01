@@ -130,7 +130,6 @@ class adminMediaItem
     public static function process()
     {
         if (dcCore::app()->admin->file && !empty($_FILES['upfile']) && dcCore::app()->admin->file->editable && dcCore::app()->admin->is_media_writable) {
-
             // Upload a new file
 
             try {
@@ -145,7 +144,6 @@ class adminMediaItem
         }
 
         if (dcCore::app()->admin->file && !empty($_POST['media_file']) && dcCore::app()->admin->file->editable && dcCore::app()->admin->is_media_writable) {
-
             // Update file
 
             $newFile = clone dcCore::app()->admin->file;
@@ -205,7 +203,6 @@ class adminMediaItem
         }
 
         if (!empty($_POST['thumbs']) && dcCore::app()->admin->file->media_type == 'image' && dcCore::app()->admin->file->editable && dcCore::app()->admin->is_media_writable) {
-
             // Update thumbnails
 
             try {
@@ -223,7 +220,6 @@ class adminMediaItem
         }
 
         if (!empty($_POST['unzip']) && dcCore::app()->admin->file->type == 'application/zip' && dcCore::app()->admin->file->editable && dcCore::app()->admin->is_media_writable) {
-
             // Unzip file
 
             try {
@@ -241,7 +237,6 @@ class adminMediaItem
         }
 
         if (!empty($_POST['save_blog_prefs'])) {
-
             // Save media insertion settings for the blog
 
             if (!empty($_POST['pref_src'])) {
@@ -265,7 +260,6 @@ class adminMediaItem
         }
 
         if (!empty($_POST['save_folder_prefs'])) {
-
             // Save media insertion settings for the folder
 
             $prefs = [];
@@ -293,7 +287,6 @@ class adminMediaItem
         }
 
         if (!empty($_POST['remove_folder_prefs'])) {
-
             // Delete media insertion settings for the folder (.mediadef and .mediadef.json)
 
             $local      = dcCore::app()->media->root . '/' . dirname(dcCore::app()->admin->file->relname) . '/' . '.mediadef';
@@ -376,7 +369,7 @@ class adminMediaItem
         };
 
         $getImageDefaults = function (?fileItem $file): array {
-            $defaults     = [
+            $defaults = [
                 'size'      => dcCore::app()->blog->settings->system->media_img_default_size ?: 'm',
                 'alignment' => dcCore::app()->blog->settings->system->media_img_default_alignment ?: 'none',
                 'link'      => (bool) dcCore::app()->blog->settings->system->media_img_default_link,
@@ -461,7 +454,6 @@ class adminMediaItem
         dcCore::app()->admin->file_type = explode('/', dcCore::app()->admin->file->type);
 
         if (dcCore::app()->admin->select === 1) {
-
             // Selection mode
 
             // Let user choose thumbnail size if image
@@ -531,7 +523,6 @@ class adminMediaItem
         }
 
         if (dcCore::app()->admin->popup && (dcCore::app()->admin->select === 0)) {
-
             // Insertion popup
 
             $media_title = dcCore::app()->admin->file->media_title;
@@ -611,9 +602,9 @@ class adminMediaItem
                 '<div class="two-boxes">' .
                 '<h3>' . __('Image alignment') . '</h3>';
                 $i_align = [
-                    'none'   => [__('None'), ($defaults['alignment']   == 'none' ? 1 : 0)],
-                    'left'   => [__('Left'), ($defaults['alignment']   == 'left' ? 1 : 0)],
-                    'right'  => [__('Right'), ($defaults['alignment']  == 'right' ? 1 : 0)],
+                    'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
+                    'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
+                    'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
                     'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
                 ];
 
@@ -646,9 +637,9 @@ class adminMediaItem
                 dcPage::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
 
                 $i_align = [
-                    'none'   => [__('None'), ($defaults['alignment']   == 'none' ? 1 : 0)],
-                    'left'   => [__('Left'), ($defaults['alignment']   == 'left' ? 1 : 0)],
-                    'right'  => [__('Right'), ($defaults['alignment']  == 'right' ? 1 : 0)],
+                    'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
+                    'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
+                    'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
                     'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
                 ];
 
@@ -688,9 +679,9 @@ class adminMediaItem
                 '<h3>' . __('Video disposition') . '</h3>';
 
                 $i_align = [
-                    'none'   => [__('None'), ($defaults['alignment']   == 'none' ? 1 : 0)],
-                    'left'   => [__('Left'), ($defaults['alignment']   == 'left' ? 1 : 0)],
-                    'right'  => [__('Right'), ($defaults['alignment']  == 'right' ? 1 : 0)],
+                    'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
+                    'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
+                    'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
                     'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
                 ];
 
@@ -942,7 +933,7 @@ class adminMediaItem
             }
         }
 
-        if (dcCore::app()->admin->file->type == 'image/jpeg' || dcCore::app()->admin->file->type == 'image/webp') {
+        if (dcCore::app()->admin->file->media_image) {
             echo
             '<h3>' . __('Image details') . '</h3>';
 
@@ -1019,13 +1010,13 @@ class adminMediaItem
                 ]
             ) . '</p>';
 
-            if (dcCore::app()->admin->file->type == 'image/jpeg' || dcCore::app()->admin->file->type == 'image/webp') {
+            if (dcCore::app()->admin->file->media_image) {
                 echo
                 '<p><label for="media_desc">' . __('File description:') . '</label>' .
                 form::field(
                     'media_desc',
                     60,
-                    255,
+                    1024,
                     [
                         'default'    => html::escapeHTML($getImageDescription(dcCore::app()->admin->file, '')),
                         'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
