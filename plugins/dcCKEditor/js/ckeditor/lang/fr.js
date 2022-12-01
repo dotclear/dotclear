@@ -69,6 +69,8 @@ CKEDITOR.lang['fr'] = {
     		borderColor : 'Couleur de bordure',
     		data : 'Données',
     		header : 'En-tête',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Oui',
     		no : 'Non',
     		invalidWidth : 'La largeur de la cellule doit être un nombre.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['fr'] = {
     		title : 'Propriétés de l\'ancre',
     		name : 'Nom de l\'ancre',
     		errorName : 'Veuillez entrer le nom de l\'ancre.',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Supprimer l\'ancre'
     	},
     	anchorId : 'Par ID d\'élément',

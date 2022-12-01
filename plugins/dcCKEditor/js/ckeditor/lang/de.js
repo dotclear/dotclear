@@ -69,6 +69,8 @@ CKEDITOR.lang['de'] = {
     		borderColor : 'Rahmenfarbe',
     		data : 'Daten',
     		header : 'Überschrift',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nein',
     		invalidWidth : 'Zellenbreite muss eine Zahl sein.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['de'] = {
     		title : 'Ankereigenschaften',
     		name : 'Ankername',
     		errorName : 'Bitte geben Sie den Namen des Ankers ein',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Anker entfernen'
     	},
     	anchorId : 'Nach Elementkennung',

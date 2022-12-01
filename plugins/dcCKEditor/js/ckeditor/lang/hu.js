@@ -69,6 +69,8 @@ CKEDITOR.lang['hu'] = {
     		borderColor : 'Keret színe',
     		data : 'Adat',
     		header : 'Fejléc',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Igen',
     		no : 'Nem',
     		invalidWidth : 'A szélesség mezőbe csak számokat írhat.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['hu'] = {
     		title : 'Horgony tulajdonságai',
     		name : 'Horgony neve',
     		errorName : 'Kérem adja meg a horgony nevét',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Horgony eltávolítása'
     	},
     	anchorId : 'Azonosító szerint',

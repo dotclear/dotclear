@@ -69,6 +69,8 @@ CKEDITOR.lang['el'] = {
     		borderColor : 'Χρώμα Περιγράμματος',
     		data : 'Δεδομένα',
     		header : 'Κεφαλίδα',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ναι',
     		no : 'Όχι',
     		invalidWidth : 'Το πλάτος του κελιού πρέπει να είναι αριθμός.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['el'] = {
     		title : 'Ιδιότητες άγκυρας',
     		name : 'Όνομα άγκυρας',
     		errorName : 'Παρακαλούμε εισάγετε όνομα άγκυρας',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Αφαίρεση Άγκυρας'
     	},
     	anchorId : 'Βάσει του Element Id',

@@ -69,6 +69,8 @@ CKEDITOR.lang['et'] = {
     		borderColor : 'Äärise värv',
     		data : 'Andmed',
     		header : 'Päis',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Jah',
     		no : 'Ei',
     		invalidWidth : 'Lahtri laius peab olema number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['et'] = {
     		title : 'Ankru omadused',
     		name : 'Ankru nimi',
     		errorName : 'Palun sisesta ankru nimi',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Eemalda ankur'
     	},
     	anchorId : 'Elemendi id järgi',

@@ -69,6 +69,8 @@ CKEDITOR.lang['id'] = {
     		borderColor : 'Warna Batasan',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ya',
     		no : 'Tidak',
     		invalidWidth : 'Lebar sel harus sebuah angka.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['id'] = {
     		title : 'Anchor Properties',
     		name : 'Anchor Name',
     		errorName : 'Please type the anchor name',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'By Element Id',

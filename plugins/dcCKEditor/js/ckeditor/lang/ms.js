@@ -69,6 +69,8 @@ CKEDITOR.lang['ms'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ms'] = {
     		title : 'Ciri-ciri Pautan',
     		name : 'Nama Pautan',
     		errorName : 'Sila taip nama pautan',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'dengan menggunakan ID elemen',

@@ -69,6 +69,8 @@ CKEDITOR.lang['he'] = {
     		borderColor : 'צבע מסגרת',
     		data : 'מידע',
     		header : 'כותרת',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'כן',
     		no : 'לא',
     		invalidWidth : 'שדה רוחב התא חייב להיות מספר.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['he'] = {
     		title : 'מאפייני נקודת עיגון',
     		name : 'שם לנקודת עיגון',
     		errorName : 'יש להקליד שם לנקודת עיגון',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'מחיקת נקודת עיגון'
     	},
     	anchorId : 'עפ"י זיהוי (ID) האלמנט',

@@ -69,6 +69,8 @@ CKEDITOR.lang['ca'] = {
     		borderColor : 'Color de la vora',
     		data : 'Dades',
     		header : 'Capçalera',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Sí',
     		no : 'No',
     		invalidWidth : 'L\'amplada de cel·la ha de ser un nombre.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ca'] = {
     		title : 'Propietats de l\'àncora',
     		name : 'Nom de l\'àncora',
     		errorName : 'Si us plau, escriviu el nom de l\'ancora',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'Per Id d\'element',

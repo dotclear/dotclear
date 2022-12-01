@@ -69,6 +69,8 @@ CKEDITOR.lang['eu'] = {
     		borderColor : 'Ertzaren kolorea',
     		data : 'Data',
     		header : 'Goiburua',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Bai',
     		no : 'Ez',
     		invalidWidth : 'Gelaxkaren zabalera zenbaki bat izan behar da.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['eu'] = {
     		title : 'Ainguraren propietateak',
     		name : 'Ainguraren izena',
     		errorName : 'Idatzi ainguraren izena',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Kendu aingura'
     	},
     	anchorId : 'Elementuaren Id-aren arabera',

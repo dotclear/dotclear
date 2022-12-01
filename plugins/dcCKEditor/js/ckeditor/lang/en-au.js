@@ -69,6 +69,8 @@ CKEDITOR.lang['en-au'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['en-au'] = {
     		title : 'Anchor Properties',
     		name : 'Anchor Name',
     		errorName : 'Please type the anchor name',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'By Element Id',
@@ -448,7 +451,7 @@ CKEDITOR.lang['en-au'] = {
     	moreInfo : 'For licensing information please visit our web site:'
     },
     application : 'Rich Text Editor',
-    editor : 'Rich Text Editor',
+    editor : 'Editor',
     editorPanel : 'Rich Text Editor panel',
     common : 
     {

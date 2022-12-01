@@ -69,6 +69,8 @@ CKEDITOR.lang['az'] = {
     		borderColor : 'Sərhədin rəngi',
     		data : 'Məlumatlar',
     		header : 'Başlıq',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Bəli',
     		no : 'Xeyr',
     		invalidWidth : 'Xanasın eni rəqəm olmalıdır.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['az'] = {
     		title : 'Xeşin seçimləri',
     		name : 'Xeşin adı',
     		errorName : 'Xeşin adı yanlışdır',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Xeşin adı sil'
     	},
     	anchorId : 'ID görə',

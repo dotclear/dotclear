@@ -69,6 +69,8 @@ CKEDITOR.lang['ja'] = {
     		borderColor : 'ボーダーカラー',
     		data : 'テーブルデータ (td)',
     		header : 'ヘッダ',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'はい',
     		no : 'いいえ',
     		invalidWidth : 'セル幅は数値で入力してください。',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ja'] = {
     		title : 'アンカーのプロパティ',
     		name : 'アンカー名',
     		errorName : 'アンカー名を入力してください。',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'アンカーを削除'
     	},
     	anchorId : 'エレメントID',

@@ -12,7 +12,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'it', {
 		items: [
 			{
 			name: 'Barra degli strumenti Editor',
-			legend: 'Premere ${toolbarFocus} per passare alla barra degli strumenti. Usare TAB per spostarsi al gruppo successivo, MAIUSC+TAB per spostarsi a quello precedente. Usare FRECCIA DESTRA per spostarsi al pulsante successivo, FRECCIA SINISTRA per spostarsi a quello precedente. Premere SPAZIO o INVIO per attivare il pulsante della barra degli strumenti.'
+			legend: 'Premi ${toolbarFocus} per accedere alla barra degli strumenti. Passa al gruppo di barre degli strumenti successivo o precedente con TAB o MAIUSC+TAB. Passa al pulsante della barra degli strumenti successivo o precedente con FRECCIA DESTRA o FRECCIA SINISTRA. Premi SPAZIO o INVIO per attivare il pulsante della barra degli strumenti. Lo stato attivo verrà riportato all\'area di modifica dopo l\'attivazione del pulsante della barra degli strumenti.'
 		},
 
 			{

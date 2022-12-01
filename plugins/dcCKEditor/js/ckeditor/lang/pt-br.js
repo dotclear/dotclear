@@ -69,6 +69,8 @@ CKEDITOR.lang['pt-br'] = {
     		borderColor : 'Cor das bordas',
     		data : 'Dados',
     		header : 'Cabeçalho',
+    		columnHeader : 'Cabeçalho da Coluna',
+    		rowHeader : 'Cabeçalho da Linha',
     		yes : 'Sim',
     		no : 'Não',
     		invalidWidth : 'A largura da célula tem que ser um número.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['pt-br'] = {
     		title : 'Formatar Âncora',
     		name : 'Nome da Âncora',
     		errorName : 'Por favor, digite o nome da âncora',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remover Âncora'
     	},
     	anchorId : 'Id da âncora',
@@ -425,8 +428,8 @@ CKEDITOR.lang['pt-br'] = {
     	pasteNotification : 'Pressione %1 para colar. Seu navegador não permite colar pelos botões da barra de tarefas ou pelo menu de contexto.',
     	pasteArea : 'Área para Colar',
     	pasteMsg : 'Cole o conteúdo na área abaixo e pressione OK.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'Os formatos de arquivo ${formats} não são suportados.',
+    	fileWithoutFormatNotSupportedNotification : 'Formato de arquivo não suportado.'
     },
     blockquote : 
     {
@@ -447,8 +450,8 @@ CKEDITOR.lang['pt-br'] = {
     	dlgTitle : 'Sobre o CKEditor 4',
     	moreInfo : 'Para informações sobre a licença por favor visite o nosso site:'
     },
-    application : 'Rich Text Editor',
-    editor : 'Editor de Rich Text',
+    application : 'Editor de Rich Text',
+    editor : 'Editor',
     editorPanel : 'Painel do editor de Rich Text',
     common : 
     {

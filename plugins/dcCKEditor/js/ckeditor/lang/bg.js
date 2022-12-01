@@ -69,6 +69,8 @@ CKEDITOR.lang['bg'] = {
     		borderColor : 'Цвят на рамката',
     		data : 'Данни',
     		header : 'Заглавие',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Да',
     		no : 'Не',
     		invalidWidth : 'Ширината на клетката трябва да е число.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['bg'] = {
     		title : 'Настройки на котва',
     		name : 'Име на котва',
     		errorName : 'Моля въведете име на котвата',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Премахване на котва'
     	},
     	anchorId : 'По ID на елемент',

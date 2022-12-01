@@ -69,6 +69,8 @@ CKEDITOR.lang['is'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['is'] = {
     		title : 'Eigindi kaflamerkis',
     		name : 'Nafn bókamerkis',
     		errorName : 'Sláðu inn nafn bókamerkis!',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'Eftir auðkenni einingar',

@@ -69,6 +69,8 @@ CKEDITOR.lang['ka'] = {
     		borderColor : 'ჩარჩოს ფერი',
     		data : 'მონაცემები',
     		header : 'სათაური',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'დიახ',
     		no : 'არა',
     		invalidWidth : 'უჯრის სიგანე რიცხვით უნდა იყოს წარმოდგენილი.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ka'] = {
     		title : 'ღუზის პარამეტრები',
     		name : 'ღუზუს სახელი',
     		errorName : 'აკრიფეთ ღუზის სახელი',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'ელემენტის Id-თ',

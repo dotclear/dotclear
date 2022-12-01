@@ -69,6 +69,8 @@ CKEDITOR.lang['vi'] = {
     		borderColor : 'Màu viền',
     		data : 'Dữ liệu',
     		header : 'Đầu đề',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Có',
     		no : 'Không',
     		invalidWidth : 'Chiều rộng của ô phải là một số nguyên.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['vi'] = {
     		title : 'Thuộc tính điểm neo',
     		name : 'Tên của điểm neo',
     		errorName : 'Hãy nhập vào tên của điểm neo',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Xóa neo'
     	},
     	anchorId : 'Theo định danh thành phần',

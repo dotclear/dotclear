@@ -69,6 +69,8 @@ CKEDITOR.lang['eo'] = {
     		borderColor : 'Borderkoloro',
     		data : 'Datenoj',
     		header : 'Supra paĝotitolo',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Jes',
     		no : 'No',
     		invalidWidth : 'Ĉellarĝo devas esti nombro.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['eo'] = {
     		title : 'Ankraj Atributoj',
     		name : 'Ankra Nomo',
     		errorName : 'Bv entajpi la ankran nomon',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Forigi Ankron'
     	},
     	anchorId : 'Per Elementidentigilo',

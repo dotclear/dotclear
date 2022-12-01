@@ -69,6 +69,8 @@ CKEDITOR.lang['mn'] = {
     		borderColor : 'Хүрээний өнгө',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Тийм',
     		no : 'Үгүй',
     		invalidWidth : 'Нүдний өргөн нь тоо байх ёстой.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['mn'] = {
     		title : 'Зангуугийн шинж чанар',
     		name : 'Зангуугийн нэр',
     		errorName : 'Зангуугийн нэрийг оруулна уу',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Зангууг устгах'
     	},
     	anchorId : 'Элемэнтйн Id нэрээр',

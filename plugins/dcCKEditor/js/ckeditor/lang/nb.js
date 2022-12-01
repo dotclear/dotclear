@@ -69,6 +69,8 @@ CKEDITOR.lang['nb'] = {
     		borderColor : 'Rammefarge',
     		data : 'Data',
     		header : 'Overskrift',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nei',
     		invalidWidth : 'Cellebredde må være et tall.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['nb'] = {
     		title : 'Egenskaper for anker',
     		name : 'Ankernavn',
     		errorName : 'Vennligst skriv inn ankernavnet',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Fjern anker'
     	},
     	anchorId : 'Element etter ID',

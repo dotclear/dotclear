@@ -69,6 +69,8 @@ CKEDITOR.lang['sk'] = {
     		borderColor : 'Farba orámovania',
     		data : 'Dáta',
     		header : 'Hlavička',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Áno',
     		no : 'Nie',
     		invalidWidth : 'Šírka bunky musí byť číslo.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['sk'] = {
     		title : 'Vlastnosti kotvy',
     		name : 'Názov kotvy',
     		errorName : 'Zadajte prosím názov kotvy',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Odstrániť kotvu'
     	},
     	anchorId : 'Podľa Id objektu',

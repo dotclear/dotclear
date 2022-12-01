@@ -69,6 +69,8 @@ CKEDITOR.lang['oc'] = {
     		borderColor : 'Color de bordadura',
     		data : 'Donadas',
     		header : 'Entèsta',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Òc',
     		no : 'Non',
     		invalidWidth : 'La largor de la cellula deu èsser un nombre.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['oc'] = {
     		title : 'Proprietats de l\'ancòra',
     		name : 'Nom de l\'ancòra',
     		errorName : 'Entratz lo nom de l\'ancòra',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Suprimir l\'ancòra'
     	},
     	anchorId : 'Per ID d\'element',

@@ -1,5 +1,13 @@
 Dotclear 2.23.1 - 2022-08-13
 ===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance
+* Lib: Update CKEditor to 4.20.1
+* Lib: Update Codemirror to 5.65.7
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
+Dotclear 2.23.1 - 2022-08-13
+===========================================================
 * Fix: Adding a new comment was buggy (front/back)
 
 Dotclear 2.23 - 2022-08-13

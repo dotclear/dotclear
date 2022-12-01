@@ -69,6 +69,8 @@ CKEDITOR.lang['tr'] = {
     		borderColor : 'Çerçeve Rengi',
     		data : 'Veri',
     		header : 'Başlık',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Evet',
     		no : 'Hayır',
     		invalidWidth : 'Hücre genişliği sayı olmalıdır.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['tr'] = {
     		title : 'Bağlantı Özellikleri',
     		name : 'Bağlantı Adı',
     		errorName : 'Lütfen bağlantı için ad giriniz',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Bağlantıyı Kaldır'
     	},
     	anchorId : 'Eleman Kimlik Numarası ile',

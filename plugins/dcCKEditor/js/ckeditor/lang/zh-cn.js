@@ -69,6 +69,8 @@ CKEDITOR.lang['zh-cn'] = {
     		borderColor : '边框颜色',
     		data : '数据',
     		header : '表头',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : '是',
     		no : '否',
     		invalidWidth : '单元格宽度必须为数字格式',
@@ -209,6 +211,7 @@ CKEDITOR.lang['zh-cn'] = {
     		title : '锚点链接属性',
     		name : '锚点名称',
     		errorName : '请输入锚点名称',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : '删除锚点'
     	},
     	anchorId : '按锚点 ID',

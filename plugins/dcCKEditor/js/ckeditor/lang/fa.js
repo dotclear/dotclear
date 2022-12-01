@@ -69,6 +69,8 @@ CKEDITOR.lang['fa'] = {
     		borderColor : 'رنگ خطوط',
     		data : 'اطلاعات',
     		header : 'سرنویس',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'بله',
     		no : 'خیر',
     		invalidWidth : 'عرض سلول باید یک عدد باشد.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['fa'] = {
     		title : 'ویژگی\u200bهای لینک',
     		name : 'نام لینک',
     		errorName : 'لطفا نام لنگر را بنویسید',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'حذف لینک'
     	},
     	anchorId : 'با شناسهٴ المان',

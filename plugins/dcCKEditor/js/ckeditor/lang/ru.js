@@ -69,6 +69,8 @@ CKEDITOR.lang['ru'] = {
     		borderColor : 'Цвет границ',
     		data : 'Данные',
     		header : 'Заголовок',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Да',
     		no : 'Нет',
     		invalidWidth : 'Ширина ячейки должна быть числом.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ru'] = {
     		title : 'Свойства якоря',
     		name : 'Имя якоря',
     		errorName : 'Пожалуйста, введите имя якоря',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Удалить якорь'
     	},
     	anchorId : 'По идентификатору',

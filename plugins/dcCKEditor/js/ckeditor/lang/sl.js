@@ -69,6 +69,8 @@ CKEDITOR.lang['sl'] = {
     		borderColor : 'Barva obrobe',
     		data : 'Podatki',
     		header : 'Glava',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Da',
     		no : 'Ne',
     		invalidWidth : 'Širina celice mora biti število.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['sl'] = {
     		title : 'Lastnosti sidra',
     		name : 'Ime sidra',
     		errorName : 'Prosimo, vnesite ime sidra',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Odstrani sidro'
     	},
     	anchorId : 'Po ID-ju elementa',

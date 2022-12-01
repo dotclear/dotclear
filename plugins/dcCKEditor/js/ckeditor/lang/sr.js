@@ -69,6 +69,8 @@ CKEDITOR.lang['sr'] = {
     		borderColor : 'Боја оквира',
     		data : 'Податак',
     		header : 'Наслов',
+    		columnHeader : 'Заглавље колоне',
+    		rowHeader : 'Заглавље реда',
     		yes : 'Да',
     		no : 'Не',
     		invalidWidth : 'У поље ширина можете уписати само бројеве.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['sr'] = {
     		title : 'Карактеристике сидра',
     		name : 'Назив сидра',
     		errorName : 'Унесите назив сидра',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Уклони сидро'
     	},
     	anchorId : 'Пo Ид-у елемента',
@@ -425,8 +428,8 @@ CKEDITOR.lang['sr'] = {
     	pasteNotification : 'Притисните тастер %1 за лепљење. Ваш ретраживач не дозвољаба лепљење из алатне траке или мениа.',
     	pasteArea : 'Залепи зону',
     	pasteMsg : 'Налепите садржај у следећи простор и притисните тастер OK.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'Формати датотеке ${форматс} нису подржани.',
+    	fileWithoutFormatNotSupportedNotification : 'Формат датотеке није подржан.'
     },
     blockquote : 
     {
@@ -447,8 +450,8 @@ CKEDITOR.lang['sr'] = {
     	dlgTitle : 'О CKEditor 4',
     	moreInfo : 'За информације о лиценци посетите нашу веб страницу:'
     },
-    application : 'Rich Text Editor',
-    editor : 'ХТМЛ уређивач текста',
+    application : 'Уређивач богатог текста',
+    editor : 'Уређивач',
     editorPanel : 'ХТМЛ уређивач панел',
     common : 
     {

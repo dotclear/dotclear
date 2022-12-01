@@ -69,6 +69,8 @@ CKEDITOR.lang['af'] = {
     		borderColor : 'Randkleur',
     		data : 'Inhoud',
     		header : 'Opskrif',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nee',
     		invalidWidth : 'Selbreedte moet \'n getal wees.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['af'] = {
     		title : 'Anker-eienskappe',
     		name : 'Ankernaam',
     		errorName : 'Voltooi die ankernaam asseblief',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'Op element Id',

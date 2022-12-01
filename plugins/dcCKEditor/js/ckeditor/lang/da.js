@@ -69,6 +69,8 @@ CKEDITOR.lang['da'] = {
     		borderColor : 'Rammefarve',
     		data : 'Data',
     		header : 'Hoved',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nej',
     		invalidWidth : 'Cellebredde skal være et tal.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['da'] = {
     		title : 'Egenskaber for bogmærke',
     		name : 'Bogmærkenavn',
     		errorName : 'Indtast bogmærkenavn',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Fjern bogmærke'
     	},
     	anchorId : 'Efter element-Id',

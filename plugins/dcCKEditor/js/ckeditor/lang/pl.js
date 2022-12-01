@@ -69,6 +69,8 @@ CKEDITOR.lang['pl'] = {
     		borderColor : 'Kolor obramowania',
     		data : 'Dane',
     		header : 'Nagłówek',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Tak',
     		no : 'Nie',
     		invalidWidth : 'Szerokość komórki musi być liczbą.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['pl'] = {
     		title : 'Właściwości kotwicy',
     		name : 'Nazwa kotwicy',
     		errorName : 'Podaj nazwę kotwicy.',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Usuń kotwicę'
     	},
     	anchorId : 'Wg identyfikatora',

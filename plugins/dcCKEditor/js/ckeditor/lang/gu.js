@@ -69,6 +69,8 @@ CKEDITOR.lang['gu'] = {
     		borderColor : 'બોર્ડેર રંગ',
     		data : 'સ્વીકૃત માહિતી',
     		header : 'મથાળું',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'હા',
     		no : 'ના',
     		invalidWidth : 'સેલની પોહલાઈ આંકડો હોવો જોઈએ.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['gu'] = {
     		title : 'ઍંકરના ગુણ',
     		name : 'ઍંકરનું નામ',
     		errorName : 'ઍંકરનું નામ ટાઈપ કરો',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'સ્થિર નકરવું'
     	},
     	anchorId : 'ઍંકર એલિમન્ટ Id થી પસંદ કરો',

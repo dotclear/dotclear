@@ -69,6 +69,8 @@ CKEDITOR.lang['ro'] = {
     		borderColor : 'Culoare bordură',
     		data : 'Data',
     		header : 'Antet',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Da',
     		no : 'Nu',
     		invalidWidth : 'Lățimea celulei trebuie să fie un număr.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ro'] = {
     		title : 'Proprietăţi ancoră',
     		name : 'Numele ancorei',
     		errorName : 'Vă rugăm scrieţi numele ancorei',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Elimină ancora'
     	},
     	anchorId : 'după Id-ul elementului',

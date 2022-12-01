@@ -69,6 +69,8 @@ CKEDITOR.lang['cy'] = {
     		borderColor : 'Lliw Ymyl',
     		data : 'Data',
     		header : 'Pennyn',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ie',
     		no : 'Na',
     		invalidWidth : 'Mae\'n rhaid i led y gell fod yn rhif.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['cy'] = {
     		title : 'Priodweddau\'r Angor',
     		name : 'Enw\'r Angor',
     		errorName : 'Teipiwch enw\'r angor',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Tynnwch yr Angor'
     	},
     	anchorId : 'Gan Id yr Elfen',

@@ -69,6 +69,8 @@ CKEDITOR.lang['ku'] = {
     		borderColor : 'ڕەنگی پەراوێز',
     		data : 'داتا',
     		header : 'سەرپەڕه',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'بەڵێ',
     		no : 'نەخێر',
     		invalidWidth : 'پانی خانه دەبێت بەتەواوی ژماره بێت.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ku'] = {
     		title : 'خاسیەتی لەنگەر',
     		name : 'ناوی لەنگەر',
     		errorName : 'تکایه ناوی لەنگەر بنووسه',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'لابردنی لەنگەر'
     	},
     	anchorId : 'بەپێی ناسنامەی توخم',

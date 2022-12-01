@@ -69,6 +69,8 @@ CKEDITOR.lang['sr-latn'] = {
     		borderColor : 'Boja okvira',
     		data : 'Podatak',
     		header : 'Zaglavlje',
+    		columnHeader : 'Zaglavlje kolone',
+    		rowHeader : 'Zaglavlje reda',
     		yes : 'Da',
     		no : 'Nе',
     		invalidWidth : 'U polje širina možete upisati samo brojeve. ',
@@ -209,6 +211,7 @@ CKEDITOR.lang['sr-latn'] = {
     		title : 'Karakteristike sidra',
     		name : 'Naziv sidra',
     		errorName : 'Unesite naziv sidra',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Ukloni sidro'
     	},
     	anchorId : 'Po Id-u elementa',
@@ -425,8 +428,8 @@ CKEDITOR.lang['sr-latn'] = {
     	pasteNotification : '"Pritisnite taster %1 za lepljenje. Vaš pretraživač ne dozvoljava lepljenje iz alatne trake ili menia.',
     	pasteArea : 'Prostor za lepljenje',
     	pasteMsg : 'Nalepite sadržaj u sledeći prostor i pritisnite taster OK.',
-    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
-    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
+    	fileFormatNotSupportedNotification : 'Formati datoteke ${formats} nisu podržani.',
+    	fileWithoutFormatNotSupportedNotification : 'Format datoteke nije podržan.'
     },
     blockquote : 
     {
@@ -447,8 +450,8 @@ CKEDITOR.lang['sr-latn'] = {
     	dlgTitle : 'O CKEditor 4',
     	moreInfo : 'Za informacije o licenci posetite našu web stranicu:'
     },
-    application : 'Rich Text Editor',
-    editor : 'Bogati uređivač teksta',
+    application : 'Uređivač bogatog teksta',
+    editor : 'Uređivač ',
     editorPanel : 'Bogati uređivač panel',
     common : 
     {

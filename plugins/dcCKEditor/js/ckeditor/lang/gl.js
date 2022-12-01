@@ -69,6 +69,8 @@ CKEDITOR.lang['gl'] = {
     		borderColor : 'Cor do bordo',
     		data : 'Datos',
     		header : 'Cabeceira',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Si',
     		no : 'Non',
     		invalidWidth : 'O largo da cela debe ser un número.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['gl'] = {
     		title : 'Propiedades da ancoraxe',
     		name : 'Nome da ancoraxe',
     		errorName : 'Escriba o nome da ancoraxe',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Retirar a ancoraxe'
     	},
     	anchorId : 'Polo ID do elemento',

@@ -69,6 +69,8 @@ CKEDITOR.lang['sv'] = {
     		borderColor : 'Ramfärg',
     		data : 'Data',
     		header : 'Rubrik',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nej',
     		invalidWidth : 'Cellens bredd måste vara ett nummer.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['sv'] = {
     		title : 'Egenskaper för ankarlänk',
     		name : 'Ankarnamn',
     		errorName : 'Var god ange ett ankarnamn',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Radera ankare'
     	},
     	anchorId : 'Efter element-id',

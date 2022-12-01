@@ -69,6 +69,8 @@ CKEDITOR.lang['lt'] = {
     		borderColor : 'Rėmelio spalva',
     		data : 'Data',
     		header : 'Antraštė',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Taip',
     		no : 'Ne',
     		invalidWidth : 'Reikšmė turi būti skaičius.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['lt'] = {
     		title : 'Žymės savybės',
     		name : 'Žymės vardas',
     		errorName : 'Prašome įvesti žymės vardą',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Pašalinti žymę'
     	},
     	anchorId : 'Pagal žymės Id',

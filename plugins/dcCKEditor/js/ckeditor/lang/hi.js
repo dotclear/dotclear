@@ -69,6 +69,8 @@ CKEDITOR.lang['hi'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['hi'] = {
     		title : 'ऐंकर प्रॉपर्टीज़',
     		name : 'ऐंकर का नाम',
     		errorName : 'ऐंकर का नाम टाइप करें',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'ऍलीमॅन्ट Id से',

@@ -69,6 +69,8 @@ CKEDITOR.lang['ug'] = {
     		borderColor : 'گىرۋەك رەڭگى',
     		data : 'سانلىق مەلۇمات',
     		header : 'جەدۋەل باشى',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'ھەئە',
     		no : 'ياق',
     		invalidWidth : 'كاتەكچە كەڭلىكى چوقۇم سان بولىدۇ',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ug'] = {
     		title : 'لەڭگەرلىك نۇقتا ئۇلانما خاسلىقى',
     		name : 'لەڭگەرلىك نۇقتا ئاتى',
     		errorName : 'لەڭگەرلىك نۇقتا ئاتىنى كىرگۈزۈڭ',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'لەڭگەرلىك نۇقتا ئۆچۈر'
     	},
     	anchorId : 'لەڭگەرلىك نۇقتا ID سى بويىچە',

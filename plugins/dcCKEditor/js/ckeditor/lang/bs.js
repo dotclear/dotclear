@@ -69,6 +69,8 @@ CKEDITOR.lang['bs'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['bs'] = {
     		title : 'Anchor Properties',
     		name : 'Anchor Name',
     		errorName : 'Please type the anchor name',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'Po Id-u elementa',

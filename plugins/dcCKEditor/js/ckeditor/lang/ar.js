@@ -69,6 +69,8 @@ CKEDITOR.lang['ar'] = {
     		borderColor : 'لون الحدود',
     		data : 'بيانات',
     		header : 'عنوان',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'نعم',
     		no : 'لا',
     		invalidWidth : 'عرض الخلية يجب أن يكون عدداً.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ar'] = {
     		title : 'خصائص الإشارة المرجعية',
     		name : 'اسم الإشارة المرجعية',
     		errorName : 'الرجاء كتابة اسم الإشارة المرجعية',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'إزالة الإشارة المرجعية'
     	},
     	anchorId : 'حسب رقم العنصر',

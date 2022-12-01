@@ -69,6 +69,8 @@ CKEDITOR.lang['nl'] = {
     		borderColor : 'Randkleur',
     		data : 'Gegevens',
     		header : 'Kop',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nee',
     		invalidWidth : 'De celbreedte moet een getal zijn.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['nl'] = {
     		title : 'Eigenschappen interne link',
     		name : 'Naam interne link',
     		errorName : 'Geef de naam van de interne link op',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Interne link verwijderen'
     	},
     	anchorId : 'Op kenmerk interne link',

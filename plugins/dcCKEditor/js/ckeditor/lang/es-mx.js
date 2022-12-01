@@ -69,6 +69,8 @@ CKEDITOR.lang['es-mx'] = {
     		borderColor : 'Color de borde',
     		data : 'Datos',
     		header : 'Encabezado',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Si',
     		no : 'No',
     		invalidWidth : 'El ancho de la celda debe ser un número entero.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['es-mx'] = {
     		title : 'Propiedades del ancla',
     		name : 'Nombre del ancla',
     		errorName : 'Escriba el nombre del ancla',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remover ancla'
     	},
     	anchorId : 'Por Id del elemento',

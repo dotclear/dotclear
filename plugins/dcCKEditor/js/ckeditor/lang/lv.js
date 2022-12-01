@@ -69,6 +69,8 @@ CKEDITOR.lang['lv'] = {
     		borderColor : 'Rāmja krāsa',
     		data : 'Dati',
     		header : 'Virsraksts',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Jā',
     		no : 'Nē',
     		invalidWidth : 'Šūnas platumam jābūt skaitlim',
@@ -209,6 +211,7 @@ CKEDITOR.lang['lv'] = {
     		title : 'Iezīmes uzstādījumi',
     		name : 'Iezīmes nosaukums',
     		errorName : 'Lūdzu norādiet iezīmes nosaukumu',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Noņemt iezīmi'
     	},
     	anchorId : 'Pēc elementa ID',

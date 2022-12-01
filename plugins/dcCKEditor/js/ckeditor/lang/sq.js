@@ -69,6 +69,8 @@ CKEDITOR.lang['sq'] = {
     		borderColor : 'Ngjyra e Kornizave',
     		data : 'Të dhënat',
     		header : 'Koka',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Po',
     		no : 'Jo',
     		invalidWidth : 'Gjerësia e qelisë duhet të jetë numër.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['sq'] = {
     		title : 'Karakteristikat e Spirancës',
     		name : 'Emri i Spirancës',
     		errorName : 'Ju lutemi shkruani emrin e spirancës',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Largo Spirancën'
     	},
     	anchorId : 'Sipas ID-së së Elementit',

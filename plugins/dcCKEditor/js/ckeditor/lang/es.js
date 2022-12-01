@@ -69,6 +69,8 @@ CKEDITOR.lang['es'] = {
     		borderColor : 'Color de borde',
     		data : 'Datos',
     		header : 'Encabezado',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Sí',
     		no : 'No',
     		invalidWidth : 'La anchura de celda debe ser un número.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['es'] = {
     		title : 'Propiedades de Referencia',
     		name : 'Nombre de la Referencia',
     		errorName : 'Por favor, complete el nombre de la Referencia',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Quitar Referencia'
     	},
     	anchorId : 'Por ID de elemento',

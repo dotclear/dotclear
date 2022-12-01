@@ -69,6 +69,8 @@ CKEDITOR.lang['si'] = {
     		borderColor : 'මායිම් ',
     		data : 'Data',
     		header : 'ශීර්ෂක',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'ඔව්',
     		no : 'නැත',
     		invalidWidth : 'කොටු පළල සංඛ්‍ය්ත්මක වටිනාකමක් විය යුතුය',
@@ -209,6 +211,7 @@ CKEDITOR.lang['si'] = {
     		title : 'ආධාරක ',
     		name : 'ආධාරකයේ නාමය',
     		errorName : 'කරුණාකර ආධාරකයේ නාමය ඇතුල් කරන්න',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'ආධාරකය ඉවත් කිරීම'
     	},
     	anchorId : 'By Element Id',

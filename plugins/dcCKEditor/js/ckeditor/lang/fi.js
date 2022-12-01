@@ -69,6 +69,8 @@ CKEDITOR.lang['fi'] = {
     		borderColor : 'Reunan väri',
     		data : 'Data',
     		header : 'Ylätunniste',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Kyllä',
     		no : 'Ei',
     		invalidWidth : 'Solun leveyden täytyy olla numero.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['fi'] = {
     		title : 'Ankkurin ominaisuudet',
     		name : 'Nimi',
     		errorName : 'Ankkurille on kirjoitettava nimi',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Poista ankkuri'
     	},
     	anchorId : 'Ankkurin ID:n mukaan',

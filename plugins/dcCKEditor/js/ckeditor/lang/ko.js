@@ -69,6 +69,8 @@ CKEDITOR.lang['ko'] = {
     		borderColor : '테두리 색',
     		data : '자료',
     		header : '머릿칸',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : '예',
     		no : '아니오',
     		invalidWidth : '셀 너비는 숫자여야 합니다.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['ko'] = {
     		title : '책갈피 속성',
     		name : '책갈피 이름',
     		errorName : '책갈피 이름을 입력하십시오',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : '책갈피 제거'
     	},
     	anchorId : '책갈피 ID',

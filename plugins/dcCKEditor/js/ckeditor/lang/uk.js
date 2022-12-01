@@ -69,6 +69,8 @@ CKEDITOR.lang['uk'] = {
     		borderColor : 'Колір рамки',
     		data : 'Дані',
     		header : 'Заголовок',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Так',
     		no : 'Ні',
     		invalidWidth : 'Ширина комірки повинна бути цілим числом.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['uk'] = {
     		title : 'Властивості якоря',
     		name : 'Ім\'я якоря',
     		errorName : 'Будь ласка, вкажіть ім\'я якоря',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Прибрати якір'
     	},
     	anchorId : 'За ідентифікатором елементу',
@@ -447,8 +450,8 @@ CKEDITOR.lang['uk'] = {
     	dlgTitle : 'Про CKEditor 4',
     	moreInfo : 'Щодо інформації з ліцензування завітайте на наш сайт:'
     },
-    application : 'Rich Text Editor',
-    editor : 'Текстовий редактор',
+    application : 'Розширений текстовий редактор',
+    editor : 'Редактор',
     editorPanel : 'Панель розширеного текстового редактора',
     common : 
     {

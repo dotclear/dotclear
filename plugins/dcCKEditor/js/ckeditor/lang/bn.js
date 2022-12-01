@@ -69,6 +69,8 @@ CKEDITOR.lang['bn'] = {
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Yes',
     		no : 'No',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['bn'] = {
     		title : 'নোঙর প্রোপার্টি',
     		name : 'নোঙরের নাম',
     		errorName : 'নোঙরের নাম টাইপ করুন',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Remove Anchor'
     	},
     	anchorId : 'নোঙরের আইডি দিয়ে',

@@ -69,6 +69,8 @@ CKEDITOR.lang['it'] = {
     		borderColor : 'Colore del Bordo',
     		data : 'Dati',
     		header : 'Intestazione',
+    		columnHeader : 'Intestazione colonna',
+    		rowHeader : 'Intestazione riga',
     		yes : 'Si',
     		no : 'No',
     		invalidWidth : 'La larghezza della cella dev\'essere un numero.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['it'] = {
     		title : 'Proprietà ancora',
     		name : 'Nome ancora',
     		errorName : 'Inserici il nome dell\'ancora',
+    		errorWhitespace : 'Il nome delle ancore non può contenere caratteri di spaziatura',
     		remove : 'Rimuovi l\'ancora'
     	},
     	anchorId : 'Per id elemento',
@@ -448,7 +451,7 @@ CKEDITOR.lang['it'] = {
     	moreInfo : 'Per le informazioni sulla licenza si prega di visitare il nostro sito:'
     },
     application : 'Rich Text Editor',
-    editor : 'Rich Text Editor',
+    editor : 'Editor',
     editorPanel : 'Pannello Rich Text Editor',
     common : 
     {

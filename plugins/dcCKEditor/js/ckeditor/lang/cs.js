@@ -69,6 +69,8 @@ CKEDITOR.lang['cs'] = {
     		borderColor : 'Barva okraje',
     		data : 'Data',
     		header : 'Hlavička',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ano',
     		no : 'Ne',
     		invalidWidth : 'Šířka buňky musí být číslo.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['cs'] = {
     		title : 'Vlastnosti záložky',
     		name : 'Název záložky',
     		errorName : 'Zadejte prosím název záložky',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Odstranit záložku'
     	},
     	anchorId : 'Podle Id objektu',

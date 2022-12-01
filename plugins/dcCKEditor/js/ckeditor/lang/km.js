@@ -69,6 +69,8 @@ CKEDITOR.lang['km'] = {
     		borderColor : 'ពណ៌\u200bបន្ទាត់\u200bស៊ុម',
     		data : 'ទិន្នន័យ',
     		header : 'ក្បាល',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'ព្រម',
     		no : 'ទេ',
     		invalidWidth : 'ទទឹង\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
@@ -209,6 +211,7 @@ CKEDITOR.lang['km'] = {
     		title : 'លក្ខណៈ\u200bយុថ្កា',
     		name : 'ឈ្មោះ\u200bយុថ្កា',
     		errorName : 'សូម\u200bបញ្ចូល\u200bឈ្មោះ\u200bយុថ្កា',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'ដក\u200bយុថ្កា\u200bចេញ'
     	},
     	anchorId : 'តាម ID ធាតុ',

@@ -69,6 +69,8 @@ CKEDITOR.lang['fo'] = {
     		borderColor : 'Bordalitur',
     		data : 'Data',
     		header : 'Header',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Ja',
     		no : 'Nei',
     		invalidWidth : 'Meskubreidd má vera eitt tal.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['fo'] = {
     		title : 'Eginleikar fyri marknastein',
     		name : 'Heiti marknasteinsins',
     		errorName : 'Vinarliga rita marknasteinsins heiti',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Strika marknastein'
     	},
     	anchorId : 'Eftir element Id',

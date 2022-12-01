@@ -69,6 +69,8 @@ CKEDITOR.lang['tt'] = {
     		borderColor : 'Чик төсе',
     		data : 'Мәгълүмат',
     		header : 'Башлык',
+    		columnHeader : 'Column Header',
+    		rowHeader : 'Row Header',
     		yes : 'Әйе',
     		no : 'Юк',
     		invalidWidth : 'Cell width must be a number.',
@@ -209,6 +211,7 @@ CKEDITOR.lang['tt'] = {
     		title : 'Якорь үзлекләре',
     		name : 'Якорь исеме',
     		errorName : 'Якорьнең исемен языгыз',
+    		errorWhitespace : 'Anchor name cannot contain space characters',
     		remove : 'Якорьне бетерү'
     	},
     	anchorId : 'Элемент идентификаторы буенча',
