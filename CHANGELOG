@@ -1,6 +1,18 @@
 Dotclear 2.23.1 - 2022-12-24
 ===========================================================
 * 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance
+* 🗑 Remove XML/RPC system (keep only minimum for Pingbacks)
+* Core: Large code review has been done, may break old code (3rd party plugins and themes)
+* Admin UI: New default icons for media items
+* Admin UI: Message look reviewed
+* Admin UX: Preserve current dir and current view of media manager
+* Admin UX: Password strength use an entropy indicator
+* Admin UX: Improve navigation in about:config and user:preferences list
+* Admin UX: Allow activation and de-activation of plugins in safe mode
+* Admin UX: Allow update of disabled/activated plugins in safe mode/normal mode
+* Admin UX: Add folding capability to widgets group
+* Theme: Cope with theme defined widget container format
+* Theme: Smilies are available for every theme (Blowup theme not more mandatory)
 * Lib: Update CKEditor to 4.20.1
 * Lib: Update Codemirror to 5.65.10
 * 🐛 → Various bugs, a11y concerns and typos fixed
