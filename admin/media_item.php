@@ -1016,7 +1016,7 @@ class adminMediaItem
                 form::field(
                     'media_desc',
                     60,
-                    1024,
+                    255,
                     [
                         'default'    => html::escapeHTML($getImageDescription(dcCore::app()->admin->file, '')),
                         'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
