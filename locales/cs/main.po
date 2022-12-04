@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -25,11 +25,11 @@ msgstr "Resetovat heslo"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Někdo zažádal o reset hesla pro následujícího uživatele na blogu."
 
-msgid "Username:"
-msgstr "Uživatel:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Pro reset hesla pokračujte následujícím odkazem, nebo jednoduše tento e-mail ignorujte a nic se nestane."
+
+msgid "Username:"
+msgstr "Uživatel:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -72,79 +72,6 @@ msgid "Wrong username or password"
 msgstr "Špatné uživatelské jméno nebo heslo"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Resetovat heslo"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Střední:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Zpět na přihlašení."
-
-msgid "Request a new password"
-msgstr "Zažádat o nové heslo"
-
-msgid "Email:"
-msgstr "E-mail:"
-
-msgid "recover"
-msgstr "Zaslat"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Možnosti hledání"
-
-msgid "Change your password"
-msgstr "Změnit heslo"
-
-msgid "New password:"
-msgstr "Nové heslo:"
-
-msgid "Confirm password:"
-msgstr "Potvrzení hesla:"
-
-msgid "change"
-msgstr "změnit"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Zapamatuj si mě!"
-
-#, fuzzy
-msgid "log in"
-msgstr "Jméno blogu"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Pro přihlášení do administrace musíte mít povolené cookies!"
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "Zapomněl jsem heslo..."
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blog byl úspěšně vytvořen."
 
@@ -157,29 +84,29 @@ msgstr "Systém"
 msgid "Blogs"
 msgstr "Blogy"
 
+msgid "Blog ID"
+msgstr "ID blogu"
+
 msgid "Blog ID:"
 msgstr "ID blogu:"
 
 msgid "Required field"
 msgstr "Neuspěšný požadavek"
 
-msgid "Blog ID"
-msgstr "ID blogu"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Nejméně 2 znaky složené z písmen, číslic nebo symbolů."
-
-msgid "Blog name:"
-msgstr "Jméno blogu:"
 
 msgid "Blog name"
 msgstr "Jméno blogu"
 
-msgid "Blog URL:"
-msgstr "URL blogu:"
+msgid "Blog name:"
+msgstr "Jméno blogu:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "URL blogu:"
+
+msgid "Blog URL:"
 msgstr "URL blogu:"
 
 msgid "Blog description:"
@@ -542,27 +469,6 @@ msgstr "Dotclear tým"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Aktivovat XML/RPC rozhraní"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC rozhraní vám dovoluje upravovat váš blog pomocí externího klienta."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC rozhraní je aktivní. Měli byste nastavit následující parametry ve vašem XML/RPC klientovi:"
-
-msgid "Server URL:"
-msgstr "URL serveru:"
-
-msgid "Blogging system:"
-msgstr "Blogovací systém:"
-
-msgid "User name:"
-msgstr "Uživatelské jméno:"
-
-msgid "your password"
-msgstr "vaše heslo"
-
 msgid "Search engines robots policy"
 msgstr "Práva pro vyhledávací roboty"
 
@@ -604,6 +510,9 @@ msgstr "Uživatelé tohoto blogu"
 
 msgid "No users"
 msgstr "Žádní uživatelé"
+
+msgid "Email:"
+msgstr "E-mail:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -708,12 +617,12 @@ msgid "Create a new blog"
 msgstr "Vytvořit nový blog"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "S vybranými uživateli provést:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Akce"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "S vybranými uživateli provést:"
 
 msgid "ok"
 msgstr "ok"
@@ -846,11 +755,11 @@ msgstr "Sourozenci kategorie"
 msgid "Move current category"
 msgstr "Přesunout stávající kategorii"
 
-msgid "after"
-msgstr "za"
-
 msgid "before"
 msgstr "před"
+
+msgid "after"
+msgstr "za"
 
 #, fuzzy
 msgid "position: "
@@ -1136,6 +1045,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Instalace Dotclearu"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Resetovat heslo"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Střední:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr "zobrazit"
 
@@ -1170,9 +1093,15 @@ msgstr "Uživatelské jméno a heslo"
 msgid "Username"
 msgstr "Uživatelské jméno"
 
+msgid "New password:"
+msgstr "Nové heslo:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Heslo:"
+
+msgid "Confirm password:"
+msgstr "Potvrzení hesla:"
 
 msgid "All done!"
 msgstr "Vše dokončeno!"
@@ -1376,19 +1305,6 @@ msgstr "ZIP balíček:"
 msgid "Upload language"
 msgstr "Nahrát jazyk"
 
-msgid "Media manager"
-msgstr "Média"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "nalezeno %d článků"
-msgstr[1] "nalezeno %d článků"
-msgstr[2] "nalezeno %d článků"
-
-msgid "Search:"
-msgstr "Vyhledat:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Neplatný soubor"
@@ -1495,6 +1411,9 @@ msgstr "Vrátit vybrané soubory do původního stavu"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "Média"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "Rozbalit v nonvém adresáři"
@@ -1548,6 +1467,16 @@ msgstr "Nahrát"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "nalezeno %d článků"
+msgstr[1] "nalezeno %d článků"
+msgstr[2] "nalezeno %d článků"
+
+msgid "Search:"
+msgstr "Vyhledat:"
 
 msgid "Not a valid file"
 msgstr "Neplatný soubor"
@@ -1790,10 +1719,6 @@ msgstr "Plugin, který žádáte neexistuje nebo nemá admin stranu."
 msgid "Plugins management"
 msgstr "Správce pluginů"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Konfigurace blogu"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1818,6 +1743,9 @@ msgstr "Nainstalované jazyky"
 
 msgid "Activated plugins"
 msgstr "Aktivované pluginy"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1844,6 +1772,10 @@ msgstr "Pluginy můžete nainstalovat nahráním nedo stáhnutím zip archívu."
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Pro správnou funkčnost nastavte správná práva pro zápis vašemu plugins adresáři."
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Konfigurace blogu"
 
 msgid "Add a link"
 msgstr "Přidat odkaz"
@@ -1943,37 +1875,15 @@ msgstr "Soubor byl úspěšně připojen."
 msgid "Attachment has been successfully removed."
 msgstr "Příloha byla úspěšně smazána."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Nezapoměňte zvalidovat HTML kód před jeho uložením."
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Datum"
-
-msgid "IP address"
-msgstr "IP adresa"
-
 msgid "Status"
 msgstr "Stav"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Upravit tento komentář"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Povolit trackbacky"
-
-msgid "Edit this comment"
-msgstr "Upravit tento komentář"
 
 #, fuzzy
 msgid "Entry status"
@@ -2085,6 +1995,29 @@ msgstr "Automaticky zjistit všechny pingové URL"
 
 msgid "Previously sent pings"
 msgstr "Předchozí zaslání pingů"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "IP address"
+msgstr "IP adresa"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Upravit tento komentář"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Povolit trackbacky"
+
+msgid "Edit this comment"
+msgstr "Upravit tento komentář"
 
 msgid "This attachment does not exist"
 msgstr "Tato příloha neexistuje"
@@ -2398,9 +2331,6 @@ msgstr "Nástěnka"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Nástěnka"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2937,6 +2867,25 @@ msgstr "Nejpoužívanější"
 #, fuzzy
 msgid "Entry language:"
 msgstr "Jazyk:"
+
+msgid "Database error"
+msgstr "Chyba databáze"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Ve vaší databázi nebyla nalezena Session tabulka. Je Dotclear kompletně nainstalován?"
+
+#, fuzzy
+msgid "System settings"
+msgstr "Nastavení blogu"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Pluginy"
+
+msgid "Update"
+msgstr "Aktualizace"
 
 msgid "Languages"
 msgstr "Jazyky"
@@ -3489,9 +3438,6 @@ msgstr ""
 msgid "Install"
 msgstr "Instalace Dotclearu"
 
-msgid "Update"
-msgstr "Aktualizace"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "Aktivované pluginy"
@@ -3953,11 +3899,11 @@ msgid "open"
 msgstr "otevřít"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3985,22 +3931,6 @@ msgstr "Během zípisu do souboru nastala chyba."
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Vygenerované velikosti obrázků (v pixelech)"
-
-msgid "Database error"
-msgstr "Chyba databáze"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Ve vaší databázi nebyla nalezena Session tabulka. Je Dotclear kompletně nainstalován?"
-
-#, fuzzy
-msgid "System settings"
-msgstr "Nastavení blogu"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Pluginy"
 
 #, fuzzy
 msgid "small"
@@ -4227,17 +4157,18 @@ msgstr "Během odstraňování modulu nastala chyba."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Není možné provést aktualizaci \"%s\". (stejná verze)"
 
-msgid "Unable to read new _define.php file"
-msgstr "Není možno přečíst nový _define.php soubor"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Nelze číst shrnující soubor."
+
+msgid "Cannot deactivate plugin."
+msgstr "Nemůžu deaktivovat plugin."
 
 msgid "No such module."
 msgstr "Žádný takový modul."
 
 msgid "Cannot remove module files"
 msgstr "Nemůžu odstranit soubory modulu"
-
-msgid "Cannot deactivate plugin."
-msgstr "Nemůžu deaktivovat plugin."
 
 msgid "Cannot activate plugin."
 msgstr "Nemůžu aktivovat plugin."
@@ -4318,7 +4249,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "Nelze otevřít soubor."
 
 #, fuzzy
@@ -4439,6 +4370,62 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#~ msgid "Back to login screen"
+#~ msgstr "Zpět na přihlašení."
+
+#~ msgid "Request a new password"
+#~ msgstr "Zažádat o nové heslo"
+
+#~ msgid "recover"
+#~ msgstr "Zaslat"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Možnosti hledání"
+
+#~ msgid "Change your password"
+#~ msgstr "Změnit heslo"
+
+#~ msgid "change"
+#~ msgstr "změnit"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Zapamatuj si mě!"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Jméno blogu"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Pro přihlášení do administrace musíte mít povolené cookies!"
+
+#~ msgid "I forgot my password"
+#~ msgstr "Zapomněl jsem heslo..."
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Aktivovat XML/RPC rozhraní"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC rozhraní vám dovoluje upravovat váš blog pomocí externího klienta."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC rozhraní je aktivní. Měli byste nastavit následující parametry ve vašem XML/RPC klientovi:"
+
+#~ msgid "Server URL:"
+#~ msgstr "URL serveru:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Blogovací systém:"
+
+#~ msgid "User name:"
+#~ msgstr "Uživatelské jméno:"
+
+#~ msgid "your password"
+#~ msgstr "vaše heslo"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "Není možno přečíst nový _define.php soubor"
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "Dle názvu, vzestupně"

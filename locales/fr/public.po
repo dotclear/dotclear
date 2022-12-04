@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2020-04-30 12:50\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
@@ -335,12 +335,3 @@ msgstr "envoyer"
 
 msgid "toDay"
 msgstr "au"
-
-#~ msgid "Hide password"
-#~ msgstr "Masquer le mot de passe"
-
-#~ msgid "Show password"
-#~ msgstr "Montrer le mot de passe"
-
-#~ msgid "Search:"
-#~ msgstr "Recherche :"

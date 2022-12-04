@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -26,11 +26,11 @@ msgstr "密码重置"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "有人请求为下列站点和用户重置密码。"
 
-msgid "Username:"
-msgstr "用户名："
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "要重置您的密码浏览下列网站，否则不要理会这个邮件则什么都不会发生。"
+
+msgid "Username:"
+msgstr "用户名："
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -73,79 +73,6 @@ msgid "Wrong username or password"
 msgstr "错误的用户名或密码"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "密码重置"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "中："
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "返回到登录界面"
-
-msgid "Request a new password"
-msgstr "请求一个新密码"
-
-msgid "Email:"
-msgstr "邮箱："
-
-msgid "recover"
-msgstr "恢复"
-
-#, fuzzy
-msgid "Other option"
-msgstr "搜索选项"
-
-msgid "Change your password"
-msgstr "改变您的密码"
-
-msgid "New password:"
-msgstr "新密码："
-
-msgid "Confirm password:"
-msgstr "确认密码："
-
-msgid "change"
-msgstr "更改"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "在这台计算机上记住我的 ID"
-
-#, fuzzy
-msgid "log in"
-msgstr "博客名称"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "您必须接受 cookies 以使用私有区域。"
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "我忘记了我的密码"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "博客已被成功创建。"
 
@@ -158,29 +85,29 @@ msgstr "系统"
 msgid "Blogs"
 msgstr "博客"
 
+msgid "Blog ID"
+msgstr "博客 ID"
+
 msgid "Blog ID:"
 msgstr "博客 ID："
 
 msgid "Required field"
 msgstr "必添字段"
 
-msgid "Blog ID"
-msgstr "博客 ID"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "至少 2 个字符，使用字母、数字或符号。"
-
-msgid "Blog name:"
-msgstr "博客名称："
 
 msgid "Blog name"
 msgstr "博客名称"
 
-msgid "Blog URL:"
-msgstr "博客 URL："
+msgid "Blog name:"
+msgstr "博客名称："
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "博客 URL："
+
+msgid "Blog URL:"
 msgstr "博客 URL："
 
 msgid "Blog description:"
@@ -544,27 +471,6 @@ msgstr "Dotclear 团队"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "激活 XML/RPC 接口"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC 接口允许您使用外部客户端编辑您的博客。"
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC 接口已激活。您应该在您的 XML/RPC 客户端设置下列参数："
-
-msgid "Server URL:"
-msgstr "服务器 URL："
-
-msgid "Blogging system:"
-msgstr "博客系统："
-
-msgid "User name:"
-msgstr "用户名："
-
-msgid "your password"
-msgstr "您的密码"
-
 msgid "Search engines robots policy"
 msgstr "搜索引擎机器人规则"
 
@@ -606,6 +512,9 @@ msgstr "这个博客上的用户"
 
 msgid "No users"
 msgstr "没有用户"
+
+msgid "Email:"
+msgstr "邮箱："
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -708,12 +617,12 @@ msgid "Create a new blog"
 msgstr "创建一个新博客"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "选择的用户的动作："
-
-#, fuzzy
 msgid "Actions"
 msgstr "动作"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "选择的用户的动作："
 
 msgid "ok"
 msgstr "确定"
@@ -846,11 +755,11 @@ msgstr "分类目录的同层"
 msgid "Move current category"
 msgstr "移动当前的分类目录"
 
-msgid "after"
-msgstr "后于"
-
 msgid "before"
 msgstr "前于"
+
+msgid "after"
+msgstr "后于"
 
 #, fuzzy
 msgid "position: "
@@ -1136,6 +1045,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear 安装"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "密码重置"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "中："
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr "显示"
 
@@ -1170,9 +1093,15 @@ msgstr "用户名和密码"
 msgid "Username"
 msgstr "用户名"
 
+msgid "New password:"
+msgstr "新密码："
+
 #, fuzzy
 msgid "Password"
 msgstr "密码："
+
+msgid "Confirm password:"
+msgstr "确认密码："
 
 msgid "All done!"
 msgstr "一切完成！"
@@ -1376,17 +1305,6 @@ msgstr "语言包 zip 文件："
 msgid "Upload language"
 msgstr "上传语言包"
 
-msgid "Media manager"
-msgstr "媒体管理中心"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "找到 %d 篇文章"
-
-msgid "Search:"
-msgstr "搜索："
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "不是一个有效的文件"
@@ -1491,6 +1409,9 @@ msgstr "恢复到选择的文件"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "媒体管理中心"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "解压缩到一个新目录"
@@ -1544,6 +1465,14 @@ msgstr "上传"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "找到 %d 篇文章"
+
+msgid "Search:"
+msgstr "搜索："
 
 msgid "Not a valid file"
 msgstr "不是一个有效的文件"
@@ -1787,10 +1716,6 @@ msgstr "您到达的插件不存在或者没有管理页面。"
 msgid "Plugins management"
 msgstr "插件管理"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "博客配置"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1813,6 +1738,9 @@ msgstr "安装的语言包"
 
 msgid "Activated plugins"
 msgstr "激活的插件"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1839,6 +1767,10 @@ msgstr "您可以通过上传或者下载 zip 文件安装插件。"
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "要激活这个功能，请赋予您的插件目录写权限。"
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "博客配置"
 
 msgid "Add a link"
 msgstr "添加一个链接"
@@ -1938,37 +1870,15 @@ msgstr "成功附加文件。"
 msgid "Attachment has been successfully removed."
 msgstr "成功移除附件。"
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "请不要忘了通过保存您的文章检验您的 HTML 转换。"
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "日期"
-
-msgid "IP address"
-msgstr "IP 地址"
-
 msgid "Status"
 msgstr "状态"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "编辑这个评论"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "接受 trackbacks"
-
-msgid "Edit this comment"
-msgstr "编辑这个评论"
 
 #, fuzzy
 msgid "Entry status"
@@ -2080,6 +1990,29 @@ msgstr "自动发现 ping URL。"
 
 msgid "Previously sent pings"
 msgstr "之前发送的 ping"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "IP address"
+msgstr "IP 地址"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "编辑这个评论"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "接受 trackbacks"
+
+msgid "Edit this comment"
+msgstr "编辑这个评论"
 
 msgid "This attachment does not exist"
 msgstr "这个附件不存在"
@@ -2393,9 +2326,6 @@ msgstr "控制板"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "控制板"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2907,6 +2837,26 @@ msgstr "最多使用"
 #, fuzzy
 msgid "Entry language:"
 msgstr "文章语言："
+
+#, fuzzy
+msgid "Database error"
+msgstr "数据库类型："
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "博客设置"
+
+msgid "Blog"
+msgstr "博客"
+
+msgid "Plugins"
+msgstr "插件"
+
+msgid "Update"
+msgstr "更新"
 
 msgid "Languages"
 msgstr "语言"
@@ -3456,9 +3406,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear 安装"
 
-msgid "Update"
-msgstr "更新"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "激活的插件"
@@ -3883,11 +3830,11 @@ msgid "open"
 msgstr "打开"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3915,23 +3862,6 @@ msgstr "写入文件时出现错误。"
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "产生的图片大小(用像素)"
-
-#, fuzzy
-msgid "Database error"
-msgstr "数据库类型："
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "博客设置"
-
-msgid "Blog"
-msgstr "博客"
-
-msgid "Plugins"
-msgstr "插件"
 
 #, fuzzy
 msgid "small"
@@ -4161,17 +4091,18 @@ msgstr "模块删除时出现错误。"
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "无法升级到“%s”。（版本相同）"
 
-msgid "Unable to read new _define.php file"
-msgstr "无法读取新的 _define.php。"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "无法读取摘要文件。"
+
+msgid "Cannot deactivate plugin."
+msgstr "无法禁用插件。"
 
 msgid "No such module."
 msgstr "没有这样的模块。"
 
 msgid "Cannot remove module files"
 msgstr "无法移除模块文件"
-
-msgid "Cannot deactivate plugin."
-msgstr "无法禁用插件。"
 
 msgid "Cannot activate plugin."
 msgstr "无法激活插件。"
@@ -4253,7 +4184,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "无法打开文件。"
 
 #, fuzzy
@@ -4375,6 +4306,62 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "返回到登录界面"
+
+#~ msgid "Request a new password"
+#~ msgstr "请求一个新密码"
+
+#~ msgid "recover"
+#~ msgstr "恢复"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "搜索选项"
+
+#~ msgid "Change your password"
+#~ msgstr "改变您的密码"
+
+#~ msgid "change"
+#~ msgstr "更改"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "在这台计算机上记住我的 ID"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "博客名称"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "您必须接受 cookies 以使用私有区域。"
+
+#~ msgid "I forgot my password"
+#~ msgstr "我忘记了我的密码"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "激活 XML/RPC 接口"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC 接口允许您使用外部客户端编辑您的博客。"
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC 接口已激活。您应该在您的 XML/RPC 客户端设置下列参数："
+
+#~ msgid "Server URL:"
+#~ msgstr "服务器 URL："
+
+#~ msgid "Blogging system:"
+#~ msgstr "博客系统："
+
+#~ msgid "User name:"
+#~ msgstr "用户名："
+
+#~ msgid "your password"
+#~ msgstr "您的密码"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "无法读取新的 _define.php。"
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "按名称，升序"

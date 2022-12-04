@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -36,7 +36,16 @@ msgstr "blogroll kezelése"
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-msgid "Legacy modules for dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -71,15 +80,6 @@ msgstr ""
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "Kütyük hozzáadása az oldalsó sávhoz"
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -134,18 +134,16 @@ msgstr "Hozzáadandó címkék:"
 msgid "Configuration successfully updated"
 msgstr "A konfigurációt sikeresen frissítettem."
 
-msgid "no"
-msgstr "nem"
-
-msgid "yes"
-msgstr ""
-
 msgid "about:config"
 msgstr ""
 
 #, php-format
 msgid "Settings for %s"
 msgstr ""
+
+#, fuzzy
+msgid "Global settings"
+msgstr "általános beállítások"
 
 #, fuzzy
 msgid "Setting ID"
@@ -160,9 +158,11 @@ msgstr "Megnevezés"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
-msgid "Global settings"
-msgstr "általános beállítások"
+msgid "no"
+msgstr "nem"
+
+msgid "yes"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "Akismet spamszűrő"
@@ -189,27 +189,6 @@ msgstr "Szerezd meg a saját API kulcsodat"
 
 msgid "Antispam"
 msgstr "Spamszűrő"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Az összes %s napnál öregebb spam automatikusan törlődni fog."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "Töröld azokat a spam hozzászólásokat, melyek idősebbek"
-
-msgid "days"
-msgstr "napnál"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet spamszűrő"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -328,15 +307,26 @@ msgstr "Alapértelmezett szólista létrehozása"
 msgid "This word exists"
 msgstr "Ez a szó már létezik a listában."
 
-msgid "No description"
-msgstr "Nincs megnevezés"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Az összes %s napnál öregebb spam automatikusan törlődni fog."
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "%1$s szűrte (%2$s)"
+msgid "You can modify this duration in the %s"
+msgstr ""
 
-msgid "Unknown filter."
-msgstr "Ismeretlen szűrő."
+msgid "Delete junk comments older than"
+msgstr "Töröld azokat a spam hozzászólásokat, melyek idősebbek"
+
+msgid "days"
+msgstr "napnál"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet spamszűrő"
 
 msgid "This comment is a spam:"
 msgstr "Ez a megjegyzés egy spam."
@@ -349,6 +339,16 @@ msgstr "Spam"
 
 msgid "Ham"
 msgstr "Ham"
+
+msgid "No description"
+msgstr "Nincs megnevezés"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "%1$s szűrte (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Ismeretlen szűrő."
 
 msgid "Filter does not exist."
 msgstr "A szűrő nem létezik."
@@ -425,29 +425,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Fájlok hozzáadása a laphoz"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "blogroll kezelése"
 
-msgid "All categories"
-msgstr "Összes kategória"
-
-msgid "Links"
-msgstr "Hivatkozások"
-
-msgid "You must provide a link title"
-msgstr "Kötelező címet adnod"
-
-msgid "You must provide a link URL"
-msgstr "Kötelező hivatkozást adnod"
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "Kell adnod egy XBEL vagy OPML fájlt."
-
-msgid "File is not in XML format."
-msgstr "A fájl nem XML formátumú."
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "No such link or title"
 msgstr "Nincs ilyen hivatkozás vagy cím"
@@ -549,6 +531,24 @@ msgstr "_xfn_Randi"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Kedves"
 
+msgid "You must provide a link title"
+msgstr "Kötelező címet adnod"
+
+msgid "You must provide a link URL"
+msgstr "Kötelező hivatkozást adnod"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Kell adnod egy XBEL vagy OPML fájlt."
+
+msgid "File is not in XML format."
+msgstr "A fájl nem XML formátumú."
+
+msgid "All categories"
+msgstr "Összes kategória"
+
+msgid "Links"
+msgstr "Hivatkozások"
+
 msgid "Nothing to import"
 msgstr "Nincs semmi importálandó"
 
@@ -577,11 +577,11 @@ msgstr "Nyelv"
 msgid "select this link"
 msgstr "Címke törlése"
 
-msgid "Delete selected links"
-msgstr "Kiválasztott hivatkozások törlése"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "Biztosan törölni szerenéd a kiválasztott hivatkozásokat?"
+
+msgid "Delete selected links"
+msgstr "Kiválasztott hivatkozások törlése"
 
 msgid "The link list is empty."
 msgstr ""
@@ -600,6 +600,16 @@ msgstr "OPML vagy XBEL fájl:"
 
 msgid "Import"
 msgstr "Importálás"
+
+msgid "default"
+msgstr "alapértelmezett"
+
+#, fuzzy
+msgid "Unable to create css file."
+msgstr "Nem lehet a képet létrehozni."
+
+msgid "Unable to open image."
+msgstr "Nem lehet a fájlt megnyitni."
 
 msgid "Light linear gradient"
 msgstr "Világos lineáris dőlés"
@@ -634,10 +644,6 @@ msgstr "Előre definiált stílusok"
 
 msgid "Back to Blog appearance"
 msgstr ""
-
-#, fuzzy
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "A képek nem tudtak létrejönni, nem leszel képes néhány háttérbeállítás módosítására."
 
 msgid "Customization"
 msgstr ""
@@ -823,16 +829,6 @@ msgstr "Megoszthatod a konfigurációdat a következő kóddal. Hogy alkalmazhas
 msgid "Copy this code:"
 msgstr ""
 
-msgid "default"
-msgstr "alapértelmezett"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "Nem lehet a képet létrehozni."
-
-msgid "Unable to open image."
-msgstr "Nem lehet a fájlt megnyitni."
-
 msgid "Breadcrumb"
 msgstr ""
 
@@ -861,12 +857,11 @@ msgstr "Mindegyik címke"
 msgid "404"
 msgstr ""
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-#, fuzzy
-msgid "The configuration has been updated."
-msgstr "A témabeállítás sikeresen frissült."
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -890,6 +885,10 @@ msgstr "Külső média"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "A témabeállítás sikeresen frissült."
 
 msgid "dcCKEditor"
 msgstr ""
@@ -970,6 +969,10 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s beállítás"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Dotclear 1.2 import"
 
 msgid "visual"
 msgstr ""
@@ -1437,7 +1440,8 @@ msgstr "A sablonok mappáját kiürítettem."
 msgid "Failed to empty templates cache directory."
 msgstr "A sablonok cache mappájának ürítése"
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 #, fuzzy
@@ -1655,8 +1659,18 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
+msgid "manage pages"
+msgstr "oldalak kezelése"
+
 msgid "New page"
 msgstr "Új oldal"
+
+#, fuzzy
+msgid "My first page"
+msgstr "Oldal szerkesztése"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1666,15 +1680,27 @@ msgstr "Oldal szerkesztése"
 msgid "%d pages"
 msgstr "Oldal szerkesztése"
 
-msgid "manage pages"
-msgstr "oldalak kezelése"
+msgid "No page"
+msgstr "Nincs oldal"
+
+msgid "Hidden"
+msgstr ""
 
 #, fuzzy
-msgid "My first page"
-msgstr "Oldal szerkesztése"
+msgid "Select this page"
+msgstr "Címke törlése"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+#, fuzzy
+msgid "Pages actions"
+msgstr "Oldal elhelyzekdése"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "Vissza a címkék listájához"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "Az elemeket sikeresen eltávolítottam."
 
 msgid "Published on"
 msgstr "Publikálás ideje:"
@@ -1693,28 +1719,6 @@ msgstr "Oldal elhelyzekdése"
 
 msgid "Publication date"
 msgstr "Punlikáció ideje"
-
-#, fuzzy
-msgid "Pages actions"
-msgstr "Oldal elhelyzekdése"
-
-#, fuzzy
-msgid "Back to pages list"
-msgstr "Vissza a címkék listájához"
-
-#, fuzzy
-msgid "Selected pages have been successfully reordered."
-msgstr "Az elemeket sikeresen eltávolítottam."
-
-msgid "No page"
-msgstr "Nincs oldal"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Címke törlése"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Biztosan törölni szeretnéd a kiválasztott oldalakat?"
@@ -1754,6 +1758,9 @@ msgstr "Az oldalt sikeresen frissítettem."
 
 msgid "Page has been successfully created."
 msgstr "Az oldalt sikeresen létrehoztam."
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr ""
@@ -1990,32 +1997,8 @@ msgstr "Biztosan törölni szerenéd a kiválasztott hivatkozásokat?"
 msgid "No menu items so far."
 msgstr ""
 
-msgid "This tag's comments Atom feed"
-msgstr "A címke megjegyzéseinek Atom feed-je"
-
-msgid "This tag's entries Atom feed"
-msgstr "A címke bejegyzéseinek Atom feed-je"
-
 msgid "Tag"
 msgstr "Címke:"
-
-msgid "Limit (empty means no limit):"
-msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
-
-msgid "Tag name"
-msgstr "Címke neve"
-
-msgid "Entries count"
-msgstr "Bejegyzések száma"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
 
 #, fuzzy
 msgid "Add tags"
@@ -2091,6 +2074,30 @@ msgstr "Külső média"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "Hozzáadandó címkék:"
+
+msgid "This tag's comments Atom feed"
+msgstr "A címke megjegyzéseinek Atom feed-je"
+
+msgid "This tag's entries Atom feed"
+msgstr "A címke bejegyzéseinek Atom feed-je"
+
+msgid "Limit (empty means no limit):"
+msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
+
+msgid "Tag name"
+msgstr "Címke neve"
+
+msgid "Entries count"
+msgstr "Bejegyzések száma"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "A címkét sikeresen átneveztem"
@@ -2175,9 +2182,6 @@ msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr ""
 
-msgid "You can't edit default theme."
-msgstr ""
-
 msgid "Please select a file to edit."
 msgstr ""
 
@@ -2209,6 +2213,9 @@ msgstr ""
 msgid "PHP files"
 msgstr ""
 
+msgid "You can't edit a distributed theme."
+msgstr ""
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "Az oldalt sikeresen frissítettem."
@@ -2231,6 +2238,9 @@ msgstr "Bemutató kütyük"
 #, fuzzy
 msgid "Widget's textareas"
 msgstr "Kütyüsablon-címkék"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "Keresőmotor"
@@ -2324,11 +2334,11 @@ msgstr ""
 msgid "All pages"
 msgstr "Mindegyik címke"
 
-msgid "Except on home page"
-msgstr ""
-
 msgid "Home page only"
 msgstr "Csak a honlapot"
+
+msgid "Except on home page"
+msgstr ""
 
 #, fuzzy
 msgid "Content only"
@@ -2349,9 +2359,6 @@ msgstr "extra"
 #, fuzzy
 msgid "custom"
 msgstr "Egyedi..."
-
-msgid "empty string"
-msgstr ""
 
 msgid "Sidebars and their widgets have been saved."
 msgstr ""
@@ -2409,6 +2416,9 @@ msgstr ""
 msgid "possible values:"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
 msgid "listitem"
 msgstr ""
 
@@ -2441,16 +2451,20 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
-
-#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Összes kategória"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Legutolsó bejegyzések"
+
+#, fuzzy
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "A képek nem tudtak létrejönni, nem leszel képes néhány háttérbeállítás módosítására."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
 
 #~ msgid "Page top"
 #~ msgstr "Lap teteje"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -35,8 +35,17 @@ msgstr "Blogroll verwalten"
 msgid "Configure your Blowup Theme"
 msgstr "Blowup Theme konfigurieren"
 
-msgid "Legacy modules for dotclear"
-msgstr "Legacy-Module für dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr "Breadcrumb für Dotclear"
+
+msgid "dotclear CKEditor integration"
+msgstr "Dotclear CKEditor"
+
+msgid "dotclear legacy editor"
+msgstr "Dotclear legacy editor"
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
+msgstr ""
 
 msgid "Trackback validity check"
 msgstr "Trackback Überprufung"
@@ -67,15 +76,6 @@ msgstr "Verwalten von allen Benutzer-Konfigurationsrichtlinien"
 
 msgid "Widgets for your blog sidebars"
 msgstr "Widgets für Blog Sidebar"
-
-msgid "dotclear legacy editor"
-msgstr "Dotclear legacy editor"
-
-msgid "dotclear CKEditor integration"
-msgstr "Dotclear CKEditor"
-
-msgid "Breadcrumb for Dotclear"
-msgstr "Breadcrumb für Dotclear"
 
 msgid "Search engine form"
 msgstr "Formular für Suchmaschine"
@@ -122,18 +122,15 @@ msgstr "Tag Wolke"
 msgid "Configuration successfully updated"
 msgstr "Konfiguration wurden erfolgreich aktualisiert"
 
-msgid "no"
-msgstr "nein"
-
-msgid "yes"
-msgstr "ja"
-
 msgid "about:config"
 msgstr "about:config"
 
 #, php-format
 msgid "Settings for %s"
 msgstr "Einstellung für %s"
+
+msgid "Global settings"
+msgstr "Globale Einstellungen"
 
 msgid "Setting ID"
 msgstr "Einstellungs ID"
@@ -147,8 +144,11 @@ msgstr "Beschreibung"
 msgid "Goto:"
 msgstr "Gehe zu:"
 
-msgid "Global settings"
-msgstr "Globale Einstellungen"
+msgid "no"
+msgstr "nein"
+
+msgid "yes"
+msgstr "ja"
 
 msgid "Akismet spam filter"
 msgstr "Akismet Spamfilter"
@@ -174,26 +174,6 @@ msgstr "Holen deinen eigenen API-Schlüssel"
 
 msgid "Antispam"
 msgstr "Antispam"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Alle Spam-Kommentare, die älter als %s Tag(e) sind, werden automatisch gelöscht."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr "Dauer kann in %s eingestellt werden"
-
-msgid "Delete junk comments older than"
-msgstr "Lösche Müll-Kommentare älter als"
-
-msgid "days"
-msgstr "Tage"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-msgid "Set spam filters."
-msgstr "Spam Filter setzen."
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -309,15 +289,25 @@ msgstr "Erstelle Standardwortliste"
 msgid "This word exists"
 msgstr "Dieses Wort ist belegt"
 
-msgid "No description"
-msgstr "Keine Beschreibung"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Alle Spam-Kommentare, die älter als %s Tag(e) sind, werden automatisch gelöscht."
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Gefiltert von %1$s (%2$s)"
+msgid "You can modify this duration in the %s"
+msgstr "Dauer kann in %s eingestellt werden"
 
-msgid "Unknown filter."
-msgstr "Unbekannter Filter."
+msgid "Delete junk comments older than"
+msgstr "Lösche Müll-Kommentare älter als"
+
+msgid "days"
+msgstr "Tage"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+msgid "Set spam filters."
+msgstr "Spam Filter setzen."
 
 msgid "This comment is a spam:"
 msgstr "Dieser Kommentar ist Spam:"
@@ -330,6 +320,16 @@ msgstr "Spam"
 
 msgid "Ham"
 msgstr "Ham"
+
+msgid "No description"
+msgstr "Keine Beschreibung"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Gefiltert von %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Unbekannter Filter."
 
 msgid "Filter does not exist."
 msgstr "Kein Filter vorhanden"
@@ -403,29 +403,11 @@ msgstr "Keine Anlage."
 msgid "Add files to this entry"
 msgstr "Dateien in diesen Beitrag einfügen"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "Blogroll verwalten"
 
-msgid "All categories"
-msgstr "Alle Kategorien"
-
-msgid "Links"
-msgstr "Links"
-
-msgid "You must provide a link title"
-msgstr "Du musst einen Linktitel eingeben"
-
-msgid "You must provide a link URL"
-msgstr "Du musst einen Link-URL eingeben"
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "Du brauchst eine XBEL- oder OPML-Datei."
-
-msgid "File is not in XML format."
-msgstr "Datei hat kein XML-Format."
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "No such link or title"
 msgstr "Link oder Titel existiert nicht"
@@ -526,6 +508,24 @@ msgstr "_xfn_Verabredung"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Liebling"
 
+msgid "You must provide a link title"
+msgstr "Du musst einen Linktitel eingeben"
+
+msgid "You must provide a link URL"
+msgstr "Du musst einen Link-URL eingeben"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Du brauchst eine XBEL- oder OPML-Datei."
+
+msgid "File is not in XML format."
+msgstr "Datei hat kein XML-Format."
+
+msgid "All categories"
+msgstr "Alle Kategorien"
+
+msgid "Links"
+msgstr "Links"
+
 msgid "Nothing to import"
 msgstr "Nichts zu importieren"
 
@@ -553,11 +553,11 @@ msgstr "Sprache"
 msgid "select this link"
 msgstr "diesen Link wählen"
 
-msgid "Delete selected links"
-msgstr "Ausgewählte Links löschen"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "Ausgewählte Links wirklich löschen?"
+
+msgid "Delete selected links"
+msgstr "Ausgewählte Links löschen"
 
 msgid "The link list is empty."
 msgstr "Kein Link eingetragen."
@@ -576,6 +576,15 @@ msgstr "OPML- oder XBEL-Datei:"
 
 msgid "Import"
 msgstr "Import"
+
+msgid "default"
+msgstr "Vorgabe"
+
+msgid "Unable to create css file."
+msgstr "Konnte CSS Datei nicht erstellen."
+
+msgid "Unable to open image."
+msgstr "Kann Grafik nicht öffnen."
 
 msgid "Light linear gradient"
 msgstr "Leichter linearer Farbverlauf"
@@ -609,9 +618,6 @@ msgstr "Vordefinierter Style wählen"
 
 msgid "Back to Blog appearance"
 msgstr "Zurück zur Blog Ansicht"
-
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Aus folgenden Gründen konnten keine Grafiken erstellt werden. Du kannst bestimmte Hintergrund-Eigenschaften nicht ändern."
 
 msgid "Customization"
 msgstr "Optimierung"
@@ -797,15 +803,6 @@ msgstr "Du kannst zum Schützen deiner Konfiguration den folgenden Code benutzen
 msgid "Copy this code:"
 msgstr "Diesen Code kopieren"
 
-msgid "default"
-msgstr "Vorgabe"
-
-msgid "Unable to create css file."
-msgstr "Konnte CSS Datei nicht erstellen."
-
-msgid "Unable to open image."
-msgstr "Kann Grafik nicht öffnen."
-
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
@@ -834,11 +831,11 @@ msgstr "Alle Tags"
 msgid "404"
 msgstr "404"
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-msgid "The configuration has been updated."
-msgstr "Konfiguration wurde erfolgreich aktualisiert."
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr "Medienwähler"
@@ -860,6 +857,9 @@ msgstr "Externes Bild"
 
 msgid "URL field cannot be empty."
 msgstr "URL Feld darf nicht leer sein."
+
+msgid "The configuration has been updated."
+msgstr "Konfiguration wurde erfolgreich aktualisiert."
 
 msgid "dcCKEditor"
 msgstr ""
@@ -939,6 +939,10 @@ msgstr ""
 
 msgid "Save configuration"
 msgstr "Konfiguration speichern"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Dotclear 1.2 Import"
 
 msgid "visual"
 msgstr "visuell"
@@ -1380,7 +1384,8 @@ msgstr "Template Cache-Verzeichnis geleert."
 msgid "Failed to empty templates cache directory."
 msgstr "Template Cache-Verzeichnis leeren nicht möglich."
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 msgid "Count again comments and trackbacks"
@@ -1584,8 +1589,17 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr "Globale IPs (für alle Blogs verwendet)"
 
+msgid "manage pages"
+msgstr "Seiten verwalten"
+
 msgid "New page"
 msgstr "Neue Seite"
+
+msgid "My first page"
+msgstr "Meine erste Seite"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr "Dies ist die erste Seite. Zum bloggen, bitte einloggen und dann editieren oder löschen."
 
 #, php-format
 msgid "%d page"
@@ -1595,14 +1609,23 @@ msgstr "%d Seite"
 msgid "%d pages"
 msgstr "%d Seiten"
 
-msgid "manage pages"
-msgstr "Seiten verwalten"
+msgid "No page"
+msgstr "Keine Seite"
 
-msgid "My first page"
-msgstr "Meine erste Seite"
+msgid "Hidden"
+msgstr "Verborgen"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr "Dies ist die erste Seite. Zum bloggen, bitte einloggen und dann editieren oder löschen."
+msgid "Select this page"
+msgstr "Diese Seite wählen"
+
+msgid "Pages actions"
+msgstr "Seiten Aktionen"
+
+msgid "Back to pages list"
+msgstr "Zurück zur Seitenliste"
+
+msgid "Selected pages have been successfully reordered."
+msgstr "Ausgewählte Seiten wurden erfolgreich angeordnet."
 
 msgid "Published on"
 msgstr "Veröffentlicht am"
@@ -1621,24 +1644,6 @@ msgstr "Stelle der Seite:"
 
 msgid "Publication date"
 msgstr "Datum der Veröffentlichung"
-
-msgid "Pages actions"
-msgstr "Seiten Aktionen"
-
-msgid "Back to pages list"
-msgstr "Zurück zur Seitenliste"
-
-msgid "Selected pages have been successfully reordered."
-msgstr "Ausgewählte Seiten wurden erfolgreich angeordnet."
-
-msgid "No page"
-msgstr "Keine Seite"
-
-msgid "Hidden"
-msgstr "Verborgen"
-
-msgid "Select this page"
-msgstr "Diese Seite wählen"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Ausgewählte Seite wirklich löschen?"
@@ -1675,6 +1680,9 @@ msgstr "Die Seite wurde erfolgreiche aktualisiert."
 
 msgid "Page has been successfully created."
 msgstr "Die Seite wurde erfolgreich erstellt."
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr "Gehe zu diese Seite "
@@ -1886,32 +1894,8 @@ msgstr "Ausgewählte Menu-Element wirklich löschen?"
 msgid "No menu items so far."
 msgstr "Kein Item Menü bisher."
 
-msgid "This tag's comments Atom feed"
-msgstr "Die Kommentare dieses Tags als Atom-Feed abonnieren"
-
-msgid "This tag's entries Atom feed"
-msgstr "Die Einträge dieses Tags als Atom-Feed abonnieren"
-
 msgid "Tag"
 msgstr "Tag"
-
-msgid "Limit (empty means no limit):"
-msgstr "Limit (Feld leer lassen für kein Limit)"
-
-msgid "Tag name"
-msgstr "Name des Tags"
-
-msgid "Entries count"
-msgstr "Anzahl der Einträge"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr "Link zu allen Tags"
 
 msgid "Add tags"
 msgstr "Tags einfügen"
@@ -1976,6 +1960,30 @@ msgstr "Erweitert"
 
 msgid "Tags list format:"
 msgstr "Tag-Listenformat:"
+
+msgid "This tag's comments Atom feed"
+msgstr "Die Kommentare dieses Tags als Atom-Feed abonnieren"
+
+msgid "This tag's entries Atom feed"
+msgstr "Die Einträge dieses Tags als Atom-Feed abonnieren"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limit (Feld leer lassen für kein Limit)"
+
+msgid "Tag name"
+msgstr "Name des Tags"
+
+msgid "Entries count"
+msgstr "Anzahl der Einträge"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr "Link zu allen Tags"
 
 msgid "Tag has been successfully renamed"
 msgstr "Tag wurde erfolgreich umbenannt"
@@ -2058,9 +2066,6 @@ msgstr "Diese Datei wirklich zurücksetzen?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Dein aktuelles Theme für diesen Blog ist \"%s\"."
 
-msgid "You can't edit default theme."
-msgstr "Vorgegebene Theme kann nicht bearbeitet werden."
-
 msgid "Please select a file to edit."
 msgstr "Bitte wähle eine Datei zum Bearbeiten."
 
@@ -2093,6 +2098,10 @@ msgstr "Lokale Dateien"
 msgid "PHP files"
 msgstr "CSS-Dateien"
 
+#, fuzzy
+msgid "You can't edit a distributed theme."
+msgstr "Vorgegebene Theme kann nicht bearbeitet werden."
+
 msgid "Preferences successfully updated"
 msgstr "Konfiguration wurden aktualisiert"
 
@@ -2110,6 +2119,9 @@ msgstr "Widgets"
 
 msgid "Widget's textareas"
 msgstr "Textbereich für Widgets"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "Suchmaschine"
@@ -2200,11 +2212,11 @@ msgstr "Anzeige an:"
 msgid "All pages"
 msgstr "Alle Seiten"
 
-msgid "Except on home page"
-msgstr "Ausser auf der Startseite"
-
 msgid "Home page only"
 msgstr "Nur auf Startseite"
+
+msgid "Except on home page"
+msgstr "Ausser auf der Startseite"
 
 msgid "Content only"
 msgstr "Nur Inhalt"
@@ -2223,9 +2235,6 @@ msgstr "Extra"
 
 msgid "custom"
 msgstr "benutzerdefiniert"
-
-msgid "empty string"
-msgstr "leerer String"
 
 msgid "Sidebars and their widgets have been saved."
 msgstr "Sidebar mit Widgets wurden gespeichert."
@@ -2281,6 +2290,9 @@ msgstr "Boole'scher Wert"
 msgid "possible values:"
 msgstr "mögliche Werte:"
 
+msgid "empty string"
+msgstr "leerer String"
+
 msgid "listitem"
 msgstr "Listenelement"
 
@@ -2308,9 +2320,8 @@ msgstr "Widget entfernen"
 msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
 
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Diese Seite wirklich löschen?"
+#~ msgid "Legacy modules for dotclear"
+#~ msgstr "Legacy-Module für dotclear"
 
 #, fuzzy
 #~ msgid "Liste des auteurs"
@@ -2319,6 +2330,13 @@ msgstr "Widgets hierhin ziehen zum Löschen."
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Neuste Einträge"
+
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "Aus folgenden Gründen konnten keine Grafiken erstellt werden. Du kannst bestimmte Hintergrund-Eigenschaften nicht ändern."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Diese Seite wirklich löschen?"
 
 #~ msgid "Database driver (must be mysqli if PHP 7 or higher):"
 #~ msgstr "Datenbank Treiber (muss mysqli sein für PHP7 oder grösser):"

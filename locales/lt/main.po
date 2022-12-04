@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -26,11 +26,11 @@ msgstr "Naujo slaptažodžio nustatymas"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Dalyvis paprašė nustatyti naują slaptažodį šiame puslapyje ir tokiu vardu."
 
-msgid "Username:"
-msgstr "Prisijungimo vardas:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Paspauskite atsiųstą nuoroda tam, kad iš naujo nustatyti slaptažodį. Jei neketinote keisti slaptažodžio, nespauskite ir senasis išliks."
+
+msgid "Username:"
+msgstr "Prisijungimo vardas:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -73,78 +73,6 @@ msgid "Wrong username or password"
 msgstr "Klaidingas prisijungimo vardas ir slaptažodis"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Naujo slaptažodžio nustatymas"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr "Vidutinis:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Atgal į prisijungimo puslapį"
-
-msgid "Request a new password"
-msgstr "Prašyti naujo slaptažodžio"
-
-msgid "Email:"
-msgstr "El. paštas:"
-
-msgid "recover"
-msgstr "atstatyti"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Paieškos nustatymai"
-
-msgid "Change your password"
-msgstr "Slaptawodžio keitimas"
-
-msgid "New password:"
-msgstr "Naujas slaptažodis:"
-
-msgid "Confirm password:"
-msgstr "Patvirtinkite slaptažodį:"
-
-msgid "change"
-msgstr "keisti"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Prisiminti mano ID šiame kompiuteryje"
-
-#, fuzzy
-msgid "log in"
-msgstr "Blogo pavadinimas"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Tam kad pasiekti tolimesnį puslapį jūs turite leisti įjungti Cookies."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "Pamiršau slaptažodį"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blogas sėkmingai sukurtas."
 
@@ -157,29 +85,29 @@ msgstr "Sistema"
 msgid "Blogs"
 msgstr "Blogai"
 
+msgid "Blog ID"
+msgstr "Blogo ID"
+
 msgid "Blog ID:"
 msgstr "Blogo ID:"
 
 msgid "Required field"
 msgstr "Būtinas laukelis"
 
-msgid "Blog ID"
-msgstr "Blogo ID"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Naudokite raidžių, skaičių ir simbolių kombinaciją iš mažiausiai 2 ženklų."
-
-msgid "Blog name:"
-msgstr "Blogo pavadinimas:"
 
 msgid "Blog name"
 msgstr "Blogo pavadinimas"
 
-msgid "Blog URL:"
-msgstr "Blogo URL:"
+msgid "Blog name:"
+msgstr "Blogo pavadinimas:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "Blogo URL:"
+
+msgid "Blog URL:"
 msgstr "Blogo URL:"
 
 msgid "Blog description:"
@@ -543,27 +471,6 @@ msgstr "Dotclear komanda"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Įjungti XML/RPC sąsają"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC sąsaja leiidžia jums redaguoti savo blogą per išorinį klientą."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC sąsaja yra aktyvi. Savo XML/RPC kliente turėtumėte nustatyti šiuos parametrus:"
-
-msgid "Server URL:"
-msgstr "Serverio URL:"
-
-msgid "Blogging system:"
-msgstr "Blogo sistema:"
-
-msgid "User name:"
-msgstr "Prisijungimo vardas:"
-
-msgid "your password"
-msgstr "jūsų slaptažodis"
-
 msgid "Search engines robots policy"
 msgstr "Paieškos variklių nustatymai"
 
@@ -605,6 +512,9 @@ msgstr "Dalyviai šiame bloge"
 
 msgid "No users"
 msgstr "Dalyvių nėra"
+
+msgid "Email:"
+msgstr "El. paštas:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -710,12 +620,12 @@ msgid "Create a new blog"
 msgstr "Kurtin naują blogą"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "Veiskmas pasirinktiems dalyviams:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Veiksmas"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Veiskmas pasirinktiems dalyviams:"
 
 msgid "ok"
 msgstr "tinka"
@@ -847,11 +757,11 @@ msgstr "Antrinė kategorija"
 msgid "Move current category"
 msgstr "Perkelti dabartinę kategoriją"
 
-msgid "after"
-msgstr "po"
-
 msgid "before"
 msgstr "prieš"
+
+msgid "after"
+msgstr "po"
 
 #, fuzzy
 msgid "position: "
@@ -1136,6 +1046,19 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear instaliacija"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Naujo slaptažodžio nustatymas"
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr "Vidutinis:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr "rodyti"
 
@@ -1170,9 +1093,15 @@ msgstr "Prisijungimo vardas ir slaptažodis"
 msgid "Username"
 msgstr "Prisijungimo vvardas"
 
+msgid "New password:"
+msgstr "Naujas slaptažodis:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Slaptažodis:"
+
+msgid "Confirm password:"
+msgstr "Patvirtinkite slaptažodį:"
 
 msgid "All done!"
 msgstr "Štai ir viskas!"
@@ -1376,19 +1305,6 @@ msgstr "Kalbos zip failas:"
 msgid "Upload language"
 msgstr "Įkelti kalbą"
 
-msgid "Media manager"
-msgstr "Media tvarkyklė"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "Rasti %d įrašai"
-msgstr[1] "Rasti %d įrašai"
-msgstr[2] ""
-
-msgid "Search:"
-msgstr "Ieškoti:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Netinkamas failas"
@@ -1495,6 +1411,9 @@ msgstr "Atstatyti pasirinktą failą"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "Media tvarkyklė"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "Išarchyvuoti naujoje direktorijoje"
@@ -1548,6 +1467,16 @@ msgstr "Įkelti"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "Rasti %d įrašai"
+msgstr[1] "Rasti %d įrašai"
+msgstr[2] ""
+
+msgid "Search:"
+msgstr "Ieškoti:"
 
 msgid "Not a valid file"
 msgstr "Netinkamas failas"
@@ -1790,10 +1719,6 @@ msgstr "Plugin'as kurį pasiek'te neegzistuoja arba neturi administravimo puslap
 msgid "Plugins management"
 msgstr "Plugin'ų valdymas"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Blogo konfigūracija"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1818,6 +1743,9 @@ msgstr "Instaliuotos kalbos"
 
 msgid "Activated plugins"
 msgstr "Įjungti plugin'ai"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1844,6 +1772,10 @@ msgstr "Galite instaliuoti plugin'us įkeldami ar parsisiųsdami zip failus."
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Įjunkite įrašymo teises savo plugin'ų direktorijai norėdami naudotis šia funkcija."
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Blogo konfigūracija"
 
 msgid "Add a link"
 msgstr "Pridėti nuorodą"
@@ -1941,37 +1873,15 @@ msgstr "Failas sėkmingai prikabintas."
 msgid "Attachment has been successfully removed."
 msgstr "Priedas sėkmingai pašalintas."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Nepamirškite patvirtinti HTML išsaugodami savo įrašą."
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Data"
-
-msgid "IP address"
-msgstr "IP adresas"
-
 msgid "Status"
 msgstr "Statusas"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Redaguoti šį komentarą"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Leisti trackback'us"
-
-msgid "Edit this comment"
-msgstr "Redaguoti šį komentarą"
 
 #, fuzzy
 msgid "Entry status"
@@ -2083,6 +1993,29 @@ msgstr "Automatiškai rasti ping URLus"
 
 msgid "Previously sent pings"
 msgstr "Anksčiau siųsti ping"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "IP address"
+msgstr "IP adresas"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Redaguoti šį komentarą"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Leisti trackback'us"
+
+msgid "Edit this comment"
+msgstr "Redaguoti šį komentarą"
 
 msgid "This attachment does not exist"
 msgstr "Šis komentaras neegzistuoja"
@@ -2394,9 +2327,6 @@ msgstr "Valdymas"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Valdymas"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2934,6 +2864,25 @@ msgstr "Dažniausiai naudojamas"
 #, fuzzy
 msgid "Entry language:"
 msgstr "Įrašo kalba:"
+
+msgid "Database error"
+msgstr "Datenbankfehler"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Jūsų duomenų bazėje nėra Session table . Ar Dotclear yra pilkai instaliuotas?"
+
+#, fuzzy
+msgid "System settings"
+msgstr "Blogo nustatymai"
+
+msgid "Blog"
+msgstr "Blogas"
+
+msgid "Plugins"
+msgstr "Plugin'ai"
+
+msgid "Update"
+msgstr "Atnaujinimai"
 
 msgid "Languages"
 msgstr "Kalbos"
@@ -3484,9 +3433,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear instaliacija"
 
-msgid "Update"
-msgstr "Atnaujinimai"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "Įjungti plugin'ai"
@@ -3946,11 +3892,11 @@ msgid "open"
 msgstr "atidaryti"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3978,22 +3924,6 @@ msgstr "Įrašant failą įvyko klaida."
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Sukurtų paveikslėlių dydis (pikseliais)"
-
-msgid "Database error"
-msgstr "Datenbankfehler"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Jūsų duomenų bazėje nėra Session table . Ar Dotclear yra pilkai instaliuotas?"
-
-#, fuzzy
-msgid "System settings"
-msgstr "Blogo nustatymai"
-
-msgid "Blog"
-msgstr "Blogas"
-
-msgid "Plugins"
-msgstr "Plugin'ai"
 
 msgid "small"
 msgstr "Mažas:"
@@ -4218,17 +4148,18 @@ msgstr "Modulio trynimo metu įvykl klaida."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Nepavyko atnaujinti \"%s\". (ta pati versija)"
 
-msgid "Unable to read new _define.php file"
-msgstr "Nepavyko perskaityti naujo _define.php failo"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Nepavyksta perskaityti digests failo."
+
+msgid "Cannot deactivate plugin."
+msgstr "Negalima išjungti plugin'o"
 
 msgid "No such module."
 msgstr "Nėra tokio modulio."
 
 msgid "Cannot remove module files"
 msgstr "Negalima pašalinti modulio failų"
-
-msgid "Cannot deactivate plugin."
-msgstr "Negalima išjungti plugin'o"
 
 msgid "Cannot activate plugin."
 msgstr "Negalima įjungti plugin'o"
@@ -4309,7 +4240,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "Nepavyksta atidaryti failo."
 
 #, fuzzy
@@ -4430,6 +4361,62 @@ msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+#~ msgid "Back to login screen"
+#~ msgstr "Atgal į prisijungimo puslapį"
+
+#~ msgid "Request a new password"
+#~ msgstr "Prašyti naujo slaptažodžio"
+
+#~ msgid "recover"
+#~ msgstr "atstatyti"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Paieškos nustatymai"
+
+#~ msgid "Change your password"
+#~ msgstr "Slaptawodžio keitimas"
+
+#~ msgid "change"
+#~ msgstr "keisti"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Prisiminti mano ID šiame kompiuteryje"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Blogo pavadinimas"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Tam kad pasiekti tolimesnį puslapį jūs turite leisti įjungti Cookies."
+
+#~ msgid "I forgot my password"
+#~ msgstr "Pamiršau slaptažodį"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Įjungti XML/RPC sąsają"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC sąsaja leiidžia jums redaguoti savo blogą per išorinį klientą."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC sąsaja yra aktyvi. Savo XML/RPC kliente turėtumėte nustatyti šiuos parametrus:"
+
+#~ msgid "Server URL:"
+#~ msgstr "Serverio URL:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Blogo sistema:"
+
+#~ msgid "User name:"
+#~ msgstr "Prisijungimo vardas:"
+
+#~ msgid "your password"
+#~ msgstr "jūsų slaptažodis"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "Nepavyko perskaityti naujo _define.php failo"
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "Pagal vardus, didėjančia tvarka"

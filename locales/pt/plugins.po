@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -39,7 +39,16 @@ msgstr "Gerir os blogroll"
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-msgid "Legacy modules for dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -74,15 +83,6 @@ msgstr ""
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "Acrescentar widgets nas barras laterais"
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -137,18 +137,16 @@ msgstr "Etiquetas a acrescentar:"
 msgid "Configuration successfully updated"
 msgstr "A Configuração foi actualizada com sucesso"
 
-msgid "no"
-msgstr "não"
-
-msgid "yes"
-msgstr ""
-
 msgid "about:config"
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Editar ficheiro %s"
+
+#, fuzzy
+msgid "Global settings"
+msgstr "parâmetros globais"
 
 #, fuzzy
 msgid "Setting ID"
@@ -163,9 +161,11 @@ msgstr "Descrição"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
-msgid "Global settings"
-msgstr "parâmetros globais"
+msgid "no"
+msgstr "não"
+
+msgid "yes"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "filtro de spam Akismet"
@@ -192,27 +192,6 @@ msgstr "Obtenha sua chave Akismet"
 
 msgid "Antispam"
 msgstr "Antispam"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Todos os comentários spam com mais de %s dia(s) serão suprimidos automaticamente."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "Eliminar comentários spam mais velhos do que"
-
-msgid "days"
-msgstr "dias"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "filtro de spam Akismet"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -331,15 +310,26 @@ msgstr "Predefinir a lista"
 msgid "This word exists"
 msgstr "Esta palavra existe"
 
-msgid "No description"
-msgstr "Nenhuma descrição"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Todos os comentários spam com mais de %s dia(s) serão suprimidos automaticamente."
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Filtrado por %1$s (%2$s)"
+msgid "You can modify this duration in the %s"
+msgstr ""
 
-msgid "Unknown filter."
-msgstr "Filtro desconhecido."
+msgid "Delete junk comments older than"
+msgstr "Eliminar comentários spam mais velhos do que"
+
+msgid "days"
+msgstr "dias"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "filtro de spam Akismet"
 
 msgid "This comment is a spam:"
 msgstr "Este comentário é um spam:"
@@ -352,6 +342,16 @@ msgstr "Spam"
 
 msgid "Ham"
 msgstr "Ham (Não spam)"
+
+msgid "No description"
+msgstr "Nenhuma descrição"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Filtrado por %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Filtro desconhecido."
 
 msgid "Filter does not exist."
 msgstr "O filtro não existe."
@@ -428,29 +428,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Adicione ficheiros a esta página"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "Gerir os blogroll"
 
-msgid "All categories"
-msgstr "Todas as categorias"
-
-msgid "Links"
-msgstr "Links"
-
-msgid "You must provide a link title"
-msgstr "Deve dar um título ao link"
-
-msgid "You must provide a link URL"
-msgstr "Deve dar um URL ao link"
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "Você tem que fornecer um ficheiro OPML ou XBEL."
-
-msgid "File is not in XML format."
-msgstr "O ficheiro não está no formato XML."
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "No such link or title"
 msgstr "Nada como link ou título"
@@ -552,6 +534,24 @@ msgstr "_xfn_Data"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Querido"
 
+msgid "You must provide a link title"
+msgstr "Deve dar um título ao link"
+
+msgid "You must provide a link URL"
+msgstr "Deve dar um URL ao link"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Você tem que fornecer um ficheiro OPML ou XBEL."
+
+msgid "File is not in XML format."
+msgstr "O ficheiro não está no formato XML."
+
+msgid "All categories"
+msgstr "Todas as categorias"
+
+msgid "Links"
+msgstr "Links"
+
 msgid "Nothing to import"
 msgstr "Nada a importar"
 
@@ -580,11 +580,11 @@ msgstr "Língua"
 msgid "select this link"
 msgstr "Apagar esta etiqueta"
 
-msgid "Delete selected links"
-msgstr "Suprimir os links seleccionados"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "Tem a certeza que pretende suprimir os links seleccionados?"
+
+msgid "Delete selected links"
+msgstr "Suprimir os links seleccionados"
 
 msgid "The link list is empty."
 msgstr ""
@@ -603,6 +603,16 @@ msgstr "Ficheiro OPML ou XBEL"
 
 msgid "Import"
 msgstr "Importar"
+
+msgid "default"
+msgstr "Predefinição"
+
+#, fuzzy
+msgid "Unable to create css file."
+msgstr "Não é possível criar imagens."
+
+msgid "Unable to open image."
+msgstr "Não é possível abrir imagem."
 
 msgid "Light linear gradient"
 msgstr "Gradiente linear claro"
@@ -637,10 +647,6 @@ msgstr "Estilos predefinidos"
 
 msgid "Back to Blog appearance"
 msgstr ""
-
-#, fuzzy
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Como as imagens não podem ser criadas, não será possível de mudar algumas propriedades do fundo."
 
 msgid "Customization"
 msgstr ""
@@ -826,16 +832,6 @@ msgstr "Você pode partilhar sua configuração usando o seguinte código. Para 
 msgid "Copy this code:"
 msgstr ""
 
-msgid "default"
-msgstr "Predefinição"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "Não é possível criar imagens."
-
-msgid "Unable to open image."
-msgstr "Não é possível abrir imagem."
-
 msgid "Breadcrumb"
 msgstr ""
 
@@ -864,12 +860,11 @@ msgstr "Todas as etiquetas"
 msgid "404"
 msgstr ""
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-#, fuzzy
-msgid "The configuration has been updated."
-msgstr "A configuração do tema foi actualizado com sucesso."
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -893,6 +888,10 @@ msgstr "Média externa"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "A configuração do tema foi actualizado com sucesso."
 
 msgid "dcCKEditor"
 msgstr ""
@@ -973,6 +972,10 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s configuração"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Importação Dotclear 1.2"
 
 msgid "visual"
 msgstr ""
@@ -1433,7 +1436,8 @@ msgstr "Cache de template esvaziados."
 msgid "Failed to empty templates cache directory."
 msgstr "Cache de template vazia"
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 #, fuzzy
@@ -1651,8 +1655,18 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
+msgid "manage pages"
+msgstr "Gerir as Páginas"
+
 msgid "New page"
 msgstr "Nova página"
+
+#, fuzzy
+msgid "My first page"
+msgstr "Editar a página"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1662,15 +1676,27 @@ msgstr "Editar a página"
 msgid "%d pages"
 msgstr "Editar a página"
 
-msgid "manage pages"
-msgstr "Gerir as Páginas"
+msgid "No page"
+msgstr "Nenhuma página"
+
+msgid "Hidden"
+msgstr ""
 
 #, fuzzy
-msgid "My first page"
-msgstr "Editar a página"
+msgid "Select this page"
+msgstr "Apagar esta etiqueta"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+#, fuzzy
+msgid "Pages actions"
+msgstr "Posição da página"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "Voltar à lista de etiquetas"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "Os itens foram removidos com sucesso."
 
 msgid "Published on"
 msgstr "Publicados em "
@@ -1689,28 +1715,6 @@ msgstr "Posição da página"
 
 msgid "Publication date"
 msgstr "Data de publicação"
-
-#, fuzzy
-msgid "Pages actions"
-msgstr "Posição da página"
-
-#, fuzzy
-msgid "Back to pages list"
-msgstr "Voltar à lista de etiquetas"
-
-#, fuzzy
-msgid "Selected pages have been successfully reordered."
-msgstr "Os itens foram removidos com sucesso."
-
-msgid "No page"
-msgstr "Nenhuma página"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Apagar esta etiqueta"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Tem a certeza que pretende suprimir as páginas seleccionadas"
@@ -1750,6 +1754,9 @@ msgstr "A página foi actualizada com sucesso."
 
 msgid "Page has been successfully created."
 msgstr "A página foi criada com sucesso."
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr ""
@@ -1987,32 +1994,8 @@ msgstr "Tem a certeza que pretende suprimir os links seleccionados?"
 msgid "No menu items so far."
 msgstr ""
 
-msgid "This tag's comments Atom feed"
-msgstr "Feed ATOM para os comentários desta etiqueta"
-
-msgid "This tag's entries Atom feed"
-msgstr "Feed ATOM para as entradas desta etiqueta"
-
 msgid "Tag"
 msgstr "Etiqueta"
-
-msgid "Limit (empty means no limit):"
-msgstr "Limite (se vazio não há limite);"
-
-msgid "Tag name"
-msgstr "Nome da etiqueta"
-
-msgid "Entries count"
-msgstr "Contador de entradas"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Add tags"
 msgstr "Acrescentar etiquetas"
@@ -2086,6 +2069,30 @@ msgstr "Média externa"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "Etiquetas a acrescentar:"
+
+msgid "This tag's comments Atom feed"
+msgstr "Feed ATOM para os comentários desta etiqueta"
+
+msgid "This tag's entries Atom feed"
+msgstr "Feed ATOM para as entradas desta etiqueta"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limite (se vazio não há limite);"
+
+msgid "Tag name"
+msgstr "Nome da etiqueta"
+
+msgid "Entries count"
+msgstr "Contador de entradas"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "A etiqueta foi alterada com sucesso"
@@ -2171,9 +2178,6 @@ msgstr "Tem a certeza que pretende remover esta página?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Seu tema actual neste blog é \"%s\"."
 
-msgid "You can't edit default theme."
-msgstr "você não pode alterar o tema predefinido"
-
 msgid "Please select a file to edit."
 msgstr "Selecciona um ficheiro a alterar. s.f.f."
 
@@ -2208,6 +2212,10 @@ msgid "PHP files"
 msgstr "Ficheiros CSS"
 
 #, fuzzy
+msgid "You can't edit a distributed theme."
+msgstr "você não pode alterar o tema predefinido"
+
+#, fuzzy
 msgid "Preferences successfully updated"
 msgstr "A página foi actualizada com sucesso."
 
@@ -2229,6 +2237,9 @@ msgstr "Widget de apresentação"
 #, fuzzy
 msgid "Widget's textareas"
 msgstr "Tags de template para os widgets"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "Motor de pesquisa"
@@ -2321,11 +2332,11 @@ msgstr ""
 msgid "All pages"
 msgstr "Todas as etiquetas"
 
-msgid "Except on home page"
-msgstr ""
-
 msgid "Home page only"
 msgstr "Página inicial só"
+
+msgid "Except on home page"
+msgstr ""
 
 #, fuzzy
 msgid "Content only"
@@ -2347,9 +2358,6 @@ msgstr "extra"
 #, fuzzy
 msgid "custom"
 msgstr "Personalizado..."
-
-msgid "empty string"
-msgstr ""
 
 msgid "Sidebars and their widgets have been saved."
 msgstr ""
@@ -2407,6 +2415,9 @@ msgstr ""
 msgid "possible values:"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
 msgid "listitem"
 msgstr ""
 
@@ -2439,16 +2450,20 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Tem a certeza que pretende remover esta página?"
-
-#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Todas as categorias"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Últimas entradas"
+
+#, fuzzy
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "Como as imagens não podem ser criadas, não será possível de mudar algumas propriedades do fundo."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Tem a certeza que pretende remover esta página?"
 
 #~ msgid "Page top"
 #~ msgstr "Alto da página"

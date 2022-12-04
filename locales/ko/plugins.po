@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -36,7 +36,16 @@ msgstr "링크모음 관리"
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-msgid "Legacy modules for dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -71,15 +80,6 @@ msgstr ""
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "위젯을 측면판에 추가"
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -134,18 +134,16 @@ msgstr "추가할 분류딱지들 :"
 msgid "Configuration successfully updated"
 msgstr "설정사항 갱신 성공"
 
-msgid "no"
-msgstr "아니오"
-
-msgid "yes"
-msgstr ""
-
 msgid "about:config"
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "%s 파일 편집"
+
+#, fuzzy
+msgid "Global settings"
+msgstr "글로벌 설정"
 
 #, fuzzy
 msgid "Setting ID"
@@ -160,9 +158,11 @@ msgstr "설명"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
-msgid "Global settings"
-msgstr "글로벌 설정"
+msgid "no"
+msgstr "아니오"
+
+msgid "yes"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "Akismet 스팸필터"
@@ -189,27 +189,6 @@ msgstr "당신의 관리키를 받으세요"
 
 msgid "Antispam"
 msgstr "안티스팸"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
-
-msgid "days"
-msgstr "일"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet 스팸필터"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -328,15 +307,26 @@ msgstr "기본 금지어 목록 만들기"
 msgid "This word exists"
 msgstr "이 단어는 이미 있습니다."
 
-msgid "No description"
-msgstr "설명 없음"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "%1$s (%2$s) 로 걸러짐"
+msgid "You can modify this duration in the %s"
+msgstr ""
 
-msgid "Unknown filter."
-msgstr "알 수 없는 필터"
+msgid "Delete junk comments older than"
+msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
+
+msgid "days"
+msgstr "일"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet 스팸필터"
 
 msgid "This comment is a spam:"
 msgstr "이 댓글은 스팸입니다 :"
@@ -349,6 +339,16 @@ msgstr "스팸"
 
 msgid "Ham"
 msgstr "스팸없음"
+
+msgid "No description"
+msgstr "설명 없음"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "%1$s (%2$s) 로 걸러짐"
+
+msgid "Unknown filter."
+msgstr "알 수 없는 필터"
 
 msgid "Filter does not exist."
 msgstr "필터가 없습니다."
@@ -425,29 +425,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "페이지에 파일 첨부"
 
-msgid "Blogroll"
-msgstr "링크모음"
-
 msgid "manage blogroll"
 msgstr "링크모음 관리"
 
-msgid "All categories"
-msgstr "모든 링크분류 포함"
-
-msgid "Links"
+msgid "Blogroll"
 msgstr "링크모음"
-
-msgid "You must provide a link title"
-msgstr "링크의 제목을 지정해야합니다."
-
-msgid "You must provide a link URL"
-msgstr "링크의 URL을 지정해야합니다."
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "XBEL 이나 OPML 파일을 지정해야합니다."
-
-msgid "File is not in XML format."
-msgstr "XML 파일이 아닙니다."
 
 msgid "No such link or title"
 msgstr "링크 또는 제목이 존재하지 않습니다."
@@ -549,6 +531,24 @@ msgstr "데이트"
 msgid "_xfn_Sweetheart"
 msgstr "벗"
 
+msgid "You must provide a link title"
+msgstr "링크의 제목을 지정해야합니다."
+
+msgid "You must provide a link URL"
+msgstr "링크의 URL을 지정해야합니다."
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "XBEL 이나 OPML 파일을 지정해야합니다."
+
+msgid "File is not in XML format."
+msgstr "XML 파일이 아닙니다."
+
+msgid "All categories"
+msgstr "모든 링크분류 포함"
+
+msgid "Links"
+msgstr "링크모음"
+
 msgid "Nothing to import"
 msgstr "가져오기할 게 없습니다"
 
@@ -577,11 +577,11 @@ msgstr "언어"
 msgid "select this link"
 msgstr "분류딱지 삭제"
 
-msgid "Delete selected links"
-msgstr "선택된 링크들 삭제"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Delete selected links"
+msgstr "선택된 링크들 삭제"
 
 msgid "The link list is empty."
 msgstr ""
@@ -600,6 +600,16 @@ msgstr "OPML 또는 XBEL 파일 :"
 
 msgid "Import"
 msgstr "블로그로 가져오기"
+
+msgid "default"
+msgstr "기본값"
+
+#, fuzzy
+msgid "Unable to create css file."
+msgstr "이미지를 생성할 수 없습니다."
+
+msgid "Unable to open image."
+msgstr "이미지파일을 읽을 수 없습니다."
 
 msgid "Light linear gradient"
 msgstr "밝은 선형 그래디언트"
@@ -635,10 +645,6 @@ msgstr "미리 지정된 스타일들"
 
 msgid "Back to Blog appearance"
 msgstr ""
-
-#, fuzzy
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "이미지가 생성될 수 없으므로, 일부 바탕색은 바꿀 수 없습니다."
 
 msgid "Customization"
 msgstr ""
@@ -824,16 +830,6 @@ msgstr "다음 코드를 이용하면 당신의 설정을 공유할 수 있습�
 msgid "Copy this code:"
 msgstr ""
 
-msgid "default"
-msgstr "기본값"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "이미지를 생성할 수 없습니다."
-
-msgid "Unable to open image."
-msgstr "이미지파일을 읽을 수 없습니다."
-
 msgid "Breadcrumb"
 msgstr ""
 
@@ -862,12 +858,11 @@ msgstr "모든 분류딱지"
 msgid "404"
 msgstr ""
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-#, fuzzy
-msgid "The configuration has been updated."
-msgstr "테마 설정이 성공적으로 갱신되었습니다."
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -891,6 +886,10 @@ msgstr "외부 미디어"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "테마 설정이 성공적으로 갱신되었습니다."
 
 msgid "dcCKEditor"
 msgstr ""
@@ -971,6 +970,10 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s 설정"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Dotclear 1.2에서 가져오기"
 
 msgid "visual"
 msgstr ""
@@ -1437,7 +1440,8 @@ msgstr "템플릿 캐쉬 폴더가 비워졌습니다."
 msgid "Failed to empty templates cache directory."
 msgstr "템플릿 캐쉬 폴더 비우기"
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 #, fuzzy
@@ -1655,8 +1659,18 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
+msgid "manage pages"
+msgstr "페이지 관리"
+
 msgid "New page"
 msgstr "새 페이지"
+
+#, fuzzy
+msgid "My first page"
+msgstr "페이지 편집"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1666,15 +1680,27 @@ msgstr "페이지 편집"
 msgid "%d pages"
 msgstr "페이지 편집"
 
-msgid "manage pages"
-msgstr "페이지 관리"
+msgid "No page"
+msgstr "페이지 없음"
+
+msgid "Hidden"
+msgstr ""
 
 #, fuzzy
-msgid "My first page"
-msgstr "페이지 편집"
+msgid "Select this page"
+msgstr "분류딱지 삭제"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+#, fuzzy
+msgid "Pages actions"
+msgstr "페이지 위치"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "분류딱지 목록으로 돌아가기"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "항목들이 성공적으로 삭제되었습니다."
 
 msgid "Published on"
 msgstr "공개 일시"
@@ -1693,28 +1719,6 @@ msgstr "페이지 위치"
 
 msgid "Publication date"
 msgstr "공개 일시"
-
-#, fuzzy
-msgid "Pages actions"
-msgstr "페이지 위치"
-
-#, fuzzy
-msgid "Back to pages list"
-msgstr "분류딱지 목록으로 돌아가기"
-
-#, fuzzy
-msgid "Selected pages have been successfully reordered."
-msgstr "항목들이 성공적으로 삭제되었습니다."
-
-msgid "No page"
-msgstr "페이지 없음"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "분류딱지 삭제"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
@@ -1754,6 +1758,9 @@ msgstr "페이지가 성공적으로 갱신되었습니다."
 
 msgid "Page has been successfully created."
 msgstr "페이지가 성공적으로 생성되었습니다."
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr ""
@@ -1990,32 +1997,8 @@ msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
 msgid "No menu items so far."
 msgstr ""
 
-msgid "This tag's comments Atom feed"
-msgstr "이 분류딱지가 붙은 댓글들의 타래소식 (Atom)"
-
-msgid "This tag's entries Atom feed"
-msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
-
 msgid "Tag"
 msgstr "분류딱지"
-
-msgid "Limit (empty means no limit):"
-msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
-
-msgid "Tag name"
-msgstr "분류딱지 이름"
-
-msgid "Entries count"
-msgstr "글꼭지 수"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
 
 #, fuzzy
 msgid "Add tags"
@@ -2089,6 +2072,30 @@ msgstr "외부 미디어"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "추가할 분류딱지들 :"
+
+msgid "This tag's comments Atom feed"
+msgstr "이 분류딱지가 붙은 댓글들의 타래소식 (Atom)"
+
+msgid "This tag's entries Atom feed"
+msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
+
+msgid "Limit (empty means no limit):"
+msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
+
+msgid "Tag name"
+msgstr "분류딱지 이름"
+
+msgid "Entries count"
+msgstr "글꼭지 수"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "분류딱지 이름바꾸기 성공"
@@ -2174,9 +2181,6 @@ msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "이 블로그에서 당신이 사용하는 현재 테마는 \"%s\" 입니다."
 
-msgid "You can't edit default theme."
-msgstr "기본 테마 파일은 편집할 수 없습니다."
-
 msgid "Please select a file to edit."
 msgstr "편집할 파일을 선택해주세요."
 
@@ -2211,6 +2215,10 @@ msgid "PHP files"
 msgstr "CSS 파일들"
 
 #, fuzzy
+msgid "You can't edit a distributed theme."
+msgstr "기본 테마 파일은 편집할 수 없습니다."
+
+#, fuzzy
 msgid "Preferences successfully updated"
 msgstr "페이지가 성공적으로 갱신되었습니다."
 
@@ -2232,6 +2240,9 @@ msgstr "화면구성 위젯"
 #, fuzzy
 msgid "Widget's textareas"
 msgstr "위젯 템플릿 태그들"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "찾기 엔진"
@@ -2324,11 +2335,11 @@ msgstr ""
 msgid "All pages"
 msgstr "모든 분류딱지"
 
-msgid "Except on home page"
-msgstr ""
-
 msgid "Home page only"
 msgstr "시작화면에만 보이기"
+
+msgid "Except on home page"
+msgstr ""
 
 #, fuzzy
 msgid "Content only"
@@ -2350,9 +2361,6 @@ msgstr "추가사항"
 #, fuzzy
 msgid "custom"
 msgstr "이미지 추가하기"
-
-msgid "empty string"
-msgstr ""
 
 msgid "Sidebars and their widgets have been saved."
 msgstr ""
@@ -2410,6 +2418,9 @@ msgstr ""
 msgid "possible values:"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
 msgid "listitem"
 msgstr ""
 
@@ -2442,16 +2453,20 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "모든 링크분류 포함"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "최근 글꼭지"
+
+#, fuzzy
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "이미지가 생성될 수 없으므로, 일부 바탕색은 바꿀 수 없습니다."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
 
 #~ msgid "Page top"
 #~ msgstr "페이지 높이 :"

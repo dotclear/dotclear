@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -26,11 +26,11 @@ msgstr "Salasana nollattu"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "On pyydetty, että salasana nollattaisiin seuraavan sivuston ja käyttäjätunnuksen osalta:"
 
-msgid "Username:"
-msgstr "Käyttäjä:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Jos haluat vaihtaa salasanasi käy seuraavassa osoitteessa, muutoin jättämällä tämän sähköpostiviestin huomioitta mitään ei tapahdu."
+
+msgid "Username:"
+msgstr "Käyttäjä:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -70,77 +70,6 @@ msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
 
 #, php-format
-msgid "Password strength: %s"
-msgstr "Salasanan vahvuus: %s"
-
-msgid "weak"
-msgstr "heikko"
-
-msgid "medium"
-msgstr "keskikoko"
-
-msgid "strong"
-msgstr "vahva"
-
-msgid "Back to login screen"
-msgstr "Takaisin kirjautumisruutuun"
-
-msgid "Request a new password"
-msgstr "Hanki uusi salasana"
-
-msgid "Email:"
-msgstr "Sähköposti:"
-
-msgid "recover"
-msgstr "palauta"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Muut asetukset"
-
-msgid "Change your password"
-msgstr "Vaihda salasanasi"
-
-msgid "New password:"
-msgstr "Uusi salasana:"
-
-msgid "Confirm password:"
-msgstr "Vahvista salasana:"
-
-msgid "change"
-msgstr "muuta"
-
-msgid "Safe mode login"
-msgstr "Vikasietotila"
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
-
-msgid "Remember my ID on this device"
-msgstr "Muista minut tällä tietokoneella"
-
-msgid "log in"
-msgstr "kirjaudu"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
-
-msgid "Get back to normal authentication"
-msgstr "Paluu normaaliin todentamisruutuun"
-
-msgid "Connection issue?"
-msgstr "Yhteysongelmako?"
-
-msgid "I forgot my password"
-msgstr "Unohdin salasanani"
-
-msgid "I want to log in in safe mode"
-msgstr "Vikasietotilaan kirjautuminen"
-
-#, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blogi \"%s\" on luotu"
 
@@ -153,28 +82,28 @@ msgstr "Järjestelmä"
 msgid "Blogs"
 msgstr "Blogit"
 
+msgid "Blog ID"
+msgstr "Blogin tunniste"
+
 msgid "Blog ID:"
 msgstr "Blogin tunniste:"
 
 msgid "Required field"
 msgstr "Vaadittu kenttä"
 
-msgid "Blog ID"
-msgstr "Blogin tunniste"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Ainakin 2 merkkiä, kirjaimia, numeroita tai symboleita."
-
-msgid "Blog name:"
-msgstr "Blogin nimi:"
 
 msgid "Blog name"
 msgstr "Blogin nimi"
 
-msgid "Blog URL:"
-msgstr "Blogin verkko-osoite:"
+msgid "Blog name:"
+msgstr "Blogin nimi:"
 
 msgid "Blog URL"
+msgstr "Blogin verkko-osoite:"
+
+msgid "Blog URL:"
 msgstr "Blogin verkko-osoite:"
 
 msgid "Blog description:"
@@ -520,27 +449,6 @@ msgstr "Dotclear"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Blogia koskevien merkintöjen otsikon HTML-koodi:"
 
-msgid "Enable XML/RPC interface"
-msgstr "Ota käyttöön XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC mahdollistaa blogin muokkauksen ulkopuolisella asiakassovelluksella."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC on käytössä. Aseta seuraavat parametrit XML/RPC-asiakassovelluksessa:"
-
-msgid "Server URL:"
-msgstr "Palvelimen osoite:"
-
-msgid "Blogging system:"
-msgstr "Blogijärjestelmä:"
-
-msgid "User name:"
-msgstr "Käyttäjä:"
-
-msgid "your password"
-msgstr "salasanasi"
-
 msgid "Search engines robots policy"
 msgstr "Hakukoneiden hakurobottien ohjaus"
 
@@ -579,6 +487,9 @@ msgstr "Tämän blogin käyttäjät"
 
 msgid "No users"
 msgstr "Ei käyttäjiä"
+
+msgid "Email:"
+msgstr "Sähköposti:"
 
 msgid "Publications on this blog:"
 msgstr "Tässä blogissa on julkaistu:"
@@ -670,11 +581,11 @@ msgstr "Blogien luettelo"
 msgid "Create a new blog"
 msgstr "Luo uusi blogi"
 
-msgid "Selected blogs action:"
-msgstr "Valittuihin käyttäjiin kohdistuva toimi:"
-
 msgid "Actions"
 msgstr "Toimet"
+
+msgid "Selected blogs action:"
+msgstr "Valittuihin käyttäjiin kohdistuva toimi:"
 
 msgid "ok"
 msgstr "ok"
@@ -795,11 +706,11 @@ msgstr "Sukulaisluokka"
 msgid "Move current category"
 msgstr "Siirrä tämä luokka"
 
-msgid "after"
-msgstr "jälkeen"
-
 msgid "before"
 msgstr "ennen"
+
+msgid "after"
+msgstr "jälkeen"
 
 msgid "position: "
 msgstr "paikka:"
@@ -1073,6 +984,19 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclearin asennus"
 
+#, php-format
+msgid "Password strength: %s"
+msgstr "Salasanan vahvuus: %s"
+
+msgid "weak"
+msgstr "heikko"
+
+msgid "medium"
+msgstr "keskikoko"
+
+msgid "strong"
+msgstr "vahva"
+
 msgid "show"
 msgstr "näytä"
 
@@ -1107,8 +1031,14 @@ msgstr "Käyttäjätunnus ja salasana"
 msgid "Username"
 msgstr "Käyttäjänimi"
 
+msgid "New password:"
+msgstr "Uusi salasana:"
+
 msgid "Password"
 msgstr "Salasana"
+
+msgid "Confirm password:"
+msgstr "Vahvista salasana:"
 
 msgid "All done!"
 msgstr "Valmista!"
@@ -1309,18 +1239,6 @@ msgstr "Kielen zip-tiedosto:"
 msgid "Upload language"
 msgstr "Lataa kieli palvelimelle"
 
-msgid "Media manager"
-msgstr "Medianhallinta"
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s löydetty tiedosto"
-msgstr[1] "%s löydettya tiedostoa"
-
-msgid "Search:"
-msgstr "Haku:"
-
 msgid "Not a valid directory"
 msgstr "Kelpaamaton tiedosto"
 
@@ -1417,6 +1335,9 @@ msgstr "Poista valitut media-aineistot"
 msgid "In %s:"
 msgstr "%s:n sisällä:"
 
+msgid "Media manager"
+msgstr "Medianhallinta"
+
 msgid "Create new directory"
 msgstr "Luo uusi hakemisto"
 
@@ -1466,6 +1387,15 @@ msgstr "Lähetä palvelimelle"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Media-aineistojen ja kuvien nykyasetukset on määritelty kohdassa %s"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s löydetty tiedosto"
+msgstr[1] "%s löydettya tiedostoa"
+
+msgid "Search:"
+msgstr "Haku:"
 
 msgid "Not a valid file"
 msgstr "Kelpaamaton tiedosto"
@@ -1697,9 +1627,6 @@ msgstr "Etsimäänne liitännäistä ei ole tai sillä ei ole admin-sivua."
 msgid "Plugins management"
 msgstr "Liitännäisten hallinta"
 
-msgid "Plugin configuration"
-msgstr "Liitännäisen asetukset"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
@@ -1720,6 +1647,9 @@ msgstr "Asennetut liitännäiset"
 
 msgid "Activated plugins"
 msgstr "Käytössä olevat liitännäiset"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Voit hallita asennettuja liitännäisiä ja määritellä niiden asetukset tästä luettelosta."
@@ -1744,6 +1674,9 @@ msgstr "Voit asentaa liitännäisiä zip-tiedostoina lataamalla ne omalta koneel
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Jotkin toiminnot ovat pois käytöstä, anna kirjoitusoikeus liitännäishakemistoosi, jotta voisit hyödyntää niitä."
+
+msgid "Plugin configuration"
+msgstr "Liitännäisen asetukset"
 
 msgid "Add a link"
 msgstr "Lisää linkki"
@@ -1831,35 +1764,15 @@ msgstr "Tiedosto on liitetty."
 msgid "Attachment has been successfully removed."
 msgstr "Liitetiedosto poistettu."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Talleta merkintä HTML-muunnoksen oikeellisuuden tarkistamiseksi."
 
 msgid "Go to this entry on the site"
 msgstr "Hyppää tähän merkintää verkkosivustossa"
 
-msgid "Date"
-msgstr "Päiväys"
-
-msgid "IP address"
-msgstr "IP-osoite"
-
 msgid "Status"
 msgstr "Tila"
-
-msgid "Edit"
-msgstr "Muokkaa"
-
-msgid "Junk"
-msgstr "Roska"
-
-msgid "select this comment"
-msgstr "Valitse tämä kommentti"
-
-msgid "select this trackback"
-msgstr "Valitse tämä takaisinviittaus"
-
-msgid "Edit this comment"
-msgstr "Muokkaa tätä kommenttia"
 
 msgid "Entry status"
 msgstr "Merkinnän tila"
@@ -1959,6 +1872,27 @@ msgstr "Takaisinviittausosoitteiden automaattinen tunnistus"
 
 msgid "Previously sent pings"
 msgstr "Aiemmin lähetetyt takaisinviittaukset"
+
+msgid "Date"
+msgstr "Päiväys"
+
+msgid "IP address"
+msgstr "IP-osoite"
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Junk"
+msgstr "Roska"
+
+msgid "select this comment"
+msgstr "Valitse tämä kommentti"
+
+msgid "select this trackback"
+msgstr "Valitse tämä takaisinviittaus"
+
+msgid "Edit this comment"
+msgstr "Muokkaa tätä kommenttia"
 
 msgid "This attachment does not exist"
 msgstr "Tätä liitettä ei ole"
@@ -2234,9 +2168,6 @@ msgstr "Ohjaustaulun kuvakkeet"
 
 msgid "Display dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
-
-msgid "Iconset:"
-msgstr "Kuvakesarja:"
 
 msgid "Dashboard modules"
 msgstr "Ohjaustaulun moduulit"
@@ -2712,6 +2643,24 @@ msgstr "Eniten käytetty"
 
 msgid "Entry language:"
 msgstr "Merkinnän kieli:"
+
+msgid "Database error"
+msgstr "Tietokantavirhe"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
+
+msgid "System settings"
+msgstr "Järjestelmän asetukset"
+
+msgid "Blog"
+msgstr "Blogi"
+
+msgid "Plugins"
+msgstr "Liitännäiset"
+
+msgid "Update"
+msgstr "Päivitä"
 
 msgid "Languages"
 msgstr "Kielet"
@@ -3218,9 +3167,6 @@ msgstr "Kloonaa"
 msgid "Install"
 msgstr "Asenna"
 
-msgid "Update"
-msgstr "Päivitä"
-
 msgid "Activate selected plugins"
 msgstr "Ota valitut liitännäiset käyttöön"
 
@@ -3620,12 +3566,12 @@ msgid "open"
 msgstr "avaa"
 
 #, php-format
-msgid "ratio %.1f"
-msgstr "suhde %.1f"
-
-#, php-format
 msgid "(%s)"
 msgstr "(%s)"
+
+#, php-format
+msgid "ratio %.1f"
+msgstr "suhde %.1f"
 
 msgid "The 'public' directory does not exist."
 msgstr "Hakemistoa \"public\" ei ole."
@@ -3649,21 +3595,6 @@ msgstr "Virhe tiedostoa kirjoitettaessa."
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
-
-msgid "Database error"
-msgstr "Tietokantavirhe"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
-
-msgid "System settings"
-msgstr "Järjestelmän asetukset"
-
-msgid "Blog"
-msgstr "Blogi"
-
-msgid "Plugins"
-msgstr "Liitännäiset"
 
 msgid "small"
 msgstr "pieni"
@@ -3880,17 +3811,18 @@ msgstr "Moduulia poistettaessa tapahtui virhe."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "\"%s\" ei voitu päivittää (vanhempi tai sama versio)."
 
-msgid "Unable to read new _define.php file"
-msgstr "Uutta _define.php-tiedostoa ei voi lukea."
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+msgid "Cannot deactivate plugin."
+msgstr "Liitännäistä ei voi poistaa käytöstä."
 
 msgid "No such module."
 msgstr "Moduulia ei ole."
 
 msgid "Cannot remove module files"
 msgstr "Moduuliin kuuluvia tiedostoja ei voi poistaa"
-
-msgid "Cannot deactivate plugin."
-msgstr "Liitännäistä ei voi poistaa käytöstä."
 
 msgid "Cannot activate plugin."
 msgstr "Liitännäistä ei voi ottaa käyttöön."
@@ -3968,7 +3900,8 @@ msgstr " (kopio %s)"
 msgid " (copy)"
 msgstr " (kopio)"
 
-msgid "Unable to modify _config.php"
+#, fuzzy
+msgid "Unable to modify _define.php"
 msgstr "_config.php-tiedostoa ei voi muokata"
 
 msgid "Destination folder already exist"
@@ -4087,6 +4020,90 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
+#, fuzzy
+#~ msgid "extra-large"
+#~ msgstr "Suurempi"
+
+#, fuzzy
+#~ msgid "large"
+#~ msgstr "Suurempi"
+
+#~ msgid "Back to login screen"
+#~ msgstr "Takaisin kirjautumisruutuun"
+
+#~ msgid "Request a new password"
+#~ msgstr "Hanki uusi salasana"
+
+#~ msgid "recover"
+#~ msgstr "palauta"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Muut asetukset"
+
+#~ msgid "Change your password"
+#~ msgstr "Vaihda salasanasi"
+
+#~ msgid "change"
+#~ msgstr "muuta"
+
+#~ msgid "Safe mode login"
+#~ msgstr "Vikasietotila"
+
+#~ msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+#~ msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
+
+#~ msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+#~ msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Muista minut tällä tietokoneella"
+
+#~ msgid "log in"
+#~ msgstr "kirjaudu"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
+
+#~ msgid "Get back to normal authentication"
+#~ msgstr "Paluu normaaliin todentamisruutuun"
+
+#~ msgid "Connection issue?"
+#~ msgstr "Yhteysongelmako?"
+
+#~ msgid "I forgot my password"
+#~ msgstr "Unohdin salasanani"
+
+#~ msgid "I want to log in in safe mode"
+#~ msgstr "Vikasietotilaan kirjautuminen"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Ota käyttöön XML/RPC"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC mahdollistaa blogin muokkauksen ulkopuolisella asiakassovelluksella."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC on käytössä. Aseta seuraavat parametrit XML/RPC-asiakassovelluksessa:"
+
+#~ msgid "Server URL:"
+#~ msgstr "Palvelimen osoite:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Blogijärjestelmä:"
+
+#~ msgid "User name:"
+#~ msgstr "Käyttäjä:"
+
+#~ msgid "your password"
+#~ msgstr "salasanasi"
+
+#~ msgid "Iconset:"
+#~ msgstr "Kuvakesarja:"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "Uutta _define.php-tiedostoa ei voi lukea."
+
 #~ msgid "By names, in ascending order"
 #~ msgstr "Nimien mukaan nousevassa järjestyksessä"
 
@@ -4136,10 +4153,6 @@ msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
 #~ msgid "now"
 #~ msgstr "nyt"
-
-#, fuzzy
-#~ msgid "large"
-#~ msgstr "Suurempi"
 
 #~ msgid "very weak"
 #~ msgstr "erittäin heikko"

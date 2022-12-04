@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -36,7 +36,16 @@ msgstr "tvarkyti Bogroll"
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-msgid "Legacy modules for dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -71,15 +80,6 @@ msgstr ""
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "pridėti valdiklius prie šoninių juostų"
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -133,18 +133,16 @@ msgstr "Pridedamos žymos:"
 msgid "Configuration successfully updated"
 msgstr "Nustatymai sėkmingai atnaujinti"
 
-msgid "no"
-msgstr "ne"
-
-msgid "yes"
-msgstr ""
-
 msgid "about:config"
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Redaguojamas failas %s"
+
+#, fuzzy
+msgid "Global settings"
+msgstr "bendri nustatymai"
 
 #, fuzzy
 msgid "Setting ID"
@@ -159,9 +157,11 @@ msgstr "Aprašymas"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
-msgid "Global settings"
-msgstr "bendri nustatymai"
+msgid "no"
+msgstr "ne"
+
+msgid "yes"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "Aksimet spamo filtras"
@@ -188,27 +188,6 @@ msgstr "Gaukite savo API raktą"
 
 msgid "Antispam"
 msgstr "Antispam"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Senesni nei %s dienų spamo komentarai bus automatiškai ištrinami."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "Trinti šiukšlėmis pažymųtus komentarus senesnius nei"
-
-msgid "days"
-msgstr "dienų"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Aksimet spamo filtras"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -327,15 +306,26 @@ msgstr "Sukurti nustatytą žodžių sąrašą"
 msgid "This word exists"
 msgstr "Toks žodis yra"
 
-msgid "No description"
-msgstr "Nėra aprašymo"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Senesni nei %s dienų spamo komentarai bus automatiškai ištrinami."
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Filtruota pagal %1$s (%2$s)"
+msgid "You can modify this duration in the %s"
+msgstr ""
 
-msgid "Unknown filter."
-msgstr "Nežinomas filtras."
+msgid "Delete junk comments older than"
+msgstr "Trinti šiukšlėmis pažymųtus komentarus senesnius nei"
+
+msgid "days"
+msgstr "dienų"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Aksimet spamo filtras"
 
 msgid "This comment is a spam:"
 msgstr "Šis komentaras yra spamas:"
@@ -348,6 +338,16 @@ msgstr "Spamas"
 
 msgid "Ham"
 msgstr "Hamas"
+
+msgid "No description"
+msgstr "Nėra aprašymo"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Filtruota pagal %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Nežinomas filtras."
 
 msgid "Filter does not exist."
 msgstr "Nėra filtro"
@@ -424,29 +424,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Pridėti failus prie šio puslapio"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "tvarkyti Bogroll"
 
-msgid "All categories"
-msgstr "Visos kategorijos"
-
-msgid "Links"
-msgstr "Nuorodos"
-
-msgid "You must provide a link title"
-msgstr "Turite įrašyti nuorodos pavadinimą"
-
-msgid "You must provide a link URL"
-msgstr "Turite įrašyti nuorodos URL"
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "Turite pateikti XBEL arba OPML failą."
-
-msgid "File is not in XML format."
-msgstr "Tai ne XML formato failas."
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "No such link or title"
 msgstr "Tokios nuorodos ar pavadinimo nėra"
@@ -548,6 +530,24 @@ msgstr "Pasimatymas"
 msgid "_xfn_Sweetheart"
 msgstr "Mylimas"
 
+msgid "You must provide a link title"
+msgstr "Turite įrašyti nuorodos pavadinimą"
+
+msgid "You must provide a link URL"
+msgstr "Turite įrašyti nuorodos URL"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Turite pateikti XBEL arba OPML failą."
+
+msgid "File is not in XML format."
+msgstr "Tai ne XML formato failas."
+
+msgid "All categories"
+msgstr "Visos kategorijos"
+
+msgid "Links"
+msgstr "Nuorodos"
+
 msgid "Nothing to import"
 msgstr "Nėra ką įkelti"
 
@@ -576,11 +576,11 @@ msgstr "Kalba"
 msgid "select this link"
 msgstr "Trinti šią žymą"
 
-msgid "Delete selected links"
-msgstr "Trinti pasirinktas nuorodas"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "Ar tikrai norite ištrinti pasirinktas nuorodas?"
+
+msgid "Delete selected links"
+msgstr "Trinti pasirinktas nuorodas"
 
 msgid "The link list is empty."
 msgstr "Šis nuorodų sąrašas yra tuščias."
@@ -599,6 +599,16 @@ msgstr "OPML arba XBEL failas:"
 
 msgid "Import"
 msgstr "Importuoti"
+
+msgid "default"
+msgstr "standartinis"
+
+#, fuzzy
+msgid "Unable to create css file."
+msgstr "Nepavyksta sukurti paveikslėlių."
+
+msgid "Unable to open image."
+msgstr "Nepavyko atidaryti paveikslėlio."
 
 msgid "Light linear gradient"
 msgstr "Šviesus linijinis gradientas"
@@ -633,9 +643,6 @@ msgstr "Numatyti stiliai"
 
 msgid "Back to Blog appearance"
 msgstr ""
-
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Dėl šių priežasčių paveikslėliai negali būti sukurti. Nebus galima keisti kai kurių fono nustatymų."
 
 msgid "Customization"
 msgstr ""
@@ -821,16 +828,6 @@ msgstr "Galite dalintis savo nustatymai naudodamiesi šiuo kodu. Norėdami prita
 msgid "Copy this code:"
 msgstr ""
 
-msgid "default"
-msgstr "standartinis"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "Nepavyksta sukurti paveikslėlių."
-
-msgid "Unable to open image."
-msgstr "Nepavyko atidaryti paveikslėlio."
-
 msgid "Breadcrumb"
 msgstr ""
 
@@ -859,12 +856,11 @@ msgstr "Visos žymos"
 msgid "404"
 msgstr ""
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-#, fuzzy
-msgid "The configuration has been updated."
-msgstr "Nustatymai sėkmingai atnaujiti."
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -889,6 +885,10 @@ msgstr "Externes Medium"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "Nustatymai sėkmingai atnaujiti."
 
 msgid "dcCKEditor"
 msgstr ""
@@ -970,6 +970,10 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s nustatymai"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Dotclear 1.2 importavimas"
 
 msgid "visual"
 msgstr ""
@@ -1431,7 +1435,8 @@ msgstr "Šablonų cache direktorija išvalyta."
 msgid "Failed to empty templates cache directory."
 msgstr "Trinti šablonų cache direktoriją"
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 #, fuzzy
@@ -1648,8 +1653,18 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
+msgid "manage pages"
+msgstr "tvarkyti puslapius"
+
 msgid "New page"
 msgstr "Naujas puslapis"
+
+#, fuzzy
+msgid "My first page"
+msgstr "Redaguoti puslapį"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1659,15 +1674,27 @@ msgstr "Redaguoti puslapį"
 msgid "%d pages"
 msgstr "Redaguoti puslapį"
 
-msgid "manage pages"
-msgstr "tvarkyti puslapius"
+msgid "No page"
+msgstr "Puslapio nėra"
+
+msgid "Hidden"
+msgstr ""
 
 #, fuzzy
-msgid "My first page"
-msgstr "Redaguoti puslapį"
+msgid "Select this page"
+msgstr "Trinti šią žymą"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+#, fuzzy
+msgid "Pages actions"
+msgstr "Puslapio pozicija"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "Atgal į žymų sąrašą"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "Sėkmingai pašalinti."
 
 msgid "Published on"
 msgstr "Publikuota"
@@ -1686,28 +1713,6 @@ msgstr "Puslapio pozicija"
 
 msgid "Publication date"
 msgstr "Publikavimo data"
-
-#, fuzzy
-msgid "Pages actions"
-msgstr "Puslapio pozicija"
-
-#, fuzzy
-msgid "Back to pages list"
-msgstr "Atgal į žymų sąrašą"
-
-#, fuzzy
-msgid "Selected pages have been successfully reordered."
-msgstr "Sėkmingai pašalinti."
-
-msgid "No page"
-msgstr "Puslapio nėra"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Trinti šią žymą"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Ar tikrai norite ištrinti pasirinktus puslapius?"
@@ -1747,6 +1752,9 @@ msgstr "Puslapis sėkmingai atnaujintas."
 
 msgid "Page has been successfully created."
 msgstr "Puslapis sėkmingai sukurtas"
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr ""
@@ -1983,32 +1991,8 @@ msgstr "Ar tikrai norite ištrinti pasirinktas nuorodas?"
 msgid "No menu items so far."
 msgstr "Nėra rss įrašų."
 
-msgid "This tag's comments Atom feed"
-msgstr "Šią žymą turinčių komentarų Atom feed"
-
-msgid "This tag's entries Atom feed"
-msgstr "Šią žymą turinčių įrašų Atom feed"
-
 msgid "Tag"
 msgstr "Žyma"
-
-msgid "Limit (empty means no limit):"
-msgstr "Riboti (jei tuščia - apribojimo nėra)"
-
-msgid "Tag name"
-msgstr "Žymos pavadinimas"
-
-msgid "Entries count"
-msgstr "Įrašų skaičius"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr "Nuoroda į visas žymas:"
 
 msgid "Add tags"
 msgstr "Pridėti žymėjimą"
@@ -2081,6 +2065,30 @@ msgstr "išplėstas"
 
 msgid "Tags list format:"
 msgstr "Žymų sąrašo formatas:"
+
+msgid "This tag's comments Atom feed"
+msgstr "Šią žymą turinčių komentarų Atom feed"
+
+msgid "This tag's entries Atom feed"
+msgstr "Šią žymą turinčių įrašų Atom feed"
+
+msgid "Limit (empty means no limit):"
+msgstr "Riboti (jei tuščia - apribojimo nėra)"
+
+msgid "Tag name"
+msgstr "Žymos pavadinimas"
+
+msgid "Entries count"
+msgstr "Įrašų skaičius"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr "Nuoroda į visas žymas:"
 
 msgid "Tag has been successfully renamed"
 msgstr "Žyma sėkmingai pervadinta"
@@ -2165,9 +2173,6 @@ msgstr "Ar tikrai norite ištrinti šį puslapį?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Dabartinė jūsų blogo tema yra \"%s\"."
 
-msgid "You can't edit default theme."
-msgstr "Tipinės temos redaguoti negalima."
-
 msgid "Please select a file to edit."
 msgstr "Pasirinkite failą redagavimui."
 
@@ -2202,6 +2207,10 @@ msgid "PHP files"
 msgstr "CSS failai"
 
 #, fuzzy
+msgid "You can't edit a distributed theme."
+msgstr "Tipinės temos redaguoti negalima."
+
+#, fuzzy
 msgid "Preferences successfully updated"
 msgstr "Puslapis sėkmingai atnaujintas."
 
@@ -2220,6 +2229,9 @@ msgstr "Vaizdavimo valdikliai"
 #, fuzzy
 msgid "Widget's textareas"
 msgstr "Valdiklių šablonų žymės"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "Paie.kos variklis"
@@ -2312,11 +2324,11 @@ msgstr ""
 msgid "All pages"
 msgstr "Visos žymos"
 
-msgid "Except on home page"
-msgstr ""
-
 msgid "Home page only"
 msgstr "Tik namų puslapis"
+
+msgid "Except on home page"
+msgstr ""
 
 #, fuzzy
 msgid "Content only"
@@ -2338,9 +2350,6 @@ msgstr "ekstra"
 #, fuzzy
 msgid "custom"
 msgstr "Kitoks…"
-
-msgid "empty string"
-msgstr ""
 
 msgid "Sidebars and their widgets have been saved."
 msgstr ""
@@ -2400,6 +2409,9 @@ msgstr ""
 msgid "possible values:"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
 msgid "listitem"
 msgstr ""
 
@@ -2432,16 +2444,19 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Ar tikrai norite ištrinti šį puslapį?"
-
-#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Visos kategorijos"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Paskutiniai įrašai"
+
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "Dėl šių priežasčių paveikslėliai negali būti sukurti. Nebus galima keisti kai kurių fono nustatymų."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Ar tikrai norite ištrinti šį puslapį?"
 
 #~ msgid "Check all"
 #~ msgstr "Patikrinti visus"

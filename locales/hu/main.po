@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -27,11 +27,11 @@ msgstr "A jelszót helyreállítottam."
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Valaki az alábbi oldalon kérte az alábbi felhasználó jelszavának helyreállítását."
 
-msgid "Username:"
-msgstr "Felhasználónév:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Jelszóváltoztatáshoz kattints ide (vagy ha nem kértél jelszócserét, úgy vedd figyelmen kívül a levelet)"
+
+msgid "Username:"
+msgstr "Felhasználónév:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -76,80 +76,6 @@ msgid "Wrong username or password"
 msgstr "Hibás felhasználónév vagy jelszó"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "A jelszót helyreállítottam."
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Közepes:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Vissza a bejelentkező képernyőre"
-
-msgid "Request a new password"
-msgstr "Új jelszó igénylése"
-
-msgid "Email:"
-msgstr "E-mail:"
-
-msgid "recover"
-msgstr "helyreállít"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Keresési feltételek"
-
-msgid "Change your password"
-msgstr "Jelszó lecserélése"
-
-msgid "New password:"
-msgstr "Új jelszó:"
-
-msgid "Confirm password:"
-msgstr "Jelszó megerősítése:"
-
-#, fuzzy
-msgid "change"
-msgstr "vissza"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Emlékezz rám"
-
-#, fuzzy
-msgid "log in"
-msgstr "Blognév"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Engedélyezned kell a sütiket a belépéshez."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "Elfelejtettem a jelszavam"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "A blogot sikeresen elkészítettem."
 
@@ -162,29 +88,29 @@ msgstr "Rendszer"
 msgid "Blogs"
 msgstr "Blogok"
 
+msgid "Blog ID"
+msgstr "Blog ID"
+
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
 msgid "Required field"
 msgstr "Kötelező kitölteni"
 
-msgid "Blog ID"
-msgstr "Blog ID"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Legalább 2 karakter, betűket, számokat vagy szimbólumokat használhatsz."
-
-msgid "Blog name:"
-msgstr "Blognév:"
 
 msgid "Blog name"
 msgstr "Blognév"
 
-msgid "Blog URL:"
-msgstr "Blog URL-je:"
+msgid "Blog name:"
+msgstr "Blognév:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "Blog URL-je:"
+
+msgid "Blog URL:"
 msgstr "Blog URL-je:"
 
 msgid "Blog description:"
@@ -549,28 +475,6 @@ msgstr "DotClear csapat"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Az XML/RPC interfész engedélyezése"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "Az XML/RPC interfésszel tudod szerkeszteni a blogodat egy külső kezelővel."
-
-#, fuzzy
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "Az XML/RPC interfész aktív. A következő paramétereket kell beállítanod a kliensben:"
-
-msgid "Server URL:"
-msgstr "Szerver URL-je:"
-
-msgid "Blogging system:"
-msgstr "Blogrendszer:"
-
-msgid "User name:"
-msgstr "Felhasználónév:"
-
-msgid "your password"
-msgstr "jelszavad"
-
 msgid "Search engines robots policy"
 msgstr "Keresőmotorok robotjainak jogai"
 
@@ -613,6 +517,9 @@ msgstr "Felhasználók a blogon"
 
 msgid "No users"
 msgstr "Nincsenek felhasználók"
+
+msgid "Email:"
+msgstr "E-mail:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -716,12 +623,12 @@ msgid "Create a new blog"
 msgstr "Új blog készítése"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "Feladat a kijelölt felhasználókkal"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Feladat"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Feladat a kijelölt felhasználókkal"
 
 msgid "ok"
 msgstr "ok"
@@ -861,12 +768,12 @@ msgstr "Kategória:"
 msgid "Move current category"
 msgstr "Kategória létrehozása"
 
+msgid "before"
+msgstr "utána"
+
 #, fuzzy
 msgid "after"
 msgstr "előtte"
-
-msgid "before"
-msgstr "utána"
 
 #, fuzzy
 msgid "position: "
@@ -1154,6 +1061,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "DotClear telepítés"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "A jelszót helyreállítottam."
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Közepes:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1193,9 +1114,15 @@ msgstr "Hibás felhasználónév vagy jelszó"
 msgid "Username"
 msgstr "Felhasználónév:"
 
+msgid "New password:"
+msgstr "Új jelszó:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Jelszó:"
+
+msgid "Confirm password:"
+msgstr "Jelszó megerősítése:"
 
 msgid "All done!"
 msgstr "Minden rendben!"
@@ -1405,18 +1332,6 @@ msgstr "Nyelv zip-fájlja:"
 msgid "Upload language"
 msgstr "Nyelv feltöltése"
 
-msgid "Media manager"
-msgstr "Médiakezelő"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d bejegyzést találtam"
-msgstr[1] "%d bejegyzést találtam"
-
-msgid "Search:"
-msgstr "Keresés:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Nem érvényes fájl"
@@ -1522,6 +1437,9 @@ msgstr "Kijelölt fájl helyreállítása"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "Médiakezelő"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "Új kategória létrehozása"
@@ -1576,6 +1494,15 @@ msgstr "Feltölt"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d bejegyzést találtam"
+msgstr[1] "%d bejegyzést találtam"
+
+msgid "Search:"
+msgstr "Keresés:"
 
 msgid "Not a valid file"
 msgstr "Nem érvényes fájl"
@@ -1820,10 +1747,6 @@ msgstr "Az elért kiegészítő nem létezik vagy nincs adminisztációs oldala.
 msgid "Plugins management"
 msgstr "Kiegészítő-kezelő"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Blog beállítás"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1847,6 +1770,9 @@ msgstr "Telepített nyelvek"
 
 msgid "Activated plugins"
 msgstr "Bekapcsolt kiegészítők"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1873,6 +1799,10 @@ msgstr "Zip fájl fel- vagy letöltésével tudsz telepíteni kiegészítőt."
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "A funkció eléréséhez szükséges a plugins mapához írási jog!"
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Blog beállítás"
 
 msgid "Add a link"
 msgstr "Hivatkozás hozzáadása"
@@ -1972,37 +1902,15 @@ msgstr "A fájlt hozzácsatoltam."
 msgid "Attachment has been successfully removed."
 msgstr "A csatolmányt eltávolítottam."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Ne fejeltsd el érvényesíteni az HTML átalakítást azzal, hogy mentesz!"
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Dátum"
-
-msgid "IP address"
-msgstr "IP cím"
-
 msgid "Status"
 msgstr "Állapot"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Megjegyzés szerkesztése"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Trackback-ek engedélyezve"
-
-msgid "Edit this comment"
-msgstr "Megjegyzés szerkesztése"
 
 #, fuzzy
 msgid "Entry status"
@@ -2114,6 +2022,29 @@ msgstr "Automata felfedezés az URL pingeléshez"
 
 msgid "Previously sent pings"
 msgstr "Elzőleg üldött pingek"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "IP address"
+msgstr "IP cím"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Megjegyzés szerkesztése"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Trackback-ek engedélyezve"
+
+msgid "Edit this comment"
+msgstr "Megjegyzés szerkesztése"
 
 msgid "This attachment does not exist"
 msgstr "Ez a csatolt fájl nem létezik"
@@ -2427,9 +2358,6 @@ msgstr "Beállítópanel"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Beállítópanel"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2965,6 +2893,26 @@ msgstr "Legtöbbet használt"
 #, fuzzy
 msgid "Entry language:"
 msgstr "Nyelv:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Adatbázis típusa:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Blog beállításai"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Kiegészítők"
+
+msgid "Update"
+msgstr "Frissítések"
 
 #, fuzzy
 msgid "Languages"
@@ -3521,9 +3469,6 @@ msgstr ""
 msgid "Install"
 msgstr "DotClear telepítés"
 
-msgid "Update"
-msgstr "Frissítések"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "Bekapcsolt kiegészítők"
@@ -3966,11 +3911,11 @@ msgid "open"
 msgstr "megnyit"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3998,23 +3943,6 @@ msgstr "Hiba történt a fájl írása közben."
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Elkészített képméretek (pixelben)"
-
-#, fuzzy
-msgid "Database error"
-msgstr "Adatbázis típusa:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Blog beállításai"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Kiegészítők"
 
 #, fuzzy
 msgid "small"
@@ -4243,17 +4171,18 @@ msgstr "Hiba történt a modul törlése közben."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Nem lehet \"%s\"-re frissíteni (ugyanaz a verzió)"
 
-msgid "Unable to read new _define.php file"
-msgstr "Nem lehet olvasni az új _define.php fájlt"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Nem lehet digest fájlt olvasni."
+
+msgid "Cannot deactivate plugin."
+msgstr "Nem lehet kikapcsolni a kiegészítőt."
 
 msgid "No such module."
 msgstr "Nincs ilyen modul."
 
 msgid "Cannot remove module files"
 msgstr "Nem lehet eltávolítani a modul fájlokat."
-
-msgid "Cannot deactivate plugin."
-msgstr "Nem lehet kikapcsolni a kiegészítőt."
 
 msgid "Cannot activate plugin."
 msgstr "Nem lehet bekapcsolni a kiegészítőt."
@@ -4336,7 +4265,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "Nem lehet megnyitni a fájlt."
 
 #, fuzzy
@@ -4463,6 +4392,64 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "Vissza a bejelentkező képernyőre"
+
+#~ msgid "Request a new password"
+#~ msgstr "Új jelszó igénylése"
+
+#~ msgid "recover"
+#~ msgstr "helyreállít"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Keresési feltételek"
+
+#~ msgid "Change your password"
+#~ msgstr "Jelszó lecserélése"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "vissza"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Emlékezz rám"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Blognév"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Engedélyezned kell a sütiket a belépéshez."
+
+#~ msgid "I forgot my password"
+#~ msgstr "Elfelejtettem a jelszavam"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Az XML/RPC interfész engedélyezése"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "Az XML/RPC interfésszel tudod szerkeszteni a blogodat egy külső kezelővel."
+
+#, fuzzy
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "Az XML/RPC interfész aktív. A következő paramétereket kell beállítanod a kliensben:"
+
+#~ msgid "Server URL:"
+#~ msgstr "Szerver URL-je:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Blogrendszer:"
+
+#~ msgid "User name:"
+#~ msgstr "Felhasználónév:"
+
+#~ msgid "your password"
+#~ msgstr "jelszavad"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "Nem lehet olvasni az új _define.php fájlt"
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "Név szerint növekvő"

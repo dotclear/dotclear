@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -26,11 +26,11 @@ msgstr "Parola sıfırla"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr ""
 
-msgid "Username:"
-msgstr "Kullanıcı adı:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
+
+msgid "Username:"
+msgstr "Kullanıcı adı:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -74,80 +74,6 @@ msgid "Wrong username or password"
 msgstr "Hatalı kullanıcı adı ya da parola"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Parola sıfırla"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Orta:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Giriş ekranına dön"
-
-msgid "Request a new password"
-msgstr "Yeni parola iste"
-
-msgid "Email:"
-msgstr "Eposta:"
-
-msgid "recover"
-msgstr "kurtar"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Arama seçenekleri"
-
-msgid "Change your password"
-msgstr "Parolanızı değiştirin"
-
-msgid "New password:"
-msgstr "Yeni parola:"
-
-msgid "Confirm password:"
-msgstr "Parolayı onayla:"
-
-#, fuzzy
-msgid "change"
-msgstr "iptal"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "ID'mi bu bilgisayarda hatırla"
-
-#, fuzzy
-msgid "log in"
-msgstr "Blog adı"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Özel alanda çalışabilmek için çerezleri kabul etmelisiniz."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "Parolamı unuttum"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blog başarıyla oluşturuldu."
 
@@ -160,29 +86,29 @@ msgstr "Sistem"
 msgid "Blogs"
 msgstr "Bloglar"
 
+msgid "Blog ID"
+msgstr "Blog ID"
+
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
 msgid "Required field"
 msgstr "Gerekli alan"
 
-msgid "Blog ID"
-msgstr "Blog ID"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr ""
-
-msgid "Blog name:"
-msgstr "Blog adı:"
 
 msgid "Blog name"
 msgstr "Blog adı"
 
-msgid "Blog URL:"
-msgstr "Blog  URL'si"
+msgid "Blog name:"
+msgstr "Blog adı:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "Blog  URL'si"
+
+msgid "Blog URL:"
 msgstr "Blog  URL'si"
 
 msgid "Blog description:"
@@ -544,27 +470,6 @@ msgstr "Dotclear Ekibi"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "XML/RPC arayüzünü mümkün kıl."
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr ""
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr ""
-
-msgid "Server URL:"
-msgstr "Sunucu URL'si"
-
-msgid "Blogging system:"
-msgstr "Bloglama sistemi:"
-
-msgid "User name:"
-msgstr "Kullanıcı adı:"
-
-msgid "your password"
-msgstr "parolanız"
-
 msgid "Search engines robots policy"
 msgstr "Arama motoru robotları politikası"
 
@@ -606,6 +511,9 @@ msgstr "Bu blog'daki kullanıcılar"
 
 msgid "No users"
 msgstr "Kullanıcı yok"
+
+msgid "Email:"
+msgstr "Eposta:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -708,12 +616,12 @@ msgid "Create a new blog"
 msgstr "Yeni bir blog oluştur"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "Seçili kullanıcılara yap:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Eylem"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Seçili kullanıcılara yap:"
 
 msgid "ok"
 msgstr "tamam"
@@ -844,11 +752,11 @@ msgstr "Yavru kategori"
 msgid "Move current category"
 msgstr "Geçerli kategoriyi taşı"
 
-msgid "after"
-msgstr "önce"
-
 msgid "before"
 msgstr "sonra"
+
+msgid "after"
+msgstr "önce"
 
 #, fuzzy
 msgid "position: "
@@ -1126,6 +1034,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear kurulumu"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Parola sıfırla"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Orta:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1160,9 +1082,15 @@ msgstr "Kullanıcı adı ve parola"
 msgid "Username"
 msgstr "Kullanıcı adı:"
 
+msgid "New password:"
+msgstr "Yeni parola:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Parola:"
+
+msgid "Confirm password:"
+msgstr "Parolayı onayla:"
 
 msgid "All done!"
 msgstr "Hepsi bitti!"
@@ -1366,18 +1294,6 @@ msgstr "Dil zip dosyası:"
 msgid "Upload language"
 msgstr "Dil yükle"
 
-msgid "Media manager"
-msgstr "Medya yönetimi"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d yazı bulundu"
-msgstr[1] "%d yazı bulundu"
-
-msgid "Search:"
-msgstr "Ara:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Geçerli bir dosya değil"
@@ -1482,6 +1398,9 @@ msgstr "Seçili dosyaya geri dön"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "Medya yönetimi"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "Yeni dizine aç"
@@ -1535,6 +1454,15 @@ msgstr "Yükle"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d yazı bulundu"
+msgstr[1] "%d yazı bulundu"
+
+msgid "Search:"
+msgstr "Ara:"
 
 msgid "Not a valid file"
 msgstr "Geçerli bir dosya değil"
@@ -1777,10 +1705,6 @@ msgstr ""
 msgid "Plugins management"
 msgstr "Eklenti yönetimi"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Blog ayarları"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1804,6 +1728,9 @@ msgstr "Kurulu diller"
 
 msgid "Activated plugins"
 msgstr "Etkinleştirilmiş eklentiler"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1829,6 +1756,10 @@ msgstr ""
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Blog ayarları"
 
 msgid "Add a link"
 msgstr "Bağlantı ekle"
@@ -1928,37 +1859,14 @@ msgstr "Dosya eklenimi başarılı."
 msgid "Attachment has been successfully removed."
 msgstr "Eklenti silinimi başarılı."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Tarih"
-
-msgid "IP address"
-msgstr "IP adresi"
-
 msgid "Status"
 msgstr "Durum"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Bu ahkamı düzenle"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Gerizlemeler kabul"
-
-msgid "Edit this comment"
-msgstr "Bu ahkamı düzenle"
 
 #, fuzzy
 msgid "Entry status"
@@ -2070,6 +1978,29 @@ msgstr ""
 
 msgid "Previously sent pings"
 msgstr ""
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "IP address"
+msgstr "IP adresi"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Bu ahkamı düzenle"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Gerizlemeler kabul"
+
+msgid "Edit this comment"
+msgstr "Bu ahkamı düzenle"
 
 msgid "This attachment does not exist"
 msgstr "Bu ek mevcut değil"
@@ -2379,9 +2310,6 @@ msgstr "Gösterge"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Gösterge"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2912,6 +2840,26 @@ msgstr "Çok kullanılan"
 #, fuzzy
 msgid "Entry language:"
 msgstr "Yazı dili:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Veritabanı tipi:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Blog ayarları"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Eklentiler"
+
+msgid "Update"
+msgstr "Güncellemeler"
 
 msgid "Languages"
 msgstr "Diller"
@@ -3468,9 +3416,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear kurulumu"
 
-msgid "Update"
-msgstr "Güncellemeler"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "Etkinleştirilmiş eklentiler"
@@ -3910,11 +3855,11 @@ msgid "open"
 msgstr "aç"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3942,23 +3887,6 @@ msgstr ""
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
-
-#, fuzzy
-msgid "Database error"
-msgstr "Veritabanı tipi:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Blog ayarları"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Eklentiler"
 
 #, fuzzy
 msgid "small"
@@ -4187,17 +4115,18 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
-msgstr ""
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Dosya yeniden adlandırılamadı."
+
+msgid "Cannot deactivate plugin."
+msgstr "Eklenti kapatılamadı."
 
 msgid "No such module."
 msgstr "Böyle bi modül yok."
 
 msgid "Cannot remove module files"
 msgstr ""
-
-msgid "Cannot deactivate plugin."
-msgstr "Eklenti kapatılamadı."
 
 msgid "Cannot activate plugin."
 msgstr "Eklenti çalıştırılamadı."
@@ -4278,7 +4207,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "Dosya açılamadı."
 
 #, fuzzy
@@ -4400,6 +4329,54 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#~ msgid "Back to login screen"
+#~ msgstr "Giriş ekranına dön"
+
+#~ msgid "Request a new password"
+#~ msgstr "Yeni parola iste"
+
+#~ msgid "recover"
+#~ msgstr "kurtar"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Arama seçenekleri"
+
+#~ msgid "Change your password"
+#~ msgstr "Parolanızı değiştirin"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "iptal"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "ID'mi bu bilgisayarda hatırla"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Blog adı"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Özel alanda çalışabilmek için çerezleri kabul etmelisiniz."
+
+#~ msgid "I forgot my password"
+#~ msgstr "Parolamı unuttum"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "XML/RPC arayüzünü mümkün kıl."
+
+#~ msgid "Server URL:"
+#~ msgstr "Sunucu URL'si"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Bloglama sistemi:"
+
+#~ msgid "User name:"
+#~ msgstr "Kullanıcı adı:"
+
+#~ msgid "your password"
+#~ msgstr "parolanız"
+
 #~ msgid "Directory has been successfully created."
 #~ msgstr "Dizin oluşturumu başarılı."
 
@@ -4483,9 +4460,6 @@ msgstr ""
 
 #~ msgid "Source file does not exist."
 #~ msgstr "Kaynak dosya mevcut değil."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Dosya yeniden adlandırılamadı."
 
 #~ msgid "File cannot be removed."
 #~ msgstr "Dosya silinemedi."

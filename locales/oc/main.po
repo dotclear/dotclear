@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -26,11 +26,11 @@ msgstr "Reïnicializar lo senhal"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Qualqu’un a demandat la reïnicializacion lo senhal pel site e nom d’utilizaire seguent."
 
-msgid "Username:"
-msgstr "Nom d’utilizaire :"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Per reïnicializar lo senhal visitatz l’adreça seguenta, autrament ignoratz aqueste email e res serà pas cambiat."
+
+msgid "Username:"
+msgstr "Nom d’utilizaire :"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -70,78 +70,6 @@ msgid "Wrong username or password"
 msgstr "Marrit senhal o nom d’utilizaire"
 
 #, php-format
-msgid "Password strength: %s"
-msgstr "Fòrça del senhal : %s"
-
-msgid "weak"
-msgstr "febla"
-
-#, fuzzy
-msgid "medium"
-msgstr "Mejana"
-
-msgid "strong"
-msgstr "fòrta"
-
-msgid "Back to login screen"
-msgstr "Tornar a l’ecran de connexion"
-
-msgid "Request a new password"
-msgstr "Demandar un nòu senhal"
-
-msgid "Email:"
-msgstr "E-mail :"
-
-msgid "recover"
-msgstr "recuperar"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Mas opcions"
-
-msgid "Change your password"
-msgstr "Cambiar de senhal"
-
-msgid "New password:"
-msgstr "Nòu senhal :"
-
-msgid "Confirm password:"
-msgstr "Confirmatz lo senhal :"
-
-msgid "change"
-msgstr "cambiar"
-
-msgid "Safe mode login"
-msgstr "Mòde de connexion segur"
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Se remembrar de mon ID sus aqueste periferic"
-
-msgid "log in"
-msgstr "connexion"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Vos cal acceptar los cookies per utilizar la zòna privada."
-
-msgid "Get back to normal authentication"
-msgstr "Tornar a la autentificacion normala"
-
-msgid "Connection issue?"
-msgstr "Problèma de connexion ?"
-
-msgid "I forgot my password"
-msgstr "Ai oblidat mon senhal"
-
-msgid "I want to log in in safe mode"
-msgstr "Vòli me connectar en mòde segur"
-
-#, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blog \"%s\" corrèctament creat"
 
@@ -154,29 +82,29 @@ msgstr "Sistèma"
 msgid "Blogs"
 msgstr "Blògs"
 
+msgid "Blog ID"
+msgstr "ID del blòg"
+
 msgid "Blog ID:"
 msgstr "ID del blòg :"
 
 msgid "Required field"
 msgstr "Camp requesit"
 
-msgid "Blog ID"
-msgstr "ID del blòg"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Almens 2 caractèrs en utilizant de letras, nombres e simbòl."
-
-msgid "Blog name:"
-msgstr "Nom del blòg :"
 
 msgid "Blog name"
 msgstr "Nom del blòg"
 
-msgid "Blog URL:"
-msgstr "Url del blòg :"
+msgid "Blog name:"
+msgstr "Nom del blòg :"
 
 msgid "Blog URL"
 msgstr "URL del blòg"
+
+msgid "Blog URL:"
+msgstr "Url del blòg :"
 
 msgid "Blog description:"
 msgstr "Descripcion del blòg :"
@@ -523,27 +451,6 @@ msgstr "Dotclear"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr ""
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr ""
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr ""
-
-msgid "Server URL:"
-msgstr "URL del servidor :"
-
-msgid "Blogging system:"
-msgstr ""
-
-msgid "User name:"
-msgstr "Nom d’utilizaire :"
-
-msgid "your password"
-msgstr "vòstre senhal"
-
 msgid "Search engines robots policy"
 msgstr ""
 
@@ -582,6 +489,9 @@ msgstr ""
 
 msgid "No users"
 msgstr ""
+
+msgid "Email:"
+msgstr "E-mail :"
 
 msgid "Publications on this blog:"
 msgstr ""
@@ -673,11 +583,11 @@ msgstr "Lista dels blògs"
 msgid "Create a new blog"
 msgstr "Crear un nòu blòg"
 
-msgid "Selected blogs action:"
-msgstr ""
-
 msgid "Actions"
 msgstr "Accions"
+
+msgid "Selected blogs action:"
+msgstr ""
 
 msgid "ok"
 msgstr "d’acòrdi"
@@ -799,11 +709,11 @@ msgstr "Categòria"
 msgid "Move current category"
 msgstr ""
 
-msgid "after"
-msgstr "aprèp"
-
 msgid "before"
 msgstr "abans"
+
+msgid "after"
+msgstr "aprèp"
 
 msgid "position: "
 msgstr "posicion : "
@@ -1070,6 +980,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Installacion de Dotclear"
 
+#, php-format
+msgid "Password strength: %s"
+msgstr "Fòrça del senhal : %s"
+
+msgid "weak"
+msgstr "febla"
+
+#, fuzzy
+msgid "medium"
+msgstr "Mejana"
+
+msgid "strong"
+msgstr "fòrta"
+
 msgid "show"
 msgstr "mostrar"
 
@@ -1104,8 +1028,14 @@ msgstr "Nom d’utilizaire e senhal"
 msgid "Username"
 msgstr "Nom d'_utilizaire"
 
+msgid "New password:"
+msgstr "Nòu senhal :"
+
 msgid "Password"
 msgstr "Senhal"
+
+msgid "Confirm password:"
+msgstr "Confirmatz lo senhal :"
 
 msgid "All done!"
 msgstr "Tot es prest !"
@@ -1306,18 +1236,6 @@ msgstr ""
 msgid "Upload language"
 msgstr "Enviar la lenga"
 
-msgid "Media manager"
-msgstr ""
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Search:"
-msgstr "Recercar :"
-
 msgid "Not a valid directory"
 msgstr ""
 
@@ -1414,6 +1332,9 @@ msgstr ""
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr ""
+
 msgid "Create new directory"
 msgstr "Crear un dossièr novèl"
 
@@ -1463,6 +1384,15 @@ msgstr "Enviar"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Search:"
+msgstr "Recercar :"
 
 msgid "Not a valid file"
 msgstr "Es pas un fichièr valid"
@@ -1692,9 +1622,6 @@ msgstr ""
 msgid "Plugins management"
 msgstr ""
 
-msgid "Plugin configuration"
-msgstr ""
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1714,6 +1641,9 @@ msgid "Installed plugins"
 msgstr "Empeutons installats"
 
 msgid "Activated plugins"
+msgstr ""
+
+msgid "(in normal mode)"
 msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
@@ -1738,6 +1668,9 @@ msgid "You can install plugins by uploading or downloading zip files."
 msgstr ""
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
+msgstr ""
+
+msgid "Plugin configuration"
 msgstr ""
 
 msgid "Add a link"
@@ -1826,35 +1759,14 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Data"
-
-msgid "IP address"
-msgstr "Adreça IP"
-
 msgid "Status"
 msgstr "Estatut"
-
-msgid "Edit"
-msgstr "Modificar"
-
-msgid "Junk"
-msgstr "Corrièr indesirable"
-
-msgid "select this comment"
-msgstr ""
-
-msgid "select this trackback"
-msgstr ""
-
-msgid "Edit this comment"
-msgstr ""
 
 msgid "Entry status"
 msgstr ""
@@ -1954,6 +1866,27 @@ msgid "Auto discover ping URLs"
 msgstr ""
 
 msgid "Previously sent pings"
+msgstr ""
+
+msgid "Date"
+msgstr "Data"
+
+msgid "IP address"
+msgstr "Adreça IP"
+
+msgid "Edit"
+msgstr "Modificar"
+
+msgid "Junk"
+msgstr "Corrièr indesirable"
+
+msgid "select this comment"
+msgstr ""
+
+msgid "select this trackback"
+msgstr ""
+
+msgid "Edit this comment"
 msgstr ""
 
 msgid "This attachment does not exist"
@@ -2233,9 +2166,6 @@ msgstr ""
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Documentason"
-
-msgid "Iconset:"
-msgstr ""
 
 msgid "Dashboard modules"
 msgstr ""
@@ -2720,6 +2650,24 @@ msgstr ""
 
 msgid "Entry language:"
 msgstr "Lenga de l’entrada :"
+
+msgid "Database error"
+msgstr "Error de la banca de donadas"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+msgid "System settings"
+msgstr "Paramètres del sistèma"
+
+msgid "Blog"
+msgstr "Blòg"
+
+msgid "Plugins"
+msgstr "Empeutons"
+
+msgid "Update"
+msgstr "Mesa a jorn"
 
 msgid "Languages"
 msgstr "Lengas"
@@ -3244,9 +3192,6 @@ msgstr ""
 msgid "Install"
 msgstr "Installar"
 
-msgid "Update"
-msgstr "Mesa a jorn"
-
 msgid "Activate selected plugins"
 msgstr ""
 
@@ -3643,11 +3588,11 @@ msgid "open"
 msgstr "dobrir"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 msgid "The 'public' directory does not exist."
@@ -3672,21 +3617,6 @@ msgstr ""
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
-
-msgid "Database error"
-msgstr "Error de la banca de donadas"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-msgid "System settings"
-msgstr "Paramètres del sistèma"
-
-msgid "Blog"
-msgstr "Blòg"
-
-msgid "Plugins"
-msgstr "Empeutons"
 
 #, fuzzy
 msgid "small"
@@ -3905,16 +3835,17 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
+#, php-format
+msgid "Unable to read new %s file"
+msgstr ""
+
+msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "No such module."
 msgstr ""
 
 msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "Cannot activate plugin."
@@ -3991,7 +3922,7 @@ msgstr ""
 msgid " (copy)"
 msgstr ""
 
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr ""
 
 msgid "Destination folder already exist"
@@ -4111,6 +4042,66 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "extra-large"
+#~ msgstr "Mai grand"
+
+#, fuzzy
+#~ msgid "large"
+#~ msgstr "Mai grand"
+
+#~ msgid "Back to login screen"
+#~ msgstr "Tornar a l’ecran de connexion"
+
+#~ msgid "Request a new password"
+#~ msgstr "Demandar un nòu senhal"
+
+#~ msgid "recover"
+#~ msgstr "recuperar"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Mas opcions"
+
+#~ msgid "Change your password"
+#~ msgstr "Cambiar de senhal"
+
+#~ msgid "change"
+#~ msgstr "cambiar"
+
+#~ msgid "Safe mode login"
+#~ msgstr "Mòde de connexion segur"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Se remembrar de mon ID sus aqueste periferic"
+
+#~ msgid "log in"
+#~ msgstr "connexion"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Vos cal acceptar los cookies per utilizar la zòna privada."
+
+#~ msgid "Get back to normal authentication"
+#~ msgstr "Tornar a la autentificacion normala"
+
+#~ msgid "Connection issue?"
+#~ msgstr "Problèma de connexion ?"
+
+#~ msgid "I forgot my password"
+#~ msgstr "Ai oblidat mon senhal"
+
+#~ msgid "I want to log in in safe mode"
+#~ msgstr "Vòli me connectar en mòde segur"
+
+#~ msgid "Server URL:"
+#~ msgstr "URL del servidor :"
+
+#~ msgid "User name:"
+#~ msgstr "Nom d’utilizaire :"
+
+#~ msgid "your password"
+#~ msgstr "vòstre senhal"
+
 #~ msgid "Media list"
 #~ msgstr "Lista dels mèdias"
 
@@ -4122,10 +4113,6 @@ msgstr ""
 
 #~ msgid "now"
 #~ msgstr "ara"
-
-#, fuzzy
-#~ msgid "large"
-#~ msgstr "Mai grand"
 
 #~ msgid "very weak"
 #~ msgstr "febla febla"

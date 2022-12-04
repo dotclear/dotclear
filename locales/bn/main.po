@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -26,11 +26,11 @@ msgstr "পাসওয়ার্ড রিসেট"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr ""
 
-msgid "Username:"
-msgstr "ইউজারনেম:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
+
+msgid "Username:"
+msgstr "ইউজারনেম:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -73,79 +73,6 @@ msgid "Wrong username or password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "পাসওয়ার্ড রিসেট"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "মাঝারি:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "লগইন পাতায় ফিরে যাও"
-
-msgid "Request a new password"
-msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
-
-msgid "Email:"
-msgstr "ইমেইল:"
-
-msgid "recover"
-msgstr "উদ্ধার করুন"
-
-#, fuzzy
-msgid "Other option"
-msgstr "সার্চ অপশন"
-
-msgid "Change your password"
-msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
-
-msgid "New password:"
-msgstr "নতুন পাসওয়ার্ড:"
-
-msgid "Confirm password:"
-msgstr "আবার পাসওয়ার্ড:"
-
-msgid "change"
-msgstr "পরিবর্তন করুন"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
-
-#, fuzzy
-msgid "log in"
-msgstr "ব্লগের নাম"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr ""
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে।"
 
@@ -158,29 +85,29 @@ msgstr ""
 msgid "Blogs"
 msgstr "ব্লগসমূহ"
 
+msgid "Blog ID"
+msgstr "ব্লগ আইডি"
+
 msgid "Blog ID:"
 msgstr "ব্লগ আইডি:"
 
 msgid "Required field"
 msgstr "প্রয়োজনীয় ঘর"
 
-msgid "Blog ID"
-msgstr "ব্লগ আইডি"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "কমপক্ষে ২ অক্ষর লিখতে হবে - বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
-
-msgid "Blog name:"
-msgstr "ব্লগের নাম:"
 
 msgid "Blog name"
 msgstr "ব্লগের নাম"
 
-msgid "Blog URL:"
-msgstr "ব্লগ URL:"
+msgid "Blog name:"
+msgstr "ব্লগের নাম:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "ব্লগ URL:"
+
+msgid "Blog URL:"
 msgstr "ব্লগ URL:"
 
 msgid "Blog description:"
@@ -539,27 +466,6 @@ msgstr "ডটক্লিয়ার টিম"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr ""
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr ""
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr ""
-
-msgid "Server URL:"
-msgstr "সার্ভার URL:"
-
-msgid "Blogging system:"
-msgstr "ব্লগিং সিস্টেম:"
-
-msgid "User name:"
-msgstr "ইউজার নেম:"
-
-msgid "your password"
-msgstr "আপনার পাসওয়ার্ড"
-
 msgid "Search engines robots policy"
 msgstr "সার্চ ইঞ্জিনের রোবটের জন্য নিয়ম"
 
@@ -600,6 +506,9 @@ msgstr "এই ব্লগের ইউজারসমূহ"
 
 msgid "No users"
 msgstr "শূণ্য ইউজার"
+
+msgid "Email:"
+msgstr "ইমেইল:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -702,12 +611,12 @@ msgid "Create a new blog"
 msgstr "একটি নতুন ব্লগ তৈরি করুন"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "শূণ্য ট্র্যাকব্যাক"
-
-#, fuzzy
 msgid "Actions"
 msgstr "বিবরণ:"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "শূণ্য ট্র্যাকব্যাক"
 
 msgid "ok"
 msgstr "ঠিক আছে"
@@ -837,11 +746,11 @@ msgstr ""
 msgid "Move current category"
 msgstr ""
 
-msgid "after"
-msgstr "পরে"
-
 msgid "before"
 msgstr "আগে"
+
+msgid "after"
+msgstr "পরে"
 
 #, fuzzy
 msgid "position: "
@@ -1119,6 +1028,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear ইন্সটলেশন"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "পাসওয়ার্ড রিসেট"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "মাঝারি:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr "দেখাও"
 
@@ -1157,9 +1080,15 @@ msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড
 msgid "Username"
 msgstr "ইউজারনেম:"
 
+msgid "New password:"
+msgstr "নতুন পাসওয়ার্ড:"
+
 #, fuzzy
 msgid "Password"
 msgstr "পাসওয়ার্ড:"
+
+msgid "Confirm password:"
+msgstr "আবার পাসওয়ার্ড:"
 
 msgid "All done!"
 msgstr "কাজ শেষ!"
@@ -1363,18 +1292,6 @@ msgstr "ভাষার zip ফাইল:"
 msgid "Upload language"
 msgstr "ভাষা আপলোড"
 
-msgid "Media manager"
-msgstr "মিডিয়া ম্যানেজার"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d টি এন্ট্রি পাওয়া গেছে"
-msgstr[1] "%d টি এন্ট্রি পাওয়া গেছে"
-
-msgid "Search:"
-msgstr ""
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "ফাইলটি বৈধ নয়"
@@ -1476,6 +1393,9 @@ msgstr "থিম আপলোড করুন"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "মিডিয়া ম্যানেজার"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "নতুন ডিরেক্টরি"
@@ -1528,6 +1448,15 @@ msgstr "আপলোড"
 
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d টি এন্ট্রি পাওয়া গেছে"
+msgstr[1] "%d টি এন্ট্রি পাওয়া গেছে"
+
+msgid "Search:"
 msgstr ""
 
 msgid "Not a valid file"
@@ -1769,10 +1698,6 @@ msgstr ""
 msgid "Plugins management"
 msgstr "প্লাগইন দেখাশোনা"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "ব্লগ কনফিগারেশন"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1796,6 +1721,9 @@ msgstr "ইন্সটলকৃত ভাষা"
 
 msgid "Activated plugins"
 msgstr "সক্রিয় প্লাগইনসমূহ"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1821,6 +1749,10 @@ msgstr ""
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "ব্লগ কনফিগারেশন"
 
 msgid "Add a link"
 msgstr "লিংক যোগ করুন"
@@ -1919,37 +1851,14 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "তারিখ"
-
-msgid "IP address"
-msgstr "IP এড্রেস"
-
 msgid "Status"
 msgstr "অবস্থা"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "এই মন্তব্য এডিট করুন"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "শূণ্য ট্র্যাকব্যাক"
-
-msgid "Edit this comment"
-msgstr "এই মন্তব্য এডিট করুন"
 
 #, fuzzy
 msgid "Entry status"
@@ -2060,6 +1969,29 @@ msgstr ""
 
 msgid "Previously sent pings"
 msgstr ""
+
+msgid "Date"
+msgstr "তারিখ"
+
+msgid "IP address"
+msgstr "IP এড্রেস"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "এই মন্তব্য এডিট করুন"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "শূণ্য ট্র্যাকব্যাক"
+
+msgid "Edit this comment"
+msgstr "এই মন্তব্য এডিট করুন"
 
 msgid "This attachment does not exist"
 msgstr "এই সংযুক্ত ফাইলটি খুঁজে পাওয়া যাচ্ছে না"
@@ -2367,9 +2299,6 @@ msgstr "ড্যাশবোর্ড"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "ড্যাশবোর্ড"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2889,6 +2818,26 @@ msgstr ""
 #, fuzzy
 msgid "Entry language:"
 msgstr "এন্ট্রির ভাষা:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "ডাটাবেজের ধরণ:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "ব্লগ সেটিংস"
+
+msgid "Blog"
+msgstr "ব্লগ"
+
+msgid "Plugins"
+msgstr "প্লাগইনসমূহ"
+
+msgid "Update"
+msgstr ""
 
 msgid "Languages"
 msgstr "ভাষাসমূহ"
@@ -3450,9 +3399,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear ইন্সটলেশন"
 
-msgid "Update"
-msgstr ""
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "সক্রিয় প্লাগইনসমূহ"
@@ -3886,11 +3832,11 @@ msgid "open"
 msgstr ""
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3918,23 +3864,6 @@ msgstr ""
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
-
-#, fuzzy
-msgid "Database error"
-msgstr "ডাটাবেজের ধরণ:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "ব্লগ সেটিংস"
-
-msgid "Blog"
-msgstr "ব্লগ"
-
-msgid "Plugins"
-msgstr "প্লাগইনসমূহ"
 
 #, fuzzy
 msgid "small"
@@ -4157,16 +4086,17 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "No such module."
 msgstr ""
 
 msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "Cannot activate plugin."
@@ -4243,8 +4173,9 @@ msgstr ""
 msgid " (copy)"
 msgstr ""
 
-msgid "Unable to modify _config.php"
-msgstr ""
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
 
 #, fuzzy
 msgid "Destination folder already exist"
@@ -4363,6 +4294,47 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "লগইন পাতায় ফিরে যাও"
+
+#~ msgid "Request a new password"
+#~ msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
+
+#~ msgid "recover"
+#~ msgstr "উদ্ধার করুন"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "সার্চ অপশন"
+
+#~ msgid "Change your password"
+#~ msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
+
+#~ msgid "change"
+#~ msgstr "পরিবর্তন করুন"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "ব্লগের নাম"
+
+#~ msgid "I forgot my password"
+#~ msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
+
+#~ msgid "Server URL:"
+#~ msgstr "সার্ভার URL:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "ব্লগিং সিস্টেম:"
+
+#~ msgid "User name:"
+#~ msgstr "ইউজার নেম:"
+
+#~ msgid "your password"
+#~ msgstr "আপনার পাসওয়ার্ড"
 
 #~ msgid "Directory has been successfully created."
 #~ msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"

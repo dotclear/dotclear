@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
@@ -26,11 +26,11 @@ msgstr "Blanquear contraseña"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Alguien ha pedido el blanqueo de contraseña para siguiente sitio y usuario."
 
-msgid "Username:"
-msgstr "Nombre de usuario:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Para blanquear su contraseña vaya a la siguiente dirección, si no, simplemente ignore este mensaje y no pasará nada."
+
+msgid "Username:"
+msgstr "Nombre de usuario:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -75,80 +75,6 @@ msgid "Wrong username or password"
 msgstr "Nombre de usuario o contraseña incorrecta"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Blanquear contraseña"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Mediano:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Volver a la pantalla de ingreso"
-
-msgid "Request a new password"
-msgstr "Pedir una nueva contraseña"
-
-msgid "Email:"
-msgstr "Email:"
-
-msgid "recover"
-msgstr "recuperar"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Opciones de búsqueda"
-
-msgid "Change your password"
-msgstr "Cambiar su contraseña"
-
-msgid "New password:"
-msgstr "Nueva contraseña:"
-
-msgid "Confirm password:"
-msgstr "Confirmar la contraseña:"
-
-#, fuzzy
-msgid "change"
-msgstr "cancelar"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Recordar mi ID en este equipo"
-
-#, fuzzy
-msgid "log in"
-msgstr "Nombre del blog"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Debe aceptar huellas para utilizar la interfaz privada."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "He olvidado mi contraseña"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blog creado con éxito."
 
@@ -161,29 +87,29 @@ msgstr "Sistema"
 msgid "Blogs"
 msgstr "Blogs"
 
+msgid "Blog ID"
+msgstr "ID del blog"
+
 msgid "Blog ID:"
 msgstr "ID del blog:"
 
 msgid "Required field"
 msgstr "Campo obligatorio"
 
-msgid "Blog ID"
-msgstr "ID del blog"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Al menos 2 caracteres, compuestos por letras, cifras o símbolos."
-
-msgid "Blog name:"
-msgstr "Nombre del blog:"
 
 msgid "Blog name"
 msgstr "Nombre del blog"
 
-msgid "Blog URL:"
-msgstr "URL del blog:"
+msgid "Blog name:"
+msgstr "Nombre del blog:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "URL del blog:"
+
+msgid "Blog URL:"
 msgstr "URL del blog:"
 
 msgid "Blog description:"
@@ -547,27 +473,6 @@ msgstr "Equipo de Dotclear"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Activar la interfaz XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "La interfaz XML/RPC le permite editar su blog con un cliente externo."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "La interfaz XML/RPC está activa. Usted debe indicar los siguientes parámetros en su cliente XML/RPC:"
-
-msgid "Server URL:"
-msgstr "URL del servidor:"
-
-msgid "Blogging system:"
-msgstr "Sistema de blog:"
-
-msgid "User name:"
-msgstr "Nombre de usuario:"
-
-msgid "your password"
-msgstr "contraseña"
-
 msgid "Search engines robots policy"
 msgstr "Política de los robots motores de búsqueda"
 
@@ -609,6 +514,9 @@ msgstr "Usuarios de este blog"
 
 msgid "No users"
 msgstr "Ningún usuario"
+
+msgid "Email:"
+msgstr "Email:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -712,12 +620,12 @@ msgid "Create a new blog"
 msgstr "Crear un nuevo blog"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "Acción sobre los usuarios seleccionados:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Acción"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Acción sobre los usuarios seleccionados:"
 
 msgid "ok"
 msgstr "ok"
@@ -850,11 +758,11 @@ msgstr "Categoría similar"
 msgid "Move current category"
 msgstr "Mover la categoría actual"
 
-msgid "after"
-msgstr "antes"
-
 msgid "before"
 msgstr "después"
+
+msgid "after"
+msgstr "antes"
 
 #, fuzzy
 msgid "position: "
@@ -1140,6 +1048,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Instalación de Dotclear"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Blanquear contraseña"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Mediano:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1174,9 +1096,15 @@ msgstr "Nombre de usuario y contraseña:"
 msgid "Username"
 msgstr "Nombre de usuario"
 
+msgid "New password:"
+msgstr "Nueva contraseña:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Contraseña:"
+
+msgid "Confirm password:"
+msgstr "Confirmar la contraseña:"
 
 msgid "All done!"
 msgstr "Hecho"
@@ -1380,18 +1308,6 @@ msgstr "Archivo zip de idioma:"
 msgid "Upload language"
 msgstr "Subir idioma"
 
-msgid "Media manager"
-msgstr "Gestor de medios"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d entradas encontradas"
-msgstr[1] "%d entradas encontradas"
-
-msgid "Search:"
-msgstr "Buscar:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Archivo no válido"
@@ -1497,6 +1413,9 @@ msgstr "Revertir al archivo seleccionado"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "Gestor de medios"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "Extraer en un nuevo directorio"
@@ -1550,6 +1469,15 @@ msgstr "Subir"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d entradas encontradas"
+msgstr[1] "%d entradas encontradas"
+
+msgid "Search:"
+msgstr "Buscar:"
 
 msgid "Not a valid file"
 msgstr "Archivo no válido"
@@ -1793,10 +1721,6 @@ msgstr "El agregado que busca no existe o no tiene página de administración."
 msgid "Plugins management"
 msgstr "Gestor de agregados"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Configuración del blog"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1820,6 +1744,9 @@ msgstr "Idiomas instalados"
 
 msgid "Activated plugins"
 msgstr "Agregados activados"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1846,6 +1773,10 @@ msgstr "Puede instalar agregados subiendo o descargando archivos zip."
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Para habilitar esta función, por favor de permisos de acceso y escritura a su directorio de agregados."
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Configuración del blog"
 
 msgid "Add a link"
 msgstr "Añadir un enlace"
@@ -1945,37 +1876,15 @@ msgstr "Archivo adjuntado con éxito."
 msgid "Attachment has been successfully removed."
 msgstr "Archivo adjunto quitado con éxito."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "No olvide validar su conversión HTML antes de guardar su entrada."
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Fecha"
-
-msgid "IP address"
-msgstr "Dirección IP"
-
 msgid "Status"
 msgstr "Estado"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Editar este comentario"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Aceptar enlaces inversos"
-
-msgid "Edit this comment"
-msgstr "Editar este comentario"
 
 #, fuzzy
 msgid "Entry status"
@@ -2087,6 +1996,29 @@ msgstr "Descubrimiento automático de las URL ping"
 
 msgid "Previously sent pings"
 msgstr "Pings enviados anteriormente"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "IP address"
+msgstr "Dirección IP"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Editar este comentario"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Aceptar enlaces inversos"
+
+msgid "Edit this comment"
+msgstr "Editar este comentario"
 
 msgid "This attachment does not exist"
 msgstr "Este archivo adjunto no existe"
@@ -2400,9 +2332,6 @@ msgstr "Panel principal"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Panel principal"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2935,6 +2864,26 @@ msgstr "Mas usado"
 #, fuzzy
 msgid "Entry language:"
 msgstr "Idioma de la entrada:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Tipo de base de datos:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Parámetros del blog"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Agregados"
+
+msgid "Update"
+msgstr "Actualizaciones"
 
 msgid "Languages"
 msgstr "Idioma"
@@ -3485,9 +3434,6 @@ msgstr ""
 msgid "Install"
 msgstr "Instalación de Dotclear"
 
-msgid "Update"
-msgstr "Actualizaciones"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "Agregados activados"
@@ -3931,11 +3877,11 @@ msgid "open"
 msgstr "abrir"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3963,23 +3909,6 @@ msgstr "Se ha producido un error durante la escritura del archivo."
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Tamaño de imagen generada (en pixeles)"
-
-#, fuzzy
-msgid "Database error"
-msgstr "Tipo de base de datos:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Parámetros del blog"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Agregados"
 
 #, fuzzy
 msgid "small"
@@ -4208,17 +4137,18 @@ msgstr "Ha ocurrido un error durante la eliminación del modulo."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "No se puede actualizar a \"%s\". (misma versión)"
 
-msgid "Unable to read new _define.php file"
-msgstr "No se puede leer el nuevo archivo _define.php"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "No se puede leer el resumen de archivo."
+
+msgid "Cannot deactivate plugin."
+msgstr "No se puede desactivar el agregado."
 
 msgid "No such module."
 msgstr "No existe el modulo."
 
 msgid "Cannot remove module files"
 msgstr "No se pueden eliminar los archivos del modulo"
-
-msgid "Cannot deactivate plugin."
-msgstr "No se puede desactivar el agregado."
 
 msgid "Cannot activate plugin."
 msgstr "No se puede activar el agregado."
@@ -4300,7 +4230,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "El archivo no se puede abrir."
 
 #, fuzzy
@@ -4422,6 +4352,63 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "Volver a la pantalla de ingreso"
+
+#~ msgid "Request a new password"
+#~ msgstr "Pedir una nueva contraseña"
+
+#~ msgid "recover"
+#~ msgstr "recuperar"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Opciones de búsqueda"
+
+#~ msgid "Change your password"
+#~ msgstr "Cambiar su contraseña"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "cancelar"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Recordar mi ID en este equipo"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Nombre del blog"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Debe aceptar huellas para utilizar la interfaz privada."
+
+#~ msgid "I forgot my password"
+#~ msgstr "He olvidado mi contraseña"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Activar la interfaz XML/RPC"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "La interfaz XML/RPC le permite editar su blog con un cliente externo."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "La interfaz XML/RPC está activa. Usted debe indicar los siguientes parámetros en su cliente XML/RPC:"
+
+#~ msgid "Server URL:"
+#~ msgstr "URL del servidor:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Sistema de blog:"
+
+#~ msgid "User name:"
+#~ msgstr "Nombre de usuario:"
+
+#~ msgid "your password"
+#~ msgstr "contraseña"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "No se puede leer el nuevo archivo _define.php"
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "Por nombres, ascendente"

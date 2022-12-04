@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -27,11 +27,11 @@ msgstr "Reinicialització de contrasenya"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Algú ha demanat restaurar la contrasenya per al lloc i l'identificador següents:"
 
-msgid "Username:"
-msgstr "Identificador:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Per tal de restaurar la seva contrasenya visiti l'adreça següent, altrament ignori aquest correu i no passarà res."
+
+msgid "Username:"
+msgstr "Identificador:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -75,79 +75,6 @@ msgid "Wrong username or password"
 msgstr "Identificador o contrasenya incorrectes"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Reinicialització de contrasenya"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr ""
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Retorn a la pantalla de connexió"
-
-msgid "Request a new password"
-msgstr "Es requereix una nova contrasenya"
-
-msgid "Email:"
-msgstr "Correu electrònic:"
-
-msgid "recover"
-msgstr "Recuperar"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Descripció"
-
-msgid "Change your password"
-msgstr "Canviar la seva contrasenya"
-
-msgid "New password:"
-msgstr "Nova contrasenya:"
-
-msgid "Confirm password:"
-msgstr "Confirmar la contrasenya :"
-
-#, fuzzy
-msgid "change"
-msgstr "Anul·lar"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Recordar el meu Identificador en aquest ordinador"
-
-#, fuzzy
-msgid "log in"
-msgstr "Nom del blog"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "És necessari que accepti les cookies per tal d'accedir a l'àrea privada."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "He oblidat la meva contrasenya"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "El blog s'ha creat amb èxit."
 
@@ -160,29 +87,29 @@ msgstr "Sistema"
 msgid "Blogs"
 msgstr "Blogs"
 
+msgid "Blog ID"
+msgstr "Identificador del blog"
+
 msgid "Blog ID:"
 msgstr "Identificador del blog :"
 
 msgid "Required field"
 msgstr "Camp obligatori"
 
-msgid "Blog ID"
-msgstr "Identificador del blog"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Com a mínim 2 caràcters han de ser lletres, números o símbols."
-
-msgid "Blog name:"
-msgstr "Nom del blog :"
 
 msgid "Blog name"
 msgstr "Nom del blog"
 
-msgid "Blog URL:"
-msgstr "URL del blog :"
+msgid "Blog name:"
+msgstr "Nom del blog :"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "URL del blog :"
+
+msgid "Blog URL:"
 msgstr "URL del blog :"
 
 msgid "Blog description:"
@@ -543,28 +470,6 @@ msgstr "Pseudònim"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Activar la interfície XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "La interfície XML/RPC li permet editar el seu blog amb un client extern."
-
-#, fuzzy
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "La interfície XML/RPC està activada. Hauria d'introduir els paràmetres següents en el seu client d'XML/RPC:"
-
-msgid "Server URL:"
-msgstr "Servidor URL:"
-
-msgid "Blogging system:"
-msgstr "Sistema de blog:"
-
-msgid "User name:"
-msgstr "Identificador:"
-
-msgid "your password"
-msgstr "La seva contrasenya"
-
 msgid "Search engines robots policy"
 msgstr ""
 
@@ -606,6 +511,9 @@ msgstr "Usuaris en aquest blog"
 
 msgid "No users"
 msgstr "Cap usuari"
+
+msgid "Email:"
+msgstr "Correu electrònic:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -706,12 +614,12 @@ msgid "Create a new blog"
 msgstr "Crear un blog nou"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "Acció d'usuaris seleccionada:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Descripció:"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Acció d'usuaris seleccionada:"
 
 msgid "ok"
 msgstr "ok"
@@ -851,12 +759,12 @@ msgstr "Categoria"
 msgid "Move current category"
 msgstr "canviar categoria"
 
+msgid "before"
+msgstr ""
+
 #, fuzzy
 msgid "after"
 msgstr "filtre"
-
-msgid "before"
-msgstr ""
 
 #, fuzzy
 msgid "position: "
@@ -1140,6 +1048,19 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Instal·lació de Dotclear"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Reinicialització de contrasenya"
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1179,9 +1100,15 @@ msgstr "Identificador o contrasenya incorrectes"
 msgid "Username"
 msgstr "Identificador:"
 
+msgid "New password:"
+msgstr "Nova contrasenya:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Contrasenya:"
+
+msgid "Confirm password:"
+msgstr "Confirmar la contrasenya :"
 
 msgid "All done!"
 msgstr "Finalitzat!"
@@ -1401,18 +1328,6 @@ msgstr "Canviar el fitxer"
 msgid "Upload language"
 msgstr "Idioma de l'usuari:"
 
-msgid "Media manager"
-msgstr "Gestor de media"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "Extensió no trobada"
-msgstr[1] "Extensió no trobada"
-
-msgid "Search:"
-msgstr "Cercar:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Fitxer invàlid"
@@ -1518,6 +1433,9 @@ msgstr "Suprimir les extensions seleccionades"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "Gestor de media"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "%s no és un directori."
@@ -1572,6 +1490,15 @@ msgstr ""
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "Extensió no trobada"
+msgstr[1] "Extensió no trobada"
+
+msgid "Search:"
+msgstr "Cercar:"
 
 msgid "Not a valid file"
 msgstr "Fitxer invàlid"
@@ -1819,10 +1746,6 @@ msgstr "L'extensió que ha indicat no existeix o no té una pàgina d'administra
 msgid "Plugins management"
 msgstr "Gestió de les extensions"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Configuració del blog"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1846,6 +1769,9 @@ msgstr "Idioma de l'usuari:"
 #, fuzzy
 msgid "Activated plugins"
 msgstr "Suprimir les extensions seleccionades"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1872,6 +1798,10 @@ msgstr ""
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Configuració del blog"
 
 msgid "Add a link"
 msgstr "Afegir un enllaç"
@@ -1970,37 +1900,14 @@ msgstr "El fitxer s'ha adjuntat amb èxit."
 msgid "Attachment has been successfully removed."
 msgstr "L'annex s'ha suprimit amb èxit."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Data"
-
-msgid "IP address"
-msgstr "Adreça IP"
-
 msgid "Status"
 msgstr "Estat"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Editar aquest comentari"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Acceptar les respostes"
-
-msgid "Edit this comment"
-msgstr "Editar aquest comentari"
 
 #, fuzzy
 msgid "Entry status"
@@ -2111,6 +2018,29 @@ msgstr "Descobriment automàtic de les ping URLs"
 
 msgid "Previously sent pings"
 msgstr "Pings ja enviats"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "IP address"
+msgstr "Adreça IP"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Editar aquest comentari"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Acceptar les respostes"
+
+msgid "Edit this comment"
+msgstr "Editar aquest comentari"
 
 msgid "This attachment does not exist"
 msgstr "Aquest annex no existeix"
@@ -2418,9 +2348,6 @@ msgstr "Quadre de comandament"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Quadre de comandament"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2953,6 +2880,26 @@ msgstr ""
 #, fuzzy
 msgid "Entry language:"
 msgstr "Idioma de l'entrada:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Tipus de base de dades:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Paràmetres dels temes"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Extensions"
+
+msgid "Update"
+msgstr ""
 
 #, fuzzy
 msgid "Languages"
@@ -3518,9 +3465,6 @@ msgstr ""
 msgid "Install"
 msgstr "Instal·lació de Dotclear"
 
-msgid "Update"
-msgstr ""
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "Suprimir les extensions seleccionades"
@@ -3955,11 +3899,11 @@ msgid "open"
 msgstr "Obrir"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3988,23 +3932,6 @@ msgstr "Ha succeït un error mentre s'intentava gravar l'arxiu."
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
-
-#, fuzzy
-msgid "Database error"
-msgstr "Tipus de base de dades:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Paràmetres dels temes"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Extensions"
 
 #, fuzzy
 msgid "small"
@@ -4233,16 +4160,17 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "No such module."
 msgstr ""
 
 msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "Cannot activate plugin."
@@ -4326,7 +4254,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "Impossible obrir l'arxiu."
 
 #, fuzzy
@@ -4455,6 +4383,61 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "Retorn a la pantalla de connexió"
+
+#~ msgid "Request a new password"
+#~ msgstr "Es requereix una nova contrasenya"
+
+#~ msgid "recover"
+#~ msgstr "Recuperar"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Descripció"
+
+#~ msgid "Change your password"
+#~ msgstr "Canviar la seva contrasenya"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "Anul·lar"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Recordar el meu Identificador en aquest ordinador"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Nom del blog"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "És necessari que accepti les cookies per tal d'accedir a l'àrea privada."
+
+#~ msgid "I forgot my password"
+#~ msgstr "He oblidat la meva contrasenya"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Activar la interfície XML/RPC"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "La interfície XML/RPC li permet editar el seu blog amb un client extern."
+
+#, fuzzy
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "La interfície XML/RPC està activada. Hauria d'introduir els paràmetres següents en el seu client d'XML/RPC:"
+
+#~ msgid "Server URL:"
+#~ msgstr "Servidor URL:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Sistema de blog:"
+
+#~ msgid "User name:"
+#~ msgstr "Identificador:"
+
+#~ msgid "your password"
+#~ msgstr "La seva contrasenya"
 
 #~ msgid "Directory has been successfully created."
 #~ msgstr "El directori s'ha creat amb èxit."

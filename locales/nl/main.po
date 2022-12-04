@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -26,11 +26,11 @@ msgstr "Wachtwoord gewijzigd"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Iemand heeft een wijziging van het wachtwoord voor de volgende site en gebruikersnaam aangevraagd."
 
-msgid "Username:"
-msgstr "Gebruikersnaam:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Om je wachtwoord te wijzigen, ga naar het volgende adres, als je wachtwoord niet wil wijzigen, vergeet deze email."
+
+msgid "Username:"
+msgstr "Gebruikersnaam:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -71,78 +71,6 @@ msgid "Wrong username or password"
 msgstr "Verkeerde gebruikersnaam of wachtwoord"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Wachtwoord gewijzigd"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Medium:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Terug naar het login scherm"
-
-msgid "Request a new password"
-msgstr "Vraag een nieuw wachtwoord aan"
-
-msgid "Email:"
-msgstr "Email:"
-
-msgid "recover"
-msgstr "terughalen"
-
-msgid "Other option"
-msgstr ""
-
-msgid "Change your password"
-msgstr "Verander je wachtwoord"
-
-msgid "New password:"
-msgstr "Nieuw wachtwoord:"
-
-msgid "Confirm password:"
-msgstr "Bevestig wachtwoord:"
-
-msgid "change"
-msgstr "verander"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Onthoud mijn ID op deze computer"
-
-#, fuzzy
-msgid "log in"
-msgstr "Blog instellingen"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Je moet cookies accepteren om deze pagina te bekijken."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "Ik ben mijn wachtwoord vergeten."
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blog succesvol gemaakt."
 
@@ -155,29 +83,29 @@ msgstr ""
 msgid "Blogs"
 msgstr "Blogs"
 
+msgid "Blog ID"
+msgstr ""
+
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
 msgid "Required field"
 msgstr "Verplicht veld"
 
-msgid "Blog ID"
-msgstr ""
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Minimaal 2 karakter gebruiken."
-
-msgid "Blog name:"
-msgstr "Naam van blog:"
 
 msgid "Blog name"
 msgstr ""
 
-msgid "Blog URL:"
-msgstr "Blog URL:"
+msgid "Blog name:"
+msgstr "Naam van blog:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "Blog URL:"
+
+msgid "Blog URL:"
 msgstr "Blog URL:"
 
 msgid "Blog description:"
@@ -532,27 +460,6 @@ msgstr ""
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Accepter XML/RPC interface"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "Met deXML/RPC interface kun je je blog bewerken via een externe verbinding."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XMl/RPC interface is actief. Je moet de volgende parameter in je XML/RPX client instellen: "
-
-msgid "Server URL:"
-msgstr "Server URL:"
-
-msgid "Blogging system:"
-msgstr "Blogsysteem:"
-
-msgid "User name:"
-msgstr "Gebruikersnaam:"
-
-msgid "your password"
-msgstr "je wachtwoord"
-
 msgid "Search engines robots policy"
 msgstr "Zoekmachine robot instellingen"
 
@@ -593,6 +500,9 @@ msgstr "Gebruikers op deze blog"
 
 msgid "No users"
 msgstr "Geen gebruikers"
+
+msgid "Email:"
+msgstr "Email:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -692,12 +602,12 @@ msgstr ""
 msgid "Create a new blog"
 msgstr ""
 
+msgid "Actions"
+msgstr ""
+
 #, fuzzy
 msgid "Selected blogs action:"
 msgstr "Accepteer trackbacks"
-
-msgid "Actions"
-msgstr ""
 
 msgid "ok"
 msgstr ""
@@ -824,10 +734,10 @@ msgstr ""
 msgid "Move current category"
 msgstr ""
 
-msgid "after"
+msgid "before"
 msgstr ""
 
-msgid "before"
+msgid "after"
 msgstr ""
 
 msgid "position: "
@@ -1099,6 +1009,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Wachtwoord gewijzigd"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1133,9 +1057,15 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+msgid "New password:"
+msgstr "Nieuw wachtwoord:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Wachtwoord:"
+
+msgid "Confirm password:"
+msgstr "Bevestig wachtwoord:"
 
 msgid "All done!"
 msgstr ""
@@ -1336,18 +1266,6 @@ msgstr ""
 msgid "Upload language"
 msgstr ""
 
-msgid "Media manager"
-msgstr ""
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Search:"
-msgstr ""
-
 msgid "Not a valid directory"
 msgstr ""
 
@@ -1448,6 +1366,9 @@ msgstr "verwijder geselecteerd thema"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr ""
+
 msgid "Create new directory"
 msgstr ""
 
@@ -1497,6 +1418,15 @@ msgstr ""
 
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
+msgstr ""
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Search:"
 msgstr ""
 
 msgid "Not a valid file"
@@ -1734,10 +1664,6 @@ msgstr ""
 msgid "Plugins management"
 msgstr ""
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Blog configuratie"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1757,6 +1683,9 @@ msgid "Installed plugins"
 msgstr ""
 
 msgid "Activated plugins"
+msgstr ""
+
+msgid "(in normal mode)"
 msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
@@ -1782,6 +1711,10 @@ msgstr ""
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Blog configuratie"
 
 msgid "Add a link"
 msgstr ""
@@ -1871,36 +1804,13 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr ""
-
-msgid "IP address"
-msgstr ""
-
 msgid "Status"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Verwijder dit blog"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Accepteer trackbacks"
-
-msgid "Edit this comment"
 msgstr ""
 
 msgid "Entry status"
@@ -2004,6 +1914,29 @@ msgid "Auto discover ping URLs"
 msgstr ""
 
 msgid "Previously sent pings"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "IP address"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Verwijder dit blog"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Accepteer trackbacks"
+
+msgid "Edit this comment"
 msgstr ""
 
 msgid "This attachment does not exist"
@@ -2299,9 +2232,6 @@ msgid "Dashboard icons"
 msgstr ""
 
 msgid "Display dashboard icons"
-msgstr ""
-
-msgid "Iconset:"
 msgstr ""
 
 msgid "Dashboard modules"
@@ -2796,6 +2726,25 @@ msgstr ""
 #, fuzzy
 msgid "Entry language:"
 msgstr "Standaard taal:"
+
+msgid "Database error"
+msgstr ""
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Blog instellingen"
+
+msgid "Blog"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Update"
+msgstr ""
 
 msgid "Languages"
 msgstr ""
@@ -3327,9 +3276,6 @@ msgstr ""
 msgid "Install"
 msgstr ""
 
-msgid "Update"
-msgstr ""
-
 msgid "Activate selected plugins"
 msgstr ""
 
@@ -3744,11 +3690,11 @@ msgid "open"
 msgstr ""
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3776,22 +3722,6 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Gegenereede afbeeldinggrootte in pixels"
-
-msgid "Database error"
-msgstr ""
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Blog instellingen"
-
-msgid "Blog"
-msgstr ""
-
-msgid "Plugins"
-msgstr ""
 
 #, fuzzy
 msgid "small"
@@ -4010,16 +3940,17 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "No such module."
 msgstr ""
 
 msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "Cannot activate plugin."
@@ -4097,8 +4028,9 @@ msgstr ""
 msgid " (copy)"
 msgstr ""
 
-msgid "Unable to modify _config.php"
-msgstr ""
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
 
 msgid "Destination folder already exist"
 msgstr ""
@@ -4215,6 +4147,55 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "Terug naar het login scherm"
+
+#~ msgid "Request a new password"
+#~ msgstr "Vraag een nieuw wachtwoord aan"
+
+#~ msgid "recover"
+#~ msgstr "terughalen"
+
+#~ msgid "Change your password"
+#~ msgstr "Verander je wachtwoord"
+
+#~ msgid "change"
+#~ msgstr "verander"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Onthoud mijn ID op deze computer"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Blog instellingen"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Je moet cookies accepteren om deze pagina te bekijken."
+
+#~ msgid "I forgot my password"
+#~ msgstr "Ik ben mijn wachtwoord vergeten."
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Accepter XML/RPC interface"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "Met deXML/RPC interface kun je je blog bewerken via een externe verbinding."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XMl/RPC interface is actief. Je moet de volgende parameter in je XML/RPX client instellen: "
+
+#~ msgid "Server URL:"
+#~ msgstr "Server URL:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Blogsysteem:"
+
+#~ msgid "User name:"
+#~ msgstr "Gebruikersnaam:"
+
+#~ msgid "your password"
+#~ msgstr "je wachtwoord"
 
 #, fuzzy
 #~ msgid "Media list"

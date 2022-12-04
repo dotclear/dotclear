@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -26,11 +26,11 @@ msgstr "Kodeordet er nulstillet"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Nogen har bedt om at nulstille kodeordet for følgende side og brugernavn."
 
-msgid "Username:"
-msgstr "Brugernavn:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "For at nulstille dit kodeord skal du gå til følgende adresse, ellers ignorer denne mail og intet vil ske."
+
+msgid "Username:"
+msgstr "Brugernavn:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -72,79 +72,6 @@ msgid "Wrong username or password"
 msgstr "Forkert brugernavn eller kodeord"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Kodeordet er nulstillet"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Medium:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "Tilbage til log ind skærmen"
-
-msgid "Request a new password"
-msgstr "Bed om et nyt kodeord"
-
-msgid "Email:"
-msgstr "Email:"
-
-msgid "recover"
-msgstr "gendan"
-
-#, fuzzy
-msgid "Other option"
-msgstr "Handling"
-
-msgid "Change your password"
-msgstr "Skift dit kodeord"
-
-msgid "New password:"
-msgstr "Nyt kodeord:"
-
-msgid "Confirm password:"
-msgstr "Bekræft kodeord:"
-
-msgid "change"
-msgstr "skift"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "Husk mit ID på denne computer"
-
-#, fuzzy
-msgid "log in"
-msgstr "Blog navn"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Du skal tillade cookies for at bruge den private del."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "Jeg har glemt mit kodeord"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Bloggen er blevet oprettet uden fejl."
 
@@ -157,29 +84,29 @@ msgstr ""
 msgid "Blogs"
 msgstr "Blogs"
 
+msgid "Blog ID"
+msgstr "Blog ID"
+
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
 msgid "Required field"
 msgstr "Påkrævet felt"
 
-msgid "Blog ID"
-msgstr "Blog ID"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Mindst 2 karaktere indeholdene bogstaver, tal eller symboler."
-
-msgid "Blog name:"
-msgstr "Blog navn:"
 
 msgid "Blog name"
 msgstr "Blog navn"
 
-msgid "Blog URL:"
-msgstr "Blog URL:"
+msgid "Blog name:"
+msgstr "Blog navn:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "Blog URL:"
+
+msgid "Blog URL:"
 msgstr "Blog URL:"
 
 msgid "Blog description:"
@@ -537,27 +464,6 @@ msgstr "Dotclear holdet"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "Slå XML/RPC interfacet til"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC interfacetillader dig at redigere din blog med en ekstern klient."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC interface er aktivt. Du skal sætte de følgende parametre i din XML/RPC klient:"
-
-msgid "Server URL:"
-msgstr "Server URL:"
-
-msgid "Blogging system:"
-msgstr "Blog system:"
-
-msgid "User name:"
-msgstr "Brugernavn:"
-
-msgid "your password"
-msgstr "Dit kodeord"
-
 msgid "Search engines robots policy"
 msgstr "Søgemaskinerobotter politik"
 
@@ -598,6 +504,9 @@ msgstr "Brugere på denne blog"
 
 msgid "No users"
 msgstr "Ingen brugere"
+
+msgid "Email:"
+msgstr "Email:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -700,12 +609,12 @@ msgid "Create a new blog"
 msgstr "Lav en ny blog"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "Valgte kommentarers handling:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "Handling"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Valgte kommentarers handling:"
 
 msgid "ok"
 msgstr "ok"
@@ -838,11 +747,11 @@ msgstr "Kategori sibling"
 msgid "Move current category"
 msgstr "Flyt aktuel kategori"
 
-msgid "after"
-msgstr "efter"
-
 msgid "before"
 msgstr "før"
+
+msgid "after"
+msgstr "efter"
 
 #, fuzzy
 msgid "position: "
@@ -1127,6 +1036,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear installation"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Kodeordet er nulstillet"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr "vis"
 
@@ -1165,9 +1088,15 @@ msgstr "Forkert brugernavn eller kodeord"
 msgid "Username"
 msgstr "Brugernavn:"
 
+msgid "New password:"
+msgstr "Nyt kodeord:"
+
 #, fuzzy
 msgid "Password"
 msgstr "Kodeord:"
+
+msgid "Confirm password:"
+msgstr "Bekræft kodeord:"
 
 msgid "All done!"
 msgstr "Færdig!"
@@ -1372,18 +1301,6 @@ msgstr "Sprog zip fil:"
 msgid "Upload language"
 msgstr "Opload sprog"
 
-msgid "Media manager"
-msgstr ""
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Search:"
-msgstr "Søg:"
-
 msgid "Not a valid directory"
 msgstr ""
 
@@ -1485,6 +1402,9 @@ msgstr "Slet valgte tema"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr ""
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "Lav en ny blog"
@@ -1538,6 +1458,15 @@ msgstr ""
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Search:"
+msgstr "Søg:"
 
 msgid "Not a valid file"
 msgstr ""
@@ -1774,10 +1703,6 @@ msgstr ""
 msgid "Plugins management"
 msgstr ""
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "Blog konfiguration"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1798,6 +1723,9 @@ msgid "Installed plugins"
 msgstr "Installerede sprog"
 
 msgid "Activated plugins"
+msgstr ""
+
+msgid "(in normal mode)"
 msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
@@ -1824,6 +1752,10 @@ msgstr ""
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "For at aktivere denne funktion, skal du give skrive tilladelse til din tema mappe."
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Blog konfiguration"
 
 msgid "Add a link"
 msgstr ""
@@ -1921,37 +1853,14 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "Dato"
-
-msgid "IP address"
-msgstr ""
-
 msgid "Status"
 msgstr "Status"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Du kan ikke redigere denne kommentar."
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Accepter tilbagelinks"
-
-msgid "Edit this comment"
-msgstr ""
 
 #, fuzzy
 msgid "Entry status"
@@ -2058,6 +1967,29 @@ msgid "Auto discover ping URLs"
 msgstr ""
 
 msgid "Previously sent pings"
+msgstr ""
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "IP address"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Du kan ikke redigere denne kommentar."
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Accepter tilbagelinks"
+
+msgid "Edit this comment"
 msgstr ""
 
 msgid "This attachment does not exist"
@@ -2361,9 +2293,6 @@ msgstr "Kontrolpanel"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "Kontrolpanel"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2880,6 +2809,26 @@ msgstr ""
 #, fuzzy
 msgid "Entry language:"
 msgstr "Installer sprog"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Database type:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Blog indstillinger"
+
+msgid "Blog"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Update"
+msgstr ""
 
 msgid "Languages"
 msgstr ""
@@ -3435,9 +3384,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear installation"
 
-msgid "Update"
-msgstr ""
-
 msgid "Activate selected plugins"
 msgstr ""
 
@@ -3863,11 +3809,11 @@ msgid "open"
 msgstr ""
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3895,23 +3841,6 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Genereret billede størrelser (i pixel)"
-
-#, fuzzy
-msgid "Database error"
-msgstr "Database type:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Blog indstillinger"
-
-msgid "Blog"
-msgstr ""
-
-msgid "Plugins"
-msgstr ""
 
 #, fuzzy
 msgid "small"
@@ -4134,16 +4063,17 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "No such module."
 msgstr ""
 
 msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "Cannot activate plugin."
@@ -4221,8 +4151,9 @@ msgstr ""
 msgid " (copy)"
 msgstr ""
 
-msgid "Unable to modify _config.php"
-msgstr ""
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "Det er ikke muligt at flytte den oploadede fil."
 
 #, fuzzy
 msgid "Destination folder already exist"
@@ -4340,6 +4271,59 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "Tilbage til log ind skærmen"
+
+#~ msgid "Request a new password"
+#~ msgstr "Bed om et nyt kodeord"
+
+#~ msgid "recover"
+#~ msgstr "gendan"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "Handling"
+
+#~ msgid "Change your password"
+#~ msgstr "Skift dit kodeord"
+
+#~ msgid "change"
+#~ msgstr "skift"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "Husk mit ID på denne computer"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "Blog navn"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "Du skal tillade cookies for at bruge den private del."
+
+#~ msgid "I forgot my password"
+#~ msgstr "Jeg har glemt mit kodeord"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "Slå XML/RPC interfacet til"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC interfacetillader dig at redigere din blog med en ekstern klient."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC interface er aktivt. Du skal sætte de følgende parametre i din XML/RPC klient:"
+
+#~ msgid "Server URL:"
+#~ msgstr "Server URL:"
+
+#~ msgid "Blogging system:"
+#~ msgstr "Blog system:"
+
+#~ msgid "User name:"
+#~ msgstr "Brugernavn:"
+
+#~ msgid "your password"
+#~ msgstr "Dit kodeord"
 
 #, fuzzy
 #~ msgid "Media list"

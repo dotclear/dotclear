@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -29,13 +29,13 @@ msgstr "パスワードのリセット"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "以下のサイトとユーザ名のパスワードを、リセットするリクエストがありました。"
 
-msgid "Username:"
-msgstr "ユーザ名："
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
 "パスワードをリセットするには、以下のアドレスへアクセスしてください。\n"
 "そうでない場合は、このメールを無視してください。"
+
+msgid "Username:"
+msgstr "ユーザ名："
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -80,80 +80,6 @@ msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "パスワードのリセット"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "ミディアム："
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "ログイン画面に戻る"
-
-msgid "Request a new password"
-msgstr "新しいパスワードをリクエスト"
-
-msgid "Email:"
-msgstr "メール："
-
-msgid "recover"
-msgstr "回復"
-
-#, fuzzy
-msgid "Other option"
-msgstr "検索オプション"
-
-msgid "Change your password"
-msgstr "パスワードの変更"
-
-msgid "New password:"
-msgstr "新しいパスワード："
-
-msgid "Confirm password:"
-msgstr "パスワードの再入力："
-
-#, fuzzy
-msgid "change"
-msgstr "キャンセル"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "次回から入力を省略"
-
-#, fuzzy
-msgid "log in"
-msgstr "ブログ名"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "パスワードの再発行"
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "ブログは正常に作成されました。"
 
@@ -166,29 +92,29 @@ msgstr "システム"
 msgid "Blogs"
 msgstr "ブログ"
 
+msgid "Blog ID"
+msgstr "ブログID"
+
 msgid "Blog ID:"
 msgstr "ブログID："
 
 msgid "Required field"
 msgstr "必須フィールド"
 
-msgid "Blog ID"
-msgstr "ブログID"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "少なくとも2文字（文字・数字・記号）を入力します。"
-
-msgid "Blog name:"
-msgstr "ブログ名："
 
 msgid "Blog name"
 msgstr "ブログ名"
 
-msgid "Blog URL:"
-msgstr "ブログURL："
+msgid "Blog name:"
+msgstr "ブログ名："
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "ブログURL："
+
+msgid "Blog URL:"
 msgstr "ブログURL："
 
 msgid "Blog description:"
@@ -553,27 +479,6 @@ msgstr "Dotclear チーム"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "XML/RPC インターフェイスを有効化"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC インターフェイスは外部クライアントでブログを編集できるようにします。"
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC インターフェイスは有効です。 XML/RPC クライアントで以下のパラメータを設定する必要があります。"
-
-msgid "Server URL:"
-msgstr "サーバURL："
-
-msgid "Blogging system:"
-msgstr "ブログシステム："
-
-msgid "User name:"
-msgstr "ユーザ名："
-
-msgid "your password"
-msgstr "あなたのパスワード"
-
 msgid "Search engines robots policy"
 msgstr "検索エンジンロボットのポリシー"
 
@@ -615,6 +520,9 @@ msgstr "このブログでのユーザ"
 
 msgid "No users"
 msgstr "ユーザはいません"
+
+msgid "Email:"
+msgstr "メール："
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -717,12 +625,12 @@ msgid "Create a new blog"
 msgstr "新しいブログを作成"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "選択されたユーザに実行："
-
-#, fuzzy
 msgid "Actions"
 msgstr "操作"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "選択されたユーザに実行："
 
 msgid "ok"
 msgstr "OK"
@@ -854,11 +762,11 @@ msgstr "カテゴリの兄弟"
 msgid "Move current category"
 msgstr "現在のカテゴリを移動"
 
-msgid "after"
-msgstr "後へ"
-
 msgid "before"
 msgstr "前へ"
+
+msgid "after"
+msgstr "後へ"
 
 #, fuzzy
 msgid "position: "
@@ -1144,6 +1052,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear のインストール"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "パスワードのリセット"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "ミディアム："
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1182,9 +1104,15 @@ msgstr "ユーザ名またはパスワードが間違っています"
 msgid "Username"
 msgstr "ユーザ名："
 
+msgid "New password:"
+msgstr "新しいパスワード："
+
 #, fuzzy
 msgid "Password"
 msgstr "パスワード："
+
+msgid "Confirm password:"
+msgstr "パスワードの再入力："
 
 msgid "All done!"
 msgstr "すべて完了しました！"
@@ -1388,17 +1316,6 @@ msgstr "言語のzipファイル："
 msgid "Upload language"
 msgstr "言語をアップロード"
 
-msgid "Media manager"
-msgstr "メディアマネージャ"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d エントリが見つかりました"
-
-msgid "Search:"
-msgstr "検索："
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "有効なファイルではありません"
@@ -1503,6 +1420,9 @@ msgstr "選択したファイルへ戻す"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "メディアマネージャ"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "新規ディレクトリに展開"
@@ -1557,6 +1477,14 @@ msgstr "アップロード"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d エントリが見つかりました"
+
+msgid "Search:"
+msgstr "検索："
 
 msgid "Not a valid file"
 msgstr "有効なファイルではありません"
@@ -1800,10 +1728,6 @@ msgstr "指定されたプラグインは存在しないか、管理ページが
 msgid "Plugins management"
 msgstr "プラグインの管理"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "ブログの環境設定"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1826,6 +1750,9 @@ msgstr "インストール済みの言語"
 
 msgid "Activated plugins"
 msgstr "有効化されたプラグイン"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1852,6 +1779,10 @@ msgstr "zipファイルをアップロードかダウンロードすることで
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "この機能を有効にするには、plugins ディレクトリに書き込み権限を与えてください。"
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "ブログの環境設定"
 
 msgid "Add a link"
 msgstr "リンクの追加"
@@ -1951,37 +1882,15 @@ msgstr "ファイルは正常に添付されました。"
 msgid "Attachment has been successfully removed."
 msgstr "添付ファイルは正常に除去されました。"
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "投稿を保存することによって、HTML 変換を有効にすることを忘れないでください。"
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "日付"
-
-msgid "IP address"
-msgstr "IPアドレス"
-
 msgid "Status"
 msgstr "状態"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "このコメントを編集"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "トラックバックを許可"
-
-msgid "Edit this comment"
-msgstr "このコメントを編集"
 
 #, fuzzy
 msgid "Entry status"
@@ -2093,6 +2002,29 @@ msgstr "Ping URLを自動検出"
 
 msgid "Previously sent pings"
 msgstr "以前に送信されたPing"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "IP address"
+msgstr "IPアドレス"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "このコメントを編集"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "トラックバックを許可"
+
+msgid "Edit this comment"
+msgstr "このコメントを編集"
 
 msgid "This attachment does not exist"
 msgstr "この添付ファイルは存在しません"
@@ -2406,9 +2338,6 @@ msgstr "ダッシュボード"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "ダッシュボード"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2929,6 +2858,26 @@ msgstr "最も使用"
 #, fuzzy
 msgid "Entry language:"
 msgstr "エントリの言語："
+
+#, fuzzy
+msgid "Database error"
+msgstr "データベースのタイプ："
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "ブログの設定"
+
+msgid "Blog"
+msgstr "ブログ"
+
+msgid "Plugins"
+msgstr "プラグイン"
+
+msgid "Update"
+msgstr "アップデート"
 
 msgid "Languages"
 msgstr "言語"
@@ -3481,9 +3430,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear のインストール"
 
-msgid "Update"
-msgstr "アップデート"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "有効化されたプラグイン"
@@ -3907,11 +3853,11 @@ msgid "open"
 msgstr "開く"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3939,23 +3885,6 @@ msgstr "ファイルの書き込み中にエラーが発生しました。"
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "生成される画像サイズ（ピクセル単位）"
-
-#, fuzzy
-msgid "Database error"
-msgstr "データベースのタイプ："
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "ブログの設定"
-
-msgid "Blog"
-msgstr "ブログ"
-
-msgid "Plugins"
-msgstr "プラグイン"
 
 #, fuzzy
 msgid "small"
@@ -4184,17 +4113,18 @@ msgstr "モジュールを削除中にエラーが発生しました。"
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "\"%s\" の更新はできません。（同一バージョン）"
 
-msgid "Unable to read new _define.php file"
-msgstr "新しい _define.php ファイルを読み込むことができません"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "ダイジェストファイルが読めません。"
+
+msgid "Cannot deactivate plugin."
+msgstr "プラグインを無効化することができません。"
 
 msgid "No such module."
 msgstr "指定されたモジュールはありません。"
 
 msgid "Cannot remove module files"
 msgstr "モジュールファイルを削除することができません"
-
-msgid "Cannot deactivate plugin."
-msgstr "プラグインを無効化することができません。"
 
 msgid "Cannot activate plugin."
 msgstr "プラグインを有効化することができません。"
@@ -4276,7 +4206,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "ファイルが開けません。"
 
 #, fuzzy
@@ -4398,6 +4328,63 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "ログイン画面に戻る"
+
+#~ msgid "Request a new password"
+#~ msgstr "新しいパスワードをリクエスト"
+
+#~ msgid "recover"
+#~ msgstr "回復"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "検索オプション"
+
+#~ msgid "Change your password"
+#~ msgstr "パスワードの変更"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "キャンセル"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "次回から入力を省略"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "ブログ名"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
+
+#~ msgid "I forgot my password"
+#~ msgstr "パスワードの再発行"
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "XML/RPC インターフェイスを有効化"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC インターフェイスは外部クライアントでブログを編集できるようにします。"
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC インターフェイスは有効です。 XML/RPC クライアントで以下のパラメータを設定する必要があります。"
+
+#~ msgid "Server URL:"
+#~ msgstr "サーバURL："
+
+#~ msgid "Blogging system:"
+#~ msgstr "ブログシステム："
+
+#~ msgid "User name:"
+#~ msgstr "ユーザ名："
+
+#~ msgid "your password"
+#~ msgstr "あなたのパスワード"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "新しい _define.php ファイルを読み込むことができません"
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "名前 - 昇順"

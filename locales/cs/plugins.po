@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -35,7 +35,16 @@ msgstr "spravovat odkazy"
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-msgid "Legacy modules for dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -70,15 +79,6 @@ msgstr ""
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "přidat widget do panelů"
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -133,18 +133,16 @@ msgstr "Štítky k přidání:"
 msgid "Configuration successfully updated"
 msgstr "Konfigurace byla úspěšně aktualizována"
 
-msgid "no"
-msgstr "ne"
-
-msgid "yes"
-msgstr ""
-
 msgid "about:config"
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Edituji soubor %s"
+
+#, fuzzy
+msgid "Global settings"
+msgstr "globální nastavení"
 
 #, fuzzy
 msgid "Setting ID"
@@ -159,9 +157,11 @@ msgstr "Popis"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
-msgid "Global settings"
-msgstr "globální nastavení"
+msgid "no"
+msgstr "ne"
+
+msgid "yes"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "Akismet spamový filtr"
@@ -188,27 +188,6 @@ msgstr "Získat vlastní API klíč"
 
 msgid "Antispam"
 msgstr "Antispam"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Všechny spam komentáře starší než %s dnů(y) budou automaticky smazány."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "Vymazat podezřelé komentáře starší než"
-
-msgid "days"
-msgstr "dnů(y)"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet spamový filtr"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -327,15 +306,26 @@ msgstr "Vytvořit výchozí seznam slov"
 msgid "This word exists"
 msgstr "Toto slovo již existuje"
 
-msgid "No description"
-msgstr "Žádný popis"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Všechny spam komentáře starší než %s dnů(y) budou automaticky smazány."
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Filtrováno dle %1$s (%2$s)"
+msgid "You can modify this duration in the %s"
+msgstr ""
 
-msgid "Unknown filter."
-msgstr "Neznámý filtr"
+msgid "Delete junk comments older than"
+msgstr "Vymazat podezřelé komentáře starší než"
+
+msgid "days"
+msgstr "dnů(y)"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet spamový filtr"
 
 msgid "This comment is a spam:"
 msgstr "Tento komentář je spam:"
@@ -348,6 +338,16 @@ msgstr "Spam"
 
 msgid "Ham"
 msgstr "Šunka"
+
+msgid "No description"
+msgstr "Žádný popis"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Filtrováno dle %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Neznámý filtr"
 
 msgid "Filter does not exist."
 msgstr "Filtr neexistuje."
@@ -424,29 +424,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Přidat soubory do této stránky"
 
-msgid "Blogroll"
-msgstr "Odkazy"
-
 msgid "manage blogroll"
 msgstr "spravovat odkazy"
 
-msgid "All categories"
-msgstr "Všechny kategorie"
-
-msgid "Links"
+msgid "Blogroll"
 msgstr "Odkazy"
-
-msgid "You must provide a link title"
-msgstr "Musíte vložit název odkazu"
-
-msgid "You must provide a link URL"
-msgstr "Musíte vložit URL odkazu"
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "Musíte nahrát XBEL nebo OPML soubor."
-
-msgid "File is not in XML format."
-msgstr "Soubor není v XML formátu."
 
 msgid "No such link or title"
 msgstr "Žádný takový odkaz nebo název"
@@ -548,6 +530,24 @@ msgstr "randí"
 msgid "_xfn_Sweetheart"
 msgstr "zlatíčko"
 
+msgid "You must provide a link title"
+msgstr "Musíte vložit název odkazu"
+
+msgid "You must provide a link URL"
+msgstr "Musíte vložit URL odkazu"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Musíte nahrát XBEL nebo OPML soubor."
+
+msgid "File is not in XML format."
+msgstr "Soubor není v XML formátu."
+
+msgid "All categories"
+msgstr "Všechny kategorie"
+
+msgid "Links"
+msgstr "Odkazy"
+
 msgid "Nothing to import"
 msgstr "Není nic k importu"
 
@@ -576,11 +576,11 @@ msgstr "Jazyk"
 msgid "select this link"
 msgstr "Smazat tento štítek"
 
-msgid "Delete selected links"
-msgstr "Smazat vybrané odkazy"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
+
+msgid "Delete selected links"
+msgstr "Smazat vybrané odkazy"
 
 msgid "The link list is empty."
 msgstr "Seznam odkazů je prázdný."
@@ -599,6 +599,16 @@ msgstr "OPML nebo XBEL soubor:"
 
 msgid "Import"
 msgstr "Importovat"
+
+msgid "default"
+msgstr "výchozí"
+
+#, fuzzy
+msgid "Unable to create css file."
+msgstr "Nelze vytvořit obrázky."
+
+msgid "Unable to open image."
+msgstr "Obrázek nelze otevřít."
 
 msgid "Light linear gradient"
 msgstr "Světlý lineární přechod"
@@ -633,9 +643,6 @@ msgstr "Předdefinované styly"
 
 msgid "Back to Blog appearance"
 msgstr ""
-
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Kvůli následujícím důvodům nemůžou být vytvořeny obrázky. Nebudete schopni změnit vlastnosti pozadí."
 
 msgid "Customization"
 msgstr ""
@@ -821,16 +828,6 @@ msgstr "Svoji konfigurace můžete sdílet pomocí tohoto kódu. Pro jeho aplika
 msgid "Copy this code:"
 msgstr ""
 
-msgid "default"
-msgstr "výchozí"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "Nelze vytvořit obrázky."
-
-msgid "Unable to open image."
-msgstr "Obrázek nelze otevřít."
-
 msgid "Breadcrumb"
 msgstr ""
 
@@ -859,12 +856,11 @@ msgstr "Všechny štítky"
 msgid "404"
 msgstr ""
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-#, fuzzy
-msgid "The configuration has been updated."
-msgstr "Konfigurace vzhledu byla úspěšně upravena."
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -889,6 +885,10 @@ msgstr "Externí média"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "Konfigurace vzhledu byla úspěšně upravena."
 
 msgid "dcCKEditor"
 msgstr ""
@@ -970,6 +970,10 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s - konfigurace"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Import Dotclearu 1.2"
 
 msgid "visual"
 msgstr ""
@@ -1433,7 +1437,8 @@ msgstr "Adresář cache šablon byl vyprázdněn."
 msgid "Failed to empty templates cache directory."
 msgstr "Vyprázdnit cahce adresář šablon"
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 #, fuzzy
@@ -1650,8 +1655,18 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
+msgid "manage pages"
+msgstr "spravovat stránky"
+
 msgid "New page"
 msgstr "Nová stránka"
+
+#, fuzzy
+msgid "My first page"
+msgstr "Upravit stránku"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1661,15 +1676,27 @@ msgstr "Upravit stránku"
 msgid "%d pages"
 msgstr "Upravit stránku"
 
-msgid "manage pages"
-msgstr "spravovat stránky"
+msgid "No page"
+msgstr "Žádná stránka"
+
+msgid "Hidden"
+msgstr ""
 
 #, fuzzy
-msgid "My first page"
-msgstr "Upravit stránku"
+msgid "Select this page"
+msgstr "Smazat tento štítek"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+#, fuzzy
+msgid "Pages actions"
+msgstr "Pozice stránky"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "Zpět na seznam štítků"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "Položky byly úspěšně odstraněny."
 
 msgid "Published on"
 msgstr "Publikováno dne"
@@ -1688,28 +1715,6 @@ msgstr "Pozice stránky"
 
 msgid "Publication date"
 msgstr "Datum publikování"
-
-#, fuzzy
-msgid "Pages actions"
-msgstr "Pozice stránky"
-
-#, fuzzy
-msgid "Back to pages list"
-msgstr "Zpět na seznam štítků"
-
-#, fuzzy
-msgid "Selected pages have been successfully reordered."
-msgstr "Položky byly úspěšně odstraněny."
-
-msgid "No page"
-msgstr "Žádná stránka"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Smazat tento štítek"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jste si jisti, že chcete smazat vybrané stránky?"
@@ -1749,6 +1754,9 @@ msgstr "Stránka byla úspěšně upravena."
 
 msgid "Page has been successfully created."
 msgstr "Stránka byla úspěšně vytvořena."
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr ""
@@ -1985,32 +1993,8 @@ msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
 msgid "No menu items so far."
 msgstr ""
 
-msgid "This tag's comments Atom feed"
-msgstr "Atom zdroj komentářů tohoto štítku"
-
-msgid "This tag's entries Atom feed"
-msgstr "Atom zdroj článků tohoto štítku"
-
 msgid "Tag"
 msgstr "Štítek"
-
-msgid "Limit (empty means no limit):"
-msgstr "Limit (prázný znamený bez limitu):"
-
-msgid "Tag name"
-msgstr "Jméno štítku"
-
-msgid "Entries count"
-msgstr "Počet článků"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr "Odkaz na všechny štítky:"
 
 msgid "Add tags"
 msgstr "Přidat štítek"
@@ -2085,6 +2069,30 @@ msgstr "rozšířený"
 
 msgid "Tags list format:"
 msgstr "Formát štítků:"
+
+msgid "This tag's comments Atom feed"
+msgstr "Atom zdroj komentářů tohoto štítku"
+
+msgid "This tag's entries Atom feed"
+msgstr "Atom zdroj článků tohoto štítku"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limit (prázný znamený bez limitu):"
+
+msgid "Tag name"
+msgstr "Jméno štítku"
+
+msgid "Entries count"
+msgstr "Počet článků"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr "Odkaz na všechny štítky:"
 
 msgid "Tag has been successfully renamed"
 msgstr "Štítěk byl úspěšně přejmenován"
@@ -2170,9 +2178,6 @@ msgstr "Jste si jisti, že chcete smazat tuto stránku?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Váš stávající vzhled na blogu je \"%s\"."
 
-msgid "You can't edit default theme."
-msgstr "Nemůžete upravovat výchozí vzhled."
-
 msgid "Please select a file to edit."
 msgstr "Prosím, vyberte soubor k editaci."
 
@@ -2207,6 +2212,10 @@ msgid "PHP files"
 msgstr "CSS soubory"
 
 #, fuzzy
+msgid "You can't edit a distributed theme."
+msgstr "Nemůžete upravovat výchozí vzhled."
+
+#, fuzzy
 msgid "Preferences successfully updated"
 msgstr "Stránka byla úspěšně upravena."
 
@@ -2228,6 +2237,9 @@ msgstr "Widgety"
 #, fuzzy
 msgid "Widget's textareas"
 msgstr "Šablony štítků widgetu"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "Vyhledávání"
@@ -2320,11 +2332,11 @@ msgstr ""
 msgid "All pages"
 msgstr "Všechny štítky"
 
-msgid "Except on home page"
-msgstr ""
-
 msgid "Home page only"
 msgstr "Pouze úvodní stránka"
+
+msgid "Except on home page"
+msgstr ""
 
 #, fuzzy
 msgid "Content only"
@@ -2346,9 +2358,6 @@ msgstr "extra"
 #, fuzzy
 msgid "custom"
 msgstr "Vlastní..."
-
-msgid "empty string"
-msgstr ""
 
 msgid "Sidebars and their widgets have been saved."
 msgstr ""
@@ -2406,6 +2415,9 @@ msgstr ""
 msgid "possible values:"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
 msgid "listitem"
 msgstr ""
 
@@ -2438,16 +2450,19 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Jste si jisti, že chcete smazat tuto stránku?"
-
-#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Všechny kategorie"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Poslední články"
+
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "Kvůli následujícím důvodům nemůžou být vytvořeny obrázky. Nebudete schopni změnit vlastnosti pozadí."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Jste si jisti, že chcete smazat tuto stránku?"
 
 #~ msgid "Check all"
 #~ msgstr "Zkontroluj vše"

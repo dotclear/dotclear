@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:56+0100\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -25,11 +25,11 @@ msgstr "Réinitialisation du mot de passe"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Quelqu'un a demandé la réinitialisation du mot de passe pour le site et l'utilisateur·rice suivants."
 
-msgid "Username:"
-msgstr "Nom d'utilisatrice ou d'utilisateur :"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Pour réinitialiser votre mot de passe, rendez-vous à l'adresse suivante. Sinon ignorez simplement ce message et rien ne se passera."
+
+msgid "Username:"
+msgstr "Nom d'utilisatrice ou d'utilisateur :"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -69,76 +69,6 @@ msgid "Wrong username or password"
 msgstr "Nom d'utilisateur·rice ou mot de passe incorrect"
 
 #, php-format
-msgid "Password strength: %s"
-msgstr "Force du mot de passe : %s"
-
-msgid "weak"
-msgstr "faible"
-
-msgid "medium"
-msgstr "moyenne"
-
-msgid "strong"
-msgstr "forte"
-
-msgid "Back to login screen"
-msgstr "Retour à l'écran de connexion"
-
-msgid "Request a new password"
-msgstr "Demander un nouveau mot de passe"
-
-msgid "Email:"
-msgstr "Email :"
-
-msgid "recover"
-msgstr "récupérer"
-
-msgid "Other option"
-msgstr "Autre possibilité"
-
-msgid "Change your password"
-msgstr "Changer votre mot de passe"
-
-msgid "New password:"
-msgstr "Nouveau mot de passe :"
-
-msgid "Confirm password:"
-msgstr "Confirmer le mot de passe :"
-
-msgid "change"
-msgstr "changer"
-
-msgid "Safe mode login"
-msgstr "Connexion en mode sans échec"
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr "Ce mode vous permet de vous connecter sans activer de plugins. Il peut être utile pour résoudre un problème de compatibilité"
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr "Mettez à jour, désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
-
-msgid "Remember my ID on this device"
-msgstr "Se souvenir de mon identifiant sur cet appareil"
-
-msgid "log in"
-msgstr "Se connecter"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "Vous devez accepter les cookies pour utiliser l'interface privée."
-
-msgid "Get back to normal authentication"
-msgstr "Retour à l'écran de connexion normal"
-
-msgid "Connection issue?"
-msgstr "Problème de connexion ?"
-
-msgid "I forgot my password"
-msgstr "J'ai oublié mon mot de passe"
-
-msgid "I want to log in in safe mode"
-msgstr "Me connecter en mode sans échec"
-
-#, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Le blog \"%s\" a été créé."
 
@@ -151,29 +81,29 @@ msgstr "Système"
 msgid "Blogs"
 msgstr "Blogs"
 
+msgid "Blog ID"
+msgstr "Identifiant du blog"
+
 msgid "Blog ID:"
 msgstr "Identifiant du blog :"
 
 msgid "Required field"
 msgstr "Champ obligatoire"
 
-msgid "Blog ID"
-msgstr "Identifiant du blog"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Au moins 2 caractères, composés de lettres non accentuées, chiffres ou symboles."
-
-msgid "Blog name:"
-msgstr "Nom du blog :"
 
 msgid "Blog name"
 msgstr "Nom du blog"
 
-msgid "Blog URL:"
-msgstr "URL du blog :"
+msgid "Blog name:"
+msgstr "Nom du blog :"
 
 msgid "Blog URL"
 msgstr "URL du blog"
+
+msgid "Blog URL:"
+msgstr "URL du blog :"
 
 msgid "Blog description:"
 msgstr "Description du blog :"
@@ -518,27 +448,6 @@ msgstr "Dotclear"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Balise HTML pour le titre des notes sur le blog :"
 
-msgid "Enable XML/RPC interface"
-msgstr "Activer l'interface XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "L'interface XML/RPC vous permet de publier sur votre blog avec un client externe."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "L'interface XML/RPC est active. Vous êtes invité·e·s à indiquer les paramètres suivants dans votre client XML/RPC :"
-
-msgid "Server URL:"
-msgstr "URL du serveur :"
-
-msgid "Blogging system:"
-msgstr "Système de blog :"
-
-msgid "User name:"
-msgstr "Nom d'utilisateur·rice :"
-
-msgid "your password"
-msgstr "votre mot de passe"
-
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
 
@@ -577,6 +486,9 @@ msgstr "Utilisateur·rice·s de ce blog"
 
 msgid "No users"
 msgstr "Aucun utilisateur·rice"
+
+msgid "Email:"
+msgstr "Email :"
 
 msgid "Publications on this blog:"
 msgstr "Publications sur ce blog :"
@@ -668,11 +580,11 @@ msgstr "Liste des blogs"
 msgid "Create a new blog"
 msgstr "Créer un nouveau blog"
 
-msgid "Selected blogs action:"
-msgstr "Action sur les blogs sélectionnés :"
-
 msgid "Actions"
 msgstr "Actions"
+
+msgid "Selected blogs action:"
+msgstr "Action sur les blogs sélectionnés :"
 
 msgid "ok"
 msgstr "ok"
@@ -793,11 +705,11 @@ msgstr "Catégorie voisine"
 msgid "Move current category"
 msgstr "Déplacer la catégorie"
 
-msgid "after"
-msgstr "après"
-
 msgid "before"
 msgstr "avant"
+
+msgid "after"
+msgstr "après"
 
 msgid "position: "
 msgstr "position : "
@@ -1071,6 +983,19 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Installation de Dotclear"
 
+#, php-format
+msgid "Password strength: %s"
+msgstr "Force du mot de passe : %s"
+
+msgid "weak"
+msgstr "faible"
+
+msgid "medium"
+msgstr "moyenne"
+
+msgid "strong"
+msgstr "forte"
+
 msgid "show"
 msgstr "voir"
 
@@ -1105,8 +1030,14 @@ msgstr "Identifiant et mot de passe"
 msgid "Username"
 msgstr "Identifiant"
 
+msgid "New password:"
+msgstr "Nouveau mot de passe :"
+
 msgid "Password"
 msgstr "Mot de passe"
+
+msgid "Confirm password:"
+msgstr "Confirmer le mot de passe :"
 
 msgid "All done!"
 msgstr "C'est terminé !"
@@ -1307,18 +1238,6 @@ msgstr "Fichier zip de la langue :"
 msgid "Upload language"
 msgstr "Déposer la langue"
 
-msgid "Media manager"
-msgstr "Médiathèque"
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s fichier trouvé"
-msgstr[1] "%s fichiers trouvés"
-
-msgid "Search:"
-msgstr "Chercher :"
-
 msgid "Not a valid directory"
 msgstr "Répertoire invalide"
 
@@ -1415,6 +1334,9 @@ msgstr "Supprimer les médias sélectionnés"
 msgid "In %s:"
 msgstr "Dans %s :"
 
+msgid "Media manager"
+msgstr "Médiathèque"
+
 msgid "Create new directory"
 msgstr "Créer un répertoire"
 
@@ -1464,6 +1386,15 @@ msgstr "Envoyer"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Les réglages actuels pour les médias et les images sont définis dans les %s"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s fichier trouvé"
+msgstr[1] "%s fichiers trouvés"
+
+msgid "Search:"
+msgstr "Chercher :"
 
 msgid "Not a valid file"
 msgstr "Fichier invalide"
@@ -1691,9 +1622,6 @@ msgstr "Le plugin que vous essayez d'atteindre n'existe pas ou n'a pas de page d
 msgid "Plugins management"
 msgstr "Gestion des plugins"
 
-msgid "Plugin configuration"
-msgstr "Configuration du plugin"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr "La vérification manuelle de mise à jour des plugins a été effectuée."
 
@@ -1741,6 +1669,9 @@ msgstr "Vous pouvez installer des plugins en déposant ou téléchargeant des fi
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de plugins pour les activer."
+
+msgid "Plugin configuration"
+msgstr "Configuration du plugin"
 
 msgid "Add a link"
 msgstr "Ajouter un lien"
@@ -1828,35 +1759,14 @@ msgstr "Le fichier a été attaché."
 msgid "Attachment has been successfully removed."
 msgstr "L'annexe a été retirée."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Enregistrez votre billet pour valider la transformation en HTML."
 
 msgid "Go to this entry on the site"
 msgstr "Voir ce billet sur le site"
 
-msgid "Date"
-msgstr "Date"
-
-msgid "IP address"
-msgstr "Adresse IP"
-
 msgid "Status"
 msgstr "État"
-
-msgid "Edit"
-msgstr "Modifier"
-
-msgid "Junk"
-msgstr "Indésirable"
-
-msgid "select this comment"
-msgstr "Sélectionner ce commentaire"
-
-msgid "select this trackback"
-msgstr "Sélectionner ce rétrolien"
-
-msgid "Edit this comment"
-msgstr "Modifier ce commentaire"
 
 msgid "Entry status"
 msgstr "État du billet"
@@ -1956,6 +1866,27 @@ msgstr "Découverte automatique des URL à rétrolier"
 
 msgid "Previously sent pings"
 msgstr "Rétroliens déjà envoyés"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "IP address"
+msgstr "Adresse IP"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Junk"
+msgstr "Indésirable"
+
+msgid "select this comment"
+msgstr "Sélectionner ce commentaire"
+
+msgid "select this trackback"
+msgstr "Sélectionner ce rétrolien"
+
+msgid "Edit this comment"
+msgstr "Modifier ce commentaire"
 
 msgid "This attachment does not exist"
 msgstr "Cette annexe n'existe pas"
@@ -2231,9 +2162,6 @@ msgstr "Icônes du tableau de bord"
 
 msgid "Display dashboard icons"
 msgstr "Afficher les icônes du tableau de bord"
-
-msgid "Iconset:"
-msgstr "Jeu d'icônes :"
 
 msgid "Dashboard modules"
 msgstr "Modules du tableau de bord"
@@ -2706,6 +2634,24 @@ msgstr "Plus utilisées"
 
 msgid "Entry language:"
 msgstr "Langue du billet :"
+
+msgid "Database error"
+msgstr "Erreur de base de données"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Il semble de la table Session n'existe pas dans votre base de données. Dotclear est-il bien installé correctement?"
+
+msgid "System settings"
+msgstr "Réglages système"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Update"
+msgstr "Mise à jour"
 
 msgid "Languages"
 msgstr "Langues"
@@ -3206,9 +3152,6 @@ msgstr "Dupliquer"
 msgid "Install"
 msgstr "Installer"
 
-msgid "Update"
-msgstr "Mise à jour"
-
 msgid "Activate selected plugins"
 msgstr "Activer les plugins sélectionnés"
 
@@ -3599,12 +3542,12 @@ msgid "open"
 msgstr "ouvrir"
 
 #, php-format
-msgid "ratio %.1f"
-msgstr "ratio %.1f"
-
-#, php-format
 msgid "(%s)"
 msgstr "(%s)"
+
+#, php-format
+msgid "ratio %.1f"
+msgstr "ratio %.1f"
 
 msgid "The 'public' directory does not exist."
 msgstr "Le répertoire 'public' n'existe pas."
@@ -3628,21 +3571,6 @@ msgstr "Une erreur est survenue pendant l'écriture du fichier."
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "L'image envoyée n'a pas %s pixels de large."
-
-msgid "Database error"
-msgstr "Erreur de base de données"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Il semble de la table Session n'existe pas dans votre base de données. Dotclear est-il bien installé correctement?"
-
-msgid "System settings"
-msgstr "Réglages système"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Plugins"
 
 msgid "small"
 msgstr "petite"
@@ -3859,17 +3787,18 @@ msgstr "Une erreur est survenue durant la suppression du module."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Impossible de mettre à jour \"%s\" (plus ancienne ou même version)."
 
-msgid "Unable to read new _define.php file"
-msgstr "Impossible de lire le nouveau fichier _define.php."
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "Impossible de lire le nouveau fichier %s"
+
+msgid "Cannot deactivate plugin."
+msgstr "Le plugin ne peut pas être désactivé."
 
 msgid "No such module."
 msgstr "Module inexistant."
 
 msgid "Cannot remove module files"
 msgstr "Impossible de supprimer les fichiers du module"
-
-msgid "Cannot deactivate plugin."
-msgstr "Le plugin ne peut pas être désactivé."
 
 msgid "Cannot activate plugin."
 msgstr "Le plugin ne peut pas être activé."
@@ -3945,8 +3874,8 @@ msgstr " (copie %s)"
 msgid " (copy)"
 msgstr " (copie)"
 
-msgid "Unable to modify _config.php"
-msgstr "Impossible de modifier le fichier _config.php"
+msgid "Unable to modify _define.php"
+msgstr "Impossible de modifier le fichier _define.php"
 
 msgid "Destination folder already exist"
 msgstr "Le répertoire de destination existe déjà"
@@ -4063,54 +3992,3 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
-
-#~ msgid "By names, in ascending order"
-#~ msgstr "Par noms croissants"
-
-#~ msgid "By names, in descending order"
-#~ msgstr "Par noms décroissants"
-
-#~ msgid "By dates, in ascending order"
-#~ msgstr "Par dates croissantes"
-
-#~ msgid "By dates, in descending order"
-#~ msgstr "Par dates décroissantes"
-
-#~ msgid "Directory has been successfully created."
-#~ msgstr "Le répertoire a été créé."
-
-#~ msgid "Directory has been successfully rebuilt."
-#~ msgstr "Le répertoire a été reconstruit."
-
-#~ msgid "Will search into media filename (including path), title and description"
-#~ msgstr "Recherche parmi les noms des fichiers (incluant leur chemin), les titres et descriptions"
-
-#~ msgid "Sort files:"
-#~ msgstr "Trier les fichiers :"
-
-#~ msgid "Number of elements displayed per page:"
-#~ msgstr "Nombre d'éléments affichés par page :"
-
-#~ msgid "Media list"
-#~ msgstr "Liste des médias"
-
-#, php-format
-#~ msgid "one result"
-#~ msgid_plural "%d results"
-#~ msgstr[0] "un résultat"
-#~ msgstr[1] "%d résultats"
-
-#~ msgid "Number of elements displayed per page in media manager:"
-#~ msgstr "Nombre d'éléments affichés par page dans la médiathèque :"
-
-#~ msgid "Choose date"
-#~ msgstr "Choisir une date"
-
-#~ msgid "close"
-#~ msgstr "fermer"
-
-#~ msgid "now"
-#~ msgstr "maintenant"
-
-#~ msgid "moyenne"
-#~ msgstr "moyenne"

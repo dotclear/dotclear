@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -26,11 +26,11 @@ msgstr ""
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr ""
 
-msgid "Username:"
-msgstr "వాడుకరిపేరు:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
+
+msgid "Username:"
+msgstr "వాడుకరిపేరు:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -73,80 +73,6 @@ msgid "Wrong username or password"
 msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "సంకేతపదం:"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "మధ్యమ:"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "తిరిగి ప్రవేశపు తెరకి"
-
-msgid "Request a new password"
-msgstr "కొత్త సంకేతపదాన్ని అభ్యర్థించండి"
-
-msgid "Email:"
-msgstr "ఈమెయిల్:"
-
-msgid "recover"
-msgstr ""
-
-#, fuzzy
-msgid "Other option"
-msgstr "అన్వేషణ ఎంపికలు"
-
-msgid "Change your password"
-msgstr "మీ సంకేతపదాన్ని మార్చండి"
-
-msgid "New password:"
-msgstr "కొత్త సంకేతపదం:"
-
-msgid "Confirm password:"
-msgstr "సంకేతపదాన్ని నిర్ధారించండి:"
-
-#, fuzzy
-msgid "change"
-msgstr "రద్దుచేయి"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "ఈ కంప్యూటరుపై నన్ను గుర్చుంచుకో"
-
-#, fuzzy
-msgid "log in"
-msgstr "బ్లాగు పేరు"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr ""
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "నా సంకేతపదాన్ని మర్చిపోయాను."
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "బ్లాగుని విజయవంతంగా సృష్టించాం."
 
@@ -159,29 +85,29 @@ msgstr "వ్యవస్థ"
 msgid "Blogs"
 msgstr "బ్లాగులు"
 
+msgid "Blog ID"
+msgstr "బ్లాగు ఐడీ"
+
 msgid "Blog ID:"
 msgstr "బ్లాగు ID:"
 
 msgid "Required field"
 msgstr "తప్పనిసరి"
 
-msgid "Blog ID"
-msgstr "బ్లాగు ఐడీ"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "కనీసం రెండు అక్షరాలు, అంకెలు లేదా గుర్తులు."
-
-msgid "Blog name:"
-msgstr "బ్లాగు పేరు:"
 
 msgid "Blog name"
 msgstr "బ్లాగు పేరు"
 
-msgid "Blog URL:"
-msgstr "బ్లాగు URL:"
+msgid "Blog name:"
+msgstr "బ్లాగు పేరు:"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "బ్లాగు URL:"
+
+msgid "Blog URL:"
 msgstr "బ్లాగు URL:"
 
 msgid "Blog description:"
@@ -539,27 +465,6 @@ msgstr "డాట్‌క్లియర్ జట్టు"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr ""
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr ""
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr ""
-
-msgid "Server URL:"
-msgstr ""
-
-msgid "Blogging system:"
-msgstr "బ్లాగు వ్యవస్థ:"
-
-msgid "User name:"
-msgstr "వాడుకరి పేరు:"
-
-msgid "your password"
-msgstr "మీ సంకేతపదం"
-
 msgid "Search engines robots policy"
 msgstr ""
 
@@ -600,6 +505,9 @@ msgstr "ఈ బ్లాగు వాడుకరులు"
 
 msgid "No users"
 msgstr "వాడుకరులు లేరు"
+
+msgid "Email:"
+msgstr "ఈమెయిల్:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -701,12 +609,12 @@ msgid "Create a new blog"
 msgstr "కొత్త బ్లాగుని సృష్టించండి"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "ఎంచుకున్న వాడుకరులపై చర్య:"
-
-#, fuzzy
 msgid "Actions"
 msgstr "చర్య"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "ఎంచుకున్న వాడుకరులపై చర్య:"
 
 msgid "ok"
 msgstr "సరే"
@@ -846,12 +754,12 @@ msgstr "వర్గం"
 msgid "Move current category"
 msgstr "వర్గాన్ని మార్చండి"
 
+msgid "before"
+msgstr ""
+
 #, fuzzy
 msgid "after"
 msgstr "వడపోత"
-
-msgid "before"
-msgstr ""
 
 #, fuzzy
 msgid "position: "
@@ -1131,6 +1039,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "డాట్‌క్లియర్ స్థాపన"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "సంకేతపదం:"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "మధ్యమ:"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1169,9 +1091,15 @@ msgstr "తప్పుడు వాడుకరిపేరు లేదా స
 msgid "Username"
 msgstr "వాడుకరిపేరు:"
 
+msgid "New password:"
+msgstr "కొత్త సంకేతపదం:"
+
 #, fuzzy
 msgid "Password"
 msgstr "సంకేతపదం:"
+
+msgid "Confirm password:"
+msgstr "సంకేతపదాన్ని నిర్ధారించండి:"
 
 msgid "All done!"
 msgstr "అంతా పూర్తయ్యింది!"
@@ -1375,18 +1303,6 @@ msgstr ""
 msgid "Upload language"
 msgstr ""
 
-msgid "Media manager"
-msgstr "మాధ్యమాల నిర్వహణ"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d టపాలు దొరికాయి"
-msgstr[1] "%d టపాలు దొరికాయి"
-
-msgid "Search:"
-msgstr "అన్వేషణ:"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "సరైన ఫైలు కాదు"
@@ -1491,6 +1407,9 @@ msgstr "ఎంచుకున్న అలంకారాన్ని తొల�
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "మాధ్యమాల నిర్వహణ"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "కొత్త వాడుకరిని సృష్టించండి"
@@ -1544,6 +1463,15 @@ msgstr "ఎగుమతి చెయ్యండి"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d టపాలు దొరికాయి"
+msgstr[1] "%d టపాలు దొరికాయి"
+
+msgid "Search:"
+msgstr "అన్వేషణ:"
 
 msgid "Not a valid file"
 msgstr "సరైన ఫైలు కాదు"
@@ -1785,10 +1713,6 @@ msgstr ""
 msgid "Plugins management"
 msgstr "ప్లగిన్ల నిర్వహణ"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "బ్లాగు స్వరూపణం"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1811,6 +1735,9 @@ msgstr "స్థాపితమైన భాషలు"
 
 msgid "Activated plugins"
 msgstr "చేతనంగావున్న ప్లగిన్లు"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1836,6 +1763,10 @@ msgstr ""
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "బ్లాగు స్వరూపణం"
 
 msgid "Add a link"
 msgstr "ఓ లింకుని చేర్చండి"
@@ -1934,37 +1865,14 @@ msgstr "ఫైలుని విజయవంతంగా జోడించా�
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "తేదీ"
-
-msgid "IP address"
-msgstr "IP చిరునామా"
-
 msgid "Status"
 msgstr "స్థితి"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "ఈ వ్యాఖ్యని మార్చండి"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "ట్రాకుబ్యాకులను అంగీకరించండి"
-
-msgid "Edit this comment"
-msgstr "ఈ వ్యాఖ్యని మార్చండి"
 
 #, fuzzy
 msgid "Entry status"
@@ -2076,6 +1984,29 @@ msgstr ""
 
 msgid "Previously sent pings"
 msgstr ""
+
+msgid "Date"
+msgstr "తేదీ"
+
+msgid "IP address"
+msgstr "IP చిరునామా"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "ఈ వ్యాఖ్యని మార్చండి"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "ట్రాకుబ్యాకులను అంగీకరించండి"
+
+msgid "Edit this comment"
+msgstr "ఈ వ్యాఖ్యని మార్చండి"
 
 msgid "This attachment does not exist"
 msgstr "ఈ జోడింపు లేనే లేదు."
@@ -2382,9 +2313,6 @@ msgstr ""
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "అన్వేషణ ఎంపికలు"
-
-msgid "Iconset:"
-msgstr ""
 
 msgid "Dashboard modules"
 msgstr ""
@@ -2912,6 +2840,26 @@ msgstr ""
 #, fuzzy
 msgid "Entry language:"
 msgstr "టపా భాష:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "డాటాబేసు రకం:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "బ్లాగు అమరికలు"
+
+msgid "Blog"
+msgstr "బ్లాగు"
+
+msgid "Plugins"
+msgstr "ప్లగిన్లు"
+
+msgid "Update"
+msgstr ""
 
 msgid "Languages"
 msgstr "భాషలు"
@@ -3469,9 +3417,6 @@ msgstr ""
 msgid "Install"
 msgstr "డాట్‌క్లియర్ స్థాపన"
 
-msgid "Update"
-msgstr ""
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "చేతనంగావున్న ప్లగిన్లు"
@@ -3907,11 +3852,11 @@ msgid "open"
 msgstr ""
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3939,23 +3884,6 @@ msgstr ""
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
-
-#, fuzzy
-msgid "Database error"
-msgstr "డాటాబేసు రకం:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "బ్లాగు అమరికలు"
-
-msgid "Blog"
-msgstr "బ్లాగు"
-
-msgid "Plugins"
-msgstr "ప్లగిన్లు"
 
 #, fuzzy
 msgid "small"
@@ -4184,16 +4112,17 @@ msgstr ""
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
-msgid "Unable to read new _define.php file"
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
+
+msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "No such module."
 msgstr ""
 
 msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
 msgstr ""
 
 msgid "Cannot activate plugin."
@@ -4273,7 +4202,7 @@ msgstr ""
 msgid " (copy)"
 msgstr ""
 
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr ""
 
 #, fuzzy
@@ -4397,6 +4326,42 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "తిరిగి ప్రవేశపు తెరకి"
+
+#~ msgid "Request a new password"
+#~ msgstr "కొత్త సంకేతపదాన్ని అభ్యర్థించండి"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "అన్వేషణ ఎంపికలు"
+
+#~ msgid "Change your password"
+#~ msgstr "మీ సంకేతపదాన్ని మార్చండి"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "రద్దుచేయి"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "ఈ కంప్యూటరుపై నన్ను గుర్చుంచుకో"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "బ్లాగు పేరు"
+
+#~ msgid "I forgot my password"
+#~ msgstr "నా సంకేతపదాన్ని మర్చిపోయాను."
+
+#~ msgid "Blogging system:"
+#~ msgstr "బ్లాగు వ్యవస్థ:"
+
+#~ msgid "User name:"
+#~ msgstr "వాడుకరి పేరు:"
+
+#~ msgid "your password"
+#~ msgstr "మీ సంకేతపదం"
 
 #, fuzzy
 #~ msgid "Media list"

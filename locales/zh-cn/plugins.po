@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -36,7 +36,16 @@ msgstr "管理博客链接"
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-msgid "Legacy modules for dotclear"
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -71,15 +80,6 @@ msgstr ""
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "添加小工具和侧边栏"
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -134,18 +134,16 @@ msgstr "要添加的标签："
 msgid "Configuration successfully updated"
 msgstr "成功更新配置"
 
-msgid "no"
-msgstr "否"
-
-msgid "yes"
-msgstr ""
-
 msgid "about:config"
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "编辑文件 %s"
+
+#, fuzzy
+msgid "Global settings"
+msgstr "全局设置"
 
 #, fuzzy
 msgid "Setting ID"
@@ -160,9 +158,11 @@ msgstr "描述"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
-msgid "Global settings"
-msgstr "全局设置"
+msgid "no"
+msgstr "否"
+
+msgid "yes"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "Akismet 垃圾评论过滤"
@@ -189,27 +189,6 @@ msgstr "获取您自己的 API key"
 
 msgid "Antispam"
 msgstr "反垃圾评论"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "删除垃圾评论早于"
-
-msgid "days"
-msgstr "天"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet 垃圾评论过滤"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -328,15 +307,26 @@ msgstr "创建默认的关键字列表"
 msgid "This word exists"
 msgstr "这个关键字已存在"
 
-msgid "No description"
-msgstr "没有描述"
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
 
 #, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "被 %1$s (%2$s) 过滤"
+msgid "You can modify this duration in the %s"
+msgstr ""
 
-msgid "Unknown filter."
-msgstr "未知的过滤。"
+msgid "Delete junk comments older than"
+msgstr "删除垃圾评论早于"
+
+msgid "days"
+msgstr "天"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet 垃圾评论过滤"
 
 msgid "This comment is a spam:"
 msgstr "这个评论是垃圾评论："
@@ -350,6 +340,16 @@ msgstr "垃圾评论"
 #, fuzzy
 msgid "Ham"
 msgstr "Ham"
+
+msgid "No description"
+msgstr "没有描述"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "被 %1$s (%2$s) 过滤"
+
+msgid "Unknown filter."
+msgstr "未知的过滤。"
 
 msgid "Filter does not exist."
 msgstr "过滤器不存在。"
@@ -426,29 +426,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "向此页面添加文件"
 
-msgid "Blogroll"
-msgstr "博客链接"
-
 msgid "manage blogroll"
 msgstr "管理博客链接"
 
-msgid "All categories"
-msgstr "所有分类目录"
-
-msgid "Links"
-msgstr "链接"
-
-msgid "You must provide a link title"
-msgstr "您必须提供一个链接标题"
-
-msgid "You must provide a link URL"
-msgstr "您必须提供一个链接 URL"
-
-msgid "You need to provide a XBEL or OPML file."
-msgstr "您必须提供一个 XBEL 或者 OPML 文件。"
-
-msgid "File is not in XML format."
-msgstr "文件不是 XML 格式。"
+msgid "Blogroll"
+msgstr "博客链接"
 
 msgid "No such link or title"
 msgstr "没有这样的链接或者标题"
@@ -550,6 +532,24 @@ msgstr "与我约会的"
 msgid "_xfn_Sweetheart"
 msgstr "甜心"
 
+msgid "You must provide a link title"
+msgstr "您必须提供一个链接标题"
+
+msgid "You must provide a link URL"
+msgstr "您必须提供一个链接 URL"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "您必须提供一个 XBEL 或者 OPML 文件。"
+
+msgid "File is not in XML format."
+msgstr "文件不是 XML 格式。"
+
+msgid "All categories"
+msgstr "所有分类目录"
+
+msgid "Links"
+msgstr "链接"
+
 msgid "Nothing to import"
 msgstr "没有要导入的"
 
@@ -578,11 +578,11 @@ msgstr "语言"
 msgid "select this link"
 msgstr "删除此标签"
 
-msgid "Delete selected links"
-msgstr "删除选定的链接"
-
 msgid "Are you sure you want to delete selected links?"
 msgstr "您确定您要删除选定的链接吗？"
+
+msgid "Delete selected links"
+msgstr "删除选定的链接"
 
 msgid "The link list is empty."
 msgstr ""
@@ -601,6 +601,16 @@ msgstr "OPML 或者 XBEL 文件："
 
 msgid "Import"
 msgstr "导入"
+
+msgid "default"
+msgstr "默认"
+
+#, fuzzy
+msgid "Unable to create css file."
+msgstr "无法创建图片。"
+
+msgid "Unable to open image."
+msgstr "无法打开图片。"
 
 msgid "Light linear gradient"
 msgstr "浅的线性梯度"
@@ -635,10 +645,6 @@ msgstr "预定义的样式"
 
 msgid "Back to Blog appearance"
 msgstr ""
-
-#, fuzzy
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "由于图片无法被创建，您将不能改变某些背景属性。"
 
 msgid "Customization"
 msgstr ""
@@ -825,16 +831,6 @@ msgstr "您可以使用如下代码分享您的配置。要应用一个配置 �
 msgid "Copy this code:"
 msgstr ""
 
-msgid "default"
-msgstr "默认"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "无法创建图片。"
-
-msgid "Unable to open image."
-msgstr "无法打开图片。"
-
 msgid "Breadcrumb"
 msgstr ""
 
@@ -863,12 +859,11 @@ msgstr "所有标签"
 msgid "404"
 msgstr ""
 
-msgid "Note(s)"
+msgid "HTML"
 msgstr ""
 
-#, fuzzy
-msgid "The configuration has been updated."
-msgstr "成功更新主题配置。"
+msgid "Note(s)"
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -892,6 +887,10 @@ msgstr "外部媒体"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "成功更新主题配置。"
 
 msgid "dcCKEditor"
 msgstr ""
@@ -972,6 +971,10 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s 配置"
+
+#, fuzzy
+msgid "Dotclear wiki"
+msgstr "Dotclear 1.2 导入"
 
 msgid "visual"
 msgstr ""
@@ -1430,7 +1433,8 @@ msgstr "模板缓存目录清空。"
 msgid "Failed to empty templates cache directory."
 msgstr "清空模板缓存目录"
 
-msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr ""
 
 #, fuzzy
@@ -1648,8 +1652,18 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
+msgid "manage pages"
+msgstr "管理页面"
+
 msgid "New page"
 msgstr "新页面"
+
+#, fuzzy
+msgid "My first page"
+msgstr "编辑页面"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1659,15 +1673,27 @@ msgstr "编辑页面"
 msgid "%d pages"
 msgstr "编辑页面"
 
-msgid "manage pages"
-msgstr "管理页面"
+msgid "No page"
+msgstr "没有页面"
+
+msgid "Hidden"
+msgstr ""
 
 #, fuzzy
-msgid "My first page"
-msgstr "编辑页面"
+msgid "Select this page"
+msgstr "删除此标签"
 
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+#, fuzzy
+msgid "Pages actions"
+msgstr "页面位置"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "返回到标签列表"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "成功删除项目。"
 
 msgid "Published on"
 msgstr "发布于"
@@ -1686,28 +1712,6 @@ msgstr "页面位置"
 
 msgid "Publication date"
 msgstr "发布时间"
-
-#, fuzzy
-msgid "Pages actions"
-msgstr "页面位置"
-
-#, fuzzy
-msgid "Back to pages list"
-msgstr "返回到标签列表"
-
-#, fuzzy
-msgid "Selected pages have been successfully reordered."
-msgstr "成功删除项目。"
-
-msgid "No page"
-msgstr "没有页面"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "删除此标签"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "您确定要删除选定的页面吗？"
@@ -1747,6 +1751,9 @@ msgstr "成功更新页面。"
 
 msgid "Page has been successfully created."
 msgstr "成功创建页面。"
+
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr ""
 
 msgid "Go to this page on the site"
 msgstr ""
@@ -1983,32 +1990,8 @@ msgstr "您确定您要删除选定的链接吗？"
 msgid "No menu items so far."
 msgstr ""
 
-msgid "This tag's comments Atom feed"
-msgstr "此标签的评论 Atom feed"
-
-msgid "This tag's entries Atom feed"
-msgstr "此标签的文章 Atom feed"
-
 msgid "Tag"
 msgstr "标签"
-
-msgid "Limit (empty means no limit):"
-msgstr "限制(留空表示不限制)："
-
-msgid "Tag name"
-msgstr "标签名称"
-
-msgid "Entries count"
-msgstr "文章计数"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Add tags"
 msgstr "添加标签"
@@ -2080,6 +2063,30 @@ msgstr "外部媒体"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "要添加的标签："
+
+msgid "This tag's comments Atom feed"
+msgstr "此标签的评论 Atom feed"
+
+msgid "This tag's entries Atom feed"
+msgstr "此标签的文章 Atom feed"
+
+msgid "Limit (empty means no limit):"
+msgstr "限制(留空表示不限制)："
+
+msgid "Tag name"
+msgstr "标签名称"
+
+msgid "Entries count"
+msgstr "文章计数"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "成功重命名标签"
@@ -2165,9 +2172,6 @@ msgstr "您确定要删除此页面吗？"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "您此博客的当前主题是“%s”。"
 
-msgid "You can't edit default theme."
-msgstr "您不能修改默认主题。"
-
 msgid "Please select a file to edit."
 msgstr "请选择一个要编辑的文件。"
 
@@ -2202,6 +2206,10 @@ msgid "PHP files"
 msgstr "CSS 文件"
 
 #, fuzzy
+msgid "You can't edit a distributed theme."
+msgstr "您不能修改默认主题。"
+
+#, fuzzy
 msgid "Preferences successfully updated"
 msgstr "成功更新页面。"
 
@@ -2223,6 +2231,9 @@ msgstr "展示小工具"
 #, fuzzy
 msgid "Widget's textareas"
 msgstr "小工具模板标签"
+
+msgid "Unable to initialize default widgets."
+msgstr ""
 
 msgid "Search engine"
 msgstr "搜索引擎"
@@ -2315,11 +2326,11 @@ msgstr ""
 msgid "All pages"
 msgstr "所有标签"
 
-msgid "Except on home page"
-msgstr ""
-
 msgid "Home page only"
 msgstr "仅首页"
+
+msgid "Except on home page"
+msgstr ""
 
 #, fuzzy
 msgid "Content only"
@@ -2341,9 +2352,6 @@ msgstr "额外"
 #, fuzzy
 msgid "custom"
 msgstr "定制..."
-
-msgid "empty string"
-msgstr ""
 
 msgid "Sidebars and their widgets have been saved."
 msgstr ""
@@ -2401,6 +2409,9 @@ msgstr ""
 msgid "possible values:"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
 msgid "listitem"
 msgstr ""
 
@@ -2433,16 +2444,20 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "您确定要删除此页面吗？"
-
-#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "所有分类目录"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "最新文章"
+
+#, fuzzy
+#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+#~ msgstr "由于图片无法被创建，您将不能改变某些背景属性。"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "您确定要删除此页面吗？"
 
 #~ msgid "Page top"
 #~ msgstr "页面顶部"

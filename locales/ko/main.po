@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 13:24+0200\n"
+"POT-Creation-Date: 2022-12-04 09:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -27,11 +27,11 @@ msgstr "비밀번호 수정"
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "다음 사이트에 대한 사용자이름과 비밀번호를 바꾸어달라는 요청이 들어왔습니다."
 
-msgid "Username:"
-msgstr "사용자이름:"
-
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "비밀번호를 바꾸시려면 다음 주소를 방문하십시요. 원하지 않으시면 그냥 이 이메일을 무시하시면 됩니다."
+
+msgid "Username:"
+msgstr "사용자이름:"
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
@@ -76,80 +76,6 @@ msgid "Wrong username or password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
 
 #, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "비밀번호 수정"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "중간 크키 :"
-
-msgid "strong"
-msgstr ""
-
-msgid "Back to login screen"
-msgstr "로그인 화면으로 돌아가기"
-
-msgid "Request a new password"
-msgstr "새 비밀번호 요청"
-
-msgid "Email:"
-msgstr "이메일:"
-
-msgid "recover"
-msgstr "되살리기"
-
-#, fuzzy
-msgid "Other option"
-msgstr "찾을 내용 지정"
-
-msgid "Change your password"
-msgstr "비밀번호 변경"
-
-msgid "New password:"
-msgstr "새 비밀번호 :"
-
-msgid "Confirm password:"
-msgstr "비밀번호 확인 :"
-
-#, fuzzy
-msgid "change"
-msgstr "취소"
-
-msgid "Safe mode login"
-msgstr ""
-
-msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
-
-msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
-
-msgid "Remember my ID on this device"
-msgstr "이 컴퓨터가 내 아이디를 기억하도록하기"
-
-#, fuzzy
-msgid "log in"
-msgstr "블로그 이름"
-
-msgid "You must accept cookies in order to use the private area."
-msgstr "사생활보호 영역을 접속하시려면, 브라우저가 쿠키를 받을 수 있게 설정하셔야합니다."
-
-msgid "Get back to normal authentication"
-msgstr ""
-
-msgid "Connection issue?"
-msgstr ""
-
-msgid "I forgot my password"
-msgstr "비밀번호를 잊었어요."
-
-msgid "I want to log in in safe mode"
-msgstr ""
-
-#, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "블로그가 성공적으로 만들어졌습니다."
 
@@ -162,29 +88,29 @@ msgstr "시스템관리"
 msgid "Blogs"
 msgstr "블로그"
 
+msgid "Blog ID"
+msgstr "블로그 아이디"
+
 msgid "Blog ID:"
 msgstr "블로그 아이디:"
 
 msgid "Required field"
 msgstr "필수 사항"
 
-msgid "Blog ID"
-msgstr "블로그 아이디"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "최소 2자 이상의 글자, 숫자 또는 기호들의 조합."
-
-msgid "Blog name:"
-msgstr "블로그 이름"
 
 msgid "Blog name"
 msgstr "블로그 이름"
 
-msgid "Blog URL:"
-msgstr "블로그 URL"
+msgid "Blog name:"
+msgstr "블로그 이름"
 
 #, fuzzy
 msgid "Blog URL"
+msgstr "블로그 URL"
+
+msgid "Blog URL:"
 msgstr "블로그 URL"
 
 msgid "Blog description:"
@@ -549,27 +475,6 @@ msgstr "Dotclear 팀"
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-msgid "Enable XML/RPC interface"
-msgstr "XML/RPC 인터페이스 작동켜키"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC 인터페이스는 외부클라이언트 프로그램에서 당신의 블로그를 편집할 수 있도록 해줍니다."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC 인터페이스 작동이 켜졌습니다. 당신의 XML/RPC 클라이언트에서 다음 설정값들을 조정하여야 할 것입니다 :"
-
-msgid "Server URL:"
-msgstr "서버 URL :"
-
-msgid "Blogging system:"
-msgstr "블로그 시스템 :"
-
-msgid "User name:"
-msgstr "사용자이름 :"
-
-msgid "your password"
-msgstr "비밀번호 :"
-
 msgid "Search engines robots policy"
 msgstr "검색엔진에 대한 정책 설정"
 
@@ -611,6 +516,9 @@ msgstr "이 블로그의 사용자들"
 
 msgid "No users"
 msgstr "사용자 없음"
+
+msgid "Email:"
+msgstr "이메일:"
 
 #, fuzzy
 msgid "Publications on this blog:"
@@ -713,12 +621,12 @@ msgid "Create a new blog"
 msgstr "새 블로그 만들기"
 
 #, fuzzy
-msgid "Selected blogs action:"
-msgstr "선택된 사용자들에 대한 작업 :"
-
-#, fuzzy
 msgid "Actions"
 msgstr "작업"
+
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "선택된 사용자들에 대한 작업 :"
 
 msgid "ok"
 msgstr "실행"
@@ -850,11 +758,11 @@ msgstr "동위 분류"
 msgid "Move current category"
 msgstr "현 분류를 이동"
 
-msgid "after"
-msgstr "뒤에"
-
 msgid "before"
 msgstr "앞에"
+
+msgid "after"
+msgstr "뒤에"
 
 #, fuzzy
 msgid "position: "
@@ -1140,6 +1048,20 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear 설치"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "비밀번호 수정"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "중간 크키 :"
+
+msgid "strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -1178,9 +1100,15 @@ msgstr "잘못된 사용자이름 또는 비밀번호"
 msgid "Username"
 msgstr "사용자이름:"
 
+msgid "New password:"
+msgstr "새 비밀번호 :"
+
 #, fuzzy
 msgid "Password"
 msgstr "비밀번호:"
+
+msgid "Confirm password:"
+msgstr "비밀번호 확인 :"
 
 msgid "All done!"
 msgstr "완료되었습니다 !"
@@ -1385,17 +1313,6 @@ msgstr "언어 zip 파일 :"
 msgid "Upload language"
 msgstr "언어 올리기"
 
-msgid "Media manager"
-msgstr "미디어"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "찾은 글꼭지수: %d"
-
-msgid "Search:"
-msgstr "찾기 :"
-
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "바르지않은 파일"
@@ -1500,6 +1417,9 @@ msgstr "선택된 파일로 되돌리기"
 msgid "In %s:"
 msgstr ""
 
+msgid "Media manager"
+msgstr "미디어"
+
 #, fuzzy
 msgid "Create new directory"
 msgstr "새 폴더에 풀기"
@@ -1554,6 +1474,14 @@ msgstr "올리기"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "찾은 글꼭지수: %d"
+
+msgid "Search:"
+msgstr "찾기 :"
 
 msgid "Not a valid file"
 msgstr "바르지않은 파일"
@@ -1797,10 +1725,6 @@ msgstr "해당 플러그인이 존재하지 않거나, 관리화면이 없는 �
 msgid "Plugins management"
 msgstr "플러그인 관리"
 
-#, fuzzy
-msgid "Plugin configuration"
-msgstr "블로그 설정:"
-
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
@@ -1823,6 +1747,9 @@ msgstr "설치된 언어"
 
 msgid "Activated plugins"
 msgstr "작동중인 플러그인"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
@@ -1849,6 +1776,10 @@ msgstr "플러그인 zip파일을 올리거나 (블로그로) 내려받게함으
 #, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "이 기능을 켜려면, 플러그인 폴더에 쓰기접근을 허용해야합니다."
+
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "블로그 설정:"
 
 msgid "Add a link"
 msgstr "링크 추가"
@@ -1948,37 +1879,15 @@ msgstr "파일이 성공적으로 첨부되었습니다."
 msgid "Attachment has been successfully removed."
 msgstr "첨부파일이 성공적으로 제거되었습니다."
 
-msgid "Don't forget to validate your HTML conversion by saving your post."
+#, fuzzy
+msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "HTML로의 변환을 확정하려면 글꼭지를 저장하는 일을 잊지마세요."
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Date"
-msgstr "날짜"
-
-msgid "IP address"
-msgstr "IP 주소"
-
 msgid "Status"
 msgstr "공개상태"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "이 댓글 편집하기"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "글걸이 허용"
-
-msgid "Edit this comment"
-msgstr "이 댓글 편집하기"
 
 #, fuzzy
 msgid "Entry status"
@@ -2090,6 +1999,29 @@ msgstr "글걸기주소 자동 추출"
 
 msgid "Previously sent pings"
 msgstr "이전에 전송된 글걸이"
+
+msgid "Date"
+msgstr "날짜"
+
+msgid "IP address"
+msgstr "IP 주소"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "이 댓글 편집하기"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "글걸이 허용"
+
+msgid "Edit this comment"
+msgstr "이 댓글 편집하기"
 
 msgid "This attachment does not exist"
 msgstr "이 첨부파일은 존재하지 않습니다."
@@ -2403,9 +2335,6 @@ msgstr "관리마당"
 #, fuzzy
 msgid "Display dashboard icons"
 msgstr "관리마당"
-
-msgid "Iconset:"
-msgstr ""
 
 #, fuzzy
 msgid "Dashboard modules"
@@ -2926,6 +2855,26 @@ msgstr "많이 사용"
 #, fuzzy
 msgid "Entry language:"
 msgstr "글꼭지 언어 :"
+
+#, fuzzy
+msgid "Database error"
+msgstr "데이터베이스 종류 :"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "블로그 설정"
+
+msgid "Blog"
+msgstr "블로그"
+
+msgid "Plugins"
+msgstr "플러그인"
+
+msgid "Update"
+msgstr "DotClear 갱신"
 
 msgid "Languages"
 msgstr "언어"
@@ -3478,9 +3427,6 @@ msgstr ""
 msgid "Install"
 msgstr "Dotclear 설치"
 
-msgid "Update"
-msgstr "DotClear 갱신"
-
 #, fuzzy
 msgid "Activate selected plugins"
 msgstr "작동중인 플러그인"
@@ -3904,11 +3850,11 @@ msgid "open"
 msgstr "열기"
 
 #, php-format
-msgid "ratio %.1f"
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "(%s)"
+msgid "ratio %.1f"
 msgstr ""
 
 #, fuzzy
@@ -3936,23 +3882,6 @@ msgstr "파일 쓰기 도중 오류가 발생했습니다."
 #, fuzzy, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "생성된 이미지 크기 (픽셀단위)"
-
-#, fuzzy
-msgid "Database error"
-msgstr "데이터베이스 종류 :"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "블로그 설정"
-
-msgid "Blog"
-msgstr "블로그"
-
-msgid "Plugins"
-msgstr "플러그인"
 
 #, fuzzy
 msgid "small"
@@ -4181,17 +4110,18 @@ msgstr "모듈 삭제중 오류가 발생했습니다."
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "\"%s\"를 갱신할 수 없습니다. (동일 버전)."
 
-msgid "Unable to read new _define.php file"
-msgstr "새 _define.php 파일을 읽을 수 없습니다."
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
+
+msgid "Cannot deactivate plugin."
+msgstr "플러그인의 작동을 멈출 수 없습니다."
 
 msgid "No such module."
 msgstr "존재하지 않는 모듈입니다."
 
 msgid "Cannot remove module files"
 msgstr "모듈파일을 지울 수 없습니다."
-
-msgid "Cannot deactivate plugin."
-msgstr "플러그인의 작동을 멈출 수 없습니다."
 
 msgid "Cannot activate plugin."
 msgstr "플러그인을 작동시킬 수 없습니다."
@@ -4273,7 +4203,7 @@ msgid " (copy)"
 msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _config.php"
+msgid "Unable to modify _define.php"
 msgstr "파일을 열 수 없습니다."
 
 #, fuzzy
@@ -4395,6 +4325,63 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Back to login screen"
+#~ msgstr "로그인 화면으로 돌아가기"
+
+#~ msgid "Request a new password"
+#~ msgstr "새 비밀번호 요청"
+
+#~ msgid "recover"
+#~ msgstr "되살리기"
+
+#, fuzzy
+#~ msgid "Other option"
+#~ msgstr "찾을 내용 지정"
+
+#~ msgid "Change your password"
+#~ msgstr "비밀번호 변경"
+
+#, fuzzy
+#~ msgid "change"
+#~ msgstr "취소"
+
+#~ msgid "Remember my ID on this device"
+#~ msgstr "이 컴퓨터가 내 아이디를 기억하도록하기"
+
+#, fuzzy
+#~ msgid "log in"
+#~ msgstr "블로그 이름"
+
+#~ msgid "You must accept cookies in order to use the private area."
+#~ msgstr "사생활보호 영역을 접속하시려면, 브라우저가 쿠키를 받을 수 있게 설정하셔야합니다."
+
+#~ msgid "I forgot my password"
+#~ msgstr "비밀번호를 잊었어요."
+
+#~ msgid "Enable XML/RPC interface"
+#~ msgstr "XML/RPC 인터페이스 작동켜키"
+
+#~ msgid "XML/RPC interface allows you to edit your blog with an external client."
+#~ msgstr "XML/RPC 인터페이스는 외부클라이언트 프로그램에서 당신의 블로그를 편집할 수 있도록 해줍니다."
+
+#~ msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+#~ msgstr "XML/RPC 인터페이스 작동이 켜졌습니다. 당신의 XML/RPC 클라이언트에서 다음 설정값들을 조정하여야 할 것입니다 :"
+
+#~ msgid "Server URL:"
+#~ msgstr "서버 URL :"
+
+#~ msgid "Blogging system:"
+#~ msgstr "블로그 시스템 :"
+
+#~ msgid "User name:"
+#~ msgstr "사용자이름 :"
+
+#~ msgid "your password"
+#~ msgstr "비밀번호 :"
+
+#~ msgid "Unable to read new _define.php file"
+#~ msgstr "새 _define.php 파일을 읽을 수 없습니다."
 
 #~ msgid "By names, in ascending order"
 #~ msgstr "이름, 오름순"
