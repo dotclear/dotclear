@@ -128,14 +128,3 @@ dist-l10n:
 
 clean:
 	rm -rf $(DIST) config-stamp
-
-
-## Modules (Themes and Plugins) ###############################################
-pack-tool:
-	[ "$(ipath)" != '' ]
-	[ "$(iname)" != '' ]
-	[ "$(iname)" != '' ]
-	[ -d $(ipath)/$(iname) ]
-
-
-copy-plugins: clean
