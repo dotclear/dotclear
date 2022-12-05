@@ -12,7 +12,7 @@
  */
 class adminGenericFilter extends adminGenericFilterV2
 {
-    public function __construct(dcCore $core, string $type)
+    public function __construct(dcCore $core, string $type) // @phpstan-ignore-line
     {
         parent::__construct($type);
     }

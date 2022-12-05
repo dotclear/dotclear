@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class flatImport extends flatBackup
+class flatImportV2 extends flatBackup
 {
     private $con;
     private $prefix;
@@ -34,7 +34,6 @@ class flatImport extends flatBackup
     private $cur_ping;
     private $cur_comment;
     private $cur_spamrule;
-    private $cur_version;
 
     public $old_ids = [
         'category' => [],
@@ -55,7 +54,7 @@ class flatImport extends flatBackup
 
     public $has_categories = false;
 
-    public function __construct(dcCore $core, $file)
+    public function __construct($file)
     {
         parent::__construct($file);
 
@@ -101,7 +100,6 @@ class flatImport extends flatBackup
         $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
         $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . dcAntispam::SPAMRULE_TABLE_NAME);
-        $this->cur_version     = $this->con->openCursor($this->prefix . dcCore::VERSION_TABLE_NAME);
 
         # --BEHAVIOR-- importInit
         dcCore::app()->callBehavior('importInitV2', $this);

@@ -20,7 +20,7 @@ Clearbricks::lib()->autoload([
     'dcImportDC1'             => __DIR__ . '/inc/class.dc.import.dc1.php',
     'dcImportWP'              => __DIR__ . '/inc/class.dc.import.wp.php',
     'flatBackup'              => __DIR__ . '/inc/flat/class.flat.backup.php',
-    'flatImport'              => __DIR__ . '/inc/flat/class.flat.import.php',
+    'flatImportV2'            => __DIR__ . '/inc/flat/class.flat.import.php',
     'flatExport'              => __DIR__ . '/inc/flat/class.flat.export.php',
     'ieMaintenanceExportblog' => __DIR__ . '/inc/lib.ie.maintenance.php',
     'ieMaintenanceExportfull' => __DIR__ . '/inc/lib.ie.maintenance.php',

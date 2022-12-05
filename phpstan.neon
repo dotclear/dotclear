@@ -94,10 +94,6 @@ parameters:
     - message: '#Variable \$p_url might not be defined#'
       path: plugins/*/*.php
 
-    # Property flatImport:: (plugins)
-    - message: '#Property flatImport::#'
-      path: plugins/importExport/*/*.php
-
     # $this variable may not be defined (plugins/themes)
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
@@ -222,8 +218,8 @@ parameters:
     # -------------------------------
 
     # $core as class constructor parameter
-    - message: '#Constructor of class [a-zA-Z0-9\\_]+ has an unused parameter \$core.#'
-      path: %currentWorkingDirectory%
+#    - message: '#Constructor of class [a-zA-Z0-9\\_]+ has an unused parameter \$core.#'
+#      path: %currentWorkingDirectory%
 
 # Notes:
 #

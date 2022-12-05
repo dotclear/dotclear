@@ -10,7 +10,7 @@
  */
 abstract class dcActionsPage extends dcActions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -18,7 +18,7 @@ abstract class dcActionsPage extends dcActions
 
 class dcPostsActionsPage extends dcPostsActions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -26,7 +26,7 @@ class dcPostsActionsPage extends dcPostsActions
 
 class dcCommentsActionsPage extends dcCommentsActions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -34,7 +34,7 @@ class dcCommentsActionsPage extends dcCommentsActions
 
 class dcBlogsActionsPage extends dcBlogsActions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -42,7 +42,7 @@ class dcBlogsActionsPage extends dcBlogsActions
 
 class dcPagesActionsPage extends dcPagesActions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }

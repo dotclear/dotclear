@@ -69,11 +69,11 @@ class dcImportFlat extends dcIeModule
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
                 if (false !== $unzip_file) {
-                    $bk = new flatImport(dcCore::app(), $unzip_file);
+                    $bk = new flatImportV2($unzip_file);
                 }
                 # Else this is a normal file
                 else {
-                    $bk = new flatImport(dcCore::app(), $file);
+                    $bk = new flatImportV2($file);
                 }
 
                 $bk->importSingle();
@@ -122,11 +122,11 @@ class dcImportFlat extends dcIeModule
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
                 if (false !== $unzip_file) {
-                    $bk = new flatImport(dcCore::app(), $unzip_file);
+                    $bk = new flatImportV2($unzip_file);
                 }
                 # Else this is a normal file
                 else {
-                    $bk = new flatImport(dcCore::app(), $file);
+                    $bk = new flatImportV2($file);
                 }
 
                 $bk->importFull();

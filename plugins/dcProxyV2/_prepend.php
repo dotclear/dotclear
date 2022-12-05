@@ -42,6 +42,7 @@ dcProxyV2::loadBehaviors('dcProxyV2AdminBehaviors', __DIR__ . '/inc/class.admin.
 Clearbricks::lib()->autoload([
     'adminGenericFilter' => __DIR__ . '/inc/lib.adminfilters.php',
     'adminGenericList'   => __DIR__ . '/inc/lib.pager.php',
+    'flatImport'         => __DIR__ . '/inc/class.flat.import.php',
 
     'dcActionsPage'         => __DIR__ . '/inc/class.dcaction.php',
     'dcPostsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
