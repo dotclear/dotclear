@@ -90,10 +90,6 @@ parameters:
 
   ignoreErrors:
 
-    # $p_url variable may not be defined (plugins)
-    - message: '#Variable \$p_url might not be defined#'
-      path: plugins/*/*.php
-
     # $this variable may not be defined (plugins/themes)
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
@@ -112,10 +108,6 @@ parameters:
 
     # record object and auto properties
     - message: '#Access to an undefined property record::#'
-      path: %currentWorkingDirectory%
-
-    # staticRecord object and auto properties
-    - message: '#Access to an undefined property staticRecord::#'
       path: %currentWorkingDirectory%
 
     # dcWidgets object and auto properties
@@ -154,28 +146,12 @@ parameters:
     - message : '#Access to an undefined property cursor::#'
       path: %currentWorkingDirectory%
 
-    # static record extensions
-    - message: '#Call to an undefined method record::#'
-      path: %currentWorkingDirectory%
-
-    # static staticRecord extensions
-    - message: '#Call to an undefined method staticRecord::#'
-      path: %currentWorkingDirectory%
-
     # dcRecord object and auto properties
     - message: '#Access to an undefined property dcRecord::#'
       path: %currentWorkingDirectory%
 
     # dcRecord object methods
     - message: '#Call to an undefined method dcRecord::#'
-      path: %currentWorkingDirectory%
-
-    # static property rsExtUser
-    - message: '#Static property rsExtUser::#'
-      path: %currentWorkingDirectory%
-
-    # static property rsExtBlog
-    - message: '#Static property rsExtBlog::#'
       path: %currentWorkingDirectory%
 
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
@@ -213,13 +189,6 @@ parameters:
     # formXXX
     - message: '#Access to an undefined property \$this\(form[a-zA-Z0-9\\_]+\)::#'
       path: %currentWorkingDirectory%
-
-    # Plugin dcProxyV2
-    # -------------------------------
-
-    # $core as class constructor parameter
-#    - message: '#Constructor of class [a-zA-Z0-9\\_]+ has an unused parameter \$core.#'
-#      path: %currentWorkingDirectory%
 
 # Notes:
 #
