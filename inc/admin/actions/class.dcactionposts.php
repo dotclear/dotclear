@@ -375,7 +375,10 @@ class dcDefaultPostActions
             }
 
             dcCore::app()->blog->updPostsCategory($ids, $new_cat_id);
-            $title = dcCore::app()->blog->getCategory($new_cat_id);
+            $title = __('(No cat)');
+            if ($new_cat_id) {
+                $title = dcCore::app()->blog->getCategory($new_cat_id)->cat_title;
+            }
             dcPage::addSuccessNotice(
                 sprintf(
                     __(
@@ -384,7 +387,7 @@ class dcDefaultPostActions
                         count($ids)
                     ),
                     count($ids),
-                    html::escapeHTML($title->cat_title)
+                    html::escapeHTML($title)
                 )
             );
 

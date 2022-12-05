@@ -85,7 +85,7 @@ abstract class dcActions
         $this->from          = new ArrayObject($_POST);
         $this->field_entries = 'entries';
         $this->cb_title      = __('Title');
-        $this->caller_title  = __('Entries');
+        $this->caller_title  = __('Posts');
 
         if (isset($this->redir_args['action_anchor'])) {
             $this->redir_anchor = '#' . $this->redir_args['action_anchor'];
