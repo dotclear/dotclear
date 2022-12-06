@@ -66,14 +66,53 @@ if ($var_file === false || !is_file($var_file) || !is_readable($var_file)) {
     exit;
 }
 
+$extension = files::getExtension($plugin_file);
 if (!in_array(
-    files::getExtension($var_file),
-    ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'html', 'xml', 'json', 'txt']
+    $extension,
+    [
+        'css',
+        'eot',
+        'gif',
+        'html',
+        'jpeg',
+        'jpg',
+        'js',
+        'json',
+        'otf',
+        'png',
+        'svg',
+        'swf',
+        'ttf',
+        'txt',
+        'webp',
+        'woff',
+        'woff2',
+        'xml',
+    ]
 )) {
     unset($var_file);
     header('Content-Type: text/plain');
     http::head(404, 'Not Found');
     exit;
+}
+
+// For JS and CSS, look if a minified version exists
+if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
+    if (in_array(
+        $extension,
+        [
+            'css',
+            'js',
+        ]
+    )) {
+        $base_file = substr($var_file, 0, strlen($var_file) - strlen($extension) - 1);
+        if (files::getExtension($base_file) !== 'min') {
+            $minified_file = $base_file . '.min.' . $extension;
+            if (is_file($minified_file) && is_readable($minified_file)) {
+                $var_file = $minified_file;
+            }
+        }
+    }
 }
 
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for var files served by ?vf=…
