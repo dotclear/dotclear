@@ -806,8 +806,19 @@ class dcModules
         }
 
         try {
-            if ($this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL) === true) {
-                return true;
+            $install = $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL);
+            if ($install === true || $install === null) {
+                // Register new version if necessary
+                $old_version = dcCore::app()->getVersion($id);
+                $new_version = $this->modules[$id]['version'];
+                if (version_compare((string) $old_version, $new_version, '<')) {
+                    // Register new version
+                    dcCore::app()->setVersion($id, $new_version);
+                }
+
+                if ($install === true) {
+                    return true;
+                }
             }
         } catch (Exception $e) {
             $msg = $e->getMessage();
