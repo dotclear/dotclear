@@ -186,14 +186,14 @@ class adminMedia
             }
         }
 
-        # Rebuild directory
-        if (dcCore::app()->admin->page->getDirs() && dcCore::app()->auth->isSuperAdmin() && !empty($_POST['rebuild'])) {
+        # Build missing directory thumbnails
+        if (dcCore::app()->admin->page->getDirs() && dcCore::app()->auth->isSuperAdmin() && !empty($_POST['complete'])) {
             try {
-                dcCore::app()->media->rebuild(dcCore::app()->admin->page->d);
+                dcCore::app()->media->rebuildThumbnails(dcCore::app()->admin->page->d);
 
                 dcPage::addSuccessNotice(
                     sprintf(
-                        __('Directory "%s" has been successfully rebuilt.'),
+                        __('Directory "%s" has been successfully completed.'),
                         html::escapeHTML(dcCore::app()->admin->page->d)
                     )
                 );
@@ -448,10 +448,10 @@ class adminMedia
             if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->page->popup && dcCore::app()->admin->page->mediaWritable()) {
                 echo
                 '<form action="' . dcCore::app()->adminurl->getBase('admin.media') . '" method="post" class="fieldset">' .
-                '<h4 class="pretty-title">' . __('Rebuild directory thumbnails') . '</h4>' .
+                '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .
                 dcCore::app()->formNonce() .
-                '<p><input type="submit" value="' . __('Rebuild') . '" />' .
-                dcCore::app()->adminurl->getHiddenFormFields('admin.media', array_merge(dcCore::app()->admin->page->values(), ['rebuild' => 1])) .
+                '<p><input type="submit" value="' . __('Build') . '" />' .
+                dcCore::app()->adminurl->getHiddenFormFields('admin.media', array_merge(dcCore::app()->admin->page->values(), ['complete' => 1])) .
                 '</p>' .
                 '</form>';
             }

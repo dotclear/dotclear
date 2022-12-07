@@ -1343,11 +1343,15 @@ msgstr "Créer un répertoire"
 msgid "Directory Name:"
 msgstr "Nom du répertoire :"
 
-msgid "Rebuild directory thumbnails"
-msgstr "Reconstruire les miniatures des images du répertoire"
+msgid "Build missing thumbnails in directory"
+msgstr "Construire les miniatures manquantes des images du répertoire"
 
-msgid "Rebuild"
-msgstr "Reconstruire"
+msgid "Build"
+msgstr "Construire"
+
+#, php-format
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Les miniatures manquantes du répertoire \"%s\" ont été construites."
 
 #, php-format
 msgid "Backup content of %s"

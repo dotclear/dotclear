@@ -859,7 +859,7 @@ class dcMedia extends filemanager
         if ($recursive) {
             foreach ($dir['dirs'] as $d) {
                 if (!$d->parent) {
-                    $this->rebuild($d->relname);
+                    $this->rebuild($d->relname, $recursive);
                 }
             }
         }
@@ -870,6 +870,41 @@ class dcMedia extends filemanager
         }
 
         $this->rebuildDB($pwd);
+    }
+
+    /**
+     * Rebuilds thumbnails. Optional <var>$pwd</var> parameter is
+     * the path where to start rebuild.
+     *
+     * @param      string     $pwd          The directory to rebuild
+     * @param      bool       $force        Recreate existing thumbnails if True
+     * @param      bool       $recursive    If true rebuild also sub-directories
+     *
+     * @throws     Exception
+     */
+    public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void
+    {
+        if (!dcCore::app()->auth->isSuperAdmin()) {
+            throw new Exception(__('You are not a super administrator.'));
+        }
+
+        $this->chdir($pwd);
+        parent::getDir();
+
+        $dir = $this->dir;
+
+        if ($recursive) {
+            foreach ($dir['dirs'] as $d) {
+                if (!$d->parent) {
+                    $this->rebuildThumbnails($d->relname, $recursive, $force);
+                }
+            }
+        }
+
+        foreach ($dir['files'] as $f) {
+            $this->chdir(dirname($f->relname));
+            $this->callFileHandler(files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
+        }
     }
 
     /**
