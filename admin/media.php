@@ -191,7 +191,7 @@ class adminMedia
             try {
                 dcCore::app()->media->rebuild(dcCore::app()->admin->page->d);
 
-                dcPage::success(
+                dcPage::addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully rebuilt.'),
                         html::escapeHTML(dcCore::app()->admin->page->d)
@@ -444,7 +444,19 @@ class adminMedia
                 '</form>';
             }
 
-            # Get zip directory
+            // Rebuild directory
+            if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->page->popup && dcCore::app()->admin->page->mediaWritable()) {
+                echo
+                '<form action="' . dcCore::app()->adminurl->getBase('admin.media') . '" method="post" class="fieldset">' .
+                '<h4 class="pretty-title">' . __('Rebuild directory thumbnails') . '</h4>' .
+                dcCore::app()->formNonce() .
+                '<p><input type="submit" value="' . __('Rebuild') . '" />' .
+                dcCore::app()->adminurl->getHiddenFormFields('admin.media', array_merge(dcCore::app()->admin->page->values(), ['rebuild' => 1])) .
+                '</p>' .
+                '</form>';
+            }
+
+            // Get zip directory
             if (dcCore::app()->admin->page->mediaArchivable() && !dcCore::app()->admin->page->popup) {
                 echo
                 '<div class="fieldset">' .

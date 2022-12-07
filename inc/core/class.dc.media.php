@@ -840,11 +840,12 @@ class dcMedia extends filemanager
      * Rebuilds database items collection. Optional <var>$pwd</var> parameter is
      * the path where to start rebuild.
      *
-     * @param      string     $pwd    The directory to rebuild
+     * @param      string     $pwd          The directory to rebuild
+     * @param      bool       $recursive    If true rebuild also sub-directories
      *
      * @throws     Exception
      */
-    public function rebuild(string $pwd = ''): void
+    public function rebuild(string $pwd = '', bool $recursive = false): void
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
@@ -855,9 +856,11 @@ class dcMedia extends filemanager
 
         $dir = $this->dir;
 
-        foreach ($dir['dirs'] as $d) {
-            if (!$d->parent) {
-                $this->rebuild($d->relname);
+        if ($recursive) {
+            foreach ($dir['dirs'] as $d) {
+                if (!$d->parent) {
+                    $this->rebuild($d->relname);
+                }
             }
         }
 
