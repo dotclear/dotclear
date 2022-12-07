@@ -66,7 +66,7 @@ if ($var_file === false || !is_file($var_file) || !is_readable($var_file)) {
     exit;
 }
 
-$extension = files::getExtension($plugin_file);
+$extension = files::getExtension($var_file);
 if (!in_array(
     $extension,
     [
