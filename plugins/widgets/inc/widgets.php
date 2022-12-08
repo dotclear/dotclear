@@ -646,17 +646,23 @@ class dcWidget
      *
      * @return     bool|self
      */
-    public function addHomeOnly()
+    public function addHomeOnly(?array $options = null)
     {
+        $list = [
+            __('All pages')           => self::ALL_PAGES,
+            __('Home page only')      => self::HOME_ONLY,
+            __('Except on home page') => self::EXCEPT_HOME, ];
+
+        if ($options !== null) {
+            $list = array_merge($list, $options);
+        }
+
         return $this->setting(
             'homeonly',
             __('Display on:'),
             self::ALL_PAGES,
             'combo',
-            [
-                __('All pages')           => self::ALL_PAGES,
-                __('Home page only')      => self::HOME_ONLY,
-                __('Except on home page') => self::EXCEPT_HOME, ]
+            $list
         );
     }
 
