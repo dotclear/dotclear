@@ -902,8 +902,12 @@ class dcMedia extends filemanager
         }
 
         foreach ($dir['files'] as $f) {
-            $this->chdir(dirname($f->relname));
-            $this->callFileHandler(files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
+            try {
+                $this->chdir(dirname($f->relname));
+                $this->callFileHandler(files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
+            } catch (Exception $e) {
+                // Ignore errors on trying to rebuild thumbnails
+            }
         }
     }
 
