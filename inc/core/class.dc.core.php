@@ -997,7 +997,7 @@ final class dcCore
      */
     public function testVersion(string $module, string $version): int
     {
-        return $version <=> (string) $this->getVersion($module);
+        return version_compare($version, (string) $this->getVersion($module));
     }
 
     /**
