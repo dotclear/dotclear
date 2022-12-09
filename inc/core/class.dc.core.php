@@ -982,6 +982,38 @@ final class dcCore
     }
 
     /**
+     * Compare the given version of a module with the registered one
+     *
+     * Returned values:
+     *
+     * -1 : newer version already installed
+     * 0 : same version installed
+     * 1 : older version is installed
+     *
+     * @param      string  $module   The module
+     * @param      string  $version  The version
+     *
+     * @return     int  return the result of the test
+     */
+    public function testVersion(string $module, string $version): int
+    {
+        return $version <=> (string) $this->getVersion($module);
+    }
+
+    /**
+     * Test if a version is a new one
+     *
+     * @param      string  $module   The module
+     * @param      string  $version  The version
+     *
+     * @return     bool
+     */
+    public function newVersion(string $module, string $version): bool
+    {
+        return $this->testVersion($module, $version) === 1;
+    }
+
+    /**
      * Remove a module version entry
      *
      * @param      string  $module  The module
