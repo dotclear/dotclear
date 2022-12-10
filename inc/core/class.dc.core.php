@@ -2155,6 +2155,8 @@ final class dcCore
                     'Authorize import feed only from this port regexp', ],
                 ['jquery_needed', 'boolean', true,
                     'Load jQuery library', ],
+                ['sleepmode_timeout', 'integer', 31536000,
+                    'Sleep mode timeout', ],
             ];
         }
 
