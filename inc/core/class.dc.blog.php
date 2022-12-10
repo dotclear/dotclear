@@ -2914,7 +2914,7 @@ class dcBlog
             ->column('post_upddt')
             ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($this->id))
-            ->order('post_upddt DESC');
+            ->order('post_upddt DESC')
             ->limit(1)
             ->select();
 
