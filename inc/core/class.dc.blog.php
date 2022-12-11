@@ -2907,9 +2907,16 @@ class dcBlog
         }
     }
 
-    public function checkSleepmodeTimeout($apply = true): bool
+    /**
+     * Check if a blog should switch in sleep mode (close comments/trackbacks)
+     *
+     * @param      bool  $apply  False = test only, True = close comments/trackbacks if necessary
+     *
+     * @return     bool  True = period elapsed, False = no need to switch into sleep mode
+     */
+    public function checkSleepmodeTimeout(bool $apply = true): bool
     {
-        $sql = new dcSelectStatement();
+        $sql  = new dcSelectStatement();
         $last = $sql
             ->column('post_upddt')
             ->from($this->prefix . self::POST_TABLE_NAME)
