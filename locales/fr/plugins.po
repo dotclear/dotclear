@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -2184,9 +2184,6 @@ msgstr "Fil des commentaires"
 msgid "Title (optional)"
 msgstr "Titre (optionnel)"
 
-msgid "Display on:"
-msgstr "Afficher :"
-
 msgid "All pages"
 msgstr "Sur toutes les pages"
 
@@ -2195,6 +2192,9 @@ msgstr "En page d'accueil seulement"
 
 msgid "Except on home page"
 msgstr "Sauf en page d'accueil"
+
+msgid "Display on:"
+msgstr "Afficher :"
 
 msgid "Content only"
 msgstr "Contenu seul (sans boîte englobante)"

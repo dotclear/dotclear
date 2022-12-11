@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2328,9 +2328,6 @@ msgstr "댓글 타래소식"
 msgid "Title (optional)"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
 #, fuzzy
 msgid "All pages"
 msgstr "모든 분류딱지"
@@ -2339,6 +2336,9 @@ msgid "Home page only"
 msgstr "시작화면에만 보이기"
 
 msgid "Except on home page"
+msgstr ""
+
+msgid "Display on:"
 msgstr ""
 
 #, fuzzy

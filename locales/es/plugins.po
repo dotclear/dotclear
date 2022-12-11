@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -2324,9 +2324,6 @@ msgstr "Fuente web de los comentarios"
 msgid "Title (optional)"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
 #, fuzzy
 msgid "All pages"
 msgstr "Todas las etiquetas"
@@ -2335,6 +2332,9 @@ msgid "Home page only"
 msgstr "Sólo la página de inicio"
 
 msgid "Except on home page"
+msgstr ""
+
+msgid "Display on:"
 msgstr ""
 
 #, fuzzy

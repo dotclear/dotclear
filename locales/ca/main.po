@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -230,6 +230,21 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "DotClear esta instal·lat."
@@ -315,6 +330,9 @@ msgstr ""
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Afegir \"nofollow\" la relació en els comentaris i en els enllaços de respostes"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Presentació del Blog"
@@ -1356,8 +1374,8 @@ msgid "File has been successfully removed."
 msgstr "El fitxer s'ha suprimit amb èxit."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "El directori s'ha reconstruït amb èxit."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "El directori s'ha creat amb èxit."
 
 msgid "confirm removal"
 msgstr "Confirmar la supressió"
@@ -1443,6 +1461,12 @@ msgstr "%s no és un directori."
 #, fuzzy
 msgid "Directory Name:"
 msgstr "Nou directori:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, php-format
 msgid "Backup content of %s"
@@ -2833,6 +2857,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "L'entrada s'ha actualitzat amb èxit."
 msgstr[1] "L'entrada s'ha actualitzat amb èxit."
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2904,9 +2931,6 @@ msgstr ""
 #, fuzzy
 msgid "Languages"
 msgstr "Idioma?"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Seleccionat"
@@ -4383,6 +4407,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "El directori s'ha reconstruït amb èxit."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Retorn a la pantalla de connexió"

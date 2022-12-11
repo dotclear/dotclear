@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -232,6 +232,21 @@ msgstr "검색 및 축적 엔진들에게 블로그 내용물에 대한 검색�
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "Dotclear가 이미 설치되어 있습니다."
@@ -316,6 +331,9 @@ msgstr "글걸이는 %s일 동안 공개로 둠"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "(검색로봇이 댓글에 링크된 사이트와 이 블로그를 연관짓지 않도록) 댓글과 글걸이의 링크에 \"nofollow\"관계 추가"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "블로그 보임방식"
@@ -1340,8 +1358,8 @@ msgid "File has been successfully removed."
 msgstr "파일이 성공적으로 삭제되었습니다."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "폴더가 성공적으로 재생성되었습니다."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "폴더가 성공적으로 생성되었습니다."
 
 msgid "confirm removal"
 msgstr "삭제 확인"
@@ -1427,6 +1445,12 @@ msgstr "새 폴더에 풀기"
 #, fuzzy
 msgid "Directory Name:"
 msgstr "새 폴더 :"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2811,6 +2835,9 @@ msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "테마가 성공적으로 삭제되었습니다."
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2878,9 +2905,6 @@ msgstr "DotClear 갱신"
 
 msgid "Languages"
 msgstr "언어"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "선택됨"
@@ -4325,6 +4349,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "폴더가 성공적으로 재생성되었습니다."
 
 #~ msgid "Back to login screen"
 #~ msgstr "로그인 화면으로 돌아가기"

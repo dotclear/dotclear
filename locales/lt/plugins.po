@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2317,9 +2317,6 @@ msgstr "Komentarų rss"
 msgid "Title (optional)"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
 #, fuzzy
 msgid "All pages"
 msgstr "Visos žymos"
@@ -2328,6 +2325,9 @@ msgid "Home page only"
 msgstr "Tik namų puslapis"
 
 msgid "Except on home page"
+msgstr ""
+
+msgid "Display on:"
 msgstr ""
 
 #, fuzzy

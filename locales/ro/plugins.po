@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -2253,9 +2253,6 @@ msgstr ""
 msgid "Title (optional)"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
 #, fuzzy
 msgid "All pages"
 msgstr "Toate categoriile"
@@ -2264,6 +2261,9 @@ msgid "Home page only"
 msgstr "Doar pagina de start"
 
 msgid "Except on home page"
+msgstr ""
+
+msgid "Display on:"
 msgstr ""
 
 #, fuzzy

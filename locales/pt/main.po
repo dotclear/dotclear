@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -231,6 +231,21 @@ msgstr "Quero evitar que os motores de pesquisa e arquivadores indexem ou arquiv
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "Dotclear já está instalado."
@@ -315,6 +330,9 @@ msgstr "Deixar os trackbacks abertos durante %s dias"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Adicionar \"não seguir\" em links de comentários e trackbacks"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Apresentação do blog"
@@ -1336,8 +1354,8 @@ msgid "File has been successfully removed."
 msgstr "O ficheiro foi removido com sucesso."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "A pasta foi recriada com sucesso."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "A pasta foi criada com sucesso."
 
 msgid "confirm removal"
 msgstr "confirme remover"
@@ -1422,6 +1440,12 @@ msgstr "Extrair numa nova pasta"
 
 msgid "Directory Name:"
 msgstr "Nome da pasta:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2808,6 +2832,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "O tema foi apagado com sucesso."
 msgstr[1] "O tema foi apagado com sucesso."
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2878,9 +2905,6 @@ msgstr "Actualizações"
 
 msgid "Languages"
 msgstr "Línguas"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Seleccionado"
@@ -4343,6 +4367,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "A pasta foi recriada com sucesso."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Voltar ao ecrã de login"

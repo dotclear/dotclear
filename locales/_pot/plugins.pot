@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1104,45 +1104,46 @@ msgstr ""
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr ""
 
-#: plugins/breadcrumb/inc/public.tpl.php:58
+#: plugins/breadcrumb/inc/public.tpl.php:60
 #: plugins/breadcrumb/inc/public.tpl.php:65
-#: plugins/breadcrumb/inc/public.tpl.php:69
-#: plugins/breadcrumb/inc/public.tpl.php:80
-#: plugins/breadcrumb/inc/public.tpl.php:95
-#: plugins/breadcrumb/inc/public.tpl.php:111
-#: plugins/breadcrumb/inc/public.tpl.php:128
-#: plugins/breadcrumb/inc/public.tpl.php:136
-#: plugins/breadcrumb/inc/public.tpl.php:150
+#: plugins/breadcrumb/inc/public.tpl.php:72
+#: plugins/breadcrumb/inc/public.tpl.php:76
+#: plugins/breadcrumb/inc/public.tpl.php:87
+#: plugins/breadcrumb/inc/public.tpl.php:102
+#: plugins/breadcrumb/inc/public.tpl.php:118
+#: plugins/breadcrumb/inc/public.tpl.php:135
+#: plugins/breadcrumb/inc/public.tpl.php:143
 #: plugins/breadcrumb/inc/public.tpl.php:157
 #: plugins/breadcrumb/inc/public.tpl.php:164
-#: plugins/breadcrumb/inc/public.tpl.php:177
-#: plugins/breadcrumb/inc/public.tpl.php:189
-#: plugins/breadcrumb/inc/public.tpl.php:195 plugins/simpleMenu/index.php:102
+#: plugins/breadcrumb/inc/public.tpl.php:171
+#: plugins/breadcrumb/inc/public.tpl.php:184
+#: plugins/breadcrumb/inc/public.tpl.php:196
+#: plugins/breadcrumb/inc/public.tpl.php:202 plugins/simpleMenu/index.php:102
 #: plugins/simpleMenu/index.php:219 plugins/widgets/inc/default.widgets.php:219
 msgid "Home"
 msgstr ""
 
-#: plugins/breadcrumb/inc/public.tpl.php:89
-#: plugins/breadcrumb/inc/public.tpl.php:104
-#: plugins/breadcrumb/inc/public.tpl.php:170
-#: plugins/breadcrumb/inc/public.tpl.php:182
+#: plugins/breadcrumb/inc/public.tpl.php:96
+#: plugins/breadcrumb/inc/public.tpl.php:111
+#: plugins/breadcrumb/inc/public.tpl.php:177
+#: plugins/breadcrumb/inc/public.tpl.php:189
 #, php-format
 msgid "page %d"
 msgstr ""
 
-#: plugins/breadcrumb/inc/public.tpl.php:139
-#: plugins/breadcrumb/inc/public.tpl.php:142 plugins/simpleMenu/index.php:246
+#: plugins/breadcrumb/inc/public.tpl.php:146
+#: plugins/breadcrumb/inc/public.tpl.php:149 plugins/simpleMenu/index.php:246
 #: plugins/widgets/inc/default.widgets.php:236
 msgid "Archives"
 msgstr ""
 
-#: plugins/breadcrumb/inc/public.tpl.php:158
-#: plugins/breadcrumb/inc/public.tpl.php:165 plugins/simpleMenu/index.php:91
+#: plugins/breadcrumb/inc/public.tpl.php:165
+#: plugins/breadcrumb/inc/public.tpl.php:172 plugins/simpleMenu/index.php:91
 #: plugins/simpleMenu/index.php:266 plugins/tags/inc/widgets.php:46
 msgid "All tags"
 msgstr ""
 
-#: plugins/breadcrumb/inc/public.tpl.php:190
+#: plugins/breadcrumb/inc/public.tpl.php:197
 msgid "404"
 msgstr ""
 
@@ -1740,25 +1741,25 @@ msgstr ""
 msgid "Unable to create output file."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:64
+#: plugins/importExport/inc/flat/class.flat.import.php:63
 msgid "File is not a DotClear backup."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:118
+#: plugins/importExport/inc/flat/class.flat.import.php:116
 msgid "File is not a single blog export."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:253
-#: plugins/importExport/inc/flat/class.flat.import.php:349
+#: plugins/importExport/inc/flat/class.flat.import.php:251
+#: plugins/importExport/inc/flat/class.flat.import.php:347
 #, php-format
 msgid "Error raised at line %s"
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:262
+#: plugins/importExport/inc/flat/class.flat.import.php:260
 msgid "File is not a full export."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:760
+#: plugins/importExport/inc/flat/class.flat.import.php:758
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
@@ -3020,31 +3021,31 @@ msgstr ""
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/inc/widgets.php:653
-msgid "Display on:"
-msgstr ""
-
-#: plugins/widgets/inc/widgets.php:657
+#: plugins/widgets/inc/widgets.php:652
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/inc/widgets.php:658
+#: plugins/widgets/inc/widgets.php:653
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/inc/widgets.php:659
+#: plugins/widgets/inc/widgets.php:654
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/inc/widgets.php:692
+#: plugins/widgets/inc/widgets.php:662
+msgid "Display on:"
+msgstr ""
+
+#: plugins/widgets/inc/widgets.php:698
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/inc/widgets.php:704
+#: plugins/widgets/inc/widgets.php:710
 msgid "CSS class:"
 msgstr ""
 
-#: plugins/widgets/inc/widgets.php:716
+#: plugins/widgets/inc/widgets.php:722
 msgid "Offline"
 msgstr ""
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -222,6 +222,22 @@ msgstr ""
 msgid "Default"
 msgstr "Per defaut"
 
+#, fuzzy
+msgid "Do not put the blog in sleep mode"
+msgstr "Vòli me connectar en mòde segur"
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr ""
 
@@ -303,6 +319,9 @@ msgid "Leave trackbacks open for %s days"
 msgstr ""
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
+msgstr ""
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr ""
 
 msgid "Blog presentation"
@@ -1262,9 +1281,9 @@ msgstr ""
 msgid "File has been successfully removed."
 msgstr ""
 
-#, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr ""
+#, fuzzy, php-format
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Creacion corrècta del fichièr de configuracion."
 
 msgid "confirm removal"
 msgstr ""
@@ -1340,6 +1359,12 @@ msgstr "Crear un dossièr novèl"
 
 msgid "Directory Name:"
 msgstr "Nom del dossièr :"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, php-format
 msgid "Backup content of %s"
@@ -2606,6 +2631,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "(No cat)"
+msgstr ""
+
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2671,9 +2699,6 @@ msgstr "Mesa a jorn"
 
 msgid "Languages"
 msgstr "Lengas"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Seleccionat"
@@ -4089,9 +4114,6 @@ msgstr ""
 
 #~ msgid "I forgot my password"
 #~ msgstr "Ai oblidat mon senhal"
-
-#~ msgid "I want to log in in safe mode"
-#~ msgstr "Vòli me connectar en mòde segur"
 
 #~ msgid "Server URL:"
 #~ msgstr "URL del servidor :"

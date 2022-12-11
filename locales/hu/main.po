@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -232,6 +232,21 @@ msgstr "Szeretném, ha a keresőmotorok és katalogizálók NE indexeljék és N
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "A DotClear már telepítve van."
@@ -316,6 +331,9 @@ msgstr "Trackbackeket %s napig tehetnek"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "A \"nofollow\" jelző hozzáadása a kommentekhez és a trackback linkekhez"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Blog bemutatása"
@@ -1360,8 +1378,8 @@ msgid "File has been successfully removed."
 msgstr "A fájlokat letöröltem."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "A mappa újraépült."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "A mappát létrehoztam."
 
 msgid "confirm removal"
 msgstr "törlés megerősítése"
@@ -1447,6 +1465,12 @@ msgstr "Új kategória létrehozása"
 #, fuzzy
 msgid "Directory Name:"
 msgstr "Új mappa"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2846,6 +2870,10 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "A téma sikeresen törlődött."
 msgstr[1] "A téma sikeresen törlődött."
 
+#, fuzzy
+msgid "(No cat)"
+msgstr "Nincs kategória."
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2917,10 +2945,6 @@ msgstr "Frissítések"
 #, fuzzy
 msgid "Languages"
 msgstr "Nyelv?"
-
-#, fuzzy
-msgid "(No cat)"
-msgstr "Nincs kategória."
 
 msgid "Selected"
 msgstr "Kiválasztott"
@@ -4392,6 +4416,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "A mappa újraépült."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Vissza a bejelentkező képernyőre"

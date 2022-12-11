@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -228,6 +228,22 @@ msgstr "Chcę, aby wyszukiwarki i archiwizery nie indeksowały i nie archiwizowa
 msgid "Default"
 msgstr ""
 
+#, fuzzy
+msgid "Do not put the blog in sleep mode"
+msgstr "Chcę zalogować sie w trybie bezpiecznym"
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr "Ten identyfikator bloga jest już używany."
 
@@ -311,6 +327,9 @@ msgstr "Pozostaw możliwość wysyłania trackbacków przez %s dni"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Dodaj atrybut rel=\"nofollow\" do linków w komentarzach i trackbackach."
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Wygląd bloga"
@@ -1332,8 +1351,8 @@ msgid "File has been successfully removed."
 msgstr "Plik został pomyślnie usunięty."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Katalog został pomyślnie przebudowany."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Katalog został pomyślnie utworzony."
 
 msgid "confirm removal"
 msgstr "potwierdź usunięcie"
@@ -1419,6 +1438,12 @@ msgstr "Rozpakuj w nowym katalogu"
 
 msgid "Directory Name:"
 msgstr "Nazwa katalogu:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2803,6 +2828,9 @@ msgstr[0] "Motyw został pomyślnie usunięty."
 msgstr[1] "Motyw został pomyślnie usunięty."
 msgstr[2] ""
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2875,9 +2903,6 @@ msgstr "Uaktualnienia"
 
 msgid "Languages"
 msgstr "Języki"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Oznaczone gwiazdką"
@@ -4353,6 +4378,10 @@ msgstr "<p>To oznacza że nazwa użytkownika i hasło w Twoim pliku <strong>conf
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
 
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Katalog został pomyślnie przebudowany."
+
 #~ msgid "Back to login screen"
 #~ msgstr "Cofnij się do ekranu logowania"
 
@@ -4395,9 +4424,6 @@ msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
 
 #~ msgid "I forgot my password"
 #~ msgstr "Zapomniałem hasła"
-
-#~ msgid "I want to log in in safe mode"
-#~ msgstr "Chcę zalogować sie w trybie bezpiecznym"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Włącz interfejs XML/RPC"

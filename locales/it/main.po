@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -228,6 +228,21 @@ msgstr "Impedisci ai motori di ricerca e ai sistemi di archiviazione di indicizz
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr "L'ID del blog è già in uso."
 
@@ -312,6 +327,9 @@ msgstr "Lasciare i trackback aperti per %s giorni"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Aggiungere il comando \"nofollow\" ai link presenti nei commenti e nei trackback"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Presentazione del blog"
@@ -1333,8 +1351,8 @@ msgid "File has been successfully removed."
 msgstr "File eliminato correttamente."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Cartella ricostruita correttamente."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "La cartella è stata creata correttamente."
 
 msgid "confirm removal"
 msgstr "conferma eliminazione"
@@ -1419,6 +1437,12 @@ msgstr "Estrai in una nuova cartella"
 
 msgid "Directory Name:"
 msgstr "Nome cartella:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2805,6 +2829,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "Tema eliminato correttamente."
 msgstr[1] "Tema eliminato correttamente."
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2874,9 +2901,6 @@ msgstr "Aggiornamenti"
 
 msgid "Languages"
 msgstr "Lingue"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Selezionato"
@@ -4334,6 +4358,10 @@ msgstr "<p>Questo può significare che il nome utente e la password presenti nel
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Si è verificato il seguente errore durante il tentativo di connessione al database:"
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Cartella ricostruita correttamente."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Ritorna alla pagina di accesso"

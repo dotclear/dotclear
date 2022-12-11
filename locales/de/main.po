@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -224,6 +224,22 @@ msgstr "Erlaube Suchmaschinen weder das Durchsuchen und Archivieren des Inhaltes
 msgid "Default"
 msgstr "Standard"
 
+#, fuzzy
+msgid "Do not put the blog in sleep mode"
+msgstr "Ich will mich abgesichert anmelden"
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr "Diese Blog-ID wird schon verwendet."
 
@@ -307,6 +323,9 @@ msgstr "Lasse Trackbacks %s Tage offen"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Füge \"nofollow\" Attribut (rel) in Kommentar- und Trackbacklinks ein"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Anzeige des Blogs"
@@ -1286,9 +1305,9 @@ msgstr "Verzeichnis wurde erfolgreich beseitigt."
 msgid "File has been successfully removed."
 msgstr "Datei wurde erfolgreich beseitigt."
 
-#, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Verzeichnis \"%s\" wurde erfolgreich wiederhergestellt."
+#, fuzzy, php-format
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Verzeichnis \"%s\" wurde erfolgreich erstellt."
 
 msgid "confirm removal"
 msgstr "Löschung bestätigen"
@@ -1367,6 +1386,12 @@ msgstr "Neues Verzeichnis erstellen"
 
 msgid "Directory Name:"
 msgstr "Verzeichnisname:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, php-format
 msgid "Backup content of %s"
@@ -2645,6 +2670,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d Eintrag wurde erfolgreich gelöscht."
 msgstr[1] "%d Einträge wurden erfolgreich gelöscht."
 
+msgid "(No cat)"
+msgstr ""
+
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2710,9 +2738,6 @@ msgstr "Aktualisierungen"
 
 msgid "Languages"
 msgstr "Sprachen"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Ausgewählt"
@@ -4080,6 +4105,10 @@ msgstr "<p>Dies bedeutet, dass entweder dein Benutzername und dein Passwort in d
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
+#, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Verzeichnis \"%s\" wurde erfolgreich wiederhergestellt."
+
 #, fuzzy
 #~ msgid "extra-large"
 #~ msgstr "Grösser"
@@ -4130,9 +4159,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 #~ msgid "I forgot my password"
 #~ msgstr "Ich habe mein Passwort vergessen."
-
-#~ msgid "I want to log in in safe mode"
-#~ msgstr "Ich will mich abgesichert anmelden"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Benutze XML/RPC-Interface"

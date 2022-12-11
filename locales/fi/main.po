@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -222,6 +222,22 @@ msgstr "Haluan, että hakukoneet ja arkistointiohjelmat eivät indeksoisi tai ta
 msgid "Default"
 msgstr "Oletus"
 
+#, fuzzy
+msgid "Do not put the blog in sleep mode"
+msgstr "Vikasietotilaan kirjautuminen"
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr "Tämä tunniste on jo käytössä."
 
@@ -304,6 +320,9 @@ msgstr "Jätä takaisinviittaukset auki %s päiväksi"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Lisää \"nofollow\" kommentti- ja takaisinviittauslinkkeihin"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Blogin ulkoasu"
@@ -1265,9 +1284,9 @@ msgstr "Hakemisto on poistettu."
 msgid "File has been successfully removed."
 msgstr "Tiedosto on poistettu."
 
-#, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Hakemisto \"%s\" on rakennettu uudelleen."
+#, fuzzy, php-format
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Hakemisto \"%s\" on luotu."
 
 msgid "confirm removal"
 msgstr "vahvista poisto"
@@ -1343,6 +1362,12 @@ msgstr "Luo uusi hakemisto"
 
 msgid "Directory Name:"
 msgstr "Hakemiston nimi:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, php-format
 msgid "Backup content of %s"
@@ -2599,6 +2624,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d merkintä on poistettu"
 msgstr[1] "%d merkintää on poistettu"
 
+msgid "(No cat)"
+msgstr "(ei mitään)"
+
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2664,9 +2692,6 @@ msgstr "Päivitä"
 
 msgid "Languages"
 msgstr "Kielet"
-
-msgid "(No cat)"
-msgstr "(ei mitään)"
 
 msgid "Selected"
 msgstr "Valittu"
@@ -4020,6 +4045,10 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
+#, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Hakemisto \"%s\" on rakennettu uudelleen."
+
 #, fuzzy
 #~ msgid "extra-large"
 #~ msgstr "Suurempi"
@@ -4073,9 +4102,6 @@ msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
 #~ msgid "I forgot my password"
 #~ msgstr "Unohdin salasanani"
-
-#~ msgid "I want to log in in safe mode"
-#~ msgstr "Vikasietotilaan kirjautuminen"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Ota käyttöön XML/RPC"

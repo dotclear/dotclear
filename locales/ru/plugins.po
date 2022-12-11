@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2327,9 +2327,6 @@ msgstr "RSS комментариев"
 msgid "Title (optional)"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
 #, fuzzy
 msgid "All pages"
 msgstr "Все теги"
@@ -2338,6 +2335,9 @@ msgid "Home page only"
 msgstr "Долько домашняя страница"
 
 msgid "Except on home page"
+msgstr ""
+
+msgid "Display on:"
 msgstr ""
 
 #, fuzzy

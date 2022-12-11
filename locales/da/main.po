@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -227,6 +227,21 @@ msgstr "Jeg vil gerne have søgemaskiker og arkiver til ikke at indeksere eller 
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "Dotclear er allerede installeret."
@@ -311,6 +326,9 @@ msgstr "Efterlad tilbagelinks åbne i %s dage"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Tiilføj \"nofollow\" relation på kommentarer og tilbagelinks"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Blog præsentation"
@@ -1328,7 +1346,7 @@ msgid "File has been successfully removed."
 msgstr ""
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
+msgid "Directory \"%s\" has been successfully completed."
 msgstr "Kategorien er oprettet."
 
 msgid "confirm removal"
@@ -1410,6 +1428,12 @@ msgid "Create new directory"
 msgstr "Lav en ny blog"
 
 msgid "Directory Name:"
+msgstr ""
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
 msgstr ""
 
 #, fuzzy, php-format
@@ -2764,6 +2788,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "Temaet er slettet."
 msgstr[1] "Temaet er slettet."
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2831,9 +2858,6 @@ msgid "Update"
 msgstr ""
 
 msgid "Languages"
-msgstr ""
-
-msgid "(No cat)"
 msgstr ""
 
 msgid "Selected"
@@ -4271,6 +4295,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Kategorien er oprettet."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Tilbage til log ind skærmen"

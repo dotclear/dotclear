@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -227,6 +227,21 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
@@ -310,6 +325,9 @@ msgid "Leave trackbacks open for %s days"
 msgstr ""
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
+msgstr ""
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr ""
 
 msgid "Blog presentation"
@@ -1320,7 +1338,7 @@ msgid "File has been successfully removed."
 msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
+msgid "Directory \"%s\" has been successfully completed."
 msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 msgid "confirm removal"
@@ -1403,6 +1421,12 @@ msgstr "নতুন ডিরেক্টরি"
 #, fuzzy
 msgid "Directory Name:"
 msgstr "নতুন ডিরেক্টরি:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2773,6 +2797,9 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2841,9 +2868,6 @@ msgstr ""
 
 msgid "Languages"
 msgstr "ভাষাসমূহ"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr ""
@@ -4294,6 +4318,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 #~ msgid "Back to login screen"
 #~ msgstr "লগইন পাতায় ফিরে যাও"

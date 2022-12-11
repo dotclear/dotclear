@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -228,6 +228,21 @@ msgstr "我想要阻止搜索引擎和 archivers 来索引或者存档我的博�
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "Dotclear 已被安装。"
@@ -312,6 +327,9 @@ msgstr "保持 trackbacks 开放 %s 天"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "在评论和 trackbacks 链接上添加“nofollow”关系"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "博客展示"
@@ -1332,8 +1350,8 @@ msgid "File has been successfully removed."
 msgstr "成功移除文件。"
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "成功重建目录。"
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "成功创建目录。"
 
 msgid "confirm removal"
 msgstr "确认清除"
@@ -1418,6 +1436,12 @@ msgstr "解压缩到一个新目录"
 
 msgid "Directory Name:"
 msgstr "目录名称："
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2793,6 +2817,9 @@ msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "成功删除主题。"
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2860,9 +2887,6 @@ msgstr "更新"
 
 msgid "Languages"
 msgstr "语言"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "精选的"
@@ -4306,6 +4330,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "成功重建目录。"
 
 #~ msgid "Back to login screen"
 #~ msgstr "返回到登录界面"

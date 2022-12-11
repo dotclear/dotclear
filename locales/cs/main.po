@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -227,6 +227,21 @@ msgstr "Zakázat vyhledavacím enginům indexovat nebo archivovat obsah blogu."
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr "Blog ID je už použito."
 
@@ -310,6 +325,9 @@ msgstr "Ponechat tracbacky otevřené po %s dnů."
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Přidat \"nofollow\" pro URL v komentáří a trackbacku"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Prezentace blogu"
@@ -1334,8 +1352,8 @@ msgid "File has been successfully removed."
 msgstr "Soubor byl úspěšně smazán."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Adresář byl úspěšně obnoven."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Adresář byl úspěšně vytvořen."
 
 msgid "confirm removal"
 msgstr "potvrdit odstranění"
@@ -1420,6 +1438,12 @@ msgstr "Rozbalit v nonvém adresáři"
 
 msgid "Directory Name:"
 msgstr "Jméno adresáře:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2817,6 +2841,9 @@ msgstr[0] "Vzhled byl úspěšně odstraněn."
 msgstr[1] "Vzhled byl úspěšně odstraněn."
 msgstr[2] "Vzhled byl úspěšně odstraněn."
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2889,9 +2916,6 @@ msgstr "Aktualizace"
 
 msgid "Languages"
 msgstr "Jazyky"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Vybrané"
@@ -4370,6 +4394,10 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Adresář byl úspěšně obnoven."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Zpět na přihlašení."

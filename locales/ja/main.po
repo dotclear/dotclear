@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:56+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -236,6 +236,21 @@ msgstr "検索エンジンとアーカイバに、ブログのコンテンツの
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 #, fuzzy
 msgid "This blog ID is already used."
 msgstr "Dotclear はすでにインストールされています。"
@@ -320,6 +335,9 @@ msgstr "トラックバックをオープンにしておく日数： %s 日間"
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "コメントとトラックバックリンクに \"nofollow\" 属性を加える"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "ブログのプレゼンテーション"
@@ -1343,8 +1361,8 @@ msgid "File has been successfully removed."
 msgstr "ファイルは正常に削除されました。"
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "ディレクトは正常に再構築されました。"
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "ディレクトリは正常に作成されました。"
 
 msgid "confirm removal"
 msgstr "削除の確認"
@@ -1430,6 +1448,12 @@ msgstr "新規ディレクトリに展開"
 #, fuzzy
 msgid "Directory Name:"
 msgstr "新しいディレクトリ："
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2814,6 +2838,9 @@ msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "テーマは正常に削除されました。"
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2881,9 +2908,6 @@ msgstr "アップデート"
 
 msgid "Languages"
 msgstr "言語"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "イチ押し"
@@ -4328,6 +4352,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "ディレクトは正常に再構築されました。"
 
 #~ msgid "Back to login screen"
 #~ msgstr "ログイン画面に戻る"

@@ -192,11 +192,11 @@ class adminBlogPref
 
         // SLeep mode timeout in second
         $da->sleepmode_timeout_combo = [
-            __('Do not put blog in sleep mode') => 0,
-            __('Three month')  => 7884000,
-            __('Six mouth')    => 15768000,
+            __('Never')        => 0,
+            __('Three months') => 7884000,
+            __('Six months')   => 15768000,
             __('One year')     => 31536000,
-            __('Two year')     => 63072000,
+            __('Two years')    => 63072000,
         ];
     }
 
@@ -557,7 +557,12 @@ class adminBlogPref
             '<p><label for="comments_nofollow" class="classic">' .
             form::checkbox('comments_nofollow', '1', $da->blog_settings->system->comments_nofollow) .
             __('Add "nofollow" relation on comments and trackbacks links') . '</label></p>' .
+
             '</div>' . '<br class="clear" />' . //Opera sucks
+
+            '<p><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
+            form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
+            '</p>' .
 
             '</div>' . '<br class="clear" />' . //Opera sucks
             '</div>' .
@@ -858,9 +863,7 @@ class adminBlogPref
             form::checkbox('prevents_clickjacking', '1', $da->blog_settings->system->prevents_clickjacking) .
             __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' .
 
-            '<p><label for="sleepmode_timeout" class="classic">' . __('Close all blog comments and trackbacks after a period without any new post:') . '</label>' . ' ' .
-            form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
-            '</p>' . '<br class="clear" />' . //Opera sucks
+            '<br class="clear" />' . //Opera sucks
 
             '</div>' .
 

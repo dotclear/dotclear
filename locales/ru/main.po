@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 09:57+0100\n"
+"POT-Creation-Date: 2022-12-11 07:57+0100\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -229,6 +229,21 @@ msgstr "Я не хочу, чтобы мой блог индексировалс�
 msgid "Default"
 msgstr ""
 
+msgid "Do not put the blog in sleep mode"
+msgstr ""
+
+msgid "Three months"
+msgstr ""
+
+msgid "Six months"
+msgstr ""
+
+msgid "One year"
+msgstr ""
+
+msgid "Two years"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr "Dotclear уже установлен."
 
@@ -313,6 +328,9 @@ msgstr "Оставлять пинги открытыми в течении %s д
 
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Добавлять \"nofollow\" в ссылки комментариев и пингов"
+
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr ""
 
 msgid "Blog presentation"
 msgstr "Внешний вид"
@@ -1334,8 +1352,8 @@ msgid "File has been successfully removed."
 msgstr "Файл был успешно удален."
 
 #, fuzzy, php-format
-msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Директория успешно пересоздана."
+msgid "Directory \"%s\" has been successfully completed."
+msgstr "Директория была успешно создана."
 
 msgid "confirm removal"
 msgstr "Подтвердите удаление"
@@ -1420,6 +1438,12 @@ msgstr "Извлечь в новую директорию"
 
 msgid "Directory Name:"
 msgstr "Название директории:"
+
+msgid "Build missing thumbnails in directory"
+msgstr ""
+
+msgid "Build"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Backup content of %s"
@@ -2817,6 +2841,9 @@ msgstr[0] "Тема удалена."
 msgstr[1] "Тема удалена."
 msgstr[2] ""
 
+msgid "(No cat)"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -2889,9 +2916,6 @@ msgstr "Обновления"
 
 msgid "Languages"
 msgstr "Языки"
-
-msgid "(No cat)"
-msgstr ""
 
 msgid "Selected"
 msgstr "Выбранный"
@@ -4367,6 +4391,10 @@ msgstr "<p>Это может означать, что имя пользоват�
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
+
+#, fuzzy, php-format
+#~ msgid "Directory \"%s\" has been successfully rebuilt."
+#~ msgstr "Директория успешно пересоздана."
 
 #~ msgid "Back to login screen"
 #~ msgstr "Вернуться на страницу логина."
