@@ -126,6 +126,9 @@ class dcPublic
         # Prepare for further notices, if any
         dcCore::app()->notices = new dcNotices();
 
+        # Check blog sleep mode
+        dcCore::app()->blog->checkSleepmodeTimeout();
+
         # Cope with static home page option
         if (dcCore::app()->blog->settings->system->static_home) {
             dcCore::app()->url->registerDefault([dcUrlHandlers::class, 'static_home']);

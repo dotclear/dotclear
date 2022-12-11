@@ -2906,5 +2906,34 @@ class dcBlog
             $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
         }
     }
+
+    public function checkSleepmodeTimeout($apply = true): bool
+    {
+        $sql = new dcSelectStatement();
+        $last = $sql
+            ->column('post_upddt')
+            ->from($this->prefix . self::POST_TABLE_NAME)
+            ->where('blog_id = ' . $sql->quote($this->id))
+            ->order('post_upddt DESC')
+            ->limit(1)
+            ->select();
+
+        if ($last->isEmpty()) {
+            return false;
+        }
+
+        $delay = (int) $this->settings->system->sleepmode_timeout;
+
+        if (!$delay || (strtotime($last->post_upddt) + $delay) > time()) {
+            return false;
+        }
+
+        if ($apply) {
+            $this->settings->system->set('allow_comments', false);
+            $this->settings->system->set('allow_trackbacks', false);
+        }
+
+        return true;
+    }
     //@}
 }

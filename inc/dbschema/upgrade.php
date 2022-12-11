@@ -1131,6 +1131,14 @@ class dcUpgrade
             foreach ($remfolders as $f) {
                 self::rrmdir(DC_ROOT . '/' . $f);
             }
+
+            # Global settings
+            $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+                ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
+                ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+            dcCore::app()->con->execute(
+                sprintf($strReq, 'sleepmode_timeout', 31536000, 'integer', 'Sleep mode timeout')
+            );
         }
 
         dcCore::app()->setVersion('core', DC_VERSION);

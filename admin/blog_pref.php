@@ -189,6 +189,15 @@ class adminBlogPref
             }
         }
         $da->jquery_versions_combo = $stack;
+
+        // SLeep mode timeout in second
+        $da->sleepmode_timeout_combo = [
+            __('Do not put blog in sleep mode') => 0,
+            __('Three month')  => 7884000,
+            __('Six mouth')    => 15768000,
+            __('One year')     => 31536000,
+            __('Two year')     => 63072000,
+        ];
     }
 
     /**
@@ -345,6 +354,8 @@ class adminBlogPref
                 $da->blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
                 $da->blog_settings->system->put('static_home', !empty($_POST['static_home']));
                 $da->blog_settings->system->put('static_home_url', $_POST['static_home_url']);
+
+                $da->blog_settings->system->put('sleepmode_timeout', $_POST['sleepmode_timeout']);
 
                 # --BEHAVIOR-- adminBeforeBlogSettingsUpdate
                 dcCore::app()->callBehavior('adminBeforeBlogSettingsUpdate', $da->blog_settings);
@@ -845,7 +856,11 @@ class adminBlogPref
 
             '<p><label for="prevents_clickjacking" class="classic">' .
             form::checkbox('prevents_clickjacking', '1', $da->blog_settings->system->prevents_clickjacking) .
-            __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' . '<br class="clear" />' . //Opera sucks
+            __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' .
+
+            '<p><label for="sleepmode_timeout" class="classic">' . __('Close all blog comments and trackbacks after a period without any new post:') . '</label>' . ' ' .
+            form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
+            '</p>' . '<br class="clear" />' . //Opera sucks
 
             '</div>' .
 
