@@ -141,6 +141,19 @@ class adminBlogTheme
                 dcPage::success(__('Manual checking of themes update done successfully.'));
             }
 
+            echo
+            (new formForm('force-checking'))
+                ->action(dcCore::app()->admin->list->getURL('', false))
+                ->method('get')
+                ->fields([
+                    (new formPara())
+                    ->items([
+                        (new formHidden('nocache', '1')),
+                        (new formSubmit('force-checking-update', __('Force checking update of themes'))),
+                    ]),
+                ])
+                ->render();
+
             // Updated themes from repo
             $modules = dcCore::app()->admin->list->store->get(true);
             if (!empty($modules)) {
@@ -170,19 +183,6 @@ class adminBlogTheme
                 ) .
                 '</p>' .
                 '</div>';
-            } else {
-                echo
-                (new formForm('force-checking'))
-                    ->action(dcCore::app()->admin->list->getURL('', false))
-                    ->method('get')
-                    ->fields([
-                        (new formPara())
-                        ->items([
-                            (new formHidden('nocache', '1')),
-                            (new formSubmit('force-checking-update', __('Force checking update of themes'))),
-                        ]),
-                    ])
-                    ->render();
             }
         }
 
@@ -233,7 +233,6 @@ class adminBlogTheme
         }
 
         if (dcCore::app()->auth->isSuperAdmin() && dcCore::app()->admin->list->isWritablePath()) {
-
             // New modules from repo
             $search  = dcCore::app()->admin->list->getSearch();
             $modules = $search ? dcCore::app()->admin->list->store->search($search) : dcCore::app()->admin->list->store->get();

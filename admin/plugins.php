@@ -116,6 +116,12 @@ class adminPlugins
                 dcPage::success(__('Manual checking of plugins update done successfully.'));
             }
 
+            echo
+            '<form action="' . dcCore::app()->admin->list->getURL('', false) . '" method="get">' .
+            '<p><input type="hidden" name="nocache" value="1" />' .
+            '<input type="submit" value="' . __('Force checking update of plugins') . '" /></p>' .
+            '</form>';
+
             // Updated modules from repo
             $modules = dcCore::app()->admin->list->store->get(true);
             if (!empty($modules)) {
@@ -146,12 +152,6 @@ class adminPlugins
                 '</p>' .
 
                 '</div>';
-            } else {
-                echo
-                '<form action="' . dcCore::app()->admin->list->getURL('', false) . '" method="get">' .
-                '<p><input type="hidden" name="nocache" value="1" />' .
-                '<input type="submit" value="' . __('Force checking update of plugins') . '" /></p>' .
-                '</form>';
             }
         }
 
