@@ -300,7 +300,7 @@ class adminUpdate
             echo
             '<p class="message">' .
             __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="' . dcCore::app()->adminurl->get('admin.home') . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
+            ' <strong><a href="' . dcCore::app()->adminurl->get('admin.auth') . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
             '</p>';
         }
 
