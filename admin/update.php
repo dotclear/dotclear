@@ -289,8 +289,12 @@ class adminUpdate
                 '</form></div>';
             }
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
+            // Keep safe-mode for next authentication
+            $params = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'] ? ['safe_mode' => 1] : [];
+
             // Remove session
             dcCore::app()->session->destroy();
+
             // Remove cookie if exists
             if (isset($_COOKIE['dc_admin'])) {
                 unset($_COOKIE['dc_admin']);
@@ -300,7 +304,7 @@ class adminUpdate
             echo
             '<p class="message">' .
             __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="' . dcCore::app()->adminurl->get('admin.auth') . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
+            ' <strong><a href="' . dcCore::app()->adminurl->get('admin.auth', $params) . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
             '</p>';
         }
 
