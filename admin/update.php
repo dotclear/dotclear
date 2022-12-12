@@ -289,10 +289,18 @@ class adminUpdate
                 '</form></div>';
             }
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
+            // Remove session
+            dcCore::app()->session->destroy();
+            // Remove cookie if exists
+            if (isset($_COOKIE['dc_admin'])) {
+                unset($_COOKIE['dc_admin']);
+                setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
+            }
+
             echo
             '<p class="message">' .
             __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="index.php?logout=1" class="button submit">' . __('Finish the update.') . '</a></strong>' .
+            ' <strong><a href="' . dcCore::app()->adminurl->get('admin.home') . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
             '</p>';
         }
 
