@@ -457,6 +457,21 @@ final class dcCore
         return new $class($this);
     }
 
+    /**
+     * Kill admin session helper
+     */
+    public function killAdminSession(): void
+    {
+        // Kill session
+        dcCore::app()->session->destroy();
+
+        // Unset cookie if necessary
+        if (isset($_COOKIE['dc_admin'])) {
+            unset($_COOKIE['dc_admin']);
+            setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
+        }
+    }
+
     /// @name Blog init methods
     //@{
     /**

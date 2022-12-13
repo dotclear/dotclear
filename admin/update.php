@@ -292,14 +292,8 @@ class adminUpdate
             // Keep safe-mode for next authentication
             $params = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'] ? ['safe_mode' => 1] : [];
 
-            // Remove session
-            dcCore::app()->session->destroy();
-
-            // Remove cookie if exists
-            if (isset($_COOKIE['dc_admin'])) {
-                unset($_COOKIE['dc_admin']);
-                setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
-            }
+            // Kill admin session
+            dcCore::app()->killAdminSession();
 
             echo
             '<p class="message">' .

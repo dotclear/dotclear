@@ -50,13 +50,9 @@ class adminIndex
     public static function process()
     {
         if (!empty($_GET['logout'])) {
+            // Kill admin session
+            dcCore::app()->killAdminSession();
             // Logout
-
-            dcCore::app()->session->destroy();
-            if (isset($_COOKIE['dc_admin'])) {
-                unset($_COOKIE['dc_admin']);
-                setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
-            }
             dcCore::app()->adminurl->redirect('admin.auth');
             exit;
         }
