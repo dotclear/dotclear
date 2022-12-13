@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -78,6 +78,80 @@ msgstr "管理インターフェイス："
 
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "パスワードのリセット"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "ミディアム："
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "ログイン画面に戻る"
+
+msgid "Request a new password"
+msgstr "新しいパスワードをリクエスト"
+
+msgid "Email:"
+msgstr "メール："
+
+msgid "recover"
+msgstr "回復"
+
+#, fuzzy
+msgid "Other option"
+msgstr "検索オプション"
+
+msgid "Change your password"
+msgstr "パスワードの変更"
+
+msgid "New password:"
+msgstr "新しいパスワード："
+
+msgid "Confirm password:"
+msgstr "パスワードの再入力："
+
+#, fuzzy
+msgid "change"
+msgstr "キャンセル"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "次回から入力を省略"
+
+#, fuzzy
+msgid "log in"
+msgstr "ブログ名"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "パスワードの再発行"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -236,7 +310,7 @@ msgstr "検索エンジンとアーカイバに、ブログのコンテンツの
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -539,9 +613,6 @@ msgstr "このブログでのユーザ"
 msgid "No users"
 msgstr "ユーザはいません"
 
-msgid "Email:"
-msgstr "メール："
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "このブログでのユーザ"
@@ -585,6 +656,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear をアップデート"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "サムネイルの更新"
 
@@ -596,10 +671,6 @@ msgstr[0] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Dotclear をアップデート"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1070,20 +1141,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear のインストール"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "パスワードのリセット"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "ミディアム："
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1122,15 +1179,9 @@ msgstr "ユーザ名またはパスワードが間違っています"
 msgid "Username"
 msgstr "ユーザ名："
 
-msgid "New password:"
-msgstr "新しいパスワード："
-
 #, fuzzy
 msgid "Password"
 msgstr "パスワード："
-
-msgid "Confirm password:"
-msgstr "パスワードの再入力："
 
 msgid "All done!"
 msgstr "すべて完了しました！"
@@ -1756,6 +1807,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear をアップデート"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "プラグインをアップロード"
 
@@ -1763,10 +1818,6 @@ msgstr "プラグインをアップロード"
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Dotclear をアップデート"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4356,39 +4407,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "ディレクトは正常に再構築されました。"
-
-#~ msgid "Back to login screen"
-#~ msgstr "ログイン画面に戻る"
-
-#~ msgid "Request a new password"
-#~ msgstr "新しいパスワードをリクエスト"
-
-#~ msgid "recover"
-#~ msgstr "回復"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "検索オプション"
-
-#~ msgid "Change your password"
-#~ msgstr "パスワードの変更"
-
-#, fuzzy
-#~ msgid "change"
-#~ msgstr "キャンセル"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "次回から入力を省略"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "ブログ名"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
-
-#~ msgid "I forgot my password"
-#~ msgstr "パスワードの再発行"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "XML/RPC インターフェイスを有効化"

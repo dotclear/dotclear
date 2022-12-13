@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -69,6 +69,76 @@ msgid "Administration session expired"
 msgstr ""
 
 msgid "Wrong username or password"
+msgstr ""
+
+#, php-format
+msgid "Password strength: %s"
+msgstr ""
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr ""
+
+msgid "Request a new password"
+msgstr ""
+
+msgid "Email:"
+msgstr ""
+
+msgid "recover"
+msgstr ""
+
+msgid "Other option"
+msgstr ""
+
+msgid "Change your password"
+msgstr ""
+
+msgid "New password:"
+msgstr ""
+
+msgid "Confirm password:"
+msgstr ""
+
+msgid "change"
+msgstr ""
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr ""
+
+msgid "log in"
+msgstr ""
+
+msgid "You must accept cookies in order to use the private area."
+msgstr ""
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr ""
+
+msgid "I want to log in in safe mode"
 msgstr ""
 
 #, php-format
@@ -224,7 +294,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -508,9 +578,6 @@ msgstr ""
 msgid "No users"
 msgstr ""
 
-msgid "Email:"
-msgstr ""
-
 msgid "Publications on this blog:"
 msgstr ""
 
@@ -549,6 +616,9 @@ msgstr ""
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
+msgid "Force checking update of themes"
+msgstr ""
+
 msgid "Update themes"
 msgstr ""
 
@@ -561,9 +631,6 @@ msgstr[2] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
-
-msgid "Force checking update of themes"
 msgstr ""
 
 msgid "Installed themes"
@@ -997,19 +1064,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr ""
 
-#, php-format
-msgid "Password strength: %s"
-msgstr ""
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr ""
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1044,13 +1098,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "New password:"
-msgstr ""
-
 msgid "Password"
-msgstr ""
-
-msgid "Confirm password:"
 msgstr ""
 
 msgid "All done!"
@@ -1647,6 +1695,9 @@ msgstr ""
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
+msgid "Force checking update of plugins"
+msgstr ""
+
 msgid "Update plugins"
 msgstr ""
 
@@ -1656,9 +1707,6 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-msgid "Force checking update of plugins"
-msgstr ""
 
 msgid "Installed plugins"
 msgstr ""

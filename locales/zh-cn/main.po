@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -71,6 +71,79 @@ msgstr "管理界面："
 
 msgid "Wrong username or password"
 msgstr "错误的用户名或密码"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "密码重置"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "中："
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "返回到登录界面"
+
+msgid "Request a new password"
+msgstr "请求一个新密码"
+
+msgid "Email:"
+msgstr "邮箱："
+
+msgid "recover"
+msgstr "恢复"
+
+#, fuzzy
+msgid "Other option"
+msgstr "搜索选项"
+
+msgid "Change your password"
+msgstr "改变您的密码"
+
+msgid "New password:"
+msgstr "新密码："
+
+msgid "Confirm password:"
+msgstr "确认密码："
+
+msgid "change"
+msgstr "更改"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "在这台计算机上记住我的 ID"
+
+#, fuzzy
+msgid "log in"
+msgstr "博客名称"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "您必须接受 cookies 以使用私有区域。"
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "我忘记了我的密码"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -228,7 +301,7 @@ msgstr "我想要阻止搜索引擎和 archivers 来索引或者存档我的博�
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -531,9 +604,6 @@ msgstr "这个博客上的用户"
 msgid "No users"
 msgstr "没有用户"
 
-msgid "Email:"
-msgstr "邮箱："
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "这个博客上的用户"
@@ -577,6 +647,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "更新 Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "更新缩略图"
 
@@ -588,10 +662,6 @@ msgstr[0] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "更新 Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1063,20 +1133,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear 安装"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "密码重置"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "中："
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "显示"
 
@@ -1111,15 +1167,9 @@ msgstr "用户名和密码"
 msgid "Username"
 msgstr "用户名"
 
-msgid "New password:"
-msgstr "新密码："
-
 #, fuzzy
 msgid "Password"
 msgstr "密码："
-
-msgid "Confirm password:"
-msgstr "确认密码："
 
 msgid "All done!"
 msgstr "一切完成！"
@@ -1744,6 +1794,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "更新 Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "上传插件"
 
@@ -1751,10 +1805,6 @@ msgstr "上传插件"
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "更新 Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4334,38 +4384,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "成功重建目录。"
-
-#~ msgid "Back to login screen"
-#~ msgstr "返回到登录界面"
-
-#~ msgid "Request a new password"
-#~ msgstr "请求一个新密码"
-
-#~ msgid "recover"
-#~ msgstr "恢复"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "搜索选项"
-
-#~ msgid "Change your password"
-#~ msgstr "改变您的密码"
-
-#~ msgid "change"
-#~ msgstr "更改"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "在这台计算机上记住我的 ID"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "博客名称"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "您必须接受 cookies 以使用私有区域。"
-
-#~ msgid "I forgot my password"
-#~ msgstr "我忘记了我的密码"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "激活 XML/RPC 接口"

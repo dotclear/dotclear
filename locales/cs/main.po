@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -70,6 +70,79 @@ msgstr "Administrační rozhraní:"
 
 msgid "Wrong username or password"
 msgstr "Špatné uživatelské jméno nebo heslo"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Resetovat heslo"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Střední:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Zpět na přihlašení."
+
+msgid "Request a new password"
+msgstr "Zažádat o nové heslo"
+
+msgid "Email:"
+msgstr "E-mail:"
+
+msgid "recover"
+msgstr "Zaslat"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Možnosti hledání"
+
+msgid "Change your password"
+msgstr "Změnit heslo"
+
+msgid "New password:"
+msgstr "Nové heslo:"
+
+msgid "Confirm password:"
+msgstr "Potvrzení hesla:"
+
+msgid "change"
+msgstr "změnit"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Zapamatuj si mě!"
+
+#, fuzzy
+msgid "log in"
+msgstr "Jméno blogu"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Pro přihlášení do administrace musíte mít povolené cookies!"
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Zapomněl jsem heslo..."
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -227,7 +300,7 @@ msgstr "Zakázat vyhledavacím enginům indexovat nebo archivovat obsah blogu."
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -529,9 +602,6 @@ msgstr "Uživatelé tohoto blogu"
 msgid "No users"
 msgstr "Žádní uživatelé"
 
-msgid "Email:"
-msgstr "E-mail:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Uživatelé tohoto blogu"
@@ -575,6 +645,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Aktualizovat Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Aktualizovat náhledy"
 
@@ -588,10 +662,6 @@ msgstr[2] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Aktualizovat Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1063,20 +1133,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Instalace Dotclearu"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Resetovat heslo"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Střední:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "zobrazit"
 
@@ -1111,15 +1167,9 @@ msgstr "Uživatelské jméno a heslo"
 msgid "Username"
 msgstr "Uživatelské jméno"
 
-msgid "New password:"
-msgstr "Nové heslo:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Heslo:"
-
-msgid "Confirm password:"
-msgstr "Potvrzení hesla:"
 
 msgid "All done!"
 msgstr "Vše dokončeno!"
@@ -1747,6 +1797,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Aktualizovat Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Nahrát plugin"
 
@@ -1756,10 +1810,6 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Aktualizovat Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4398,38 +4448,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Adresář byl úspěšně obnoven."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Zpět na přihlašení."
-
-#~ msgid "Request a new password"
-#~ msgstr "Zažádat o nové heslo"
-
-#~ msgid "recover"
-#~ msgstr "Zaslat"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Možnosti hledání"
-
-#~ msgid "Change your password"
-#~ msgstr "Změnit heslo"
-
-#~ msgid "change"
-#~ msgstr "změnit"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Zapamatuj si mě!"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Jméno blogu"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Pro přihlášení do administrace musíte mít povolené cookies!"
-
-#~ msgid "I forgot my password"
-#~ msgstr "Zapomněl jsem heslo..."
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Aktivovat XML/RPC rozhraní"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1501,9 +1501,6 @@ msgid "System settings have been saved."
 msgstr ""
 
 msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Never"
 msgstr ""
 
 msgid "Every week"

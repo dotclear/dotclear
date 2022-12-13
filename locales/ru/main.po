@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -72,6 +72,78 @@ msgstr "Админ-панель"
 
 msgid "Wrong username or password"
 msgstr "Неправильное имя пользователя либо пароль"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Новый пароль установлен"
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr "Средний:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Вернуться на страницу логина."
+
+msgid "Request a new password"
+msgstr "Запросить новый пароль"
+
+msgid "Email:"
+msgstr "Email :"
+
+msgid "recover"
+msgstr "восстановить"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Параметры поиска"
+
+msgid "Change your password"
+msgstr "Изменить пароль"
+
+msgid "New password:"
+msgstr "Новый пароль:"
+
+msgid "Confirm password:"
+msgstr "Подтвердите пароль:"
+
+msgid "change"
+msgstr "изменить"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Запомнить меня на этом компьютере"
+
+#, fuzzy
+msgid "log in"
+msgstr "Название блога"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Вы должны включить cookies, чтобы получить доступ в админ панель."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Я забыл свой пароль"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -229,7 +301,7 @@ msgstr "Я не хочу, чтобы мой блог индексировалс�
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -532,9 +604,6 @@ msgstr "Пользователи этого блога"
 msgid "No users"
 msgstr "Нет пользователей"
 
-msgid "Email:"
-msgstr "Email :"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Пользователи этого блога"
@@ -578,6 +647,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Обновить Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Обновление миниатюр"
 
@@ -591,10 +664,6 @@ msgstr[2] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Обновить Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1064,19 +1133,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Установка Dotclear"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Новый пароль установлен"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr "Средний:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "показать"
 
@@ -1111,15 +1167,9 @@ msgstr "Имя пользователя и пароль"
 msgid "Username"
 msgstr "Имя юзеря :"
 
-msgid "New password:"
-msgstr "Новый пароль:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Пароль :"
-
-msgid "Confirm password:"
-msgstr "Подтвердите пароль:"
 
 msgid "All done!"
 msgstr "Выполнено!"
@@ -1747,6 +1797,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Обновить Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Загрузить плагин"
 
@@ -1756,10 +1810,6 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Обновить Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4395,38 +4445,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Директория успешно пересоздана."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Вернуться на страницу логина."
-
-#~ msgid "Request a new password"
-#~ msgstr "Запросить новый пароль"
-
-#~ msgid "recover"
-#~ msgstr "восстановить"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Параметры поиска"
-
-#~ msgid "Change your password"
-#~ msgstr "Изменить пароль"
-
-#~ msgid "change"
-#~ msgstr "изменить"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Запомнить меня на этом компьютере"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Название блога"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Вы должны включить cookies, чтобы получить доступ в админ панель."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Я забыл свой пароль"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Активировать интерфейс XML/RPC"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -74,6 +74,80 @@ msgstr "Adminisztrációs felület::"
 
 msgid "Wrong username or password"
 msgstr "Hibás felhasználónév vagy jelszó"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "A jelszót helyreállítottam."
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Közepes:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Vissza a bejelentkező képernyőre"
+
+msgid "Request a new password"
+msgstr "Új jelszó igénylése"
+
+msgid "Email:"
+msgstr "E-mail:"
+
+msgid "recover"
+msgstr "helyreállít"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Keresési feltételek"
+
+msgid "Change your password"
+msgstr "Jelszó lecserélése"
+
+msgid "New password:"
+msgstr "Új jelszó:"
+
+msgid "Confirm password:"
+msgstr "Jelszó megerősítése:"
+
+#, fuzzy
+msgid "change"
+msgstr "vissza"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Emlékezz rám"
+
+#, fuzzy
+msgid "log in"
+msgstr "Blognév"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Engedélyezned kell a sütiket a belépéshez."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Elfelejtettem a jelszavam"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -232,7 +306,7 @@ msgstr "Szeretném, ha a keresőmotorok és katalogizálók NE indexeljék és N
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -536,9 +610,6 @@ msgstr "Felhasználók a blogon"
 msgid "No users"
 msgstr "Nincsenek felhasználók"
 
-msgid "Email:"
-msgstr "E-mail:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Felhasználók a blogon"
@@ -582,6 +653,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear frissítés"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Kisképek frissítése"
 
@@ -594,10 +669,6 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Dotclear frissítés"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1079,20 +1150,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "DotClear telepítés"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "A jelszót helyreállítottam."
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Közepes:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1132,15 +1189,9 @@ msgstr "Hibás felhasználónév vagy jelszó"
 msgid "Username"
 msgstr "Felhasználónév:"
 
-msgid "New password:"
-msgstr "Új jelszó:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Jelszó:"
-
-msgid "Confirm password:"
-msgstr "Jelszó megerősítése:"
 
 msgid "All done!"
 msgstr "Minden rendben!"
@@ -1775,6 +1826,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear frissítés"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Feltölt"
 
@@ -1783,10 +1838,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Dotclear frissítés"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4420,39 +4471,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "A mappa újraépült."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Vissza a bejelentkező képernyőre"
-
-#~ msgid "Request a new password"
-#~ msgstr "Új jelszó igénylése"
-
-#~ msgid "recover"
-#~ msgstr "helyreállít"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Keresési feltételek"
-
-#~ msgid "Change your password"
-#~ msgstr "Jelszó lecserélése"
-
-#, fuzzy
-#~ msgid "change"
-#~ msgstr "vissza"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Emlékezz rám"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Blognév"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Engedélyezned kell a sütiket a belépéshez."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Elfelejtettem a jelszavam"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Az XML/RPC interfész engedélyezése"

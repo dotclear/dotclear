@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -69,6 +69,78 @@ msgstr "Administrations-Zugang:"
 
 msgid "Wrong username or password"
 msgstr "Falscher Benutzername oder Passwort"
+
+#, php-format
+msgid "Password strength: %s"
+msgstr "Passwort Stärke: %s"
+
+msgid "weak"
+msgstr "schwach"
+
+msgid "medium"
+msgstr "mittel"
+
+msgid "strong"
+msgstr "stark"
+
+msgid "Back to login screen"
+msgstr "Zurück zum Login"
+
+msgid "Request a new password"
+msgstr "Neues Passwort anfordern"
+
+msgid "Email:"
+msgstr "E-Mail:"
+
+msgid "recover"
+msgstr "wiederherstellen"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Andere Optionen"
+
+msgid "Change your password"
+msgstr "Ändere dein Passwort"
+
+msgid "New password:"
+msgstr "Neues Passwort:"
+
+msgid "Confirm password:"
+msgstr "Passwort wiederholen:"
+
+msgid "change"
+msgstr "ändern"
+
+msgid "Safe mode login"
+msgstr "Abgesicherter Zugang"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr "Diese Methode erlaubt das Einloggen mit abgeschalteten Plugins. So lassen sich Kompatibilitätsprobleme besser lösen"
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Diese ID auf diesem Computer speichern"
+
+msgid "log in"
+msgstr "Einloggen"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Dein Browser muss Cookies akzeptieren."
+
+msgid "Get back to normal authentication"
+msgstr "Wieder zurück zur normalen Anmeldung"
+
+msgid "Connection issue?"
+msgstr "Verbindungsprobleme?"
+
+msgid "I forgot my password"
+msgstr "Ich habe mein Passwort vergessen."
+
+#, fuzzy
+msgid "I want to log in in safe mode"
+msgstr "Ich will mich abgesichert anmelden"
 
 #, php-format
 msgid "Blog \"%s\" successfully created"
@@ -224,9 +296,8 @@ msgstr "Erlaube Suchmaschinen weder das Durchsuchen und Archivieren des Inhaltes
 msgid "Default"
 msgstr "Standard"
 
-#, fuzzy
-msgid "Do not put the blog in sleep mode"
-msgstr "Ich will mich abgesichert anmelden"
+msgid "Never"
+msgstr ""
 
 msgid "Three months"
 msgstr ""
@@ -513,9 +584,6 @@ msgstr "Benutzer dieses Blogs"
 msgid "No users"
 msgstr "Keine Benutzer"
 
-msgid "Email:"
-msgstr "E-Mail:"
-
 msgid "Publications on this blog:"
 msgstr "Veröffentlichungen auf diesem Blog:"
 
@@ -555,6 +623,10 @@ msgstr "Themen Verwaltung"
 msgid "Manual checking of themes update done successfully."
 msgstr "Manuelle Überprüfung der Update erfolgreich durchgeführt."
 
+#, fuzzy
+msgid "Force checking update of themes"
+msgstr "Auf Dotclear Update prüfen"
+
 msgid "Update themes"
 msgstr "Aktualisiere Theme"
 
@@ -567,10 +639,6 @@ msgstr[1] "Es gibt  %s Thema aus dem Repository zu aktualisieren."
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Besuche %s Repository, die Quelle für Dotclear."
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Auf Dotclear Update prüfen"
 
 msgid "Installed themes"
 msgstr "Installierte Theme"
@@ -1023,19 +1091,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear-Installation"
 
-#, php-format
-msgid "Password strength: %s"
-msgstr "Passwort Stärke: %s"
-
-msgid "weak"
-msgstr "schwach"
-
-msgid "medium"
-msgstr "mittel"
-
-msgid "strong"
-msgstr "stark"
-
 msgid "show"
 msgstr "Anzeigen"
 
@@ -1070,14 +1125,8 @@ msgstr "Benutzername und Passwort"
 msgid "Username"
 msgstr "Benutzername"
 
-msgid "New password:"
-msgstr "Neues Passwort:"
-
 msgid "Password"
 msgstr "Passwort"
-
-msgid "Confirm password:"
-msgstr "Passwort wiederholen:"
 
 msgid "All done!"
 msgstr "Erledigt!"
@@ -1683,6 +1732,10 @@ msgstr "Plugin-Verwaltung"
 msgid "Manual checking of plugins update done successfully."
 msgstr "Manuelle Überprüfung der Update erfolgreich durchgeführt."
 
+#, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Auf Dotclear Update prüfen"
+
 msgid "Update plugins"
 msgstr "Plugin aktualisieren"
 
@@ -1691,10 +1744,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] "Es ist ein Update für ein Plugin aus dem Ripository verfügbar."
 msgstr[1] "Es sind Updates für %s Plugins aus dem Repository verfügbar."
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Auf Dotclear Update prüfen"
 
 msgid "Installed plugins"
 msgstr "Installierte Plugins"
@@ -4116,49 +4165,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 #, fuzzy
 #~ msgid "large"
 #~ msgstr "Grösser"
-
-#~ msgid "Back to login screen"
-#~ msgstr "Zurück zum Login"
-
-#~ msgid "Request a new password"
-#~ msgstr "Neues Passwort anfordern"
-
-#~ msgid "recover"
-#~ msgstr "wiederherstellen"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Andere Optionen"
-
-#~ msgid "Change your password"
-#~ msgstr "Ändere dein Passwort"
-
-#~ msgid "change"
-#~ msgstr "ändern"
-
-#~ msgid "Safe mode login"
-#~ msgstr "Abgesicherter Zugang"
-
-#~ msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-#~ msgstr "Diese Methode erlaubt das Einloggen mit abgeschalteten Plugins. So lassen sich Kompatibilitätsprobleme besser lösen"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Diese ID auf diesem Computer speichern"
-
-#~ msgid "log in"
-#~ msgstr "Einloggen"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Dein Browser muss Cookies akzeptieren."
-
-#~ msgid "Get back to normal authentication"
-#~ msgstr "Wieder zurück zur normalen Anmeldung"
-
-#~ msgid "Connection issue?"
-#~ msgstr "Verbindungsprobleme?"
-
-#~ msgid "I forgot my password"
-#~ msgstr "Ich habe mein Passwort vergessen."
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Benutze XML/RPC-Interface"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -1518,9 +1518,6 @@ msgstr "Einstellungen wurden erfolgreich aktualisiert."
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr ""
 
-msgid "Never"
-msgstr "Nie"
-
 msgid "Every week"
 msgstr "Jede Woche"
 
@@ -2319,6 +2316,9 @@ msgstr "Widget entfernen"
 
 msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
+
+#~ msgid "Never"
+#~ msgstr "Nie"
 
 #~ msgid "Legacy modules for dotclear"
 #~ msgstr "Legacy-Module für dotclear"

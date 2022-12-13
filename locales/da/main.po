@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -70,6 +70,79 @@ msgstr "Administrations interface:"
 
 msgid "Wrong username or password"
 msgstr "Forkert brugernavn eller kodeord"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Kodeordet er nulstillet"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Tilbage til log ind skærmen"
+
+msgid "Request a new password"
+msgstr "Bed om et nyt kodeord"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "recover"
+msgstr "gendan"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Handling"
+
+msgid "Change your password"
+msgstr "Skift dit kodeord"
+
+msgid "New password:"
+msgstr "Nyt kodeord:"
+
+msgid "Confirm password:"
+msgstr "Bekræft kodeord:"
+
+msgid "change"
+msgstr "skift"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Husk mit ID på denne computer"
+
+#, fuzzy
+msgid "log in"
+msgstr "Blog navn"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Du skal tillade cookies for at bruge den private del."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Jeg har glemt mit kodeord"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -227,7 +300,7 @@ msgstr "Jeg vil gerne have søgemaskiker og arkiver til ikke at indeksere eller 
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -523,9 +596,6 @@ msgstr "Brugere på denne blog"
 msgid "No users"
 msgstr "Ingen brugere"
 
-msgid "Email:"
-msgstr "Email:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Brugere på denne blog"
@@ -568,6 +638,9 @@ msgstr "Sprog administrering"
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
+msgid "Force checking update of themes"
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "Opload tema"
@@ -580,9 +653,6 @@ msgstr[1] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
-
-msgid "Force checking update of themes"
 msgstr ""
 
 #, fuzzy
@@ -1054,20 +1124,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear installation"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Kodeordet er nulstillet"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Medium:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "vis"
 
@@ -1106,15 +1162,9 @@ msgstr "Forkert brugernavn eller kodeord"
 msgid "Username"
 msgstr "Brugernavn:"
 
-msgid "New password:"
-msgstr "Nyt kodeord:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Kodeord:"
-
-msgid "Confirm password:"
-msgstr "Bekræft kodeord:"
 
 msgid "All done!"
 msgstr "Færdig!"
@@ -1730,6 +1780,9 @@ msgstr ""
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
+msgid "Force checking update of plugins"
+msgstr ""
+
 msgid "Update plugins"
 msgstr ""
 
@@ -1738,9 +1791,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Force checking update of plugins"
-msgstr ""
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4299,38 +4349,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Kategorien er oprettet."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Tilbage til log ind skærmen"
-
-#~ msgid "Request a new password"
-#~ msgstr "Bed om et nyt kodeord"
-
-#~ msgid "recover"
-#~ msgstr "gendan"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Handling"
-
-#~ msgid "Change your password"
-#~ msgstr "Skift dit kodeord"
-
-#~ msgid "change"
-#~ msgstr "skift"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Husk mit ID på denne computer"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Blog navn"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Du skal tillade cookies for at bruge den private del."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Jeg har glemt mit kodeord"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Slå XML/RPC interfacet til"

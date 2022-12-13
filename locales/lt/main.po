@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -71,6 +71,78 @@ msgstr "Administravimo sąsaja:"
 
 msgid "Wrong username or password"
 msgstr "Klaidingas prisijungimo vardas ir slaptažodis"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Naujo slaptažodžio nustatymas"
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr "Vidutinis:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Atgal į prisijungimo puslapį"
+
+msgid "Request a new password"
+msgstr "Prašyti naujo slaptažodžio"
+
+msgid "Email:"
+msgstr "El. paštas:"
+
+msgid "recover"
+msgstr "atstatyti"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Paieškos nustatymai"
+
+msgid "Change your password"
+msgstr "Slaptawodžio keitimas"
+
+msgid "New password:"
+msgstr "Naujas slaptažodis:"
+
+msgid "Confirm password:"
+msgstr "Patvirtinkite slaptažodį:"
+
+msgid "change"
+msgstr "keisti"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Prisiminti mano ID šiame kompiuteryje"
+
+#, fuzzy
+msgid "log in"
+msgstr "Blogo pavadinimas"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Tam kad pasiekti tolimesnį puslapį jūs turite leisti įjungti Cookies."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Pamiršau slaptažodį"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -228,7 +300,7 @@ msgstr "Nenoriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir archyvuo
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -531,9 +603,6 @@ msgstr "Dalyviai šiame bloge"
 msgid "No users"
 msgstr "Dalyvių nėra"
 
-msgid "Email:"
-msgstr "El. paštas:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Dalyviai šiame bloge"
@@ -578,6 +647,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Atnaujinti Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Atnaujinti miniatiūras"
 
@@ -591,10 +664,6 @@ msgstr[2] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Atnaujinti Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1064,19 +1133,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear instaliacija"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Naujo slaptažodžio nustatymas"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr "Vidutinis:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "rodyti"
 
@@ -1111,15 +1167,9 @@ msgstr "Prisijungimo vardas ir slaptažodis"
 msgid "Username"
 msgstr "Prisijungimo vvardas"
 
-msgid "New password:"
-msgstr "Naujas slaptažodis:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Slaptažodis:"
-
-msgid "Confirm password:"
-msgstr "Patvirtinkite slaptažodį:"
 
 msgid "All done!"
 msgstr "Štai ir viskas!"
@@ -1747,6 +1797,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Atnaujinti Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Įkelti plugin'ą"
 
@@ -1756,10 +1810,6 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Atnaujinti Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4389,38 +4439,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Direktorija sėkmingai atstatyta."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Atgal į prisijungimo puslapį"
-
-#~ msgid "Request a new password"
-#~ msgstr "Prašyti naujo slaptažodžio"
-
-#~ msgid "recover"
-#~ msgstr "atstatyti"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Paieškos nustatymai"
-
-#~ msgid "Change your password"
-#~ msgstr "Slaptawodžio keitimas"
-
-#~ msgid "change"
-#~ msgstr "keisti"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Prisiminti mano ID šiame kompiuteryje"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Blogo pavadinimas"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Tam kad pasiekti tolimesnį puslapį jūs turite leisti įjungti Cookies."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Pamiršau slaptažodį"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Įjungti XML/RPC sąsają"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -72,6 +72,80 @@ msgstr "Admin arayüzü:"
 
 msgid "Wrong username or password"
 msgstr "Hatalı kullanıcı adı ya da parola"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Parola sıfırla"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Orta:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Giriş ekranına dön"
+
+msgid "Request a new password"
+msgstr "Yeni parola iste"
+
+msgid "Email:"
+msgstr "Eposta:"
+
+msgid "recover"
+msgstr "kurtar"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Arama seçenekleri"
+
+msgid "Change your password"
+msgstr "Parolanızı değiştirin"
+
+msgid "New password:"
+msgstr "Yeni parola:"
+
+msgid "Confirm password:"
+msgstr "Parolayı onayla:"
+
+#, fuzzy
+msgid "change"
+msgstr "iptal"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "ID'mi bu bilgisayarda hatırla"
+
+#, fuzzy
+msgid "log in"
+msgstr "Blog adı"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Özel alanda çalışabilmek için çerezleri kabul etmelisiniz."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Parolamı unuttum"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -229,7 +303,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -530,9 +604,6 @@ msgstr "Bu blog'daki kullanıcılar"
 msgid "No users"
 msgstr "Kullanıcı yok"
 
-msgid "Email:"
-msgstr "Eposta:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Bu blog'daki kullanıcılar"
@@ -576,6 +647,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear'ı güncelle "
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Pulları güncelle"
 
@@ -588,10 +663,6 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Dotclear'ı güncelle "
 
 #, fuzzy
 msgid "Installed themes"
@@ -1052,20 +1123,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear kurulumu"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Parola sıfırla"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Orta:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1100,15 +1157,9 @@ msgstr "Kullanıcı adı ve parola"
 msgid "Username"
 msgstr "Kullanıcı adı:"
 
-msgid "New password:"
-msgstr "Yeni parola:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Parola:"
-
-msgid "Confirm password:"
-msgstr "Parolayı onayla:"
 
 msgid "All done!"
 msgstr "Hepsi bitti!"
@@ -1733,6 +1784,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear'ı güncelle "
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Eklenti yükle"
 
@@ -1741,10 +1796,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Dotclear'ı güncelle "
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4356,39 +4407,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Dizin yine inşaası başarılı."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Giriş ekranına dön"
-
-#~ msgid "Request a new password"
-#~ msgstr "Yeni parola iste"
-
-#~ msgid "recover"
-#~ msgstr "kurtar"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Arama seçenekleri"
-
-#~ msgid "Change your password"
-#~ msgstr "Parolanızı değiştirin"
-
-#, fuzzy
-#~ msgid "change"
-#~ msgstr "iptal"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "ID'mi bu bilgisayarda hatırla"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Blog adı"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Özel alanda çalışabilmek için çerezleri kabul etmelisiniz."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Parolamı unuttum"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "XML/RPC arayüzünü mümkün kıl."

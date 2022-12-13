@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -68,6 +68,79 @@ msgstr "Session administracion expirada"
 
 msgid "Wrong username or password"
 msgstr "Marrit senhal o nom d’utilizaire"
+
+#, php-format
+msgid "Password strength: %s"
+msgstr "Fòrça del senhal : %s"
+
+msgid "weak"
+msgstr "febla"
+
+#, fuzzy
+msgid "medium"
+msgstr "Mejana"
+
+msgid "strong"
+msgstr "fòrta"
+
+msgid "Back to login screen"
+msgstr "Tornar a l’ecran de connexion"
+
+msgid "Request a new password"
+msgstr "Demandar un nòu senhal"
+
+msgid "Email:"
+msgstr "E-mail :"
+
+msgid "recover"
+msgstr "recuperar"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Mas opcions"
+
+msgid "Change your password"
+msgstr "Cambiar de senhal"
+
+msgid "New password:"
+msgstr "Nòu senhal :"
+
+msgid "Confirm password:"
+msgstr "Confirmatz lo senhal :"
+
+msgid "change"
+msgstr "cambiar"
+
+msgid "Safe mode login"
+msgstr "Mòde de connexion segur"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Se remembrar de mon ID sus aqueste periferic"
+
+msgid "log in"
+msgstr "connexion"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Vos cal acceptar los cookies per utilizar la zòna privada."
+
+msgid "Get back to normal authentication"
+msgstr "Tornar a la autentificacion normala"
+
+msgid "Connection issue?"
+msgstr "Problèma de connexion ?"
+
+msgid "I forgot my password"
+msgstr "Ai oblidat mon senhal"
+
+#, fuzzy
+msgid "I want to log in in safe mode"
+msgstr "Vòli me connectar en mòde segur"
 
 #, php-format
 msgid "Blog \"%s\" successfully created"
@@ -222,9 +295,8 @@ msgstr ""
 msgid "Default"
 msgstr "Per defaut"
 
-#, fuzzy
-msgid "Do not put the blog in sleep mode"
-msgstr "Vòli me connectar en mòde segur"
+msgid "Never"
+msgstr ""
 
 msgid "Three months"
 msgstr ""
@@ -509,9 +581,6 @@ msgstr ""
 msgid "No users"
 msgstr ""
 
-msgid "Email:"
-msgstr "E-mail :"
-
 msgid "Publications on this blog:"
 msgstr ""
 
@@ -550,6 +619,9 @@ msgstr "Gestion dels tèmas"
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
+msgid "Force checking update of themes"
+msgstr ""
+
 msgid "Update themes"
 msgstr "Actualizar lo tèma"
 
@@ -561,9 +633,6 @@ msgstr[1] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
-
-msgid "Force checking update of themes"
 msgstr ""
 
 msgid "Installed themes"
@@ -999,20 +1068,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Installacion de Dotclear"
 
-#, php-format
-msgid "Password strength: %s"
-msgstr "Fòrça del senhal : %s"
-
-msgid "weak"
-msgstr "febla"
-
-#, fuzzy
-msgid "medium"
-msgstr "Mejana"
-
-msgid "strong"
-msgstr "fòrta"
-
 msgid "show"
 msgstr "mostrar"
 
@@ -1047,14 +1102,8 @@ msgstr "Nom d’utilizaire e senhal"
 msgid "Username"
 msgstr "Nom d'_utilizaire"
 
-msgid "New password:"
-msgstr "Nòu senhal :"
-
 msgid "Password"
 msgstr "Senhal"
-
-msgid "Confirm password:"
-msgstr "Confirmatz lo senhal :"
 
 msgid "All done!"
 msgstr "Tot es prest !"
@@ -1650,6 +1699,9 @@ msgstr ""
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
+msgid "Force checking update of plugins"
+msgstr ""
+
 msgid "Update plugins"
 msgstr ""
 
@@ -1658,9 +1710,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Force checking update of plugins"
-msgstr ""
 
 msgid "Installed plugins"
 msgstr "Empeutons installats"
@@ -4074,46 +4123,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "large"
 #~ msgstr "Mai grand"
-
-#~ msgid "Back to login screen"
-#~ msgstr "Tornar a l’ecran de connexion"
-
-#~ msgid "Request a new password"
-#~ msgstr "Demandar un nòu senhal"
-
-#~ msgid "recover"
-#~ msgstr "recuperar"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Mas opcions"
-
-#~ msgid "Change your password"
-#~ msgstr "Cambiar de senhal"
-
-#~ msgid "change"
-#~ msgstr "cambiar"
-
-#~ msgid "Safe mode login"
-#~ msgstr "Mòde de connexion segur"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Se remembrar de mon ID sus aqueste periferic"
-
-#~ msgid "log in"
-#~ msgstr "connexion"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Vos cal acceptar los cookies per utilizar la zòna privada."
-
-#~ msgid "Get back to normal authentication"
-#~ msgstr "Tornar a la autentificacion normala"
-
-#~ msgid "Connection issue?"
-#~ msgstr "Problèma de connexion ?"
-
-#~ msgid "I forgot my password"
-#~ msgstr "Ai oblidat mon senhal"
 
 #~ msgid "Server URL:"
 #~ msgstr "URL del servidor :"

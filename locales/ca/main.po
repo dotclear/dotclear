@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -73,6 +73,79 @@ msgstr "administrador"
 
 msgid "Wrong username or password"
 msgstr "Identificador o contrasenya incorrectes"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Reinicialització de contrasenya"
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Retorn a la pantalla de connexió"
+
+msgid "Request a new password"
+msgstr "Es requereix una nova contrasenya"
+
+msgid "Email:"
+msgstr "Correu electrònic:"
+
+msgid "recover"
+msgstr "Recuperar"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Descripció"
+
+msgid "Change your password"
+msgstr "Canviar la seva contrasenya"
+
+msgid "New password:"
+msgstr "Nova contrasenya:"
+
+msgid "Confirm password:"
+msgstr "Confirmar la contrasenya :"
+
+#, fuzzy
+msgid "change"
+msgstr "Anul·lar"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Recordar el meu Identificador en aquest ordinador"
+
+#, fuzzy
+msgid "log in"
+msgstr "Nom del blog"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "És necessari que accepti les cookies per tal d'accedir a l'àrea privada."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "He oblidat la meva contrasenya"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -230,7 +303,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -530,9 +603,6 @@ msgstr "Usuaris en aquest blog"
 msgid "No users"
 msgstr "Cap usuari"
 
-msgid "Email:"
-msgstr "Correu electrònic:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Usuaris en aquest blog"
@@ -576,6 +646,9 @@ msgstr "Gestió de les extensions"
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
+msgid "Force checking update of themes"
+msgstr ""
+
 msgid "Update themes"
 msgstr ""
 
@@ -587,9 +660,6 @@ msgstr[1] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
-
-msgid "Force checking update of themes"
 msgstr ""
 
 #, fuzzy
@@ -1066,19 +1136,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Instal·lació de Dotclear"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Reinicialització de contrasenya"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr ""
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1118,15 +1175,9 @@ msgstr "Identificador o contrasenya incorrectes"
 msgid "Username"
 msgstr "Identificador:"
 
-msgid "New password:"
-msgstr "Nova contrasenya:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Contrasenya:"
-
-msgid "Confirm password:"
-msgstr "Confirmar la contrasenya :"
 
 msgid "All done!"
 msgstr "Finalitzat!"
@@ -1773,6 +1824,9 @@ msgstr "Gestió de les extensions"
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
+msgid "Force checking update of plugins"
+msgstr ""
+
 #, fuzzy
 msgid "Update plugins"
 msgstr "Suprimir les extensions seleccionades"
@@ -1782,9 +1836,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Force checking update of plugins"
-msgstr ""
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4411,39 +4462,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "El directori s'ha reconstruït amb èxit."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Retorn a la pantalla de connexió"
-
-#~ msgid "Request a new password"
-#~ msgstr "Es requereix una nova contrasenya"
-
-#~ msgid "recover"
-#~ msgstr "Recuperar"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Descripció"
-
-#~ msgid "Change your password"
-#~ msgstr "Canviar la seva contrasenya"
-
-#, fuzzy
-#~ msgid "change"
-#~ msgstr "Anul·lar"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Recordar el meu Identificador en aquest ordinador"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Nom del blog"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "És necessari que accepti les cookies per tal d'accedir a l'àrea privada."
-
-#~ msgid "I forgot my password"
-#~ msgstr "He oblidat la meva contrasenya"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Activar la interfície XML/RPC"

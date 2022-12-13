@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -71,6 +71,79 @@ msgstr ""
 
 msgid "Wrong username or password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "পাসওয়ার্ড রিসেট"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "মাঝারি:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "লগইন পাতায় ফিরে যাও"
+
+msgid "Request a new password"
+msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
+
+msgid "Email:"
+msgstr "ইমেইল:"
+
+msgid "recover"
+msgstr "উদ্ধার করুন"
+
+#, fuzzy
+msgid "Other option"
+msgstr "সার্চ অপশন"
+
+msgid "Change your password"
+msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
+
+msgid "New password:"
+msgstr "নতুন পাসওয়ার্ড:"
+
+msgid "Confirm password:"
+msgstr "আবার পাসওয়ার্ড:"
+
+msgid "change"
+msgstr "পরিবর্তন করুন"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
+
+#, fuzzy
+msgid "log in"
+msgstr "ব্লগের নাম"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr ""
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -227,7 +300,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -525,9 +598,6 @@ msgstr "এই ব্লগের ইউজারসমূহ"
 msgid "No users"
 msgstr "শূণ্য ইউজার"
 
-msgid "Email:"
-msgstr "ইমেইল:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "এই ব্লগের ইউজারসমূহ"
@@ -571,6 +641,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "আপডেট Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "আপডেট থাম্বনেইল"
 
@@ -583,10 +657,6 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "আপডেট Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1046,20 +1116,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear ইন্সটলেশন"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "পাসওয়ার্ড রিসেট"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "মাঝারি:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "দেখাও"
 
@@ -1098,15 +1154,9 @@ msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড
 msgid "Username"
 msgstr "ইউজারনেম:"
 
-msgid "New password:"
-msgstr "নতুন পাসওয়ার্ড:"
-
 #, fuzzy
 msgid "Password"
 msgstr "পাসওয়ার্ড:"
-
-msgid "Confirm password:"
-msgstr "আবার পাসওয়ার্ড:"
 
 msgid "All done!"
 msgstr "কাজ শেষ!"
@@ -1726,6 +1776,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "আপডেট Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "প্লাগইন আপলোড"
 
@@ -1734,10 +1788,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "আপডেট Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4322,35 +4372,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
-
-#~ msgid "Back to login screen"
-#~ msgstr "লগইন পাতায় ফিরে যাও"
-
-#~ msgid "Request a new password"
-#~ msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
-
-#~ msgid "recover"
-#~ msgstr "উদ্ধার করুন"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "সার্চ অপশন"
-
-#~ msgid "Change your password"
-#~ msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
-
-#~ msgid "change"
-#~ msgstr "পরিবর্তন করুন"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "ব্লগের নাম"
-
-#~ msgid "I forgot my password"
-#~ msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
 
 #~ msgid "Server URL:"
 #~ msgstr "সার্ভার URL:"

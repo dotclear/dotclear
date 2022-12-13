@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -72,6 +72,81 @@ msgstr "Interface d'administration :"
 
 msgid "Wrong username or password"
 msgstr "Korisnik ili lozinka je pogrešna"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "promeniti lozinku"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Srednje:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Vraćanje na konektivnom ekranu."
+
+msgid "Request a new password"
+msgstr "Tražiti da se lozinka promeni"
+
+msgid "Email:"
+msgstr "Mejl adresa :"
+
+msgid "recover"
+msgstr "oporaviti"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Options de recherche"
+
+msgid "Change your password"
+msgstr "Changer votre mot de passe"
+
+msgid "New password:"
+msgstr "Nouveau mot de passe :"
+
+msgid "Confirm password:"
+msgstr "Confirmez le mot de passe :"
+
+#, fuzzy
+msgid "change"
+msgstr "annuler"
+
+#, fuzzy
+msgid "Safe mode login"
+msgstr "Mode sans échec"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "sadržiti moj ID na ovom kompjuteru"
+
+#, fuzzy
+msgid "log in"
+msgstr "Nom du blog"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Morate da prihvatite COOKIES na vasem Internet navigatoru da bih ste ustupili na privatnim stranicama ovog sajta"
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Izgubio sam lozinku"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -230,7 +305,7 @@ msgstr "Želim da moj blog ne bude ni indeksiran ni arhivisan kroz internet pret
 msgid "Default"
 msgstr "Par défaut"
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -533,9 +608,6 @@ msgstr "Korisnik ovog bloga"
 msgid "No users"
 msgstr "Nijedan korisnik"
 
-msgid "Email:"
-msgstr "Mejl adresa :"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Korisnik ovog bloga"
@@ -579,6 +651,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Mettre à jour Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Mettre à jour les miniatures"
 
@@ -592,10 +668,6 @@ msgstr[2] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Mettre à jour Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1067,20 +1139,6 @@ msgstr "<p>Ceci est un commentaire</p><p>Pour le supprimer, connectez-vous et af
 msgid "Dotclear Install"
 msgstr "Installation de Dotclear"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "promeniti lozinku"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Srednje:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "montrer"
 
@@ -1115,15 +1173,9 @@ msgstr "Login et mot de passe"
 msgid "Username"
 msgstr "Nom d'utilisateur (login) :"
 
-msgid "New password:"
-msgstr "Nouveau mot de passe :"
-
 #, fuzzy
 msgid "Password"
 msgstr "Lozinka :"
-
-msgid "Confirm password:"
-msgstr "Confirmez le mot de passe :"
 
 msgid "All done!"
 msgstr "Terminé !"
@@ -1749,6 +1801,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Mettre à jour Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Déposer le plugin"
 
@@ -1758,10 +1814,6 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Mettre à jour Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4391,39 +4443,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Répertoire reconstruit avec succès."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Vraćanje na konektivnom ekranu."
-
-#~ msgid "Request a new password"
-#~ msgstr "Tražiti da se lozinka promeni"
-
-#~ msgid "recover"
-#~ msgstr "oporaviti"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Options de recherche"
-
-#~ msgid "Change your password"
-#~ msgstr "Changer votre mot de passe"
-
-#, fuzzy
-#~ msgid "change"
-#~ msgstr "annuler"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "sadržiti moj ID na ovom kompjuteru"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Nom du blog"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Morate da prihvatite COOKIES na vasem Internet navigatoru da bih ste ustupili na privatnim stranicama ovog sajta"
-
-#~ msgid "I forgot my password"
-#~ msgstr "Izgubio sam lozinku"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Aktivirati  XML/RPC interfejs"

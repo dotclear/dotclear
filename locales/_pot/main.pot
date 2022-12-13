@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,8 +33,8 @@ msgstr ""
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
 
-#: admin/auth.php:103 admin/auth.php:120 admin/install/index.php:362
-#: admin/install/index.php:414
+#: admin/auth.php:103 admin/auth.php:120 admin/auth.php:344 admin/auth.php:426
+#: admin/install/index.php:362 admin/install/index.php:414
 msgid "Username:"
 msgstr ""
 
@@ -47,8 +47,8 @@ msgstr ""
 msgid "Your new password"
 msgstr ""
 
-#: admin/auth.php:120 admin/install/index.php:415 admin/user.php:262
-#: inc/admin/lib.adminfilters.php:561
+#: admin/auth.php:120 admin/auth.php:437 admin/install/index.php:415
+#: admin/user.php:262 inc/admin/lib.adminfilters.php:561
 msgid "Password:"
 msgstr ""
 
@@ -89,6 +89,110 @@ msgstr ""
 msgid "Wrong username or password"
 msgstr ""
 
+#: admin/auth.php:308 admin/auth.php:309 admin/auth.php:310
+#: admin/install/index.php:303 admin/install/index.php:304
+#: admin/install/index.php:305 admin/preferences.php:479
+#: admin/preferences.php:480 admin/preferences.php:481 admin/user.php:211
+#: admin/user.php:212 admin/user.php:213
+#, php-format
+msgid "Password strength: %s"
+msgstr ""
+
+#: admin/auth.php:308 admin/install/index.php:303 admin/preferences.php:479
+#: admin/user.php:211
+msgid "weak"
+msgstr ""
+
+#: admin/auth.php:309 admin/install/index.php:304 admin/preferences.php:480
+#: admin/user.php:212 inc/core/_fake_l10n.php:7
+msgid "medium"
+msgstr ""
+
+#: admin/auth.php:310 admin/install/index.php:305 admin/preferences.php:481
+#: admin/user.php:213
+msgid "strong"
+msgstr ""
+
+#: admin/auth.php:338 admin/auth.php:372
+msgid "Back to login screen"
+msgstr ""
+
+#: admin/auth.php:343
+msgid "Request a new password"
+msgstr ""
+
+#: admin/auth.php:356 admin/blog_pref.php:948 admin/comment.php:267
+#: admin/install/index.php:352 admin/post.php:902 admin/preferences.php:526
+#: admin/user.php:330 inc/admin/lib.adminfilters.php:727
+#: inc/admin/lib.dc.page.php:909
+msgid "Email:"
+msgstr ""
+
+#: admin/auth.php:366
+msgid "recover"
+msgstr ""
+
+#: admin/auth.php:371 admin/auth.php:469
+msgid "Other option"
+msgstr ""
+
+#: admin/auth.php:378
+msgid "Change your password"
+msgstr ""
+
+#: admin/auth.php:379 admin/install/index.php:370 admin/preferences.php:564
+#: admin/user.php:262
+msgid "New password:"
+msgstr ""
+
+#: admin/auth.php:390 admin/install/index.php:377 admin/user.php:276
+msgid "Confirm password:"
+msgstr ""
+
+#: admin/auth.php:399
+msgid "change"
+msgstr ""
+
+#: admin/auth.php:415
+msgid "Safe mode login"
+msgstr ""
+
+#: admin/auth.php:417
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+#: admin/auth.php:418
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+#: admin/auth.php:447
+msgid "Remember my ID on this device"
+msgstr ""
+
+#: admin/auth.php:448
+msgid "log in"
+msgstr ""
+
+#: admin/auth.php:463
+msgid "You must accept cookies in order to use the private area."
+msgstr ""
+
+#: admin/auth.php:470
+msgid "Get back to normal authentication"
+msgstr ""
+
+#: admin/auth.php:473
+msgid "Connection issue?"
+msgstr ""
+
+#: admin/auth.php:476
+msgid "I forgot my password"
+msgstr ""
+
+#: admin/auth.php:479
+msgid "I want to log in in safe mode"
+msgstr ""
+
 #: admin/blog.php:60
 #, php-format
 msgid "Blog \"%s\" successfully created"
@@ -127,8 +231,8 @@ msgstr ""
 
 #: admin/blog.php:107 admin/blog.php:128 admin/blog.php:144
 #: admin/blog_pref.php:444 admin/blog_pref.php:760 admin/blog_pref.php:765
-#: admin/category.php:214 admin/comment.php:260 admin/index.php:402
-#: admin/index.php:409 admin/install/index.php:362 admin/install/index.php:370
+#: admin/category.php:214 admin/comment.php:260 admin/index.php:398
+#: admin/index.php:405 admin/install/index.php:362 admin/install/index.php:370
 #: admin/install/index.php:377 admin/install/wizard.php:192
 #: admin/install/wizard.php:210 admin/langs.php:293 admin/langs.php:314
 #: admin/langs.php:316 admin/popup_link.php:57 admin/post.php:716
@@ -272,7 +376,7 @@ msgstr ""
 msgid "(none)"
 msgstr ""
 
-#: admin/blog_pref.php:135 admin/blog_pref.php:170 admin/index.php:405
+#: admin/blog_pref.php:135 admin/blog_pref.php:170 admin/index.php:401
 #: admin/media_item.php:587 admin/post.php:720
 #: inc/admin/actions/class.dcaction.php:87
 #: inc/admin/actions/class.dcactioncomments.php:101
@@ -339,7 +443,7 @@ msgid "Default"
 msgstr ""
 
 #: admin/blog_pref.php:195
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 #: admin/blog_pref.php:196
@@ -692,7 +796,7 @@ msgid "Plugins parameters"
 msgstr ""
 
 #: admin/blog_pref.php:879 admin/category.php:256 admin/category.php:288
-#: admin/category.php:322 admin/comment.php:301 admin/index.php:427
+#: admin/category.php:322 admin/comment.php:301 admin/index.php:423
 #: admin/install/index.php:385 admin/media_item.php:1035 admin/post.php:786
 #: admin/post.php:923 admin/user.php:406 admin/users_actions.php:329
 #: inc/admin/actions/class.dcactionposts.php:434
@@ -723,12 +827,6 @@ msgstr ""
 
 #: admin/blog_pref.php:913
 msgid "No users"
-msgstr ""
-
-#: admin/blog_pref.php:948 admin/comment.php:267 admin/install/index.php:352
-#: admin/post.php:902 admin/preferences.php:526 admin/user.php:330
-#: inc/admin/lib.adminfilters.php:727 inc/admin/lib.dc.page.php:909
-msgid "Email:"
 msgstr ""
 
 #: admin/blog_pref.php:954
@@ -782,25 +880,25 @@ msgstr ""
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
-#: admin/blog_theme.php:148 admin/blog_theme.php:149
+#: admin/blog_theme.php:152
+msgid "Force checking update of themes"
+msgstr ""
+
+#: admin/blog_theme.php:161 admin/blog_theme.php:162
 msgid "Update themes"
 msgstr ""
 
-#: admin/blog_theme.php:151
+#: admin/blog_theme.php:164
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/blog_theme.php:168 admin/blog_theme.php:263 admin/plugins.php:143
+#: admin/blog_theme.php:181 admin/blog_theme.php:262 admin/plugins.php:149
 #: admin/plugins.php:239
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
-
-#: admin/blog_theme.php:182
-msgid "Force checking update of themes"
 msgstr ""
 
 #: admin/blog_theme.php:193 admin/blog_theme.php:194
@@ -819,27 +917,27 @@ msgstr ""
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr ""
 
-#: admin/blog_theme.php:243
+#: admin/blog_theme.php:242
 msgid "Add themes"
 msgstr ""
 
-#: admin/blog_theme.php:244
+#: admin/blog_theme.php:243
 msgid "Add themes from repository"
 msgstr ""
 
-#: admin/blog_theme.php:272 admin/plugins.php:249
+#: admin/blog_theme.php:271 admin/plugins.php:249
 msgid "Install or upgrade manually"
 msgstr ""
 
-#: admin/blog_theme.php:273
+#: admin/blog_theme.php:272
 msgid "Add themes from a package"
 msgstr ""
 
-#: admin/blog_theme.php:274
+#: admin/blog_theme.php:273
 msgid "You can install themes by uploading or downloading zip files."
 msgstr ""
 
-#: admin/blog_theme.php:288
+#: admin/blog_theme.php:287
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr ""
 
@@ -995,7 +1093,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: admin/category.php:224 admin/category.php:278 admin/index.php:421
+#: admin/category.php:224 admin/category.php:278 admin/index.php:417
 #: admin/post.php:666 inc/admin/actions/class.dcactionposts.php:424
 msgid "Parent:"
 msgstr ""
@@ -1182,114 +1280,114 @@ msgstr ""
 msgid "Global help"
 msgstr ""
 
-#: admin/index.php:116
+#: admin/index.php:112
 msgid "Documentation and support"
 msgstr ""
 
-#: admin/index.php:162
+#: admin/index.php:158
 msgid "Dashboard area's drag and drop is disabled"
 msgstr ""
 
-#: admin/index.php:163
+#: admin/index.php:159
 msgid "Dashboard area's drag and drop is enabled"
 msgstr ""
 
-#: admin/index.php:176 admin/index.php:189
+#: admin/index.php:172 admin/index.php:185
 msgid "Dashboard"
 msgstr ""
 
-#: admin/index.php:197
+#: admin/index.php:193
 msgid "Make this blog my default blog"
 msgstr ""
 
-#: admin/index.php:202
+#: admin/index.php:198
 msgid "This blog is offline"
 msgstr ""
 
-#: admin/index.php:205
+#: admin/index.php:201
 msgid "This blog is removed"
 msgstr ""
 
-#: admin/index.php:211 admin/index.php:219
+#: admin/index.php:207 admin/index.php:215
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr ""
 
-#: admin/index.php:212 admin/index.php:220
+#: admin/index.php:208 admin/index.php:216
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
-#: admin/index.php:229
+#: admin/index.php:225
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr ""
 
-#: admin/index.php:233
+#: admin/index.php:229
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
 
-#: admin/index.php:240 inc/core/class.dc.media.php:157
+#: admin/index.php:236 inc/core/class.dc.media.php:157
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr ""
 
-#: admin/index.php:244 inc/core/class.dc.media.php:160
+#: admin/index.php:240 inc/core/class.dc.media.php:160
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr ""
 
-#: admin/index.php:251 inc/admin/lib.dc.notices.php:65
+#: admin/index.php:247 inc/admin/lib.dc.notices.php:65
 #: inc/admin/lib.dc.page.php:911 inc/admin/lib.dc.page.php:1088
 msgid "Error:"
 msgstr ""
 
-#: admin/index.php:258 admin/install/index.php:391 admin/plugins.php:89
+#: admin/index.php:254 admin/install/index.php:391 admin/plugins.php:89
 msgid "Following plugins have been installed:"
 msgstr ""
 
-#: admin/index.php:270 admin/install/index.php:398 admin/plugins.php:102
+#: admin/index.php:266 admin/install/index.php:398 admin/plugins.php:102
 msgid "Following plugins have not been installed:"
 msgstr ""
 
-#: admin/index.php:284
+#: admin/index.php:280
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-#: admin/index.php:399
+#: admin/index.php:395
 msgid "Quick post"
 msgstr ""
 
-#: admin/index.php:401 admin/post.php:54 admin/post.php:769 admin/posts.php:93
+#: admin/index.php:397 admin/post.php:54 admin/post.php:769 admin/posts.php:93
 #: inc/admin/class.dc.admin.php:294 inc/admin/class.dc.favorites.php:407
 msgid "New post"
 msgstr ""
 
-#: admin/index.php:402 admin/index.php:419 admin/media.php:502
+#: admin/index.php:398 admin/index.php:415 admin/media.php:502
 #: admin/post.php:664 admin/post.php:716
 #: inc/admin/actions/class.dcactionposts.php:422
 msgid "Title:"
 msgstr ""
 
-#: admin/index.php:409 admin/post.php:738
+#: admin/index.php:405 admin/post.php:738
 msgid "Content:"
 msgstr ""
 
-#: admin/index.php:410 admin/post.php:745
+#: admin/index.php:406 admin/post.php:745
 msgid "Content"
 msgstr ""
 
-#: admin/index.php:412 admin/post.php:656
+#: admin/index.php:408 admin/post.php:656
 #: inc/admin/actions/class.dcactionposts.php:413
 #: inc/admin/lib.adminfilters.php:506
 msgid "Category:"
 msgstr ""
 
-#: admin/index.php:418 admin/post.php:663
+#: admin/index.php:414 admin/post.php:663
 msgid "Add a new category"
 msgstr ""
 
-#: admin/index.php:424
+#: admin/index.php:420
 msgid "This category will be created when you will save your post."
 msgstr ""
 
-#: admin/index.php:431
+#: admin/index.php:427
 msgid "Save and publish"
 msgstr ""
 
@@ -1352,11 +1450,11 @@ msgstr ""
 msgid "Dotclear cannot be installed."
 msgstr ""
 
-#: admin/install/index.php:69 inc/core/class.dc.core.php:1185
+#: admin/install/index.php:69 inc/core/class.dc.core.php:1200
 msgid "No user ID given"
 msgstr ""
 
-#: admin/install/index.php:72 inc/core/class.dc.core.php:1457
+#: admin/install/index.php:72 inc/core/class.dc.core.php:1472
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr ""
 
@@ -1364,12 +1462,12 @@ msgstr ""
 msgid "Invalid email address"
 msgstr ""
 
-#: admin/install/index.php:79 inc/core/class.dc.core.php:1189
+#: admin/install/index.php:79 inc/core/class.dc.core.php:1204
 msgid "No password given"
 msgstr ""
 
 #: admin/install/index.php:85 admin/user.php:273
-#: inc/core/class.dc.core.php:1468
+#: inc/core/class.dc.core.php:1483
 msgid "Password must contain at least 6 characters."
 msgstr ""
 
@@ -1401,27 +1499,6 @@ msgstr ""
 
 #: admin/install/index.php:295
 msgid "Dotclear Install"
-msgstr ""
-
-#: admin/install/index.php:303 admin/install/index.php:304
-#: admin/install/index.php:305 admin/preferences.php:479
-#: admin/preferences.php:480 admin/preferences.php:481 admin/user.php:211
-#: admin/user.php:212 admin/user.php:213
-#, php-format
-msgid "Password strength: %s"
-msgstr ""
-
-#: admin/install/index.php:303 admin/preferences.php:479 admin/user.php:211
-msgid "weak"
-msgstr ""
-
-#: admin/install/index.php:304 admin/preferences.php:480 admin/user.php:212
-#: inc/core/_fake_l10n.php:7
-msgid "medium"
-msgstr ""
-
-#: admin/install/index.php:305 admin/preferences.php:481 admin/user.php:213
-msgid "strong"
 msgstr ""
 
 #: admin/install/index.php:309
@@ -1471,19 +1548,11 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: admin/install/index.php:370 admin/preferences.php:564 admin/user.php:262
-msgid "New password:"
-msgstr ""
-
 #: admin/install/index.php:373 admin/install/index.php:379 admin/langs.php:299
 #: admin/langs.php:322 admin/post.php:699 admin/user.php:269 admin/user.php:282
 #: admin/user.php:402 admin/users_actions.php:325
 #: inc/admin/lib.moduleslist.php:1500 inc/admin/lib.moduleslist.php:1523
 msgid "Password"
-msgstr ""
-
-#: admin/install/index.php:377 admin/user.php:276
-msgid "Confirm password:"
 msgstr ""
 
 #: admin/install/index.php:406
@@ -2281,20 +2350,20 @@ msgstr ""
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
-#: admin/plugins.php:123 admin/plugins.php:124
+#: admin/plugins.php:122
+msgid "Force checking update of plugins"
+msgstr ""
+
+#: admin/plugins.php:129 admin/plugins.php:130
 msgid "Update plugins"
 msgstr ""
 
-#: admin/plugins.php:126
+#: admin/plugins.php:132
 #, php-format
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-#: admin/plugins.php:153
-msgid "Force checking update of plugins"
-msgstr ""
 
 #: admin/plugins.php:159 admin/plugins.php:171
 msgid "Installed plugins"
@@ -3283,11 +3352,11 @@ msgstr ""
 msgid "Revert to selected file"
 msgstr ""
 
-#: admin/update.php:294
+#: admin/update.php:300
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr ""
 
-#: admin/update.php:295
+#: admin/update.php:301
 msgid "Finish the update."
 msgstr ""
 
@@ -4771,15 +4840,15 @@ msgstr[1] ""
 msgid "Blogs list"
 msgstr ""
 
-#: inc/admin/lib.pager.php:871 inc/core/class.dc.core.php:491
+#: inc/admin/lib.pager.php:871 inc/core/class.dc.core.php:506
 msgid "online"
 msgstr ""
 
-#: inc/admin/lib.pager.php:872 inc/core/class.dc.core.php:492
+#: inc/admin/lib.pager.php:872 inc/core/class.dc.core.php:507
 msgid "offline"
 msgstr ""
 
-#: inc/admin/lib.pager.php:873 inc/core/class.dc.core.php:493
+#: inc/admin/lib.pager.php:873 inc/core/class.dc.core.php:508
 msgid "removed"
 msgstr ""
 
@@ -5078,26 +5147,26 @@ msgstr ""
 msgid "Email address is not valid."
 msgstr ""
 
-#: inc/core/class.dc.core.php:1181 inc/core/class.dc.core.php:1221
-#: inc/core/class.dc.core.php:1265 inc/core/class.dc.core.php:1372
-#: inc/core/class.dc.core.php:1400 inc/core/class.dc.core.php:1692
-#: inc/core/class.dc.core.php:1758
+#: inc/core/class.dc.core.php:1196 inc/core/class.dc.core.php:1236
+#: inc/core/class.dc.core.php:1280 inc/core/class.dc.core.php:1387
+#: inc/core/class.dc.core.php:1415 inc/core/class.dc.core.php:1707
+#: inc/core/class.dc.core.php:1773
 msgid "You are not an administrator"
 msgstr ""
 
-#: inc/core/class.dc.core.php:1474
+#: inc/core/class.dc.core.php:1489
 msgid "Invalid user language code"
 msgstr ""
 
-#: inc/core/class.dc.core.php:1730
+#: inc/core/class.dc.core.php:1745
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr ""
 
-#: inc/core/class.dc.core.php:1734
+#: inc/core/class.dc.core.php:1749
 msgid "No blog name"
 msgstr ""
 
-#: inc/core/class.dc.core.php:1738
+#: inc/core/class.dc.core.php:1753
 msgid "No blog URL"
 msgstr ""
 

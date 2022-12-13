@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -67,6 +67,76 @@ msgstr "Session d'administration expirée"
 
 msgid "Wrong username or password"
 msgstr "Nom d'utilisateur·rice ou mot de passe incorrect"
+
+#, php-format
+msgid "Password strength: %s"
+msgstr "Force du mot de passe : %s"
+
+msgid "weak"
+msgstr "faible"
+
+msgid "medium"
+msgstr "moyenne"
+
+msgid "strong"
+msgstr "forte"
+
+msgid "Back to login screen"
+msgstr "Retour à la page de connexion"
+
+msgid "Request a new password"
+msgstr "Demander un nouveau mot de passe"
+
+msgid "Email:"
+msgstr "Email :"
+
+msgid "recover"
+msgstr "récupérer"
+
+msgid "Other option"
+msgstr "Autres options"
+
+msgid "Change your password"
+msgstr "Changer mon mot de passe"
+
+msgid "New password:"
+msgstr "Nouveau mot de passe :"
+
+msgid "Confirm password:"
+msgstr "Confirmer le mot de passe :"
+
+msgid "change"
+msgstr "changer"
+
+msgid "Safe mode login"
+msgstr "Mode de secours"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr "Ce mode vous permet de vous connecter sans activer aucun plugins. Ça peut être utile pour résoudre des problèmes de compatibilité"
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr "Mettez à jour, désactivez, ou supprimez les plugins suspectés de poser problème, puis déconnectez-vous et reconnectez-vous normalement."
+
+msgid "Remember my ID on this device"
+msgstr "Retenir mon identifiant sur cet appareil"
+
+msgid "log in"
+msgstr "Connexion"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Vous devez accepter les cookies pour utiliser la partie privée."
+
+msgid "Get back to normal authentication"
+msgstr "Retour à la connexion normale"
+
+msgid "Connection issue?"
+msgstr "Problème de connexion ?"
+
+msgid "I forgot my password"
+msgstr "J'ai oublié mon mot de passe"
+
+msgid "I want to log in in safe mode"
+msgstr "Connexion en mode de secours"
 
 #, php-format
 msgid "Blog \"%s\" successfully created"
@@ -505,9 +575,6 @@ msgstr "Utilisateur·rice·s de ce blog"
 msgid "No users"
 msgstr "Aucun utilisateur·rice"
 
-msgid "Email:"
-msgstr "Email :"
-
 msgid "Publications on this blog:"
 msgstr "Publications sur ce blog :"
 
@@ -546,6 +613,9 @@ msgstr "Gestion des thèmes"
 msgid "Manual checking of themes update done successfully."
 msgstr "La vérification manuelle de mise à jour des thèmes a été effectuée."
 
+msgid "Force checking update of themes"
+msgstr "Forcer la vérification de mise à jour des thèmes"
+
 msgid "Update themes"
 msgstr "Mettre à jour les thèmes"
 
@@ -558,9 +628,6 @@ msgstr[1] "Il y a %s thèmes à mettre à jour depuis le dépôt."
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Visitez le dépôt %s, le centre de ressources pour Dotclear"
-
-msgid "Force checking update of themes"
-msgstr "Forcer la vérification de mise à jour des thèmes"
 
 msgid "Installed themes"
 msgstr "Thèmes installés"
@@ -1001,19 +1068,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Installation de Dotclear"
 
-#, php-format
-msgid "Password strength: %s"
-msgstr "Force du mot de passe : %s"
-
-msgid "weak"
-msgstr "faible"
-
-msgid "medium"
-msgstr "moyenne"
-
-msgid "strong"
-msgstr "forte"
-
 msgid "show"
 msgstr "voir"
 
@@ -1048,14 +1102,8 @@ msgstr "Identifiant et mot de passe"
 msgid "Username"
 msgstr "Identifiant"
 
-msgid "New password:"
-msgstr "Nouveau mot de passe :"
-
 msgid "Password"
 msgstr "Mot de passe"
-
-msgid "Confirm password:"
-msgstr "Confirmer le mot de passe :"
 
 msgid "All done!"
 msgstr "C'est terminé !"
@@ -1649,6 +1697,9 @@ msgstr "Gestion des plugins"
 msgid "Manual checking of plugins update done successfully."
 msgstr "La vérification manuelle de mise à jour des plugins a été effectuée."
 
+msgid "Force checking update of plugins"
+msgstr "Forcer la vérification de mise à jour des plugins"
+
 msgid "Update plugins"
 msgstr "Mise à jour des plugins"
 
@@ -1657,9 +1708,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] "Il y a un plugin à mettre à jour depuis le dépôt."
 msgstr[1] "Il y a %s plugins à mettre à jour depuis le dépôt."
-
-msgid "Force checking update of plugins"
-msgstr "Forcer la vérification de mise à jour des plugins"
 
 msgid "Installed plugins"
 msgstr "Plugins installés"

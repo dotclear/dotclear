@@ -282,22 +282,20 @@ class adminAuth
 
         $dlang  = dcCore::app()->admin->dlang;
         $vendor = html::escapeHTML(DC_VENDOR_NAME);
-        $buffer = <<<HTML_BEGIN
-            <!DOCTYPE html>
-            <html lang="$dlang">
-            <head>
-              <meta charset="UTF-8" />
-              <meta http-equiv="Content-Script-Type" content="text/javascript" />
-              <meta http-equiv="Content-Style-Type" content="text/css" />
-              <meta http-equiv="Content-Language" content="$dlang" />
-              <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
-              <meta name="GOOGLEBOT" content="NOSNIPPET" />
-              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <title>$vendor</title>
-              <link rel="icon" type="image/png" href="images/favicon96-logout.png" />
-              <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-              <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
-            HTML_BEGIN;
+        $buffer = '<!DOCTYPE html>' . "\n" .
+            '<html lang="' . $dlang . '">' . "\n" .
+            '<head>' . "\n" .
+            '  <meta charset="UTF-8" />' . "\n" .
+            '  <meta http-equiv="Content-Script-Type" content="text/javascript" />' . "\n" .
+            '  <meta http-equiv="Content-Style-Type" content="text/css" />' . "\n" .
+            '  <meta http-equiv="Content-Language" content="$dlang" />' . "\n" .
+            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
+            '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
+            '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
+            '  <title>' . $vendor . '</title>' . "\n" .
+            '  <link rel="icon" type="image/png" href="images/favicon96-logout.png" />' . "\n" .
+            '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n" .
+            '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />';
 
         echo
         $buffer . dcPage::jsCommon();
@@ -316,12 +314,10 @@ class adminAuth
 
         $action = dcCore::app()->adminurl->get('admin.auth');
         $banner = html::escapeHTML(DC_VENDOR_NAME);
-        $buffer = <<<HTML_BODY
-            </head>
-            <body id="dotclear-admin" class="auth">
-            <form action="$action" method="post" id="login-screen">
-            <h1 role="banner">$banner</h1>
-            HTML_BODY;
+        $buffer = '</head>' . "\n" .
+            '<body id="dotclear-admin" class="auth">' . "\n" .
+            '<form action="' . $action . '" method="post" id="login-screen">' . "\n" .
+            '<h1 role="banner">' . $banner . '</h1>';
 
         echo
         $buffer;

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -71,6 +71,79 @@ msgstr "Interfaccia di amministrazione:"
 
 msgid "Wrong username or password"
 msgstr "Nome utilizzatore o password sbagliati"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Sostituzione password"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Media:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Ritorna alla pagina di accesso"
+
+msgid "Request a new password"
+msgstr "Richiedi nuova password"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "recover"
+msgstr "recupera"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Opzioni di ricerca"
+
+msgid "Change your password"
+msgstr "Cambia password"
+
+msgid "New password:"
+msgstr "Nuova password:"
+
+msgid "Confirm password:"
+msgstr "Conferma password:"
+
+msgid "change"
+msgstr "cambia"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Ricordare il proprio utente su questo computer"
+
+#, fuzzy
+msgid "log in"
+msgstr "Nome del blog"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "È necessario aver attivato il salvataggio dei cookie per effettuare l'accesso."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Ho dimenticato la password"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -228,7 +301,7 @@ msgstr "Impedisci ai motori di ricerca e ai sistemi di archiviazione di indicizz
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -531,9 +604,6 @@ msgstr "Utenti di questo blog"
 msgid "No users"
 msgstr "Nessun utente"
 
-msgid "Email:"
-msgstr "Email:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Utenti di questo blog"
@@ -577,6 +647,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Aggiorna Dotclear"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "Aggiorna anteprime"
 
@@ -589,10 +663,6 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Aggiorna Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1063,20 +1133,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Installazione di Dotclear"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Sostituzione password"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Media:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr "mostra"
 
@@ -1111,15 +1167,9 @@ msgstr "Nome utente e password"
 msgid "Username"
 msgstr "Nome utente"
 
-msgid "New password:"
-msgstr "Nuova password:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Password:"
-
-msgid "Confirm password:"
-msgstr "Conferma password:"
 
 msgid "All done!"
 msgstr "Fatto!"
@@ -1745,6 +1795,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Aggiorna Dotclear"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "Caricamento componente aggiuntivo"
 
@@ -1753,10 +1807,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Aggiorna Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4362,38 +4412,6 @@ msgstr "Si è verificato il seguente errore durante il tentativo di connessione 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Cartella ricostruita correttamente."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Ritorna alla pagina di accesso"
-
-#~ msgid "Request a new password"
-#~ msgstr "Richiedi nuova password"
-
-#~ msgid "recover"
-#~ msgstr "recupera"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Opzioni di ricerca"
-
-#~ msgid "Change your password"
-#~ msgstr "Cambia password"
-
-#~ msgid "change"
-#~ msgstr "cambia"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Ricordare il proprio utente su questo computer"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Nome del blog"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "È necessario aver attivato il salvataggio dei cookie per effettuare l'accesso."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Ho dimenticato la password"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Attivare l'interfaccia XML/RPC"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -69,6 +69,78 @@ msgstr ""
 
 msgid "Wrong username or password"
 msgstr "Verkeerde gebruikersnaam of wachtwoord"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Wachtwoord gewijzigd"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "Terug naar het login scherm"
+
+msgid "Request a new password"
+msgstr "Vraag een nieuw wachtwoord aan"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "recover"
+msgstr "terughalen"
+
+msgid "Other option"
+msgstr ""
+
+msgid "Change your password"
+msgstr "Verander je wachtwoord"
+
+msgid "New password:"
+msgstr "Nieuw wachtwoord:"
+
+msgid "Confirm password:"
+msgstr "Bevestig wachtwoord:"
+
+msgid "change"
+msgstr "verander"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "Onthoud mijn ID op deze computer"
+
+#, fuzzy
+msgid "log in"
+msgstr "Blog instellingen"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Je moet cookies accepteren om deze pagina te bekijken."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "Ik ben mijn wachtwoord vergeten."
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -225,7 +297,7 @@ msgstr "Zoekmachines mogen mijn blog niet indexeren en archiveren."
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -519,9 +591,6 @@ msgstr "Gebruikers op deze blog"
 msgid "No users"
 msgstr "Geen gebruikers"
 
-msgid "Email:"
-msgstr "Email:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "Gebruikers op deze blog"
@@ -563,6 +632,9 @@ msgstr ""
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
+msgid "Force checking update of themes"
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "Upload thema"
@@ -575,9 +647,6 @@ msgstr[1] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
-
-msgid "Force checking update of themes"
 msgstr ""
 
 #, fuzzy
@@ -1027,20 +1096,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr ""
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Wachtwoord gewijzigd"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Medium:"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1075,15 +1130,9 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "New password:"
-msgstr "Nieuw wachtwoord:"
-
 #, fuzzy
 msgid "Password"
 msgstr "Wachtwoord:"
-
-msgid "Confirm password:"
-msgstr "Bevestig wachtwoord:"
 
 msgid "All done!"
 msgstr ""
@@ -1691,6 +1740,9 @@ msgstr ""
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
+msgid "Force checking update of plugins"
+msgstr ""
+
 msgid "Update plugins"
 msgstr ""
 
@@ -1699,9 +1751,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Force checking update of plugins"
-msgstr ""
 
 msgid "Installed plugins"
 msgstr ""
@@ -4175,34 +4224,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "Blog succesvol gemaakt."
-
-#~ msgid "Back to login screen"
-#~ msgstr "Terug naar het login scherm"
-
-#~ msgid "Request a new password"
-#~ msgstr "Vraag een nieuw wachtwoord aan"
-
-#~ msgid "recover"
-#~ msgstr "terughalen"
-
-#~ msgid "Change your password"
-#~ msgstr "Verander je wachtwoord"
-
-#~ msgid "change"
-#~ msgstr "verander"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Onthoud mijn ID op deze computer"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "Blog instellingen"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Je moet cookies accepteren om deze pagina te bekijken."
-
-#~ msgid "I forgot my password"
-#~ msgstr "Ik ben mijn wachtwoord vergeten."
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Accepter XML/RPC interface"

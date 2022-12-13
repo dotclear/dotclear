@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -68,6 +68,78 @@ msgstr "Käyttöliittymä:"
 
 msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
+
+#, php-format
+msgid "Password strength: %s"
+msgstr "Salasanan vahvuus: %s"
+
+msgid "weak"
+msgstr "heikko"
+
+msgid "medium"
+msgstr "keskikoko"
+
+msgid "strong"
+msgstr "vahva"
+
+msgid "Back to login screen"
+msgstr "Takaisin kirjautumisruutuun"
+
+msgid "Request a new password"
+msgstr "Hanki uusi salasana"
+
+msgid "Email:"
+msgstr "Sähköposti:"
+
+msgid "recover"
+msgstr "palauta"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Muut asetukset"
+
+msgid "Change your password"
+msgstr "Vaihda salasanasi"
+
+msgid "New password:"
+msgstr "Uusi salasana:"
+
+msgid "Confirm password:"
+msgstr "Vahvista salasana:"
+
+msgid "change"
+msgstr "muuta"
+
+msgid "Safe mode login"
+msgstr "Vikasietotila"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
+
+msgid "Remember my ID on this device"
+msgstr "Muista minut tällä tietokoneella"
+
+msgid "log in"
+msgstr "kirjaudu"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
+
+msgid "Get back to normal authentication"
+msgstr "Paluu normaaliin todentamisruutuun"
+
+msgid "Connection issue?"
+msgstr "Yhteysongelmako?"
+
+msgid "I forgot my password"
+msgstr "Unohdin salasanani"
+
+#, fuzzy
+msgid "I want to log in in safe mode"
+msgstr "Vikasietotilaan kirjautuminen"
 
 #, php-format
 msgid "Blog \"%s\" successfully created"
@@ -222,9 +294,8 @@ msgstr "Haluan, että hakukoneet ja arkistointiohjelmat eivät indeksoisi tai ta
 msgid "Default"
 msgstr "Oletus"
 
-#, fuzzy
-msgid "Do not put the blog in sleep mode"
-msgstr "Vikasietotilaan kirjautuminen"
+msgid "Never"
+msgstr ""
 
 msgid "Three months"
 msgstr ""
@@ -507,9 +578,6 @@ msgstr "Tämän blogin käyttäjät"
 msgid "No users"
 msgstr "Ei käyttäjiä"
 
-msgid "Email:"
-msgstr "Sähköposti:"
-
 msgid "Publications on this blog:"
 msgstr "Tässä blogissa on julkaistu:"
 
@@ -548,6 +616,9 @@ msgstr "Teemojen hallinta"
 msgid "Manual checking of themes update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
+msgid "Force checking update of themes"
+msgstr "Pakota Dotclearin päivityksen tarkistus"
+
 msgid "Update themes"
 msgstr "Päivitä teemat"
 
@@ -560,9 +631,6 @@ msgstr[1] "%s teemaa voidaan päivittää teemasäilöstä."
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Käy %s-säilössä, jossa Dotclear-resursseja pidetään."
-
-msgid "Force checking update of themes"
-msgstr "Pakota Dotclearin päivityksen tarkistus"
 
 msgid "Installed themes"
 msgstr "Asennetut teemat"
@@ -1003,19 +1071,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclearin asennus"
 
-#, php-format
-msgid "Password strength: %s"
-msgstr "Salasanan vahvuus: %s"
-
-msgid "weak"
-msgstr "heikko"
-
-msgid "medium"
-msgstr "keskikoko"
-
-msgid "strong"
-msgstr "vahva"
-
 msgid "show"
 msgstr "näytä"
 
@@ -1050,14 +1105,8 @@ msgstr "Käyttäjätunnus ja salasana"
 msgid "Username"
 msgstr "Käyttäjänimi"
 
-msgid "New password:"
-msgstr "Uusi salasana:"
-
 msgid "Password"
 msgstr "Salasana"
-
-msgid "Confirm password:"
-msgstr "Vahvista salasana:"
 
 msgid "All done!"
 msgstr "Valmista!"
@@ -1655,6 +1704,9 @@ msgstr "Liitännäisten hallinta"
 msgid "Manual checking of plugins update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
+msgid "Force checking update of plugins"
+msgstr "Pakota Dotclearin päivityksen tarkistus"
+
 msgid "Update plugins"
 msgstr "Liitännäisten päivitys"
 
@@ -1663,9 +1715,6 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] "Säilöstä voidaan päivittää yksi liitännäinen."
 msgstr[1] "Säilöstä voidaan päivittää %s liitännäistä."
-
-msgid "Force checking update of plugins"
-msgstr "Pakota Dotclearin päivityksen tarkistus"
 
 msgid "Installed plugins"
 msgstr "Asennetut liitännäiset"
@@ -4056,52 +4105,6 @@ msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 #, fuzzy
 #~ msgid "large"
 #~ msgstr "Suurempi"
-
-#~ msgid "Back to login screen"
-#~ msgstr "Takaisin kirjautumisruutuun"
-
-#~ msgid "Request a new password"
-#~ msgstr "Hanki uusi salasana"
-
-#~ msgid "recover"
-#~ msgstr "palauta"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "Muut asetukset"
-
-#~ msgid "Change your password"
-#~ msgstr "Vaihda salasanasi"
-
-#~ msgid "change"
-#~ msgstr "muuta"
-
-#~ msgid "Safe mode login"
-#~ msgstr "Vikasietotila"
-
-#~ msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-#~ msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
-
-#~ msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-#~ msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "Muista minut tällä tietokoneella"
-
-#~ msgid "log in"
-#~ msgstr "kirjaudu"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
-
-#~ msgid "Get back to normal authentication"
-#~ msgstr "Paluu normaaliin todentamisruutuun"
-
-#~ msgid "Connection issue?"
-#~ msgstr "Yhteysongelmako?"
-
-#~ msgid "I forgot my password"
-#~ msgstr "Unohdin salasanani"
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "Ota käyttöön XML/RPC"

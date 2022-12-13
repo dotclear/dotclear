@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 07:57+0100\n"
+"POT-Creation-Date: 2022-12-13 08:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -74,6 +74,80 @@ msgstr "관리자 화면 :"
 
 msgid "Wrong username or password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "비밀번호 수정"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "중간 크키 :"
+
+msgid "strong"
+msgstr ""
+
+msgid "Back to login screen"
+msgstr "로그인 화면으로 돌아가기"
+
+msgid "Request a new password"
+msgstr "새 비밀번호 요청"
+
+msgid "Email:"
+msgstr "이메일:"
+
+msgid "recover"
+msgstr "되살리기"
+
+#, fuzzy
+msgid "Other option"
+msgstr "찾을 내용 지정"
+
+msgid "Change your password"
+msgstr "비밀번호 변경"
+
+msgid "New password:"
+msgstr "새 비밀번호 :"
+
+msgid "Confirm password:"
+msgstr "비밀번호 확인 :"
+
+#, fuzzy
+msgid "change"
+msgstr "취소"
+
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
+msgid "Remember my ID on this device"
+msgstr "이 컴퓨터가 내 아이디를 기억하도록하기"
+
+#, fuzzy
+msgid "log in"
+msgstr "블로그 이름"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "사생활보호 영역을 접속하시려면, 브라우저가 쿠키를 받을 수 있게 설정하셔야합니다."
+
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "비밀번호를 잊었어요."
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
@@ -232,7 +306,7 @@ msgstr "검색 및 축적 엔진들에게 블로그 내용물에 대한 검색�
 msgid "Default"
 msgstr ""
 
-msgid "Do not put the blog in sleep mode"
+msgid "Never"
 msgstr ""
 
 msgid "Three months"
@@ -535,9 +609,6 @@ msgstr "이 블로그의 사용자들"
 msgid "No users"
 msgstr "사용자 없음"
 
-msgid "Email:"
-msgstr "이메일:"
-
 #, fuzzy
 msgid "Publications on this blog:"
 msgstr "이 블로그의 사용자들"
@@ -581,6 +652,10 @@ msgid "Manual checking of themes update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear 갱신"
+
+#, fuzzy
 msgid "Update themes"
 msgstr "꼬맹이사진 갱신"
 
@@ -592,10 +667,6 @@ msgstr[0] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
-
-#, fuzzy
-msgid "Force checking update of themes"
-msgstr "Dotclear 갱신"
 
 #, fuzzy
 msgid "Installed themes"
@@ -1066,20 +1137,6 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Dotclear 설치"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "비밀번호 수정"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "중간 크키 :"
-
-msgid "strong"
-msgstr ""
-
 msgid "show"
 msgstr ""
 
@@ -1118,15 +1175,9 @@ msgstr "잘못된 사용자이름 또는 비밀번호"
 msgid "Username"
 msgstr "사용자이름:"
 
-msgid "New password:"
-msgstr "새 비밀번호 :"
-
 #, fuzzy
 msgid "Password"
 msgstr "비밀번호:"
-
-msgid "Confirm password:"
-msgstr "비밀번호 확인 :"
 
 msgid "All done!"
 msgstr "완료되었습니다 !"
@@ -1753,6 +1804,10 @@ msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
 #, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear 갱신"
+
+#, fuzzy
 msgid "Update plugins"
 msgstr "플러그인 올리기"
 
@@ -1760,10 +1815,6 @@ msgstr "플러그인 올리기"
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
-
-#, fuzzy
-msgid "Force checking update of plugins"
-msgstr "Dotclear 갱신"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -4353,39 +4404,6 @@ msgstr ""
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
 #~ msgstr "폴더가 성공적으로 재생성되었습니다."
-
-#~ msgid "Back to login screen"
-#~ msgstr "로그인 화면으로 돌아가기"
-
-#~ msgid "Request a new password"
-#~ msgstr "새 비밀번호 요청"
-
-#~ msgid "recover"
-#~ msgstr "되살리기"
-
-#, fuzzy
-#~ msgid "Other option"
-#~ msgstr "찾을 내용 지정"
-
-#~ msgid "Change your password"
-#~ msgstr "비밀번호 변경"
-
-#, fuzzy
-#~ msgid "change"
-#~ msgstr "취소"
-
-#~ msgid "Remember my ID on this device"
-#~ msgstr "이 컴퓨터가 내 아이디를 기억하도록하기"
-
-#, fuzzy
-#~ msgid "log in"
-#~ msgstr "블로그 이름"
-
-#~ msgid "You must accept cookies in order to use the private area."
-#~ msgstr "사생활보호 영역을 접속하시려면, 브라우저가 쿠키를 받을 수 있게 설정하셔야합니다."
-
-#~ msgid "I forgot my password"
-#~ msgstr "비밀번호를 잊었어요."
 
 #~ msgid "Enable XML/RPC interface"
 #~ msgstr "XML/RPC 인터페이스 작동켜키"
