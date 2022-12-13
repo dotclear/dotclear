@@ -186,7 +186,7 @@ class adminUpdate
                     $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
                 }
 
-                if (isset($e->bad_files)) {
+                if (isset($e->bad_files)) { // @phpstan-ignore-line
                     $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $e->bad_files) . '</strong></li></ul>';
                 }
 

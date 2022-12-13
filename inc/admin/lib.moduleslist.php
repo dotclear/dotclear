@@ -1632,7 +1632,7 @@ class adminModulesList
 
         ob_end_clean();
 
-        return !empty($this->file_content);
+        return !empty($this->config_content);
     }
 
     /**
