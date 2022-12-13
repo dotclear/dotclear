@@ -52,7 +52,7 @@ class adminAuth
         dcCore::app()->admin->msg        = null;
 
         // Auto upgrade
-        if (empty($_GET) && empty($_POST)) {
+        if ((empty($_GET) && empty($_POST)) || dcCore::app()->admin->safe_mode) {
             require __DIR__ . '/../inc/dbschema/upgrade.php';
 
             try {
