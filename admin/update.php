@@ -95,6 +95,11 @@ class adminUpdate
             dcCore::app()->admin->default_tab = 'update';
         }
         dcCore::app()->admin->archives = $archives;
+
+        if (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
+            // End of update procedure, kill session/cookie before any HTML output (including headers)
+            dcCore::app()->killAdminSession();
+        }
     }
 
     /**
@@ -291,9 +296,6 @@ class adminUpdate
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
             // Keep safe-mode for next authentication
             $params = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'] ? ['safe_mode' => 1] : [];
-
-            // Kill admin session
-            dcCore::app()->killAdminSession();
 
             echo
             '<p class="message">' .
