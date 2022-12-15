@@ -294,7 +294,10 @@ class adminUpdate
             }
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
             // Keep safe-mode for next authentication
-            $params = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'] ? ['safe_mode' => 1] : [];
+            // $params = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'] ? ['safe_mode' => 1] : [];
+
+            // Dotclear 2.24 upgrade: force safe-mode for next authentication
+            $params = ['safe_mode' => 1];
 
             // Kill admin session
             dcCore::app()->killAdminSession();
