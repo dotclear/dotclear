@@ -466,6 +466,13 @@ final class dcCore
      */
     public function killAdminSession(bool $cookie_only = false): void
     {
+        // Temporary: Add new log
+        $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
+        $cur->user_id   = dcCore::app()->auth->userID();
+        $cur->log_msg   = 'killAdminSession(' . ($cookie_only ? 'true' : 'false') . ')' . ' - ' . debug_print_backtrace();
+        $cur->log_table = 'core';
+        dcCore::app()->log->addLog($cur);
+
         // Kill session
         if (!$cookie_only) {
             dcCore::app()->session->destroy();
