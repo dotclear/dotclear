@@ -459,10 +459,6 @@ final class dcCore
 
     /**
      * Kill admin session helper
-     *
-     * @param      bool  $cookie_only  Unset the cookie only if true
-     *
-     * Note: a cookie can only be unset BEFORE any HTML output (including headers)
      */
     public function killAdminSession(bool $cookie_only = false): void
     {
@@ -479,9 +475,7 @@ final class dcCore
         dcCore::app()->log->addLog($cur);
 
         // Kill session
-        if (!$cookie_only) {
-            dcCore::app()->session->destroy();
-        }
+        dcCore::app()->session->destroy();
 
         // Unset cookie if necessary
         if (isset($_COOKIE['dc_admin'])) {
