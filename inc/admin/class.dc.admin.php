@@ -63,7 +63,9 @@ class dcAdmin
                     $p[3] = '/';
                     setcookie(...$p);
 
-                    http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+                    // Preserve safe_mode if necessary
+                    $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
+                    http::redirect(dcCore::app()->adminurl->get('admin.auth', $params));
                 }
             } catch (Exception $e) {
                 __error(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), 20);
