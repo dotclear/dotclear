@@ -169,10 +169,6 @@ class adminUpdate
                             DC_ROOT,
                             DC_ROOT . '/inc/digests'
                         );
-                        if (!dcCore::app()->error->flag()) {
-                            // Kill admin session: cookie only
-                            dcCore::app()->killAdminSession(true);
-                        }
 
                         break;
                 }
@@ -206,6 +202,12 @@ class adminUpdate
      */
     public static function render()
     {
+        if (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
+            // Update done, need to go back to authentication (see below), but we need
+            // to kill the admin session before sending any header
+            dcCore::app()->killAdminSession();
+        }
+
         dcPage::open(
             __('Dotclear update'),
             (!dcCore::app()->admin->step ?
@@ -298,9 +300,6 @@ class adminUpdate
 
             // Dotclear 2.24 upgrade: force safe-mode for next authentication
             $params = ['safe_mode' => 1];
-
-            // Kill admin session
-            dcCore::app()->killAdminSession();
 
             echo
             '<p class="message">' .
