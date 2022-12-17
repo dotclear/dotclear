@@ -467,9 +467,14 @@ final class dcCore
     public function killAdminSession(bool $cookie_only = false): void
     {
         // Temporary: Add new log
+        ob_start();
+        debug_print_backtrace();
+        $trace = ob_get_contents();
+        ob_end_clean();
+
         $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
         $cur->user_id   = dcCore::app()->auth->userID();
-        $cur->log_msg   = 'killAdminSession(' . ($cookie_only ? 'true' : 'false') . ')' . ' - ' . debug_print_backtrace();
+        $cur->log_msg   = 'killAdminSession(' . ($cookie_only ? 'true' : 'false') . ')' . ' - ' . $trace;
         $cur->log_table = 'core';
         dcCore::app()->log->addLog($cur);
 
