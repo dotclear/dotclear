@@ -132,32 +132,33 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.1.6', '<=')) {
-            # ie7js has been upgraded
-            $ie7files = [
-                'ie7-base64.php ',
-                'ie7-content.htc',
-                'ie7-core.js',
-                'ie7-css2-selectors.js',
-                'ie7-css3-selectors.js',
-                'ie7-css-strict.js',
-                'ie7-dhtml.js',
-                'ie7-dynamic-attributes.js',
-                'ie7-fixed.js',
-                'ie7-graphics.js',
-                'ie7-html4.js',
-                'ie7-ie5.js',
-                'ie7-layout.js',
-                'ie7-load.htc',
-                'ie7-object.htc',
-                'ie7-overflow.js',
-                'ie7-quirks.js',
-                'ie7-server.css',
-                'ie7-standard-p.js',
-                'ie7-xml-extras.js',
-            ];
-            foreach ($ie7files as $f) {
-                @unlink(DC_ROOT . '/admin/js/ie7/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // ie7js has been upgraded
+                    'admin/js/ie7/ie7-base64.php ',
+                    'admin/js/ie7/ie7-content.htc',
+                    'admin/js/ie7/ie7-core.js',
+                    'admin/js/ie7/ie7-css2-selectors.js',
+                    'admin/js/ie7/ie7-css3-selectors.js',
+                    'admin/js/ie7/ie7-css-strict.js',
+                    'admin/js/ie7/ie7-dhtml.js',
+                    'admin/js/ie7/ie7-dynamic-attributes.js',
+                    'admin/js/ie7/ie7-fixed.js',
+                    'admin/js/ie7/ie7-graphics.js',
+                    'admin/js/ie7/ie7-html4.js',
+                    'admin/js/ie7/ie7-ie5.js',
+                    'admin/js/ie7/ie7-layout.js',
+                    'admin/js/ie7/ie7-load.htc',
+                    'admin/js/ie7/ie7-object.htc',
+                    'admin/js/ie7/ie7-overflow.js',
+                    'admin/js/ie7/ie7-quirks.js',
+                    'admin/js/ie7/ie7-server.css',
+                    'admin/js/ie7/ie7-standard-p.js',
+                    'admin/js/ie7/ie7-xml-extras.js',
+                ],
+            );
         }
 
         if (version_compare($version, '2.2-alpha1-r3043', '<')) {
@@ -215,114 +216,116 @@ class dcUpgrade
                 $count++;
             }
 
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                'admin/style/cat-bg.png',
-                'admin/style/footer-bg.png',
-                'admin/style/head-logo.png',
-                'admin/style/tab-bg.png',
-                'admin/style/tab-c-l.png',
-                'admin/style/tab-c-r.png',
-                'admin/style/tab-l-l.png',
-                'admin/style/tab-l-r.png',
-                'admin/style/tab-n-l.png',
-                'admin/style/tab-n-r.png',
-                'inc/clearbricks/_common.php',
-                'inc/clearbricks/common/lib.crypt.php',
-                'inc/clearbricks/common/lib.date.php',
-                'inc/clearbricks/common/lib.files.php',
-                'inc/clearbricks/common/lib.form.php',
-                'inc/clearbricks/common/lib.html.php',
-                'inc/clearbricks/common/lib.http.php',
-                'inc/clearbricks/common/lib.l10n.php',
-                'inc/clearbricks/common/lib.text.php',
-                'inc/clearbricks/common/tz.dat',
-                'inc/clearbricks/common/_main.php',
-                'inc/clearbricks/dblayer/class.cursor.php',
-                'inc/clearbricks/dblayer/class.mysql.php',
-                'inc/clearbricks/dblayer/class.pgsql.php',
-                'inc/clearbricks/dblayer/class.sqlite.php',
-                'inc/clearbricks/dblayer/dblayer.php',
-                'inc/clearbricks/dbschema/class.dbschema.php',
-                'inc/clearbricks/dbschema/class.dbstruct.php',
-                'inc/clearbricks/dbschema/class.mysql.dbschema.php',
-                'inc/clearbricks/dbschema/class.pgsql.dbschema.php',
-                'inc/clearbricks/dbschema/class.sqlite.dbschema.php',
-                'inc/clearbricks/diff/lib.diff.php',
-                'inc/clearbricks/diff/lib.unified.diff.php',
-                'inc/clearbricks/filemanager/class.filemanager.php',
-                'inc/clearbricks/html.filter/class.html.filter.php',
-                'inc/clearbricks/html.validator/class.html.validator.php',
-                'inc/clearbricks/image/class.image.meta.php',
-                'inc/clearbricks/image/class.image.tools.php',
-                'inc/clearbricks/mail/class.mail.php',
-                'inc/clearbricks/mail/class.socket.mail.php',
-                'inc/clearbricks/net/class.net.socket.php',
-                'inc/clearbricks/net.http/class.net.http.php',
-                'inc/clearbricks/net.http.feed/class.feed.parser.php',
-                'inc/clearbricks/net.http.feed/class.feed.reader.php',
-                'inc/clearbricks/net.xmlrpc/class.net.xmlrpc.php',
-                'inc/clearbricks/pager/class.pager.php',
-                'inc/clearbricks/rest/class.rest.php',
-                'inc/clearbricks/session.db/class.session.db.php',
-                'inc/clearbricks/template/class.template.php',
-                'inc/clearbricks/text.wiki2xhtml/class.wiki2xhtml.php',
-                'inc/clearbricks/url.handler/class.url.handler.php',
-                'inc/clearbricks/zip/class.unzip.php',
-                'inc/clearbricks/zip/class.zip.php',
-                'themes/default/tpl/.htaccess',
-                'themes/default/tpl/404.html',
-                'themes/default/tpl/archive.html',
-                'themes/default/tpl/archive_month.html',
-                'themes/default/tpl/category.html',
-                'themes/default/tpl/home.html',
-                'themes/default/tpl/post.html',
-                'themes/default/tpl/search.html',
-                'themes/default/tpl/tag.html',
-                'themes/default/tpl/tags.html',
-                'themes/default/tpl/user_head.html',
-                'themes/default/tpl/_flv_player.html',
-                'themes/default/tpl/_footer.html',
-                'themes/default/tpl/_head.html',
-                'themes/default/tpl/_mp3_player.html',
-                'themes/default/tpl/_top.html',
-            ];
-            $remfolders = [
-                'inc/clearbricks/common',
-                'inc/clearbricks/dblayer',
-                'inc/clearbricks/dbschema',
-                'inc/clearbricks/diff',
-                'inc/clearbricks/filemanager',
-                'inc/clearbricks/html.filter',
-                'inc/clearbricks/html.validator',
-                'inc/clearbricks/image',
-                'inc/clearbricks/mail',
-                'inc/clearbricks/net',
-                'inc/clearbricks/net.http',
-                'inc/clearbricks/net.http.feed',
-                'inc/clearbricks/net.xmlrpc',
-                'inc/clearbricks/pager',
-                'inc/clearbricks/rest',
-                'inc/clearbricks/session.db',
-                'inc/clearbricks/template',
-                'inc/clearbricks/text.wiki2xhtml',
-                'inc/clearbricks/url.handler',
-                'inc/clearbricks/zip',
-                'inc/clearbricks',
-                'themes/default/tpl',
-            ];
-
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'admin/style/cat-bg.png',
+                    'admin/style/footer-bg.png',
+                    'admin/style/head-logo.png',
+                    'admin/style/tab-bg.png',
+                    'admin/style/tab-c-l.png',
+                    'admin/style/tab-c-r.png',
+                    'admin/style/tab-l-l.png',
+                    'admin/style/tab-l-r.png',
+                    'admin/style/tab-n-l.png',
+                    'admin/style/tab-n-r.png',
+                    'inc/clearbricks/_common.php',
+                    'inc/clearbricks/common/lib.crypt.php',
+                    'inc/clearbricks/common/lib.date.php',
+                    'inc/clearbricks/common/lib.files.php',
+                    'inc/clearbricks/common/lib.form.php',
+                    'inc/clearbricks/common/lib.html.php',
+                    'inc/clearbricks/common/lib.http.php',
+                    'inc/clearbricks/common/lib.l10n.php',
+                    'inc/clearbricks/common/lib.text.php',
+                    'inc/clearbricks/common/tz.dat',
+                    'inc/clearbricks/common/_main.php',
+                    'inc/clearbricks/dblayer/class.cursor.php',
+                    'inc/clearbricks/dblayer/class.mysql.php',
+                    'inc/clearbricks/dblayer/class.pgsql.php',
+                    'inc/clearbricks/dblayer/class.sqlite.php',
+                    'inc/clearbricks/dblayer/dblayer.php',
+                    'inc/clearbricks/dbschema/class.dbschema.php',
+                    'inc/clearbricks/dbschema/class.dbstruct.php',
+                    'inc/clearbricks/dbschema/class.mysql.dbschema.php',
+                    'inc/clearbricks/dbschema/class.pgsql.dbschema.php',
+                    'inc/clearbricks/dbschema/class.sqlite.dbschema.php',
+                    'inc/clearbricks/diff/lib.diff.php',
+                    'inc/clearbricks/diff/lib.unified.diff.php',
+                    'inc/clearbricks/filemanager/class.filemanager.php',
+                    'inc/clearbricks/html.filter/class.html.filter.php',
+                    'inc/clearbricks/html.validator/class.html.validator.php',
+                    'inc/clearbricks/image/class.image.meta.php',
+                    'inc/clearbricks/image/class.image.tools.php',
+                    'inc/clearbricks/mail/class.mail.php',
+                    'inc/clearbricks/mail/class.socket.mail.php',
+                    'inc/clearbricks/net/class.net.socket.php',
+                    'inc/clearbricks/net.http/class.net.http.php',
+                    'inc/clearbricks/net.http.feed/class.feed.parser.php',
+                    'inc/clearbricks/net.http.feed/class.feed.reader.php',
+                    'inc/clearbricks/net.xmlrpc/class.net.xmlrpc.php',
+                    'inc/clearbricks/pager/class.pager.php',
+                    'inc/clearbricks/rest/class.rest.php',
+                    'inc/clearbricks/session.db/class.session.db.php',
+                    'inc/clearbricks/template/class.template.php',
+                    'inc/clearbricks/text.wiki2xhtml/class.wiki2xhtml.php',
+                    'inc/clearbricks/url.handler/class.url.handler.php',
+                    'inc/clearbricks/zip/class.unzip.php',
+                    'inc/clearbricks/zip/class.zip.php',
+                    'themes/default/tpl/.htaccess',
+                    'themes/default/tpl/404.html',
+                    'themes/default/tpl/archive.html',
+                    'themes/default/tpl/archive_month.html',
+                    'themes/default/tpl/category.html',
+                    'themes/default/tpl/home.html',
+                    'themes/default/tpl/post.html',
+                    'themes/default/tpl/search.html',
+                    'themes/default/tpl/tag.html',
+                    'themes/default/tpl/tags.html',
+                    'themes/default/tpl/user_head.html',
+                    'themes/default/tpl/_flv_player.html',
+                    'themes/default/tpl/_footer.html',
+                    'themes/default/tpl/_head.html',
+                    'themes/default/tpl/_mp3_player.html',
+                    'themes/default/tpl/_top.html',
+                ],
+                // Folders
+                [
+                    'inc/clearbricks/common',
+                    'inc/clearbricks/dblayer',
+                    'inc/clearbricks/dbschema',
+                    'inc/clearbricks/diff',
+                    'inc/clearbricks/filemanager',
+                    'inc/clearbricks/html.filter',
+                    'inc/clearbricks/html.validator',
+                    'inc/clearbricks/image',
+                    'inc/clearbricks/mail',
+                    'inc/clearbricks/net',
+                    'inc/clearbricks/net.http',
+                    'inc/clearbricks/net.http.feed',
+                    'inc/clearbricks/net.xmlrpc',
+                    'inc/clearbricks/pager',
+                    'inc/clearbricks/rest',
+                    'inc/clearbricks/session.db',
+                    'inc/clearbricks/template',
+                    'inc/clearbricks/text.wiki2xhtml',
+                    'inc/clearbricks/url.handler',
+                    'inc/clearbricks/zip',
+                    'inc/clearbricks',
+                    'themes/default/tpl',
+                ]
+            );
         }
 
         if (version_compare($version, '2.3.1', '<')) {
-            # Remove unecessary file
-            @unlink(DC_ROOT . '/' . 'inc/libs/clearbricks/.hgignore');
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'inc/libs/clearbricks/.hgignore',
+                ],
+            );
         }
 
         if (version_compare($version, '2.5', '<=')) {
@@ -353,16 +356,25 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.5.1', '<=')) {
-            // Flash enhanced upload no longer needed
-            @unlink(DC_ROOT . '/' . 'inc/swf/swfupload.swf');
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // Flash enhanced upload no longer needed
+                    'inc/swf/swfupload.swf',
+                ],
+            );
         }
 
         if (version_compare($version, '2.6', '<=')) {
-            // README has been replaced by README.md and CONTRIBUTING.md
-            @unlink(DC_ROOT . '/' . 'README');
-
-            // trackbacks are now merged into posts
-            @unlink(DC_ROOT . '/' . 'admin/trackbacks.php');
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'README',
+                    'admin/trackbacks.php',
+                ],
+            );
 
             # daInstaller has been integrated to the core.
             # Try to remove it
@@ -497,8 +509,17 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.10', '<')) {
-            @unlink(DC_ROOT . '/' . 'admin/js/jsUpload/vendor/jquery.ui.widget.js');
-            @rmdir(DC_ROOT . '/' . 'admin/js/jsUpload/vendor');
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'admin/js/jsUpload/vendor/jquery.ui.widget.js',
+                ],
+                // Folders
+                [
+                    'admin/js/jsUpload/vendor',
+                ]
+            );
 
             # Create new var directory and its .htaccess file
             @files::makeDir(DC_VAR);
@@ -543,10 +564,7 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.11', '<')) {
-            // Remove the CSP report file from it's old place
-            @unlink(DC_ROOT . '/admin/csp_report.txt');
-
-            # Some new settings should be initialized, prepare db queries
+            // Some new settings should be initialized, prepare db queries
             $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
@@ -599,43 +617,41 @@ class dcUpgrade
                 ' WHERE post_status = ' . (string) dcBlog::POST_PUBLISHED;
             dcCore::app()->con->execute($strReq);
 
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                'admin/js/jquery/jquery.modal.js',
-                'admin/style/modal/close.png',
-                'admin/style/modal/loader.gif',
-                'admin/style/modal/modal.css',
-                'admin/js/dragsort-tablerows.js',
-                'admin/js/tool-man/cookies.js',
-                'admin/js/tool-man/coordinates.js',
-                'admin/js/tool-man/core.js',
-                'admin/js/tool-man/css.js',
-                'admin/js/tool-man/drag.js',
-                'admin/js/tool-man/dragsort.js',
-                'admin/js/tool-man/events.js',
-                'admin/js/ie7/IE7.js',
-                'admin/js/ie7/IE8.js',
-                'admin/js/ie7/IE9.js',
-                'admin/js/ie7/blank.gif',
-                'admin/js/ie7/ie7-hashchange.js',
-                'admin/js/ie7/ie7-recalc.js',
-                'admin/js/ie7/ie7-squish.js',
-                'admin/style/iesucks.css',
-                'plugins/tags/js/jquery.autocomplete.js',
-                'theme/ductile/ie.css',
-            ];
-            $remfolders = [
-                'admin/style/modal',
-                'admin/js/tool-man',
-                'admin/js/ie7',
-            ];
-
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'admin/csp_report.txt',
+                    'admin/js/jquery/jquery.modal.js',
+                    'admin/style/modal/close.png',
+                    'admin/style/modal/loader.gif',
+                    'admin/style/modal/modal.css',
+                    'admin/js/dragsort-tablerows.js',
+                    'admin/js/tool-man/cookies.js',
+                    'admin/js/tool-man/coordinates.js',
+                    'admin/js/tool-man/core.js',
+                    'admin/js/tool-man/css.js',
+                    'admin/js/tool-man/drag.js',
+                    'admin/js/tool-man/dragsort.js',
+                    'admin/js/tool-man/events.js',
+                    'admin/js/ie7/IE7.js',
+                    'admin/js/ie7/IE8.js',
+                    'admin/js/ie7/IE9.js',
+                    'admin/js/ie7/blank.gif',
+                    'admin/js/ie7/ie7-hashchange.js',
+                    'admin/js/ie7/ie7-recalc.js',
+                    'admin/js/ie7/ie7-squish.js',
+                    'admin/style/iesucks.css',
+                    'plugins/tags/js/jquery.autocomplete.js',
+                    'theme/ductile/ie.css',
+                ],
+                // Folders
+                [
+                    'admin/style/modal',
+                    'admin/js/tool-man',
+                    'admin/js/ie7',
+                ]
+            );
         }
 
         if (version_compare($version, '2.12', '<')) {
@@ -663,8 +679,13 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.14', '<')) {
-            // File not more needed
-            @unlink(DC_ROOT . '/' . 'admin/js/jquery/jquery.bgFade.js');
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'admin/js/jquery/jquery.bgFade.js',
+                ],
+            );
         }
 
         if (version_compare($version, '2.14.3', '<')) {
@@ -690,14 +711,14 @@ class dcUpgrade
                 " AND setting_value = '1.11.3' ";
             dcCore::app()->con->execute($strReq);
 
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                'plugins/dcLegacyEditor/tpl/index.tpl',
-                'plugins/dcCKEditor/tpl/index.tpl',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'plugins/dcLegacyEditor/tpl/index.tpl',
+                    'plugins/dcCKEditor/tpl/index.tpl',
+                ],
+            );
         }
 
         if (version_compare($version, '2.15.1', '<')) {
@@ -736,63 +757,59 @@ class dcUpgrade
                 sprintf($strReq, 'jquery_needed', true, 'boolean', 'Load jQuery library')
             );
 
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                // jQuery farbtastic Color picker
-                'admin/js/color-picker.js',
-                'admin/js/jquery/jquery.farbtastic.js',
-                'admin/style/farbtastic/farbtastic.css',
-                'admin/style/farbtastic/marker.png',
-                'admin/style/farbtastic/mask.png',
-                'admin/style/farbtastic/wheel.png',
-            ];
-            $remfolders = [
-                // jQuery farbtastic Color picker
-                'admin/style/farbtastic',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // jQuery farbtastic Color picker
+                    'admin/js/color-picker.js',
+                    'admin/js/jquery/jquery.farbtastic.js',
+                    'admin/style/farbtastic/farbtastic.css',
+                    'admin/style/farbtastic/marker.png',
+                    'admin/style/farbtastic/mask.png',
+                    'admin/style/farbtastic/wheel.png',
+                ],
+                // Folders
+                [
+                    // jQuery farbtastic Color picker
+                    'admin/style/farbtastic',
+                ]
+            );
         }
 
         if (version_compare($version, '2.16.1', '<')) {
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                // Oldest jQuery public lib
-                'inc/js/jquery/1.4.2/jquery.js',
-                'inc/js/jquery/1.4.2/jquery.cookie.js',
-                'inc/js/jquery/1.11.1/jquery.js',
-                'inc/js/jquery/1.11.1/jquery.cookie.js',
-                'inc/js/jquery/1.11.3/jquery.js',
-                'inc/js/jquery/1.11.3/jquery.cookie.js',
-                'inc/js/jquery/1.12.4/jquery.js',
-                'inc/js/jquery/1.12.4/jquery.cookie.js',
-                'inc/js/jquery/2.2.0/jquery.js',
-                'inc/js/jquery/2.2.0/jquery.cookie.js',
-                'inc/js/jquery/2.2.4/jquery.js',
-                'inc/js/jquery/2.2.4/jquery.cookie.js',
-                'inc/js/jquery/3.3.1/jquery.js',
-                'inc/js/jquery/3.3.1/jquery.cookie.js',
-            ];
-            $remfolders = [
-                // Oldest jQuery public lib
-                'inc/js/jquery/1.4.2',
-                'inc/js/jquery/1.11.1',
-                'inc/js/jquery/1.11.3',
-                'inc/js/jquery/1.12.4',
-                'inc/js/jquery/2.2.0',
-                'inc/js/jquery/2.2.4',
-                'inc/js/jquery/3.3.1',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // Oldest jQuery public lib
+                    'inc/js/jquery/1.4.2/jquery.js',
+                    'inc/js/jquery/1.4.2/jquery.cookie.js',
+                    'inc/js/jquery/1.11.1/jquery.js',
+                    'inc/js/jquery/1.11.1/jquery.cookie.js',
+                    'inc/js/jquery/1.11.3/jquery.js',
+                    'inc/js/jquery/1.11.3/jquery.cookie.js',
+                    'inc/js/jquery/1.12.4/jquery.js',
+                    'inc/js/jquery/1.12.4/jquery.cookie.js',
+                    'inc/js/jquery/2.2.0/jquery.js',
+                    'inc/js/jquery/2.2.0/jquery.cookie.js',
+                    'inc/js/jquery/2.2.4/jquery.js',
+                    'inc/js/jquery/2.2.4/jquery.cookie.js',
+                    'inc/js/jquery/3.3.1/jquery.js',
+                    'inc/js/jquery/3.3.1/jquery.cookie.js',
+                ],
+                // Folders
+                [
+                    // Oldest jQuery public lib
+                    'inc/js/jquery/1.4.2',
+                    'inc/js/jquery/1.11.1',
+                    'inc/js/jquery/1.11.3',
+                    'inc/js/jquery/1.12.4',
+                    'inc/js/jquery/2.2.0',
+                    'inc/js/jquery/2.2.4',
+                    'inc/js/jquery/3.3.1',
+                ]
+            );
         }
 
         if (version_compare($version, '2.16.9', '<')) {
@@ -805,21 +822,20 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.17', '<')) {
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                'inc/admin/class.dc.notices.php',
-            ];
-            $remfolders = [
-                // Oldest jQuery public lib
-                'inc/js/jquery/3.4.1',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
-            # Help specific (files was moved)
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'inc/admin/class.dc.notices.php',
+                ],
+                // Folders
+                [
+                    // Oldest jQuery public lib
+                    'inc/js/jquery/3.4.1',
+                ]
+            );
+
+            // Help specific (files was moved)
             $remtree  = scandir(DC_ROOT . '/locales');
             $remfiles = [
                 'help/blowupConfig.html',
@@ -835,30 +851,28 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.19', '<')) {
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                // No more used in Berlin theme
-                'themes/berlin/scripts/boxsizing.htc',
-                // That old easter egg is not more present
-                'admin/images/thanks.mp3',
-                // No more used jQuery pwd strength and cookie plugins
-                'admin/js/jquery/jquery.pwstrength.js',
-                'admin/js/jquery/jquery.biscuit.js',
-                // No more need of this fake common.js (was used by install)
-                'admin/js/mini-common.js',
-            ];
-            $remfolders = [
-                // Oldest jQuery public lib
-                'inc/js/jquery/3.5.1',
-                // No more used in Berlin theme
-                'themes/berlin/scripts',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // No more used in Berlin theme
+                    'themes/berlin/scripts/boxsizing.htc',
+                    // That old easter egg is not more present
+                    'admin/images/thanks.mp3',
+                    // No more used jQuery pwd strength and cookie plugins
+                    'admin/js/jquery/jquery.pwstrength.js',
+                    'admin/js/jquery/jquery.biscuit.js',
+                    // No more need of this fake common.js (was used by install)
+                    'admin/js/mini-common.js',
+                ],
+                // Folders
+                [
+                    // Oldest jQuery public lib
+                    'inc/js/jquery/3.5.1',
+                    // No more used in Berlin theme
+                    'themes/berlin/scripts',
+                ]
+            );
 
             # Global settings
             $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
@@ -873,266 +887,261 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.21', '<')) {
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                // The old js datepicker has gone
-                'admin/js/date-picker.js',
-                'admin/style/date-picker.css',
-                'admin/images/date-picker.png',
-                // Some PNG icon have been converted to SVG
-                'admin/images/expand.png',
-                'admin/images/hide.png',
-                'admin/images/logout.png',
-                'admin/images/menu_off.png',
-                'admin/images/menu_on.png',
-                'admin/images/minus-theme.png',
-                'admin/images/outgoing-blue.png',
-                'admin/images/outgoing.png',
-                'admin/images/page_help.png',
-                'admin/images/plus-theme.png',
-                'admin/images/picker.png',
-                'admin/images/menu/blog-pref.png',
-                'admin/images/menu/blog-pref-b.png',
-                'admin/images/menu/blog-theme-b.png',
-                'admin/images/menu/blog-theme-b-update.png',
-                'admin/images/menu/blogs.png',
-                'admin/images/menu/blogs-b.png',
-                'admin/images/menu/categories.png',
-                'admin/images/menu/categories-b.png',
-                'admin/images/menu/comments.png',
-                'admin/images/menu/comments-b.png',
-                'admin/images/menu/edit.png',
-                'admin/images/menu/edit-b.png',
-                'admin/images/menu/entries.png',
-                'admin/images/menu/entries-b.png',
-                'admin/images/menu/help.png',
-                'admin/images/menu/help-b.png',
-                'admin/images/menu/langs.png',
-                'admin/images/menu/langs-b.png',
-                'admin/images/menu/media.png',
-                'admin/images/menu/media-b.png',
-                'admin/images/menu/plugins.png',
-                'admin/images/menu/plugins-b.png',
-                'admin/images/menu/plugins-b-update.png',
-                'admin/images/menu/search.png',
-                'admin/images/menu/search-b.png',
-                'admin/images/menu/themes.png',
-                'admin/images/menu/update.png',
-                'admin/images/menu/user-pref.png',
-                'admin/images/menu/user-pref-b.png',
-                'admin/images/menu/users.png',
-                'admin/images/menu/users-b.png',
-                'admin/pagination/first.png',
-                'admin/pagination/last.png',
-                'admin/pagination/next.png',
-                'admin/pagination/no-first.png',
-                'admin/pagination/no-last.png',
-                'admin/pagination/no-next.png',
-                'admin/pagination/no-previous.png',
-                'admin/pagination/previous.png',
-                'admin/style/dashboard.png',
-                'admin/style/dashboard-alt.png',
-                'admin/style/help-mini.png',
-                'admin/style/help12.png',
-                'plugins/aboutConfig/icon-big.png',
-                'plugins/aboutConfig/icon.png',
-                'plugins/antispam/icon-big.png',
-                'plugins/antispam/icon.png',
-                'plugins/blogroll/icon-small.png',
-                'plugins/blogroll/icon.png',
-                'plugins/dcCKEditor/imgs/icon.png',
-                'plugins/dcLegacyEditor/icon.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_bquote.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_br.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_clean.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_code.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_del.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_em.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_img.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_img_select.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_ins.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_link.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_mark.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_ol.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_paragraph.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_post.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_pre.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_quote.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_strong.png',
-                'plugins/dcLegacyEditor/css/jsToolBar/bt_ul.png',
-                'plugins/importExport/icon-big.png',
-                'plugins/importExport/icon.png',
-                'plugins/maintenance/icon-big-update.png',
-                'plugins/maintenance/icon-big.png',
-                'plugins/maintenance/icon-small.png',
-                'plugins/maintenance/icon.png',
-                'plugins/pages/icon-big.png',
-                'plugins/pages/icon-np-big.png',
-                'plugins/pages/icon-np.png',
-                'plugins/pages/icon.png',
-                'plugins/pings/icon-big.png',
-                'plugins/pings/icon.png',
-                'plugins/simpleMenu/icon-small.png',
-                'plugins/simpleMenu/icon.png',
-                'plugins/tags/icon-big.png',
-                'plugins/tags/icon.png',
-                'plugins/tags/img/tag-add.png',
-                'plugins/tags/img/loader.gif',
-                'plugins/userPref/icon-big.png',
-                'plugins/userPref/icon.png',
-                'plugins/widgets/icon-big.png',
-                'plugins/widgets/icon.png',
-            ];
-            $remfolders = [
-                'plugins/dcCKEditor/imgs/',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
-            foreach ($remfolders as $f) {
-                @rmdir(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // The old js datepicker has gone
+                    'admin/js/date-picker.js',
+                    'admin/style/date-picker.css',
+                    'admin/images/date-picker.png',
+                    // Some PNG icon have been converted to SVG
+                    'admin/images/expand.png',
+                    'admin/images/hide.png',
+                    'admin/images/logout.png',
+                    'admin/images/menu_off.png',
+                    'admin/images/menu_on.png',
+                    'admin/images/minus-theme.png',
+                    'admin/images/outgoing-blue.png',
+                    'admin/images/outgoing.png',
+                    'admin/images/page_help.png',
+                    'admin/images/plus-theme.png',
+                    'admin/images/picker.png',
+                    'admin/images/menu/blog-pref.png',
+                    'admin/images/menu/blog-pref-b.png',
+                    'admin/images/menu/blog-theme-b.png',
+                    'admin/images/menu/blog-theme-b-update.png',
+                    'admin/images/menu/blogs.png',
+                    'admin/images/menu/blogs-b.png',
+                    'admin/images/menu/categories.png',
+                    'admin/images/menu/categories-b.png',
+                    'admin/images/menu/comments.png',
+                    'admin/images/menu/comments-b.png',
+                    'admin/images/menu/edit.png',
+                    'admin/images/menu/edit-b.png',
+                    'admin/images/menu/entries.png',
+                    'admin/images/menu/entries-b.png',
+                    'admin/images/menu/help.png',
+                    'admin/images/menu/help-b.png',
+                    'admin/images/menu/langs.png',
+                    'admin/images/menu/langs-b.png',
+                    'admin/images/menu/media.png',
+                    'admin/images/menu/media-b.png',
+                    'admin/images/menu/plugins.png',
+                    'admin/images/menu/plugins-b.png',
+                    'admin/images/menu/plugins-b-update.png',
+                    'admin/images/menu/search.png',
+                    'admin/images/menu/search-b.png',
+                    'admin/images/menu/themes.png',
+                    'admin/images/menu/update.png',
+                    'admin/images/menu/user-pref.png',
+                    'admin/images/menu/user-pref-b.png',
+                    'admin/images/menu/users.png',
+                    'admin/images/menu/users-b.png',
+                    'admin/pagination/first.png',
+                    'admin/pagination/last.png',
+                    'admin/pagination/next.png',
+                    'admin/pagination/no-first.png',
+                    'admin/pagination/no-last.png',
+                    'admin/pagination/no-next.png',
+                    'admin/pagination/no-previous.png',
+                    'admin/pagination/previous.png',
+                    'admin/style/dashboard.png',
+                    'admin/style/dashboard-alt.png',
+                    'admin/style/help-mini.png',
+                    'admin/style/help12.png',
+                    'plugins/aboutConfig/icon-big.png',
+                    'plugins/aboutConfig/icon.png',
+                    'plugins/antispam/icon-big.png',
+                    'plugins/antispam/icon.png',
+                    'plugins/blogroll/icon-small.png',
+                    'plugins/blogroll/icon.png',
+                    'plugins/dcCKEditor/imgs/icon.png',
+                    'plugins/dcLegacyEditor/icon.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_bquote.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_br.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_clean.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_code.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_del.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_em.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_img.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_img_select.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_ins.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_link.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_mark.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_ol.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_paragraph.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_post.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_pre.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_quote.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_strong.png',
+                    'plugins/dcLegacyEditor/css/jsToolBar/bt_ul.png',
+                    'plugins/importExport/icon-big.png',
+                    'plugins/importExport/icon.png',
+                    'plugins/maintenance/icon-big-update.png',
+                    'plugins/maintenance/icon-big.png',
+                    'plugins/maintenance/icon-small.png',
+                    'plugins/maintenance/icon.png',
+                    'plugins/pages/icon-big.png',
+                    'plugins/pages/icon-np-big.png',
+                    'plugins/pages/icon-np.png',
+                    'plugins/pages/icon.png',
+                    'plugins/pings/icon-big.png',
+                    'plugins/pings/icon.png',
+                    'plugins/simpleMenu/icon-small.png',
+                    'plugins/simpleMenu/icon.png',
+                    'plugins/tags/icon-big.png',
+                    'plugins/tags/icon.png',
+                    'plugins/tags/img/tag-add.png',
+                    'plugins/tags/img/loader.gif',
+                    'plugins/userPref/icon-big.png',
+                    'plugins/userPref/icon.png',
+                    'plugins/widgets/icon-big.png',
+                    'plugins/widgets/icon.png',
+                ],
+                // Folders
+                [
+                    'plugins/dcCKEditor/imgs',
+                ]
+            );
         }
 
         if (version_compare($version, '2.21.2', '<')) {
             // A bit of housecleaning for no longer needed folders
-            $remfolders = [
-                'inc/public/default-templates/currywurst',
-                'plugins/pages/default-templates/currywurst',
-                'plugins/tags/default-templates/currywurst',
-            ];
-
-            foreach ($remfolders as $f) {
-                // Use recursive self::rrmdir() which delete folder and all of its content (see below)
-                self::rrmdir(DC_ROOT . '/' . $f);
-            }
+            self::houseCleaning(
+                // Files
+                null,
+                // Folders
+                [
+                    'inc/public/default-templates/currywurst',
+                    'plugins/pages/default-templates/currywurst',
+                    'plugins/tags/default-templates/currywurst',
+                ]
+            );
         }
 
         if (version_compare($version, '2.23', '<')) {
-            # A bit of housecleaning for no longer needed files
-            $remfiles = [
-                'admin/images/module.png',
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'admin/images/module.png',
+                ],
+            );
         }
 
         if (version_compare($version, '2.24', '<')) {
-            // A bit of housecleaning for no longer needed files
-            $remfiles = [
-                'admin/images/close.png',
-                'admin/images/dotclear_pw.png',
-
-                'admin/images/media/audio.png',
-                'admin/images/media/blank.png',
-                'admin/images/media/document.png',
-                'admin/images/media/executable.png',
-                'admin/images/media/folder-up.png',
-                'admin/images/media/folder.png',
-                'admin/images/media/html.png',
-                'admin/images/media/image.png',
-                'admin/images/media/package.png',
-                'admin/images/media/presentation.png',
-                'admin/images/media/spreadsheet.png',
-                'admin/images/media/text.png',
-                'admin/images/media/video.png',
-
-                'admin/style/msg-error.png',
-                'admin/style/msg-info.png',
-                'admin/style/msg-std.png',
-                'admin/style/msg-success.png',
-                'admin/style/msg-warning.png',
-
-                'admin/style/dc_logos/dc_logo_footer.png',
-                'admin/style/dc_logos/sq-logo-32.png',
-                'admin/style/dc_logos/w-dotclear180.png',
-                'admin/style/dc_logos/w-dotclear90.png',
-
-                'admin/style/scss/init/_mixins-functions.scss',
-                'admin/style/config.rb',
-
-                'inc/clearbricks/common/_main.php',
-                'inc/clearbricks/common/lib.forms.php',
-
-                'plugins/akismet/class.dc.filter.akismet.php',                  // Moved to plugins/akismet/filters
-
-                'plugins/antispam/filters/class.dc.filter.ip.php',              // Renamed
-                'plugins/antispam/filters/class.dc.filter.iplookup.php',        // Renamed
-                'plugins/antispam/filters/class.dc.filter.ipv6.php',            // Renamed
-                'plugins/antispam/filters/class.dc.filter.linkslookup.php',     // Renamed
-                'plugins/antispam/filters/class.dc.filter.words.php',           // Renamed
-                'plugins/antispam/inc/class.dc.spamfilter.php',                 // Renamed
-                'plugins/antispam/inc/class.dc.spamfilters.php',                // Renamed
-                'plugins/antispam/inc/lib.dc.antispam.php',                     // Renamed
-                'plugins/antispam/inc/lib.dc.antispam.url.php',                 // Renamed
-
-                'plugins/blogroll/class.dc.blogroll.php',                       // Moved to plugins/blogroll/inc
-                'plugins/blogroll/class.dc.importblogroll.php',                 // Moved to plugins/blogroll/inc
-
-                'plugins/blowupConfig/lib/class.blowup.config.php',             // Moved to plugins/blowupConfig/inc
-
-                'plugins/dclegacy/_admin.php',
-                'plugins/dclegacy/_define.php',
-
-                'plugins/dcCKEditor/inc/_config.php',
-                'plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php',             // Renamed
-
-                'plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php',    // Renamed
-
-                'plugins/fairTrackbacks/class.dc.filter.fairtrackbacks.php',    // Moved to plugins/fairTrackbacks/filters
-
-                'plugins/importExport/style.css',                               // Moved to plugins/importExport/css
-                'plugins/importExport/img/progress.png',
-
-                'plugins/maintenance/inc/class.dc.maintenance.php',                         // Renamed
-                'plugins/maintenance/inc/class.dc.maintenance.descriptor.php',              // Renamed
-                'plugins/maintenance/inc/class.dc.maintenance.task.php',                    // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.cache.php',             // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.csp.php',               // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php',     // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php',     // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php',        // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php',              // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php',    // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php',            // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php',          // Renamed
-                'plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php',          // Renamed
-
-                'plugins/pages/class.actionpage.php',                           // Moved to plugins/pages/inc
-                'plugins/pages/class.listpage.php',                             // Moved to plugins/pages/inc
-
-                'plugins/pings/lib.pings.php',                                  // Moved to plugins/pings/inc
-
-                'plugins/tags/_xmlrpc.php',
-                'plugins/tags/inc/tags.behaviors.php',                          // Renamed
-
-                'plugins/themeEditor/class.themeEditor.php',                    // Moved to plugins/themeEditor/inc
-
-                'plugins/widgets/_default_widgets.php',
-                'plugins/widgets/_widgets_functions.php',                       // Moved to plugins/widgets/inc
-                'plugins/widgets/class.widgets.php',                            // Moved to plugins/widgets/inc
-            ];
-            foreach ($remfiles as $f) {
-                @unlink(DC_ROOT . '/' . $f);
-            }
             // A bit of housecleaning for no longer needed folders
-            $remfolders = [
-                'inc/clearbricks/debian',
-                'inc/clearbricks/ext',
-                'inc/clearbricks/mail.convert',
-                'inc/clearbricks/mail.mime',
-                'inc/clearbricks/net.nntp',
-                'inc/clearbricks/xmlsql',
-                'plugins/blowupConfig/lib',
-                'plugins/dclegacy',
-                'plugins/importExport/img',
-            ];
-            foreach ($remfolders as $f) {
-                self::rrmdir(DC_ROOT . '/' . $f);
-            }
+            self::houseCleaning(
+                // Files
+                [
+                    'admin/images/close.png',
+                    'admin/images/dotclear_pw.png',
 
-            # Global settings
+                    'admin/images/media/audio.png',
+                    'admin/images/media/blank.png',
+                    'admin/images/media/document.png',
+                    'admin/images/media/executable.png',
+                    'admin/images/media/folder-up.png',
+                    'admin/images/media/folder.png',
+                    'admin/images/media/html.png',
+                    'admin/images/media/image.png',
+                    'admin/images/media/package.png',
+                    'admin/images/media/presentation.png',
+                    'admin/images/media/spreadsheet.png',
+                    'admin/images/media/text.png',
+                    'admin/images/media/video.png',
+
+                    'admin/style/msg-error.png',
+                    'admin/style/msg-info.png',
+                    'admin/style/msg-std.png',
+                    'admin/style/msg-success.png',
+                    'admin/style/msg-warning.png',
+
+                    'admin/style/dc_logos/dc_logo_footer.png',
+                    'admin/style/dc_logos/sq-logo-32.png',
+                    'admin/style/dc_logos/w-dotclear180.png',
+                    'admin/style/dc_logos/w-dotclear90.png',
+
+                    'admin/style/scss/init/_mixins-functions.scss',
+                    'admin/style/config.rb',
+
+                    'inc/clearbricks/common/_main.php',
+                    'inc/clearbricks/common/lib.forms.php',
+
+                    'plugins/akismet/class.dc.filter.akismet.php',                  // Moved to plugins/akismet/filters
+
+                    'plugins/antispam/filters/class.dc.filter.ip.php',              // Renamed
+                    'plugins/antispam/filters/class.dc.filter.iplookup.php',        // Renamed
+                    'plugins/antispam/filters/class.dc.filter.ipv6.php',            // Renamed
+                    'plugins/antispam/filters/class.dc.filter.linkslookup.php',     // Renamed
+                    'plugins/antispam/filters/class.dc.filter.words.php',           // Renamed
+                    'plugins/antispam/inc/class.dc.spamfilter.php',                 // Renamed
+                    'plugins/antispam/inc/class.dc.spamfilters.php',                // Renamed
+                    'plugins/antispam/inc/lib.dc.antispam.php',                     // Renamed
+                    'plugins/antispam/inc/lib.dc.antispam.url.php',                 // Renamed
+
+                    'plugins/blogroll/class.dc.blogroll.php',                       // Moved to plugins/blogroll/inc
+                    'plugins/blogroll/class.dc.importblogroll.php',                 // Moved to plugins/blogroll/inc
+
+                    'plugins/blowupConfig/lib/class.blowup.config.php',             // Moved to plugins/blowupConfig/inc
+
+                    'plugins/dclegacy/_admin.php',
+                    'plugins/dclegacy/_define.php',
+
+                    'plugins/dcCKEditor/inc/_config.php',
+                    'plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php',             // Renamed
+
+                    'plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php',    // Renamed
+
+                    'plugins/fairTrackbacks/class.dc.filter.fairtrackbacks.php',    // Moved to plugins/fairTrackbacks/filters
+
+                    'plugins/importExport/style.css',                               // Moved to plugins/importExport/css
+                    'plugins/importExport/img/progress.png',
+
+                    'plugins/maintenance/inc/class.dc.maintenance.php',                         // Renamed
+                    'plugins/maintenance/inc/class.dc.maintenance.descriptor.php',              // Renamed
+                    'plugins/maintenance/inc/class.dc.maintenance.task.php',                    // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.cache.php',             // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.csp.php',               // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php',     // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php',     // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php',        // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php',              // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php',    // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php',            // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php',          // Renamed
+                    'plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php',          // Renamed
+
+                    'plugins/pages/class.actionpage.php',                           // Moved to plugins/pages/inc
+                    'plugins/pages/class.listpage.php',                             // Moved to plugins/pages/inc
+
+                    'plugins/pings/lib.pings.php',                                  // Moved to plugins/pings/inc
+
+                    'plugins/tags/_xmlrpc.php',
+                    'plugins/tags/inc/tags.behaviors.php',                          // Renamed
+
+                    'plugins/themeEditor/class.themeEditor.php',                    // Moved to plugins/themeEditor/inc
+
+                    'plugins/widgets/_default_widgets.php',
+                    'plugins/widgets/_widgets_functions.php',                       // Moved to plugins/widgets/inc
+                    'plugins/widgets/class.widgets.php',                            // Moved to plugins/widgets/inc
+                ],
+                // Folders
+                [
+                    'inc/clearbricks/debian',
+                    'inc/clearbricks/ext',
+                    'inc/clearbricks/mail.convert',
+                    'inc/clearbricks/mail.mime',
+                    'inc/clearbricks/net.nntp',
+                    'inc/clearbricks/xmlsql',
+                    'plugins/blowupConfig/lib',
+                    'plugins/dclegacy',
+                    'plugins/importExport/img',
+                ]
+            );
+
+            // Global settings
             $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
@@ -1214,25 +1223,31 @@ class dcUpgrade
     }
 
     /**
-     * Recursively delete a folder
+     * Remove files and/or folders
      *
-     * @param      string  $src    The folder
+     * @param      array|null  $files    The files
+     * @param      array|null  $folders  The folders
      */
-    private static function rrmdir(string $src)
+    private static function houseCleaning(?array $files = null, ?array $folders = null)
     {
-        if (($dir = @opendir($src)) !== false) {
-            while (($file = @readdir($dir)) !== false) {
-                if (($file !== false) && ($file !== '.') && ($file !== '..')) {
-                    $full = $src . '/' . $file;
-                    if (is_dir($full)) {
-                        self::rrmdir($full);
-                    } else {
-                        @unlink($full);
-                    }
+        if (!defined('DC_ROOT') || (DC_ROOT === '')) {
+            return;
+        }
+
+        if (is_array($files)) {
+            foreach ($files as $f) {
+                if (file_exists(DC_ROOT . '/' . $f)) {
+                    @unlink(DC_ROOT . '/' . $f);
                 }
             }
-            closedir($dir);
-            @rmdir($src);
+        }
+
+        if (is_array($folders)) {
+            foreach ($folders as $f) {
+                if (file_exists(DC_ROOT . '/' . $f)) {
+                    files::deltree(DC_ROOT . '/' . $f);
+                }
+            }
         }
     }
 }
