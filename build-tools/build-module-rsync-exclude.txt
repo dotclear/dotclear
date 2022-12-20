@@ -5,9 +5,12 @@ sass
 scss
 .sass*
 scripts
+*.sass
+*.scss
 # CVS dirs/files
 .git*
 .hg*
+.svn
 *.old
 *.bak
 *.BAK
@@ -15,7 +18,12 @@ scripts
 *.rej
 # Archives
 *.zip
+*.tar
+*.tar.gz
 # Documentation
 mkdocs
 # Mac OS Specific
 .DS_Store
+# Dotclear Specific
+dcstore.xml
+_disabled

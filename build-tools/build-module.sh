@@ -48,7 +48,15 @@ rsync --exclude-from="$DIRECTORY/build-module-rsync-exclude.txt" --exclude="$MOD
 
 # Pack Javascript files
 if [ -f "$MIN_JS" ]; then
-  find ./"$MOD_NAME" -name '*.js' ! -name '*.min.js' -exec "$MIN_JS" \{\} \;
+  # find ./"$MOD_NAME" -name '*.js' ! -name '*.min.js' -exec "$MIN_JS" \{\} \;
+  JS=$(find ./"$MOD_NAME" -name '*.js' ! -name '*.min.js')
+  for j in $JS; do
+    JM=$(dirname "$j")/$(basename "$j" .js).min.js
+    if [ ! -f "$JM" ]; then
+      cp "$j" "$JM"
+      "$MIN_JS" "$JM"
+    fi
+  done
 fi
 
 # Find last version (if any)
@@ -58,10 +66,10 @@ if [ -z "$CUR_VERSION" ]; then
 fi
 
 # Make installable archive
-if [ -f $MOD_TYPE-"$MOD_NAME"-$CUR_VERSION.zip ]; then
-  rm $MOD_TYPE-"$MOD_NAME"-$CUR_VERSION.zip
+if [ -f $MOD_TYPE-"$MOD_NAME"-"$CUR_VERSION".zip ]; then
+  rm $MOD_TYPE-"$MOD_NAME"-"$CUR_VERSION".zip
 fi
-zip -q -r $MOD_TYPE-"$MOD_NAME"-$CUR_VERSION.zip ./"$MOD_NAME"/
+zip -q -r $MOD_TYPE-"$MOD_NAME"-"$CUR_VERSION".zip ./"$MOD_NAME"/
 
 # Cleanup
 rm -rf ./"$MOD_NAME"
