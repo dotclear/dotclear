@@ -202,7 +202,12 @@ class adminUpdate
      */
     public static function render()
     {
+        $safe_mode = false;
+
         if (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
+            // Check if safe_mode is ON, will be use below
+            $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
+
             // Update done, need to go back to authentication (see below), but we need
             // to kill the admin session before sending any header
             dcCore::app()->killAdminSession();
@@ -295,11 +300,11 @@ class adminUpdate
                 '</form></div>';
             }
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {
-            // Keep safe-mode for next authentication
-            // $params = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'] ? ['safe_mode' => 1] : [];
-
             // Dotclear 2.24 upgrade: force safe-mode for next authentication
-            $params = ['safe_mode' => 1];
+            $safe_mode = true;
+
+            // Keep safe-mode for next authentication
+            $params = $safe_mode ? ['safe_mode' => 1] : [];
 
             echo
             '<p class="message">' .
