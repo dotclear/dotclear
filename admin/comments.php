@@ -23,7 +23,6 @@ class adminComments
         ]));
 
         if (!empty($_POST['delete_all_spam'])) {
-
             // Remove all spams
 
             try {
@@ -58,7 +57,7 @@ class adminComments
 
         // default filter ? do not display spam
         if (!dcCore::app()->admin->comment_filter->show() && dcCore::app()->admin->comment_filter->status == '') {
-            $params['comment_status_not'] = -2;
+            $params['comment_status_not'] = dcBlog::COMMENT_JUNK;
         }
         $params['no_content'] = true;
 
