@@ -22,7 +22,7 @@ config: clean config-stamp
 				 ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor  \
 				 ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist        \
 				 ./$(DC)/.atoum.* ./$(DC)/tests ./$(DC)/coverage                            \
-				 ./$(DC)/features ./$(DC)/travis ./$(DC)/behat.yml.dist ./$(DC)/composer.*  \
+				 ./$(DC)/composer.*                                                         \
 				 ./$(DC)/doxygen ./$(DC)/clearbricks/doxygen
 
 	## Create cache, var, db, plugins, themes and public folders
@@ -84,8 +84,6 @@ config: clean config-stamp
 	perl -pi -e "s|^//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/inc/prepend.php $(DC)/inc/prepend.php
 
 	## Remove scm files and folders from DC and CB
-	find ./$(DIST)/ -type d -name '.svn' | xargs -r rm -rf
-	find ./$(DIST)/ -type d -name '.hg'  | xargs -r rm -rf
 	find ./$(DIST)/ -type d -name '.git' | xargs -r rm -rf
 	find ./$(DIST)/ -type f -name '.*ignore' | xargs -r rm -rf
 	find ./$(DIST)/ -type f -name '.flow' | xargs -r rm -rf
