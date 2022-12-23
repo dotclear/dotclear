@@ -304,7 +304,7 @@ class adminUpdate
             $safe_mode = true;
 
             // Keep safe-mode for next authentication
-            $params = $safe_mode ? ['safe_mode' => 1] : [];
+            $params = $safe_mode ? ['safe_mode' => 1] : []; // @phpstan-ignore-line
 
             echo
             '<p class="message">' .

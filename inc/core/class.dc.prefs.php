@@ -199,13 +199,11 @@ class dcPrefs
      *
      * @param      string  $workspace     Workspace name
      *
-     * @return     mixed
+     * @return     dcWorkspace
      */
-    public function get(string $workspace)
+    public function get(string $workspace): dcWorkspace
     {
-        if ($this->exists($workspace)) {
-            return $this->workspaces[$workspace];
-        }
+        return $this->addWorkspace($workspace);
     }
 
     /**
@@ -215,9 +213,9 @@ class dcPrefs
      *
      * @param      string  $workspace     Workspace name
      *
-     * @return     mixed
+     * @return     dcWorkspace
      */
-    public function __get(string $workspace)
+    public function __get(string $workspace): dcWorkspace
     {
         return $this->get($workspace);
     }
