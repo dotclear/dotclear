@@ -188,9 +188,9 @@ class dcSettings
      *
      * @return     dcNamespace
      */
-    public function get(string $namespace): ?dcNamespace
+    public function get(string $namespace): dcNamespace
     {
-        return ($this->namespaces[$namespace] ?? null);
+        return $this->addNamespace($namespace);
     }
 
     /**
@@ -200,7 +200,7 @@ class dcSettings
      *
      * @return     dcNamespace
      */
-    public function __get(string $namespace): ?dcNamespace
+    public function __get(string $namespace): dcNamespace
     {
         return $this->get($namespace);
     }

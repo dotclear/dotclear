@@ -747,6 +747,29 @@ final class dcCore
     }
 
     /**
+     * Adds new behaviors to behaviors stack. Each row must 
+     * contains the behavior and a valid callable callback.
+     *
+     * @param      array    $behaviors  The behaviors
+     */
+    public function addBehaviors(array $behaviors): void
+    {
+        foreach($behaviors as $behavior => $func) {
+            $this->addBehavior($behavior, $func);
+        }
+    }
+
+    /**
+     * Adds behaviours (alias).
+     *
+     * @param      array    $behaviours  The behaviours
+     */
+    public function addBehaviours(array $behaviours): void
+    {
+        $this->addBehaviors($behaviours);
+    }
+
+    /**
      * Determines if behavior exists in behaviors stack.
      *
      * @param      string  $behavior  The behavior
