@@ -27,47 +27,47 @@ if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
 require implode(DIRECTORY_SEPARATOR, [CLEARBRICKS_PATH, '_common.php']);
 
 Clearbricks::lib()->autoload([
-    'dcCore' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.core.php']),
+    'dcCore'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.core.php']),
 
-    'dcAuth'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.auth.php']),
-    'dcBlog'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.blog.php']),
-    'dcCategories'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.categories.php']),
-    'dcError'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.error.php']),
-    'dcMeta'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.meta.php']),
-    'dcMedia'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.media.php']),
-    'dcPostMedia'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.postmedia.php']),
-    'dcModules'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.modules.php']),
-    'dcPlugins'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.plugins.php']),
-    'dcThemes'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.themes.php']),
-    'dcRestServer'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rest.php']),
-    'dcNamespace'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.namespace.php']),
-    'dcNotices'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.notices.php']),
-    'dcSettings'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.settings.php']),
-    'dcTrackback'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.trackback.php']),
-    'dcUpdate'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.update.php']),
-    'dcUtils'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.utils.php']),
-    'dcXmlRpc'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.xmlrpc.php']),
-    'dcLog'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.log.php']),
-    'rsExtLog'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.log.php']),
-    'dcWorkspace'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.workspace.php']),
-    'dcPrefs'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.prefs.php']),
-    'dcStore'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.php']),
-    'dcStoreReader'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.reader.php']),
-    'dcStoreParser'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.parser.php']),
-    'dcSqlStatement'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
-    'dcSelectStatement' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
-    'dcUpdateStatement' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
-    'dcDeleteStatement' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
-    'dcInsertStatement' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
-    'dcRecord'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.record.php']),
-    'rsExtPost'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
-    'rsExtComment'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
-    'rsExtDates'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
-    'rsExtUser'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
-    'rsExtBlog'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
+    'dcAuth'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.auth.php']),
+    'dcBlog'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.blog.php']),
+    'dcCategories'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.categories.php']),
+    'dcError'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.error.php']),
+    'dcMeta'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.meta.php']),
+    'dcMedia'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.media.php']),
+    'dcPostMedia'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.postmedia.php']),
+    'dcModules'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.modules.php']),
+    'dcPlugins'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.plugins.php']),
+    'dcThemes'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.themes.php']),
+    'dcRestServer'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rest.php']),
+    'dcNamespace'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.namespace.php']),
+    'dcNotices'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.notices.php']),
+    'dcSettings'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.settings.php']),
+    'dcTrackback'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.trackback.php']),
+    'dcUpdate'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.update.php']),
+    'dcUtils'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.utils.php']),
+    'dcXmlRpc'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.xmlrpc.php']),
+    'dcLog'                => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.log.php']),
+    'rsExtLog'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.log.php']),
+    'dcWorkspace'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.workspace.php']),
+    'dcPrefs'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.prefs.php']),
+    'dcStore'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.php']),
+    'dcStoreReader'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.reader.php']),
+    'dcStoreParser'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.parser.php']),
+    'dcSqlStatement'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
+    'dcSelectStatement'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
+    'dcUpdateStatement'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
+    'dcDeleteStatement'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
+    'dcInsertStatement'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.sql.statement.php']),
+    'dcRecord'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.record.php']),
+    'rsExtPost'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
+    'rsExtComment'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
+    'rsExtDates'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
+    'rsExtUser'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
+    'rsExtBlog'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
 
     // Upgrade
-    'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'dbschema', 'upgrade.php']),
+    'dcUpgrade'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'dbschema', 'upgrade.php']),
 
     // Admin
     'dcAdmin'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'class.dc.admin.php']),
@@ -110,13 +110,13 @@ Clearbricks::lib()->autoload([
     'formText'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'html.form', 'class.form.text.php']),
 
     // Public
-    'dcPublic'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'class.dc.public.php']),
-    'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'class.dc.template.php']),
-    'context'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'lib.tpl.context.php']),
-    'dcUrlHandlers'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'lib.urlhandlers.php']),
-    'rsExtendPublic'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'rs.extension.php']),
-    'rsExtPostPublic'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'rs.extension.php']),
-    'rsExtCommentPublic' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'rs.extension.php']),
+    'dcPublic'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'class.dc.public.php']),
+    'dcTemplate'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'class.dc.template.php']),
+    'context'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'lib.tpl.context.php']),
+    'dcUrlHandlers'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'lib.urlhandlers.php']),
+    'rsExtendPublic'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'rs.extension.php']),
+    'rsExtPostPublic'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'rs.extension.php']),
+    'rsExtCommentPublic'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'rs.extension.php']),
 ]);
 
 mb_internal_encoding('UTF-8');
@@ -190,7 +190,7 @@ if (!defined('DC_DEBUG')) {
 
 # Constants
 define('DC_ROOT', path::real(dcUtils::path([__DIR__, '..'])));
-define('DC_VERSION', '2.24-dev');
+define('DC_VERSION', '2.25-dev');
 define('DC_DIGESTS', dcUtils::path([__DIR__, 'digests']));
 define('DC_L10N_ROOT', dcUtils::path([__DIR__, '..', 'locales']));
 define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
