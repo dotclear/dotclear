@@ -158,7 +158,6 @@ class dcSpamFilters
      */
     public function saveFilterOpts(array $opts, bool $global = false): void
     {
-        dcCore::app()->blog->settings->addNamespace('antispam');
         if ($global) {
             dcCore::app()->blog->settings->antispam->drop('antispam_filters');
         }

@@ -27,7 +27,6 @@ class installLegacyEditor
         }
 
         $settings = dcCore::app()->blog->settings;
-        $settings->addNamespace('dclegacyeditor');
         $settings->dclegacyeditor->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);
 
         dcCore::app()->setVersion('dcLegacyEditor', $version);

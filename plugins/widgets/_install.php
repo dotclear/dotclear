@@ -33,7 +33,6 @@ class installWidgets
         }
 
         $settings = dcCore::app()->blog->settings;
-        $settings->addNamespace('widgets');
         if ($settings->widgets->widgets_nav != null) {
             $settings->widgets->put('widgets_nav', dcWidgets::load($settings->widgets->widgets_nav)->store());
         } else {

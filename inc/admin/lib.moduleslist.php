@@ -1930,7 +1930,6 @@ class adminThemesList extends adminModulesList
     {
         $submits = [];
 
-        dcCore::app()->blog->settings->addNamespace('system');
         if ($id != dcCore::app()->blog->settings->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
@@ -2026,7 +2025,6 @@ class adminThemesList extends adminModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                dcCore::app()->blog->settings->addNamespace('system');
                 dcCore::app()->blog->settings->system->put('theme', $id);
                 dcCore::app()->blog->triggerBlog();
 

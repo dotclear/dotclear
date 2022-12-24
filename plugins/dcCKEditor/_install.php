@@ -27,7 +27,6 @@ class installCKEditor
         }
 
         $settings = dcCore::app()->blog->settings;
-        $settings->addNamespace('dcckeditor');
 
         $settings->dcckeditor->put('active', true, 'boolean', 'dcCKEditor plugin activated?', false, true);
         $settings->dcckeditor->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);

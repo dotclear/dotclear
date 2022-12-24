@@ -124,7 +124,6 @@ class dcFilterIpLookup extends dcSpamFilter
 
         if (isset($_POST['bls'])) {
             try {
-                dcCore::app()->blog->settings->addNamespace('antispam');
                 dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
                 dcPage::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
                 http::redirect($url);
@@ -154,7 +153,6 @@ class dcFilterIpLookup extends dcSpamFilter
     {
         $bls = dcCore::app()->blog->settings->antispam->antispam_dnsbls;
         if ($bls === null) {
-            dcCore::app()->blog->settings->addNamespace('antispam');
             dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
 
             return $this->default_bls;

@@ -300,7 +300,6 @@ class adminConfigThemeDuctile
                     dcCore::app()->admin->ductile_user = $ductile_user;
                 }
 
-                dcCore::app()->blog->settings->addNamespace('themes');
                 dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_style', serialize(dcCore::app()->admin->ductile_user));
                 dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_stickers', serialize(dcCore::app()->admin->ductile_stickers));
                 dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_entries_lists', serialize(dcCore::app()->admin->ductile_lists));

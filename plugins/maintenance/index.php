@@ -21,8 +21,6 @@ class adminMaintenance
     {
         // Set env
 
-        dcCore::app()->blog->settings->addNamespace('maintenance');
-
         dcCore::app()->admin->maintenance = new dcMaintenance();
         dcCore::app()->admin->tasks       = dcCore::app()->admin->maintenance->getTasks();
         dcCore::app()->admin->code        = empty($_POST['code']) ? null : (int) $_POST['code'];

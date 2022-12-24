@@ -350,9 +350,6 @@ class dcAdmin
                 dcCore::app()->blog->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
             }
 
-            # Ensure theme's settings namespace exists
-            dcCore::app()->blog->settings->addNamespace('themes');
-
             # Admin behaviors
             dcCore::app()->addBehavior('adminPopupPosts', [dcAdminBlogPref::class, 'adminPopupPosts']);
         }

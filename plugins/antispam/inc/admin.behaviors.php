@@ -61,7 +61,6 @@ class antispamBehaviors
      */
     public static function adminBeforeBlogSettingsUpdate(dcSettings $settings): void
     {
-        $settings->addNamespace('antispam');
         $settings->antispam->put('antispam_moderation_ttl', (int) $_POST['antispam_moderation_ttl']);
     }
 }

@@ -98,7 +98,6 @@ class adminWidgets
                 }
 
                 try {
-                    dcCore::app()->blog->settings->addNamespace('widgets');
                     dcCore::app()->blog->settings->widgets->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
                     dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
                     dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
@@ -183,7 +182,6 @@ class adminWidgets
                 dcCore::app()->admin->widgets_extra  = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_EXTRA], dcCore::app()->widgets);
                 dcCore::app()->admin->widgets_custom = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
-                dcCore::app()->blog->settings->addNamespace('widgets');
                 dcCore::app()->blog->settings->widgets->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
                 dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
                 dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
@@ -196,7 +194,6 @@ class adminWidgets
             }
         } elseif (!empty($_POST['wreset'])) {
             try {
-                dcCore::app()->blog->settings->addNamespace('widgets');
                 dcCore::app()->blog->settings->widgets->put('widgets_nav', '');
                 dcCore::app()->blog->settings->widgets->put('widgets_extra', '');
                 dcCore::app()->blog->settings->widgets->put('widgets_custom', '');

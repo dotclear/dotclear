@@ -155,7 +155,6 @@ class dcMaintenanceTask
             $this->success = __('Task successfully executed.');
         }
 
-        dcCore::app()->blog->settings->addNamespace('maintenance');
         $ts = dcCore::app()->blog->settings->maintenance->get('ts_' . $this->id);
 
         $this->ts = abs((int) $ts);

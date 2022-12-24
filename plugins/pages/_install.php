@@ -17,8 +17,6 @@ if (version_compare((string) dcCore::app()->getVersion('pages'), $version, '>=')
     return;
 }
 
-dcCore::app()->blog->settings->addNamespace('pages');
-
 if (dcCore::app()->getVersion('pages') == null) {
     // Create a first pending page, only on a new installation of this plugin
     $params = [
