@@ -36,8 +36,10 @@ dcCore::app()->tpl->addValue('MetaURL', [tplTags::class, 'TagURL']);
 dcCore::app()->tpl->addValue('MetaAllURL', [tplTags::class, 'TagCloudURL']);
 dcCore::app()->tpl->addBlock('EntryMetaData', [tplTags::class, 'EntryTags']);
 
-dcCore::app()->addBehavior('publicPrependV2', [publicBehaviorsTags::class, 'publicPrepend']);
-dcCore::app()->addBehavior('templateBeforeBlockV2', [publicBehaviorsTags::class, 'templateBeforeBlock']);
-dcCore::app()->addBehavior('publicBeforeDocumentV2', [publicBehaviorsTags::class, 'addTplPath']);
+dcCore::app()->addBehaviors([
+    'publicPrependV2'        => [publicBehaviorsTags::class, 'publicPrepend'],
+    'templateBeforeBlockV2'  => [publicBehaviorsTags::class, 'templateBeforeBlock'],
+    'publicBeforeDocumentV2' => [publicBehaviorsTags::class, 'addTplPath'],
+]);
 
 require __DIR__ . '/_widgets.php';

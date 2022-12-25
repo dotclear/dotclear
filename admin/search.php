@@ -26,14 +26,16 @@ class adminSearch
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->addBehavior('adminSearchPageComboV2', [adminSearch::class,'typeCombo']);
-        dcCore::app()->addBehavior('adminSearchPageHeadV2', [adminSearch::class,'pageHead']);
-        // posts search
-        dcCore::app()->addBehavior('adminSearchPageProcessV2', [adminSearch::class,'processPosts']);
-        dcCore::app()->addBehavior('adminSearchPageDisplayV2', [adminSearch::class,'displayPosts']);
-        // comments search
-        dcCore::app()->addBehavior('adminSearchPageProcessV2', [adminSearch::class,'processComments']);
-        dcCore::app()->addBehavior('adminSearchPageDisplayV2', [adminSearch::class,'displayComments']);
+        dcCore::app()->addBehaviors([
+            'adminSearchPageComboV2'   => [adminSearch::class,'typeCombo'],
+            'adminSearchPageHeadV2'    => [adminSearch::class,'pageHead'],
+            // posts search
+            'adminSearchPageProcessV2' => [adminSearch::class,'processPosts'],
+            'adminSearchPageDisplayV2' => [adminSearch::class,'displayPosts'],
+            // comments search
+            'adminSearchPageProcessV2' => [adminSearch::class,'processComments'],
+            'adminSearchPageDisplayV2' => [adminSearch::class,'displayComments'],
+        ]);
 
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo

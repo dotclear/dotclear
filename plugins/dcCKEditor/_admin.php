@@ -27,12 +27,12 @@ if (dcCore::app()->blog->settings->dcckeditor->active) {
     dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
     dcCore::app()->addFormaterName('xhtml', __('HTML'));
 
-    dcCore::app()->addBehavior('adminPostEditor', [dcCKEditorBehaviors::class, 'adminPostEditor']);
-    dcCore::app()->addBehavior('adminPopupMedia', [dcCKEditorBehaviors::class, 'adminPopupMedia']);
-    dcCore::app()->addBehavior('adminPopupLink', [dcCKEditorBehaviors::class, 'adminPopupLink']);
-    dcCore::app()->addBehavior('adminPopupPosts', [dcCKEditorBehaviors::class, 'adminPopupPosts']);
-
-    dcCore::app()->addBehavior('adminMediaURL', [dcCKEditorBehaviors::class, 'adminMediaURL']);
-
-    dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', [dcCKEditorBehaviors::class, 'adminPageHTTPHeaderCSP']);
+    dcCore::app()->addBehaviors([
+        'adminPostEditor'        => [dcCKEditorBehaviors::class, 'adminPostEditor'],
+        'adminPopupMedia'        => [dcCKEditorBehaviors::class, 'adminPopupMedia'],
+        'adminPopupLink'         => [dcCKEditorBehaviors::class, 'adminPopupLink'],
+        'adminPopupPosts'        => [dcCKEditorBehaviors::class, 'adminPopupPosts'],
+        'adminMediaURL'          => [dcCKEditorBehaviors::class, 'adminMediaURL'],
+        'adminPageHTTPHeaderCSP' => [dcCKEditorBehaviors::class, 'adminPageHTTPHeaderCSP'],
+    ]);
 }

@@ -26,13 +26,11 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     ]), dcCore::app()->blog->id)
 );
 
-dcCore::app()->addBehavior('coreAfterCommentUpdate', [dcAntispam::class, 'trainFilters']);
-dcCore::app()->addBehavior('adminAfterCommentDesc', [dcAntispam::class, 'statusMessage']);
-dcCore::app()->addBehavior('adminDashboardHeaders', [dcAntispam::class, 'dashboardHeaders']);
-
-dcCore::app()->addBehavior(
-    'adminDashboardFavoritesV2',
-    function (dcFavorites $favs) {
+dcCore::app()->addBehaviors([
+    'coreAfterCommentUpdate'    => [dcAntispam::class, 'trainFilters'],
+    'adminAfterCommentDesc'     => [dcAntispam::class, 'statusMessage'],
+    'adminDashboardHeaders'     => [dcAntispam::class, 'dashboardHeaders'],
+    'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
         $favs->register(
             'antispam',
             [
@@ -44,11 +42,8 @@ dcCore::app()->addBehavior(
                     dcAuth::PERMISSION_ADMIN,
                 ]), ]
         );
-    }
-);
-dcCore::app()->addBehavior(
-    'adminDashboardFavsIconV2',
-    function (string $name, ArrayObject $icon) {
+    },
+    'adminDashboardFavsIconV2'  => function (string $name, ArrayObject $icon) {
         // Check if it is comments favs
         if ($name === 'comments') {
             // Hack comments title if there is at least one spam
@@ -57,12 +52,14 @@ dcCore::app()->addBehavior(
                 $icon[0] .= $str;
             }
         }
-    }
-);
+    },
+]);
 
 if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
-    dcCore::app()->addBehavior('adminBlogPreferencesFormV2', [antispamBehaviors::class, 'adminBlogPreferencesForm']);
-    dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', [antispamBehaviors::class, 'adminBeforeBlogSettingsUpdate']);
-    dcCore::app()->addBehavior('adminCommentsSpamFormV2', [antispamBehaviors::class, 'adminCommentsSpamForm']);
-    dcCore::app()->addBehavior('adminPageHelpBlock', [antispamBehaviors::class, 'adminPageHelpBlock']);
+    dcCore::app()->addBehaviors([
+        'adminBlogPreferencesFormV2'    => [antispamBehaviors::class, 'adminBlogPreferencesForm'],
+        'adminBeforeBlogSettingsUpdate' => [antispamBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
+        'adminCommentsSpamFormV2'       => [antispamBehaviors::class, 'adminCommentsSpamForm'],
+        'adminPageHelpBlock'            => [antispamBehaviors::class, 'adminPageHelpBlock'],
+    ]);
 }

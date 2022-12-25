@@ -16,7 +16,8 @@ if (!isset(dcCore::app()->resources['help']['themeEditor'])) {
     dcCore::app()->resources['help']['themeEditor'] = __DIR__ . '/help.html';
 }
 
-dcCore::app()->addBehavior('adminCurrentThemeDetailsV2', [themeEditorBehaviors::class, 'adminCurrentThemeDetails']);
-
-dcCore::app()->addBehavior('adminBeforeUserOptionsUpdate', [themeEditorBehaviors::class, 'adminBeforeUserUpdate']);
-dcCore::app()->addBehavior('adminPreferencesFormV2', [themeEditorBehaviors::class, 'adminPreferencesForm']);
+dcCore::app()->addBehaviors([
+    'adminCurrentThemeDetailsV2'   => [themeEditorBehaviors::class, 'adminCurrentThemeDetails'],
+    'adminBeforeUserOptionsUpdate' => [themeEditorBehaviors::class, 'adminBeforeUserUpdate'],
+    'adminPreferencesFormV2'       => [themeEditorBehaviors::class, 'adminPreferencesForm'],
+]);
