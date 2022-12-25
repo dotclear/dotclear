@@ -741,7 +741,7 @@ class adminModulesList
                     continue;
                 }
             }
-            $git = file_exists($module['root'] . '/.git') && ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG));
+            $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($module['root'] . '/.git');
 
             echo
             '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . html::escapeHTML($this->list_id) . '_m_' . html::escapeHTML($id) . '"' .
@@ -1749,7 +1749,7 @@ class adminThemesList extends adminModulesList
             $current = dcCore::app()->blog->settings->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = self::isDistributedModule($id) ? ' dc-box' : '';
 
-            $git = file_exists($module['root'] . '/.git') && ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG));
+            $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($module['root'] . '/.git');
 
             $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . ($git ? ' module-git' : '') . '">';
 
