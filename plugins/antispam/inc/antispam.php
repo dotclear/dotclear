@@ -248,8 +248,6 @@ class dcAntispam
         $init                 = false;
 
         // settings
-        dcCore::app()->blog->settings->addNamespace('antispam');
-
         $dateLastPurge = dcCore::app()->blog->settings->antispam->antispam_date_last_purge;
         if ($dateLastPurge === null) {
             $init = true;

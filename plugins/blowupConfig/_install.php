@@ -26,7 +26,6 @@ class installBlowupConfig
             return;
         }
 
-        dcCore::app()->blog->settings->addNamespace('themes');
         dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
 
         dcCore::app()->setVersion('blowupConfig', $version);

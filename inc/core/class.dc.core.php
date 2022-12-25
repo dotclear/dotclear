@@ -2199,7 +2199,6 @@ final class dcCore
         }
 
         $settings = new dcSettings(null);
-        $settings->addNamespace('system');
 
         foreach ($defaults as $v) {
             $settings->system->put($v[0], $v[2], $v[1], $v[3], false, true);

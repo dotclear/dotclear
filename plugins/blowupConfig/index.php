@@ -204,7 +204,6 @@ class adminBlowupConfig
                     blowupConfig::createCss($blowup_user);
                 }
 
-                dcCore::app()->blog->settings->addNamespace('themes');
                 dcCore::app()->blog->settings->themes->put('blowup_style', serialize($blowup_user));
                 dcCore::app()->blog->triggerBlog();
 

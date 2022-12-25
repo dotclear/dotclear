@@ -213,9 +213,6 @@ class dcPublic
             'about:config module or reinstall default theme. (' . dcCore::app()->public->theme . ')'), 650);
         }
 
-        # Ensure theme's settings namespace exists
-        dcCore::app()->blog->settings->addNamespace('themes');
-
         # Loading _public.php file for selected theme
         dcCore::app()->themes->loadNsFile($this->theme, 'public');
 

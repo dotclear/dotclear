@@ -31,7 +31,6 @@ class installPings
             'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
         ];
 
-        dcCore::app()->blog->settings->addNamespace('pings');
         dcCore::app()->blog->settings->pings->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);
         dcCore::app()->blog->settings->pings->put('pings_auto', 0, 'boolean', 'Auto pings on 1st publication', false, true);
         dcCore::app()->blog->settings->pings->put('pings_uris', $default_pings_uris, 'array', 'Pings services URIs', false, true);

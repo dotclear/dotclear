@@ -50,7 +50,6 @@ class adminPings
                         $pings_uris[trim((string) $v)] = trim((string) $pings_srv_uri[$k]);
                     }
                 }
-                dcCore::app()->blog->settings->addNamespace('pings');
                 // Settings for all blogs
                 dcCore::app()->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
                 dcCore::app()->blog->settings->pings->put('pings_uris', $pings_uris, null, null, true, true);

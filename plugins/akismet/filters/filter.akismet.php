@@ -175,7 +175,6 @@ class dcFilterAkismet extends dcSpamFilter
      */
     public function gui($url): string
     {
-        dcCore::app()->blog->settings->addNamespace('akismet');
         $ak_key      = dcCore::app()->blog->settings->akismet->ak_key;
         $ak_verified = null;
 

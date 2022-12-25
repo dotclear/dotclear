@@ -140,7 +140,6 @@ if ($can_install && !empty($_POST)) {
         dcCore::app()->blogDefaults();
 
         $blog_settings = new dcSettings('default');
-        $blog_settings->addNamespace('system');
         $blog_settings->system->put('blog_timezone', $default_tz);
         $blog_settings->system->put('lang', $dlang);
         $blog_settings->system->put('public_url', $root_url . '/public');

@@ -54,7 +54,6 @@ class installAntispam
             (new dcFilterWords())->defaultWordsList();
         }
 
-        dcCore::app()->blog->settings->addNamespace('antispam');
         dcCore::app()->blog->settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
 
         dcCore::app()->setVersion('antispam', $version);
