@@ -23,9 +23,7 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     ]), dcCore::app()->blog->id)
 );
 
-$self_ns = dcCore::app()->blog->settings->get('dclegacyeditor');
-
-if ($self_ns->active) {
+if (dcCore::app()->blog->settings->dclegacyeditor->active) {
     if (!(dcCore::app()->wiki2xhtml instanceof wiki2xhtml)) {
         dcCore::app()->initWikiPost();
     }

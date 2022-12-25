@@ -23,9 +23,7 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     ]), dcCore::app()->blog->id)
 );
 
-$self_ns = dcCore::app()->blog->settings->get('dcckeditor');
-
-if ($self_ns->active) {
+if (dcCore::app()->blog->settings->dcckeditor->active) {
     dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
     dcCore::app()->addFormaterName('xhtml', __('HTML'));
 
