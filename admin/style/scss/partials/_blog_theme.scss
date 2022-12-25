@@ -16,6 +16,13 @@
   &:hover {
     background-color: var(--theme-box-over);
   }
+
+  &.module-git {
+    background: url(git-branch.svg) no-repeat top right;
+    background-size: 1.5em;
+    background-origin: content-box;
+    background-color: transparent;
+  }
 }
 
 .module-name,

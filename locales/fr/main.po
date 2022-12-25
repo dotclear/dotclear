@@ -3197,6 +3197,9 @@ msgstr "Dépôt alternatif"
 msgid "Plugin from official distribution"
 msgstr "Plugin de la distribution officielle"
 
+msgid "Plugin in development"
+msgstr "Plugin en développement"
+
 msgid "No plugins matched your search."
 msgstr "Aucun plugin ne correspond à votre recherche."
 

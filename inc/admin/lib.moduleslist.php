@@ -741,9 +741,10 @@ class adminModulesList
                     continue;
                 }
             }
+            $git = file_exists($module['root'] . '/.git') && ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG));
 
             echo
-            '<tr class="line" id="' . html::escapeHTML($this->list_id) . '_m_' . html::escapeHTML($id) . '"' .
+            '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . html::escapeHTML($this->list_id) . '_m_' . html::escapeHTML($id) . '"' .
                 (in_array('desc', $cols) ? ' title="' . html::escapeHTML(__($module['desc'])) . '" ' : '') .
                 '>';
 
@@ -785,7 +786,7 @@ class adminModulesList
 
             $tds++;
             echo
-                '<th class="module-name nowrap" scope="row">';
+            '<th class="module-name nowrap" scope="row">';
             if (in_array('checkbox', $cols)) {
                 if (in_array('expander', $cols)) {
                     echo
@@ -794,7 +795,7 @@ class adminModulesList
                     echo
                     '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
                     html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
-                        '</label>';
+                    '</label>';
                 }
             } else {
                 echo
@@ -803,13 +804,13 @@ class adminModulesList
             }
             echo
             dcCore::app()->formNonce() .
-                '</td>';
+            '</td>';
 
             # Display score only for debug purpose
             if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
                 $tds++;
                 echo
-                    '<td class="module-version nowrap count"><span class="debug">' . $module['score'] . '</span></td>';
+                '<td class="module-version nowrap count"><span class="debug">' . $module['score'] . '</span></td>';
             }
 
             if (in_array('version', $cols)) {
@@ -864,7 +865,11 @@ class adminModulesList
                     '<img src="images/dotclear-leaf.svg" alt="' .
                     __('Plugin from official distribution') . '" title="' .
                     __('Plugin from official distribution') . '" />'
-                    : '') . '</td>';
+                    : ($git ?
+                        '<img src="images/git-branch.svg" alt="' .
+                        __('Plugin in development') . '" title="' .
+                        __('Plugin in development') . '" />'
+                        : '')) . '</td>';
             }
 
             if (!empty($actions) && dcCore::app()->auth->isSuperAdmin()) {
@@ -1744,7 +1749,9 @@ class adminThemesList extends adminModulesList
             $current = dcCore::app()->blog->settings->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = self::isDistributedModule($id) ? ' dc-box' : '';
 
-            $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . '">';
+            $git = file_exists($module['root'] . '/.git') && ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG));
+
+            $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . ($git ? ' module-git' : '') . '">';
 
             if (in_array('name', $cols) && !$current) {
                 $line .= '<h4 class="module-name">';
@@ -1760,7 +1767,7 @@ class adminThemesList extends adminModulesList
                 }
 
                 $line .= dcCore::app()->formNonce() .
-                    '</h4>';
+                '</h4>';
             }
 
             # Display score only for debug purpose
