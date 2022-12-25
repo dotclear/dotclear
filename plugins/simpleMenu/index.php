@@ -400,7 +400,6 @@ class adminSimpleMenu
                         }
                         $menu = $newmenu;
 
-                        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
                         if (dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
                             # Order menu items
                             $order = [];
@@ -455,7 +454,6 @@ class adminSimpleMenu
         '<head>' .
         '<title>' . dcCore::app()->admin->page_title . '</title>' ;
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo
             dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .

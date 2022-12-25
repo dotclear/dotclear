@@ -64,7 +64,7 @@ class adminUser
                 dcCore::app()->admin->user_options = array_merge(dcCore::app()->admin->user_options, dcCore::app()->admin->rs->options());
 
                 $user_prefs = new dcPrefs(dcCore::app()->admin->user_id, 'profile');
-                $user_prefs->addWorkspace('profile');
+
                 dcCore::app()->admin->user_profile_mails = $user_prefs->profile->mails;
                 dcCore::app()->admin->user_profile_urls  = $user_prefs->profile->urls;
 
@@ -143,7 +143,6 @@ class adminUser
                         $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
                     $user_prefs = new dcPrefs(dcCore::app()->admin->user_id, 'profile');
-                    $user_prefs->addWorkspace('profile');
                     $user_prefs->profile->put('mails', $mails, 'string');
                     $user_prefs->profile->put('urls', $urls, 'string');
 
@@ -178,7 +177,6 @@ class adminUser
                         $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
                     $user_prefs = new dcPrefs($new_id, 'profile');
-                    $user_prefs->addWorkspace('profile');
                     $user_prefs->profile->put('mails', $mails, 'string');
                     $user_prefs->profile->put('urls', $urls, 'string');
 

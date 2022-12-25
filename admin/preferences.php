@@ -36,11 +36,9 @@ class adminUserPrefs
             $user_options['editor'] = [];
         }
 
-        dcCore::app()->auth->user_prefs->addWorkspace('profile');
         dcCore::app()->admin->user_profile_mails = dcCore::app()->auth->user_prefs->profile->mails;
         dcCore::app()->admin->user_profile_urls  = dcCore::app()->auth->user_prefs->profile->urls;
 
-        dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
         dcCore::app()->admin->user_dm_doclinks   = dcCore::app()->auth->user_prefs->dashboard->doclinks;
         dcCore::app()->admin->user_dm_dcnews     = dcCore::app()->auth->user_prefs->dashboard->dcnews;
         dcCore::app()->admin->user_dm_quickentry = dcCore::app()->auth->user_prefs->dashboard->quickentry;
@@ -50,10 +48,8 @@ class adminUserPrefs
             dcCore::app()->admin->user_dm_nodcupdate = dcCore::app()->auth->user_prefs->dashboard->nodcupdate;
         }
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         dcCore::app()->admin->user_acc_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
         dcCore::app()->admin->user_ui_theme            = dcCore::app()->auth->user_prefs->interface->theme;
         dcCore::app()->admin->user_ui_enhanceduploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
         dcCore::app()->admin->user_ui_blank_preview    = dcCore::app()->auth->user_prefs->interface->blank_preview;
@@ -153,8 +149,6 @@ class adminUserPrefs
         ];
         // All filters
         dcCore::app()->admin->auto_filter = dcCore::app()->auth->user_prefs->interface->auto_filter;
-
-        dcCore::app()->auth->user_prefs->addWorkspace('favorites');
     }
 
     /**

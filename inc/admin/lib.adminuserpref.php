@@ -93,8 +93,6 @@ class adminUserPref
      */
     public static function getDefaultFilters(): array
     {
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
-
         // Helper for nb of element per page, use setting if set and > 0, else use default value
         $nb_per_page = fn ($setting, $default = 30) => $setting ? ((int) $setting > 0 ? $setting : $default) : $default;
 
@@ -110,7 +108,7 @@ class adminUserPref
         }
 
         return [
-            'posts' => [
+            'posts'    => [
                 __('Posts'),
                 dcAdminCombos::getPostsSortbyCombo(),
                 'post_dt',
@@ -124,15 +122,15 @@ class adminUserPref
                 'desc',
                 [__('comments per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_comments_per_page)],
             ],
-            'blogs' => [
+            'blogs'    => [
                 __('Blogs'),
                 dcAdminCombos::getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
                 [__('blogs per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_blogs_per_page)],
             ],
-            'users' => $users,
-            'media' => [
+            'users'    => $users,
+            'media'    => [
                 __('Media manager'),
                 [
                     __('Name') => 'name',
@@ -143,7 +141,7 @@ class adminUserPref
                 'asc',
                 [__('media per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->media_by_page)],
             ],
-            'search' => [
+            'search'   => [
                 __('Search'),
                 null,
                 null,
@@ -170,10 +168,7 @@ class adminUserPref
             # --BEHAVIOR-- adminFiltersLists
             dcCore::app()->callBehavior('adminFiltersListsV2', $sorts);
 
-            if (dcCore::app()->auth->user_prefs->interface === null) {
-                dcCore::app()->auth->user_prefs->addWorkspace('interface');
-            }
-            $sorts_user = @dcCore::app()->auth->user_prefs->interface->sorts;
+            $sorts_user = dcCore::app()->auth->user_prefs->interface->sorts;
             if (is_array($sorts_user)) {
                 foreach ($sorts_user as $stype => $sdata) {
                     if (!isset($sorts[$stype])) {

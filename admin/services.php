@@ -181,7 +181,6 @@ class dcRestMethods
             $mod = dcCore::app()->plugins;
             $url = dcCore::app()->blog->settings->system->store_plugin_url;
         } else {
-
             # --BEHAVIOR-- restCheckStoreUpdate
             dcCore::app()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
@@ -599,9 +598,6 @@ class dcRestMethods
         if (empty($post['section'])) {
             throw new Exception('No section name');
         }
-        if (dcCore::app()->auth->user_prefs->toggles === null) {
-            dcCore::app()->auth->user_prefs->addWorkspace('toggles');
-        }
         $section = $post['section'];
         $status  = isset($post['value']) && ($post['value'] != 0);
         if (dcCore::app()->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
@@ -633,10 +629,6 @@ class dcRestMethods
         }
         if (empty($post['list'])) {
             throw new Exception('No sorted list of id');
-        }
-
-        if (dcCore::app()->auth->user_prefs->dashboard === null) {
-            dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
         }
 
         $zone  = $post['id'];
@@ -676,9 +668,7 @@ class dcRestMethods
                 $su[$sort_type][2] = $sort_type == $post['id'] && isset($post[$k]) ? abs((int) $post[$k]) : $sort_data[4][1];
             }
         }
-        if (dcCore::app()->auth->user_prefs->interface === null) {
-            dcCore::app()->auth->user_prefs->addWorkspace('interface');
-        }
+
         dcCore::app()->auth->user_prefs->interface->put('sorts', $su, 'array');
 
         $res->msg = __('List options saved');

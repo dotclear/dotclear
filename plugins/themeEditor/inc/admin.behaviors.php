@@ -35,8 +35,6 @@ class themeEditorBehaviors
     public static function adminBeforeUserUpdate(): void
     {
         // Get and store user's prefs for plugin options
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
-
         try {
             dcCore::app()->auth->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
             dcCore::app()->auth->user_prefs->interface->put(
@@ -54,7 +52,6 @@ class themeEditorBehaviors
     public static function adminPreferencesForm(): void
     {
         // Add fieldset for plugin options
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
         $current_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme ?? 'default';
 
         $themes_list  = dcPage::getCodeMirrorThemes();

@@ -233,7 +233,6 @@ class adminWidgets
         ]) .
         dcPage::jsModuleLoad('widgets/js/widgets.js');
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         $user_dm_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
             echo

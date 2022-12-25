@@ -124,7 +124,6 @@ class adminAntispam
             '' . dcCore::app()->admin->page_name . '</title>') .
         dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo
             dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .

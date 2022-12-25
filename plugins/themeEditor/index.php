@@ -28,7 +28,6 @@ class adminThemeEditor
         ]);
 
         # Get interface setting
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
         dcCore::app()->admin->user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsyntax;
         dcCore::app()->admin->user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 

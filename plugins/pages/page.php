@@ -492,7 +492,7 @@ class adminPage
         -------------------------------------------------------- */
         if (dcCore::app()->admin->can_edit_page) {
             $sidebar_items = new ArrayObject([
-                'status-box' => [
+                'status-box'  => [
                     'title' => __('Status'),
                     'items' => [
                         'post_status' => '<p><label for="post_status">' . __('Page status') . '</label> ' .
@@ -502,13 +502,13 @@ class adminPage
                             ['default' => dcCore::app()->admin->post_status, 'disabled' => !dcCore::app()->admin->can_publish]
                         ) .
                         '</p>',
-                        'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
+                        'post_dt'     => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
                             'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
                             'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
-                        'post_lang' => '<p><label for="post_lang">' . __('Page language') . '</label>' .
+                        'post_lang'   => '<p><label for="post_lang">' . __('Page language') . '</label>' .
                         form::combo('post_lang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->post_lang) .
                         '</p>',
                         'post_format' => '<div>' .
@@ -518,7 +518,7 @@ class adminPage
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') .
                         '" href="' . html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;xconv=1">' .
                         __('Convert to HTML') . '</a></p></div>', ], ],
-                'metas-box' => [
+                'metas-box'   => [
                     'title' => __('Filing'),
                     'items' => [
                         'post_position' => '<p><label for="post_position" class="classic">' . __('Page position') . '</label> ' .
@@ -551,13 +551,13 @@ class adminPage
                                 __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
-                        'post_hide' => '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, dcCore::app()->admin->post_selected) . ' ' .
+                        'post_hide'            => '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, dcCore::app()->admin->post_selected) . ' ' .
                         __('Hide in widget Pages') . '</label>' .
                         '</p>',
-                        'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
+                        'post_password'        => '<p><label for="post_password">' . __('Password') . '</label>' .
                         form::field('post_password', 10, 32, html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
                         '</p>',
-                        'post_url' => '<div class="lockable">' .
+                        'post_url'             => '<div class="lockable">' .
                         '<p><label for="post_url">' . __('Edit basename') . '</label>' .
                         form::field('post_url', 10, 255, html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
                         '</p>' .
@@ -567,7 +567,7 @@ class adminPage
                     ], ], ]);
             $main_items = new ArrayObject(
                 [
-                    'post_title' => '<p class="col">' .
+                    'post_title'   => '<p class="col">' .
                     '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
                         'default'    => html::escapeHTML(dcCore::app()->admin->post_title),
@@ -602,7 +602,7 @@ class adminPage
                     ) .
                     '</p>',
 
-                    'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
+                    'post_notes'   => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
                     __('Unpublished notes.') . '</span></label>' .
                     form::textarea(
                         'post_notes',
@@ -652,7 +652,6 @@ class adminPage
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) rand());
 
-                dcCore::app()->auth->user_prefs->addWorkspace('interface');
                 $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : ' modal';

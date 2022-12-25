@@ -41,7 +41,6 @@ class adminUserPreferences
         if (!empty($_POST['s']) && is_array($_POST['s'])) {
             try {
                 foreach ($_POST['s'] as $ws => $s) {
-                    dcCore::app()->auth->user_prefs->addWorkspace($ws);
                     foreach ($s as $k => $v) {
                         if ($_POST['s_type'][$ws][$k] == 'array') {
                             $v = json_decode($v, true);
@@ -61,7 +60,6 @@ class adminUserPreferences
         if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
             try {
                 foreach ($_POST['gs'] as $ws => $s) {
-                    dcCore::app()->auth->user_prefs->addWorkspace($ws);
                     foreach ($s as $k => $v) {
                         if ($_POST['gs_type'][$ws][$k] == 'array') {
                             $v = json_decode($v, true);

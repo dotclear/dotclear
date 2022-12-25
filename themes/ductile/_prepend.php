@@ -33,7 +33,6 @@ class tplDuctileThemeAdmin
         }
 
         echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
-        \dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         if (!\dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo
             \dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .

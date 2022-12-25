@@ -214,7 +214,6 @@ class dcPage
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
         if (!dcCore::app()->auth->user_prefs->interface->hide_std_favicon) {
             echo
                 '<link rel="icon" type="image/png" href="images/favicon96-login.png" />' . "\n" .
@@ -226,7 +225,6 @@ class dcPage
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
@@ -524,14 +522,12 @@ class dcPage
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
         if (dcCore::app()->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
@@ -886,11 +882,11 @@ class dcPage
     public static function jsCommon(): string
     {
         $js = [
-            'nonce' => dcCore::app()->getNonce(),
+            'nonce'         => dcCore::app()->getNonce(),
 
-            'img_plus_src' => 'images/expand.svg',
-            'img_plus_txt' => '▶',
-            'img_plus_alt' => __('uncover'),
+            'img_plus_src'  => 'images/expand.svg',
+            'img_plus_txt'  => '▶',
+            'img_plus_alt'  => __('uncover'),
 
             'img_minus_src' => 'images/hide.svg',
             'img_minus_txt' => '▼',
@@ -947,21 +943,21 @@ class dcPage
             'confirm_change_post_format_noconvert' => __('Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?'),
             'load_enhanced_uploader'               => __('Loading enhanced uploader, please wait.'),
 
-            'module_author'  => __('Author:'),
-            'module_details' => __('Details'),
-            'module_support' => __('Support'),
-            'module_help'    => __('Help:'),
-            'module_section' => __('Section:'),
-            'module_tags'    => __('Tags:'),
+            'module_author'                        => __('Author:'),
+            'module_details'                       => __('Details'),
+            'module_support'                       => __('Support'),
+            'module_help'                          => __('Help:'),
+            'module_section'                       => __('Section:'),
+            'module_tags'                          => __('Tags:'),
 
-            'close_notice' => __('Hide this notice'),
+            'close_notice'                         => __('Hide this notice'),
 
-            'show_password' => __('Show password'),
-            'hide_password' => __('Hide password'),
+            'show_password'                        => __('Show password'),
+            'hide_password'                        => __('Hide password'),
 
-            'set_today' => __('Reset to now'),
+            'set_today'                            => __('Reset to now'),
 
-            'adblocker' => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences.'),
+            'adblocker'                            => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences.'),
         ];
 
         return
@@ -996,7 +992,6 @@ class dcPage
         if ($adblockcheck) {
             // May not be set (auth page for example)
             if (dcCore::app()->auth->user_prefs) {
-                dcCore::app()->auth->user_prefs->addWorkspace('interface');
                 $adblockcheck = dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;
@@ -1080,7 +1075,7 @@ class dcPage
             'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader'),
         ];
         $js = [
-            'msg' => [
+            'msg'      => [
                 'limit_exceeded'             => __('Limit exceeded.'),
                 'size_limit_exceeded'        => __('File size exceeds allowed limit.'),
                 'canceled'                   => __('Canceled.'),

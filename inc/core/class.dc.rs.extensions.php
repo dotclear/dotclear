@@ -795,8 +795,7 @@ class rsExtComment
      */
     public static function isMe(dcRecord $rs): bool
     {
-        $user_prefs = new dcPrefs((string) $rs->user_id, 'profile');
-        $user_prefs->addWorkspace('profile');
+        $user_prefs         = new dcPrefs((string) $rs->user_id, 'profile');
         $user_profile_mails = $user_prefs->profile->mails ?
             array_map('trim', explode(',', $user_prefs->profile->mails)) :
             [];

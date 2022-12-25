@@ -212,7 +212,6 @@ class adminBlogroll
         '<title>' . __('Blogroll') . '</title>' .
         dcPage::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo
             dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .

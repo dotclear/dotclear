@@ -935,8 +935,6 @@ class adminMediaFilter extends adminGenericFilterV2
 
     protected function getDirFilter(): dcAdminFilter
     {
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
-
         $get = $_REQUEST['d'] ?? dcCore::app()->auth->user_prefs->interface->media_manager_dir ?? null;
         if ($get) {
             // Store current dir in user pref
@@ -951,8 +949,6 @@ class adminMediaFilter extends adminGenericFilterV2
 
     protected function getFileModeFilter(): dcAdminFilter
     {
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
-
         $get = $_REQUEST['file_mode'] ?? $get = dcCore::app()->auth->user_prefs->interface->media_file_mode ?? null;
         if ($get) {
             // Store current view in user pref

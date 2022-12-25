@@ -589,7 +589,6 @@ class adminMediaPage extends adminMediaFilter
     {
         parent::__construct('media');
 
-        dcCore::app()->auth->user_prefs->addWorkspace('interface');
         $this->media_uploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
 
         // try to load core media and themes

@@ -54,11 +54,11 @@ class dcMaintenanceAdmin
     public static function adminDashboardFavorites(dcFavorites $favs): void
     {
         $favs->register('maintenance', [
-            'title'       => __('Maintenance'),
-            'url'         => dcCore::app()->adminurl->get('admin.plugin.maintenance'),
-            'small-icon'  => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
-            'large-icon'  => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
-            'permissions' => dcCore::app()->auth->makePermissions([
+            'title'        => __('Maintenance'),
+            'url'          => dcCore::app()->adminurl->get('admin.plugin.maintenance'),
+            'small-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
+            'large-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
+            'permissions'  => dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_ADMIN,
             ]),
             'active_cb'    => [dcMaintenanceAdmin::class, 'adminDashboardFavoritesActive'],
@@ -90,7 +90,6 @@ class dcMaintenanceAdmin
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
         // Check user option
-        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
         if (!dcCore::app()->auth->user_prefs->maintenance->dashboard_icon) {
             return;
         }
@@ -119,7 +118,6 @@ class dcMaintenanceAdmin
      */
     public static function adminDashboardItems(ArrayObject $items): void
     {
-        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
         if (!dcCore::app()->auth->user_prefs->maintenance->dashboard_item) {
             return;
         }
@@ -168,8 +166,6 @@ class dcMaintenanceAdmin
      */
     public static function adminDashboardOptionsForm(): void
     {
-        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
-
         echo
         '<div class="fieldset">' .
         '<h4>' . __('Maintenance') . '</h4>' .
@@ -196,7 +192,6 @@ class dcMaintenanceAdmin
             return;
         }
 
-        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
         dcCore::app()->auth->user_prefs->maintenance->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
         dcCore::app()->auth->user_prefs->maintenance->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
     }

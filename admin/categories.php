@@ -116,7 +116,6 @@ class adminCategories
 
         $starting_script = '';
 
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop
             && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_CATEGORIES,

@@ -94,7 +94,6 @@ class dcAdmin
                     $redir = preg_replace('/\?$/', '', $redir);
                 }
 
-                dcCore::app()->auth->user_prefs->addWorkspace('interface');
                 dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
 
                 if (strstr($redir, 'media.php') !== false) {
@@ -185,7 +184,6 @@ class dcAdmin
             // Contextual help flag
             dcCore::app()->resources['ctxhelp'] = false;
 
-            dcCore::app()->auth->user_prefs->addWorkspace('interface');
             $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
             dcCore::app()->notices = new dcNotices();

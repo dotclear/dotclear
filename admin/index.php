@@ -67,7 +67,6 @@ class adminIndex
     public static function render()
     {
         // Check dashboard module prefs
-        dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
         if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('doclinks')) {
             if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('doclinks', true)) {
                 dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
@@ -94,7 +93,6 @@ class adminIndex
         }
 
         // Handle folded/unfolded sections in admin from user preferences
-        dcCore::app()->auth->user_prefs->addWorkspace('toggles');
         if (!dcCore::app()->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
             dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
         }
@@ -150,7 +148,6 @@ class adminIndex
         }
 
         // Dashboard drag'n'drop switch for its elements
-        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         $dragndrop      = '';
         $dragndrop_head = '';
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
