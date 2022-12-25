@@ -10,19 +10,14 @@
  */
 class dcAdmin
 {
+    use dcTraitDynamicProperties;
+
     /**
      * Current admin page URL
      *
      * @var string
      */
     protected $p_url;
-
-    /**
-     * User-defined - experimental (may be changed in near future)
-     *
-     * @var        array
-     */
-    protected $properties = [];
 
     // Constants
 
@@ -350,53 +345,6 @@ class dcAdmin
 
             # Admin behaviors
             dcCore::app()->addBehavior('adminPopupPosts', [dcAdminBlogPref::class, 'adminPopupPosts']);
-        }
-    }
-
-    /**
-     * Magic function, store a property and its value
-     *
-     * @param      string  $identifier  The identifier
-     * @param      mixed   $value       The value
-     */
-    public function __set(string $identifier, $value = null)
-    {
-        $this->properties[$identifier] = $value;
-    }
-
-    /**
-     * Gets the specified property value (null if does not exist).
-     *
-     * @param      string  $identifier  The identifier
-     *
-     * @return     mixed
-     */
-    public function __get(string $identifier)
-    {
-        return array_key_exists($identifier, $this->properties) ? $this->properties[$identifier] : null;
-    }
-
-    /**
-     * Test if a property exists
-     *
-     * @param      string  $identifier  The identifier
-     *
-     * @return     bool
-     */
-    public function __isset(string $identifier): bool
-    {
-        return isset($this->properties[$identifier]);
-    }
-
-    /**
-     * Unset a property
-     *
-     * @param      string  $identifier  The identifier
-     */
-    public function __unset(string $identifier)
-    {
-        if (array_key_exists($identifier, $this->properties)) {
-            unset($this->properties[$identifier]);
         }
     }
 

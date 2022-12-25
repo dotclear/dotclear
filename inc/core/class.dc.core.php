@@ -13,6 +13,8 @@
  */
 final class dcCore
 {
+    use dcTraitDynamicProperties;
+
     // Constants
 
     /**
@@ -257,15 +259,6 @@ final class dcCore
      */
     public $spamfilters = [];
 
-    // User-defined - experimental (may be changed in future)
-
-    /**
-     * User-defined properties
-     *
-     * @var        array(<string>, <mixed>)
-     */
-    protected $properties = [];
-
     // Private
 
     /**
@@ -384,53 +377,6 @@ final class dcCore
     public static function app(): dcCore
     {
         return self::$instance;
-    }
-
-    /**
-     * Magic function, store a property and its value
-     *
-     * @param      string  $identifier  The identifier
-     * @param      mixed   $value       The value
-     */
-    public function __set(string $identifier, $value = null)
-    {
-        $this->properties[$identifier] = $value;
-    }
-
-    /**
-     * Gets the specified property value (null if does not exist).
-     *
-     * @param      string  $identifier  The identifier
-     *
-     * @return     mixed
-     */
-    public function __get(string $identifier)
-    {
-        return array_key_exists($identifier, $this->properties) ? $this->properties[$identifier] : null;
-    }
-
-    /**
-     * Test if a property exists
-     *
-     * @param      string  $identifier  The identifier
-     *
-     * @return     bool
-     */
-    public function __isset(string $identifier): bool
-    {
-        return isset($this->properties[$identifier]);
-    }
-
-    /**
-     * Unset a property
-     *
-     * @param      string  $identifier  The identifier
-     */
-    public function __unset(string $identifier)
-    {
-        if (array_key_exists($identifier, $this->properties)) {
-            unset($this->properties[$identifier]);
-        }
     }
 
     /**
@@ -747,14 +693,14 @@ final class dcCore
     }
 
     /**
-     * Adds new behaviors to behaviors stack. Each row must 
+     * Adds new behaviors to behaviors stack. Each row must
      * contains the behavior and a valid callable callback.
      *
      * @param      array    $behaviors  The behaviors
      */
     public function addBehaviors(array $behaviors): void
     {
-        foreach($behaviors as $behavior => $func) {
+        foreach ($behaviors as $behavior => $func) {
             $this->addBehavior($behavior, $func);
         }
     }

@@ -8,6 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+#[\AllowDynamicProperties]
 class dcRecord implements Iterator, Countable
 {
     /**

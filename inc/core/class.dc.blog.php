@@ -12,6 +12,8 @@
  */
 class dcBlog
 {
+    use dcTraitDynamicProperties;
+
     // Constants
 
     /**
