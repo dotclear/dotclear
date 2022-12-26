@@ -582,6 +582,9 @@ class adminMediaPage extends adminMediaFilter
     /** @var boolean Uses enhance uploader */
     protected $media_uploader = null;
 
+    /** @var string Current dir */
+    protected $d = null;
+
     /**
      * Constructs a new instance.
      */
