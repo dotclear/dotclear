@@ -9,7 +9,7 @@ $license_block = <<<EOF
      */
     EOF;
 
-require __DIR__ . '/../inc/libs/clearbricks/common/lib.l10n.php';
+require __DIR__ . '/../inc/helper/common/lib.l10n.php';
 
 $path = (!empty($_SERVER['argv'][1])) ? $_SERVER['argv'][1] : getcwd();
 $path = realpath($path);
@@ -30,4 +30,3 @@ foreach ($eres as $f) {
     }
     echo "\n";
 }
-?>
