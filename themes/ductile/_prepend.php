@@ -11,6 +11,9 @@
 
 namespace themes\ductile;
 
+use dcCore;
+use dcPage;
+
 if (!defined('DC_RC_PATH')) {
     return;
 }
@@ -22,21 +25,21 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // admin part below
 
 # Behaviors
-\dcCore::app()->addBehavior('adminPageHTMLHead', [__NAMESPACE__ . '\tplDuctileThemeAdmin', 'adminPageHTMLHead']);
+dcCore::app()->addBehavior('adminPageHTMLHead', [__NAMESPACE__ . '\tplDuctileThemeAdmin', 'adminPageHTMLHead']);
 
 class tplDuctileThemeAdmin
 {
     public static function adminPageHTMLHead()
     {
-        if (\dcCore::app()->blog->settings->system->theme !== basename(dirname(__FILE__))) {
+        if (dcCore::app()->blog->settings->system->theme !== basename(dirname(__FILE__))) {
             return;
         }
 
         echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
-        if (!\dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo
-            \dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            \dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
             echo <<<EOT
                 <script>
                 /*global $ */
