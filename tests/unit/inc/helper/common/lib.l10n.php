@@ -26,7 +26,7 @@ namespace tests\unit;
 use atoum;
 use Faker;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
 

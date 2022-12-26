@@ -1,4 +1,5 @@
 <?php
+
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
 # This file is part of Dotclear 2.
@@ -12,7 +13,7 @@
 
 namespace tests\unit;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/net/class.net.socket.php';
 require_once CLEARBRICKS_PATH . '/net.http/class.net.http.php';
@@ -44,19 +45,19 @@ class htmlValidator extends atoum
     {
         $validator = new \htmlValidator();
         $str       = <<<EODTIDY
-<p>Hello</p>
-EODTIDY;
+            <p>Hello</p>
+            EODTIDY;
         $doc = <<<EODTIDYV
-<!DOCTYPE html>
-<html>
-<head>
-<title>validation</title>
-</head>
-<body>
-<p>Hello</p>
-</body>
-</html>
-EODTIDYV;
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <title>validation</title>
+            </head>
+            <body>
+            <p>Hello</p>
+            </body>
+            </html>
+            EODTIDYV;
 
         $this
             ->string($validator->getDocument($str))
@@ -67,11 +68,11 @@ EODTIDYV;
     {
         $validator = new \htmlValidator();
         $str       = <<<EODTIDYE
-<p>Hello</b>
-EODTIDYE;
+            <p>Hello</b>
+            EODTIDYE;
         $err = <<<EODTIDYF
-<ol><li class="error"><p><strong>Error</strong>: Stray end tag <code>b</code>.</p><p class="location">From line 7, column 9; to line 7, column 12</p><p class="extract"><code>&gt;↩&lt;p&gt;Hello&lt;/b&gt;↩&lt;/bod</code></p></li><li class="info warning"><p><strong>Warning</strong>: Consider adding a <code>lang</code> attribute to the <code>html</code> start tag to declare the language of this document.</p><p class="location">From line 1, column 16; to line 2, column 6</p><p class="extract"><code>TYPE html&gt;↩&lt;html&gt;↩&lt;head</code></p></li></ol>
-EODTIDYF;
+            <ol><li class="error"><p><strong>Error</strong>: Stray end tag <code>b</code>.</p><p class="location">From line 7, column 9; to line 7, column 12</p><p class="extract"><code>&gt;↩&lt;p&gt;Hello&lt;/b&gt;↩&lt;/bod</code></p></li><li class="info warning"><p><strong>Warning</strong>: Consider adding a <code>lang</code> attribute to the <code>html</code> start tag to declare the language of this document.</p><p class="location">From line 1, column 16; to line 2, column 6</p><p class="extract"><code>TYPE html&gt;↩&lt;html&gt;↩&lt;head</code></p></li></ol>
+            EODTIDYF;
 
         $this
             ->string($validator->getErrors())

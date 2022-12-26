@@ -1,4 +1,5 @@
 <?php
+
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
 # This file is part of Dotclear 2.
@@ -12,7 +13,7 @@
 
 namespace tests\unit;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
 require_once CLEARBRICKS_PATH . '/common/lib.files.php';
@@ -409,7 +410,7 @@ class files extends atoum
             'size'     => ini_get('post_max_size'),
             'tmp_name' => 'temptestname.jpg',
             'error'    => UPLOAD_ERR_OK,
-            'type'     => 'image/jpeg'
+            'type'     => 'image/jpeg',
         ];
 
         $this

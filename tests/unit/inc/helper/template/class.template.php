@@ -1,4 +1,5 @@
 <?php
+
 # ***** BEGIN LICENSE BLOCK *****
 # This file is part of Clearbricks.
 # Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
@@ -19,11 +20,12 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 # ***** END LICENSE BLOCK *****
+
 namespace tests\unit;
 
 use atoum;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/template/class.template.php';
 
@@ -126,7 +128,7 @@ class template extends atoum
             'templates' => $templates,
             'exception' => $exception,
             'path'      => $path,
-            'outputs'   => $outputs
+            'outputs'   => $outputs,
         ];
 
         return $ret;
@@ -218,7 +220,7 @@ class testTpls
     {
         $ret = '';
         if (isset($attr['times'])) {
-            $times = (integer) $attr['times'];
+            $times = (int) $attr['times'];
             for ($i = 0; $i < $times; $i++) {
                 $ret .= $content;
             }

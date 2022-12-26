@@ -13,7 +13,7 @@
 
 namespace tests\unit;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
 require_once CLEARBRICKS_PATH . '/common/lib.date.php';
