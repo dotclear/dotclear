@@ -24,7 +24,6 @@ class adminCKEditor
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
-        dcCore::app()->blog->settings->addNameSpace('dcckeditor');
         dcCore::app()->admin->editor_cke_active                      = dcCore::app()->blog->settings->dcckeditor->active;
         dcCore::app()->admin->editor_cke_alignment_buttons           = dcCore::app()->blog->settings->dcckeditor->alignment_buttons;
         dcCore::app()->admin->editor_cke_list_buttons                = dcCore::app()->blog->settings->dcckeditor->list_buttons;

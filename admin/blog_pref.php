@@ -307,8 +307,6 @@ class adminBlogPref
                     $da->blog_id = $cur->blog_id;
                 }
 
-                $da->blog_settings->addNameSpace('system');
-
                 $da->blog_settings->system->put('editor', $_POST['editor']);
                 $da->blog_settings->system->put('copyright_notice', $_POST['copyright_notice']);
                 $da->blog_settings->system->put('post_url_format', $_POST['post_url_format']);

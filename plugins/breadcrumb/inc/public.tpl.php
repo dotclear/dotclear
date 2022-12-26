@@ -40,7 +40,6 @@ class tplBreadcrumb
         $ret = '';
 
         # Check if breadcrumb enabled for the current blog
-        dcCore::app()->blog->settings->addNameSpace('breadcrumb');
         if (!dcCore::app()->blog->settings->breadcrumb->breadcrumb_enabled) {
             return $ret;
         }

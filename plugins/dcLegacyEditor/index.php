@@ -24,7 +24,6 @@ class adminLegacyEditor
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
-        dcCore::app()->blog->settings->addNameSpace('dclegacyeditor');
         dcCore::app()->admin->editor_std_active = dcCore::app()->blog->settings->dclegacyeditor->active;
     }
 

@@ -45,8 +45,7 @@ class publicWidgets
 
     public static function widgetsHandler(string $type, string $disable = '')
     {
-        $wtype = 'widgets_' . $type;
-        dcCore::app()->blog->settings->addNameSpace('widgets');
+        $wtype   = 'widgets_' . $type;
         $widgets = dcCore::app()->blog->settings->widgets->{$wtype};
 
         if (!$widgets) {
@@ -116,8 +115,7 @@ class publicWidgets
      */
     public static function ifWidgetsHandler(string $type): bool
     {
-        $wtype = 'widgets_' . $type;
-        dcCore::app()->blog->settings->addNameSpace('widgets');
+        $wtype   = 'widgets_' . $type;
         $widgets = dcCore::app()->blog->settings->widgets->{$wtype};
 
         if (!$widgets) {

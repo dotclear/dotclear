@@ -17,7 +17,6 @@ class breadcrumbBehaviors
      */
     public static function adminBlogPreferencesForm(dcSettings $settings): void
     {
-        $settings->addNameSpace('breadcrumb');
         echo
         '<div class="fieldset"><h4 id="breadcrumb_params">' . __('Breadcrumb') . '</h4>' .
         '<p><label class="classic">' .
@@ -36,7 +35,6 @@ class breadcrumbBehaviors
      */
     public static function adminBeforeBlogSettingsUpdate(dcSettings $settings): void
     {
-        $settings->addNameSpace('breadcrumb');
         $settings->breadcrumb->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), 'boolean');
         $settings->breadcrumb->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), 'boolean');
     }
