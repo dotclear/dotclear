@@ -21,8 +21,10 @@ if (!defined('DC_RC_PATH')) {
 \l10n::set(__DIR__ . '/locales/' . \dcCore::app()->lang . '/main');
 
 # Behaviors
-\dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent']);
-\dcCore::app()->addBehavior('publicInsideFooter', [__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter']);
+\dcCore::app()->addBehaviors([
+    'publicHeadContent'  => [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent'],
+    'publicInsideFooter' => [__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter'],
+]);
 
 # Templates
 \dcCore::app()->tpl->addValue('ductileEntriesList', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileEntriesList']);
