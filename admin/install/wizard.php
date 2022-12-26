@@ -14,11 +14,12 @@ if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', __DIR__ . '/../../inc/config.php');
 }
 
-#  ClearBricks and DotClear classes auto-loader
-if (@is_dir('/usr/lib/clearbricks')) {
-    define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
-} elseif (is_dir(__DIR__ . '/../../inc/libs/clearbricks')) {
-    define('CLEARBRICKS_PATH', __DIR__ . '/../../inc/libs/clearbricks');
+/* ------------------------------------------------------------------------------------------- */
+#  ClearBricks, DotClear classes auto-loader
+if (@is_dir(implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']))) {
+    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']));
+} elseif (is_dir(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']))) {
+    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']));
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }
@@ -27,7 +28,7 @@ if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
     exit('No clearbricks path defined');
 }
 
-require CLEARBRICKS_PATH . '/_common.php';
+require implode(DIRECTORY_SEPARATOR, [CLEARBRICKS_PATH, '_common.php']);
 
 # Loading locales for detected language
 $dlang = http::getAcceptLanguage();
