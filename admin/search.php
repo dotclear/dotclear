@@ -32,6 +32,8 @@ class adminSearch
             // posts search
             'adminSearchPageProcessV2' => [adminSearch::class,'processPosts'],
             'adminSearchPageDisplayV2' => [adminSearch::class,'displayPosts'],
+        ]);
+        dcCore::app()->addBehaviors([
             // comments search
             'adminSearchPageProcessV2' => [adminSearch::class,'processComments'],
             'adminSearchPageDisplayV2' => [adminSearch::class,'displayComments'],
@@ -73,7 +75,6 @@ class adminSearch
         $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->callBehavior('adminSearchPageHeadV2', $args) : '';
 
         if (dcCore::app()->admin->q) {
-
             # --BEHAVIOR-- adminSearchPageProcess
             dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
         }
