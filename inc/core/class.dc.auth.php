@@ -537,7 +537,7 @@ class dcAuth
         $sql
             ->column('permissions')
             ->from($this->perm_table)
-            ->where('user_id = ' . $sql->quote($this->user_id))
+            ->where('user_id = ' . $sql->quote($this->user_id ?? ''))
             ->and('blog_id = ' . $sql->quote($blog_id))
             ->and($sql->orGroup([
                 $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
