@@ -1,0 +1,8 @@
+--TEST--
+values test
+--TEMPLATE(index.html)--
+Hello, {{tpl:include src="include.html"}}
+--TEMPLATE(include.html)--
+World !{{tpl:include src="index.html"}}
+--EXPECT--
+Hello, World !

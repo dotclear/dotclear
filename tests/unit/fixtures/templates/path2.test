@@ -1,0 +1,13 @@
+--TEST--
+Template path ordering test
+--TEMPLATE(tppl1/index.html)--
+INDEX
+{{tpl:include src="include.html"}}
+--TEMPLATE(tppl2/include.html)--
+INCLUDED
+--PATH--
+tppl2;tppl1
+--EXPECT--
+INDEX
+INCLUDED
+

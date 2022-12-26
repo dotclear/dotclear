@@ -1,0 +1,15 @@
+--TEST--
+End block error
+--TEMPLATE(index.html)--
+<tpl:entity>
+<tpl:loop times="2">Hello!</tpl:entity>
+--EXPECT--
+<div>
+
+</div>
+
+
+<!--
+WARNING: the following errors have been found while parsing template file :
+* Did not find closing tag for block <tpl:loop>. Content has been ignored.
+-->

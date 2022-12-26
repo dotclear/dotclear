@@ -14,8 +14,8 @@ define('DC_START_TIME', microtime(true));
 #  ClearBricks, DotClear classes auto-loader
 if (@is_dir(implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']))) {
     define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']));
-} elseif (is_dir(implode(DIRECTORY_SEPARATOR, [__DIR__, 'libs', 'clearbricks']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, 'libs', 'clearbricks']));
+} elseif (is_dir(implode(DIRECTORY_SEPARATOR, [__DIR__, 'helper']))) {
+    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, 'helper']));
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }

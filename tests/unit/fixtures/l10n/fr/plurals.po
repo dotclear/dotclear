@@ -1,0 +1,4 @@
+msgid "The category has been successfully removed."
+msgid_plural "The categories have been successfully removed."
+msgstr[0] "Catégorie supprimée avec succès."
+msgstr[1] "Catégories supprimées avec succès."

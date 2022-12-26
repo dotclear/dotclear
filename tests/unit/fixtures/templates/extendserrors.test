@@ -1,0 +1,7 @@
+--TEST--
+Block inheritance test -- implementation errors
+--TEMPLATE(index.html)--
+{{tpl:extends parent="base.html"}}
+<tpl:Block name="block1">This is Block 1 from son.html</tpl:Block>
+--EXCEPTION--
+No template found for base.html

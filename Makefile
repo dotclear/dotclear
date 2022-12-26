@@ -17,14 +17,6 @@ config: clean config-stamp
 	mkdir -p ./$(DC)/locales
 	cp -pRf ./locales/README ./locales/en ./locales/fr ./$(DC)/locales/
 
-	## Remove tests directories and test stuff, idem for doxygen documentation
-	rm -fr ./$(DC)/inc/libs/clearbricks/tests ./$(DC)/inc/libs/clearbricks/composer.* \
-				 ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor  \
-				 ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist        \
-				 ./$(DC)/.atoum.* ./$(DC)/tests ./$(DC)/coverage                            \
-				 ./$(DC)/composer.*                                                         \
-				 ./$(DC)/doxygen ./$(DC)/clearbricks/doxygen
-
 	## Create cache, var, db, plugins, themes and public folders
 	mkdir ./$(DC)/cache ./$(DC)/var ./$(DC)/db ./$(DC)/plugins ./$(DC)/themes ./$(DC)/public
 	cp -p inc/.htaccess ./$(DC)/cache/

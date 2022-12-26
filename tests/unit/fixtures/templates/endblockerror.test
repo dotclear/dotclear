@@ -1,0 +1,11 @@
+--TEST--
+End block error
+--TEMPLATE(index.html)--
+<tpl:loop times="2">Hello!
+</tpl:bloop>
+--EXPECT--
+<!--
+WARNING: the following errors have been found while parsing template file :
+ * Unexpected closing tag </tpl:bloop> found.
+ * Did not find closing tag for block <tpl:loop>. Content has been ignored.
+ -->

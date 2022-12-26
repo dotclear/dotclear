@@ -1,0 +1,3 @@
+#, php-format
+msgid "The e-mail was sent successfully to %s."
+msgstr "Message envoyé avec succès à %s."

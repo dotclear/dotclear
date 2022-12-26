@@ -1,0 +1,26 @@
+--TEST--
+Block inheritance test
+--TEMPLATE(son.html)--
+{{tpl:extends parent="pa.html"}}
+<tpl:Block name="block1">This is Block 1 from son.html</tpl:Block>
+--TEMPLATE(pa.html)--
+{{tpl:extends parent="grandpa.html"}}
+<tpl:Block name="block1">This is Block 1 from pa.html</tpl:Block>
+<tpl:Block name="block2">This is Block 2 from pa.html</tpl:Block>
+--TEMPLATE(grandpa.html)--
+{{tpl:extends parent="grandgrandpa.html"}}
+<tpl:Block name="block1">This is Block 1 from grandpa.html</tpl:Block>
+<tpl:Block name="block2">This is Block 2 from grandpa.html</tpl:Block>
+<tpl:Block name="block3">This is Block 3 from grandpa.html</tpl:Block>
+--TEMPLATE(grandgrandpa.html)--
+Normal content
+<tpl:Block name="block1">This is Block 1 from grandgrandpa.html</tpl:Block>
+<tpl:Block name="block2">This is Block 2 from grandgrandpa.html</tpl:Block>
+<tpl:Block name="block3">This is Block 3 from grandgrandpa.html</tpl:Block>
+<tpl:Block name="block4">This is Block 4 from grandgrandpa.html</tpl:Block>
+--EXPECT--
+Normal content
+This is Block 1 from son.html
+This is Block 2 from pa.html
+This is Block 3 from grandpa.html
+This is Block 4 from grandgrandpa.html

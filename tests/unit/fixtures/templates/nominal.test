@@ -1,0 +1,17 @@
+--TEST--
+values test
+--TEMPLATE(index.html)--
+{{tpl:echo name="foo" value="bar"}}
+{{tpl:echo example text}}
+<tpl:loop times="5">Hello, world!
+</tpl:loop>
+--PATH--
+.;toto
+--EXPECT--
+{"name":"foo","value":"bar"}
+[example text]
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!

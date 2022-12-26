@@ -1,0 +1,68 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+#
+# Translators:
+# Franck  <carnet.franck.paul@gmail.com>, 2011.
+# Stéphane Aulery <lkppo@free.fr>, 2012.
+# xave <xave@dotclear.net>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-13 09:59+0200\n"
+"PO-Revision-Date: 2012-08-13 07:13+0000\n"
+"Last-Translator: xave <xave@dotclear.net>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid "Dotclear has been upgraded."
+msgstr "Dotclear a été mis à jour."
+
+msgid "Dotclear has been upgraded (plural)."
+msgstr "Dotclear a été mis à jour (pluriel)."
+
+msgid "The category has been successfully created."
+msgstr "Catégorie créée avec succès."
+
+msgid "The category has been successfully removed."
+msgid_plural "The categories have been successfully removed."
+msgstr[0] "Catégorie supprimée avec succès."
+msgstr[1] "Catégories supprimées avec succès."
+
+#, php-format
+msgid "The e-mail was sent successfully to %s."
+msgstr "Message envoyé avec succès à %s."
+
+#: kstarsinit.cpp:444
+#, fuzzy
+#| msgid "Solar System"
+msgctxt "Toggle Solar System objects in the display"
+msgid "Solar System"
+msgstr "Sunčev sistem"
+⁠
+#: finddialog.cpp:102
+#, fuzzy
+#| msgctxt "object name (optional)"
+#| msgid "Andromeda Galaxy"
+msgid "Andromeda Galaxy"
+msgstr "Andromeda, galaksija"
+
+#. Tag: title
+#. not translated
+#: skycoords.docbook:73
+msgid "The Horizontal Coordinate System"
+msgstr ""
+
+#: mainwindow.cpp:127
+#, kde-format
+msgid "Time: %1 second"
+msgid_plural "Time: %1 seconds"
+" and Next"
+msgstr[0] "Temps: %1 seconde"
+msgstr[1] "Temps: %1"
+" secondes"

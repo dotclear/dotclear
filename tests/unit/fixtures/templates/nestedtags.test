@@ -1,0 +1,9 @@
+--TEST--
+values test
+--TEMPLATE(index.html)--
+<tpl:loop times="2">Hello, <tpl:loop times="2">world </tpl:loop>!
+</tpl:loop>
+--EXPECT--
+Hello, world world !
+Hello, world world !
+

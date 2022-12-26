@@ -1,0 +1,10 @@
+--TEST--
+Template path ordering test
+--TEMPLATE(tpl1/index.html)--
+WRONG INDEX
+--TEMPLATE(tpl2/index.html)--
+GOOD INDEX
+--PATH--
+tpl2;tpl1
+--EXPECT--
+GOOD INDEX

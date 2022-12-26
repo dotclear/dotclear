@@ -1,0 +1,20 @@
+--TEST--
+Block inheritance test
+--TEMPLATE(index.html)--
+{{tpl:extends parent="base.html"}}
+<tpl:Block name="block1">This is Block 1 from index.html
+{{tpl:parent}}</tpl:Block>
+<tpl:Block name="subblock2">This is subBlock 2 from index.html
+{{tpl:parent}}</tpl:Block>
+--TEMPLATE(base.html)--
+<tpl:Block name="block1">This is Block 1 from base.html
+<tpl:Block name="subblock1">This is subBlock 1 from base.html</tpl:Block></tpl:Block>
+<tpl:Block name="block2">This is Block 2 from base.html
+<tpl:Block name="subblock2">This is subBlock 2 from base.html</tpl:Block></tpl:Block>
+--EXPECT--
+This is Block 1 from index.html
+This is Block 1 from base.html
+This is subBlock 1 from base.html
+This is Block 2 from base.html
+This is subBlock 2 from index.html
+This is subBlock 2 from base.html

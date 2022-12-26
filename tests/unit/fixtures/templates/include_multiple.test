@@ -1,0 +1,18 @@
+--TEST--
+values test
+--TEMPLATE(index.html)--
+BEFOREINCLUDE
+{{tpl:include src="include.html"}}
+{{tpl:include src="include.html"}}
+{{tpl:include src="include.html"}}
+{{tpl:include src="include.html"}}
+AFTERINCLUDE
+--TEMPLATE(include.html)--
+This is included
+--EXPECT--
+BEFOREINCLUDE
+This is included
+This is included
+This is included
+This is included
+AFTERINCLUDE
