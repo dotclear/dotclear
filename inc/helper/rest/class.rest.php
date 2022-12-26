@@ -188,7 +188,7 @@ class xmlTag
      *
      * @see insertAttr()
      */
-    public function __set(string $name, mixed $value): void
+    public function __set(string $name, $value): void
     {
         $this->insertAttr($name, $value);
     }
@@ -236,7 +236,7 @@ class xmlTag
      *
      * @see insertAttr()
      */
-    public function insertAttr(string $name, mixed $value): void
+    public function insertAttr(string $name, $value): void
     {
         $this->_attr[$name] = $value;
     }
