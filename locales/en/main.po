@@ -2919,10 +2919,10 @@ msgstr ""
 msgid "Select:"
 msgstr ""
 
-msgid "no selection"
+msgid "No selection"
 msgstr ""
 
-msgid "select all"
+msgid "Select all"
 msgstr ""
 
 msgid "Invert selection"

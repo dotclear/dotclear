@@ -2926,11 +2926,11 @@ msgstr "Cacher"
 msgid "Select:"
 msgstr "Sélectionner :"
 
-msgid "no selection"
-msgstr "pas de sélection"
+msgid "No selection"
+msgstr "Pas de sélection"
 
-msgid "select all"
-msgstr "tout sélectionner"
+msgid "Select all"
+msgstr "Tout sélectionner"
 
 msgid "Invert selection"
 msgstr "Inverser la sélection"
