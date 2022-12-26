@@ -12,5 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-dcCore::app()->addBehavior('initWidgets', [blogrollWidgets::class, 'initWidgets']);
-dcCore::app()->addBehavior('initDefaultWidgets', [blogrollWidgets::class, 'initDefaultWidgets']);
+dcCore::app()->addBehaviors([
+    'initWidgets'        => [blogrollWidgets::class, 'initWidgets'],
+    'initDefaultWidgets' => [blogrollWidgets::class, 'initDefaultWidgets'],
+]);

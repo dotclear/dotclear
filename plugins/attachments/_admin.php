@@ -12,20 +12,13 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior('adminPostFormItems', [attachmentAdminBehaviors::class, 'adminPostFormItems']);
-dcCore::app()->addBehavior('adminPostAfterForm', [attachmentAdminBehaviors::class, 'adminPostAfterForm']);
-
-dcCore::app()->addBehavior(
-    'adminPostHeaders',
-    fn () => dcPage::jsModuleLoad('attachments/js/post.js')
-);
-
-dcCore::app()->addBehavior('adminPageFormItems', [attachmentAdminBehaviors::class, 'adminPostFormItems']);
-dcCore::app()->addBehavior('adminPageAfterForm', [attachmentAdminBehaviors::class, 'adminPostAfterForm']);
-
-dcCore::app()->addBehavior(
-    'adminPageHeaders',
-    fn () => dcPage::jsModuleLoad('attachments/js/post.js')
-);
+dcCore::app()->addBehaviors([
+    'adminPostFormItems' => [attachmentAdminBehaviors::class, 'adminPostFormItems'],
+    'adminPostAfterForm' => [attachmentAdminBehaviors::class, 'adminPostAfterForm'],
+    'adminPostHeaders'   => fn () => dcPage::jsModuleLoad('attachments/js/post.js'),
+    'adminPageFormItems' => [attachmentAdminBehaviors::class, 'adminPostFormItems'],
+    'adminPageAfterForm' => [attachmentAdminBehaviors::class, 'adminPostAfterForm'],
+    'adminPageHeaders'   => fn () => dcPage::jsModuleLoad('attachments/js/post.js'),
+]);
 
 dcCore::app()->addBehavior('adminPageHelpBlock', [attachmentAdminBehaviors::class, 'adminPageHelpBlock']);

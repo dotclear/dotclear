@@ -34,10 +34,12 @@ if (dcCore::app()->blog->settings->dclegacyeditor->active) {
     dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki2xhtml, 'transform']);
     dcCore::app()->addFormaterName('wiki', __('Dotclear wiki'));
 
-    dcCore::app()->addBehavior('adminPostEditor', [dcLegacyEditorBehaviors::class, 'adminPostEditor']);
-    dcCore::app()->addBehavior('adminPopupMedia', [dcLegacyEditorBehaviors::class, 'adminPopupMedia']);
-    dcCore::app()->addBehavior('adminPopupLink', [dcLegacyEditorBehaviors::class, 'adminPopupLink']);
-    dcCore::app()->addBehavior('adminPopupPosts', [dcLegacyEditorBehaviors::class, 'adminPopupPosts']);
+    dcCore::app()->addBehaviors([
+        'adminPostEditor' => [dcLegacyEditorBehaviors::class, 'adminPostEditor'],
+        'adminPopupMedia' => [dcLegacyEditorBehaviors::class, 'adminPopupMedia'],
+        'adminPopupLink'  => [dcLegacyEditorBehaviors::class, 'adminPopupLink'],
+        'adminPopupPosts' => [dcLegacyEditorBehaviors::class, 'adminPopupPosts'],
+    ]);
 
     // Register REST methods
     dcCore::app()->rest->addFunction('wikiConvert', [dcLegacyEditorRest::class, 'convert']);

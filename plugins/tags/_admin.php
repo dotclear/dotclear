@@ -25,25 +25,27 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
 
 require __DIR__ . '/_widgets.php';
 
-dcCore::app()->addBehavior('adminPostFormItems', [tagsBehaviors::class, 'tagsField']);
+dcCore::app()->addBehaviors([
+    'adminPostFormItems'           => [tagsBehaviors::class, 'tagsField'],
 
-dcCore::app()->addBehavior('adminAfterPostCreate', [tagsBehaviors::class, 'setTags']);
-dcCore::app()->addBehavior('adminAfterPostUpdate', [tagsBehaviors::class, 'setTags']);
+    'adminAfterPostCreate'         => [tagsBehaviors::class, 'setTags'],
+    'adminAfterPostUpdate'         => [tagsBehaviors::class, 'setTags'],
 
-dcCore::app()->addBehavior('adminPostHeaders', [tagsBehaviors::class, 'postHeaders']);
+    'adminPostHeaders'             => [tagsBehaviors::class, 'postHeaders'],
 
-dcCore::app()->addBehavior('adminPostsActions', [tagsBehaviors::class, 'adminPostsActions']);
+    'adminPostsActions'            => [tagsBehaviors::class, 'adminPostsActions'],
 
-dcCore::app()->addBehavior('adminPreferencesFormV2', [tagsBehaviors::class, 'adminUserForm']);
-dcCore::app()->addBehavior('adminBeforeUserOptionsUpdate', [tagsBehaviors::class, 'setTagListFormat']);
+    'adminPreferencesFormV2'       => [tagsBehaviors::class, 'adminUserForm'],
+    'adminBeforeUserOptionsUpdate' => [tagsBehaviors::class, 'setTagListFormat'],
 
-dcCore::app()->addBehavior('adminUserForm', [tagsBehaviors::class, 'adminUserForm']);
-dcCore::app()->addBehavior('adminBeforeUserCreate', [tagsBehaviors::class, 'setTagListFormat']);
-dcCore::app()->addBehavior('adminBeforeUserUpdate', [tagsBehaviors::class, 'setTagListFormat']);
+    'adminUserForm'                => [tagsBehaviors::class, 'adminUserForm'],
+    'adminBeforeUserCreate'        => [tagsBehaviors::class, 'setTagListFormat'],
+    'adminBeforeUserUpdate'        => [tagsBehaviors::class, 'setTagListFormat'],
 
-dcCore::app()->addBehavior('adminDashboardFavoritesV2', [tagsBehaviors::class, 'dashboardFavorites']);
+    'adminDashboardFavoritesV2'    => [tagsBehaviors::class, 'dashboardFavorites'],
 
-dcCore::app()->addBehavior('adminPageHelpBlock', [tagsBehaviors::class, 'adminPageHelpBlock']);
+    'adminPageHelpBlock'           => [tagsBehaviors::class, 'adminPageHelpBlock'],
 
-dcCore::app()->addBehavior('adminPostEditor', [tagsBehaviors::class, 'adminPostEditor']);
-dcCore::app()->addBehavior('ckeditorExtraPlugins', [tagsBehaviors::class, 'ckeditorExtraPlugins']);
+    'adminPostEditor'              => [tagsBehaviors::class, 'adminPostEditor'],
+    'ckeditorExtraPlugins'         => [tagsBehaviors::class, 'ckeditorExtraPlugins'],
+]);

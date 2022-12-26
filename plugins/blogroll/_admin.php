@@ -14,9 +14,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcCore::app()->auth->setPermissionType(dcLinks::PERMISSION_BLOGROLL, __('manage blogroll'));
 
-dcCore::app()->addBehavior(
-    'adminDashboardFavoritesV2',
-    function (dcFavorites $favs) {
+dcCore::app()->addBehaviors([
+    'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
         $favs->register('blogroll', [
             'title'       => __('Blogroll'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.blogroll'),
@@ -27,12 +26,9 @@ dcCore::app()->addBehavior(
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ]),
         ]);
-    }
-);
-dcCore::app()->addBehavior(
-    'adminUsersActionsHeaders',
-    fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js')
-);
+    },
+    'adminUsersActionsHeaders'  => fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js'),
+]);
 
 dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Blogroll'),

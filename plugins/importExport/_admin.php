@@ -22,9 +22,8 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     ]), dcCore::app()->blog->id)
 );
 
-dcCore::app()->addBehavior(
-    'adminDashboardFavoritesV2',
-    function (dcFavorites $favs) {
+dcCore::app()->addBehaviors([
+    'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
         $favs->register('importExport', [
             'title'       => __('Import/Export'),
             'url'         => dcCore::app()->adminurl->get('admin.plugin.importExport'),
@@ -34,20 +33,12 @@ dcCore::app()->addBehavior(
                 dcAuth::PERMISSION_ADMIN,
             ]),
         ]);
-    }
-);
-
-dcCore::app()->addBehavior(
-    'importExportModulesV2',
-    [importExportBehaviors::class, 'registerIeModules']
-);
-
-dcCore::app()->addBehavior(
-    'dcMaintenanceInit',
-    function (dcMaintenance $maintenance) {
+    },
+    'importExportModulesV2'     => [importExportBehaviors::class, 'registerIeModules'],
+    'dcMaintenanceInit'         => function (dcMaintenance $maintenance) {
         $maintenance
             ->addTask('ieMaintenanceExportblog')
             ->addTask('ieMaintenanceExportfull')
         ;
-    }
-);
+    },
+]);

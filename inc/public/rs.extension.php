@@ -13,9 +13,11 @@ class rsExtendPublic
      */
     public static function init()
     {
-        dcCore::app()->addBehavior('publicHeadContent', [self::class, 'publicHeadContent']);
-        dcCore::app()->addBehavior('coreBlogGetPosts', [self::class, 'coreBlogGetPosts']);
-        dcCore::app()->addBehavior('coreBlogGetComments', [self::class, 'coreBlogGetComments']);
+        dcCore::app()->addBehaviors([
+            'publicHeadContent'   => [self::class, 'publicHeadContent'],
+            'coreBlogGetPosts'    => [self::class, 'coreBlogGetPosts'],
+            'coreBlogGetComments' => [self::class, 'coreBlogGetComments'],
+        ]);
     }
 
     /**

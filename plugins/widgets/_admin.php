@@ -12,20 +12,19 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior(
-    'adminDashboardFavoritesV2',
-    function (dcFavorites $favs) {
+dcCore::app()->addBehaviors([
+    'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
         $favs->register('widgets', [
             'title'      => __('Presentation widgets'),
             'url'        => dcCore::app()->adminurl->get('admin.plugin.widgets'),
             'small-icon' => [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
             'large-icon' => [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
         ]);
-    }
-);
-dcCore::app()->addBehavior('adminRteFlagsV2', function (ArrayObject $rte) {
-    $rte['widgets_text'] = [true, __('Widget\'s textareas')];
-});
+    },
+    'adminRteFlagsV2' => function (ArrayObject $rte) {
+        $rte['widgets_text'] = [true, __('Widget\'s textareas')];
+    },
+]);
 
 dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Presentation widgets'),

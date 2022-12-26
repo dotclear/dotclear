@@ -12,7 +12,9 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-dcCore::app()->addBehavior('publicPrependV2', [publicPages::class, 'publicPrepend']);
-dcCore::app()->addBehavior('coreBlogBeforeGetPosts', [publicPages::class, 'coreBlogBeforeGetPosts']);
+dcCore::app()->addBehaviors([
+    'publicPrependV2'        => [publicPages::class, 'publicPrepend'],
+    'coreBlogBeforeGetPosts' => [publicPages::class, 'coreBlogBeforeGetPosts'],
+]);
 
 require __DIR__ . '/_widgets.php';

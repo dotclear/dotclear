@@ -24,10 +24,12 @@ dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
 );
 
 // Admin behaviors
-dcCore::app()->addBehavior('dcMaintenanceInit', [dcMaintenanceAdmin::class, 'dcMaintenanceInit']);
-dcCore::app()->addBehavior('adminDashboardFavoritesV2', [dcMaintenanceAdmin::class, 'adminDashboardFavorites']);
-dcCore::app()->addBehavior('adminDashboardContentsV2', [dcMaintenanceAdmin::class, 'adminDashboardItems']);
-dcCore::app()->addBehavior('adminDashboardOptionsFormV2', [dcMaintenanceAdmin::class, 'adminDashboardOptionsForm']);
-dcCore::app()->addBehavior('adminAfterDashboardOptionsUpdate', [dcMaintenanceAdmin::class, 'adminAfterDashboardOptionsUpdate']);
-dcCore::app()->addBehavior('adminPageHelpBlock', [dcMaintenanceAdmin::class, 'adminPageHelpBlock']);
-dcCore::app()->addBehavior('pluginsToolsHeadersV2', [dcMaintenanceAdmin::class, 'pluginsToolsHeaders']);
+dcCore::app()->addBehaviors([
+    'dcMaintenanceInit'                => [dcMaintenanceAdmin::class, 'dcMaintenanceInit'],
+    'adminDashboardFavoritesV2'        => [dcMaintenanceAdmin::class, 'adminDashboardFavorites'],
+    'adminDashboardContentsV2'         => [dcMaintenanceAdmin::class, 'adminDashboardItems'],
+    'adminDashboardOptionsFormV2'      => [dcMaintenanceAdmin::class, 'adminDashboardOptionsForm'],
+    'adminAfterDashboardOptionsUpdate' => [dcMaintenanceAdmin::class, 'adminAfterDashboardOptionsUpdate'],
+    'adminPageHelpBlock'               => [dcMaintenanceAdmin::class, 'adminPageHelpBlock'],
+    'pluginsToolsHeadersV2'            => [dcMaintenanceAdmin::class, 'pluginsToolsHeaders'],
+]);
