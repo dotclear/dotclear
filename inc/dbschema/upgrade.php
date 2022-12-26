@@ -1129,12 +1129,12 @@ class dcUpgrade
                 ],
                 // Folders
                 [
-                    'inc/clearbricks/debian',
-                    'inc/clearbricks/ext',
-                    'inc/clearbricks/mail.convert',
-                    'inc/clearbricks/mail.mime',
-                    'inc/clearbricks/net.nntp',
-                    'inc/clearbricks/xmlsql',
+                    'inc/libs/clearbricks/debian',
+                    'inc/libs/clearbricks/ext',
+                    'inc/libs/clearbricks/mail.convert',
+                    'inc/libs/clearbricks/mail.mime',
+                    'inc/libs/clearbricks/net.nntp',
+                    'inc/libs/clearbricks/xmlsql',
                     'plugins/blowupConfig/lib',
                     'plugins/dclegacy',
                     'plugins/importExport/img',
