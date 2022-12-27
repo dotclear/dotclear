@@ -74,7 +74,7 @@ class dcAuth
     /**
      * Current user ID
      *
-     * @var string
+     * @var string|null
      */
     protected $user_id;
 
