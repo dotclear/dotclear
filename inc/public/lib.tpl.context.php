@@ -576,6 +576,8 @@ class context
      */
     public static function getSmilies(dcBlog $blog)
     {
+        $definitions = [];
+
         $paths = [];
         if (isset(dcCore::app()->public->theme)) {
             $paths[] = dcCore::app()->public->theme;
@@ -592,7 +594,7 @@ class context
             $base_url   = sprintf($base_url_pattern, $path);
 
             if (file_exists($definition)) {
-                return self::smiliesDefinition($definition, $base_url);
+                $definitions = self::smiliesDefinition($definition, $base_url);
             }
         }
 
@@ -601,7 +603,7 @@ class context
         $base_url   = dcCore::app()->blog->getQmarkURL() . 'pf=';
 
         if (file_exists($definition)) {
-            return self::smiliesDefinition($definition, $base_url);
+            return array_merge(self::smiliesDefinition($definition, $base_url), $definitions);
         }
 
         return false;
