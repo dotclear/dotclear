@@ -652,11 +652,13 @@ class dcModules
             $target      = dirname($zip_file);
             $destination = $target . DIRECTORY_SEPARATOR . $zip_root_dir;
             $define      = $zip_root_dir . '/' . self::MODULE_FILE_DEFINE;
+            $init        = $zip_root_dir . '/' . self::MODULE_FILE_INIT;
             $has_define  = $zip->hasFile($define);
         } else {
             $target      = dirname($zip_file) . DIRECTORY_SEPARATOR . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
             $destination = $target;
             $define      = self::MODULE_FILE_DEFINE;
+            $init        = self::MODULE_FILE_INIT;
             $has_define  = $zip->hasFile($define);
         }
 
@@ -686,14 +688,14 @@ class dcModules
                 // Force normal mode
                 $sandbox->safe_mode = false;
 
-                if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
-                    $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+                if ($zip->hasFile($init)) {
+                    $zip->unzip($init, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
                 $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
-                if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
+                if ($zip->hasFile($init)) {
                     unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
@@ -719,14 +721,14 @@ class dcModules
             // Force normal mode
             $sandbox->safe_mode = false;
 
-            if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
-                $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+            if ($zip->hasFile($init)) {
+                $zip->unzip($init, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
             $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
-            if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
+            if ($zip->hasFile($init)) {
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
