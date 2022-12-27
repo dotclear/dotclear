@@ -686,10 +686,16 @@ class dcModules
                 // Force normal mode
                 $sandbox->safe_mode = false;
 
+                if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
+                    $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+                }
                 $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
+                if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
+                    unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+                }
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $new_errors = $sandbox->getErrors();
@@ -713,10 +719,16 @@ class dcModules
             // Force normal mode
             $sandbox->safe_mode = false;
 
+            if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
+                $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+            }
             $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
+            if ($zip->hasFile($zip->getRootDir() . '/' . self::MODULE_FILE_INIT)) {
+                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+            }
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
             $new_modules = $sandbox->getModules();
 
