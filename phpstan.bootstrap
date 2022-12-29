@@ -25,5 +25,5 @@ define('DC_REVERSE_PROXY', false);
 define('DC_SESSION_NAME', '');
 
 // Xdebug method()
-function xdebug_time_index() {}
-function xdebug_get_profiler_filename() {}
+// function xdebug_time_index() {}
+// function xdebug_get_profiler_filename() {}
