@@ -679,6 +679,24 @@ dotclear.services = (
     .then((data) => onSuccess(data))
     .catch((error) => onError(error));
 };
+dotclear.servicesGet = (
+  fn, // REST method
+  onSuccess = (_payload) => {
+    // Used when fetch is successful
+  },
+  params = {}, // Optional parameters
+) => {
+  dotclear.services(fn, onSuccess, (error) => console.log(error), true, params);
+};
+dotclear.servicesPost = (
+  fn, // REST method
+  onSuccess = (_payload) => {
+    // Used when fetch is successful
+  },
+  params = {}, // Optional parameters
+) => {
+  dotclear.services(fn, onSuccess, (error) => console.log(error), false, params);
+};
 // REST services helpers, JSON only aliases
 dotclear.jsonServices = (
   fn, // REST method
