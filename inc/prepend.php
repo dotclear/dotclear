@@ -243,7 +243,7 @@ define('DC_DEFAULT_TPLSET', 'mustek');
 define('DC_DEFAULT_JQUERY', '3.6.0');
 
 if (!defined('DC_NEXT_REQUIRED_PHP')) {
-    define('DC_NEXT_REQUIRED_PHP', '7.4');
+    define('DC_NEXT_REQUIRED_PHP', '8.0');
 }
 
 if (!defined('DC_VENDOR_NAME')) {
