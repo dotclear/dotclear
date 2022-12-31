@@ -144,16 +144,23 @@ class dcThemes extends dcModules
 
                     if (substr($rel, -4) === '.php') {
                         // Change namespace in *.php
-                        // ex: namespace themes\berlin; → namespace themes\berlinClone;
-                        $buf = file_get_contents($new_dir . $rel);
-                        if (preg_match('/^namespace\s*themes\\\([^;].*);$/m', $buf, $matches)) {
-                            $pos     = strpos($buf, $matches[0]);
-                            $rel_dir = substr($new_dir, strlen($root));
-                            $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
-                            $buf     = substr($buf, 0, $pos) .
-                                'namespace themes\\' . $ns . ';' .
-                                substr($buf, $pos + strlen($matches[0]));
-                            file_put_contents($new_dir . $rel, $buf);
+                        $buf      = file_get_contents($new_dir . $rel);
+                        $prefixes = [
+                            'themes\\',             // ex: namespace themes\berlin; → namespace themes\berlin_Copy;
+                            'Dotclear\Themes\\',    // ex: namespace Dotclear\Themes\Berlin; → namespace Dotclear\Themes\Berlin_Copy;
+                        ];
+                        foreach ($prefixes as $prefix) {
+                            if (preg_match('/^namespace\s*' . preg_quote($prefix) . '([^;].*);$/m', $buf, $matches)) {
+                                $pos     = strpos($buf, $matches[0]);
+                                $rel_dir = substr($new_dir, strlen($root));
+                                $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
+                                $buf     = substr($buf, 0, $pos) .
+                                    'namespace ' . $prefix . $ns . ';' .
+                                    substr($buf, $pos + strlen($matches[0]));
+                                file_put_contents($new_dir . $rel, $buf);
+
+                                break;
+                            }
                         }
                     }
                 }
