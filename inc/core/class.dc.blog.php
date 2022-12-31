@@ -1484,7 +1484,7 @@ class dcBlog
             $sql->column('C.cat_url');
             $sql->group('C.cat_url');
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
-            $sql->and('C.cat_url = ' . $sql->quote($params['cat_id']));
+            $sql->and('C.cat_url = ' . $sql->quote($params['cat_url']));
             $sql->column('C.cat_url');
             $sql->group('C.cat_url');
         }
