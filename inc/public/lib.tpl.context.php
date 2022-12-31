@@ -28,9 +28,8 @@ class context
         } else {
             $this->stack[$name][] = &$var;
             if ($var instanceof record) {
-                $this->stack['record'] = new dcRecord($var);
-            }
-            if ($var instanceof dcRecord) {
+                $this->stack['cur_loop'][] = new dcRecord($var);
+            } elseif ($var instanceof dcRecord) {
                 $this->stack['cur_loop'][] = &$var;
             }
         }
@@ -77,7 +76,7 @@ class context
     {
         if (isset($this->stack[$name])) {
             $v = array_pop($this->stack[$name]);
-            if ($v instanceof record && isset($this->stack['cur_loop'])) {
+            if (($v instanceof record || $v instanceof dcRecord) && isset($this->stack['cur_loop'])) {
                 array_pop($this->stack['cur_loop']);
             }
             unset($v);
