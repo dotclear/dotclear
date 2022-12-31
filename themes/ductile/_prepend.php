@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-namespace themes\ductile;
+namespace Dotclear\Theme\Ductile;
 
 use dcCore;
 use dcPage;

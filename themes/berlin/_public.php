@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-namespace themes\berlin;
+namespace Dotclear\Theme\Berlin;
 
 use dcCore;
 use dcUtils;

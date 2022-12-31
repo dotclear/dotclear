@@ -146,8 +146,8 @@ class dcThemes extends dcModules
                         // Change namespace in *.php
                         $buf      = file_get_contents($new_dir . $rel);
                         $prefixes = [
-                            'themes\\',             // ex: namespace themes\berlin; → namespace themes\berlin_Copy;
-                            'Dotclear\Themes\\',    // ex: namespace Dotclear\Themes\Berlin; → namespace Dotclear\Themes\Berlin_Copy;
+                            'themes\\',             // ex: namespace themes\berlin; → namespace themes\berlin_Copy; Dotclear <= 2.24
+                            'Dotclear\Theme\\',     // ex: namespace Dotclear\Theme\Berlin; → namespace Dotclear\Theme\Berlin_Copy;
                         ];
                         foreach ($prefixes as $prefix) {
                             if (preg_match('/^namespace\s*' . preg_quote($prefix) . '([^;].*);$/m', $buf, $matches)) {

@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-namespace themes\customcss;
+namespace Dotclear\Theme\CustomCSS;
 
 use dcCore;
 
