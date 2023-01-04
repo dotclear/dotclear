@@ -67,7 +67,7 @@ class pgsqlSchema extends dbSchema implements i_dbSchema
                 $len = null;
             }
 
-            $default = preg_replace('/::([\w\d\s]*)$/', '', $default);
+            $default = preg_replace('/::([\w\d\s]*)$/', '', (string) $default);
             $default = preg_replace('/^\((-?\d*)\)$/', '$1', $default);
 
             // $default from db is a string and is NULL in schema so upgrade failed.
