@@ -606,9 +606,9 @@ class dcBlog
      *
      * @return     dcRecord  The category parents.
      */
-    public function getCategoryParents(int $id): dcRecord
+    public function getCategoryParents(?int $id): dcRecord
     {
-        return $this->categories()->getParents($id);
+        return $this->categories()->getParents((int) $id);
     }
 
     /**
@@ -618,9 +618,9 @@ class dcBlog
      *
      * @return     dcRecord  The category parent.
      */
-    public function getCategoryParent(int $id): dcRecord
+    public function getCategoryParent(?int $id): dcRecord
     {
-        return $this->categories()->getParent($id);
+        return $this->categories()->getParent((int) $id);
     }
 
     /**
