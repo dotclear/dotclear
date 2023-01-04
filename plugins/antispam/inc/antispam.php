@@ -76,7 +76,7 @@ class dcAntispam
 
         // the status of this comment has changed
         if ($status) {
-            $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : null;
+            $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
 
             self::initFilters();
             self::$filters->trainFilters($rs, $status, $filter_name);
@@ -93,7 +93,7 @@ class dcAntispam
     public static function statusMessage(dcRecord $rs): string
     {
         if ($rs->exists('comment_status') && $rs->comment_status == dcBlog::COMMENT_JUNK) {
-            $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : null;
+            $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
 
             self::initFilters();
 
