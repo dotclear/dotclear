@@ -22,7 +22,7 @@ class dcMaintenanceTask
     /**
      * Task code
      *
-     * @var int
+     * @var int|null|bool
      */
     protected $code;
 
@@ -202,7 +202,7 @@ class dcMaintenanceTask
      */
     public function code($code): void
     {
-        $this->code = (int) $code;
+        $this->code = $code;
     }
 
     /**

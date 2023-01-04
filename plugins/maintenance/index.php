@@ -180,7 +180,6 @@ class adminMaintenance
         }
 
         if (dcCore::app()->admin->task && ($res = dcCore::app()->admin->task->step()) !== null) {
-
             // Page title
 
             echo
@@ -199,7 +198,6 @@ class adminMaintenance
             }
 
             // Intermediate task (task required several steps)
-
             echo
             '<div class="step-box" id="' . dcCore::app()->admin->task->id() . '">' .
             '<p class="step-back">' .
@@ -217,7 +215,6 @@ class adminMaintenance
             '</form>' .
             '</div>';
         } else {
-
             // Page title
 
             echo
@@ -237,8 +234,8 @@ class adminMaintenance
                     $res_task = '';
                     foreach (dcCore::app()->admin->tasks as $t) {
                         if (!$t->id()
-                    || $t->group() != $group_obj->id()
-                    || $t->tab() != $tab_obj->id()) {
+                        || $t->group() != $group_obj->id()
+                        || $t->tab()   != $tab_obj->id()) {
                             continue;
                         }
 
