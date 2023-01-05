@@ -980,7 +980,8 @@ class dcSelectStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
+                // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
             $query .= join(' ', $this->cond) . ' ';
         }
@@ -1200,7 +1201,8 @@ class dcDeleteStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
+                // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
             $query .= join(' ', $this->cond) . ' ';
         }
@@ -1345,7 +1347,8 @@ class dcUpdateStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
+                // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
             $query .= join(' ', $this->cond) . ' ';
         }
