@@ -260,7 +260,7 @@ class tplTags
      */
     public static function TagFeedURL($attr)
     {
-        $type = !empty($attr['type']) ? $attr['type'] : 'rss2';
+        $type = !empty($attr['type']) ? (string) $attr['type'] : 'rss2';
 
         if (!preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'rss2';

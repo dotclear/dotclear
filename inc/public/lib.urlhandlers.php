@@ -414,7 +414,7 @@ class dcUrlHandlers extends urlHandler
         // Nothing or year and month
         if ($args == '') {
             self::serveDocument('archive.html');
-        } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
+        } elseif (preg_match('|^/(\d{4})/(\d{2})$|', (string) $args, $m)) {
             $params = new ArrayObject(
                 [
                     'year'  => $m[1],
@@ -615,7 +615,7 @@ class dcUrlHandlers extends urlHandler
      */
     public static function preview(?string $args): void
     {
-        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
+        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
             // The specified Preview URL is malformed.
             self::p404();
         } else {
@@ -650,7 +650,7 @@ class dcUrlHandlers extends urlHandler
 
         $mime = 'application/xml';
 
-        if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', $args, $matches)) {
+        if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', (string) $args, $matches)) {
             // Specific language feed
             $params = new ArrayObject(
                 [
@@ -670,18 +670,18 @@ class dcUrlHandlers extends urlHandler
             dcCore::app()->ctx->cur_lang = $matches[1];
         }
 
-        if (preg_match('#^rss2/xslt$#', $args, $matches)) {
+        if (preg_match('#^rss2/xslt$#', (string) $args, $matches)) {
             // RSS XSLT stylesheet
             http::$cache_max_age = 60 * 60 * 24 * 7; // One week cache for XSLT
             self::serveDocument('rss2.xsl', 'text/xml');
 
             return;
-        } elseif (preg_match('#^(atom|rss2)/comments/(\d+)$#', $args, $matches)) {
+        } elseif (preg_match('#^(atom|rss2)/comments/(\d+)$#', (string) $args, $matches)) {
             // Post comments feed
             $type     = $matches[1];
             $comments = true;
             $post_id  = (int) $matches[2];
-        } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', $args, $matches)) {
+        } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', (string) $args, $matches)) {
             // All posts or comments feed
             $type     = $matches[2];
             $comments = !empty($matches[3]);
@@ -769,7 +769,7 @@ class dcUrlHandlers extends urlHandler
      */
     public static function trackback(?string $args): void
     {
-        if (!preg_match('/^\d+$/', $args)) {
+        if (!preg_match('/^\d+$/', (string) $args)) {
             // The specified trackback URL is not an number
             self::p404();
         } else {

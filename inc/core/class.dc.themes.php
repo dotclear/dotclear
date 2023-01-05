@@ -127,7 +127,7 @@ class dcThemes extends dcModules
                     copy($file, $new_dir . $rel);
 
                     if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
-                        $buf = file_get_contents($new_dir . $rel);
+                        $buf = (string) file_get_contents($new_dir . $rel);
                         // Find offset of registerModule function call
                         $pos = strpos($buf, '$this->registerModule');
                         // Change theme name to $new_name in _define.php
@@ -144,8 +144,7 @@ class dcThemes extends dcModules
 
                     if (substr($rel, -4) === '.php') {
                         // Change namespace in *.php
-                        // ex: namespace themes\berlin; → namespace themes\berlinClone;
-                        $buf = file_get_contents($new_dir . $rel);
+                        $buf = (string) file_get_contents($new_dir . $rel);
                         if (preg_match('/^namespace\s*themes\\\([^;].*);$/m', $buf, $matches)) {
                             $pos     = strpos($buf, $matches[0]);
                             $rel_dir = substr($new_dir, strlen($root));

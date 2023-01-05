@@ -67,7 +67,7 @@ class adminHelp
                     continue;
                 }
 
-                $fc = file_get_contents($f);
+                $fc = (string) file_get_contents($f);
                 if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $fc, $matches)) {
                     $content .= $matches[1];
                     if (preg_match('|<title[^>]*?>(.*?)</title>|ms', $fc, $matches)) {

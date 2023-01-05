@@ -879,7 +879,7 @@ class adminMediaItem
 
             if (dcCore::app()->admin->file->media_image) {
                 // We look for thumbnails too
-                if (preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->public_url)) {
+                if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->public_url)) {
                     $media_root = dcCore::app()->blog->settings->system->public_url;
                 } else {
                     $media_root = dcCore::app()->blog->host . path::clean(dcCore::app()->blog->settings->system->public_url) . '/';

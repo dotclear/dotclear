@@ -52,7 +52,7 @@ class dcAdminHelper
      */
     public static function loadLocales()
     {
-        dcCore::app()->lang = dcCore::app()->auth->getInfo('user_lang');
+        dcCore::app()->lang = (string) dcCore::app()->auth->getInfo('user_lang');
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
         l10n::lang(dcCore::app()->lang);
@@ -86,7 +86,7 @@ class dcAdminHelper
             $desc,
             $url,
             $icon,
-            preg_match($pattern, $_SERVER['REQUEST_URI']),
+            preg_match($pattern, (string) $_SERVER['REQUEST_URI']),
             $perm,
             null,
             null,

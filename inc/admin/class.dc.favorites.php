@@ -175,7 +175,7 @@ class dcFavorites
                 // Failback active detection. We test against URI name & parameters
                 $favorite['active'] = true; // true until something proves it is false
                 $url                = explode('?', $favorite['url'], 2);
-                if (!preg_match('/' . preg_quote($url[0], '/') . '/', $_SERVER['REQUEST_URI'])) {
+                if (!preg_match('/' . preg_quote($url[0], '/') . '/', (string) $_SERVER['REQUEST_URI'])) {
                     $favorite['active'] = false; // no URI match
                 }
                 if (count($url) == 2) {

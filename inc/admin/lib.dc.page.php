@@ -269,8 +269,8 @@ class dcPage
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.home')) . '$/', $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . dcCore::app()->adminurl->get('admin.home') . '">' . __('My dashboard') . '</a></li>' .
-        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', $_SERVER['REQUEST_URI']) ? ' active' : '') .
+        '<li><a class="' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.home')) . '$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . dcCore::app()->adminurl->get('admin.home') . '">' . __('My dashboard') . '</a></li>' .
+        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . dcCore::app()->adminurl->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
         '<li><a href="' . dcCore::app()->adminurl->get('admin.home', ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
@@ -713,7 +713,7 @@ class dcPage
                 continue;
             }
 
-            $file_content = file_get_contents($file);
+            $file_content = (string) file_get_contents($file);
             if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
                 $content .= $matches[1];
             } else {
