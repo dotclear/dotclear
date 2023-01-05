@@ -778,7 +778,7 @@ class flatImportV2 extends flatBackup
         if (!$this->userExists($user_id)) {
             if (dcCore::app()->auth->isSuperAdmin()) {
                 # Sanitizes user_id and create a lambda user
-                $user_id = preg_replace('/[^A-Za-z0-9]$/', '', $user_id);
+                $user_id = preg_replace('/[^A-Za-z0-9]$/', '', (string) $user_id);
                 $user_id .= strlen($user_id) < 2 ? '-a' : '';
 
                 # We change user_id, we need to check again

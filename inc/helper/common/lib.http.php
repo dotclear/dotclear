@@ -257,7 +257,6 @@ class http
         $accepted_languages = [];
 
         if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-
             // break up string into pieces (languages and q factors)
             preg_match_all(
                 '/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i',
@@ -316,7 +315,7 @@ class http
 
         $since = null;
         if (!empty($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
-            $since = $_SERVER['HTTP_IF_MODIFIED_SINCE'];
+            $since = (string) $_SERVER['HTTP_IF_MODIFIED_SINCE'];
             $since = preg_replace('/^(.*)(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(.*)(GMT)(.*)/', '$2$3 GMT', $since);
             $since = strtotime($since);
             $since = ($since <= $now) ? $since : null;

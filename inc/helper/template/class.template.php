@@ -511,7 +511,7 @@ class template
      */
     protected function getCompiledTree(string $file, string &$err): tplNode
     {
-        $fc = file_get_contents($file);
+        $fc = (string) file_get_contents($file);
 
         $this->compile_stack[] = $file;
 

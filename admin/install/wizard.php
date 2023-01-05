@@ -117,7 +117,7 @@ if (!empty($_POST)) {
         writeConfigValue('DC_DBNAME', $DBNAME, $full_conf);
         writeConfigValue('DC_DBPREFIX', $DBPREFIX, $full_conf);
 
-        $admin_url = preg_replace('%install/wizard.php$%', '', $_SERVER['REQUEST_URI']);
+        $admin_url = preg_replace('%install/wizard.php$%', '', (string) $_SERVER['REQUEST_URI']);
         writeConfigValue('DC_ADMIN_URL', http::getHost() . $admin_url, $full_conf);
         $admin_email = !empty($ADMINMAILFROM) ? $ADMINMAILFROM : 'dotclear@' . $_SERVER['HTTP_HOST'];
         writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);

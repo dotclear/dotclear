@@ -1061,7 +1061,7 @@ class dcPage
     public static function jsUpload(array $params = [], ?string $base_url = null): string
     {
         if (!$base_url) {
-            $base_url = path::clean(dirname(preg_replace('/(\?.*$)?/', '', $_SERVER['REQUEST_URI']))) . '/';
+            $base_url = path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/';
         }
 
         $params = array_merge($params, [

@@ -137,7 +137,7 @@ class html
      */
     public static function stripHostURL(?string $url): string
     {
-        return preg_replace('|^[a-z]{3,}://.*?(/.*$)|', '$1', $url);
+        return preg_replace('|^[a-z]{3,}://.*?(/.*$)|', '$1', (string) $url);
     }
 
     /**
@@ -152,37 +152,40 @@ class html
      */
     public static function absoluteURLs(?string $str, ?string $root): string
     {
-        foreach (self::$absolute_regs as $pattern) {
-            $str = preg_replace_callback(
-                $pattern,
-                function (array $matches) use ($root) {
-                    $url = $matches[2];
+        $str = (string) $str;
+        if ($root) {
+            foreach (self::$absolute_regs as $pattern) {
+                $str = preg_replace_callback(
+                    $pattern,
+                    function (array $matches) use ($root) {
+                        $url = $matches[2];
 
-                    $link = str_replace('%', '%%', $matches[1]) . '%s' . str_replace('%', '%%', $matches[3]);
-                    $host = preg_replace('|^([a-z]{3,}://)(.*?)/(.*)$|', '$1$2', $root);
+                        $link = str_replace('%', '%%', $matches[1]) . '%s' . str_replace('%', '%%', $matches[3]);
+                        $host = preg_replace('|^([a-z]{3,}://)(.*?)/(.*)$|', '$1$2', $root);
 
-                    $parse = parse_url($matches[2]);
-                    if (empty($parse['scheme'])) {
-                        if (strpos($url, '//') === 0) {
-                            // Nothing to do. Already an absolute URL.
-                        } elseif (strpos($url, '/') === 0) {
-                            // Beginning by a / return host + url
-                            $url = $host . $url;
-                        } elseif (strpos($url, '#') === 0) {
-                            // Beginning by a # return root + hash
-                            $url = $root . $url;
-                        } elseif (preg_match('|/$|', $root)) {
-                            // Root is ending by / return root + url
-                            $url = $root . $url;
-                        } else {
-                            $url = dirname($root) . '/' . $url;
+                        $parse = parse_url($matches[2]);
+                        if (empty($parse['scheme'])) {
+                            if (strpos($url, '//') === 0) {
+                                // Nothing to do. Already an absolute URL.
+                            } elseif (strpos($url, '/') === 0) {
+                                // Beginning by a / return host + url
+                                $url = $host . $url;
+                            } elseif (strpos($url, '#') === 0) {
+                                // Beginning by a # return root + hash
+                                $url = $root . $url;
+                            } elseif (preg_match('|/$|', $root)) {
+                                // Root is ending by / return root + url
+                                $url = $root . $url;
+                            } else {
+                                $url = dirname($root) . '/' . $url;
+                            }
                         }
-                    }
 
-                    return sprintf($link, $url);
-                },
-                $str
-            );
+                        return sprintf($link, $url);
+                    },
+                    $str
+                );
+            }
         }
 
         return $str;
