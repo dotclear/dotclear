@@ -402,7 +402,7 @@ class dcImportWP extends dcIeModule
             $this->con->begin();
 
             while ($rs->fetch()) {
-                $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', $rs->user_login);
+                $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
                 $this->vars['user_ids'][$rs->ID] = $user_login;
                 if (!dcCore::app()->userExists($user_login)) {
                     $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);

@@ -126,8 +126,8 @@ if ($can_install && !empty($_POST)) {
 
         dcCore::app()->auth->checkUser($u_login);
 
-        $admin_url = preg_replace('%install/index.php$%', '', $_SERVER['REQUEST_URI']);
-        $root_url  = preg_replace('%/admin/install/index.php$%', '', $_SERVER['REQUEST_URI']);
+        $admin_url = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
+        $root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
 
         # Create blog
         $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);

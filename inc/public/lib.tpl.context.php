@@ -410,9 +410,9 @@ class context
                 $cat_url .= ' ?not';
             }
             if (dcCore::app()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
-                $cat_url = preg_replace($pattern, dcCore::app()->ctx->categories->cat_url, $cat_url);
+                $cat_url = preg_replace($pattern, (string) dcCore::app()->ctx->categories->cat_url, $cat_url);
             } elseif (dcCore::app()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
-                $cat_url = preg_replace($pattern, dcCore::app()->ctx->posts->cat_url, $cat_url);
+                $cat_url = preg_replace($pattern, (string) dcCore::app()->ctx->posts->cat_url, $cat_url);
             }
         }
     }
@@ -510,7 +510,7 @@ class context
      */
     public static function PaginationURL(int $offset = 0): string
     {
-        $args = $_SERVER['URL_REQUEST_PART'];
+        $args = (string) $_SERVER['URL_REQUEST_PART'];
         $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
         $page_number = self::PaginationPosition($offset);

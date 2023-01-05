@@ -117,7 +117,7 @@ class adminAuth
                 $recover_res = dcCore::app()->auth->recoverUserPassword(dcCore::app()->admin->akey);
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
-                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', dcCore::app()->admin->page_url);
+                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) dcCore::app()->admin->page_url);
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && DC_ADMIN_MAILFROM ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 

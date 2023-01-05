@@ -221,7 +221,7 @@ class adminBlogPref
             $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
 
             $cur->blog_id   = $_POST['blog_id'];
-            $cur->blog_url  = preg_replace('/\?+$/', '?', $_POST['blog_url']);
+            $cur->blog_url  = preg_replace('/\?+$/', '?', (string) $_POST['blog_url']);
             $cur->blog_name = $_POST['blog_name'];
             $cur->blog_desc = $_POST['blog_desc'];
 

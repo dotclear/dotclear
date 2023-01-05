@@ -86,10 +86,10 @@ class dcAdmin
 
                 if (!empty($_REQUEST['redir'])) {
                     # Keep context as far as possible
-                    $redir = $_REQUEST['redir'];
+                    $redir = (string) $_REQUEST['redir'];
                 } else {
                     # Removing switchblog from URL
-                    $redir = $_SERVER['REQUEST_URI'];
+                    $redir = (string) $_SERVER['REQUEST_URI'];
                     $redir = preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
                     $redir = preg_replace('/\?$/', '', $redir);
                 }

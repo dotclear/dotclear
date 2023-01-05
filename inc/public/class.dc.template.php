@@ -382,7 +382,7 @@ class dcTemplate extends template
         $default_order = 'desc';
 
         $default_alias = [
-            'post' => [
+            'post'    => [
                 'title'     => 'post_title',
                 'selected'  => 'post_selected',
                 'author'    => 'user_id',
@@ -3275,7 +3275,7 @@ class dcTemplate extends template
      */
     public function CommentAuthorDomain(ArrayObject $attr): string
     {
-        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',dcCore::app()->ctx->comments->comment_site); ?>';
+        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',(string) dcCore::app()->ctx->comments->comment_site); ?>';
     }
 
     /**
