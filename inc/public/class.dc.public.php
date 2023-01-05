@@ -160,7 +160,7 @@ class dcPublic
         }
 
         # Loading locales
-        dcCore::app()->lang = dcCore::app()->blog->settings->system->lang;
+        dcCore::app()->lang = (string) dcCore::app()->blog->settings->system->lang;
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
         /*

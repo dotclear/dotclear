@@ -129,8 +129,8 @@ class tplBlogroll
         $current_size = 0;
         $self_uri     = http::getSelfURI();
         foreach ($links as $link_id => $link) {
-            if (!preg_match('$^([a-z][a-z0-9.+-]+://)$', $link['link_href'])) {
-                $url = http::concatURL($self_uri, $link['link_href']);
+            if (!preg_match('$^([a-z][a-z0-9.+-]+://)$', (string) $link['link_href'])) {
+                $url = http::concatURL($self_uri, (string) $link['link_href']);
                 if (strlen($url) > $current_size && preg_match('/^' . preg_quote($url, '/') . '/', $self_uri)) {
                     $current      = $link_id;
                     $current_size = strlen($url);

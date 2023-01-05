@@ -774,7 +774,7 @@ class context
 
             # No src, look in category description if available
             if (!$src && $with_category && dcCore::app()->ctx->posts->cat_desc) {
-                if (preg_match_all($pattern, dcCore::app()->ctx->posts->cat_desc, $m) > 0) {
+                if (preg_match_all($pattern, (string) dcCore::app()->ctx->posts->cat_desc, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));

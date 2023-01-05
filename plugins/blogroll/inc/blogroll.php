@@ -95,8 +95,8 @@ class dcBlogroll
         $strReq .= 'GROUP BY link_lang ';
 
         $order = 'desc';
-        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
-            $order = $params['order'];
+        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
+            $order = (string) $params['order'];
         }
         $strReq .= 'ORDER BY link_lang ' . $order . ' ';
 

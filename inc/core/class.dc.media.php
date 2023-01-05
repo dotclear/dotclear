@@ -145,7 +145,7 @@ class dcMedia extends filemanager
         $this->table = dcCore::app()->prefix . self::MEDIA_TABLE_NAME;
         $root        = dcCore::app()->blog->public_path;
 
-        if (preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->public_url)) {
+        if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->public_url)) {
             $root_url = rawurldecode(dcCore::app()->blog->settings->system->public_url);
         } else {
             $root_url = rawurldecode(dcCore::app()->blog->host . path::clean(dcCore::app()->blog->settings->system->public_url));

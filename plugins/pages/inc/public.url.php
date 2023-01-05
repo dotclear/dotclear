@@ -189,7 +189,7 @@ class urlPages extends dcUrlHandlers
      */
     public static function pagespreview(?string $args): void
     {
-        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
+        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
             # The specified Preview URL is malformed.
             self::p404();
         } else {

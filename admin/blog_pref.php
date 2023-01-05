@@ -286,7 +286,7 @@ class adminBlogPref
                 # --BEHAVIOR-- adminBeforeBlogUpdate
                 dcCore::app()->callBehavior('adminBeforeBlogUpdate', $cur, $da->blog_id);
 
-                if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_POST['lang'])) {
+                if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $_POST['lang'])) {
                     throw new Exception(__('Invalid language code'));
                 }
 

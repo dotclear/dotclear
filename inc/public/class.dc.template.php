@@ -421,8 +421,8 @@ class dcTemplate extends template
             return implode(', ', $res);
         }
 
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
-            $default_order = $attr['order'];
+        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
+            $default_order = (string) $attr['order'];
         }
         if (isset($attr['sortby'])) {
             $sorts = explode(',', $attr['sortby']);
@@ -454,8 +454,8 @@ class dcTemplate extends template
      */
     public static function getAge(ArrayObject $attr): string
     {
-        if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', $attr['age'])) {
-            if (($ts = strtotime($attr['age'])) !== false) {
+        if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', (string) $attr['age'])) {
+            if (($ts = strtotime((string) $attr['age'])) !== false) {
                 return dt::str('%Y-%m-%d %H:%m:%S', $ts);
             }
         }
@@ -626,8 +626,8 @@ class dcTemplate extends template
                 "}\n";
         }
 
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
-            $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
+        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
+            $params .= "\$params['order'] = '" . (string) $attr['order'] . "';\n ";
         }
 
         $res = "<?php\n" .
@@ -1544,7 +1544,7 @@ class dcTemplate extends template
      */
     public function CategoryFeedURL(ArrayObject $attr): string
     {
-        $type = !empty($attr['type']) ? $attr['type'] : 'atom';
+        $type = !empty($attr['type']) ? (string) $attr['type'] : 'atom';
 
         if (!preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'atom';
@@ -2893,8 +2893,8 @@ class dcTemplate extends template
             $params = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
         }
 
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
-            $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
+        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
+            $params .= "\$params['order'] = '" . (string) $attr['order'] . "';\n ";
         }
 
         $res = "<?php\n";
@@ -4132,8 +4132,8 @@ class dcTemplate extends template
         }
 
         $order = 'asc';
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
-            $order = $attr['order'];
+        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
+            $order = (string) $attr['order'];
         }
 
         $params .= "\$params['order'] = 'comment_dt " . $order . "';\n";

@@ -1437,12 +1437,12 @@ final class dcCore
     private function fillUserCursor(cursor $cur)
     {
         if ($cur->isField('user_id')
-            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->user_id)) {
+            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', (string) $cur->user_id)) {
             throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
         if ($cur->user_url !== null && $cur->user_url != '') {
-            if (!preg_match('|^https?://|', $cur->user_url)) {
+            if (!preg_match('|^https?://|', (string) $cur->user_url)) {
                 $cur->user_url = 'http://' . $cur->user_url;
             }
         }
@@ -1454,7 +1454,7 @@ final class dcCore
             $cur->user_pwd = $this->auth->crypt($cur->user_pwd);
         }
 
-        if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->user_lang)) {
+        if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $cur->user_lang)) {
             throw new Exception(__('Invalid user language code'));
         }
 
@@ -1710,7 +1710,7 @@ final class dcCore
     private function fillBlogCursor(cursor $cur): void
     {
         if (($cur->blog_id !== null
-            && !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id)) || (!$cur->blog_id)) {
+            && !preg_match('/^[A-Za-z0-9._-]{2,}$/', (string) $cur->blog_id)) || (!$cur->blog_id)) {
             throw new Exception(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 

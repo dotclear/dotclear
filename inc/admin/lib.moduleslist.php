@@ -1866,7 +1866,7 @@ class adminThemesList extends adminModulesList
             if ($current) {
                 # _GET actions
                 if (file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . '/style.css')) {
-                    $theme_url = preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url) ?
+                    $theme_url = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
                     http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . $id) :
                     http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . $id);
                     $line .= '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';

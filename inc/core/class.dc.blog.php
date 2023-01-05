@@ -2085,7 +2085,7 @@ class dcBlog
                 $sub[$id] = 1;
             }
             if ($field == 'cat_id') {
-                if (preg_match('/^null$/i', $id)) {
+                if (preg_match('/^null$/i', (string) $id)) {
                     $queries[$id] = 'P.cat_id IS NULL';
                 } else {
                     $queries[$id] = 'P.cat_id = ' . (int) $id;

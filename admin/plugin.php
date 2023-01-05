@@ -54,11 +54,10 @@ class adminPlugin
             // Get plugin index.php content
             ob_start();
             include $p_file;
-            $res = ob_get_contents();
+            $res = (string) ob_get_contents();
             ob_end_clean();
 
             if (preg_match('|<head>(.*?)</head|ms', $res, $m)) {
-
                 // <head> present
 
                 if (preg_match('|<title>(.*?)</title>|ms', $m[1], $mt)) {

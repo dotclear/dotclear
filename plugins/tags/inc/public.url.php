@@ -21,7 +21,7 @@ class urlTags extends dcUrlHandlers
 
         if ($args == '' && !$n) {
             self::p404();
-        } elseif (preg_match('%(.*?)/feed/(rss2|atom)?$%u', $args, $m)) {
+        } elseif (preg_match('%(.*?)/feed/(rss2|atom)?$%u', (string) $args, $m)) {
             $type = $m[2] == 'atom' ? 'atom' : 'rss2';
             $mime = 'application/xml';
 
@@ -76,7 +76,7 @@ class urlTags extends dcUrlHandlers
      */
     public static function tagFeed(?string $args): void
     {
-        if (!preg_match('#^(.+)/(atom|rss2)(/comments)?$#', $args, $m)) {
+        if (!preg_match('#^(.+)/(atom|rss2)(/comments)?$#', (string) $args, $m)) {
             self::p404();
         } else {
             $tag      = (string) $m[1];
