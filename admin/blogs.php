@@ -98,48 +98,51 @@ class adminBlogs
             dcCore::app()->admin->blog_filter->display('admin.blogs');
 
             // Show blogs
-            $form = (new formForm('form-blogs'))
-                    ->action(dcCore::app()->adminurl->get('admin.blogs'))
-                    ->method('post')
-                    ->fields([
-                        // sprintf pattern for blog list
-                        (new formText())->text('%s'),
-                        (new formDiv())
-                            ->class(['two-cols', 'clearfix'])
-                            ->items([
-                                (new formPara())->class(['col checkboxes-helpers']),
-                                (new formPara())->class(['col right'])->items([
-                                    (new formSelect('action'))
-                                        ->class('online')
-                                        ->title(__('Actions'))
-                                        ->label(
-                                            (new formLabel(
-                                                __('Selected blogs action:'),
-                                                formLabel::OUTSIDE_LABEL_BEFORE
-                                            ))
-                                            ->class('classic')
-                                        )
-                                        ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
-                                    dcCore::app()->formNonce(false),
-                                    (new formSubmit(['do-action']))
-                                        ->value(__('ok')),
+            $form = null;
+            if (dcCore::app()->auth->isSuperAdmin()) {
+                $form = (new formForm('form-blogs'))
+                        ->action(dcCore::app()->adminurl->get('admin.blogs'))
+                        ->method('post')
+                        ->fields([
+                            // sprintf pattern for blog list
+                            (new formText())->text('%s'),
+                            (new formDiv())
+                                ->class(['two-cols', 'clearfix'])
+                                ->items([
+                                    (new formPara())->class(['col checkboxes-helpers']),
+                                    (new formPara())->class(['col right'])->items([
+                                        (new formSelect('action'))
+                                            ->class('online')
+                                            ->title(__('Actions'))
+                                            ->label(
+                                                (new formLabel(
+                                                    __('Selected blogs action:'),
+                                                    formLabel::OUTSIDE_LABEL_BEFORE
+                                                ))
+                                                ->class('classic')
+                                            )
+                                            ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
+                                        dcCore::app()->formNonce(false),
+                                        (new formSubmit(['do-action']))
+                                            ->value(__('ok')),
+                                    ]),
                                 ]),
+                            (new formPara())->items([
+                                (new formPassword('pwd'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->autocomplete('current-password')
+                                    ->label(
+                                        (new formLabel(
+                                            __('Please give your password to confirm blog(s) deletion:'),
+                                            formLabel::OUTSIDE_LABEL_BEFORE
+                                        ))
+                                        ->class('classic')
+                                    ),
                             ]),
-                        (new formPara())->items([
-                            (new formPassword('pwd'))
-                                ->size(20)
-                                ->maxlength(255)
-                                ->autocomplete('current-password')
-                                ->label(
-                                    (new formLabel(
-                                        __('Please give your password to confirm blog(s) deletion:'),
-                                        formLabel::OUTSIDE_LABEL_BEFORE
-                                    ))
-                                    ->class('classic')
-                                ),
-                        ]),
-                        ...dcCore::app()->adminurl->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
-                    ]);
+                            ...dcCore::app()->adminurl->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
+                        ]);
+            }
 
             dcCore::app()->admin->blog_list->display(
                 dcCore::app()->admin->blog_filter->page,
