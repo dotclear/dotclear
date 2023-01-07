@@ -211,6 +211,11 @@ class dcDefaultBlogActions
         $cur->blog_status = $status;
         $cur->update('WHERE blog_id ' . dcCore::app()->con->in($ids));
 
+        if ($status === dcBlog::BLOG_REMOVED) {
+            // Remove these blogs from user default blog
+            dcCore::app()->removeUsersDefaultBlogs($ids);
+        }
+
         dcPage::addSuccessNotice(__('Selected blogs have been successfully updated.'));
         $ap->redirect(true);
     }

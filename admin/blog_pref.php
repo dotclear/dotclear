@@ -292,6 +292,11 @@ class adminBlogPref
 
                 dcCore::app()->updBlog($da->blog_id, $cur);
 
+                if (dcCore::app()->auth->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
+                    // Remove this blog from user default blog
+                    dcCore::app()->removeUsersDefaultBlogs([$cur->blog_id]);
+                }
+
                 # --BEHAVIOR-- adminAfterBlogUpdate
                 dcCore::app()->callBehavior('adminAfterBlogUpdate', $cur, $da->blog_id);
 

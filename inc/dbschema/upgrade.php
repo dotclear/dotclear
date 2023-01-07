@@ -1151,6 +1151,19 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.25', '<')) {
+            // Remove removed blogs from users default blog
+            $ids = [];
+            $rs  = (new dcSelectStatement())
+                ->from(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME)
+                ->where('blog_status = ' . dcBlog::BLOG_REMOVED)
+                ->select();
+            while ($rs->fetch()) {
+                $ids[] = $rs->blog_id;
+            }
+            if (count($ids)) {
+                dcCore::app()->removeUsersDefaultBlogs($ids);
+            }
+
             // A bit of housecleaning for no longer needed folders
             self::houseCleaning(
                 // Files

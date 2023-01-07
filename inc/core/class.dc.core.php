@@ -1428,6 +1428,23 @@ final class dcCore
     }
 
     /**
+     * Removes users default blogs.
+     *
+     * @param      array  $ids    The blogs to remove
+     */
+    public function removeUsersDefaultBlogs(array $ids)
+    {
+        $cur = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
+
+        $cur->user_default_blog = null;
+
+        $sql = new dcUpdateStatement();
+        $sql->where('user_default_blog' . $sql->in($ids));
+
+        $sql->update($cur);
+    }
+
+    /**
      * Fills the user cursor.
      *
      * @param      cursor     $cur    The user cursor

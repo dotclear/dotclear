@@ -106,7 +106,7 @@ class dcAdmin
                     unset($_SESSION['sess_blog_id']);
                 }
             } else {
-                if (($b = dcCore::app()->auth->findUserBlog(dcCore::app()->auth->getInfo('user_default_blog'))) !== false) {
+                if (($b = dcCore::app()->auth->findUserBlog(dcCore::app()->auth->getInfo('user_default_blog'), false)) !== false) {
                     $_SESSION['sess_blog_id'] = $b;
                     unset($b);
                 }

@@ -569,14 +569,21 @@ class dcAuth
     /**
      * Finds an user blog.
      *
-     * @param      string  $blog_id  The blog identifier
+     * @param      string  $blog_id         The blog identifier
+     * @param      bool    $all_status      False if we not allow removed blog (not super admin only)
      *
      * @return     mixed
      */
-    public function findUserBlog(?string $blog_id = null)
+    public function findUserBlog(?string $blog_id = null, bool $all_status = true)
     {
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
-            return $blog_id;
+            if ($all_status || $this->user_admin) {
+                return $blog_id;
+            }
+            $rs = dcCore::app()->getBlog($blog_id);
+            if ($rs !== false && $rs->blog_status !== dcBlog::BLOG_REMOVED) {
+                return $blog_id;
+            }
         }
 
         $sql = new dcSelectStatement();
