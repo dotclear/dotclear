@@ -457,26 +457,25 @@ dotclear.commentsActionsHelper = () => {
 
 // Outgoing links
 dotclear.outgoingLinks = (target) => {
-  $(target)
-    .filter(function () {
-      return (
-        (this.hostname &&
-          this.hostname != location.hostname &&
-          !$(this).hasClass('modal') &&
-          !$(this).hasClass('modal-image')) ||
-        $(this).hasClass('outgoing')
-      );
-    })
-    .each(function () {
-      $(this).prop('title', `${$(this).prop('title')} (${dotclear.msg.new_window})`);
-      if (!$(this).hasClass('outgoing')) {
-        $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
+  const elements = document.querySelectorAll(target);
+  elements.forEach((element) => {
+    if (
+      (element.hostname &&
+        element.hostname != location.hostname &&
+        !element.classList.contains('modal') &&
+        !element.classList.contains('modal-image')) ||
+      element.classList.contains('outgoing')
+    ) {
+      element.title = `${element.title} (${dotclear.msg.new_window})`;
+      if (!element.classList.contains('outgoing')) {
+        element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>';
       }
-    })
-    .on('click', function (e) {
-      e.preventDefault();
-      window.open($(this).attr('href'));
-    });
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(element.href);
+      });
+    }
+  });
 };
 
 /**
