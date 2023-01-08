@@ -337,34 +337,30 @@ dotclear.condSubmit = (chkboxes, target) => {
 };
 
 dotclear.hideLockable = () => {
-  $('div.lockable').each(function () {
-    const current_lockable_div = this;
-    $(this).find('p.form-note').hide();
-    $(this)
-      .find('input')
-      .each(function () {
-        this.disabled = true;
-        $(this).width(`${$(this).width() - 14}px`);
-        const imgE = document.createElement('img');
-        imgE.src = 'images/locker.png';
-        imgE.style.position = 'absolute';
-        imgE.style.top = '1.8em';
-        imgE.style.left = `${$(this).width() + 14}px`;
-        imgE.alt = dotclear.msg.click_to_unlock;
-        $(imgE).css('cursor', 'pointer');
-        $(imgE).on('click', function () {
-          $(this).hide();
-          $(this)
-            .prev('input')
-            .each(function () {
-              this.disabled = false;
-              $(this).width(`${$(this).width() + 14}px`);
-            });
-          $(current_lockable_div).find('p.form-note').show();
-        });
-        $(this).parent().css('position', 'relative');
-        $(this).after(imgE);
+  const lockableDivs = document.querySelectorAll('div.lockable');
+  lockableDivs.forEach((lockableDiv) => {
+    const formNotes = lockableDiv.querySelectorAll('p.form-note');
+    formNotes.forEach((formNote) => (formNote.style.display = 'none'));
+    const inputs = lockableDiv.querySelectorAll('input');
+    inputs.forEach((input) => {
+      input.disabled = true;
+      input.style.width = `${input.offsetWidth - 14}px`;
+      const image = document.createElement('img');
+      image.src = 'images/locker.png';
+      image.style.position = 'absolute';
+      image.style.top = '1.8em';
+      image.style.left = `${input.offsetWidth + 14}px`;
+      image.alt = dotclear.msg.click_to_unlock;
+      image.style.cursor = 'pointer';
+      image.addEventListener('click', () => {
+        image.style.display = 'none';
+        input.disabled = false;
+        input.style.width = `${input.offsetWidth + 14}px`;
+        formNotes.forEach((formNote) => (formNote.style.display = 'block'));
       });
+      input.parentElement.style.position = 'relative';
+      input.after(image);
+    });
   });
 };
 
