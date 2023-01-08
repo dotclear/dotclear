@@ -309,26 +309,30 @@ dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
 };
 
 dotclear.condSubmit = (chkboxes, target) => {
-  const checkboxes = $(chkboxes);
-  const submitButt = $(target);
-  if (checkboxes === undefined || submitButt === undefined) {
+  const checkboxes = Array.from(document.querySelectorAll(chkboxes));
+  const submitButt = document.querySelector(target);
+  if (checkboxes.length === 0 || submitButt === null) {
     return;
   }
+
   // Set initial state
-  submitButt.attr('disabled', !checkboxes.is(':checked'));
-  if (checkboxes.is(':checked')) {
-    submitButt.removeClass('disabled');
+  submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
+  if (submitButt.disabled) {
+    submitButt.classList.add('disabled');
   } else {
-    submitButt.addClass('disabled');
+    submitButt.classList.remove('disabled');
   }
-  checkboxes.on('click', () => {
-    // Update target state
-    submitButt.attr('disabled', !checkboxes.is(':checked'));
-    if (checkboxes.is(':checked')) {
-      submitButt.removeClass('disabled');
-    } else {
-      submitButt.addClass('disabled');
-    }
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', () => {
+      // Update target state
+      submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
+      if (submitButt.disabled) {
+        submitButt.classList.add('disabled');
+      } else {
+        submitButt.classList.remove('disabled');
+      }
+    });
   });
 };
 
