@@ -177,7 +177,7 @@ class defaultWidgets
             return '';
         }
 
-        $value = isset(dcCore::app()->public->search) ? html::escapeHTML(dcCore::app()->public->search) : '';
+        $value = isset(dcCore::app()->public->search) ? dcCore::app()->public->search : '';
 
         return $widget->renderDiv(
             $widget->content_only,
