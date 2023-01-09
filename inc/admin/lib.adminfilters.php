@@ -460,7 +460,7 @@ class adminPostFilter extends adminGenericFilterV2
         }
 
         $combo = dcAdminCombos::getUsersCombo($users);
-        dcUtils::lexicalKeySort($combo);
+        dcUtils::lexicalKeySort($combo, dcUtils::ADMIN_LOCALE);
 
         return (new dcAdminFilter('user_id'))
             ->param()

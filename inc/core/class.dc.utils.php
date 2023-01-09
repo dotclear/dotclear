@@ -10,6 +10,10 @@
  */
 class dcUtils
 {
+    public const ADMIN_LOCALE  = 'admin';
+    public const PUBLIC_LOCALE = 'public';
+    public const CUSTOM_LOCALE = 'lang';
+
     /**
      * Make a path from a list of names
      *
@@ -326,17 +330,17 @@ class dcUtils
     {
         // Switch to appropriate locale depending on $ns
         switch ($namespace) {
-            case 'admin':
+            case self::ADMIN_LOCALE:
                 // Set locale with user prefs
                 setlocale(LC_COLLATE, dcCore::app()->auth->getInfo('user_lang'));
 
                 break;
-            case 'public':
+            case self::PUBLIC_LOCALE:
                 // Set locale with blog params
                 setlocale(LC_COLLATE, dcCore::app()->blog->settings->system->lang);
 
                 break;
-            case 'lang':
+            case self::CUSTOM_LOCALE:
                 // Set locale with arg
                 setlocale(LC_COLLATE, $lang);
 
