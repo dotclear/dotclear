@@ -71,10 +71,10 @@ class dt
         ];
 
         $intl_formatter = function (DateTimeInterface $timestamp, string $format) use ($intl_formats, $locale) {
-            $tz         = $timestamp->getTimezone();
-            $date_type  = IntlDateFormatter::FULL;
-            $time_type  = IntlDateFormatter::FULL;
-            $pattern    = '';
+            $tz        = $timestamp->getTimezone();
+            $date_type = IntlDateFormatter::FULL;
+            $time_type = IntlDateFormatter::FULL;
+            $pattern   = '';
 
             switch ($format) {
                 // %c = Preferred date and time stamp based on locale
@@ -189,7 +189,7 @@ class dt
             '%x' => $intl_formatter,
         ];
 
-        $out         = preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function ($match) use ($translation_table, $timestamp) {
+        $out = preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function ($match) use ($translation_table, $timestamp) {
             $prefix  = $match[1];
             $char    = $match[2];
             $pattern = '%' . $char;
@@ -208,7 +208,7 @@ class dt
             if (is_string($replace)) {
                 $result = $timestamp->format($replace);
             } else {
-                $result = $replace($timestamp);
+                $result = $replace($timestamp, $pattern);
             }
 
             switch ($prefix) {
