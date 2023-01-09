@@ -923,7 +923,7 @@ class adminBlogPref
 
                 // Sort users list on user_id key
                 $blog_users = $da->blog_users;
-                if (dcUtils::lexicalKeySort($blog_users)) {
+                if (dcUtils::lexicalKeySort($blog_users, dcUtils::ADMIN_LOCALE)) {
                     $da->blog_users = $blog_users;
                 }
 
