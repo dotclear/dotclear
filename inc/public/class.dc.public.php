@@ -10,6 +10,8 @@
  */
 class dcPublic
 {
+    use dcTraitDynamicProperties;
+
     // Constants
 
     public const TPL_ROOT = 'default-templates';
@@ -55,14 +57,6 @@ class dcPublic
      * @var int
      */
     protected $page_number;
-
-    /**
-     * User-defined variables
-     * Experimental (may be changed in near future)
-     *
-     * @var        array
-     */
-    protected $properties = [];
 
     /**
      * Constructs a new instance.
@@ -274,53 +268,6 @@ class dcPublic
             dcCore::app()->callBehavior('publicAfterDocumentV2');
         } catch (Exception $e) {
             __error($e->getMessage(), __('Something went wrong while loading template file for your blog.'), 660);
-        }
-    }
-
-    /**
-     * Magic function, store a property and its value
-     *
-     * @param      string  $identifier  The identifier
-     * @param      mixed   $value       The value
-     */
-    public function __set(string $identifier, $value = null)
-    {
-        $this->properties[$identifier] = $value;
-    }
-
-    /**
-     * Gets the specified property value (null if does not exist).
-     *
-     * @param      string  $identifier  The identifier
-     *
-     * @return     mixed
-     */
-    public function __get(string $identifier)
-    {
-        return array_key_exists($identifier, $this->properties) ? $this->properties[$identifier] : null;
-    }
-
-    /**
-     * Test if a property exists
-     *
-     * @param      string  $identifier  The identifier
-     *
-     * @return     bool
-     */
-    public function __isset(string $identifier): bool
-    {
-        return isset($this->properties[$identifier]);
-    }
-
-    /**
-     * Unset a property
-     *
-     * @param      string  $identifier  The identifier
-     */
-    public function __unset(string $identifier)
-    {
-        if (array_key_exists($identifier, $this->properties)) {
-            unset($this->properties[$identifier]);
         }
     }
 
