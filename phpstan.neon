@@ -2,7 +2,7 @@
 # To run analyse:
 # bin/phpstan analyse --memory-limit=-1
 #
-# or (replacing conf level by 1, … up to 8):
+# or (replacing conf level by 1, … up to 9):
 # bin/phpstan analyse -l 1 --memory-limit=-1
 
 includes:
@@ -10,6 +10,8 @@ includes:
 
 parameters:
   level: 5
+
+  editorUrl: 'file://%%file%%'
 
   bootstrapFiles:
     - phpstan.bootstrap

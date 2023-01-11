@@ -208,7 +208,7 @@ class dt
             if (is_string($replace)) {
                 $result = $timestamp->format($replace);
             } else {
-                $result = $replace($timestamp, $pattern);
+                $result = $replace($timestamp, $pattern);   // @phpstan-ignore-line
             }
 
             switch ($prefix) {
