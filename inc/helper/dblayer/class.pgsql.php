@@ -339,10 +339,10 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
     public function db_escape_string($str, $handle = null): string
     {
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof PgSql\Connection)) {
-            return pg_escape_string($handle, $str);
+            return pg_escape_string($handle, (string) $str);
         }
 
-        return addslashes($str);
+        return addslashes((string) $str);
     }
 
     /**
