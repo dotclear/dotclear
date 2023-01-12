@@ -226,12 +226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ef154ea2a03effbfd0ed789d23344b3a0e6deebc"
+                "reference": "0aa7f416802c2c8e827bf952f04ab537646547b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ef154ea2a03effbfd0ed789d23344b3a0e6deebc",
-                "reference": "ef154ea2a03effbfd0ed789d23344b3a0e6deebc",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0aa7f416802c2c8e827bf952f04ab537646547b0",
+                "reference": "0aa7f416802c2c8e827bf952f04ab537646547b0",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +240,6 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
-            "default-branch": true,
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -278,7 +277,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-22T17:02:44+00:00"
+            "time": "2023-01-12T14:20:07+00:00"
         },
         {
             "name": "psr/container",
@@ -408,12 +407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51"
+                "reference": "0c64ad0187c8e7738509ebfa3fe524439aad6f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ac09569844a9109a5966b9438fc29113ce77cf51",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/0c64ad0187c8e7738509ebfa3fe524439aad6f32",
+                "reference": "0c64ad0187c8e7738509ebfa3fe524439aad6f32",
                 "shasum": ""
             },
             "require": {
@@ -464,7 +463,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-21T19:53:16+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -723,12 +722,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e5c87f882183134a0e56845fd3e2e63c4a10396a"
+                "reference": "9a40f4a18a5c60933f60ee795f50f64fbfcf5b32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e5c87f882183134a0e56845fd3e2e63c4a10396a",
-                "reference": "e5c87f882183134a0e56845fd3e2e63c4a10396a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9a40f4a18a5c60933f60ee795f50f64fbfcf5b32",
+                "reference": "9a40f4a18a5c60933f60ee795f50f64fbfcf5b32",
                 "shasum": ""
             },
             "require": {
@@ -744,7 +743,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "3.5-dev"
                 }
             },
             "autoload": {
@@ -792,7 +791,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-15T10:46:42+00:00"
+            "time": "2023-01-03T18:07:44+00:00"
         }
     ],
     "aliases": [],
