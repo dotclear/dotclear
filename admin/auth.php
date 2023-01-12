@@ -67,8 +67,8 @@ class adminAuth
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
             // If we have POST login informations, go throug auth process
 
-            dcCore::app()->admin->user_id  = !empty($_POST['user_id']) ? $_POST['user_id'] : null;
-            dcCore::app()->admin->user_pwd = !empty($_POST['user_pwd']) ? $_POST['user_pwd'] : null;
+            dcCore::app()->admin->user_id  = $_POST['user_id'];
+            dcCore::app()->admin->user_pwd = $_POST['user_pwd'];
         } elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
             // If we have a remember cookie, go through auth process with user_key
 

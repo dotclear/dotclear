@@ -27,6 +27,7 @@ class tagsBehaviors
         $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
 
         if ($editor === 'dcLegacyEditor') {
+            // dcLegacyEditor
             return
             dcPage::jsJson('legacy_editor_tags', [
                 'tag' => [
@@ -35,15 +36,14 @@ class tagsBehaviors
                 ],
             ]) .
             dcPage::jsModuleLoad('tags/js/legacy-post.js');
-        } elseif ($editor === 'dcCKEditor') {
-            return
-            dcPage::jsJson('ck_editor_tags', [
-                'tag_title' => __('Tag'),
-                'tag_url'   => $tag_url,
-            ]);
         }
 
-        return '';
+        // dcCKEditor
+        return
+        dcPage::jsJson('ck_editor_tags', [
+            'tag_title' => __('Tag'),
+            'tag_url'   => $tag_url,
+        ]);
     }
 
     /**
