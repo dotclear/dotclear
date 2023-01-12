@@ -53,7 +53,7 @@ class urlPages extends dcUrlHandlers
                 if ($post_password != '' && !dcCore::app()->ctx->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
-                        $pwd_cookie = json_decode($_COOKIE['dc_passwd']);
+                        $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
                         if ($pwd_cookie === null) {
                             $pwd_cookie = [];
                         } else {
@@ -69,7 +69,7 @@ class urlPages extends dcUrlHandlers
                     if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
                         || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] == $post_password)) {
                         $pwd_cookie['#' . $post_id] = $post_password;
-                        setcookie('dc_passwd', json_encode($pwd_cookie), 0, '/');
+                        setcookie('dc_passwd', json_encode($pwd_cookie, JSON_THROW_ON_ERROR), ['expires' => 0, 'path' => '/']);
                     } else {
                         self::serveDocument('password-form.html', 'text/html', false);
 

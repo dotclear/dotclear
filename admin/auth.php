@@ -90,6 +90,7 @@ class adminAuth
      */
     public static function process()
     {
+        $headers = [];
         if (dcCore::app()->admin->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
             dcCore::app()->admin->user_id    = $_POST['user_id'];
             dcCore::app()->admin->user_email = html::escapeHTML($_POST['user_email']);
@@ -182,7 +183,7 @@ class adminAuth
                 $_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
 
                 if ($data['user_remember']) {
-                    setcookie('dc_admin', $data['cookie_admin'], strtotime('+15 days'), '', '', DC_ADMIN_SSL);
+                    setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
 
                 dcCore::app()->adminurl->redirect('admin.home');
@@ -244,7 +245,7 @@ class adminAuth
                 }
 
                 if (!empty($_POST['user_remember'])) {
-                    setcookie('dc_admin', $cookie_admin, strtotime('+15 days'), '', '', DC_ADMIN_SSL);
+                    setcookie('dc_admin', $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
 
                 dcCore::app()->adminurl->redirect('admin.home');
@@ -262,7 +263,7 @@ class adminAuth
                 }
                 if (isset($_COOKIE['dc_admin'])) {
                     unset($_COOKIE['dc_admin']);
-                    setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
+                    setcookie('dc_admin', '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
             }
         }

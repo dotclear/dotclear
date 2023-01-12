@@ -31,7 +31,7 @@ class tplDuctileThemeAdmin
 {
     public static function adminPageHTMLHead()
     {
-        if (dcCore::app()->blog->settings->system->theme !== basename(dirname(__FILE__))) {
+        if (dcCore::app()->blog->settings->system->theme !== basename(__DIR__)) {
             return;
         }
 

@@ -32,10 +32,8 @@ class dcMeta
 
     /**
      * Meta table name
-     *
-     * @var string
      */
-    private $table;
+    private string $table;
 
     /**
      * Constructs a new instance.

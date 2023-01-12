@@ -141,17 +141,13 @@ class xmlTag
 {
     /**
      * XML tag name
-     *
-     * @var mixed
      */
-    private $_name;
+    private ?string $_name = null;
 
     /**
      * XML tag attributes
-     *
-     * @var        array
      */
-    private $_attr = [];
+    private array $_attr = [];
 
     /**
      * XML tag nodes (childs)

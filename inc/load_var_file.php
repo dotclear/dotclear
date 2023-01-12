@@ -118,7 +118,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
 }
 
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for var files served by ?vf=…
-http::cache(array_merge([$var_file], get_included_files()));
+http::cache([...[$var_file], ...get_included_files()]);
 
 header('Content-Type: ' . files::getMimeType($var_file));
 readfile($var_file);

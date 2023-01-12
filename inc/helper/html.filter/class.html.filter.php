@@ -18,7 +18,7 @@ class htmlFilter
     /**
      * Parser handle
      *
-     * @var mixed   resource|XMLParser
+     * @var mixed   resource|\XMLParser
      */
     private $parser;
 
@@ -31,10 +31,8 @@ class htmlFilter
 
     /**
      * Current tag
-     *
-     * @var string
      */
-    private $tag;
+    private ?string $tag = null;
 
     /**
      * Constructs a new instance.
@@ -519,50 +517,37 @@ class htmlFilter
     }
 
     /* Tags and attributes definitions
-     * Source: https://developer.mozilla.org/fr/docs/Web/HTML/
-    ------------------------------------------------------- */
-
+        * Source: https://developer.mozilla.org/fr/docs/Web/HTML/
+       ------------------------------------------------------- */
     /**
      * Stack of removed tags
-     *
-     * @var        array
      */
-    private $removed_tags = [];
+    private array $removed_tags = [];
 
     /**
      * Stack of removed attributes
-     *
-     * @var        array
      */
-    private $removed_attrs = [];
+    private array $removed_attrs = [];
 
     /**
      * Stack of removed attibutes (via pattern)
-     *
-     * @var        array
      */
-    private $removed_pattern_attrs = [];
+    private array $removed_pattern_attrs = [];
 
     /**
      * Stack of removed tags' attributes
-     *
-     * @var        array
      */
-    private $removed_tag_attrs = [];
+    private array $removed_tag_attrs = [];
 
     /**
      * Stack of removed hosts
-     *
-     * @var        array
      */
-    private $removed_hosts = [];
+    private array $removed_hosts = [];
 
     /**
      * List of allowed schemes (URI)
-     *
-     * @var        array
      */
-    private $allowed_schemes = [
+    private array $allowed_schemes = [
         'data',
         'http',
         'https',
@@ -573,10 +558,8 @@ class htmlFilter
 
     /**
      * List of attributes which allow URI value
-     *
-     * @var        array
      */
-    private $uri_attrs = [
+    private array $uri_attrs = [
         'action',
         'background',
         'cite',
@@ -595,10 +578,8 @@ class htmlFilter
 
     /**
      * List of generic attributes
-     *
-     * @var        array
      */
-    private $gen_attrs = [
+    private array $gen_attrs = [
         'accesskey',
         'class',
         'contenteditable',
@@ -626,10 +607,8 @@ class htmlFilter
 
     /**
      * List of events attributes
-     *
-     * @var        array
      */
-    private $event_attrs = [
+    private array $event_attrs = [
         'onabort',
         'onafterprint',
         'onautocomplete',
@@ -710,20 +689,16 @@ class htmlFilter
 
     /**
      * List of pattern'ed attributes
-     *
-     * @var        array
      */
-    private $grep_attrs = [
+    private array $grep_attrs = [
         '^aria-[\-\w]+$',
         '^data-[\-\w].*$',
     ];
 
     /**
      * List of single tags
-     *
-     * @var        array
      */
-    private $single_tags = [
+    private array $single_tags = [
         'area',
         'base',
         'basefont',
@@ -746,10 +721,8 @@ class htmlFilter
 
     /**
      * List of tags and their attributes
-     *
-     * @var        array
      */
-    private $tags = [
+    private array $tags = [
         // A
         'a'          => ['charset', 'coords', 'download', 'href', 'hreflang', 'name', 'ping', 'referrerpolicy',
             'rel', 'rev', 'shape', 'target', 'type', ],

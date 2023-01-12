@@ -10,10 +10,10 @@
  */
 class sqliteSchema extends dbSchema implements i_dbSchema
 {
-    private $table_hist = [];
+    private array $table_hist = [];
 
-    private $table_stack = []; // Stack for tables creation
-    private $x_stack     = []; // Execution stack
+    private array $table_stack = []; // Stack for tables creation
+    private array $x_stack     = []; // Execution stack
 
     /**
      * Translate DB type to universal type
@@ -562,6 +562,7 @@ class sqliteSchema extends dbSchema implements i_dbSchema
      * @param      array      $fields   The fields
      *
      * @throws     Exception
+     * @return never
      */
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void
     {
@@ -577,6 +578,7 @@ class sqliteSchema extends dbSchema implements i_dbSchema
      * @param      array      $fields   The fields
      *
      * @throws     Exception
+     * @return never
      */
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void
     {
@@ -629,6 +631,7 @@ class sqliteSchema extends dbSchema implements i_dbSchema
      * @param      string     $name   The name
      *
      * @throws     Exception
+     * @return never
      */
     public function db_drop_unique(string $table, string $name): void
     {

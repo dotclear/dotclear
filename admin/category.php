@@ -293,7 +293,7 @@ class adminCategory
                 ])
                 ->render();
 
-            if (count(dcCore::app()->admin->cat_siblings)) {
+            if (is_countable(dcCore::app()->admin->cat_siblings) ? count(dcCore::app()->admin->cat_siblings) : 0) {
                 echo (new formDiv())
                     ->class('col')
                     ->items([

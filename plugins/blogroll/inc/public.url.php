@@ -23,15 +23,11 @@ class urlBlogroll extends dcUrlHandlers
             $links = $blogroll->getLinks();
         } catch (Exception $e) {
             self::p404();
-
-            return;
         }
 
         if ($args) {
             // We don't expect any URL query
             self::p404();
-
-            return;
         }
 
         http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);

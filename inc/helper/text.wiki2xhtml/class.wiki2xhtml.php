@@ -740,7 +740,7 @@ class wiki2xhtml
 
         $html = '';
 
-        $nb_lines = count($this->wiki_lines);
+        $nb_lines = count((array) $this->wiki_lines);
 
         for ($i = 0; $i < $nb_lines; $i++) {
             $previous_mode = $mode;
@@ -857,7 +857,7 @@ class wiki2xhtml
             if ($delta < 0 && strpos($current_mode, $mode) !== 0) {
                 $valid = false;
             }
-            if ($delta > 0 && $type == $current_type && strpos($mode, $current_mode) !== 0) {
+            if ($delta > 0 && $type == $current_type && strpos($mode, (string) $current_mode) !== 0) {
                 $valid = false;
             }
             if ($delta == 0 && $mode != $current_mode) {
@@ -1089,7 +1089,7 @@ class wiki2xhtml
         $tree = preg_split($this->tag_pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         $html = '';
-        for ($i = 0; $i < count($tree); $i++) {
+        for ($i = 0; $i < (is_countable($tree) ? count($tree) : 0); $i++) {
             $attr = '';
 
             if (in_array($tree[$i], array_values($this->open_tags)) && ($allow_only == null || in_array(array_search($tree[$i], $this->open_tags), $allow_only))) {
@@ -1700,6 +1700,7 @@ class wiki2xhtml
      */
     public function help(): string
     {
+        $help = [];
         $help['b'] = [];
         $help['i'] = [];
 

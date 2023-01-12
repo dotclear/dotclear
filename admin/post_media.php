@@ -48,7 +48,7 @@ class adminPostMedia
                 $pm->addPostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
-                    echo json_encode(['url' => dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false)]);
+                    echo json_encode(['url' => dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false)], JSON_THROW_ON_ERROR);
                     exit();
                 }
                 http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));

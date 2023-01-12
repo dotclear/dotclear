@@ -33,10 +33,8 @@ class dcFilterLinksLookup extends dcSpamFilter
 
     /**
      * subrl.org URL
-     *
-     * @var        string
      */
-    private $server = 'multi.surbl.org';
+    private string $server = 'multi.surbl.org';
 
     /**
      * Sets the filter description.

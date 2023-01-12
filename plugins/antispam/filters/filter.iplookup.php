@@ -33,10 +33,8 @@ class dcFilterIpLookup extends dcSpamFilter
 
     /**
      * DNS blacklist lookup default domains
-     *
-     * @var        string
      */
-    private $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
+    private string $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 
     /**
      * Constructs a new instance.

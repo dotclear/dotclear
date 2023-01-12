@@ -19,10 +19,8 @@ class dcAdminNotices
 
     /**
      * List of supported types
-     *
-     * @var        array
      */
-    private static $notice_types = [
+    private static array $notice_types = [
         // id → CSS class
         self::NOTICE_SUCCESS => 'success',
         self::NOTICE_WARNING => 'warning-msg',
@@ -33,10 +31,8 @@ class dcAdminNotices
 
     /**
      * Error has been displayed?
-     *
-     * @var        bool
      */
-    private static $error_displayed = false;
+    private static bool $error_displayed = false;
 
     /**
      * Gets the HTML code of notices.
@@ -103,7 +99,7 @@ class dcAdminNotices
                         'format' => $lines->notice_format,
                     ];
                     if ($lines->notice_options !== null) {
-                        $notification = array_merge($notification, @json_decode($lines->notice_options, true));
+                        $notification = array_merge($notification, @json_decode($lines->notice_options, true, 512, JSON_THROW_ON_ERROR));
                     }
                     # --BEHAVIOR-- adminPageNotification
                     $notice = $core->callBehavior('adminPageNotification', $core, $notification);
@@ -141,7 +137,7 @@ class dcAdminNotices
         $cur->notice_type    = $type;
         $cur->notice_ts      = isset($options['ts']) && $options['ts'] ? $options['ts'] : $now();
         $cur->notice_msg     = $message;
-        $cur->notice_options = json_encode($options);
+        $cur->notice_options = json_encode($options, JSON_THROW_ON_ERROR);
 
         if (isset($options['divtag']) && $options['divtag']) {
             $cur->notice_format = 'html';

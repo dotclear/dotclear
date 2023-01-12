@@ -23,7 +23,7 @@ class formPara extends formComponent
      */
     public function __construct($id = null, ?string $element = null)
     {
-        parent::__construct(__CLASS__, $element ?? self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         if ($id !== null) {
             $this->setIdentifier($id);
         }

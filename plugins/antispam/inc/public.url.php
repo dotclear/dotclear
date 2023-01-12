@@ -42,8 +42,6 @@ class dcAntispamURL extends dcUrlHandlers
 
         if ($user_id === false) {
             self::p404();
-
-            return;
         }
 
         dcCore::app()->auth->checkUser($user_id, null, null);

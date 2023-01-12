@@ -10,10 +10,8 @@ class dcTemplate extends template
 {
     /**
      * Current tag
-     *
-     * @var string
      */
-    private $current_tag;
+    private ?string $current_tag = null;
 
     /**
      * Constructs a new instance.
@@ -1431,7 +1429,7 @@ class dcTemplate extends template
     public function CategoryIf(ArrayObject $attr, string $content): string
     {
         $if       = new ArrayObject();
-        $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['url'])) {
             $url  = addslashes(trim((string) $attr['url']));
@@ -1803,7 +1801,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['age'])) {
-            $age = $this->getAge($attr);
+            $age = static::getAge($attr);
             $params .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
         }
 
@@ -1895,7 +1893,7 @@ class dcTemplate extends template
     {
         $if = new ArrayObject();
 
-        $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['type'])) {
             $type = trim((string) $attr['type']);
@@ -3224,7 +3222,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['age'])) {
-            $age = $this->getAge($attr);
+            $age = static::getAge($attr);
             $params .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
         }
 
@@ -4284,7 +4282,7 @@ class dcTemplate extends template
     {
         $if = new ArrayObject();
 
-        $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['categories'])) {
             $sign = (bool) $attr['categories'] ? '!' : '=';

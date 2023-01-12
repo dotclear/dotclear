@@ -79,12 +79,12 @@ class Autoload
 
 class Clearbricks
 {
-    private static $instance = null;
+    private static ?self $instance = null;
 
     /**
      * @var Autoload instance
      */
-    private $autoloader;
+    private \Autoload $autoloader;
 
     public function __construct()
     {

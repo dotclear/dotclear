@@ -48,6 +48,7 @@ class adminComment
      */
     public static function process()
     {
+        $params = [];
         if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
 
             // Adding comment (comming from post form, comments tab)

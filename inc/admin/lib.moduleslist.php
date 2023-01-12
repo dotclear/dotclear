@@ -420,7 +420,7 @@ class adminModulesList
     public function setIndex(string $str): adminModulesList
     {
         $this->nav_special = $str;
-        $this->nav_list    = array_merge(str_split(self::$nav_indexes), [$this->nav_special]);
+        $this->nav_list    = [...str_split(self::$nav_indexes), ...[$this->nav_special]];
 
         return $this;
     }
@@ -926,7 +926,7 @@ class adminModulesList
                     echo
                         '<div><ul class="mod-more">';
 
-                    $settings = $this->getSettingsUrls($id);
+                    $settings = static::getSettingsUrls($id);
                     if (!empty($settings) && $module['enabled']) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
@@ -1431,7 +1431,7 @@ class adminModulesList
                 $count++;
             }
 
-            $tab = $count && $count == count($list) ? '#plugins' : '#update';
+            $tab = $count && $count == (is_countable($list) ? count($list) : 0) ? '#plugins' : '#update';   // @phpstan-ignore-line
 
             dcPage::addSuccessNotice(
                 __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
@@ -2256,7 +2256,7 @@ class adminThemesList extends adminModulesList
                     $count++;
                 }
 
-                $tab = $count && $count == count($list) ? '#themes' : '#update';
+                $tab = $count && $count == (is_countable($list) ? count($list) : 0) ? '#themes' : '#update';    // @phpstan-ignore-line
 
                 dcPage::addSuccessNotice(
                     __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)

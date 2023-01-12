@@ -177,7 +177,7 @@ class defaultWidgets
             return '';
         }
 
-        $value = isset(dcCore::app()->public->search) ? dcCore::app()->public->search : '';
+        $value = dcCore::app()->public->search ?? '';
 
         return $widget->renderDiv(
             $widget->content_only,
@@ -458,7 +458,7 @@ class defaultWidgets
 
         try {
             $feed = feedReader::quickParse($widget->url, DC_TPL_CACHE);
-            if (!$feed || !count($feed->items)) {
+            if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
                 return '';
             }
         } catch (Exception $e) {
@@ -525,6 +525,7 @@ class defaultWidgets
      */
     public static function lastposts(dcWidget $widget): string
     {
+        $params = [];
         if ($widget->offline) {
             return '';
         }
@@ -584,6 +585,7 @@ class defaultWidgets
      */
     public static function lastcomments(dcWidget $widget): string
     {
+        $params = [];
         if ($widget->offline) {
             return '';
         }

@@ -11,7 +11,7 @@
  */
 class dt
 {
-    private static $timezones = null;
+    private static ?array $timezones = null;
 
     /**
      * strftime() replacement when PHP version ≥ PHP 8.1
@@ -125,10 +125,8 @@ class dt
             '%A' => $intl_formatter,
             '%d' => 'd',
             '%e' => fn ($timestamp) => sprintf('% 2u', $timestamp->format('j')),
-            '%j' => function ($timestamp) {
-                // Day number in year, 001 to 366
-                return sprintf('%03d', $timestamp->format('z') + 1);
-            },
+            '%j' => fn($timestamp) => // Day number in year, 001 to 366
+sprintf('%03d', $timestamp->format('z') + 1),
             '%u' => 'N',
             '%w' => 'w',
 
@@ -154,10 +152,8 @@ class dt
             '%m' => 'm',
 
             // Year
-            '%C' => function ($timestamp) {
-                // Century (-1): 19 for 20th century
-                return floor($timestamp->format('Y') / 100);
-            },
+            '%C' => fn($timestamp) => // Century (-1): 19 for 20th century
+floor($timestamp->format('Y') / 100),
             '%g' => fn ($timestamp) => substr($timestamp->format('o'), -2),
             '%G' => 'o',
             '%y' => 'y',
@@ -482,7 +478,7 @@ class dt
     {
         if (is_null(self::$timezones)) {
             // Read timezones from file
-            if (!is_readable($file = dirname(__FILE__) . '/tz.dat')) {
+            if (!is_readable($file = __DIR__ . '/tz.dat')) {
                 return [];
             }
             $timezones = file($file);

@@ -965,7 +965,7 @@ class dcSelectStatement extends dcSqlStatement
 
         // Table(s) and Join(s)
         $query .= 'FROM ' . $this->from[0] . ' ';
-        if (count($this->join)) {
+        if (is_countable($this->join) ? count($this->join) : 0) {
             $query .= join(' ', $this->join) . ' ';
         }
         if (count($this->from) > 1) {
@@ -992,17 +992,17 @@ class dcSelectStatement extends dcSqlStatement
         }
 
         // Group by clause (columns or aliases)
-        if (count($this->group)) {
+        if (is_countable($this->group) ? count($this->group) : 0) {
             $query .= 'GROUP BY ' . join(', ', $this->group) . ' ';
         }
 
         // Having clause(s)
-        if (count($this->having)) {
+        if (is_countable($this->having) ? count($this->having) : 0) {
             $query .= 'HAVING ' . join(' AND ', $this->having) . ' ';
         }
 
         // Union clause(s)
-        if (count($this->union)) {
+        if (is_countable($this->union) ? count($this->union) : 0) {
             $query .= 'UNION ' . join(' UNION ', $this->union) . ' ';
         }
 
@@ -1010,7 +1010,7 @@ class dcSelectStatement extends dcSqlStatement
         // -------------------------
 
         // Order by clause (columns or aliases and optionnaly order ASC/DESC)
-        if (count($this->order)) {
+        if (is_countable($this->order) ? count($this->order) : 0) {
             $query .= 'ORDER BY ' . join(', ', $this->order) . ' ';
         }
 
@@ -1388,7 +1388,7 @@ class dcUpdateStatement extends dcSqlStatement
         $query .= $this->from[0] . ' ';
 
         // Value(s)
-        if (count($this->set)) {
+        if (is_countable($this->set) ? count($this->set) : 0) {
             $query .= 'SET ' . join(', ', $this->set) . ' ';
         }
 
@@ -1531,7 +1531,7 @@ class dcInsertStatement extends dcSqlStatement
 
         // Value(s)
         $query .= 'VALUES ';
-        if (count($this->lines)) {
+        if (is_countable($this->lines) ? count($this->lines) : 0) {
             $raws = [];
             foreach ($this->lines as $line) {
                 $raws[] = '(' . join(', ', $line) . ')';

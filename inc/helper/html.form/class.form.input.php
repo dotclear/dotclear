@@ -20,10 +20,8 @@ class formInput extends formComponent
 
     /**
      * Should include the associated label if exist
-     *
-     * @var        bool
      */
-    private $renderLabel = true;
+    private bool $renderLabel = true;
 
     /**
      * Constructs a new instance.
@@ -34,7 +32,7 @@ class formInput extends formComponent
      */
     public function __construct($id = null, string $type = 'text', bool $renderLabel = true)
     {
-        parent::__construct(__CLASS__, self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, self::DEFAULT_ELEMENT);
         $this->type($type);
         $this->renderLabel = $renderLabel;
         if ($id !== null) {

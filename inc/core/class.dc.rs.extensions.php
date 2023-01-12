@@ -1009,8 +1009,8 @@ class rsExtBlog
 
 class extStaticRecord extends staticRecord
 {
-    private $sortfield;
-    private $sortsign;
+    private ?string $sortfield = null;
+    private ?int $sortsign = null;
 
     /**
      * Constructs a new instance.

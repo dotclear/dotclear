@@ -33,7 +33,7 @@ class attachmentAdminBehaviors
     {
         if ($post !== null) {
             $post_media = dcCore::app()->media->getPostMedia($post->post_id, null, 'attachment');
-            $nb_media   = count($post_media);
+            $nb_media   = is_countable($post_media) ? count($post_media) : 0;   // @phpstan-ignore-line
             $title      = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
             $item       = '<h5 class="clear s-attachments">' . $title . '</h5>';
             foreach ($post_media as $file) {

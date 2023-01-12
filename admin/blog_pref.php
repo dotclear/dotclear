@@ -193,10 +193,10 @@ class adminBlogPref
         // SLeep mode timeout in second
         $da->sleepmode_timeout_combo = [
             __('Never')        => 0,
-            __('Three months') => 7884000,
-            __('Six months')   => 15768000,
-            __('One year')     => 31536000,
-            __('Two years')    => 63072000,
+            __('Three months') => 7_884_000,
+            __('Six months')   => 15_768_000,
+            __('One year')     => 31_536_000,
+            __('Two years')    => 63_072_000,
         ];
     }
 
@@ -935,7 +935,7 @@ class adminBlogPref
 
                 echo '<div>';
                 foreach ($da->blog_users as $k => $v) {
-                    if (count($v['p']) > 0) {
+                    if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                         echo
                         '<div class="user-perm' . ($v['super'] ? ' user_super' : '') . '">' .
                         '<h4>' . sprintf($user_url_p, html::escapeHTML($k)) .

@@ -803,7 +803,7 @@ class adminUserPrefs
                 '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' . $icon .
                 form::number(['order[' . $id . ']'], [
                     'min'        => 1,
-                    'max'        => count($user_fav),
+                    'max'        => is_countable($user_fav) ? count($user_fav) : 0, // @phpstan-ignore-line
                     'default'    => $count,
                     'class'      => 'position',
                     'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"',
@@ -857,12 +857,10 @@ class adminUserPrefs
         echo
         '<h5 class="pretty-title">' . __('Other available favorites') . '</h5>';
         $count = 0;
-        uasort($avail_fav, function ($a, $b) {
-            return strcoll(
-                strtolower(dcUtils::removeDiacritics($a['title'])),
-                strtolower(dcUtils::removeDiacritics($b['title']))
-            );
-        });
+        uasort($avail_fav, fn ($a, $b) => strcoll(
+            strtolower(dcUtils::removeDiacritics($a['title'])),
+            strtolower(dcUtils::removeDiacritics($b['title']))
+        ));
 
         foreach ($avail_fav as $k => $v) {
             if (in_array($k, $user_fav)) {

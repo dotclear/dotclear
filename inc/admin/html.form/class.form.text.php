@@ -23,7 +23,7 @@ class formText extends formComponent
      */
     public function __construct(?string $element = null, ?string $value = null)
     {
-        parent::__construct(__CLASS__, $element ?? self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         if ($value !== null) {
             $this->text = $value;
         }

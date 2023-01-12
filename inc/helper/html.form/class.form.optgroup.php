@@ -26,7 +26,7 @@ class formOptgroup extends formComponent
      */
     public function __construct(string $name, ?string $element = null)
     {
-        parent::__construct(__CLASS__, $element ?? self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this
             ->text($name);
     }

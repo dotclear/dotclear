@@ -51,7 +51,7 @@ class dcMaintenanceZipmedia extends dcMaintenanceTask
     /**
      * Execute task.
      *
-     * @return    bool|int
+     * @return never
      *    - FALSE on error,
      *    - TRUE if task is finished
      *    - INT if task required a next step

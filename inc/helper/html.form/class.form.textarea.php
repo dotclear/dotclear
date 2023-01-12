@@ -26,7 +26,7 @@ class formTextarea extends formComponent
      */
     public function __construct($id = null, ?string $value = null)
     {
-        parent::__construct(__CLASS__, self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, self::DEFAULT_ELEMENT);
         if ($id !== null) {
             $this->setIdentifier($id);
         }

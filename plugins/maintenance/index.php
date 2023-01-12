@@ -140,9 +140,9 @@ class adminMaintenance
         $combo_ts = [
             __('Never')            => 0,
             __('Every week')       => 604800,
-            __('Every two weeks')  => 1209600,
-            __('Every month')      => 2592000,
-            __('Every two months') => 5184000,
+            __('Every two weeks')  => 1_209_600,
+            __('Every month')      => 2_592_000,
+            __('Every two months') => 5_184_000,
         ];
 
         // Display page

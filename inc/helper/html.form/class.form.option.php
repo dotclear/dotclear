@@ -27,7 +27,7 @@ class formOption extends formComponent
      */
     public function __construct(string $name, string $value, ?string $element = null)
     {
-        parent::__construct(__CLASS__, $element ?? self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this
             ->text($name)
             ->value($value);

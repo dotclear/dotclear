@@ -22,54 +22,42 @@ class sessionDB
 
     /**
      * Table name
-     *
-     * @var string
      */
-    private $table;
+    private string $table;
 
     /**
      * Cookie name
-     *
-     * @var string
      */
-    private $cookie_name;
+    private string $cookie_name;
 
     /**
      * Cookie path
      *
      * @var string|null
      */
-    private $cookie_path;
+    private ?string $cookie_path;
 
     /**
      * Cookie domain
-     *
-     * @var string|null
      */
-    private $cookie_domain;
+    private ?string $cookie_domain = null;
 
     /**
      * Secure cookie
-     *
-     * @var bool
      */
-    private $cookie_secure;
+    private bool $cookie_secure;
 
     /**
      * TTL (must be a negative duration as '-120 minutes')
-     *
-     * @var        string
      */
-    private $ttl = '-120 minutes';
+    private string $ttl = '-120 minutes';
 
     /**
      * Transient session
      *
      * No DB optimize on session destruction if true
-     *
-     * @var        bool
      */
-    private $transient = false;
+    private bool $transient = false;
 
     /**
      * Constructor
@@ -148,7 +136,7 @@ class sessionDB
         }
 
         if (!isset($_COOKIE[$this->cookie_name])) {
-            session_id(sha1(uniqid((string) rand(), true)));
+            session_id(sha1(uniqid((string) random_int(0, mt_getrandmax()), true)));
         }
 
         session_name($this->cookie_name);

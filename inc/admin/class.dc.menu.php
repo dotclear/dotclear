@@ -10,10 +10,8 @@ class dcMenu
 {
     /**
      * Menu id
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * List of items pinned at top of menu

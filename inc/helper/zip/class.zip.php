@@ -327,7 +327,7 @@ class fileZip
 
     protected function memoryAllocate($size)
     {
-        $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4000000;
+        $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
         if ($mem_limit && trim((string) $mem_limit) === '-1' || !files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini

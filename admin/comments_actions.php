@@ -17,6 +17,7 @@ class adminCommentsActions
      */
     public static function init()
     {
+        $args = [];
         dcPage::check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,

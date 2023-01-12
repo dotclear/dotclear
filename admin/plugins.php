@@ -129,8 +129,8 @@ class adminPlugins
                 '<div class="multi-part" id="update" title="' . html::escapeHTML(__('Update plugins')) . '">' .
                 '<h3>' . html::escapeHTML(__('Update plugins')) . '</h3>' .
                 '<p>' . sprintf(
-                    __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', count($modules)),
-                    count($modules)
+                    __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', is_countable($modules) ? count($modules) : 0),
+                    is_countable($modules) ? count($modules) : 0
                 ) . '</p>';
 
                 dcCore::app()->admin->list

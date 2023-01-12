@@ -49,7 +49,7 @@ class context
         }
 
         // Return last saved value
-        $count = count($this->stack[$name]);
+        $count = is_countable($this->stack[$name]) ? count($this->stack[$name]) : 0;
         if ($count > 0) {
             return $this->stack[$name][$count - 1];
         }

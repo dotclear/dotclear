@@ -227,7 +227,7 @@ class adminAntispam
                 '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
                 '<td class="handle">' . form::number(['f_order[' . $fid . ']'], [
                     'min'        => 1,
-                    'max'        => count(dcCore::app()->admin->filters),
+                    'max'        => is_countable(dcCore::app()->admin->filters) ? count(dcCore::app()->admin->filters) : 0,
                     'default'    => $i,
                     'class'      => 'position',
                     'extra_html' => 'title="' . __('position') . '"',

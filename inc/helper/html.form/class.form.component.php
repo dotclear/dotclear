@@ -16,13 +16,13 @@ declare(strict_types=1);
  */
 abstract class formComponent
 {
-    private $_type;     // Component type
-    private $_element;  // HTML element
+    private string $_type;     // Component type
+    private ?string $_element = null;  // HTML element
     private $_data;     // Custom component properties (see __get() and __set())
 
     public function __construct(?string $type = null, ?string $_element = null)
     {
-        $this->_type    = $type ?? __CLASS__;
+        $this->_type    = $type ?? self::class;
         $this->_element = $_element;
         $this->_data    = [];
     }
@@ -36,7 +36,7 @@ abstract class formComponent
      */
     public static function init(...$args)
     {
-        $class = get_called_class();
+        $class = static::class;
 
         /* @phpstan-ignore-next-line */
         return new $class(...$args);

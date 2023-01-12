@@ -105,10 +105,10 @@ class adminSimpleMenu
             $items['posts'] = new ArrayObject([__('Posts'), false]);
         }
 
-        if (count(dcCore::app()->admin->langs_combo) > 1) {
+        if ((is_countable(dcCore::app()->admin->langs_combo) ? count(dcCore::app()->admin->langs_combo) : 0) > 1) {
             $items['lang'] = new ArrayObject([__('Language'), true]);
         }
-        if (count(dcCore::app()->admin->categories_combo)) {
+        if (is_countable(dcCore::app()->admin->categories_combo) ? count(dcCore::app()->admin->categories_combo) : 0) {
             $items['category'] = new ArrayObject([__('Category'), true]);
         }
         if (count(dcCore::app()->admin->months_combo) > 1) {
@@ -390,7 +390,7 @@ class adminSimpleMenu
                             }
                         }
                         $newmenu = [];
-                        for ($i = 0; $i < count($_POST['items_label']); $i++) {
+                        for ($i = 0; $i < (is_countable($_POST['items_label']) ? count($_POST['items_label']) : 0); $i++) {
                             $newmenu[] = [
                                 'label'       => $_POST['items_label'][$i],
                                 'descr'       => $_POST['items_descr'][$i],
@@ -657,7 +657,7 @@ class adminSimpleMenu
             '</form>';
         }
 
-        if (count(dcCore::app()->admin->menu)) {
+        if (is_countable(dcCore::app()->admin->menu) ? count(dcCore::app()->admin->menu) : 0) {
             if (dcCore::app()->admin->step === self::STEP_LIST) {
                 echo
                 '<form id="menuitems" action="' . dcCore::app()->admin->getPageURL() . '" method="post">';
@@ -705,7 +705,7 @@ class adminSimpleMenu
                     '<td class="handle minimal">' .
                     form::number(['order[' . $i . ']'], [
                         'min'        => 1,
-                        'max'        => count(dcCore::app()->admin->menu),
+                        'max'        => is_countable(dcCore::app()->admin->menu) ? count(dcCore::app()->admin->menu) : 0,
                         'default'    => $count,
                         'class'      => 'position',
                         'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($m['label'])) . '"',

@@ -18,10 +18,8 @@ class template
      * Instance self name
      *
      * Will be use in compiled template to call instance method or use instance properties
-     *
-     * @var string
      */
-    private $self_name;
+    private string $self_name;
 
     /**
      * Use cache for compiled template files
@@ -205,7 +203,7 @@ class template
 
         foreach (func_get_args() as $v) {
             if (is_array($v)) {
-                $path = array_merge($path, array_values($v));
+                $path = [...$path, ...array_values($v)];
             } else {
                 $path[] = $v;
             }

@@ -27,7 +27,7 @@ class formLegend extends formComponent
      */
     public function __construct(string $text = '', $id = null, ?string $element = null)
     {
-        parent::__construct(__CLASS__, $element ?? self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this->text($text);
         if ($id !== null) {
             $this->setIdentifier($id);

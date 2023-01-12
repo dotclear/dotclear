@@ -135,7 +135,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
 }
 
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=…
-http::cache(array_merge([$plugin_file], get_included_files()));
+http::cache([...[$plugin_file], ...get_included_files()]);
 
 header('Content-Type: ' . files::getMimeType($plugin_file));
 readfile($plugin_file);

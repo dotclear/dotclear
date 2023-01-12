@@ -192,9 +192,10 @@ class dcRestMethods
         $repo = new dcStore($mod, $url);
         $upd  = $repo->get(true);
         if (!empty($upd)) {
-            $ret        = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));
+            $ret = sprintf(__('An update is available', '%s updates are available.', is_countable($upd) ? count($upd) : 0), is_countable($upd) ? count($upd) : 0);   // @phpstan-ignore-line
+
             $rsp->check = true;
-            $rsp->nb    = count($upd);
+            $rsp->nb    = is_countable($upd) ? count($upd) : 0; // @phpstan-ignore-line
         }
 
         $rsp->ret = $ret;
@@ -577,7 +578,7 @@ class dcRestMethods
         $rsp = new xmlTag();
 
         while ($rs->fetch()) {
-            if (stripos($rs->meta_id, $q) === 0) {
+            if (stripos($rs->meta_id, (string) $q) === 0) {
                 $metaTag               = new xmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
                 $metaTag->uri          = rawurlencode($rs->meta_id);

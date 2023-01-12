@@ -20,10 +20,8 @@ class formSelect extends formComponent
 
     /**
      * Should include the associated label if exist
-     *
-     * @var        bool
      */
-    private $renderLabel = true;
+    private bool $renderLabel = true;
 
     /**
      * Constructs a new instance.
@@ -34,7 +32,7 @@ class formSelect extends formComponent
      */
     public function __construct($id = null, ?string $element = null, bool $renderLabel = true)
     {
-        parent::__construct(__CLASS__, $element ?? self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this->renderLabel = $renderLabel;
         if ($id !== null) {
             $this->setIdentifier($id);

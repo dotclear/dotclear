@@ -150,7 +150,7 @@ class dcNamespace
             $type  = $rs->f('setting_type');
 
             if ($type === 'array') {
-                $value = @json_decode($value, true);
+                $value = @json_decode($value, true, 512, JSON_THROW_ON_ERROR);
             } else {
                 if ($type === 'float' || $type === 'double') {
                     $type = 'float';
@@ -334,7 +334,7 @@ class dcNamespace
         if ($type !== 'array') {
             settype($value, $type);
         } else {
-            $value = json_encode($value);
+            $value = json_encode($value, JSON_THROW_ON_ERROR);
         }
 
         $cur = $this->con->openCursor($this->table);

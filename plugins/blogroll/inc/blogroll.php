@@ -28,10 +28,8 @@ class dcBlogroll
 
     /**
      * Table name
-     *
-     * @var        string
      */
-    private $table;
+    private string $table;
 
     /**
      * Constructs a new instance.

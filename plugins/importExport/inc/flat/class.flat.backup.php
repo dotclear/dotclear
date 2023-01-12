@@ -12,10 +12,10 @@ class flatBackup
 {
     protected $fp;
     private $line_cols = [];
-    private $line_name;
-    private $line_num;
+    private ?string $line_name = null;
+    private ?int $line_num = null;
 
-    private $replacement = [
+    private array $replacement = [
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\r)/u' => "\$1\r",
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\")/u' => '$1"',
@@ -56,13 +56,13 @@ class flatBackup
             $line = preg_replace('/^"|"$/', '', $line);
             $line = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
 
-            if (count($this->line_cols) != count($line)) {
+            if (count($this->line_cols) != (is_countable($line) ? count($line) : 0)) {
                 throw new Exception(sprintf('Invalid row count at line %s', $this->line_num));
             }
 
             $res = [];
 
-            for ($i = 0; $i < count($line); $i++) {
+            for ($i = 0; $i < (is_countable($line) ? count($line) : 0); $i++) {
                 $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]);
             }
 

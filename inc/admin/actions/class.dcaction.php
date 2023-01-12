@@ -246,7 +246,7 @@ abstract class dcActions
         }
 
         if ($with_selected_entries && $this->enable_redir_selection) {
-            $redir_args[$this->field_entries] = array_keys($this->entries);
+            $redirect_args[$this->field_entries] = array_keys($this->entries);
         }
 
         return $this->uri . '?' . http_build_query($redirect_args) . $this->redir_anchor;
@@ -260,6 +260,7 @@ abstract class dcActions
      *  must be an array : each key is the name, each value is the wanted value
      *
      * @see getRedirection for arguments details
+     * @return never
      */
     public function redirect(bool $with_selected_entries = false, array $params = [])
     {

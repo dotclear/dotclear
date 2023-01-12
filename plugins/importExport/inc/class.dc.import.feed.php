@@ -161,7 +161,7 @@ class dcImportFeed extends dcIeModule
         if ($feed === false) {
             throw new Exception(__('Cannot retrieve feed URL.'));
         }
-        if (count($feed->items) == 0) {
+        if ((is_countable($feed->items) ? count($feed->items) : 0) == 0) {  // @phpstan-ignore-line
             throw new Exception(__('No items in feed.'));
         }
 

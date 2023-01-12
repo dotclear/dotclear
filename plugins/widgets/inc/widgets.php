@@ -12,10 +12,8 @@ class dcWidgets
 {
     /**
      * Stack of known widgets
-     *
-     * @var        array
      */
-    private $widgets = [];
+    private array $widgets = [];
 
     /**
      * Load widgets from string setting (base64 encoded)
@@ -107,11 +105,7 @@ class dcWidgets
             uasort($this->widgets, function ($a, $b) {
                 $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
                 $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
-                if ($c == $d) {
-                    return 0;
-                }
-
-                return ($c < $d) ? -1 : 1;
+                return $c <=> $d;
             });
         }
 
@@ -189,27 +183,20 @@ class dcWidget
     public const ALL_PAGES   = 0; // Widget displayed on every page
     public const HOME_ONLY   = 1; // Widget displayed on home page only
     public const EXCEPT_HOME = 2; // Widget displayed on every page but home page
-
     /**
      * Widget ID
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * Widget name
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * Widget description
-     *
-     * @var string
      */
-    private $desc;
+    private string $desc;
 
     /**
      * Widget callback

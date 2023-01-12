@@ -256,7 +256,7 @@ class adminUsersActions
             // Permissions list for each selected blogs
 
             $user_perm = [];
-            if (count(dcCore::app()->admin->users) == 1) {
+            if ((is_countable(dcCore::app()->admin->users) ? count(dcCore::app()->admin->users) : 0) == 1) {
                 $user_perm = dcCore::app()->getUserPermissions(dcCore::app()->admin->users[0]);
             }
 
@@ -280,7 +280,7 @@ class adminUsersActions
                 foreach (dcCore::app()->auth->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;
 
-                    if (count(dcCore::app()->admin->users) == 1) {
+                    if ((is_countable(dcCore::app()->admin->users) ? count(dcCore::app()->admin->users) : 0) == 1) {
                         $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
                     }
                     if (isset($unknown_perms[$b]['p'][$perm_id])) {

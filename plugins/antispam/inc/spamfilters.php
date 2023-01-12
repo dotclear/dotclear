@@ -12,10 +12,8 @@ class dcSpamFilters
 {
     /**
      * Stack of antispam filters
-     *
-     * @var        array
      */
-    private $filters = [];
+    private array $filters = [];
 
     /**
      * Stack of antispam filters settings

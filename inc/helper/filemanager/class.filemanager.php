@@ -165,7 +165,7 @@ class filemanager
     protected function isExclude(string $path): bool
     {
         foreach ($this->exclude_list as $item) {
-            if (strpos($path, $item) === 0) {
+            if (strpos($path, (string) $item) === 0) {
                 return true;
             }
         }

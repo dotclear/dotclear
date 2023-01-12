@@ -33,10 +33,8 @@ class dcFilterWords extends dcSpamFilter
 
     /**
      * Table name
-     *
-     * @var        string
      */
-    private $table;
+    private string $table;
 
     /**
      * Constructs a new instance.

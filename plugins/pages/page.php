@@ -19,6 +19,7 @@ class adminPage
      */
     public static function init()
     {
+        $params = [];
         dcPage::check(dcCore::app()->auth->makePermissions([
             dcPages::PERMISSION_PAGES,
             dcAuth::PERMISSION_CONTENT_ADMIN,
@@ -535,20 +536,16 @@ class adminPage
                         form::checkbox('post_open_comment', 1, dcCore::app()->admin->post_open_comment) . ' ' .
                         __('Accept comments') . '</label></p>' .
                         (dcCore::app()->blog->settings->system->allow_comments ?
-                            (self::isContributionAllowed(dcCore::app()->admin->post_id, strtotime(dcCore::app()->admin->post_dt), true) ?
-                                '' :
-                                '<p class="form-note warn">' .
-                                __('Warning: Comments are not more accepted for this entry.') . '</p>') :
+                            (self::isContributionAllowed(dcCore::app()->admin->post_id, strtotime(dcCore::app()->admin->post_dt), true) ? '' : '<p class="form-note warn">' .
+                            __('Warning: Comments are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' .
                             __('Comments are not accepted on this blog so far.') . '</p>') .
                         '<p><label for="post_open_tb" class="classic">' .
                         form::checkbox('post_open_tb', 1, dcCore::app()->admin->post_open_tb) . ' ' .
                         __('Accept trackbacks') . '</label></p>' .
                         (dcCore::app()->blog->settings->system->allow_trackbacks ?
-                            (self::isContributionAllowed(dcCore::app()->admin->post_id, strtotime(dcCore::app()->admin->post_dt), false) ?
-                                '' :
-                                '<p class="form-note warn">' .
-                                __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
+                            (self::isContributionAllowed(dcCore::app()->admin->post_id, strtotime(dcCore::app()->admin->post_dt), false) ? '' : '<p class="form-note warn">' .
+                            __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
                         'post_hide'            => '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, dcCore::app()->admin->post_selected) . ' ' .
@@ -650,7 +647,7 @@ class adminPage
                     );
 
                 // Prevent browser caching on preview
-                $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) rand());
+                $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
                 $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
 

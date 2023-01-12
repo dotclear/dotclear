@@ -43,7 +43,7 @@ class adminUserPreferences
                 foreach ($_POST['s'] as $ws => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['s_type'][$ws][$k] == 'array') {
-                            $v = json_decode($v, true);
+                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->auth->user_prefs->$ws->put($k, $v);
                     }
@@ -62,7 +62,7 @@ class adminUserPreferences
                 foreach ($_POST['gs'] as $ws => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['gs_type'][$ws][$k] == 'array') {
-                            $v = json_decode($v, true);
+                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
                     }
@@ -231,7 +231,7 @@ class adminUserPreferences
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML(json_encode($s['value']))
+                    html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
                 );
 
                 break;

@@ -286,7 +286,7 @@ class diff
             throw new Exception(__('Chunk is out of range'));
         }
 
-        return implode("\n", array_merge($dst, $src));
+        return implode("\n", [...$dst, ...$src]);
     }
 
     /**

@@ -19,6 +19,7 @@ class tplPages
      */
     public static function pagesWidget(dcWidget $widget)
     {
+        $params = [];
         if ($widget->offline) {
             return '';
         }

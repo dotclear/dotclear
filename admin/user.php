@@ -429,12 +429,12 @@ class adminUser
                 $permissions = dcCore::app()->getUserPermissions(dcCore::app()->admin->user_id);
                 $perm_types  = dcCore::app()->auth->getPermissionsTypes();
 
-                if (count($permissions) == 0) {
+                if ((is_countable($permissions) ? count($permissions) : 0) == 0) {  // @phpstan-ignore-line
                     echo
                     '<p>' . __('No permissions so far.') . '</p>';
                 } else {
                     foreach ($permissions as $k => $v) {
-                        if (count($v['p']) > 0) {
+                        if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                             echo
                             '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" class="perm-block">' .
                             '<p class="blog-perm">' . __('Blog:') . ' <a href="' .

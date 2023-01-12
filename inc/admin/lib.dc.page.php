@@ -10,31 +10,23 @@ class dcPage
 {
     /**
      * Stack of loaded JS
-     *
-     * @var        array
      */
-    private static $loaded_js = [];
+    private static array $loaded_js = [];
 
     /**
      * Stack of loaded CSS
-     *
-     * @var        array
      */
-    private static $loaded_css = [];
+    private static array $loaded_css = [];
 
     /**
      * Stack of preloaded resources (Js, CSS)
-     *
-     * @var        array
      */
-    private static $preloaded = [];
+    private static array $preloaded = [];
 
     /**
      * Flag to avoid loading more than once the x-frame-options header
-     *
-     * @var        bool
      */
-    private static $xframe_loaded = false;
+    private static bool $xframe_loaded = false;
 
     /**
      * Auth check
@@ -606,7 +598,7 @@ class dcPage
 
         $index = 0;
         if ($hl_pos < 0) {
-            $hl_pos = count($elements) + $hl_pos;
+            $hl_pos = count((array) $elements) + $hl_pos;
         }
         foreach ($elements as $element => $url) {
             if ($hl && $index === $hl_pos) {

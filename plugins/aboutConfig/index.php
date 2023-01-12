@@ -43,7 +43,7 @@ class adminAboutConfig
                 foreach ($_POST['s'] as $ns => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['s_type'][$ns][$k] == 'array') {
-                            $v = json_decode($v, true);
+                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->blog->settings->$ns->put($k, $v);
                     }
@@ -63,7 +63,7 @@ class adminAboutConfig
                 foreach ($_POST['gs'] as $ns => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['gs_type'][$ns][$k] == 'array') {
-                            $v = json_decode($v, true);
+                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->blog->settings->$ns->put($k, $v, null, null, true, true);
                     }
@@ -235,7 +235,7 @@ class adminAboutConfig
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML(json_encode($s['value']))
+                    html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
                 );
 
                 break;

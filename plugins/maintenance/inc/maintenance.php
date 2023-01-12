@@ -14,31 +14,23 @@ class dcMaintenance
 {
     /**
      * Stack of task
-     *
-     * @var        array
      */
-    private $tasks = [];
+    private array $tasks = [];
 
     /**
      * Stack of tabs
-     *
-     * @var        array
      */
-    private $tabs = [];
+    private array $tabs = [];
 
     /**
      * Stack of groups
-     *
-     * @var        array
      */
-    private $groups = [];
+    private array $groups = [];
 
     /**
      * Logs
-     *
-     * @var        null|array
      */
-    private $logs = null;
+    private ?array $logs = null;
 
     /**
      * Constructor.

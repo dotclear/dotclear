@@ -19,6 +19,6 @@ $this->registerModule(
     '1.0',
     [
         'type'     => 'plugin',
-        'priority' => 99999999998,
+        'priority' => 99_999_999_998,
     ]
 );

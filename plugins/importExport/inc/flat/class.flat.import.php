@@ -13,9 +13,9 @@ class flatImportV2 extends flatBackup
     private $con;
     private $prefix;
 
-    private $dc_version;
-    private $dc_major_version;
-    private $mode;
+    private ?string $dc_version = null;
+    private ?string $dc_major_version = null;
+    private string $mode;
 
     private $blog_id;
 
@@ -752,6 +752,9 @@ class flatImportV2 extends flatBackup
         }
     }
 
+    /**
+     * @return never
+     */
     private static function throwIdError($name, $line, $related)
     {
         throw new Exception(sprintf(

@@ -78,6 +78,7 @@ class dcUrlHandlers extends urlHandler
      * Throws a 404 (page not found) exception
      *
      * @throws     Exception
+     * @return never
      */
     public static function p404(): void
     {
@@ -482,7 +483,7 @@ class dcUrlHandlers extends urlHandler
                 if ($post_password != '' && !dcCore::app()->ctx->preview) {
                     // Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
-                        $pwd_cookie = json_decode($_COOKIE['dc_passwd']);
+                        $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
                         if ($pwd_cookie === null) {
                             $pwd_cookie = [];
                         } else {
@@ -499,7 +500,7 @@ class dcUrlHandlers extends urlHandler
                     if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
                         || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] == $post_password)) {
                         $pwd_cookie['#' . $post_id] = $post_password;
-                        setcookie('dc_passwd', json_encode($pwd_cookie), 0, '/');
+                        setcookie('dc_passwd', json_encode($pwd_cookie, JSON_THROW_ON_ERROR), ['expires' => 0, 'path' => '/']);
                     } else {
                         self::serveDocument('password-form.html', 'text/html', false);
 
@@ -664,8 +665,6 @@ class dcUrlHandlers extends urlHandler
             if (dcCore::app()->ctx->langs->isEmpty()) {
                 // The specified language does not exist.
                 self::p404();
-
-                return;
             }
             dcCore::app()->ctx->cur_lang = $matches[1];
         }
@@ -691,8 +690,6 @@ class dcUrlHandlers extends urlHandler
         } else {
             // The specified Feed URL is malformed.
             self::p404();
-
-            return;
         }
 
         if ($cat_url) {
@@ -709,8 +706,6 @@ class dcUrlHandlers extends urlHandler
             if (dcCore::app()->ctx->categories->isEmpty()) {
                 // The specified category does no exist.
                 self::p404();
-
-                return;
             }
 
             $subtitle = ' - ' . dcCore::app()->ctx->categories->cat_title;
@@ -728,8 +723,6 @@ class dcUrlHandlers extends urlHandler
             if (dcCore::app()->ctx->posts->isEmpty()) {
                 # The specified post does not exist.
                 self::p404();
-
-                return;
             }
 
             $subtitle = ' - ' . dcCore::app()->ctx->posts->post_title;
@@ -824,6 +817,7 @@ class dcUrlHandlers extends urlHandler
      * https://example.com/wp-admin and https://example.com/wp-login (see inc/prepend.php)
      *
      * @param      null|string  $args   The arguments
+     * @return never
      */
     public static function wpfaker(?string $args): void
     {

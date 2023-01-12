@@ -95,7 +95,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 2 && is_array($default)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($default, $options));
             extract($args);
         }
@@ -164,7 +164,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 2 && is_array($checked)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($checked, $options));
             extract($args);
         }
@@ -212,7 +212,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 2 && is_array($checked)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($checked, $options));
             extract($args);
         }
@@ -268,7 +268,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($default, $options));
             extract($args);
         }
@@ -327,7 +327,7 @@ class form
     ): string {
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($default, $options));
             extract($args);
         }
@@ -385,7 +385,7 @@ class form
     ): string {
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
@@ -443,7 +443,7 @@ class form
     ): string {
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
@@ -501,7 +501,7 @@ class form
     ): string {
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
@@ -559,7 +559,7 @@ class form
     ): string {
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
@@ -624,7 +624,7 @@ class form
     ): string {
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
@@ -689,7 +689,7 @@ class form
     ): string {
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
@@ -747,7 +747,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 1 && is_array($default)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($default, $options));
             extract($args);
         }
@@ -802,7 +802,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 1 && is_array($min)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($min, $options));
             extract($args);
         }
@@ -860,7 +860,7 @@ class form
         self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
-            $options = self::getDefaults(__CLASS__, __FUNCTION__);
+            $options = self::getDefaults(self::class, __FUNCTION__);
             $args    = array_merge($options, array_intersect_key($default, $options));
             extract($args);
         }
@@ -914,13 +914,11 @@ class formSelectOption
     public $value;      ///< mixed  Option value
     public $class_name; ///< string Element class name
     public $html;       ///< string Extra HTML attributes
-
     /**
      * sprintf template for option
-     * @var string $option
      * @access private
      */
-    private $option = '<option value="%1$s"%3$s>%2$s</option>' . "\n";
+    private string $option = '<option value="%1$s"%3$s>%2$s</option>' . "\n";
 
     /**
      * Option constructor

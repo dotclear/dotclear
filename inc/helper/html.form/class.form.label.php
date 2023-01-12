@@ -36,10 +36,8 @@ class formLabel extends formComponent
      *   INSIDE_TEXT_AFTER    = inside label, label text after component
      *   OUTSIDE_LABEL_BEFORE = after label
      *   OUTSIDE_LABEL_AFTER  = before label
-     *
-     * @var        int
      */
-    private $_position = self::INSIDE_TEXT_BEFORE;
+    private int $_position = self::INSIDE_TEXT_BEFORE;
 
     /**
      * Constructs a new instance.
@@ -50,7 +48,7 @@ class formLabel extends formComponent
      */
     public function __construct(string $text = '', int $position = self::INSIDE_TEXT_BEFORE, ?string $id = null)
     {
-        parent::__construct(__CLASS__, self::DEFAULT_ELEMENT);
+        parent::__construct(self::class, self::DEFAULT_ELEMENT);
         $this->_position = $position;
         $this
             ->text($text);

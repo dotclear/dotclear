@@ -43,7 +43,7 @@ class dcMaintenanceVacuum extends dcMaintenanceTask
         $schema = dbSchema::init(dcCore::app()->con);
 
         foreach ($schema->getTables() as $table) {
-            if (strpos($table, dcCore::app()->prefix) === 0) {
+            if (strpos($table, (string) dcCore::app()->prefix) === 0) {
                 dcCore::app()->con->vacuum($table);
             }
         }

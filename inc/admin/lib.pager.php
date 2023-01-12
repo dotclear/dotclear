@@ -1108,7 +1108,7 @@ class adminMediaList extends adminGenericListV2
                     // Convert array to object->properties (will then pretend to be like a fileItem object)
                     $item = (object) $item;
                 }
-                $group[$item->d ? 'dirs' : 'files'][] = $this->mediaLine($filters, $items[$index], $index_in_page, $query, $page_adminurl);
+                $group[$item->d ? 'dirs' : 'files'][] = static::mediaLine($filters, $items[$index], $index_in_page, $query, $page_adminurl);
             }
 
             if ($filters->file_mode == 'list') {

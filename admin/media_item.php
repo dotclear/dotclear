@@ -357,7 +357,7 @@ class adminMediaItem
                 return (string) $default;
             }
 
-            if (count($file->media_meta) > 0) {
+            if ((is_countable($file->media_meta) ? count($file->media_meta) : 0) > 0) {
                 foreach ($file->media_meta as $k => $v) {
                     if ((string) $v && ($k == 'Description')) {
                         return (string) $v;
@@ -386,7 +386,7 @@ class adminMediaItem
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
-                if (file_exists($local) && $specifics = json_decode(file_get_contents($local) ?? '', true)) {  // @phpstan-ignore-line
+                if (file_exists($local) && $specifics = json_decode(file_get_contents($local) ?? '', true, 512, JSON_THROW_ON_ERROR)) {  // @phpstan-ignore-line
                     foreach (array_keys($defaults) as $key) {
                         $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
                         $defaults['mediadef'] = true;
@@ -763,7 +763,7 @@ class adminMediaItem
         }
 
         echo
-        '<p id="media-icon"><img class="media-icon-square' . (dcCore::app()->admin->file->media_preview ? ' media-icon-preview' : '') . '" src="' . dcCore::app()->admin->file->media_icon . '?' . time() * rand() . '" alt="" /></p>' .
+        '<p id="media-icon"><img class="media-icon-square' . (dcCore::app()->admin->file->media_preview ? ' media-icon-preview' : '') . '" src="' . dcCore::app()->admin->file->media_icon . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="" /></p>' .
 
         '<div id="media-details">' .
         '<div class="near-icon">';
@@ -779,14 +779,14 @@ class adminMediaItem
                 $url = dcCore::app()->admin->file->file_url;    // @phpstan-ignore-line
                 echo
                 '<p><a class="modal-image" href="' . $url . '">' .
-                '<img src="' . dcCore::app()->admin->file->media_thumb[$thumb_size] . '?' . time() * rand() . '" alt="" />' .
+                '<img src="' . dcCore::app()->admin->file->media_thumb[$thumb_size] . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="" />' .
                 '</a></p>';
             } elseif ($thumb_size === 'o') {
                 $image_size = getimagesize(dcCore::app()->admin->file->file);
                 $class      = !$image_size || ($image_size[1] > 500) ? ' class="overheight"' : '';
                 echo
                 '<p id="media-original-image"' . $class . '><a class="modal-image" href="' . dcCore::app()->admin->file->file_url . '">' .
-                '<img src="' . dcCore::app()->admin->file->file_url . '?' . time() * rand() . '" alt="" />' .
+                '<img src="' . dcCore::app()->admin->file->file_url . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="" />' .
                 '</a></p>';
             }
 
@@ -938,7 +938,7 @@ class adminMediaItem
             '<h3>' . __('Image details') . '</h3>';
 
             $details = '';
-            if (count(dcCore::app()->admin->file->media_meta) > 0) {
+            if ((is_countable(dcCore::app()->admin->file->media_meta) ? count(dcCore::app()->admin->file->media_meta) : 0) > 0) {
                 foreach (dcCore::app()->admin->file->media_meta as $k => $v) {
                     if ((string) $v) {
                         $details .= '<li><strong>' . $k . ':</strong> ' . html::escapeHTML((string) $v) . '</li>';

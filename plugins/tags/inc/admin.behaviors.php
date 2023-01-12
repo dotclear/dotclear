@@ -115,6 +115,7 @@ class tagsBehaviors
      */
     public static function wiki2xhtmlTag(string $url, string $content): array
     {
+        $res = [];
         $url = substr($url, 4);
         if (strpos($content, 'tag:') === 0) {
             $content = substr($content, 4);
@@ -223,7 +224,7 @@ class tagsBehaviors
                     __(
                         'Tag has been successfully added to selected entries',
                         'Tags have been successfully added to selected entries',
-                        count($tags)
+                        is_countable($tags) ? count($tags) : 0  // @phpstan-ignore-line
                     )
                 )
             );
@@ -302,7 +303,7 @@ class tagsBehaviors
                     __(
                         'Tag has been successfully removed from selected entries',
                         'Tags have been successfully removed from selected entries',
-                        count($_POST['meta_id'])
+                        is_countable($_POST['meta_id']) ? count($_POST['meta_id']) : 0
                     )
                 )
             );
@@ -335,7 +336,7 @@ class tagsBehaviors
                     ]
                 )
             );
-            $posts_count = count($_POST['entries']);
+            $posts_count = is_countable($_POST['entries']) ? count($_POST['entries']) : 0;
 
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .

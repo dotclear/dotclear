@@ -227,7 +227,7 @@ class adminConfigThemeDuctile
                     dcCore::app()->admin->ductile_user['preview_not_mandatory'] = (int) !empty($_POST['preview_not_mandatory']);
 
                     $ductile_stickers = [];
-                    for ($i = 0; $i < count($_POST['sticker_image']); $i++) {
+                    for ($i = 0; $i < (is_countable($_POST['sticker_image']) ? count($_POST['sticker_image']) : 0); $i++) {
                         $ductile_stickers[] = [
                             'label' => $_POST['sticker_label'][$i],
                             'url'   => $_POST['sticker_url'][$i],
@@ -254,17 +254,19 @@ class adminConfigThemeDuctile
                     }
                     dcCore::app()->admin->ductile_stickers = $ductile_stickers;
 
-                    for ($i = 0; $i < count($_POST['list_type']); $i++) {
+                    for ($i = 0; $i < (is_countable($_POST['list_type']) ? count($_POST['list_type']) : 0); $i++) {
                         dcCore::app()->admin->ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
                     }
 
-                    for ($i = 0; $i < count($_POST['count_nb']); $i++) {
+                    for ($i = 0; $i < (is_countable($_POST['count_nb']) ? count($_POST['count_nb']) : 0); $i++) {
                         dcCore::app()->admin->ductile_counts[$_POST['count_ctx'][$i]] = $_POST['count_nb'][$i];
                     }
                 }
 
                 // CSS
                 if (dcCore::app()->admin->conf_tab === 'css') {
+                    $ductile_user = [];
+
                     $ductile_user['body_font']           = $_POST['body_font'];
                     $ductile_user['body_webfont_family'] = $_POST['body_webfont_family'];
                     $ductile_user['body_webfont_url']    = $_POST['body_webfont_url'];
@@ -379,7 +381,7 @@ class adminConfigThemeDuctile
             '<tr class="line" id="l_' . $i . '">' .
             '<td class="handle minimal">' . form::number(['order[' . $i . ']'], [
                 'min'     => 0,
-                'max'     => count(dcCore::app()->admin->ductile_stickers),
+                'max'     => is_countable(dcCore::app()->admin->ductile_stickers) ? count(dcCore::app()->admin->ductile_stickers) : 0,
                 'default' => $count,
                 'class'   => 'position',
             ]) .

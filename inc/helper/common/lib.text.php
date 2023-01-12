@@ -37,6 +37,7 @@ class text
      */
     public static function deaccent(string $str): string
     {
+        $pattern = [];
         $pattern['A']  = '\x{00C0}-\x{00C5}';
         $pattern['AE'] = '\x{00C6}';
         $pattern['C']  = '\x{00C7}';

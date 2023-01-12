@@ -63,7 +63,7 @@ class xmlrpcValue
             }
         }
         if ($type === 'array') {
-            for ($i = 0, $j = count($this->data); $i < $j; $i++) {
+            for ($i = 0, $j = is_countable($this->data) ? count($this->data) : 0; $i < $j; $i++) {
                 $this->data[$i] = new xmlrpcValue($this->data[$i]);
             }
         }
@@ -1131,6 +1131,7 @@ class xmlrpcBasicServer
      * instead.
      *
      * @param Exception    $e            Exception object
+     * @return never
      */
     protected function error(Exception $e)
     {
@@ -1160,6 +1161,7 @@ class xmlrpcBasicServer
      * This method sends the whole XML-RPC response through HTTP.
      *
      * @param string    $xml            XML Content
+     * @return never
      */
     protected function output(string $xml): void
     {
@@ -1207,7 +1209,7 @@ class xmlrpcBasicServer
             ],
             'faults_interop' => [
                 'specUrl'     => 'http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php',
-                'specVersion' => 20010516,
+                'specVersion' => 20_010_516,
             ],
             'system.multicall' => [
                 'specUrl'     => 'http://www.xmlrpc.com/discuss/msgReader$1208',
@@ -1435,7 +1437,7 @@ class xmlrpcIntrospectionServer extends xmlrpcBasicServer
         array_shift($signature);
 
         // Check the number of arguments
-        if (count($args) > count($signature)) {
+        if (($args === null ? 0 : count($args)) > count($signature)) {
             throw new xmlrpcException('Server error. Wrong number of method parameters', -32602);
         }
 

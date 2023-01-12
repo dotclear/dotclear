@@ -103,7 +103,7 @@ class adminBlogTheme
                 $filename = __DIR__ . '/images/noscreenshot.png';
             }
 
-            http::cache(array_merge([$filename], get_included_files()));
+            http::cache([...[$filename], ...get_included_files()]);
 
             header('Content-Type: ' . files::getMimeType($filename));
             header('Content-Length: ' . filesize($filename));
@@ -161,8 +161,8 @@ class adminBlogTheme
                 '<div class="multi-part" id="update" title="' . html::escapeHTML(__('Update themes')) . '">' .
                 '<h3>' . html::escapeHTML(__('Update themes')) . '</h3>' .
                 '<p>' . sprintf(
-                    __('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', count($modules)),
-                    count($modules)
+                    __('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', is_countable($modules) ? count($modules) : 0),
+                    is_countable($modules) ? count($modules) : 0
                 ) . '</p>';
 
                 dcCore::app()->admin->list

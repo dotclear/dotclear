@@ -13,8 +13,8 @@ class flatExport
     private $con;
     private $prefix;
 
-    private $line_reg = ['/\\\\/u', '/\n/u', '/\r/u', '/"/u'];
-    private $line_rep = ['\\\\\\\\', '\n', '\r', '\"'];
+    private array $line_reg = ['/\\\\/u', '/\n/u', '/\r/u', '/"/u'];
+    private array $line_rep = ['\\\\\\\\', '\n', '\r', '\"'];
 
     public $fp;
 
@@ -73,7 +73,7 @@ class flatExport
         $tables = [];
         foreach ($db_tables as $t) {
             if ($this->prefix) {
-                if (strpos($t, $this->prefix) === 0) {
+                if (strpos($t, (string) $this->prefix) === 0) {
                     $tables[] = $t;
                 }
             } else {

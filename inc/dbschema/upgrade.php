@@ -1146,7 +1146,7 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
-                sprintf($strReq, 'sleepmode_timeout', 31536000, 'integer', 'Sleep mode timeout')
+                sprintf($strReq, 'sleepmode_timeout', 31_536_000, 'integer', 'Sleep mode timeout')
             );
         }
 
@@ -1201,7 +1201,7 @@ class dcUpgrade
                 $value = [];
             }
             settype($value, 'array');
-            $value = json_encode($value);
+            $value = json_encode($value, JSON_THROW_ON_ERROR);
             $rs2   = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
             "SET setting_type='array', setting_value = '" . dcCore::app()->con->escape($value) . "' " .
             "WHERE setting_id='" . dcCore::app()->con->escape($rs->setting_id) . "' " .
@@ -1234,7 +1234,7 @@ class dcUpgrade
                 $value = [];
             }
             settype($value, 'array');
-            $value = json_encode($value);
+            $value = json_encode($value, JSON_THROW_ON_ERROR);
             $rs2   = 'UPDATE ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME . ' ' .
             "SET pref_type='array', pref_value = '" . dcCore::app()->con->escape($value) . "' " .
             "WHERE pref_id='" . dcCore::app()->con->escape($rs->pref_id) . "' " .

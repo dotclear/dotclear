@@ -33,7 +33,7 @@ class adminMedia
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), dcCore::app()->blog->id)) {
             try {
-                if (strpos(realpath(dcCore::app()->media->root . '/' . dcCore::app()->admin->page->d), realpath(dcCore::app()->media->root)) === 0) {
+                if (strpos(realpath(dcCore::app()->media->root . '/' . dcCore::app()->admin->page->d), (string) realpath(dcCore::app()->media->root)) === 0) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
@@ -120,7 +120,7 @@ class adminMedia
                         'error' => $e->getMessage(),
                     ];
                 }
-                echo json_encode($message);
+                echo json_encode($message, JSON_THROW_ON_ERROR);
                 exit();
             }
 
@@ -150,9 +150,9 @@ class adminMedia
                         __(
                             'Successfully delete one media.',
                             'Successfully delete %d medias.',
-                            count($_POST['medias'])
+                            is_countable($_POST['medias']) ? count($_POST['medias']) : 0
                         ),
-                        count($_POST['medias'])
+                        is_countable($_POST['medias']) ? count($_POST['medias']) : 0
                     )
                 );
                 dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
@@ -658,7 +658,7 @@ class adminMediaPage extends adminMediaFilter
             $this->media_archivable = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_MEDIA_ADMIN,
             ]), dcCore::app()->blog->id)
-                && !(count($rs) === 0 || (count($rs) === 1 && $rs->parent));
+                && !((is_countable($rs) ? count($rs) : 0) === 0 || ((is_countable($rs) ? count($rs) : 0) === 1 && $rs->parent)); // @phpstan-ignore-line
         }
 
         return $this->media_archivable;
@@ -690,7 +690,7 @@ class adminMediaPage extends adminMediaFilter
         $dir = $this->media_dir;
         // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
         if (!defined('DC_SHOW_HIDDEN_DIRS') || (!DC_SHOW_HIDDEN_DIRS)) {
-            for ($i = count($dir['dirs']) - 1; $i >= 0; $i--) {
+            for ($i = (is_countable($dir['dirs']) ? count($dir['dirs']) : 0) - 1; $i >= 0; $i--) {
                 if ($dir['dirs'][$i]->d && strpos($dir['dirs'][$i]->basename, '.') === 0) {
                     unset($dir['dirs'][$i]);
                 }
