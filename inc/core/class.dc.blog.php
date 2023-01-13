@@ -2938,8 +2938,8 @@ class dcBlog
         }
 
         if ($apply) {
-            $this->settings->system->set('allow_comments', false);
-            $this->settings->system->set('allow_trackbacks', false);
+            $this->settings->system->put('allow_comments', false);
+            $this->settings->system->put('allow_trackbacks', false);
         }
 
         return true;
