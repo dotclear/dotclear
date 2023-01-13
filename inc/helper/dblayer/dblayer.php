@@ -291,9 +291,13 @@ class dbLayer
         if ($driver === 'mysql') {
             $driver = 'mysqli';
         }
-        if (file_exists(__DIR__ . '/class.' . $driver . '.php')) {
+
+        $driver_class = $driver . 'Connection';
+
+        if (defined('DC_DBDRIVER_PATH') && file_exists(DC_DBDRIVER_PATH . '/class.' . $driver . '.php')) {  // Experimental
+            require_once DC_DBDRIVER_PATH . '/class.' . $driver . '.php';
+        } elseif (file_exists(__DIR__ . '/class.' . $driver . '.php')) {
             require_once __DIR__ . '/class.' . $driver . '.php';
-            $driver_class = $driver . 'Connection';
         } else {
             trigger_error('Unable to load DB layer for ' . $driver, E_USER_ERROR);
             exit(1);    // @phpstan-ignore-line

@@ -242,7 +242,9 @@ class dbSchema
         $driver_class = $driver . 'Schema';
 
         if (!class_exists($driver_class)) {
-            if (file_exists(__DIR__ . '/class.' . $driver . '.dbschema.php')) {
+            if (defined('DC_DBDRIVER_PATH') && file_exists(DC_DBDRIVER_PATH . '/class.' . $driver . '.dbschema.php')) {   // Experimental
+                require_once DC_DBDRIVER_PATH . '/class.' . $driver . '.dbschema.php';
+            } elseif (file_exists(__DIR__ . '/class.' . $driver . '.dbschema.php')) {
                 require __DIR__ . '/class.' . $driver . '.dbschema.php';
             } else {
                 trigger_error('Unable to load DB schema layer for ' . $driver, E_USER_ERROR);
