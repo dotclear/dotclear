@@ -310,8 +310,11 @@ class xmlrpcMessage
 
         try {
             $dom = new DOMDocument();
-            @$dom->loadXML($xml);
-            if ($dom->getElementsByTagName('*')->length > 30000) {
+            if ($dom->loadXML($xml)) {
+                if ($dom->getElementsByTagName('*')->length > 30000) {
+                    throw new Exception('XML Parser Error.');
+                }
+            } else {
                 throw new Exception('XML Parser Error.');
             }
         } catch (Exception $e) {
@@ -1203,11 +1206,11 @@ class xmlrpcBasicServer
     {
         # Initialises capabilities array
         $this->capabilities = [
-            'xmlrpc' => [
+            'xmlrpc'           => [
                 'specUrl'     => 'http://www.xmlrpc.com/spec',
                 'specVersion' => 1,
             ],
-            'faults_interop' => [
+            'faults_interop'   => [
                 'specUrl'     => 'http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php',
                 'specVersion' => 20_010_516,
             ],

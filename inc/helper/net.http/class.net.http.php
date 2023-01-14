@@ -375,10 +375,10 @@ class netHttp extends netSocket
             foreach ($data as $key => $val) {
                 if (is_array($val)) {
                     foreach ($val as $subval) {
-                        $query_string[] = urlencode($key) . '=' . urlencode($subval);
+                        $query_string[] = urlencode((string) $key) . '=' . urlencode((string) $subval);
                     }
                 } else {
-                    $query_string[] = urlencode($key) . '=' . urlencode($val);
+                    $query_string[] = urlencode((string) $key) . '=' . urlencode((string) $val);
                 }
             }
             $query_string = implode('&', $query_string);
