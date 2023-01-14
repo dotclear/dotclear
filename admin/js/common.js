@@ -10,6 +10,10 @@ dotclear.data = dotclear.getData('dotclear_init');
 if (typeof dotclear.data.htmlFontSize !== 'undefined') {
   document.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
 }
+// Back to system font if necessary
+if (typeof dotclear.data.systemFont !== 'undefined') {
+  document.documentElement.style.setProperty('--dc-font', 'dotclear');
+}
 // set theme mode (dark/light/…)
 dotclear.data.theme = 'light';
 if (document.documentElement.getAttribute('data-theme') !== '') {

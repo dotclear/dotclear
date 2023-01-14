@@ -214,6 +214,9 @@ class dcPage
         if (dcCore::app()->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
         }
+        if (dcCore::app()->auth->user_prefs->interface->systemfont) {
+            $js['systemFont'] = true;
+        }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
 
@@ -516,6 +519,9 @@ class dcPage
 
         if (dcCore::app()->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
+        }
+        if (dcCore::app()->auth->user_prefs->interface->systemfont) {
+            $js['systemFont'] = true;
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;

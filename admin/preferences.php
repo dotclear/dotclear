@@ -57,6 +57,7 @@ class adminUserPrefs
         dcCore::app()->admin->user_ui_hidehelpbutton   = dcCore::app()->auth->user_prefs->interface->hidehelpbutton;
         dcCore::app()->admin->user_ui_showajaxloader   = dcCore::app()->auth->user_prefs->interface->showajaxloader;
         dcCore::app()->admin->user_ui_htmlfontsize     = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
+        dcCore::app()->admin->user_ui_systemfont       = dcCore::app()->auth->user_prefs->interface->systemfont;
         dcCore::app()->admin->user_ui_hide_std_favicon = false;
         if (dcCore::app()->auth->isSuperAdmin()) {
             dcCore::app()->admin->user_ui_hide_std_favicon = dcCore::app()->auth->user_prefs->interface->hide_std_favicon;
@@ -263,6 +264,7 @@ class adminUserPrefs
                 dcCore::app()->auth->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
                 dcCore::app()->auth->user_prefs->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
                 dcCore::app()->auth->user_prefs->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
+                dcCore::app()->auth->user_prefs->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
                 if (dcCore::app()->auth->isSuperAdmin()) {
                     # Applied to all users
                     dcCore::app()->auth->user_prefs->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
@@ -635,6 +637,10 @@ class adminUserPrefs
 
         '<p><label for="user_ui_htmlfontsize" class="classic">' . __('Font size:') . '</label>' . ' ' .
         form::combo('user_ui_htmlfontsize', dcCore::app()->admin->htmlfontsize_combo, dcCore::app()->admin->user_ui_htmlfontsize) . '</p>' .
+
+        '<p><label for="user_ui_systemfont" class="classic">' .
+        form::checkbox('user_ui_systemfont', 1, dcCore::app()->admin->user_ui_systemfont) . ' ' .
+        __('Use operating system font') . '</label></p>' .
 
         '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
         form::number('user_ui_media_nb_last_dirs', 0, 999, dcCore::app()->admin->user_ui_media_nb_last_dirs, '', '', false, 'aria-describedby="user_ui_media_nb_last_dirs_help"') . '</p>' .

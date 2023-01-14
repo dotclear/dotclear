@@ -2116,6 +2116,9 @@ msgstr "Afficher l'indicateur de requête asynchrone"
 msgid "Font size:"
 msgstr "Taille de police de caractère :"
 
+msgid "Use operating system font"
+msgstr "Utiliser la police système"
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Nombre de dossiers récents proposés dans la médiathèque :"
 
