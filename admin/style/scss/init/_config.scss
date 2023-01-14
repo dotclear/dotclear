@@ -6,11 +6,17 @@ $mobile-screen: 43em;
 $tablet-screen: 62em;
 $laptop-screen: 82em;
 
+// Local fonts
+@font-face {
+  font-family: 'Atkinson-Hyperlegible-Regular';
+  src: url('font/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2');
+}
+
 // CSS custom properties - variables
 
 :root {
-  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-    'Helvetica Neue', sans-serif;
+  --sans-serif: 'Atkinson-Hyperlegible-Regular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
   --sans-serif-input: inherit; // Use OS default font for input fields
 
