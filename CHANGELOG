@@ -1,3 +1,20 @@
+Dotclear 2.24.1 - 2023-01-18
+===========================================================
+Fix: Permission management with no user logged (public)
+Fix: Clearbricks use of mixed type (PHP 8.0+ only)
+Fix: Unzip also _init.php if exists in zip archive during installation (new/update)
+Fix: Cope with dcRecord in context, should fix loopPosition() used for pagination
+Fix: Fix Ajax maintenance tasks
+Fix: Fix manual change a comment to spam (unknown filter)
+Fix: Cope with null content for column_default property (PostgreSQL)
+Fix: Cope with not categorized posts
+Fix: Cope with SQLite syntax for specific case (no where condition)
+Fix: Fix blogs list for non superadmins
+Fix: Do not HTML-escape search query string twice
+Fix: Cope with admin user locale for lexical sort function
+Fix: Blog inactivity to Sleep mode management
+* 🐛 → Various bugs, a11y, l18n concerns and typos fixed
+
 Dotclear 2.24 - 2022-12-24
 ===========================================================
 * 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance
