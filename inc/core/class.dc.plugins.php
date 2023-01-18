@@ -15,7 +15,7 @@
  */
 class dcPlugins extends dcModules
 {
-    protected static $type = 'plugin';
+    protected $type = 'plugin';
 
     /**
      * Should run in safe mode?

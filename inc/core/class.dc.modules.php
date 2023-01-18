@@ -188,7 +188,7 @@ class dcModules
      *
      * @var string|null
      */
-    protected static $type = null;
+    protected $type = null;
 
     /**
      * Checks all modules dependencies
@@ -571,12 +571,12 @@ class dcModules
         );
 
         // Check module type
-        if (self::$type !== null && $properties['type'] !== null && $properties['type'] !== self::$type) {
+        if ($this->type !== null && $properties['type'] !== null && $properties['type'] !== $this->type) {
             $this->errors[] = sprintf(
                 __('Module "%s" has type "%s" that mismatch required module type "%s".'),
                 '<strong>' . html::escapeHTML($name) . '</strong>',
                 '<em>' . html::escapeHTML($properties['type']) . '</em>',
-                '<em>' . html::escapeHTML(self::$type) . '</em>'
+                '<em>' . html::escapeHTML($this->type) . '</em>'
             );
 
             return;

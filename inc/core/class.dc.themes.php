@@ -18,7 +18,7 @@ class dcThemes extends dcModules
      *
      * @var        string
      */
-    protected static $type = 'theme';
+    protected $type = 'theme';
 
     /**
      * Should run in safe mode?
