@@ -167,6 +167,8 @@ jsToolBar.prototype.elements.img_select = {
   type: 'button',
   title: 'Image chooser',
   accesskey: 'm',
+  shortkey: 'KeyM',
+  shortkey_name: 'M',
   fn: {},
   fncall: {},
   open_url: 'media.php?popup=1&plugin_id=dcLegacyEditor',
@@ -401,6 +403,8 @@ jsToolBar.prototype.elements.flv_insert.fncall.wysiwyg = () => {
 jsToolBar.prototype.elements.post_link = {
   type: 'button',
   title: 'Link to an entry',
+  shortkey: 'KeyE',
+  shortkey_name: 'E',
   fn: {},
   open_url: 'popup_posts.php?plugin_id=dcLegacyEditor',
   data: {},

@@ -15,6 +15,8 @@ jsToolBar.prototype.elements.tagSpace = {
 jsToolBar.prototype.elements.tag = {
   type: 'button',
   title: 'Keyword',
+  shortkey: 'KeyT',
+  shortkey_name: 'T',
   fn: {},
 };
 

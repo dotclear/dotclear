@@ -72,7 +72,15 @@ class jsToolBar {
   button(toolName) {
     const tool = this.elements[toolName];
     if (typeof tool.fn[this.mode] != 'function') return null;
-    const b = new jsButton(tool.title, tool.fn[this.mode], this, `jstb_${toolName}`, tool.accesskey);
+    const b = new jsButton(
+      tool.title,
+      tool.fn[this.mode],
+      this,
+      `jstb_${toolName}`,
+      tool.accesskey,
+      tool.shortkey,
+      tool.shortkey_name,
+    );
     if (tool.icon != undefined) {
       b.icon = tool.icon;
     }
@@ -214,12 +222,18 @@ jsToolBar.prototype.toolbar_bottom = false;
 
 // jsButton
 class jsButton {
-  constructor(title, fn, scope, className, accesskey) {
+  constructor(title, fn, scope, className, accesskey, shortkey, shortkey_name) {
     this.title = title || null;
-    this.fn = fn || (() => { /* void */ });
+    this.fn =
+      fn ||
+      (() => {
+        /* void */
+      });
     this.scope = scope || null;
     this.className = className || null;
     this.accesskey = accesskey || null;
+    this.shortkey = shortkey || null; // See https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system
+    this.shortkey_name = shortkey_name || null;
   }
 
   draw() {
@@ -230,6 +244,17 @@ class jsButton {
     if (this.className) button.className = this.className;
     button.title = this.title;
     if (this.accesskey) button.accessKey = this.accesskey;
+    if (this.shortkey) {
+      if (this.shortkey_name) button.title += ` (CTRL+${this.shortkey_name})`;
+      this.scope.textarea.addEventListener('keydown', (event) => {
+        if (event.code === this.shortkey && event.ctrlKey) {
+          // Fire click
+          button.click();
+          event.preventDefault();
+          return false;
+        }
+      });
+    }
     const span = document.createElement('span');
     span.appendChild(document.createTextNode(this.title));
     button.appendChild(span);
@@ -274,7 +299,11 @@ class jsCombo {
     this.title = title || null;
     this.options = options || null;
     this.scope = scope || null;
-    this.fn = fn || (() => { /* void */ });
+    this.fn =
+      fn ||
+      (() => {
+        /* void */
+      });
     this.className = className || null;
   }
 
@@ -370,6 +399,8 @@ jsToolBar.prototype.elements.space0 = {
 jsToolBar.prototype.elements.strong = {
   type: 'button',
   title: 'Strong emphasis',
+  shortkey: 'KeyB',
+  shortkey_name: 'B',
   fn: {
     wiki() {
       this.singleTag('__');
@@ -384,6 +415,8 @@ jsToolBar.prototype.elements.strong = {
 jsToolBar.prototype.elements.em = {
   type: 'button',
   title: 'Emphasis',
+  shortkey: 'KeyI',
+  shortkey_name: 'I',
   fn: {
     wiki() {
       this.singleTag("''");
@@ -398,6 +431,8 @@ jsToolBar.prototype.elements.em = {
 jsToolBar.prototype.elements.ins = {
   type: 'button',
   title: 'Inserted',
+  shortkey: 'KeyU',
+  shortkey_name: 'U',
   fn: {
     wiki() {
       this.singleTag('++');
@@ -412,6 +447,8 @@ jsToolBar.prototype.elements.ins = {
 jsToolBar.prototype.elements.del = {
   type: 'button',
   title: 'Deleted',
+  shortkey: 'KeyD',
+  shortkey_name: 'D',
   fn: {
     wiki() {
       this.singleTag('--');
@@ -570,6 +607,8 @@ jsToolBar.prototype.elements.link = {
   title: 'Link',
   fn: {},
   accesskey: 'l',
+  shortkey: 'KeyL',
+  shortkey_name: 'L',
   href_prompt: 'Please give page URL:',
   hreflang_prompt: 'Language of this page:',
   default_hreflang: '',
@@ -654,6 +693,8 @@ jsToolBar.prototype.elements.space4 = {
 jsToolBar.prototype.elements.preview = {
   type: 'button',
   title: 'Preview',
+  shortkey: 'KeyP',
+  shortkey_name: 'P',
   format: {
     wysiwyg: false,
     wiki: true,
@@ -682,7 +723,7 @@ jsToolBar.prototype.elements.preview = {
           return;
         }
         // ret -> status (true/false)
-          // msg -> REST method return value
+        // msg -> REST method return value
         const ret = Number($('rsp>wiki', data).attr('ret'));
         msg = $('rsp>wiki', data).attr('msg');
         if (!ret && msg !== '') {
