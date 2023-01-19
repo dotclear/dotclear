@@ -200,7 +200,7 @@ class dcPage
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . html::escapeHTML(dcCore::app()->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
-        echo self::preload('style/default.css') . self::cssLoad('style/default.css');
+        echo self::cssLoad('style/default.css');
 
         if ($rtl = (l10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
@@ -511,7 +511,7 @@ class dcPage
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
-        echo self::preload('style/default.css') . self::cssLoad('style/default.css');
+        echo self::cssLoad('style/default.css');
 
         if ($rtl = (l10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
