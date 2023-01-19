@@ -105,6 +105,7 @@ class dcWidgets
             uasort($this->widgets, function ($a, $b) {
                 $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
                 $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
+
                 return $c <=> $d;
             });
         }
@@ -338,7 +339,7 @@ class dcWidget
         */
         $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgetcontainerformat');
         if (empty($wtscheme)) {
-            $wtscheme = '<div class="widget %1$s" %2$s>%3$s</div>';
+            $wtscheme = '<div class="%1$s" %2$s>%3$s</div>';
         }
 
         return sprintf($wtscheme . "\n", 'widget ' . html::escapeHTML($class), $attr, $content);
