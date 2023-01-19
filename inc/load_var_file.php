@@ -106,6 +106,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
         [
             'css',
             'js',
+            'mjs',
         ]
     )) {
         $base_file = substr($var_file, 0, strlen($var_file) - strlen($extension) - 1);
