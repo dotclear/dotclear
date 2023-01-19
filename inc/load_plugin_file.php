@@ -96,6 +96,7 @@ if (!in_array(
         'jpeg',
         'jpg',
         'js',
+        'mjs',
         'json',
         'otf',
         'png',

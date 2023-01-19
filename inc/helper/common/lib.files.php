@@ -72,7 +72,6 @@ class files
 
         'swf'  => 'application/x-shockwave-flash',
         'swfl' => 'application/x-shockwave-flash',
-        'js'   => 'application/javascript',
 
         'bmp'  => 'image/bmp',
         'gif'  => 'image/gif',
@@ -91,6 +90,8 @@ class files
         'csv'  => 'text/csv',
         'html' => 'text/html',
         'htm'  => 'text/html',
+        'js'   => 'text/javascript',
+        'mjs'  => 'text/javascript',
         'txt'  => 'text/plain',
         'rtf'  => 'text/richtext',
         'rtx'  => 'text/richtext',
