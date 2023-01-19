@@ -195,17 +195,18 @@ class dcUtils
      *
      * @param      string       $src        The source
      * @param      string       $version    The version
+     * @param      bool         $module     Load source as JS module
      *
      * @return     string
      */
-    public static function jsLoad(string $src, ?string $version = null): string
+    public static function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {
         $escaped_src = html::escapeHTML($src);
         if ($version !== null) {
             $escaped_src = dcUtils::appendVersion($escaped_src, $version);
         }
 
-        return '<script src="' . $escaped_src . '"></script>' . "\n";
+        return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . $escaped_src . '"></script>' . "\n";
     }
 
     /**
@@ -213,10 +214,11 @@ class dcUtils
      *
      * @param      string       $src        The source
      * @param      string       $version    The version
+     * @param      bool         $module     Load source as JS module
      *
      * @return     string
      */
-    public static function jsModuleLoad(string $src, ?string $version = null): string
+    public static function jsModuleLoad(string $src, ?string $version = null, bool $module = false): string
     {
         return self::jsLoad(dcCore::app()->blog->getPF($src), $version);
     }

@@ -794,16 +794,17 @@ class dcPage
      *
      * @param      string       $src         The source
      * @param      null|string  $version     The version
+     * @param      bool         $module      Load source as JS module
      *
      * @return     string
      */
-    public static function jsLoad(string $src, ?string $version = ''): string
+    public static function jsLoad(string $src, ?string $version = '', bool $module = false): string
     {
         $escaped_src = html::escapeHTML($src);
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
 
-            return '<script src="' . self::appendVersion($escaped_src, $version) . '"></script>' . "\n";
+            return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . self::appendVersion($escaped_src, $version) . '"></script>' . "\n";
         }
 
         return '';
@@ -814,12 +815,13 @@ class dcPage
      *
      * @param      string       $src         The source
      * @param      null|string  $version     The version
+     * @param      bool         $module      Load source as JS module
      *
      * @return     string
      */
-    public static function jsModuleLoad(string $src, ?string $version = ''): string
+    public static function jsModuleLoad(string $src, ?string $version = '', bool $module = false): string
     {
-        return self::jsLoad(urldecode(self::getPF($src)), $version);
+        return self::jsLoad(urldecode(self::getPF($src)), $version, $module);
     }
 
     /**
