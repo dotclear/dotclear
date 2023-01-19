@@ -29,7 +29,8 @@ class formNumber extends formInput
         parent::__construct($id, 'number');
         $this
             ->min($min)
-            ->max($max);
+            ->max($max)
+            ->inputmode('numeric');
         if ($value !== null) {
             $this->value($value);
         }

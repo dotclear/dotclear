@@ -281,6 +281,7 @@ abstract class formComponent
      *          dir             => string direction.
      *          disabled        => boolean disabled.
      *          form            => string form id.
+     *          inputmode       => string inputmode.
      *          lang            => string lang.
      *          list            => string list id.
      *          max             => int max value.
@@ -352,6 +353,8 @@ abstract class formComponent
                 ' disabled' : '') .
             (isset($this->form) ?
                 ' form="' . $this->form . '"' : '') .
+            (isset($this->inputmode) ?
+                ' inputmode="' . $this->inputmode . '"' : '') .
             (isset($this->lang) ?
                 ' lang="' . $this->lang . '"' : '') .
             (isset($this->list) ?

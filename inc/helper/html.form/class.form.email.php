@@ -25,6 +25,7 @@ class formEmail extends formInput
     public function __construct($id = null, ?string $value = null)
     {
         parent::__construct($id, 'email');
+        $this->inputmode('email');
         if ($value !== null) {
             $this->value($value);
         }

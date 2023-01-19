@@ -25,6 +25,7 @@ class formUrl extends formInput
     public function __construct($id = null, ?string $value = null)
     {
         parent::__construct($id, 'url');
+        $this->inputmode('url');
         if ($value !== null) {
             $this->value($value);
         }
