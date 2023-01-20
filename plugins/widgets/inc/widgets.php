@@ -342,7 +342,10 @@ class dcWidget
             $wtscheme = '<div class="%1$s" %2$s>%3$s</div>';
         }
 
-        return sprintf($wtscheme . "\n", 'widget ' . html::escapeHTML($class), $attr, $content);
+        // Keep only unique classes
+        $class = trim(implode(' ', array_unique(explode(' ', 'widget' . ' ' . $class))));
+
+        return sprintf($wtscheme . "\n", html::escapeHTML($class), $attr, $content);
     }
 
     /**
