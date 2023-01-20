@@ -127,6 +127,7 @@ class dcRestMethods
                     '<a class="button" href="' . dcCore::app()->adminurl->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
+                        $updater->getWarning() ? __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') : '' .
                         '</div>';
                 } else {
                     $ret = '<p class="info">' .

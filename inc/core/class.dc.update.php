@@ -53,6 +53,7 @@ class dcUpdate
         'checksum' => null,
         'info'     => null,
         'php'      => '7.4',
+        'warning'  => false,
         'notify'   => true,
     ];
 
@@ -236,7 +237,17 @@ class dcUpdate
     }
 
     /**
-     * Gets the notify glag.
+     * Gets the warning flag.
+     *
+     * @return     bool  The warning.
+     */
+    public function getWarning(): bool
+    {
+        return (bool) $this->version_info['warning'] ?? false;
+    }
+
+    /**
+     * Gets the notify flag.
      *
      * @return     bool  The notify.
      */

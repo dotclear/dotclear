@@ -58,14 +58,18 @@ class adminUpdate
             exit;
         }
 
-        dcCore::app()->admin->updater  = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
-        dcCore::app()->admin->new_v    = dcCore::app()->admin->updater->check(DC_VERSION, !empty($_GET['nocache']));
-        dcCore::app()->admin->zip_file = dcCore::app()->admin->new_v ?
-            DC_BACKUP_PATH . '/' . basename(dcCore::app()->admin->updater->getFileURL()) :
-            '';
-        dcCore::app()->admin->version_info = dcCore::app()->admin->new_v ?
-            dcCore::app()->admin->updater->getInfoURL() :
-            '';
+        dcCore::app()->admin->updater = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
+        dcCore::app()->admin->new_v   = dcCore::app()->admin->updater->check(DC_VERSION, !empty($_GET['nocache']));
+
+        dcCore::app()->admin->zip_file       = '';
+        dcCore::app()->admin->version_info   = '';
+        dcCore::app()->admin->update_warning = false;
+
+        if (dcCore::app()->admin->new_v) {
+            dcCore::app()->admin->zip_file       = DC_BACKUP_PATH . '/' . basename(dcCore::app()->admin->updater->getFileURL());
+            dcCore::app()->admin->version_info   = dcCore::app()->admin->updater->getInfoURL();
+            dcCore::app()->admin->update_warning = dcCore::app()->admin->updater->getWarning();
+        }
 
         # Hide "update me" message
         if (!empty($_GET['hide_msg'])) {
@@ -263,6 +267,10 @@ class adminUpdate
                     echo
                     '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), dcCore::app()->admin->updater->getPHPVersion()) . '</p>';
                 } else {
+                    if (dcCore::app()->admin->update_warning) {
+                        echo
+                        '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>';
+                    }
                     echo
                     '<p>' . __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.') . '</p>' .
                     '<form action="' . dcCore::app()->admin->getPageURL() . '" method="get">' .

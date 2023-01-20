@@ -987,6 +987,9 @@ msgstr "Enregister et publier"
 msgid "PHP version is %s (7.4 or earlier needed)."
 msgstr "La version de PHP est %s (7.4 ou plus récente nécessaire)."
 
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
+msgstr "Cette mise à jour peut potentiellement nécessiter des précautions, vous devriez lire attentivement le billet d'information associé à cette version (voir ci-dessus)."
+
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."
 
