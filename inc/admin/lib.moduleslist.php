@@ -63,6 +63,12 @@ class adminModulesList
      */
     protected $config_module = [];
     /**
+     * Module class to configure
+     *
+     * @var        string
+     */
+    protected $config_class = '';
+    /**
      * Module path to configure
      *
      * @var        string
@@ -588,6 +594,7 @@ class adminModulesList
                 'current_version'   => 0,
                 'root'              => '',
                 'root_writable'     => false,
+                'namespace'         => '',
                 'permissions'       => null,
                 'parent'            => null,
                 'priority'          => dcModules::DEFAULT_PRIORITY,
@@ -919,8 +926,17 @@ class adminModulesList
                         '</ul></div>';
                 }
 
-                $config = !empty($module['root']) && file_exists(path::real($module['root'] . '/_config.php'));
-                $index  = !empty($module['root']) && file_exists(path::real($module['root'] . '/index.php'));
+                if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
+                    $config = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
+                } else {
+                    $config = !empty($module['root']) && file_exists(path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG));
+                }
+
+                if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)) {
+                    $index = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)::init();
+                } else {
+                    $index = !empty($module['root']) && file_exists(path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
+                }
 
                 if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
                     echo
@@ -993,8 +1009,20 @@ class adminModulesList
         $settings_urls = [];
 
         $module_root = dcCore::app()->plugins->moduleRoot($id);
-        $config      = !empty($module_root) && file_exists(path::real($module_root . '/_config.php'));
-        $index       = !empty($module_root) && file_exists(path::real($module_root . '/index.php'));
+        $module_ns = dcCore::app()->plugins->moduleInfo($id, 'namespace');
+
+        if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
+            $config = ($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
+        } else {
+            $config = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG));
+        }
+
+        if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)) {
+            $index = ($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)::init();
+        } else {
+            $index = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
+        }
+
         $settings    = dcCore::app()->plugins->moduleInfo($id, 'settings');
         if ($self) {
             if (isset($settings['self']) && $settings['self'] === false) {
@@ -1576,9 +1604,11 @@ class adminModulesList
 
         $module = $this->modules->getModules($id);
         $module = self::sanitizeModule($id, $module);
-        $file   = path::real($module['root'] . '/_config.php');
+        $class = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
+        $class = empty($module['namespace']) || !class_exists($class) ? '' : $class;
+        $file   = path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
 
-        if (!file_exists($file)) {
+        if (empty($class) && !file_exists($file)) {
             dcCore::app()->error->add(__('This plugin has no configuration file.'));
 
             return false;
@@ -1593,6 +1623,7 @@ class adminModulesList
         }
 
         $this->config_module  = $module;
+        $this->config_class   = $class;
         $this->config_file    = $file;
         $this->config_content = '';
 
@@ -1612,12 +1643,18 @@ class adminModulesList
      */
     public function includeConfiguration()
     {
-        if (!$this->config_file) {
+        if (empty($this->config_class) && !$this->config_file) {
             return;
         }
         $this->setRedir($this->getURL() . '#plugins');
 
         ob_start();
+
+        if (!empty($this->config_class) && $this->config_class::init() && $this->config_class::process()) {
+            $this->config_class::render();
+
+            return null;
+        }
 
         return $this->config_file;
     }
@@ -1631,7 +1668,7 @@ class adminModulesList
      */
     public function getConfiguration(): bool
     {
-        if ($this->config_file) {
+        if (!empty($this->config_class) || !empty($this->config_file)) {
             $this->config_content = ob_get_contents();
         }
 
@@ -1649,7 +1686,7 @@ class adminModulesList
      */
     public function displayConfiguration(): adminModulesList
     {
-        if ($this->config_file) {
+        if (!empty($this->config_class) || !empty($this->config_file)) {
             if (!$this->config_module['standalone_config']) {
                 echo
                 '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">' .

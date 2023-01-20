@@ -39,9 +39,25 @@ class dcModules
     public const MODULE_FILE_DEFINE   = '_define.php';
     public const MODULE_FILE_PREPEND  = '_prepend.php';
     public const MODULE_FILE_ADMIN    = '_admin.php';
+    public const MODULE_FILE_CONFIG   = '_config.php';
+    public const MODULE_FILE_MANAGE   = 'index.php';
     public const MODULE_FILE_PUBLIC   = '_public.php';
     public const MODULE_FILE_XMLRPC   = '_xmlrpc.php';
     public const MODULE_FILE_DISABLED = '_disabled';
+
+    /**
+     * Module's class
+     *
+     * @var        string
+     */
+    public const MODULE_CLASS_DIR     = 'inc';
+    public const MODULE_CLASS_PREPEND = 'Prepend';
+    public const MODULE_CLASS_INSTALL = 'Install';
+    public const MODULE_CLASS_ADMIN   = 'Admin';
+    public const MODULE_CLASS_CONFIG  = 'Config';
+    public const MODULE_CLASS_MANAGE  = 'Manage';
+    public const MODULE_CLASS_PUPLIC  = 'Public';
+    public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';
 
     // Properties
 
@@ -51,6 +67,13 @@ class dcModules
      * @var bool
      */
     public $safe_mode = false;
+
+    /**
+     * Module php namespace autoloader
+     *
+     * @var Autoloader
+     */
+    protected $autoload;
 
     /**
      * Stack of modules paths
@@ -151,6 +174,13 @@ class dcModules
      * @var string|null
      */
     protected $mroot;
+
+    /**
+     * Current module php namespace
+     *
+     * @var string|null
+     */
+    protected $namespace;
 
     /**
      * Inclusion variables
@@ -363,6 +393,7 @@ class dcModules
     {
         $this->path = explode(PATH_SEPARATOR, $path);
         $this->ns   = $ns;
+        $this->autoload = new Autoloader('', '', true);
 
         $this->safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
@@ -394,6 +425,11 @@ class dcModules
                 $full_entry      = $root . $entry;
                 $this->id        = $entry;
                 $this->mroot     = $full_entry;
+
+                // namspace
+                $this->namespace =  implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $this->id]);
+                $this->autoload->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
+
                 $module_disabled = file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
                 $module_enabled  = !$module_disabled && !$this->safe_mode;
                 if (!$module_enabled) {
@@ -431,17 +467,24 @@ class dcModules
         // Context loop
         foreach ($this->modules as $id => $m) {
             # Load translation and _prepend
-            if (isset($m['root']) && file_exists($m['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
+            $r = '';
+
+            // by class name
+            $class = $this->namespace . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
+            if (class_exists($class)) {
+                $r = $class::init() ? $class::process() : '';
+            // by file name
+            } elseif (isset($m['root']) && file_exists($m['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
                 $r = $this->loadModuleFile($m['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND);
-
-                if (is_null($r)) {
-                    // If _prepend.php file returns null (ie. it has a void return statement)
-                    $ignored[] = $id;
-
-                    continue;
-                }
-                unset($r);
             }
+
+            if (is_null($r)) {
+                // If _prepend.php file returns null (ie. it has a void return statement)
+                $ignored[] = $id;
+
+                continue;
+            }
+            unset($r);
 
             $this->loadModuleL10N($id, $lang, 'main');
             if ($ns == 'admin') {
@@ -532,6 +575,7 @@ class dcModules
                 $properties,
                 [
                     'root'          => $this->mroot,
+                    'namespace'     => $this->namespace,
                     'name'          => $name,
                     'desc'          => $desc,
                     'author'        => $author,
@@ -600,6 +644,7 @@ class dcModules
                     $properties,
                     [
                         'root'          => $this->mroot,
+                        'namespace'     => $this->namespace,
                         'name'          => $name,
                         'desc'          => $desc,
                         'author'        => $author,
@@ -820,7 +865,13 @@ class dcModules
         }
 
         try {
-            $install = $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL);
+            // by class name
+            $install = !empty($this->loadNsClass($id, self::MODULE_CLASS_INSTALL));
+            // by file name
+            if (!$install) {
+                $install = $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL);
+            }
+
             if ($install === true || $install === null) {
                 // Register new version if necessary
                 $old_version = dcCore::app()->getVersion($id);
@@ -1094,23 +1145,70 @@ class dcModules
      */
     public function loadNsFile(string $id, ?string $ns = null): void
     {
-        if (!isset($this->modules[$id])) {
+        if (!isset($this->modules[$id]) || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
             return;
         }
+
         switch ($ns) {
             case 'admin':
-                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_ADMIN);
+                $class_name   = self::MODULE_CLASS_ADMIN;
+                $file_name = self::MODULE_FILE_ADMIN;
 
                 break;
             case 'public':
-                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                $class_name   = self::NS_PUBLIC;
+                $file_name = self::MODULE_FILE_PUBLIC;
 
                 break;
             case 'xmlrpc':
-                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_XMLRPC);
+                $class_name   = self::MODULE_CLASS_XMLRPC;
+                $file_name = self::MODULE_FILE_XMLRPC;
 
                 break;
         }
+
+        // by class name
+        if ('' == $this->loadNsClass($id, $class_name)) {
+            // by file name
+            $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . $file_name);
+        }
+    }
+
+    /**
+     * Initialise <var>$ns</var> specific namespace for module with ID
+     * <var>$id</var>
+     *
+     * @param      string  $id      The module identifier
+     * @param      string  $ns      Process name
+     * @param      bool    $process Execute process
+     * 
+     * @return     string  The fully qualified class name on success. Empty string on fail.
+     */
+    public function loadNsClass(string $id, string $ns, bool $process = true): string
+    {
+        // unknown module
+        if (!isset($this->modules[$id])) {
+            return '';
+        }
+
+        // unknown class
+        $class = $this->modules[$id]['namespace'] . Autoloader::NS_SEP . ucfirst($ns);
+        if (!class_exists($class) || !is_subclass_of($class, 'dcNsProcess', true)) {
+            return '';
+        }
+
+        // initilisation failed
+        if (!$class::init()) {
+            return '';
+        }
+
+        // need process but failed
+        if ($process && !$class::process()) {
+            return '';
+        }
+
+        // ok, return fully qualified class name
+        return $class;
     }
 
     /**

@@ -43,7 +43,10 @@ class adminBlogTheme
             // Display module configuration page
 
             // Get content before page headers
-            include dcCore::app()->admin->list->includeConfiguration();
+            $include = dcCore::app()->admin->list->includeConfiguration();
+            if ($include) {
+                include $include;
+            }
 
             // Gather content
             dcCore::app()->admin->list->getConfiguration();
