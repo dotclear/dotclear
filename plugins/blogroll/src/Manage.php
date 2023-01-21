@@ -8,46 +8,59 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminBlogroll
+namespace Dotclear\Plugin\blogroll;
+
+use Exception;
+use dcBlogroll;
+use dcCore;
+use dcPage;
+use dcNsProcess;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     True if we should return
-     */
-    public static function init()
+    private static $edit = false;
+
+    public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcLinks::PERMISSION_BLOGROLL,
-        ]));
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcPage::check(dcCore::app()->auth->makePermissions([
+                dcBlogroll::PERMISSION_BLOGROLL,
+            ]));
 
-        dcCore::app()->admin->blogroll = new dcBlogroll(dcCore::app()->blog);
+            dcCore::app()->admin->blogroll = new Blogroll(dcCore::app()->blog);
 
-        if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
-            require __DIR__ . '/edit.php';
+            if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
+                self::$edit = ManageEdit::init();
+            } else {
+                dcCore::app()->admin->default_tab = '';
+                dcCore::app()->admin->link_title  = '';
+                dcCore::app()->admin->link_href   = '';
+                dcCore::app()->admin->link_desc   = '';
+                dcCore::app()->admin->link_lang   = '';
+                dcCore::app()->admin->cat_title   = '';
+            }
 
-            return true;
+            self::$init = true;
         }
 
-        dcCore::app()->admin->default_tab = '';
-        dcCore::app()->admin->link_title  = '';
-        dcCore::app()->admin->link_href   = '';
-        dcCore::app()->admin->link_desc   = '';
-        dcCore::app()->admin->link_lang   = '';
-        dcCore::app()->admin->cat_title   = '';
-
-        return false;
+        return self::$init;
     }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
+        if (self::$edit) {
+            return ManageEdit::process();
+        }
+
         if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
             // Import links - download file
 
@@ -60,10 +73,8 @@ class adminBlogroll
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
 
-                require_once __DIR__ . '/class.dc.importblogroll.php';
-
                 try {
-                    dcCore::app()->admin->imported = dcImportBlogroll::loadFile($ifile);
+                    dcCore::app()->admin->imported = UtilsImport::loadFile($ifile);
                     @unlink($ifile);
                 } catch (Exception $e) {
                     @unlink($ifile);
@@ -179,7 +190,7 @@ class adminBlogroll
                 $pos = ((int) $pos) + 1;
 
                 try {
-                    dcCore::app()->admin->blogroll->updateOrder($l, $pos);
+                    dcCore::app()->admin->blogroll->updateOrder($l, (string) $pos);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -190,13 +201,22 @@ class adminBlogroll
                 http::redirect(dcCore::app()->admin->getPageURL());
             }
         }
+
+        return true;
     }
 
-    /**
-     * Renders the page.
-     */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
+        if (self::$edit) {
+            ManageEdit::render();
+
+            return;
+        }
+
         // Get links
         $rs = null;
 
@@ -427,9 +447,3 @@ class adminBlogroll
         '</html>';
     }
 }
-
-if (adminBlogroll::init()) {
-    return;
-}
-adminBlogroll::process();
-adminBlogroll::render();

@@ -8,14 +8,38 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\blogroll;
+
+use dcCore;
+use dcNsProcess;
+
+class Frontend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = defined('DC_RC_PATH');
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->tpl->addValue('Blogroll', [FrontendTemplate::class, 'blogroll']);
+        dcCore::app()->tpl->addValue('BlogrollXbelLink', [FrontendTemplate::class, 'blogrollXbelLink']);
+
+        dcCore::app()->url->register('xbel', 'xbel', '^xbel(?:\/?)$', [FrontendUrl::class, 'xbel']);
+
+        dcCore::app()->addBehaviors([
+            'initWidgets'        => [Widgets::class, 'initWidgets'],
+            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
+        ]);
+
+        return true;
+    }
 }
-
-require __DIR__ . '/_widgets.php';
-
-// Blogroll template functions
-dcCore::app()->tpl->addValue('Blogroll', [tplBlogroll::class, 'blogroll']);
-dcCore::app()->tpl->addValue('BlogrollXbelLink', [tplBlogroll::class, 'blogrollXbelLink']);
-
-dcCore::app()->url->register('xbel', 'xbel', '^xbel(?:\/?)$', [urlBlogroll::class, 'xbel']);

@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-class dcLinks
+class dcBlogroll
 {
     // Constants
 
@@ -22,4 +22,17 @@ class dcLinks
      * @var        string
      */
     public const PERMISSION_BLOGROLL = 'blogroll';
+
+    /**
+     * Links table name
+     *
+     * @var        string
+     */
+    public const LINK_TABLE_NAME = 'link';
+}
+
+// backward compatibility
+class dcLinks extends dcBlogroll
+{
+    
 }

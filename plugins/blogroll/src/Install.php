@@ -8,30 +8,33 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class installBlogroll
+namespace Dotclear\Plugin\blogroll;
+
+use dcBlogroll;
+use dcCore;
+use dbStruct;
+use dcNsProcess;
+
+class Install extends dcNsProcess
 {
-    /**
-     * Installs the plugin.
-     *
-     * @return     mixed
-     */
-    public static function install()
+    public static function init(): bool
     {
-        $version = dcCore::app()->plugins->moduleInfo('blogroll', 'version');
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion('blogroll', dcCore::app()->plugins->moduleInfo('blogroll', 'version'));
 
-        if (version_compare((string) dcCore::app()->getVersion('blogroll'), $version, '>=')) {
-            return;
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
-        /* Database schema
-        -------------------------------------------------------- */
         $schema = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 
-        $schema->link
+        $schema->{dcBlogroll::LINK_TABLE_NAME}
             ->link_id('bigint', 0, false)
             ->blog_id('varchar', 32, false)
             ->link_href('varchar', 255, false)
@@ -42,18 +45,12 @@ class installBlogroll
             ->link_position('integer', 0, false, 0)
 
             ->primary('pk_link', 'link_id')
+            ->index('idx_link_blog_id', 'btree', 'blog_id')
+            ->reference('fk_link_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;
 
-        $schema->link->index('idx_link_blog_id', 'btree', 'blog_id');
-        $schema->link->reference('fk_link_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
-
-        # Schema installation
         (new dbStruct(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
-
-        dcCore::app()->setVersion('blogroll', $version);
 
         return true;
     }
 }
-
-return installBlogroll::install();

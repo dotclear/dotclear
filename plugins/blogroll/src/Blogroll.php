@@ -17,7 +17,7 @@ use dcBlog;
 use dcCore;
 use dcRecord;
 
-class dcBlogroll
+class Blogroll
 {
     // Constants
 

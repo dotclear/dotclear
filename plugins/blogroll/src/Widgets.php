@@ -8,7 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class blogrollWidgets
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\blogroll;
+
+use dcCore;
+use dcWidgets;
+use defaultWidgets;
+
+class Widgets
 {
     /**
      * Initializes the blogroll widget.
@@ -17,7 +25,7 @@ class blogrollWidgets
      */
     public static function initWidgets(dcWidgets $widgets): void
     {
-        $blogroll  = new dcBlogroll(dcCore::app()->blog);
+        $blogroll  = new Blogroll(dcCore::app()->blog);
         $hierarchy = $blogroll->getLinksHierarchy($blogroll->getLinks());
 
         $hierarchy_cat    = array_keys($hierarchy);
@@ -29,7 +37,7 @@ class blogrollWidgets
         }
 
         $widgets
-            ->create('links', __('Blogroll'), [tplBlogroll::class, 'linksWidget'], null, 'Blogroll list')
+            ->create('links', __('Blogroll'), [FrontendTemplate::class, 'linksWidget'], null, 'Blogroll list')
             ->addTitle(__('Links'))
             ->setting('category', __('Category'), '', 'combo', $categories_combo)
             ->addHomeOnly()
