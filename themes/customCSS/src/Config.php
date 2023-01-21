@@ -8,36 +8,46 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+namespace Dotclear\Theme\customCSS;
 
-class adminConfigThemeCustomCSS
+use Exception;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use form;
+use html;
+use l10n;
+use path;
+
+class Config extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/main');
-        dcCore::app()->admin->css_file = path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
+        if (defined('DC_CONTEXT_ADMIN')) {
+            l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+            dcCore::app()->admin->css_file = path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
 
-        if (!is_file(dcCore::app()->admin->css_file) && !is_writable(dirname(dcCore::app()->admin->css_file))) {
-            throw new Exception(
-                sprintf(
-                    __('File %s does not exist and directory %s is not writable.'),
-                    dcCore::app()->admin->css_file,
-                    dirname(dcCore::app()->admin->css_file)
-                )
-            );
+            if (!is_file(dcCore::app()->admin->css_file) && !is_writable(dirname(dcCore::app()->admin->css_file))) {
+                throw new Exception(
+                    sprintf(
+                        __('File %s does not exist and directory %s is not writable.'),
+                        dcCore::app()->admin->css_file,
+                        dirname(dcCore::app()->admin->css_file)
+                    )
+                );
+            }
+            self::$init = true;
         }
+
+        return self::$init;
     }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         if (isset($_POST['css'])) {
             @$fp = fopen(dcCore::app()->admin->css_file, 'wb');
             fwrite($fp, $_POST['css']);
@@ -45,13 +55,19 @@ class adminConfigThemeCustomCSS
 
             dcPage::message(__('Style sheet upgraded.'), true, true);
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         $css_content = is_file(dcCore::app()->admin->css_file) ? file_get_contents(dcCore::app()->admin->css_file) : '';
 
         echo
@@ -59,7 +75,3 @@ class adminConfigThemeCustomCSS
         form::textarea('css', 60, 20, html::escapeHTML($css_content)) . '</p>';
     }
 }
-
-adminConfigThemeCustomCSS::init();
-adminConfigThemeCustomCSS::process();
-adminConfigThemeCustomCSS::render();
