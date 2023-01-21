@@ -50,9 +50,8 @@ class adminPlugin
             ob_end_clean();
         // by file name
         } elseif (dcCore::app()->plugins->moduleExists($plugin)) {
-            $p_file = dcCore::app()->plugins->moduleRoot($plugin) . dcModules::MODULE_FILE_MANAGE;
+            $p_file = dcCore::app()->plugins->moduleRoot($plugin) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE;
             if (file_exists($p_file)) {
-                // Get plugin index.php content
                 ob_start();
                 include $p_file;
                 $res = (string) ob_get_contents();
