@@ -8,9 +8,32 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
+declare(strict_types=1);
 
-# Breadcrumb template functions
-dcCore::app()->tpl->addValue('Breadcrumb', [tplBreadcrumb::class, 'breadcrumb']);
+namespace Dotclear\Plugin\breadcrumb;
+
+use dcCore;
+use dcNsProcess;
+
+class Backend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_RC_PATH')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->tpl->addValue('Breadcrumb', [FrontendTemplate::class, 'breadcrumb']);
+
+        return true;
+    }
+}

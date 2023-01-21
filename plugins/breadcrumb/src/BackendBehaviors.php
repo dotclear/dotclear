@@ -8,7 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class breadcrumbBehaviors
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\breadcrumb;
+
+use dcSettings;
+use form;
+
+class BackendBehaviors
 {
     /**
      * Display breadcrumb fieldset settings
