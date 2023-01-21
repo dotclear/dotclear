@@ -40,6 +40,7 @@ Clearbricks::lib()->autoload([
     'dcMeta'                   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.meta.php']),
     'dcMedia'                  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.media.php']),
     'dcPostMedia'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.postmedia.php']),
+    'dcNsProcess'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.ns.process.php']),
     'dcModules'                => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.modules.php']),
     'dcPlugins'                => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.plugins.php']),
     'dcThemes'                 => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.themes.php']),

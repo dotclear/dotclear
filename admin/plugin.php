@@ -38,24 +38,31 @@ class adminPlugin
             $close_function = [dcPage::class, 'close'];
         }
 
-        if (dcCore::app()->plugins->moduleExists($plugin)) {
-            $p_file = dcCore::app()->plugins->moduleRoot($plugin) . '/index.php';
+        $res = '';
+        dcCore::app()->admin->setPageURL('plugin.php?p=' . $plugin);
+
+        // by class name
+        $class = dcCore::app()->plugins->loadNsClass($plugin, dcModules::MODULE_CLASS_MANAGE);
+        if (!empty($class)) {
+            ob_start();
+            $class::render();
+            $res = (string) ob_get_contents();
+            ob_end_clean();
+        // by file name
+        } elseif (dcCore::app()->plugins->moduleExists($plugin)) {
+            $p_file = dcCore::app()->plugins->moduleRoot($plugin) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE;
+            if (file_exists($p_file)) {
+                ob_start();
+                include $p_file;
+                $res = (string) ob_get_contents();
+                ob_end_clean();
+            }
         }
 
-        if (file_exists($p_file)) {
-            // Loading plugin
-
-            dcCore::app()->admin->setPageURL('plugin.php?p=' . $plugin);
-
+        if (!empty($res)) {
             $p_title   = 'no content - plugin';
             $p_head    = '';
             $p_content = '<p>' . __('No content found on this plugin.') . '</p>';
-
-            // Get plugin index.php content
-            ob_start();
-            include $p_file;
-            $res = (string) ob_get_contents();
-            ob_end_clean();
 
             if (preg_match('|<head>(.*?)</head|ms', $res, $m)) {
                 // <head> present

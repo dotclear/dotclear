@@ -98,6 +98,7 @@ class Clearbricks
 
         $this->autoloader->add([
             // Common helpers
+            'Autoloader'       => __DIR__ . '/common/Autoloader.php',
             'crypt'            => __DIR__ . '/common/lib.crypt.php',
             'dt'               => __DIR__ . '/common/lib.date.php',
             'files'            => __DIR__ . '/common/lib.files.php',
