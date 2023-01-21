@@ -621,6 +621,48 @@ class dcPage
     }
 
     /**
+     * Ensures that Xdebug stack trace is available based on Xdebug version.
+     *
+     * Idea taken from developer bishopb at https://github.com/rollbar/rollbar-php
+     *
+     *  xdebug configuration:
+     *
+     *  zend_extension = /.../xdebug.so
+     *
+     *  xdebug.auto_trace = On
+     *  xdebug.trace_format = 0
+     *  xdebug.trace_options = 1
+     *  xdebug.show_mem_delta = On
+     *  xdebug.profiler_enable = 0
+     *  xdebug.profiler_enable_trigger = 1
+     *  xdebug.profiler_output_dir = /tmp
+     *  xdebug.profiler_append = 0
+     *  xdebug.profiler_output_name = timestamp
+     *
+     * @return      bool
+     */
+    private static function isXdebugStackAvailable()
+    {
+        if (!function_exists('xdebug_get_function_stack')) {
+            return false;
+        }
+
+        // check for Xdebug being installed to ensure origin of xdebug_get_function_stack()
+        $version = phpversion('xdebug');
+        if ($version === false) {
+            return false;
+        }
+
+        // Xdebug 2 and prior
+        if (version_compare($version, '3.0.0', '<')) {
+            return true;
+        }
+
+        // Xdebug 3 and later, proper mode is required
+        return false !== strpos(ini_get('xdebug.mode'), 'develop');
+    }
+
+    /**
      * Get HTML code of debug information
      *
      * @return     string
@@ -632,7 +674,7 @@ class dcPage
         $res = '<div id="debug"><div>' .
         '<p>memory usage: ' . memory_get_usage() . ' (' . files::size(memory_get_usage()) . ')</p>';
 
-        if (function_exists('xdebug_get_profiler_filename')) {
+        if (self::isXdebugStackAvailable()) {
             $res .= '<p>Elapsed time: ' . xdebug_time_index() . ' seconds</p>';
 
             $prof_file = xdebug_get_profiler_filename();
@@ -644,21 +686,6 @@ class dcPage
                 $prof_url .= 'XDEBUG_PROFILE';
                 $res      .= '<p><a href="' . html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
             }
-
-            /* xdebug configuration:
-
-                zend_extension = /.../xdebug.so
-
-                xdebug.auto_trace = On
-                xdebug.trace_format = 0
-                xdebug.trace_options = 1
-                xdebug.show_mem_delta = On
-                xdebug.profiler_enable = 0
-                xdebug.profiler_enable_trigger = 1
-                xdebug.profiler_output_dir = /tmp
-                xdebug.profiler_append = 0
-                xdebug.profiler_output_name = timestamp
-            */
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .
