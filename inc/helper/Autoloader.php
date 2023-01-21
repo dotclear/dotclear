@@ -193,7 +193,7 @@ class Autoloader
 
         while (false !== $pos = strrpos($prefix, self::NS_SEP)) {
             $prefix         = substr($class, 0, $pos + 1);
-            $relative_class = substr($class, $pos    + 1);
+            $relative_class = substr($class, $pos + 1);
 
             $mapped_file = $this->loadMappedFile($prefix, $relative_class);
             if ($mapped_file) {

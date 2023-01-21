@@ -1013,7 +1013,7 @@ class adminModulesList
         $settings_urls = [];
 
         $module_root = dcCore::app()->plugins->moduleRoot($id);
-        $module_ns = dcCore::app()->plugins->moduleInfo($id, 'namespace');
+        $module_ns   = dcCore::app()->plugins->moduleInfo($id, 'namespace');
 
         // by class name
         if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
@@ -1031,7 +1031,7 @@ class adminModulesList
             $index = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
         }
 
-        $settings    = dcCore::app()->plugins->moduleInfo($id, 'settings');
+        $settings = dcCore::app()->plugins->moduleInfo($id, 'settings');
         if ($self) {
             if (isset($settings['self']) && $settings['self'] === false) {
                 $self = false;
@@ -1612,8 +1612,8 @@ class adminModulesList
 
         $module = $this->modules->getModules($id);
         $module = self::sanitizeModule($id, $module);
-        $class = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
-        $class = empty($module['namespace']) || !class_exists($class) ? '' : $class;
+        $class  = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
+        $class  = empty($module['namespace']) || !class_exists($class) ? '' : $class;
         $file   = path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
 
         if (empty($class) && !file_exists($file)) {

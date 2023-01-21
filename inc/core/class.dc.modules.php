@@ -391,8 +391,8 @@ class dcModules
      */
     public function loadModules(string $path, ?string $ns = null, ?string $lang = null): void
     {
-        $this->path = explode(PATH_SEPARATOR, $path);
-        $this->ns   = $ns;
+        $this->path     = explode(PATH_SEPARATOR, $path);
+        $this->ns       = $ns;
         $this->autoload = new Autoloader('', '', true);
 
         $this->safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -422,12 +422,12 @@ class dcModules
             // Register loop
             $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
-                $full_entry      = $root . $entry;
-                $this->id        = $entry;
-                $this->mroot     = $full_entry;
+                $full_entry  = $root . $entry;
+                $this->id    = $entry;
+                $this->mroot = $full_entry;
 
                 // namspace
-                $this->namespace =  implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $this->id]);
+                $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $this->id]);
                 $this->autoload->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
 
                 $module_disabled = file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
@@ -1151,18 +1151,18 @@ class dcModules
 
         switch ($ns) {
             case 'admin':
-                $class_name   = self::MODULE_CLASS_ADMIN;
-                $file_name = self::MODULE_FILE_ADMIN;
+                $class_name = self::MODULE_CLASS_ADMIN;
+                $file_name  = self::MODULE_FILE_ADMIN;
 
                 break;
             case 'public':
-                $class_name   = self::NS_PUBLIC;
-                $file_name = self::MODULE_FILE_PUBLIC;
+                $class_name = self::NS_PUBLIC;
+                $file_name  = self::MODULE_FILE_PUBLIC;
 
                 break;
             case 'xmlrpc':
-                $class_name   = self::MODULE_CLASS_XMLRPC;
-                $file_name = self::MODULE_FILE_XMLRPC;
+                $class_name = self::MODULE_CLASS_XMLRPC;
+                $file_name  = self::MODULE_FILE_XMLRPC;
 
                 break;
         }
@@ -1181,7 +1181,7 @@ class dcModules
      * @param      string  $id      The module identifier
      * @param      string  $ns      Process name
      * @param      bool    $process Execute process
-     * 
+     *
      * @return     string  The fully qualified class name on success. Empty string on fail.
      */
     public function loadNsClass(string $id, string $ns, bool $process = true): string

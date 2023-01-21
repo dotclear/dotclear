@@ -61,8 +61,8 @@ class adminBlogTheme
                 dcPage::breadcrumb(
                     [
                         // Active links
-                        html::escapeHTML(dcCore::app()->blog->name) => '',
-                        __('Blog appearance')                       => dcCore::app()->admin->list->getURL('', false),
+                        html::escapeHTML(dcCore::app()->blog->name)                         => '',
+                        __('Blog appearance')                                               => dcCore::app()->admin->list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
                     ]

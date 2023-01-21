@@ -29,7 +29,7 @@ abstract class dcNsProcess
 
     /**
      * Performs action and/or prepares render.
-     * 
+     *
      * It must return:
      * - true to enable render
      * - false to disable
@@ -43,13 +43,13 @@ abstract class dcNsProcess
 
     /**
      * Render process.
-     * 
+     *
      * This method is used to render something.
      * (echo something to std ouput, etc...)
      */
     public static function render(): void
     {
-        /**
+        /*
         if (!self::$init) {
             return;
         }
