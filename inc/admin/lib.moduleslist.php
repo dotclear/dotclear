@@ -926,14 +926,18 @@ class adminModulesList
                         '</ul></div>';
                 }
 
+                // by class name
                 if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
                     $config = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
+                // by file name
                 } else {
                     $config = !empty($module['root']) && file_exists(path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG));
                 }
 
+                // by class name
                 if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)) {
                     $index = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)::init();
+                // by file name
                 } else {
                     $index = !empty($module['root']) && file_exists(path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
                 }
@@ -1011,14 +1015,18 @@ class adminModulesList
         $module_root = dcCore::app()->plugins->moduleRoot($id);
         $module_ns = dcCore::app()->plugins->moduleInfo($id, 'namespace');
 
+        // by class name
         if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
             $config = ($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
+        // by file name
         } else {
             $config = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG));
         }
 
+        // by class name
         if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)) {
             $index = ($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)::init();
+        // by file name
         } else {
             $index = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
         }
@@ -1911,7 +1919,15 @@ class adminThemesList extends adminModulesList
 
                 $line .= '<div class="current-actions">';
 
-                if (file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . '/_config.php')) {
+                // by class name
+                if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
+                    $config = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
+                // by file name
+                } else {
+                    $config = file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+                }
+
+                if ($config) {
                     $line .= '<p><a href="' . $this->getURL('module=' . $id . '&amp;conf=1', false) . '" class="button submit">' . __('Configure theme') . '</a></p>';
                 }
 
