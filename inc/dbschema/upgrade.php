@@ -1174,6 +1174,7 @@ class dcUpgrade
                     'inc/libs',
                     'plugins/aboutConfig/inc',  // Replaced by src
                     'plugins/attachments/inc',  // Replaced by src
+                    'plugins/userPref/inc',     // Replaced by src
                 ]
             );
         }
