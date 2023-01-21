@@ -8,30 +8,43 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-namespace Dotclear\Theme\Berlin;
+namespace Dotclear\Theme\berlin;
 
 use dcCore;
+use dcNsProcess;
 use dcUtils;
 use l10n;
 
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/main');
-
-dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\behaviorBerlinTheme', 'publicHeadContent']);
-
-class behaviorBerlinTheme
+class Frontend extends dcNsProcess
 {
-    public static function publicHeadContent()
+    public static function init(): bool
     {
-        echo
-        dcUtils::jsJson('dotclear_berlin', [
-            'show_menu'  => __('Show menu'),
-            'hide_menu'  => __('Hide menu'),
-            'navigation' => __('Main menu'),
-        ]);
+        if (defined('DC_RC_PATH')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+
+        dcCore::app()->addBehavior('publicHeadContent', function () {
+            echo
+            dcUtils::jsJson('dotclear_berlin', [
+                'show_menu'  => __('Show menu'),
+                'hide_menu'  => __('Hide menu'),
+                'navigation' => __('Main menu'),
+            ]);
+        });
+
+        return true;
     }
 }
