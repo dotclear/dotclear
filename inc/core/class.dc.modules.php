@@ -1156,7 +1156,7 @@ class dcModules
 
                 break;
             case 'public':
-                $class_name = self::NS_PUBLIC;
+                $class_name = self::MODULE_CLASS_PUPLIC;
                 $file_name  = self::MODULE_FILE_PUBLIC;
 
                 break;
@@ -1165,10 +1165,12 @@ class dcModules
                 $file_name  = self::MODULE_FILE_XMLRPC;
 
                 break;
+            default:
+                return;
         }
 
         // by class name
-        if ('' == $this->loadNsClass($id, $class_name)) {
+        if ($this->loadNsClass($id, $class_name) === '') {
             // by file name
             $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . $file_name);
         }
