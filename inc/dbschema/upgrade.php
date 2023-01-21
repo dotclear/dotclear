@@ -1175,6 +1175,7 @@ class dcUpgrade
                     'plugins/aboutConfig/inc',  // Replaced by src
                     'plugins/attachments/inc',  // Replaced by src
                     'plugins/blogroll/inc',     // Replaced by src
+                    'plugins/breadcrumb/inc',   // Replaced by src
                     'plugins/userPref/inc',     // Replaced by src
                 ]
             );
