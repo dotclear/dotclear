@@ -30,7 +30,7 @@ class Manage extends dcNsProcess
         if (defined('DC_CONTEXT_ADMIN')) {
             dcPage::checkSuper();
             dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
-            self::$init = true;
+            self::$init                = true;
         }
 
         return self::$init;
@@ -279,7 +279,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML($s['value'])
+                    html::escapeHTML((string) $s['value'])
                 );
 
                 break;
