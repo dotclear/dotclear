@@ -8,7 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class attachmentAdminBehaviors
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\attachments;
+
+use ArrayObject;
+use dcCore;
+use dcRecord;
+use files;
+use form;
+
+class BackendBehaviors
 {
     /**
      * Add an attachments help ID if necessary
@@ -32,7 +42,7 @@ class attachmentAdminBehaviors
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?dcRecord $post): void
     {
         if ($post !== null) {
-            $post_media = dcCore::app()->media->getPostMedia($post->post_id, null, 'attachment');
+            $post_media = dcCore::app()->media->getPostMedia((int) $post->post_id, null, 'attachment');
             $nb_media   = is_countable($post_media) ? count($post_media) : 0;   // @phpstan-ignore-line
             $title      = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
             $item       = '<h5 class="clear s-attachments">' . $title . '</h5>';

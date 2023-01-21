@@ -53,10 +53,10 @@ class dcModules
     public const MODULE_CLASS_DIR     = 'src';
     public const MODULE_CLASS_PREPEND = 'Prepend';
     public const MODULE_CLASS_INSTALL = 'Install';
-    public const MODULE_CLASS_ADMIN   = 'Admin';
+    public const MODULE_CLASS_ADMIN   = 'Backend';
     public const MODULE_CLASS_CONFIG  = 'Config';
     public const MODULE_CLASS_MANAGE  = 'Manage';
-    public const MODULE_CLASS_PUPLIC  = 'Public';
+    public const MODULE_CLASS_PUPLIC  = 'Frontend';
     public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';
 
     // Properties
