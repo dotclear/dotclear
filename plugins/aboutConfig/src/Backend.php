@@ -17,7 +17,7 @@ use dcCore;
 use dcPage;
 use dcNsProcess;
 
-class Admin extends dcNsProcess
+class Backend extends dcNsProcess
 {
     public static function init(): bool
     {

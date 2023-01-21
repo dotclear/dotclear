@@ -8,7 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class attachmentTpl
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\attachments;
+
+use ArrayObject;
+use dcCore;
+use dcTemplate;
+
+class FrontendTemplate
 {
     /**
      * tpl:Attachments [attributes] : Post Attachments loop (tpl block)
