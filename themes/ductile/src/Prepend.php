@@ -8,63 +8,65 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-namespace Dotclear\Theme\Ductile;
+namespace Dotclear\Theme\ductile;
 
 use dcCore;
+use dcNsProcess;
 use dcPage;
 
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-// public part below
-
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return false;
-}
-// admin part below
-
-# Behaviors
-dcCore::app()->addBehavior('adminPageHTMLHead', [__NAMESPACE__ . '\tplDuctileThemeAdmin', 'adminPageHTMLHead']);
-
-class tplDuctileThemeAdmin
+class Prepend extends dcNsProcess
 {
-    public static function adminPageHTMLHead()
+    public static function init(): bool
     {
-        if (dcCore::app()->blog->settings->system->theme !== basename(__DIR__)) {
-            return;
+        self::$init = defined('DC_CONTEXT_ADMIN');
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
-        echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
-        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            echo
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
-            echo <<<EOT
-                <script>
-                /*global $ */
-                'use strict';
+        dcCore::app()->addBehavior('adminPageHTMLHead', function () {
+            if (dcCore::app()->blog->settings->system->theme !== basename(dirname(__DIR__))) {
+                return;
+            }
 
-                $(() => {
-                    $('#stickerslist').sortable({'cursor':'move'});
-                    $('#stickerslist tr').hover(function () {
-                        $(this).css({'cursor':'move'});
-                    }, function () {
-                        $(this).css({'cursor':'auto'});
-                    });
-                    $('#theme_config').submit(() => {
-                        const order=[];
-                        $('#stickerslist tr td input.position').each(function() {
-                            order.push(this.name.replace(/^order\[([^\]]+)\]$/,'$1'));
+            echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
+            if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+                echo
+                dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+                echo <<<EOT
+                    <script>
+                    /*global $ */
+                    'use strict';
+
+                    $(() => {
+                        $('#stickerslist').sortable({'cursor':'move'});
+                        $('#stickerslist tr').hover(function () {
+                            $(this).css({'cursor':'move'});
+                        }, function () {
+                            $(this).css({'cursor':'auto'});
                         });
-                        $('input[name=ds_order]')[0].value = order.join(',');
-                        return true;
+                        $('#theme_config').submit(() => {
+                            const order=[];
+                            $('#stickerslist tr td input.position').each(function() {
+                                order.push(this.name.replace(/^order\[([^\]]+)\]$/,'$1'));
+                            });
+                            $('input[name=ds_order]')[0].value = order.join(',');
+                            return true;
+                        });
+                        $('#stickerslist tr td input.position').hide();
+                        $('#stickerslist tr td.handle').addClass('handler');
                     });
-                    $('#stickerslist tr td input.position').hide();
-                    $('#stickerslist tr td.handle').addClass('handler');
-                });
-                </script>
-                EOT;
-        }
+                    </script>
+                    EOT;
+            }
+        });
+
+        return true;
     }
 }

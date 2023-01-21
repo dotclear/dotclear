@@ -8,18 +8,29 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+namespace Dotclear\Theme\ductile;
 
-class adminConfigThemeDuctile
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use dcThemeConfig;
+use files;
+use form;
+use html;
+use http;
+use l10n;
+
+class Config extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/admin');
+        if (!defined('DC_CONTEXT_ADMIN')) {
+            return false;
+        }
+
+        self::$init = true;
+
+        l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/admin');
 
         if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url)) {
             dcCore::app()->admin->img_url = http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme . '/img/');
@@ -27,14 +38,14 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->img_url = http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/');
         }
 
-        $img_path = __DIR__ . '/img/';
-        $tpl_path = __DIR__ . '/tpl/';
+        $img_path = __DIR__ . '/../img/';
+        $tpl_path = __DIR__ . '/../tpl/';
 
         dcCore::app()->admin->standalone_config = (bool) dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'standalone_config');
 
         // Load contextual help
-        if (file_exists(__DIR__ . '/locales/' . dcCore::app()->lang . '/resources.php')) {
-            require __DIR__ . '/locales/' . dcCore::app()->lang . '/resources.php';
+        if (file_exists(__DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php')) {
+            require __DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php';
         }
 
         $list_types = [
@@ -211,13 +222,19 @@ class adminConfigThemeDuctile
         dcCore::app()->admin->ductile_stickers = $ductile_stickers;
 
         dcCore::app()->admin->conf_tab = $_POST['conf_tab'] ?? 'html';
+
+        return self::$init;
     }
 
     /**
      * Processes the request(s).
      */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         if (!empty($_POST)) {
             try {
                 // HTML
@@ -318,13 +335,19 @@ class adminConfigThemeDuctile
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         // Helpers
 
         $fontDef = fn ($c) => isset(dcCore::app()->admin->font_families[$c]) ?
@@ -506,7 +529,7 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->ductile_user['blog_title_c'],
             '#ffffff',
             (!empty(dcCore::app()->admin->ductile_user['blog_title_s']) ? dcCore::app()->admin->ductile_user['blog_title_s'] : '2em'),
-            dcCore::app()->admin->ductile_user['blog_title_w']
+            (bool) dcCore::app()->admin->ductile_user['blog_title_w']
         ) .
         '</p>' .
         '</div>' .
@@ -526,7 +549,7 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->ductile_user['post_title_c'],
             '#ffffff',
             (!empty(dcCore::app()->admin->ductile_user['post_title_s']) ? dcCore::app()->admin->ductile_user['post_title_s'] : '2.5em'),
-            dcCore::app()->admin->ductile_user['post_title_w']
+            (bool) dcCore::app()->admin->ductile_user['post_title_w']
         ) .
         '</p>' .
 
@@ -554,7 +577,7 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->ductile_user['post_link_v_c'],
             '#ffffff',
             '1em',
-            dcCore::app()->admin->ductile_user['post_link_w']
+            (bool) dcCore::app()->admin->ductile_user['post_link_w']
         ) .
         '</p>' .
 
@@ -564,7 +587,7 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->ductile_user['post_link_f_c'],
             '#ebebee',
             '1em',
-            dcCore::app()->admin->ductile_user['post_link_w']
+            (bool) dcCore::app()->admin->ductile_user['post_link_w']
         ) .
         '</p>' .
 
@@ -585,7 +608,7 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->ductile_user['blog_title_c_m'],
             '#d7d7dc',
             (!empty(dcCore::app()->admin->ductile_user['blog_title_s_m']) ? dcCore::app()->admin->ductile_user['blog_title_s_m'] : '1.8em'),
-            dcCore::app()->admin->ductile_user['blog_title_w_m']
+            (bool) dcCore::app()->admin->ductile_user['blog_title_w_m']
         ) .
         '</p>' .
         '</div>' .
@@ -604,7 +627,7 @@ class adminConfigThemeDuctile
             dcCore::app()->admin->ductile_user['post_title_c_m'],
             '#ffffff',
             (!empty(dcCore::app()->admin->ductile_user['post_title_s_m']) ? dcCore::app()->admin->ductile_user['post_title_s_m'] : '1.5em'),
-            dcCore::app()->admin->ductile_user['post_title_w_m']
+            (bool) dcCore::app()->admin->ductile_user['post_title_w_m']
         ) .
         '</p>' .
 
@@ -625,7 +648,3 @@ class adminConfigThemeDuctile
         }
     }
 }
-
-adminConfigThemeDuctile::init();
-adminConfigThemeDuctile::process();
-adminConfigThemeDuctile::render();
