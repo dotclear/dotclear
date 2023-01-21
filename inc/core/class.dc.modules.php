@@ -50,7 +50,7 @@ class dcModules
      *
      * @var        string
      */
-    public const MODULE_CLASS_DIR     = 'inc';
+    public const MODULE_CLASS_DIR     = 'src';
     public const MODULE_CLASS_PREPEND = 'Prepend';
     public const MODULE_CLASS_INSTALL = 'Install';
     public const MODULE_CLASS_ADMIN   = 'Admin';
