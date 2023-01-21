@@ -8,25 +8,42 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminUserPreferences
+namespace Dotclear\Plugin\userPref;
+
+use Exception;
+use dcCore;
+use dcPage;
+use dcNsProcess;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
     /**
      * Initializes the page.
      */
-    public static function init()
+    public static function init(): bool
     {
-        dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
+            self::$init = true;
+        }
+
+        return self::$init;
     }
 
     /**
      * Processes the request(s).
      */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         // Local navigation
         if (!empty($_POST['gp_nav'])) {
             http::redirect(dcCore::app()->admin->getPageURL() . $_POST['gp_nav']);
@@ -74,12 +91,14 @@ class adminUserPreferences
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
         echo
         '<html>' .
@@ -241,7 +260,7 @@ class adminUserPreferences
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     null,
                     null,
-                    html::escapeHTML($s['value'])
+                    html::escapeHTML((string) $s['value'])
                 );
 
                 break;
@@ -273,7 +292,3 @@ class adminUserPreferences
             '</tr>';
     }
 }
-
-adminUserPreferences::init();
-adminUserPreferences::process();
-adminUserPreferences::render();
