@@ -559,6 +559,7 @@ class adminMedia
 /**
  * @brief class for admin media page
  */
+#[\AllowDynamicProperties]
 class adminMediaPage extends adminMediaFilter
 {
     /** @var boolean Page has a valid query */

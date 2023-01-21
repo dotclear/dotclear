@@ -68,7 +68,7 @@ class filemanager
      */
     public function __construct(?string $root, ?string $root_url = '')
     {
-        $this->root     = $this->pwd     = path::real($root);
+        $this->root     = $this->pwd = path::real($root);
         $this->root_url = $root_url;
 
         if (!preg_match('#/$#', (string) $this->root_url)) {
@@ -536,6 +536,7 @@ class filemanager
  * @package Clearbricks
  * @subpackage Filemanager
  */
+#[\AllowDynamicProperties]
 class fileItem
 {
     /**
