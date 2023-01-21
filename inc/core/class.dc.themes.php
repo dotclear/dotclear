@@ -190,9 +190,19 @@ class dcThemes extends dcModules
                     // This is not a real cascade - since we don't call loadNsFile -,
                     // thus limiting inclusion process.
                     // TODO : See if we have to change this.
-                    $this->loadModuleFile($this->modules[$parent]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+
+                    // by class name
+                    if ($this->loadNsClass($parent, self::MODULE_CLASS_PUPLIC) === '') {
+                        // by file name
+                        $this->loadModuleFile($this->modules[$parent]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                    }
                 }
-                $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+
+                // by class name
+                if ($this->loadNsClass($id, self::MODULE_CLASS_PUPLIC) === '') {
+                    // by file name
+                    $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                }
 
                 break;
         }
