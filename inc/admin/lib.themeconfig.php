@@ -20,9 +20,13 @@ class dcThemeConfig
      *
      * @return float             computed ratio
      */
-    public static function computeContrastRatio(string $color, string $background): float
+    public static function computeContrastRatio(?string $color, ?string $background): float
     {
         // Compute contrast ratio between two colors
+
+        if (!$color || !$background) {
+            return 0;
+        }
 
         $color = self::adjustColor($color);
         if (($color == '') || (strlen($color) != 7)) {
@@ -48,15 +52,15 @@ class dcThemeConfig
     /**
      * Compute WCAG contrast ration level
      *
-     * @param  float  $ratio computed ratio between foreground and backround color
+     * @param  float   $ratio computed ratio between foreground and backround color
      * @param  string  $size  font size as defined in CSS
      * @param  boolean $bold  true if bold font
      *
      * @return string         WCAG contrast ratio level (AAA, AA or <nothing>)
      */
-    public static function contrastRatioLevel(float $ratio, string $size, bool $bold = false): string
+    public static function contrastRatioLevel(float $ratio, ?string $size, bool $bold = false): string
     {
-        if ($size !== '') {
+        if ($size && $size !== '') {
             if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
                 if (empty($matches[2])) {
                     $matches[2] = 'em';
@@ -115,9 +119,9 @@ class dcThemeConfig
      *
      * @return string              contrast ratio including WCAG level
      */
-    public static function contrastRatio(string $color, string $background, string $size = '', bool $bold = false): string
+    public static function contrastRatio(?string $color, ?string $background, string $size = '', bool $bold = false): string
     {
-        if (($color !== '') && ($background !== '')) {
+        if ($color && $background && $color !== '' && $background !== '') {
             $ratio = self::computeContrastRatio($color, $background);
             $level = self::contrastRatioLevel($ratio, $size, $bold);
 
@@ -135,7 +139,7 @@ class dcThemeConfig
      *
      * @return string    checked font size
      */
-    public static function adjustFontSize(string $size): string
+    public static function adjustFontSize(?string $size): string
     {
         if ($size) {
             if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
@@ -157,7 +161,7 @@ class dcThemeConfig
      *
      * @return string    checked position
      */
-    public static function adjustPosition(string $position): string
+    public static function adjustPosition(?string $position): string
     {
         if (!$position) {
             return '';
@@ -178,7 +182,7 @@ class dcThemeConfig
      *
      * @return string    checked CSS color
      */
-    public static function adjustColor(string $color): string
+    public static function adjustColor(?string $color): string
     {
         if (!$color) {
             return '';
