@@ -243,7 +243,7 @@ class dcUpdate
      */
     public function getWarning(): bool
     {
-        return (bool) $this->version_info['warning'] ?? false;
+        return $this->version_info['warning'];
     }
 
     /**
@@ -608,6 +608,7 @@ class dcUpdate
                 $this->version_info['checksum'] = isset($r['checksum']) ? (string) $r['checksum'] : null;
                 $this->version_info['info']     = isset($r['info']) ? (string) $r['info'] : null;
                 $this->version_info['php']      = isset($r['php']) ? (string) $r['php'] : null;
+                $this->version_info['warning']  = isset($r['warning']) ? (bool) $r['warning'] : false;
             }
         } catch (Exception $e) {
             throw $e;
