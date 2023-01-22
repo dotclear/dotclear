@@ -8,16 +8,40 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-if (!isset(dcCore::app()->resources['help']['themeEditor'])) {
-    dcCore::app()->resources['help']['themeEditor'] = __DIR__ . '/help.html';
-}
+namespace Dotclear\Plugin\themeEditor;
 
-dcCore::app()->addBehaviors([
-    'adminCurrentThemeDetailsV2'   => [themeEditorBehaviors::class, 'adminCurrentThemeDetails'],
-    'adminBeforeUserOptionsUpdate' => [themeEditorBehaviors::class, 'adminBeforeUserUpdate'],
-    'adminPreferencesFormV2'       => [themeEditorBehaviors::class, 'adminPreferencesForm'],
-]);
+use dcCore;
+use dcNsProcess;
+
+class Backend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        if (!isset(dcCore::app()->resources['help']['themeEditor'])) {
+            dcCore::app()->resources['help']['themeEditor'] = __DIR__ . '/../help.html';
+        }
+
+        dcCore::app()->addBehaviors([
+            'adminCurrentThemeDetailsV2'   => [BackendBehaviors::class, 'adminCurrentThemeDetails'],
+            'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'adminBeforeUserUpdate'],
+            'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminPreferencesForm'],
+        ]);
+
+        return true;
+    }
+}

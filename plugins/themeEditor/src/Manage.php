@@ -8,17 +8,31 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminThemeEditor
+namespace Dotclear\Plugin\themeEditor;
+
+use ArrayObject;
+use Exception;
+use adminThemesList;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use dcThemes;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (!defined('DC_CONTEXT_ADMIN')) {
+            return false;
+        }
+
+        self::$init = true;
+
         dcCore::app()->admin->file_default = dcCore::app()->admin->file = new ArrayObject([
             'c'            => null,
             'w'            => false,
@@ -34,18 +48,26 @@ class adminThemeEditor
         # Loading themes
         adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-        dcCore::app()->themes = new dcThemes();
-        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+        if (!is_a(dcCore::app()->themes, 'dcThemes')) {
+            dcCore::app()->themes = new dcThemes();
+            dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+        }
 
         dcCore::app()->admin->theme  = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
-        dcCore::app()->admin->editor = new dcThemeEditor();
+        dcCore::app()->admin->editor = new ThemeEditor();
+
+        return self::$init;
     }
 
     /**
      * Processes the request(s).
      */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         try {
             try {
                 if (!empty($_REQUEST['tpl'])) {
@@ -91,13 +113,19 @@ class adminThemeEditor
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         echo
         '<html>' .
         '<head>' .
@@ -217,7 +245,3 @@ class adminThemeEditor
         '</html>';
     }
 }
-
-adminThemeEditor::init();
-adminThemeEditor::process();
-adminThemeEditor::render();

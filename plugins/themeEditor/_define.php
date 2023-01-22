@@ -16,7 +16,7 @@ $this->registerModule(
     'themeEditor',     // Name
     'Theme Editor',    // Description
     'Olivier Meunier', // Author
-    '1.4',             // Version
+    '2.0',             // Version
     [
         'type'     => 'plugin',
         'settings' => [

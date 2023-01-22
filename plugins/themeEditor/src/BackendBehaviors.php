@@ -8,7 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class themeEditorBehaviors
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\themeEditor;
+
+use Exception;
+use adminThemesList;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use form;
+
+class BackendBehaviors
 {
     /**
      * Add an editor button (if possible)
