@@ -19,7 +19,8 @@ class Install extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion('dcCKEditor', dcCore::app()->plugins->moduleInfo('dcCKEditor', 'version'));
+        $module     = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
 
         return self::$init;
     }
