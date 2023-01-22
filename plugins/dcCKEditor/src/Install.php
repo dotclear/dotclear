@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\dcCKEditor;
 
 use dcCore;
 use dcNsProcess;
+use path;
 
 class Install extends dcNsProcess
 {

@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
 use dcNsProcess;
+use path;
 
 class Install extends dcNsProcess
 {
