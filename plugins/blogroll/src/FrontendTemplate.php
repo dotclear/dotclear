@@ -58,7 +58,7 @@ class FrontendTemplate
 
         return
             '<?php ' .
-            'echo ' . __NAMESPACE__ . "\\FrontendTemplate::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . '); ' .
+            'echo ' . self::class . "::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . '); ' .
             '?>';
     }
 
