@@ -8,7 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class importExportBehaviors
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use ArrayObject;
+use dcCore;
+
+class BackendBehaviors
 {
     /**
      * Register import/export modules
@@ -17,14 +24,14 @@ class importExportBehaviors
      */
     public static function registerIeModules(ArrayObject $modules): void
     {
-        $modules['import'] = array_merge($modules['import'], ['dcImportFlat']);
-        $modules['import'] = array_merge($modules['import'], ['dcImportFeed']);
+        $modules['import'] = array_merge($modules['import'], [ModuleImportFlat::class]);
+        $modules['import'] = array_merge($modules['import'], [ModuleImportFeed::class]);
 
-        $modules['export'] = array_merge($modules['export'], ['dcExportFlat']);
+        $modules['export'] = array_merge($modules['export'], [ModuleExportFlat::class]);
 
         if (dcCore::app()->auth->isSuperAdmin()) {
-            $modules['import'] = array_merge($modules['import'], ['dcImportDC1']);
-            $modules['import'] = array_merge($modules['import'], ['dcImportWP']);
+            $modules['import'] = array_merge($modules['import'], [ModuleImportDc1::class]);
+            $modules['import'] = array_merge($modules['import'], [ModuleImportWp::class]);
         }
     }
 }

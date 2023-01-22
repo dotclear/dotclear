@@ -8,7 +8,27 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcExportFlat extends dcIeModule
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use Exception;
+use dcAuth;
+use dcBlog;
+use dcBlogroll;
+use dcCategories;
+use dcCore;
+use dcMedia;
+use dcMeta;
+use dcNamespace;
+use dcPostMedia;
+use dcTrackback;
+use fileZip;
+use form;
+use html;
+use http;
+
+class ModuleExportFlat extends Module
 {
     /**
      * Sets the module information.
@@ -35,7 +55,7 @@ class dcExportFlat extends dcIeModule
             $blog_id  = dcCore::app()->con->escape(dcCore::app()->blog->id);
 
             try {
-                $exp = new flatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
+                $exp = new FlatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|single\n");
 
                 $exp->export(
@@ -111,7 +131,7 @@ class dcExportFlat extends dcIeModule
             $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
 
             try {
-                $exp = new flatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
+                $exp = new FlatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|full\n");
                 $exp->exportTable('blog');
                 $exp->exportTable('category');

@@ -1194,6 +1194,9 @@ class dcUpgrade
                     'plugins/dcLegacyEditor/_prepend.php',
                     'plugins/dcLegacyEditor/_services.php',
                     'plugins/dcLegacyEditor/index.php',
+                    'plugins/importExport/_admin.php',
+                    'plugins/importExport/_prepend.php',
+                    'plugins/importExport/index.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
@@ -1216,6 +1219,7 @@ class dcUpgrade
                     'plugins/buildtools/inc',       // Replaced by src
                     'plugins/dcCKEditor/inc',       // Replaced by src
                     'plugins/dcLegacyEditor/inc',   // Replaced by src
+                    'plugins/importExport/inc',     // Replaced by src
                     'plugins/themeEditor/inc',      // Replaced by src
                     'plugins/userPref/inc',         // Replaced by src
                 ]

@@ -8,7 +8,28 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class flatImportV2 extends flatBackup
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use Exception;
+use dcAntispam;
+use dcAuth;
+use dcBlog;
+use dcBlogroll;
+use dcCategories;
+use dcCore;
+use dcLog;
+use dcMedia;
+use dcMeta;
+use dcNamespace;
+use dcPostMedia;
+use dcRecord;
+use dcTrackback;
+use dcWorkspace;
+use html;
+
+class FlatImportV2 extends FlatBackup
 {
     private $con;
     private $prefix;

@@ -8,7 +8,21 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcImportFlat extends dcIeModule
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use Exception;
+use dcCore;
+use dcPage;
+use files;
+use fileUnzip;
+use form;
+use html;
+use http;
+use path;
+
+class ModuleImportFlat extends Module
 {
     /**
      * Current import type (full|single)
@@ -69,11 +83,11 @@ class dcImportFlat extends dcIeModule
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
                 if (false !== $unzip_file) {
-                    $bk = new flatImportV2($unzip_file);
+                    $bk = new FlatImportV2($unzip_file);
                 }
                 # Else this is a normal file
                 else {
-                    $bk = new flatImportV2($file);
+                    $bk = new FlatImportV2($file);
                 }
 
                 $bk->importSingle();
@@ -85,7 +99,9 @@ class dcImportFlat extends dcIeModule
 
                 throw $e;
             }
-            @unlink($unzip_file);
+            if ($unzip_file) {
+                @unlink($unzip_file);
+            }
             if ($to_unlink) {
                 @unlink($file);
             }
@@ -122,11 +138,11 @@ class dcImportFlat extends dcIeModule
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
                 if (false !== $unzip_file) {
-                    $bk = new flatImportV2($unzip_file);
+                    $bk = new FlatImportV2($unzip_file);
                 }
                 # Else this is a normal file
                 else {
-                    $bk = new flatImportV2($file);
+                    $bk = new FlatImportV2($file);
                 }
 
                 $bk->importFull();
@@ -138,7 +154,9 @@ class dcImportFlat extends dcIeModule
 
                 throw $e;
             }
-            @unlink($unzip_file);
+            if ($unzip_file) {
+                @unlink($unzip_file);
+            }
             if ($to_unlink) {
                 @unlink($file);
             }

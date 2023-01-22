@@ -17,11 +17,10 @@ use dcMaintenanceTask;
 use form;
 use html;
 
-class ExportBlogMaintenanceTask extends dcMaintenanceTask
+class ExportFullMaintenanceTask extends dcMaintenanceTask
 {
-    protected $perm  = 'admin';
     protected $tab   = 'backup';
-    protected $group = 'zipblog';
+    protected $group = 'zipfull';
 
     protected $export_name;
     protected $export_type;
@@ -32,10 +31,10 @@ class ExportBlogMaintenanceTask extends dcMaintenanceTask
     protected function init(): void
     {
         $this->name = __('Database export');
-        $this->task = __('Download database of current blog');
+        $this->task = __('Download database of all blogs');
 
-        $this->export_name = html::escapeHTML(dcCore::app()->blog->id . '-backup.txt');
-        $this->export_type = 'export_blog';
+        $this->export_name = 'dotclear-backup.txt';
+        $this->export_type = 'export_all';
     }
 
     /**

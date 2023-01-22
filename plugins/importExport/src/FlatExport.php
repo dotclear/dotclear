@@ -8,7 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class flatExport
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use Exception;
+use dbSchema;
+use dcRecord;
+
+class FlatExport
 {
     private $con;
     private $prefix;

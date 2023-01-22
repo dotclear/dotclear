@@ -8,7 +8,27 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcImportDC1 extends dcIeModule
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use ArrayObject;
+use Exception;
+use dbLayer;
+use dcAuth;
+use dcBlog;
+use dcBlogroll;
+use dcCategories;
+use dcCore;
+use dcRecord;
+use dcTrackback;
+use crypt;
+use form;
+use html;
+use http;
+use text;
+
+class ModuleImportDc1 extends Module
 {
     protected $con;
     protected $prefix;

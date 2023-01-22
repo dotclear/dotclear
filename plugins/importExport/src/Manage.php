@@ -8,17 +8,25 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminImportExport
+namespace Dotclear\Plugin\importExport;
+
+use ArrayObject;
+use Exception;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use html;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = true;
+        }
+
         $modules = new ArrayObject(['import' => [], 'export' => []]);
 
         # --BEHAVIOR-- importExportModules
@@ -36,13 +44,16 @@ class adminImportExport
             dcCore::app()->admin->module = new $_REQUEST['module'](dcCore::app());
             dcCore::app()->admin->module->init();
         }
+
+        return self::$init;
     }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null && !empty($_REQUEST['do'])) {
             try {
                 dcCore::app()->admin->module->process($_REQUEST['do']);
@@ -50,13 +61,19 @@ class adminImportExport
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         $title = __('Import/Export');
 
         echo
@@ -125,7 +142,3 @@ class adminImportExport
         return '<dl class="modules">' . $res . '</dl>';
     }
 }
-
-adminImportExport::init();
-adminImportExport::process();
-adminImportExport::render();

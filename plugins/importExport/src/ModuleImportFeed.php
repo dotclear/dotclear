@@ -8,7 +8,23 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcImportFeed extends dcIeModule
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\importExport;
+
+use Exception;
+use dcBlog;
+use dcCore;
+use dcMeta;
+use dcPage;
+use feedReader;
+use dt;
+use form;
+use html;
+use http;
+use text;
+
+class ModuleImportFeed extends Module
 {
     /**
      * Current status
