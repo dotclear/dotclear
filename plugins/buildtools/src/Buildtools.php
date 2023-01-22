@@ -8,7 +8,13 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcBuildTools
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\buildtools;
+
+use dcMaintenance;
+
+class Buildtools
 {
     /**
      * Add l10n faker maintenance task
@@ -17,6 +23,6 @@ class dcBuildTools
      */
     public static function maintenanceAdmin(dcMaintenance $maintenance)
     {
-        $maintenance->addTask(dcMaintenanceBuildtools::class);
+        $maintenance->addTask(BuildtoolsMaintenanceTask::class);
     }
 }
