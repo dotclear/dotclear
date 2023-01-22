@@ -16,14 +16,14 @@ $this->registerModule(
     'attachments',             // Name
     'Manage post attachments', // Description
     'Dotclear Team',           // Author
-    '1.1',                     // Version
+    '2.0',                     // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
             dcPages::PERMISSION_PAGES,
         ]),
-        'priority' => 999,
-        'type'     => 'plugin',
+        'priority'    => 999,
+        'type'        => 'plugin',
     ]
 );

@@ -34,5 +34,4 @@ class dcBlogroll
 // backward compatibility
 class dcLinks extends dcBlogroll
 {
-    
 }

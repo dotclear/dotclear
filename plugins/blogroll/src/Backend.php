@@ -52,8 +52,8 @@ class Backend extends dcNsProcess
             },
             'adminUsersActionsHeaders'  => fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js'),
 
-            'initWidgets'        => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
+            'initWidgets'               => [Widgets::class, 'initWidgets'],
+            'initDefaultWidgets'        => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
         dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(

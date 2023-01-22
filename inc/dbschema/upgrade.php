@@ -1168,6 +1168,19 @@ class dcUpgrade
             self::houseCleaning(
                 // Files
                 [
+                    'plugins/aboutConfig/_admin.php',
+                    'plugins/attachments/_admin.php',
+                    'plugins/attachments/_prepend.php',
+                    'plugins/attachments/_public.php',
+                    'plugins/blogroll/_admin.php',
+                    'plugins/blogroll/_install.php',
+                    'plugins/blogroll/_prepend.php',
+                    'plugins/blogroll/_public.php',
+                    'plugins/blogroll/_widgets.php',
+                    'plugins/breadcrumb/_admin.php',
+                    'plugins/breadcrumb/_prepend.php',
+                    'plugins/breadcrumb/_public.php',
+                    'plugins/userPref/_admin.php',
                 ],
                 // Folders
                 [

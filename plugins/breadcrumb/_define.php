@@ -16,14 +16,14 @@ $this->registerModule(
     'Breadcrumb',              // Name
     'Breadcrumb for Dotclear', // Description
     'Franck Paul',             // Author
-    '0.7',                     // Version
+    '1.0',                     // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'     => 'plugin',             // Type
-        'settings' => [
+        'type'        => 'plugin',             // Type
+        'settings'    => [
             'blog' => '#params.breadcrumb_params',
         ],
     ]
