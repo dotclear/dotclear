@@ -16,7 +16,7 @@ $this->registerModule(
     'Import / Export',                // Name
     'Import and Export your blog',    // Description
     'Olivier Meunier & Contributors', // Author
-    '3.2',                            // Version
+    '4.0',                            // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
