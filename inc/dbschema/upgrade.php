@@ -1181,6 +1181,12 @@ class dcUpgrade
                     'plugins/breadcrumb/_prepend.php',
                     'plugins/breadcrumb/_public.php',
                     'plugins/userPref/_admin.php',
+                    'themes/berlin/_public.php',
+                    'themes/customCSS/_config.php',
+                    'themes/customCSS/_public.php',
+                    'themes/ductile/_config.php',
+                    'themes/ductile/_public.php',
+                    'themes/ductile/_prepend.php',
                 ],
                 // Folders
                 [

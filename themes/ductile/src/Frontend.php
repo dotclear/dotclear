@@ -8,40 +8,55 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-namespace Dotclear\Theme\Ductile;
+namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
 use dcCore;
+use dcNsProcess;
 use dcThemeConfig;
+use files;
 use l10n;
 
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/main');
-
-# Behaviors
-dcCore::app()->addBehaviors([
-    'publicHeadContent'  => [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent'],
-    'publicInsideFooter' => [__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter'],
-]);
-
-# Templates
-dcCore::app()->tpl->addValue('ductileEntriesList', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileEntriesList']);
-dcCore::app()->tpl->addBlock('EntryIfContentIsCut', [__NAMESPACE__ . '\tplDuctileTheme', 'EntryIfContentIsCut']);
-dcCore::app()->tpl->addValue('ductileNbEntryPerPage', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileNbEntryPerPage']);
-dcCore::app()->tpl->addValue('ductileLogoSrc', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileLogoSrc']);
-dcCore::app()->tpl->addBlock('IfPreviewIsNotMandatory', [__NAMESPACE__ . '\tplDuctileTheme', 'IfPreviewIsNotMandatory']);
-
-class tplDuctileTheme
+class Frontend extends dcNsProcess
 {
+    public static function init(): bool
+    {
+        if (defined('DC_RC_PATH')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+
+        # Behaviors
+        dcCore::app()->addBehaviors([
+            'publicHeadContent'  => [self::class, 'publicHeadContent'],
+            'publicInsideFooter' => [self::class, 'publicInsideFooter'],
+        ]);
+
+        # Templates
+        dcCore::app()->tpl->addValue('ductileEntriesList', [self::class, 'ductileEntriesList']);
+        dcCore::app()->tpl->addBlock('EntryIfContentIsCut', [self::class, 'EntryIfContentIsCut']);
+        dcCore::app()->tpl->addValue('ductileNbEntryPerPage', [self::class, 'ductileNbEntryPerPage']);
+        dcCore::app()->tpl->addValue('ductileLogoSrc', [self::class, 'ductileLogoSrc']);
+        dcCore::app()->tpl->addBlock('IfPreviewIsNotMandatory', [self::class, 'IfPreviewIsNotMandatory']);
+
+        return true;
+    }
+
     public static function ductileNbEntryPerPage(ArrayObject $attr): string
     {
         $nb = $attr['nb'] ?? null;
 
-        return '<?php ' . __NAMESPACE__ . '\tplDuctileTheme::ductileNbEntryPerPageHelper(' . strval((int) $nb) . '); ?>';
+        return '<?php ' . self::class . '::ductileNbEntryPerPageHelper(' . strval((int) $nb) . '); ?>';
     }
 
     public static function ductileNbEntryPerPageHelper(int $nb)
@@ -112,11 +127,11 @@ class tplDuctileTheme
 
     public static function ductileEntriesList(ArrayObject $attr): string
     {
-        $tpl_path   = __DIR__ . '/tpl/';
+        $tpl_path   = __DIR__ . '/../tpl/';
         $list_types = ['title', 'short', 'full'];
 
         // Get all _entry-*.html in tpl folder of theme
-        $list_types_templates = \files::scandir($tpl_path);
+        $list_types_templates = files::scandir($tpl_path);
         if (is_array($list_types_templates)) {
             foreach ($list_types_templates as $v) {
                 if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
@@ -128,7 +143,7 @@ class tplDuctileTheme
 
         $default = isset($attr['default']) ? trim((string) $attr['default']) : 'short';
         $ret     = '<?php ' . "\n" .
-        'switch (' . __NAMESPACE__ . '\tplDuctileTheme::ductileEntriesListHelper(\'' . $default . '\')) {' . "\n";
+        'switch (' . self::class . '::ductileEntriesListHelper(\'' . $default . '\')) {' . "\n";
 
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
@@ -159,7 +174,7 @@ class tplDuctileTheme
 
     public static function ductileLogoSrc(): string
     {
-        return '<?php echo ' . __NAMESPACE__ . '\tplDuctileTheme::ductileLogoSrcHelper(); ?>';
+        return '<?php echo ' . self::class . '::ductileLogoSrcHelper(); ?>';
     }
 
     public static function ductileLogoSrcHelper(): string
@@ -308,7 +323,7 @@ class tplDuctileTheme
             }
             # Main font
             $selectors = 'body, .supranav li a span, #comments.me, a.comment-number';
-            \dcThemeConfig::prop($css, $selectors, 'font-family', $s['body_webfont_family']);
+            dcThemeConfig::prop($css, $selectors, 'font-family', $s['body_webfont_family']);
         }
         if (!isset($s['alternate_font']) || ($s['alternate_font'] == '') && isset($s['alternate_webfont_api']) && isset($s['alternate_webfont_family']) && isset($s['alternate_webfont_url'])) {
             // See if webfont defined for secondary font
