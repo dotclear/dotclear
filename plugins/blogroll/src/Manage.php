@@ -17,6 +17,7 @@ use dcBlogroll;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use files;
 use form;
 use html;
 use http;

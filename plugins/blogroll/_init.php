@@ -32,7 +32,12 @@ class dcBlogroll
 }
 
 // backward compatibility
+
+/**
+ * This class is an alias of dcBlogroll.
+ *
+ * @deprecated since 2.25
+ */
 class dcLinks extends dcBlogroll
 {
-    
 }

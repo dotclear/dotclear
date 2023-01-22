@@ -16,11 +16,11 @@ $this->registerModule(
     'Blogroll',             // Name
     'Manage your blogroll', // Description
     'Olivier Meunier',      // Author
-    '1.5',                  // Version
+    '2.0',                  // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcBlogroll::PERMISSION_BLOGROLL,
         ]),
-        'type' => 'plugin',
+        'type'        => 'plugin',
     ]
 );

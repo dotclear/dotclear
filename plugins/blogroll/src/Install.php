@@ -16,12 +16,14 @@ use dcBlogroll;
 use dcCore;
 use dbStruct;
 use dcNsProcess;
+use path;
 
 class Install extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion('blogroll', dcCore::app()->plugins->moduleInfo('blogroll', 'version'));
+        $module     = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
 
         return self::$init;
     }
