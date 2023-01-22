@@ -16,7 +16,6 @@ use Exception;
 use dcAntispam;
 use dcAuth;
 use dcBlog;
-use dcBlogroll;
 use dcCategories;
 use dcCore;
 use dcLog;
@@ -27,6 +26,7 @@ use dcPostMedia;
 use dcRecord;
 use dcTrackback;
 use dcWorkspace;
+use initBlogroll;
 use html;
 
 class FlatImportV2 extends FlatBackup
@@ -108,7 +108,7 @@ class FlatImportV2 extends FlatBackup
 
         $this->cur_blog        = $this->con->openCursor($this->prefix . dcBlog::BLOG_TABLE_NAME);
         $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
-        $this->cur_link        = $this->con->openCursor($this->prefix . dcBlogroll::LINK_TABLE_NAME);
+        $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
         $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
         $this->cur_user        = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
         $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
@@ -154,7 +154,7 @@ class FlatImportV2 extends FlatBackup
         $rs                    = new dcRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME));
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = new dcRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME));
+        $rs                     = new dcRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
         $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                     = new dcRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME));

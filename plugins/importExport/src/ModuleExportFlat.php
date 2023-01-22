@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\importExport;
 use Exception;
 use dcAuth;
 use dcBlog;
-use dcBlogroll;
 use dcCategories;
 use dcCore;
 use dcMedia;
@@ -23,6 +22,7 @@ use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
+use initBlogroll;
 use fileZip;
 use form;
 use html;
@@ -65,7 +65,7 @@ class ModuleExportFlat extends Module
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . dcCore::app()->prefix . dcBlogroll::LINK_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . initBlogroll::LINK_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(

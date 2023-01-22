@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use dcBlogroll;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use initBlogroll;
 use files;
 use form;
 use html;
@@ -30,7 +30,7 @@ class Manage extends dcNsProcess
     {
         if (defined('DC_CONTEXT_ADMIN')) {
             dcPage::check(dcCore::app()->auth->makePermissions([
-                dcBlogroll::PERMISSION_BLOGROLL,
+                initBlogroll::PERMISSION_BLOGROLL,
             ]));
 
             dcCore::app()->admin->blogroll = new Blogroll(dcCore::app()->blog);

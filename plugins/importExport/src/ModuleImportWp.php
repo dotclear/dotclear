@@ -18,11 +18,11 @@ use dbLayer;
 use dcAdminCombos;
 use dcAuth;
 use dcBlog;
-use dcBlogroll;
 use dcCategories;
 use dcCore;
 use dcRecord;
 use dcTrackback;
+use initBlogroll;
 use crypt;
 use form;
 use html;
@@ -573,12 +573,12 @@ class ModuleImportWP extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME . ' ' .
+                'DELETE FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME . ' ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
             while ($rs->fetch()) {
-                $cur             = $this->con->openCursor($this->prefix . dcBlogroll::LINK_TABLE_NAME);
+                $cur             = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
                 $cur->blog_id    = $this->blog_id;
                 $cur->link_href  = $this->cleanStr($rs->link_url);
                 $cur->link_title = $this->cleanStr($rs->link_name);
@@ -586,7 +586,7 @@ class ModuleImportWP extends Module
                 $cur->link_xfn   = $this->cleanStr($rs->link_rel);
 
                 $cur->link_id = (new dcRecord($this->con->select(
-                    'SELECT MAX(link_id) FROM ' . $this->prefix . dcBlogroll::LINK_TABLE_NAME
+                    'SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME
                 )))->f(0) + 1;
                 $cur->insert();
             }
