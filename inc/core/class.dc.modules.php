@@ -466,15 +466,12 @@ class dcModules
 
         // Context loop
         foreach ($this->modules as $id => $m) {
-            // Module namespace
-            $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $id]);
-
             # Load translation and _prepend
             $r = '';
 
             // by class name
-            $class = $this->namespace . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
-            if (class_exists($class)) {
+            $class = ($m['namespace'] ?? '') . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
+            if (!empty($m['namespace']) && class_exists($class)) {
                 $r = $class::init() ? $class::process() : '';
             // by file name
             } elseif (isset($m['root']) && file_exists($m['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
