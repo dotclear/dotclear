@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
+use ArrayObject;
 use Exception;
 use dcCore;
 use dcWidget;
@@ -33,7 +34,7 @@ class FrontendTemplate
      *
      * @return     string
      */
-    public static function blogroll($attr)
+    public static function blogroll(ArrayObject $attr)
     {
         $category = '<h3>%s</h3>';
         $block    = '<ul>%s</ul>';
@@ -73,7 +74,7 @@ class FrontendTemplate
      *
      * @return     string
      */
-    public static function blogrollXbelLink($attr)
+    public static function blogrollXbelLink(ArrayObject $attr)
     {
         return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("xbel")') . '; ?>';
     }
