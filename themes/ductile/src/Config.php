@@ -8,12 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
 use dcNsProcess;
 use dcPage;
 use dcThemeConfig;
+use Exception;
 use files;
 use form;
 use html;
