@@ -51,13 +51,13 @@ class dcModules
      * @var        string
      */
     public const MODULE_CLASS_DIR     = 'src';
-    public const MODULE_CLASS_PREPEND = 'Prepend';
-    public const MODULE_CLASS_INSTALL = 'Install';
-    public const MODULE_CLASS_ADMIN   = 'Backend';
-    public const MODULE_CLASS_CONFIG  = 'Config';
-    public const MODULE_CLASS_MANAGE  = 'Manage';
-    public const MODULE_CLASS_PUPLIC  = 'Frontend';
-    public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';
+    public const MODULE_CLASS_PREPEND = 'Prepend';      // Common (ex _prepend.php)
+    public const MODULE_CLASS_INSTALL = 'Install';      // Installation (ex _install.php)
+    public const MODULE_CLASS_ADMIN   = 'Backend';      // Backend common (ex _admin.php)
+    public const MODULE_CLASS_CONFIG  = 'Config';       // Module configuration (ex _config.php)
+    public const MODULE_CLASS_MANAGE  = 'Manage';       // Module backend (ex index.php)
+    public const MODULE_CLASS_PUPLIC  = 'Frontend';     // Module frontend (ex _public.php)
+    public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';       // Module XMLRPC services (ex _xmlrpc.php) - obsolete since 2.24
 
     // Properties
 
@@ -426,7 +426,7 @@ class dcModules
                 $this->id    = $entry;
                 $this->mroot = $full_entry;
 
-                // namspace
+                // Module namespace
                 $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $this->id]);
                 $this->autoload->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
 
