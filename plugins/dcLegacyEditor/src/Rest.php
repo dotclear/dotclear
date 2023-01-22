@@ -8,11 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class dcLegacyEditorRest
+namespace Dotclear\Plugin\dcLegacyEditor;
+
+use dcCore;
+use wiki2xhtml;
+use xmltag;
+
+class Rest
 {
     /**
      * Convert wiki to HTML REST service

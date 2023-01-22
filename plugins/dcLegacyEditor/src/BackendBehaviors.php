@@ -8,7 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcLegacyEditorBehaviors
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\dcLegacyEditor;
+
+use dcAuth;
+use dcCore;
+use dcPage;
+use l10n;
+
+class BackendBehaviors
 {
     /**
      * adminPostEditor add javascript to the DOM to load legacy editor depending on context

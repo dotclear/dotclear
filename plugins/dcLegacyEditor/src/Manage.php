@@ -8,30 +8,40 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminLegacyEditor
+namespace Dotclear\Plugin\dcLegacyEditor;
+
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        dcCore::app()->admin->editor_is_admin = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcCore::app()->admin->editor_is_admin = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_ADMIN,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
-        dcCore::app()->admin->editor_std_active = dcCore::app()->blog->settings->dclegacyeditor->active;
+            dcCore::app()->admin->editor_std_active = dcCore::app()->blog->settings->dclegacyeditor->active;
+
+            self::$init = true;
+        }
+
+        return self::$init;
     }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         if (!empty($_POST['saveconfig'])) {
             try {
                 dcCore::app()->admin->editor_std_active = (empty($_POST['dclegacyeditor_active'])) ? false : true;
@@ -48,12 +58,8 @@ class adminLegacyEditor
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
-        require __DIR__ . '/tpl/' . basename(__FILE__);
+        require __DIR__ . '/../tpl/index.php';
     }
 }
-
-adminLegacyEditor::init();
-adminLegacyEditor::process();
-adminLegacyEditor::render();

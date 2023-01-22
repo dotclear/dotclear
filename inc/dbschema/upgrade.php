@@ -1189,6 +1189,11 @@ class dcUpgrade
                     'plugins/dcCKEditor/_install.php',
                     'plugins/dcCKEditor/_post_config.php',
                     'plugins/dcCKEditor/_prepend.php',
+                    'plugins/dcLegacyEditor/_admin.php',
+                    'plugins/dcLegacyEditor/_install.php',
+                    'plugins/dcLegacyEditor/_prepend.php',
+                    'plugins/dcLegacyEditor/_services.php',
+                    'plugins/dcLegacyEditor/index.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
@@ -1204,14 +1209,15 @@ class dcUpgrade
                 // Folders
                 [
                     'inc/libs',
-                    'plugins/aboutConfig/inc',  // Replaced by src
-                    'plugins/attachments/inc',  // Replaced by src
-                    'plugins/blogroll/inc',     // Replaced by src
-                    'plugins/breadcrumb/inc',   // Replaced by src
-                    'plugins/buildtools/inc',   // Replaced by src
-                    'plugins/dcCKEditor/inc',   // Replaced by src
-                    'plugins/themeEditor/inc',  // Replaced by src
-                    'plugins/userPref/inc',     // Replaced by src
+                    'plugins/aboutConfig/inc',      // Replaced by src
+                    'plugins/attachments/inc',      // Replaced by src
+                    'plugins/blogroll/inc',         // Replaced by src
+                    'plugins/breadcrumb/inc',       // Replaced by src
+                    'plugins/buildtools/inc',       // Replaced by src
+                    'plugins/dcCKEditor/inc',       // Replaced by src
+                    'plugins/dcLegacyEditor/inc',   // Replaced by src
+                    'plugins/themeEditor/inc',      // Replaced by src
+                    'plugins/userPref/inc',         // Replaced by src
                 ]
             );
         }
