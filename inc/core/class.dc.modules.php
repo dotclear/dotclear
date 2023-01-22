@@ -466,6 +466,9 @@ class dcModules
 
         // Context loop
         foreach ($this->modules as $id => $m) {
+            // Module namespace
+            $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $id]);
+
             # Load translation and _prepend
             $r = '';
 
