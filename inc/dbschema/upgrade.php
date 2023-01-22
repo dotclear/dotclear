@@ -1169,6 +1169,7 @@ class dcUpgrade
                 // Files
                 [
                     'plugins/aboutConfig/_admin.php',
+                    'plugins/aboutConfig/index.php',
                     'plugins/attachments/_admin.php',
                     'plugins/attachments/_prepend.php',
                     'plugins/attachments/_public.php',
@@ -1177,10 +1178,16 @@ class dcUpgrade
                     'plugins/blogroll/_prepend.php',
                     'plugins/blogroll/_public.php',
                     'plugins/blogroll/_widgets.php',
+                    'plugins/blogroll/edit.php',
+                    'plugins/blogroll/index;php',
                     'plugins/breadcrumb/_admin.php',
                     'plugins/breadcrumb/_prepend.php',
                     'plugins/breadcrumb/_public.php',
+                    'plugins/themeEditor/_admin.php',
+                    'plugins/themeEditor/_prepend.php',
+                    'plugins/themeEditor/index.php',
                     'plugins/userPref/_admin.php',
+                    'plugins/userPref/index.php',
                     'themes/berlin/_public.php',
                     'themes/customCSS/_config.php',
                     'themes/customCSS/_public.php',
@@ -1195,6 +1202,7 @@ class dcUpgrade
                     'plugins/attachments/inc',  // Replaced by src
                     'plugins/blogroll/inc',     // Replaced by src
                     'plugins/breadcrumb/inc',   // Replaced by src
+                    'plugins/themeEditor/inc',  // Replaced by src
                     'plugins/userPref/inc',     // Replaced by src
                 ]
             );

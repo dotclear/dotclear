@@ -8,7 +8,19 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcThemeEditor
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\themeEditor;
+
+use Exception;
+use dcCore;
+use dcPublic;
+use files;
+use html;
+use l10n;
+use path;
+
+class ThemeEditor
 {
     /**
      * Current theme
