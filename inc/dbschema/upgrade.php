@@ -1185,6 +1185,10 @@ class dcUpgrade
                     'plugins/breadcrumb/_public.php',
                     'plugins/buildtools/_admin.php',
                     'plugins/buildtools/_prepend.php',
+                    'plugins/dcCKEditor/_admin.php',
+                    'plugins/dcCKEditor/_install.php',
+                    'plugins/dcCKEditor/_post_config.php',
+                    'plugins/dcCKEditor/_prepend.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
@@ -1205,6 +1209,7 @@ class dcUpgrade
                     'plugins/blogroll/inc',     // Replaced by src
                     'plugins/breadcrumb/inc',   // Replaced by src
                     'plugins/buildtools/inc',   // Replaced by src
+                    'plugins/dcCKEditor/inc',   // Replaced by src
                     'plugins/themeEditor/inc',  // Replaced by src
                     'plugins/userPref/inc',     // Replaced by src
                 ]

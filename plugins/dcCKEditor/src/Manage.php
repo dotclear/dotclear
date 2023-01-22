@@ -8,17 +8,24 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminCKEditor
+namespace Dotclear\Plugin\dcCKEditor;
+
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (!defined('DC_CONTEXT_ADMIN')) {
+            return false;
+        }
+
         dcCore::app()->admin->editor_is_admin = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
             dcAuth::PERMISSION_CONTENT_ADMIN,
@@ -41,18 +48,26 @@ class adminCKEditor
 
         if (!empty($_GET['config'])) {
             // text/javascript response stop stream just after including file
-            require_once __DIR__ . '/_post_config.php';
+            require_once __DIR__ . '/ManagePostConfig.php';
             exit();
         }
 
         dcCore::app()->admin->editor_cke_was_actived = dcCore::app()->admin->editor_cke_active;
+
+        self::$init = true;
+
+        return self::$init;
     }
 
     /**
      * Processes the request(s).
      */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         if (!empty($_POST['saveconfig'])) {
             try {
                 dcCore::app()->admin->editor_cke_active = (empty($_POST['dcckeditor_active'])) ? false : true;
@@ -123,17 +138,16 @@ class adminCKEditor
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
-    /**
-     * Renders the page.
-     */
-    public static function render()
+    public static function render(): void
     {
-        require __DIR__ . '/tpl/' . basename(__FILE__);
+        if (!self::$init) {
+            return;
+        }
+
+        require __DIR__ . '/../tpl/index.php';
     }
 }
-
-adminCKEditor::init();
-adminCKEditor::process();
-adminCKEditor::render();
