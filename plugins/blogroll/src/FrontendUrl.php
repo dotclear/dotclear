@@ -8,7 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class urlBlogroll extends dcUrlHandlers
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\blogroll;
+
+use Exception;
+use dcCore;
+use dcUrlHandlers;
+use html;
+use http;
+
+class FrontendUrl extends dcUrlHandlers
 {
     /**
      * Get blogroll XBEL
@@ -17,7 +27,7 @@ class urlBlogroll extends dcUrlHandlers
      */
     public static function xbel(?array $args)
     {
-        $blogroll = new dcBlogroll(dcCore::app()->blog);
+        $blogroll = new Blogroll(dcCore::app()->blog);
 
         try {
             $links = $blogroll->getLinks();

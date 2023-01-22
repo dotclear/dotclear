@@ -8,51 +8,61 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminBlogrollEdit
+namespace Dotclear\Plugin\blogroll;
+
+use Exception;
+use dcAdminCombos;
+use dcBlogroll;
+use dcCore;
+use dcPage;
+use dcNsProcess;
+use form;
+use html;
+use http;
+
+class ManageEdit extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcLinks::PERMISSION_BLOGROLL,
-        ]));
+        if (defined('DC_CONTEXT_ADMIN') && !empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
+            dcPage::check(dcCore::app()->auth->makePermissions([
+                dcBlogroll::PERMISSION_BLOGROLL,
+            ]));
 
-        dcCore::app()->admin->id = html::escapeHTML($_REQUEST['id']);
+            dcCore::app()->admin->id = html::escapeHTML($_REQUEST['id']);
 
-        dcCore::app()->admin->rs = null;
+            dcCore::app()->admin->rs = null;
 
-        try {
-            dcCore::app()->admin->rs = dcCore::app()->admin->blogroll->getLink(dcCore::app()->admin->id);
-        } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            try {
+                dcCore::app()->admin->rs = dcCore::app()->admin->blogroll->getLink(dcCore::app()->admin->id);
+            } catch (Exception $e) {
+                dcCore::app()->error->add($e->getMessage());
+            }
+
+            if (!dcCore::app()->error->flag() && dcCore::app()->admin->rs->isEmpty()) {
+                dcCore::app()->admin->link_title = '';
+                dcCore::app()->admin->link_href  = '';
+                dcCore::app()->admin->link_desc  = '';
+                dcCore::app()->admin->link_lang  = '';
+                dcCore::app()->admin->link_xfn   = '';
+                dcCore::app()->error->add(__('No such link or title'));
+            } else {
+                dcCore::app()->admin->link_title = dcCore::app()->admin->rs->link_title;
+                dcCore::app()->admin->link_href  = dcCore::app()->admin->rs->link_href;
+                dcCore::app()->admin->link_desc  = dcCore::app()->admin->rs->link_desc;
+                dcCore::app()->admin->link_lang  = dcCore::app()->admin->rs->link_lang;
+                dcCore::app()->admin->link_xfn   = dcCore::app()->admin->rs->link_xfn;
+            }
+
+            self::$init = true;
         }
 
-        if (!dcCore::app()->error->flag() && dcCore::app()->admin->rs->isEmpty()) {
-            dcCore::app()->admin->link_title = '';
-            dcCore::app()->admin->link_href  = '';
-            dcCore::app()->admin->link_desc  = '';
-            dcCore::app()->admin->link_lang  = '';
-            dcCore::app()->admin->link_xfn   = '';
-            dcCore::app()->error->add(__('No such link or title'));
-        } else {
-            dcCore::app()->admin->link_title = dcCore::app()->admin->rs->link_title;
-            dcCore::app()->admin->link_href  = dcCore::app()->admin->rs->link_href;
-            dcCore::app()->admin->link_desc  = dcCore::app()->admin->rs->link_desc;
-            dcCore::app()->admin->link_lang  = dcCore::app()->admin->rs->link_lang;
-            dcCore::app()->admin->link_xfn   = dcCore::app()->admin->rs->link_xfn;
-        }
+        return self::$init;
     }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
+    public static function process(): bool
     {
         if (isset(dcCore::app()->admin->rs) && !dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
@@ -109,12 +119,11 @@ class adminBlogrollEdit
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
-    /**
-     * Renders the page.
-     */
-    public static function render()
+    public static function render(): void
     {
         # Languages combo
         $links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
@@ -346,7 +355,3 @@ class adminBlogrollEdit
         '</html>';
     }
 }
-
-adminBlogrollEdit::init();
-adminBlogrollEdit::process();
-adminBlogrollEdit::render();

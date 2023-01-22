@@ -19,7 +19,7 @@ $this->registerModule(
     '1.5',                  // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
-            dcLinks::PERMISSION_BLOGROLL,
+            dcBlogroll::PERMISSION_BLOGROLL,
         ]),
         'type' => 'plugin',
     ]

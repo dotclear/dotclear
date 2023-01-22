@@ -8,7 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplBlogroll
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\blogroll;
+
+use Exception;
+use dcCore;
+use dcWidget;
+use html;
+use http;
+
+class FrontendTemplate
 {
     /**
      * tpl:Blogroll [attributes] : Displays the blogroll (tpl value)
@@ -48,7 +58,7 @@ class tplBlogroll
 
         return
             '<?php ' .
-            "echo tplBlogroll::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . '); ' .
+            "echo " . __NAMESPACE__ . "\\FrontendTemplate::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . '); ' .
             '?>';
     }
 
@@ -80,7 +90,7 @@ class tplBlogroll
      */
     public static function getList(string $cat_title = '<h3>%s</h3>', string $block = '<ul>%s</ul>', string $item = '<li>%s</li>', ?string $category = null): string
     {
-        $blogroll = new dcBlogroll(dcCore::app()->blog);
+        $blogroll = new Blogroll(dcCore::app()->blog);
 
         try {
             $links = $blogroll->getLinks();
@@ -185,7 +195,7 @@ class tplBlogroll
         }
 
         return $widget->renderDiv(
-            $widget->content_only,
+            (bool) $widget->content_only,
             'links ' . $widget->class,
             '',
             ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .

@@ -8,7 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplBreadcrumb
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\breadcrumb;
+
+use ArrayObject;
+use dcCore;
+use dt;
+use l10n;
+
+class FrontendTemplate
 {
     /**
      * tpl:Breadcrumb [attributes] : Displays the blogroll (tpl value)
@@ -25,7 +34,7 @@ class tplBreadcrumb
     {
         $separator = $attr['separator'] ?? '';
 
-        return '<?php echo tplBreadcrumb::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
+        return '<?php echo ' . __NAMESPACE__ . '\\FrontendTemplate::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
     }
 
     /**
