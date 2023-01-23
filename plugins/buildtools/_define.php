@@ -16,7 +16,7 @@ $this->registerModule(
     'buildtools',                             // Name
     'Internal build tools for dotclear team', // Description
     'dcTeam',                                 // Author
-    '1.0',                                    // Version
+    '2.0',                                    // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,

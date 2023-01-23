@@ -14,9 +14,9 @@ if (!defined('DC_RC_PATH')) {
 
 $this->registerModule(
     'dcProxyV2',
-    'Cope with function/method footprint V1 (< 2.24)',
+    'Cope with function/method footprint V1 (< 2.24, 2.25)',
     'Franck Paul',
-    '1.0',
+    '2.0',
     [
         'type'     => 'plugin',
         'priority' => 99_999_999_998,
