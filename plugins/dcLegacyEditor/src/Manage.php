@@ -16,6 +16,7 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Exception;
 use http;
 
 class Manage extends dcNsProcess
@@ -53,6 +54,8 @@ class Manage extends dcNsProcess
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**

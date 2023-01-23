@@ -16,6 +16,7 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Exception;
 use http;
 
 class Manage extends dcNsProcess

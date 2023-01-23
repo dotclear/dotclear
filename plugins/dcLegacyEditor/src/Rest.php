@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
 use wiki2xhtml;
-use xmltag;
+use xmlTag;
 
 class Rest
 {

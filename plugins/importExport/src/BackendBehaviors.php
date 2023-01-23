@@ -31,7 +31,7 @@ class BackendBehaviors
 
         if (dcCore::app()->auth->isSuperAdmin()) {
             $modules['import'] = array_merge($modules['import'], [ModuleImportDc1::class]);
-            $modules['import'] = array_merge($modules['import'], [ModuleImportWp::class]);
+            $modules['import'] = array_merge($modules['import'], [ModuleImportWP::class]);
         }
     }
 }

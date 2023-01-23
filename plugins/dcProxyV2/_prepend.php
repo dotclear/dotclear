@@ -40,11 +40,11 @@ dcProxyV2::loadBehaviors('dcProxyV2AdminBehaviors', __DIR__ . '/inc/class.admin.
 
 // Admin proxy classes
 Clearbricks::lib()->autoload([
-    'adminGenericFilter' => __DIR__ . '/inc/lib.adminfilters.php',
-    'adminGenericList'   => __DIR__ . '/inc/lib.pager.php',
-    'dcBlogroll'         => __DIR__ . '/inc/blogroll.php',
-    'flatImport'         => __DIR__ . '/inc/class.flat.import.php',
-    'flatImportV2'       => __DIR__ . '/inc/class.flat.import.php',
+    'adminGenericFilter'    => __DIR__ . '/inc/lib.adminfilters.php',
+    'adminGenericList'      => __DIR__ . '/inc/lib.pager.php',
+    'dcBlogroll'            => __DIR__ . '/inc/blogroll.php',
+    'flatImport'            => __DIR__ . '/inc/class.flat.import.php',
+    'flatImportV2'          => __DIR__ . '/inc/class.flat.import.php',
 
     'dcActionsPage'         => __DIR__ . '/inc/class.dcaction.php',
     'dcPostsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',

@@ -17,9 +17,9 @@ use Exception;
 class FlatBackup
 {
     protected $fp;
-    private $line_cols = [];
+    private $line_cols         = [];
     private ?string $line_name = null;
-    private ?int $line_num = null;
+    private ?int $line_num     = null;
 
     private array $replacement = [
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",

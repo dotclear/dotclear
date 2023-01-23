@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\importExport;
 use dcCore;
 use dcMaintenanceTask;
 use form;
-use html;
 
 class ExportFullMaintenanceTask extends dcMaintenanceTask
 {

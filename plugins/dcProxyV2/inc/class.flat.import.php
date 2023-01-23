@@ -20,7 +20,6 @@ class flatImport extends flatImportV2
 /**
  * @deprecated since 2.25
  */
-class flatImportV2 extends Dotclear\Plugin\ImportExport\FlatImportV2
+class flatImportV2 extends Dotclear\Plugin\importExport\FlatImportV2
 {
-
 }

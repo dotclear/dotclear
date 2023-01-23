@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use initBlogroll;
+
 if (!defined('DC_RC_PATH')) {
     return;
 }

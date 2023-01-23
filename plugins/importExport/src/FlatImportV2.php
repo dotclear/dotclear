@@ -34,7 +34,7 @@ class FlatImportV2 extends FlatBackup
     private $con;
     private $prefix;
 
-    private ?string $dc_version = null;
+    private ?string $dc_version       = null;
     private ?string $dc_major_version = null;
     private string $mode;
 

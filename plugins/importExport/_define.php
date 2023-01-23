@@ -21,6 +21,6 @@ $this->registerModule(
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]),
-        'type' => 'plugin',
+        'type'        => 'plugin',
     ]
 );

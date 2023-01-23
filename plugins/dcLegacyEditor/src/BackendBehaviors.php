@@ -83,7 +83,7 @@ class BackendBehaviors
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
             'elements'              => [
-                'blocks' => [
+                'blocks'       => [
                     'title'   => __('Block format'),
                     'options' => [
                         'none'    => __('-- none --'),
@@ -97,32 +97,32 @@ class BackendBehaviors
                         'h6'      => __('Level 6 header'),
                     ], ],
 
-                'strong'     => ['title' => __('Strong emphasis')],
-                'em'         => ['title' => __('Emphasis')],
-                'ins'        => ['title' => __('Inserted')],
-                'del'        => ['title' => __('Deleted')],
-                'quote'      => ['title' => __('Inline quote')],
-                'code'       => ['title' => __('Code')],
-                'mark'       => ['title' => __('Mark')],
-                'br'         => ['title' => __('Line break')],
-                'blockquote' => ['title' => __('Blockquote')],
-                'pre'        => ['title' => __('Preformated text')],
-                'ul'         => ['title' => __('Unordered list')],
-                'ol'         => ['title' => __('Ordered list')],
+                'strong'       => ['title' => __('Strong emphasis')],
+                'em'           => ['title' => __('Emphasis')],
+                'ins'          => ['title' => __('Inserted')],
+                'del'          => ['title' => __('Deleted')],
+                'quote'        => ['title' => __('Inline quote')],
+                'code'         => ['title' => __('Code')],
+                'mark'         => ['title' => __('Mark')],
+                'br'           => ['title' => __('Line break')],
+                'blockquote'   => ['title' => __('Blockquote')],
+                'pre'          => ['title' => __('Preformated text')],
+                'ul'           => ['title' => __('Unordered list')],
+                'ol'           => ['title' => __('Ordered list')],
 
-                'link' => [
+                'link'         => [
                     'title'           => __('Link'),
                     'accesskey'       => __('l'),
                     'href_prompt'     => __('URL?'),
                     'hreflang_prompt' => __('Language?'),
                 ],
 
-                'img' => [
+                'img'          => [
                     'title'      => __('External image'),
                     'src_prompt' => __('URL?'),
                 ],
 
-                'img_select' => [
+                'img_select'   => [
                     'title'     => __('Media chooser'),
                     'accesskey' => __('m'),
                 ],
@@ -131,7 +131,7 @@ class BackendBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('toolbar_bottom'),
+            'toolbar_bottom'        => (bool) isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('toolbar_bottom'),
         ];
 
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
