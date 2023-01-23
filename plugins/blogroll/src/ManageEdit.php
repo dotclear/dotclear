@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use dcAdminCombos;
-use dcBlogroll;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use initBlogroll;
 use form;
 use html;
 use http;
@@ -28,7 +28,7 @@ class ManageEdit extends dcNsProcess
     {
         if (defined('DC_CONTEXT_ADMIN') && !empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
             dcPage::check(dcCore::app()->auth->makePermissions([
-                dcBlogroll::PERMISSION_BLOGROLL,
+                initBlogroll::PERMISSION_BLOGROLL,
             ]));
 
             dcCore::app()->admin->id = html::escapeHTML($_REQUEST['id']);

@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use dcBlogroll;
 use dcCore;
 use dbStruct;
 use dcNsProcess;
+use initBlogroll;
 use path;
 
 class Install extends dcNsProcess
@@ -36,7 +36,7 @@ class Install extends dcNsProcess
 
         $schema = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 
-        $schema->{dcBlogroll::LINK_TABLE_NAME}
+        $schema->{initBlogroll::LINK_TABLE_NAME}
             ->link_id('bigint', 0, false)
             ->blog_id('varchar', 32, false)
             ->link_href('varchar', 255, false)

@@ -16,3 +16,11 @@ class flatImport extends flatImportV2
         parent::__construct($file);
     }
 }
+
+/**
+ * @deprecated since 2.25
+ */
+class flatImportV2 extends Dotclear\Plugin\ImportExport\FlatImportV2
+{
+
+}

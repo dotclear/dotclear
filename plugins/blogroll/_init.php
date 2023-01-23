@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-class dcBlogroll
+class initBlogroll
 {
     // Constants
 
@@ -34,10 +34,10 @@ class dcBlogroll
 // backward compatibility
 
 /**
- * This class is an alias of dcBlogroll.
+ * This class is an alias of initBlogroll.
  *
  * @deprecated since 2.25
  */
-class dcLinks extends dcBlogroll
+class dcLinks extends initBlogroll
 {
 }

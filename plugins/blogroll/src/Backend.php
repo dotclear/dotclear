@@ -14,11 +14,11 @@ namespace Dotclear\Plugin\blogroll;
 
 use dcAdmin;
 use dcAuth;
-use dcBlogroll;
 use dcCore;
 use dcFavorites;
 use dcPage;
 use dcNsProcess;
+use initBlogroll;
 
 class Backend extends dcNsProcess
 {
@@ -35,7 +35,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->auth->setPermissionType(dcBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
+        dcCore::app()->auth->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
 
         dcCore::app()->addBehaviors([
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {

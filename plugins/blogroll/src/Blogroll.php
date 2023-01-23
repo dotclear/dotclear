@@ -16,18 +16,10 @@ use Exception;
 use dcBlog;
 use dcCore;
 use dcRecord;
+use initBlogroll;
 
-class Blogroll
+class Blogroll extends initBlogroll
 {
-    // Constants
-
-    /**
-     * Links table name
-     *
-     * @var        string
-     */
-    public const LINK_TABLE_NAME = 'link';
-
     /**
      * Current blog
      *
