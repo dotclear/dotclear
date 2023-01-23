@@ -8,8 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceIndexcomments extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+
+class MaintenanceTaskIndexComments extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceIndexcomments';
+
     /**
      * Use ajax
      *

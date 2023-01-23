@@ -8,8 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceLogs extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dCore;
+use dcLog;
+
+class MaintenanceTaskLogs extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceLogs';
+
     /**
      * Keep maintenance logs?
      *
@@ -46,7 +55,7 @@ class dcMaintenanceLogs extends dcMaintenanceTask
      */
     public function execute()
     {
-        if (dcMaintenanceLogs::$keep_maintenance_logs) {
+        if (static::$keep_maintenance_logs) {
             dcCore::app()->con->execute(
                 'DELETE FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
                 "WHERE log_table <> 'maintenance' "

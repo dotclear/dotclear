@@ -8,8 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceCache extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+use template;
+
+class MaintenanceTaskCache extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceCache';
+
     /**
      * Task group container
      *

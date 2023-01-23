@@ -16,9 +16,9 @@ use dcAdmin;
 use dcAuth;
 use dcCore;
 use dcFavorites;
-use dcMaintenance;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Plugin\maintenance\Maintenance;
 
 class Backend extends dcNsProcess
 {
@@ -58,7 +58,7 @@ class Backend extends dcNsProcess
                 ]);
             },
             'importExportModulesV2'     => [BackendBehaviors::class, 'registerIeModules'],
-            'dcMaintenanceInit'         => function (dcMaintenance $maintenance) {
+            'dcMaintenanceInit'         => function (Maintenance $maintenance) {
                 $maintenance
                     ->addTask(ExportBlogMaintenanceTask::class)
                     ->addTask(ExportFullMaintenanceTask::class)

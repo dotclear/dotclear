@@ -10,7 +10,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenance
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+use dcLog;
+use dcRecord;
+
+class Maintenance
 {
     /**
      * Stack of task
@@ -46,7 +54,7 @@ class dcMaintenance
      *
      * To register a tab or group or task,
      * use behavior dcMaintenanceInit then a method of
-     * dcMaintenance like addTab('myTab', ...).
+     * Maintenance like addTab('myTab', ...).
      */
     protected function init(): void
     {
@@ -67,7 +75,7 @@ class dcMaintenance
      */
     public function addTab(string $id, string $name, array $options = [])
     {
-        $this->tabs[$id] = new dcMaintenanceDescriptor($id, $name, $options);
+        $this->tabs[$id] = new MaintenanceDescriptor($id, $name, $options);
 
         return $this;
     }
@@ -77,7 +85,7 @@ class dcMaintenance
      *
      * @param      string  $id     The identifier
      *
-     * @return     dcMaintenanceDescriptor|null  The tab.
+     * @return     MaintenanceDescriptor|null  The tab.
      */
     public function getTab(string $id)
     {
@@ -108,7 +116,7 @@ class dcMaintenance
      */
     public function addGroup(string $id, string $name, array $options = [])
     {
-        $this->groups[$id] = new dcMaintenanceDescriptor($id, $name, $options);
+        $this->groups[$id] = new MaintenanceDescriptor($id, $name, $options);
 
         return $this;
     }
@@ -118,7 +126,7 @@ class dcMaintenance
      *
      * @param      string  $id     The identifier
      *
-     * @return     dcMaintenanceDescriptor|null  The group.
+     * @return     MaintenanceDescriptor|null  The group.
      */
     public function getGroup(string $id)
     {
@@ -147,8 +155,9 @@ class dcMaintenance
      */
     public function addTask($task)
     {
-        if (class_exists($task) && is_subclass_of($task, dcMaintenanceTask::class)) {
-            $this->tasks[$task] = new $task($this);
+        if (class_exists($task) && is_subclass_of($task, MaintenanceTask::class)) {
+            $tmp = new $task($this);
+            $this->tasks[$tmp->id()] = $tmp;
         }
 
         return $this;

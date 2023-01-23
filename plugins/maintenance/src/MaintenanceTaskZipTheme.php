@@ -8,8 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceZiptheme extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+use fileZip;
+use path;
+
+class MaintenanceTaskZipTheme extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceZiptheme';
+
     /**
      * Task permissions
      *

@@ -8,8 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceCountcomments extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+
+class MaintenanceTaskCountComments extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceCountcomments';
+
     /**
      * Task group container
      *

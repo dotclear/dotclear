@@ -8,8 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceZipmedia extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+use dcMedia;
+use fileZip;
+
+class MaintenanceTaskZipMedia extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceZipmedia';
+
     /**
      * Task permissions
      *

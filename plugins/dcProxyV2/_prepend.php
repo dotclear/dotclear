@@ -43,6 +43,8 @@ Clearbricks::lib()->autoload([
     'adminGenericFilter'    => __DIR__ . '/inc/lib.adminfilters.php',
     'adminGenericList'      => __DIR__ . '/inc/lib.pager.php',
     'dcBlogroll'            => __DIR__ . '/inc/blogroll.php',
+    'dcMaintenance'         => __DIR__ . '/inc/maintenance.php',
+    'dcMaintenanceTask'     => __DIR__ . '/inc/maintenance.php',
     'flatImport'            => __DIR__ . '/inc/class.flat.import.php',
     'flatImportV2'          => __DIR__ . '/inc/class.flat.import.php',
 
