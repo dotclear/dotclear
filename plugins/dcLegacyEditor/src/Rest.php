@@ -16,6 +16,10 @@ use dcCore;
 use wiki2xhtml;
 use xmlTag;
 
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
+
 class Rest
 {
     /**
