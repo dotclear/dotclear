@@ -8,37 +8,39 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class installPings
+namespace Dotclear\Plugin\pings;
+
+use dcCore;
+use dcNsProcess;
+use path;
+
+class Install extends dcNsProcess
 {
-    /**
-     * Installs the plugin.
-     *
-     * @return     mixed
-     */
-    public static function install()
+    private static $default_pings_uris = [
+        'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
+    ];
+
+    public static function init(): bool
     {
-        $version = dcCore::app()->plugins->moduleInfo('pings', 'version');
-        if (version_compare((string) dcCore::app()->getVersion('pings'), $version, '>=')) {
-            return;
+        $module     = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
-        // Default pings services
-        $default_pings_uris = [
-            'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
-        ];
-
-        dcCore::app()->blog->settings->pings->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);
-        dcCore::app()->blog->settings->pings->put('pings_auto', 0, 'boolean', 'Auto pings on 1st publication', false, true);
-        dcCore::app()->blog->settings->pings->put('pings_uris', $default_pings_uris, 'array', 'Pings services URIs', false, true);
-
-        dcCore::app()->setVersion('pings', $version);
+        $s = dcCore::app()->blog->settings->get('pings');
+        $s->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);
+        $s->put('pings_auto', 0, 'boolean', 'Auto pings on 1st publication', false, true);
+        $s->put('pings_uris', self::$default_pings_uris, 'array', 'Pings services URIs', false, true);
 
         return true;
     }
 }
-
-return installPings::install();
