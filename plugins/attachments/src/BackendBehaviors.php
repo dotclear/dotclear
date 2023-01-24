@@ -18,6 +18,10 @@ use dcRecord;
 use files;
 use form;
 
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return false;
+}
+
 class BackendBehaviors
 {
     /**
