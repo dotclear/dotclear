@@ -149,7 +149,7 @@ class MaintenanceTask
         }
 
         if (!preg_match('/^[a-zA-Z0-9_]+$/', (string) $this->id)) {
-            $path = explode('\\', static::class);
+            $path     = explode('\\', static::class);
             $this->id = array_pop($path);
         }
 

@@ -156,7 +156,7 @@ class Maintenance
     public function addTask($task)
     {
         if (class_exists($task) && is_subclass_of($task, MaintenanceTask::class)) {
-            $tmp = new $task($this);
+            $tmp                     = new $task($this);
             $this->tasks[$tmp->id()] = $tmp;
         }
 

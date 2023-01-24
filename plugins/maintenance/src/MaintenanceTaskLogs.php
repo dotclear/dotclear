@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dCore;
+use dcCore;
 use dcLog;
 
 class MaintenanceTaskLogs extends MaintenanceTask
