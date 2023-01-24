@@ -8,6 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+use Exception;
+use html;
+use xmlTag;
+
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
@@ -19,7 +28,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 Serve maintenance methods via Dotclear's rest API
  */
-class dcMaintenanceRest
+class Rest
 {
     /**
      * Serve method to do step by step task for maintenance.
@@ -41,7 +50,7 @@ class dcMaintenanceRest
             throw new Exception('No code ID');
         }
 
-        $maintenance = new dcMaintenance();
+        $maintenance = new Maintenance();
         if (($task = $maintenance->getTask($post['task'])) === null) {
             throw new Exception('Unknown task ID');
         }

@@ -10,12 +10,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+
+class MaintenanceTask
 {
     /**
      * Maintenance object instance
      *
-     * @var dcMaintenance
+     * @var Maintenance
      */
     protected $maintenance;
 
@@ -66,7 +72,7 @@ class dcMaintenanceTask
      *
      * @var null|string
      */
-    protected $id;
+    protected $id = null;
 
     /**
      * Task name
@@ -130,23 +136,25 @@ class dcMaintenanceTask
      * If your task required something on construct,
      * use method init() to do it.
      *
-     * @param      dcMaintenance  $maintenance  The maintenance
+     * @param      Maintenance  $maintenance  The maintenance
      */
-    public function __construct(dcMaintenance $maintenance)
+    public function __construct(Maintenance $maintenance)
     {
         $this->maintenance = $maintenance;
         $this->init();
-        $this->id = null;
 
         if ($this->perm() === null && !dcCore::app()->auth->isSuperAdmin()
             || !dcCore::app()->auth->check($this->perm(), dcCore::app()->blog->id)) {
             return;
         }
 
-        $this->id = get_class($this);
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', (string) $this->id)) {
+            $path = explode('\\', static::class);
+            $this->id = array_pop($path);
+        }
 
         if (!$this->name) {
-            $this->name = get_class($this);
+            $this->name = $this->id;
         }
         if (!$this->error) {
             $this->error = __('Failed to execute task.');

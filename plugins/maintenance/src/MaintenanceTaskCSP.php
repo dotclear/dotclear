@@ -8,8 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceCSP extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use path;
+
+class MaintenanceTaskCSP extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceCSP';
+
     /**
      * Task group container
      *

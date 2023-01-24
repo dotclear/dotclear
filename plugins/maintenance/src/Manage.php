@@ -8,20 +8,32 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminMaintenance
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use dt;
+use Exception;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (!defined('DC_CONTEXT_ADMIN')) {
+            return false;
+        }
+
+        self::$init = true;
+
         // Set env
 
-        dcCore::app()->admin->maintenance = new dcMaintenance();
+        dcCore::app()->admin->maintenance = new Maintenance();
         dcCore::app()->admin->tasks       = dcCore::app()->admin->maintenance->getTasks();
         dcCore::app()->admin->code        = empty($_POST['code']) ? null : (int) $_POST['code'];
         dcCore::app()->admin->tab         = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
@@ -38,13 +50,19 @@ class adminMaintenance
 
             dcCore::app()->admin->task->code(dcCore::app()->admin->code);
         }
+
+        return self::$init;
     }
 
     /**
      * Processes the request(s).
      */
-    public static function process()
+    public static function process(): bool
     {
+        if (!self::$init) {
+            return false;
+        }
+
         // Execute task
 
         if (dcCore::app()->admin->task && !empty($_POST['task']) && dcCore::app()->admin->task->id() == $_POST['task']) {
@@ -128,13 +146,19 @@ class adminMaintenance
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         // Combos
 
         $combo_ts = [
@@ -413,7 +437,3 @@ class adminMaintenance
         '</body></html>';
     }
 }
-
-adminMaintenance::init();
-adminMaintenance::process();
-adminMaintenance::render();

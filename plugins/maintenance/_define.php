@@ -16,7 +16,7 @@ $this->registerModule(
     'Maintenance',                            // Name
     'Maintain your installation',             // Description
     'Olivier Meunier & Association Dotclear', // Author
-    '1.3.1',                                  // Version
+    '2.0',                                    // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,

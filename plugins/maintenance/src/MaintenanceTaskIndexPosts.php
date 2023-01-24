@@ -8,8 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceIndexcomments extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dcCore;
+
+class MaintenanceTaskIndexPosts extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceIndexposts';
+
     /**
      * Use ajax
      *
@@ -27,7 +35,7 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
     protected $group = 'index';
 
     /**
-     * Number of comments to process by step
+     * Number of entries to process by step
      *
      * @var int
      */
@@ -46,13 +54,13 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
     protected function init(): void
     {
         $this->name      = __('Search engine index');
-        $this->task      = __('Index all comments for search engine');
+        $this->task      = __('Index all entries for search engine');
         $this->step_task = __('Next');
-        $this->step      = __('Indexing comment %d to %d.');
-        $this->success   = __('Comments index done.');
-        $this->error     = __('Failed to index comments.');
+        $this->step      = __('Indexing entry %d to %d.');
+        $this->success   = __('Entries index done.');
+        $this->error     = __('Failed to index entries.');
 
-        $this->description = __('Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
+        $this->description = __('Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
     }
 
     /**
@@ -65,7 +73,7 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
      */
     public function execute()
     {
-        $this->code = dcCore::app()->indexAllComments($this->code, $this->limit);
+        $this->code = dcCore::app()->indexAllPosts($this->code, $this->limit);
 
         return $this->code ?: true;
     }

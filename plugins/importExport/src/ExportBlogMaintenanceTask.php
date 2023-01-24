@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use dcCore;
-use dcMaintenanceTask;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 use form;
 use html;
 
-class ExportBlogMaintenanceTask extends dcMaintenanceTask
+class ExportBlogMaintenanceTask extends MaintenanceTask
 {
     protected $perm  = 'admin';
     protected $tab   = 'backup';

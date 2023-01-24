@@ -10,14 +10,27 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceAdmin
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use ArrayObject;
+use dcAdminHelper;
+use dcAuth;
+use dcCore;
+use dcFavorites;
+use dcPage;
+use dt;
+use form;
+
+class BackendBehaviors
 {
     /**
      * Register default tasks.
      *
-     * @param      dcMaintenance  $maintenance  dcMaintenance instance
+     * @param      Maintenance  $maintenance  Maintenance instance
      */
-    public static function dcMaintenanceInit(dcMaintenance $maintenance): void
+    public static function dcMaintenanceInit(Maintenance $maintenance): void
     {
         $maintenance
             ->addTab('maintenance', __('Servicing'), ['summary' => __('Tools to maintain the performance of your blogs.')])
@@ -33,16 +46,16 @@ class dcMaintenanceAdmin
 
             ->addGroup('l10n', __('Translations'), ['summary' => __('Maintain translations')])
 
-            ->addTask(dcMaintenanceCache::class)
-            ->addTask(dcMaintenanceCSP::class)
-            ->addTask(dcMaintenanceIndexposts::class)
-            ->addTask(dcMaintenanceIndexcomments::class)
-            ->addTask(dcMaintenanceCountcomments::class)
-            ->addTask(dcMaintenanceSynchpostsmeta::class)
-            ->addTask(dcMaintenanceLogs::class)
-            ->addTask(dcMaintenanceVacuum::class)
-            ->addTask(dcMaintenanceZipmedia::class)
-            ->addTask(dcMaintenanceZiptheme::class)
+            ->addTask(MaintenanceTaskCache::class)
+            ->addTask(MaintenanceTaskCSP::class)
+            ->addTask(MaintenanceTaskIndexPosts::class)
+            ->addTask(MaintenanceTaskIndexComments::class)
+            ->addTask(MaintenanceTaskCountComments::class)
+            ->addTask(MaintenanceTaskSynchPostsMeta::class)
+            ->addTask(MaintenanceTaskLogs::class)
+            ->addTask(MaintenanceTaskVacuum::class)
+            ->addTask(MaintenanceTaskZipMedia::class)
+            ->addTask(MaintenanceTaskZipTheme::class)
         ;
     }
 
@@ -61,8 +74,8 @@ class dcMaintenanceAdmin
             'permissions'  => dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_ADMIN,
             ]),
-            'active_cb'    => [dcMaintenanceAdmin::class, 'adminDashboardFavoritesActive'],
-            'dashboard_cb' => [dcMaintenanceAdmin::class, 'adminDashboardFavoritesCallback'],
+            'active_cb'    => [self::class, 'adminDashboardFavoritesActive'],
+            'dashboard_cb' => [self::class, 'adminDashboardFavoritesCallback'],
         ]);
     }
 
@@ -95,7 +108,7 @@ class dcMaintenanceAdmin
         }
 
         // Check expired tasks
-        $maintenance = new dcMaintenance();
+        $maintenance = new Maintenance();
         $count       = 0;
         foreach ($maintenance->getTasks() as $t) {
             if ($t->expired() !== false) {
@@ -122,7 +135,7 @@ class dcMaintenanceAdmin
             return;
         }
 
-        $maintenance = new dcMaintenance();
+        $maintenance = new Maintenance();
 
         $lines = [];
         foreach ($maintenance->getTasks() as $t) {
@@ -137,8 +150,8 @@ class dcMaintenanceAdmin
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    dt::dt2str(dcCore::app()->blog->settings->system->date_format, $ts) . ' ' .
-                    dt::dt2str(dcCore::app()->blog->settings->system->time_format, $ts)
+                    dt::dt2str(dcCore::app()->blog->settings->system->date_format, (string) $ts) . ' ' .
+                    dt::dt2str(dcCore::app()->blog->settings->system->time_format, (string) $ts)
                 )
             ) . '">' . $t->task() . '</li>';
         }
@@ -210,7 +223,7 @@ class dcMaintenanceAdmin
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
         if (array_search('maintenancetasks', $blocks->getArrayCopy(), true) !== false) {
-            $maintenance = new dcMaintenance();
+            $maintenance = new Maintenance();
 
             $res_tab = '';
             foreach ($maintenance->getTabs() as $tab_obj) {
@@ -244,7 +257,7 @@ class dcMaintenanceAdmin
                 }
             }
             if (!empty($res_tab)) {
-                $res          = new dcMaintenanceAdminHelp();
+                $res          = new AdminPageHelpBlockContent();
                 $res->content = $res_tab;
                 $blocks->append($res);
             }
@@ -266,9 +279,4 @@ class dcMaintenanceAdmin
 
         return '';
     }
-}
-
-class dcMaintenanceAdminHelp
-{
-    public $content;
 }

@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\buildtools;
 
-use dcMaintenanceTask;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 use defaultWidgets;
 
-class BuildtoolsMaintenanceTask extends dcMaintenanceTask
+class BuildtoolsMaintenanceTask extends MaintenanceTask
 {
     /**
      * Maintenance Tab name

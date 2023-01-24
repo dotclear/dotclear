@@ -8,8 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceVacuum extends dcMaintenanceTask
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+use dbSchema;
+use dcCore;
+
+class MaintenanceTaskVacuum extends MaintenanceTask
 {
+    protected $id = 'dcMaintenanceVacuum';
+
     /**
      * Task group container
      *

@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use dcCore;
-use dcMaintenanceTask;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 use form;
 
-class ExportFullMaintenanceTask extends dcMaintenanceTask
+class ExportFullMaintenanceTask extends MaintenanceTask
 {
     protected $tab   = 'backup';
     protected $group = 'zipfull';

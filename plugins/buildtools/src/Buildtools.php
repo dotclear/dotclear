@@ -12,16 +12,16 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\buildtools;
 
-use dcMaintenance;
+use Dotclear\Plugin\maintenance\Maintenance;
 
 class Buildtools
 {
     /**
      * Add l10n faker maintenance task
      *
-     * @param      dcMaintenance  $maintenance  The maintenance object
+     * @param      Maintenance  $maintenance  The maintenance object
      */
-    public static function maintenanceAdmin(dcMaintenance $maintenance)
+    public static function maintenanceAdmin(Maintenance $maintenance)
     {
         $maintenance->addTask(BuildtoolsMaintenanceTask::class);
     }

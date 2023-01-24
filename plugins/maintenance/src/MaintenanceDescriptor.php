@@ -10,7 +10,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMaintenanceDescriptor
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\maintenance;
+
+class MaintenanceDescriptor
 {
     /**
      * Descriptor ID
