@@ -8,11 +8,35 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\simpleMenu;
+
+use dcCore;
+use dcNsProcess;
+
+class Frontend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_RC_PATH')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->addBehavior('initWidgets', [Widgets::class, 'initWidgets']);
+
+        // Simple menu template functions
+        dcCore::app()->tpl->addValue('SimpleMenu', [FrontendTemplate::class, 'simpleMenu']);
+
+        return true;
+    }
 }
-
-require __DIR__ . '/_widgets.php';
-
-// Simple menu template functions
-dcCore::app()->tpl->addValue('SimpleMenu', [tplSimpleMenu::class, 'simpleMenu']);

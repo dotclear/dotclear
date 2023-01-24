@@ -8,7 +8,21 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplSimpleMenu
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\simpleMenu;
+
+use ArrayObject;
+use dcCore;
+use dcWidget;
+use html;
+use http;
+
+if (!defined('DC_RC_PATH')) {
+    return false;
+}
+
+class FrontendTemplate
 {
     /**
      * tpl:SimpleMenu [attributes] : Display current loop index (tpl value)
@@ -75,7 +89,7 @@ class tplSimpleMenu
         if (isset($descr_type[$widget->description])) {
             $description = $descr_type[$widget->description];
         }
-        $menu = tplSimpleMenu::displayMenu('', '', $description);
+        $menu = self::displayMenu('', '', $description);
         if ($menu == '') {
             return '';
         }
