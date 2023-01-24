@@ -8,18 +8,35 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminPings
+namespace Dotclear\Plugin\pings;
+
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use Exception;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        dcPage::checkSuper();
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcPage::checkSuper();
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
 
         dcCore::app()->admin->pings_uris = [];
 
@@ -29,17 +46,7 @@ class adminPings
             if (!dcCore::app()->admin->pings_uris) {
                 dcCore::app()->admin->pings_uris = [];
             }
-        } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
-        }
-    }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
-        try {
             if (isset($_POST['pings_srv_name'])) {
                 $pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : [];
                 $pings_srv_uri  = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : [];
@@ -62,12 +69,14 @@ class adminPings
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
         echo
         '<html>' .
@@ -99,7 +108,7 @@ class adminPings
 
             if (!empty($_GET['test'])) {
                 try {
-                    pingsAPI::doPings($u, 'Example site', 'http://example.com');
+                    PingsAPI::doPings($u, 'Example site', 'http://example.com');
                     echo ' <img src="images/check-on.png" alt="OK" />';
                 } catch (Exception $e) {
                     echo ' <img src="images/check-off.png" alt="' . __('Error') . '" /> ' . $e->getMessage();
@@ -135,7 +144,3 @@ class adminPings
         '</html>';
     }
 }
-
-adminPings::init();
-adminPings::process();
-adminPings::render();

@@ -16,7 +16,7 @@ $this->registerModule(
     'Pings',           // Name
     'Ping services',   // Description
     'Olivier Meunier', // Author
-    '1.4',             // Version
+    '2.0',             // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,

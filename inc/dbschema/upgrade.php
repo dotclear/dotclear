@@ -1200,6 +1200,10 @@ class dcUpgrade
                     'plugins/maintenance/_admin.php',
                     'plugins/maintenance/_prepend.php',
                     'plugins/maintenance/index.php',
+                    'plugins/pings/_admin.php',
+                    'plugins/pings/_install.php',
+                    'plugins/pings/_prepend.php',
+                    'plugins/pings/index.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
@@ -1223,7 +1227,8 @@ class dcUpgrade
                     'plugins/dcCKEditor/inc',       // Replaced by src
                     'plugins/dcLegacyEditor/inc',   // Replaced by src
                     'plugins/importExport/inc',     // Replaced by src
-                    'plugins/maintenance/inc',     // Replaced by src
+                    'plugins/maintenance/inc',      // Replaced by src
+                    'plugins/pings/inc',            // Replaced by src
                     'plugins/themeEditor/inc',      // Replaced by src
                     'plugins/userPref/inc',         // Replaced by src
                 ]

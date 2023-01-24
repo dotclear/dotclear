@@ -8,18 +8,22 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class pingsAdminBehaviors
-{
-    /**
-     * Load ping script
-     *
-     * @return     string  ( description_of_the_return_value )
-     */
-    public static function pingJS(): string
-    {
-        return dcPage::jsModuleLoad('pings/js/post.js');
-    }
+declare(strict_types=1);
 
+namespace Dotclear\Plugin\pings;
+
+use ArrayObject;
+use dcCore;
+use Exception;
+use form;
+use html;
+
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return false;
+}
+
+class BackendBehaviors
+{
     /**
      * Add attachment fieldset in entry sidebar
      *
@@ -75,7 +79,7 @@ class pingsAdminBehaviors
         foreach ($_POST['pings_do'] as $uri) {
             if (in_array($uri, $pings_uris)) {
                 try {
-                    pingsAPI::doPings($uri, dcCore::app()->blog->name, dcCore::app()->blog->url);
+                    PingsAPI::doPings($uri, dcCore::app()->blog->name, dcCore::app()->blog->url);
                 } catch (Exception $e) {
                 }
             }
