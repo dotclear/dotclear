@@ -55,7 +55,7 @@ class FrontendTemplate
             $description = '';
         }
 
-        return '<?php echo tplSimpleMenu::displayMenu(' .
+        return '<?php echo ' . self::class . '::displayMenu(' .
         "'" . addslashes($class) . "'," .
         "'" . addslashes($id) . "'," .
         "'" . addslashes($description) . "'" .
