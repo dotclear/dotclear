@@ -217,7 +217,7 @@ class Manage extends dcNsProcess
 
                         break;
                     case self::STEP_SUBTYPE:
-                        if (dcCore::app()->admin->items[dcCore::app()->admin->item_type][1]) {
+                        if (dcCore::app()->admin->items[dcCore::app()->admin->item_type][1]) {  // @phpstan-ignore-line
                             // Second step (optional), menu item sub-type to be selected
                             dcCore::app()->admin->item_select = '';
 
