@@ -2527,10 +2527,10 @@ class dcTemplate extends template
     {
         $size          = !empty($attr['size']) ? $attr['size'] : '';
         $class         = !empty($attr['class']) ? $attr['class'] : '';
-        $with_category = !empty($attr['with_category']) ? 1 : 0;
-        $no_tag        = !empty($attr['no_tag']) ? 1 : 0;
-        $content_only  = !empty($attr['content_only']) ? 1 : 0;
-        $cat_only      = !empty($attr['cat_only']) ? 1 : 0;
+        $with_category = !empty($attr['with_category']) ? 'true' : 'false';
+        $no_tag        = !empty($attr['no_tag']) ? 'true' : 'false';
+        $content_only  = !empty($attr['content_only']) ? 'true' : 'false';
+        $cat_only      = !empty($attr['cat_only']) ? 'true' : 'false';
 
         return "<?php echo context::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," .
             $no_tag . ',' . $content_only . ',' . $cat_only . '); ?>';

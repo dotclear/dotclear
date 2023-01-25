@@ -95,7 +95,7 @@ class FrontendTemplate
         }
 
         return $widget->renderDiv(
-            $widget->content_only,
+            (bool) $widget->content_only,
             'simple-menu ' . $widget->class,
             '',
             ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') . $menu
