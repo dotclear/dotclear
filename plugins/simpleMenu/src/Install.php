@@ -8,22 +8,29 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class installSimpleMenu
+namespace Dotclear\Plugin\simpleMenu;
+
+use dcCore;
+use dcNsProcess;
+use html;
+use path;
+
+class Install extends dcNsProcess
 {
-    /**
-     * Installs the plugin.
-     *
-     * @return     mixed
-     */
-    public static function install()
+    public static function init(): bool
     {
-        $version = dcCore::app()->plugins->moduleInfo('simpleMenu', 'version');
-        if (version_compare((string) dcCore::app()->getVersion('simpleMenu'), $version, '>=')) {
-            return;
+        $module     = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
         # Menu par défaut
@@ -32,13 +39,10 @@ class installSimpleMenu
             ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false],
             ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . dcCore::app()->url->getURLFor('archive'), 'targetBlank' => false],
         ];
+
         dcCore::app()->blog->settings->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
         dcCore::app()->blog->settings->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
-
-        dcCore::app()->setVersion('simpleMenu', $version);
 
         return true;
     }
 }
-
-return installSimpleMenu::install();

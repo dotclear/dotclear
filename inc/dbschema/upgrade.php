@@ -1204,6 +1204,12 @@ class dcUpgrade
                     'plugins/pings/_install.php',
                     'plugins/pings/_prepend.php',
                     'plugins/pings/index.php',
+                    'plugins/simpleMenu/_admin.php',
+                    'plugins/simpleMenu/_install.php',
+                    'plugins/simpleMenu/_prepend.php',
+                    'plugins/simpleMenu/_public.php',
+                    'plugins/simpleMenu/_widgets.php',
+                    'plugins/simpleMenu/index.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
@@ -1229,6 +1235,7 @@ class dcUpgrade
                     'plugins/importExport/inc',     // Replaced by src
                     'plugins/maintenance/inc',      // Replaced by src
                     'plugins/pings/inc',            // Replaced by src
+                    'plugins/simpleMenu/inc',       // Replaced by src
                     'plugins/themeEditor/inc',      // Replaced by src
                     'plugins/userPref/inc',         // Replaced by src
                 ]

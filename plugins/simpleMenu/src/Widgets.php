@@ -8,7 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class simpleMenuWidgets
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\simpleMenu;
+
+use dcWidgets;
+
+if (!defined('DC_RC_PATH')) {
+    return false;
+}
+
+class Widgets
 {
     /**
      * Add simple menu widget

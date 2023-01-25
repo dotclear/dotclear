@@ -8,11 +8,22 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminSimpleMenu
+namespace Dotclear\Plugin\simpleMenu;
+
+use ArrayObject;
+use dcAdminCombos;
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use Exception;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
     // Local constants
 
@@ -22,14 +33,24 @@ class adminSimpleMenu
     private const STEP_ATTRIBUTES = 3;
     private const STEP_ADD        = 4;
 
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
-        ]));
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcPage::check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_ADMIN,
+            ]));
+
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
 
         dcCore::app()->admin->page_title = __('Simple menu');
 
@@ -143,13 +164,7 @@ class adminSimpleMenu
 
         # Récupération état d'activation du menu
         dcCore::app()->admin->menu_active = (bool) dcCore::app()->blog->settings->system->simpleMenu_active;
-    }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
         // Saving new configuration
         dcCore::app()->admin->item_type         = '';
         dcCore::app()->admin->item_select       = '';
@@ -442,13 +457,19 @@ class adminSimpleMenu
 
         // Store current menu (used in render)
         dcCore::app()->admin->menu = $menu;
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         echo
         '<html>' .
         '<head>' .
@@ -770,7 +791,3 @@ class adminSimpleMenu
         '</html>';
     }
 }
-
-adminSimpleMenu::init();
-adminSimpleMenu::process();
-adminSimpleMenu::render();

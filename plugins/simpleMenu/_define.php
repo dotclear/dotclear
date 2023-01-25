@@ -16,14 +16,14 @@ $this->registerModule(
     'simpleMenu',               // Name
     'Simple menu for Dotclear', // Description
     'Franck Paul',              // Author
-    '1.6',                      // Version
+    '2.0',                      // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'     => 'plugin',
-        'settings' => [
+        'type'        => 'plugin',
+        'settings'    => [
             'self' => '',
         ],
     ]

@@ -19,6 +19,10 @@ use dcWidget;
 use html;
 use http;
 
+if (!defined('DC_RC_PATH')) {
+    return false;
+}
+
 class FrontendTemplate
 {
     /**
