@@ -28,7 +28,7 @@ class Widgets
     public static function initWidgets(dcWidgets $widgets): void
     {
         $widgets
-            ->create('simplemenu', __('Simple menu'), ['tplSimpleMenu', 'simpleMenuWidget'], null, 'List of simple menu items')
+            ->create('simplemenu', __('Simple menu'), [FrontendTemplate::class, 'simpleMenuWidget'], null, 'List of simple menu items')
             ->addTitle(__('Menu'))
             ->setting(
                 'description',
