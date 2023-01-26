@@ -8,12 +8,36 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\widgets;
+
+use dcCore;
+use dcNsProcess;
+
+class Frontend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_RC_PATH')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        Widgets::init();
+
+        dcCore::app()->tpl->addValue('Widgets', [FrontendTemplate::class, 'tplWidgets']);
+        dcCore::app()->tpl->addBlock('Widget', [FrontendTemplate::class, 'tplWidget']);
+        dcCore::app()->tpl->addBlock('IfWidgets', [FrontendTemplate::class, 'tplIfWidgets']);
+
+        return true;
+    }
 }
-
-defaultWidgets::init();
-
-dcCore::app()->tpl->addValue('Widgets', [publicWidgets::class, 'tplWidgets']);
-dcCore::app()->tpl->addBlock('Widget', [publicWidgets::class, 'tplWidget']);
-dcCore::app()->tpl->addBlock('IfWidgets', [publicWidgets::class, 'tplIfWidgets']);

@@ -8,50 +8,55 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class installWidgets
+namespace Dotclear\Plugin\widgets;
+
+use dcCore;
+use dcNsProcess;
+use Exception;
+use html;
+use path;
+
+class Install extends dcNsProcess
 {
-    /**
-     * Installs the plugin.
-     *
-     * @return     mixed
-     */
-    public static function install()
+    public static function init(): bool
     {
-        $version = dcCore::app()->plugins->moduleInfo('widgets', 'version');
-        if (version_compare((string) dcCore::app()->getVersion('widgets'), $version, '>=')) {
-            return;
+        $module     = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
-        if (class_exists('defaultWidgets')) {
-            defaultWidgets::init();
+        if (class_exists(__NAMESPACE__ . '\Widgets')) {
+            Widgets::init();
         } else {
             throw new Exception(__('Unable to initialize default widgets.'));
         }
 
-        $settings = dcCore::app()->blog->settings;
-        if ($settings->widgets->widgets_nav != null) {
-            $settings->widgets->put('widgets_nav', dcWidgets::load($settings->widgets->widgets_nav)->store());
+        $s = dcCore::app()->blog->settings->get('widgets');
+        if ($s->widgets_nav != null) {
+            $s->put('widgets_nav', WidgetsStack::load($s->widgets_nav)->store());
         } else {
-            $settings->widgets->put('widgets_nav', '', 'string', 'Navigation widgets', false);
+            $s->put('widgets_nav', '', 'string', 'Navigation widgets', false);
         }
-        if ($settings->widgets->widgets_extra != null) {
-            $settings->widgets->put('widgets_extra', dcWidgets::load($settings->widgets->widgets_extra)->store());
+        if ($s->widgets_extra != null) {
+            $s->put('widgets_extra', WidgetsStack::load($s->widgets_extra)->store());
         } else {
-            $settings->widgets->put('widgets_extra', '', 'string', 'Extra widgets', false);
+            $s->put('widgets_extra', '', 'string', 'Extra widgets', false);
         }
-        if ($settings->widgets->widgets_custom != null) {
-            $settings->widgets->put('widgets_custom', dcWidgets::load($settings->widgets->widgets_custom)->store());
+        if ($s->widgets_custom != null) {
+            $s->put('widgets_custom', WidgetsStack::load($s->widgets_custom)->store());
         } else {
-            $settings->widgets->put('widgets_custom', '', 'string', 'Custom widgets', false);
+            $s->put('widgets_custom', '', 'string', 'Custom widgets', false);
         }
-        dcCore::app()->setVersion('widgets', $version);
 
         return true;
     }
 }
-
-return installWidgets::install();

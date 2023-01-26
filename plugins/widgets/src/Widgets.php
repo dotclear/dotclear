@@ -8,7 +8,22 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class defaultWidgets
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\widgets;
+
+use dcCore;
+use dcRecord;
+use Exception;
+use feedReader;
+use html;
+use l10n;
+
+if (!defined('DC_RC_PATH')) {
+    return false;
+}
+
+class Widgets extends \defaultWidgets //keep compatibility
 {
     // Constants
 
@@ -26,17 +41,17 @@ class defaultWidgets
          *
          * @deprecated Since 2.23
          *
-         * @var        dcWidgets
+         * @var        WidgetsStack
          */
         global $__widgets;
 
         // Available widgets
-        dcCore::app()->widgets = new dcWidgets();
+        dcCore::app()->widgets = new WidgetsStack();
 
         $__widgets = dcCore::app()->widgets;
 
         dcCore::app()->widgets
-            ->create('search', __('Search engine'), [defaultWidgets::class, 'search'], null, 'Search engine form')
+            ->create('search', __('Search engine'), [Widgets::class, 'search'], null, 'Search engine form')
             ->addTitle(__('Search'))
             ->setting('placeholder', __('Placeholder (HTML5 only, optional):'), '')
             ->addHomeOnly()
@@ -45,7 +60,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('navigation', __('Navigation links'), [defaultWidgets::class, 'navigation'], null, 'List of navigation links')
+            ->create('navigation', __('Navigation links'), [Widgets::class, 'navigation'], null, 'List of navigation links')
             ->addTitle()
             ->addHomeOnly()
             ->addContentOnly()
@@ -53,7 +68,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('bestof', __('Selected entries'), [defaultWidgets::class, 'bestof'], null, 'List of selected entries')
+            ->create('bestof', __('Selected entries'), [Widgets::class, 'bestof'], null, 'List of selected entries')
             ->addTitle(__('Best of me'))
             ->setting('orderby', __('Sort:'), 'asc', 'combo', [__('Ascending') => 'asc', __('Descending') => 'desc'])
             ->addHomeOnly()
@@ -62,7 +77,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('langs', __('Blog languages'), [defaultWidgets::class, 'langs'], null, 'List of available languages')
+            ->create('langs', __('Blog languages'), [Widgets::class, 'langs'], null, 'List of available languages')
             ->addTitle(__('Languages'))
             ->addHomeOnly()
             ->addContentOnly()
@@ -70,7 +85,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('categories', __('List of categories'), [defaultWidgets::class, 'categories'], null, 'List of categories')
+            ->create('categories', __('List of categories'), [Widgets::class, 'categories'], null, 'List of categories')
             ->addTitle(__('Categories'))
             ->setting('postcount', __('With entries counts'), 0, 'check')
             ->setting('subcatscount', __('Include sub cats in count'), false, 'check')
@@ -81,7 +96,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('subscribe', __('Subscribe links'), [defaultWidgets::class, 'subscribe'], null, 'Feed subscription links (RSS or Atom)')
+            ->create('subscribe', __('Subscribe links'), [Widgets::class, 'subscribe'], null, 'Feed subscription links (RSS or Atom)')
             ->addTitle(__('Subscribe'))
             ->setting('type', __('Feeds type:'), 'atom', 'combo', ['Atom' => 'atom', 'RSS' => 'rss2'])
             ->addHomeOnly()
@@ -90,7 +105,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets->
-            create('feed', __('Feed reader'), [defaultWidgets::class, 'feed'], null, 'List of last entries from feed (RSS or Atom)')
+            create('feed', __('Feed reader'), [Widgets::class, 'feed'], null, 'List of last entries from feed (RSS or Atom)')
             ->addTitle(__('Somewhere else'))
             ->setting('url', __('Feed URL:'), '')
             ->setting('limit', __('Entries limit:'), 10)
@@ -100,7 +115,7 @@ class defaultWidgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('text', __('Text'), [defaultWidgets::class, 'text'], null, 'Simple text')
+            ->create('text', __('Text'), [Widgets::class, 'text'], null, 'Simple text')
             ->addTitle()
             ->setting('text', __('Text:'), '', 'textarea')
             ->addHomeOnly()
@@ -113,7 +128,7 @@ class defaultWidgets
         while ($rs->fetch()) {
             $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
-        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), ['defaultWidgets', 'lastposts'], null, 'List of last entries published');
+        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), ['Widgets', 'lastposts'], null, 'List of last entries published');
         $w
             ->addTitle(__('Last entries'))
             ->setting('category', __('Category:'), '', 'combo', $categories);
@@ -129,7 +144,7 @@ class defaultWidgets
         unset($rs, $categories, $w);
 
         dcCore::app()->widgets
-            ->create('lastcomments', __('Last comments'), ['defaultWidgets', 'lastcomments'], null, 'List of last comments published')
+            ->create('lastcomments', __('Last comments'), ['Widgets', 'lastcomments'], null, 'List of last comments published')
             ->addTitle(__('Last comments'))
             ->setting('limit', __('Comments limit:'), 10)
             ->addHomeOnly()
@@ -142,15 +157,15 @@ class defaultWidgets
 
         # Default widgets
         dcCore::app()->default_widgets = [
-            defaultWidgets::WIDGETS_NAV    => new dcWidgets(),
-            defaultWidgets::WIDGETS_EXTRA  => new dcWidgets(),
-            defaultWidgets::WIDGETS_CUSTOM => new dcWidgets(),
+            Widgets::WIDGETS_NAV    => new WidgetsStack(),
+            Widgets::WIDGETS_EXTRA  => new WidgetsStack(),
+            Widgets::WIDGETS_CUSTOM => new WidgetsStack(),
         ];
 
-        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV]->append(dcCore::app()->widgets->search);
-        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV]->append(dcCore::app()->widgets->bestof);
-        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV]->append(dcCore::app()->widgets->categories);
-        dcCore::app()->default_widgets[defaultWidgets::WIDGETS_CUSTOM]->append(dcCore::app()->widgets->subscribe);
+        dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->search);
+        dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->bestof);
+        dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->categories);
+        dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM]->append(dcCore::app()->widgets->subscribe);
 
         # --BEHAVIOR-- initDefaultWidgets
         dcCore::app()->callBehavior('initDefaultWidgets', dcCore::app()->widgets, dcCore::app()->default_widgets);
@@ -159,11 +174,11 @@ class defaultWidgets
     /**
      * Render search form widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function search(dcWidget $widget): string
+    public static function search(WidgetsElement $widget): string
     {
         if (dcCore::app()->blog->settings->system->no_search) {
             return '';
@@ -196,11 +211,11 @@ class defaultWidgets
     /**
      * Render navigation widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function navigation(dcWidget $widget): string
+    public static function navigation(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';
@@ -242,11 +257,11 @@ class defaultWidgets
     /**
      * Render categories widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function categories(dcWidget $widget): string
+    public static function categories(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';
@@ -298,11 +313,11 @@ class defaultWidgets
     /**
      * Render selected posts widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function bestof(dcWidget $widget): string
+    public static function bestof(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';
@@ -343,11 +358,11 @@ class defaultWidgets
     /**
      * Render langs widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function langs(dcWidget $widget): string
+    public static function langs(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';
@@ -390,11 +405,11 @@ class defaultWidgets
     /**
      * Render feed subscription widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function subscribe(dcWidget $widget): string
+    public static function subscribe(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';
@@ -436,11 +451,11 @@ class defaultWidgets
     /**
      * Render feed widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function feed(dcWidget $widget): string
+    public static function feed(WidgetsElement $widget): string
     {
         if (!$widget->url) {
             return '';
@@ -497,11 +512,11 @@ class defaultWidgets
     /**
      * Render text widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function text(dcWidget $widget): string
+    public static function text(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';
@@ -519,11 +534,11 @@ class defaultWidgets
     /**
      * Render last posts widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function lastposts(dcWidget $widget): string
+    public static function lastposts(WidgetsElement $widget): string
     {
         $params = [];
         if ($widget->offline) {
@@ -579,11 +594,11 @@ class defaultWidgets
     /**
      * Render last comments widget
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function lastcomments(dcWidget $widget): string
+    public static function lastcomments(WidgetsElement $widget): string
     {
         $params = [];
         if ($widget->offline) {
