@@ -127,9 +127,9 @@ class dcAdminNotices
         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCore::app()->notices->getTable());
 
         $now = function () {
-            dt::setTZ(dcCore::app()->auth->getInfo('user_tz')); // Set user TZ
+            dt::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');    // Set user TZ
             $dt = date('Y-m-d H:i:s');
-            dt::setTZ('UTC');                           // Back to default TZ
+            dt::setTZ('UTC');                                               // Back to default TZ
 
             return $dt;
         };

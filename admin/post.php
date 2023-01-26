@@ -23,7 +23,7 @@ class adminPost
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dt::setTZ(dcCore::app()->auth->getInfo('user_tz'));
+        dt::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
 
         // IP are available only for super-admin and admin
         dcCore::app()->admin->show_ip = dcCore::app()->auth->check(

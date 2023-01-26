@@ -25,7 +25,7 @@ class adminPage
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dt::setTZ(dcCore::app()->auth->getInfo('user_tz'));
+        dt::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
 
         dcCore::app()->admin->redir_url = dcCore::app()->admin->getPageURL() . '&act=page';
 
