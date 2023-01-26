@@ -63,6 +63,6 @@ class tplPages
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'pages ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'pages ' . $widget->class, '', $res);
     }
 }

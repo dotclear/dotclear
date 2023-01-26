@@ -180,7 +180,7 @@ class defaultWidgets
         $value = dcCore::app()->public->search ?? '';
 
         return $widget->renderDiv(
-            $widget->content_only,
+            (bool) $widget->content_only,
             $widget->class,
             'id="search"',
             ($widget->title ? $widget->renderTitle('<label for="q">' . html::escapeHTML($widget->title) . '</label>') : '') .
@@ -236,7 +236,7 @@ class defaultWidgets
         __('Archives') . '</a></li>' .
             '</ul></nav>';
 
-        return $widget->renderDiv($widget->content_only, $widget->class, 'id="topnav"', $res);
+        return $widget->renderDiv((bool) $widget->content_only, $widget->class, 'id="topnav"', $res);
     }
 
     /**
@@ -292,7 +292,7 @@ class defaultWidgets
             $res .= str_repeat('</li></ul>', -($ref_level - $level));
         }
 
-        return $widget->renderDiv($widget->content_only, 'categories ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'categories ' . $widget->class, '', $res);
     }
 
     /**
@@ -337,7 +337,7 @@ class defaultWidgets
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'selected ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'selected ' . $widget->class, '', $res);
     }
 
     /**
@@ -384,7 +384,7 @@ class defaultWidgets
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'langs ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'langs ' . $widget->class, '', $res);
     }
 
     /**
@@ -430,7 +430,7 @@ class defaultWidgets
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'syndicate ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'syndicate ' . $widget->class, '', $res);
     }
 
     /**
@@ -491,7 +491,7 @@ class defaultWidgets
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'feed ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'feed ' . $widget->class, '', $res);
     }
 
     /**
@@ -513,7 +513,7 @@ class defaultWidgets
 
         $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') . $widget->text;
 
-        return $widget->renderDiv($widget->content_only, 'text ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'text ' . $widget->class, '', $res);
     }
 
     /**
@@ -573,7 +573,7 @@ class defaultWidgets
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'lastposts ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'lastposts ' . $widget->class, '', $res);
     }
 
     /**
@@ -615,6 +615,6 @@ class defaultWidgets
 
         $res .= '</ul>';
 
-        return $widget->renderDiv($widget->content_only, 'lastcomments ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'lastcomments ' . $widget->class, '', $res);
     }
 }

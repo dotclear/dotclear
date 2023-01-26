@@ -354,6 +354,6 @@ class tplTags
             html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
         }
 
-        return $widget->renderDiv($widget->content_only, 'tags ' . $widget->class, '', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'tags ' . $widget->class, '', $res);
     }
 }
