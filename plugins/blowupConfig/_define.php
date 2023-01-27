@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 $this->registerModule(
     'Blowup Config',               // Name
     'Configure your Blowup Theme', // Description
@@ -21,6 +17,6 @@ $this->registerModule(
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]),
-        'type' => 'plugin',
+        'type'        => 'plugin',
     ]
 );

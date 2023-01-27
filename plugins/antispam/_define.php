@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 $this->registerModule(
     'Antispam',                             // Name
     'Generic antispam plugin for Dotclear', // Description
@@ -22,8 +18,8 @@ $this->registerModule(
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'priority' => 10,
-        'settings' => [
+        'priority'    => 10,
+        'settings'    => [
             'self' => '',
             'blog' => '#params.antispam_params',
         ],

@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 Clearbricks::lib()->autoload([
     'tagsBehaviors'       => __DIR__ . '/inc/admin.behaviors.php',
     'publicBehaviorsTags' => __DIR__ . '/inc/public.behaviors.php',

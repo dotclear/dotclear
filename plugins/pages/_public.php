@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 dcCore::app()->addBehaviors([
     'publicPrependV2'        => [publicPages::class, 'publicPrepend'],
     'coreBlogBeforeGetPosts' => [publicPages::class, 'coreBlogBeforeGetPosts'],

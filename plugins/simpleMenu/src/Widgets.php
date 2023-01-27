@@ -14,10 +14,6 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use Dotclear\Plugin\widgets\WidgetsStack;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class Widgets
 {
     /**

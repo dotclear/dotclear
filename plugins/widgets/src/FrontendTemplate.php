@@ -16,10 +16,6 @@ use ArrayObject;
 use dcCore;
 use SimpleXMLElement;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class FrontendTemplate
 {
     /**

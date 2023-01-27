@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 $this->registerModule(
     'Tags',            // Name
     'Tags for posts',  // Description
@@ -22,9 +18,9 @@ $this->registerModule(
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'priority' => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
-        'type'     => 'plugin',
-        'settings' => [
+        'priority'    => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
+        'type'        => 'plugin',
+        'settings'    => [
             'pref' => '#user-options.tags_prefs',
         ],
     ]

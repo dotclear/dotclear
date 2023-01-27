@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 $this->registerModule(
     'Pages',                             // Name
     'Serve entries as simple web pages', // Description
@@ -22,7 +18,7 @@ $this->registerModule(
             dcAuth::PERMISSION_CONTENT_ADMIN,
             dcPages::PERMISSION_PAGES,
         ]),
-        'priority' => 999,
-        'type'     => 'plugin',
+        'priority'    => 999,
+        'type'        => 'plugin',
     ]
 );

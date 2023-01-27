@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 Clearbricks::lib()->autoload([
     'dcSpamFilter'        => __DIR__ . '/inc/spamfilter.php',
     'dcSpamFilters'       => __DIR__ . '/inc/spamfilters.php',

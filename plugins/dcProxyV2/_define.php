@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 $this->registerModule(
     'dcProxyV2',
     'Cope with function/method footprint V1 (< 2.24, 2.25)',

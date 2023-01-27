@@ -18,9 +18,7 @@ class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_RC_PATH')) {
-            self::$init = true;
-        }
+        self::$init = defined('DC_RC_PATH');
 
         return self::$init;
     }

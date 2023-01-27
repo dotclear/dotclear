@@ -19,10 +19,6 @@ use feedReader;
 use html;
 use l10n;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class Widgets extends \defaultWidgets //keep compatibility
 {
     // Constants

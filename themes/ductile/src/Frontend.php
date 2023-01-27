@@ -8,6 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
@@ -21,9 +22,7 @@ class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_RC_PATH')) {
-            self::$init = true;
-        }
+        self::$init = defined('DC_RC_PATH');
 
         return self::$init;
     }

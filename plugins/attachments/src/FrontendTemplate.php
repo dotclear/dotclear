@@ -16,10 +16,6 @@ use ArrayObject;
 use dcCore;
 use dcTemplate;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class FrontendTemplate
 {
     /**
