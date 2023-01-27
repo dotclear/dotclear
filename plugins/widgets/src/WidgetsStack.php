@@ -19,7 +19,7 @@ if (!defined('DC_RC_PATH')) {
     return false;
 }
 
-class WidgetsStack extends \dcWidgets //keep compatibility
+class WidgetsStack
 {
     /**
      * Stack of known widgets
