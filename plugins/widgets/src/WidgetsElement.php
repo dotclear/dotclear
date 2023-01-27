@@ -21,7 +21,7 @@ if (!defined('DC_RC_PATH')) {
     return false;
 }
 
-class WidgetsElement
+class WidgetsElement extends \dcWidget //keep compatibility
 {
     // Constants
 

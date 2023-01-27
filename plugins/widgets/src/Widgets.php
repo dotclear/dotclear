@@ -23,7 +23,7 @@ if (!defined('DC_RC_PATH')) {
     return false;
 }
 
-class Widgets
+class Widgets extends \defaultWidgets //keep compatibility
 {
     // Constants
 
