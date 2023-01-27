@@ -1215,6 +1215,12 @@ class dcUpgrade
                     'plugins/themeEditor/index.php',
                     'plugins/userPref/_admin.php',
                     'plugins/userPref/index.php',
+                    'plugins/widget/_admin.php',
+                    'plugins/widget/_install.php',
+                    'plugins/widget/_public.php',
+                    'plugins/widget/_prepend.php',
+                    'plugins/widget/index.php',
+                    'plugins/widget/style.css',
                     'themes/berlin/_public.php',
                     'themes/customCSS/_config.php',
                     'themes/customCSS/_public.php',
@@ -1238,6 +1244,7 @@ class dcUpgrade
                     'plugins/simpleMenu/inc',       // Replaced by src
                     'plugins/themeEditor/inc',      // Replaced by src
                     'plugins/userPref/inc',         // Replaced by src
+                    'plugins/widgets/inc',          // Replaced by src
                 ]
             );
         }

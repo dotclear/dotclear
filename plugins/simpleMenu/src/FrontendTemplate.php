@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use dcCore;
-use dcWidget;
+use Dotclear\Plugin\widgets\WidgetsElement;
 use html;
 use http;
 
@@ -65,11 +65,11 @@ class FrontendTemplate
     /**
      * Widget rendering function
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function simpleMenuWidget(dcWidget $widget): string
+    public static function simpleMenuWidget(WidgetsElement $widget): string
     {
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 

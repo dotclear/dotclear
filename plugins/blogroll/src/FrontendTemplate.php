@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use ArrayObject;
 use Exception;
 use dcCore;
-use dcWidget;
+use Dotclear\Plugin\widgets\WidgetsElement;
 use html;
 use http;
 
@@ -179,11 +179,11 @@ class FrontendTemplate
     /**
      * Widget public rendering helper
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function linksWidget(dcWidget $widget): string
+    public static function linksWidget(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';

@@ -8,53 +8,71 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminWidgets
+namespace Dotclear\Plugin\widgets;
+
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use Exception;
+use form;
+use html;
+use http;
+use stdClass;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcPage::check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_ADMIN,
+            ]));
+
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
         // Init default widgets
-        defaultWidgets::init();
+        Widgets::init();
 
         // Loading navigation, extra widgets and custom widgets
         dcCore::app()->admin->widgets_nav = null;
         if (dcCore::app()->blog->settings->widgets->widgets_nav) {
-            dcCore::app()->admin->widgets_nav = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_nav);
+            dcCore::app()->admin->widgets_nav = WidgetsStack::load(dcCore::app()->blog->settings->widgets->widgets_nav);
         }
         dcCore::app()->admin->widgets_extra = null;
         if (dcCore::app()->blog->settings->widgets->widgets_extra) {
-            dcCore::app()->admin->widgets_extra = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_extra);
+            dcCore::app()->admin->widgets_extra = WidgetsStack::load(dcCore::app()->blog->settings->widgets->widgets_extra);
         }
         dcCore::app()->admin->widgets_custom = null;
         if (dcCore::app()->blog->settings->widgets->widgets_custom) {
-            dcCore::app()->admin->widgets_custom = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_custom);
+            dcCore::app()->admin->widgets_custom = WidgetsStack::load(dcCore::app()->blog->settings->widgets->widgets_custom);
         }
 
         dcCore::app()->admin->append_combo = [
             '-'              => 0,
-            __('navigation') => defaultWidgets::WIDGETS_NAV,
-            __('extra')      => defaultWidgets::WIDGETS_EXTRA,
-            __('custom')     => defaultWidgets::WIDGETS_CUSTOM,
+            __('navigation') => Widgets::WIDGETS_NAV,
+            __('extra')      => Widgets::WIDGETS_EXTRA,
+            __('custom')     => Widgets::WIDGETS_CUSTOM,
         ];
-    }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
         # Adding widgets to sidebars
         if (!empty($_POST['append']) && is_array($_POST['addw'])) {
             # Filter selection
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
-                if (($v == defaultWidgets::WIDGETS_EXTRA || $v == defaultWidgets::WIDGETS_NAV || $v == defaultWidgets::WIDGETS_CUSTOM) && dcCore::app()->widgets->{$k} !== null) {
+                if (($v == Widgets::WIDGETS_EXTRA || $v == Widgets::WIDGETS_NAV || $v == Widgets::WIDGETS_CUSTOM) && dcCore::app()->widgets->{$k} !== null) {
                     $addw[$k] = $v;
                 }
             }
@@ -68,28 +86,28 @@ class adminWidgets
 
             # Append widgets
             if (!empty($addw)) {
-                if (!(dcCore::app()->admin->widgets_nav instanceof dcWidgets)) {
-                    dcCore::app()->admin->widgets_nav = new dcWidgets();
+                if (!(dcCore::app()->admin->widgets_nav instanceof WidgetsStack)) {
+                    dcCore::app()->admin->widgets_nav = new WidgetsStack();
                 }
-                if (!(dcCore::app()->admin->widgets_extra instanceof dcWidgets)) {
-                    dcCore::app()->admin->widgets_extra = new dcWidgets();
+                if (!(dcCore::app()->admin->widgets_extra instanceof WidgetsStack)) {
+                    dcCore::app()->admin->widgets_extra = new WidgetsStack();
                 }
-                if (!(dcCore::app()->admin->widgets_custom instanceof dcWidgets)) {
-                    dcCore::app()->admin->widgets_custom = new dcWidgets();
+                if (!(dcCore::app()->admin->widgets_custom instanceof WidgetsStack)) {
+                    dcCore::app()->admin->widgets_custom = new WidgetsStack();
                 }
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         switch ($v) {
-                            case defaultWidgets::WIDGETS_NAV:
+                            case Widgets::WIDGETS_NAV:
                                 dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k});
 
                                 break;
-                            case defaultWidgets::WIDGETS_EXTRA:
+                            case Widgets::WIDGETS_EXTRA:
                                 dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k});
 
                                 break;
-                            case defaultWidgets::WIDGETS_CUSTOM:
+                            case Widgets::WIDGETS_CUSTOM:
                                 dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k});
 
                                 break;
@@ -168,19 +186,19 @@ class adminWidgets
                     }
                 }
 
-                if (!isset($_POST['w'][defaultWidgets::WIDGETS_NAV])) {
-                    $_POST['w'][defaultWidgets::WIDGETS_NAV] = [];
+                if (!isset($_POST['w'][Widgets::WIDGETS_NAV])) {
+                    $_POST['w'][Widgets::WIDGETS_NAV] = [];
                 }
-                if (!isset($_POST['w'][defaultWidgets::WIDGETS_EXTRA])) {
-                    $_POST['w'][defaultWidgets::WIDGETS_EXTRA] = [];
+                if (!isset($_POST['w'][Widgets::WIDGETS_EXTRA])) {
+                    $_POST['w'][Widgets::WIDGETS_EXTRA] = [];
                 }
-                if (!isset($_POST['w'][defaultWidgets::WIDGETS_CUSTOM])) {
-                    $_POST['w'][defaultWidgets::WIDGETS_CUSTOM] = [];
+                if (!isset($_POST['w'][Widgets::WIDGETS_CUSTOM])) {
+                    $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
-                dcCore::app()->admin->widgets_nav    = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_NAV], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_extra  = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_EXTRA], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_custom = dcWidgets::loadArray($_POST['w'][defaultWidgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
+                dcCore::app()->admin->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], dcCore::app()->widgets);
+                dcCore::app()->admin->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
+                dcCore::app()->admin->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
                 dcCore::app()->blog->settings->widgets->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
                 dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
@@ -205,13 +223,19 @@ class adminWidgets
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         echo
         '<html>' .
         '<head>' .
@@ -224,7 +248,7 @@ class adminWidgets
             $rte_flag = $rte_flags['widgets_text'];
         }
         echo
-        dcPage::cssModuleLoad('widgets/style.css') .
+        dcPage::cssModuleLoad('widgets/css/style.css') .
         dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
         dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
         dcPage::jsJson('widgets', [
@@ -295,17 +319,17 @@ class adminWidgets
 
         // Nav sidebar
         '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), dcCore::app()->admin->widgets_nav, defaultWidgets::WIDGETS_NAV, dcCore::app()->default_widgets[defaultWidgets::WIDGETS_NAV], $j) .
+        self::sidebarWidgets('dndnav', __('Navigation sidebar'), dcCore::app()->admin->widgets_nav, Widgets::WIDGETS_NAV, dcCore::app()->default_widgets[Widgets::WIDGETS_NAV], $j) .
         '</div>' .
 
         // Extra sidebar
         '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), dcCore::app()->admin->widgets_extra, defaultWidgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[defaultWidgets::WIDGETS_EXTRA], $j) .
+        self::sidebarWidgets('dndextra', __('Extra sidebar'), dcCore::app()->admin->widgets_extra, Widgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[Widgets::WIDGETS_EXTRA], $j) .
         '</div>' .
 
         // Custom sidebar
         '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), dcCore::app()->admin->widgets_custom, defaultWidgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[defaultWidgets::WIDGETS_CUSTOM], $j) .
+        self::sidebarWidgets('dndcustom', __('Custom sidebar'), dcCore::app()->admin->widgets_custom, Widgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
         '<p id="sidebarsControl">' .
@@ -370,7 +394,7 @@ class adminWidgets
     {
         $res = '<h3>' . $title . '</h3>';
 
-        if (!($widgets instanceof dcWidgets)) {
+        if (!($widgets instanceof WidgetsStack)) {
             $widgets = $default_widgets;
         }
 
@@ -418,7 +442,3 @@ class adminWidgets
         return $res;
     }
 }
-
-adminWidgets::init();
-adminWidgets::process();
-adminWidgets::render();

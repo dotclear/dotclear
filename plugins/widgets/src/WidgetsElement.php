@@ -8,176 +8,20 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcWidgets
-{
-    /**
-     * Stack of known widgets
-     */
-    private array $widgets = [];
+declare(strict_types=1);
 
-    /**
-     * Load widgets from string setting (base64 encoded)
-     *
-     * @param      string  $s      Setting
-     *
-     * @return     self
-     */
-    public static function load($s): self
-    {
-        $o = @unserialize(base64_decode($s));
+namespace Dotclear\Plugin\widgets;
 
-        if ($o instanceof self) {
-            return $o;
-        }
+use ArrayObject;
+use dcCore;
+use form;
+use html;
 
-        return self::loadArray($o, dcCore::app()->widgets);
-    }
-
-    /**
-     * Return encoded widgets
-     *
-     * @return     string
-     */
-    public function store()
-    {
-        $serialized = [];
-        foreach ($this->widgets as $pos => $w) {
-            $serialized[] = ($w->serialize($pos));
-        }
-
-        return base64_encode(serialize($serialized));
-    }
-
-    /**
-     * Create a new widget
-     *
-     * @param      string         $id               The identifier
-     * @param      string         $name             The name
-     * @param      mixed          $callback         The callback
-     * @param      mixed          $append_callback  The append callback
-     * @param      string         $desc             The description
-     *
-     * @return     dcWidget
-     */
-    public function create(string $id, string $name, $callback, $append_callback = null, string $desc = ''): dcWidget
-    {
-        $this->widgets[$id]                  = new dcWidget($id, $name, $callback, $desc);
-        $this->widgets[$id]->append_callback = $append_callback;
-
-        return $this->widgets[$id];
-    }
-
-    /**
-     * Append a widget
-     *
-     * @param      dcWidget  $widget  The widget
-     */
-    public function append(dcWidget $widget): void
-    {
-        if ($widget instanceof dcWidget) {
-            if (is_callable($widget->append_callback)) {
-                call_user_func($widget->append_callback, $widget);
-            }
-            $this->widgets[] = $widget;
-        }
-    }
-
-    /**
-     * Determines if widgets list is empty.
-     *
-     * @return     bool  True if empty, False otherwise.
-     */
-    public function isEmpty(): bool
-    {
-        return count($this->widgets) == 0;
-    }
-
-    /**
-     * Return list of widgets
-     *
-     * @param      bool   $sorted  Sort the list
-     *
-     * @return     array  ( description_of_the_return_value )
-     */
-    public function elements(bool $sorted = false): array
-    {
-        if ($sorted) {
-            uasort($this->widgets, function ($a, $b) {
-                $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
-                $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
-
-                return $c <=> $d;
-            });
-        }
-
-        return $this->widgets;
-    }
-
-    /**
-     * Get a widget
-     *
-     * @param      string  $id     The widget identifier
-     *
-     * @return     mixed
-     */
-    public function __get($id)
-    {
-        if (!isset($this->widgets[$id])) {
-            return;
-        }
-
-        return $this->widgets[$id];
-    }
-
-    /**
-     * Unset all widgets
-     */
-    public function __wakeup()
-    {
-        foreach ($this->widgets as $i => $w) {
-            if (!($w instanceof dcWidget)) {
-                unset($this->widgets[$i]);
-            }
-        }
-    }
-
-    /**
-     * Loads an array of widgets.
-     *
-     * @param      array                $A        { parameter_description }
-     * @param      dcWidgets            $widgets  The widgets
-     *
-     * @return     bool|dcWidgets|self
-     */
-    public static function loadArray(array $A, dcWidgets $widgets)
-    {
-        if (!($widgets instanceof self)) {
-            return false;
-        }
-
-        uasort($A, fn ($a, $b) => $a['order'] <=> $b['order']);
-
-        $result = new self();
-        foreach ($A as $v) {
-            if ($widgets->{$v['id']} != null) {
-                $w = clone $widgets->{$v['id']};
-
-                // Settings
-                unset($v['id'], $v['order']);
-
-                foreach ($v as $sid => $s) {
-                    $w->{$sid} = $s;
-                }
-
-                $result->append($w);
-            }
-        }
-
-        return $result;
-    }
+if (!defined('DC_RC_PATH')) {
+    return false;
 }
 
-class dcWidget
+class WidgetsElement extends \dcWidget //keep compatibility
 {
     // Constants
 
@@ -250,6 +94,12 @@ class dcWidget
      */
     public function __construct(string $id, string $name, $callback, string $desc = '')
     {
+        if (!is_callable($callback)) {
+            $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
+            dcCore::app()->callBehavior('widgetGetCallback', $widget);
+            $callback = is_callable($widget['callback']) ? $widget['callback'] : null;
+        }
+
         $this->public_callback = $callback;
         $this->id              = $id;
         $this->name            = $name;
@@ -305,7 +155,7 @@ class dcWidget
      */
     public function call($i = 0)
     {
-        if (is_callable($this->public_callback)) {
+        if (!is_null($this->public_callback)) {
             return call_user_func($this->public_callback, $this, $i);
         }
 
@@ -545,7 +395,7 @@ class dcWidget
             case 'text':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::field([$iname, $wfid], 20, 255, [
-                    'default'    => html::escapeHTML($s['value']),
+                    'default'    => html::escapeHTML((string) $s['value']),
                     'class'      => 'maximal' . $class,
                     'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
@@ -720,6 +570,6 @@ class dcWidget
      */
     public function isOffline(): bool
     {
-        return $this->settings['offline']['value'] ?? false;
+        return (bool) $this->settings['offline']['value'] ?? false;
     }
 }

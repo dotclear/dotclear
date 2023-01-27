@@ -16,12 +16,12 @@ $this->registerModule(
     'Widgets',                         // Name
     'Widgets for your blog sidebars',  // Description
     'Olivier Meunier & Dotclear Team', // Author
-    '3.5',                             // Version
+    '4.0',                             // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]),
-        'priority' => 1_000_000_000,
-        'type'     => 'plugin',
+        'priority'    => 1_000_000_000,
+        'type'        => 'plugin',
     ]
 );

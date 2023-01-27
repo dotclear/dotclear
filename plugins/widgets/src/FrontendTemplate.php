@@ -8,7 +8,19 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class publicWidgets
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\widgets;
+
+use ArrayObject;
+use dcCore;
+use SimpleXMLElement;
+
+if (!defined('DC_RC_PATH')) {
+    return false;
+}
+
+class FrontendTemplate
 {
     /**
      * tpl:Widgets [attributes] : Displays trackback title (tpl value)
@@ -30,14 +42,14 @@ class publicWidgets
         $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type === '') {
-            $res = "publicWidgets::widgetsHandler(defaultWidgets::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
-            "   publicWidgets::widgetsHandler(defaultWidgets::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
-            "   publicWidgets::widgetsHandler(defaultWidgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
+            $res = self::class . "::widgetsHandler(Widgets::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
+            "   " . self::class . "::widgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
+            "   " . self::class . "::widgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
         } else {
-            if (!in_array($type, [defaultWidgets::WIDGETS_NAV, defaultWidgets::WIDGETS_EXTRA, defaultWidgets::WIDGETS_CUSTOM])) {
-                $type = defaultWidgets::WIDGETS_NAV;
+            if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
+                $type = Widgets::WIDGETS_NAV;
             }
-            $res = "publicWidgets::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
+            $res = self::class . "::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
         }
 
         return '<?php ' . $res . ' ?>';
@@ -50,10 +62,10 @@ class publicWidgets
 
         if (!$widgets) {
             // If widgets value is empty, get defaults
-            $widgets = self::defaultWidgets($type);
+            $widgets = self::Widgets($type);
         } else {
             // Otherwise, load widgets
-            $widgets = dcWidgets::load($widgets);
+            $widgets = WidgetsStack::load($widgets);
         }
 
         if ($widgets->isEmpty()) {
@@ -93,14 +105,14 @@ class publicWidgets
         $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type == '') {
-            $res = "publicWidgets::ifWidgetsHandler(defaultWidgets::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
-            "   publicWidgets::ifWidgetsHandler(defaultWidgets::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
-            "   publicWidgets::ifWidgetsHandler(defaultWidgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
+            $res = self::class . "::ifWidgetsHandler(Widgets::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
+            "   " . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
+            "   " . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
         } else {
-            if (!in_array($type, [defaultWidgets::WIDGETS_NAV, defaultWidgets::WIDGETS_EXTRA, defaultWidgets::WIDGETS_CUSTOM])) {
-                $type = defaultWidgets::WIDGETS_NAV;
+            if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
+                $type = Widgets::WIDGETS_NAV;
             }
-            $res = "publicWidgets::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
+            $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
         }
 
         return '<?php if(' . $res . ') : ?>' . $content . '<?php endif; ?>';
@@ -120,10 +132,10 @@ class publicWidgets
 
         if (!$widgets) {
             // If widgets value is empty, get defaults
-            $widgets = self::defaultWidgets($type);
+            $widgets = self::Widgets($type);
         } else {
             // Otherwise, load widgets
-            $widgets = dcWidgets::load($widgets);
+            $widgets = WidgetsStack::load($widgets);
         }
 
         return (!$widgets->isEmpty());
@@ -134,11 +146,11 @@ class publicWidgets
      *
      * @param      string     $type   The type
      *
-     * @return     dcWidgets
+     * @return     WidgetsStack
      */
-    private static function defaultWidgets(string $type): dcWidgets
+    private static function Widgets(string $type): WidgetsStack
     {
-        $widgets = new dcWidgets();
+        $widgets = new WidgetsStack();
 
         if (isset(dcCore::app()->default_widgets[$type])) {
             $widgets = dcCore::app()->default_widgets[$type];
@@ -161,7 +173,7 @@ class publicWidgets
      */
     public static function tplWidget(ArrayObject $attr, string $content): string
     {
-        if (!isset($attr['id']) || !(dcCore::app()->widgets->{$attr['id']} instanceof dcWidget)) {
+        if (!isset($attr['id']) || !(dcCore::app()->widgets->{$attr['id']} instanceof WidgetsElement)) {
             return '';
         }
 
@@ -172,7 +184,7 @@ class publicWidgets
         $content = preg_replace('/\{\{tpl:.*?\}\}/msu', '', $content);
 
         return
-        "<?php publicWidgets::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
+        "<?php " . self::class . "::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
     }
 
     /**
@@ -183,7 +195,7 @@ class publicWidgets
      */
     public static function widgetHandler(string $id, $xml): void
     {
-        if (!(dcCore::app()->widgets->{$id} instanceof dcWidget)) {
+        if (!(dcCore::app()->widgets->{$id} instanceof WidgetsElement)) {
             return;
         }
 

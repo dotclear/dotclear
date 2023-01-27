@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\simpleMenu;
 
-use dcWidgets;
+use Dotclear\Plugin\widgets\WidgetsStack;
 
 if (!defined('DC_RC_PATH')) {
     return false;
@@ -23,9 +23,9 @@ class Widgets
     /**
      * Add simple menu widget
      *
-     * @param      dcWidgets  $widgets  The widgets
+     * @param      WidgetsStack  $widgets  The widgets
      */
-    public static function initWidgets(dcWidgets $widgets): void
+    public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
             ->create('simplemenu', __('Simple menu'), [FrontendTemplate::class, 'simpleMenuWidget'], null, 'List of simple menu items')

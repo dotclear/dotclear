@@ -13,17 +13,17 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use dcCore;
-use dcWidgets;
-use defaultWidgets;
+use Dotclear\Plugin\widgets\WidgetsStack;
+use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 
 class Widgets
 {
     /**
      * Initializes the blogroll widget.
      *
-     * @param      dcWidgets  $widgets  The widgets
+     * @param      WidgetsStack  $widgets  The widgets
      */
-    public static function initWidgets(dcWidgets $widgets): void
+    public static function initWidgets(WidgetsStack $widgets): void
     {
         $blogroll  = new Blogroll(dcCore::app()->blog);
         $hierarchy = $blogroll->getLinksHierarchy($blogroll->getLinks());
@@ -49,11 +49,11 @@ class Widgets
     /**
      * Add blogroll widget to default set
      *
-     * @param      dcWidgets  $widgets          The widgets
+     * @param      WidgetsStack  $widgets          The widgets
      * @param      array      $default_widgets  The default widgets
      */
-    public static function initDefaultWidgets(dcWidgets $widgets, array $default_widgets)
+    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets)
     {
-        $default_widgets[defaultWidgets::WIDGETS_EXTRA]->append($widgets->links);
+        $default_widgets[dcWidgets::WIDGETS_EXTRA]->append($widgets->links);
     }
 }

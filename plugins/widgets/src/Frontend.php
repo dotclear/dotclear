@@ -1,6 +1,6 @@
 <?php
 /**
- * @brief simpleMenu, a plugin for Dotclear 2
+ * @brief widgets, a plugin for Dotclear 2
  *
  * @package Dotclear
  * @subpackage Plugins
@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\simpleMenu;
+namespace Dotclear\Plugin\widgets;
 
 use dcCore;
 use dcNsProcess;
@@ -32,15 +32,11 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->addBehavior('initWidgets', [Widgets::class, 'initWidgets']);
-        dcCore::app()->addBehavior('widgetGetCallback', function ($widget) {
-            if ($widget['id'] == 'simplemenu') {
-                $widget['callback'] = [FrontendTemplate::class, 'simpleMenuWidget'];
-            }
-        });
+        Widgets::init();
 
-        // Simple menu template functions
-        dcCore::app()->tpl->addValue('SimpleMenu', [FrontendTemplate::class, 'simpleMenu']);
+        dcCore::app()->tpl->addValue('Widgets', [FrontendTemplate::class, 'tplWidgets']);
+        dcCore::app()->tpl->addBlock('Widget', [FrontendTemplate::class, 'tplWidget']);
+        dcCore::app()->tpl->addBlock('IfWidgets', [FrontendTemplate::class, 'tplIfWidgets']);
 
         return true;
     }
