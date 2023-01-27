@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 Clearbricks::lib()->autoload([
     'dcPagesActions'       => __DIR__ . '/inc/pages.actions.php',
     'dcDefaultPageActions' => __DIR__ . '/inc/pages.actions.php',

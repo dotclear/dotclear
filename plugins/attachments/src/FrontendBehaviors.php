@@ -14,10 +14,6 @@ namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class FrontendBehaviors
 {
     /**

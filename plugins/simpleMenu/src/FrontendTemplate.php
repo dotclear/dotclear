@@ -18,10 +18,6 @@ use Dotclear\Plugin\widgets\WidgetsElement;
 use html;
 use http;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class FrontendTemplate
 {
     /**

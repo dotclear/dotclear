@@ -6,10 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 dcCore::app()->resources['rss_news'] = 'https://fr.dotclear.org/blog/feed/category/News/atom';
 
 dcCore::app()->resources['doc'] = [

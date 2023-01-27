@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 dcCore::app()->tpl->addBlock('Tags', [tplTags::class, 'Tags']);
 dcCore::app()->tpl->addBlock('TagsHeader', [tplTags::class, 'TagsHeader']);
 dcCore::app()->tpl->addBlock('TagsFooter', [tplTags::class, 'TagsFooter']);

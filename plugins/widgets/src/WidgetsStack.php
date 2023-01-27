@@ -15,10 +15,6 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use dcUtils;
 
-if (!defined('DC_RC_PATH')) {
-    return false;
-}
-
 class WidgetsStack extends \dcWidgets //keep compatibility
 {
     /**

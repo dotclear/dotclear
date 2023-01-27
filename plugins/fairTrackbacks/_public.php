@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 if (DC_FAIRTRACKBACKS_FORCE) {
     Clearbricks::lib()->autoload([
         'dcFilterFairTrackbacks' => __DIR__ . '/filters/filter.fairtrackbacks.php',
