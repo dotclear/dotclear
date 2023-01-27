@@ -33,11 +33,6 @@ class Frontend extends dcNsProcess
         }
 
         dcCore::app()->addBehavior('initWidgets', [Widgets::class, 'initWidgets']);
-        dcCore::app()->addBehavior('widgetGetCallback', function ($widget) {
-            if ($widget['id'] === 'simplemenu') {
-                $widget['callback'] = [FrontendTemplate::class, 'simpleMenuWidget'];
-            }
-        });
 
         // Simple menu template functions
         dcCore::app()->tpl->addValue('SimpleMenu', [FrontendTemplate::class, 'simpleMenu']);
