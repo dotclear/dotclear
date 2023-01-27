@@ -8,6 +8,8 @@
  */
 /**
  * @deprecated since 2.25
+ *
+ * use Dotclear\Plugin\widgets\Widgets [as defaultWidgets]
  */
 class defaultWidgets
 {
@@ -17,12 +19,16 @@ class defaultWidgets
 }
 /**
  * @deprecated since 2.25
+ *
+ * use Dotclear\Plugin\widgets\WidgetsStack [as dcWidgets]
  */
 class dcWidgets
 {
 }
 /**
  * @deprecated since 2.25
+ *
+ * use Dotclear\Plugin\widgets\WidgetsElement [as dcWidget]
  */
 class dcWidget
 {

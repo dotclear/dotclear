@@ -128,7 +128,7 @@ class Widgets extends \defaultWidgets //keep compatibility
         while ($rs->fetch()) {
             $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
-        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), ['Widgets', 'lastposts'], null, 'List of last entries published');
+        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), [Widgets::class, 'lastposts'], null, 'List of last entries published');
         $w
             ->addTitle(__('Last entries'))
             ->setting('category', __('Category:'), '', 'combo', $categories);
@@ -144,7 +144,7 @@ class Widgets extends \defaultWidgets //keep compatibility
         unset($rs, $categories, $w);
 
         dcCore::app()->widgets
-            ->create('lastcomments', __('Last comments'), ['Widgets', 'lastcomments'], null, 'List of last comments published')
+            ->create('lastcomments', __('Last comments'), [Widgets::class, 'lastcomments'], null, 'List of last comments published')
             ->addTitle(__('Last comments'))
             ->setting('limit', __('Comments limit:'), 10)
             ->addHomeOnly()

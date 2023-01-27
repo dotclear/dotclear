@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\widgets\WidgetsElement;
+
 class tplTags
 {
     /**
@@ -275,11 +278,11 @@ class tplTags
     /**
      * Widget public rendering helper
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function tagsWidget(dcWidget $widget): string
+    public static function tagsWidget(WidgetsElement $widget): string
     {
         if ($widget->offline) {
             return '';

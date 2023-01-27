@@ -43,8 +43,8 @@ class FrontendTemplate
 
         if ($type === '') {
             $res = self::class . "::widgetsHandler(Widgets::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
-            "   " . self::class . "::widgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
-            "   " . self::class . "::widgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
+            '   ' . self::class . "::widgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
+            '   ' . self::class . "::widgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
         } else {
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
@@ -106,8 +106,8 @@ class FrontendTemplate
 
         if ($type == '') {
             $res = self::class . "::ifWidgetsHandler(Widgets::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
-            "   " . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
-            "   " . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
+            '   ' . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
+            '   ' . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
         } else {
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
@@ -184,7 +184,7 @@ class FrontendTemplate
         $content = preg_replace('/\{\{tpl:.*?\}\}/msu', '', $content);
 
         return
-        "<?php " . self::class . "::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
+        '<?php ' . self::class . "::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
     }
 
     /**

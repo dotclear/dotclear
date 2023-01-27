@@ -87,12 +87,12 @@ class WidgetsElement extends \dcWidget //keep compatibility
     /**
      * Constructs a new instance.
      *
-     * @param      string   $id        The identifier
-     * @param      string   $name      The name
-     * @param      mixed    $callback  The callback
-     * @param      string   $desc      The description
+     * @param      string       $id        The identifier
+     * @param      string       $name      The name
+     * @param      callable     $callback  The callback
+     * @param      string       $desc      The description
      */
-    public function __construct(string $id, string $name, $callback, string $desc = '')
+    public function __construct(string $id, string $name, ?callable $callback, string $desc = '')
     {
         if (!is_callable($callback)) {
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
@@ -570,6 +570,6 @@ class WidgetsElement extends \dcWidget //keep compatibility
      */
     public function isOffline(): bool
     {
-        return (bool) $this->settings['offline']['value'] ?? false;
+        return (bool) ($this->settings['offline']['value'] ?? false);
     }
 }

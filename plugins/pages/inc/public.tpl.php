@@ -8,16 +8,19 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\widgets\WidgetsElement;
+
 class tplPages
 {
     /**
      * Widget public rendering helper
      *
-     * @param      dcWidget  $widget  The widget
+     * @param      WidgetsElement  $widget  The widget
      *
      * @return     string
      */
-    public static function pagesWidget(dcWidget $widget)
+    public static function pagesWidget(WidgetsElement $widget)
     {
         $params = [];
         if ($widget->offline) {

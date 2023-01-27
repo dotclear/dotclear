@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
+use ArrayObject;
 use dcAdmin;
 use dcAuth;
 use dcCore;
@@ -45,7 +46,7 @@ class Backend extends dcNsProcess
                     'large-icon' => [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
                 ]);
             },
-            'adminRteFlagsV2' => function (ArrayObject $rte) {
+            'adminRteFlagsV2'           => function (ArrayObject $rte) {
                 $rte['widgets_text'] = [true, __('Widget\'s textareas')];
             },
         ]);

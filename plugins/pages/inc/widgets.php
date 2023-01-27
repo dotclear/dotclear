@@ -8,14 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\widgets\Widgets;
+use Dotclear\Plugin\widgets\WidgetsStack;
+
 class pagesWidgets
 {
     /**
      * Initializes the pages widget.
      *
-     * @param      dcWidgets  $widgets  The widgets
+     * @param      WidgetsStack  $widgets  The widgets
      */
-    public static function initWidgets(dcWidgets $widgets): void
+    public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
             ->create('pages', __('Pages'), ['tplPages', 'pagesWidget'], null, 'List of published pages')
@@ -50,11 +54,11 @@ class pagesWidgets
     /**
      * Add pages widget to default set
      *
-     * @param      dcWidgets  $widgets          The widgets
-     * @param      array      $default_widgets  The default widgets
+     * @param      WidgetsStack  $widgets          The widgets
+     * @param      array         $default_widgets  The default widgets
      */
-    public static function initDefaultWidgets(dcWidgets $widgets, array $default_widgets): void
+    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[defaultWidgets::WIDGETS_NAV]->append($widgets->pages);
+        $default_widgets[Widgets::WIDGETS_NAV]->append($widgets->pages);
     }
 }

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use ArrayObject;
 use dcCore;
 use dcUtils;
 

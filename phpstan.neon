@@ -115,8 +115,16 @@ parameters:
     - message: '#Access to an undefined property dcWidgets::#'
       path: %currentWorkingDirectory%
 
+    # dcWidgets object methods
+    - message: '#Call to an undefined method dcWidgets::#'
+      path: %currentWorkingDirectory%
+
     # dcWidget object and auto properties
     - message: '#Access to an undefined property dcWidget::#'
+      path: %currentWorkingDirectory%
+
+    # dcWidget object methods
+    - message: '#Call to an undefined method dcWidget::#'
       path: %currentWorkingDirectory%
 
     # xmlTag object and auto properties
@@ -189,6 +197,16 @@ parameters:
 
     # formXXX
     - message: '#Access to an undefined property \$this\(form[a-zA-Z0-9\\_]+\)::#'
+      path: %currentWorkingDirectory%
+
+    # 2.25+
+
+    # WidgetsStack object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsStack::#'
+      path: %currentWorkingDirectory%
+
+    # WidgetsElement object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsElement::#'
       path: %currentWorkingDirectory%
 
 # Notes:

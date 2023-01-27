@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use dcNsProcess;
 use Exception;
-use html;
 use path;
 
 class Install extends dcNsProcess

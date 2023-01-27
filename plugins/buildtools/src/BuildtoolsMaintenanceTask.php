@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\buildtools;
 
 use Dotclear\Plugin\maintenance\MaintenanceTask;
-use defaultWidgets;
+use Dotclear\Plugin\widgets\Widgets;
 
 class BuildtoolsMaintenanceTask extends MaintenanceTask
 {
@@ -49,9 +49,7 @@ class BuildtoolsMaintenanceTask extends MaintenanceTask
      */
     public function execute(): bool
     {
-        if (class_exists('defaultWidgets')) {
-            defaultWidgets::init();
-        }
+        Widgets::init();
 
         $faker = new l10nFaker();
         $faker->generate_file();

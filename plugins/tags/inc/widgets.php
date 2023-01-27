@@ -8,14 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\widgets\Widgets;
+use Dotclear\Plugin\widgets\WidgetsStack;
+
 class tagsWidgets
 {
     /**
      * Add the tags widget to the list of available widgets.
      *
-     * @param      dcWidgets  $widgets  The widgets
+     * @param      WidgetsStack  $widgets  The widgets
      */
-    public static function initWidgets(dcWidgets $widgets)
+    public static function initWidgets(WidgetsStack $widgets)
     {
         $widgets
             ->create('tags', __('Tags'), ['tplTags', 'tagsWidget'], null, 'Tags cloud')
@@ -53,11 +57,11 @@ class tagsWidgets
     /**
      * Add the tags widget to the default list of widgets
      *
-     * @param      dcWidgets  $widgets          The widgets
-     * @param      array      $default_widgets  The default widgets
+     * @param      WidgetsStack  $widgets          The widgets
+     * @param      array         $default_widgets  The default widgets
      */
-    public static function initDefaultWidgets(dcWidgets $widgets, array $default_widgets): void
+    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[defaultWidgets::WIDGETS_NAV]->append($widgets->tags);
+        $default_widgets[Widgets::WIDGETS_NAV]->append($widgets->tags);
     }
 }
