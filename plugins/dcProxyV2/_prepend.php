@@ -8,10 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
 class dcProxyV2
 {
     public const SUFFIX = 'V2';
@@ -30,6 +26,12 @@ class dcProxyV2
 // Core and public behaviors
 dcProxyV2::loadBehaviors('dcProxyV2CoreBehaviors', __DIR__ . '/inc/class.core.behaviors.php');  // Load core stuff
 dcProxyV2::loadBehaviors('dcProxyV2PublicBehaviors', __DIR__ . '/inc/class.public.behaviors.php');  // Load public stuff
+
+// Core proxy classes
+Clearbricks::lib()->autoload([
+    'dcAntispam'            => __DIR__ . '/inc/antispam.php',
+    'dcSpamFilter'          => __DIR__ . '/inc/antispam.php',
+]);
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return false;

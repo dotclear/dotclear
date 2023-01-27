@@ -1168,6 +1168,13 @@ class dcUpgrade
             self::houseCleaning(
                 // Files
                 [
+                    'plugins/antispam/_admin.php',
+                    'plugins/antispam/_install.php',
+                    'plugins/antispam/_prepend.php',
+                    'plugins/antispam/_public.php',
+                    'plugins/antispam/_services.php',
+                    'plugins/antispam/index.php',
+                    'plugins/antispam/style.css',
                     'plugins/aboutConfig/_admin.php',
                     'plugins/aboutConfig/index.php',
                     'plugins/attachments/_admin.php',
@@ -1231,6 +1238,8 @@ class dcUpgrade
                 // Folders
                 [
                     'inc/libs',
+                    'plugins/antispam/filters',     // Replaced by src/Filters
+                    'plugins/antispam/inc',         // Replaced by src
                     'plugins/aboutConfig/inc',      // Replaced by src
                     'plugins/attachments/inc',      // Replaced by src
                     'plugins/blogroll/inc',         // Replaced by src

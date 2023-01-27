@@ -8,12 +8,34 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
+declare(strict_types=1);
 
-dcCore::app()->addBehaviors([
-    'publicBeforeCommentCreate'   => [dcAntispam::class, 'isSpam'],
-    'publicBeforeTrackbackCreate' => [dcAntispam::class, 'isSpam'],
-    'publicBeforeDocumentV2'      => [dcAntispam::class, 'purgeOldSpam'],
-]);
+namespace Dotclear\Plugin\antispam;
+
+use dcCore;
+use dcNsProcess;
+
+class Frontend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = true;
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->addBehaviors([
+            'publicBeforeCommentCreate'   => [Antispam::class, 'isSpam'],
+            'publicBeforeTrackbackCreate' => [Antispam::class, 'isSpam'],
+            'publicBeforeDocumentV2'      => [Antispam::class, 'purgeOldSpam'],
+        ]);
+
+        return true;
+    }
+}

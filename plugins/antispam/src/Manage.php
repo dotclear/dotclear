@@ -8,35 +8,49 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminAntispam
+namespace Dotclear\Plugin\antispam;
+
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use dt;
+use Exception;
+use form;
+use html;
+use http;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
-        ]));
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcPage::check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_ADMIN,
+            ]));
 
-        dcAntispam::initFilters();
+            self::$init = true;
+        }
 
-        dcCore::app()->admin->filters     = dcAntispam::$filters->getFilters();
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        Antispam::initFilters();
+
+        dcCore::app()->admin->filters     = Antispam::$filters->getFilters();
         dcCore::app()->admin->page_name   = __('Antispam');
         dcCore::app()->admin->filter_gui  = false;
         dcCore::app()->admin->default_tab = null;
         dcCore::app()->admin->filter      = null;
-    }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
         try {
             // Show filter configuration GUI
             if (!empty($_GET['f'])) {
@@ -56,7 +70,7 @@ class adminAntispam
             if (!empty($_POST['delete_all'])) {
                 $ts = dt::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], dcCore::app()->blog->settings->system->blog_timezone);
 
-                dcAntispam::delAllSpam($ts);
+                Antispam::delAllSpam($ts);
 
                 dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
                 http::redirect(dcCore::app()->admin->getPageURL());
@@ -100,7 +114,7 @@ class adminAntispam
                     }
                 }
 
-                dcAntispam::$filters->saveFilterOpts($filters_opt);
+                Antispam::$filters->saveFilterOpts($filters_opt);
 
                 dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 http::redirect(dcCore::app()->admin->getPageURL());
@@ -108,13 +122,16 @@ class adminAntispam
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
+
+        return true;
     }
 
-    /**
-     * Renders the page.
-     */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         echo
         '<html>' .
         '<head>' .
@@ -132,7 +149,7 @@ class adminAntispam
         echo
         dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
         dcPage::jsModuleLoad('antispam/js/antispam.js') .
-        dcPage::cssModuleLoad('antispam/style.css') .
+        dcPage::cssModuleLoad('antispam/css/style.css') .
         '</head>' .
         '<body>';
 
@@ -164,8 +181,8 @@ class adminAntispam
             dcPage::notices();
 
             # Information
-            $spam_count      = dcAntispam::countSpam();
-            $published_count = dcAntispam::countPublishedComments();
+            $spam_count      = Antispam::countSpam();
+            $published_count = Antispam::countPublishedComments();
             $moderationTTL   = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
 
             echo
@@ -268,11 +285,11 @@ class adminAntispam
             if (DC_ADMIN_URL) {
                 $ham_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
                     'hamfeed',
-                    dcAntispam::getUserCode()
+                    Antispam::getUserCode()
                 );
                 $spam_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
                     'spamfeed',
-                    dcAntispam::getUserCode()
+                    Antispam::getUserCode()
                 );
 
                 echo
@@ -291,7 +308,3 @@ class adminAntispam
         '</html>';
     }
 }
-
-adminAntispam::init();
-adminAntispam::process();
-adminAntispam::render();

@@ -8,8 +8,29 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcFilterWords extends dcSpamFilter
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam\Filters;
+
+use dcCore;
+use dcPage;
+use dcRecord;
+use Dotclear\Plugin\antispam\Antispam;
+use Dotclear\Plugin\antispam\SpamFilter;
+use Exception;
+use form;
+use html;
+use http;
+
+class Words extends SpamFilter
 {
+    /**
+     * Filter id
+     *
+     * @var        string
+     */
+    public $id = 'dcFilterWords';
+
     /**
      * Filter name
      *
@@ -42,7 +63,7 @@ class dcFilterWords extends dcSpamFilter
     public function __construct()
     {
         parent::__construct();
-        $this->table = dcCore::app()->prefix . dcAntispam::SPAMRULE_TABLE_NAME;
+        $this->table = dcCore::app()->prefix . Antispam::SPAMRULE_TABLE_NAME;
     }
 
     /**

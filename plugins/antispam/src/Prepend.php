@@ -8,46 +8,51 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_RC_PATH')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam;
+
+use Autoloader;
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = true;
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        (new Autoloader(__NAMESPACE__ ))->addNamespace('Filters', __DIR__ . DIRECTORY_SEPARATOR . 'Filters');
+
+        dcCore::app()->spamfilters = [
+            __NAMESPACE__ . '\Filters\Ip',
+            __NAMESPACE__ . '\Filters\IpLookup',
+            __NAMESPACE__ . '\Filters\Words',
+            __NAMESPACE__ . '\Filters\LinksLookup',
+        ];
+
+        // IP v6 filter depends on some math libraries, so enable it only if one of them is available
+        if (function_exists('gmp_init') || function_exists('bcadd')) {
+            dcCore::app()->spamfilters[] = __NAMESPACE__ . '\Filters\IpV6';
+        }
+
+        dcCore::app()->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', [FrontendUrl::class, 'spamFeed']);
+        dcCore::app()->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', [FrontendUrl::class, 'hamFeed']);
+
+        if (defined('DC_CONTEXT_ADMIN')) {
+            // Register REST methods
+            dcCore::app()->rest->addFunction('getSpamsCount', [Rest::class, 'getSpamsCount']);
+        }
+
+        return true;
+    }
 }
-
-Clearbricks::lib()->autoload([
-    'dcSpamFilter'        => __DIR__ . '/inc/spamfilter.php',
-    'dcSpamFilters'       => __DIR__ . '/inc/spamfilters.php',
-    'dcAntispam'          => __DIR__ . '/inc/antispam.php',
-    'dcAntispamURL'       => __DIR__ . '/inc/public.url.php',
-    'antispamBehaviors'   => __DIR__ . '/inc/admin.behaviors.php',
-    'dcFilterIP'          => __DIR__ . '/filters/filter.ip.php',
-    'dcFilterIPv6'        => __DIR__ . '/filters/filter.ipv6.php',
-    'dcFilterIpLookup'    => __DIR__ . '/filters/filter.iplookup.php',
-    'dcFilterLinksLookup' => __DIR__ . '/filters/filter.linkslookup.php',
-    'dcFilterWords'       => __DIR__ . '/filters/filter.words.php',
-    'dcAntispamRest'      => __DIR__ . '/_services.php',
-]);
-
-dcCore::app()->spamfilters = [
-    'dcFilterIP',
-    'dcFilterIpLookup',
-    'dcFilterWords',
-    'dcFilterLinksLookup',
-];
-
-// IP v6 filter depends on some math libraries, so enable it only if one of them is available
-if (function_exists('gmp_init') || function_exists('bcadd')) {
-    dcCore::app()->spamfilters[] = 'dcFilterIPv6';
-}
-
-dcCore::app()->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', [dcAntispamURL::class, 'spamFeed']);
-dcCore::app()->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', [dcAntispamURL::class, 'hamFeed']);
-
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return false;
-}
-
-// Admin mode
-
-Clearbricks::lib()->autoload(['dcAntispamRest' => __DIR__ . '/_services.php']);
-
-// Register REST methods
-dcCore::app()->rest->addFunction('getSpamsCount', [dcAntispamRest::class, 'getSpamsCount']);

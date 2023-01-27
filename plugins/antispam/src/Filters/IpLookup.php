@@ -8,8 +8,27 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcFilterIpLookup extends dcSpamFilter
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam\Filters;
+
+use dcCore;
+use dcPage;
+use Dotclear\Plugin\antispam\SpamFilter;
+use Exception;
+use form;
+use html;
+use http;
+
+class IpLookup extends SpamFilter
 {
+    /**
+     * Filter id
+     *
+     * @var        string
+     */
+    public $id = 'dcFilterIpLookup';
+
     /**
      * Filter name
      *

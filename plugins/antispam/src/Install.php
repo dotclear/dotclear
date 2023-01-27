@@ -8,58 +8,65 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class installAntispam
+namespace Dotclear\Plugin\antispam;
+
+use dbStruct;
+use dcCore;
+use dcNsProcess;
+use initAntispam;
+use html;
+use path;
+
+class Install extends dcNsProcess
 {
-    /**
-     * Installs the plugin.
-     *
-     * @return     mixed
-     */
-    public static function install()
+    private static $module;
+
+    public static function init(): bool
     {
-        $version = dcCore::app()->plugins->moduleInfo('antispam', 'version');
-        if (version_compare((string) dcCore::app()->getVersion('antispam'), $version, '>=')) {
-            return;
+        self::$module = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$init   = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion(self::$module, dcCore::app()->plugins->moduleInfo(self::$module, 'version'));
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
         /* Database schema
         -------------------------------------------------------- */
         $schema = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 
-        $schema->spamrule
+        $schema->{initAntispam::SPAMRULE_TABLE_NAME}
             ->rule_id('bigint', 0, false)
             ->blog_id('varchar', 32, true)
             ->rule_type('varchar', 16, false, "'word'")
             ->rule_content('varchar', 128, false)
 
             ->primary('pk_spamrule', 'rule_id')
+        
+            ->index('idx_spamrule_blog_id', 'btree', 'blog_id')
+            ->reference('fk_spamrule_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;
 
-        $schema->spamrule->index('idx_spamrule_blog_id', 'btree', 'blog_id');
-        $schema->spamrule->reference('fk_spamrule_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
-
         if ($schema->driver() === 'pgsql') {
-            $schema->spamrule->index('idx_spamrule_blog_id_null', 'btree', '(blog_id IS NULL)');
+            $schema->{initAntispam::SPAMRULE_TABLE_NAME}->index('idx_spamrule_blog_id_null', 'btree', '(blog_id IS NULL)');
         }
 
         // Schema installation
         (new dbStruct(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
 
         // Creating default wordslist
-        if (dcCore::app()->getVersion('antispam') === null) {
-            (new dcFilterWords())->defaultWordsList();
+        if (dcCore::app()->getVersion(self::$module) === null) {
+            (new Filters\Words())->defaultWordsList();
         }
 
-        dcCore::app()->blog->settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
-
-        dcCore::app()->setVersion('antispam', $version);
+        dcCore::app()->blog->settings->get('antispam')->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
 
         return true;
     }
 }
-
-return installAntispam::install();
