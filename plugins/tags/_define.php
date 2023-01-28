@@ -12,7 +12,7 @@ $this->registerModule(
     'Tags',            // Name
     'Tags for posts',  // Description
     'Olivier Meunier', // Author
-    '1.6',             // Version
+    '2.0',             // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,

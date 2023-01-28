@@ -1168,6 +1168,7 @@ class dcUpgrade
             self::houseCleaning(
                 // Files
                 [
+                    'plugins/akismet/_prepend.php',
                     'plugins/antispam/_admin.php',
                     'plugins/antispam/_install.php',
                     'plugins/antispam/_prepend.php',
@@ -1201,9 +1202,12 @@ class dcUpgrade
                     'plugins/dcLegacyEditor/_prepend.php',
                     'plugins/dcLegacyEditor/_services.php',
                     'plugins/dcLegacyEditor/index.php',
+                    'plugins/fairTrackbacks/_prepend.php',
+                    'plugins/fairTrackbacks/_public.php',
                     'plugins/importExport/_admin.php',
                     'plugins/importExport/_prepend.php',
                     'plugins/importExport/index.php',
+                    'plugins/importExport/style.css',
                     'plugins/maintenance/_admin.php',
                     'plugins/maintenance/_prepend.php',
                     'plugins/maintenance/index.php',
@@ -1217,9 +1221,18 @@ class dcUpgrade
                     'plugins/simpleMenu/_public.php',
                     'plugins/simpleMenu/_widgets.php',
                     'plugins/simpleMenu/index.php',
+                    'plugins/tags/_admin.php',
+                    'plugins/tags/_prepend.php',
+                    'plugins/tags/_public.php',
+                    'plugins/tags/_widgets.php',
+                    'plugins/tags/index.php',
+                    'plugins/tags/style.php',
+                    'plugins/tags/tags_post.php',
+                    'plugins/tags/tags.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
+                    'plugins/themeEditor/style.css',
                     'plugins/userPref/_admin.php',
                     'plugins/userPref/index.php',
                     'plugins/widget/_admin.php',
@@ -1238,22 +1251,25 @@ class dcUpgrade
                 // Folders
                 [
                     'inc/libs',
-                    'plugins/antispam/filters',     // Replaced by src/Filters
-                    'plugins/antispam/inc',         // Replaced by src
-                    'plugins/aboutConfig/inc',      // Replaced by src
-                    'plugins/attachments/inc',      // Replaced by src
-                    'plugins/blogroll/inc',         // Replaced by src
-                    'plugins/breadcrumb/inc',       // Replaced by src
-                    'plugins/buildtools/inc',       // Replaced by src
-                    'plugins/dcCKEditor/inc',       // Replaced by src
-                    'plugins/dcLegacyEditor/inc',   // Replaced by src
-                    'plugins/importExport/inc',     // Replaced by src
-                    'plugins/maintenance/inc',      // Replaced by src
-                    'plugins/pings/inc',            // Replaced by src
-                    'plugins/simpleMenu/inc',       // Replaced by src
-                    'plugins/themeEditor/inc',      // Replaced by src
-                    'plugins/userPref/inc',         // Replaced by src
-                    'plugins/widgets/inc',          // Replaced by src
+                    'plugins/akismet/filters',          // Replaced by src
+                    'plugins/antispam/filters',         // Replaced by src/Filters
+                    'plugins/antispam/inc',             // Replaced by src
+                    'plugins/aboutConfig/inc',          // Replaced by src
+                    'plugins/attachments/inc',          // Replaced by src
+                    'plugins/blogroll/inc',             // Replaced by src
+                    'plugins/breadcrumb/inc',           // Replaced by src
+                    'plugins/buildtools/inc',           // Replaced by src
+                    'plugins/dcCKEditor/inc',           // Replaced by src
+                    'plugins/dcLegacyEditor/inc',       // Replaced by src
+                    'plugins/fairTrackbacks/filters',   // Replaced by src
+                    'plugins/importExport/inc',         // Replaced by src
+                    'plugins/maintenance/inc',          // Replaced by src
+                    'plugins/pings/inc',                // Replaced by src
+                    'plugins/simpleMenu/inc',           // Replaced by src
+                    'plugins/tags/inc',                 // Replaced by src
+                    'plugins/themeEditor/inc',          // Replaced by src
+                    'plugins/userPref/inc',             // Replaced by src
+                    'plugins/widgets/inc',              // Replaced by src
                 ]
             );
         }

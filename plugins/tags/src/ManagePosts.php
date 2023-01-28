@@ -8,19 +8,39 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminTag
+namespace Dotclear\Plugin\tags;
+
+use adminPostList;
+use dcAuth;
+use dcCore;
+use dcMeta;
+use dcNsProcess;
+use dcPage;
+use dcPostsActions;
+use Exception;
+use form;
+use html;
+use http;
+
+class ManagePosts extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     True if we should return
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts';
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
         dcCore::app()->admin->tag = $_REQUEST['tag'] ?? '';
 
         dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
@@ -52,17 +72,9 @@ class adminTag
         );
 
         if (dcCore::app()->admin->posts_actions_page->process()) {
-            return true;
+            return false;
         }
 
-        return false;
-    }
-
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
         if (isset($_POST['new_tag_id'])) {
             // Rename a tag
 
@@ -92,20 +104,26 @@ class adminTag
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         $this_url = dcCore::app()->admin->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(dcCore::app()->admin->tag);
 
         echo
         '<html>' .
         '<head>' .
         '<title>' . __('Tags') . '</title>' .
-        dcPage::cssModuleLoad('tags/style.css') .
+        dcPage::cssModuleLoad('tags/css/style.css') .
         dcPage::jsLoad('js/_posts_list.js') .
         dcPage::jsJson('posts_tags_msg', [
             'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML(dcCore::app()->admin->tag)),
@@ -181,9 +199,3 @@ class adminTag
         '</html>';
     }
 }
-
-if (adminTag::init()) {
-    return;
-}
-adminTag::process();
-adminTag::render();
