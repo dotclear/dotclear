@@ -18,7 +18,7 @@ use dcBlog;
 use dcCore;
 use dcPage;
 use dcDefaultPostActions;
-use html;
+use Exception;
 
 class BackendDefaultActions
 {
