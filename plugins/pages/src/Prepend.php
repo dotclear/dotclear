@@ -8,18 +8,35 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-Clearbricks::lib()->autoload([
-    'dcPagesActions'       => __DIR__ . '/inc/pages.actions.php',
-    'dcDefaultPageActions' => __DIR__ . '/inc/pages.actions.php',
-    'adminPagesList'       => __DIR__ . '/inc/admin.pages.list.php',
-    'pagesDashboard'       => __DIR__ . '/inc/admin.behaviors.php',
-    'urlPages'             => __DIR__ . '/inc/public.url.php',
-    'tplPages'             => __DIR__ . '/inc/public.tpl.php',
-    'publicPages'          => __DIR__ . '/inc/public.behaviors.php',
-    'pagesWidgets'         => __DIR__ . '/inc/widgets.php',
-]);
+declare(strict_types=1);
 
-dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', [urlPages::class, 'pages']);
-dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', [urlPages::class, 'pagespreview']);
+namespace Dotclear\Plugin\pages;
 
-dcCore::app()->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', dcCore::app()->url->getURLFor('pages', '%s'), 'Pages');
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', [FrontendUrl::class, 'pages']);
+        dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', [FrontendUrl::class, 'pagespreview']);
+
+        dcCore::app()->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', dcCore::app()->url->getURLFor('pages', '%s'), 'Pages');
+
+        return true;
+    }
+}

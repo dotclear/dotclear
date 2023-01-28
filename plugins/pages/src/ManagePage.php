@@ -8,20 +8,45 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminPage
+namespace Dotclear\Plugin\pages;
+
+use ArrayObject;
+use dcAdminCombos;
+use dcAuth;
+use dcBlog;
+use dcCore;
+use dcMedia;
+use dcNsProcess;
+use dcPage;
+use dt;
+use Exception;
+use form;
+use html;
+use http;
+use initPages;
+
+class ManagePage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = ($_REQUEST['act'] ?? 'list') === 'page';
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
         $params = [];
         dcPage::check(dcCore::app()->auth->makePermissions([
-            dcPages::PERMISSION_PAGES,
+            initPages::PERMISSION_PAGES,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
@@ -54,11 +79,11 @@ class adminPage
 
         dcCore::app()->admin->can_view_page = true;
         dcCore::app()->admin->can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcPages::PERMISSION_PAGES,
+            initPages::PERMISSION_PAGES,
             dcAuth::PERMISSION_USAGE,
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcPages::PERMISSION_PAGES,
+            initPages::PERMISSION_PAGES,
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id);
@@ -110,7 +135,7 @@ class adminPage
                 dcCore::app()->error->add(__('This page does not exist.'));
                 dcCore::app()->admin->can_view_page = false;
             } else {
-                dcCore::app()->admin->post_id            = dcCore::app()->admin->post->post_id;
+                dcCore::app()->admin->post_id            = (int) dcCore::app()->admin->post->post_id;
                 dcCore::app()->admin->post_dt            = date('Y-m-d H:i', strtotime(dcCore::app()->admin->post->post_dt));
                 dcCore::app()->admin->post_format        = dcCore::app()->admin->post->post_format;
                 dcCore::app()->admin->post_password      = dcCore::app()->admin->post->post_password;
@@ -174,13 +199,7 @@ class adminPage
                 }
             }
         }
-    }
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
         if (!empty($_POST) && dcCore::app()->admin->can_edit_page) {
             // Format content
 
@@ -331,13 +350,19 @@ class adminPage
                 }
             }
         }
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
         dcCore::app()->admin->default_tab = 'edit-entry';
         if (!dcCore::app()->admin->can_edit_page) {
             dcCore::app()->admin->default_tab = '';
@@ -938,7 +963,3 @@ class adminPage
         '</table>';
     }
 }
-
-adminPage::init();
-adminPage::process();
-adminPage::render();
