@@ -8,10 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Plugin\tags;
+
+use ArrayObject;
+use dcCore;
+use dcTemplate;
+use dcRecord;
 use Dotclear\Plugin\widgets\WidgetsElement;
+use html;
 
-class tplTags
+class FrontendTemplate
 {
     /**
      * tpl:Tags [attributes] : Tags loop (tpl block)

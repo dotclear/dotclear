@@ -8,11 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\Plugin\widgets\Widgets;
+namespace Dotclear\Plugin\tags;
+
+use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 use Dotclear\Plugin\widgets\WidgetsStack;
 
-class tagsWidgets
+class Widgets
 {
     /**
      * Add the tags widget to the list of available widgets.
@@ -22,7 +25,7 @@ class tagsWidgets
     public static function initWidgets(WidgetsStack $widgets)
     {
         $widgets
-            ->create('tags', __('Tags'), ['tplTags', 'tagsWidget'], null, 'Tags cloud')
+            ->create('tags', __('Tags'), [FrontendTemplate::class, 'tagsWidget'], null, 'Tags cloud')
             ->addTitle(__('Menu'))
             ->setting('limit', __('Limit (empty means no limit):'), '20')
             ->setting(
@@ -62,6 +65,6 @@ class tagsWidgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[Widgets::WIDGETS_NAV]->append($widgets->tags);
+        $default_widgets[dcWidgets::WIDGETS_NAV]->append($widgets->tags);
     }
 }

@@ -8,7 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class publicBehaviorsTags
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\tags;
+
+use ArrayObject;
+use dcCore;
+use dcPublic;
+use path;
+
+class FrontendBehaviors
 {
     /**
      * Public init
@@ -63,7 +72,7 @@ class publicBehaviorsTags
     public static function addTplPath(): void
     {
         $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
-        $default_template = substr(__DIR__, 0, -strlen(basename(__DIR__))) . dcPublic::TPL_ROOT . DIRECTORY_SEPARATOR;
+        $default_template = path::real(dcCore::app()->plugins->moduleInfo('tags', 'root')) . DIRECTORY_SEPARATOR . dcPublic::TPL_ROOT . DIRECTORY_SEPARATOR;
 
         if (!empty($tplset) && is_dir($default_template . $tplset)) {
             dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), $default_template . $tplset);

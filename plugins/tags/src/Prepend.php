@@ -8,16 +8,36 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-Clearbricks::lib()->autoload([
-    'tagsBehaviors'       => __DIR__ . '/inc/admin.behaviors.php',
-    'publicBehaviorsTags' => __DIR__ . '/inc/public.behaviors.php',
-    'urlTags'             => __DIR__ . '/inc/public.url.php',
-    'tplTags'             => __DIR__ . '/inc/public.tpl.php',
-    'tagsWidgets'         => __DIR__ . '/inc/widgets.php',
-]);
+declare(strict_types=1);
 
-dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', [urlTags::class, 'tag']);
-dcCore::app()->url->register('tags', 'tags', '^tags$', [urlTags::class, 'tags']);
-dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', [urlTags::class, 'tagFeed']);
+namespace Dotclear\Plugin\tags;
 
-dcCore::app()->addBehavior('coreInitWikiPost', [tagsBehaviors::class, 'coreInitWikiPost']);
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', [FrontendUrl::class, 'tag']);
+        dcCore::app()->url->register('tags', 'tags', '^tags$', [FrontendUrl::class, 'tags']);
+        dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', [FrontendUrl::class, 'tagFeed']);
+
+        dcCore::app()->addBehavior('coreInitWikiPost', [BackendBehaviors::class, 'coreInitWikiPost']);
+
+        return true;
+    }
+}

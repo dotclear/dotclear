@@ -8,44 +8,71 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\tags;
+
+use dcAdmin;
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+
+class Backend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
+            __('Tags'),
+            dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
+            [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
+            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.tags')) . '&m=tag(s|_posts)?(&.*)?$/', $_SERVER['REQUEST_URI']),
+            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_USAGE,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]), dcCore::app()->blog->id)
+        );
+
+        dcCore::app()->addBehaviors([
+            'adminPostFormItems'           => [BackendBehaviors::class, 'tagsField'],
+
+            'adminAfterPostCreate'         => [BackendBehaviors::class, 'setTags'],
+            'adminAfterPostUpdate'         => [BackendBehaviors::class, 'setTags'],
+
+            'adminPostHeaders'             => [BackendBehaviors::class, 'postHeaders'],
+
+            'adminPostsActions'            => [BackendBehaviors::class, 'adminPostsActions'],
+
+            'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminUserForm'],
+            'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'setTagListFormat'],
+
+            'adminUserForm'                => [BackendBehaviors::class, 'adminUserForm'],
+            'adminBeforeUserCreate'        => [BackendBehaviors::class, 'setTagListFormat'],
+            'adminBeforeUserUpdate'        => [BackendBehaviors::class, 'setTagListFormat'],
+
+            'adminDashboardFavoritesV2'    => [BackendBehaviors::class, 'dashboardFavorites'],
+
+            'adminPageHelpBlock'           => [BackendBehaviors::class, 'adminPageHelpBlock'],
+
+            'adminPostEditor'              => [BackendBehaviors::class, 'adminPostEditor'],
+            'ckeditorExtraPlugins'         => [BackendBehaviors::class, 'ckeditorExtraPlugins'],
+
+            'initWidgets'                  => [Widgets::class, 'initWidgets'],
+        ]);
+
+        return true;
+    }
 }
-
-dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-    __('Tags'),
-    dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
-    [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
-    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.tags')) . '&m=tag(s|_posts)?(&.*)?$/', $_SERVER['REQUEST_URI']),
-    dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-        dcAuth::PERMISSION_USAGE,
-        dcAuth::PERMISSION_CONTENT_ADMIN,
-    ]), dcCore::app()->blog->id)
-);
-
-require __DIR__ . '/_widgets.php';
-
-dcCore::app()->addBehaviors([
-    'adminPostFormItems'           => [tagsBehaviors::class, 'tagsField'],
-
-    'adminAfterPostCreate'         => [tagsBehaviors::class, 'setTags'],
-    'adminAfterPostUpdate'         => [tagsBehaviors::class, 'setTags'],
-
-    'adminPostHeaders'             => [tagsBehaviors::class, 'postHeaders'],
-
-    'adminPostsActions'            => [tagsBehaviors::class, 'adminPostsActions'],
-
-    'adminPreferencesFormV2'       => [tagsBehaviors::class, 'adminUserForm'],
-    'adminBeforeUserOptionsUpdate' => [tagsBehaviors::class, 'setTagListFormat'],
-
-    'adminUserForm'                => [tagsBehaviors::class, 'adminUserForm'],
-    'adminBeforeUserCreate'        => [tagsBehaviors::class, 'setTagListFormat'],
-    'adminBeforeUserUpdate'        => [tagsBehaviors::class, 'setTagListFormat'],
-
-    'adminDashboardFavoritesV2'    => [tagsBehaviors::class, 'dashboardFavorites'],
-
-    'adminPageHelpBlock'           => [tagsBehaviors::class, 'adminPageHelpBlock'],
-
-    'adminPostEditor'              => [tagsBehaviors::class, 'adminPostEditor'],
-    'ckeditorExtraPlugins'         => [tagsBehaviors::class, 'ckeditorExtraPlugins'],
-]);

@@ -8,34 +8,62 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-dcCore::app()->tpl->addBlock('Tags', [tplTags::class, 'Tags']);
-dcCore::app()->tpl->addBlock('TagsHeader', [tplTags::class, 'TagsHeader']);
-dcCore::app()->tpl->addBlock('TagsFooter', [tplTags::class, 'TagsFooter']);
-dcCore::app()->tpl->addBlock('EntryTags', [tplTags::class, 'EntryTags']);
-dcCore::app()->tpl->addBlock('TagIf', [tplTags::class, 'TagIf']);
-dcCore::app()->tpl->addValue('TagID', [tplTags::class, 'TagID']);
-dcCore::app()->tpl->addValue('TagCount', [tplTags::class, 'TagCount']);
-dcCore::app()->tpl->addValue('TagPercent', [tplTags::class, 'TagPercent']);
-dcCore::app()->tpl->addValue('TagRoundPercent', [tplTags::class, 'TagRoundPercent']);
-dcCore::app()->tpl->addValue('TagURL', [tplTags::class, 'TagURL']);
-dcCore::app()->tpl->addValue('TagCloudURL', [tplTags::class, 'TagCloudURL']);
-dcCore::app()->tpl->addValue('TagFeedURL', [tplTags::class, 'TagFeedURL']);
+declare(strict_types=1);
 
-# Kept for backward compatibility (for now)
-dcCore::app()->tpl->addBlock('MetaData', [tplTags::class, 'Tags']);
-dcCore::app()->tpl->addBlock('MetaDataHeader', [tplTags::class, 'TagsHeader']);
-dcCore::app()->tpl->addBlock('MetaDataFooter', [tplTags::class, 'TagsFooter']);
-dcCore::app()->tpl->addValue('MetaID', [tplTags::class, 'TagID']);
-dcCore::app()->tpl->addValue('MetaPercent', [tplTags::class, 'TagPercent']);
-dcCore::app()->tpl->addValue('MetaRoundPercent', [tplTags::class, 'TagRoundPercent']);
-dcCore::app()->tpl->addValue('MetaURL', [tplTags::class, 'TagURL']);
-dcCore::app()->tpl->addValue('MetaAllURL', [tplTags::class, 'TagCloudURL']);
-dcCore::app()->tpl->addBlock('EntryMetaData', [tplTags::class, 'EntryTags']);
+namespace Dotclear\Plugin\tags;
 
-dcCore::app()->addBehaviors([
-    'publicPrependV2'        => [publicBehaviorsTags::class, 'publicPrepend'],
-    'templateBeforeBlockV2'  => [publicBehaviorsTags::class, 'templateBeforeBlock'],
-    'publicBeforeDocumentV2' => [publicBehaviorsTags::class, 'addTplPath'],
-]);
+use dcCore;
+use dcNsProcess;
 
-require __DIR__ . '/_widgets.php';
+class Frontend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = defined('DC_RC_PATH');
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->tpl->addBlock('Tags', [FrontendTemplate::class, 'Tags']);
+        dcCore::app()->tpl->addBlock('TagsHeader', [FrontendTemplate::class, 'TagsHeader']);
+        dcCore::app()->tpl->addBlock('TagsFooter', [FrontendTemplate::class, 'TagsFooter']);
+        dcCore::app()->tpl->addBlock('EntryTags', [FrontendTemplate::class, 'EntryTags']);
+        dcCore::app()->tpl->addBlock('TagIf', [FrontendTemplate::class, 'TagIf']);
+        dcCore::app()->tpl->addValue('TagID', [FrontendTemplate::class, 'TagID']);
+        dcCore::app()->tpl->addValue('TagCount', [FrontendTemplate::class, 'TagCount']);
+        dcCore::app()->tpl->addValue('TagPercent', [FrontendTemplate::class, 'TagPercent']);
+        dcCore::app()->tpl->addValue('TagRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
+        dcCore::app()->tpl->addValue('TagURL', [FrontendTemplate::class, 'TagURL']);
+        dcCore::app()->tpl->addValue('TagCloudURL', [FrontendTemplate::class, 'TagCloudURL']);
+        dcCore::app()->tpl->addValue('TagFeedURL', [FrontendTemplate::class, 'TagFeedURL']);
+
+        /*
+        # Kept for backward compatibility (for now)
+        dcCore::app()->tpl->addBlock('MetaData', [FrontendTemplate::class, 'Tags']);
+        dcCore::app()->tpl->addBlock('MetaDataHeader', [FrontendTemplate::class, 'TagsHeader']);
+        dcCore::app()->tpl->addBlock('MetaDataFooter', [FrontendTemplate::class, 'TagsFooter']);
+        dcCore::app()->tpl->addValue('MetaID', [FrontendTemplate::class, 'TagID']);
+        dcCore::app()->tpl->addValue('MetaPercent', [FrontendTemplate::class, 'TagPercent']);
+        dcCore::app()->tpl->addValue('MetaRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
+        dcCore::app()->tpl->addValue('MetaURL', [FrontendTemplate::class, 'TagURL']);
+        dcCore::app()->tpl->addValue('MetaAllURL', [FrontendTemplate::class, 'TagCloudURL']);
+        dcCore::app()->tpl->addBlock('EntryMetaData', [FrontendTemplate::class, 'EntryTags']);
+        */
+
+        dcCore::app()->addBehaviors([
+            'publicPrependV2'        => [FrontendBehaviors::class, 'publicPrepend'],
+            'templateBeforeBlockV2'  => [FrontendBehaviors::class, 'templateBeforeBlock'],
+            'publicBeforeDocumentV2' => [FrontendBehaviors::class, 'addTplPath'],
+
+            'initWidgets'            => [Widgets::class, 'initWidgets'],
+        ]);
+
+        return true;
+    }
+}
