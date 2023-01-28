@@ -10,12 +10,13 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\maintenance;
+namespace Dotclear\Plugin\maintenance\Task;
 
 use dbSchema;
 use dcCore;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 
-class MaintenanceTaskVacuum extends MaintenanceTask
+class Vacuum extends MaintenanceTask
 {
     protected $id = 'dcMaintenanceVacuum';
 

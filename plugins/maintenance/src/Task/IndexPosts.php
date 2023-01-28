@@ -10,11 +10,12 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\maintenance;
+namespace Dotclear\Plugin\maintenance\Task;
 
 use dcCore;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 
-class MaintenanceTaskIndexPosts extends MaintenanceTask
+class IndexPosts extends MaintenanceTask
 {
     protected $id = 'dcMaintenanceIndexposts';
 

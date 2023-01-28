@@ -10,12 +10,13 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\maintenance;
+namespace Dotclear\Plugin\maintenance\Task;
 
 use dcCore;
 use dcLog;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 
-class MaintenanceTaskLogs extends MaintenanceTask
+class Logs extends MaintenanceTask
 {
     protected $id = 'dcMaintenanceLogs';
 

@@ -10,11 +10,12 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\maintenance;
+namespace Dotclear\Plugin\maintenance\Task;
 
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 use path;
 
-class MaintenanceTaskCSP extends MaintenanceTask
+class CSP extends MaintenanceTask
 {
     protected $id = 'dcMaintenanceCSP';
 
