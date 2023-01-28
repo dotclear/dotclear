@@ -138,7 +138,7 @@ class Manage extends dcNsProcess
         '<title>' .
         (dcCore::app()->admin->filter_gui !== false ?
             sprintf(__('%s configuration'), dcCore::app()->admin->filter->name) . ' - ' :
-            '' . dcCore::app()->admin->page_name . '</title>') .
+            '' . dcCore::app()->admin->page_name) . '</title>' .
         dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
 
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
