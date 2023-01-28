@@ -8,7 +8,20 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class adminPagesList extends adminGenericListV2
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\pages;
+
+use adminGenericListV2;
+use ArrayObject;
+use dcBlog;
+use dcCore;
+use dcPager;
+use dt;
+use form;
+use html;
+
+class BackendList extends adminGenericListV2
 {
     /**
      * Display a list of pages
@@ -22,7 +35,7 @@ class adminPagesList extends adminGenericListV2
         if ($this->rs->isEmpty()) {
             echo '<p><strong>' . __('No page') . '</strong></p>';
         } else {
-            $pager   = new dcPager($page, $this->rs_count, $nb_per_page, 10);
+            $pager   = new dcPager($page, (int) $this->rs_count, $nb_per_page, 10);
             $entries = [];
             if (isset($_REQUEST['entries'])) {
                 foreach ($_REQUEST['entries'] as $v) {

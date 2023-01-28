@@ -8,106 +8,26 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcPagesActions extends dcPostsActions
-{
-    /**
-     * Constructs a new instance.
-     *
-     * @param      null|string  $uri            The uri
-     * @param      array        $redirect_args  The redirect arguments
-     */
-    public function __construct(?string $uri, array $redirect_args = [])
-    {
-        parent::__construct($uri, $redirect_args);
+declare(strict_types=1);
 
-        $this->redirect_fields = [];
-        $this->caller_title    = __('Pages');
-    }
+namespace Dotclear\Plugin\pages;
 
-    /**
-     * Display error page
-     *
-     * @param      Exception  $e      { parameter_description }
-     */
-    public function error(Exception $e)
-    {
-        dcCore::app()->error->add($e->getMessage());
-        $this->beginPage(
-            dcPage::breadcrumb(
-                [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
-                    __('Pages')                                 => $this->getRedirection(true),
-                    __('Pages actions')                         => '',
-                ]
-            )
-        );
-        $this->endPage();
-    }
+use ArrayObject;
+use dcAuth;
+use dcBlog;
+use dcCore;
+use dcPage;
+use dcDefaultPostActions;
+use html;
 
-    /**
-     * Begins a page.
-     *
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      string  $head        The head
-     */
-    public function beginPage(string $breadcrumb = '', string $head = ''): void
-    {
-        echo
-        '<html><head><title>' . __('Pages') . '</title>' .
-        dcPage::jsLoad('js/_posts_actions.js') .
-        $head .
-        '</script></head><body>' .
-        $breadcrumb .
-        '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
-    }
-
-    /**
-     * Ends a page.
-     */
-    public function endPage(): void
-    {
-        echo
-        '</body></html>';
-    }
-
-    /**
-     * Set pages actions
-     */
-    public function loadDefaults(): void
-    {
-        // We could have added a behavior here, but we want default action to be setup first
-        dcDefaultPageActions::adminPagesActionsPage($this);
-        dcCore::app()->callBehavior('adminPagesActions', $this);
-    }
-
-    /**
-     * Proceeds action handling, if any
-     *
-     * This method may issue an exit() if an action is being processed.
-     *  If it returns, no action has been performed
-     *
-     *  @return mixed
-     */
-    public function process()
-    {
-        // fake action for pages reordering
-        if (!empty($this->from['reorder'])) {
-            $this->from['action'] = 'reorder';
-        }
-        $this->from['post_type'] = 'page';
-
-        return parent::process();
-    }
-}
-
-class dcDefaultPageActions
+class BackendDefaultActions
 {
     /**
      * Set pages actions
      *
-     * @param      dcPagesActions  $ap     Admin actions instance
+     * @param      BackendActions  $ap     Admin actions instance
      */
-    public static function adminPagesActionsPage(dcPagesActions $ap): void
+    public static function adminPagesActionsPage(BackendActions $ap): void
     {
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
@@ -152,12 +72,12 @@ class dcDefaultPageActions
     /**
      * Does reorder pages.
      *
-     * @param      dcPagesActions  $ap  Admin actions instance
+     * @param      BackendActions  $ap  Admin actions instance
      * @param      ArrayObject     $post   The post
      *
      * @throws     Exception             If user permission not granted
      */
-    public static function doReorderPages(dcPagesActions $ap, ArrayObject $post): void
+    public static function doReorderPages(BackendActions $ap, ArrayObject $post): void
     {
         foreach ($post['order'] as $post_id => $value) {
             if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([

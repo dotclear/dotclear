@@ -8,11 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\Plugin\widgets\Widgets;
+namespace Dotclear\Plugin\pages;
+
+use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 use Dotclear\Plugin\widgets\WidgetsStack;
 
-class pagesWidgets
+class Widgets
 {
     /**
      * Initializes the pages widget.
@@ -22,7 +25,7 @@ class pagesWidgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create('pages', __('Pages'), ['tplPages', 'pagesWidget'], null, 'List of published pages')
+            ->create('pages', __('Pages'), [FrontendTemplate::class, 'pagesWidget'], null, 'List of published pages')
             ->addTitle(__('Pages'))
             ->setting(
                 'sortby',
@@ -59,6 +62,6 @@ class pagesWidgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[Widgets::WIDGETS_NAV]->append($widgets->pages);
+        $default_widgets[dcWidgets::WIDGETS_NAV]->append($widgets->pages);
     }
 }

@@ -1211,6 +1211,14 @@ class dcUpgrade
                     'plugins/maintenance/_admin.php',
                     'plugins/maintenance/_prepend.php',
                     'plugins/maintenance/index.php',
+                    'plugins/pages/_admin.php',
+                    'plugins/pages/_install.php',
+                    'plugins/pages/_prepend.php',
+                    'plugins/pages/_public.php',
+                    'plugins/pages/_widgets.php',
+                    'plugins/pages/index.php',
+                    'plugins/pages/list.php',
+                    'plugins/pages/page.php',
                     'plugins/pings/_admin.php',
                     'plugins/pings/_install.php',
                     'plugins/pings/_prepend.php',
@@ -1264,6 +1272,7 @@ class dcUpgrade
                     'plugins/fairTrackbacks/filters',   // Replaced by src
                     'plugins/importExport/inc',         // Replaced by src
                     'plugins/maintenance/inc',          // Replaced by src
+                    'plugins/pages/inc',                // Replaced by src
                     'plugins/pings/inc',                // Replaced by src
                     'plugins/simpleMenu/inc',           // Replaced by src
                     'plugins/tags/inc',                 // Replaced by src

@@ -8,10 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Plugin\pages;
+
+use dcCore;
+use dcRecord;
 use Dotclear\Plugin\widgets\WidgetsElement;
+use html;
 
-class tplPages
+class FrontendTemplate
 {
     /**
      * Widget public rendering helper

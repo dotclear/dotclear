@@ -8,23 +8,45 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminPages
+namespace Dotclear\Plugin\pages;
+
+use adminUserPref;
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use Exception;
+use form;
+use html;
+use initPages;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     True if we should return
-     */
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcPages::PERMISSION_PAGES,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]));
+        if (defined('DC_CONTEXT_ADMIN')) {
+            dcPage::check(dcCore::app()->auth->makePermissions([
+                initPages::PERMISSION_PAGES,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ]));
+
+            self::$init = ($_REQUEST['act'] ?? 'list') === 'page' ? ManagePage::init() : true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        if (($_REQUEST['act'] ?? 'list') === 'page') {
+            return ManagePage::process();
+        }
 
         $params = [
             'post_type' => 'page',
@@ -48,25 +70,35 @@ class adminPages
             $pages   = dcCore::app()->blog->getPosts($params);
             $counter = dcCore::app()->blog->getPosts($params, true);
 
-            dcCore::app()->admin->post_list = new adminPagesList($pages, $counter->f(0));
+            dcCore::app()->admin->post_list = new BackendList($pages, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
 
         // Actions combo box
-        dcCore::app()->admin->pages_actions_page = new dcPagesActions('plugin.php', ['p' => 'pages']);
+        dcCore::app()->admin->pages_actions_page = new BackendActions('plugin.php', ['p' => 'pages']);
         if (dcCore::app()->admin->pages_actions_page->process()) {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
+        if (($_REQUEST['act'] ?? 'list') === 'page') {
+            ManagePage::render();
+
+            return;
+        }
+
         echo
         '<html>' .
         '<head>' .
@@ -130,8 +162,3 @@ class adminPages
         '</html>';
     }
 }
-
-if (adminPages::init()) {
-    return;
-}
-adminPages::render();

@@ -12,11 +12,11 @@ $this->registerModule(
     'Pages',                             // Name
     'Serve entries as simple web pages', // Description
     'Olivier Meunier',                   // Author
-    '1.5',                               // Version
+    '2.0',                               // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
-            dcPages::PERMISSION_PAGES,
+            initPages::PERMISSION_PAGES,
         ]),
         'priority'    => 999,
         'type'        => 'plugin',

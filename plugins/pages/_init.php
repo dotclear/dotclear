@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcPages
+class initPages
 {
     // Constants
 
@@ -18,4 +18,15 @@ class dcPages
      * @var        string
      */
     public const PERMISSION_PAGES = 'pages';
+}
+
+// backward compatibility
+
+/**
+ * This class is an alias of initPages.
+ *
+ * @deprecated since 2.25
+ */
+class dcPages extends initPages
+{
 }
