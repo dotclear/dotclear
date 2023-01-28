@@ -8,17 +8,20 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcAntispam
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam;
+
+use cursor;
+use dcAuth;
+use dcBlog;
+use dcCore;
+use dcPage;
+use dcRecord;
+use initAntispam;
+
+class Antispam extends initAntispam
 {
-    // Constants
-
-    /**
-     * Spam rules table name
-     *
-     * @var        string
-     */
-    public const SPAMRULE_TABLE_NAME = 'spamrule';
-
     // Properties
 
     /**
@@ -37,7 +40,7 @@ class dcAntispam
             return;
         }
 
-        self::$filters = new dcSpamFilters();
+        self::$filters = new SpamFilters();
         self::$filters->init(dcCore::app()->spamfilters);
     }
 
@@ -139,7 +142,7 @@ class dcAntispam
      */
     public static function countSpam(): int
     {
-        return dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+        return (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
     }
 
     /**
@@ -149,7 +152,7 @@ class dcAntispam
      */
     public static function countPublishedComments(): int
     {
-        return dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
+        return (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
     }
 
     /**
@@ -272,7 +275,7 @@ class dcAntispam
                 dcCore::app()->blog->settings->antispam->put('antispam_date_last_purge', time(), null, null, true, false);
             }
             $date = date('Y-m-d H:i:s', time() - $moderationTTL * 86400);
-            dcAntispam::delAllSpam($date);
+            Antispam::delAllSpam($date);
         }
     }
 }

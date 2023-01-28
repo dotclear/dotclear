@@ -8,8 +8,24 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcSpamFilter
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam;
+
+use dcAuth;
+use dcCore;
+use dcRecord;
+use html;
+
+class SpamFilter
 {
+    /**
+     * Filter id
+     *
+     * @var string
+     */
+    public $id;
+
     /**
      * Filter name
      *
@@ -73,12 +89,17 @@ class dcSpamFilter
     {
         $this->setInfo();
 
+        if (!$this->id) {
+            $path = explode('\\', static::class);
+            $this->id = array_pop($path);
+        }
+
         if (!$this->name) {
-            $this->name = get_class($this);
+            $this->name = $this->id;
         }
 
         if (isset(dcCore::app()->adminurl)) {
-            $this->gui_url = dcCore::app()->adminurl->get('admin.plugin.antispam', ['f' => get_class($this)], '&');
+            $this->gui_url = dcCore::app()->adminurl->get('admin.plugin.antispam', ['f' => $this->id], '&');
         }
     }
 

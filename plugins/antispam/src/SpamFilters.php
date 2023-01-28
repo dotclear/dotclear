@@ -8,7 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcSpamFilters
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam;
+
+use cursor;
+use dcBlog;
+use dcCore;
+use dcRecord;
+use ReflectionClass;
+
+class SpamFilters
 {
     /**
      * Stack of antispam filters
@@ -34,14 +44,13 @@ class dcSpamFilters
                 continue;
             }
 
-            $parent_class = (new ReflectionClass($filter))->getParentClass();
-
-            if (!$parent_class || $parent_class->name !== dcSpamFilter::class) {
+            if (!is_subclass_of($filter, SpamFilter::class)) {
                 // An antispam filter must extend dcSpamFilter class
                 continue;
             }
 
-            $this->filters[$filter] = new $filter(dcCore::app());   // dcCore::app() arg will be removed in near future
+            $class = new $filter(dcCore::app());   // dcCore::app() arg will be removed in near future
+            $this->filters[$class->id] = $class;
         }
 
         $this->setFilterOpts();
@@ -80,7 +89,7 @@ class dcSpamFilters
             $site    = $cur->comment_site;
             $ip      = $cur->comment_ip;
             $content = $cur->comment_content;
-            $post_id = $cur->post_id;
+            $post_id = (int) $cur->post_id;
             $status  = '';
 
             $is_spam = $f->isSpam($type, $author, $email, $site, $ip, $content, $post_id, $status);
@@ -145,7 +154,7 @@ class dcSpamFilters
         }
         $status = $rs->exists('comment_spam_status') ? $rs->comment_spam_status : null;
 
-        return $filter->getStatusMessage($status, $rs->comment_id);
+        return $filter->getStatusMessage($status, (int) $rs->comment_id);
     }
 
     /**

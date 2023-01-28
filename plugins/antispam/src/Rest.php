@@ -8,11 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam;
+
+use xmlTag;
+
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-class dcAntispamRest
+class Rest
 {
     /**
      * Gets the spams count.
@@ -21,7 +27,7 @@ class dcAntispamRest
      */
     public static function getSpamsCount(): xmlTag
     {
-        $count = dcAntispam::countSpam();
+        $count = Antispam::countSpam();
         if ($count > 0) {
             $str = sprintf(($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)'), $count);
         } else {

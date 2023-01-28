@@ -8,14 +8,35 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcFilterIPv6 extends dcSpamFilter
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam\Filters;
+
+use dcCore;
+use dcPage;
+use dcRecord;
+use Dotclear\Plugin\antispam\Antispam;
+use Dotclear\Plugin\antispam\SpamFilter;
+use Exception;
+use form;
+use html;
+use http;
+
+class Ip extends SpamFilter
 {
+    /**
+     * Filter id
+     *
+     * @var        string
+     */
+    public $id = 'dcFilterIP';
+
     /**
      * Filter name
      *
      * @var        string
      */
-    public $name = 'IP Filter v6';
+    public $name = 'IP Filter';
 
     /**
      * Filter has GUI
@@ -29,7 +50,7 @@ class dcFilterIPv6 extends dcSpamFilter
      *
      * @var        string
      */
-    public $help = 'ip-filter-v6';
+    public $help = 'ip-filter';
 
     /**
      * Table name
@@ -42,7 +63,7 @@ class dcFilterIPv6 extends dcSpamFilter
     public function __construct()
     {
         parent::__construct();
-        $this->table = dcCore::app()->prefix . dcAntispam::SPAMRULE_TABLE_NAME;
+        $this->table = dcCore::app()->prefix . Antispam::SPAMRULE_TABLE_NAME;
     }
 
     /**
@@ -50,16 +71,16 @@ class dcFilterIPv6 extends dcSpamFilter
      */
     protected function setInfo()
     {
-        $this->description = __('IP v6 Blocklist / Allowlist Filter');
+        $this->description = __('IP Blocklist / Allowlist Filter');
     }
 
     /**
      * Gets the status message.
      *
-     * @param      string  $status      The status
-     * @param      int     $comment_id  The comment identifier
+     * @param      string    $status      The status
+     * @param      int       $comment_id  The comment identifier
      *
-     * @return     string  The status message.
+     * @return     string    The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id): string
     {
@@ -89,12 +110,12 @@ class dcFilterIPv6 extends dcSpamFilter
         }
 
         # White list check
-        if ($this->checkIP($ip, 'whitev6') !== false) {
+        if ($this->checkIP($ip, 'white') !== false) {
             return false;
         }
 
         # Black list check
-        if (($s = $this->checkIP($ip, 'blackv6')) !== false) {
+        if (($s = $this->checkIP($ip, 'black')) !== false) {
             $status = $s;
 
             return true;
@@ -111,9 +132,9 @@ class dcFilterIPv6 extends dcSpamFilter
     public function gui(string $url): string
     {
         # Set current type and tab
-        $ip_type = 'blackv6';
-        if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'whitev6') {
-            $ip_type = 'whitev6';
+        $ip_type = 'black';
+        if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'white') {
+            $ip_type = 'white';
         }
         dcCore::app()->admin->default_tab = 'tab_' . $ip_type;
 
@@ -143,8 +164,9 @@ class dcFilterIPv6 extends dcSpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        return $this->displayForms($url, 'blackv6', __('Blocklist')) .
-        $this->displayForms($url, 'whitev6', __('Allowlist'));
+        return
+        $this->displayForms($url, 'black', __('Blocklist')) .
+        $this->displayForms($url, 'white', __('Allowlist'));
     }
 
     /**
@@ -188,7 +210,8 @@ class dcFilterIPv6 extends dcSpamFilter
             $res_global = '';
             $res_local  = '';
             while ($rs->fetch()) {
-                $pattern = $rs->rule_content;
+                $bits    = explode(':', $rs->rule_content);
+                $pattern = $bits[0];
 
                 $disabled_ip = false;
                 $p_style     = '';
@@ -238,6 +261,45 @@ class dcFilterIPv6 extends dcSpamFilter
     }
 
     /**
+     * Extract IP and mask from rule pattern
+     *
+     * @param      string     $pattern  The pattern
+     * @param      mixed      $ip       The IP
+     * @param      mixed      $mask     The mask
+     *
+     * @throws     Exception
+     */
+    private function ipmask(string $pattern, &$ip, &$mask)
+    {
+        $bits = explode('/', $pattern);
+
+        # Set IP
+        $bits[0] .= str_repeat('.0', 3 - substr_count($bits[0], '.'));
+
+        if (!filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            throw new Exception('Invalid IPv4 address');
+        }
+
+        $ip = ip2long($bits[0]);
+
+        if (!$ip || $ip == -1) {
+            throw new Exception('Invalid IP address');
+        }
+
+        # Set mask
+        if (!isset($bits[1])) {
+            $mask = -1;
+        } elseif (strpos($bits[1], '.')) {
+            $mask = ip2long($bits[1]);
+            if (!$mask) {
+                $mask = -1;
+            }
+        } else {
+            $mask = ~((1 << (32 - min((int) $bits[1], 32))) - 1);
+        }
+    }
+
+    /**
      * Adds an IP rule.
      *
      * @param      string  $type     The type
@@ -246,9 +308,11 @@ class dcFilterIPv6 extends dcSpamFilter
      */
     public function addIP(string $type, string $pattern, bool $global): void
     {
-        $pattern = $this->compact($pattern);
+        $this->ipmask($pattern, $ip, $mask);
+        $pattern = long2ip($ip) . ($mask != -1 ? '/' . long2ip($mask) : '');
+        $content = $pattern . ':' . $ip . ':' . $mask;
 
-        $old = $this->getRuleCIDR($type, $global, $pattern);
+        $old = $this->getRuleCIDR($type, $global, $ip, $mask);
         $cur = dcCore::app()->con->openCursor($this->table);
 
         if ($old->isEmpty()) {
@@ -256,7 +320,7 @@ class dcFilterIPv6 extends dcSpamFilter
 
             $cur->rule_id      = $id;
             $cur->rule_type    = (string) $type;
-            $cur->rule_content = (string) $pattern;
+            $cur->rule_content = (string) $content;
 
             if ($global && dcCore::app()->auth->isSuperAdmin()) {
                 $cur->blog_id = null;
@@ -267,7 +331,7 @@ class dcFilterIPv6 extends dcSpamFilter
             $cur->insert();
         } else {
             $cur->rule_type    = (string) $type;
-            $cur->rule_content = (string) $pattern;
+            $cur->rule_content = (string) $content;
             $cur->update('WHERE rule_id = ' . (int) $old->rule_id);
         }
     }
@@ -285,7 +349,7 @@ class dcFilterIPv6 extends dcSpamFilter
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . dcCore::app()->con->escape($type) . "' " .
         "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
-            'ORDER BY blog_id ASC, rule_content ASC ';
+        'ORDER BY blog_id ASC, rule_content ASC ';
 
         return new dcRecord(dcCore::app()->con->select($strReq));
     }
@@ -295,19 +359,16 @@ class dcFilterIPv6 extends dcSpamFilter
      *
      * @param      string  $type    The type
      * @param      bool    $global  The global
-     * @param      string  $pattern The pattern
+     * @param      mixed   $ip      The IP
+     * @param      mixed   $mask    The mask
      *
      * @return     dcRecord  The rules.
      */
-    private function getRuleCIDR(string $type, bool $global, string $pattern): dcRecord
+    private function getRuleCIDR(string $type, bool $global, $ip, $mask): dcRecord
     {
-        // Search if we already have a rule for the given IP (ignoring mask in pattern if any)
-        $this->ipmask($pattern, $ip, $mask);
-        $ip = $this->long2ip_v6($ip);
-
         $strReq = 'SELECT * FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . dcCore::app()->con->escape($type) . "' " .
-        "AND rule_content LIKE '" . $ip . "%' " .
+        "AND rule_content LIKE '%:" . (int) $ip . ':' . (int) $mask . "' " .
         'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . dcCore::app()->blog->id . "' ");
 
         return new dcRecord(dcCore::app()->con->select($strReq));
@@ -327,12 +388,12 @@ class dcFilterIPv6 extends dcSpamFilter
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . dcCore::app()->con->escape($type) . "' " .
         "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
-            'ORDER BY rule_content ASC ';
+        'ORDER BY rule_content ASC ';
 
         $rs = new dcRecord(dcCore::app()->con->select($strReq));
         while ($rs->fetch()) {
-            $pattern = $rs->rule_content;
-            if ($this->inrange($cip, $pattern)) {
+            [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
+            if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
                 return $pattern;
             }
         }
@@ -364,187 +425,5 @@ class dcFilterIPv6 extends dcSpamFilter
         }
 
         dcCore::app()->con->execute($strReq);
-    }
-
-    /**
-     * Compact IPv6 pattern
-     *
-     * @param      string  $pattern  The pattern
-     *
-     * @return     string  ( description_of_the_return_value )
-     */
-    private function compact(string $pattern): string
-    {
-        // Compact the IP(s) in pattern
-        $this->ipmask($pattern, $ip, $mask);
-        $bits = explode('/', $pattern);
-        $ip   = $this->long2ip_v6($ip);
-
-        if (!isset($bits[1])) {
-            // Only IP address
-            return $ip;
-        } elseif (strpos($bits[1], ':')) {
-            // End IP address
-            return $ip . '/' . $mask;
-        } elseif ($mask === '1') {
-            // Ignore mask
-            return $ip;
-        }
-        // IP and mask
-        return $ip . '/' . $bits[1];
-    }
-
-    /**
-     * Check if an IP is inside the range given by the pattern
-     *
-     * @param      string  $ip       The IP
-     * @param      string  $pattern  The pattern
-     *
-     * @return     bool    ( description_of_the_return_value )
-     */
-    private function inrange(string $ip, string $pattern): bool
-    {
-        $this->ipmask($pattern, $ipmin, $mask);
-        $value = $this->ip2long_v6($ip);
-
-        $ipmax = '';
-        if (strpos($mask, ':')) {
-            // the mask is the last address of range
-            $ipmax = $this->ip2long_v6($mask);
-            if (function_exists('gmp_init')) {
-                $ipmax = gmp_init($ipmax, 10);
-            }
-        } else {
-            // the mask is the number of addresses in range
-            if (function_exists('gmp_init')) {
-                $ipmax = gmp_add(gmp_init($ipmin, 10), gmp_sub(gmp_init($mask, 10), gmp_init(1)));
-            } elseif (function_exists('bcadd')) {
-                $ipmax = bcadd($ipmin, bcsub($mask, '1'));
-            } else {
-                trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
-            }
-        }
-
-        $min = $max = 0;
-        if (function_exists('gmp_init')) {
-            $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
-            $max = gmp_cmp(gmp_init($value, 10), $ipmax);
-        } elseif (function_exists('bcadd')) {
-            $min = bccomp($value, $ipmin);
-            $max = bccomp($value, $ipmax);
-        } else {
-            trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
-        }
-
-        return (($min >= 0) && ($max <= 0));
-    }
-
-    /**
-     * Extract IP and mask from rule pattern
-     *
-     * @param      string     $pattern  The pattern
-     * @param      mixed      $ip       The IP
-     * @param      mixed      $mask     The mask
-     *
-     * @throws     Exception
-     */
-    private function ipmask(string $pattern, &$ip, &$mask)
-    {
-        // Analyse pattern returning IP and mask if any
-        // returned mask = IP address or number of addresses in range
-        $bits = explode('/', $pattern);
-
-        if (!filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-            throw new Exception('Invalid IPv6 address');
-        }
-
-        $ip = $this->ip2long_v6($bits[0]);
-
-        if (!$ip || $ip == -1) {
-            throw new Exception('Invalid IP address');
-        }
-
-        # Set mask
-        if (!isset($bits[1])) {
-            $mask = '1';
-        } elseif (strpos($bits[1], ':')) {
-            $mask = $this->ip2long_v6($bits[1]);
-            if (!$mask) {
-                $mask = '1';
-            } else {
-                $mask = $this->long2ip_v6($mask);
-            }
-        } else {
-            if (function_exists('gmp_init')) {
-                $mask = gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((int) $bits[1], 128)));
-            } elseif (function_exists('bcadd')) {
-                $mask = bcmul('1', bcpow('2', (string) (128 - min((int) $bits[1], 128))));
-            } else {
-                trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
-            }
-        }
-    }
-
-    /**
-     * Convert IP v6 to long integer
-     *
-     * @param      string  $ip     The IP
-     *
-     * @return     string
-     */
-    private function ip2long_v6(string $ip): string
-    {
-        $ip_n = inet_pton($ip);
-        $bin  = '';
-        for ($bit = strlen($ip_n) - 1; $bit >= 0; $bit--) {
-            $bin = sprintf('%08b', ord($ip_n[$bit])) . $bin;
-        }
-
-        if (function_exists('gmp_init')) {
-            return gmp_strval(gmp_init($bin, 2), 10);
-        } elseif (function_exists('bcadd')) {
-            $dec = '0';
-            for ($i = 0; $i < strlen($bin); $i++) {
-                $dec = bcmul($dec, '2', 0);
-                $dec = bcadd($dec, $bin[$i], 0);
-            }
-
-            return $dec;
-        }
-        trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
-    }
-
-    /**
-     * Convert long integer to IP v6
-     *
-     * @param      string  $dec    The value
-     *
-     * @return     string
-     */
-    private function long2ip_v6($dec): string
-    {
-        $bin = '';
-        // Convert long integer to IP v6
-        if (function_exists('gmp_init')) {
-            $bin = gmp_strval(gmp_init($dec, 10), 2);
-        } elseif (function_exists('bcadd')) {
-            $bin = '';
-            do {
-                $bin = bcmod($dec, '2') . $bin;
-                $dec = bcdiv($dec, '2', 0);
-            } while (bccomp($dec, '0'));
-        } else {
-            trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
-        }
-
-        $bin = str_pad($bin, 128, '0', STR_PAD_LEFT);
-        $ip  = [];
-        for ($bit = 0; $bit <= 7; $bit++) {
-            $bin_part = substr($bin, $bit * 16, 16);
-            $ip[]     = dechex(bindec($bin_part));
-        }
-        $ip = implode(':', $ip);
-
-        return inet_ntop(inet_pton($ip));
     }
 }

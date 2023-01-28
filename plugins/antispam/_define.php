@@ -12,7 +12,7 @@ $this->registerModule(
     'Antispam',                             // Name
     'Generic antispam plugin for Dotclear', // Description
     'Alain Vagner',                         // Author
-    '1.4.1',                                // Version
+    '2.0',                                // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,

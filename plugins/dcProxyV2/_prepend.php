@@ -27,6 +27,12 @@ class dcProxyV2
 dcProxyV2::loadBehaviors('dcProxyV2CoreBehaviors', __DIR__ . '/inc/class.core.behaviors.php');  // Load core stuff
 dcProxyV2::loadBehaviors('dcProxyV2PublicBehaviors', __DIR__ . '/inc/class.public.behaviors.php');  // Load public stuff
 
+// Core proxy classes
+Clearbricks::lib()->autoload([
+    'dcAntispam'            => __DIR__ . '/inc/antispam.php',
+    'dcSpamFilter'          => __DIR__ . '/inc/antispam.php',
+]);
+
 if (!defined('DC_CONTEXT_ADMIN')) {
     return false;
 }

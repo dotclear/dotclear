@@ -8,7 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcAntispamURL extends dcUrlHandlers
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\antispam;
+
+use dcBlog;
+use dcCore;
+use dcUrlHandlers;
+use html;
+
+class FrontendUrl extends dcUrlHandlers
 {
     /**
      * Generate a ham feed
@@ -38,7 +47,7 @@ class dcAntispamURL extends dcUrlHandlers
      */
     private static function genFeed(string $type, string $args)
     {
-        $user_id = dcAntispam::checkUserCode($args);
+        $user_id = Antispam::checkUserCode($args);
 
         if ($user_id === false) {
             self::p404();
