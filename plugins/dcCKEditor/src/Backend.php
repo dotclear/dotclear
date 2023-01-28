@@ -53,7 +53,6 @@ class Backend extends dcNsProcess
                 'adminPopupMedia'        => [BackendBehaviors::class, 'adminPopupMedia'],
                 'adminPopupLink'         => [BackendBehaviors::class, 'adminPopupLink'],
                 'adminPopupPosts'        => [BackendBehaviors::class, 'adminPopupPosts'],
-                'adminMediaURL'          => [BackendBehaviors::class, 'adminMediaURL'],
                 'adminPageHTTPHeaderCSP' => [BackendBehaviors::class, 'adminPageHTTPHeaderCSP'],
             ]);
         }

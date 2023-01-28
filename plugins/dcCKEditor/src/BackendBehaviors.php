@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\dcCKEditor;
 use ArrayObject;
 use dcPage;
 use dcCore;
-use html;
 
 class BackendBehaviors
 {
@@ -127,18 +126,6 @@ class BackendBehaviors
         }
 
         return dcPage::jsLoad(self::$p_url . '/js/popup_posts.js');
-    }
-
-    /**
-     * Return the current editor
-     *
-     * @param      ArrayObject  $params      The parameters
-     */
-    public static function adminMediaURLParams(ArrayObject $params): void
-    {
-        if (!empty($_GET['editor'])) {
-            $params['editor'] = html::sanitizeURL($_GET['editor']);
-        }
     }
 
     /**
