@@ -15,13 +15,12 @@ namespace Dotclear\Plugin\simpleMenu;
 use dcCore;
 use dcNsProcess;
 use html;
-use path;
 
 class Install extends dcNsProcess
 {
     public static function init(): bool
     {
-        $module     = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        $module     = basename(dirname(__DIR__));
         self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
 
         return self::$init;
