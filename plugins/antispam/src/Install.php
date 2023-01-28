@@ -16,7 +16,6 @@ use dbStruct;
 use dcCore;
 use dcNsProcess;
 use initAntispam;
-use html;
 use path;
 
 class Install extends dcNsProcess
@@ -48,7 +47,7 @@ class Install extends dcNsProcess
             ->rule_content('varchar', 128, false)
 
             ->primary('pk_spamrule', 'rule_id')
-        
+
             ->index('idx_spamrule_blog_id', 'btree', 'blog_id')
             ->reference('fk_spamrule_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;

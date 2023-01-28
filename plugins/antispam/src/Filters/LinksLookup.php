@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam\Filters;
 
 use Dotclear\Plugin\antispam\SpamFilter;
-use http;
 
 class LinksLookup extends SpamFilter
 {

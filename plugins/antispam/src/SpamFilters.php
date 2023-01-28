@@ -16,7 +16,6 @@ use cursor;
 use dcBlog;
 use dcCore;
 use dcRecord;
-use ReflectionClass;
 
 class SpamFilters
 {
@@ -49,7 +48,7 @@ class SpamFilters
                 continue;
             }
 
-            $class = new $filter(dcCore::app());   // dcCore::app() arg will be removed in near future
+            $class                     = new $filter(dcCore::app());   // dcCore::app() arg will be removed in near future
             $this->filters[$class->id] = $class;
         }
 

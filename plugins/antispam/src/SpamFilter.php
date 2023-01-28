@@ -90,7 +90,7 @@ class SpamFilter
         $this->setInfo();
 
         if (!$this->id) {
-            $path = explode('\\', static::class);
+            $path     = explode('\\', static::class);
             $this->id = array_pop($path);
         }
 

@@ -27,7 +27,7 @@ class Antispam extends initAntispam
     /**
      * Antispam Filters
      *
-     * @var dcSpamFilters
+     * @var SpamFilters
      */
     public static $filters;
 

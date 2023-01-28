@@ -4,6 +4,7 @@
 define('DC_ADBLOCKER_CHECK', true);
 define('DC_ADMIN_URL', '');
 define('DC_AKISMET_SUPER', true);
+define('DC_ANTISPAM_CONF_SUPER', true);
 define('DC_BACKUP_PATH', '');
 define('DC_CSP_LOGFILE', '');
 define('DC_DBDRIVER', '');

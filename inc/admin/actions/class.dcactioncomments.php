@@ -6,6 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
+use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
+
 class dcCommentsActions extends dcActions
 {
     /**
