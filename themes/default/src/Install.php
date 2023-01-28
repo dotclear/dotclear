@@ -1,37 +1,40 @@
 <?php
 /**
- * @brief blowupConfig, a plugin for Dotclear 2
+ * @brief Blowup, a theme for Dotclear 2
  *
  * @package Dotclear
- * @subpackage Plugins
+ * @subpackage Themes
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class installBlowupConfig
+namespace Dotclear\Theme\default;
+
+use dcCore;
+use dcNsProcess;
+
+class Install extends dcNsProcess
 {
-    /**
-     * Installs the plugin.
-     *
-     * @return     mixed
-     */
-    public static function install()
+    public static function init(): bool
     {
-        $version = dcCore::app()->plugins->moduleInfo('blowupConfig', 'version');
-        if (version_compare((string) dcCore::app()->getVersion('blowupConfig'), $version, '>=')) {
-            return;
+        self::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion(
+            basename(dirname(__DIR__)),
+            dcCore::app()->plugins->moduleInfo(basename(dirname(__DIR__)), 'version')
+        );
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
         }
 
         dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
 
-        dcCore::app()->setVersion('blowupConfig', $version);
-
         return true;
     }
 }
-
-return installBlowupConfig::install();

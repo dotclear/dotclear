@@ -1,14 +1,22 @@
 <?php
 /**
- * @brief blowupConfig, a plugin for Dotclear 2
+ * @brief Blowup, a theme for Dotclear 2
  *
  * @package Dotclear
- * @subpackage Plugins
+ * @subpackage Themes
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class blowupConfig
+namespace Dotclear\Theme\default;
+
+use dcCore;
+use dcThemeConfig;
+use Exception;
+use files;
+use http;
+
+class Blowup
 {
     protected static $css_folder = 'blowup-css';
     protected static $img_folder = 'blowup-images';
@@ -83,6 +91,13 @@ class blowupConfig
         }
 
         return self::$fonts_list[$c] ?? null;
+    }
+
+    public static function themeURL()
+    {
+        return preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url) ?
+            http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme) :
+            http::concatURL(dcCore::app()->blog->url, \dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme);
     }
 
     public static function cssPath()
@@ -402,7 +417,7 @@ class blowupConfig
             }
 
             if (!$s_page_t) {
-                throw new exception(__('Unable to open image.'));
+                throw new Exception(__('Unable to open image.'));
             }
 
             $fill = imagecolorallocate($d_page_t, $body_color[0], $body_color[1], $body_color[2]);

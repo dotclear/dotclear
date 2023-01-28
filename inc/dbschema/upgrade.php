@@ -1151,6 +1151,12 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.25', '<')) {
+            // Plugin blowupConfig has been integrated to the theme blowup.
+            dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
+            if (dcCore::app()->plugins->moduleExists('blowupConfig')) {
+                dcCore::app()->plugins->deleteModule('blowupConfig');
+            }
+
             // Remove removed blogs from users default blog
             $ids = [];
             $rs  = (new dcSelectStatement())
