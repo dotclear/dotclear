@@ -54,6 +54,7 @@ Clearbricks::lib()->autoload([
     'dcPostsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
     'dcCommentsActionsPage' => __DIR__ . '/inc/class.dcaction.php',
     'dcBlogsActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
+    'dcPagesActions'        => __DIR__ . '/inc/class.dcaction.php',
     'dcPagesActionsPage'    => __DIR__ . '/inc/class.dcaction.php',
 ]);
 
