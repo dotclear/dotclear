@@ -8,8 +8,25 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcFilterFairTrackbacks extends dcSpamFilter
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\fairTrackbacks;
+
+use dcCore;
+use Dotclear\Plugin\antispam\SpamFilter;
+use Exception;
+use http;
+use netHttp;
+
+class AntispamFilterFairTrackbacks extends SpamFilter
 {
+    /**
+     * Filter id
+     *
+     * @var        string
+     */
+    public $id = 'dcFilterFairTrackbacks';
+
     /**
      * Filter name
      *

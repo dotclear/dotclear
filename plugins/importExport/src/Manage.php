@@ -80,7 +80,7 @@ class Manage extends dcNsProcess
         '<html>' .
         '<head>' .
         '<title>' . $title . '</title>' .
-        dcPage::cssModuleLoad('importExport/style.css') .
+        dcPage::cssModuleLoad('importExport/css/style.css') .
         dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
         dcPage::jsModuleLoad('importExport/js/script.js') .
         '</head>' .

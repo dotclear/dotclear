@@ -8,32 +8,63 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-class adminTags
+namespace Dotclear\Plugin\tags;
+
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use html;
+
+class Manage extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
+        if (defined('DC_CONTEXT_ADMIN')) {
+            self::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts' ? ManagePosts::init() : true;
+        }
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        if (($_REQUEST['m'] ?? 'tags') === 'tag_posts') {
+            return ManagePosts::process();
+        }
+
         dcCore::app()->admin->tags = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
         dcCore::app()->admin->tags = dcCore::app()->meta->computeMetaStats(dcCore::app()->admin->tags);
         dcCore::app()->admin->tags->sort('meta_id_lower', 'asc');
+
+        return true;
     }
 
     /**
      * Renders the page.
      */
-    public static function render()
+    public static function render(): void
     {
+        if (!self::$init) {
+            return;
+        }
+
+        if (($_REQUEST['m'] ?? 'tags') === 'tag_posts') {
+            ManagePosts::render();
+
+            return;
+        }
+
         echo
         '<html>' .
         '<head>' .
         '<title>' . __('Tags') . '</title>' .
-        dcPage::cssModuleLoad('tags/style.css') .
+        dcPage::cssModuleLoad('tags/css/style.css') .
         '</head>' .
         '<body>' .
         dcPage::breadcrumb(
@@ -90,6 +121,3 @@ class adminTags
         '</html>';
     }
 }
-
-adminTags::init();
-adminTags::render();

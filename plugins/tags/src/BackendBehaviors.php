@@ -8,7 +8,25 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tagsBehaviors
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\tags;
+
+use ArrayObject;
+use cursor;
+use dcAuth;
+use dcCore;
+use dcFavorites;
+use dcMeta;
+use dcPage;
+use dcPostsActions;
+use dcRecord;
+use Exception;
+use form;
+use html;
+use wiki2xhtml;
+
+class BackendBehaviors
 {
     /**
      * Load tags specifics scripts
@@ -262,7 +280,7 @@ class tagsBehaviors
                 dcPage::jsJson('editor_tags_msg', $msg) .
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
                 dcPage::jsModuleLoad('tags/js/posts_actions.js') .
-                dcPage::cssModuleLoad('tags/style.css')
+                dcPage::cssModuleLoad('tags/css/style.css')
             );
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .
@@ -395,7 +413,7 @@ class tagsBehaviors
         dcPage::jsJson('editor_tags_msg', $msg) .
         dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
         dcPage::jsModuleLoad('tags/js/post.js') .
-        dcPage::cssModuleLoad('tags/style.css');
+        dcPage::cssModuleLoad('tags/css/style.css');
     }
 
     /**
