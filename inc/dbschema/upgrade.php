@@ -1220,6 +1220,14 @@ class dcUpgrade
                     'plugins/simpleMenu/_public.php',
                     'plugins/simpleMenu/_widgets.php',
                     'plugins/simpleMenu/index.php',
+                    'plugins/tags/_admin.php',
+                    'plugins/tags/_prepend.php',
+                    'plugins/tags/_public.php',
+                    'plugins/tags/_widgets.php',
+                    'plugins/tags/index.php',
+                    'plugins/tags/style.php',
+                    'plugins/tags/tags_post.php',
+                    'plugins/tags/tags.php',
                     'plugins/themeEditor/_admin.php',
                     'plugins/themeEditor/_prepend.php',
                     'plugins/themeEditor/index.php',
@@ -1256,6 +1264,7 @@ class dcUpgrade
                     'plugins/maintenance/inc',          // Replaced by src
                     'plugins/pings/inc',                // Replaced by src
                     'plugins/simpleMenu/inc',           // Replaced by src
+                    'plugins/tags/inc',                 // Replaced by src
                     'plugins/themeEditor/inc',          // Replaced by src
                     'plugins/userPref/inc',             // Replaced by src
                     'plugins/widgets/inc',              // Replaced by src
