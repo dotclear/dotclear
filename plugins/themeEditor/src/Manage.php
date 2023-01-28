@@ -149,7 +149,7 @@ class Manage extends dcNsProcess
             dcPage::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
         }
         echo
-        dcPage::cssModuleLoad('themeEditor/style.css') .
+        dcPage::cssModuleLoad('themeEditor/css/style.css') .
         '</head>' .
         '<body>' .
         dcPage::breadcrumb(
