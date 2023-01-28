@@ -8,8 +8,30 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-Clearbricks::lib()->autoload([
-    'dcFilterAkismet' => __DIR__ . '/filters/filter.akismet.php',
-]);
+declare(strict_types=1);
 
-dcCore::app()->spamfilters[] = 'dcFilterAkismet';
+namespace Dotclear\Plugin\akismet;
+
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = true;
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->spamfilters[] = __NAMESPACE__ . '\AntispamFilterAkismet';
+
+        return true;
+    }
+}

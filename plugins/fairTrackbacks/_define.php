@@ -12,7 +12,7 @@ $this->registerModule(
     'Fair Trackbacks',          // Name
     'Trackback validity check', // Description
     'Olivier Meunier',          // Author
-    '1.1.1',                    // Version
+    '2.0',                    // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,

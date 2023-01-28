@@ -8,14 +8,36 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
-    define('DC_FAIRTRACKBACKS_FORCE', false);
-}
+declare(strict_types=1);
 
-if (!DC_FAIRTRACKBACKS_FORCE) {
-    Clearbricks::lib()->autoload([
-        'dcFilterFairTrackbacks' => __DIR__ . '/filters/filter.fairtrackbacks.php',
-    ]);
+namespace Dotclear\Plugin\fairTrackbacks;
 
-    dcCore::app()->spamfilters[] = 'dcFilterFairTrackbacks';
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
+            define('DC_FAIRTRACKBACKS_FORCE', false);
+        }
+
+        self::$init = true;
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        if (!DC_FAIRTRACKBACKS_FORCE) {
+            dcCore::app()->spamfilters[] = __NAMESPACE__ . '\AntispamFilterFairTrackbacks';
+        }
+
+        return true;
+    }
 }

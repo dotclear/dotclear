@@ -12,7 +12,7 @@ $this->registerModule(
     'Akismet',                        // Name
     'Akismet interface for Dotclear', // Description
     'Olivier Meunier',                // Author
-    '1.1',                            // Version
+    '2.0',                            // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
