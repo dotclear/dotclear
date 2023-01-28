@@ -16,7 +16,6 @@ use dbStruct;
 use dcCore;
 use dcNsProcess;
 use initAntispam;
-use path;
 
 class Install extends dcNsProcess
 {
@@ -24,7 +23,7 @@ class Install extends dcNsProcess
 
     public static function init(): bool
     {
-        self::$module = basename(path::real(__DIR__ . DIRECTORY_SEPARATOR . '..'));
+        self::$module = basename(dirname(__DIR__));
         self::$init   = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion(self::$module, dcCore::app()->plugins->moduleInfo(self::$module, 'version'));
 
         return self::$init;
