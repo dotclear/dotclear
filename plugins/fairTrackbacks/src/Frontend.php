@@ -37,4 +37,3 @@ class Frontend extends dcNsProcess
         return true;
     }
 }
-

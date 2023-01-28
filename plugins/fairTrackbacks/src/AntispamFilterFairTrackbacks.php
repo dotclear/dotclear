@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\fairTrackbacks;
 use dcCore;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
-use http;
 use netHttp;
 
 class AntispamFilterFairTrackbacks extends SpamFilter

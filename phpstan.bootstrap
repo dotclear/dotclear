@@ -18,6 +18,7 @@ define('DC_DISTRIB_PLUGINS', '');
 define('DC_DISTRIB_THEMES', '');
 define('DC_DNSBL_SUPER', '');
 define('DC_ERRORFILE', '');
+define('DC_FAIRTRACKBACKS_FORCE', true);
 define('DC_FORCE_SCHEME_443', false);
 define('DC_MASTER_KEY', 'PASSWORD');
 define('DC_MAX_UPLOAD_SIZE', 42);

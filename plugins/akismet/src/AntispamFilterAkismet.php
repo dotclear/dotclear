@@ -94,7 +94,7 @@ class AntispamFilterAkismet extends SpamFilter
     /**
      * Return a new akismet instance of false if API key not defined
      *
-     * @return     akismet|bool
+     * @return     Akismet|bool
      */
     private function akInit()
     {
