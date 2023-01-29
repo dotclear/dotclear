@@ -608,7 +608,7 @@ class dcPage
         }
         foreach ($elements as $element => $url) {
             if ($hl && $index === $hl_pos) {
-                $element = sprintf('<span class="page-title">%s</span>', $element);
+                $element = sprintf('<span class="page-title" aria-current="location">%s</span>', $element);
             }
             $res .= ($with_home_link ? ($index === 1 ? ' : ' : ' &rsaquo; ') : ($index === 0 ? ' ' : ' &rsaquo; ')) .
                 ($url ? '<a href="' . $url . '">' : '') . $element . ($url ? '</a>' : '');

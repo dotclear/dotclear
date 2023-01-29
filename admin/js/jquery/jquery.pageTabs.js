@@ -31,8 +31,12 @@
         return;
       }
 
+      $(this).parent().find(`li.${$.pageTabs.options.activeClass}`).removeAttr('aria-selected');
       $(this).parent().find(`li.${$.pageTabs.options.activeClass}`).removeClass($.pageTabs.options.activeClass);
+
       $(this).addClass($.pageTabs.options.activeClass);
+      $(this).attr('aria-selected', 'true');
+
       $(`.${$.pageTabs.options.contentClass}.active`).removeClass('active').hide();
 
       const part_to_activate = $(`#${$.pageTabs.options.partPrefix}${getHash($(this).find('a').attr('href'))}`);
