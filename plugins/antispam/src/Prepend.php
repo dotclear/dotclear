@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Autoloader;
 use dcCore;
 use dcNsProcess;
 

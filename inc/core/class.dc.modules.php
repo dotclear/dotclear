@@ -384,8 +384,8 @@ class dcModules
      */
     public function loadModules(string $path, ?string $ns = null, ?string $lang = null): void
     {
-        $this->path     = explode(PATH_SEPARATOR, $path);
-        $this->ns       = $ns;
+        $this->path = explode(PATH_SEPARATOR, $path);
+        $this->ns   = $ns;
 
         $this->safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 

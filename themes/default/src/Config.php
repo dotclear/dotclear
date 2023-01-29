@@ -8,6 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Theme\default;
 
 use dcCore;
@@ -46,47 +47,47 @@ class Config extends dcNsProcess
         dcCore::app()->admin->can_write_css    = Blowup::canWriteCss();
 
         $blowup_base = [
-            'body_bg_c' => null,
-            'body_bg_g' => 'light',
+            'body_bg_c'           => null,
+            'body_bg_g'           => 'light',
 
-            'body_txt_f'       => null,
-            'body_txt_s'       => null,
-            'body_txt_c'       => null,
-            'body_line_height' => null,
+            'body_txt_f'          => null,
+            'body_txt_s'          => null,
+            'body_txt_c'          => null,
+            'body_line_height'    => null,
 
-            'top_image'  => 'default',
-            'top_height' => null,
-            'uploaded'   => null,
+            'top_image'           => 'default',
+            'top_height'          => null,
+            'uploaded'            => null,
 
-            'blog_title_hide' => null,
-            'blog_title_f'    => null,
-            'blog_title_s'    => null,
-            'blog_title_c'    => null,
-            'blog_title_a'    => null,
-            'blog_title_p'    => null,
+            'blog_title_hide'     => null,
+            'blog_title_f'        => null,
+            'blog_title_s'        => null,
+            'blog_title_c'        => null,
+            'blog_title_a'        => null,
+            'blog_title_p'        => null,
 
-            'body_link_c'   => null,
-            'body_link_f_c' => null,
-            'body_link_v_c' => null,
+            'body_link_c'         => null,
+            'body_link_f_c'       => null,
+            'body_link_v_c'       => null,
 
-            'sidebar_position' => null,
-            'sidebar_text_f'   => null,
-            'sidebar_text_s'   => null,
-            'sidebar_text_c'   => null,
-            'sidebar_title_f'  => null,
-            'sidebar_title_s'  => null,
-            'sidebar_title_c'  => null,
-            'sidebar_title2_f' => null,
-            'sidebar_title2_s' => null,
-            'sidebar_title2_c' => null,
-            'sidebar_line_c'   => null,
-            'sidebar_link_c'   => null,
-            'sidebar_link_f_c' => null,
-            'sidebar_link_v_c' => null,
+            'sidebar_position'    => null,
+            'sidebar_text_f'      => null,
+            'sidebar_text_s'      => null,
+            'sidebar_text_c'      => null,
+            'sidebar_title_f'     => null,
+            'sidebar_title_s'     => null,
+            'sidebar_title_c'     => null,
+            'sidebar_title2_f'    => null,
+            'sidebar_title2_s'    => null,
+            'sidebar_title2_c'    => null,
+            'sidebar_line_c'      => null,
+            'sidebar_link_c'      => null,
+            'sidebar_link_f_c'    => null,
+            'sidebar_link_v_c'    => null,
 
-            'date_title_f' => null,
-            'date_title_s' => null,
-            'date_title_c' => null,
+            'date_title_f'        => null,
+            'date_title_s'        => null,
+            'date_title_c'        => null,
 
             'post_title_f'        => null,
             'post_title_s'        => null,
@@ -96,14 +97,14 @@ class Config extends dcNsProcess
             'post_commentmy_bg_c' => null,
             'post_commentmy_c'    => null,
 
-            'prelude_c'   => null,
-            'footer_f'    => null,
-            'footer_s'    => null,
-            'footer_c'    => null,
-            'footer_l_c'  => null,
-            'footer_bg_c' => null,
+            'prelude_c'           => null,
+            'footer_f'            => null,
+            'footer_s'            => null,
+            'footer_c'            => null,
+            'footer_l_c'          => null,
+            'footer_bg_c'         => null,
 
-            'extra_css' => null,
+            'extra_css'           => null,
         ];
 
         $blowup_user = dcCore::app()->blog->settings->themes->blowup_style;

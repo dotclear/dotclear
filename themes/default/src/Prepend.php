@@ -8,6 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Theme\default;
 
 use dcCore;
@@ -43,10 +44,10 @@ class Prepend extends dcNsProcess
         }
 
         dcCore::app()->addBehavior('adminPageHTMLHead', function () {
-            echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" . 
+            echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" .
             dcPage::jsJson('blowup', [
                 'blowup_public_url' => Blowup::imagesURL(),
-                'blowup_theme_url' => Blowup::themeURL(),
+                'blowup_theme_url'  => Blowup::themeURL(),
                 'msg'               => [
                     'predefined_styles'      => __('Predefined styles'),
                     'apply_code'             => __('Apply code'),
