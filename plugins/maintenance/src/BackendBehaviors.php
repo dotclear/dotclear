@@ -32,6 +32,8 @@ class BackendBehaviors
      */
     public static function dcMaintenanceInit(Maintenance $maintenance): void
     {
+        dcCore::app()->autoload->addNamespace(__NAMESPACE__ . '\Task', __DIR__ . DIRECTORY_SEPARATOR . 'Task');
+
         $maintenance
             ->addTab('maintenance', __('Servicing'), ['summary' => __('Tools to maintain the performance of your blogs.')])
             ->addTab('backup', __('Backup'), ['summary' => __('Tools to back up your content.')])
@@ -46,16 +48,16 @@ class BackendBehaviors
 
             ->addGroup('l10n', __('Translations'), ['summary' => __('Maintain translations')])
 
-            ->addTask(MaintenanceTaskCache::class)
-            ->addTask(MaintenanceTaskCSP::class)
-            ->addTask(MaintenanceTaskIndexPosts::class)
-            ->addTask(MaintenanceTaskIndexComments::class)
-            ->addTask(MaintenanceTaskCountComments::class)
-            ->addTask(MaintenanceTaskSynchPostsMeta::class)
-            ->addTask(MaintenanceTaskLogs::class)
-            ->addTask(MaintenanceTaskVacuum::class)
-            ->addTask(MaintenanceTaskZipMedia::class)
-            ->addTask(MaintenanceTaskZipTheme::class)
+            ->addTask(Task\Cache::class)
+            ->addTask(Task\CSP::class)
+            ->addTask(Task\IndexPosts::class)
+            ->addTask(Task\IndexComments::class)
+            ->addTask(Task\CountComments::class)
+            ->addTask(Task\SynchPostsMeta::class)
+            ->addTask(Task\Logs::class)
+            ->addTask(Task\Vacuum::class)
+            ->addTask(Task\ZipMedia::class)
+            ->addTask(Task\ZipTheme::class)
         ;
     }
 

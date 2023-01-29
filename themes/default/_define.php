@@ -12,8 +12,9 @@ $this->registerModule(
     'Blowup',                                     // Name
     'Default Dotclear theme, fully customizable', // Description
     'Marco & Olivier',                            // Author
-    '1.0',                                        // Version
+    '2.0',                                        // Version
     [
-        'type' => 'theme',
+        'standalone_config' => true,
+        'type'              => 'theme',
     ]
 );

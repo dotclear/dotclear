@@ -83,7 +83,7 @@ $(() => {
     }
     $('#uploader').hide();
     $('#uploader input').val('');
-    $('#image-preview').attr('src', `index.php?pf=blowupConfig/alpha-img/page-t/${this.value}.png`);
+    $('#image-preview').attr('src', `${dotclear.blowup_theme_url}/alpha-img/page-t/${this.value}.png`);
   });
 
   // Predefined styles

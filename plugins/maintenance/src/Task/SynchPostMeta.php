@@ -10,14 +10,15 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\maintenance;
+namespace Dotclear\Plugin\maintenance\Task;
 
 use dcBlog;
 use dcCore;
 use dcMeta;
 use dcRecord;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 
-class MaintenanceTaskSynchPostsMeta extends MaintenanceTask
+class SynchPostsMeta extends MaintenanceTask
 {
     protected $id = 'dcMaintenanceSynchpostsmeta';
 

@@ -10,13 +10,14 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\maintenance;
+namespace Dotclear\Plugin\maintenance\Task;
 
 use dcCore;
+use Dotclear\Plugin\maintenance\MaintenanceTask;
 use fileZip;
 use path;
 
-class MaintenanceTaskZipTheme extends MaintenanceTask
+class ZipTheme extends MaintenanceTask
 {
     protected $id = 'dcMaintenanceZiptheme';
 

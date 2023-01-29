@@ -69,13 +69,6 @@ class dcModules
     public $safe_mode = false;
 
     /**
-     * Module php namespace autoloader
-     *
-     * @var Autoloader
-     */
-    protected $autoload;
-
-    /**
      * Stack of modules paths
      *
      * @var array
@@ -393,7 +386,6 @@ class dcModules
     {
         $this->path     = explode(PATH_SEPARATOR, $path);
         $this->ns       = $ns;
-        $this->autoload = new Autoloader('', '', true);
 
         $this->safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
@@ -428,7 +420,7 @@ class dcModules
 
                 // Module namespace
                 $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? 'module'), $this->id]);
-                $this->autoload->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
+                dcCore::app()->autoload->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
 
                 $module_disabled = file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
                 $module_enabled  = !$module_disabled && !$this->safe_mode;

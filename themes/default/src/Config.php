@@ -1,26 +1,49 @@
 <?php
 /**
- * @brief blowupConfig, a plugin for Dotclear 2
+ * @brief Blowup, a theme for Dotclear 2
  *
  * @package Dotclear
- * @subpackage Plugins
+ * @subpackage Themes
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+namespace Dotclear\Theme\default;
 
-class adminBlowupConfig
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use dcThemeConfig;
+use Exception;
+use files;
+use form;
+use html;
+use http;
+
+class Config extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
-    public static function init()
+    public static function init(): bool
     {
-        dcCore::app()->admin->can_write_images = blowupConfig::canWriteImages();
-        dcCore::app()->admin->can_write_css    = blowupConfig::canWriteCss();
+        self::$init = defined('DC_CONTEXT_ADMIN');
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        // Load contextual help
+        if (file_exists(__DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php')) {
+            require __DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php';
+        }
+
+        dcCore::app()->admin->standalone_config = (bool) dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'standalone_config');
+
+        dcCore::app()->admin->can_write_images = Blowup::canWriteImages();
+        dcCore::app()->admin->can_write_css    = Blowup::canWriteCss();
 
         $blowup_base = [
             'body_bg_c' => null,
@@ -101,14 +124,8 @@ class adminBlowupConfig
             __('Solid color')            => 'solid',
         ];
 
-        dcCore::app()->admin->top_images = array_merge([__('Custom...') => 'custom'], array_flip(blowupConfig::$top_images));
-    }
+        dcCore::app()->admin->top_images = array_merge([__('Custom...') => 'custom'], array_flip(Blowup::$top_images));
 
-    /**
-     * Processes the request(s).
-     */
-    public static function process()
-    {
         if (!empty($_POST)) {
             try {
                 $blowup_user = dcCore::app()->admin->blowup_user;
@@ -173,13 +190,13 @@ class adminBlowupConfig
                     $uploaded = null;
 
                     /* @phpstan-ignore-next-line */
-                    if ($blowup_user['uploaded'] && is_file(blowupConfig::imagesPath() . '/' . $blowup_user['uploaded'])) {
-                        $uploaded = blowupConfig::imagesPath() . '/' . $blowup_user['uploaded'];
+                    if ($blowup_user['uploaded'] && is_file(Blowup::imagesPath() . '/' . $blowup_user['uploaded'])) {
+                        $uploaded = Blowup::imagesPath() . '/' . $blowup_user['uploaded'];
                     }
 
                     if (!empty($_FILES['upfile']) && !empty($_FILES['upfile']['name'])) {
                         files::uploadStatus($_FILES['upfile']);
-                        $uploaded                = blowupConfig::uploadImage($_FILES['upfile']);
+                        $uploaded                = Blowup::uploadImage($_FILES['upfile']);
                         $blowup_user['uploaded'] = basename($uploaded);
                     }
 
@@ -197,11 +214,11 @@ class adminBlowupConfig
 
                     $blowup_user['prelude_c'] = dcThemeConfig::adjustColor($_POST['prelude_c']);
 
-                    blowupConfig::createImages($blowup_user, $uploaded);
+                    Blowup::createImages($blowup_user, $uploaded);
                 }
 
                 if (dcCore::app()->admin->can_write_css) {
-                    blowupConfig::createCss($blowup_user);
+                    Blowup::createCss($blowup_user);
                 }
 
                 dcCore::app()->blog->settings->themes->put('blowup_style', serialize($blowup_user));
@@ -210,47 +227,30 @@ class adminBlowupConfig
                 dcCore::app()->admin->blowup_user = $blowup_user;
 
                 dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                http::redirect(dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
         }
+
+        return true;
     }
 
-    /**
-     * Renders the page.
-     */
-    public static function render()
+    public static function render(): void
     {
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Blowup configuration') . '</title>';
+        if (!self::$init) {
+            return;
+        }
+
+        // Legacy mode
+        if (!dcCore::app()->admin->standalone_config) {
+            echo '</form>';
+        }
 
         echo
-        dcPage::jsJson('blowup', [
-            'blowup_public_url' => blowupConfig::imagesURL(),
-            'msg'               => [
-                'predefined_styles'      => __('Predefined styles'),
-                'apply_code'             => __('Apply code'),
-                'predefined_style_title' => __('Choose a predefined style'),
-            ],
-        ]) .
-        dcPage::jsModuleLoad('blowupConfig/js/config.js') .
-        '</head>' .
-        '<body>' .
-        dcPage::breadcrumb(
-            [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
-                __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
-                __('Blowup configuration')                  => '',
-            ]
-        ) .
-        dcPage::notices() .
-
         '<p><a class="back" href="' . dcCore::app()->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>' .
 
-        '<form id="theme_config" action="' . dcCore::app()->admin->getPageURL() . '" method="post" enctype="multipart/form-data">' .
+        '<form id="theme_config" action="' . dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']) . '" method="post" enctype="multipart/form-data">' .
 
         '<div class="fieldset"><h3>' . __('Customization') . '</h3>' .
         '<h4>' . __('General') . '</h4>';
@@ -266,7 +266,7 @@ class adminBlowupConfig
 
         echo
         '<p class="field"><label for="body_txt_f">' . __('Main text font:') . '</label> ' .
-        form::combo('body_txt_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['body_txt_f']) . '</p>' .
+        form::combo('body_txt_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['body_txt_f']) . '</p>' .
 
         '<p class="field"><label for="body_txt_s">' . __('Main text font size:') . '</label> ' .
         form::field('body_txt_s', 7, 7, dcCore::app()->admin->blowup_user['body_txt_s']) . '</p>' .
@@ -300,7 +300,7 @@ class adminBlowupConfig
         form::checkbox('blog_title_hide', 1, dcCore::app()->admin->blowup_user['blog_title_hide']) . '</p>' .
 
         '<p class="field"><label for="blog_title_f">' . __('Main title font:') . '</label> ' .
-        form::combo('blog_title_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['blog_title_f']) . '</p>' .
+        form::combo('blog_title_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['blog_title_f']) . '</p>' .
 
         '<p class="field"><label for="blog_title_s">' . __('Main title font size:') . '</label> ' .
         form::field('blog_title_s', 7, 7, dcCore::app()->admin->blowup_user['blog_title_s']) . '</p>' .
@@ -316,9 +316,9 @@ class adminBlowupConfig
 
         if (dcCore::app()->admin->can_write_images) {
             if (dcCore::app()->admin->blowup_user['top_image'] == 'custom' && dcCore::app()->admin->blowup_user['uploaded']) {
-                $preview_image = http::concatURL(dcCore::app()->blog->url, blowupConfig::imagesURL() . '/page-t.png');
+                $preview_image = http::concatURL(dcCore::app()->blog->url, Blowup::imagesURL() . '/page-t.png');
             } else {
-                $preview_image = dcPage::getPF('blowupConfig/alpha-img/page-t/' . dcCore::app()->admin->blowup_user['top_image'] . '.png');
+                $preview_image = Blowup::themeURL() . '/alpha-img/page-t/' . dcCore::app()->admin->blowup_user['top_image'] . '.png';
             }
 
             echo
@@ -344,7 +344,7 @@ class adminBlowupConfig
         form::combo('sidebar_position', [__('right') => 'right', __('left') => 'left'], dcCore::app()->admin->blowup_user['sidebar_position']) . '</p>' .
 
         '<p class="field"><label for="sidebar_text_f">' . __('Sidebar text font:') . '</label> ' .
-        form::combo('sidebar_text_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['sidebar_text_f']) . '</p>' .
+        form::combo('sidebar_text_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['sidebar_text_f']) . '</p>' .
 
         '<p class="field"><label for="sidebar_text_s">' . __('Sidebar text font size:') . '</label> ' .
         form::field('sidebar_text_s', 7, 7, dcCore::app()->admin->blowup_user['sidebar_text_s']) . '</p>' .
@@ -353,7 +353,7 @@ class adminBlowupConfig
         form::color('sidebar_text_c', ['default' => dcCore::app()->admin->blowup_user['sidebar_text_c']]) . '</p>' .
 
         '<p class="field"><label for="sidebar_title_f">' . __('Sidebar titles font:') . '</label> ' .
-        form::combo('sidebar_title_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['sidebar_title_f']) . '</p>' .
+        form::combo('sidebar_title_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['sidebar_title_f']) . '</p>' .
 
         '<p class="field"><label for="sidebar_title_s">' . __('Sidebar titles font size:') . '</label> ' .
         form::field('sidebar_title_s', 7, 7, dcCore::app()->admin->blowup_user['sidebar_title_s']) . '</p>' .
@@ -362,7 +362,7 @@ class adminBlowupConfig
         form::color('sidebar_title_c', ['default' => dcCore::app()->admin->blowup_user['sidebar_title_c']]) . '</p>' .
 
         '<p class="field"><label for="sidebar_title2_f">' . __('Sidebar 2nd level titles font:') . '</label> ' .
-        form::combo('sidebar_title2_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['sidebar_title2_f']) . '</p>' .
+        form::combo('sidebar_title2_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['sidebar_title2_f']) . '</p>' .
 
         '<p class="field"><label for="sidebar_title2_s">' . __('Sidebar 2nd level titles font size:') . '</label> ' .
         form::field('sidebar_title2_s', 7, 7, dcCore::app()->admin->blowup_user['sidebar_title2_s']) . '</p>' .
@@ -384,7 +384,7 @@ class adminBlowupConfig
 
         '<h4 class="border-top">' . __('Entries') . '</h4>' .
         '<p class="field"><label for="date_title_f">' . __('Date title font:') . '</label> ' .
-        form::combo('date_title_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['date_title_f']) . '</p>' .
+        form::combo('date_title_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['date_title_f']) . '</p>' .
 
         '<p class="field"><label for="date_title_s">' . __('Date title font size:') . '</label> ' .
         form::field('date_title_s', 7, 7, dcCore::app()->admin->blowup_user['date_title_s']) . '</p>' .
@@ -393,7 +393,7 @@ class adminBlowupConfig
         form::color('date_title_c', ['default' => dcCore::app()->admin->blowup_user['date_title_c']]) . '</p>' .
 
         '<p class="field"><label for="post_title_f">' . __('Entry title font:') . '</label> ' .
-        form::combo('post_title_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['post_title_f']) . '</p>' .
+        form::combo('post_title_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['post_title_f']) . '</p>' .
 
         '<p class="field"><label for="post_title_s">' . __('Entry title font size:') . '</label> ' .
         form::field('post_title_s', 7, 7, dcCore::app()->admin->blowup_user['post_title_s']) . '</p>' .
@@ -423,7 +423,7 @@ class adminBlowupConfig
 
         '<h4 class="border-top">' . __('Footer') . '</h4>' .
         '<p class="field"><label for="footer_f">' . __('Footer font:') . '</label> ' .
-        form::combo('footer_f', blowupConfig::fontsList(), dcCore::app()->admin->blowup_user['footer_f']) . '</p>' .
+        form::combo('footer_f', Blowup::fontsList(), dcCore::app()->admin->blowup_user['footer_f']) . '</p>' .
 
         '<p class="field"><label for="footer_s">' . __('Footer font size:') . '</label> ' .
         form::field('footer_s', 7, 7, dcCore::app()->admin->blowup_user['footer_s']) . '</p>' .
@@ -478,12 +478,9 @@ class adminBlowupConfig
 
         dcPage::helpBlock('blowupConfig');
 
-        echo
-        '</body>' .
-        '</html>';
+        // Legacy mode
+        if (!dcCore::app()->admin->standalone_config) {
+            echo '<form style="display:none">';
+        }
     }
 }
-
-adminBlowupConfig::init();
-adminBlowupConfig::process();
-adminBlowupConfig::render();
