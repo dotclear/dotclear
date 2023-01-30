@@ -19,7 +19,7 @@ use feedReader;
 use html;
 use l10n;
 
-class Widgets extends \defaultWidgets //keep compatibility
+class Widgets
 {
     // Constants
 

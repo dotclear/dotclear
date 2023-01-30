@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use dcUtils;
 
-class WidgetsStack extends \dcWidgets //keep compatibility
+class WidgetsStack
 {
     /**
      * Stack of known widgets

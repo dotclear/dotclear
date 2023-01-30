@@ -17,7 +17,7 @@ use dcCore;
 use form;
 use html;
 
-class WidgetsElement extends \dcWidget //keep compatibility
+class WidgetsElement
 {
     // Constants
 
