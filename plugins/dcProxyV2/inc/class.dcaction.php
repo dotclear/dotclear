@@ -41,11 +41,7 @@ class dcBlogsActionsPage extends dcBlogsActions
     }
 }
 
-class dcPagesActions extends Dotclear\Plugin\pages\BackendActions
-{
-}
-
-class dcPagesActionsPage extends dcPagesActions
+class dcPagesActionsPage extends Dotclear\Plugin\pages\BackendActions // dcPagesActions
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {

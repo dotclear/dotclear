@@ -21,7 +21,25 @@ class dcProxyV2
             dcCore::app()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
         }
     }
+
+    public static function classAliases(array $aliases)
+    {
+        foreach ($aliases as $aliasName => $realName) {
+            class_alias($realName, $aliasName);
+        }
+    }
 }
+
+// Classes aliases
+dcProxyV2::classAliases([
+    // alias → real name (including namespace if necessary, for both)
+
+    // Deprecated since 2.25
+    'dcPagesActions' => Dotclear\Plugin\pages\BackendActions::class,
+    'defaultWidgets' => Dotclear\Plugin\widgets\Widgets::class,
+    'dcWidgets'      => Dotclear\Plugin\widgets\WidgetsStack::class,
+    'dcWidget'       => Dotclear\Plugin\widgets\WidgetsElement::class,
+]);
 
 // Core and public behaviors
 dcProxyV2::loadBehaviors('dcProxyV2CoreBehaviors', __DIR__ . '/inc/class.core.behaviors.php');  // Load core stuff

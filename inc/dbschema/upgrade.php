@@ -1250,6 +1250,7 @@ class dcUpgrade
                     'plugins/userPref/_admin.php',
                     'plugins/userPref/index.php',
                     'plugins/widget/_admin.php',
+                    'plugins/widget/_init.php',
                     'plugins/widget/_install.php',
                     'plugins/widget/_public.php',
                     'plugins/widget/_prepend.php',
