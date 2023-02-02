@@ -194,7 +194,10 @@ class adminBlogTheme
         if (!empty($modules)) {
             echo
             '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
-            '<h3>' . __('Installed themes') . '</h3>' .
+            '<h3>' . 
+            (dcCore::app()->auth->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
+            (dcCore::app()->admin->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
+            '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed themes from this list.') . '</p>';
 
             dcCore::app()->admin->list
@@ -213,7 +216,7 @@ class adminBlogTheme
         }
 
         // Deactivated modules
-        $modules = dcCore::app()->admin->list->modules->getDisabledModules();
+        $modules = dcCore::app()->admin->list->modules->getHardDisabledModules();
         if (!empty($modules)) {
             echo
             '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .
