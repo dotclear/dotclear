@@ -603,6 +603,15 @@ class dcModules
             $this->define->set('type', $this->type);
         }
 
+        // try to extract dc_min for easy reading
+        if (empty($this->define->dc_min) && !empty($this->define->requires)) {
+            foreach ($this->define->requires as $dep) {
+                if (is_array($dep) && count($dep) == 2 && $dep[0] == 'core') {
+                    $this->define->dc_min = $dep[1];
+                }
+            }
+        }
+
         // Check module type
         if ($this->type !== null && $this->define->type !== $this->type) {
             $this->errors[] = sprintf(

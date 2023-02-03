@@ -105,6 +105,7 @@ class dcModuleDefine
         'tags'              => '',
         'sshot'             => '',
         'score'             => 0,
+        'dc_min'            => '',
 
         // modules list specifics
         'sid'               => '',
