@@ -43,7 +43,6 @@ config: clean config-stamp
 	./plugins/antispam \
 	./plugins/attachments \
 	./plugins/blogroll \
-	./plugins/blowupConfig \
 	./plugins/breadcrumb \
 	./plugins/dcCKEditor \
 	./plugins/dcLegacyEditor \
