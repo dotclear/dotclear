@@ -21,8 +21,7 @@ class dcThemes extends dcModules
     protected $type = 'theme';
 
     /**
-     * This method registers a theme in modules list. You should use this to
-     * register a new theme.
+     * This method registers a theme in modules list.
      *
      * <var>$parent</var> is a optional value to indicate them inheritance.
      *
@@ -38,33 +37,44 @@ class dcThemes extends dcModules
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
+        $define = new dcModuleDefine($this->id);
+
+        $define
+            ->set('name', $name)
+            ->set('desc', $desc)
+            ->set('author', $author)
+            ->set('version', $version)
+        ;
+
+        if (is_array($properties)) {
+            foreach($properties as $k => $v) {
+                $define->set($k, $v);
+            }
+        }
+
         // Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
             $properties = [];
             if (isset($args[4])) {
-                $properties['parent'] = $args[4];
+                $define->set('parent', $args[4]);
             }
             if (isset($args[5])) {
-                $properties['priority'] = (int) $args[5];
+                $define->set('priority', (int) $args[5]);
             }
         }
-        // Themes specifics properties
-        $properties = array_merge(
-            [
-                'parent' => null,
-                'tplset' => DC_DEFAULT_TPLSET,
-            ],
-            $properties,
-            [
-                // overwrite themes permisions
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_ADMIN,
-                ]),
-            ]
-        );
 
-        parent::registerModule($name, $desc, $author, $version, $properties);
+        $this->defineModule($define);
+    }
+
+    protected function defineModule(dcModuleDefine $define)
+    {
+        // Themes specifics properties
+        $define->set('permissions', dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]));
+
+        parent::defineModule($define);
     }
 
     /**
@@ -86,11 +96,11 @@ class dcThemes extends dcModules
         }
 
         $counter = 0;
-        $new_dir = sprintf('%s_copy', $this->modules[$id]['root']);
+        $new_dir = sprintf('%s_copy', $this->modules[$id]->root);
         while (is_dir($new_dir)) {
-            $new_dir = sprintf('%s_copy_%s', $this->modules[$id]['root'], ++$counter);
+            $new_dir = sprintf('%s_copy_%s', $this->modules[$id]->root, ++$counter);
         }
-        $new_name = $this->modules[$id]['name'] . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
+        $new_name = $this->modules[$id]->name . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
             try {
@@ -99,11 +109,11 @@ class dcThemes extends dcModules
 
                 // Clone directories and files
 
-                $content = files::getDirList($this->modules[$id]['root']);
+                $content = files::getDirList($this->modules[$id]->root);
 
                 // Create sub directories if necessary
                 foreach ($content['dirs'] as $dir) {
-                    $rel = substr($dir, strlen($this->modules[$id]['root']));
+                    $rel = substr($dir, strlen($this->modules[$id]->root));
                     if ($rel !== '') {
                         files::makeDir($new_dir . $rel);
                     }
@@ -112,7 +122,7 @@ class dcThemes extends dcModules
                 // Copy files from source to destination
                 foreach ($content['files'] as $file) {
                     // Copy file
-                    $rel = substr($file, strlen($this->modules[$id]['root']));
+                    $rel = substr($file, strlen($this->modules[$id]->root));
                     copy($file, $new_dir . $rel);
 
                     if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
@@ -122,9 +132,9 @@ class dcThemes extends dcModules
                         // Change theme name to $new_name in _define.php
                         if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                             // Change only first occurence in registerModule parameters (should be the theme name)
-                            $matches[2] = preg_replace('/' . preg_quote($this->modules[$id]['name']) . '/', $new_name, $matches[2], 1);
+                            $matches[2] = preg_replace('/' . preg_quote($this->modules[$id]->name) . '/', $new_name, $matches[2], 1);
                             $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
-                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $this->modules[$id]['name']);
+                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $this->modules[$id]->name);
                             file_put_contents($new_dir . $rel, $buf);
                         } else {
                             throw new Exception(__('Unable to modify _define.php'));
@@ -172,9 +182,14 @@ class dcThemes extends dcModules
      */
     public function loadNsFile(string $id, ?string $ns = null): void
     {
+        $define = $this->getDefine($id, ['enabled' => true]);
+        if ($define->isDefined()) {
+            return;
+        }
+
         switch ($ns) {
             case 'public':
-                $parent = $this->modules[$id]['parent'];
+                $parent = $this->getDefine($id, ['enabled' => true])->parent;
                 if ($parent) {
                     // This is not a real cascade - since we don't call loadNsFile -,
                     // thus limiting inclusion process.
@@ -183,14 +198,14 @@ class dcThemes extends dcModules
                     // by class name
                     if ($this->loadNsClass($parent, self::MODULE_CLASS_PUPLIC) === '') {
                         // by file name
-                        $this->loadModuleFile($this->modules[$parent]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                        $this->loadModuleFile($define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
                     }
                 }
 
                 // by class name
                 if ($this->loadNsClass($id, self::MODULE_CLASS_PUPLIC) === '') {
                     // by file name
-                    $this->loadModuleFile($this->modules[$id]['root'] . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                    $this->loadModuleFile($define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
                 }
 
                 break;
