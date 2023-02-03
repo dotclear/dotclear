@@ -811,7 +811,7 @@ class adminModulesList
                 $tds++;
                 echo
                 '<td class="module-desc maximal">' . html::escapeHTML(__($module['desc']));
-                if (isset($module['cannot_disable']) && $module['enabled']) {
+                if (!empty($module['cannot_disable']) && $module['enabled']) {
                     echo
                     '<br/><span class="info">' .
                     sprintf(
@@ -820,7 +820,7 @@ class adminModulesList
                     ) .
                         '</span>';
                 }
-                if (isset($module['cannot_enable']) && !$module['enabled']) {
+                if (!empty($module['cannot_enable']) && !$module['enabled']) {
                     echo
                     '<br/><span class="info">' .
                     __('This module cannot be enabled, because of the following reasons :') .
@@ -1075,7 +1075,7 @@ class adminModulesList
             switch ($action) {
                 # Deactivate
                 case 'activate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && empty($module['cannot_enable'])) {
                         $submits[] = '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
                     }
 
@@ -1083,7 +1083,7 @@ class adminModulesList
 
                     # Activate
                 case 'deactivate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && empty($module['cannot_disable'])) {
                         $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
                     }
 
@@ -1091,7 +1091,7 @@ class adminModulesList
 
                     # Delete
                 case 'delete':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && empty($module['cannot_disable'])) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
                         $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }

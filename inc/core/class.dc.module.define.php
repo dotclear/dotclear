@@ -71,7 +71,6 @@ class dcModuleDefine
         'root'              => null,
         'namespace'         => null,
         'root_writable'     => false,
-        'current_version'   => 0,
 
         // required
         'name'              => self::DEFAULT_NAME,
@@ -96,6 +95,10 @@ class dcModuleDefine
         // theme specifics
         'parent'            => null,
         'tplset'            => DC_DEFAULT_TPLSET,
+
+        // store specifics
+        'file'              => '',
+        'current_version'   => 0,
 
         // DA specifics
         'section'           => '',
@@ -178,10 +181,10 @@ class dcModuleDefine
     public function dump(): array
     {
         return array_merge($this->default, $this->properties, [
-            'id'      => $this->id,
-            'implies' => $this->implies,
-            'missing' => $this->missing,
-            'using'   => $this->using,
+            'id'             => $this->id,
+            'implies'        => $this->implies,
+            'cannot_enable'  => $this->missing,
+            'cannot_disable' => $this->using,
         ]);
     }
 
