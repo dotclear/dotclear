@@ -729,8 +729,11 @@ class dcModules
                 if ($zip->hasFile($init)) {
                     unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
-                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php');
-                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+                if ($has_class) {
+                    unlink($target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php');
+                } else {
+                    unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+                }
 
                 $new_errors = $sandbox->getErrors();
                 if (!empty($new_errors)) {
@@ -767,8 +770,11 @@ class dcModules
             if ($zip->hasFile($init)) {
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
-            unlink($target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE);
-            unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+            if ($has_class) {
+                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE);
+            } else {
+                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+            }
             $new_modules = $sandbox->getModules();
 
             if (!empty($new_modules)) {
