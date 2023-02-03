@@ -89,6 +89,7 @@ class dcModules
      * @var        array
      */
     protected $modules_ids = [];
+    protected $modules_files = ['init'=>[],];
 
     /**
      * Current deactivation mode
@@ -408,7 +409,8 @@ class dcModules
             $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
                 $full_entry = $root . $entry;
-                if (file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+                if (!in_array($entry, $this->modules_files['init']) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+                    $this->modules_files['init'][] = $entry;
                     ob_start();
                     require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
                     ob_end_clean();
@@ -553,7 +555,8 @@ class dcModules
 
         } elseif (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
             ob_start();
-            if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+            if (!in_array($id, $this->modules_files['init']) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+                $this->modules_files['init'][] = $id;
                 require $dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
             }
             require $dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
