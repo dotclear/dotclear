@@ -159,17 +159,12 @@ class adminPlugins
         '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
 
         # Activated modules
-        $safe_mode = dcCore::app()->admin->list->modules->safeMode();
-        if (!$safe_mode) {
-            $modules = dcCore::app()->admin->list->modules->getModules();
-        } else {
-            $modules = dcCore::app()->admin->list->modules->getSoftDisabledModules();
-        }
+        $modules = dcCore::app()->admin->list->modules->getModules();
         if (!empty($modules)) {
             echo
             '<h3>' .
             (dcCore::app()->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
-            ($safe_mode ? ' ' . __('(in normal mode)') : '') .
+            (dcCore::app()->admin->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
 
