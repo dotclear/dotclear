@@ -15,11 +15,11 @@ namespace Dotclear\Plugin\blogroll;
 use dcCore;
 use dcNsProcess;
 
-class Frontend extends dcNsProcess
+class Prepend extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_RC_PATH');
+        self::$init = true;
 
         return self::$init;
     }
@@ -30,13 +30,7 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->tpl->addValue('Blogroll', [FrontendTemplate::class, 'blogroll']);
-        dcCore::app()->tpl->addValue('BlogrollXbelLink', [FrontendTemplate::class, 'blogrollXbelLink']);
-
-        dcCore::app()->addBehaviors([
-            'initWidgets'        => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
-        ]);
+        dcCore::app()->url->register('xbel', 'xbel', '^xbel(?:\/?)$', [FrontendUrl::class, 'xbel']);
 
         return true;
     }
