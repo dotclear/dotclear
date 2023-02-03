@@ -922,7 +922,7 @@ class dcModules
      */
     public function deactivateModule(string $id): void
     {
-        $module = $this->getDefine($id, $this->safe_mode ? ['soft_disabled' => false] : ['enabled' => true]);
+        $module = $this->getDefine($id, $this->safe_mode ? ['soft_disabled' => true] : ['enabled' => true]);
 
         if (!$module->isDefined()) {
             throw new Exception(__('No such module.'));
