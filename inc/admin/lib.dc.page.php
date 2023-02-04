@@ -689,6 +689,8 @@ class dcPage
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .
+            '<p>Autoloader requests: ' . dcCore::app()->autoload->getRequestsCount() . 
+            ' | Autoloader loads: ' . dcCore::app()->autoload->getLoadsCount() . '</p>' .
             '</div></div>';
 
         return $res;
