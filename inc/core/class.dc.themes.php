@@ -184,14 +184,14 @@ class dcThemes extends dcModules
      */
     public function loadNsFile(string $id, ?string $ns = null): void
     {
-        $define = $this->getDefine($id, ['enabled' => true]);
-        if ($define->isDefined()) {
+        $define = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        if (!$define->isDefined()) {
             return;
         }
 
         switch ($ns) {
             case 'public':
-                $parent = $this->getDefine($id, ['enabled' => true])->parent;
+                $parent = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED])->parent;
                 if ($parent) {
                     // This is not a real cascade - since we don't call loadNsFile -,
                     // thus limiting inclusion process.
