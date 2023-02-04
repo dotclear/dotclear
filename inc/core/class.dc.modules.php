@@ -587,7 +587,7 @@ class dcModules
             ->set('state', $this->disabled_mode ? dcModuleDefine::STATE_INIT_DISABLED : dcModuleDefine::STATE_ENABLED)
             ->set('root', $this->mroot)
             ->set('namespace', $this->namespace)
-            ->set('root_writable', is_writable($this->mroot))
+            ->set('root_writable', !is_null($this->mroot) && is_writable($this->mroot))
         ;
 
         if ($this->disabled_mode) {
