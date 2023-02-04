@@ -1197,6 +1197,7 @@ class dcUpgrade
                     'plugins/dcCKEditor/_install.php',
                     'plugins/dcCKEditor/_post_config.php',
                     'plugins/dcCKEditor/_prepend.php',
+                    'plugins/dcCKEditor/index.php',
                     'plugins/dcLegacyEditor/_admin.php',
                     'plugins/dcLegacyEditor/_install.php',
                     'plugins/dcLegacyEditor/_prepend.php',
