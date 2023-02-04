@@ -183,7 +183,7 @@ class dcModules
      * 
      * @return  dcModuleDefine   The first matching module define or properties
      */
-    public function getDefine(string $id, array $search): dcModuleDefine
+    public function getDefine(string $id, array $search = []): dcModuleDefine
     {
         $found = $this->getDefines(array_merge($search, ['id' => $id]));
 
@@ -206,7 +206,12 @@ class dcModules
         foreach($this->defines as $module) {
             $add_it = true;
             foreach($search as $key => $value) {
-                if ($module->get($key) !== $value) {
+                if (substr($value, 0, 1) == '!') {
+                    if ($module->get($key) === substr($value, 0, 1)) {
+                        $add_it = false;
+                        break;
+                    }
+                } elseif ($module->get($key) !== $value) {
                     $add_it = false;
                     break;
                 }
@@ -245,7 +250,7 @@ class dcModules
                     if (!is_array($dep)) {
                         $dep = [$dep];
                     }
-                    $found = $this->getDefine($dep[0], []);
+                    $found = $this->getDefine($dep[0]);
                     // grab missing dependencies
                     if (!$found->isDefined() && $dep[0] != 'core') {
                         // module not present
@@ -266,7 +271,7 @@ class dcModules
                                 $found->version
                             ));
                         }
-                    } elseif (($dep[0] != 'core') && !$found->enabled) {
+                    } elseif (($dep[0] != 'core') && $found->state != dcModuleDefine::STATE_ENABLED) {
                         // module disabled
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is disabled'), $dep[0]));
                     }
@@ -276,10 +281,10 @@ class dcModules
         }
         // Check modules that cannot be disabled
         foreach ($this->getDefines() as $module) {
-            if (empty($module->getImplies()) && $module->enabled) {
+            if (empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
                 foreach ($module->getImplies() as $im) {
                     foreach($this->getDefines(['id' => $im]) as $found) {
-                        if ($found->enabled) {
+                        if ($found->state == dcModuleDefine::STATE_ENABLED) {
                             $module->addUsing($im);
                         }
                     }
@@ -306,7 +311,7 @@ class dcModules
         }
         $reason = [];
         foreach ($this->getDefines() as $module) {
-            if (empty($module->getMissing()) || !$module->enabled) {
+            if (empty($module->getMissing()) || $module->state != dcModuleDefine::STATE_ENABLED) {
                 continue;
             }
             try {
@@ -451,13 +456,7 @@ class dcModules
                 }
                 if (!$module_enabled) {
                     $this->disabled_mode       = false;
-                    if ($module_disabled) {
-                        // Add module in hard disabled stack (_disabled file exists)
-                        $this->define->hard_disabled = true;
-                    } else {
-                        // Add module in soft disabled stack (safe mode enabled)
-                        $this->define->soft_disabled = true;
-                    }
+                    $this->define->state = $module_disabled ? dcModuleDefine::STATE_HARD_DISABLED : dcModuleDefine::STATE_SOFT_DISABLED;
                 }
                 $this->id    = null;
                 $this->mroot = null;
@@ -472,7 +471,7 @@ class dcModules
         uasort($this->defines, [$this, 'sortModules']);
 
         // Context loop
-        foreach ($this->getDefines(['enabled' => true]) as $module) {
+        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
             # Load translation and _prepend
             $ret = '';
 
@@ -504,7 +503,7 @@ class dcModules
         dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
         // Load module context
-        foreach ($this->getDefines(['enabled' => true]) as $module) {
+        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
             if (!in_array($module->id, $ignored)) {
                 // Load ns_file
                 $this->loadNsFile($module->id, $ns);
@@ -586,7 +585,7 @@ class dcModules
         $this->define = $define;
 
         $this->define
-            ->set('enabled', !$this->disabled_mode)
+            ->set('state', $this->disabled_mode ? dcModuleDefine::STATE_INIT_DISABLED : dcModuleDefine::STATE_ENABLED)
             ->set('root', $this->mroot)
             ->set('namespace', $this->namespace)
             ->set('root_writable', is_writable($this->mroot))
@@ -841,7 +840,7 @@ class dcModules
             'failure' => [],
         ];
         $msg = '';
-        foreach ($this->getDefines(['enabled' => true]) as $module) {
+        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
             $ret = $this->installModule($module->id, $msg);
             if ($ret === true) {
                 $res['success'][$module->id] = true;
@@ -867,7 +866,7 @@ class dcModules
      */
     public function installModule(string $id, string &$msg)
     {
-        $module = $this->getDefine($id, ['enabled' => true]);
+        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
 
         if (!$module->isDefined()) {
             return;
@@ -911,7 +910,7 @@ class dcModules
      */
     public function deleteModule(string $id, bool $disabled = false): void
     {
-        $module = $this->getDefine($id, ['enabled' => !$disabled]);
+        $module = $this->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
 
         if (!$module->isDefined()) {
             throw new Exception(__('No such module.'));
@@ -931,7 +930,7 @@ class dcModules
      */
     public function deactivateModule(string $id): void
     {
-        $module = $this->getDefine($id, $this->safe_mode ? ['soft_disabled' => true] : ['enabled' => true]);
+        $module = $this->getDefine($id, ['state' => $this->safe_mode ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]);
 
         if (!$module->isDefined()) {
             throw new Exception(__('No such module.'));
@@ -955,7 +954,7 @@ class dcModules
      */
     public function activateModule(string $id): void
     {
-        $module = $this->getDefine($id, ['enabled' => false]);
+        $module = $this->getDefine($id, ['state' => '!' . dcModuleDefine::STATE_ENABLED]);
 
         if (!$module->isDefined()) {
             throw new Exception(__('No such module.'));
@@ -991,7 +990,7 @@ class dcModules
      */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
-        $module = $this->getDefine($id, ['enabled' => true]);
+        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             if (l10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
@@ -1008,7 +1007,7 @@ class dcModules
      */
     public function loadModuleL10Nresources(string $id, ?string $lang): void
     {
-        $module = $this->getDefine($id, ['enabled' => true]);
+        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             if ($file = l10n::getFilePath($module->root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
                 $this->loadModuleFile($file);
@@ -1025,8 +1024,7 @@ class dcModules
      */
     public function getModules(?string $id = null): array
     {
-        $search  = $this->safe_mode ? ['soft_disabled' => true] : ['enabled' => true];
-        $modules = $this->getDefines($search, true);
+        $modules = $this->getDefines(['state' => $this->safe_mode ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED], true);
 
         return $id && isset($modules[$id]) ? $modules[$id] : $modules;
     }
@@ -1054,7 +1052,7 @@ class dcModules
      */
     public function moduleExists(string $id): bool
     {
-        return $this->getDefine($id, ['enabled' => true])->isDefined();
+        return $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED])->isDefined();
     }
 
     /**
@@ -1064,7 +1062,7 @@ class dcModules
      */
     public function getDisabledModules(): array
     {
-        return $this->getDefines(['enabled' => false], true);
+        return $this->getDefines(['state' => '!' . dcModuleDefine::STATE_ENABLED], true);
     }
 
     /**
@@ -1074,7 +1072,7 @@ class dcModules
      */
     public function getHardDisabledModules(): array
     {
-        return $this->getDefines(['hard_disabled' => true], true);
+        return $this->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED], true);
     }
 
     /**
@@ -1084,7 +1082,7 @@ class dcModules
      */
     public function getSoftDisabledModules(): array
     {
-        return $this->getDefines(['soft_disabled' => true], true);
+        return $this->getDefines(['state' => dcModuleDefine::STATE_SOFT_DISABLED], true);
     }
 
     /**
@@ -1117,7 +1115,7 @@ class dcModules
      */
     public function moduleInfo(string $id, string $info)
     {
-        return $this->getDefine($id, ['enabled' => true])->get($info);
+        return $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED])->get($info);
     }
 
     /**
@@ -1127,7 +1125,7 @@ class dcModules
      */
     public function loadNsFiles(?string $ns = null): void
     {
-        foreach ($this->getDefines(['enabled' => true]) as $module) {
+        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
             $this->loadNsFile($module->id, $ns);
         }
     }
@@ -1141,7 +1139,7 @@ class dcModules
      */
     public function loadNsFile(string $id, ?string $ns = null): void
     {
-        $module = $this->getDefine($id, ['enabled' => true]);
+        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
             return;
         }
@@ -1185,7 +1183,7 @@ class dcModules
      */
     public function loadNsClass(string $id, string $ns, bool $process = true): string
     {
-        $module = $this->getDefine($id, ['enabled' => true]);
+        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
 
         // unknown module
         if (!$module->isDefined()) {

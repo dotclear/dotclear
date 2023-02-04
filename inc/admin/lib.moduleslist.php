@@ -811,7 +811,7 @@ class adminModulesList
                 $tds++;
                 echo
                 '<td class="module-desc maximal">' . html::escapeHTML(__($module['desc']));
-                if (!empty($module['cannot_disable']) && $module['enabled']) {
+                if (!empty($module['cannot_disable']) && $module['state'] == dcModuleDefine::STATE_ENABLED) {
                     echo
                     '<br/><span class="info">' .
                     sprintf(
@@ -820,7 +820,7 @@ class adminModulesList
                     ) .
                         '</span>';
                 }
-                if (!empty($module['cannot_enable']) && !$module['enabled']) {
+                if (!empty($module['cannot_enable']) && $module['state'] != dcModuleDefine::STATE_ENABLED) {
                     echo
                     '<br/><span class="info">' .
                     __('This module cannot be enabled, because of the following reasons :') .
@@ -905,14 +905,14 @@ class adminModulesList
                  || self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE)
                  || !empty($module['section']) 
                  || !empty($module['tags']) 
-                 || !empty($module['settings']) && $module['enabled']
+                 || !empty($module['settings']) && $module['state'] == dcModuleDefine::STATE_ENABLED
                  || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES
                 ) {
                     echo
                         '<div><ul class="mod-more">';
 
                     $settings = static::getSettingsUrls($id);
-                    if (!empty($settings) && $module['enabled']) {
+                    if (!empty($settings) && $module['state'] == dcModuleDefine::STATE_ENABLED) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 

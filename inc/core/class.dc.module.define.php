@@ -15,6 +15,16 @@
 class dcModuleDefine
 {
     /**
+     * Disabled state
+     *
+     * @var        string
+     */
+    public const STATE_ENABLED       = 0;
+    public const STATE_INIT_DISABLED = 1;
+    public const STATE_SOFT_DISABLED = 2;
+    public const STATE_HARD_DISABLED = 4;
+
+    /**
      * Undefined module's name.
      *
      * @var        string
@@ -65,9 +75,7 @@ class dcModuleDefine
      */
     private $default = [
         // set by dc
-        'enabled'           => false,
-        'hard_disabled'     => false,
-        'soft_disabled'     => false,
+        'state'             => self::STATE_INIT_DISABLED,
         'root'              => null,
         'namespace'         => null,
         'root_writable'     => false,
@@ -87,7 +95,7 @@ class dcModuleDefine
         'settings'          => [],
 
         // optionnal++
-        'label'             => '', //deprecated since 10 years
+        'label'             => '',
         'support'           => '',
         'details'           => '',
         'repository'        => '',
@@ -177,12 +185,15 @@ class dcModuleDefine
     /**
      * Gets array of properties
      * 
+     * Mainly used for backward compatibility.
+     * 
      * @return array The properties
      */
     public function dump(): array
     {
         return array_merge($this->default, $this->properties, [
             'id'             => $this->id,
+            'enabled'        => $this->state == self::STATE_ENABLED,
             'implies'        => $this->implies,
             'cannot_enable'  => $this->missing,
             'cannot_disable' => $this->using,
