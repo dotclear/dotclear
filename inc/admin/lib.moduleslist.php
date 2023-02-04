@@ -582,45 +582,20 @@ class adminModulesList
      */
     public static function sanitizeModule(string $id, array $module): array
     {
-        $label = empty($module['label']) ? $id : $module['label'];
-        $name  = __(empty($module['name']) ? $label : $module['name']);
+        $define = new dcModuleDefine($id);
 
-        return array_merge(
-            # Default values
-            [
-                'desc'              => '',
-                'author'            => '',
-                'version'           => 0,
-                'current_version'   => 0,
-                'root'              => '',
-                'root_writable'     => false,
-                'namespace'         => '',
-                'permissions'       => null,
-                'parent'            => null,
-                'priority'          => dcModules::DEFAULT_PRIORITY,
-                'standalone_config' => false,
-                'support'           => '',
-                'section'           => '',
-                'tags'              => '',
-                'details'           => '',
-                'sshot'             => '',
-                'score'             => 0,
-                'type'              => null,
-                'require'           => [],
-                'settings'          => [],
-                'repository'        => '',
-            ],
-            # Module's values
-            $module,
-            # Clean up values
-            [
-                'id'    => $id,
-                'sid'   => self::sanitizeString($id),
-                'label' => $label,
-                'name'  => $name,
-                'sname' => self::sanitizeString($name),
-            ]
-        );
+        if (is_array($module)) {
+            foreach($module as $k => $v) {
+                $define->set($k, $v);
+            }
+        }
+
+        return $define
+            ->set('sid', self::sanitizeString($id))
+            ->set('label', empty($module['label']) ? $id : $module['label'])
+            ->set('name', __(empty($module['name']) ? $define->label : $module['name']))
+            ->set('sname', self::sanitizeString($define->name))
+            ->dump();
     }
 
     /**
@@ -836,7 +811,7 @@ class adminModulesList
                 $tds++;
                 echo
                 '<td class="module-desc maximal">' . html::escapeHTML(__($module['desc']));
-                if (isset($module['cannot_disable']) && $module['enabled']) {
+                if (!empty($module['cannot_disable']) && $module['state'] == dcModuleDefine::STATE_ENABLED) {
                     echo
                     '<br/><span class="info">' .
                     sprintf(
@@ -845,7 +820,7 @@ class adminModulesList
                     ) .
                         '</span>';
                 }
-                if (isset($module['cannot_enable']) && !$module['enabled']) {
+                if (!empty($module['cannot_enable']) && $module['state'] != dcModuleDefine::STATE_ENABLED) {
                     echo
                     '<br/><span class="info">' .
                     __('This module cannot be enabled, because of the following reasons :') .
@@ -926,28 +901,18 @@ class adminModulesList
                         '</ul></div>';
                 }
 
-                // by class name
-                if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
-                    $config = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
-                // by file name
-                } else {
-                    $config = !empty($module['root']) && file_exists(path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG));
-                }
-
-                // by class name
-                if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)) {
-                    $index = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)::init();
-                // by file name
-                } else {
-                    $index = !empty($module['root']) && file_exists(path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
-                }
-
-                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
+                if (self::hasFileOrClass($id, dcModules::MODULE_CLASS_CONFIG, dcModules::MODULE_FILE_CONFIG)
+                 || self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE)
+                 || !empty($module['section']) 
+                 || !empty($module['tags']) 
+                 || !empty($module['settings']) && $module['state'] == dcModuleDefine::STATE_ENABLED
+                 || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES
+                ) {
                     echo
                         '<div><ul class="mod-more">';
 
                     $settings = static::getSettingsUrls($id);
-                    if (!empty($settings) && $module['enabled']) {
+                    if (!empty($settings) && $module['state'] == dcModuleDefine::STATE_ENABLED) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
@@ -1012,24 +977,8 @@ class adminModulesList
     {
         $settings_urls = [];
 
-        $module_root = dcCore::app()->plugins->moduleRoot($id);
-        $module_ns   = dcCore::app()->plugins->moduleInfo($id, 'namespace');
-
-        // by class name
-        if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
-            $config = ($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
-        // by file name
-        } else {
-            $config = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG));
-        }
-
-        // by class name
-        if (!empty($module_ns) && class_exists($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)) {
-            $index = ($module_ns . Autoloader::NS_SEP . dcModules::MODULE_CLASS_MANAGE)::init();
-        // by file name
-        } else {
-            $index = !empty($module_root) && file_exists(path::real($module_root . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE));
-        }
+        $config = self::hasFileOrClass($id, dcModules::MODULE_CLASS_CONFIG, dcModules::MODULE_FILE_CONFIG);
+        $index  = self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE);
 
         $settings = dcCore::app()->plugins->moduleInfo($id, 'settings');
         if ($self) {
@@ -1126,7 +1075,7 @@ class adminModulesList
             switch ($action) {
                 # Deactivate
                 case 'activate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && empty($module['cannot_enable'])) {
                         $submits[] = '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
                     }
 
@@ -1134,7 +1083,7 @@ class adminModulesList
 
                     # Activate
                 case 'deactivate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && empty($module['cannot_disable'])) {
                         $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
                     }
 
@@ -1142,7 +1091,7 @@ class adminModulesList
 
                     # Delete
                 case 'delete':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && empty($module['cannot_disable'])) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
                         $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }
@@ -1732,6 +1681,31 @@ class adminModulesList
     {
         return preg_replace('/[^A-Za-z0-9\@\#+_-]/', '', strtolower($str));
     }
+
+    /**
+     * Helper to check if a module's ns class or file exists.
+     * 
+     * @param   string  $id     The module identifier
+     * @param   string  $class  The module class name
+     * @param   string  $file   The module file name
+     * 
+     * @return  bool    True if one exists
+     */
+    private static function hasFileOrClass(string $id, string $class, string $file): bool
+    {
+        // by class name
+        $ns    = dcCore::app()->plugins->moduleInfo($id, 'namespace');
+        $class = $ns . Autoloader::NS_SEP . $class;
+        if (!empty($ns) && class_exists($class)) {
+            $has = $class::init();
+        // by file name
+        } else {
+            $root = dcCore::app()->plugins->moduleRoot($id);
+            $has  = !empty($root) && file_exists(path::real($root . DIRECTORY_SEPARATOR . $file));
+        }
+
+        return $has;
+    }
 }
 
 /**
@@ -1920,8 +1894,9 @@ class adminThemesList extends adminModulesList
                 $line .= '<div class="current-actions">';
 
                 // by class name
-                if (!empty($module['namespace']) && class_exists($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)) {
-                    $config = ($module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG)::init();
+                $class = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
+                if (!empty($module['namespace']) && class_exists($class)) {
+                    $config = $class::init();
                 // by file name
                 } else {
                     $config = file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
