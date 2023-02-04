@@ -14,6 +14,10 @@ $this->registerModule(
     'Franck Paul',
     '2.0',
     [
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
         'type'     => 'plugin',
         'priority' => 99_999_999_998,
     ]
