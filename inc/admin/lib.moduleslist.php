@@ -551,7 +551,7 @@ class adminModulesList
         $this->data = [];
         if (!empty($modules)) {
             foreach ($modules as $id => $module) {
-                $this->data[$id] = self::sanitizeModule($id, $module);
+                $this->data[$id] = $this->doSanitizeModule($id, $module);
             }
         }
 
@@ -575,15 +575,14 @@ class adminModulesList
      * and clean some of them, sanitize module can safely
      * be used in lists.
      *
-     * @param      string  $id      The identifier
-     * @param      array   $module  The module
+     * @param      dcModuleDefine   $define The module definition
+     * @param      string           $id      The identifier
+     * @param      array            $module  The module
      *
      * @return   array  Array of the module informations
      */
-    public static function sanitizeModule(string $id, array $module): array
+    private static function fillSanitizeModule(dcModuleDefine $define, string $id, array $module): array
     {
-        $define = new dcModuleDefine($id);
-
         if (is_array($module)) {
             foreach ($module as $k => $v) {
                 $define->set($k, $v);
@@ -596,6 +595,46 @@ class adminModulesList
             ->set('name', __(empty($module['name']) ? $define->label : $module['name']))
             ->set('sname', self::sanitizeString($define->name))
             ->dump();
+    }
+
+    /**
+     * Sanitize a module (static version).
+     *
+     * This clean infos of a module by adding default keys
+     * and clean some of them, sanitize module can safely
+     * be used in lists.
+     *
+     * Warning: this static method will not fill module dependencies
+     *
+     * @param      string  $id      The identifier
+     * @param      array   $module  The module
+     *
+     * @return   array  Array of the module informations
+     */
+    public static function sanitizeModule(string $id, array $module): array
+    {
+        $define = new dcModuleDefine($id);
+
+        return self::fillSanitizeModule($define, $id, $module);
+    }
+
+    /**
+     * Sanitize a module (dynamic version).
+     *
+     * This clean infos of a module by adding default keys
+     * and clean some of them, sanitize module can safely
+     * be used in lists.
+     *
+     * @param      string  $id      The identifier
+     * @param      array   $module  The module
+     *
+     * @return   array  Array of the module informations
+     */
+    public function doSanitizeModule(string $id, array $module): array
+    {
+        $define = $this->modules->getDefine($id);
+
+        return self::fillSanitizeModule($define, $id, $module);
     }
 
     /**
@@ -1560,7 +1599,7 @@ class adminModulesList
         }
 
         $module = $this->modules->getModules($id);
-        $module = self::sanitizeModule($id, $module);
+        $module = $this->doSanitizeModule($id, $module);
         $class  = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
         $class  = empty($module['namespace']) || !class_exists($class) ? '' : $class;
         $file   = path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
