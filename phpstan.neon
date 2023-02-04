@@ -209,6 +209,10 @@ parameters:
     - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsElement::#'
       path: %currentWorkingDirectory%
 
+    # dcModuleDefine auto properties
+    - message: '#Access to an undefined property dcModuleDefine::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

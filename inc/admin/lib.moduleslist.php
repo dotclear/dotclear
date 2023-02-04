@@ -585,7 +585,7 @@ class adminModulesList
         $define = new dcModuleDefine($id);
 
         if (is_array($module)) {
-            foreach($module as $k => $v) {
+            foreach ($module as $k => $v) {
                 $define->set($k, $v);
             }
         }
@@ -903,9 +903,9 @@ class adminModulesList
 
                 if (self::hasFileOrClass($id, dcModules::MODULE_CLASS_CONFIG, dcModules::MODULE_FILE_CONFIG)
                  || self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE)
-                 || !empty($module['section']) 
-                 || !empty($module['tags']) 
-                 || !empty($module['settings']) && $module['state'] == dcModuleDefine::STATE_ENABLED
+                 || !empty($module['section'])
+                 || !empty($module['tags'])
+                 || !empty($module['settings'])   && $module['state'] == dcModuleDefine::STATE_ENABLED
                  || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES
                 ) {
                     echo
@@ -1684,11 +1684,11 @@ class adminModulesList
 
     /**
      * Helper to check if a module's ns class or file exists.
-     * 
+     *
      * @param   string  $id     The module identifier
      * @param   string  $class  The module class name
      * @param   string  $file   The module file name
-     * 
+     *
      * @return  bool    True if one exists
      */
     private static function hasFileOrClass(string $id, string $class, string $file): bool

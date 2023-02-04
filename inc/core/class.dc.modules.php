@@ -88,8 +88,8 @@ class dcModules
      *
      * @var        array
      */
-    protected $modules_ids = [];
-    protected $modules_files = ['init'=>[],];
+    protected $modules_ids   = [];
+    protected $modules_files = ['init' => []];
 
     /**
      * Current deactivation mode
@@ -173,14 +173,13 @@ class dcModules
 
     /**
      * Get first ocurrence of a module's defined properties.
-     * 
+     *
      * If module definition does not exist, it is created on the fly
      * with default properties.
-     * 
+     *
      * @param   string  $id         The module identifier
      * @param   array   $search     The search parameters
-     * @param   bool    $to_array   Return arrays of modules properties
-     * 
+     *
      * @return  dcModuleDefine   The first matching module define or properties
      */
     public function getDefine(string $id, array $search = []): dcModuleDefine
@@ -192,27 +191,29 @@ class dcModules
 
     /**
      * Get modules defined properties.
-     * 
+     *
      * More than one module can have same id in this stack.
-     * 
+     *
      * @param   array   $search     The search parameters
      * @param   bool    $to_array   Return arrays of modules properties
-     * 
-     * @return  array   The modules defines or properties
+     *
+     * @return  array<dcModuleDefine>   The modules defines or properties
      */
     public function getDefines(array $search = [], bool $to_array = false): array
     {
         $list = [];
-        foreach($this->defines as $module) {
+        foreach ($this->defines as $module) {
             $add_it = true;
-            foreach($search as $key => $value) {
+            foreach ($search as $key => $value) {
                 if (substr($value, 0, 1) == '!') {
                     if ($module->get($key) === substr($value, 0, 1)) {
                         $add_it = false;
+
                         break;
                     }
                 } elseif ($module->get($key) !== $value) {
                     $add_it = false;
+
                     break;
                 }
             }
@@ -275,15 +276,15 @@ class dcModules
                         // module disabled
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is disabled'), $dep[0]));
                     }
-                    $found->addImplies($module->id);
+                    $found->addImplies($module->getId());
                 }
             }
         }
         // Check modules that cannot be disabled
         foreach ($this->getDefines() as $module) {
-            if (empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
+            if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
                 foreach ($module->getImplies() as $im) {
-                    foreach($this->getDefines(['id' => $im]) as $found) {
+                    foreach ($this->getDefines(['id' => $im]) as $found) {
                         if ($found->state == dcModuleDefine::STATE_ENABLED) {
                             $module->addUsing($im);
                         }
@@ -314,8 +315,9 @@ class dcModules
             if (empty($module->getMissing()) || $module->state != dcModuleDefine::STATE_ENABLED) {
                 continue;
             }
+
             try {
-                $this->deactivateModule($module->id);
+                $this->deactivateModule($module->getId());
                 $reason[] = sprintf('<li>%s : %s</li>', $module->name, join(',', $module->getMissing()));
             } catch (Exception $e) {
                 // Ignore exceptions
@@ -370,8 +372,7 @@ class dcModules
         while (($entry = $d->read()) !== false) {
             $full_entry = $root . $entry;
             if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && (
-                file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE) ||
-                file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php')
+                file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE) || file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php')
             )) {
                 $stack[] = $entry;
             }
@@ -455,7 +456,7 @@ class dcModules
                     ob_end_clean();
                 }
                 if (!$module_enabled) {
-                    $this->disabled_mode       = false;
+                    $this->disabled_mode = false;
                     $this->define->state = $module_disabled ? dcModuleDefine::STATE_HARD_DISABLED : dcModuleDefine::STATE_SOFT_DISABLED;
                 }
                 $this->id    = null;
@@ -486,16 +487,16 @@ class dcModules
 
             if (is_null($ret)) {
                 // If _prepend.php file returns null (ie. it has a void return statement)
-                $ignored[] = $module->id;
+                $ignored[] = $module->getId();
 
                 continue;
             }
-            unset($r);
+            unset($ret);
 
-            $this->loadModuleL10N($module->id, $lang, 'main');
+            $this->loadModuleL10N($module->getId(), $lang, 'main');
             if ($ns == 'admin') {
-                $this->loadModuleL10Nresources($module->id, $lang);
-                dcCore::app()->adminurl->register('admin.plugin.' . $module->id, 'plugin.php', ['p' => $module->id]);
+                $this->loadModuleL10Nresources($module->getId(), $lang);
+                dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), 'plugin.php', ['p' => $module->getId()]);
             }
         }
 
@@ -504,9 +505,9 @@ class dcModules
 
         // Load module context
         foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
-            if (!in_array($module->id, $ignored)) {
+            if (!in_array($module->getId(), $ignored)) {
                 // Load ns_file
-                $this->loadNsFile($module->id, $ns);
+                $this->loadNsFile($module->getId(), $ns);
             }
         }
     }
@@ -548,10 +549,9 @@ class dcModules
             $ns     = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? dcModuleDefine::DEFAULT_TYPE), $this->id]);
             $loader = new Autoloader('', '', true);
             $loader->addNamespace($ns, $dir);
-            $class  = $ns . Autoloader::NS_SEP . self::MODULE_CLASS_DEFINE;
+            $class = $ns . Autoloader::NS_SEP . self::MODULE_CLASS_DEFINE;
             $this->defineModule(new $class($this->id));
             unset($loader);
-
         } elseif (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
             ob_start();
             if (!in_array($id, $this->modules_files['init']) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
@@ -566,9 +566,8 @@ class dcModules
 
     /**
      * This method registers a module in modules list.
-     * 
-     * @since   2.25    This method is only served by 
-     *                  dcPlugins and dcThemes for compatibility
+     *
+     * @deprecated since 2.25    This method is only served by dcPlugins and dcThemes for compatibility
      *
      * @param      string  $name        The module name
      * @param      string  $desc        The module description
@@ -637,7 +636,7 @@ class dcModules
             $module_overwrite = $module_exists ? version_compare($this->modules_ids[$this->id], $this->define->version, '<') : false;
             if (!$module_exists || $module_overwrite) {
                 $this->modules_ids[$this->id] = $this->define->version;
-                $this->defines[]     = $this->define;
+                $this->defines[]              = $this->define;
             } else {
                 $path1 = path::real($this->moduleInfo($this->id, 'root') ?? '');
                 $path2 = path::real($this->mroot ?? '');
@@ -841,11 +840,11 @@ class dcModules
         ];
         $msg = '';
         foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
-            $ret = $this->installModule($module->id, $msg);
+            $ret = $this->installModule($module->getId(), $msg);
             if ($ret === true) {
-                $res['success'][$module->id] = true;
+                $res['success'][$module->getId()] = true;
             } elseif ($ret === false) {
-                $res['failure'][$module->id] = $msg;
+                $res['failure'][$module->getId()] = $msg;
             }
         }
 
@@ -1126,7 +1125,7 @@ class dcModules
     public function loadNsFiles(?string $ns = null): void
     {
         foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
-            $this->loadNsFile($module->id, $ns);
+            $this->loadNsFile($module->getId(), $ns);
         }
     }
 

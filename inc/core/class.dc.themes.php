@@ -47,7 +47,7 @@ class dcThemes extends dcModules
         ;
 
         if (is_array($properties)) {
-            foreach($properties as $k => $v) {
+            foreach ($properties as $k => $v) {
                 $define->set($k, $v);
             }
         }
