@@ -86,6 +86,8 @@ class dcThemes extends dcModules
      */
     public function cloneModule(string $id): void
     {
+        $module = $this->getDefine($id);
+
         $root = end($this->path); // Use last folder set in folders list (should be only one for theme)
         if (!is_dir($root) || !is_readable($root)) {
             throw new Exception(__('Themes folder unreachable'));
@@ -96,11 +98,11 @@ class dcThemes extends dcModules
         }
 
         $counter = 0;
-        $new_dir = sprintf('%s_copy', $this->modules[$id]->root);
+        $new_dir = sprintf('%s_copy', $module->root);
         while (is_dir($new_dir)) {
-            $new_dir = sprintf('%s_copy_%s', $this->modules[$id]->root, ++$counter);
+            $new_dir = sprintf('%s_copy_%s', $module->root, ++$counter);
         }
-        $new_name = $this->modules[$id]->name . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
+        $new_name = $module->name . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
             try {
@@ -109,11 +111,11 @@ class dcThemes extends dcModules
 
                 // Clone directories and files
 
-                $content = files::getDirList($this->modules[$id]->root);
+                $content = files::getDirList($module->root);
 
                 // Create sub directories if necessary
                 foreach ($content['dirs'] as $dir) {
-                    $rel = substr($dir, strlen($this->modules[$id]->root));
+                    $rel = substr($dir, strlen($module->root));
                     if ($rel !== '') {
                         files::makeDir($new_dir . $rel);
                     }
@@ -122,7 +124,7 @@ class dcThemes extends dcModules
                 // Copy files from source to destination
                 foreach ($content['files'] as $file) {
                     // Copy file
-                    $rel = substr($file, strlen($this->modules[$id]->root));
+                    $rel = substr($file, strlen($module->root));
                     copy($file, $new_dir . $rel);
 
                     if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
@@ -132,9 +134,9 @@ class dcThemes extends dcModules
                         // Change theme name to $new_name in _define.php
                         if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                             // Change only first occurence in registerModule parameters (should be the theme name)
-                            $matches[2] = preg_replace('/' . preg_quote($this->modules[$id]->name) . '/', $new_name, $matches[2], 1);
+                            $matches[2] = preg_replace('/' . preg_quote($module->name) . '/', $new_name, $matches[2], 1);
                             $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
-                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $this->modules[$id]->name);
+                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module->name);
                             file_put_contents($new_dir . $rel, $buf);
                         } else {
                             throw new Exception(__('Unable to modify _define.php'));
