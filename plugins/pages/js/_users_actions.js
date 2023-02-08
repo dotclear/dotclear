@@ -14,7 +14,7 @@ $.fn.updatePagesPermissionsForm = function () {
     };
 
     const doEventAdmin = (evt) => {
-      admin(evt.data.form_element);
+      admin(evt.data.dom_element);
     };
 
     // Building a nice object of form elements
@@ -30,13 +30,22 @@ $.fn.updatePagesPermissionsForm = function () {
         permissions[matches[1]] = {};
       }
       permissions[matches[1]][matches[2]] = form_element;
+    }
 
-      // select related permissions for admin
-      if (matches[2] == 'admin') {
-        if (form_element.checked) {
-          admin(form_element);
+    // Populate states
+    for (const blog in permissions) {
+      // Loop on blog
+      for (const element in permissions[blog]) {
+        // Loop on permission
+        const dom_element = permissions[blog][element];
+        const matches = dom_element.name.match(perm_reg_expr);
+        if (matches[2] == 'admin') {
+          // select related permissions for admin
+          if (dom_element.checked) {
+            admin(dom_element);
+          }
+          $(dom_element).on('click', { dom_element }, doEventAdmin);
         }
-        $(form_element).on('click', { form_element }, doEventAdmin);
       }
     }
   });
