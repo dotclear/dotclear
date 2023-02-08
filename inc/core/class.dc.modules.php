@@ -561,6 +561,22 @@ class dcModules
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = [])
     {
+        $define = new dcModuleDefine($this->id);
+
+        $define
+            ->set('name', $name)
+            ->set('desc', $desc)
+            ->set('author', $author)
+            ->set('version', $version)
+        ;
+
+        if (is_array($properties)) {
+            foreach ($properties as $k => $v) {
+                $define->set($k, $v);
+            }
+        }
+
+        $this->defineModule($define);
     }
 
     protected function defineModule(dcModuleDefine $define)
