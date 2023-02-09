@@ -8,14 +8,29 @@ $laptop-screen: 82em;
 
 // Local fonts
 @font-face {
-  font-family: 'Atkinson-Hyperlegible-Regular';
+  font-family: 'Atkinson-Hyperlegible';
   src: url('font/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2');
 }
-
+@font-face {
+  font-family: 'Atkinson-Hyperlegible';
+  src: url('font/Atkinson-Hyperlegible-Bold-102a.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Atkinson-Hyperlegible';
+  src: url('font/Atkinson-Hyperlegible-Italic-102a.woff2') format('woff2');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Atkinson-Hyperlegible';
+  src: url('font/Atkinson-Hyperlegible-BoldItalic-102a.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
 // CSS custom properties - variables
 
 :root {
-  --dc-font: 'Atkinson-Hyperlegible-Regular';
+  --dc-font: 'Atkinson-Hyperlegible';
 
   --sans-serif: var(--dc-font), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     'Helvetica Neue', sans-serif;
