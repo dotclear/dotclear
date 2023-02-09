@@ -44,7 +44,6 @@ class dcModules
      * @var        string
      */
     public const MODULE_CLASS_DIR     = 'src';
-    public const MODULE_CLASS_DEFINE  = 'Define';       // Common (ex _define.php)
     public const MODULE_CLASS_PREPEND = 'Prepend';      // Common (ex _prepend.php)
     public const MODULE_CLASS_INSTALL = 'Install';      // Installation (ex _install.php)
     public const MODULE_CLASS_ADMIN   = 'Backend';      // Backend common (ex _admin.php)
@@ -174,7 +173,8 @@ class dcModules
     /**
      * Get first ocurrence of a module's defined properties.
      *
-     * If module definition does not exist, it is created on the fly
+     * This method always returns a dcModuleDefine class,
+     * if module definition does not exist, it is created on the fly
      * with default properties.
      *
      * @param   string  $id         The module identifier
@@ -371,9 +371,7 @@ class dcModules
         $stack = [];
         while (($entry = $d->read()) !== false) {
             $full_entry = $root . $entry;
-            if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && (
-                file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE) || file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php')
-            )) {
+            if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
                 $stack[] = $entry;
             }
         }
@@ -444,23 +442,18 @@ class dcModules
                 if (!$module_enabled) {
                     $this->disabled_mode = true;
                 }
-                $class = $this->namespace . Autoloader::NS_SEP . self::MODULE_CLASS_DEFINE;
-                if (class_exists($class)) {
-                    if (!is_subclass_of($class, 'dcModuleDefine')) {
-                        $class = 'dcModuleDefine';
-                    }
-                    $this->defineModule(new $class($this->id));
-                } else {
-                    ob_start();
-                    require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
-                    ob_end_clean();
-                }
+
+                ob_start();
+                require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
+                ob_end_clean();
+
                 if (!$module_enabled) {
                     $this->disabled_mode = false;
                     $this->define->state = $module_disabled ? dcModuleDefine::STATE_HARD_DISABLED : dcModuleDefine::STATE_SOFT_DISABLED;
                 }
-                $this->id    = null;
-                $this->mroot = null;
+                $this->id        = null;
+                $this->mroot     = null;
+                $this->namespace = null;
             }
         }
         $this->checkDependencies();
@@ -545,14 +538,7 @@ class dcModules
     public function requireDefine(string $dir, string $id)
     {
         $this->id = $id;
-        if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php')) {
-            $ns     = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? dcModuleDefine::DEFAULT_TYPE), $this->id]);
-            $loader = new Autoloader('', '', true);
-            $loader->addNamespace($ns, $dir);
-            $class = $ns . Autoloader::NS_SEP . self::MODULE_CLASS_DEFINE;
-            $this->defineModule(new $class($this->id));
-            unset($loader);
-        } elseif (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
+        if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
             ob_start();
             if (!in_array($id, $this->modules_files['init']) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
                 $this->modules_files['init'][] = $id;
@@ -567,8 +553,6 @@ class dcModules
     /**
      * This method registers a module in modules list.
      *
-     * @deprecated since 2.25    This method is only served by dcPlugins and dcThemes for compatibility
-     *
      * @param      string  $name        The module name
      * @param      string  $desc        The module description
      * @param      string  $author      The module author
@@ -577,6 +561,22 @@ class dcModules
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = [])
     {
+        $define = new dcModuleDefine($this->id);
+
+        $define
+            ->set('name', $name)
+            ->set('desc', $desc)
+            ->set('author', $author)
+            ->set('version', $version)
+        ;
+
+        if (is_array($properties)) {
+            foreach ($properties as $k => $v) {
+                $define->set($k, $v);
+            }
+        }
+
+        $this->defineModule($define);
     }
 
     protected function defineModule(dcModuleDefine $define)
@@ -681,19 +681,15 @@ class dcModules
         if ($zip_root_dir != false) {
             $target      = dirname($zip_file);
             $destination = $target . DIRECTORY_SEPARATOR . $zip_root_dir;
-            $class       = $zip_root_dir . '/' . self::MODULE_CLASS_DIR . '/' . self::MODULE_CLASS_DEFINE . '.php';
             $define      = $zip_root_dir . '/' . self::MODULE_FILE_DEFINE;
             $init        = $zip_root_dir . '/' . self::MODULE_FILE_INIT;
             $has_define  = $zip->hasFile($define);
-            $has_class   = $zip->hasFile($class);
         } else {
             $target      = dirname($zip_file) . DIRECTORY_SEPARATOR . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
             $destination = $target;
-            $class       = self::MODULE_CLASS_DIR . '/' . self::MODULE_CLASS_DEFINE . '.php';
             $define      = self::MODULE_FILE_DEFINE;
             $init        = self::MODULE_FILE_INIT;
             $has_define  = $zip->hasFile($define);
-            $has_class   = $zip->hasFile($class);
         }
 
         if ($zip->isEmpty()) {
@@ -703,7 +699,7 @@ class dcModules
             throw new Exception(__('Empty module zip file.'));
         }
 
-        if (!$has_define && !$has_class) {
+        if (!$has_define) {
             $zip->close();
             unlink($zip_file);
 
@@ -725,22 +721,16 @@ class dcModules
                 if ($zip->hasFile($init)) {
                     $zip->unzip($init, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
-                if ($has_class) {
-                    $zip->unzip($class, $target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php');
-                } else {
-                    $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
-                }
+
+                $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
                 if ($zip->hasFile($init)) {
                     unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
-                if ($has_class) {
-                    unlink($target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE . '.php');
-                } else {
-                    unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
-                }
+
+                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $new_errors = $sandbox->getErrors();
                 if (!empty($new_errors)) {
@@ -766,22 +756,17 @@ class dcModules
             if ($zip->hasFile($init)) {
                 $zip->unzip($init, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
-            if ($has_class) {
-                $zip->unzip($class, $target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE);
-            } else {
-                $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
-            }
+
+            $zip->unzip($define, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
             if ($zip->hasFile($init)) {
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
-            if ($has_class) {
-                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DEFINE);
-            } else {
-                unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
-            }
+
+            unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+
             $new_modules = $sandbox->getModules();
 
             if (!empty($new_modules)) {
