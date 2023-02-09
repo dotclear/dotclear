@@ -29,7 +29,7 @@ class Manage extends dcNsProcess
     {
         if (defined('DC_CONTEXT_ADMIN')) {
             dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
-            self::$init = true;
+            self::$init                = true;
         }
 
         return self::$init;
@@ -256,6 +256,7 @@ class Manage extends dcNsProcess
                 break;
 
             case 'integer':
+            case 'float':
                 $field = form::number(
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     null,

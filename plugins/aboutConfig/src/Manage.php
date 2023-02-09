@@ -265,6 +265,7 @@ class Manage extends dcNsProcess
                 break;
 
             case 'integer':
+            case 'float':
                 $field = form::number(
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     null,
