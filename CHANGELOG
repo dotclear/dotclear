@@ -1,3 +1,28 @@
+Dotclear 2.25 - 2023-02-13
+===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance (and as far as we know PHP 8.2)
+* Core: New plugin/theme code structure (using a brand new autoloader), old plugins/themes remain compatibles
+* Core: Clearbricks is now included in Dotclear code, not more as a git sub-module
+* Core: Update last step will not redirect to the safe-mode login page
+* Core: No more need to add namespace (blog-settings) / workspace (user-preferences) before using them
+* Core: Add possible using of external db driver (Experimental)
+* Core: Add support of .mjs ECMAScript module files
+* Core: Remove unnecessary and weak protection code
+* Core: Move some legacy and proxy code in dcProxyV2 plugin
+* a11y: Some aria attributes have been set in backend
+* Theme: Merge default smilies and blog's smilies (the blog's smilies have a higher priority)
+* Theme: Merge plugin blowupConfig into theme Blowup
+* Admin: Some jQuery javascript scripts have been rewritten in pure ECMAScript
+* Admin: Add Atkinson Hyperlegible font (used by default in admin, may be disabled in user pref)
+* Admin: Add some shortcuts (CTRL+letter) to dcLegacyEditor toolbar
+* Admin: Add a specific warning message on update page if necessary (breaking changes)
+* Admin: Cope with no user TZ defined (use UTC in this case)
+* Admin: Fix admin permission management for blogroll and pages plugins
+* Admin: Cope with float/double values in about:config and user:pref
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+* 📣 Warning: Next major release (2.26) may require PHP 8.0 (announced in backend) or PHP 8.1
+
 Dotclear 2.24.1 - 2023-01-18
 ===========================================================
 * Fix: Permission management with no user logged (public)
