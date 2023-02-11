@@ -258,14 +258,16 @@ class dcRestMethods
         $rsp->post_display_excerpt($rs->getExcerpt(true));
 
         $metaTag = new xmlTag('meta');
-        if (($meta = @unserialize($rs->post_meta)) !== false) {
-            foreach ($meta as $K => $V) {
-                foreach ($V as $v) {
-                    $metaTag->$K($v);
+        if ($rs->post_meta) {
+            if (($meta = @unserialize($rs->post_meta)) !== false) {
+                foreach ($meta as $K => $V) {
+                    foreach ($V as $v) {
+                        $metaTag->$K($v);
+                    }
                 }
             }
+            $rsp->post_meta($metaTag);
         }
-        $rsp->post_meta($metaTag);
 
         return $rsp;
     }
