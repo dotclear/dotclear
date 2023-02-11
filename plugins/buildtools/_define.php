@@ -14,6 +14,7 @@ $this->registerModule(
     'dcTeam',                                 // Author
     '2.0',                                    // Version
     [
+        'type'        => 'plugin',
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]),
