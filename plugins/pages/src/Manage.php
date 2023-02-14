@@ -33,6 +33,45 @@ class Manage extends dcNsProcess
             ]));
 
             self::$init = ($_REQUEST['act'] ?? 'list') === 'page' ? ManagePage::init() : true;
+
+            if (($_REQUEST['act'] ?? 'list') === 'list') {
+                $params = [
+                    'post_type' => 'page',
+                ];
+
+                dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+                dcCore::app()->admin->nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
+
+                if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
+                    dcCore::app()->admin->nb_per_page = (int) $_GET['nb'];
+                }
+
+                $params['limit'] = [((dcCore::app()->admin->page - 1) * dcCore::app()->admin->nb_per_page), dcCore::app()->admin->nb_per_page];
+
+                $params['no_content'] = true;
+                $params['order']      = 'post_position ASC, post_title ASC';
+
+                dcCore::app()->admin->post_list = null;
+
+                try {
+                    $pages   = dcCore::app()->blog->getPosts($params);
+                    $counter = dcCore::app()->blog->getPosts($params, true);
+
+                    dcCore::app()->admin->post_list = new BackendList($pages, $counter->f(0));
+                } catch (Exception $e) {
+                    dcCore::app()->error->add($e->getMessage());
+                }
+
+                // Actions combo box
+                dcCore::app()->admin->pages_actions_page        = new BackendActions('plugin.php', ['p' => 'pages']);
+                dcCore::app()->admin->pages_actions_page_render = null;
+                ob_start();
+                if (dcCore::app()->admin->pages_actions_page->process()) {
+                    // Page content is provided by process
+                    dcCore::app()->admin->pages_actions_page_render = (string) ob_get_contents();
+                }
+                ob_end_clean();
+            }
         }
 
         return self::$init;
@@ -46,39 +85,6 @@ class Manage extends dcNsProcess
 
         if (($_REQUEST['act'] ?? 'list') === 'page') {
             return ManagePage::process();
-        }
-
-        $params = [
-            'post_type' => 'page',
-        ];
-
-        dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        dcCore::app()->admin->nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
-
-        if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-            dcCore::app()->admin->nb_per_page = (int) $_GET['nb'];
-        }
-
-        $params['limit'] = [((dcCore::app()->admin->page - 1) * dcCore::app()->admin->nb_per_page), dcCore::app()->admin->nb_per_page];
-
-        $params['no_content'] = true;
-        $params['order']      = 'post_position ASC, post_title ASC';
-
-        dcCore::app()->admin->post_list = null;
-
-        try {
-            $pages   = dcCore::app()->blog->getPosts($params);
-            $counter = dcCore::app()->blog->getPosts($params, true);
-
-            dcCore::app()->admin->post_list = new BackendList($pages, $counter->f(0));
-        } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
-        }
-
-        // Actions combo box
-        dcCore::app()->admin->pages_actions_page = new BackendActions('plugin.php', ['p' => 'pages']);
-        if (dcCore::app()->admin->pages_actions_page->process()) {
-            return false;
         }
 
         return true;
@@ -95,6 +101,13 @@ class Manage extends dcNsProcess
 
         if (($_REQUEST['act'] ?? 'list') === 'page') {
             ManagePage::render();
+
+            return;
+        }
+
+        if (dcCore::app()->admin->pages_actions_page_render) {
+            // Page content has been provided by process
+            echo dcCore::app()->admin->pages_actions_page_render;
 
             return;
         }
