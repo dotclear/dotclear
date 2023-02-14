@@ -1286,7 +1286,7 @@ class dcUpgrade
             );
         }
 
-        if (version_compare($version, '2.26', '<')) {
+        if (version_compare($version, '2.25.1', '<')) {
             // A bit of housecleaning for no longer needed folders
             self::houseCleaning(
                 // Files
@@ -1301,6 +1301,11 @@ class dcUpgrade
                     'plugins/widgets/style.css',
                     'plugins/widgets/dragdrop.js',
                     'plugins/widgets/widgets.js',
+                ],
+                // Folders
+                [
+                    // default folder theme renamed to blowup
+                    'themes/default',
                 ]
             );
         }

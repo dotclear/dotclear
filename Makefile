@@ -29,11 +29,11 @@ config: clean config-stamp
 
 	## Copy built-in themes (same list that DC_DISTRIB_THEMES constant in inc/prepend.php)
 	cp -pRf \
-	./themes/default \
+	./themes/berlin \
+	./themes/blowup \
 	./themes/blueSilence \
 	./themes/customCSS \
 	./themes/ductile \
-	./themes/berlin \
 	./$(DC)/themes/
 
 	## Copy built-in plugins (same list that DC_DISTRIB_PLUGINS constant in inc/prepend.php)

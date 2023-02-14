@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-namespace Dotclear\Theme\default;
+namespace Dotclear\Theme\blowup;
 
 use dcCore;
 use dcNsProcess;

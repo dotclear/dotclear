@@ -231,9 +231,9 @@ define('DC_DISTRIB_THEMES', implode(
     ',',
     [
         'berlin',
+        'blowup',
         'blueSilence',
         'customCSS',
-        'default',
         'ductile',
     ]
 ));

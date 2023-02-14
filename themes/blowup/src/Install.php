@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Theme\default;
+namespace Dotclear\Theme\blowup;
 
 use dcCore;
 use dcNsProcess;
