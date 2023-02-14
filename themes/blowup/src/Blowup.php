@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-namespace Dotclear\Theme\default;
+namespace Dotclear\Theme\blowup;
 
 use dcCore;
 use dcThemeConfig;
@@ -31,13 +31,13 @@ class Blowup
             'ss5' => 'Impact, Charcoal, sans-serif',
         ],
 
-        'serif'      => [
+        'serif' => [
             's1' => 'Times, "Times New Roman", serif',
             's2' => 'Georgia, serif',
             's3' => 'Baskerville, "Palatino Linotype", serif',
         ],
 
-        'monospace'  => [
+        'monospace' => [
             'm1' => '"Andale Mono", "Courier New", monospace',
             'm2' => '"Courier New", Courier, mono, monospace',
         ],

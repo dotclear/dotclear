@@ -1286,6 +1286,30 @@ class dcUpgrade
             );
         }
 
+        if (version_compare($version, '2.25.1', '<')) {
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    // Fix widgets plugin 2.25 house cleaning (see above)
+                    'plugins/widgets/_admin.php',
+                    'plugins/widgets/_init.php',
+                    'plugins/widgets/_install.php',
+                    'plugins/widgets/_public.php',
+                    'plugins/widgets/_prepend.php',
+                    'plugins/widgets/index.php',
+                    'plugins/widgets/style.css',
+                    'plugins/widgets/dragdrop.js',
+                    'plugins/widgets/widgets.js',
+                ],
+                // Folders
+                [
+                    // default folder theme renamed to blowup
+                    'themes/default',
+                ]
+            );
+        }
+
         dcCore::app()->setVersion('core', DC_VERSION);
         dcCore::app()->blogDefaults();
 
