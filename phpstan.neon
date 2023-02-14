@@ -28,9 +28,9 @@ parameters:
     - inc
     - plugins
     - themes/berlin
+    - themes/blowup
     - themes/blueSilence
     - themes/customCSS
-    - themes/default
     - themes/ductile
 
   excludePaths:
