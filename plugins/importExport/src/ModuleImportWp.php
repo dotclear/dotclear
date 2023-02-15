@@ -205,7 +205,7 @@ class ModuleImportWP extends Module
     public function gui(): void
     {
         try {
-            $this->guiprocess($this->action);
+            $this->guiprocess((string) $this->action);
         } catch (Exception $e) {
             $this->error($e);
         }
@@ -260,7 +260,7 @@ class ModuleImportWP extends Module
                     '<p><label for="cat_tags_prefix">' . __('Prefix such tags with:') . '</label> ' .
                     form::field('cat_tags_prefix', 10, 20, html::escapeHTML($this->vars['cat_tags_prefix'])) . '</p>' .
                     '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
-                    form::number('post_limit', 0, 999, html::escapeHTML($this->vars['post_limit'])) . '</p>' .
+                    form::number('post_limit', 0, 999, html::escapeHTML((string) $this->vars['post_limit'])) . '</p>' .
                     '</div>' .
 
                     '</div>' .
