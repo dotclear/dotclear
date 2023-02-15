@@ -76,10 +76,14 @@ class Manage extends dcNsProcess
         }
 
         // Actions combo box
-        dcCore::app()->admin->pages_actions_page = new BackendActions('plugin.php', ['p' => 'pages']);
+        dcCore::app()->admin->pages_actions_page        = new BackendActions('plugin.php', ['p' => 'pages']);
+        dcCore::app()->admin->pages_actions_page_render = null;
+        ob_start();
         if (dcCore::app()->admin->pages_actions_page->process()) {
-            return false;
+            // Page content is provided by process
+            dcCore::app()->admin->pages_actions_page_render = (string) ob_get_contents();
         }
+        ob_end_clean();
 
         return true;
     }
@@ -95,6 +99,13 @@ class Manage extends dcNsProcess
 
         if (($_REQUEST['act'] ?? 'list') === 'page') {
             ManagePage::render();
+
+            return;
+        }
+
+        if (dcCore::app()->admin->pages_actions_page_render) {
+            // Page content has been provided by process
+            echo dcCore::app()->admin->pages_actions_page_render;
 
             return;
         }
