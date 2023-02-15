@@ -17,9 +17,9 @@ $this->registerModule(
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
-            dcPages::PERMISSION_PAGES,
+            initPages::PERMISSION_PAGES,
         ]),
-        'priority'    => 999,
-        'type'        => 'plugin',
+        'priority' => 999,
+        'type'     => 'plugin',
     ]
 );

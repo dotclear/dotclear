@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcAntispam;
 use dcAuth;
 use dcBlog;
 use dcCategories;
@@ -26,6 +25,7 @@ use dcPostMedia;
 use dcRecord;
 use dcTrackback;
 use dcWorkspace;
+use initAntispam;
 use initBlogroll;
 use html;
 
@@ -120,7 +120,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_log         = $this->con->openCursor($this->prefix . dcLog::LOG_TABLE_NAME);
         $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
         $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
-        $this->cur_spamrule    = $this->con->openCursor($this->prefix . dcAntispam::SPAMRULE_TABLE_NAME);
+        $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
         # --BEHAVIOR-- importInit
         dcCore::app()->callBehavior('importInitV2', $this);
@@ -288,7 +288,7 @@ class FlatImportV2 extends FlatBackup
         $this->con->begin();
         $this->con->execute('DELETE FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME);
-        $this->con->execute('DELETE FROM ' . $this->prefix . dcAntispam::SPAMRULE_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . dcNamespace::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME);
 

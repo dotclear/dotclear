@@ -44,7 +44,7 @@ class SpamFilters
             }
 
             if (!is_subclass_of($filter, SpamFilter::class)) {
-                // An antispam filter must extend dcSpamFilter class
+                // An antispam filter must extend SpamFilter class
                 continue;
             }
 
