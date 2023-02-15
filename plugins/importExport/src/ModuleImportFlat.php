@@ -298,7 +298,7 @@ class ModuleImportFlat extends Module
         $ret = false;
 
         $fp  = fopen($entry_path, 'rb');
-        $ret = strpos(fgets($fp), '///DOTCLEAR|') === 0;
+        $ret = strpos((string) fgets($fp), '///DOTCLEAR|') === 0;
         fclose($fp);
 
         return $ret;

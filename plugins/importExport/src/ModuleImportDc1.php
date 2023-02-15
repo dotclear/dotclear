@@ -177,7 +177,7 @@ class ModuleImportDc1 extends Module
     public function gui(): void
     {
         try {
-            $this->guiprocess($this->action);
+            $this->guiprocess((string) $this->action);
         } catch (Exception $e) {
             $this->error($e);
         }
@@ -214,7 +214,7 @@ class ModuleImportDc1 extends Module
                     form::field('db_prefix', 30, 255, html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
                     '<h3 class="vertical-separator">' . __('Entries import options') . '</h3>' .
                     '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
-                    form::number('post_limit', 0, 999, html::escapeHTML($this->vars['post_limit'])) . '</p>'
+                    form::number('post_limit', 0, 999, html::escapeHTML((string) $this->vars['post_limit'])) . '</p>'
                 );
 
                 break;
