@@ -20,6 +20,8 @@ use html;
 
 class BackendActions extends dcPostsActions
 {
+    protected $use_render = true;
+
     /**
      * Constructs a new instance.
      *

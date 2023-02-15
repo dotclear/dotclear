@@ -70,6 +70,14 @@ abstract class dcActions
      * @var boolean true if we enable to keep selection when redirecting
      */
     protected $enable_redir_selection = true;
+    /**
+     * @var boolean true if class uses silent process method and uses render method instead
+     */
+    protected $use_render = false;
+    /**
+     * @var string Action process content
+     */
+    protected $render = '';
 
     /**
      * Constructs a new instance.
@@ -310,22 +318,40 @@ abstract class dcActions
         $this->fetchEntries($this->from);
         if (isset($this->from['action'])) {
             $this->action = $this->from['action'];
+            $performed    = false;
+            if ($this->use_render) {
+                ob_start();
+            }
 
             try {
-                $performed = false;
                 foreach ($this->actions as $action => $callback) {
                     if ($this->from['action'] == $action) {
                         $performed = true;
                         call_user_func($callback, $this, $this->from);
                     }
                 }
-                if ($performed) {
-                    return true;
-                }
             } catch (Exception $e) {
+                $performed = true;
+            }
+
+            if ($this->use_render) {
+                $this->render = (string) ob_get_contents();
+                ob_end_clean();
+            }
+            if ($performed) {
                 return true;
             }
         }
+    }
+
+    /**
+     * Output action process contents.
+     * 
+     * Only when property $use_render is set to true.
+     */
+    public function render(): void
+    {
+        echo (string) $this->render;
     }
 
     /**
