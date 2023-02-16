@@ -216,7 +216,7 @@ class FrontendTemplate
             } else {
                 $text = $e;
             }
-            $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m) => __($m[1]), $text);
+            $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m) => __($m[1]), (string) $text);
         }
 
         echo $widget->call(0);
