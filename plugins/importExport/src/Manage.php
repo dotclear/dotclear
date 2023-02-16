@@ -133,10 +133,12 @@ class Manage extends dcNsProcess
     {
         $res = '';
         foreach ($modules as $id) {
-            $o = new $id(dcCore::app());
+            if (is_subclass_of($id, Module::class)) {
+                $o = new $id(dcCore::app());
 
-            $res .= '<dt><a href="' . $o->getURL(true) . '">' . html::escapeHTML($o->name) . '</a></dt>' .
-            '<dd>' . html::escapeHTML($o->description) . '</dd>';
+                $res .= '<dt><a href="' . $o->getURL(true) . '">' . html::escapeHTML($o->name) . '</a></dt>' .
+                '<dd>' . html::escapeHTML($o->description) . '</dd>';
+            }
         }
 
         return '<dl class="modules">' . $res . '</dl>';
