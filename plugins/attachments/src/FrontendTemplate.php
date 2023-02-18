@@ -245,7 +245,7 @@ class FrontendTemplate
         return
         '<?php ' . "\n" .
         'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
-        '    $url = $attach_f->media_thumb[\'sq\']);' . "\n" .
+        '    $url = $attach_f->media_thumb[\'sq\'];' . "\n" .
         '    if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
         '        $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '    }' . "\n" .
