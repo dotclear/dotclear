@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\breadcrumb;
 use dcCore;
 use dcNsProcess;
 
-class Backend extends dcNsProcess
+class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
