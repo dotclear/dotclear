@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\pages\Init as initPages;
+
 $this->registerModule(
     'attachments',             // Name
     'Manage post attachments', // Description
