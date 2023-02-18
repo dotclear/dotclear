@@ -18,8 +18,9 @@ use dcBlog;
 use dcCore;
 use dcPage;
 use dcRecord;
+use initAntispam;
 
-class Antispam extends Init
+class Antispam extends initAntispam
 {
     // Properties
 

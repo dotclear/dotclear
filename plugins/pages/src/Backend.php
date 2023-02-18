@@ -19,8 +19,7 @@ use dcCore;
 use dcFavorites;
 use dcNsProcess;
 use dcPage;
-
-use Dotclear\Plugin\pages\Init as initPages;
+use initPages;
 
 class Backend extends dcNsProcess
 {
@@ -40,7 +39,7 @@ class Backend extends dcNsProcess
         dcCore::app()->auth->setPermissionType(initPages::PERMISSION_PAGES, __('manage pages'));
 
         dcCore::app()->addBehaviors([
-            'adminColumnsListsV2' => function (ArrayObject $cols) {
+            'adminColumnsListsV2'       => function (ArrayObject $cols) {
                 $cols['pages'] = [__('Pages'), [
                     'date'       => [true, __('Date')],
                     'author'     => [true, __('Author')],
@@ -48,7 +47,7 @@ class Backend extends dcNsProcess
                     'trackbacks' => [true, __('Trackbacks')],
                 ]];
             },
-            'adminFiltersListsV2' => function (ArrayObject $sorts) {
+            'adminFiltersListsV2'       => function (ArrayObject $sorts) {
                 $sorts['pages'] = [
                     __('Pages'),
                     null,
@@ -59,11 +58,11 @@ class Backend extends dcNsProcess
             },
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
                 $favs->register('pages', [
-                    'title'       => __('Pages'),
-                    'url'         => dcCore::app()->adminurl->get('admin.plugin.pages'),
-                    'small-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
-                    'large-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
-                    'permissions' => dcCore::app()->auth->makePermissions([
+                    'title'        => __('Pages'),
+                    'url'          => dcCore::app()->adminurl->get('admin.plugin.pages'),
+                    'small-icon'   => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+                    'large-icon'   => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+                    'permissions'  => dcCore::app()->auth->makePermissions([
                         dcAuth::PERMISSION_CONTENT_ADMIN,
                         initPages::PERMISSION_PAGES,
                     ]),
@@ -76,7 +75,7 @@ class Backend extends dcNsProcess
                             $icon['title'] = sprintf($str_pages, $page_count);
                         }
                     },
-                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && !(isset($params['act']) && $params['act'] == 'page'),
+                    'active_cb'    => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && !(isset($params['act']) && $params['act'] == 'page'),
                 ]);
                 $favs->register('newpage', [
                     'title'       => __('New page'),
@@ -87,12 +86,12 @@ class Backend extends dcNsProcess
                         dcAuth::PERMISSION_CONTENT_ADMIN,
                         initPages::PERMISSION_PAGES,
                     ]),
-                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && isset($params['act']) && $params['act'] == 'page',
+                    'active_cb'   => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && isset($params['act']) && $params['act'] == 'page',
                 ]);
             },
-            'adminUsersActionsHeaders' => fn () => dcPage::jsLoad('index.php?pf=pages/js/_users_actions.js'),
-            'initWidgets'              => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets'       => [Widgets::class, 'initDefaultWidgets'],
+            'adminUsersActionsHeaders'  => fn () => dcPage::jsLoad('index.php?pf=pages/js/_users_actions.js'),
+            'initWidgets'               => [Widgets::class, 'initWidgets'],
+            'initDefaultWidgets'        => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
         dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(

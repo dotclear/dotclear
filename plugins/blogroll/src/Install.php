@@ -15,8 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use dcCore;
 use dbStruct;
 use dcNsProcess;
-
-use Dotclear\Plugin\blogroll\Init as initBlogroll;
+use initBlogroll;
 
 class Install extends dcNsProcess
 {

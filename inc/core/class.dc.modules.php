@@ -44,7 +44,6 @@ class dcModules
      * @var        string
      */
     public const MODULE_CLASS_DIR     = 'src';
-    public const MODULE_CLASS_INIT    = 'Init';         // Init (ex _init.php)
     public const MODULE_CLASS_PREPEND = 'Prepend';      // Common (ex _prepend.php)
     public const MODULE_CLASS_INSTALL = 'Install';      // Installation (ex _install.php)
     public const MODULE_CLASS_ADMIN   = 'Backend';      // Backend common (ex _admin.php)
@@ -413,20 +412,8 @@ class dcModules
             // Init loop
             $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
-                $full_entry  = $root . $entry;
-                $this->id    = $entry;
-                $this->mroot = $full_entry;
-
-                // Module namespace
-                $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? dcModuleDefine::DEFAULT_TYPE), $this->id]);
-                dcCore::app()->autoload->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
-
-                // by class name
-                $class = $this->namespace . Autoloader::NS_SEP . self::MODULE_CLASS_INIT;
-                if (!empty($this->namespace) && class_exists($class)) {
-                    $ret = $class::init() ? $class::process() : '';
-                // by file name
-                } elseif (!in_array($entry, $this->modules_files['init']) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+                $full_entry = $root . $entry;
+                if (!in_array($entry, $this->modules_files['init']) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
                     $this->modules_files['init'][] = $entry;
                     ob_start();
                     require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;

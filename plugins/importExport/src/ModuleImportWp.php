@@ -22,13 +22,12 @@ use dcCategories;
 use dcCore;
 use dcRecord;
 use dcTrackback;
+use initBlogroll;
 use crypt;
 use form;
 use html;
 use http;
 use text;
-
-use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class ModuleImportWP extends Module
 {

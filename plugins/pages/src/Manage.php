@@ -20,8 +20,7 @@ use dcPage;
 use Exception;
 use form;
 use html;
-
-use Dotclear\Plugin\pages\Init as initPages;
+use initPages;
 
 class Manage extends dcNsProcess
 {

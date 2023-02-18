@@ -8,9 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-use Dotclear\Plugin\pages\Init as initPages;
-
 $this->registerModule(
     'Pages',                             // Name
     'Serve entries as simple web pages', // Description
@@ -21,7 +18,7 @@ $this->registerModule(
             dcAuth::PERMISSION_CONTENT_ADMIN,
             initPages::PERMISSION_PAGES,
         ]),
-        'priority' => 999,
-        'type'     => 'plugin',
+        'priority'    => 999,
+        'type'        => 'plugin',
     ]
 );
