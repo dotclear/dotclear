@@ -17,10 +17,11 @@ use dcAdminCombos;
 use dcCore;
 use dcPage;
 use dcNsProcess;
-use initBlogroll;
 use form;
 use html;
 use http;
+
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class ManageEdit extends dcNsProcess
 {

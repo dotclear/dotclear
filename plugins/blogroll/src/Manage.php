@@ -16,11 +16,12 @@ use Exception;
 use dcCore;
 use dcPage;
 use dcNsProcess;
-use initBlogroll;
 use files;
 use form;
 use html;
 use http;
+
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class Manage extends dcNsProcess
 {

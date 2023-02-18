@@ -25,9 +25,10 @@ use dcPostMedia;
 use dcRecord;
 use dcTrackback;
 use dcWorkspace;
-use initAntispam;
-use initBlogroll;
 use html;
+
+use Dotclear\Plugin\antispam\Init as initAntispam;
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class FlatImportV2 extends FlatBackup
 {

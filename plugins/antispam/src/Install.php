@@ -15,7 +15,8 @@ namespace Dotclear\Plugin\antispam;
 use dbStruct;
 use dcCore;
 use dcNsProcess;
-use initAntispam;
+
+use Dotclear\Plugin\antispam\Init as initAntispam;
 
 class Install extends dcNsProcess
 {

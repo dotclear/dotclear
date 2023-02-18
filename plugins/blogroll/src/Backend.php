@@ -18,7 +18,8 @@ use dcCore;
 use dcFavorites;
 use dcPage;
 use dcNsProcess;
-use initBlogroll;
+
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class Backend extends dcNsProcess
 {
@@ -50,10 +51,10 @@ class Backend extends dcNsProcess
                     ]),
                 ]);
             },
-            'adminUsersActionsHeaders'  => fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js'),
+            'adminUsersActionsHeaders' => fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js'),
 
-            'initWidgets'               => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets'        => [Widgets::class, 'initDefaultWidgets'],
+            'initWidgets'        => [Widgets::class, 'initWidgets'],
+            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
         dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(

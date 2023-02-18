@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
+
 $this->registerModule(
     'Blogroll',             // Name
     'Manage your blogroll', // Description
@@ -17,6 +20,6 @@ $this->registerModule(
         'permissions' => dcCore::app()->auth->makePermissions([
             initBlogroll::PERMISSION_BLOGROLL,
         ]),
-        'type'        => 'plugin',
+        'type' => 'plugin',
     ]
 );

@@ -22,11 +22,12 @@ use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
-use initBlogroll;
 use fileZip;
 use form;
 use html;
 use http;
+
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class ModuleExportFlat extends Module
 {

@@ -16,7 +16,8 @@ use Exception;
 use dcBlog;
 use dcCore;
 use dcRecord;
-use initBlogroll;
+
+use Dotclear\Plugin\blogroll\Init as initBlogroll;
 
 class Blogroll extends initBlogroll
 {
