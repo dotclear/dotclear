@@ -34,7 +34,7 @@ class FrontendTemplate
     {
         $separator = $attr['separator'] ?? '';
 
-        return '<?php echo ' . __NAMESPACE__ . '\\FrontendTemplate::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
+        return '<?php echo ' . self::class .'::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
     }
 
     /**
@@ -58,7 +58,7 @@ class FrontendTemplate
         }
 
         // Get current page if set
-        $page = dcCore::app()->public->getPageNumber();
+        $page = (int) dcCore::app()->public->getPageNumber();
 
         // Test if complete breadcrumb will be provided
         if (dcCore::app()->callBehavior('publicBreadcrumbExtended', dcCore::app()->url->type)) {
@@ -108,7 +108,7 @@ class FrontendTemplate
                 case 'category':
                     // Category
                     $ret        = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                    $categories = dcCore::app()->blog->getCategoryParents(dcCore::app()->ctx->categories->cat_id);
+                    $categories = dcCore::app()->blog->getCategoryParents((int) dcCore::app()->ctx->categories->cat_id);
                     while ($categories->fetch()) {
                         $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
@@ -126,12 +126,12 @@ class FrontendTemplate
                     $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
                     if (dcCore::app()->ctx->posts->cat_id) {
                         // Parents cats of post's cat
-                        $categories = dcCore::app()->blog->getCategoryParents(dcCore::app()->ctx->posts->cat_id);
+                        $categories = dcCore::app()->blog->getCategoryParents((int) dcCore::app()->ctx->posts->cat_id);
                         while ($categories->fetch()) {
                             $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                         }
                         // Post's cat
-                        $categories = dcCore::app()->blog->getCategory(dcCore::app()->ctx->posts->cat_id);
+                        $categories = dcCore::app()->blog->getCategory((int) dcCore::app()->ctx->posts->cat_id);
                         $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
                     $ret .= $separator . dcCore::app()->ctx->posts->post_title;
