@@ -873,6 +873,7 @@ class adminMediaFilter extends adminGenericFilterV2
             $this->getPostIdFilter(),
             $this->getDirFilter(),
             $this->getFileModeFilter(),
+            $this->getFileTypeFilter(),
             $this->getPluginIdFilter(),
             $this->getLinkTypeFilter(),
             $this->getPopupFilter(),
@@ -960,6 +961,22 @@ class adminMediaFilter extends adminGenericFilterV2
         }
 
         return new dcAdminFilter('file_mode', $get);
+    }
+
+    protected function getFileTypeFilter(): dcAdminFilter
+    {
+        return (new dcAdminFilter('file_type'))
+            ->title(__('Media type:'))
+            ->options(array_merge(
+                ['-' => ''],
+                [
+                    __('image') => 'image',
+                    __('text')  => 'text',
+                    __('audio') => 'audio',
+                    __('video') => 'video',
+                ]
+            ))
+            ->prime(true);
     }
 
     protected function getPluginIdFilter(): dcAdminFilter

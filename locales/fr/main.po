@@ -1396,6 +1396,9 @@ msgstr "Afficher sous forme de grille"
 msgid "List display mode"
 msgstr "Afficher sous forme de liste"
 
+msgid "Media type:"
+msgstr "Type de média :"
+
 msgid "Remove selected medias"
 msgstr "Supprimer les médias sélectionnés"
 

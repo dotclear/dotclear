@@ -407,7 +407,10 @@ class adminMedia
         '<div class="media-list">' . $last_folders;
 
         // remove form filters from hidden fields
-        $form_filters_hidden_fields = array_diff_key(dcCore::app()->admin->page->values(), ['nb' => '', 'order' => '', 'sortby' => '', 'q' => '']);
+        $form_filters_hidden_fields = array_diff_key(
+            dcCore::app()->admin->page->values(),
+            ['nb' => '', 'order' => '', 'sortby' => '', 'q' => '', 'file_type' => '']
+        );
 
         // display filter
         dcCore::app()->admin->page->display('admin.media', dcCore::app()->adminurl->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
@@ -594,7 +597,7 @@ class adminMediaPage extends adminMediaFilter
 
         // try to load core media and themes
         try {
-            dcCore::app()->media = new dcMedia();
+            dcCore::app()->media = new dcMedia($this->file_type ?? '');
             dcCore::app()->media->setFileSort($this->sortby . '-' . $this->order);
 
             if ($this->q != '') {
