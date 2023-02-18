@@ -12,7 +12,7 @@ $this->registerModule(
     'Breadcrumb',              // Name
     'Breadcrumb for Dotclear', // Description
     'Franck Paul',             // Author
-    '1.0',                     // Version
+    '1.1',                     // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
