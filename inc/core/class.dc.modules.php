@@ -632,7 +632,7 @@ class dcModules
 
         # Check module install on multiple path
         if ($this->id) {
-            $module_exists    = array_key_exists($this->define->name, $this->modules_ids);
+            $module_exists    = array_key_exists($this->id, $this->modules_ids);
             $module_overwrite = $module_exists ? version_compare($this->modules_ids[$this->id], $this->define->version, '<') : false;
             if (!$module_exists || $module_overwrite) {
                 $this->modules_ids[$this->id] = $this->define->version;
