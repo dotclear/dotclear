@@ -1,3 +1,7 @@
+Dotclear 2.25.2 - 2023-02-??
+===========================================================
+* Fix: Tags widget
+
 Dotclear 2.25.1 - 2023-02-18
 ===========================================================
 * Fix: PHP 7.4 and default used in namespace, 'default' folder theme renamed to blowup (namespace too)
