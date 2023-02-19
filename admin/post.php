@@ -545,7 +545,7 @@ class adminPost
                     __('Posts')                                 => dcCore::app()->adminurl->get('admin.posts'),
                     (dcCore::app()->admin->post_id ?
                         $page_title_edit :
-                        dcCore::app()->admin->page_title)       => '',
+                        dcCore::app()->admin->page_title) => '',
                 ]
             ),
             [
@@ -617,7 +617,7 @@ class adminPost
         -------------------------------------------------------- */
         if (dcCore::app()->admin->can_edit_post) {
             $sidebar_items = new ArrayObject([
-                'status-box'  => [
+                'status-box' => [
                     'title' => __('Status'),
                     'items' => [
                         'post_status' => '<p class="entry-status"><label for="post_status">' . __('Entry status') . ' ' . $img_status . '</label>' .
@@ -627,13 +627,13 @@ class adminPost
                             ['default' => dcCore::app()->admin->post_status, 'class' => 'maximal', 'disabled' => !dcCore::app()->admin->can_publish]
                         ) .
                         '</p>',
-                        'post_dt'     => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
+                        'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
                             'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
                             'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
-                        'post_lang'   => '<p><label for="post_lang">' . __('Entry language') . '</label>' .
+                        'post_lang' => '<p><label for="post_lang">' . __('Entry language') . '</label>' .
                         form::combo('post_lang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->post_lang) .
                         '</p>',
                         'post_format' => '<div>' .
@@ -646,13 +646,13 @@ class adminPost
                         __('Convert to HTML') . '</a></p></div>',
                     ],
                 ],
-                'metas-box'   => [
+                'metas-box' => [
                     'title' => __('Filing'),
                     'items' => [
                         'post_selected' => '<p><label for="post_selected" class="classic">' .
                         form::checkbox('post_selected', 1, dcCore::app()->admin->post_selected) . ' ' .
                         __('Selected entry') . '</label></p>',
-                        'cat_id'        => '<div>' .
+                        'cat_id' => '<div>' .
                         '<h5 id="label_cat_id">' . __('Category') . '</h5>' .
                         '<p><label for="cat_id">' . __('Category:') . '</label>' .
                         form::combo('cat_id', dcCore::app()->admin->categories_combo, dcCore::app()->admin->cat_id, 'maximal') .
@@ -693,10 +693,10 @@ class adminPost
                             __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
-                        'post_password'        => '<p><label for="post_password">' . __('Password') . '</label>' .
+                        'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
                         form::field('post_password', 10, 32, html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
                         '</p>',
-                        'post_url'             => '<div class="lockable">' .
+                        'post_url' => '<div class="lockable">' .
                         '<p><label for="post_url">' . __('Edit basename') . '</label>' .
                         form::field('post_url', 10, 255, html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
                         '</p>' .
@@ -709,7 +709,7 @@ class adminPost
 
             $main_items = new ArrayObject(
                 [
-                    'post_title'   => '<p class="col">' .
+                    'post_title' => '<p class="col">' .
                     '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
                         'default'    => html::escapeHTML(dcCore::app()->admin->post_title),
@@ -744,7 +744,7 @@ class adminPost
                     ) .
                     '</p>',
 
-                    'post_notes'   => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
+                    'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
                     __('Unpublished notes.') . '</span></label>' .
                     form::textarea(
                         'post_notes',
@@ -1120,7 +1120,11 @@ class adminPost
                 ) :
                 '') . '</td>' .
             '<td class="maximal">' . html::escapeHTML($rs->comment_author) . '</td>' .
-            '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
+            '<td class="nowrap">' .
+                '<time datetime="' . dt::iso8601(strtotime($rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
+                '</time>' .
+            '</td>' .
             ($show_ip ?
                 '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' :
                 '') .

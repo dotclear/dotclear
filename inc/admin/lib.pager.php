@@ -409,7 +409,11 @@ class adminPostList extends adminGenericListV2
             'title' => '<td class="maximal" scope="row"><a href="' .
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
             html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
-            'date'       => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
+            'date' => '<td class="nowrap count">' .
+                '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
+                '</time>' .
+                '</td>',
             'category'   => '<td class="nowrap">' . $cat_title . '</td>',
             'author'     => '<td class="nowrap">' . html::escapeHTML($this->rs->user_id) . '</td>',
             'comments'   => '<td class="nowrap count">' . $this->rs->nb_comment . '</td>',
@@ -540,7 +544,11 @@ class adminPostMiniList extends adminGenericListV2
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '" ' .
             'title="' . html::escapeHTML($this->rs->getURL()) . '">' .
             html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
-            'date'   => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
+            'date' => '<td class="nowrap count">' .
+                '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
+                '</time>' .
+                '</td>',
             'author' => '<td class="nowrap">' . html::escapeHTML($this->rs->user_id) . '</td>',
             'status' => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
         ];
@@ -761,7 +769,11 @@ class adminCommentList extends adminGenericListV2
             ($this->rs->comment_trackback ? __('trackback') : __('comment')) . ' ' . '</a></td>',
             'author' => '<td class="nowrap maximal"><a href="' . $author_url . '">' .
             html::escapeHTML($this->rs->comment_author) . '</a></td>',
-            'date'   => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt) . '</td>',
+            'date' => '<td class="nowrap count">' .
+                '<time datetime="' . dt::iso8601(strtotime($this->rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt) .
+                '</time>' .
+                '</td>',
             'status' => '<td class="nowrap status txt-center">' . $img_status . '</td>',
         ];
 
@@ -915,7 +927,9 @@ class adminBlogList extends adminGenericListV2
             dcCore::app()->countBlogPosts($this->rs->blog_id) .
             '</td>',
             'upddt' => '<td class="nowrap count">' .
+            '<time datetime="' . dt::iso8601(strtotime($this->rs->blog_upddt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
             dt::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + dt::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'))) .
+            '</time>' .
             '</td>',
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
@@ -1248,7 +1262,10 @@ class adminMediaList extends adminGenericListV2
             if (!$file->d) {
                 $lst .= '<li>' . ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
                 '<li>' .
-                $file->media_dtstr . ' - ' .
+                '<time datetime="' . dt::iso8601(strtotime($file->media_dtstr), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                $file->media_dtstr .
+                '</time>' .
+                ' - ' .
                 files::size($file->size) . ' - ' .
                 '<a ' . $class_open . 'href="' . $file->file_url . '">' . __('open') . '</a>' .
                     '</li>';
@@ -1268,7 +1285,12 @@ class adminMediaList extends adminGenericListV2
             $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
             '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="" />' . ($query ? $file : $display_name) . '</a>' .
                 '<br />' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
-            $res .= '<td class="nowrap count">' . ($file->d ? '' : $file->media_dtstr) . '</td>';
+            $res .= '<td class="nowrap count">' . (
+                $file->d ? '' :
+                '<time datetime="' . dt::iso8601(strtotime($file->media_dtstr), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                $file->media_dtstr .
+                '</time>'
+            ) . '</td>';
             $res .= '<td class="nowrap count">' . ($file->d ? '' : files::size($file->size) . ' - ' .
                 '<a ' . $class_open . 'href="' . $file->file_url . '">' . __('open') . '</a>') . '</td>';
             $res .= '</tr>';

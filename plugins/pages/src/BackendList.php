@@ -46,14 +46,14 @@ class BackendList extends adminGenericListV2
                 '<table class="maximal dragable"><thead><tr>';
 
             $cols = [
-                'title'      => '<th colspan="3" scope="col" class="first">' . __('Title') . '</th>',
-                'date'       => '<th scope="col">' . __('Date') . '</th>',
-                'author'     => '<th scope="col">' . __('Author') . '</th>',
-                'comments'   => '<th scope="col"><img src="images/comments.png" alt="" title="' . __('Comments') .
+                'title'    => '<th colspan="3" scope="col" class="first">' . __('Title') . '</th>',
+                'date'     => '<th scope="col">' . __('Date') . '</th>',
+                'author'   => '<th scope="col">' . __('Author') . '</th>',
+                'comments' => '<th scope="col"><img src="images/comments.png" alt="" title="' . __('Comments') .
                 '" /><span class="hidden">' . __('Comments') . '</span></th>',
                 'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="" title="' . __('Trackbacks') .
                 '" /><span class="hidden">' . __('Trackbacks') . '</span></th>',
-                'status'     => '<th scope="col">' . __('Status') . '</th>',
+                'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
 
             $cols = new ArrayObject($cols);
@@ -157,7 +157,7 @@ class BackendList extends adminGenericListV2
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [
-            'position'   => '<td class="nowrap handle minimal">' .
+            'position' => '<td class="nowrap handle minimal">' .
             form::number(['order[' . $this->rs->post_id . ']'], [
                 'min'        => 1,
                 'default'    => $count + 1,
@@ -165,7 +165,7 @@ class BackendList extends adminGenericListV2
                 'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"',
             ]) .
             '</td>',
-            'check'      => '<td class="nowrap">' .
+            'check' => '<td class="nowrap">' .
             form::checkbox(
                 ['entries[]'],
                 $this->rs->post_id,
@@ -175,10 +175,14 @@ class BackendList extends adminGenericListV2
                     'extra_html' => 'title="' . __('Select this page') . '"',
                 ]
             ) . '</td>',
-            'title'      => '<td class="maximal" scope="row"><a href="' .
+            'title' => '<td class="maximal" scope="row"><a href="' .
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
             html::escapeHTML($this->rs->post_title) . '</a></td>',
-            'date'       => '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
+            'date' => '<td class="nowrap">' .
+                '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
+                '</time>' .
+                '</td>',
             'author'     => '<td class="nowrap">' . $this->rs->user_id . '</td>',
             'comments'   => '<td class="nowrap count">' . $this->rs->nb_comment . '</td>',
             'trackbacks' => '<td class="nowrap count">' . $this->rs->nb_trackback . '</td>',
