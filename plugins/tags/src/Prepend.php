@@ -19,9 +19,7 @@ class Prepend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = true;
-        }
+        self::$init = defined('DC_RC_PATH');
 
         return self::$init;
     }

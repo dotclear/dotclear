@@ -23,7 +23,7 @@ class Prepend extends dcNsProcess
             define('DC_FAIRTRACKBACKS_FORCE', false);
         }
 
-        self::$init = true;
+        self::$init = defined('DC_RC_PATH');
 
         return self::$init;
     }
