@@ -148,16 +148,18 @@ class dcUrlHandlers extends urlHandler
         // Additional headers
         $headers = new ArrayObject();
         if (dcCore::app()->blog->settings->system->prevents_clickjacking) {
+            // Prevents Clickjacking as far as possible
+            $header = 'X-Frame-Options: SAMEORIGIN';
             if (dcCore::app()->ctx->exists('xframeoption')) {
-                $url    = parse_url(dcCore::app()->ctx->xframeoption);
-                $header = sprintf(
-                    'X-Frame-Options: %s',
-                    is_array($url) ? ('ALLOW-FROM ' . $url['scheme'] . '://' . $url['host']) : 'SAMEORIGIN'
-                );
-            } else {
-                // Prevents Clickjacking as far as possible
-                $header = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+                $url = parse_url(dcCore::app()->ctx->xframeoption);
+                if (is_array($url)) {
+                    $header = sprintf(
+                        'Content-Security-Policy: frame-ancestors \'self\' %s',
+                        $url['scheme'] . '://' . $url['host']
+                    );
+                }
             }
+
             $headers->append($header);
         }
 
