@@ -143,14 +143,15 @@ class MaintenanceTask
         $this->maintenance = $maintenance;
         $this->init();
 
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', (string) $this->id)) {
+            // Set id if not yet defined
+            $path     = explode('\\', static::class);
+            $this->id = array_pop($path);
+        }
+
         if ($this->perm() === null && !dcCore::app()->auth->isSuperAdmin()
             || !dcCore::app()->auth->check($this->perm(), dcCore::app()->blog->id)) {
             return;
-        }
-
-        if (!preg_match('/^[a-zA-Z0-9_]+$/', (string) $this->id)) {
-            $path     = explode('\\', static::class);
-            $this->id = array_pop($path);
         }
 
         if (!$this->name) {
