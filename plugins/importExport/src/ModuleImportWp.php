@@ -29,7 +29,7 @@ use html;
 use http;
 use text;
 
-class ModuleImportWP extends Module
+class ModuleImportWp extends Module
 {
     protected $con;
     protected $prefix;
