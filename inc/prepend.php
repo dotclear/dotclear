@@ -7,25 +7,25 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\App;
+use Dotclear\Helper\Clearbricks;
+
 /* Start tick  */
 define('DC_START_TIME', microtime(true));
 
-/* ------------------------------------------------------------------------------------------- */
-#  ClearBricks, DotClear classes auto-loader
-if (@is_dir(implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']));
-} elseif (is_dir(implode(DIRECTORY_SEPARATOR, [__DIR__, 'helper']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, 'helper']));
-} elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
-    define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
-}
+// Prepare namespaced src
+// ----------------------
 
-if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
-    exit('No clearbricks path defined');
-}
+// 1. Load Application boostrap file
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 
-require implode(DIRECTORY_SEPARATOR, [CLEARBRICKS_PATH, '_common.php']);
+// 2. Instanciante the Application (singleton)
+new App();
 
+// 3. Add root folder for namespaced and autoloaded classes
+App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+
+// Load core classes (old way)
 Clearbricks::lib()->autoload([
     // Traits
     'dcTraitDynamicProperties' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'trait.dc.dynprop.php']),
@@ -213,6 +213,7 @@ define('DC_DISTRIB_PLUGINS', implode(
         'breadcrumb',
         'dcCKEditor',
         'dcLegacyEditor',
+        'dcProxyV1',
         'dcProxyV2',
         'fairTrackbacks',
         'importExport',

@@ -11,7 +11,7 @@ config: clean config-stamp
 	mkdir -p ./$(DC)
 
 	## Copy needed folders and files
-	cp -pRf ./admin ./inc ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README.md ./CONTRIBUTING.md ./$(DC)/
+	cp -pRf ./admin ./inc ./src ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README.md ./CONTRIBUTING.md ./$(DC)/
 
 	## Locales directory
 	mkdir -p ./$(DC)/locales
@@ -46,6 +46,7 @@ config: clean config-stamp
 	./plugins/breadcrumb \
 	./plugins/dcCKEditor \
 	./plugins/dcLegacyEditor \
+	./plugins/dcProxyV1 \
 	./plugins/dcProxyV2 \
 	./plugins/fairTrackbacks \
 	./plugins/importExport \

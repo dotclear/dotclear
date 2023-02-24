@@ -6,21 +6,24 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-/* ------------------------------------------------------------------------------------------- */
-#  ClearBricks, DotClear classes auto-loader
-if (@is_dir(implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']));
-} elseif (is_dir(implode(DIRECTORY_SEPARATOR, [__DIR__, 'helper']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, 'helper']));
-} elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
-    define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
-}
 
-if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
-    exit('No clearbricks path defined');
-}
+use Dotclear\App;
+use Dotclear\Helper\Clearbricks;
 
-require implode(DIRECTORY_SEPARATOR, [CLEARBRICKS_PATH, '_common.php']);
+// Prepare namespaced src
+// ----------------------
+
+// 1. Load Application boostrap file
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
+
+// 2. Instanciante the Application (singleton)
+new App();
+
+// 3. Add root folder for namespaced and autoloaded classes
+App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+
+// 4. Force CB bootstrap
+new Clearbricks();
 
 if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);

@@ -25,6 +25,7 @@ breadcrumb
 buildtools
 dcCKEditor
 dcLegacyEditor
+dcProxyV1
 dcProxyV2
 fairTrackbacks
 importExport

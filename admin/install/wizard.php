@@ -6,6 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\App;
+use Dotclear\Helper\Clearbricks;
+
 if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
@@ -14,23 +18,22 @@ if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', __DIR__ . '/../../inc/config.php');
 }
 
-/* ------------------------------------------------------------------------------------------- */
-#  ClearBricks, DotClear classes auto-loader
-if (@is_dir(implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, ['usr', 'lib', 'clearbricks']));
-} elseif (is_dir(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']))) {
-    define('CLEARBRICKS_PATH', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']));
-} elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
-    define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
-}
+// Prepare namespaced src
+// ----------------------
 
-if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
-    exit('No clearbricks path defined');
-}
+// 1. Load Application boostrap file
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 
-require implode(DIRECTORY_SEPARATOR, [CLEARBRICKS_PATH, '_common.php']);
+// 2. Instanciante the Application (singleton)
+new App();
 
-# Loading locales for detected language
+// 3. Add root folder for namespaced and autoloaded classes
+App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+
+// 4. Force CB bootstrap
+new Clearbricks();
+
+// Loading locales for detected language
 $dlang = http::getAcceptLanguage();
 if ($dlang != 'en') {
     l10n::init($dlang);

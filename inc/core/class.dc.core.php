@@ -11,6 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\App;
+
 final class dcCore
 {
     use dcTraitDynamicProperties;
@@ -170,6 +173,8 @@ final class dcCore
      * Php namespace autoloader
      *
      * @var Autoloader
+     *
+     * @deprecated since 2.26, use App::autoload() instead
      */
     public $autoload;
 
@@ -329,6 +334,9 @@ final class dcCore
             $this->stime = microtime(true);
         }
 
+        // Deprecated since 2.26
+        $this->autoload = App::autoload();
+
         $this->con = dbLayer::init($driver, $host, $db, $user, $password, $persist);
 
         // Define weak_locks for mysql
@@ -359,15 +367,14 @@ final class dcCore
             }
         }
 
-        $this->autoload = new Autoloader('', '', true);
-        $this->error    = new dcError();
-        $this->auth     = $this->authInstance();
-        $this->session  = new sessionDB($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
-        $this->url      = new dcUrlHandlers();
-        $this->plugins  = new dcPlugins();
-        $this->rest     = new dcRestServer();
-        $this->meta     = new dcMeta();
-        $this->log      = new dcLog();
+        $this->error   = new dcError();
+        $this->auth    = $this->authInstance();
+        $this->session = new sessionDB($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
+        $this->url     = new dcUrlHandlers();
+        $this->plugins = new dcPlugins();
+        $this->rest    = new dcRestServer();
+        $this->meta    = new dcMeta();
+        $this->log     = new dcLog();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*

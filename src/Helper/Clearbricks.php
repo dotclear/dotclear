@@ -1,0 +1,245 @@
+<?php
+/**
+ * @package Clearbricks
+ *
+ * Tiny library including:
+ * - Database abstraction layer (MySQL/MariadDB, postgreSQL and SQLite)
+ * - File manager
+ * - Feed reader
+ * - HTML filter/validator
+ * - Images manipulation tools
+ * - Mail utilities
+ * - HTML pager
+ * - REST Server
+ * - Database driven session handler
+ * - Simple Template Systeme
+ * - URL Handler
+ * - Wiki to XHTML Converter
+ * - HTTP/NNTP clients
+ * - XML-RPC Client and Server
+ * - Zip tools
+ * - Diff tools
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ * @version 2.0
+ */
+
+namespace Dotclear\Helper;
+
+use Exception;
+
+class Clearbricks
+{
+    /**
+     * Old way autoload classes stack
+     *
+     * @var        array
+     */
+    public $stack = [];
+
+    /**
+     * Instance singleton
+     */
+    private static ?self $instance = null;
+
+    public function __construct()
+    {
+        // Singleton mode
+        if (self::$instance) {
+            throw new Exception('Library can not be loaded twice.', 500);
+        }
+
+        define('CLEARBRICKS_VERSION', '2.0');
+
+        self::$instance = $this;
+
+        spl_autoload_register([$this, 'loadClass']);
+
+        // Load old CB classes
+        $old_helper_root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']);
+        $this->add([
+            // Common helpers
+            'crypt'            => $old_helper_root . '/common/lib.crypt.php',
+            'dt'               => $old_helper_root . '/common/lib.date.php',
+            'files'            => $old_helper_root . '/common/lib.files.php',
+            'path'             => $old_helper_root . '/common/lib.files.php',
+            'form'             => $old_helper_root . '/common/lib.form.php',
+            'formSelectOption' => $old_helper_root . '/common/lib.form.php',
+            'html'             => $old_helper_root . '/common/lib.html.php',
+            'http'             => $old_helper_root . '/common/lib.http.php',
+            'l10n'             => $old_helper_root . '/common/lib.l10n.php',
+            'text'             => $old_helper_root . '/common/lib.text.php',
+
+            // Database Abstraction Layer
+            'dbLayer'  => $old_helper_root . '/dblayer/dblayer.php',
+            'dbStruct' => $old_helper_root . '/dbschema/class.dbstruct.php',
+            'dbSchema' => $old_helper_root . '/dbschema/class.dbschema.php',
+
+            // Files Manager
+            'filemanager' => $old_helper_root . '/filemanager/class.filemanager.php',
+            'fileItem'    => $old_helper_root . '/filemanager/class.filemanager.php',
+
+            // Feed Reader
+            'feedParser' => $old_helper_root . '/net.http.feed/class.feed.parser.php',
+            'feedReader' => $old_helper_root . '/net.http.feed/class.feed.reader.php',
+
+            // HTML Filter
+            'htmlFilter' => $old_helper_root . '/html.filter/class.html.filter.php',
+
+            // HTML Validator
+            'htmlValidator' => $old_helper_root . '/html.validator/class.html.validator.php',
+
+            // Image Manipulation Tools
+            'imageMeta'  => $old_helper_root . '/image/class.image.meta.php',
+            'imageTools' => $old_helper_root . '/image/class.image.tools.php',
+
+            // Send Mail Utilities
+            'mail' => $old_helper_root . '/mail/class.mail.php',
+
+            // Send Mail Through Sockets
+            'socketMail' => $old_helper_root . '/mail/class.socket.mail.php',
+
+            // HTML Pager
+            'pager' => $old_helper_root . '/pager/class.pager.php',
+
+            // REST Server
+            'restServer' => $old_helper_root . '/rest/class.rest.php',
+            'xmlTag'     => $old_helper_root . '/rest/class.rest.php',
+
+            // Database PHP Session
+            'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
+
+            // Simple Template Systeme
+            'template'               => $old_helper_root . '/template/class.template.php',
+            'tplNode'                => $old_helper_root . '/template/class.tplnode.php',
+            'tplNodeBlock'           => $old_helper_root . '/template/class.tplnodeblock.php',
+            'tplNodeText'            => $old_helper_root . '/template/class.tplnodetext.php',
+            'tplNodeValue'           => $old_helper_root . '/template/class.tplnodevalue.php',
+            'tplNodeBlockDefinition' => $old_helper_root . '/template/class.tplnodeblockdef.php',
+            'tplNodeValueParent'     => $old_helper_root . '/template/class.tplnodevalueparent.php',
+
+            // URL Handler
+            'urlHandler' => $old_helper_root . '/url.handler/class.url.handler.php',
+
+            // Wiki to XHTML Converter
+            'wiki2xhtml' => $old_helper_root . '/text.wiki2xhtml/class.wiki2xhtml.php',
+
+            // Common Socket Class
+            'netSocket' => $old_helper_root . '/net/class.net.socket.php',
+
+            // HTTP Client
+            'netHttp'    => $old_helper_root . '/net.http/class.net.http.php',
+            'HttpClient' => $old_helper_root . '/net.http/class.net.http.php',
+
+            // XML-RPC Client and Server
+            'xmlrpcValue'               => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcMessage'             => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcRequest'             => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcDate'                => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcBase64'              => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcClient'              => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcClientMulticall'     => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcBasicServer'         => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+            'xmlrpcIntrospectionServer' => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
+
+            // Zip tools
+            'fileUnzip' => $old_helper_root . '/zip/class.unzip.php',
+            'fileZip'   => $old_helper_root . '/zip/class.zip.php',
+
+            // Diff tools
+            'diff'     => $old_helper_root . '/diff/lib.diff.php',
+            'tidyDiff' => $old_helper_root . '/diff/lib.tidy.diff.php',
+
+            // HTML Form helpers
+            'formComponent' => $old_helper_root . '/html.form/class.form.component.php',
+            'formForm'      => $old_helper_root . '/html.form/class.form.form.php',
+            'formTextarea'  => $old_helper_root . '/html.form/class.form.textarea.php',
+            'formInput'     => $old_helper_root . '/html.form/class.form.input.php',
+            'formButton'    => $old_helper_root . '/html.form/class.form.button.php',
+            'formCheckbox'  => $old_helper_root . '/html.form/class.form.checkbox.php',
+            'formColor'     => $old_helper_root . '/html.form/class.form.color.php',
+            'formDate'      => $old_helper_root . '/html.form/class.form.date.php',
+            'formDatetime'  => $old_helper_root . '/html.form/class.form.datetime.php',
+            'formEmail'     => $old_helper_root . '/html.form/class.form.email.php',
+            'formFile'      => $old_helper_root . '/html.form/class.form.file.php',
+            'formHidden'    => $old_helper_root . '/html.form/class.form.hidden.php',
+            'formNumber'    => $old_helper_root . '/html.form/class.form.number.php',
+            'formPassword'  => $old_helper_root . '/html.form/class.form.password.php',
+            'formRadio'     => $old_helper_root . '/html.form/class.form.radio.php',
+            'formSubmit'    => $old_helper_root . '/html.form/class.form.submit.php',
+            'formTime'      => $old_helper_root . '/html.form/class.form.time.php',
+            'formUrl'       => $old_helper_root . '/html.form/class.form.url.php',
+            'formLabel'     => $old_helper_root . '/html.form/class.form.label.php',
+            'formFieldset'  => $old_helper_root . '/html.form/class.form.fieldset.php',
+            'formLegend'    => $old_helper_root . '/html.form/class.form.legend.php',
+            'formSelect'    => $old_helper_root . '/html.form/class.form.select.php',
+            'formOptgroup'  => $old_helper_root . '/html.form/class.form.optgroup.php',
+            'formOption'    => $old_helper_root . '/html.form/class.form.option.php',
+        ]);
+
+        // Helpers bootsrap
+        self::init();
+    }
+
+    /**
+     * Initializes the object.
+     */
+    public static function init(): void
+    {
+        // We may need l10n __() function
+        \l10n::bootstrap();
+
+        // We set default timezone to avoid warning
+        \dt::setTZ('UTC');
+    }
+
+    /**
+     * Get Clearbricks singleton instance
+     *
+     * @return     self
+     *
+     * @deprecated Since 2.26
+     */
+    public static function lib(): self
+    {
+        if (!self::$instance) {
+            // Init singleton
+            new self();
+        }
+
+        return self::$instance;
+    }
+
+    public function loadClass(string $name)
+    {
+        if (isset($this->stack[$name]) && is_file($this->stack[$name])) {
+            require_once $this->stack[$name];
+        }
+    }
+
+    /**
+     * Add class(es) to autoloader stack
+     *
+     * @param      array  $stack  Array of class => file (strings)
+     */
+    public function add(array $stack)
+    {
+        if (is_array($stack)) {
+            $this->stack = array_merge($this->stack, $stack);
+        }
+    }
+
+    /**
+     * Autoload: register class(es)
+     * Exemaple: Clearbricks::lib()->autoload(['class' => 'classfullpath'])
+     *
+     * @param      array  $stack  Array of class => file (strings)
+     *
+     * @deprecated Since 2.26, use namespaces instead
+     */
+    public function autoload(array $stack)
+    {
+        $this->add($stack);
+    }
+}
