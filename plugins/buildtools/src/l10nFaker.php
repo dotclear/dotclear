@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\buildtools;
 
 use dcCore;
 use dcMedia;
-use Clearbricks;
 use dt;
 
 class l10nFaker
@@ -67,7 +66,7 @@ class l10nFaker
         foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v['label']);
         }
-        file_put_contents(dirname(Clearbricks::lib()->autoloadSource('dcCore')) . '/_fake_l10n.php', $main);
+        file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
 
         $plugin .= "\n// Plugin names\n\n";
         foreach ($this->bundled_plugins as $id) {
@@ -81,9 +80,9 @@ class l10nFaker
             $plugin .= $this->fake_l10n($w->desc());
         }
 
-        if (!is_dir(__DIR__ . '/../../../_fake_plugin')) {
-            mkdir(__DIR__ . '/../../../_fake_plugin');
+        if (!is_dir(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin']))) {
+            mkdir(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin']));
         }
-        file_put_contents(__DIR__ . '/../../../_fake_plugin/_fake_l10n.php', $plugin);
+        file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin', '_fake_l10n.php']), $plugin);
     }
 }
