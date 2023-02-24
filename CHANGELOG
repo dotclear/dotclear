@@ -2,6 +2,7 @@ Dotclear 2.25.3 - 2023-??-??
 ===========================================================
 * Fix: Check import/export module class before listing them (should have been in 2.25.1 but not)
 * Fix: Ensure that maintenance task id is set
+* Fix: Typo in import WP class/filename
 * Core: Try to clear PHP OPcache to avoid running old code after update
 
 Dotclear 2.25.2 - 2023-02-19
