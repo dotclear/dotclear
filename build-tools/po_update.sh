@@ -22,7 +22,10 @@ antispam
 attachments
 blogroll
 breadcrumb
-dclegacy
+buildtools
+dcCKEditor
+dcLegacyEditor
+dcProxyV2
 fairTrackbacks
 importExport
 maintenance
@@ -33,8 +36,6 @@ tags
 themeEditor
 userPref
 widgets
-dcLegacyEditor
-dcCKEditor
 _fake_plugin
 "
 
