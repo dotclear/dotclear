@@ -502,8 +502,8 @@ class dcBlog
         }
         $counter = $this->getCategoriesCounter($c_params);
 
-        if (isset($params['without_empty']) && (!$params['without_empty'])) {
-            $without_empty = false;
+        if (isset($params['without_empty'])) {
+            $without_empty = (bool) $params['without_empty'];
         } else {
             $without_empty = !dcCore::app()->auth->userID(); // Get all categories if in admin display
         }
