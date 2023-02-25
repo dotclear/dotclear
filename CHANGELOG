@@ -1,4 +1,4 @@
-Dotclear 2.25.3 - 2023-??-??
+Dotclear 2.25.3 - 2023-02-25
 ===========================================================
 * Fix: Check import/export module class before listing them (should have been in 2.25.1 but not)
 * Fix: Ensure that maintenance task id is set

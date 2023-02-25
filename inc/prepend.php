@@ -196,7 +196,7 @@ if (!defined('DC_DEBUG')) {
 
 # Constants
 define('DC_ROOT', path::real(dcUtils::path([__DIR__, '..'])));
-define('DC_VERSION', '2.25.2');
+define('DC_VERSION', '2.25.3');
 define('DC_DIGESTS', dcUtils::path([__DIR__, 'digests']));
 define('DC_L10N_ROOT', dcUtils::path([__DIR__, '..', 'locales']));
 define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
