@@ -590,15 +590,20 @@ class dcModules
             ->set('root_writable', !is_null($this->mroot) && is_writable($this->mroot))
         ;
 
+        // dc < 2.25, module type was optionnal
+        if ($this->define->type == dcModuleDefine::DEFAULT_TYPE) {
+            $this->define->set('type', $this->type);
+        }
+
+        // dc < 2.26, priority could be negative
+        if ((int) $this->define->get('priority') < 0) {
+            $this->define->set('priority', 1);
+        }
+
         if ($this->disabled_mode) {
             $this->defines[] = $this->define;
 
             return;
-        }
-
-        // dc < 2.25, module type was optionnal
-        if ($this->define->type == dcModuleDefine::DEFAULT_TYPE) {
-            $this->define->set('type', $this->type);
         }
 
         // try to extract dc_min for easy reading
