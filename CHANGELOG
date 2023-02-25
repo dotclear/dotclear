@@ -1,3 +1,10 @@
+Dotclear 2.25.3 - 2023-02-25
+===========================================================
+* Fix: Check import/export module class before listing them (should have been in 2.25.1 but not)
+* Fix: Ensure that maintenance task id is set
+* Fix: Typo in import WP class/filename
+* Core: Try to clear PHP OPcache to avoid running old code after update
+
 Dotclear 2.25.2 - 2023-02-19
 ===========================================================
 * Fix: Tags widget
@@ -7,7 +14,6 @@ Dotclear 2.25.1 - 2023-02-18
 ===========================================================
 * Fix: PHP 7.4 and default used in namespace, 'default' folder theme renamed to blowup (namespace too)
 * Fix: Secondary admin pages for pages' actions
-* Fix: Check import/export module class before listing them
 * Fix: Using a widget element in a theme template
 
 Dotclear 2.25 - 2023-02-13
