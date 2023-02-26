@@ -200,7 +200,7 @@ class dcThemes extends dcModules
                     // by class name
                     if ($this->loadNsClass($parent, self::MODULE_CLASS_PUPLIC) === '') {
                         // by file name
-                        $this->loadModuleFile($define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                        $this->loadModuleFile($parent->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
                     }
                 }
 
