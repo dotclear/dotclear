@@ -102,27 +102,27 @@ class Config extends dcNsProcess
             'Ductile alternate' => '"Franklin gothic medium", "arial narrow", "DejaVu Sans Condensed", "helvetica neue", helvetica, sans-serif',
 
             // Serif families
-            'Times New Roman'   => 'Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif',
-            'Georgia'           => 'Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif',
-            'Garamond'          => '"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif',
+            'Times New Roman' => 'Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif',
+            'Georgia'         => 'Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif',
+            'Garamond'        => '"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif',
 
             // Sans-serif families
-            'Helvetica/Arial'   => 'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
-            'Verdana'           => 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
-            'Trebuchet MS'      => '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif',
+            'Helvetica/Arial' => 'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            'Verdana'         => 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
+            'Trebuchet MS'    => '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif',
 
             // Cursive families
-            'Impact'            => 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
+            'Impact' => 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
 
             // Monospace families
-            'Monospace'         => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
+            'Monospace' => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
         ];
 
         $ductile_base = [
             // HTML
-            'subtitle_hidden'          => null,
-            'logo_src'                 => null,
-            'preview_not_mandatory'    => null,
+            'subtitle_hidden'       => null,
+            'logo_src'              => null,
+            'preview_not_mandatory' => null,
             // CSS
             'body_font'                => null,
             'body_webfont_family'      => null,
@@ -189,7 +189,7 @@ class Config extends dcNsProcess
         dcCore::app()->admin->ductile_counts = array_merge(dcCore::app()->admin->ductile_counts_base, dcCore::app()->admin->ductile_counts);
 
         $ductile_stickers = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_stickers');
-        $ductile_stickers = @unserialize($ductile_stickers);
+        $ductile_stickers = @unserialize((string) $ductile_stickers);
 
         // If no stickers defined, add feed Atom one
         if (!is_array($ductile_stickers)) {
@@ -241,9 +241,13 @@ class Config extends dcNsProcess
             try {
                 // HTML
                 if (dcCore::app()->admin->conf_tab === 'html') {
-                    dcCore::app()->admin->ductile_user['subtitle_hidden']       = (int) !empty($_POST['subtitle_hidden']);
-                    dcCore::app()->admin->ductile_user['logo_src']              = $_POST['logo_src'];
-                    dcCore::app()->admin->ductile_user['preview_not_mandatory'] = (int) !empty($_POST['preview_not_mandatory']);
+                    $ductile_user = dcCore::app()->admin->ductile_user;
+
+                    $ductile_user['subtitle_hidden']       = (int) !empty($_POST['subtitle_hidden']);
+                    $ductile_user['logo_src']              = $_POST['logo_src'];
+                    $ductile_user['preview_not_mandatory'] = (int) !empty($_POST['preview_not_mandatory']);
+
+                    dcCore::app()->admin->ductile_user = $ductile_user;
 
                     $ductile_stickers = [];
                     for ($i = 0; $i < (is_countable($_POST['sticker_image']) ? count($_POST['sticker_image']) : 0); $i++) {
@@ -273,18 +277,26 @@ class Config extends dcNsProcess
                     }
                     dcCore::app()->admin->ductile_stickers = $ductile_stickers;
 
+                    $ductile_lists = dcCore::app()->admin->ductile_lists;
+
                     for ($i = 0; $i < (is_countable($_POST['list_type']) ? count($_POST['list_type']) : 0); $i++) {
-                        dcCore::app()->admin->ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
+                        $ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
                     }
 
+                    dcCore::app()->admin->ductile_lists = $ductile_lists;
+
+                    $ductile_counts = dcCore::app()->admin->ductile_counts;
+
                     for ($i = 0; $i < (is_countable($_POST['count_nb']) ? count($_POST['count_nb']) : 0); $i++) {
-                        dcCore::app()->admin->ductile_counts[$_POST['count_ctx'][$i]] = $_POST['count_nb'][$i];
+                        $ductile_counts[$_POST['count_ctx'][$i]] = $_POST['count_nb'][$i];
                     }
+
+                    dcCore::app()->admin->ductile_counts = $ductile_counts;
                 }
 
                 // CSS
                 if (dcCore::app()->admin->conf_tab === 'css') {
-                    $ductile_user = [];
+                    $ductile_user = dcCore::app()->admin->ductile_user;
 
                     $ductile_user['body_font']           = $_POST['body_font'];
                     $ductile_user['body_webfont_family'] = $_POST['body_webfont_family'];
