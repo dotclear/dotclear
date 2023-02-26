@@ -53,7 +53,10 @@ class dcStore
      *
      * @var    array
      */
-    protected $data = [];
+    protected $data = [
+        'new'    => [],
+        'update' => []
+    ];
 
     /**
      * Constructor.
