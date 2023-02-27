@@ -227,22 +227,17 @@ class Manage extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Blogroll') . '</title>' .
-        dcPage::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
-
+        $head = dcPage::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            echo
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            dcPage::jsModuleLoad('blogroll/js/blogroll.js');
+            $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+                dcPage::jsModuleLoad('blogroll/js/blogroll.js');
         }
+        $head .= dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
+
+        dcPage::openModule(__('Blogroll'), $head);
+
         echo
-        dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -443,8 +438,6 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('blogroll');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

@@ -78,12 +78,9 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
+        dcPage::openModule(__('Pings'));
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Pings') . '</title>' .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 __('Plugins')             => '',
@@ -139,8 +136,6 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('pings');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

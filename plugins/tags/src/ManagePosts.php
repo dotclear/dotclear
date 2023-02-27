@@ -119,19 +119,18 @@ class ManagePosts extends dcNsProcess
 
         $this_url = dcCore::app()->admin->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(dcCore::app()->admin->tag);
 
+        dcPage::openModule(
+            __('Tags'),
+            dcPage::cssModuleLoad('tags/css/style.css') .
+            dcPage::jsLoad('js/_posts_list.js') .
+            dcPage::jsJson('posts_tags_msg', [
+                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML(dcCore::app()->admin->tag)),
+            ]) .
+            dcPage::jsModuleLoad('tags/js/posts.js') .
+            dcPage::jsConfirmClose('tag_rename')
+        );
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Tags') . '</title>' .
-        dcPage::cssModuleLoad('tags/css/style.css') .
-        dcPage::jsLoad('js/_posts_list.js') .
-        dcPage::jsJson('posts_tags_msg', [
-            'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML(dcCore::app()->admin->tag)),
-        ]) .
-        dcPage::jsModuleLoad('tags/js/posts.js') .
-        dcPage::jsConfirmClose('tag_rename') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name)                                      => '',
@@ -194,8 +193,6 @@ class ManagePosts extends dcNsProcess
         }
         dcPage::helpBlock('tag_posts');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

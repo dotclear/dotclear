@@ -171,22 +171,15 @@ class Manage extends dcNsProcess
 
         // Display page
 
-        echo
-        '<html><head>
-        <title>' . __('Maintenance') . '</title>' .
-        dcPage::jsPageTabs(dcCore::app()->admin->tab) .
-        dcPage::jsModuleLoad('maintenance/js/settings.js');
-
+        $head = dcPage::jsPageTabs(dcCore::app()->admin->tab) .
+            dcPage::jsModuleLoad('maintenance/js/settings.js');
         if (dcCore::app()->admin->task && dcCore::app()->admin->task->ajax()) {
-            echo
-            dcPage::jsJson('maintenance', ['wait' => __('Please wait...')]) .
-            dcPage::jsModuleLoad('maintenance/js/dc.maintenance.js');
+            $head .= dcPage::jsJson('maintenance', ['wait' => __('Please wait...')]) .
+                dcPage::jsModuleLoad('maintenance/js/dc.maintenance.js');
         }
+        $head .= dcCore::app()->admin->maintenance->getHeaders();
 
-        echo
-        dcCore::app()->admin->maintenance->getHeaders() . '
-        </head>
-        <body>';
+        dcPage::openModule(__('Maintenance'), $head);
 
         // Check if there is something to display according to user permissions
         if (empty(dcCore::app()->admin->tasks)) {
@@ -197,8 +190,9 @@ class Manage extends dcNsProcess
                     __('Maintenance') => '',
                 ]
             ) .
-            '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>' .
-            '</body></html>';
+            '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>';
+
+            dcPage::closeModule();
 
             return;
         }
@@ -433,7 +427,6 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('maintenance', 'maintenancetasks');
 
-        echo
-        '</body></html>';
+        dcPage::closeModule();
     }
 }

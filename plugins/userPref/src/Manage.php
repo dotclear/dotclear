@@ -100,14 +100,13 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
+        dcPage::openModule(
+            'user:preferences',
+            dcPage::jsPageTabs(dcCore::app()->admin->part) .
+            dcPage::jsModuleLoad('userPref/js/index.js')
+        );
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>user:preferences</title>' .
-        dcPage::jsPageTabs(dcCore::app()->admin->part) .
-        dcPage::jsModuleLoad('userPref/js/index.js') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 __('System')                                    => '',
@@ -134,9 +133,7 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('userPref');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 
     /**

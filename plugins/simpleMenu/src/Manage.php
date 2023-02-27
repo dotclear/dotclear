@@ -470,20 +470,15 @@ class Manage extends dcNsProcess
             return;
         }
 
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' . dcCore::app()->admin->page_title . '</title>' ;
-
+        $head = '';
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            echo
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            dcPage::jsModuleLoad('simpleMenu/js/simplemenu.js');
+            $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+                dcPage::jsModuleLoad('simpleMenu/js/simplemenu.js');
         }
-        echo dcPage::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems') .
-        '</head>' .
-        '<body>';
+        $head .= dcPage::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
+
+        dcPage::openModule(dcCore::app()->admin->page_title, $head);
 
         $step_label = '';
         if (dcCore::app()->admin->step) {
@@ -786,8 +781,6 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('simpleMenu');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

@@ -129,12 +129,9 @@ class ManageEdit extends dcNsProcess
         $links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
         $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 
+        dcPage::openModule(__('Blogroll'));
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>Blogroll</title>' .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -350,8 +347,6 @@ class ManageEdit extends dcNsProcess
             }
         }
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

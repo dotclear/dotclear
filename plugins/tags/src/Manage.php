@@ -60,13 +60,12 @@ class Manage extends dcNsProcess
             return;
         }
 
+        dcPage::openModule(
+            __('Tags'),
+            dcPage::cssModuleLoad('tags/css/style.css')
+        );
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Tags') . '</title>' .
-        dcPage::cssModuleLoad('tags/css/style.css') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -116,8 +115,6 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('tags');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

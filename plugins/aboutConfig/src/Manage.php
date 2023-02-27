@@ -107,14 +107,13 @@ class Manage extends dcNsProcess
             return;
         }
 
+        dcPage::openModule(
+            'about:config',
+            dcPage::jsPageTabs(dcCore::app()->admin->part) .
+            dcPage::jsModuleLoad('aboutConfig/js/index.js')
+        );
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>about:config</title>' .
-        dcPage::jsPageTabs(dcCore::app()->admin->part) .
-        dcPage::jsModuleLoad('aboutConfig/js/index.js') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 __('System')                                => '',
@@ -141,9 +140,7 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('aboutConfig');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 
     /**

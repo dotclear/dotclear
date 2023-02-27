@@ -236,35 +236,28 @@ class Manage extends dcNsProcess
             return;
         }
 
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Widgets') . '</title>';
-
         $widget_editor = dcCore::app()->auth->getOption('editor');
         $rte_flag      = true;
         $rte_flags     = @dcCore::app()->auth->user_prefs->interface->rte_flags;
         if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
-        echo
-        dcPage::cssModuleLoad('widgets/css/style.css') .
-        dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-        dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-        dcPage::jsJson('widgets', [
-            'widget_noeditor' => ($rte_flag ? 0 : 1),
-            'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
-        ]) .
-        dcPage::jsModuleLoad('widgets/js/widgets.js');
+
+        $head = dcPage::cssModuleLoad('widgets/css/style.css') .
+            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            dcPage::jsJson('widgets', [
+                'widget_noeditor' => ($rte_flag ? 0 : 1),
+                'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
+            ]) .
+            dcPage::jsModuleLoad('widgets/js/widgets.js');
 
         $user_dm_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
-            echo
-            dcPage::jsModuleLoad('widgets/js/dragdrop.js');
+            $head .= dcPage::jsModuleLoad('widgets/js/dragdrop.js');
         }
         if ($rte_flag) {
-            echo
-            dcCore::app()->callBehavior(
+            $head .= dcCore::app()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],
                 'widget',
@@ -272,10 +265,11 @@ class Manage extends dcNsProcess
                 'xhtml'
             );
         }
+        $head .= dcPage::jsConfirmClose('sidebarsWidgets');
+
+        dcPage::openModule(__('Widgets'), $head);
+
         echo
-        dcPage::jsConfirmClose('sidebarsWidgets') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -385,9 +379,7 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('widgets', $widget_elements);
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 
     protected static function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)

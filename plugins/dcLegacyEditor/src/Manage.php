@@ -63,6 +63,10 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
+        dcPage::openModule(__('dcLegacyEditor'));
+
         require __DIR__ . '/../tpl/index.php';
+
+        dcPage::closeModule();
     }
 }

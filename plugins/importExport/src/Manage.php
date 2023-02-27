@@ -76,15 +76,12 @@ class Manage extends dcNsProcess
 
         $title = __('Import/Export');
 
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' . $title . '</title>' .
-        dcPage::cssModuleLoad('importExport/css/style.css') .
-        dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
-        dcPage::jsModuleLoad('importExport/js/script.js') .
-        '</head>' .
-        '<body>';
+        dcPage::openModule(
+            $title,
+            dcPage::cssModuleLoad('importExport/css/style.css') .
+            dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
+            dcPage::jsModuleLoad('importExport/js/script.js')
+        );
 
         if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null) {
             echo
@@ -125,8 +122,7 @@ class Manage extends dcNsProcess
 
         dcPage::helpBlock('import');
 
-        echo
-        '</body></html>';
+        dcPage::closeModule();
     }
 
     protected static function listImportExportModules($modules)

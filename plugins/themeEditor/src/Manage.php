@@ -126,32 +126,26 @@ class Manage extends dcNsProcess
             return;
         }
 
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Edit theme files') . '</title>';
-
+        $head = '';
         if (dcCore::app()->admin->user_ui_colorsyntax) {
-            echo
-            dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => dcCore::app()->admin->user_ui_colorsyntax]);
+            $head .= dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => dcCore::app()->admin->user_ui_colorsyntax]);
         }
-        echo
-        dcPage::jsJson('theme_editor_msg', [
+        $head .= dcPage::jsJson('theme_editor_msg', [
             'saving_document'    => __('Saving document...'),
             'document_saved'     => __('Document saved'),
             'error_occurred'     => __('An error occurred:'),
             'confirm_reset_file' => __('Are you sure you want to reset this file?'),
         ]) .
-        dcPage::jsModuleLoad('themeEditor/js/script.js') .
-        dcPage::jsConfirmClose('file-form');
+            dcPage::jsModuleLoad('themeEditor/js/script.js') .
+            dcPage::jsConfirmClose('file-form');
         if (dcCore::app()->admin->user_ui_colorsyntax) {
-            echo
-            dcPage::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
+            $head .= dcPage::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
         }
+        $head .= dcPage::cssModuleLoad('themeEditor/css/style.css');
+
+        dcPage::openModule(__('Edit theme files'), $head);
+
         echo
-        dcPage::cssModuleLoad('themeEditor/css/style.css') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name) => '',

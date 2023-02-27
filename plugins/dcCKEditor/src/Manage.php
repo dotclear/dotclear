@@ -149,6 +149,10 @@ class Manage extends dcNsProcess
             return;
         }
 
+        dcPage::openModule(__('dcCKEditor'));
+
         require __DIR__ . '/../tpl/index.php';
+
+        dcPage::closeModule();
     }
 }

@@ -106,16 +106,15 @@ class Manage extends dcNsProcess
             return;
         }
 
+        dcPage::openModule(
+            __('Pages'),
+            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
+            dcPage::jsModuleLoad('pages/js/list.js')
+        );
+
         echo
-        '<html>' .
-        '<head>' .
-        '<title>' . __('Pages') . '</title>' .
-        dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-        dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-        dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
-        dcPage::jsModuleLoad('pages/js/list.js') .
-        '</head>' .
-        '<body>' .
         dcPage::breadcrumb(
             [
                 html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -164,8 +163,6 @@ class Manage extends dcNsProcess
         }
         dcPage::helpBlock('pages');
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }

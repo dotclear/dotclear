@@ -132,26 +132,20 @@ class Manage extends dcNsProcess
             return;
         }
 
-        echo
-        '<html>' .
-        '<head>' .
-        '<title>' .
-        (dcCore::app()->admin->filter_gui !== false ?
+        $title = (dcCore::app()->admin->filter_gui !== false ?
             sprintf(__('%s configuration'), dcCore::app()->admin->filter->name) . ' - ' :
-            '' . dcCore::app()->admin->page_name) . '</title>' .
-        dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
+            '' . dcCore::app()->admin->page_name);
 
+        $head = dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            echo
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
-        echo
-        dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
-        dcPage::jsModuleLoad('antispam/js/antispam.js') .
-        dcPage::cssModuleLoad('antispam/css/style.css') .
-        '</head>' .
-        '<body>';
+        $head .= dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
+            dcPage::jsModuleLoad('antispam/js/antispam.js') .
+            dcPage::cssModuleLoad('antispam/css/style.css');
+
+        dcPage::openModule($title, $head);
 
         if (dcCore::app()->admin->filter_gui !== false) {
             echo
@@ -303,8 +297,6 @@ class Manage extends dcNsProcess
             dcPage::helpBlock('antispam', 'antispam-filters');
         }
 
-        echo
-        '</body>' .
-        '</html>';
+        dcPage::closeModule();
     }
 }
