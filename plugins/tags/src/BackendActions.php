@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcPostsActions;
-use Exception;
 
 class BackendActions extends dcPostsActions
 {
