@@ -18,7 +18,6 @@ use dcCore;
 use dcMeta;
 use dcNsProcess;
 use dcPage;
-use dcPostsActions;
 use Exception;
 use form;
 use html;
@@ -66,13 +65,16 @@ class ManagePosts extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        dcCore::app()->admin->posts_actions_page = new dcPostsActions(
+        dcCore::app()->admin->posts_actions_page = new BackendActions(
             'plugin.php',
             ['p' => 'tags', 'm' => 'tag_posts', 'tag' => dcCore::app()->admin->tag]
         );
 
+        dcCore::app()->admin->posts_actions_page_rendered = null;
         if (dcCore::app()->admin->posts_actions_page->process()) {
-            return false;
+            dcCore::app()->admin->posts_actions_page_rendered = true;
+
+            return true;
         }
 
         if (isset($_POST['new_tag_id'])) {
@@ -114,6 +116,12 @@ class ManagePosts extends dcNsProcess
     public static function render(): void
     {
         if (!self::$init) {
+            return;
+        }
+
+        if (dcCore::app()->admin->posts_actions_page_rendered) {
+            dcCore::app()->admin->posts_actions_page->render();
+
             return;
         }
 
