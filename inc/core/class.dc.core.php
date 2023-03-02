@@ -532,7 +532,7 @@ final class dcCore
             return;
         }
 
-        $element = new formHidden('xd_check', $this->getNonce());
+        $element = new formHidden(['xd_check'], $this->getNonce());
 
         return $render ? $element->render() : $element;
     }
