@@ -201,23 +201,19 @@ class adminComment
      */
     public static function render()
     {
-        if (dcCore::app()->admin->comment_id) {
-            $breadcrumb = dcPage::breadcrumb(
-                [
-                    html::escapeHTML(dcCore::app()->blog->name)        => '',
-                    html::escapeHTML(dcCore::app()->admin->post_title) => dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id,
-                    __('Edit comment')                                 => '',
-                ]
-            );
-        } else {
-            $breadcrumb = dcPage::breadcrumb(
-                [
-                    html::escapeHTML(dcCore::app()->blog->name)        => '',
-                    html::escapeHTML(dcCore::app()->admin->post_title) => dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id),
-                    __('Edit comment')                                 => '',
-                ]
-            );
+        $breadcrumb = [
+            html::escapeHTML(dcCore::app()->blog->name)       => '',
+        ];
+        $posts_types = dcCore::app()->getPostTypes();
+        if (array_key_exists(dcCore::app()->admin->post_type, $posts_types)) {
+            $breadcrumb[html::escapeHTML(__($posts_types[dcCore::app()->admin->post_type]['label']))] = '';
         }
+        if (dcCore::app()->admin->comment_id) {
+            $breadcrumb[html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
+        } else  {
+            $breadcrumb[html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id);
+        }
+        $breadcrumb[__('Edit comment')] = '';
 
         dcPage::open(
             __('Edit comment'),
@@ -226,7 +222,7 @@ class adminComment
             dcCore::app()->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders
             dcCore::app()->callBehavior('adminCommentHeaders'),
-            $breadcrumb
+            dcPage::breadcrumb($breadcrumb)
         );
 
         if (dcCore::app()->admin->comment_id) {
