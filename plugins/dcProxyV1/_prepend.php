@@ -34,6 +34,7 @@ dcProxyV1::classAliases([
     'formDatetime'  => 'Dotclear\Helper\Html\Form\Datetime',
     'formDiv'       => 'Dotclear\Helper\Html\Form\Div',
     'formEmail'     => 'Dotclear\Helper\Html\Form\Email',
+    'formFieldset'  => 'Dotclear\Helper\Html\Form\Fieldset',
     'formFile'      => 'Dotclear\Helper\Html\Form\File',
     'formForm'      => 'Dotclear\Helper\Html\Form\Form',
     'formHidden'    => 'Dotclear\Helper\Html\Form\Hidden',
