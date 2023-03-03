@@ -10,6 +10,7 @@
  */
 
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Option;
 
 abstract class dcActions
 {
@@ -140,7 +141,7 @@ abstract class dcActions
                 $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
             } elseif (
                 $options instanceof formSelectOption || // CB: common/lib.form.php
-                $options instanceof formOption          // CB: html.form/class.form.option.php
+                $options instanceof Option
             ) {
                 $values              = [$options->value];
                 $this->combo[$group] = $options->value;

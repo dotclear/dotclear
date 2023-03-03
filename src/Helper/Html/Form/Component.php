@@ -189,7 +189,7 @@ abstract class Component
     /**
      * Attaches the label.
      *
-     * @param      formLabel|null  $label     The label
+     * @param      Label|null      $label     The label
      * @param      int|null        $position  The position
      *
      * @return     self
