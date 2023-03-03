@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
 use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
 
@@ -106,7 +107,7 @@ class dcCommentsActions extends dcActions
             '</tr>';
         foreach ($this->entries as $id => $description) {
             $ret .= '<tr><td class="minimal">' .
-            (new formCheckbox([$this->field_entries . '[]'], true))->value($id)->render() .
+            (new Checkbox([$this->field_entries . '[]'], true))->value($id)->render() .
                 '</td>' .
                 '<td>' . $description['author'] . '</td><td>' . $description['title'] . '</td></tr>';
         }

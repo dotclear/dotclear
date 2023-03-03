@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formCheckbox
+ * @class Checkbox
  * @brief HTML Forms checkbox button creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formCheckbox extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Checkbox extends Input
 {
     /**
      * Constructs a new instance.

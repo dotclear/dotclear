@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formComponent
+ * @class Component
  * @brief HTML Forms creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-abstract class formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+abstract class Component
 {
     private string $_type;     // Component type
     private ?string $_element = null;  // HTML element
@@ -193,7 +194,7 @@ abstract class formComponent
      *
      * @return     self
      */
-    public function attachLabel(?formLabel $label = null, ?int $position = null)
+    public function attachLabel(?Label $label = null, ?int $position = null)
     {
         if ($label) {
             $this->label($label);

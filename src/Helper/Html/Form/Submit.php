@@ -1,10 +1,7 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formEmail
- * @brief HTML Forms email field creation helpers
+ * @class Submit
+ * @brief HTML Forms password field creation helpers
  *
  * @package Clearbricks
  * @subpackage html.form
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formEmail extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Submit extends Input
 {
     /**
      * Constructs a new instance.
@@ -24,8 +25,7 @@ class formEmail extends formInput
      */
     public function __construct($id = null, ?string $value = null)
     {
-        parent::__construct($id, 'email');
-        $this->inputmode('email');
+        parent::__construct($id, 'submit');
         if ($value !== null) {
             $this->value($value);
         }

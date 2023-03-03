@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Hidden;
+
 abstract class dcActions
 {
     /**
@@ -184,7 +187,7 @@ abstract class dcActions
     {
         $ret = '';
         foreach (array_keys($this->entries) as $id) {
-            $ret .= (new formHidden($this->field_entries . '[]', $id))->render();
+            $ret .= (new Hidden($this->field_entries . '[]', $id))->render();
         }
 
         return $ret;
@@ -201,7 +204,7 @@ abstract class dcActions
     {
         $ret = '';
         foreach ($this->redir_args as $name => $value) {
-            $ret .= (new formHidden([$name], $value))->render();
+            $ret .= (new Hidden([$name], $value))->render();
         }
         if ($with_ids) {
             $ret .= $this->getIDsHidden();
@@ -346,7 +349,7 @@ abstract class dcActions
 
     /**
      * Output action process contents.
-     * 
+     *
      * Only when property $use_render is set to true.
      */
     public function render(): void

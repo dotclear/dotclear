@@ -6,6 +6,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminCategory
@@ -69,7 +80,7 @@ class adminCategory
             $rs    = dcCore::app()->blog->getCategories();
             while ($rs->fetch()) {
                 if (!isset($parents[$rs->cat_id])) {
-                    $stack[] = new formOption(
+                    $stack[] = new Option(
                         str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title),
                         $rs->cat_id
                     );
@@ -212,7 +223,7 @@ class adminCategory
         '<form action="' . dcCore::app()->adminurl->get('admin.category') . '" method="post" id="category-form">' .
         '<h3>' . __('Category information') . '</h3>' .
         '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
-        form::field('cat_title', 40, 255, [
+        \form::field('cat_title', 40, 255, [
             'default'    => html::escapeHTML(dcCore::app()->admin->cat_title),
             'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . dcCore::app()->admin->blog_lang . '" spellcheck="true"',
         ]) .
@@ -235,14 +246,14 @@ class adminCategory
         echo
         '<div class="lockable">' .
         '<p><label for="cat_url">' . __('URL:') . '</label> '
-        . form::field('cat_url', 40, 255, html::escapeHTML(dcCore::app()->admin->cat_url)) .
+        . \form::field('cat_url', 40, 255, html::escapeHTML(dcCore::app()->admin->cat_url)) .
         '</p>' .
         '<p class="form-note warn" id="note-cat-url">' .
         __('Warning: If you set the URL manually, it may conflict with another category.') . '</p>' .
         '</div>' .
 
         '<p class="area"><label for="cat_desc">' . __('Description:') . '</label> ' .
-        form::textarea(
+        \form::textarea(
             'cat_desc',
             50,
             8,
@@ -255,7 +266,7 @@ class adminCategory
 
         '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        (dcCore::app()->admin->cat_id ? form::hidden('id', dcCore::app()->admin->cat_id) : '') .
+        (dcCore::app()->admin->cat_id ? \form::hidden('id', dcCore::app()->admin->cat_id) : '') .
         dcCore::app()->formNonce() .
         '</p>' .
         '</form>';
@@ -265,28 +276,28 @@ class adminCategory
             '<h3 class="border-top">' . __('Move this category') . '</h3>' .
             '<div class="two-cols">';
 
-            echo (new formDiv())
+            echo (new Div())
                 ->class('col')
                 ->items([
-                    (new formForm('cat-parent-form'))
+                    (new Form('cat-parent-form'))
                         ->action(dcCore::app()->adminurl->get('admin.category'))
                         ->method('post')
                         ->class('fieldset')
                         ->fields([
-                            new formText('h4', __('Category parent')),
-                            (new formPara())->items([
-                                (new formLabel(__('Parent:')))
+                            new Text('h4', __('Category parent')),
+                            (new Para())->items([
+                                (new Label(__('Parent:')))
                                     ->for('cat_parent')
                                     ->class('classic'),
-                                (new formSelect('cat_parent'))
+                                (new Select('cat_parent'))
                                     ->items(dcCore::app()->admin->cat_allowed_parents)
                                     ->default((string) dcCore::app()->admin->cat_parent),
                             ]),
-                            (new formPara())->items([
-                                (new formSubmit('cat-parent-submit'))
+                            (new Para())->items([
+                                (new Submit('cat-parent-submit'))
                                     ->accesskey('s')
                                     ->value(__('Save')),
-                                new formHidden('id', dcCore::app()->admin->cat_id),
+                                new Hidden('id', dcCore::app()->admin->cat_id),
                                 dcCore::app()->formNonce(false),
                             ]),
                         ]),
@@ -294,33 +305,33 @@ class adminCategory
                 ->render();
 
             if (is_countable(dcCore::app()->admin->cat_siblings) ? count(dcCore::app()->admin->cat_siblings) : 0) {
-                echo (new formDiv())
+                echo (new Div())
                     ->class('col')
                     ->items([
-                        (new formForm('cat-sibling-form'))
+                        (new Form('cat-sibling-form'))
                             ->action(dcCore::app()->adminurl->get('admin.category'))
                             ->method('post')
                             ->class('fieldset')
                             ->fields([
-                                new formText('h4', __('Category sibling')),
-                                (new formPara())->items([
-                                    (new formLabel(__('Move current category')))
+                                new Text('h4', __('Category sibling')),
+                                (new Para())->items([
+                                    (new Label(__('Move current category')))
                                         ->for('cat_sibling')
                                         ->class('classic'),
-                                    (new formSelect('cat_move'))
+                                    (new Select('cat_move'))
                                         ->items([
                                             __('before') => 'before',
                                             __('after')  => 'after',
                                         ])
                                         ->title(__('position: ')),
-                                    (new formSelect('cat_sibling'))
+                                    (new Select('cat_sibling'))
                                         ->items(dcCore::app()->admin->cat_siblings),
                                 ]),
-                                (new formPara())->items([
-                                    (new formSubmit('cat-sibling-submit'))
+                                (new Para())->items([
+                                    (new Submit('cat-sibling-submit'))
                                         ->accesskey('s')
                                         ->value(__('Save')),
-                                    new formHidden('id', dcCore::app()->admin->cat_id),
+                                    new Hidden('id', dcCore::app()->admin->cat_id),
                                     dcCore::app()->formNonce(false),
                                 ]),
                             ]),

@@ -1,10 +1,7 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formSubmit
- * @brief HTML Forms password field creation helpers
+ * @class Time
+ * @brief HTML Forms time field creation helpers
  *
  * @package Clearbricks
  * @subpackage html.form
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formSubmit extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Time extends Input
 {
     /**
      * Constructs a new instance.
@@ -24,7 +25,13 @@ class formSubmit extends formInput
      */
     public function __construct($id = null, ?string $value = null)
     {
-        parent::__construct($id, 'submit');
+        parent::__construct($id, 'time');
+        $this
+            ->size(5)
+            ->maxlength(5)
+            ->pattern('[0-9]{2}:[0-9]{2}')
+            ->placeholder('14:45');
+
         if ($value !== null) {
             $this->value($value);
         }

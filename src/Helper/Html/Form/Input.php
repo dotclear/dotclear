@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formInput
+ * @class Input
  * @brief HTML Forms input field creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formInput extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Input extends Component
 {
     private const DEFAULT_ELEMENT = 'input';
 

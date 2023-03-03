@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Hidden;
+
 class dcAdminURL
 {
     /**
@@ -152,7 +155,7 @@ class dcAdminURL
         $qs  = array_merge($url['qs'], $params);
         $str = '';
         foreach ($qs as $field => $value) {
-            $str .= (new formHidden([$field], $value))->render();
+            $str .= (new Hidden([$field], $value))->render();
         }
 
         return $str;
@@ -180,7 +183,7 @@ class dcAdminURL
         $qs    = array_merge($url['qs'], $params);
         $stack = [];
         foreach ($qs as $field => $value) {
-            $stack[] = new formHidden([$field], $value);
+            $stack[] = new Hidden([$field], $value);
         }
 
         return $stack;

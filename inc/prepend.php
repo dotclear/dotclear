@@ -109,11 +109,6 @@ Clearbricks::lib()->autoload([
     'dcCommentsActions'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'actions', 'class.dcactioncomments.php']),
     'dcBlogsActions'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'actions', 'class.dcactionblogs.php']),
     'dcActions'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'actions', 'class.dcaction.php']),
-    'formDiv'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'html.form', 'class.form.div.php']),
-    'formLink'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'html.form', 'class.form.link.php']),
-    'formNote'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'html.form', 'class.form.note.php']),
-    'formPara'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'html.form', 'class.form.para.php']),
-    'formText'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'admin', 'html.form', 'class.form.text.php']),
 
     // Public
     'dcPublic'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'public', 'class.dc.public.php']),

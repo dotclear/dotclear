@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formNumber
+ * @class Number
  * @brief HTML Forms number field creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formNumber extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Number extends Input
 {
     /**
      * Constructs a new instance.

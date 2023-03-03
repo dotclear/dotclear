@@ -1,28 +1,27 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formForm
- * @brief HTML Forms form creation helpers
+ * @class Div
+ * @brief HTML Forms Div creation helpers
  *
- * @package Clearbricks
- * @subpackage html.form
- *
- * @since 1.2 First time this was introduced.
+ * @package Dotclear
+ * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formForm extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Div extends Component
 {
-    private const DEFAULT_ELEMENT = 'form';
+    private const DEFAULT_ELEMENT = 'div';
 
     /**
      * Constructs a new instance.
      *
-     * @param      mixed  $id       The identifier
-     * @param      string $element  The element
+     * @param      mixed   $id       The identifier
+     * @param      string  $element  The element
      */
     public function __construct($id = null, ?string $element = null)
     {
@@ -37,20 +36,19 @@ class formForm extends formComponent
      *
      * @return     string
      */
-    public function render(?string $fieldFormat = null): string
+    public function render(): string
     {
-        if (!$this->checkMandatoryAttributes()) {
-            return '';
-        }
-
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->action) ? ' action="' . $this->action . '"' : '') .
-            (isset($this->method) ? ' method="' . $this->method . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->fields) && is_array($this->fields)) {
-            foreach ($this->fields as $field) {
-                $buffer .= sprintf(($fieldFormat ?: '%s'), $field->render());
+        if (isset($this->items) && is_array($this->items)) {
+            $first = true;
+            foreach ($this->items as $item) {
+                if (!$first && $this->separator) {
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf(($this->format ?: '%s'), $item->render());
+                $first = false;
             }
         }
 

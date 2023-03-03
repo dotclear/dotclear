@@ -150,32 +150,6 @@ class Clearbricks
             // Diff tools
             'diff'     => $old_helper_root . '/diff/lib.diff.php',
             'tidyDiff' => $old_helper_root . '/diff/lib.tidy.diff.php',
-
-            // HTML Form helpers
-            'formComponent' => $old_helper_root . '/html.form/class.form.component.php',
-            'formForm'      => $old_helper_root . '/html.form/class.form.form.php',
-            'formTextarea'  => $old_helper_root . '/html.form/class.form.textarea.php',
-            'formInput'     => $old_helper_root . '/html.form/class.form.input.php',
-            'formButton'    => $old_helper_root . '/html.form/class.form.button.php',
-            'formCheckbox'  => $old_helper_root . '/html.form/class.form.checkbox.php',
-            'formColor'     => $old_helper_root . '/html.form/class.form.color.php',
-            'formDate'      => $old_helper_root . '/html.form/class.form.date.php',
-            'formDatetime'  => $old_helper_root . '/html.form/class.form.datetime.php',
-            'formEmail'     => $old_helper_root . '/html.form/class.form.email.php',
-            'formFile'      => $old_helper_root . '/html.form/class.form.file.php',
-            'formHidden'    => $old_helper_root . '/html.form/class.form.hidden.php',
-            'formNumber'    => $old_helper_root . '/html.form/class.form.number.php',
-            'formPassword'  => $old_helper_root . '/html.form/class.form.password.php',
-            'formRadio'     => $old_helper_root . '/html.form/class.form.radio.php',
-            'formSubmit'    => $old_helper_root . '/html.form/class.form.submit.php',
-            'formTime'      => $old_helper_root . '/html.form/class.form.time.php',
-            'formUrl'       => $old_helper_root . '/html.form/class.form.url.php',
-            'formLabel'     => $old_helper_root . '/html.form/class.form.label.php',
-            'formFieldset'  => $old_helper_root . '/html.form/class.form.fieldset.php',
-            'formLegend'    => $old_helper_root . '/html.form/class.form.legend.php',
-            'formSelect'    => $old_helper_root . '/html.form/class.form.select.php',
-            'formOptgroup'  => $old_helper_root . '/html.form/class.form.optgroup.php',
-            'formOption'    => $old_helper_root . '/html.form/class.form.option.php',
         ]);
 
         // Helpers bootsrap

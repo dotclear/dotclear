@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formButton
+ * @class Password
  * @brief HTML Forms password field creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formButton extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Password extends Input
 {
     /**
      * Constructs a new instance.
@@ -24,7 +25,11 @@ class formButton extends formInput
      */
     public function __construct($id = null, ?string $value = null)
     {
-        parent::__construct($id, 'button');
+        parent::__construct($id, 'password');
+        // Default attributes for a password, may be supercharge after
+        $this->autocorrect('off');
+        $this->spellcheck('off');
+        $this->autocapitalize('off');
         if ($value !== null) {
             $this->value($value);
         }

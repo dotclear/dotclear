@@ -1,37 +1,30 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formLegend
- * @brief HTML Forms legend creation helpers
+ * @class Note
+ * @brief HTML Forms note creation helpers
  *
- * @package Clearbricks
- * @subpackage html.form
- *
- * @since 1.2 First time this was introduced.
+ * @package Dotclear
+ * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formLegend extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Note extends Component
 {
-    private const DEFAULT_ELEMENT = 'legend';
+    public const DEFAULT_ELEMENT = 'p';
 
     /**
      * Constructs a new instance.
      *
-     * @param      string $text     The text
-     * @param      mixed  $id       The identifier
-     * @param      string $element  The element
+     * @param      mixed  $id     The identifier
      */
-    public function __construct(string $text = '', $id = null, ?string $element = null)
+    public function __construct($id = null)
     {
-        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
-        $this->text($text);
-        if ($id !== null) {
-            $this->setIdentifier($id);
-        }
+        parent::__construct($id);
     }
 
     /**

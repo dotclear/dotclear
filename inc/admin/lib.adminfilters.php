@@ -10,6 +10,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Select;
+
 class adminGenericFilterV2
 {
     /**
@@ -345,10 +351,10 @@ class adminGenericFilterV2
             '<h4>' . __('Display options') . '</h4>';
 
             if (isset($this->filters['sortby'])) {
-                $label = (new formLabel(__('Order by:'), formLabel::OUTSIDE_LABEL_BEFORE, 'sortby'))
+                $label = (new Label(__('Order by:'), Label::OUTSIDE_LABEL_BEFORE, 'sortby'))
                     ->class('ib');
 
-                $select = (new formSelect('sortby'))
+                $select = (new Select('sortby'))
                     ->default($this->filters['sortby']->value)
                     ->items($this->filters['sortby']->options);
 
@@ -358,10 +364,10 @@ class adminGenericFilterV2
                 );
             }
             if (isset($this->filters['order'])) {
-                $label = (new formLabel(__('Sort:'), formLabel::OUTSIDE_LABEL_BEFORE, 'order'))
+                $label = (new Label(__('Sort:'), Label::OUTSIDE_LABEL_BEFORE, 'order'))
                     ->class('ib');
 
-                $select = (new formSelect('order'))
+                $select = (new Select('order'))
                     ->default($this->filters['order']->value)
                     ->items($this->filters['order']->options);
 
@@ -371,10 +377,10 @@ class adminGenericFilterV2
                 );
             }
             if (isset($this->filters['nb'])) {
-                $label = (new formLabel($this->filters['nb']->title, formLabel::INSIDE_TEXT_AFTER, 'nb'))
+                $label = (new Label($this->filters['nb']->title, Label::INSIDE_TEXT_AFTER, 'nb'))
                     ->class('classic');
 
-                $number = (new formNumber('nb'))
+                $number = (new Number('nb'))
                     ->min(0)
                     ->max(999)
                     ->value($this->filters['nb']->value);
@@ -1247,11 +1253,11 @@ class dcAdminFilter
                 $this->value($get);
             }
             # HTML field
-            $select = (new formSelect($this->id))
+            $select = (new Select($this->id))
                 ->default($this->value)
                 ->items($this->options);
 
-            $label = (new formLabel($this->title, 2, $this->id))
+            $label = (new Label($this->title, 2, $this->id))
                 ->class('ib');
 
             $this->html($label->render($select->render()), false);
@@ -1263,12 +1269,12 @@ class dcAdminFilter
                 $this->value(!empty($_GET[$this->id]) ? $_GET[$this->id] : '');
             }
             # HTML field
-            $input = (new formInput($this->id))
+            $input = (new Input($this->id))
                 ->size(20)
                 ->maxlength(255)
                 ->value($this->value);
 
-            $label = (new formLabel($this->title, 2, $this->id))
+            $label = (new Label($this->title, 2, $this->id))
                 ->class('ib');
 
             $this->html($label->render($input->render()), false);

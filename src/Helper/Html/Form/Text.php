@@ -1,8 +1,6 @@
 <?php
-
-declare(strict_types=1);
 /**
- * @class formText
+ * @class Text
  * @brief HTML Forms text creation helpers
  *
  * @package Dotclear
@@ -11,7 +9,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formText extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Text extends Component
 {
     private const DEFAULT_ELEMENT = '';
 

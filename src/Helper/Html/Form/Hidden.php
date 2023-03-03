@@ -1,10 +1,7 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formColor
- * @brief HTML Forms color field creation helpers
+ * @class Hidden
+ * @brief HTML Forms hidden field creation helpers
  *
  * @package Clearbricks
  * @subpackage html.form
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formColor extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Hidden extends Input
 {
     /**
      * Constructs a new instance.
@@ -24,10 +25,8 @@ class formColor extends formInput
      */
     public function __construct($id = null, ?string $value = null)
     {
-        parent::__construct($id, 'color');
-        $this
-            ->size(7)
-            ->maxlength(7);
+        // Label should not be rendered for an input type="hidden"
+        parent::__construct($id, 'hidden', false);
         if ($value !== null) {
             $this->value($value);
         }

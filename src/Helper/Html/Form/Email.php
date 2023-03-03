@@ -1,10 +1,7 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formHidden
- * @brief HTML Forms hidden field creation helpers
+ * @class Email
+ * @brief HTML Forms email field creation helpers
  *
  * @package Clearbricks
  * @subpackage html.form
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formHidden extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Email extends Input
 {
     /**
      * Constructs a new instance.
@@ -24,8 +25,8 @@ class formHidden extends formInput
      */
     public function __construct($id = null, ?string $value = null)
     {
-        // Label should not be rendered for an input type="hidden"
-        parent::__construct($id, 'hidden', false);
+        parent::__construct($id, 'email');
+        $this->inputmode('email');
         if ($value !== null) {
             $this->value($value);
         }

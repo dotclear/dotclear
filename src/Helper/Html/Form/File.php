@@ -1,10 +1,7 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formTime
- * @brief HTML Forms time field creation helpers
+ * @class File
+ * @brief HTML Forms file field creation helpers
  *
  * @package Clearbricks
  * @subpackage html.form
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formTime extends formInput
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class File extends Input
 {
     /**
      * Constructs a new instance.
@@ -24,13 +25,7 @@ class formTime extends formInput
      */
     public function __construct($id = null, ?string $value = null)
     {
-        parent::__construct($id, 'time');
-        $this
-            ->size(5)
-            ->maxlength(5)
-            ->pattern('[0-9]{2}:[0-9]{2}')
-            ->placeholder('14:45');
-
+        parent::__construct($id, 'file');
         if ($value !== null) {
             $this->value($value);
         }

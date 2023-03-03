@@ -1,25 +1,29 @@
 <?php
-
-declare(strict_types=1);
 /**
- * @class formPara
- * @brief HTML Forms paragraph creation helpers
+ * @class Form
+ * @brief HTML Forms form creation helpers
  *
- * @package Dotclear
- * @subpackage Backend
+ * @package Clearbricks
+ * @subpackage html.form
+ *
+ * @since 1.2 First time this was introduced.
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formPara extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Form extends Component
 {
-    private const DEFAULT_ELEMENT = 'p';
+    private const DEFAULT_ELEMENT = 'form';
 
     /**
      * Constructs a new instance.
      *
-     * @param      mixed   $id       The identifier
-     * @param      string  $element  The element
+     * @param      mixed  $id       The identifier
+     * @param      string $element  The element
      */
     public function __construct($id = null, ?string $element = null)
     {
@@ -34,19 +38,20 @@ class formPara extends formComponent
      *
      * @return     string
      */
-    public function render(): string
+    public function render(?string $fieldFormat = null): string
     {
+        if (!$this->checkMandatoryAttributes()) {
+            return '';
+        }
+
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+            (isset($this->action) ? ' action="' . $this->action . '"' : '') .
+            (isset($this->method) ? ' method="' . $this->method . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->items) && is_array($this->items)) {
-            $first = true;
-            foreach ($this->items as $item) {
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf(($this->format ?: '%s'), $item->render());
-                $first = false;
+        if (isset($this->fields) && is_array($this->fields)) {
+            foreach ($this->fields as $field) {
+                $buffer .= sprintf(($fieldFormat ?: '%s'), $field->render());
             }
         }
 

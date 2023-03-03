@@ -1310,6 +1310,21 @@ class dcUpgrade
             );
         }
 
+        if (version_compare($version, '2.26', '<')) {
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                ],
+                // Folders
+                [
+                    // CB html.form and extensions moved to src
+                    'inc/admin/html.form',
+                    'inc/helper/html.form',
+                ]
+            );
+        }
+
         dcCore::app()->setVersion('core', DC_VERSION);
         dcCore::app()->blogDefaults();
 

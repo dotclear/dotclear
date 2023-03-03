@@ -6,6 +6,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminBlogDel
@@ -88,38 +98,38 @@ class adminBlogDel
 
             echo
             // Legend
-            (new formPara())
+            (new Para())
             ->items([
-                (new formText())->text(__('Please give your password to confirm the blog deletion.')),
+                (new Text())->text(__('Please give your password to confirm the blog deletion.')),
             ])->render() .
             // Form
-            (new formForm('form-del'))
+            (new Form('form-del'))
             ->action(dcCore::app()->adminurl->get('admin.blog.del'))
             ->method('post')
             ->fields([
                 dcCore::app()->formNonce(false),
-                (new formPara())
+                (new Para())
                     ->items([
-                        (new formPassword('pwd'))
+                        (new Password('pwd'))
                             ->size(20)
                             ->maxlength(255)
                             ->autocomplete('current-password')
-                            ->label((new formLabel(
+                            ->label((new Label(
                                 __('Your password:'),
-                                formLabel::OUTSIDE_LABEL_BEFORE
+                                Label::OUTSIDE_LABEL_BEFORE
                             ))),
                     ]),
-                (new formPara())
+                (new Para())
                     ->separator(' ')
                     ->items([
-                        (new formSubmit('del'))
+                        (new Submit('del'))
                             ->class('delete')
                             ->value(__('Delete this blog')),
-                        (new formButton('back'))
+                        (new Button('back'))
                             ->class(['go-back', 'reset', 'hidden-if-no-js'])
                             ->value(__('Cancel')),
                     ]),
-                (new formHidden('blog_id', dcCore::app()->admin->blog_id)),
+                (new Hidden('blog_id', dcCore::app()->admin->blog_id)),
             ])->render();
         }
 

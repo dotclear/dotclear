@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formSelect
+ * @class Select
  * @brief HTML Forms select creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formSelect extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Select extends Component
 {
     private const DEFAULT_ELEMENT = 'select';
 
@@ -56,15 +57,15 @@ class formSelect extends formComponent
 
         if (isset($this->items) && is_array($this->items)) {
             foreach ($this->items as $item => $value) {
-                if ($value instanceof formOption || $value instanceof formOptgroup) {
+                if ($value instanceof Option || $value instanceof Optgroup) {
                     /* @phpstan-ignore-next-line */
                     $buffer .= $value->render($this->default ?? $default ?? null);
                 } elseif (is_array($value)) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new formOptgroup($item))->items($value)->render($this->default ?? $default ?? null);
+                    $buffer .= (new Optgroup($item))->items($value)->render($this->default ?? $default ?? null);
                 } else {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new formOption($item, (string) $value))->render($this->default ?? $default ?? null);
+                    $buffer .= (new Option($item, (string) $value))->render($this->default ?? $default ?? null);
                 }
             }
         }

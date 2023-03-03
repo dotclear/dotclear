@@ -6,6 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminBlogTheme
@@ -61,8 +67,8 @@ class adminBlogTheme
                 dcPage::breadcrumb(
                     [
                         // Active links
-                        html::escapeHTML(dcCore::app()->blog->name)                         => '',
-                        __('Blog appearance')                                               => dcCore::app()->admin->list->getURL('', false),
+                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        __('Blog appearance')                       => dcCore::app()->admin->list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
                     ]
@@ -145,14 +151,14 @@ class adminBlogTheme
             }
 
             echo
-            (new formForm('force-checking'))
+            (new Form('force-checking'))
                 ->action(dcCore::app()->admin->list->getURL('', false))
                 ->method('get')
                 ->fields([
-                    (new formPara())
+                    (new Para())
                     ->items([
-                        (new formHidden('nocache', '1')),
-                        (new formSubmit('force-checking-update', __('Force checking update of themes'))),
+                        (new Hidden('nocache', '1')),
+                        (new Submit('force-checking-update', __('Force checking update of themes'))),
                     ]),
                 ])
                 ->render();
@@ -194,7 +200,7 @@ class adminBlogTheme
         if (!empty($modules)) {
             echo
             '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
-            '<h3>' . 
+            '<h3>' .
             (dcCore::app()->auth->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
             (dcCore::app()->admin->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .

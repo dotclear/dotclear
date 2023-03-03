@@ -1,8 +1,6 @@
 <?php
-
-declare(strict_types=1);
 /**
- * @class formNote
+ * @class Link
  * @brief HTML Forms note creation helpers
  *
  * @package Dotclear
@@ -11,9 +9,13 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formNote extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Link extends Component
 {
-    public const DEFAULT_ELEMENT = 'p';
+    public const DEFAULT_ELEMENT = 'a';
 
     /**
      * Constructs a new instance.
@@ -32,7 +34,9 @@ class formNote extends formComponent
      */
     public function render(): string
     {
-        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>';
+        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+            (isset($this->href) ? ' href="' . $this->href . '"' : '') .
+            $this->renderCommonAttributes() . '>';
         if ($this->text) {
             $buffer .= $this->text;
         }

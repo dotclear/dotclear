@@ -6,6 +6,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminBlogs
@@ -84,10 +95,10 @@ class adminBlogs
         if (!dcCore::app()->error->flag()) {
             if (dcCore::app()->auth->isSuperAdmin()) {
                 // Create blog button
-                echo (new formPara())
+                echo (new Para())
                     ->class('top-add')
                     ->items([
-                        (new formLink())
+                        (new Link())
                             ->class(['button', 'add'])
                             ->href(dcCore::app()->adminurl->get('admin.blog'))
                             ->text(__('Create a new blog')),
@@ -100,42 +111,42 @@ class adminBlogs
             // Show blogs
             $form = null;
             if (dcCore::app()->auth->isSuperAdmin()) {
-                $form = (new formForm('form-blogs'))
+                $form = (new Form('form-blogs'))
                         ->action(dcCore::app()->adminurl->get('admin.blogs'))
                         ->method('post')
                         ->fields([
                             // sprintf pattern for blog list
-                            (new formText())->text('%s'),
-                            (new formDiv())
+                            (new Text())->text('%s'),
+                            (new Div())
                                 ->class(['two-cols', 'clearfix'])
                                 ->items([
-                                    (new formPara())->class(['col checkboxes-helpers']),
-                                    (new formPara())->class(['col right'])->items([
-                                        (new formSelect('action'))
+                                    (new Para())->class(['col checkboxes-helpers']),
+                                    (new Para())->class(['col right'])->items([
+                                        (new Select('action'))
                                             ->class('online')
                                             ->title(__('Actions'))
                                             ->label(
-                                                (new formLabel(
+                                                (new Label(
                                                     __('Selected blogs action:'),
-                                                    formLabel::OUTSIDE_LABEL_BEFORE
+                                                    Label::OUTSIDE_LABEL_BEFORE
                                                 ))
                                                 ->class('classic')
                                             )
                                             ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
                                         dcCore::app()->formNonce(false),
-                                        (new formSubmit('do-action'))
+                                        (new Submit('do-action'))
                                             ->value(__('ok')),
                                     ]),
                                 ]),
-                            (new formPara())->items([
-                                (new formPassword('pwd'))
+                            (new Para())->items([
+                                (new Password('pwd'))
                                     ->size(20)
                                     ->maxlength(255)
                                     ->autocomplete('current-password')
                                     ->label(
-                                        (new formLabel(
+                                        (new Label(
                                             __('Please give your password to confirm blog(s) deletion:'),
-                                            formLabel::OUTSIDE_LABEL_BEFORE
+                                            Label::OUTSIDE_LABEL_BEFORE
                                         ))
                                         ->class('classic')
                                     ),

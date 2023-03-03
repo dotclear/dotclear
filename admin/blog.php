@@ -6,6 +6,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Url;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminBlog
@@ -87,35 +98,35 @@ class adminBlog
 
             echo
             // Form
-            (new formForm('blog-form'))
+            (new Form('blog-form'))
                 ->action(dcCore::app()->adminurl->get('admin.blog'))
                 ->method('post')
                 ->fields([
                     // Form Nonce
                     dcCore::app()->formNonce(false),
                     // Blog ID
-                    (new formPara())
+                    (new Para())
                         ->items([
-                            (new formInput('blog_id'))
+                            (new Input('blog_id'))
                                 ->size(30)
                                 ->maxlength(32)
                                 ->required(true)
                                 ->placeholder(__('Blog ID'))
                                 ->label(
-                                    (new formLabel(
+                                    (new Label(
                                         '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:'),
-                                        formLabel::OUTSIDE_LABEL_BEFORE
+                                        Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('required')
                                 ),
                         ]),
-                    (new formNote())
+                    (new Note())
                         ->class('form-note')
                         ->text(__('At least 2 characters using letters, numbers or symbols.')),
                     // Blog name
-                    (new formPara())
+                    (new Para())
                         ->items([
-                            (new formInput('blog_name'))
+                            (new Input('blog_name'))
                                 ->size(30)
                                 ->maxlength(255)
                                 ->required(true)
@@ -123,53 +134,53 @@ class adminBlog
                                 ->lang(dcCore::app()->auth->getInfo('user_lang'))
                                 ->spellcheck(true)
                                 ->label(
-                                    (new formLabel(
+                                    (new Label(
                                         '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:'),
-                                        formLabel::OUTSIDE_LABEL_BEFORE
+                                        Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('required')
                                 ),
                         ]),
                     // Blog URL
-                    (new formPara())
+                    (new Para())
                         ->items([
-                            (new formUrl('blog_url'))
+                            (new Url('blog_url'))
                                 ->size(30)
                                 ->maxlength(255)
                                 ->required(true)
                                 ->placeholder(__('Blog URL'))
                                 ->label(
-                                    (new formLabel(
+                                    (new Label(
                                         '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:'),
-                                        formLabel::OUTSIDE_LABEL_BEFORE
+                                        Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('required')
                                 ),
                         ]),
                     // Blog description
-                    (new formPara())
+                    (new Para())
                         ->class('area')
                         ->items([
-                            (new formTextarea('blog_desc'))
+                            (new Textarea('blog_desc'))
                                 ->cols(60)
                                 ->rows(5)
                                 ->lang(dcCore::app()->auth->getInfo('user_lang'))
                                 ->spellcheck(true)
                                 ->label(
-                                    (new formLabel(
+                                    (new Label(
                                         __('Blog description:'),
-                                        formLabel::OUTSIDE_LABEL_BEFORE
+                                        Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                 ),
                         ]),
                     // Buttons
-                    (new formPara())
+                    (new Para())
                         ->separator(' ')
                         ->items([
-                            (new formSubmit(['create']))
+                            (new Submit(['create']))
                                 ->accesskey('s')
                                 ->value(__('Create')),
-                            (new formButton(['cancel']))
+                            (new Button(['cancel']))
                                 ->value(__('Cancel'))
                                 ->class(['go-back', 'reset', 'hidden-if-no-js']),
                         ]),

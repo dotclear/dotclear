@@ -13,6 +13,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Hidden;
 
 final class dcCore
 {
@@ -532,7 +533,7 @@ final class dcCore
             return;
         }
 
-        $element = new formHidden(['xd_check'], $this->getNonce());
+        $element = new Hidden(['xd_check'], $this->getNonce());
 
         return $render ? $element->render() : $element;
     }

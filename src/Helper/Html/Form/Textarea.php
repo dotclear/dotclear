@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formTextarea
+ * @class Textarea
  * @brief HTML Forms textarea creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formTextarea extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Textarea extends Component
 {
     private const DEFAULT_ELEMENT = 'textarea';
 
@@ -52,7 +53,7 @@ class formTextarea extends formComponent
             (isset($this->cols) ? ' cols="' . strval((int) $this->cols) . '"' : '') .
             (isset($this->rows) ? ' rows="' . strval((int) $this->rows) . '"' : '') .
             '>' .
-            ($this->value               ?? '') .
+            ($this->value ?? '') .
             '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
         if (isset($this->label) && isset($this->id)) {

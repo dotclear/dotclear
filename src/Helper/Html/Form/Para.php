@@ -1,9 +1,7 @@
 <?php
-
-declare(strict_types=1);
 /**
- * @class formDiv
- * @brief HTML Forms Div creation helpers
+ * @class Para
+ * @brief HTML Forms paragraph creation helpers
  *
  * @package Dotclear
  * @subpackage Backend
@@ -11,9 +9,13 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formDiv extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Para extends Component
 {
-    private const DEFAULT_ELEMENT = 'div';
+    private const DEFAULT_ELEMENT = 'p';
 
     /**
      * Constructs a new instance.

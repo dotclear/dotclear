@@ -1,9 +1,6 @@
 <?php
-
-declare(strict_types=1);
-
 /**
- * @class formFieldset
+ * @class Fieldset
  * @brief HTML Forms fieldset creation helpers
  *
  * @package Clearbricks
@@ -14,7 +11,11 @@ declare(strict_types=1);
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class formFieldset extends formComponent
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Form;
+
+class Fieldset extends Component
 {
     private const DEFAULT_ELEMENT = 'fieldset';
 
@@ -37,7 +38,7 @@ class formFieldset extends formComponent
      *
      * @param      formLegend|null  $legend  The legend
      */
-    public function attachLegend(?formLegend $legend)
+    public function attachLegend(?Legend $legend)
     {
         if ($legend) {
             $this->legend($legend);

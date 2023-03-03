@@ -6,6 +6,13 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminPostMedia
@@ -41,7 +48,6 @@ class adminPostMedia
 
         try {
             if (dcCore::app()->admin->media_id && !empty($_REQUEST['attach'])) {
-
                 // Attach a media to an entry
 
                 $pm = new dcPostMedia();
@@ -68,7 +74,6 @@ class adminPostMedia
         }
 
         if ((dcCore::app()->admin->post_id && dcCore::app()->admin->media_id) || dcCore::app()->error->flag()) {
-
             // Remove a media from entry
 
             if (!empty($_POST['remove'])) {
@@ -87,22 +92,22 @@ class adminPostMedia
                 echo '<h2>' . __('Attachment') . ' &rsaquo; <span class="page-title">' . __('confirm removal') . '</span></h2>';
 
                 echo
-                (new formForm())
+                (new Form())
                 ->action(dcCore::app()->adminurl->get('admin.post.media'))
                 ->method('post')
                 ->fields([
-                    (new formPara())
+                    (new Para())
                         ->items([
-                            (new formText())->text(__('Are you sure you want to remove this attachment?')),
+                            (new Text())->text(__('Are you sure you want to remove this attachment?')),
                         ]),
-                    (new formPara())
+                    (new Para())
                         ->separator(' &nbsp; ')
                         ->items([
-                            (new formSubmit('cancel'))->class('reset')->value(__('Cancel')),
-                            (new formSubmit('remove'))->class('delete')->value(__('Yes')),
+                            (new Submit('cancel'))->class('reset')->value(__('Cancel')),
+                            (new Submit('remove'))->class('delete')->value(__('Yes')),
                         ]),
-                    (new formHidden('post_id', (string) dcCore::app()->admin->post_id)),
-                    (new formHidden('media_id', (string) dcCore::app()->admin->media_id)),
+                    (new Hidden('post_id', (string) dcCore::app()->admin->post_id)),
+                    (new Hidden('media_id', (string) dcCore::app()->admin->media_id)),
                     dcCore::app()->formNonce(false),
                 ])
                 ->render();
