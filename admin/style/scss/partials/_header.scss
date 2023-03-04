@@ -28,17 +28,6 @@
   }
 }
 
-/* si le prélude est affiché on repousse les trucs dessous */
-
-#wrapper.with-prelude {
-  padding-top: 1em;
-}
-
-#help-button.with-prelude,
-#collapser.with-prelude {
-  top: 1em;
-}
-
 /* header global h1, form#top-info-blog, ul#top-info-user */
 
 #header {

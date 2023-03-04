@@ -1,18 +1,21 @@
-/*global $ */
 'use strict';
 
-$(() => {
-  if ($('#prelude').length > 0) {
-    $('#prelude a')
-      .addClass('hidden')
-      .on('focus', () => {
-        $('#prelude a').removeClass('hidden');
-        $('#wrapper, #help-button, #collapser').addClass('with-prelude');
+document.addEventListener('DOMContentLoaded', () => {
+  const prelude = document.querySelector('#prelude');
+  if (prelude) {
+    const links = prelude.querySelectorAll('a');
+    links.forEach((link) => {
+      link.classList.add('hidden');
+      link.addEventListener('focus', () => {
+        links.forEach((link) => link.classList.remove('hidden'));
       });
+    });
 
-    $('body').on('click', '#prelude a[href="#help"]', (e) => {
-      e.preventDefault();
-      $('#help-button a').trigger('focus');
+    document.querySelector('body').addEventListener('click', (e) => {
+      if (e.target.matches('#prelude a[href="#help"]')) {
+        e.preventDefault();
+        document.querySelector('#help-button a').focus();
+      }
     });
   }
 });
