@@ -11,6 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Option;
+
 class dcAdminCombos
 {
     /**
@@ -26,15 +29,18 @@ class dcAdminCombos
     {
         $categories_combo = [];
         if ($include_empty) {
-            $categories_combo = [new formSelectOption(__('(No cat)'), '')];
+            $categories_combo = [new Option(__('(No cat)'), '')];
         }
         while ($categories->fetch()) {
-            $categories_combo[] = new formSelectOption(
+            $option = new Option(
                 str_repeat('&nbsp;', ($categories->level - 1) * 4) .
                 html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')',
-                ($use_url ? $categories->cat_url : $categories->cat_id),
-                ($categories->level - 1 ? 'sub-option' . ($categories->level - 1) : '')
+                ($use_url ? $categories->cat_url : $categories->cat_id)
             );
+            if ($categories->level - 1) {
+                $option->class('sub-option' . ($categories->level - 1));
+            }
+            $categories_combo[] = $option;
         }
 
         return $categories_combo;
@@ -143,8 +149,12 @@ class dcAdminCombos
         $lang_combo = [];
         $langs      = l10n::getISOcodes(true, true);
         foreach ($langs as $k => $v) {
-            $lang_avail   = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
-            $lang_combo[] = new formSelectOption($k, $v, $lang_avail ? 'avail10n' : '');
+            $lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
+            $option     = new Option($k, $v);
+            if ($lang_avail) {
+                $option->class('avail10n');
+            }
+            $lang_combo[] = $option;
         }
 
         return $lang_combo;

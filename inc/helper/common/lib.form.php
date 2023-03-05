@@ -9,37 +9,33 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Color;
+use Dotclear\Helper\Html\Form\Date;
+use Dotclear\Helper\Html\Form\Datetime;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Time;
+use Dotclear\Helper\Html\Form\Url;
+
 class form
 {
-    /**
-     * return id and name from given argument
-     *
-     * @param  string|array $nid   input argument
-     * @param  string       $name  returned name
-     * @param  string       $id    returned id
-     *
-     * @static
-     * @access private
-     */
-    private static function getNameAndId($nid, &$name, &$id): void
-    {
-        if (is_array($nid)) {
-            $name = $nid[0];
-            $id   = !empty($nid[1]) ? $nid[1] : null;
-        } else {
-            $name = $id = $nid;
-        }
-    }
-
     /**
      * return an associative array of optional parameters of a class method
      *
      * @param  string  $class   class name
      * @param  string  $method  method name
-     * @return array
      *
-     * @static
-     * @access private
+     * @return array
      */
     private static function getDefaults(string $class, string $method): array
     {
@@ -58,18 +54,16 @@ class form
      * Select Box
      *
      * Returns HTML code for a select box.
-     * **$nid** could be a string or an array of name and ID.
-     * **$data** is an array with option titles keys and values in values
-     * or an array of object of type {@link formSelectOption}. If **$data** is an array of
+     * $nid could be a string or an array of name and ID.
+     * $data is an array with option titles keys and values in values
+     * or an array of object of type {@link formSelectOption}. If $data is an array of
      * arrays, optgroups will be created.
      *
-     * **$default** could be a string or an associative array of any of optional parameters:
+     * $default could be a string or an associative array of any of optional parameters:
      *
      * ```php
      * form::combo(['name', 'id'], $data, ['class' => 'maximal', 'extra_html' => 'data-language="php"']);
      * ```
-     *
-     * @uses formSelectOption
      *
      * @param string|array  $nid         Element ID and name
      * @param mixed         $data        Select box data
@@ -81,7 +75,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Select instead
      */
     public static function combo(
         $nid,
@@ -92,7 +86,6 @@ class form
         bool $disabled = false,
         ?string $extra_html = ''
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 2 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -100,37 +93,22 @@ class form
             extract($args);
         }
 
-        return '<select name="' . $name . '" ' .
-
-        ($id ? 'id="' . $id . '" ' : '') .
-        ($class ? 'class="' . $class . '" ' : '') .
-        ($tabindex ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-        ($disabled ? 'disabled ' : '') .
-        $extra_html .
-
-        '>' . "\n" .
-        self::comboOptions($data, $default) .
-            '</select>' . "\n";
-    }
-
-    private static function comboOptions(array $data, $default): string
-    {
-        $res      = '';
-        $option   = '<option value="%1$s"%3$s>%2$s</option>' . "\n";
-        $optgroup = '<optgroup label="%1$s">' . "\n" . '%2$s' . "</optgroup>\n";
-
-        foreach ($data as $k => $v) {
-            if (is_array($v)) {
-                $res .= sprintf($optgroup, $k, self::comboOptions($v, $default));
-            } elseif ($v instanceof formSelectOption) {
-                $res .= $v->render($default);
-            } else {
-                $s = ((string) $v == (string) $default) ? ' selected="selected"' : '';
-                $res .= sprintf($option, $v, $k, $s);
-            }
+        $component = new Select($nid);
+        if ($class) {
+            $component->class($class);
         }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
+        $component->items($data);
 
-        return $res;
+        return $component->render($default);
     }
 
     /**
@@ -150,7 +128,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Radio instead
      */
     public static function radio(
         $nid,
@@ -161,7 +139,6 @@ class form
         bool $disabled = false,
         ?string $extra_html = ''
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 2 && is_array($checked)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -169,16 +146,22 @@ class form
             extract($args);
         }
 
-        return '<input type="radio" name="' . $name . '" value="' . $value . '" ' .
+        $component = new Radio($nid, $checked);
+        $component->value($value);
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
 
-            ($id ? 'id="' . $id . '" ' : '') .
-            ($checked ? 'checked ' : '') .
-            ($class ? 'class="' . $class . '" ' : '') .
-            ($tabindex ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-            ($disabled ? 'disabled ' : '') .
-            $extra_html .
-
-            '/>' . "\n";
+        return $component->render();
     }
 
     /**
@@ -198,7 +181,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Checkbox instead
      */
     public static function checkbox(
         $nid,
@@ -209,7 +192,6 @@ class form
         bool $disabled = false,
         ?string $extra_html = ''
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 2 && is_array($checked)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -217,16 +199,22 @@ class form
             extract($args);
         }
 
-        return '<input type="checkbox" name="' . $name . '" value="' . $value . '" ' .
+        $component = new Checkbox($nid, $checked);
+        $component->value($value);
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
 
-            ($id ? 'id="' . $id . '" ' : '') .
-            ($checked ? 'checked ' : '') .
-            ($class ? 'class="' . $class . '" ' : '') .
-            ($tabindex ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-            ($disabled ? 'disabled ' : '') .
-            $extra_html .
-
-            ' />' . "\n";
+        return $component->render();
     }
 
     /**
@@ -250,7 +238,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Input instead
      */
     public static function field(
         $nid,
@@ -265,7 +253,6 @@ class form
         ?string $type = 'text',
         ?string $autocomplete = ''
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -273,20 +260,36 @@ class form
             extract($args);
         }
 
-        return '<input type="' . $type . '" name="' . $name . '" ' .
+        $component = new Input($nid, $type);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
 
-            ($id ? 'id="' . $id . '" ' : '') .
-            ($size ? 'size="' . $size . '" ' : '') .
-            ($max ? 'maxlength="' . $max . '" ' : '') .
-            ($default || $default === '0' ? 'value="' . $default . '" ' : '') .
-            ($class ? 'class="' . $class . '" ' : '') .
-            ($tabindex ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-            ($disabled ? 'disabled ' : '') .
-            ($required ? 'required ' : '') .
-            ($autocomplete ? 'autocomplete="' . $autocomplete . '" ' : '') .
-            $extra_html .
-
-            ' />' . "\n";
+        return $component->render();
     }
 
     /**
@@ -295,8 +298,6 @@ class form
      * Returns HTML code for a password field.
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array  $nid         Element ID and name
      * @param integer       $size        Element size
@@ -311,7 +312,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Password instead
      */
     public static function password(
         $nid,
@@ -332,19 +333,36 @@ class form
             extract($args);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'password',
-            $autocomplete
-        );
+        $component = new Password($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
+
+        return $component->render();
     }
 
     /**
@@ -353,8 +371,6 @@ class form
      * Returns HTML code for an input color field.
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array   $nid         Element ID and name
      * @param mixed          $size        Element size | associative array of optional parameters
@@ -369,7 +385,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Color instead
      */
     public static function color(
         $nid,
@@ -390,19 +406,36 @@ class form
             extract($args);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'color',
-            $autocomplete
-        );
+        $component = new Color($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
+
+        return $component->render();
     }
 
     /**
@@ -411,8 +444,6 @@ class form
      * Returns HTML code for an input email field.
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array   $nid          Element ID and name
      * @param mixed          $size         Element size | associative array of optional parameters
@@ -427,7 +458,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Email instead
      */
     public static function email(
         $nid,
@@ -448,19 +479,36 @@ class form
             extract($args);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'email',
-            $autocomplete
-        );
+        $component = new Email($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
+
+        return $component->render();
     }
 
     /**
@@ -469,8 +517,6 @@ class form
      * Returns HTML code for an input (absolute) URL field.
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array   $nid          Element ID and name
      * @param mixed          $size         Element size | associative array of optional parameters
@@ -485,7 +531,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Url instead
      */
     public static function url(
         $nid,
@@ -506,19 +552,36 @@ class form
             extract($args);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'url',
-            $autocomplete
-        );
+        $component = new Url($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
+
+        return $component->render();
     }
 
     /**
@@ -527,8 +590,6 @@ class form
      * Returns HTML code for an input datetime field.
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array   $nid          Element ID and name
      * @param mixed          $size         Element size | associative array of optional parameters
@@ -543,7 +604,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Datetime instead
      */
     public static function datetime(
         $nid,
@@ -563,27 +624,31 @@ class form
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
-        // Cope with unimplemented input type for some browser (type="text" + pattern + placeholder)
-        if (strpos(strtolower($extra_html), 'pattern=') === false) {
-            $extra_html .= ' pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"';
+
+        $component = new Datetime($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
         }
-        if (strpos(strtolower($extra_html), 'placeholder') === false) {
-            $extra_html .= ' placeholder="1962-05-13T14:45"';
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'datetime-local',
-            $autocomplete
-        );
+        return $component->render();
     }
 
     /**
@@ -592,8 +657,6 @@ class form
      * Returns HTML code for an input date field.
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array   $nid          Element ID and name
      * @param mixed          $size         Element size | associative array of optional parameters
@@ -608,7 +671,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Date instead
      */
     public static function date(
         $nid,
@@ -628,27 +691,31 @@ class form
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
-        // Cope with unimplemented input type for some browser (type="text" + pattern + placeholder)
-        if (strpos(strtolower($extra_html), 'pattern=') === false) {
-            $extra_html .= ' pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"';
+
+        $component = new Date($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
         }
-        if (strpos(strtolower($extra_html), 'placeholder') === false) {
-            $extra_html .= ' placeholder="1962-05-13"';
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'date',
-            $autocomplete
-        );
+        return $component->render();
     }
 
     /**
@@ -657,8 +724,6 @@ class form
      * Returns HTML code for an input time field.
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
-     *
-     * @uses form::field
      *
      * @param string|array   $nid          Element ID and name
      * @param mixed          $size         Element size | associative array of optional parameters
@@ -673,7 +738,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Time instead
      */
     public static function time(
         $nid,
@@ -693,27 +758,31 @@ class form
             $args    = array_merge($options, array_intersect_key($size, $options));
             extract($args);
         }
-        // Cope with unimplemented input type for some browser (type="text" + pattern + placeholder)
-        if (strpos(strtolower($extra_html), 'pattern=') === false) {
-            $extra_html .= ' pattern="[0-9]{2}:[0-9]{2}"';
+
+        $component = new Time($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
         }
-        if (strpos(strtolower($extra_html), 'placeholder') === false) {
-            $extra_html .= ' placeholder="14:45"';
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
         }
 
-        return self::field(
-            $nid,
-            $size,
-            $max,
-            $default,
-            $class,
-            $tabindex,
-            $disabled,
-            $extra_html,
-            $required,
-            'time',
-            $autocomplete
-        );
+        return $component->render();
     }
 
     /**
@@ -733,7 +802,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/File instead
      */
     public static function file(
         $nid,
@@ -744,7 +813,6 @@ class form
         ?string $extra_html = '',
         bool $required = false
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 1 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -752,17 +820,27 @@ class form
             extract($args);
         }
 
-        return '<input type="file" ' . '" name="' . $name . '" ' .
+        $component = new File($nid);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
 
-            ($id ? 'id="' . $id . '" ' : '') .
-            ($default || $default === '0' ? 'value="' . $default . '" ' : '') .
-            ($class ? 'class="' . $class . '" ' : '') .
-            ($tabindex ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-            ($disabled ? 'disabled ' : '') .
-            ($required ? 'required ' : '') .
-            $extra_html .
-
-            ' />' . "\n";
+        return $component->render();
     }
 
     /**
@@ -785,7 +863,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Number instead
      */
     public static function number(
         $nid,
@@ -799,7 +877,6 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 1 && is_array($min)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -807,20 +884,30 @@ class form
             extract($args);
         }
 
-        return '<input type="number" name="' . $name . '" ' .
+        $component = new Number($nid, $min, $max);
+        if ($default || $default === '0') {
+            $component->value($default);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($tabindex) {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
 
-            ($id ? 'id="' . $id . '" ' : '') .
-            ($min !== null ? 'min="' . $min . '" ' : '') .
-            ($max !== null ? 'max="' . $max . '" ' : '') .
-            ($default || $default === '0' ? 'value="' . $default . '" ' : '') .
-            ($class ? 'class="' . $class . '" ' : '') .
-            ($tabindex ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-            ($disabled ? 'disabled ' : '') .
-            ($required ? 'required ' : '') .
-            ($autocomplete ? 'autocomplete="' . $autocomplete . '" ' : '') .
-            $extra_html .
-
-            ' />' . "\n";
+        return $component->render();
     }
 
     /**
@@ -843,7 +930,7 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Textarea instead
      */
     public static function textArea(
         $nid,
@@ -857,7 +944,6 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
-        self::getNameAndId($nid, $name, $id);
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
@@ -865,15 +951,30 @@ class form
             extract($args);
         }
 
-        return '<textarea cols="' . $cols . '" rows="' . $rows . '" name="' . $name . '" ' .
+        $component = new Textarea($nid, $default);
+        $component
+            ->col($cols)
+            ->rows($rows);
+        if ($tabindex != '') {
+            $component->tabindex((int) $tabindex);
+        }
+        if ($class) {
+            $component->class($class);
+        }
+        if ($disabled) {
+            $component->disabled(true);
+        }
+        if ($required) {
+            $component->required(true);
+        }
+        if ($autocomplete) {
+            $component->autocomplete($autocomplete);
+        }
+        if ($extra_html) {
+            $component->extra($extra_html);
+        }
 
-            ($id ? 'id="' . $id . '" ' : '') .
-            ($tabindex != '' ? 'tabindex="' . strval((int) $tabindex) . '" ' : '') .
-            ($class ? 'class="' . $class . '" ' : '') .
-            ($disabled ? 'disabled ' : '') .
-            ($required ? 'required ' : '') .
-            ($autocomplete ? 'autocomplete="' . $autocomplete . '" ' : '') .
-            $extra_html . '>' . $default . '</textarea>' . "\n";
+        return $component->render();
     }
 
     /**
@@ -887,17 +988,11 @@ class form
      *
      * @return string
      *
-     * @static
+     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Hidden instead
      */
     public static function hidden($nid, $value): string
     {
-        self::getNameAndId($nid, $name, $id);
-
-        return '<input type="hidden" name="' . $name . '" value="' . $value . '" ' .
-
-            ($id ? 'id="' . $id . '" ' : '') .
-
-            ' />' . "\n";
+        return (new Hidden($nid, $value))->render();
     }
 }
 
@@ -907,19 +1002,11 @@ class form
  *
  * @package Clearbricks
  * @subpackage Common
+ *
+ * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Option instead
  */
-class formSelectOption
+class formSelectOption extends Option
 {
-    public $name;       ///< string Option name
-    public $value;      ///< mixed  Option value
-    public $class_name; ///< string Element class name
-    public $html;       ///< string Extra HTML attributes
-    /**
-     * sprintf template for option
-     * @access private
-     */
-    private string $option = '<option value="%1$s"%3$s>%2$s</option>' . "\n";
-
     /**
      * Option constructor
      *
@@ -930,29 +1017,12 @@ class formSelectOption
      */
     public function __construct(string $name, $value, string $class_name = '', string $html = '')
     {
-        $this->name       = $name;
-        $this->value      = $value;
-        $this->class_name = $class_name;
-        $this->html       = $html;
-    }
-
-    /**
-     * Option renderer
-     *
-     * Returns option HTML code
-     *
-     * @param string  $default  Value of selected option
-     * @return string
-     */
-    public function render(?string $default): string
-    {
-        $attr = $this->html ? ' ' . $this->html : '';
-        $attr .= $this->class_name ? ' class="' . $this->class_name . '"' : '';
-
-        if ($this->value == $default) {
-            $attr .= ' selected';
+        parent::__construct($name, $value);
+        if ($class_name) {
+            $this->class($class_name);
         }
-
-        return sprintf($this->option, $this->value, $this->name, $attr) . "\n";
+        if ($html) {
+            $this->extra($html);
+        }
     }
 }

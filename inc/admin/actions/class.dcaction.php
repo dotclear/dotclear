@@ -140,7 +140,7 @@ abstract class dcActions
                 $values              = array_values($options);
                 $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
             } elseif (
-                $options instanceof formSelectOption || // CB: common/lib.form.php
+                $options instanceof formSelectOption || // CB: common/lib.form.php (deprecated Since 2.26)
                 $options instanceof Option
             ) {
                 $values              = [$options->value];
