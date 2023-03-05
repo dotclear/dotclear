@@ -4,7 +4,6 @@
  * @brief HTML Forms note creation helpers
  *
  * @package Dotclear
- * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -20,11 +19,15 @@ class Note extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      mixed  $id     The identifier
+     * @param      mixed   $id       The identifier
+     * @param      string  $element  The element
      */
-    public function __construct($id = null)
+    public function __construct($id = null, ?string $element = null)
     {
-        parent::__construct($id);
+        parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
+        if ($id !== null) {
+            $this->setIdentifier($id);
+        }
     }
 
     /**

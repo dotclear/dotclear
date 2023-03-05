@@ -3,10 +3,7 @@
  * @class Date
  * @brief HTML Forms date field creation helpers
  *
- * @package Clearbricks
- * @subpackage html.form
- *
- * @since 1.2 First time this was introduced.
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only

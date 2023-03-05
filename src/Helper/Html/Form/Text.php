@@ -4,7 +4,6 @@
  * @brief HTML Forms text creation helpers
  *
  * @package Dotclear
- * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only

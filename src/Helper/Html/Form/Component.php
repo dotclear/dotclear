@@ -3,10 +3,7 @@
  * @class Component
  * @brief HTML Forms creation helpers
  *
- * @package Clearbricks
- * @subpackage html.form
- *
- * @since 1.2 First time this was introduced.
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -17,15 +14,31 @@ namespace Dotclear\Helper\Html\Form;
 
 abstract class Component
 {
-    private string $_type;     // Component type
-    private ?string $_element = null;  // HTML element
-    private $_data;     // Custom component properties (see __get() and __set())
+    /**
+     * @var string Component class
+     */
+    private string $componentClass;
 
-    public function __construct(?string $type = null, ?string $_element = null)
+    /**
+     * @var string|null HTML element (will be used to render component)
+     */
+    private ?string $htmlElement = null;
+
+    /**
+     * @var array(<string>, <mixed>) Custom component properties (see __get() and __set())
+     */
+    protected $properties = [];
+
+    /**
+     * Constructs a new instance.
+     *
+     * @param      null|string  $type         The component type
+     * @param      null|string  $htmlElement  The html element
+     */
+    public function __construct(?string $type = null, ?string $htmlElement = null)
     {
-        $this->_type    = $type ?? self::class;
-        $this->_element = $_element;
-        $this->_data    = [];
+        $this->componentClass = $type ?? self::class;
+        $this->htmlElement    = $htmlElement;
     }
 
     /**
@@ -52,7 +65,7 @@ abstract class Component
      */
     public function __get(string $property)
     {
-        return array_key_exists($property, $this->_data) ? $this->_data[$property] : null;
+        return array_key_exists($property, $this->properties) ? $this->properties[$property] : null;
     }
 
     /**
@@ -65,7 +78,7 @@ abstract class Component
      */
     public function __set(string $property, $value)
     {
-        $this->_data[$property] = $value;
+        $this->properties[$property] = $value;
 
         return $this;
     }
@@ -79,7 +92,7 @@ abstract class Component
      */
     public function __isset(string $property): bool
     {
-        return isset($this->_data[$property]);
+        return isset($this->properties[$property]);
     }
 
     /**
@@ -89,7 +102,7 @@ abstract class Component
      */
     public function __unset(string $property): void
     {
-        unset($this->_data[$property]);
+        unset($this->properties[$property]);
     }
 
     /**
@@ -114,14 +127,14 @@ abstract class Component
         // Unknown method
         if (!count($arguments)) {
             // No argument, assume its a get
-            if (array_key_exists($method, $this->_data)) {
-                return $this->_data[$method];
+            if (array_key_exists($method, $this->properties)) {
+                return $this->properties[$method];
             }
 
             return null;    // @phpstan-ignore-line
         }
         // Argument here, assume its a set
-        $this->_data[$method] = $arguments[0];
+        $this->properties[$method] = $arguments[0];
 
         return $this;   // @phpstan-ignore-line
     }
@@ -145,7 +158,7 @@ abstract class Component
      */
     public function getType(): string
     {
-        return $this->_type;
+        return $this->componentClass;
     }
 
     /**
@@ -157,7 +170,7 @@ abstract class Component
      */
     public function setType(string $type)
     {
-        $this->_type = $type;
+        $this->componentClass = $type;
 
         return $this;
     }
@@ -169,7 +182,7 @@ abstract class Component
      */
     public function getElement(): ?string
     {
-        return $this->_element;
+        return $this->htmlElement;
     }
 
     /**
@@ -181,7 +194,7 @@ abstract class Component
      */
     public function setElement(string $element)
     {
-        $this->_element = $element;
+        $this->htmlElement = $element;
 
         return $this;
     }
@@ -326,9 +339,9 @@ abstract class Component
 
             // Value
             // - $this->default will be used as value if exists and $this->value does not
-            ($includeValue && array_key_exists('value', $this->_data) ?
+            ($includeValue && array_key_exists('value', $this->properties) ?
                 ' value="' . $this->value . '"' : '') .
-            ($includeValue && !array_key_exists('value', $this->_data) && array_key_exists('default', $this->_data) ?
+            ($includeValue && !array_key_exists('value', $this->properties) && array_key_exists('default', $this->properties) ?
                 ' value="' . $this->default . '"' : '') .
             (isset($this->checked) && $this->checked ?
                 ' checked' : '') .
