@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Zip\Zip;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminMedia
@@ -36,15 +39,10 @@ class adminMedia
                 if (strpos(realpath(dcCore::app()->media->root . '/' . dcCore::app()->admin->page->d), (string) realpath(dcCore::app()->media->root)) === 0) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
-                    $fp  = fopen('php://output', 'wb');
-                    $zip = new fileZip($fp);
-                    $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
+                    $zip = new Zip(null, date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . (dcCore::app()->admin->page->d ?: 'media') . '.zip');
+                    $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp)$/');
                     $zip->addDirectory(dcCore::app()->media->root . '/' . dcCore::app()->admin->page->d, '', true);
-
-                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . (dcCore::app()->admin->page->d ?: 'media') . '.zip');
-                    header('Content-Type: application/x-zip');
-                    $zip->write();
-                    unset($zip);
+                    $zip->close();
                     exit;
                 }
                 dcCore::app()->admin->page->d = null;
