@@ -55,4 +55,10 @@ dcProxyV1::classAliases([
     'formTextarea'  => 'Dotclear\Helper\Html\Form\Textarea',
     'formTime'      => 'Dotclear\Helper\Html\Form\Time',
     'formUrl'       => 'Dotclear\Helper\Html\Form\Url',
+
+    // Diff helper
+    'diff'          => 'Dotclear\Helper\Diff\Diff',
+    'tidyDiff'      => 'Dotclear\Helper\Diff\TidyDiff',
+    'tidyDiffChunk' => 'Dotclear\Helper\Diff\TidyDiffChunk',
+    'tidyDiffLine'  => 'Dotclear\Helper\Diff\TidyDiffLine',
 ]);

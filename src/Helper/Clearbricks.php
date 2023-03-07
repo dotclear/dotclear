@@ -146,10 +146,6 @@ class Clearbricks
             // Zip tools
             'fileUnzip' => $old_helper_root . '/zip/class.unzip.php',
             'fileZip'   => $old_helper_root . '/zip/class.zip.php',
-
-            // Diff tools
-            'diff'     => $old_helper_root . '/diff/lib.diff.php',
-            'tidyDiff' => $old_helper_root . '/diff/lib.tidy.diff.php',
         ]);
 
         // Helpers bootsrap

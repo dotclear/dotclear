@@ -1321,6 +1321,8 @@ class dcUpgrade
                     // CB html.form and extensions moved to src
                     'inc/admin/html.form',
                     'inc/helper/html.form',
+                    // CB diff moved to src
+                    'inc/helper/diff',
                 ]
             );
         }

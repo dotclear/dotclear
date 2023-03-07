@@ -1,17 +1,22 @@
 <?php
 /**
- * @class diff
+ * @class Diff
  * @brief Unified diff
  *
  * Diff utilities
  *
- * @package Clearbricks
- * @subpackage Diff
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class diff
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Diff;
+
+use Exception;
+
+class Diff
 {
     // Constants
 
@@ -119,9 +124,12 @@ class diff
      */
     public static function uniDiff(string $src, string $dst, int $ctx = 2): string
     {
+        // Unify EOL in source
+        $src = str_replace("\r\n", "\n", $src);
+
         [$src, $dst] = [explode("\n", $src), explode("\n", $dst)];
 
-        $ses = diff::SES($src, $dst);
+        $ses = self::SES($src, $dst);
         $res = '';
 
         $pos_x     = 0;
@@ -219,6 +227,9 @@ class diff
      */
     public static function uniPatch(string $src, string $diff): string
     {
+        // Unify EOL in source
+        $src = str_replace("\r\n", "\n", $src);
+
         $dst  = [];
         $src  = explode("\n", $src);
         $diff = explode("\n", $diff);
