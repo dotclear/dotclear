@@ -125,7 +125,7 @@ class files extends atoum
 
         $this
             ->string(\files::getMimeType('fichier.js'))
-            ->isEqualTo('application/javascript');
+            ->isEqualTo('text/javascript');
 
         // FIXME: SHould be application/octet-stream (default for unknow)
         // See http://www.rfc-editor.org/rfc/rfc2046.txt section 4.

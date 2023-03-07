@@ -83,7 +83,7 @@ class form extends atoum
         $this
             ->string(\form::combo('testID', ['one', 'two', 'three'], 'one'))
             ->match('/<option.*?<\/option>/')
-            ->match('/<option\svalue="one"\sselected.*?<\/option>/');
+            ->match('/<option\sselected\svalue="one".*?<\/option>/');
 
         $this
             ->string(\form::combo('testID', [

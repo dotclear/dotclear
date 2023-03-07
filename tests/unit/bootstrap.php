@@ -23,7 +23,18 @@
 
 define('CLEARBRICKS_PATH', __DIR__ . '/../../inc/helper');
 
+// Composer Autoloader
+
 require_once __DIR__ . '/../../vendor/autoload.php';
+
+// Dotclear Autoloader
+
+require_once __DIR__ . '/../../src/Autoloader.php';
+
+$autoloader = new Autoloader('', '', true);
+$autoloader->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
+
+// Clearbricks Autoloader (deprecated)
 
 $__autoload = [];
 

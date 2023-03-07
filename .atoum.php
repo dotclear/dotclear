@@ -1,6 +1,9 @@
 <?php
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
 use atoum\atoum;
+
 use atoum\atoum\reports;
 
 // Enable extension
@@ -22,5 +25,5 @@ $runner->addReport($xunit);
 $writer = new atoum\writers\file('tests/atoum.xunit.xml');
 $xunit->addWriter($writer);
 
-$runner->addTestsFromDirectory('tests/unit/');;
+$runner->addTestsFromDirectory('tests/unit/');
 $runner->addReport($cliReport);
