@@ -59,10 +59,10 @@ class Select extends Component
                     $buffer .= $value->render($this->default ?? $default ?? null);
                 } elseif (is_array($value)) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Optgroup($item))->items($value)->render($this->default ?? $default ?? null);
+                    $buffer .= (new Optgroup((string) $item))->items($value)->render($this->default ?? $default ?? null);
                 } else {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Option($item, (string) $value))->render($this->default ?? $default ?? null);
+                    $buffer .= (new Option((string) $item, (string) $value))->render($this->default ?? $default ?? null);
                 }
             }
         }

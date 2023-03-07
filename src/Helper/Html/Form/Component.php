@@ -249,14 +249,14 @@ abstract class Component
      */
     public function setIdentifier($identifier)
     {
-        if (is_string($identifier)) {
-            $this->name = $identifier;
-            $this->id   = $identifier;
-        } elseif (is_array($identifier)) {
-            $this->name = $identifier[0];
+        if (is_array($identifier)) {
+            $this->name = (string) $identifier[0];
             if (isset($identifier[1])) {
-                $this->id = $identifier[1];
+                $this->id = (string) $identifier[1];
             }
+        } elseif (!is_null($identifier)) {
+            $this->name = (string) $identifier;
+            $this->id   = (string) $identifier;
         }
 
         return $this;

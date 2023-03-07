@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+use html;
+
 class Option extends Component
 {
     private const DEFAULT_ELEMENT = 'option';
@@ -19,15 +21,15 @@ class Option extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      string       $name     The option name
+     * @param      string       $text     The option text
      * @param      string       $value    The option value
      * @param      null|string  $element  The element
      */
-    public function __construct(string $name, string $value, ?string $element = null)
+    public function __construct(string $text, string $value, ?string $element = null)
     {
         parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this
-            ->text($name)
+            ->text($text)
             ->value($value);
     }
 
@@ -44,7 +46,7 @@ class Option extends Component
             ($this->value === $default ? ' selected' : '') .
             $this->renderCommonAttributes() . '>';
 
-        if ($this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 

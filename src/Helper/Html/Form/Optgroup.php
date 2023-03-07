@@ -19,14 +19,14 @@ class Optgroup extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      string       $name     The optgroup name
+     * @param      string       $text     The optgroup text
      * @param      null|string  $element  The element
      */
-    public function __construct(string $name, ?string $element = null)
+    public function __construct(string $text, ?string $element = null)
     {
         parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this
-            ->text($name);
+            ->text($text);
     }
 
     /**
@@ -48,10 +48,10 @@ class Optgroup extends Component
                     $buffer .= $value->render($default);
                 } elseif (is_array($value)) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Optgroup($item))->items($value)->render($this->default ?? $default ?? null);
+                    $buffer .= (new Optgroup((string) $item))->items($value)->render($this->default ?? $default ?? null);
                 } else {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Option($item, $value))->render($this->default ?? $default ?? null);
+                    $buffer .= (new Option((string) $item, (string) $value))->render($this->default ?? $default ?? null);
                 }
             }
         }
