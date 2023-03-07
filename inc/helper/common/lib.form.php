@@ -629,6 +629,12 @@ class form
         if ($default || $default === '0') {
             $component->value($default);
         }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
         if ($class) {
             $component->class($class);
         }
@@ -696,6 +702,12 @@ class form
         if ($default || $default === '0') {
             $component->value($default);
         }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
+        }
         if ($class) {
             $component->class($class);
         }
@@ -762,6 +774,12 @@ class form
         $component = new Time($nid);
         if ($default || $default === '0') {
             $component->value($default);
+        }
+        if ($size) {
+            $component->size($size);
+        }
+        if ($max) {
+            $component->maxlength($max);
         }
         if ($class) {
             $component->class($class);
@@ -953,7 +971,7 @@ class form
 
         $component = new Textarea($nid, $default);
         $component
-            ->col($cols)
+            ->cols($cols)
             ->rows($rows);
         if ($tabindex != '') {
             $component->tabindex((int) $tabindex);
@@ -1017,7 +1035,7 @@ class formSelectOption extends Option
      */
     public function __construct(string $name, $value, string $class_name = '', string $html = '')
     {
-        parent::__construct($name, $value);
+        parent::__construct($name, strval($value));
         if ($class_name) {
             $this->class($class_name);
         }
