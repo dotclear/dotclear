@@ -25,7 +25,7 @@ class Password extends Input
         parent::__construct($id, 'password');
         // Default attributes for a password, may be supercharge after
         $this->autocorrect('off');
-        $this->spellcheck('off');
+        $this->spellcheck(false);
         $this->autocapitalize('off');
         if ($value !== null) {
             $this->value($value);
