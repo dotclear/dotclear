@@ -2,8 +2,7 @@
 /**
  * @class Zip
  *
- * @package Clearbricks
- * @subpackage Zip
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -30,9 +29,13 @@ class Zip
     /**
      * @var string Phar::ZIP buggy archive (file metadata, specially date and time not stored) up to this PHP Version
      *
-     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — fixed in 8.2.4
+     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — fixed in 8.2.4 (and 8.1.17)
+     * - -> > 8.1.16 and < 8.2.0 ok
+     * - -> > 8.2.3 ok
      */
-    public const PHARZIP_BUGGY_MAX = '8.2.3';
+    public const PHARZIP_BUGGY_81_MAX = '8.1.16';
+    public const PHARZIP_BUGGY_82_MIN = '8.2.0';
+    public const PHARZIP_BUGGY_82_MAX = '8.2.3';
 
     /**
      * @var string Archive filename
@@ -86,7 +89,7 @@ class Zip
     /**
      * Constructs a new instance.
      *
-     * If PharData class exists and is enabled and PHP version is > 8.2.0, use it
+     * If PharData class exists and is enabled and PHP version not buggy, use it
      * Else if ZipArchive class exists and is enabled, use it
      * Else use legacy Clearbricks zip archive functions
      *
@@ -97,7 +100,8 @@ class Zip
      */
     public function __construct(?string $output = null, ?string $filename = null)
     {
-        if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_MAX, '<=')) {
+        if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '<=') || (version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '>=') && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '<='))
+        ) {
             // Cannot use PharData zip archive as file's matadata are not preserved when compressed
             // See PHP Issue #10766 https://github.com/php/php-src/issues/10766
             $this->phardata = false;
