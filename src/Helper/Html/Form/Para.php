@@ -38,7 +38,7 @@ class Para extends Component
     public function render(): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            $this->renderCommonAttributes() . '>' . "\n";
+            $this->renderCommonAttributes() . '>';
 
         if (isset($this->items) && is_array($this->items)) {
             $first = true;

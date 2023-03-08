@@ -47,7 +47,7 @@ class Text extends Component
 
         $buffer = '';
         if ($element) {
-            $buffer .= '<' . $element . $render_ca . '>' . "\n";
+            $buffer .= '<' . $element . $render_ca . '>';
         }
 
         if (isset($this->text) && $this->text) {

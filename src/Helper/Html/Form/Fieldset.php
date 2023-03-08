@@ -73,11 +73,11 @@ class Fieldset extends Component
                     // Do not put more than one legend in fieldset
                     continue;
                 }
-                $buffer .= $field->render();
+                $buffer .= $field->render() . "\n";
             }
         }
 
-        $buffer .= "\n" . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
+        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
         return $buffer;
     }
