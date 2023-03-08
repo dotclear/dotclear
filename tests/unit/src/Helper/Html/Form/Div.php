@@ -31,6 +31,30 @@ class Div extends atoum
         ;
     }
 
+    public function testStatic()
+    {
+        $component = \Dotclear\Helper\Html\Form\Div::init('my');
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+        ;
+    }
+
+    public function testMagicInvoke()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $this
+            ->string($component())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+        ;
+    }
+
     public function testWithAnotherHtmlElement()
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my', 'slot');
@@ -91,6 +115,17 @@ class Div extends atoum
         ;
     }
 
+    public function testSetType()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->setType(\Dotclear\Helper\Html\Form\Text::class);
+
+        $this
+            ->string($component->getType())
+            ->isEqualTo('Dotclear\Helper\Html\Form\Text')
+        ;
+    }
+
     public function testGetElement()
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
@@ -98,6 +133,17 @@ class Div extends atoum
         $this
             ->string($component->getElement())
             ->isEqualTo('div')
+        ;
+    }
+
+    public function testSetElement()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->setElement('slot');
+
+        $this
+            ->string($component->getElement())
+            ->isEqualTo('slot')
         ;
     }
 
@@ -111,6 +157,20 @@ class Div extends atoum
         $this
             ->string($component->label()->render())
             ->isEqualTo('<label>mylabel </label>')
+        ;
+    }
+
+    public function testAttachNullLabel()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $label = new \Dotclear\Helper\Html\Form\Label('mylabel');
+        $component->attachLabel($label);
+        $component->attachLabel(null);
+
+        $this
+            ->string($component->render())
+            ->notContains('<label>mylabel </label>')
         ;
     }
 
