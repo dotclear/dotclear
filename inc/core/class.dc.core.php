@@ -1756,7 +1756,8 @@ final class dcCore
         }
 
         if ($cur->blog_desc !== null) {
-            $cur->blog_desc = html::clean($cur->blog_desc);
+            // blog desc should accept html content
+            //$cur->blog_desc = html::clean($cur->blog_desc);
         }
     }
 
