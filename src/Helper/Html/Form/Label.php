@@ -30,12 +30,23 @@ class Label extends Component
 
     /**
      * Position of linked component:
+     *
      *   INSIDE_TEXT_BEFORE   = inside label, label text before component
      *   INSIDE_TEXT_AFTER    = inside label, label text after component
      *   OUTSIDE_LABEL_BEFORE = after label
      *   OUTSIDE_LABEL_AFTER  = before label
      */
     private int $_position = self::INSIDE_TEXT_BEFORE;
+
+    /**
+     * List of available positions
+     */
+    private array $_positions = [
+        self::INSIDE_TEXT_BEFORE,
+        self::INSIDE_TEXT_AFTER,
+        self::OUTSIDE_LABEL_BEFORE,
+        self::OUTSIDE_LABEL_AFTER,
+    ];
 
     /**
      * Constructs a new instance.
@@ -47,7 +58,10 @@ class Label extends Component
     public function __construct(string $text = '', int $position = self::INSIDE_TEXT_BEFORE, ?string $id = null)
     {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
-        $this->_position = $position;
+
+        if (in_array($position, $this->_positions)) {
+            $this->_position = $position;
+        }
         $this
             ->text($text);
         if ($id !== null) {
@@ -81,13 +95,9 @@ class Label extends Component
             '%3$s <%1$s>%2$s</%4$s>', // Component before label (for attribute will be used)
         ];
 
-        if ($this->_position < 0 || $this->_position > count($formats)) {
-            $this->_position = self::INSIDE_TEXT_BEFORE;
-        }
-
         $start = ($this->getElement() ?? self::DEFAULT_ELEMENT);
         /* @phpstan-ignore-next-line */
-        if (($this->_position !== self::INSIDE_TEXT_BEFORE || $this->_position !== self::INSIDE_TEXT_AFTER) && isset($this->for)) {
+        if ($this->_position !== self::INSIDE_TEXT_BEFORE && $this->_position !== self::INSIDE_TEXT_AFTER && isset($this->for)) {
             $start .= ' for="' . $this->for . '"';
         }
         $start .= $this->renderCommonAttributes();
@@ -104,9 +114,21 @@ class Label extends Component
      */
     public function setPosition(int $position = self::INSIDE_TEXT_BEFORE)
     {
-        $this->_position = $position;
+        if (in_array($position, $this->_positions)) {
+            $this->_position = $position;
+        }
 
         return $this;
+    }
+
+    /**
+     * Get the position.
+     *
+     * @return      int  The position
+     */
+    public function getPosition()
+    {
+        return $this->_position;
     }
 
     /**
