@@ -3,7 +3,6 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
 use atoum\atoum;
-
 use atoum\atoum\reports;
 
 // Enable extension

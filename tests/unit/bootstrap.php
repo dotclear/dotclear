@@ -60,3 +60,7 @@ function cb_autoload($name)
     }
 }
 spl_autoload_register('cb_autoload');
+
+// Ensure l10n functions exist
+
+require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
