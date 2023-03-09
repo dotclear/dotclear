@@ -1754,11 +1754,6 @@ final class dcCore
         if (($cur->blog_url !== null && $cur->blog_url == '') || (!$cur->blog_url)) {
             throw new Exception(__('No blog URL'));
         }
-
-        if ($cur->blog_desc !== null) {
-            // blog desc should accept html content
-            //$cur->blog_desc = html::clean($cur->blog_desc);
-        }
     }
 
     /**
