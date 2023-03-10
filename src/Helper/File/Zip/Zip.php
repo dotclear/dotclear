@@ -256,12 +256,9 @@ class Zip
             if ($this->ziparchive) {
                 $this->zip->close();
             } elseif (!$this->phardata && !$this->ziparchive) {
-                // Legacy mode
-                if (!$this->stream) {
-                    // Write legacy archive content
-                    $this->write();
-                    fclose($this->fp);
-                }
+                // Write legacy archive content
+                $this->write();
+                fclose($this->fp);
                 if ($this->memory_limit) {
                     ini_set('memory_limit', $this->memory_limit);
                 }

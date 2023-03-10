@@ -84,7 +84,7 @@ class Zip extends atoum
         $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_PHARDATA, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
+        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         $type = $zip->getArchiveType();
 
@@ -162,7 +162,7 @@ class Zip extends atoum
         $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '--' . self::ZIP_PHARDATA]);
 
         // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_PHARDATA, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
+        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         $zip->addExclusion('/(notmine|notyours)$/');
         $zip->addDirectory($rootzip, 'dotclear', true);
@@ -193,6 +193,8 @@ class Zip extends atoum
             ->isNotFalse()
             ->integer($sts)
             ->isGreaterThan(0)
+            ->integer($spl->getSize())
+            ->isGreaterThan(0)
         ;
     }
 
@@ -202,7 +204,7 @@ class Zip extends atoum
         $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_ZIPARCHIVE, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
+        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         $type = $zip->getArchiveType();
 
@@ -237,6 +239,8 @@ class Zip extends atoum
             ->isGreaterThan(0)
             ->variable($zip)
             ->isNotNull()
+            ->integer($spl->getSize())
+            ->isGreaterThan(0)
         ;
 
         // Test archive type depending on PHP version and existing classes
@@ -259,7 +263,7 @@ class Zip extends atoum
         $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_LEGACY, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
+        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         $type = $zip->getArchiveType();
 
@@ -294,6 +298,8 @@ class Zip extends atoum
             ->isGreaterThan(0)
             ->variable($zip)
             ->isNotNull()
+            ->integer($spl->getSize())
+            ->isGreaterThan(0)
         ;
 
         // Test archive type depending on PHP version and existing classes
@@ -303,71 +309,53 @@ class Zip extends atoum
         ;
     }
 
-    private static function streamOutputPharData()
-    {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = null;
-
-        // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_PHARDATA, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
-
-        $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addDirectory($rootzip, 'dotclear', true);
-        $zip->close();
-
-        return true;
-    }
-
     public function testStreamPharData()
     {
         $this
-            ->output(function () { self::streamOutputPharData(); })
+            ->output(function () {
+                $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+
+                // Create archive
+                $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_PHARDATA, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
+
+                $zip->addExclusion('/(notmine|notyours)$/');
+                $zip->addDirectory($rootzip, 'dotclear', true);
+                $zip->close();
+            })
             ->isNotEmpty()
         ;
-    }
-
-    private static function streamOutputZipArchive()
-    {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = null;
-
-        // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_ZIPARCHIVE, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
-
-        $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addDirectory($rootzip, 'dotclear', true);
-        $zip->close();
-
-        return true;
     }
 
     public function testStreamZipArchive()
     {
         $this
-            ->output(function () { self::streamOutputZipArchive(); })
+            ->output(function () {
+                $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+
+                // Create archive
+                $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_ZIPARCHIVE, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
+
+                $zip->addExclusion('/(notmine|notyours)$/');
+                $zip->addDirectory($rootzip, 'dotclear', true);
+                $zip->close();
+            })
             ->isNotEmpty()
         ;
-    }
-
-    private static function streamOutputLegacy()
-    {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = null;
-
-        // Create archive
-        $zip = new \Dotclear\Helper\File\Zip\Zip($archive, self::ZIP_LEGACY, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
-
-        $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addDirectory($rootzip, 'dotclear', true);
-        $zip->close();
-
-        return true;
     }
 
     public function testStreamLegacy()
     {
         $this
-            ->output(function () { self::streamOutputLegacy(); })
+            ->output(function () {
+                $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+
+                // Create archive
+                $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_LEGACY, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
+
+                $zip->addExclusion('/(notmine|notyours)$/');
+                $zip->addDirectory($rootzip, 'dotclear', true);
+                $zip->close();
+            })
             ->isNotEmpty()
         ;
     }
