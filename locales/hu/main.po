@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -673,6 +673,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Telepített nyelvek"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Kikapcsolás"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1846,9 +1853,6 @@ msgstr "Telepített nyelvek"
 msgid "Activated plugins"
 msgstr "Bekapcsolt kiegészítők"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2302,6 +2306,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Fájlméret:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2535,6 +2542,9 @@ msgid "Remind me later"
 msgstr "Értesíts később"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3116,6 +3126,22 @@ msgid "Trackback"
 msgstr "Trackbackek"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Fájltípus:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Felhasználók oldalanként"
 
@@ -3222,10 +3248,11 @@ msgid "Select:"
 msgstr "Kiválasztott:"
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "Nincs kijelölés"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "mindet"
 
 msgid "Invert selection"
@@ -3513,6 +3540,10 @@ msgstr "Bejegyzés keresése:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Kiegészítő-kezelő"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -4019,15 +4050,16 @@ msgstr "Hiba történt a fájl írása közben."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Elkészített képméretek (pixelben)"
 
-#, fuzzy
-msgid "small"
-msgstr "Kicsi:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Előnézet:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4452,6 +4484,122 @@ msgstr "Nincs meghatározva név"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Valami elszállt automata frissítés közben:"
 
+msgid "Unable to open directory."
+msgstr "Nem lehet megnyitni a mappát."
+
+msgid "Unable to create directory."
+msgstr "Nem lehet létrehozni a mappát."
+
+msgid "File is not writable."
+msgstr "A fájl nem írható."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Nem lehet átnevezni a fájlt."
+
+msgid "Not an uploaded file."
+msgstr "Nem egy feltöltött fájl."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
+
+msgid "No file was uploaded."
+msgstr "Nem érkezett fájl a kiszolgálóra."
+
+msgid "Missing a temporary folder."
+msgstr "Az ideiglenes mappa hiányzik!"
+
+msgid "Failed to write file to disk."
+msgstr "Nem tudok a lemezre írni."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "a(z) %s nem mappa."
+
+msgid "Uploading this file is not allowed."
+msgstr "Nem engedélyezett feltölteni ezt a fájlt."
+
+msgid "Destination directory is not in jail."
+msgstr "Hibás célmappanév."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Az új fájl már létezik."
+
+msgid "Cannot write in this directory."
+msgstr "Nem tudok a mappába írni."
+
+msgid "Source file does not exist."
+msgstr "A forrásfájl nem létezik."
+
+msgid "File is not in jail."
+msgstr "Hibás fájlnév."
+
+msgid "Destination directory is not writable."
+msgstr "A célmappa nem írható."
+
+msgid "Unable to rename file."
+msgstr "Nem lehet átnevezni a fájlt."
+
+msgid "File cannot be removed."
+msgstr "A fájlt nem lehet eltávolítani."
+
+msgid "Directory is not in jail."
+msgstr "Hibás mappanév."
+
+msgid "Directory cannot be removed."
+msgstr "A mappát nem lehet eltávolítani."
+
+msgid "Not enough memory to open image."
+msgstr "Nincs elég memória a kép megnyitásához."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "A(z) %s nincs zip-be tömörítve."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
+
+msgid "Unable to write destination file."
+msgstr "Nem lehet írni a célfájlba."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
+
+msgid "Not enough memory to open file."
+msgstr "Nincs elég memória a fájl megnyitásához."
+
+msgid "File does not exist"
+msgstr "A fájl nem létezik"
+
+msgid "Cannot read file"
+msgstr "Nem lehet a fájlt olvasni"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "A(z) %s mappa nem létezik."
+
+msgid "Cannot read directory"
+msgstr "Nem lehet a mappát olvasni"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4467,6 +4615,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Hibás nyelvkód"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Hibás nyelvkód"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Hibás nyelvkód"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Érvénytelen digest fájl."
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Kicsi:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Előnézet:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4551,109 +4732,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blog témái"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "Nem lehet megnyitni a mappát."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Nem lehet létrehozni a mappát."
-
-#~ msgid "File is not writable."
-#~ msgstr "A fájl nem írható."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "Nem egy feltöltött fájl."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Nem érkezett fájl a kiszolgálóra."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Az ideiglenes mappa hiányzik!"
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Nem tudok a lemezre írni."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "a(z) %s nem mappa."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Hibás nyelvkód"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Hibás nyelvkód"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Érvénytelen digest fájl."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Nem engedélyezett feltölteni ezt a fájlt."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Hibás célmappanév."
-
-#, fuzzy
-#~ msgid "File already exists."
-#~ msgstr "Az új fájl már létezik."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Nem tudok a mappába írni."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "A forrásfájl nem létezik."
-
-#~ msgid "File is not in jail."
-#~ msgstr "Hibás fájlnév."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "A célmappa nem írható."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Nem lehet átnevezni a fájlt."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "A fájlt nem lehet eltávolítani."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "Hibás mappanév."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "A mappát nem lehet eltávolítani."
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Nincs elég memória a kép megnyitásához."
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "A(z) %s nincs zip-be tömörítve."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Nem lehet írni a célfájlba."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Nincs elég memória a fájl megnyitásához."
-
-#~ msgid "File does not exist"
-#~ msgstr "A fájl nem létezik"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Nem lehet a fájlt olvasni"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Nem lehet a mappát olvasni"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4931,9 +5009,6 @@ msgstr ""
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "Nem törölheted ezt a hozzászólást"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "A(z) %s mappa nem létezik."
 
 #, fuzzy
 #~ msgid "Blogroll"

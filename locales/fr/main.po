@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -632,6 +632,12 @@ msgstr "Visitez le dépôt %s, le centre de ressources pour Dotclear"
 msgid "Installed themes"
 msgstr "Thèmes installés"
 
+msgid "Activated themes"
+msgstr "Thèmes activés"
+
+msgid "(in normal mode)"
+msgstr "(en mode normal)"
+
 msgid "You can configure and manage installed themes from this list."
 msgstr "Vous pouvez configurer et gérer les thèmes de cette liste."
 
@@ -986,9 +992,6 @@ msgstr "Enregister et publier"
 #, php-format
 msgid "PHP version is %s (7.4 or earlier needed)."
 msgstr "La version de PHP est %s (7.4 ou plus récente nécessaire)."
-
-msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
-msgstr "Cette mise à jour peut potentiellement nécessiter des précautions, vous devriez lire attentivement le billet d'information associé à cette version (voir ci-dessus)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."
@@ -1396,9 +1399,6 @@ msgstr "Afficher sous forme de grille"
 msgid "List display mode"
 msgstr "Afficher sous forme de liste"
 
-msgid "Media type:"
-msgstr "Type de média :"
-
 msgid "Remove selected medias"
 msgstr "Supprimer les médias sélectionnés"
 
@@ -1720,9 +1720,6 @@ msgstr "Plugins installés"
 
 msgid "Activated plugins"
 msgstr "Plugins activés"
-
-msgid "(in normal mode)"
-msgstr "(en mode normal)"
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Vous pouvez configurer et gérer les plugins installés depuis cette liste."
@@ -2335,6 +2332,9 @@ msgstr "Me le rappeler plus tard"
 msgid "Information about this version"
 msgstr "Informations sur cette version"
 
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
+msgstr "Cette mise à jour peut potentiellement nécessiter des précautions, vous devriez lire attentivement le billet d'information associé à cette version (voir ci-dessus)."
+
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Une nouvelle version de Dotclear est disponible mais nécessite une version de PHP ≥ %s, la votre est actuellement la %s"
@@ -2838,6 +2838,21 @@ msgstr "Type :"
 
 msgid "Trackback"
 msgstr "Rétrolien"
+
+msgid "Media type:"
+msgstr "Type de média :"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
 
 msgid "users per page"
 msgstr "utilisateur·rice·s par page"
@@ -4061,6 +4076,119 @@ msgstr "Aucun espace de travail spécifié"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Une erreur est survenue durant la mise à jour automatique :"
 
+msgid "Unable to open directory."
+msgstr "Impossible de lire le répertoire."
+
+msgid "Unable to create directory."
+msgstr "Impossible de créer le répertoire."
+
+msgid "File is not writable."
+msgstr "Le fichier n'est pas accessible en écriture."
+
+msgid "Unable to open file."
+msgstr "Impossible d'ouvrir le fichier."
+
+msgid "Not an uploaded file."
+msgstr "Fichier invalide"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "La taille du fichier envoyé excède la taille maximale autorisée."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Le fichier a été partiellement envoyé."
+
+msgid "No file was uploaded."
+msgstr "Aucun fichier n'a été envoyé."
+
+msgid "Missing a temporary folder."
+msgstr "Un répertoire temporaire est manquant."
+
+msgid "Failed to write file to disk."
+msgstr "Impossible d'écrire le fichier sur le disque."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "Une extension PHP a stoppé l'envoi du fichier."
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s n'est pas un répertoire."
+
+msgid "Uploading this file is not allowed."
+msgstr "L'envoi de ce fichier n'est pas autorisé."
+
+msgid "Destination directory is not in jail."
+msgstr "Le répertoire de destination n'est pas interdit."
+
+msgid "File already exists."
+msgstr "Le fichier existe déjà."
+
+msgid "Cannot write in this directory."
+msgstr "Impossible d'écrire dans ce répertoire."
+
+msgid "Source file does not exist."
+msgstr "Le fichier source n'existe pas."
+
+msgid "File is not in jail."
+msgstr "Le fichier n'est pas interdit."
+
+msgid "Destination directory is not writable."
+msgstr "Le répertoire de destination n'est pas accessible en écriture."
+
+msgid "Unable to rename file."
+msgstr "Impossible de renommer le fichier."
+
+msgid "File cannot be removed."
+msgstr "Le fichier ne peut être supprimé."
+
+msgid "Directory is not in jail."
+msgstr "Le répertoire n'est pas interdit."
+
+msgid "Directory cannot be removed."
+msgstr "Le répertoire ne peut pas être retiré."
+
+msgid "Not enough memory to open image."
+msgstr "Pas assez de mémoire pour ouvrir l'image"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Aucune balise fermante n'a été trouvée pour le bloc <tpl:%s>. Le contenu a été ignoré."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Une balise fermante </tpl:%s> sans correspondance a été trouvée."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "ATTENTION: les erreurs suivantes ont été rencontrées lors de la compilation du fichier de template :"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Le fichier %s n'existe pas dans l'archive zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Tentative de décompression du dossier %s"
+
+msgid "Unable to write destination file."
+msgstr "Impossible d'écrire le fichier de destination."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Impossible d'écrire dans le repertoire de destination, les permissions sont insuffisantes."
+
+msgid "Not enough memory to open file."
+msgstr "Pas assez de mémoire pour ouvrir le fichier."
+
+msgid "File does not exist"
+msgstr "Le fichier n'existe pas."
+
+msgid "Cannot read file"
+msgstr "Impossible de lire le fichier"
+
+msgid "Directory does not exist"
+msgstr "Le répertoire est inexistant"
+
+msgid "Cannot read directory"
+msgstr "Impossible de lire le répertoire"
+
 msgid "Site temporarily unavailable"
 msgstr "Site temporairement indisponible"
 
@@ -4076,3 +4204,24 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+msgid "Bad range"
+msgstr "Bornes incorrectes"
+
+msgid "Invalid range"
+msgstr "Bornes invalides"
+
+msgid "Invalid line number"
+msgstr "Numéro de ligne invalide"
+
+msgid "Chunk is out of range"
+msgstr "Le fragment est hors des bornes"
+
+msgid "Bad context"
+msgstr "Contexte incorrect"
+
+msgid "Bad context (in deletion)"
+msgstr "Contexte incorrect (en suppression)"
+
+msgid "Invalid diff format"
+msgstr "Fichier de patch invalide"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -33,9 +33,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr "링크모음 관리"
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -45,7 +42,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -187,8 +187,8 @@ msgstr "관리키 확인 안됨"
 msgid "Get your own API key"
 msgstr "당신의 관리키를 받으세요"
 
-msgid "Antispam"
-msgstr "안티스팸"
+msgid "This comment is a spam:"
+msgstr "이 댓글은 스팸입니다 :"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -197,6 +197,30 @@ msgstr "(스팸 댓글 %d 개 포함)"
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(스팸 댓글 %d 개 포함)"
+
+msgid "Antispam"
+msgstr "안티스팸"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
+
+msgid "days"
+msgstr "일"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet 스팸필터"
 
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "접속 거부/허용 IP 리스트 필터"
@@ -307,30 +331,6 @@ msgstr "기본 금지어 목록 만들기"
 msgid "This word exists"
 msgstr "이 단어는 이미 있습니다."
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
-
-msgid "days"
-msgstr "일"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet 스팸필터"
-
-msgid "This comment is a spam:"
-msgstr "이 댓글은 스팸입니다 :"
-
 msgid "Spam moderation"
 msgstr "스팸 관리"
 
@@ -339,16 +339,6 @@ msgstr "스팸"
 
 msgid "Ham"
 msgstr "스팸없음"
-
-msgid "No description"
-msgstr "설명 없음"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "%1$s (%2$s) 로 걸러짐"
-
-msgid "Unknown filter."
-msgstr "알 수 없는 필터"
 
 msgid "Filter does not exist."
 msgstr "필터가 없습니다."
@@ -411,6 +401,16 @@ msgstr "스팸댓글 타래소식"
 msgid "Published comments RSS feed"
 msgstr "공개된 댓글 타래소식"
 
+msgid "No description"
+msgstr "설명 없음"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "%1$s (%2$s) 로 걸러짐"
+
+msgid "Unknown filter."
+msgstr "알 수 없는 필터"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -430,6 +430,64 @@ msgstr "링크모음 관리"
 
 msgid "Blogroll"
 msgstr "링크모음"
+
+msgid "You must provide a link title"
+msgstr "링크의 제목을 지정해야합니다."
+
+msgid "You must provide a link URL"
+msgstr "링크의 URL을 지정해야합니다."
+
+msgid "Nothing to import"
+msgstr "가져오기할 게 없습니다"
+
+msgid "links have been successfully imported."
+msgstr "링크들을 성공적으로 가져왔습니다."
+
+msgid "Import operation cancelled."
+msgstr "가져오기가 취소되었습니다"
+
+msgid "Link has been successfully created."
+msgstr "링크가 성공적으로 생성되었습니다."
+
+msgid "category has been successfully created."
+msgstr "분류가 성공적으로 생성되었습니다."
+
+msgid "Items have been successfully removed."
+msgstr "항목들이 성공적으로 삭제되었습니다."
+
+msgid "Items order has been successfully updated"
+msgstr "항목 순서가 성공적으로 갱신되었습니다"
+
+msgid "Lang"
+msgstr "언어"
+
+#, fuzzy
+msgid "select this link"
+msgstr "분류딱지 삭제"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Delete selected links"
+msgstr "선택된 링크들 삭제"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "새 링크 추가"
+
+msgid "Add a category"
+msgstr "새 분류 추가"
+
+msgid "Import links"
+msgstr "링크 가져오기"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML 또는 XBEL 파일 :"
+
+msgid "Import"
+msgstr "블로그로 가져오기"
 
 msgid "No such link or title"
 msgstr "링크 또는 제목이 존재하지 않습니다."
@@ -531,12 +589,6 @@ msgstr "데이트"
 msgid "_xfn_Sweetheart"
 msgstr "벗"
 
-msgid "You must provide a link title"
-msgstr "링크의 제목을 지정해야합니다."
-
-msgid "You must provide a link URL"
-msgstr "링크의 URL을 지정해야합니다."
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr "XBEL 이나 OPML 파일을 지정해야합니다."
 
@@ -548,287 +600,6 @@ msgstr "모든 링크분류 포함"
 
 msgid "Links"
 msgstr "링크모음"
-
-msgid "Nothing to import"
-msgstr "가져오기할 게 없습니다"
-
-msgid "links have been successfully imported."
-msgstr "링크들을 성공적으로 가져왔습니다."
-
-msgid "Import operation cancelled."
-msgstr "가져오기가 취소되었습니다"
-
-msgid "Link has been successfully created."
-msgstr "링크가 성공적으로 생성되었습니다."
-
-msgid "category has been successfully created."
-msgstr "분류가 성공적으로 생성되었습니다."
-
-msgid "Items have been successfully removed."
-msgstr "항목들이 성공적으로 삭제되었습니다."
-
-msgid "Items order has been successfully updated"
-msgstr "항목 순서가 성공적으로 갱신되었습니다"
-
-msgid "Lang"
-msgstr "언어"
-
-#, fuzzy
-msgid "select this link"
-msgstr "분류딱지 삭제"
-
-msgid "Are you sure you want to delete selected links?"
-msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
-
-msgid "Delete selected links"
-msgstr "선택된 링크들 삭제"
-
-msgid "The link list is empty."
-msgstr ""
-
-msgid "Add a new link"
-msgstr "새 링크 추가"
-
-msgid "Add a category"
-msgstr "새 분류 추가"
-
-msgid "Import links"
-msgstr "링크 가져오기"
-
-msgid "OPML or XBEL File:"
-msgstr "OPML 또는 XBEL 파일 :"
-
-msgid "Import"
-msgstr "블로그로 가져오기"
-
-msgid "default"
-msgstr "기본값"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "이미지를 생성할 수 없습니다."
-
-msgid "Unable to open image."
-msgstr "이미지파일을 읽을 수 없습니다."
-
-msgid "Light linear gradient"
-msgstr "밝은 선형 그래디언트"
-
-msgid "Medium linear gradient"
-msgstr "중간 선형 그래디언트"
-
-msgid "Dark linear gradient"
-msgstr "어두운 선형 그래디언트"
-
-msgid "Solid color"
-msgstr "단일색"
-
-msgid "Custom..."
-msgstr "이미지 추가하기"
-
-#, fuzzy
-msgid "Theme configuration has been successfully updated."
-msgstr "테마 설정이 성공적으로 갱신되었습니다."
-
-msgid "Blowup configuration"
-msgstr "Blowup 설정"
-
-msgid "Predefined styles"
-msgstr "미리 지정된 스타일들"
-
-msgid "Apply code"
-msgstr "코드 적용"
-
-#, fuzzy
-msgid "Choose a predefined style"
-msgstr "미리 지정된 스타일들"
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr "일반"
-
-msgid "Background color:"
-msgstr "바탕색 :"
-
-msgid "Background color fill:"
-msgstr "바탕색 채우기 :"
-
-msgid "Main text font:"
-msgstr "본문 글꼴 :"
-
-msgid "Main text font size:"
-msgstr "본문 글자 크기 :"
-
-msgid "Main text color:"
-msgstr "본문 색상 :"
-
-msgid "Text line height:"
-msgstr "본문 행간 크기 :"
-
-msgid "Links color:"
-msgstr "링크 색 :"
-
-msgid "Visited links color:"
-msgstr "방문한 링크 색상 :"
-
-msgid "Focus links color:"
-msgstr "마우스가 놓일 때 링크 색상 :"
-
-msgid "Prelude color:"
-msgstr "도입부 색상 :"
-
-msgid "Hide main title"
-msgstr "블로그 제목 감추기"
-
-msgid "Main title font:"
-msgstr "블로그 제목 글꼴 :"
-
-msgid "Main title font size:"
-msgstr "블로그 제목 글자 크기 :"
-
-msgid "Main title color:"
-msgstr "블로그 제목 색상 :"
-
-msgid "Main title alignment:"
-msgstr "블로그 제목 줄맞춤 :"
-
-msgid "center"
-msgstr "가운데"
-
-msgid "left"
-msgstr "왼쪽"
-
-msgid "right"
-msgstr "오른쪽"
-
-msgid "Main title position (x:y)"
-msgstr "블로그 제목 위치 (x:y)"
-
-msgid "Top image"
-msgstr "최상위 이미지"
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr "다른 이미지를 쓰시려면, 목록에서 \"이미지 추가하기\"를 선택하세요. 이미지를 서버로 올리는 칸이 나옵니다."
-
-msgid "Add your image:"
-msgstr "다른 이미지 추가 :"
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "JPEG 또는 PNG 파일, 폭 800 픽셀, 최대 크기 %s"
-
-msgid "Sidebar"
-msgstr "측면판"
-
-msgid "Sidebar position:"
-msgstr "측면판 위치 :"
-
-msgid "Sidebar text font:"
-msgstr "측면판 바탕글 글꼴 :"
-
-msgid "Sidebar text font size:"
-msgstr "측면판 바탕글 글자 크기 :"
-
-msgid "Sidebar text color:"
-msgstr "측면판 바탕글 색상 :"
-
-msgid "Sidebar titles font:"
-msgstr "측면판 제목 글꼴 :"
-
-msgid "Sidebar titles font size:"
-msgstr "측면판 제목 글자 크기 :"
-
-msgid "Sidebar titles color:"
-msgstr "측면판 제목 색상 :"
-
-msgid "Sidebar 2nd level titles font:"
-msgstr "측면판 소제목 글꼴 :"
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr "측면판 소제목 글자 크기 :"
-
-msgid "Sidebar 2nd level titles color:"
-msgstr "측면판 소제목 색상 :"
-
-msgid "Sidebar lines color:"
-msgstr "측면판 선 색상 :"
-
-msgid "Sidebar links color:"
-msgstr "측면판 링크 색상 :"
-
-msgid "Sidebar visited links color:"
-msgstr "측면판 방문한-링크 색상 :"
-
-msgid "Sidebar focus links color:"
-msgstr "측면판 마우스-놓인-링크 색상 :"
-
-msgid "Date title font:"
-msgstr "날짜 제목 글꼴 :"
-
-msgid "Date title font size:"
-msgstr "날짜 제목 글자 크기 :"
-
-msgid "Date title color:"
-msgstr "날짜 제목 색상 :"
-
-msgid "Entry title font:"
-msgstr "글꼭지 제목 글꼴 :"
-
-msgid "Entry title font size:"
-msgstr "글꼭지 제목 글자 크기 :"
-
-msgid "Entry title color:"
-msgstr "글꼭지 제목 색상 :"
-
-msgid "Comment background color:"
-msgstr "댓글 바탕색 :"
-
-msgid "Comment text color:"
-msgstr "댓글 글자색 :"
-
-msgid "My comment background color:"
-msgstr "내 댓글 바탕색 :"
-
-msgid "My comment text color:"
-msgstr "내 댓글 글자색 :"
-
-msgid "Footer"
-msgstr "바닥글"
-
-msgid "Footer font:"
-msgstr "바닥글 글꼴 :"
-
-msgid "Footer font size:"
-msgstr "바닥글 글자 크기 :"
-
-msgid "Footer color:"
-msgstr "바닥글 글자색 :"
-
-msgid "Footer links color:"
-msgstr "바닥글 링크 색상 :"
-
-msgid "Footer background color:"
-msgstr "바닥글 바탕색 :"
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr "가져오기 / 내보내기 설정"
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "다음 코드를 이용하면 당신의 설정을 공유할 수 있습니다. 다른 곳에서 가져온 설정을 적용하려면, 코드를 붙여넣기 한 뒤, \"코드 적용\"을 실행하고 저장하시면 됩니다."
-
-msgid "Copy this code:"
-msgstr ""
 
 msgid "Breadcrumb"
 msgstr ""
@@ -858,10 +629,20 @@ msgstr "모든 분류딱지"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "백업파일 올리기"
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -892,6 +673,9 @@ msgid "The configuration has been updated."
 msgstr "테마 설정이 성공적으로 갱신되었습니다."
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1076,6 +860,70 @@ msgstr "다른 블로그의 글꼭지로 가는 링크를 가졌는지 글걸기
 msgid "Import/Export"
 msgstr "가져오기/내보내기"
 
+#, fuzzy
+msgid "Database export"
+msgstr "일반텍스트 파일로 내보내기"
+
+msgid "Download database of current blog"
+msgstr ""
+
+#, fuzzy
+msgid "Compress file"
+msgstr "템플릿 파일들"
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr "읽을 파일이 없습니다."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "이미지를 생성할 수 없습니다."
+
+msgid "File is not a DotClear backup."
+msgstr "이 파일은 DotClear 백업파일이 아닙니다."
+
+msgid "File is not a single blog export."
+msgstr "이 파일은 단일 블로그의 내보내기 파일이 아닙니다."
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr "이 파일은 전체 블로그의 내보내기 파일이 아닙니다."
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "잠깐만 기다려주세요..."
+
+msgid "Export"
+msgstr "내보내기"
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+# French translation of DotClea"
+msgid "Maintenance"
+msgstr "블로그 정비"
+
+msgid "Congratulation!"
+msgstr "축하합니다 !"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "당신의 블로그를 성공적으로 가져왔습니다. Dotclear 2에 오신 걸 환영합니다 !"
+
+msgid "Why don't you blog this now?"
+msgstr "지금 당장 글쓰기를 하는 건 어떨까요 ?"
+
+msgid "visit your dashboard"
+msgstr "당신의 블로그관리화면으로 가보세요"
+
 msgid "Flat file export"
 msgstr "일반텍스트 파일로 내보내기"
 
@@ -1096,15 +944,8 @@ msgstr "단일 블로그 가져오기"
 msgid "This will create an export of your current blog: %s"
 msgstr "이 기능은 현재 블로그(%s)를 내보내기 합니다."
 
-#, fuzzy
-msgid "Compress file"
-msgstr "템플릿 파일들"
-
 msgid "You may also want to download your media directory as a zip file"
 msgstr "미디어 폴더를 zip 파일로 묶어 내려받기 하실 수도 있습니다."
-
-msgid "Export"
-msgstr "내보내기"
 
 msgid "Multiple blogs"
 msgstr ""
@@ -1112,18 +953,6 @@ msgstr ""
 #, fuzzy
 msgid "This will create an export of all the content of your database."
 msgstr "경고 : 전체백업파일을 가져오기하면, 사용자목록만 빼고, 당신의 데이터베이스의 모든 내용이 지워집니다."
-
-msgid "Congratulation!"
-msgstr "축하합니다 !"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "당신의 블로그를 성공적으로 가져왔습니다. Dotclear 2에 오신 걸 환영합니다 !"
-
-msgid "Why don't you blog this now?"
-msgstr "지금 당장 글쓰기를 하는 건 어떨까요 ?"
-
-msgid "visit your dashboard"
-msgstr "당신의 블로그관리화면으로 가보세요"
 
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2에서 가져오기"
@@ -1305,51 +1134,6 @@ msgstr "댓글 글자색 :"
 msgid "WordPress tables not found"
 msgstr "Wordpress 테이블이 발견되지 않았습니다"
 
-msgid "No file to read."
-msgstr "읽을 파일이 없습니다."
-
-#, fuzzy
-msgid "Unable to create output file."
-msgstr "이미지를 생성할 수 없습니다."
-
-msgid "File is not a DotClear backup."
-msgstr "이 파일은 DotClear 백업파일이 아닙니다."
-
-msgid "File is not a single blog export."
-msgstr "이 파일은 단일 블로그의 내보내기 파일이 아닙니다."
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr "이 파일은 전체 블로그의 내보내기 파일이 아닙니다."
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-#, fuzzy
-msgid "Database export"
-msgstr "일반텍스트 파일로 내보내기"
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr "잠깐만 기다려주세요..."
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-# French translation of DotClea"
-msgid "Maintenance"
-msgstr "블로그 정비"
-
 #, fuzzy
 msgid "Servicing"
 msgstr "서비스 이름 :"
@@ -1430,6 +1214,99 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr "링크가 성공적으로 생성되었습니다."
 
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "분류가 성공적으로 생성되었습니다."
+
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "설정사항이 성공적으로 갱신되었습니다."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "시간이 많이 걸릴 수도 있는 작업입니다."
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "블로그 설정"
+
+#, fuzzy
+msgid "Activation"
+msgstr "작동중"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr "템플릿 캐쉬 폴더 비우기"
 
@@ -1456,18 +1333,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr "댓글과 글걸기댓글 수가 재계산되었습니다."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1575,99 +1440,8 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
-msgid "Maintenance plugin has been successfully configured."
-msgstr "분류가 성공적으로 생성되었습니다."
-
-#, fuzzy
-msgid "System settings have been saved."
-msgstr "설정사항이 성공적으로 갱신되었습니다."
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-#, fuzzy
-msgid "This may take a very long time."
-msgstr "시간이 많이 걸릴 수도 있는 작업입니다."
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "블로그 설정"
-
-#, fuzzy
-msgid "Activation"
-msgstr "작동중"
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
 msgstr "페이지 관리"
-
-msgid "New page"
-msgstr "새 페이지"
-
-#, fuzzy
-msgid "My first page"
-msgstr "페이지 편집"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1677,15 +1451,8 @@ msgstr "페이지 편집"
 msgid "%d pages"
 msgstr "페이지 편집"
 
-msgid "No page"
-msgstr "페이지 없음"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "분류딱지 삭제"
+msgid "New page"
+msgstr "새 페이지"
 
 #, fuzzy
 msgid "Pages actions"
@@ -1699,6 +1466,16 @@ msgstr "분류딱지 목록으로 돌아가기"
 msgid "Selected pages have been successfully reordered."
 msgstr "항목들이 성공적으로 삭제되었습니다."
 
+msgid "No page"
+msgstr "페이지 없음"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "분류딱지 삭제"
+
 msgid "Published on"
 msgstr "공개 일시"
 
@@ -1708,14 +1485,12 @@ msgstr "이 페이지의 댓글 타래소식"
 msgid "You must provide a valid email address."
 msgstr "정상적인 이메일 주소를 적으셔야합니다."
 
-msgid "Page title"
-msgstr "페이지 제목"
+#, fuzzy
+msgid "My first page"
+msgstr "페이지 편집"
 
-msgid "Page position"
-msgstr "페이지 위치"
-
-msgid "Publication date"
-msgstr "공개 일시"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
@@ -1769,6 +1544,9 @@ msgstr "페이지 공개상태 :"
 msgid "Page language"
 msgstr "페이지 언어 :"
 
+msgid "Page position"
+msgstr "페이지 위치"
+
 #, fuzzy
 msgid "Hide in widget Pages"
 msgstr "블로그 제목 감추기"
@@ -1782,6 +1560,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "분류딱지 삭제"
+
+msgid "Page title"
+msgstr "페이지 제목"
+
+msgid "Publication date"
+msgstr "공개 일시"
 
 msgid "Pings"
 msgstr "Pings"
@@ -1821,24 +1605,6 @@ msgstr "작동중"
 #, fuzzy
 msgid "active page"
 msgstr "페이지 보기"
-
-#, fuzzy
-msgid "Item description"
-msgstr "설명 없음"
-
-#, fuzzy
-msgid "Displayed in link"
-msgstr "분류딱지 삭제"
-
-#, fuzzy
-msgid "Used as link title"
-msgstr "링크 또는 제목이 존재하지 않습니다."
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
-msgstr ""
 
 #, fuzzy
 msgid "All months"
@@ -1994,6 +1760,24 @@ msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "설명 없음"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "분류딱지 삭제"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "링크 또는 제목이 존재하지 않습니다."
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "분류딱지"
 
@@ -2076,23 +1860,8 @@ msgstr "이 분류딱지가 붙은 댓글들의 타래소식 (Atom)"
 msgid "This tag's entries Atom feed"
 msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
 
-msgid "Limit (empty means no limit):"
-msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
-
-msgid "Tag name"
-msgstr "분류딱지 이름"
-
-msgid "Entries count"
-msgstr "글꼭지 수"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
+msgid "No tags on this blog."
+msgstr "아직 아무 분류딱지도 없습니다."
 
 msgid "Tag has been successfully renamed"
 msgstr "분류딱지 이름바꾸기 성공"
@@ -2118,8 +1887,23 @@ msgstr "분류딱지 삭제"
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
-msgstr "아직 아무 분류딱지도 없습니다."
+msgid "Limit (empty means no limit):"
+msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
+
+msgid "Tag name"
+msgstr "분류딱지 이름"
+
+msgid "Entries count"
+msgstr "글꼭지 수"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 #, fuzzy
 msgid "Edit theme files"
@@ -2130,33 +1914,6 @@ msgstr ""
 
 msgid "Syntax highlighting in theme editor"
 msgstr ""
-
-msgid "No file"
-msgstr "파일 없음"
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr "파일이 존재하지 않습니다."
-
-#, php-format
-msgid "File %s is not readable"
-msgstr "%s 파일을 읽을 수 없습니다."
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
 
 msgid "The file has been reset."
 msgstr ""
@@ -2215,6 +1972,33 @@ msgstr "CSS 파일들"
 msgid "You can't edit a distributed theme."
 msgstr "기본 테마 파일은 편집할 수 없습니다."
 
+msgid "No file"
+msgstr "파일 없음"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr "파일이 존재하지 않습니다."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "%s 파일을 읽을 수 없습니다."
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
+
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "페이지가 성공적으로 갱신되었습니다."
@@ -2239,6 +2023,106 @@ msgid "Widget's textareas"
 msgstr "위젯 템플릿 태그들"
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr "기본사항"
+
+msgid "extra"
+msgstr "추가사항"
+
+#, fuzzy
+msgid "custom"
+msgstr "이미지 추가하기"
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "측면판을 초기화하시려는 게 확실합니까 ?"
+
+msgid "Widgets"
+msgstr "위젯 목록"
+
+msgid "Available widgets"
+msgstr "사용할 수 있는 위젯들"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "순서"
+
+msgid "Append to:"
+msgstr "추가할 곳 :"
+
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "위젯을 측면판에 추가"
+
+msgid "Navigation sidebar"
+msgstr "기본사항 측면판"
+
+msgid "Extra sidebar"
+msgstr "추가사항 측면판"
+
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "측면판 초기화"
+
+msgid "Update sidebars"
+msgstr "측면판 갱신"
+
+msgid "Reset sidebars"
+msgstr "측면판 초기화"
+
+msgid "Widget ID:"
+msgstr "위젯 ID :"
+
+msgid "No setting for this widget"
+msgstr "이 위젯에는 아무 설정값도 없습니다."
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "설정 이름 :"
+
+#, fuzzy
+msgid "No widget as far."
+msgstr "위젯 없음."
+
+#, fuzzy
+msgid "Up the widget"
+msgstr "위젯 없음."
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "위젯 삭제"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "위젯 삭제"
+
+msgid "Remove widget"
+msgstr "위젯 삭제"
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2349,105 +2233,219 @@ msgstr "CSS 파일들"
 msgid "Offline"
 msgstr ""
 
-msgid "navigation"
-msgstr "기본사항"
-
-msgid "extra"
-msgstr "추가사항"
+#~ msgid "default"
+#~ msgstr "기본값"
 
 #, fuzzy
-msgid "custom"
-msgstr "이미지 추가하기"
+#~ msgid "Unable to create css file."
+#~ msgstr "이미지를 생성할 수 없습니다."
 
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
+#~ msgid "Unable to open image."
+#~ msgstr "이미지파일을 읽을 수 없습니다."
 
-msgid "Sidebars have been resetting."
-msgstr ""
+#~ msgid "Light linear gradient"
+#~ msgstr "밝은 선형 그래디언트"
 
-msgid "Widgets"
-msgstr "위젯 목록"
+#~ msgid "Medium linear gradient"
+#~ msgstr "중간 선형 그래디언트"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr "측면판을 초기화하시려는 게 확실합니까 ?"
+#~ msgid "Dark linear gradient"
+#~ msgstr "어두운 선형 그래디언트"
 
-msgid "Available widgets"
-msgstr "사용할 수 있는 위젯들"
+#~ msgid "Solid color"
+#~ msgstr "단일색"
 
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
-
-msgid "order"
-msgstr "순서"
-
-msgid "Append to:"
-msgstr "추가할 곳 :"
+#~ msgid "Custom..."
+#~ msgstr "이미지 추가하기"
 
 #, fuzzy
-msgid "Add widgets to sidebars"
-msgstr "위젯을 측면판에 추가"
+#~ msgid "Theme configuration has been successfully updated."
+#~ msgstr "테마 설정이 성공적으로 갱신되었습니다."
 
-msgid "Navigation sidebar"
-msgstr "기본사항 측면판"
+#~ msgid "Blowup configuration"
+#~ msgstr "Blowup 설정"
 
-msgid "Extra sidebar"
-msgstr "추가사항 측면판"
+#~ msgid "Predefined styles"
+#~ msgstr "미리 지정된 스타일들"
 
-#, fuzzy
-msgid "Custom sidebar"
-msgstr "측면판 초기화"
-
-msgid "Update sidebars"
-msgstr "측면판 갱신"
-
-msgid "Reset sidebars"
-msgstr "측면판 초기화"
-
-msgid "Widget ID:"
-msgstr "위젯 ID :"
-
-msgid "No setting for this widget"
-msgstr "이 위젯에는 아무 설정값도 없습니다."
-
-msgid "boolean"
-msgstr ""
-
-msgid "possible values:"
-msgstr ""
-
-msgid "empty string"
-msgstr ""
-
-msgid "listitem"
-msgstr ""
-
-msgid "string"
-msgstr ""
-
-msgid "Setting name:"
-msgstr "설정 이름 :"
+#~ msgid "Apply code"
+#~ msgstr "코드 적용"
 
 #, fuzzy
-msgid "No widget as far."
-msgstr "위젯 없음."
+#~ msgid "Choose a predefined style"
+#~ msgstr "미리 지정된 스타일들"
 
-#, fuzzy
-msgid "Up the widget"
-msgstr "위젯 없음."
+#~ msgid "General"
+#~ msgstr "일반"
 
-#, fuzzy
-msgid "Down the widget"
-msgstr "위젯 삭제"
+#~ msgid "Background color:"
+#~ msgstr "바탕색 :"
 
-#, fuzzy
-msgid "Remove the widget"
-msgstr "위젯 삭제"
+#~ msgid "Background color fill:"
+#~ msgstr "바탕색 채우기 :"
 
-msgid "Remove widget"
-msgstr "위젯 삭제"
+#~ msgid "Main text font:"
+#~ msgstr "본문 글꼴 :"
 
-msgid "Drag widgets here to remove."
-msgstr ""
+#~ msgid "Main text font size:"
+#~ msgstr "본문 글자 크기 :"
+
+#~ msgid "Main text color:"
+#~ msgstr "본문 색상 :"
+
+#~ msgid "Text line height:"
+#~ msgstr "본문 행간 크기 :"
+
+#~ msgid "Links color:"
+#~ msgstr "링크 색 :"
+
+#~ msgid "Visited links color:"
+#~ msgstr "방문한 링크 색상 :"
+
+#~ msgid "Focus links color:"
+#~ msgstr "마우스가 놓일 때 링크 색상 :"
+
+#~ msgid "Prelude color:"
+#~ msgstr "도입부 색상 :"
+
+#~ msgid "Hide main title"
+#~ msgstr "블로그 제목 감추기"
+
+#~ msgid "Main title font:"
+#~ msgstr "블로그 제목 글꼴 :"
+
+#~ msgid "Main title font size:"
+#~ msgstr "블로그 제목 글자 크기 :"
+
+#~ msgid "Main title color:"
+#~ msgstr "블로그 제목 색상 :"
+
+#~ msgid "Main title alignment:"
+#~ msgstr "블로그 제목 줄맞춤 :"
+
+#~ msgid "center"
+#~ msgstr "가운데"
+
+#~ msgid "left"
+#~ msgstr "왼쪽"
+
+#~ msgid "right"
+#~ msgstr "오른쪽"
+
+#~ msgid "Main title position (x:y)"
+#~ msgstr "블로그 제목 위치 (x:y)"
+
+#~ msgid "Top image"
+#~ msgstr "최상위 이미지"
+
+#~ msgid "Choose \"Custom...\" to upload your own image."
+#~ msgstr "다른 이미지를 쓰시려면, 목록에서 \"이미지 추가하기\"를 선택하세요. 이미지를 서버로 올리는 칸이 나옵니다."
+
+#~ msgid "Add your image:"
+#~ msgstr "다른 이미지 추가 :"
+
+#, php-format
+#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+#~ msgstr "JPEG 또는 PNG 파일, 폭 800 픽셀, 최대 크기 %s"
+
+#~ msgid "Sidebar"
+#~ msgstr "측면판"
+
+#~ msgid "Sidebar position:"
+#~ msgstr "측면판 위치 :"
+
+#~ msgid "Sidebar text font:"
+#~ msgstr "측면판 바탕글 글꼴 :"
+
+#~ msgid "Sidebar text font size:"
+#~ msgstr "측면판 바탕글 글자 크기 :"
+
+#~ msgid "Sidebar text color:"
+#~ msgstr "측면판 바탕글 색상 :"
+
+#~ msgid "Sidebar titles font:"
+#~ msgstr "측면판 제목 글꼴 :"
+
+#~ msgid "Sidebar titles font size:"
+#~ msgstr "측면판 제목 글자 크기 :"
+
+#~ msgid "Sidebar titles color:"
+#~ msgstr "측면판 제목 색상 :"
+
+#~ msgid "Sidebar 2nd level titles font:"
+#~ msgstr "측면판 소제목 글꼴 :"
+
+#~ msgid "Sidebar 2nd level titles font size:"
+#~ msgstr "측면판 소제목 글자 크기 :"
+
+#~ msgid "Sidebar 2nd level titles color:"
+#~ msgstr "측면판 소제목 색상 :"
+
+#~ msgid "Sidebar lines color:"
+#~ msgstr "측면판 선 색상 :"
+
+#~ msgid "Sidebar links color:"
+#~ msgstr "측면판 링크 색상 :"
+
+#~ msgid "Sidebar visited links color:"
+#~ msgstr "측면판 방문한-링크 색상 :"
+
+#~ msgid "Sidebar focus links color:"
+#~ msgstr "측면판 마우스-놓인-링크 색상 :"
+
+#~ msgid "Date title font:"
+#~ msgstr "날짜 제목 글꼴 :"
+
+#~ msgid "Date title font size:"
+#~ msgstr "날짜 제목 글자 크기 :"
+
+#~ msgid "Date title color:"
+#~ msgstr "날짜 제목 색상 :"
+
+#~ msgid "Entry title font:"
+#~ msgstr "글꼭지 제목 글꼴 :"
+
+#~ msgid "Entry title font size:"
+#~ msgstr "글꼭지 제목 글자 크기 :"
+
+#~ msgid "Entry title color:"
+#~ msgstr "글꼭지 제목 색상 :"
+
+#~ msgid "Comment background color:"
+#~ msgstr "댓글 바탕색 :"
+
+#~ msgid "Comment text color:"
+#~ msgstr "댓글 글자색 :"
+
+#~ msgid "My comment background color:"
+#~ msgstr "내 댓글 바탕색 :"
+
+#~ msgid "My comment text color:"
+#~ msgstr "내 댓글 글자색 :"
+
+#~ msgid "Footer"
+#~ msgstr "바닥글"
+
+#~ msgid "Footer font:"
+#~ msgstr "바닥글 글꼴 :"
+
+#~ msgid "Footer font size:"
+#~ msgstr "바닥글 글자 크기 :"
+
+#~ msgid "Footer color:"
+#~ msgstr "바닥글 글자색 :"
+
+#~ msgid "Footer links color:"
+#~ msgstr "바닥글 링크 색상 :"
+
+#~ msgid "Footer background color:"
+#~ msgstr "바닥글 바탕색 :"
+
+#~ msgid "Configuration import / export"
+#~ msgstr "가져오기 / 내보내기 설정"
+
+#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+#~ msgstr "다음 코드를 이용하면 당신의 설정을 공유할 수 있습니다. 다른 곳에서 가져온 설정을 적용하려면, 코드를 붙여넣기 한 뒤, \"코드 적용\"을 실행하고 저장하시면 됩니다."
 
 #, fuzzy
 #~ msgid "Liste des auteurs"

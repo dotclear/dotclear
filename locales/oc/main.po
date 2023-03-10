@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -637,6 +637,13 @@ msgstr ""
 
 msgid "Installed themes"
 msgstr "Tèmas installats"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Tèmas desactivats"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1717,9 +1724,6 @@ msgstr "Empeutons installats"
 msgid "Activated plugins"
 msgstr ""
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2121,6 +2125,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Talha de la poliça :"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2332,6 +2339,9 @@ msgid "Remind me later"
 msgstr "Lo me remembrar pus tard"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -2848,6 +2858,22 @@ msgstr "Tipe :"
 msgid "Trackback"
 msgstr ""
 
+#, fuzzy
+msgid "Media type:"
+msgstr "Lista dels mèdias"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
 msgid "users per page"
 msgstr ""
 
@@ -2947,10 +2973,12 @@ msgstr "Amagar"
 msgid "Select:"
 msgstr "Seleccionar :"
 
-msgid "no selection"
+#, fuzzy
+msgid "No selection"
 msgstr "pas cap de seleccion"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "seleccionar tot"
 
 msgid "Invert selection"
@@ -3237,6 +3265,9 @@ msgid "Third-party repository"
 msgstr "Recercar"
 
 msgid "Plugin from official distribution"
+msgstr ""
+
+msgid "Plugin in development"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -3692,15 +3723,16 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "Pichona"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Minuatura"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 msgid "Pages"
@@ -4099,6 +4131,133 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "Crear un dossièr novèl"
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "Crear un dossièr novèl"
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "Lo fichièr %s existís pas."
+
+msgid "Unable to open file."
+msgstr ""
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Es pas un fichièr valid"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Cap de fichièr"
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Lo fichièr %s existís pas."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Crear un dossièr novèl"
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Lo fichièr %s existís pas."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Lo fichièr %s existís pas."
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+msgid "Unable to rename file."
+msgstr ""
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "Nom del dossièr :"
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Lo fichièr %s existís pas."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+msgid "Unable to write destination file."
+msgstr ""
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "Lo fichièr %s existís pas."
+
+#, fuzzy
+msgid "Cannot read file"
+msgstr "Es pas un fichièr valid"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Aquesta categoria existís pas."
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "Crear un dossièr novèl"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4116,6 +4275,37 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Còdi de lenga invalid"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Còdi de lenga invalid"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+msgid "Invalid diff format"
+msgstr ""
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Pichona"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Minuatura"
+
 #, fuzzy
 #~ msgid "extra-large"
 #~ msgstr "Mai grand"
@@ -4132,9 +4322,6 @@ msgstr ""
 
 #~ msgid "your password"
 #~ msgstr "vòstre senhal"
-
-#~ msgid "Media list"
-#~ msgstr "Lista dels mèdias"
 
 #~ msgid "Choose date"
 #~ msgstr "Causir una data"

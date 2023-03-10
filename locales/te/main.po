@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -660,6 +660,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "స్థాపితమైన భాషలు"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "ఎంచుకున్న అలంకారాన్ని తొలగించు"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1811,9 +1818,6 @@ msgstr "స్థాపితమైన భాషలు"
 msgid "Activated plugins"
 msgstr "చేతనంగావున్న ప్లగిన్లు"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2259,6 +2263,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "ఫైలు పరిమాణం:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2488,6 +2495,9 @@ msgid "Remind me later"
 msgstr ""
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3061,6 +3071,22 @@ msgid "Trackback"
 msgstr "ట్రాకుబ్యాకులు"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "ఫైలు రకం:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr " వాడుకరులు (ఒక పేజీకి)"
 
@@ -3166,10 +3192,11 @@ msgid "Select:"
 msgstr "అన్నీ ఎంచుకోండి"
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "ఎంపికలు లేవు"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "అన్నీ ఎంచుకోండి"
 
 #, fuzzy
@@ -3461,6 +3488,10 @@ msgstr "టపాలని వెతకు"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "ప్లగిన్ల నిర్వహణ"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3960,15 +3991,16 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "చిన్న:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "నఖచిత్రాలు:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4386,6 +4418,137 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "కొత్త వాడుకరిని సృష్టించండి"
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
+
+msgid "File is not writable."
+msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "సరైన ఫైలు కాదు"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "పైళ్ళు లేవు."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "సరైన ఫైలు కాదు"
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "ఈ ఫైలు ఇప్పటికే ఉంది."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "కొత్త వాడుకరిని సృష్టించండి"
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "ఫైలు లేనే లేదు"
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
+
+msgid "File cannot be removed."
+msgstr "ఫైలుని తొలగించలేం."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "ఫైలుని తొలగించలేం."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "డాటాబేసులో ఫైలు లేదు."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+msgid "File does not exist"
+msgstr "ఫైలు లేనే లేదు"
+
+msgid "Cannot read file"
+msgstr "ఫైలుని చదువలేకున్నాం"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "ఈ టపా లేదు."
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "కొత్త వాడుకరిని సృష్టించండి"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4401,6 +4564,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "తప్పుడు భాషా సంకేతం"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "తప్పుడు భాషా సంకేతం"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "తప్పుడు భాషా సంకేతం"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "తప్పుడు భాషా ఫైలు URL."
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "చిన్న:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "నఖచిత్రాలు:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4448,34 +4644,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "బ్లాగు అలంకారాలు"
-
-#~ msgid "File is not writable."
-#~ msgstr "ఫైలుని వ్రాయలేం."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "తప్పుడు భాషా సంకేతం"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "తప్పుడు భాషా సంకేతం"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "తప్పుడు భాషా ఫైలు URL."
-
-#, fuzzy
-#~ msgid "File already exists."
-#~ msgstr "ఈ ఫైలు ఇప్పటికే ఉంది."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "ఫైలుని తొలగించలేం."
-
-#~ msgid "File does not exist"
-#~ msgstr "ఫైలు లేనే లేదు"
-
-#~ msgid "Cannot read file"
-#~ msgstr "ఫైలుని చదువలేకున్నాం"
 
 #, fuzzy
 #~ msgid "A website mention this entry."

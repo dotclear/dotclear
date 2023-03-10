@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -666,6 +666,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Nainstalované jazyky"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Deaktivovat"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1818,9 +1825,6 @@ msgstr "Nainstalované jazyky"
 msgid "Activated plugins"
 msgstr "Aktivované pluginy"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2274,6 +2278,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Velikost souboru:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2512,6 +2519,9 @@ msgid "Remind me later"
 msgstr "Připomenout později"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3084,6 +3094,22 @@ msgid "Trackback"
 msgstr "Trackbacky"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Typ souboru:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "uživatelů na stranu"
 
@@ -3190,10 +3216,11 @@ msgid "Select:"
 msgstr "Vybrané:"
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "Žádný výběr"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "vybrat vše"
 
 msgid "Invert selection"
@@ -3481,6 +3508,10 @@ msgstr "Vyhledat článek:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Správce pluginů"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -4006,15 +4037,16 @@ msgstr "Během zípisu do souboru nastala chyba."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Vygenerované velikosti obrázků (v pixelech)"
 
-#, fuzzy
-msgid "small"
-msgstr "Malý:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Náhledy:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4429,6 +4461,122 @@ msgstr "Nebyl specifikován žádný jmenný prostor"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Něco se stalo špatně při automatické aktualizaci:"
 
+msgid "Unable to open directory."
+msgstr "Nelze otevřít adresář."
+
+msgid "Unable to create directory."
+msgstr "Nelze vytvořit adresář."
+
+msgid "File is not writable."
+msgstr "Soubor není schopen zápisu."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Nelze přejmenovat soubor."
+
+msgid "Not an uploaded file."
+msgstr "Není nahrán soubor."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Nahrávaný soubor překročil max. povolenou velikost."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Soubor byl částečně nahrán."
+
+msgid "No file was uploaded."
+msgstr "Nebyly nahrány žádné soubory."
+
+msgid "Missing a temporary folder."
+msgstr "Chybí dočasaný adresář."
+
+msgid "Failed to write file to disk."
+msgstr "Neúspěšný zápis souboru na disk."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s není adresář."
+
+msgid "Uploading this file is not allowed."
+msgstr "Tento typ souboru není pro nahrávání povolen."
+
+msgid "Destination directory is not in jail."
+msgstr "Cílový adresář není ve vězení."
+
+msgid "File already exists."
+msgstr "Soubor již existuje."
+
+msgid "Cannot write in this directory."
+msgstr "Nelze zapisovat do tohoto adresáře."
+
+msgid "Source file does not exist."
+msgstr "Zdrojový soubor neexistuje"
+
+msgid "File is not in jail."
+msgstr "Soubor není ve vězení."
+
+msgid "Destination directory is not writable."
+msgstr "Cílový adresář není zapisovatelný."
+
+msgid "Unable to rename file."
+msgstr "Nelze přejmenovat soubor."
+
+msgid "File cannot be removed."
+msgstr "Soubor nelze odstranit."
+
+msgid "Directory is not in jail."
+msgstr "Adresář není ve vězení."
+
+msgid "Directory cannot be removed."
+msgstr "Adresář nelze přesunout."
+
+msgid "Not enough memory to open image."
+msgstr "Nedostatek paměti prootevření obrázku."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Soubor \"%s\"není komprimován v zip archívu."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Pokous o rozzipování složky %s"
+
+msgid "Unable to write destination file."
+msgstr "Nelze zapisovat do cílového souboru."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nelze zapisovat do cílového adresáře, přístup odepřen."
+
+msgid "Not enough memory to open file."
+msgstr "Nedostate paměti pro čtení souboru."
+
+msgid "File does not exist"
+msgstr "Soubor neexistuje"
+
+msgid "Cannot read file"
+msgstr "Nelze číst soubor"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Adresář %s neexistuje."
+
+msgid "Cannot read directory"
+msgstr "Nelze číst adresář"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4444,6 +4592,39 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Neznámý kód jazyka"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Neznámý kód jazyka"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Neznámý kód jazyka"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Nevalidní shrnující soubor."
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Malý:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Náhledy:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4533,112 +4714,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "Embedded Video Player"
 #~ msgstr "Vestavěný video přehrávač"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "Nelze otevřít adresář."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Nelze vytvořit adresář."
-
-#~ msgid "File is not writable."
-#~ msgstr "Soubor není schopen zápisu."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "Není nahrán soubor."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Nahrávaný soubor překročil max. povolenou velikost."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "Soubor byl částečně nahrán."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Nebyly nahrány žádné soubory."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Chybí dočasaný adresář."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Neúspěšný zápis souboru na disk."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s není adresář."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Neznámý kód jazyka"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Neznámý kód jazyka"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Nevalidní shrnující soubor."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Tento typ souboru není pro nahrávání povolen."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Cílový adresář není ve vězení."
-
-#~ msgid "File already exists."
-#~ msgstr "Soubor již existuje."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Nelze zapisovat do tohoto adresáře."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Zdrojový soubor neexistuje"
-
-#~ msgid "File is not in jail."
-#~ msgstr "Soubor není ve vězení."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "Cílový adresář není zapisovatelný."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Nelze přejmenovat soubor."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Soubor nelze odstranit."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "Adresář není ve vězení."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Adresář nelze přesunout."
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Nedostatek paměti prootevření obrázku."
-
-#, fuzzy
-#~ msgid "WARNING: the following errors have been found while parsing template file :"
-#~ msgstr "Nastaly následujíci chyby při čtení z databáze:"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "Soubor \"%s\"není komprimován v zip archívu."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "Pokous o rozzipování složky %s"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Nelze zapisovat do cílového souboru."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Nelze zapisovat do cílového adresáře, přístup odepřen."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Nedostate paměti pro čtení souboru."
-
-#~ msgid "File does not exist"
-#~ msgstr "Soubor neexistuje"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Nelze číst soubor"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Nelze číst adresář"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4916,9 +4991,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "Nemáte práva smazat tento komentář"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "Adresář %s neexistuje."
 
 #~ msgid "%s: in [%s] and [%s]"
 #~ msgstr "%s: v [%s] and [%s]"

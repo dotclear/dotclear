@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2020-12-27 20:20\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -32,9 +32,6 @@ msgstr "Merkintöjen liitetiedostojen hallinta"
 msgid "Manage your blogroll"
 msgstr "Blogroll-linkkilistan ylläpito"
 
-msgid "Configure your Blowup Theme"
-msgstr "Blowup-teeman asetukset"
-
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclearin leivänmurut"
 
@@ -44,7 +41,10 @@ msgstr "Dotclear CKEditor-integraatio"
 msgid "dotclear legacy editor"
 msgstr "Perinteinen Dotclear-editori"
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -172,8 +172,8 @@ msgstr "API-avain ei varmennettu"
 msgid "Get your own API key"
 msgstr "Hanki oma API-avain"
 
-msgid "Antispam"
-msgstr "Spämmäyksenesto"
+msgid "This comment is a spam:"
+msgstr "Tämä kommentti on spämmi:"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -182,6 +182,29 @@ msgstr "(joista %d spämmikommentti)"
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(joista %d spämmikommenttia)"
+
+msgid "Antispam"
+msgstr "Spämmäyksenesto"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Kaikki %s päivää vanhemmat spämmikommentit poistetaan automaattisesti."
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr "Voit muuttaa tätä kestoaikaa täältä: %s"
+
+msgid "Delete junk comments older than"
+msgstr "Poista spämmikommentit, jotka ovat vanhempia kuin"
+
+msgid "days"
+msgstr "päivää"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr "Aseta arvoksi -1 poistaaksesi tämän ominaisuuden käytöstä, jätä tyhjäksi käyttääksesi oletusarvoista 7 päivän aikarajaa."
+
+msgid "Set spam filters."
+msgstr "Säädä spämmisuodattimia."
 
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "Suodatus estä-IP/salli-IP-listojen mukaan"
@@ -289,29 +312,6 @@ msgstr "Luo oletussanaluettelo"
 msgid "This word exists"
 msgstr "Tämä sana on jo mukana"
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Kaikki %s päivää vanhemmat spämmikommentit poistetaan automaattisesti."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr "Voit muuttaa tätä kestoaikaa täältä: %s"
-
-msgid "Delete junk comments older than"
-msgstr "Poista spämmikommentit, jotka ovat vanhempia kuin"
-
-msgid "days"
-msgstr "päivää"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr "Aseta arvoksi -1 poistaaksesi tämän ominaisuuden käytöstä, jätä tyhjäksi käyttääksesi oletusarvoista 7 päivän aikarajaa."
-
-msgid "Set spam filters."
-msgstr "Säädä spämmisuodattimia."
-
-msgid "This comment is a spam:"
-msgstr "Tämä kommentti on spämmi:"
-
 msgid "Spam moderation"
 msgstr "Spämmien hallinta"
 
@@ -320,16 +320,6 @@ msgstr "Spämmi"
 
 msgid "Ham"
 msgstr "Ehta tavara"
-
-msgid "No description"
-msgstr "Ei kuvausta"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Suodattimena %1$s (%2$s)"
-
-msgid "Unknown filter."
-msgstr "Tuntematon suodatin"
 
 msgid "Filter does not exist."
 msgstr "Suodatinta ei ole."
@@ -390,6 +380,16 @@ msgstr "Roskakommenttien RSS-syöte"
 msgid "Published comments RSS feed"
 msgstr "Julkaistujen kommenttien RSS-syöte"
 
+msgid "No description"
+msgstr "Ei kuvausta"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Suodattimena %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Tuntematon suodatin"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Liitteitä (%d)"
@@ -408,6 +408,63 @@ msgstr "Hallinnoi blogrollia"
 
 msgid "Blogroll"
 msgstr "Blogroll-linkkiluettelo"
+
+msgid "You must provide a link title"
+msgstr "Anna linkin otsikko"
+
+msgid "You must provide a link URL"
+msgstr "Anna linkin verkko-osoite"
+
+msgid "Nothing to import"
+msgstr "Ei tuotavaa"
+
+msgid "links have been successfully imported."
+msgstr "Linkit on tuotu."
+
+msgid "Import operation cancelled."
+msgstr "Tuonti peruutettu."
+
+msgid "Link has been successfully created."
+msgstr "Linkki on luotu."
+
+msgid "category has been successfully created."
+msgstr "Luokka on luotu."
+
+msgid "Items have been successfully removed."
+msgstr "Kohdat on poistettu."
+
+msgid "Items order has been successfully updated"
+msgstr "Kohtien järjestys on päivitetty."
+
+msgid "Lang"
+msgstr "Kieli"
+
+msgid "select this link"
+msgstr "valitse tämä linkki"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "Oletko varma, että haluat poistaa valitut linkit?"
+
+msgid "Delete selected links"
+msgstr "Poista valitut linkit"
+
+msgid "The link list is empty."
+msgstr "Linkkilista on tyhjä."
+
+msgid "Add a new link"
+msgstr "Lisää uusi linkki"
+
+msgid "Add a category"
+msgstr "Lisää luokka"
+
+msgid "Import links"
+msgstr "Tuo linkkejä"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML- tai XBEL-tiedosto:"
+
+msgid "Import"
+msgstr "Tuo"
 
 msgid "No such link or title"
 msgstr "Ei kyseistä linkkiä tai otsikkoa"
@@ -508,12 +565,6 @@ msgstr "_xfn_Date"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Sweetheart"
 
-msgid "You must provide a link title"
-msgstr "Anna linkin otsikko"
-
-msgid "You must provide a link URL"
-msgstr "Anna linkin verkko-osoite"
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Anna XBEL- tai OPML-tiedosto."
 
@@ -525,283 +576,6 @@ msgstr "Kaikki luokat"
 
 msgid "Links"
 msgstr "Linkit"
-
-msgid "Nothing to import"
-msgstr "Ei tuotavaa"
-
-msgid "links have been successfully imported."
-msgstr "Linkit on tuotu."
-
-msgid "Import operation cancelled."
-msgstr "Tuonti peruutettu."
-
-msgid "Link has been successfully created."
-msgstr "Linkki on luotu."
-
-msgid "category has been successfully created."
-msgstr "Luokka on luotu."
-
-msgid "Items have been successfully removed."
-msgstr "Kohdat on poistettu."
-
-msgid "Items order has been successfully updated"
-msgstr "Kohtien järjestys on päivitetty."
-
-msgid "Lang"
-msgstr "Kieli"
-
-msgid "select this link"
-msgstr "valitse tämä linkki"
-
-msgid "Are you sure you want to delete selected links?"
-msgstr "Oletko varma, että haluat poistaa valitut linkit?"
-
-msgid "Delete selected links"
-msgstr "Poista valitut linkit"
-
-msgid "The link list is empty."
-msgstr "Linkkilista on tyhjä."
-
-msgid "Add a new link"
-msgstr "Lisää uusi linkki"
-
-msgid "Add a category"
-msgstr "Lisää luokka"
-
-msgid "Import links"
-msgstr "Tuo linkkejä"
-
-msgid "OPML or XBEL File:"
-msgstr "OPML- tai XBEL-tiedosto:"
-
-msgid "Import"
-msgstr "Tuo"
-
-msgid "default"
-msgstr "oletus"
-
-msgid "Unable to create css file."
-msgstr "CSS-tiedostoa ei voi luoda."
-
-msgid "Unable to open image."
-msgstr "Kuvaa ei voi avata."
-
-msgid "Light linear gradient"
-msgstr "Vaalea lineaarinen liukuväri"
-
-msgid "Medium linear gradient"
-msgstr "Keskisävyinen lineaarinen liukuväri"
-
-msgid "Dark linear gradient"
-msgstr "Tumma lineaarinen liukuväri"
-
-msgid "Solid color"
-msgstr "Yhtenäinen väri"
-
-msgid "Custom..."
-msgstr "Mukauta..."
-
-msgid "Theme configuration has been successfully updated."
-msgstr "Teeman asetukset päivitetty."
-
-msgid "Blowup configuration"
-msgstr "Blowup-teeman asetukset"
-
-msgid "Predefined styles"
-msgstr "Ennaltamääritellyt tyylit"
-
-msgid "Apply code"
-msgstr "Käytä koodia"
-
-msgid "Choose a predefined style"
-msgstr "Valitse ennaltamääritelty tyyli"
-
-msgid "Back to Blog appearance"
-msgstr "Paluu blogin ulkoasuun"
-
-msgid "Customization"
-msgstr "Mukauttaminen"
-
-msgid "General"
-msgstr "Yleistä"
-
-msgid "Background color:"
-msgstr "Taustaväri:"
-
-msgid "Background color fill:"
-msgstr "Taustavärin täyttö:"
-
-msgid "Main text font:"
-msgstr "Leipätekstifontti:"
-
-msgid "Main text font size:"
-msgstr "Leipätekstifontin koko:"
-
-msgid "Main text color:"
-msgstr "Leipätekstin väri:"
-
-msgid "Text line height:"
-msgstr "Tekstirivin korkeus:"
-
-msgid "Links color:"
-msgstr "Linkkien väri:"
-
-msgid "Visited links color:"
-msgstr "Käytyjen linkkien väri:"
-
-msgid "Focus links color:"
-msgstr "Kohdistettujen linkkien väri:"
-
-msgid "Prelude color:"
-msgstr "Prelude-osan väri:"
-
-msgid "Hide main title"
-msgstr "Piilota pääotsikko"
-
-msgid "Main title font:"
-msgstr "Pääotsikon fontti:"
-
-msgid "Main title font size:"
-msgstr "Pääotsikon fontin koko:"
-
-msgid "Main title color:"
-msgstr "Pääotsikon väri:"
-
-msgid "Main title alignment:"
-msgstr "Pääotsikon kohdistus:"
-
-msgid "center"
-msgstr "keskellä"
-
-msgid "left"
-msgstr "vasemmalla"
-
-msgid "right"
-msgstr "oikealla"
-
-msgid "Main title position (x:y)"
-msgstr "Pääotsikon sijainti (x:y)"
-
-msgid "Top image"
-msgstr "Sivun yläosan kuva"
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr "Valitse \"Mukauta...\" ladataksesi palvelimelle itse haluamasi kuvan."
-
-msgid "Add your image:"
-msgstr "Lisää kuva:"
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "JPEG- tai PNG-tiedosto, enintään 800 pikseliä leveä, %s:n enimmäiskoko"
-
-msgid "Sidebar"
-msgstr "Sivupalkki"
-
-msgid "Sidebar position:"
-msgstr "Sivupalkin paikka:"
-
-msgid "Sidebar text font:"
-msgstr "Sivupalkin leipäteksti:"
-
-msgid "Sidebar text font size:"
-msgstr "Sivupalkin leipätekstin koko:"
-
-msgid "Sidebar text color:"
-msgstr "Sivupalkin leipätekstin väri:"
-
-msgid "Sidebar titles font:"
-msgstr "Sivupalkin otsikkofontti:"
-
-msgid "Sidebar titles font size:"
-msgstr "Sivupalkin otsikkofontin koko:"
-
-msgid "Sidebar titles color:"
-msgstr "Sivupalkin otsikon väri:"
-
-msgid "Sidebar 2nd level titles font:"
-msgstr "Sivupalkin kakkostason otsikkofontti:"
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr "Sivupalkin kakkostason otsikkofontin koko:"
-
-msgid "Sidebar 2nd level titles color:"
-msgstr "Sivupalkin kakkostason otsikon väri:"
-
-msgid "Sidebar lines color:"
-msgstr "Sivupalkin viivojen väri:"
-
-msgid "Sidebar links color:"
-msgstr "Sivupalkin linkkien väri:"
-
-msgid "Sidebar visited links color:"
-msgstr "Sivupalkin käytyjen linkkien väri:"
-
-msgid "Sidebar focus links color:"
-msgstr "Sivupalkin kohdistettujen linkkien väri:"
-
-msgid "Date title font:"
-msgstr "Päiväyksen otsikkofontti:"
-
-msgid "Date title font size:"
-msgstr "Päiväyksen otsikkofontin koko:"
-
-msgid "Date title color:"
-msgstr "Päiväyksen otsikon väri:"
-
-msgid "Entry title font:"
-msgstr "Blogimerkinnän otsikkofontti:"
-
-msgid "Entry title font size:"
-msgstr "Blogimerkinnän otsikkofontin koko:"
-
-msgid "Entry title color:"
-msgstr "Blogimerkinnän otsikon väri:"
-
-msgid "Comment background color:"
-msgstr "Kommenttien taustaväri:"
-
-msgid "Comment text color:"
-msgstr "Kommenttien tekstiväri:"
-
-msgid "My comment background color:"
-msgstr "Omien kommenttieni taustaväri:"
-
-msgid "My comment text color:"
-msgstr "Omien kommenttieni tekstiväri:"
-
-msgid "Footer"
-msgstr "Sivun alaosa"
-
-msgid "Footer font:"
-msgstr "Sivun alaosan fontti:"
-
-msgid "Footer font size:"
-msgstr "Sivun alaosan fontin koko:"
-
-msgid "Footer color:"
-msgstr "Sivun alaosan väri:"
-
-msgid "Footer links color:"
-msgstr "Sivun alaosan linkkien väri:"
-
-msgid "Footer background color:"
-msgstr "Sivun alaosan taustaväri:"
-
-msgid "Additional CSS"
-msgstr "Lisä-CSS"
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr "Mahdolliset CSS-lisätyylit (joiden täytyy noudattaa CSS-syntaksia) :"
-
-msgid "Configuration import / export"
-msgstr "Asetusten tuonti/vienti"
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "Voit siirtää asetuksesi toiseen asennukseen seuraavan koodin avulla. Voit ottaa asetukset käyttöön, liittämällä koodin ja painamalla \"Käytä koodia\" ja tallentamalla."
-
-msgid "Copy this code:"
-msgstr "Kopioi tämä koodi:"
 
 msgid "Breadcrumb"
 msgstr "Leivänmurut"
@@ -831,11 +605,21 @@ msgstr "Kaikki avainsanat"
 msgid "404"
 msgstr "404"
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
-msgstr "Huomautukset"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "Varmistustiedostoa ei saatu purettua."
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
+msgstr ""
 
 msgid "Media chooser"
 msgstr "Media-aineistojen valitsin"
@@ -863,6 +647,9 @@ msgstr "Asetukset on päivitetty."
 
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
+
+msgid "Note(s)"
+msgstr "Huomautukset"
 
 msgid "Settings"
 msgstr "Asetukset"
@@ -1031,6 +818,67 @@ msgstr "Tarkistaa, onko takaisinviittauksen lähdekoodissa linkki blogimerkintä
 msgid "Import/Export"
 msgstr "Tuonti/Vienti"
 
+msgid "Database export"
+msgstr "Tietokannan vienti"
+
+msgid "Download database of current blog"
+msgstr "Lataa tämän blogin tietokantatiedot"
+
+msgid "Compress file"
+msgstr "Tiivistä tiedosto"
+
+msgid "Download database of all blogs"
+msgstr "Lataa kaikkien blogien tietokantatiedot"
+
+msgid "No file to read."
+msgstr "Ei luettavaa tiedostoa."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "CSS-tiedostoa ei voi luoda."
+
+msgid "File is not a DotClear backup."
+msgstr "Tiedosto ei ole Dotclear-varmistus."
+
+msgid "File is not a single blog export."
+msgstr "Tiedosto ei ole yksittäisen blogin vienti."
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr "Virhe rivillä %s"
+
+msgid "File is not a full export."
+msgstr "Tiedosto ei ole kokonainen vienti."
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr "\"%3$s\":n tunniste ei täsmää tietueen \"%1$s\" osalta varmistustiedoston rivillä %2$s."
+
+msgid "Please wait..."
+msgstr "Odota…"
+
+msgid "Export"
+msgstr "Vienti"
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr "Vientifunktiot ovat sivulla %s."
+
+msgid "Maintenance"
+msgstr "Ylläpito"
+
+msgid "Congratulation!"
+msgstr "Onneksi olkoon!"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Blogisi on tuotu järjestelmään. Tervetuloa Dotclear 2:n käyttäjäksi!"
+
+msgid "Why don't you blog this now?"
+msgstr "Miksi et bloggaisi tästä nyt?"
+
+msgid "visit your dashboard"
+msgstr "siirtyisi ohjaustauluusi"
+
 msgid "Flat file export"
 msgstr "Vienti tekstitietokantatiedostoon"
 
@@ -1050,32 +898,14 @@ msgstr "Yksittäinen blogi"
 msgid "This will create an export of your current blog: %s"
 msgstr "Tämä luo vientitiedoston tästä blogista: %s"
 
-msgid "Compress file"
-msgstr "Tiivistä tiedosto"
-
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Voit myös haluta ladata media-aineistohakemistosi zip-tiedostona"
-
-msgid "Export"
-msgstr "Vienti"
 
 msgid "Multiple blogs"
 msgstr "Kaikki blogit"
 
 msgid "This will create an export of all the content of your database."
 msgstr "Tämä luo vientitiedoston tietokantasi koko sisällöstä."
-
-msgid "Congratulation!"
-msgstr "Onneksi olkoon!"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "Blogisi on tuotu järjestelmään. Tervetuloa Dotclear 2:n käyttäjäksi!"
-
-msgid "Why don't you blog this now?"
-msgstr "Miksi et bloggaisi tästä nyt?"
-
-msgid "visit your dashboard"
-msgstr "siirtyisi ohjaustauluusi"
 
 msgid "Dotclear 1.2 import"
 msgstr "Tuonti Dotclear-versiosta 1.2"
@@ -1247,49 +1077,6 @@ msgstr "Kommenttien sisällön muotoilija:"
 msgid "WordPress tables not found"
 msgstr "WordPress-tauluja ei löytynyt"
 
-msgid "No file to read."
-msgstr "Ei luettavaa tiedostoa."
-
-#, fuzzy
-msgid "Unable to create output file."
-msgstr "CSS-tiedostoa ei voi luoda."
-
-msgid "File is not a DotClear backup."
-msgstr "Tiedosto ei ole Dotclear-varmistus."
-
-msgid "File is not a single blog export."
-msgstr "Tiedosto ei ole yksittäisen blogin vienti."
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr "Virhe rivillä %s"
-
-msgid "File is not a full export."
-msgstr "Tiedosto ei ole kokonainen vienti."
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr "\"%3$s\":n tunniste ei täsmää tietueen \"%1$s\" osalta varmistustiedoston rivillä %2$s."
-
-msgid "Database export"
-msgstr "Tietokannan vienti"
-
-msgid "Download database of current blog"
-msgstr "Lataa tämän blogin tietokantatiedot"
-
-msgid "Download database of all blogs"
-msgstr "Lataa kaikkien blogien tietokantatiedot"
-
-msgid "Please wait..."
-msgstr "Odota…"
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr "Vientifunktiot ovat sivulla %s."
-
-msgid "Maintenance"
-msgstr "Ylläpito"
-
 msgid "Servicing"
 msgstr "Huoltotoimet"
 
@@ -1366,6 +1153,94 @@ msgstr "Tehtävän suoritus epäonnistui."
 msgid "Task successfully executed."
 msgstr "Tehtävä suoritettu."
 
+msgid "Maintenance plugin has been successfully configured."
+msgstr "Ylläpitoliitännäisen asetukset on annettu."
+
+msgid "System settings have been saved."
+msgstr "Asetukset on päivitetty."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr "Kaikkien blogien sisällön turvallisuusohjeistuksen asetukset on asetettu oletusarvoihin."
+
+msgid "Every week"
+msgstr "Joka viikko"
+
+msgid "Every two weeks"
+msgstr "Joka toinen viikko"
+
+msgid "Every month"
+msgstr "Joka kuukausi"
+
+msgid "Every two months"
+msgstr "Joka toinen kuukausi"
+
+msgid "You have not sufficient permissions to view this page."
+msgstr "Käyttöoikeutesi eivät riitä tämän sivun tarkastelemiseen."
+
+msgid "You should execute it now."
+msgstr "Toimenpide pitäisi suorittaa nyt."
+
+msgid "Execute task"
+msgstr "Suorita toimi"
+
+msgid "This may take a very long time."
+msgstr "Tämä voi kestää jonkin aikaa."
+
+msgid "Alert settings"
+msgstr "Hälytysasetukset"
+
+msgid "Activation"
+msgstr "Käyttöönotto"
+
+msgid "Display alert messages on late tasks"
+msgstr "Näytä hälytyksiä rästiin jääneistä toimista"
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr "%s on myös mahdollinen rästiin jääneiden toimenpiteiden luettelon sijaintipaikka."
+
+msgid "Frequency"
+msgstr "Hälytysten aikaväli"
+
+msgid "Use one recall time for all tasks"
+msgstr "Sama muistutusaika kaikille tehtäville"
+
+msgid "Recall time for all tasks:"
+msgstr "Muistuta kaikista tehtävistä:"
+
+msgid "Use one recall time per task"
+msgstr "Tehtäväkohtainen muistutusaika eri tehtäville"
+
+msgid "Content-Security-Policy"
+msgstr "Sisällön turvallisuusohjeistus"
+
+msgid "Enable Content-Security-Policy system"
+msgstr "Käytä sisällön turvallisuusohjeistusjärjestelmää"
+
+msgid "Enable Content-Security-Policy report only"
+msgstr "Luo vain sisällön turvallisuusohjeistusraportteja"
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr "Käytä oletusarvoisesti sisällön turvallisuusohjeistusta"
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr "Luo oletusarvoisesti vain sisällön turvallisuusohjeistusraportteja"
+
+msgid "Also apply these settings to all blogs"
+msgstr "Sovella näitä asetuksia kaikkiin blogeihin"
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr "Poista sisällön turvallisuusohjeistuksen raporttitiedosto"
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr "Sisällön turvallisuusohjeistuksen raporttitiedosto on poistettu."
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr "Sisällön turvallisuusohjeistuksen raporttitiedostoa ei voitu poistaa."
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr "Poista sisällön turvallisuusohjeistuksen raporttitiedosto."
+
 msgid "Empty templates cache directory"
 msgstr "Tyhjennä mallitiedostojen välimuistihakemisto"
 
@@ -1390,18 +1265,6 @@ msgstr "Kommentteja ja takaisinviittauksia ei saatu lasketuksi."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Laskemalla uudelleen kommentit ja takaisinviittaukset voit tarkistaa niiden tarkan lukumäärän. Tämä voi olla tarpeen, kun tuodaan sisältöjä toiselta blogialustalta (tai päivitettäessä dotclear 1 versioon dotclear 2)."
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr "Poista sisällön turvallisuusohjeistuksen raporttitiedosto"
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr "Sisällön turvallisuusohjeistuksen raporttitiedosto on poistettu."
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr "Sisällön turvallisuusohjeistuksen raporttitiedostoa ei voitu poistaa."
-
-msgid "Remove the Content-Security-Policy report file."
-msgstr "Poista sisällön turvallisuusohjeistuksen raporttitiedosto."
 
 msgid "Search engine index"
 msgstr "Hakukoneindeksi"
@@ -1499,93 +1362,8 @@ msgstr "Lataa tämän blogin käytössä oleva teema kotikoneellesi"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Blogissa käytetyn teeman varmistaminen voi olla hyvä idea ennen muutoksia tai päivityksiä. Tämä toiminto pakkaa teemakansion zip-tiedostoksi."
 
-msgid "Maintenance plugin has been successfully configured."
-msgstr "Ylläpitoliitännäisen asetukset on annettu."
-
-msgid "System settings have been saved."
-msgstr "Asetukset on päivitetty."
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr "Kaikkien blogien sisällön turvallisuusohjeistuksen asetukset on asetettu oletusarvoihin."
-
-msgid "Every week"
-msgstr "Joka viikko"
-
-msgid "Every two weeks"
-msgstr "Joka toinen viikko"
-
-msgid "Every month"
-msgstr "Joka kuukausi"
-
-msgid "Every two months"
-msgstr "Joka toinen kuukausi"
-
-msgid "You have not sufficient permissions to view this page."
-msgstr "Käyttöoikeutesi eivät riitä tämän sivun tarkastelemiseen."
-
-msgid "You should execute it now."
-msgstr "Toimenpide pitäisi suorittaa nyt."
-
-msgid "Execute task"
-msgstr "Suorita toimi"
-
-msgid "This may take a very long time."
-msgstr "Tämä voi kestää jonkin aikaa."
-
-msgid "Alert settings"
-msgstr "Hälytysasetukset"
-
-msgid "Activation"
-msgstr "Käyttöönotto"
-
-msgid "Display alert messages on late tasks"
-msgstr "Näytä hälytyksiä rästiin jääneistä toimista"
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr "%s on myös mahdollinen rästiin jääneiden toimenpiteiden luettelon sijaintipaikka."
-
-msgid "Frequency"
-msgstr "Hälytysten aikaväli"
-
-msgid "Use one recall time for all tasks"
-msgstr "Sama muistutusaika kaikille tehtäville"
-
-msgid "Recall time for all tasks:"
-msgstr "Muistuta kaikista tehtävistä:"
-
-msgid "Use one recall time per task"
-msgstr "Tehtäväkohtainen muistutusaika eri tehtäville"
-
-msgid "Content-Security-Policy"
-msgstr "Sisällön turvallisuusohjeistus"
-
-msgid "Enable Content-Security-Policy system"
-msgstr "Käytä sisällön turvallisuusohjeistusjärjestelmää"
-
-msgid "Enable Content-Security-Policy report only"
-msgstr "Luo vain sisällön turvallisuusohjeistusraportteja"
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr "Käytä oletusarvoisesti sisällön turvallisuusohjeistusta"
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr "Luo oletusarvoisesti vain sisällön turvallisuusohjeistusraportteja"
-
-msgid "Also apply these settings to all blogs"
-msgstr "Sovella näitä asetuksia kaikkiin blogeihin"
-
 msgid "manage pages"
 msgstr "sivujen hallinta"
-
-msgid "New page"
-msgstr "Uusi sivu"
-
-msgid "My first page"
-msgstr "Ensimmäinen sivuni"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr "Tämä on esimerkkisivusi. Kun olet valmis aloittamaan bloggaamisen, kirjaudu sisään ja muokkaa tai poista tämä sivu."
 
 #, php-format
 msgid "%d page"
@@ -1595,14 +1373,8 @@ msgstr "%d sivu"
 msgid "%d pages"
 msgstr "%d sivua"
 
-msgid "No page"
-msgstr "Ei sivuja"
-
-msgid "Hidden"
-msgstr "Piilotettu"
-
-msgid "Select this page"
-msgstr "Valitse tämä sivu"
+msgid "New page"
+msgstr "Uusi sivu"
 
 msgid "Pages actions"
 msgstr "Sivuja koskevat toimet"
@@ -1613,6 +1385,15 @@ msgstr "Paluu sivuluetteloon"
 msgid "Selected pages have been successfully reordered."
 msgstr "Valituttujen sivujen järjestys on muutettu."
 
+msgid "No page"
+msgstr "Ei sivuja"
+
+msgid "Hidden"
+msgstr "Piilotettu"
+
+msgid "Select this page"
+msgstr "Valitse tämä sivu"
+
 msgid "Published on"
 msgstr "Julkaistu"
 
@@ -1622,14 +1403,11 @@ msgstr "Tämän sivun kommenttisyöte"
 msgid "You must provide a valid email address."
 msgstr "Anna kelvollinen sähköpostiosoite."
 
-msgid "Page title"
-msgstr "Sivun otsikko"
+msgid "My first page"
+msgstr "Ensimmäinen sivuni"
 
-msgid "Page position"
-msgstr "Sivun sijainti"
-
-msgid "Publication date"
-msgstr "Julkaisupäivä"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr "Tämä on esimerkkisivusi. Kun olet valmis aloittamaan bloggaamisen, kirjaudu sisään ja muokkaa tai poista tämä sivu."
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Oletko varma, että haluat poistaa valitut sivut?"
@@ -1679,6 +1457,9 @@ msgstr "Sivun tila"
 msgid "Page language"
 msgstr "Sivun kieli"
 
+msgid "Page position"
+msgstr "Sivun sijainti"
+
 msgid "Hide in widget Pages"
 msgstr "Piilota sivu-vimpaimessa"
 
@@ -1690,6 +1471,12 @@ msgstr "Johdatus sivuun."
 
 msgid "Select this comment"
 msgstr "Valitse tämä kommentti"
+
+msgid "Page title"
+msgstr "Sivun otsikko"
+
+msgid "Publication date"
+msgstr "Julkaisupäivä"
 
 msgid "Pings"
 msgstr "Ping-viestit"
@@ -1726,21 +1513,6 @@ msgstr "Käytössä"
 
 msgid "active page"
 msgstr "Uusi sivu"
-
-msgid "Item description"
-msgstr "Valikon kohdan kuvaus"
-
-msgid "Displayed in link"
-msgstr "Näytetään linkissä"
-
-msgid "Used as link title"
-msgstr "Käytetään linkin otsikkona"
-
-msgid "Displayed in link and used as title"
-msgstr "Näytetään linkissä ja käytetään linkin otsikkona"
-
-msgid "Not displayed nor used"
-msgstr "Ei näytetä eikä käytetä"
 
 msgid "All months"
 msgstr "Kaikki kuukaudet"
@@ -1877,6 +1649,21 @@ msgstr "Oletko varma, että haluat poistaa valitut valikon kohdat?"
 msgid "No menu items so far."
 msgstr "Valikon kohdat puuttuvat vielä."
 
+msgid "Item description"
+msgstr "Valikon kohdan kuvaus"
+
+msgid "Displayed in link"
+msgstr "Näytetään linkissä"
+
+msgid "Used as link title"
+msgstr "Käytetään linkin otsikkona"
+
+msgid "Displayed in link and used as title"
+msgstr "Näytetään linkissä ja käytetään linkin otsikkona"
+
+msgid "Not displayed nor used"
+msgstr "Ei näytetä eikä käytetä"
+
 msgid "Tag"
 msgstr "Avainsana"
 
@@ -1950,23 +1737,8 @@ msgstr "Tämän avainsanan kommenttien Atom-syöte"
 msgid "This tag's entries Atom feed"
 msgstr "Tämän avainsanan blogimerkintöjen Atom-syöte"
 
-msgid "Limit (empty means no limit):"
-msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
-
-msgid "Tag name"
-msgstr "Avainsanan nimi"
-
-msgid "Entries count"
-msgstr "Blogimerkintöjen lukumäärä"
-
-msgid "Newest entry"
-msgstr "Uusin merkintä"
-
-msgid "Oldest entry"
-msgstr "Vanhin merkintä"
-
-msgid "Link to all tags:"
-msgstr "Linkki kaikkiin avainsanoihin:"
+msgid "No tags on this blog."
+msgstr "Tähän blogiin ei ole liitetty avainsanoja."
 
 msgid "Tag has been successfully renamed"
 msgstr "Avainsanan nimi on vaihdettu"
@@ -1991,8 +1763,23 @@ msgstr "Poista tämä avainsana"
 msgid "List of entries with the tag “%s”"
 msgstr "Luettelo blogimerkinnöistä, joihin liittyy avainsana “%s”"
 
-msgid "No tags on this blog."
-msgstr "Tähän blogiin ei ole liitetty avainsanoja."
+msgid "Limit (empty means no limit):"
+msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
+
+msgid "Tag name"
+msgstr "Avainsanan nimi"
+
+msgid "Entries count"
+msgstr "Blogimerkintöjen lukumäärä"
+
+msgid "Newest entry"
+msgstr "Uusin merkintä"
+
+msgid "Oldest entry"
+msgstr "Vanhin merkintä"
+
+msgid "Link to all tags:"
+msgstr "Linkki kaikkiin avainsanoihin:"
 
 msgid "Edit theme files"
 msgstr "Muokkaa teematiedostoja"
@@ -2002,33 +1789,6 @@ msgstr "Teemojen muokkausohjelman syntaksiväritys"
 
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
-
-msgid "No file"
-msgstr "Ei tiedostoja"
-
-msgid "From theme:"
-msgstr "Teemasta:"
-
-msgid "From parent:"
-msgstr "Emoteemasta:"
-
-msgid "From template set:"
-msgstr "Mallisarjasta:"
-
-msgid "File does not exist."
-msgstr "Tiedostoja ei ole."
-
-#, php-format
-msgid "File %s is not readable"
-msgstr "Tiedosto %s ei ole luettavissa"
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "Tiedostoa %s ei saatu kirjoitettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
-
-#, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "Tiedostoa %s ei saatu poistettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
 
 msgid "The file has been reset."
 msgstr "Tiedosto on palautettu alkuarvoihin."
@@ -2084,6 +1844,33 @@ msgstr "CSS-tiedostot"
 msgid "You can't edit a distributed theme."
 msgstr "Et voi muokata oletusteemaa."
 
+msgid "No file"
+msgstr "Ei tiedostoja"
+
+msgid "From theme:"
+msgstr "Teemasta:"
+
+msgid "From parent:"
+msgstr "Emoteemasta:"
+
+msgid "From template set:"
+msgstr "Mallisarjasta:"
+
+msgid "File does not exist."
+msgstr "Tiedostoja ei ole."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "Tiedosto %s ei ole luettavissa"
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Tiedostoa %s ei saatu kirjoitettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
+
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Tiedostoa %s ei saatu poistettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
+
 msgid "Preferences successfully updated"
 msgstr "Käyttäjän asetukset päivitetty"
 
@@ -2104,6 +1891,99 @@ msgstr "Tekstialuevimpaimet"
 
 msgid "Unable to initialize default widgets."
 msgstr ""
+
+msgid "navigation"
+msgstr "Navigointipaneeli"
+
+msgid "extra"
+msgstr "Lisäpaneeli"
+
+msgid "custom"
+msgstr "Mukautettu paneeli"
+
+msgid "Sidebars and their widgets have been saved."
+msgstr "Eri käyttöpaneelit ja niiden vimpaimet on tallennettu."
+
+msgid "Sidebars have been resetting."
+msgstr "Käyttöpaneelit on palautettu alkuarvoihin."
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "Oletko varma, että haluat palauttaa käyttöpaneelit alkuarvoihinsa?"
+
+msgid "Widgets"
+msgstr "Vimpaimet"
+
+msgid "Available widgets"
+msgstr "Tarjolla olevat vimpaimet"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr "Vedä vimpain tästä luettelosta johonkin käyttöpaneeleista ja pudota se lisätäksesi se sinne."
+
+msgid "order"
+msgstr "järjestys"
+
+msgid "Append to:"
+msgstr "Liitä loppuun:"
+
+msgid "Add widgets to sidebars"
+msgstr "Lisää vimpaimia käyttöpaneeleihin"
+
+msgid "Navigation sidebar"
+msgstr "Navigointipaneeli"
+
+msgid "Extra sidebar"
+msgstr "Lisäpaneeli"
+
+msgid "Custom sidebar"
+msgstr "Mukautettu paneeli"
+
+msgid "Update sidebars"
+msgstr "Päivitä käyttöpaneelit"
+
+msgid "Reset sidebars"
+msgstr "Palauta käyttöpaneelit alkuarvoihinsa"
+
+msgid "Widget ID:"
+msgstr "Vimpaimen tunniste:"
+
+msgid "No setting for this widget"
+msgstr "Tällä vimpaimella ei asetusta"
+
+msgid "boolean"
+msgstr "Boolen arvo"
+
+msgid "possible values:"
+msgstr "mahdolliset arvot:"
+
+msgid "empty string"
+msgstr "tyhjä merkkijono"
+
+msgid "listitem"
+msgstr "listaelementti"
+
+msgid "string"
+msgstr "merkkijono"
+
+msgid "Setting name:"
+msgstr "Asetuksen nimi:"
+
+msgid "No widget as far."
+msgstr "Ei vielä vimpaimia."
+
+msgid "Up the widget"
+msgstr "Vimpain ylös"
+
+msgid "Down the widget"
+msgstr "Vimpain alas"
+
+msgid "Remove the widget"
+msgstr "Poista vimpain"
+
+msgid "Remove widget"
+msgstr "Poista vimpain"
+
+msgid "Drag widgets here to remove."
+msgstr "Vedä vimpaimet tähän poistaaksesi."
 
 msgid "Search engine"
 msgstr "Hakumoottori"
@@ -2209,98 +2089,234 @@ msgstr "Lisä-CSS-luokka ympäröivää laatikkoa varten:"
 msgid "Offline"
 msgstr "Ei verkossa"
 
-msgid "navigation"
-msgstr "Navigointipaneeli"
+#~ msgid "Configure your Blowup Theme"
+#~ msgstr "Blowup-teeman asetukset"
 
-msgid "extra"
-msgstr "Lisäpaneeli"
+#~ msgid "default"
+#~ msgstr "oletus"
 
-msgid "custom"
-msgstr "Mukautettu paneeli"
+#~ msgid "Unable to create css file."
+#~ msgstr "CSS-tiedostoa ei voi luoda."
 
-msgid "Sidebars and their widgets have been saved."
-msgstr "Eri käyttöpaneelit ja niiden vimpaimet on tallennettu."
+#~ msgid "Unable to open image."
+#~ msgstr "Kuvaa ei voi avata."
 
-msgid "Sidebars have been resetting."
-msgstr "Käyttöpaneelit on palautettu alkuarvoihin."
+#~ msgid "Light linear gradient"
+#~ msgstr "Vaalea lineaarinen liukuväri"
 
-msgid "Widgets"
-msgstr "Vimpaimet"
+#~ msgid "Medium linear gradient"
+#~ msgstr "Keskisävyinen lineaarinen liukuväri"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr "Oletko varma, että haluat palauttaa käyttöpaneelit alkuarvoihinsa?"
+#~ msgid "Dark linear gradient"
+#~ msgstr "Tumma lineaarinen liukuväri"
 
-msgid "Available widgets"
-msgstr "Tarjolla olevat vimpaimet"
+#~ msgid "Solid color"
+#~ msgstr "Yhtenäinen väri"
 
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr "Vedä vimpain tästä luettelosta johonkin käyttöpaneeleista ja pudota se lisätäksesi se sinne."
+#~ msgid "Custom..."
+#~ msgstr "Mukauta..."
 
-msgid "order"
-msgstr "järjestys"
+#~ msgid "Theme configuration has been successfully updated."
+#~ msgstr "Teeman asetukset päivitetty."
 
-msgid "Append to:"
-msgstr "Liitä loppuun:"
+#~ msgid "Blowup configuration"
+#~ msgstr "Blowup-teeman asetukset"
 
-msgid "Add widgets to sidebars"
-msgstr "Lisää vimpaimia käyttöpaneeleihin"
+#~ msgid "Predefined styles"
+#~ msgstr "Ennaltamääritellyt tyylit"
 
-msgid "Navigation sidebar"
-msgstr "Navigointipaneeli"
+#~ msgid "Apply code"
+#~ msgstr "Käytä koodia"
 
-msgid "Extra sidebar"
-msgstr "Lisäpaneeli"
+#~ msgid "Choose a predefined style"
+#~ msgstr "Valitse ennaltamääritelty tyyli"
 
-msgid "Custom sidebar"
-msgstr "Mukautettu paneeli"
+#~ msgid "Back to Blog appearance"
+#~ msgstr "Paluu blogin ulkoasuun"
 
-msgid "Update sidebars"
-msgstr "Päivitä käyttöpaneelit"
+#~ msgid "Customization"
+#~ msgstr "Mukauttaminen"
 
-msgid "Reset sidebars"
-msgstr "Palauta käyttöpaneelit alkuarvoihinsa"
+#~ msgid "General"
+#~ msgstr "Yleistä"
 
-msgid "Widget ID:"
-msgstr "Vimpaimen tunniste:"
+#~ msgid "Background color:"
+#~ msgstr "Taustaväri:"
 
-msgid "No setting for this widget"
-msgstr "Tällä vimpaimella ei asetusta"
+#~ msgid "Background color fill:"
+#~ msgstr "Taustavärin täyttö:"
 
-msgid "boolean"
-msgstr "Boolen arvo"
+#~ msgid "Main text font:"
+#~ msgstr "Leipätekstifontti:"
 
-msgid "possible values:"
-msgstr "mahdolliset arvot:"
+#~ msgid "Main text font size:"
+#~ msgstr "Leipätekstifontin koko:"
 
-msgid "empty string"
-msgstr "tyhjä merkkijono"
+#~ msgid "Main text color:"
+#~ msgstr "Leipätekstin väri:"
 
-msgid "listitem"
-msgstr "listaelementti"
+#~ msgid "Text line height:"
+#~ msgstr "Tekstirivin korkeus:"
 
-msgid "string"
-msgstr "merkkijono"
+#~ msgid "Links color:"
+#~ msgstr "Linkkien väri:"
 
-msgid "Setting name:"
-msgstr "Asetuksen nimi:"
+#~ msgid "Visited links color:"
+#~ msgstr "Käytyjen linkkien väri:"
 
-msgid "No widget as far."
-msgstr "Ei vielä vimpaimia."
+#~ msgid "Focus links color:"
+#~ msgstr "Kohdistettujen linkkien väri:"
 
-msgid "Up the widget"
-msgstr "Vimpain ylös"
+#~ msgid "Prelude color:"
+#~ msgstr "Prelude-osan väri:"
 
-msgid "Down the widget"
-msgstr "Vimpain alas"
+#~ msgid "Hide main title"
+#~ msgstr "Piilota pääotsikko"
 
-msgid "Remove the widget"
-msgstr "Poista vimpain"
+#~ msgid "Main title font:"
+#~ msgstr "Pääotsikon fontti:"
 
-msgid "Remove widget"
-msgstr "Poista vimpain"
+#~ msgid "Main title font size:"
+#~ msgstr "Pääotsikon fontin koko:"
 
-msgid "Drag widgets here to remove."
-msgstr "Vedä vimpaimet tähän poistaaksesi."
+#~ msgid "Main title color:"
+#~ msgstr "Pääotsikon väri:"
+
+#~ msgid "Main title alignment:"
+#~ msgstr "Pääotsikon kohdistus:"
+
+#~ msgid "center"
+#~ msgstr "keskellä"
+
+#~ msgid "left"
+#~ msgstr "vasemmalla"
+
+#~ msgid "right"
+#~ msgstr "oikealla"
+
+#~ msgid "Main title position (x:y)"
+#~ msgstr "Pääotsikon sijainti (x:y)"
+
+#~ msgid "Top image"
+#~ msgstr "Sivun yläosan kuva"
+
+#~ msgid "Choose \"Custom...\" to upload your own image."
+#~ msgstr "Valitse \"Mukauta...\" ladataksesi palvelimelle itse haluamasi kuvan."
+
+#~ msgid "Add your image:"
+#~ msgstr "Lisää kuva:"
+
+#, php-format
+#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+#~ msgstr "JPEG- tai PNG-tiedosto, enintään 800 pikseliä leveä, %s:n enimmäiskoko"
+
+#~ msgid "Sidebar"
+#~ msgstr "Sivupalkki"
+
+#~ msgid "Sidebar position:"
+#~ msgstr "Sivupalkin paikka:"
+
+#~ msgid "Sidebar text font:"
+#~ msgstr "Sivupalkin leipäteksti:"
+
+#~ msgid "Sidebar text font size:"
+#~ msgstr "Sivupalkin leipätekstin koko:"
+
+#~ msgid "Sidebar text color:"
+#~ msgstr "Sivupalkin leipätekstin väri:"
+
+#~ msgid "Sidebar titles font:"
+#~ msgstr "Sivupalkin otsikkofontti:"
+
+#~ msgid "Sidebar titles font size:"
+#~ msgstr "Sivupalkin otsikkofontin koko:"
+
+#~ msgid "Sidebar titles color:"
+#~ msgstr "Sivupalkin otsikon väri:"
+
+#~ msgid "Sidebar 2nd level titles font:"
+#~ msgstr "Sivupalkin kakkostason otsikkofontti:"
+
+#~ msgid "Sidebar 2nd level titles font size:"
+#~ msgstr "Sivupalkin kakkostason otsikkofontin koko:"
+
+#~ msgid "Sidebar 2nd level titles color:"
+#~ msgstr "Sivupalkin kakkostason otsikon väri:"
+
+#~ msgid "Sidebar lines color:"
+#~ msgstr "Sivupalkin viivojen väri:"
+
+#~ msgid "Sidebar links color:"
+#~ msgstr "Sivupalkin linkkien väri:"
+
+#~ msgid "Sidebar visited links color:"
+#~ msgstr "Sivupalkin käytyjen linkkien väri:"
+
+#~ msgid "Sidebar focus links color:"
+#~ msgstr "Sivupalkin kohdistettujen linkkien väri:"
+
+#~ msgid "Date title font:"
+#~ msgstr "Päiväyksen otsikkofontti:"
+
+#~ msgid "Date title font size:"
+#~ msgstr "Päiväyksen otsikkofontin koko:"
+
+#~ msgid "Date title color:"
+#~ msgstr "Päiväyksen otsikon väri:"
+
+#~ msgid "Entry title font:"
+#~ msgstr "Blogimerkinnän otsikkofontti:"
+
+#~ msgid "Entry title font size:"
+#~ msgstr "Blogimerkinnän otsikkofontin koko:"
+
+#~ msgid "Entry title color:"
+#~ msgstr "Blogimerkinnän otsikon väri:"
+
+#~ msgid "Comment background color:"
+#~ msgstr "Kommenttien taustaväri:"
+
+#~ msgid "Comment text color:"
+#~ msgstr "Kommenttien tekstiväri:"
+
+#~ msgid "My comment background color:"
+#~ msgstr "Omien kommenttieni taustaväri:"
+
+#~ msgid "My comment text color:"
+#~ msgstr "Omien kommenttieni tekstiväri:"
+
+#~ msgid "Footer"
+#~ msgstr "Sivun alaosa"
+
+#~ msgid "Footer font:"
+#~ msgstr "Sivun alaosan fontti:"
+
+#~ msgid "Footer font size:"
+#~ msgstr "Sivun alaosan fontin koko:"
+
+#~ msgid "Footer color:"
+#~ msgstr "Sivun alaosan väri:"
+
+#~ msgid "Footer links color:"
+#~ msgstr "Sivun alaosan linkkien väri:"
+
+#~ msgid "Footer background color:"
+#~ msgstr "Sivun alaosan taustaväri:"
+
+#~ msgid "Additional CSS"
+#~ msgstr "Lisä-CSS"
+
+#~ msgid "Any additional CSS styles (must be written using the CSS syntax):"
+#~ msgstr "Mahdolliset CSS-lisätyylit (joiden täytyy noudattaa CSS-syntaksia) :"
+
+#~ msgid "Configuration import / export"
+#~ msgstr "Asetusten tuonti/vienti"
+
+#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+#~ msgstr "Voit siirtää asetuksesi toiseen asennukseen seuraavan koodin avulla. Voit ottaa asetukset käyttöön, liittämällä koodin ja painamalla \"Käytä koodia\" ja tallentamalla."
+
+#~ msgid "Copy this code:"
+#~ msgstr "Kopioi tämä koodi:"
 
 #~ msgid "Never"
 #~ msgstr "Ei koskaan"

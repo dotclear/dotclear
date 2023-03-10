@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -36,9 +36,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr "ブログロールの管理"
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -48,7 +45,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -190,8 +190,8 @@ msgstr "APIキーが確認されませんでした"
 msgid "Get your own API key"
 msgstr "あなた自身のAPIキーを取得"
 
-msgid "Antispam"
-msgstr "アンチスパム"
+msgid "This comment is a spam:"
+msgstr "このコメントはスパムです："
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -200,6 +200,30 @@ msgstr "（%d のスパムコメントを含む）"
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "（%d のスパムコメントを含む）"
+
+msgid "Antispam"
+msgstr "アンチスパム"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "%s 日を経過したすべてのスパムコメントは自動的に削除されます。"
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr "次の日数を経過したジャンクコメントを削除："
+
+msgid "days"
+msgstr "日"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismetスパムフィルタ"
 
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IPアドレスのブラックリスト／ホワイトリスト"
@@ -310,30 +334,6 @@ msgstr "デフォルトのワードリストを作成"
 msgid "This word exists"
 msgstr "このワードは存在します"
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "%s 日を経過したすべてのスパムコメントは自動的に削除されます。"
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "次の日数を経過したジャンクコメントを削除："
-
-msgid "days"
-msgstr "日"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismetスパムフィルタ"
-
-msgid "This comment is a spam:"
-msgstr "このコメントはスパムです："
-
 msgid "Spam moderation"
 msgstr "スパムのモデレート"
 
@@ -342,16 +342,6 @@ msgstr "スパム"
 
 msgid "Ham"
 msgstr "非スパム"
-
-msgid "No description"
-msgstr "説明はありません"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "%1$s によってフィルタされました（%2$s）"
-
-msgid "Unknown filter."
-msgstr "不明なフィルタです。"
 
 msgid "Filter does not exist."
 msgstr "フィルタが存在しません。"
@@ -414,6 +404,16 @@ msgstr "ジャンクコメントのRSSフィード"
 msgid "Published comments RSS feed"
 msgstr "掲載済みコメントのRSSフィード"
 
+msgid "No description"
+msgstr "説明はありません"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "%1$s によってフィルタされました（%2$s）"
+
+msgid "Unknown filter."
+msgstr "不明なフィルタです。"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -433,6 +433,64 @@ msgstr "ブログロールの管理"
 
 msgid "Blogroll"
 msgstr "ブログロール"
+
+msgid "You must provide a link title"
+msgstr "リンクのタイトルを入力する必要があります"
+
+msgid "You must provide a link URL"
+msgstr "リンクのURLを入力する必要があります"
+
+msgid "Nothing to import"
+msgstr "インポートするものがありません"
+
+msgid "links have been successfully imported."
+msgstr "リンクは正常にインポートされました。"
+
+msgid "Import operation cancelled."
+msgstr "インポート操作はキャンセルされました。"
+
+msgid "Link has been successfully created."
+msgstr "リンクは正常に作成されました。"
+
+msgid "category has been successfully created."
+msgstr "カテゴリは正常に作成されました。"
+
+msgid "Items have been successfully removed."
+msgstr "アイテムは正常に削除されました。"
+
+msgid "Items order has been successfully updated"
+msgstr "アイテムの並び順は正常に更新されました"
+
+msgid "Lang"
+msgstr "言語"
+
+#, fuzzy
+msgid "select this link"
+msgstr "このタグを削除"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "本当に、選択されたリンクを削除してもよろしいですか？"
+
+msgid "Delete selected links"
+msgstr "選択されたリンクを削除"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "新しいリンクを追加"
+
+msgid "Add a category"
+msgstr "カテゴリの追加"
+
+msgid "Import links"
+msgstr "リンクのインポート"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML/XBELファイル："
+
+msgid "Import"
+msgstr "インポート"
 
 msgid "No such link or title"
 msgstr "指定されたリンクやタイトルはありません"
@@ -534,12 +592,6 @@ msgstr "デートする人"
 msgid "_xfn_Sweetheart"
 msgstr "恋人"
 
-msgid "You must provide a link title"
-msgstr "リンクのタイトルを入力する必要があります"
-
-msgid "You must provide a link URL"
-msgstr "リンクのURLを入力する必要があります"
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr "XBELかOPMLファイルを与える必要があります。"
 
@@ -551,286 +603,6 @@ msgstr "すべてのカテゴリ"
 
 msgid "Links"
 msgstr "リンク"
-
-msgid "Nothing to import"
-msgstr "インポートするものがありません"
-
-msgid "links have been successfully imported."
-msgstr "リンクは正常にインポートされました。"
-
-msgid "Import operation cancelled."
-msgstr "インポート操作はキャンセルされました。"
-
-msgid "Link has been successfully created."
-msgstr "リンクは正常に作成されました。"
-
-msgid "category has been successfully created."
-msgstr "カテゴリは正常に作成されました。"
-
-msgid "Items have been successfully removed."
-msgstr "アイテムは正常に削除されました。"
-
-msgid "Items order has been successfully updated"
-msgstr "アイテムの並び順は正常に更新されました"
-
-msgid "Lang"
-msgstr "言語"
-
-#, fuzzy
-msgid "select this link"
-msgstr "このタグを削除"
-
-msgid "Are you sure you want to delete selected links?"
-msgstr "本当に、選択されたリンクを削除してもよろしいですか？"
-
-msgid "Delete selected links"
-msgstr "選択されたリンクを削除"
-
-msgid "The link list is empty."
-msgstr ""
-
-msgid "Add a new link"
-msgstr "新しいリンクを追加"
-
-msgid "Add a category"
-msgstr "カテゴリの追加"
-
-msgid "Import links"
-msgstr "リンクのインポート"
-
-msgid "OPML or XBEL File:"
-msgstr "OPML/XBELファイル："
-
-msgid "Import"
-msgstr "インポート"
-
-msgid "default"
-msgstr "デフォルト"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "画像が作成できません。"
-
-msgid "Unable to open image."
-msgstr "画像が開けません。"
-
-msgid "Light linear gradient"
-msgstr "明るい直線のグラデーション"
-
-msgid "Medium linear gradient"
-msgstr "適度な明るさの直線のグラデーション"
-
-msgid "Dark linear gradient"
-msgstr "暗い直線のグラデーション"
-
-msgid "Solid color"
-msgstr "ソリッドカラー"
-
-msgid "Custom..."
-msgstr "カスタム..."
-
-msgid "Theme configuration has been successfully updated."
-msgstr "テーマの設定は正常に更新されました。"
-
-msgid "Blowup configuration"
-msgstr "Blowupの設定"
-
-msgid "Predefined styles"
-msgstr "定義済みのスタイル"
-
-msgid "Apply code"
-msgstr "コードを適用"
-
-#, fuzzy
-msgid "Choose a predefined style"
-msgstr "定義済みのスタイル"
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr "全般"
-
-msgid "Background color:"
-msgstr "背景色："
-
-msgid "Background color fill:"
-msgstr "背景色の塗りつぶし："
-
-msgid "Main text font:"
-msgstr "メインテキストのフォント："
-
-msgid "Main text font size:"
-msgstr "メインテキストのフォントサイズ："
-
-msgid "Main text color:"
-msgstr "メインテキストの色："
-
-msgid "Text line height:"
-msgstr "テキスト行の高さ："
-
-msgid "Links color:"
-msgstr "リンクの色："
-
-msgid "Visited links color:"
-msgstr "訪問済みリンクの色："
-
-msgid "Focus links color:"
-msgstr "フォーカスリンクの色："
-
-msgid "Prelude color:"
-msgstr "ヘッダの色："
-
-msgid "Hide main title"
-msgstr "メインタイトルを非表示"
-
-msgid "Main title font:"
-msgstr "メインタイトルのフォント："
-
-msgid "Main title font size:"
-msgstr "メインタイトルのフォントサイズ："
-
-msgid "Main title color:"
-msgstr "メインタイトルの色："
-
-msgid "Main title alignment:"
-msgstr "メインタイトルの配置："
-
-msgid "center"
-msgstr "中央"
-
-msgid "left"
-msgstr "左"
-
-msgid "right"
-msgstr "右"
-
-msgid "Main title position (x:y)"
-msgstr "メインタイトルの位置 (X:Y)"
-
-msgid "Top image"
-msgstr "トップの画像"
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr "独自の画像をアップロードするには「カスタム...」を選択してください。"
-
-msgid "Add your image:"
-msgstr "画像の追加："
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "幅が 800 ピクセルの JPEG か PNG ファイル／最大サイズ %s"
-
-msgid "Sidebar"
-msgstr "サイドバー"
-
-msgid "Sidebar position:"
-msgstr "サイドバーの位置："
-
-msgid "Sidebar text font:"
-msgstr "サイドバーテキストのフォント："
-
-msgid "Sidebar text font size:"
-msgstr "サイドバーテキストのフォントサイズ："
-
-msgid "Sidebar text color:"
-msgstr "サイドバーテキストの色："
-
-msgid "Sidebar titles font:"
-msgstr "サイドバータイトルのフォント："
-
-msgid "Sidebar titles font size:"
-msgstr "サイドバータイトルのフォントサイズ："
-
-msgid "Sidebar titles color:"
-msgstr "サイドバータイトルの色："
-
-msgid "Sidebar 2nd level titles font:"
-msgstr "サイドバー第2レベルタイトルのフォント："
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr "サイドバー第2レベルタイトルのフォントサイズ："
-
-msgid "Sidebar 2nd level titles color:"
-msgstr "サイドバー第2レベルタイトルの色："
-
-msgid "Sidebar lines color:"
-msgstr "サイドバーのラインの色："
-
-msgid "Sidebar links color:"
-msgstr "サイドバーのリンクの色："
-
-msgid "Sidebar visited links color:"
-msgstr "サイドバーの訪問済みリンクの色："
-
-msgid "Sidebar focus links color:"
-msgstr "サイドバーのフォーカスリンクの色："
-
-msgid "Date title font:"
-msgstr "日付タイトルのフォント："
-
-msgid "Date title font size:"
-msgstr "日付タイトルのフォントサイズ："
-
-msgid "Date title color:"
-msgstr "日付タイトルの色："
-
-msgid "Entry title font:"
-msgstr "エントリタイトルのフォント："
-
-msgid "Entry title font size:"
-msgstr "エントリタイトルのフォントサイズ："
-
-msgid "Entry title color:"
-msgstr "エントリタイトルの色："
-
-msgid "Comment background color:"
-msgstr "コメントの背景色："
-
-msgid "Comment text color:"
-msgstr "コメントテキストの色："
-
-msgid "My comment background color:"
-msgstr "自己コメントの背景色："
-
-msgid "My comment text color:"
-msgstr "自己コメントテキストの色："
-
-msgid "Footer"
-msgstr "フッタ"
-
-msgid "Footer font:"
-msgstr "フッタのフォント："
-
-msgid "Footer font size:"
-msgstr "フッタのフォントサイズ："
-
-msgid "Footer color:"
-msgstr "フッタの色："
-
-msgid "Footer links color:"
-msgstr "フッタリンクの色："
-
-msgid "Footer background color:"
-msgstr "フッタの背景色："
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr "設定のインポート／エクスポート"
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "以下のコードを使用して、設定を共有することができます。 設定を適用するには、コードをペーストし、「コードを適用」をクリックした後に保存してください。"
-
-msgid "Copy this code:"
-msgstr ""
 
 msgid "Breadcrumb"
 msgstr ""
@@ -860,10 +632,20 @@ msgstr "すべてのタグ"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "バックアップファイルのアップロード"
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -894,6 +676,9 @@ msgid "The configuration has been updated."
 msgstr "テーマの設定は正常に更新されました。"
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1078,6 +863,69 @@ msgstr "投稿へリンクしているかトラックバック元をチェック
 msgid "Import/Export"
 msgstr "インポート／エクスポート"
 
+#, fuzzy
+msgid "Database export"
+msgstr "フラットファイルのエクスポート"
+
+msgid "Download database of current blog"
+msgstr ""
+
+#, fuzzy
+msgid "Compress file"
+msgstr "テンプレートファイル"
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr "ファイルが読み込めません。"
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "画像が作成できません。"
+
+msgid "File is not a DotClear backup."
+msgstr "ファイルはDotClearのバックアップではありません。"
+
+msgid "File is not a single blog export."
+msgstr "ファイルは単独のブログをエクスポートしたものではありません。"
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr "ファイルは完全なエクスポートではありません。"
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "しばらくお待ちください..."
+
+msgid "Export"
+msgstr "エクスポート"
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+msgid "Congratulation!"
+msgstr "おめでとう！"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "あなたのブログは正常にインポートされました。 Dotclear 2 へようこそ！"
+
+msgid "Why don't you blog this now?"
+msgstr "すぐにブログしませんか？"
+
+msgid "visit your dashboard"
+msgstr "ダッシュボードへアクセス"
+
 msgid "Flat file export"
 msgstr "フラットファイルのエクスポート"
 
@@ -1098,15 +946,8 @@ msgstr "単独ブログのインポート"
 msgid "This will create an export of your current blog: %s"
 msgstr "これは現在のブログ「%s」のエクスポートを作成します"
 
-#, fuzzy
-msgid "Compress file"
-msgstr "テンプレートファイル"
-
 msgid "You may also want to download your media directory as a zip file"
 msgstr "また、メディアディレクトリを zip ファイルとしてダウンロードできます"
-
-msgid "Export"
-msgstr "エクスポート"
 
 msgid "Multiple blogs"
 msgstr ""
@@ -1114,18 +955,6 @@ msgstr ""
 #, fuzzy
 msgid "This will create an export of all the content of your database."
 msgstr "警告： これはユーザを除いて、データベースのすべてのコンテンツがリセットされます。"
-
-msgid "Congratulation!"
-msgstr "おめでとう！"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "あなたのブログは正常にインポートされました。 Dotclear 2 へようこそ！"
-
-msgid "Why don't you blog this now?"
-msgstr "すぐにブログしませんか？"
-
-msgid "visit your dashboard"
-msgstr "ダッシュボードへアクセス"
 
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 のインポート"
@@ -1302,50 +1131,6 @@ msgstr "コメントテキストの色："
 msgid "WordPress tables not found"
 msgstr "WordPress テーブルが見つかりませんでした"
 
-msgid "No file to read."
-msgstr "ファイルが読み込めません。"
-
-#, fuzzy
-msgid "Unable to create output file."
-msgstr "画像が作成できません。"
-
-msgid "File is not a DotClear backup."
-msgstr "ファイルはDotClearのバックアップではありません。"
-
-msgid "File is not a single blog export."
-msgstr "ファイルは単独のブログをエクスポートしたものではありません。"
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr "ファイルは完全なエクスポートではありません。"
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-#, fuzzy
-msgid "Database export"
-msgstr "フラットファイルのエクスポート"
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr "しばらくお待ちください..."
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-msgid "Maintenance"
-msgstr "メンテナンス"
-
 #, fuzzy
 msgid "Servicing"
 msgstr "サービス名："
@@ -1426,6 +1211,99 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr "リンクは正常に作成されました。"
 
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "カテゴリは正常に作成されました。"
+
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "設定は正常に更新されました。"
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "これは非常に長い時間がかかる場合があります"
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "ブログの設定"
+
+#, fuzzy
+msgid "Activation"
+msgstr "有効"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr "テンプレートキャッシュディレクトリを空にする"
 
@@ -1452,18 +1330,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr "コメントとトラックバックがカウントされました。"
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1571,99 +1437,8 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
-msgid "Maintenance plugin has been successfully configured."
-msgstr "カテゴリは正常に作成されました。"
-
-#, fuzzy
-msgid "System settings have been saved."
-msgstr "設定は正常に更新されました。"
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-#, fuzzy
-msgid "This may take a very long time."
-msgstr "これは非常に長い時間がかかる場合があります"
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "ブログの設定"
-
-#, fuzzy
-msgid "Activation"
-msgstr "有効"
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
 msgstr "ページの管理"
-
-msgid "New page"
-msgstr "新しいページ"
-
-#, fuzzy
-msgid "My first page"
-msgstr "ページの編集"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1673,15 +1448,8 @@ msgstr "ページの編集"
 msgid "%d pages"
 msgstr "ページの編集"
 
-msgid "No page"
-msgstr "ページはありません"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "このタグを削除"
+msgid "New page"
+msgstr "新しいページ"
 
 #, fuzzy
 msgid "Pages actions"
@@ -1695,6 +1463,16 @@ msgstr "タグ一覧に戻る"
 msgid "Selected pages have been successfully reordered."
 msgstr "アイテムは正常に削除されました。"
 
+msgid "No page"
+msgstr "ページはありません"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "このタグを削除"
+
 msgid "Published on"
 msgstr "掲載の日時"
 
@@ -1704,14 +1482,12 @@ msgstr "このページのコメントのフィード"
 msgid "You must provide a valid email address."
 msgstr "有効なメールアドレスを入力する必要があります。"
 
-msgid "Page title"
-msgstr "ページのタイトル"
+#, fuzzy
+msgid "My first page"
+msgstr "ページの編集"
 
-msgid "Page position"
-msgstr "ページの位置"
-
-msgid "Publication date"
-msgstr "掲載の日付"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "本当に、選択されたページを削除してもよろしいですか？"
@@ -1765,6 +1541,9 @@ msgstr "ページの状態："
 msgid "Page language"
 msgstr "ページの言語："
 
+msgid "Page position"
+msgstr "ページの位置"
+
 #, fuzzy
 msgid "Hide in widget Pages"
 msgstr "メインタイトルを非表示"
@@ -1778,6 +1557,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "このタグを削除"
+
+msgid "Page title"
+msgstr "ページのタイトル"
+
+msgid "Publication date"
+msgstr "掲載の日付"
 
 msgid "Pings"
 msgstr "Ping"
@@ -1817,24 +1602,6 @@ msgstr "有効"
 #, fuzzy
 msgid "active page"
 msgstr "ページを表示"
-
-#, fuzzy
-msgid "Item description"
-msgstr "説明はありません"
-
-#, fuzzy
-msgid "Displayed in link"
-msgstr "このタグを削除"
-
-#, fuzzy
-msgid "Used as link title"
-msgstr "指定されたリンクやタイトルはありません"
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
-msgstr ""
 
 #, fuzzy
 msgid "All months"
@@ -1990,6 +1757,24 @@ msgstr "本当に、選択されたリンクを削除してもよろしいです
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "説明はありません"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "このタグを削除"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "指定されたリンクやタイトルはありません"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "タグ"
 
@@ -2072,23 +1857,8 @@ msgstr "このタグのコメントのAtomフィード"
 msgid "This tag's entries Atom feed"
 msgstr "このタグのエントリのAtomフィード"
 
-msgid "Limit (empty means no limit):"
-msgstr "制限（空欄は無制限）"
-
-msgid "Tag name"
-msgstr "タグ名"
-
-msgid "Entries count"
-msgstr "エントリ数"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
+msgid "No tags on this blog."
+msgstr "このブログでのタグはありません。"
 
 msgid "Tag has been successfully renamed"
 msgstr "タグの名前は正常に変更されました"
@@ -2114,8 +1884,23 @@ msgstr "このタグを削除"
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
-msgstr "このブログでのタグはありません。"
+msgid "Limit (empty means no limit):"
+msgstr "制限（空欄は無制限）"
+
+msgid "Tag name"
+msgstr "タグ名"
+
+msgid "Entries count"
+msgstr "エントリ数"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 #, fuzzy
 msgid "Edit theme files"
@@ -2126,33 +1911,6 @@ msgstr ""
 
 msgid "Syntax highlighting in theme editor"
 msgstr ""
-
-msgid "No file"
-msgstr "ファイルはありません"
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr "ファイルが存在しません。"
-
-#, php-format
-msgid "File %s is not readable"
-msgstr "ファイル %s は読み込み可能ではありません"
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
 
 msgid "The file has been reset."
 msgstr ""
@@ -2211,6 +1969,33 @@ msgstr "CSSファイル"
 msgid "You can't edit a distributed theme."
 msgstr "デフォルトテーマは編集できません。"
 
+msgid "No file"
+msgstr "ファイルはありません"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr "ファイルが存在しません。"
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "ファイル %s は読み込み可能ではありません"
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
+
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "ページは正常に更新されました。"
@@ -2235,6 +2020,106 @@ msgid "Widget's textareas"
 msgstr "ウィジェットテンプレートのタグ"
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr "ナビゲーション"
+
+msgid "extra"
+msgstr "拡張"
+
+#, fuzzy
+msgid "custom"
+msgstr "カスタム..."
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "本当に、サイドバーをリセットしてもよろしいですか？"
+
+msgid "Widgets"
+msgstr "ウィジェット"
+
+msgid "Available widgets"
+msgstr "利用可能なウィジェット"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "並び順"
+
+msgid "Append to:"
+msgstr "付加先："
+
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "サイドバーへウィジェットを追加"
+
+msgid "Navigation sidebar"
+msgstr "ナビゲーションサイドバー"
+
+msgid "Extra sidebar"
+msgstr "拡張サイドバー"
+
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "サイドバーをリセット"
+
+msgid "Update sidebars"
+msgstr "サイドバーを更新"
+
+msgid "Reset sidebars"
+msgstr "サイドバーをリセット"
+
+msgid "Widget ID:"
+msgstr "ウィジェット ID："
+
+msgid "No setting for this widget"
+msgstr "このウィジェットに設定はありません"
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "設定名："
+
+#, fuzzy
+msgid "No widget as far."
+msgstr "ウィジェットはありません。"
+
+#, fuzzy
+msgid "Up the widget"
+msgstr "ウィジェットはありません。"
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "ウィジェットの削除"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "ウィジェットの削除"
+
+msgid "Remove widget"
+msgstr "ウィジェットの削除"
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2345,105 +2230,218 @@ msgstr "CSSファイル"
 msgid "Offline"
 msgstr ""
 
-msgid "navigation"
-msgstr "ナビゲーション"
-
-msgid "extra"
-msgstr "拡張"
+#~ msgid "default"
+#~ msgstr "デフォルト"
 
 #, fuzzy
-msgid "custom"
-msgstr "カスタム..."
+#~ msgid "Unable to create css file."
+#~ msgstr "画像が作成できません。"
 
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
+#~ msgid "Unable to open image."
+#~ msgstr "画像が開けません。"
 
-msgid "Sidebars have been resetting."
-msgstr ""
+#~ msgid "Light linear gradient"
+#~ msgstr "明るい直線のグラデーション"
 
-msgid "Widgets"
-msgstr "ウィジェット"
+#~ msgid "Medium linear gradient"
+#~ msgstr "適度な明るさの直線のグラデーション"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr "本当に、サイドバーをリセットしてもよろしいですか？"
+#~ msgid "Dark linear gradient"
+#~ msgstr "暗い直線のグラデーション"
 
-msgid "Available widgets"
-msgstr "利用可能なウィジェット"
+#~ msgid "Solid color"
+#~ msgstr "ソリッドカラー"
 
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+#~ msgid "Custom..."
+#~ msgstr "カスタム..."
 
-msgid "order"
-msgstr "並び順"
+#~ msgid "Theme configuration has been successfully updated."
+#~ msgstr "テーマの設定は正常に更新されました。"
 
-msgid "Append to:"
-msgstr "付加先："
+#~ msgid "Blowup configuration"
+#~ msgstr "Blowupの設定"
 
-#, fuzzy
-msgid "Add widgets to sidebars"
-msgstr "サイドバーへウィジェットを追加"
+#~ msgid "Predefined styles"
+#~ msgstr "定義済みのスタイル"
 
-msgid "Navigation sidebar"
-msgstr "ナビゲーションサイドバー"
-
-msgid "Extra sidebar"
-msgstr "拡張サイドバー"
+#~ msgid "Apply code"
+#~ msgstr "コードを適用"
 
 #, fuzzy
-msgid "Custom sidebar"
-msgstr "サイドバーをリセット"
+#~ msgid "Choose a predefined style"
+#~ msgstr "定義済みのスタイル"
 
-msgid "Update sidebars"
-msgstr "サイドバーを更新"
+#~ msgid "General"
+#~ msgstr "全般"
 
-msgid "Reset sidebars"
-msgstr "サイドバーをリセット"
+#~ msgid "Background color:"
+#~ msgstr "背景色："
 
-msgid "Widget ID:"
-msgstr "ウィジェット ID："
+#~ msgid "Background color fill:"
+#~ msgstr "背景色の塗りつぶし："
 
-msgid "No setting for this widget"
-msgstr "このウィジェットに設定はありません"
+#~ msgid "Main text font:"
+#~ msgstr "メインテキストのフォント："
 
-msgid "boolean"
-msgstr ""
+#~ msgid "Main text font size:"
+#~ msgstr "メインテキストのフォントサイズ："
 
-msgid "possible values:"
-msgstr ""
+#~ msgid "Main text color:"
+#~ msgstr "メインテキストの色："
 
-msgid "empty string"
-msgstr ""
+#~ msgid "Text line height:"
+#~ msgstr "テキスト行の高さ："
 
-msgid "listitem"
-msgstr ""
+#~ msgid "Links color:"
+#~ msgstr "リンクの色："
 
-msgid "string"
-msgstr ""
+#~ msgid "Visited links color:"
+#~ msgstr "訪問済みリンクの色："
 
-msgid "Setting name:"
-msgstr "設定名："
+#~ msgid "Focus links color:"
+#~ msgstr "フォーカスリンクの色："
 
-#, fuzzy
-msgid "No widget as far."
-msgstr "ウィジェットはありません。"
+#~ msgid "Prelude color:"
+#~ msgstr "ヘッダの色："
 
-#, fuzzy
-msgid "Up the widget"
-msgstr "ウィジェットはありません。"
+#~ msgid "Hide main title"
+#~ msgstr "メインタイトルを非表示"
 
-#, fuzzy
-msgid "Down the widget"
-msgstr "ウィジェットの削除"
+#~ msgid "Main title font:"
+#~ msgstr "メインタイトルのフォント："
 
-#, fuzzy
-msgid "Remove the widget"
-msgstr "ウィジェットの削除"
+#~ msgid "Main title font size:"
+#~ msgstr "メインタイトルのフォントサイズ："
 
-msgid "Remove widget"
-msgstr "ウィジェットの削除"
+#~ msgid "Main title color:"
+#~ msgstr "メインタイトルの色："
 
-msgid "Drag widgets here to remove."
-msgstr ""
+#~ msgid "Main title alignment:"
+#~ msgstr "メインタイトルの配置："
+
+#~ msgid "center"
+#~ msgstr "中央"
+
+#~ msgid "left"
+#~ msgstr "左"
+
+#~ msgid "right"
+#~ msgstr "右"
+
+#~ msgid "Main title position (x:y)"
+#~ msgstr "メインタイトルの位置 (X:Y)"
+
+#~ msgid "Top image"
+#~ msgstr "トップの画像"
+
+#~ msgid "Choose \"Custom...\" to upload your own image."
+#~ msgstr "独自の画像をアップロードするには「カスタム...」を選択してください。"
+
+#~ msgid "Add your image:"
+#~ msgstr "画像の追加："
+
+#, php-format
+#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+#~ msgstr "幅が 800 ピクセルの JPEG か PNG ファイル／最大サイズ %s"
+
+#~ msgid "Sidebar"
+#~ msgstr "サイドバー"
+
+#~ msgid "Sidebar position:"
+#~ msgstr "サイドバーの位置："
+
+#~ msgid "Sidebar text font:"
+#~ msgstr "サイドバーテキストのフォント："
+
+#~ msgid "Sidebar text font size:"
+#~ msgstr "サイドバーテキストのフォントサイズ："
+
+#~ msgid "Sidebar text color:"
+#~ msgstr "サイドバーテキストの色："
+
+#~ msgid "Sidebar titles font:"
+#~ msgstr "サイドバータイトルのフォント："
+
+#~ msgid "Sidebar titles font size:"
+#~ msgstr "サイドバータイトルのフォントサイズ："
+
+#~ msgid "Sidebar titles color:"
+#~ msgstr "サイドバータイトルの色："
+
+#~ msgid "Sidebar 2nd level titles font:"
+#~ msgstr "サイドバー第2レベルタイトルのフォント："
+
+#~ msgid "Sidebar 2nd level titles font size:"
+#~ msgstr "サイドバー第2レベルタイトルのフォントサイズ："
+
+#~ msgid "Sidebar 2nd level titles color:"
+#~ msgstr "サイドバー第2レベルタイトルの色："
+
+#~ msgid "Sidebar lines color:"
+#~ msgstr "サイドバーのラインの色："
+
+#~ msgid "Sidebar links color:"
+#~ msgstr "サイドバーのリンクの色："
+
+#~ msgid "Sidebar visited links color:"
+#~ msgstr "サイドバーの訪問済みリンクの色："
+
+#~ msgid "Sidebar focus links color:"
+#~ msgstr "サイドバーのフォーカスリンクの色："
+
+#~ msgid "Date title font:"
+#~ msgstr "日付タイトルのフォント："
+
+#~ msgid "Date title font size:"
+#~ msgstr "日付タイトルのフォントサイズ："
+
+#~ msgid "Date title color:"
+#~ msgstr "日付タイトルの色："
+
+#~ msgid "Entry title font:"
+#~ msgstr "エントリタイトルのフォント："
+
+#~ msgid "Entry title font size:"
+#~ msgstr "エントリタイトルのフォントサイズ："
+
+#~ msgid "Entry title color:"
+#~ msgstr "エントリタイトルの色："
+
+#~ msgid "Comment background color:"
+#~ msgstr "コメントの背景色："
+
+#~ msgid "Comment text color:"
+#~ msgstr "コメントテキストの色："
+
+#~ msgid "My comment background color:"
+#~ msgstr "自己コメントの背景色："
+
+#~ msgid "My comment text color:"
+#~ msgstr "自己コメントテキストの色："
+
+#~ msgid "Footer"
+#~ msgstr "フッタ"
+
+#~ msgid "Footer font:"
+#~ msgstr "フッタのフォント："
+
+#~ msgid "Footer font size:"
+#~ msgstr "フッタのフォントサイズ："
+
+#~ msgid "Footer color:"
+#~ msgstr "フッタの色："
+
+#~ msgid "Footer links color:"
+#~ msgstr "フッタリンクの色："
+
+#~ msgid "Footer background color:"
+#~ msgstr "フッタの背景色："
+
+#~ msgid "Configuration import / export"
+#~ msgstr "設定のインポート／エクスポート"
+
+#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+#~ msgstr "以下のコードを使用して、設定を共有することができます。 設定を適用するには、コードをペーストし、「コードを適用」をクリックした後に保存してください。"
 
 #, fuzzy
 #~ msgid "Liste des auteurs"

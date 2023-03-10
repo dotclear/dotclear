@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -669,6 +669,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Idiomas instalados"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Desactivar"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1819,9 +1826,6 @@ msgstr "Idiomas instalados"
 msgid "Activated plugins"
 msgstr "Complementos activados"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2275,6 +2279,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Tamaño del fichero:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2512,6 +2519,9 @@ msgid "Remind me later"
 msgstr "Recordármelo más tarde"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3080,6 +3090,22 @@ msgid "Trackback"
 msgstr "Retroenlaces"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Tipo de fichero:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Usuarios por página"
 
@@ -3186,10 +3212,11 @@ msgid "Select:"
 msgstr "Seleccionado:"
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "Sin selección"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "Seleccionar todo"
 
 msgid "Invert selection"
@@ -3485,6 +3512,10 @@ msgstr "Buscar una entrada:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Gestión de los complementos"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3994,15 +4025,16 @@ msgstr "Se ha producido un error durante la escritura del fichero."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Tamaños de las imágenes generadas (en píxeles)"
 
-#, fuzzy
-msgid "small"
-msgstr "Pequeño:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Miniaturas:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4426,6 +4458,121 @@ msgstr "No se ha indicado ningún espacio de nombres"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Se ha producido un error durante la actualización automática:"
 
+msgid "Unable to open directory."
+msgstr "No es posible abrir el directorio."
+
+msgid "Unable to create directory."
+msgstr "No se puede crear el directorio."
+
+msgid "File is not writable."
+msgstr "El fichero no se puede modificar."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "No se puede cambiar el nombre del fichero."
+
+msgid "Not an uploaded file."
+msgstr "No hay fichero."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "El fichero es más grande que el tamaño máximo permitido."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "El fichero sólo se ha enviado parcialmente."
+
+msgid "No file was uploaded."
+msgstr "No se ha enviado ningún fichero."
+
+msgid "Missing a temporary folder."
+msgstr "Falta una carpeta temporal."
+
+msgid "Failed to write file to disk."
+msgstr "Fallo al guardar el fichero en el disco."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s no es un directorio."
+
+msgid "Uploading this file is not allowed."
+msgstr "No se permite el envío de este fichero."
+
+msgid "Destination directory is not in jail."
+msgstr "El directorio de destino no está enjaulado."
+
+msgid "File already exists."
+msgstr "El fichero ya existe."
+
+msgid "Cannot write in this directory."
+msgstr "No se puede escribir en este directorio."
+
+msgid "Source file does not exist."
+msgstr "El fichero de origen no existe."
+
+msgid "File is not in jail."
+msgstr "El fichero no está enjaulado."
+
+msgid "Destination directory is not writable."
+msgstr "No se puede escribir en el directorio de destino."
+
+msgid "Unable to rename file."
+msgstr "No se puede cambiar el nombre del fichero."
+
+msgid "File cannot be removed."
+msgstr "Este fichero no se puede eliminar."
+
+msgid "Directory is not in jail."
+msgstr "El directorio no está enjaulado."
+
+msgid "Directory cannot be removed."
+msgstr "No se puede eliminar este directorio."
+
+msgid "Not enough memory to open image."
+msgstr "No hay suficiente memoria para abrir la imagen."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "El fichero %s no está comprimido en el zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Intentando descomprimir una carpeta %s"
+
+msgid "Unable to write destination file."
+msgstr "No es posible escribir el fichero de destino."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "No es posible escribir el directorio de destino, permiso denegado."
+
+msgid "Not enough memory to open file."
+msgstr "No hay suficiente memoria para abrir el fichero."
+
+msgid "File does not exist"
+msgstr "El fichero no existe"
+
+msgid "Cannot read file"
+msgstr "No se puede leer el fichero"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "El directorio %s no existe."
+
+msgid "Cannot read directory"
+msgstr "No se puede leer el directorio"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4441,6 +4588,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Código de idioma no válido"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Código de idioma no válido"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Código de idioma no válido"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Fichero de resúmenes no válido."
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Pequeño:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Miniaturas:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4524,108 +4704,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Temas del blog"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "No es posible abrir el directorio."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "No se puede crear el directorio."
-
-#~ msgid "File is not writable."
-#~ msgstr "El fichero no se puede modificar."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "No hay fichero."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "El fichero es más grande que el tamaño máximo permitido."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "El fichero sólo se ha enviado parcialmente."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "No se ha enviado ningún fichero."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Falta una carpeta temporal."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Fallo al guardar el fichero en el disco."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s no es un directorio."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Código de idioma no válido"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Código de idioma no válido"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Fichero de resúmenes no válido."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "No se permite el envío de este fichero."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "El directorio de destino no está enjaulado."
-
-#~ msgid "File already exists."
-#~ msgstr "El fichero ya existe."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "No se puede escribir en este directorio."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "El fichero de origen no existe."
-
-#~ msgid "File is not in jail."
-#~ msgstr "El fichero no está enjaulado."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "No se puede escribir en el directorio de destino."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "No se puede cambiar el nombre del fichero."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Este fichero no se puede eliminar."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "El directorio no está enjaulado."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "No se puede eliminar este directorio."
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "No hay suficiente memoria para abrir la imagen."
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "El fichero %s no está comprimido en el zip."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "Intentando descomprimir una carpeta %s"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "No es posible escribir el fichero de destino."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "No es posible escribir el directorio de destino, permiso denegado."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "No hay suficiente memoria para abrir el fichero."
-
-#~ msgid "File does not exist"
-#~ msgstr "El fichero no existe"
-
-#~ msgid "Cannot read file"
-#~ msgstr "No se puede leer el fichero"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "No se puede leer el directorio"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4904,9 +4982,6 @@ msgstr ""
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "No está autorizado a eliminar este comentario"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "El directorio %s no existe."
 
 #, fuzzy
 #~ msgid "Blogroll"

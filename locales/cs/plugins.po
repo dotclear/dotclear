@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -32,9 +32,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr "spravovat odkazy"
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -44,7 +41,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -186,8 +186,8 @@ msgstr "API klíč nebyl ověřen"
 msgid "Get your own API key"
 msgstr "Získat vlastní API klíč"
 
-msgid "Antispam"
-msgstr "Antispam"
+msgid "This comment is a spam:"
+msgstr "Tento komentář je spam:"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -196,6 +196,30 @@ msgstr "(obsahuje %d spamový komentář)"
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(obsahuje %d spamových komentářů)"
+
+msgid "Antispam"
+msgstr "Antispam"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Všechny spam komentáře starší než %s dnů(y) budou automaticky smazány."
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr "Vymazat podezřelé komentáře starší než"
+
+msgid "days"
+msgstr "dnů(y)"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet spamový filtr"
 
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP blocklist / allowlist filtr"
@@ -306,30 +330,6 @@ msgstr "Vytvořit výchozí seznam slov"
 msgid "This word exists"
 msgstr "Toto slovo již existuje"
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Všechny spam komentáře starší než %s dnů(y) budou automaticky smazány."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "Vymazat podezřelé komentáře starší než"
-
-msgid "days"
-msgstr "dnů(y)"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet spamový filtr"
-
-msgid "This comment is a spam:"
-msgstr "Tento komentář je spam:"
-
 msgid "Spam moderation"
 msgstr "Moderování spamu"
 
@@ -338,16 +338,6 @@ msgstr "Spam"
 
 msgid "Ham"
 msgstr "Šunka"
-
-msgid "No description"
-msgstr "Žádný popis"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Filtrováno dle %1$s (%2$s)"
-
-msgid "Unknown filter."
-msgstr "Neznámý filtr"
 
 msgid "Filter does not exist."
 msgstr "Filtr neexistuje."
@@ -410,6 +400,16 @@ msgstr "Podezřelé komentáře - RSS zdroj"
 msgid "Published comments RSS feed"
 msgstr "Publikované komentáře - RSS zdroj"
 
+msgid "No description"
+msgstr "Žádný popis"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Filtrováno dle %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Neznámý filtr"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -429,6 +429,64 @@ msgstr "spravovat odkazy"
 
 msgid "Blogroll"
 msgstr "Odkazy"
+
+msgid "You must provide a link title"
+msgstr "Musíte vložit název odkazu"
+
+msgid "You must provide a link URL"
+msgstr "Musíte vložit URL odkazu"
+
+msgid "Nothing to import"
+msgstr "Není nic k importu"
+
+msgid "links have been successfully imported."
+msgstr "odkazy byly úspěšně naimportovány."
+
+msgid "Import operation cancelled."
+msgstr "Import byl zrušen."
+
+msgid "Link has been successfully created."
+msgstr "Odkaz byl úspěšně vytvořen."
+
+msgid "category has been successfully created."
+msgstr "kategorie byla úspěšně vytvořena."
+
+msgid "Items have been successfully removed."
+msgstr "Položky byly úspěšně odstraněny."
+
+msgid "Items order has been successfully updated"
+msgstr "Položky byly úspěšně upraveny."
+
+msgid "Lang"
+msgstr "Jazyk"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Smazat tento štítek"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
+
+msgid "Delete selected links"
+msgstr "Smazat vybrané odkazy"
+
+msgid "The link list is empty."
+msgstr "Seznam odkazů je prázdný."
+
+msgid "Add a new link"
+msgstr "Přidat nový odkaz"
+
+msgid "Add a category"
+msgstr "Přidat kategorii"
+
+msgid "Import links"
+msgstr "Importovat odkazy"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML nebo XBEL soubor:"
+
+msgid "Import"
+msgstr "Importovat"
 
 msgid "No such link or title"
 msgstr "Žádný takový odkaz nebo název"
@@ -530,12 +588,6 @@ msgstr "randí"
 msgid "_xfn_Sweetheart"
 msgstr "zlatíčko"
 
-msgid "You must provide a link title"
-msgstr "Musíte vložit název odkazu"
-
-msgid "You must provide a link URL"
-msgstr "Musíte vložit URL odkazu"
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Musíte nahrát XBEL nebo OPML soubor."
 
@@ -547,286 +599,6 @@ msgstr "Všechny kategorie"
 
 msgid "Links"
 msgstr "Odkazy"
-
-msgid "Nothing to import"
-msgstr "Není nic k importu"
-
-msgid "links have been successfully imported."
-msgstr "odkazy byly úspěšně naimportovány."
-
-msgid "Import operation cancelled."
-msgstr "Import byl zrušen."
-
-msgid "Link has been successfully created."
-msgstr "Odkaz byl úspěšně vytvořen."
-
-msgid "category has been successfully created."
-msgstr "kategorie byla úspěšně vytvořena."
-
-msgid "Items have been successfully removed."
-msgstr "Položky byly úspěšně odstraněny."
-
-msgid "Items order has been successfully updated"
-msgstr "Položky byly úspěšně upraveny."
-
-msgid "Lang"
-msgstr "Jazyk"
-
-#, fuzzy
-msgid "select this link"
-msgstr "Smazat tento štítek"
-
-msgid "Are you sure you want to delete selected links?"
-msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
-
-msgid "Delete selected links"
-msgstr "Smazat vybrané odkazy"
-
-msgid "The link list is empty."
-msgstr "Seznam odkazů je prázdný."
-
-msgid "Add a new link"
-msgstr "Přidat nový odkaz"
-
-msgid "Add a category"
-msgstr "Přidat kategorii"
-
-msgid "Import links"
-msgstr "Importovat odkazy"
-
-msgid "OPML or XBEL File:"
-msgstr "OPML nebo XBEL soubor:"
-
-msgid "Import"
-msgstr "Importovat"
-
-msgid "default"
-msgstr "výchozí"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "Nelze vytvořit obrázky."
-
-msgid "Unable to open image."
-msgstr "Obrázek nelze otevřít."
-
-msgid "Light linear gradient"
-msgstr "Světlý lineární přechod"
-
-msgid "Medium linear gradient"
-msgstr "Střední lineární přechod"
-
-msgid "Dark linear gradient"
-msgstr "Tmavý lineární přechod"
-
-msgid "Solid color"
-msgstr "Jedna barva"
-
-msgid "Custom..."
-msgstr "Vlastní..."
-
-msgid "Theme configuration has been successfully updated."
-msgstr "Konfigurace vzhledu byla úspěšně upravena."
-
-msgid "Blowup configuration"
-msgstr "Rozšířená konfigurace"
-
-msgid "Predefined styles"
-msgstr "Předdefinované styly"
-
-msgid "Apply code"
-msgstr "Nastavit z kódu"
-
-#, fuzzy
-msgid "Choose a predefined style"
-msgstr "Předdefinované styly"
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr "Obecné"
-
-msgid "Background color:"
-msgstr "Barva pozadí:"
-
-msgid "Background color fill:"
-msgstr "Vypnit barvnou pozadí:"
-
-msgid "Main text font:"
-msgstr "Hlavní font:"
-
-msgid "Main text font size:"
-msgstr "Hlavní velikost fontu:"
-
-msgid "Main text color:"
-msgstr "Hlavní barva fontu:"
-
-msgid "Text line height:"
-msgstr "Výška řádku:"
-
-msgid "Links color:"
-msgstr "Barva odkazů:"
-
-msgid "Visited links color:"
-msgstr "Barva navštívených odkazů:"
-
-msgid "Focus links color:"
-msgstr "Barva aktivních odkazů (pod kurzorem):"
-
-msgid "Prelude color:"
-msgstr "Úvodní barva"
-
-msgid "Hide main title"
-msgstr "Schovat hlavní nadpis"
-
-msgid "Main title font:"
-msgstr "Font hlavního nadpisu:"
-
-msgid "Main title font size:"
-msgstr "Velikost hlavního nadpisu:"
-
-msgid "Main title color:"
-msgstr "Barva hlavního nadpisu:"
-
-msgid "Main title alignment:"
-msgstr "Zarovnání hlavního nadpisu:"
-
-msgid "center"
-msgstr "uprostřed"
-
-msgid "left"
-msgstr "vlevo"
-
-msgid "right"
-msgstr "vpravo"
-
-msgid "Main title position (x:y)"
-msgstr "Pozice hlavního nadpisu (x:y)"
-
-msgid "Top image"
-msgstr "Hlavní obrázek"
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr "Vyberte \"Vlastní...\" pro nahrání svého vlastního obrázku."
-
-msgid "Add your image:"
-msgstr "Přidat vlastní obrázek:"
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "JPEG nebo PNG soubory, široké 800px, maximální velikost %s"
-
-msgid "Sidebar"
-msgstr "Boční panel"
-
-msgid "Sidebar position:"
-msgstr "Pozice:"
-
-msgid "Sidebar text font:"
-msgstr "Font textu:"
-
-msgid "Sidebar text font size:"
-msgstr "Velikost textu:"
-
-msgid "Sidebar text color:"
-msgstr "Barva textu:"
-
-msgid "Sidebar titles font:"
-msgstr "Font titulku:"
-
-msgid "Sidebar titles font size:"
-msgstr "Velikost titulku:"
-
-msgid "Sidebar titles color:"
-msgstr "Barva titulku panelu:"
-
-msgid "Sidebar 2nd level titles font:"
-msgstr "Font 2. úrovně titulku:"
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr "Velikost 2. úrovně titulku:"
-
-msgid "Sidebar 2nd level titles color:"
-msgstr "Barva 2. úrovně titulku:"
-
-msgid "Sidebar lines color:"
-msgstr "Barva linek panelu:"
-
-msgid "Sidebar links color:"
-msgstr "Barva odkazů panelu:"
-
-msgid "Sidebar visited links color:"
-msgstr "Barva navštívených odkazů:"
-
-msgid "Sidebar focus links color:"
-msgstr "Barva aktivních odkazů (pod kurzorem):"
-
-msgid "Date title font:"
-msgstr "Font datumu:"
-
-msgid "Date title font size:"
-msgstr "Velikost datumu:"
-
-msgid "Date title color:"
-msgstr "Barva datumu:"
-
-msgid "Entry title font:"
-msgstr "Font názvu:"
-
-msgid "Entry title font size:"
-msgstr "Velikost názvu:"
-
-msgid "Entry title color:"
-msgstr "Barva názvu:"
-
-msgid "Comment background color:"
-msgstr "Barva pozadí komentáře:"
-
-msgid "Comment text color:"
-msgstr "Barva textu komentáře:"
-
-msgid "My comment background color:"
-msgstr "Barva pozadí mého komentáře:"
-
-msgid "My comment text color:"
-msgstr "Barva textu mého komentáře:"
-
-msgid "Footer"
-msgstr "Patička"
-
-msgid "Footer font:"
-msgstr "Font textu:"
-
-msgid "Footer font size:"
-msgstr "Velikost textu:"
-
-msgid "Footer color:"
-msgstr "Barva textu:"
-
-msgid "Footer links color:"
-msgstr "Barva odkazů:"
-
-msgid "Footer background color:"
-msgstr "Barva pozadí:"
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr "Importovat / exportovat konfiguraci"
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "Svoji konfigurace můžete sdílet pomocí tohoto kódu. Pro jeho aplikaci jej vložte a klikněte na tlačítko \"Nastavit z kódu\" and uložte."
-
-msgid "Copy this code:"
-msgstr ""
 
 msgid "Breadcrumb"
 msgstr ""
@@ -856,10 +628,20 @@ msgstr "Všechny štítky"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "Nahrát záložní soubor"
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -891,6 +673,9 @@ msgid "The configuration has been updated."
 msgstr "Konfigurace vzhledu byla úspěšně upravena."
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1077,6 +862,69 @@ msgstr "Zkontroluj zdroj trackbacku, jestli je tam odkaz na článek"
 msgid "Import/Export"
 msgstr "Import / Export"
 
+#, fuzzy
+msgid "Database export"
+msgstr "Export do souboru"
+
+msgid "Download database of current blog"
+msgstr ""
+
+#, fuzzy
+msgid "Compress file"
+msgstr "Šablonové soubory"
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr "Žádný soubor pro čtení."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "Nelze vytvořit obrázky."
+
+msgid "File is not a DotClear backup."
+msgstr "Soubor není záloha DotClearu."
+
+msgid "File is not a single blog export."
+msgstr "Soubor není exporten jednoho blogu."
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr "Soubor není kompletním exportem."
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "Prosím čekejte..."
+
+msgid "Export"
+msgstr "Exportovat"
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+msgid "Maintenance"
+msgstr "Údržba"
+
+msgid "Congratulation!"
+msgstr "Blahopřejeme!"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Váš blog byl úspěšně importován. Vítejte v Dotclearu 2!"
+
+msgid "Why don't you blog this now?"
+msgstr "Proč o tom nenapsat článek na blog?"
+
+msgid "visit your dashboard"
+msgstr "podívejte se na svoji nástěnku"
+
 msgid "Flat file export"
 msgstr "Export do souboru"
 
@@ -1097,15 +945,8 @@ msgstr "Importovat jeden blog"
 msgid "This will create an export of your current blog: %s"
 msgstr "Tímto vytvoříte export vašeho blogu: %s"
 
-#, fuzzy
-msgid "Compress file"
-msgstr "Šablonové soubory"
-
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Můřete také chtít stáhnout své mediální soubory jako zazipovaný soubor."
-
-msgid "Export"
-msgstr "Exportovat"
 
 msgid "Multiple blogs"
 msgstr ""
@@ -1113,18 +954,6 @@ msgstr ""
 #, fuzzy
 msgid "This will create an export of all the content of your database."
 msgstr "Varování: Tato operace resetuje veškerý obsah databáze, kromě uživatelů."
-
-msgid "Congratulation!"
-msgstr "Blahopřejeme!"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "Váš blog byl úspěšně importován. Vítejte v Dotclearu 2!"
-
-msgid "Why don't you blog this now?"
-msgstr "Proč o tom nenapsat článek na blog?"
-
-msgid "visit your dashboard"
-msgstr "podívejte se na svoji nástěnku"
 
 msgid "Dotclear 1.2 import"
 msgstr "Import Dotclearu 1.2"
@@ -1299,50 +1128,6 @@ msgstr "Formátovač obsahu komentářů:"
 msgid "WordPress tables not found"
 msgstr "Tabulky WordPressu nebyly nalezeny."
 
-msgid "No file to read."
-msgstr "Žádný soubor pro čtení."
-
-#, fuzzy
-msgid "Unable to create output file."
-msgstr "Nelze vytvořit obrázky."
-
-msgid "File is not a DotClear backup."
-msgstr "Soubor není záloha DotClearu."
-
-msgid "File is not a single blog export."
-msgstr "Soubor není exporten jednoho blogu."
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr "Soubor není kompletním exportem."
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-#, fuzzy
-msgid "Database export"
-msgstr "Export do souboru"
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr "Prosím čekejte..."
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-msgid "Maintenance"
-msgstr "Údržba"
-
 #, fuzzy
 msgid "Servicing"
 msgstr "Jméno služby:"
@@ -1427,6 +1212,99 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr "Odkaz byl úspěšně vytvořen."
 
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "kategorie byla úspěšně vytvořena."
+
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "Nastavení bylo úspěšně upraveno."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "Tato operace může trvat velmi dlouho"
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "nastavení blogu"
+
+#, fuzzy
+msgid "Activation"
+msgstr "Aktivní"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr "Vyprázdnit cahce adresář šablon"
 
@@ -1453,18 +1331,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr "Komentáře a trackabacky byly spočítány."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1571,99 +1437,8 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
-msgid "Maintenance plugin has been successfully configured."
-msgstr "kategorie byla úspěšně vytvořena."
-
-#, fuzzy
-msgid "System settings have been saved."
-msgstr "Nastavení bylo úspěšně upraveno."
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-#, fuzzy
-msgid "This may take a very long time."
-msgstr "Tato operace může trvat velmi dlouho"
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "nastavení blogu"
-
-#, fuzzy
-msgid "Activation"
-msgstr "Aktivní"
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
 msgstr "spravovat stránky"
-
-msgid "New page"
-msgstr "Nová stránka"
-
-#, fuzzy
-msgid "My first page"
-msgstr "Upravit stránku"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1673,15 +1448,8 @@ msgstr "Upravit stránku"
 msgid "%d pages"
 msgstr "Upravit stránku"
 
-msgid "No page"
-msgstr "Žádná stránka"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Smazat tento štítek"
+msgid "New page"
+msgstr "Nová stránka"
 
 #, fuzzy
 msgid "Pages actions"
@@ -1695,6 +1463,16 @@ msgstr "Zpět na seznam štítků"
 msgid "Selected pages have been successfully reordered."
 msgstr "Položky byly úspěšně odstraněny."
 
+msgid "No page"
+msgstr "Žádná stránka"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "Smazat tento štítek"
+
 msgid "Published on"
 msgstr "Publikováno dne"
 
@@ -1704,14 +1482,12 @@ msgstr "Zdroj komentářů článku"
 msgid "You must provide a valid email address."
 msgstr "Musíte vložit validní emailovou adresu."
 
-msgid "Page title"
-msgstr "Jméno stránky"
+#, fuzzy
+msgid "My first page"
+msgstr "Upravit stránku"
 
-msgid "Page position"
-msgstr "Pozice stránky"
-
-msgid "Publication date"
-msgstr "Datum publikování"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jste si jisti, že chcete smazat vybrané stránky?"
@@ -1765,6 +1541,9 @@ msgstr "Stav stránky:"
 msgid "Page language"
 msgstr "Jazyk stránky:"
 
+msgid "Page position"
+msgstr "Pozice stránky"
+
 #, fuzzy
 msgid "Hide in widget Pages"
 msgstr "Schovat hlavní nadpis"
@@ -1778,6 +1557,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "Smazat tento štítek"
+
+msgid "Page title"
+msgstr "Jméno stránky"
+
+msgid "Publication date"
+msgstr "Datum publikování"
 
 msgid "Pings"
 msgstr "Pingy"
@@ -1817,24 +1602,6 @@ msgstr "Aktivní"
 #, fuzzy
 msgid "active page"
 msgstr "Zobrazit stránku"
-
-#, fuzzy
-msgid "Item description"
-msgstr "Žádný popis"
-
-#, fuzzy
-msgid "Displayed in link"
-msgstr "Smazat tento štítek"
-
-#, fuzzy
-msgid "Used as link title"
-msgstr "Žádný takový odkaz nebo název"
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
-msgstr ""
 
 #, fuzzy
 msgid "All months"
@@ -1990,6 +1757,24 @@ msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "Žádný popis"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "Smazat tento štítek"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "Žádný takový odkaz nebo název"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "Štítek"
 
@@ -2073,23 +1858,8 @@ msgstr "Atom zdroj komentářů tohoto štítku"
 msgid "This tag's entries Atom feed"
 msgstr "Atom zdroj článků tohoto štítku"
 
-msgid "Limit (empty means no limit):"
-msgstr "Limit (prázný znamený bez limitu):"
-
-msgid "Tag name"
-msgstr "Jméno štítku"
-
-msgid "Entries count"
-msgstr "Počet článků"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr "Odkaz na všechny štítky:"
+msgid "No tags on this blog."
+msgstr "Tento blog nemá žádné štítky."
 
 msgid "Tag has been successfully renamed"
 msgstr "Štítěk byl úspěšně přejmenován"
@@ -2115,8 +1885,23 @@ msgstr "Smazat tento štítek"
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
-msgstr "Tento blog nemá žádné štítky."
+msgid "Limit (empty means no limit):"
+msgstr "Limit (prázný znamený bez limitu):"
+
+msgid "Tag name"
+msgstr "Jméno štítku"
+
+msgid "Entries count"
+msgstr "Počet článků"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr "Odkaz na všechny štítky:"
 
 #, fuzzy
 msgid "Edit theme files"
@@ -2127,33 +1912,6 @@ msgstr ""
 
 msgid "Syntax highlighting in theme editor"
 msgstr ""
-
-msgid "No file"
-msgstr "Žádný soubor"
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr "Soubor neexistuje."
-
-#, php-format
-msgid "File %s is not readable"
-msgstr "Soubor %s je nečitelný."
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "Nelze zapisovat do souboru %s. Prosím, zkontrolujte práva k souborům a adresáři vzhledu."
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "Nelze zapisovat do souboru %s. Prosím, zkontrolujte práva k souborům a adresáři vzhledu."
 
 msgid "The file has been reset."
 msgstr ""
@@ -2212,6 +1970,33 @@ msgstr "CSS soubory"
 msgid "You can't edit a distributed theme."
 msgstr "Nemůžete upravovat výchozí vzhled."
 
+msgid "No file"
+msgstr "Žádný soubor"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr "Soubor neexistuje."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "Soubor %s je nečitelný."
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Nelze zapisovat do souboru %s. Prosím, zkontrolujte práva k souborům a adresáři vzhledu."
+
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Nelze zapisovat do souboru %s. Prosím, zkontrolujte práva k souborům a adresáři vzhledu."
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "Stránka byla úspěšně upravena."
@@ -2236,6 +2021,106 @@ msgid "Widget's textareas"
 msgstr "Šablony štítků widgetu"
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr "nagace"
+
+msgid "extra"
+msgstr "extra"
+
+#, fuzzy
+msgid "custom"
+msgstr "Vlastní..."
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "Jste si jisti, že chcete resetovat panely?"
+
+msgid "Widgets"
+msgstr "Widgety"
+
+msgid "Available widgets"
+msgstr "Dostupné widgety"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "pořadí"
+
+msgid "Append to:"
+msgstr "Přidat za:"
+
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "přidat widget do panelů"
+
+msgid "Navigation sidebar"
+msgstr "Navigační panel"
+
+msgid "Extra sidebar"
+msgstr "Extra panel"
+
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "resetovat panely"
+
+msgid "Update sidebars"
+msgstr "aktualizovat panely"
+
+msgid "Reset sidebars"
+msgstr "resetovat panely"
+
+msgid "Widget ID:"
+msgstr "Widget ID:"
+
+msgid "No setting for this widget"
+msgstr "Tento widget nemá žádné nastavení."
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "Klíč nastavenjí:"
+
+#, fuzzy
+msgid "No widget as far."
+msgstr "Žádný widget."
+
+#, fuzzy
+msgid "Up the widget"
+msgstr "Žádný widget."
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "Odebrat widget"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "Odebrat widget"
+
+msgid "Remove widget"
+msgstr "Odebrat widget"
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2346,105 +2231,218 @@ msgstr "CSS soubory"
 msgid "Offline"
 msgstr ""
 
-msgid "navigation"
-msgstr "nagace"
-
-msgid "extra"
-msgstr "extra"
+#~ msgid "default"
+#~ msgstr "výchozí"
 
 #, fuzzy
-msgid "custom"
-msgstr "Vlastní..."
+#~ msgid "Unable to create css file."
+#~ msgstr "Nelze vytvořit obrázky."
 
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
+#~ msgid "Unable to open image."
+#~ msgstr "Obrázek nelze otevřít."
 
-msgid "Sidebars have been resetting."
-msgstr ""
+#~ msgid "Light linear gradient"
+#~ msgstr "Světlý lineární přechod"
 
-msgid "Widgets"
-msgstr "Widgety"
+#~ msgid "Medium linear gradient"
+#~ msgstr "Střední lineární přechod"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr "Jste si jisti, že chcete resetovat panely?"
+#~ msgid "Dark linear gradient"
+#~ msgstr "Tmavý lineární přechod"
 
-msgid "Available widgets"
-msgstr "Dostupné widgety"
+#~ msgid "Solid color"
+#~ msgstr "Jedna barva"
 
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+#~ msgid "Custom..."
+#~ msgstr "Vlastní..."
 
-msgid "order"
-msgstr "pořadí"
+#~ msgid "Theme configuration has been successfully updated."
+#~ msgstr "Konfigurace vzhledu byla úspěšně upravena."
 
-msgid "Append to:"
-msgstr "Přidat za:"
+#~ msgid "Blowup configuration"
+#~ msgstr "Rozšířená konfigurace"
 
-#, fuzzy
-msgid "Add widgets to sidebars"
-msgstr "přidat widget do panelů"
+#~ msgid "Predefined styles"
+#~ msgstr "Předdefinované styly"
 
-msgid "Navigation sidebar"
-msgstr "Navigační panel"
-
-msgid "Extra sidebar"
-msgstr "Extra panel"
+#~ msgid "Apply code"
+#~ msgstr "Nastavit z kódu"
 
 #, fuzzy
-msgid "Custom sidebar"
-msgstr "resetovat panely"
+#~ msgid "Choose a predefined style"
+#~ msgstr "Předdefinované styly"
 
-msgid "Update sidebars"
-msgstr "aktualizovat panely"
+#~ msgid "General"
+#~ msgstr "Obecné"
 
-msgid "Reset sidebars"
-msgstr "resetovat panely"
+#~ msgid "Background color:"
+#~ msgstr "Barva pozadí:"
 
-msgid "Widget ID:"
-msgstr "Widget ID:"
+#~ msgid "Background color fill:"
+#~ msgstr "Vypnit barvnou pozadí:"
 
-msgid "No setting for this widget"
-msgstr "Tento widget nemá žádné nastavení."
+#~ msgid "Main text font:"
+#~ msgstr "Hlavní font:"
 
-msgid "boolean"
-msgstr ""
+#~ msgid "Main text font size:"
+#~ msgstr "Hlavní velikost fontu:"
 
-msgid "possible values:"
-msgstr ""
+#~ msgid "Main text color:"
+#~ msgstr "Hlavní barva fontu:"
 
-msgid "empty string"
-msgstr ""
+#~ msgid "Text line height:"
+#~ msgstr "Výška řádku:"
 
-msgid "listitem"
-msgstr ""
+#~ msgid "Links color:"
+#~ msgstr "Barva odkazů:"
 
-msgid "string"
-msgstr ""
+#~ msgid "Visited links color:"
+#~ msgstr "Barva navštívených odkazů:"
 
-msgid "Setting name:"
-msgstr "Klíč nastavenjí:"
+#~ msgid "Focus links color:"
+#~ msgstr "Barva aktivních odkazů (pod kurzorem):"
 
-#, fuzzy
-msgid "No widget as far."
-msgstr "Žádný widget."
+#~ msgid "Prelude color:"
+#~ msgstr "Úvodní barva"
 
-#, fuzzy
-msgid "Up the widget"
-msgstr "Žádný widget."
+#~ msgid "Hide main title"
+#~ msgstr "Schovat hlavní nadpis"
 
-#, fuzzy
-msgid "Down the widget"
-msgstr "Odebrat widget"
+#~ msgid "Main title font:"
+#~ msgstr "Font hlavního nadpisu:"
 
-#, fuzzy
-msgid "Remove the widget"
-msgstr "Odebrat widget"
+#~ msgid "Main title font size:"
+#~ msgstr "Velikost hlavního nadpisu:"
 
-msgid "Remove widget"
-msgstr "Odebrat widget"
+#~ msgid "Main title color:"
+#~ msgstr "Barva hlavního nadpisu:"
 
-msgid "Drag widgets here to remove."
-msgstr ""
+#~ msgid "Main title alignment:"
+#~ msgstr "Zarovnání hlavního nadpisu:"
+
+#~ msgid "center"
+#~ msgstr "uprostřed"
+
+#~ msgid "left"
+#~ msgstr "vlevo"
+
+#~ msgid "right"
+#~ msgstr "vpravo"
+
+#~ msgid "Main title position (x:y)"
+#~ msgstr "Pozice hlavního nadpisu (x:y)"
+
+#~ msgid "Top image"
+#~ msgstr "Hlavní obrázek"
+
+#~ msgid "Choose \"Custom...\" to upload your own image."
+#~ msgstr "Vyberte \"Vlastní...\" pro nahrání svého vlastního obrázku."
+
+#~ msgid "Add your image:"
+#~ msgstr "Přidat vlastní obrázek:"
+
+#, php-format
+#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+#~ msgstr "JPEG nebo PNG soubory, široké 800px, maximální velikost %s"
+
+#~ msgid "Sidebar"
+#~ msgstr "Boční panel"
+
+#~ msgid "Sidebar position:"
+#~ msgstr "Pozice:"
+
+#~ msgid "Sidebar text font:"
+#~ msgstr "Font textu:"
+
+#~ msgid "Sidebar text font size:"
+#~ msgstr "Velikost textu:"
+
+#~ msgid "Sidebar text color:"
+#~ msgstr "Barva textu:"
+
+#~ msgid "Sidebar titles font:"
+#~ msgstr "Font titulku:"
+
+#~ msgid "Sidebar titles font size:"
+#~ msgstr "Velikost titulku:"
+
+#~ msgid "Sidebar titles color:"
+#~ msgstr "Barva titulku panelu:"
+
+#~ msgid "Sidebar 2nd level titles font:"
+#~ msgstr "Font 2. úrovně titulku:"
+
+#~ msgid "Sidebar 2nd level titles font size:"
+#~ msgstr "Velikost 2. úrovně titulku:"
+
+#~ msgid "Sidebar 2nd level titles color:"
+#~ msgstr "Barva 2. úrovně titulku:"
+
+#~ msgid "Sidebar lines color:"
+#~ msgstr "Barva linek panelu:"
+
+#~ msgid "Sidebar links color:"
+#~ msgstr "Barva odkazů panelu:"
+
+#~ msgid "Sidebar visited links color:"
+#~ msgstr "Barva navštívených odkazů:"
+
+#~ msgid "Sidebar focus links color:"
+#~ msgstr "Barva aktivních odkazů (pod kurzorem):"
+
+#~ msgid "Date title font:"
+#~ msgstr "Font datumu:"
+
+#~ msgid "Date title font size:"
+#~ msgstr "Velikost datumu:"
+
+#~ msgid "Date title color:"
+#~ msgstr "Barva datumu:"
+
+#~ msgid "Entry title font:"
+#~ msgstr "Font názvu:"
+
+#~ msgid "Entry title font size:"
+#~ msgstr "Velikost názvu:"
+
+#~ msgid "Entry title color:"
+#~ msgstr "Barva názvu:"
+
+#~ msgid "Comment background color:"
+#~ msgstr "Barva pozadí komentáře:"
+
+#~ msgid "Comment text color:"
+#~ msgstr "Barva textu komentáře:"
+
+#~ msgid "My comment background color:"
+#~ msgstr "Barva pozadí mého komentáře:"
+
+#~ msgid "My comment text color:"
+#~ msgstr "Barva textu mého komentáře:"
+
+#~ msgid "Footer"
+#~ msgstr "Patička"
+
+#~ msgid "Footer font:"
+#~ msgstr "Font textu:"
+
+#~ msgid "Footer font size:"
+#~ msgstr "Velikost textu:"
+
+#~ msgid "Footer color:"
+#~ msgstr "Barva textu:"
+
+#~ msgid "Footer links color:"
+#~ msgstr "Barva odkazů:"
+
+#~ msgid "Footer background color:"
+#~ msgstr "Barva pozadí:"
+
+#~ msgid "Configuration import / export"
+#~ msgstr "Importovat / exportovat konfiguraci"
+
+#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+#~ msgstr "Svoji konfigurace můžete sdílet pomocí tohoto kódu. Pro jeho aplikaci jej vložte a klikněte na tlačítko \"Nastavit z kódu\" and uložte."
 
 #, fuzzy
 #~ msgid "Liste des auteurs"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -32,9 +32,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr ""
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -44,7 +41,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Get your own API key"
 msgstr ""
 
-msgid "Antispam"
+msgid "This comment is a spam:"
 msgstr ""
 
 #, php-format
@@ -187,6 +187,29 @@ msgstr ""
 
 #, php-format
 msgid "(including %d spam comments)"
+msgstr ""
+
+msgid "Antispam"
+msgstr ""
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr ""
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+msgid "Set spam filters."
 msgstr ""
 
 msgid "IP Blocklist / Allowlist Filter"
@@ -295,29 +318,6 @@ msgstr ""
 msgid "This word exists"
 msgstr ""
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr ""
-
-msgid "days"
-msgstr ""
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-msgid "Set spam filters."
-msgstr ""
-
-msgid "This comment is a spam:"
-msgstr ""
-
 msgid "Spam moderation"
 msgstr ""
 
@@ -325,16 +325,6 @@ msgid "Spam"
 msgstr ""
 
 msgid "Ham"
-msgstr ""
-
-msgid "No description"
-msgstr ""
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr ""
-
-msgid "Unknown filter."
 msgstr ""
 
 msgid "Filter does not exist."
@@ -397,6 +387,16 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
+msgid "No description"
+msgstr ""
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr ""
+
+msgid "Unknown filter."
+msgstr ""
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -414,6 +414,63 @@ msgid "manage blogroll"
 msgstr ""
 
 msgid "Blogroll"
+msgstr ""
+
+msgid "You must provide a link title"
+msgstr ""
+
+msgid "You must provide a link URL"
+msgstr ""
+
+msgid "Nothing to import"
+msgstr ""
+
+msgid "links have been successfully imported."
+msgstr ""
+
+msgid "Import operation cancelled."
+msgstr ""
+
+msgid "Link has been successfully created."
+msgstr ""
+
+msgid "category has been successfully created."
+msgstr ""
+
+msgid "Items have been successfully removed."
+msgstr ""
+
+msgid "Items order has been successfully updated"
+msgstr ""
+
+msgid "Lang"
+msgstr ""
+
+msgid "select this link"
+msgstr ""
+
+msgid "Are you sure you want to delete selected links?"
+msgstr ""
+
+msgid "Delete selected links"
+msgstr ""
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr ""
+
+msgid "Add a category"
+msgstr ""
+
+msgid "Import links"
+msgstr ""
+
+msgid "OPML or XBEL File:"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "No such link or title"
@@ -515,12 +572,6 @@ msgstr ""
 msgid "_xfn_Sweetheart"
 msgstr ""
 
-msgid "You must provide a link title"
-msgstr ""
-
-msgid "You must provide a link URL"
-msgstr ""
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr ""
 
@@ -531,283 +582,6 @@ msgid "All categories"
 msgstr ""
 
 msgid "Links"
-msgstr ""
-
-msgid "Nothing to import"
-msgstr ""
-
-msgid "links have been successfully imported."
-msgstr ""
-
-msgid "Import operation cancelled."
-msgstr ""
-
-msgid "Link has been successfully created."
-msgstr ""
-
-msgid "category has been successfully created."
-msgstr ""
-
-msgid "Items have been successfully removed."
-msgstr ""
-
-msgid "Items order has been successfully updated"
-msgstr ""
-
-msgid "Lang"
-msgstr ""
-
-msgid "select this link"
-msgstr ""
-
-msgid "Are you sure you want to delete selected links?"
-msgstr ""
-
-msgid "Delete selected links"
-msgstr ""
-
-msgid "The link list is empty."
-msgstr ""
-
-msgid "Add a new link"
-msgstr ""
-
-msgid "Add a category"
-msgstr ""
-
-msgid "Import links"
-msgstr ""
-
-msgid "OPML or XBEL File:"
-msgstr ""
-
-msgid "Import"
-msgstr ""
-
-msgid "default"
-msgstr ""
-
-msgid "Unable to create css file."
-msgstr ""
-
-msgid "Unable to open image."
-msgstr ""
-
-msgid "Light linear gradient"
-msgstr ""
-
-msgid "Medium linear gradient"
-msgstr ""
-
-msgid "Dark linear gradient"
-msgstr ""
-
-msgid "Solid color"
-msgstr ""
-
-msgid "Custom..."
-msgstr ""
-
-msgid "Theme configuration has been successfully updated."
-msgstr ""
-
-msgid "Blowup configuration"
-msgstr ""
-
-msgid "Predefined styles"
-msgstr ""
-
-msgid "Apply code"
-msgstr ""
-
-msgid "Choose a predefined style"
-msgstr ""
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr ""
-
-msgid "Background color:"
-msgstr ""
-
-msgid "Background color fill:"
-msgstr ""
-
-msgid "Main text font:"
-msgstr ""
-
-msgid "Main text font size:"
-msgstr ""
-
-msgid "Main text color:"
-msgstr ""
-
-msgid "Text line height:"
-msgstr ""
-
-msgid "Links color:"
-msgstr ""
-
-msgid "Visited links color:"
-msgstr ""
-
-msgid "Focus links color:"
-msgstr ""
-
-msgid "Prelude color:"
-msgstr ""
-
-msgid "Hide main title"
-msgstr ""
-
-msgid "Main title font:"
-msgstr ""
-
-msgid "Main title font size:"
-msgstr ""
-
-msgid "Main title color:"
-msgstr ""
-
-msgid "Main title alignment:"
-msgstr ""
-
-msgid "center"
-msgstr ""
-
-msgid "left"
-msgstr ""
-
-msgid "right"
-msgstr ""
-
-msgid "Main title position (x:y)"
-msgstr ""
-
-msgid "Top image"
-msgstr ""
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr ""
-
-msgid "Add your image:"
-msgstr ""
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr ""
-
-msgid "Sidebar"
-msgstr ""
-
-msgid "Sidebar position:"
-msgstr ""
-
-msgid "Sidebar text font:"
-msgstr ""
-
-msgid "Sidebar text font size:"
-msgstr ""
-
-msgid "Sidebar text color:"
-msgstr ""
-
-msgid "Sidebar titles font:"
-msgstr ""
-
-msgid "Sidebar titles font size:"
-msgstr ""
-
-msgid "Sidebar titles color:"
-msgstr ""
-
-msgid "Sidebar 2nd level titles font:"
-msgstr ""
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr ""
-
-msgid "Sidebar 2nd level titles color:"
-msgstr ""
-
-msgid "Sidebar lines color:"
-msgstr ""
-
-msgid "Sidebar links color:"
-msgstr ""
-
-msgid "Sidebar visited links color:"
-msgstr ""
-
-msgid "Sidebar focus links color:"
-msgstr ""
-
-msgid "Date title font:"
-msgstr ""
-
-msgid "Date title font size:"
-msgstr ""
-
-msgid "Date title color:"
-msgstr ""
-
-msgid "Entry title font:"
-msgstr ""
-
-msgid "Entry title font size:"
-msgstr ""
-
-msgid "Entry title color:"
-msgstr ""
-
-msgid "Comment background color:"
-msgstr ""
-
-msgid "Comment text color:"
-msgstr ""
-
-msgid "My comment background color:"
-msgstr ""
-
-msgid "My comment text color:"
-msgstr ""
-
-msgid "Footer"
-msgstr ""
-
-msgid "Footer font:"
-msgstr ""
-
-msgid "Footer font size:"
-msgstr ""
-
-msgid "Footer color:"
-msgstr ""
-
-msgid "Footer links color:"
-msgstr ""
-
-msgid "Footer background color:"
-msgstr ""
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr ""
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr ""
-
-msgid "Copy this code:"
 msgstr ""
 
 msgid "Breadcrumb"
@@ -838,10 +612,20 @@ msgstr "Tüm etiketler"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "Seçtiğim girimler."
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -869,6 +653,9 @@ msgid "The configuration has been updated."
 msgstr ""
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1040,6 +827,66 @@ msgstr ""
 msgid "Import/Export"
 msgstr ""
 
+msgid "Database export"
+msgstr ""
+
+msgid "Download database of current blog"
+msgstr ""
+
+msgid "Compress file"
+msgstr ""
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr ""
+
+msgid "Unable to create output file."
+msgstr ""
+
+msgid "File is not a DotClear backup."
+msgstr ""
+
+msgid "File is not a single blog export."
+msgstr ""
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr ""
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+msgid "Maintenance"
+msgstr "Bakım"
+
+msgid "Congratulation!"
+msgstr ""
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr ""
+
+msgid "Why don't you blog this now?"
+msgstr ""
+
+msgid "visit your dashboard"
+msgstr ""
+
 msgid "Flat file export"
 msgstr ""
 
@@ -1060,31 +907,13 @@ msgstr "Tek bir blog içe aktar."
 msgid "This will create an export of your current blog: %s"
 msgstr ""
 
-msgid "Compress file"
-msgstr ""
-
 msgid "You may also want to download your media directory as a zip file"
-msgstr ""
-
-msgid "Export"
 msgstr ""
 
 msgid "Multiple blogs"
 msgstr ""
 
 msgid "This will create an export of all the content of your database."
-msgstr ""
-
-msgid "Congratulation!"
-msgstr ""
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr ""
-
-msgid "Why don't you blog this now?"
-msgstr ""
-
-msgid "visit your dashboard"
 msgstr ""
 
 msgid "Dotclear 1.2 import"
@@ -1256,48 +1085,6 @@ msgstr ""
 msgid "WordPress tables not found"
 msgstr ""
 
-msgid "No file to read."
-msgstr ""
-
-msgid "Unable to create output file."
-msgstr ""
-
-msgid "File is not a DotClear backup."
-msgstr ""
-
-msgid "File is not a single blog export."
-msgstr ""
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr ""
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-msgid "Database export"
-msgstr ""
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr ""
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-msgid "Maintenance"
-msgstr "Bakım"
-
 msgid "Servicing"
 msgstr ""
 
@@ -1376,6 +1163,95 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr ""
 
+msgid "Maintenance plugin has been successfully configured."
+msgstr ""
+
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+msgid "This may take a very long time."
+msgstr ""
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "blog ayarları"
+
+msgid "Activation"
+msgstr ""
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr ""
 
@@ -1399,18 +1275,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr ""
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1510,93 +1374,7 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-msgid "Maintenance plugin has been successfully configured."
-msgstr ""
-
-msgid "System settings have been saved."
-msgstr ""
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-msgid "This may take a very long time."
-msgstr ""
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "blog ayarları"
-
-msgid "Activation"
-msgstr ""
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
-msgstr ""
-
-msgid "New page"
-msgstr ""
-
-msgid "My first page"
-msgstr ""
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
 #, php-format
@@ -1607,15 +1385,8 @@ msgstr ""
 msgid "%d pages"
 msgstr "Sayfalar"
 
-msgid "No page"
+msgid "New page"
 msgstr ""
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Seçtiğim girimler."
 
 #, fuzzy
 msgid "Pages actions"
@@ -1627,6 +1398,16 @@ msgstr ""
 msgid "Selected pages have been successfully reordered."
 msgstr ""
 
+msgid "No page"
+msgstr ""
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "Seçtiğim girimler."
+
 msgid "Published on"
 msgstr ""
 
@@ -1636,13 +1417,10 @@ msgstr ""
 msgid "You must provide a valid email address."
 msgstr "Geçerli bir eposta adresi girmelisiniz."
 
-msgid "Page title"
-msgstr "Sayfa başlığı"
-
-msgid "Page position"
+msgid "My first page"
 msgstr ""
 
-msgid "Publication date"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
@@ -1694,6 +1472,9 @@ msgstr ""
 msgid "Page language"
 msgstr "Blog dilleri"
 
+msgid "Page position"
+msgstr ""
+
 msgid "Hide in widget Pages"
 msgstr ""
 
@@ -1706,6 +1487,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "Seçtiğim girimler."
+
+msgid "Page title"
+msgstr "Sayfa başlığı"
+
+msgid "Publication date"
+msgstr ""
 
 msgid "Pings"
 msgstr ""
@@ -1742,22 +1529,6 @@ msgid "Active page"
 msgstr "Tüm etiketler"
 
 msgid "active page"
-msgstr ""
-
-#, fuzzy
-msgid "Item description"
-msgstr "Açıklama"
-
-msgid "Displayed in link"
-msgstr ""
-
-msgid "Used as link title"
-msgstr ""
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
 msgstr ""
 
 #, fuzzy
@@ -1903,6 +1674,22 @@ msgstr ""
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "Açıklama"
+
+msgid "Displayed in link"
+msgstr ""
+
+msgid "Used as link title"
+msgstr ""
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "Etiket"
 
@@ -1979,22 +1766,7 @@ msgstr ""
 msgid "This tag's entries Atom feed"
 msgstr ""
 
-msgid "Limit (empty means no limit):"
-msgstr ""
-
-msgid "Tag name"
-msgstr ""
-
-msgid "Entries count"
-msgstr ""
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
+msgid "No tags on this blog."
 msgstr ""
 
 msgid "Tag has been successfully renamed"
@@ -2020,7 +1792,22 @@ msgstr ""
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
+msgid "Limit (empty means no limit):"
+msgstr ""
+
+msgid "Tag name"
+msgstr ""
+
+msgid "Entries count"
+msgstr ""
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
 msgstr ""
 
 msgid "Edit theme files"
@@ -2030,33 +1817,6 @@ msgid "Syntax highlighting"
 msgstr ""
 
 msgid "Syntax highlighting in theme editor"
-msgstr ""
-
-msgid "No file"
-msgstr ""
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr ""
-
-#, php-format
-msgid "File %s is not readable"
-msgstr ""
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr ""
-
-#, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
 msgid "The file has been reset."
@@ -2112,6 +1872,33 @@ msgstr ""
 msgid "You can't edit a distributed theme."
 msgstr ""
 
+msgid "No file"
+msgstr ""
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr ""
+
+#, php-format
+msgid "File %s is not readable"
+msgstr ""
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr ""
+
 msgid "Preferences successfully updated"
 msgstr ""
 
@@ -2134,6 +1921,100 @@ msgid "Widget's textareas"
 msgstr ""
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr ""
+
+msgid "extra"
+msgstr ""
+
+msgid "custom"
+msgstr ""
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr ""
+
+msgid "Widgets"
+msgstr ""
+
+msgid "Available widgets"
+msgstr ""
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "sıra"
+
+msgid "Append to:"
+msgstr ""
+
+msgid "Add widgets to sidebars"
+msgstr ""
+
+msgid "Navigation sidebar"
+msgstr ""
+
+msgid "Extra sidebar"
+msgstr ""
+
+msgid "Custom sidebar"
+msgstr ""
+
+msgid "Update sidebars"
+msgstr ""
+
+msgid "Reset sidebars"
+msgstr ""
+
+msgid "Widget ID:"
+msgstr ""
+
+msgid "No setting for this widget"
+msgstr ""
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "Ayar adı:"
+
+msgid "No widget as far."
+msgstr ""
+
+msgid "Up the widget"
+msgstr ""
+
+msgid "Down the widget"
+msgstr ""
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "tag sil"
+
+msgid "Remove widget"
+msgstr ""
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2239,100 +2120,6 @@ msgid "CSS class:"
 msgstr ""
 
 msgid "Offline"
-msgstr ""
-
-msgid "navigation"
-msgstr ""
-
-msgid "extra"
-msgstr ""
-
-msgid "custom"
-msgstr ""
-
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
-
-msgid "Sidebars have been resetting."
-msgstr ""
-
-msgid "Widgets"
-msgstr ""
-
-msgid "Are you sure you want to reset sidebars?"
-msgstr ""
-
-msgid "Available widgets"
-msgstr ""
-
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
-
-msgid "order"
-msgstr "sıra"
-
-msgid "Append to:"
-msgstr ""
-
-msgid "Add widgets to sidebars"
-msgstr ""
-
-msgid "Navigation sidebar"
-msgstr ""
-
-msgid "Extra sidebar"
-msgstr ""
-
-msgid "Custom sidebar"
-msgstr ""
-
-msgid "Update sidebars"
-msgstr ""
-
-msgid "Reset sidebars"
-msgstr ""
-
-msgid "Widget ID:"
-msgstr ""
-
-msgid "No setting for this widget"
-msgstr ""
-
-msgid "boolean"
-msgstr ""
-
-msgid "possible values:"
-msgstr ""
-
-msgid "empty string"
-msgstr ""
-
-msgid "listitem"
-msgstr ""
-
-msgid "string"
-msgstr ""
-
-msgid "Setting name:"
-msgstr "Ayar adı:"
-
-msgid "No widget as far."
-msgstr ""
-
-msgid "Up the widget"
-msgstr ""
-
-msgid "Down the widget"
-msgstr ""
-
-#, fuzzy
-msgid "Remove the widget"
-msgstr "tag sil"
-
-msgid "Remove widget"
-msgstr ""
-
-msgid "Drag widgets here to remove."
 msgstr ""
 
 #~ msgid "next"

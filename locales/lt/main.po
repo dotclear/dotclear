@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -668,6 +668,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Instaliuotos kalbos"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Išjungti"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1818,9 +1825,6 @@ msgstr "Instaliuotos kalbos"
 msgid "Activated plugins"
 msgstr "Įjungti plugin'ai"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2272,6 +2276,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Failo dydis:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2508,6 +2515,9 @@ msgid "Remind me later"
 msgstr "Priminti vėliau"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3081,6 +3091,22 @@ msgid "Trackback"
 msgstr "Trackback'ai"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Failo tipas:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Dalyvių viename puslapyje"
 
@@ -3186,10 +3212,12 @@ msgstr ""
 msgid "Select:"
 msgstr "Pažymėtas:"
 
-msgid "no selection"
+#, fuzzy
+msgid "No selection"
 msgstr "be pasirinkimo"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "pasirinkti viską"
 
 msgid "Invert selection"
@@ -3477,6 +3505,10 @@ msgstr "Ieškoti įraše:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Plugin'ų valdymas"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3999,14 +4031,17 @@ msgstr "Įrašant failą įvyko klaida."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Sukurtų paveikslėlių dydis (pikseliais)"
 
-msgid "small"
-msgstr "Mažas:"
+msgid "moyenne"
+msgstr ""
 
-msgid "thumbnail"
-msgstr "Miniatiūra:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
-msgstr "kvadratas"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
+msgstr ""
 
 #, fuzzy
 msgid "Pages"
@@ -4420,6 +4455,122 @@ msgstr "Namespace nenurodytas."
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automatinio atnaujinimo metu įvyko klaida:"
 
+msgid "Unable to open directory."
+msgstr "Nepavyksta atidaryti direktorijos"
+
+msgid "Unable to create directory."
+msgstr "Nepavyksta sukurti direktorijos"
+
+msgid "File is not writable."
+msgstr "Failui nesuteiktos rašymo teisės."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Nepavyko pervadinti failo."
+
+msgid "Not an uploaded file."
+msgstr "Ne įkeltas failas."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Įkeltas failas viršija maksimalų leistiną dydį."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Buvo įkelta tik dalis failo."
+
+msgid "No file was uploaded."
+msgstr "Failas nebuvo įkeltas."
+
+msgid "Missing a temporary folder."
+msgstr "Nėra temporary direktorijos."
+
+msgid "Failed to write file to disk."
+msgstr "Nepavyko įrašyti į diską."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s yra ne direktorija."
+
+msgid "Uploading this file is not allowed."
+msgstr "Šio failo įkėlimas yra neleidžiamas."
+
+msgid "Destination directory is not in jail."
+msgstr "Direktorija nėra užrakinta."
+
+msgid "File already exists."
+msgstr "Failas jau egzistuoja."
+
+msgid "Cannot write in this directory."
+msgstr "Negalima įrašyti į šią direktoriją."
+
+msgid "Source file does not exist."
+msgstr "Pradinis failas neegzistuoja."
+
+msgid "File is not in jail."
+msgstr "Failas nėra užrakintas."
+
+msgid "Destination directory is not writable."
+msgstr "Paskirta direktorija neturi rašymo teisių."
+
+msgid "Unable to rename file."
+msgstr "Nepavyko pervadinti failo."
+
+msgid "File cannot be removed."
+msgstr "Failas negali būti pašalintas."
+
+msgid "Directory is not in jail."
+msgstr "Direktorija nėra užrakinta."
+
+msgid "Directory cannot be removed."
+msgstr "Direktorija negali būti pašakinta"
+
+msgid "Not enough memory to open image."
+msgstr "Nepakanka atminties atidaryti paveikslėliui."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Failas %s nėra suarchyvuotas zip formatu."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr " Bandoma išarchyvuoti bylą pavadinimu %s"
+
+msgid "Unable to write destination file."
+msgstr "Nepavyksta įrašyti į paskirtą failą."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nepavyksta įrašyti į adresuotą direktoriją, priėjimas draudžiamas."
+
+msgid "Not enough memory to open file."
+msgstr "Nepakanka atminties atidaryti failui."
+
+msgid "File does not exist"
+msgstr "Failas neegzistuoja"
+
+msgid "Cannot read file"
+msgstr "Nepavyksta perskaityti failo"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Direktorija %s neegzistuoja."
+
+msgid "Cannot read directory"
+msgstr "Nepavyksta perskaityti direktorijos"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4435,6 +4586,40 @@ msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Netinkamas kalbos kodas"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Netinkamas kalbos kodas"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Netinkamas kalbos kodas"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Negaliojantis digests failas."
+
+#~ msgid "small"
+#~ msgstr "Mažas:"
+
+#~ msgid "thumbnail"
+#~ msgstr "Miniatiūra:"
+
+#~ msgid "square"
+#~ msgstr "kvadratas"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4524,112 +4709,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
 #~ msgid "Embedded Video Player"
 #~ msgstr "Embedded Video Player"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "Nepavyksta atidaryti direktorijos"
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Nepavyksta sukurti direktorijos"
-
-#~ msgid "File is not writable."
-#~ msgstr "Failui nesuteiktos rašymo teisės."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "Ne įkeltas failas."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Įkeltas failas viršija maksimalų leistiną dydį."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "Buvo įkelta tik dalis failo."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Failas nebuvo įkeltas."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Nėra temporary direktorijos."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Nepavyko įrašyti į diską."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s yra ne direktorija."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Netinkamas kalbos kodas"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Netinkamas kalbos kodas"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Negaliojantis digests failas."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Šio failo įkėlimas yra neleidžiamas."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Direktorija nėra užrakinta."
-
-#~ msgid "File already exists."
-#~ msgstr "Failas jau egzistuoja."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Negalima įrašyti į šią direktoriją."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Pradinis failas neegzistuoja."
-
-#~ msgid "File is not in jail."
-#~ msgstr "Failas nėra užrakintas."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "Paskirta direktorija neturi rašymo teisių."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Nepavyko pervadinti failo."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Failas negali būti pašalintas."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "Direktorija nėra užrakinta."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Direktorija negali būti pašakinta"
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Nepakanka atminties atidaryti paveikslėliui."
-
-#, fuzzy
-#~ msgid "WARNING: the following errors have been found while parsing template file :"
-#~ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "Failas %s nėra suarchyvuotas zip formatu."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr " Bandoma išarchyvuoti bylą pavadinimu %s"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Nepavyksta įrašyti į paskirtą failą."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Nepavyksta įrašyti į adresuotą direktoriją, priėjimas draudžiamas."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Nepakanka atminties atidaryti failui."
-
-#~ msgid "File does not exist"
-#~ msgstr "Failas neegzistuoja"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Nepavyksta perskaityti failo"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Nepavyksta perskaityti direktorijos"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4930,9 +5009,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "Jums neleidžiama trinti šio komentaro"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "Direktorija %s neegzistuoja."
 
 #~ msgid "%s: in [%s] and [%s]"
 #~ msgstr "%s: į [%s] ir [%s]"

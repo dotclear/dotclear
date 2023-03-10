@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -667,6 +667,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Kurulu diller"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Etkisizleştir"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1804,9 +1811,6 @@ msgstr "Kurulu diller"
 msgid "Activated plugins"
 msgstr "Etkinleştirilmiş eklentiler"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2256,6 +2260,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Dosya boyutu:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2487,6 +2494,9 @@ msgid "Remind me later"
 msgstr "Gelecekte beni hatırla"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3059,6 +3069,22 @@ msgid "Trackback"
 msgstr "Gerizlemeler"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Dosya tipi:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Sayfa başına kullanıcı"
 
@@ -3166,10 +3192,11 @@ msgid "Select:"
 msgstr "Seçili:"
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "Seçim yok"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "hepsini seç"
 
 msgid "Invert selection"
@@ -3460,6 +3487,10 @@ msgstr "Yazı ara:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Eklenti yönetimi"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3963,15 +3994,16 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "Küçük:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Pullar:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4388,6 +4420,128 @@ msgstr "Namespace belirlenmedi"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Oto güncelleme sırasında birşeyler ters gitti:"
 
+msgid "Unable to open directory."
+msgstr "Dizin açılamadı."
+
+msgid "Unable to create directory."
+msgstr "Dizin oluşturulamadı."
+
+msgid "File is not writable."
+msgstr "Dosya yazılabilir değil."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Dizin açılamadı."
+
+msgid "Not an uploaded file."
+msgstr "Yüklenmiş bir dosya değil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded."
+msgstr "Dosya yüklenilmedi."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr "Dosya diske yazılamadı."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s bir klasör değil."
+
+msgid "Uploading this file is not allowed."
+msgstr "Bu dosyanın gönderilmesine izin yok."
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+msgid "File already exists."
+msgstr "Dosya zan var."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Dizin okunamadı"
+
+msgid "Source file does not exist."
+msgstr "Kaynak dosya mevcut değil."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Dosya yazılabilir değil."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Dosya yazılabilir değil."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Dosya yeniden adlandırılamadı."
+
+msgid "File cannot be removed."
+msgstr "Dosya silinemedi."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "%s dizini mevcut değil."
+
+msgid "Directory cannot be removed."
+msgstr "Dizin silinemedi."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "%s dosyası mevcut değil."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "Dosya yeniden adlandırılamadı."
+
+#, fuzzy
+msgid "Unable to write in target directory, permission denied."
+msgstr "Dizin oluşturulamadı."
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+msgid "File does not exist"
+msgstr "Dosya mevcut değil"
+
+msgid "Cannot read file"
+msgstr "Dosya okunamadı"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "%s dizini mevcut değil."
+
+msgid "Cannot read directory"
+msgstr "Dizin okunamadı"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4403,6 +4557,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Geçersiz dil kodu"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Geçersiz dil kodu"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Geçersiz dil kodu"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Geçersiz özet dosyası."
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Küçük:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Pullar:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4461,66 +4648,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blog temaları"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "Dizin açılamadı."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Dizin oluşturulamadı."
-
-#~ msgid "File is not writable."
-#~ msgstr "Dosya yazılabilir değil."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "Yüklenmiş bir dosya değil."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Dosya yüklenilmedi."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Dosya diske yazılamadı."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s bir klasör değil."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Geçersiz dil kodu"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Geçersiz dil kodu"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Geçersiz özet dosyası."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Bu dosyanın gönderilmesine izin yok."
-
-#~ msgid "File already exists."
-#~ msgstr "Dosya zan var."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Kaynak dosya mevcut değil."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Dosya silinemedi."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Dizin silinemedi."
-
-#~ msgid "File does not exist"
-#~ msgstr "Dosya mevcut değil"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Dosya okunamadı"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Dizin okunamadı"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4714,9 +4841,6 @@ msgstr ""
 
 #~ msgid "Category URL must be unique."
 #~ msgstr "Kategori URL si eşsiz olmalı."
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "%s dizini mevcut değil."
 
 #, fuzzy
 #~ msgid "Blogroll"

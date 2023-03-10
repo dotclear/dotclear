@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -658,6 +658,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Installerede sprog"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Slet valgte tema"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1799,9 +1806,6 @@ msgstr "Installerede sprog"
 msgid "Activated plugins"
 msgstr ""
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2241,6 +2245,9 @@ msgstr ""
 msgid "Font size:"
 msgstr ""
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2465,6 +2472,9 @@ msgid "Remind me later"
 msgstr "Påmind mig senere"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3025,6 +3035,22 @@ msgid "Trackback"
 msgstr "trackback"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Medier og billeder"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Blogs pr. side"
 
@@ -3130,11 +3156,11 @@ msgid "Select:"
 msgstr ""
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "marker som ventende"
 
 #, fuzzy
-msgid "select all"
+msgid "Select all"
 msgstr "Dotclear installation"
 
 #, fuzzy
@@ -3426,6 +3452,9 @@ msgid "Third-party repository"
 msgstr "%d indlæg"
 
 msgid "Plugin from official distribution"
+msgstr ""
+
+msgid "Plugin in development"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -3916,15 +3945,16 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Genereret billede størrelser (i pixel)"
 
-#, fuzzy
-msgid "small"
-msgstr "Small:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Thumbnails:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4330,6 +4360,140 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Bloggen er opdateret uden fejl."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "Kan ikke skrive til filen %s."
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "SPL modul er ikke tilgængelig."
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Filen %s eksisterer ikke."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Kan ikke skrive til filen %s."
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Filen %s eksisterer ikke."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "SPL modul er ikke tilgængelig."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "File cannot be removed."
+msgstr "Dotclear kan ikke installeres."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Filen %s eksisterer ikke."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "Filen %s eksisterer ikke."
+
+#, fuzzy
+msgid "Cannot read file"
+msgstr "Kan ikke skrive til filen %s."
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Denne kategori eksisterer ikke"
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "Kan ikke skrive til filen %s."
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4345,6 +4509,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Ugyldig sprog kode"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Ugyldig sprog kode"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Ugyldig sprog kode"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Ugyldig sprog kode"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Small:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Thumbnails:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4372,10 +4569,6 @@ msgstr ""
 #~ msgstr "Dit kodeord"
 
 #, fuzzy
-#~ msgid "Media list"
-#~ msgstr "Medier og billeder"
-
-#, fuzzy
 #~ msgid "Activate dark mode"
 #~ msgstr "Slet valgte tema"
 
@@ -4386,14 +4579,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blgo temaer"
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Ugyldig sprog kode"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Ugyldig sprog kode"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

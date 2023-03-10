@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -668,6 +668,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Установленные языковые пакеты"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Деактивировать"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1818,9 +1825,6 @@ msgstr "Установленные языковые пакеты"
 msgid "Activated plugins"
 msgstr "Активированные плагины"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2273,6 +2277,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Размер файла:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2511,6 +2518,9 @@ msgid "Remind me later"
 msgstr "Напомнить мне позже"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3084,6 +3094,22 @@ msgid "Trackback"
 msgstr "Пинги"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Тип файла:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Пользователей на страницу"
 
@@ -3189,10 +3215,12 @@ msgstr ""
 msgid "Select:"
 msgstr "Выбранный:"
 
-msgid "no selection"
+#, fuzzy
+msgid "No selection"
 msgstr "Ничего не выбрано"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "выбрать все"
 
 msgid "Invert selection"
@@ -3480,6 +3508,10 @@ msgstr "Поиск записи:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Управление плагинами"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -4005,14 +4037,17 @@ msgstr "При записи файла произошла ошибка."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Размер генерированных изображений (в пикселях)"
 
-msgid "small"
-msgstr "Маленький:"
+msgid "moyenne"
+msgstr ""
 
-msgid "thumbnail"
-msgstr "Уменьшенное изображение:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
-msgstr "квадрат"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
+msgstr ""
 
 #, fuzzy
 msgid "Pages"
@@ -4426,6 +4461,126 @@ msgstr "Не указано пространство имен"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Произошла ошибка при автоматическом обновлении:"
 
+msgid "Unable to open directory."
+msgstr "Невозможно открыть директорию."
+
+msgid "Unable to create directory."
+msgstr "Невозможно создать директорию."
+
+msgid "File is not writable."
+msgstr "Файл не доступен для записи."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Невозможно переименовать файл."
+
+# pas compris
+msgid "Not an uploaded file."
+msgstr "Нет загруженных файлов."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Загруженный файл превышает максимально допустимый размер."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Загружаемый файл был загружен только частично."
+
+msgid "No file was uploaded."
+msgstr "Нет загруженных файлов."
+
+msgid "Missing a temporary folder."
+msgstr "Отсутствует временная директория."
+
+msgid "Failed to write file to disk."
+msgstr "Невозможно записать файл на диск."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s не является директорией."
+
+msgid "Uploading this file is not allowed."
+msgstr "Загрузка файла не разрешена."
+
+# "en jail" ? c'est du geek ?
+msgid "Destination directory is not in jail."
+msgstr "Целевая директория не в jail."
+
+msgid "File already exists."
+msgstr "Файл уже существует."
+
+msgid "Cannot write in this directory."
+msgstr "Невозможно выполнить запись в эту директорию."
+
+msgid "Source file does not exist."
+msgstr "Источник файла не существует."
+
+# geek ?
+msgid "File is not in jail."
+msgstr "Файл не в jail."
+
+msgid "Destination directory is not writable."
+msgstr "Целевая директория не доступна для записи."
+
+msgid "Unable to rename file."
+msgstr "Невозможно переименовать файл."
+
+msgid "File cannot be removed."
+msgstr "Файл не может быть удален."
+
+# décidément ! mais que veut dire "jail" ?
+msgid "Directory is not in jail."
+msgstr "Папка не в jail."
+
+msgid "Directory cannot be removed."
+msgstr "Эта директория не может быть удалена."
+
+msgid "Not enough memory to open image."
+msgstr "Недостаточно памяти для открытия изображения."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Файл %s не сжат в zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Извлечение папки %s"
+
+msgid "Unable to write destination file."
+msgstr "Невозможно записать целевой файл."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Невозмжно записать в целевую директорию, нет прав доступа."
+
+msgid "Not enough memory to open file."
+msgstr "Недостаточно памяти для открытия файла."
+
+msgid "File does not exist"
+msgstr "Файл не существует"
+
+msgid "Cannot read file"
+msgstr "Невозможно прочитать файл"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Директория %s не существует."
+
+msgid "Cannot read directory"
+msgstr "Невозможно прочитать директорию"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4441,6 +4596,40 @@ msgstr "<p>Это может означать, что имя пользоват�
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Неверный код языка."
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Неверный код языка."
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Неверный код языка."
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Неверный дайджест-файл."
+
+#~ msgid "small"
+#~ msgstr "Маленький:"
+
+#~ msgid "thumbnail"
+#~ msgstr "Уменьшенное изображение:"
+
+#~ msgid "square"
+#~ msgstr "квадрат"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4530,116 +4719,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 
 #~ msgid "Embedded Video Player"
 #~ msgstr "Встроенный видио-плеер"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "Невозможно открыть директорию."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Невозможно создать директорию."
-
-#~ msgid "File is not writable."
-#~ msgstr "Файл не доступен для записи."
-
-# pas compris
-#~ msgid "Not an uploaded file."
-#~ msgstr "Нет загруженных файлов."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Загруженный файл превышает максимально допустимый размер."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "Загружаемый файл был загружен только частично."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Нет загруженных файлов."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Отсутствует временная директория."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Невозможно записать файл на диск."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s не является директорией."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Неверный код языка."
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Неверный код языка."
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Неверный дайджест-файл."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Загрузка файла не разрешена."
-
-# "en jail" ? c'est du geek ?
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Целевая директория не в jail."
-
-#~ msgid "File already exists."
-#~ msgstr "Файл уже существует."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Невозможно выполнить запись в эту директорию."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Источник файла не существует."
-
-# geek ?
-#~ msgid "File is not in jail."
-#~ msgstr "Файл не в jail."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "Целевая директория не доступна для записи."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Невозможно переименовать файл."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Файл не может быть удален."
-
-# décidément ! mais que veut dire "jail" ?
-#~ msgid "Directory is not in jail."
-#~ msgstr "Папка не в jail."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Эта директория не может быть удалена."
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Недостаточно памяти для открытия изображения."
-
-#, fuzzy
-#~ msgid "WARNING: the following errors have been found while parsing template file :"
-#~ msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "Файл %s не сжат в zip."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "Извлечение папки %s"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Невозможно записать целевой файл."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Невозмжно записать в целевую директорию, нет прав доступа."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Недостаточно памяти для открытия файла."
-
-#~ msgid "File does not exist"
-#~ msgstr "Файл не существует"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Невозможно прочитать файл"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Невозможно прочитать директорию"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4917,9 +4996,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "Вам не разрешено удалять этот комментарий"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "Директория %s не существует."
 
 #~ msgid "%s: in [%s] and [%s]"
 #~ msgstr "%s: в [%s] и [%s]"

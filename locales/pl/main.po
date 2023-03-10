@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -667,6 +667,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Zainstalowane języki"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Wyłącz"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1816,9 +1823,6 @@ msgstr "Zainstalowane języki"
 msgid "Activated plugins"
 msgstr "Aktywne wtyczki"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2263,6 +2267,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Rozmiar pliku:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2499,6 +2506,9 @@ msgstr "Przypomnij mi później"
 #, fuzzy
 msgid "Information about this version"
 msgstr "informacje o tej wersji"
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
+msgstr ""
 
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
@@ -3070,6 +3080,22 @@ msgid "Trackback"
 msgstr "Trackbacki"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Rodzaj pliku:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Użytkowników na stronę"
 
@@ -3177,10 +3203,12 @@ msgstr ""
 msgid "Select:"
 msgstr "Zaznaczenie:"
 
-msgid "no selection"
+#, fuzzy
+msgid "No selection"
 msgstr "usuń zaznaczenie"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "zaznacz wszystkie"
 
 msgid "Invert selection"
@@ -3468,6 +3496,10 @@ msgstr "Przeszukaj wpis:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Zarządzanie wtyczkami"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3993,15 +4025,16 @@ msgstr "Wystąpił błąd podczas zapisywania pliku."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Rozmiar generowanego obrazu (w pikselach)"
 
-#, fuzzy
-msgid "small"
-msgstr "Małe:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Miniaturki:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 msgid "Pages"
@@ -4411,6 +4444,122 @@ msgstr "Nie wskazano przestrzeni roboczej"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Coś poszło źle z automatyczną aktualizacją:"
 
+msgid "Unable to open directory."
+msgstr "Nie można otworzyć katalogu."
+
+msgid "Unable to create directory."
+msgstr "Nie można utworzyć katalogu."
+
+msgid "File is not writable."
+msgstr "Plik nie jest zapisywalny."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Nie można zmienić nazwy pliku."
+
+msgid "Not an uploaded file."
+msgstr "To nie jest wysłany plik."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Wysyłany plik przekroczył maksymalną dozwoloną wielkość."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Wysyłany plik został tylko częściowo dostarczony."
+
+msgid "No file was uploaded."
+msgstr "Plik nie został wysłany."
+
+msgid "Missing a temporary folder."
+msgstr "Brak katalogu tymczasowego."
+
+msgid "Failed to write file to disk."
+msgstr "Zapisywanie pliku na dysk nie powiodło się."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s nie jest katalogiem."
+
+msgid "Uploading this file is not allowed."
+msgstr "Wysłanie tego pliku nie jest dozwolone."
+
+msgid "Destination directory is not in jail."
+msgstr "Katalog docelowy nie jest oznaczony jako niechciany."
+
+msgid "File already exists."
+msgstr "Wskazany plik już istnieje."
+
+msgid "Cannot write in this directory."
+msgstr "Nie można zapisywać do tego katalogu."
+
+msgid "Source file does not exist."
+msgstr "Plik źródłowy nie istnieje."
+
+msgid "File is not in jail."
+msgstr "Plik nie jest oznaczony jako niechciany."
+
+msgid "Destination directory is not writable."
+msgstr "Katalog docelowy nie jest zapisywalny."
+
+msgid "Unable to rename file."
+msgstr "Nie można zmienić nazwy pliku."
+
+msgid "File cannot be removed."
+msgstr "Plik nie może zostać usunięty."
+
+msgid "Directory is not in jail."
+msgstr "Katalog nie jest oznaczony jako \"niechciany\"."
+
+msgid "Directory cannot be removed."
+msgstr "Katalog nie może zostać usunięty."
+
+msgid "Not enough memory to open image."
+msgstr "Brak wystarczającej ilości pamięci do otwarcia obrazu."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Pplk %s nie jest poprawnym plikiem archiwum."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Rozpakowuję katalog %s"
+
+msgid "Unable to write destination file."
+msgstr "Nie można zapisywać w docelowym pliku."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nie można zapisywać w docelowym katalogu, brak uprawnień."
+
+msgid "Not enough memory to open file."
+msgstr "Brak wystarczającej pamięci do otwarcia pliku."
+
+msgid "File does not exist"
+msgstr "Plik nie istnieje"
+
+msgid "Cannot read file"
+msgstr "Nie można czytać pliku"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Katalog %s nie istnieje."
+
+msgid "Cannot read directory"
+msgstr "Nie można czytać katalogu"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4426,6 +4575,39 @@ msgstr "<p>To oznacza że nazwa użytkownika i hasło w Twoim pliku <strong>conf
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Niepoprawny kod języka"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Niepoprawny kod języka"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Niepoprawny kod języka"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Nieprawidłowy plik digests."
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Małe:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Miniaturki:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4519,112 +4701,6 @@ msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
 
 #~ msgid "Embedded Video Player"
 #~ msgstr "Osadzony Odtwarzacz Wideo"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "Nie można otworzyć katalogu."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Nie można utworzyć katalogu."
-
-#~ msgid "File is not writable."
-#~ msgstr "Plik nie jest zapisywalny."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "To nie jest wysłany plik."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Wysyłany plik przekroczył maksymalną dozwoloną wielkość."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "Wysyłany plik został tylko częściowo dostarczony."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Plik nie został wysłany."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Brak katalogu tymczasowego."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Zapisywanie pliku na dysk nie powiodło się."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s nie jest katalogiem."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Niepoprawny kod języka"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Niepoprawny kod języka"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Nieprawidłowy plik digests."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Wysłanie tego pliku nie jest dozwolone."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Katalog docelowy nie jest oznaczony jako niechciany."
-
-#~ msgid "File already exists."
-#~ msgstr "Wskazany plik już istnieje."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Nie można zapisywać do tego katalogu."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Plik źródłowy nie istnieje."
-
-#~ msgid "File is not in jail."
-#~ msgstr "Plik nie jest oznaczony jako niechciany."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "Katalog docelowy nie jest zapisywalny."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Nie można zmienić nazwy pliku."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Plik nie może zostać usunięty."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "Katalog nie jest oznaczony jako \"niechciany\"."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Katalog nie może zostać usunięty."
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Brak wystarczającej ilości pamięci do otwarcia obrazu."
-
-#, fuzzy
-#~ msgid "WARNING: the following errors have been found while parsing template file :"
-#~ msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "Pplk %s nie jest poprawnym plikiem archiwum."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "Rozpakowuję katalog %s"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Nie można zapisywać w docelowym pliku."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Nie można zapisywać w docelowym katalogu, brak uprawnień."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Brak wystarczającej pamięci do otwarcia pliku."
-
-#~ msgid "File does not exist"
-#~ msgstr "Plik nie istnieje"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Nie można czytać pliku"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Nie można czytać katalogu"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4911,9 +4987,6 @@ msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "Nie jesteś uprawniony do usunięcia tego komentarza"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "Katalog %s nie istnieje."
 
 #~ msgid "%s: in [%s] and [%s]"
 #~ msgstr "%s: w [%s] i [%s]"

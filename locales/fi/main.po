@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -634,6 +634,13 @@ msgstr "Käy %s-säilössä, jossa Dotclear-resursseja pidetään."
 
 msgid "Installed themes"
 msgstr "Asennetut teemat"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Käytöstä poistetut teemat"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr "Voit säätää ja hallita tämän luettelon asennettuja teemoja."
@@ -1722,9 +1729,6 @@ msgstr "Asennetut liitännäiset"
 msgid "Activated plugins"
 msgstr "Käytössä olevat liitännäiset"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Voit hallita asennettuja liitännäisiä ja määritellä niiden asetukset tästä luettelosta."
 
@@ -2124,6 +2128,9 @@ msgstr "Näytä asynkronipyyntöjen osoitin"
 msgid "Font size:"
 msgstr "Tiedoston koko:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Ehdotettavien aiempien kansioiden määrä medianhallinnassa:"
 
@@ -2335,6 +2342,9 @@ msgstr "Muistuta myöhemmin"
 
 msgid "Information about this version"
 msgstr "Tietoja tästä versiosta"
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
+msgstr ""
 
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
@@ -2841,6 +2851,22 @@ msgstr "Tyyppi:"
 msgid "Trackback"
 msgstr "Takaisinviittaus"
 
+#, fuzzy
+msgid "Media type:"
+msgstr "Tiedostotyyppi:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
 msgid "users per page"
 msgstr "käyttäjää sivua kohti"
 
@@ -2939,10 +2965,12 @@ msgstr "Piilota"
 msgid "Select:"
 msgstr "Valitse:"
 
-msgid "no selection"
+#, fuzzy
+msgid "No selection"
 msgstr "ei valintaa"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "valitse kaikki"
 
 msgid "Invert selection"
@@ -3213,6 +3241,10 @@ msgstr "Etsi säilöstä:"
 
 msgid "Plugin from official distribution"
 msgstr "Viralliseen jakeluun kuuluva liitännäinen"
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Liitännäisten hallinta"
 
 msgid "No plugins matched your search."
 msgstr "Mikään liitännäinen ei vastaa hakuasi."
@@ -3670,14 +3702,17 @@ msgstr "Virhe tiedostoa kirjoitettaessa."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
 
-msgid "small"
-msgstr "pieni"
+msgid "moyenne"
+msgstr ""
 
-msgid "thumbnail"
-msgstr "pikkukuva"
+msgid "petite"
+msgstr ""
 
-msgid "square"
-msgstr "neliö"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
+msgstr ""
 
 msgid "Pages"
 msgstr "Sivut"
@@ -4078,6 +4113,143 @@ msgstr "Ei määriteltyä työavaruutta"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
 
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "Kuvien luonti ei onnistu."
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Kelpaamaton tiedosto"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Ei ladattavaa tiedostoa"
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to write file to disk."
+msgstr "Tiedostoa %s ei voi poistaa"
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "Kelpaamaton tiedosto"
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "Luvaton tiedosto."
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Uusi tiedosto on jo."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Tiedostoa %s ei ole."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Luvaton tiedosto."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+#, fuzzy
+msgid "File cannot be removed."
+msgstr "Tiedosto on poistettu."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "Hakemistoa \"%s\" ei voi muokata."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Tiedostoa ei ole tietokannassa."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "Tiedostoa %s ei ole."
+
+#, fuzzy
+msgid "Cannot read file"
+msgstr "Tiedostoa %s ei saatu luotua."
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Varmistushakemistoa ei ole"
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
 msgid "Site temporarily unavailable"
 msgstr "Sivusto väliaikaisesti saavuttamattomissa"
 
@@ -4093,6 +4265,39 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Virheellinen kielikoodi"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Virheellinen kielikoodi"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Tiivistelmätiedosto ei kelpaa."
+
+#~ msgid "small"
+#~ msgstr "pieni"
+
+#~ msgid "thumbnail"
+#~ msgstr "pikkukuva"
+
+#~ msgid "square"
+#~ msgstr "neliö"
 
 #, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

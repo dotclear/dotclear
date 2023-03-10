@@ -90,7 +90,7 @@ if [ -z "$PO_MODULE" ]; then
   # Create po template files
   #
   echo "Building main PO template..."
-  find ./admin ./inc -name '*.php' -not -regex '.*/inc/public/.*' -not -regex '.*/inc/libs/.*' -print | \
+  find ./admin ./inc ./src -name '*.php' -not -regex '.*/inc/public/.*' -not -regex '.*/inc/libs/.*' -print | \
     extract_strings \
     --package-name="Dotclear 2" \
     -o locales/_pot/main.pot \
@@ -192,6 +192,17 @@ else
   if [ -f $PO_MODULE/_config.php ]; then
     echo "- Building admin PO template..."
     find $PO_MODULE -name '_config.php' -print | \
+      extract_strings \
+      --package-name="Dotclear 2 `basename $PO_MODULE` module" \
+      -o $PO_MODULE/locales/_pot/admin.pot \
+      -x locales/_pot/date.pot -x locales/_pot/main.pot -x locales/_pot/public.pot -x locales/_pot/plugins.pot
+  else
+    touch $PO_MODULE/locales/_pot/admin.pot
+  fi
+
+  if [ -f $PO_MODULE/src/Config.php ]; then
+    echo "- Building admin PO template..."
+    find $PO_MODULE/src -name 'Config.php' -print | \
       extract_strings \
       --package-name="Dotclear 2 `basename $PO_MODULE` module" \
       -o $PO_MODULE/locales/_pot/admin.pot \

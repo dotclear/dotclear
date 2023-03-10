@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -33,9 +33,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr "管理博客链接"
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -45,7 +42,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -187,8 +187,8 @@ msgstr "API key 验证失败"
 msgid "Get your own API key"
 msgstr "获取您自己的 API key"
 
-msgid "Antispam"
-msgstr "反垃圾评论"
+msgid "This comment is a spam:"
+msgstr "这个评论是垃圾评论："
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -197,6 +197,30 @@ msgstr "(包括 %d 个垃圾评论)"
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(包括 %d 个垃圾评论)"
+
+msgid "Antispam"
+msgstr "反垃圾评论"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr "删除垃圾评论早于"
+
+msgid "days"
+msgstr "天"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet 垃圾评论过滤"
 
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP 黑名单／白名单过滤"
@@ -307,30 +331,6 @@ msgstr "创建默认的关键字列表"
 msgid "This word exists"
 msgstr "这个关键字已存在"
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "删除垃圾评论早于"
-
-msgid "days"
-msgstr "天"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Akismet 垃圾评论过滤"
-
-msgid "This comment is a spam:"
-msgstr "这个评论是垃圾评论："
-
 msgid "Spam moderation"
 msgstr "垃圾评论审核"
 
@@ -340,16 +340,6 @@ msgstr "垃圾评论"
 #, fuzzy
 msgid "Ham"
 msgstr "Ham"
-
-msgid "No description"
-msgstr "没有描述"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "被 %1$s (%2$s) 过滤"
-
-msgid "Unknown filter."
-msgstr "未知的过滤。"
 
 msgid "Filter does not exist."
 msgstr "过滤器不存在。"
@@ -412,6 +402,16 @@ msgstr "垃圾评论 RSS feed"
 msgid "Published comments RSS feed"
 msgstr "发表的评论 RSS feed"
 
+msgid "No description"
+msgstr "没有描述"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "被 %1$s (%2$s) 过滤"
+
+msgid "Unknown filter."
+msgstr "未知的过滤。"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -431,6 +431,64 @@ msgstr "管理博客链接"
 
 msgid "Blogroll"
 msgstr "博客链接"
+
+msgid "You must provide a link title"
+msgstr "您必须提供一个链接标题"
+
+msgid "You must provide a link URL"
+msgstr "您必须提供一个链接 URL"
+
+msgid "Nothing to import"
+msgstr "没有要导入的"
+
+msgid "links have been successfully imported."
+msgstr "成功导入链接。"
+
+msgid "Import operation cancelled."
+msgstr "导入操作被取消。"
+
+msgid "Link has been successfully created."
+msgstr "成功创建连接。"
+
+msgid "category has been successfully created."
+msgstr "成功创建分类目录。"
+
+msgid "Items have been successfully removed."
+msgstr "成功删除项目。"
+
+msgid "Items order has been successfully updated"
+msgstr "成功更新项目顺序"
+
+msgid "Lang"
+msgstr "语言"
+
+#, fuzzy
+msgid "select this link"
+msgstr "删除此标签"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "您确定您要删除选定的链接吗？"
+
+msgid "Delete selected links"
+msgstr "删除选定的链接"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "添加一个新链接"
+
+msgid "Add a category"
+msgstr "添加一个分类目录"
+
+msgid "Import links"
+msgstr "导入链接"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML 或者 XBEL 文件："
+
+msgid "Import"
+msgstr "导入"
 
 msgid "No such link or title"
 msgstr "没有这样的链接或者标题"
@@ -532,12 +590,6 @@ msgstr "与我约会的"
 msgid "_xfn_Sweetheart"
 msgstr "甜心"
 
-msgid "You must provide a link title"
-msgstr "您必须提供一个链接标题"
-
-msgid "You must provide a link URL"
-msgstr "您必须提供一个链接 URL"
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr "您必须提供一个 XBEL 或者 OPML 文件。"
 
@@ -549,287 +601,6 @@ msgstr "所有分类目录"
 
 msgid "Links"
 msgstr "链接"
-
-msgid "Nothing to import"
-msgstr "没有要导入的"
-
-msgid "links have been successfully imported."
-msgstr "成功导入链接。"
-
-msgid "Import operation cancelled."
-msgstr "导入操作被取消。"
-
-msgid "Link has been successfully created."
-msgstr "成功创建连接。"
-
-msgid "category has been successfully created."
-msgstr "成功创建分类目录。"
-
-msgid "Items have been successfully removed."
-msgstr "成功删除项目。"
-
-msgid "Items order has been successfully updated"
-msgstr "成功更新项目顺序"
-
-msgid "Lang"
-msgstr "语言"
-
-#, fuzzy
-msgid "select this link"
-msgstr "删除此标签"
-
-msgid "Are you sure you want to delete selected links?"
-msgstr "您确定您要删除选定的链接吗？"
-
-msgid "Delete selected links"
-msgstr "删除选定的链接"
-
-msgid "The link list is empty."
-msgstr ""
-
-msgid "Add a new link"
-msgstr "添加一个新链接"
-
-msgid "Add a category"
-msgstr "添加一个分类目录"
-
-msgid "Import links"
-msgstr "导入链接"
-
-msgid "OPML or XBEL File:"
-msgstr "OPML 或者 XBEL 文件："
-
-msgid "Import"
-msgstr "导入"
-
-msgid "default"
-msgstr "默认"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "无法创建图片。"
-
-msgid "Unable to open image."
-msgstr "无法打开图片。"
-
-msgid "Light linear gradient"
-msgstr "浅的线性梯度"
-
-msgid "Medium linear gradient"
-msgstr "中等线性梯度"
-
-msgid "Dark linear gradient"
-msgstr "深的线性梯度"
-
-msgid "Solid color"
-msgstr "实色"
-
-msgid "Custom..."
-msgstr "定制..."
-
-msgid "Theme configuration has been successfully updated."
-msgstr "成功更新主题配置。"
-
-msgid "Blowup configuration"
-msgstr "Blowup 配置"
-
-msgid "Predefined styles"
-msgstr "预定义的样式"
-
-msgid "Apply code"
-msgstr "应用代码"
-
-#, fuzzy
-msgid "Choose a predefined style"
-msgstr "预定义的样式"
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr "一般"
-
-msgid "Background color:"
-msgstr "背景颜色："
-
-msgid "Background color fill:"
-msgstr "背景颜色填充："
-
-msgid "Main text font:"
-msgstr "主体文字字体："
-
-msgid "Main text font size:"
-msgstr "主体文字大小："
-
-msgid "Main text color:"
-msgstr "主体文字颜色："
-
-msgid "Text line height:"
-msgstr "文本行高："
-
-msgid "Links color:"
-msgstr "链接颜色："
-
-msgid "Visited links color:"
-msgstr "浏览过的链接颜色："
-
-msgid "Focus links color:"
-msgstr "焦点链接颜色："
-
-#, fuzzy
-msgid "Prelude color:"
-msgstr "Prelude 的颜色："
-
-msgid "Hide main title"
-msgstr "隐藏主标题"
-
-msgid "Main title font:"
-msgstr "主标题字体："
-
-msgid "Main title font size:"
-msgstr "主标题字体大小："
-
-msgid "Main title color:"
-msgstr "主标题颜色："
-
-msgid "Main title alignment:"
-msgstr "主标题对齐："
-
-msgid "center"
-msgstr "中间"
-
-msgid "left"
-msgstr "左"
-
-msgid "right"
-msgstr "右"
-
-msgid "Main title position (x:y)"
-msgstr "主标题位置(x:y)"
-
-msgid "Top image"
-msgstr "顶部图片"
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr "选择“定制...”来上传您自己的图片。"
-
-msgid "Add your image:"
-msgstr "添加您的图片："
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "JPEG 或者 PNG 文件，800 像素宽，最大大小 %s"
-
-msgid "Sidebar"
-msgstr "侧边栏"
-
-msgid "Sidebar position:"
-msgstr "侧边栏位置："
-
-msgid "Sidebar text font:"
-msgstr "侧边栏文字字体："
-
-msgid "Sidebar text font size:"
-msgstr "侧边栏文字字体大小："
-
-msgid "Sidebar text color:"
-msgstr "侧边栏文字颜色："
-
-msgid "Sidebar titles font:"
-msgstr "侧边栏标题字体："
-
-msgid "Sidebar titles font size:"
-msgstr "侧边栏标题字体大小："
-
-msgid "Sidebar titles color:"
-msgstr "侧边栏标题颜色："
-
-msgid "Sidebar 2nd level titles font:"
-msgstr "侧边栏第二层标题字体："
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr "侧边栏第二层标题字体大小："
-
-msgid "Sidebar 2nd level titles color:"
-msgstr "侧边栏第二层标题颜色："
-
-msgid "Sidebar lines color:"
-msgstr "侧边栏水平线颜色："
-
-msgid "Sidebar links color:"
-msgstr "侧边栏链接颜色："
-
-msgid "Sidebar visited links color:"
-msgstr "侧边栏浏览过的链接颜色："
-
-msgid "Sidebar focus links color:"
-msgstr "侧边栏焦点链接颜色："
-
-msgid "Date title font:"
-msgstr "日期标题字体："
-
-msgid "Date title font size:"
-msgstr "日期标题字体大小："
-
-msgid "Date title color:"
-msgstr "日期标题颜色："
-
-msgid "Entry title font:"
-msgstr "文章标题字体："
-
-msgid "Entry title font size:"
-msgstr "文章标题字体大小："
-
-msgid "Entry title color:"
-msgstr "文章标题颜色："
-
-msgid "Comment background color:"
-msgstr "评论背景颜色："
-
-msgid "Comment text color:"
-msgstr "评论文字颜色："
-
-msgid "My comment background color:"
-msgstr "我的评论背景颜色："
-
-msgid "My comment text color:"
-msgstr "我的评论文字颜色："
-
-msgid "Footer"
-msgstr "足部"
-
-msgid "Footer font:"
-msgstr "足部字体："
-
-msgid "Footer font size:"
-msgstr "足部字体大小："
-
-msgid "Footer color:"
-msgstr "足部颜色："
-
-msgid "Footer links color:"
-msgstr "足部链接颜色："
-
-msgid "Footer background color:"
-msgstr "足部背景颜色："
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr "配置导入／导出"
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "您可以使用如下代码分享您的配置。要应用一个配置 ，粘贴代码，点击“应用代码”并保存。"
-
-msgid "Copy this code:"
-msgstr ""
 
 msgid "Breadcrumb"
 msgstr ""
@@ -859,10 +630,20 @@ msgstr "所有标签"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "上传一个备份文件"
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -893,6 +674,9 @@ msgid "The configuration has been updated."
 msgstr "成功更新主题配置。"
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1077,6 +861,69 @@ msgstr "检查文章链接的 trackback 源"
 msgid "Import/Export"
 msgstr "导入／导出"
 
+#, fuzzy
+msgid "Database export"
+msgstr "纯文本导出"
+
+msgid "Download database of current blog"
+msgstr ""
+
+#, fuzzy
+msgid "Compress file"
+msgstr "模板文件"
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr "没有文件要读取。"
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "无法创建图片。"
+
+msgid "File is not a DotClear backup."
+msgstr "文件不是一个 Dotclear 备份。"
+
+msgid "File is not a single blog export."
+msgstr "文件不是一个单一博客的导出。"
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr "文件不是一个完整的导出。"
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "请稍等..."
+
+msgid "Export"
+msgstr "导出"
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+msgid "Maintenance"
+msgstr "维护"
+
+msgid "Congratulation!"
+msgstr "恭喜！"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "您的博客已被成功导入。欢迎来到 Dotclear 2！"
+
+msgid "Why don't you blog this now?"
+msgstr "为什么不立刻开始写博客呢？"
+
+msgid "visit your dashboard"
+msgstr "浏览您的控制板"
+
 msgid "Flat file export"
 msgstr "纯文本导出"
 
@@ -1097,15 +944,8 @@ msgstr "导入单一博客"
 msgid "This will create an export of your current blog: %s"
 msgstr "这将会导出您当前博客：%s"
 
-#, fuzzy
-msgid "Compress file"
-msgstr "模板文件"
-
 msgid "You may also want to download your media directory as a zip file"
 msgstr "您或许也希望将您的媒体目录作为 zip 文件下载"
-
-msgid "Export"
-msgstr "导出"
 
 msgid "Multiple blogs"
 msgstr ""
@@ -1113,18 +953,6 @@ msgstr ""
 #, fuzzy
 msgid "This will create an export of all the content of your database."
 msgstr "警告：这将会您的数据库中所有内容，除了用户。"
-
-msgid "Congratulation!"
-msgstr "恭喜！"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "您的博客已被成功导入。欢迎来到 Dotclear 2！"
-
-msgid "Why don't you blog this now?"
-msgstr "为什么不立刻开始写博客呢？"
-
-msgid "visit your dashboard"
-msgstr "浏览您的控制板"
 
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 导入"
@@ -1299,50 +1127,6 @@ msgstr "评论内容格式："
 msgid "WordPress tables not found"
 msgstr "WordPress 表没有找到"
 
-msgid "No file to read."
-msgstr "没有文件要读取。"
-
-#, fuzzy
-msgid "Unable to create output file."
-msgstr "无法创建图片。"
-
-msgid "File is not a DotClear backup."
-msgstr "文件不是一个 Dotclear 备份。"
-
-msgid "File is not a single blog export."
-msgstr "文件不是一个单一博客的导出。"
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr "文件不是一个完整的导出。"
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-#, fuzzy
-msgid "Database export"
-msgstr "纯文本导出"
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr "请稍等..."
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-msgid "Maintenance"
-msgstr "维护"
-
 #, fuzzy
 msgid "Servicing"
 msgstr "服务器名称："
@@ -1423,6 +1207,99 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr "成功创建连接。"
 
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "成功创建分类目录。"
+
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "成功更新设置。"
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "这可能需要很长时间"
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "博客设置"
+
+#, fuzzy
+msgid "Activation"
+msgstr "激活"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr "清空模板缓存目录"
 
@@ -1449,18 +1326,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr "评论和 trackback 已计数。"
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1568,99 +1433,8 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
-msgid "Maintenance plugin has been successfully configured."
-msgstr "成功创建分类目录。"
-
-#, fuzzy
-msgid "System settings have been saved."
-msgstr "成功更新设置。"
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-#, fuzzy
-msgid "This may take a very long time."
-msgstr "这可能需要很长时间"
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "博客设置"
-
-#, fuzzy
-msgid "Activation"
-msgstr "激活"
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
 msgstr "管理页面"
-
-msgid "New page"
-msgstr "新页面"
-
-#, fuzzy
-msgid "My first page"
-msgstr "编辑页面"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1670,15 +1444,8 @@ msgstr "编辑页面"
 msgid "%d pages"
 msgstr "编辑页面"
 
-msgid "No page"
-msgstr "没有页面"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "删除此标签"
+msgid "New page"
+msgstr "新页面"
 
 #, fuzzy
 msgid "Pages actions"
@@ -1692,6 +1459,16 @@ msgstr "返回到标签列表"
 msgid "Selected pages have been successfully reordered."
 msgstr "成功删除项目。"
 
+msgid "No page"
+msgstr "没有页面"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "删除此标签"
+
 msgid "Published on"
 msgstr "发布于"
 
@@ -1701,14 +1478,12 @@ msgstr "此页面的评论 feed"
 msgid "You must provide a valid email address."
 msgstr "您必须提供一个有效的邮箱地址。"
 
-msgid "Page title"
-msgstr "页面标题"
+#, fuzzy
+msgid "My first page"
+msgstr "编辑页面"
 
-msgid "Page position"
-msgstr "页面位置"
-
-msgid "Publication date"
-msgstr "发布时间"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "您确定要删除选定的页面吗？"
@@ -1762,6 +1537,9 @@ msgstr "页面状态："
 msgid "Page language"
 msgstr "页面语言："
 
+msgid "Page position"
+msgstr "页面位置"
+
 #, fuzzy
 msgid "Hide in widget Pages"
 msgstr "隐藏主标题"
@@ -1775,6 +1553,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "删除此标签"
+
+msgid "Page title"
+msgstr "页面标题"
+
+msgid "Publication date"
+msgstr "发布时间"
 
 msgid "Pings"
 msgstr "Pings"
@@ -1814,24 +1598,6 @@ msgstr "激活"
 #, fuzzy
 msgid "active page"
 msgstr "查看页面"
-
-#, fuzzy
-msgid "Item description"
-msgstr "没有描述"
-
-#, fuzzy
-msgid "Displayed in link"
-msgstr "删除此标签"
-
-#, fuzzy
-msgid "Used as link title"
-msgstr "没有这样的链接或者标题"
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
-msgstr ""
 
 #, fuzzy
 msgid "All months"
@@ -1987,6 +1753,24 @@ msgstr "您确定您要删除选定的链接吗？"
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "没有描述"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "删除此标签"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "没有这样的链接或者标题"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "标签"
 
@@ -2067,23 +1851,8 @@ msgstr "此标签的评论 Atom feed"
 msgid "This tag's entries Atom feed"
 msgstr "此标签的文章 Atom feed"
 
-msgid "Limit (empty means no limit):"
-msgstr "限制(留空表示不限制)："
-
-msgid "Tag name"
-msgstr "标签名称"
-
-msgid "Entries count"
-msgstr "文章计数"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
+msgid "No tags on this blog."
+msgstr "此博客上没有标签"
 
 msgid "Tag has been successfully renamed"
 msgstr "成功重命名标签"
@@ -2109,8 +1878,23 @@ msgstr "删除此标签"
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
-msgstr "此博客上没有标签"
+msgid "Limit (empty means no limit):"
+msgstr "限制(留空表示不限制)："
+
+msgid "Tag name"
+msgstr "标签名称"
+
+msgid "Entries count"
+msgstr "文章计数"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 #, fuzzy
 msgid "Edit theme files"
@@ -2121,33 +1905,6 @@ msgstr ""
 
 msgid "Syntax highlighting in theme editor"
 msgstr ""
-
-msgid "No file"
-msgstr "没有文件"
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr "文件不存在。"
-
-#, php-format
-msgid "File %s is not readable"
-msgstr "文件 %s 无法读取"
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
 
 msgid "The file has been reset."
 msgstr ""
@@ -2206,6 +1963,33 @@ msgstr "CSS 文件"
 msgid "You can't edit a distributed theme."
 msgstr "您不能修改默认主题。"
 
+msgid "No file"
+msgstr "没有文件"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr "文件不存在。"
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "文件 %s 无法读取"
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
+
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "成功更新页面。"
@@ -2230,6 +2014,106 @@ msgid "Widget's textareas"
 msgstr "小工具模板标签"
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr "导航"
+
+msgid "extra"
+msgstr "额外"
+
+#, fuzzy
+msgid "custom"
+msgstr "定制..."
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "您确定要重置侧边栏吗？"
+
+msgid "Widgets"
+msgstr "小工具"
+
+msgid "Available widgets"
+msgstr "可用的小工具"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "顺序"
+
+msgid "Append to:"
+msgstr "追加到："
+
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "添加小工具和侧边栏"
+
+msgid "Navigation sidebar"
+msgstr "导航侧边栏"
+
+msgid "Extra sidebar"
+msgstr "额外的侧边栏"
+
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "重置侧边栏"
+
+msgid "Update sidebars"
+msgstr "更新侧边栏"
+
+msgid "Reset sidebars"
+msgstr "重置侧边栏"
+
+msgid "Widget ID:"
+msgstr "小工具 ID："
+
+msgid "No setting for this widget"
+msgstr "这个小工具没有设置"
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "设置名称："
+
+#, fuzzy
+msgid "No widget as far."
+msgstr "没有小工具。"
+
+#, fuzzy
+msgid "Up the widget"
+msgstr "没有小工具。"
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "移除小工具"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "移除小工具"
+
+msgid "Remove widget"
+msgstr "移除小工具"
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2340,105 +2224,219 @@ msgstr "CSS 文件"
 msgid "Offline"
 msgstr ""
 
-msgid "navigation"
-msgstr "导航"
-
-msgid "extra"
-msgstr "额外"
+#~ msgid "default"
+#~ msgstr "默认"
 
 #, fuzzy
-msgid "custom"
-msgstr "定制..."
+#~ msgid "Unable to create css file."
+#~ msgstr "无法创建图片。"
 
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
+#~ msgid "Unable to open image."
+#~ msgstr "无法打开图片。"
 
-msgid "Sidebars have been resetting."
-msgstr ""
+#~ msgid "Light linear gradient"
+#~ msgstr "浅的线性梯度"
 
-msgid "Widgets"
-msgstr "小工具"
+#~ msgid "Medium linear gradient"
+#~ msgstr "中等线性梯度"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr "您确定要重置侧边栏吗？"
+#~ msgid "Dark linear gradient"
+#~ msgstr "深的线性梯度"
 
-msgid "Available widgets"
-msgstr "可用的小工具"
+#~ msgid "Solid color"
+#~ msgstr "实色"
 
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+#~ msgid "Custom..."
+#~ msgstr "定制..."
 
-msgid "order"
-msgstr "顺序"
+#~ msgid "Theme configuration has been successfully updated."
+#~ msgstr "成功更新主题配置。"
 
-msgid "Append to:"
-msgstr "追加到："
+#~ msgid "Blowup configuration"
+#~ msgstr "Blowup 配置"
 
-#, fuzzy
-msgid "Add widgets to sidebars"
-msgstr "添加小工具和侧边栏"
+#~ msgid "Predefined styles"
+#~ msgstr "预定义的样式"
 
-msgid "Navigation sidebar"
-msgstr "导航侧边栏"
-
-msgid "Extra sidebar"
-msgstr "额外的侧边栏"
+#~ msgid "Apply code"
+#~ msgstr "应用代码"
 
 #, fuzzy
-msgid "Custom sidebar"
-msgstr "重置侧边栏"
+#~ msgid "Choose a predefined style"
+#~ msgstr "预定义的样式"
 
-msgid "Update sidebars"
-msgstr "更新侧边栏"
+#~ msgid "General"
+#~ msgstr "一般"
 
-msgid "Reset sidebars"
-msgstr "重置侧边栏"
+#~ msgid "Background color:"
+#~ msgstr "背景颜色："
 
-msgid "Widget ID:"
-msgstr "小工具 ID："
+#~ msgid "Background color fill:"
+#~ msgstr "背景颜色填充："
 
-msgid "No setting for this widget"
-msgstr "这个小工具没有设置"
+#~ msgid "Main text font:"
+#~ msgstr "主体文字字体："
 
-msgid "boolean"
-msgstr ""
+#~ msgid "Main text font size:"
+#~ msgstr "主体文字大小："
 
-msgid "possible values:"
-msgstr ""
+#~ msgid "Main text color:"
+#~ msgstr "主体文字颜色："
 
-msgid "empty string"
-msgstr ""
+#~ msgid "Text line height:"
+#~ msgstr "文本行高："
 
-msgid "listitem"
-msgstr ""
+#~ msgid "Links color:"
+#~ msgstr "链接颜色："
 
-msgid "string"
-msgstr ""
+#~ msgid "Visited links color:"
+#~ msgstr "浏览过的链接颜色："
 
-msgid "Setting name:"
-msgstr "设置名称："
-
-#, fuzzy
-msgid "No widget as far."
-msgstr "没有小工具。"
+#~ msgid "Focus links color:"
+#~ msgstr "焦点链接颜色："
 
 #, fuzzy
-msgid "Up the widget"
-msgstr "没有小工具。"
+#~ msgid "Prelude color:"
+#~ msgstr "Prelude 的颜色："
 
-#, fuzzy
-msgid "Down the widget"
-msgstr "移除小工具"
+#~ msgid "Hide main title"
+#~ msgstr "隐藏主标题"
 
-#, fuzzy
-msgid "Remove the widget"
-msgstr "移除小工具"
+#~ msgid "Main title font:"
+#~ msgstr "主标题字体："
 
-msgid "Remove widget"
-msgstr "移除小工具"
+#~ msgid "Main title font size:"
+#~ msgstr "主标题字体大小："
 
-msgid "Drag widgets here to remove."
-msgstr ""
+#~ msgid "Main title color:"
+#~ msgstr "主标题颜色："
+
+#~ msgid "Main title alignment:"
+#~ msgstr "主标题对齐："
+
+#~ msgid "center"
+#~ msgstr "中间"
+
+#~ msgid "left"
+#~ msgstr "左"
+
+#~ msgid "right"
+#~ msgstr "右"
+
+#~ msgid "Main title position (x:y)"
+#~ msgstr "主标题位置(x:y)"
+
+#~ msgid "Top image"
+#~ msgstr "顶部图片"
+
+#~ msgid "Choose \"Custom...\" to upload your own image."
+#~ msgstr "选择“定制...”来上传您自己的图片。"
+
+#~ msgid "Add your image:"
+#~ msgstr "添加您的图片："
+
+#, php-format
+#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+#~ msgstr "JPEG 或者 PNG 文件，800 像素宽，最大大小 %s"
+
+#~ msgid "Sidebar"
+#~ msgstr "侧边栏"
+
+#~ msgid "Sidebar position:"
+#~ msgstr "侧边栏位置："
+
+#~ msgid "Sidebar text font:"
+#~ msgstr "侧边栏文字字体："
+
+#~ msgid "Sidebar text font size:"
+#~ msgstr "侧边栏文字字体大小："
+
+#~ msgid "Sidebar text color:"
+#~ msgstr "侧边栏文字颜色："
+
+#~ msgid "Sidebar titles font:"
+#~ msgstr "侧边栏标题字体："
+
+#~ msgid "Sidebar titles font size:"
+#~ msgstr "侧边栏标题字体大小："
+
+#~ msgid "Sidebar titles color:"
+#~ msgstr "侧边栏标题颜色："
+
+#~ msgid "Sidebar 2nd level titles font:"
+#~ msgstr "侧边栏第二层标题字体："
+
+#~ msgid "Sidebar 2nd level titles font size:"
+#~ msgstr "侧边栏第二层标题字体大小："
+
+#~ msgid "Sidebar 2nd level titles color:"
+#~ msgstr "侧边栏第二层标题颜色："
+
+#~ msgid "Sidebar lines color:"
+#~ msgstr "侧边栏水平线颜色："
+
+#~ msgid "Sidebar links color:"
+#~ msgstr "侧边栏链接颜色："
+
+#~ msgid "Sidebar visited links color:"
+#~ msgstr "侧边栏浏览过的链接颜色："
+
+#~ msgid "Sidebar focus links color:"
+#~ msgstr "侧边栏焦点链接颜色："
+
+#~ msgid "Date title font:"
+#~ msgstr "日期标题字体："
+
+#~ msgid "Date title font size:"
+#~ msgstr "日期标题字体大小："
+
+#~ msgid "Date title color:"
+#~ msgstr "日期标题颜色："
+
+#~ msgid "Entry title font:"
+#~ msgstr "文章标题字体："
+
+#~ msgid "Entry title font size:"
+#~ msgstr "文章标题字体大小："
+
+#~ msgid "Entry title color:"
+#~ msgstr "文章标题颜色："
+
+#~ msgid "Comment background color:"
+#~ msgstr "评论背景颜色："
+
+#~ msgid "Comment text color:"
+#~ msgstr "评论文字颜色："
+
+#~ msgid "My comment background color:"
+#~ msgstr "我的评论背景颜色："
+
+#~ msgid "My comment text color:"
+#~ msgstr "我的评论文字颜色："
+
+#~ msgid "Footer"
+#~ msgstr "足部"
+
+#~ msgid "Footer font:"
+#~ msgstr "足部字体："
+
+#~ msgid "Footer font size:"
+#~ msgstr "足部字体大小："
+
+#~ msgid "Footer color:"
+#~ msgstr "足部颜色："
+
+#~ msgid "Footer links color:"
+#~ msgstr "足部链接颜色："
+
+#~ msgid "Footer background color:"
+#~ msgstr "足部背景颜色："
+
+#~ msgid "Configuration import / export"
+#~ msgstr "配置导入／导出"
+
+#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+#~ msgstr "您可以使用如下代码分享您的配置。要应用一个配置 ，粘贴代码，点击“应用代码”并保存。"
 
 #, fuzzy
 #~ msgid "Liste des auteurs"

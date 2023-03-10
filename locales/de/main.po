@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -642,6 +642,13 @@ msgstr "Besuche %s Repository, die Quelle für Dotclear."
 
 msgid "Installed themes"
 msgstr "Installierte Theme"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "Deaktivieren Theme"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr "Bearbeiten und aktualisieren installierter Theme aus dieser Liste."
@@ -1751,9 +1758,6 @@ msgstr "Installierte Plugins"
 msgid "Activated plugins"
 msgstr "Aktivierte Plugins"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Konfigurieren installierter Plugins aus dieser Liste."
 
@@ -2158,6 +2162,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "Schriftgrösse:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2374,6 +2381,9 @@ msgstr "Erinnere mich später"
 
 msgid "Information about this version"
 msgstr "Information über diese Version"
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
+msgstr ""
 
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
@@ -2888,6 +2898,22 @@ msgstr "Typ:"
 msgid "Trackback"
 msgstr "Trackback"
 
+#, fuzzy
+msgid "Media type:"
+msgstr "Dateityp:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
 msgid "users per page"
 msgstr "Benutzer pro Seite"
 
@@ -2986,10 +3012,12 @@ msgstr "Verbergen"
 msgid "Select:"
 msgstr "Wählen:"
 
-msgid "no selection"
+#, fuzzy
+msgid "No selection"
 msgstr "keine Auswahl"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "alles markieren"
 
 msgid "Invert selection"
@@ -3266,6 +3294,10 @@ msgstr "Suche im Repository:"
 
 msgid "Plugin from official distribution"
 msgstr "Plugin von der originaler Distribution"
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Plugin-Verwaltung"
 
 msgid "No plugins matched your search."
 msgstr "Kein Plugin in der Suche gefunden."
@@ -3727,14 +3759,17 @@ msgstr "Fehler beim Schreiben der Datei."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Aktualisiertes Bild ist nicht %s Pixel breit."
 
-msgid "small"
-msgstr "klein"
+msgid "moyenne"
+msgstr ""
 
-msgid "thumbnail"
-msgstr "Vorschaubild"
+msgid "petite"
+msgstr ""
 
-msgid "square"
-msgstr "quadratisch"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
+msgstr ""
 
 msgid "Pages"
 msgstr "Seiten"
@@ -4138,6 +4173,122 @@ msgstr "Kein Workspace festgelegt"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Selbst-Aktualisierung misslungen:"
 
+msgid "Unable to open directory."
+msgstr "Kann Verzeichnis nicht öffnen."
+
+msgid "Unable to create directory."
+msgstr "Kann Verzeichnis nicht anlegen."
+
+msgid "File is not writable."
+msgstr "Datei ist nicht beschreibbar."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Datei kann nicht umbenannt werden."
+
+msgid "Not an uploaded file."
+msgstr "Keine hochgeladene Datei."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Die hochgeladene Datei überschreitet die maximal erlaubte Dateigröße."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Die Datei wurde nur teilweise hochgeladen."
+
+msgid "No file was uploaded."
+msgstr "Keine Datei hochgeladen."
+
+msgid "Missing a temporary folder."
+msgstr "Temporäres Verzeichnis fehlt."
+
+msgid "Failed to write file to disk."
+msgstr "Fehler beim Schreiben der Datei auf den Speicher."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s ist kein Verzeichnis."
+
+msgid "Uploading this file is not allowed."
+msgstr "Hochladen dieser Datei ist nicht erlaubt."
+
+msgid "Destination directory is not in jail."
+msgstr "Ziel-Verzeichnis ist nicht im gesicherten Bereich."
+
+msgid "File already exists."
+msgstr "Datei ist schon vorhanden."
+
+msgid "Cannot write in this directory."
+msgstr "Kann nicht in dieses Verzeichnis schreiben."
+
+msgid "Source file does not exist."
+msgstr "Quelle-Datei ist nicht vorhanden."
+
+msgid "File is not in jail."
+msgstr "Datei ist nicht im gesicherten Bereich."
+
+msgid "Destination directory is not writable."
+msgstr "Ziel-Verzeichnis ist nicht beschreibbar."
+
+msgid "Unable to rename file."
+msgstr "Datei kann nicht umbenannt werden."
+
+msgid "File cannot be removed."
+msgstr "Datei kann nicht entfernen werden."
+
+msgid "Directory is not in jail."
+msgstr "Verzeichnis ist nicht im gesicherten Bereich."
+
+msgid "Directory cannot be removed."
+msgstr "Verzeichnis kann nicht entfernt werden."
+
+msgid "Not enough memory to open image."
+msgstr "Nicht genug Speicher zum Öffnen der Grafik."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Datei %s ist nicht ZIP-komprimiert."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Versuche das Verzeichnis %s zu entpacken"
+
+msgid "Unable to write destination file."
+msgstr "Kann Ziel-Verzeichnis nicht anlegen."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Kann nicht in Ziel-Verzeichnis schreiben; Zugriff verweigert."
+
+msgid "Not enough memory to open file."
+msgstr "Nicht genug Speicher zum Öffnen der Datei."
+
+msgid "File does not exist"
+msgstr "Datei ist nicht vorhanden"
+
+msgid "Cannot read file"
+msgstr "Kann Datei nicht lesen"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Verzeichnis %s existiert nicht."
+
+msgid "Cannot read directory"
+msgstr "Kann Verzeichnis nicht anlegen"
+
 msgid "Site temporarily unavailable"
 msgstr "Zur Zeit offline"
 
@@ -4153,6 +4304,36 @@ msgstr "<p>Dies bedeutet, dass entweder dein Benutzername und dein Passwort in d
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
+
+msgid "Bad range"
+msgstr "Falscher Bereich"
+
+msgid "Invalid range"
+msgstr "Ungültiger Bereich"
+
+msgid "Invalid line number"
+msgstr "Ungültige Zeilennummer"
+
+msgid "Chunk is out of range"
+msgstr "Außerhalb des Bereichs"
+
+msgid "Bad context"
+msgstr "Falscher Kontext"
+
+msgid "Bad context (in deletion)"
+msgstr "Schlechte Kontext (beim Löschen)"
+
+msgid "Invalid diff format"
+msgstr "Ungültiges Diff Format"
+
+#~ msgid "small"
+#~ msgstr "klein"
+
+#~ msgid "thumbnail"
+#~ msgstr "Vorschaubild"
+
+#~ msgid "square"
+#~ msgstr "quadratisch"
 
 #, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4274,125 +4455,10 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 #~ msgid "Embedded Video Player"
 #~ msgstr "Eingebetteter Video-Player"
 
-#~ msgid "Unable to open directory."
-#~ msgstr "Kann Verzeichnis nicht öffnen."
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Kann Verzeichnis nicht anlegen."
-
-#~ msgid "File is not writable."
-#~ msgstr "Datei ist nicht beschreibbar."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "Keine hochgeladene Datei."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Die hochgeladene Datei überschreitet die maximal erlaubte Dateigröße."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "Die Datei wurde nur teilweise hochgeladen."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Keine Datei hochgeladen."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Temporäres Verzeichnis fehlt."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Fehler beim Schreiben der Datei auf den Speicher."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s ist kein Verzeichnis."
-
-#~ msgid "Bad range"
-#~ msgstr "Falscher Bereich"
-
-#~ msgid "Invalid range"
-#~ msgstr "Ungültiger Bereich"
-
-#~ msgid "Invalid line number"
-#~ msgstr "Ungültige Zeilennummer"
-
-#~ msgid "Chunk is out of range"
-#~ msgstr "Außerhalb des Bereichs"
-
-#~ msgid "Bad context"
-#~ msgstr "Falscher Kontext"
-
-#~ msgid "Bad context (in deletion)"
-#~ msgstr "Schlechte Kontext (beim Löschen)"
-
-#~ msgid "Invalid diff format"
-#~ msgstr "Ungültiges Diff Format"
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Hochladen dieser Datei ist nicht erlaubt."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Ziel-Verzeichnis ist nicht im gesicherten Bereich."
-
-#~ msgid "File already exists."
-#~ msgstr "Datei ist schon vorhanden."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Kann nicht in dieses Verzeichnis schreiben."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Quelle-Datei ist nicht vorhanden."
-
-#~ msgid "File is not in jail."
-#~ msgstr "Datei ist nicht im gesicherten Bereich."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "Ziel-Verzeichnis ist nicht beschreibbar."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Datei kann nicht umbenannt werden."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Datei kann nicht entfernen werden."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "Verzeichnis ist nicht im gesicherten Bereich."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Verzeichnis kann nicht entfernt werden."
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Nicht genug Speicher zum Öffnen der Grafik."
-
-#, fuzzy
-#~ msgid "WARNING: the following errors have been found while parsing template file :"
-#~ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
-
 #~ msgid "singular"
 #~ msgid_plural "plural"
 #~ msgstr[0] "Einzahl"
 #~ msgstr[1] "Mehrzahl"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "Datei %s ist nicht ZIP-komprimiert."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "Versuche das Verzeichnis %s zu entpacken"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Kann Ziel-Verzeichnis nicht anlegen."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Kann nicht in Ziel-Verzeichnis schreiben; Zugriff verweigert."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Nicht genug Speicher zum Öffnen der Datei."
-
-#~ msgid "File does not exist"
-#~ msgstr "Datei ist nicht vorhanden"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Kann Datei nicht lesen"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Kann Verzeichnis nicht anlegen"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4676,9 +4742,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "Du darfst diesen Kommentar nicht löschen"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "Verzeichnis %s existiert nicht."
 
 #~ msgid "%s: in [%s] and [%s]"
 #~ msgstr "%s: in [%s] und [%s]"

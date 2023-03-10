@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -675,6 +675,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "インストール済みの言語"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "無効化"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1826,9 +1833,6 @@ msgstr "インストール済みの言語"
 msgid "Activated plugins"
 msgstr "有効化されたプラグイン"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2282,6 +2286,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "ファイルサイズ："
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2511,6 +2518,9 @@ msgid "Remind me later"
 msgstr "後で再度知らせる"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3079,6 +3089,22 @@ msgid "Trackback"
 msgstr "トラックバック"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "ファイルタイプ："
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "ユーザ / ページ"
 
@@ -3185,10 +3211,11 @@ msgid "Select:"
 msgstr "イチ押し："
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "選択されていません"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "すべてを選択"
 
 msgid "Invert selection"
@@ -3474,6 +3501,10 @@ msgstr "エントリの検索："
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "プラグインの管理"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3961,15 +3992,16 @@ msgstr "ファイルの書き込み中にエラーが発生しました。"
 msgid "Uploaded image is not %s pixels wide."
 msgstr "生成される画像サイズ（ピクセル単位）"
 
-#, fuzzy
-msgid "small"
-msgstr "スモール："
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "サムネイル："
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4388,6 +4420,122 @@ msgstr "ネームスペースが指定されていません"
 msgid "Something went wrong with auto upgrade:"
 msgstr "自動アップグレードで何か誤りがありました："
 
+msgid "Unable to open directory."
+msgstr "ディレクトが開けません。"
+
+msgid "Unable to create directory."
+msgstr "ディレクトリが作成できません。"
+
+msgid "File is not writable."
+msgstr "ファイルが書き込み可能ではありません。"
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "ファイル名の変更ができません。"
+
+msgid "Not an uploaded file."
+msgstr "アップロードされたファイルではありません。"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "アップロードされたファイルは、許可される最大サイズを超過します。"
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "アップロードされたファイルは、一部分のみがアップロードされました。"
+
+msgid "No file was uploaded."
+msgstr "ファイルはアップロードされませんでした。"
+
+msgid "Missing a temporary folder."
+msgstr "一時フォルダが見あたりません。"
+
+msgid "Failed to write file to disk."
+msgstr "ディスクへのファイルの書き込みに失敗しました。"
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s はディレクトリではありません。"
+
+msgid "Uploading this file is not allowed."
+msgstr "このファイルのアップロードは許可されません。"
+
+msgid "Destination directory is not in jail."
+msgstr "対象ディレクトリが有効アクセス範囲内にありません。"
+
+#, fuzzy
+msgid "File already exists."
+msgstr "新しいファイルはすでに存在します。"
+
+msgid "Cannot write in this directory."
+msgstr "このディレクトリへの書き込みができません。"
+
+msgid "Source file does not exist."
+msgstr "ソースファイルが存在しません。"
+
+msgid "File is not in jail."
+msgstr "ファイルが有効アクセス範囲内にありません。"
+
+msgid "Destination directory is not writable."
+msgstr "対象ディレクトリが書き込み可能ではありません。"
+
+msgid "Unable to rename file."
+msgstr "ファイル名の変更ができません。"
+
+msgid "File cannot be removed."
+msgstr "ファイルを削除することができません。"
+
+msgid "Directory is not in jail."
+msgstr "ディレクトリが有効アクセス範囲内にありません。"
+
+msgid "Directory cannot be removed."
+msgstr "ディレクトリを削除することができません。"
+
+msgid "Not enough memory to open image."
+msgstr "画像を開くのに十分なメモリがありません。"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "ファイル %s はzipで圧縮されていません。"
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "フォルダ名 %s のzip展開を試行しています"
+
+msgid "Unable to write destination file."
+msgstr "対象ファイルに書き込むことができません。"
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "アクセスが許可されていないため、対象ディレクトリに書き込むことができません。"
+
+msgid "Not enough memory to open file."
+msgstr "ファイルを開くのに十分なメモリがありません。"
+
+msgid "File does not exist"
+msgstr "ファイルが存在しません"
+
+msgid "Cannot read file"
+msgstr "ファイルが読み込めません"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "ディレクトリ %s が存在しません。"
+
+msgid "Cannot read directory"
+msgstr "ディレクトリが読み込めません"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4403,6 +4551,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "無効な言語コードです"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "無効な言語コードです"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "無効な言語コードです"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "無効なダイジェストファイルです。"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "スモール："
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "サムネイル："
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4486,109 +4667,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "ブログのテーマ"
-
-#~ msgid "Unable to open directory."
-#~ msgstr "ディレクトが開けません。"
-
-#~ msgid "Unable to create directory."
-#~ msgstr "ディレクトリが作成できません。"
-
-#~ msgid "File is not writable."
-#~ msgstr "ファイルが書き込み可能ではありません。"
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "アップロードされたファイルではありません。"
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "アップロードされたファイルは、許可される最大サイズを超過します。"
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "アップロードされたファイルは、一部分のみがアップロードされました。"
-
-#~ msgid "No file was uploaded."
-#~ msgstr "ファイルはアップロードされませんでした。"
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "一時フォルダが見あたりません。"
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "ディスクへのファイルの書き込みに失敗しました。"
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s はディレクトリではありません。"
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "無効な言語コードです"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "無効な言語コードです"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "無効なダイジェストファイルです。"
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "このファイルのアップロードは許可されません。"
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "対象ディレクトリが有効アクセス範囲内にありません。"
-
-#, fuzzy
-#~ msgid "File already exists."
-#~ msgstr "新しいファイルはすでに存在します。"
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "このディレクトリへの書き込みができません。"
-
-#~ msgid "Source file does not exist."
-#~ msgstr "ソースファイルが存在しません。"
-
-#~ msgid "File is not in jail."
-#~ msgstr "ファイルが有効アクセス範囲内にありません。"
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "対象ディレクトリが書き込み可能ではありません。"
-
-#~ msgid "Unable to rename file."
-#~ msgstr "ファイル名の変更ができません。"
-
-#~ msgid "File cannot be removed."
-#~ msgstr "ファイルを削除することができません。"
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "ディレクトリが有効アクセス範囲内にありません。"
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "ディレクトリを削除することができません。"
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "画像を開くのに十分なメモリがありません。"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "ファイル %s はzipで圧縮されていません。"
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr "フォルダ名 %s のzip展開を試行しています"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "対象ファイルに書き込むことができません。"
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "アクセスが許可されていないため、対象ディレクトリに書き込むことができません。"
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "ファイルを開くのに十分なメモリがありません。"
-
-#~ msgid "File does not exist"
-#~ msgstr "ファイルが存在しません"
-
-#~ msgid "Cannot read file"
-#~ msgstr "ファイルが読み込めません"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "ディレクトリが読み込めません"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4867,9 +4945,6 @@ msgstr ""
 
 #~ msgid "You are not allowed to delete this comment"
 #~ msgstr "このコメントを削除することは許可されていません"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "ディレクトリ %s が存在しません。"
 
 #, fuzzy
 #~ msgid "Blogroll"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -652,6 +652,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "Installeer of upgrade een thema."
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "verwijder geselecteerd thema"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1758,9 +1765,6 @@ msgstr ""
 msgid "Activated plugins"
 msgstr ""
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2186,6 +2190,9 @@ msgstr ""
 msgid "Font size:"
 msgstr ""
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2398,6 +2405,9 @@ msgid "Remind me later"
 msgstr ""
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -2936,6 +2946,22 @@ msgid "Trackback"
 msgstr "Accepteer trackbacks"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "Media en afbeeldingen"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "Geef %s posts weer per pagina"
 
@@ -3038,11 +3064,11 @@ msgid "Select:"
 msgstr ""
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "verwijder geselecteerd thema"
 
 #, fuzzy
-msgid "select all"
+msgid "Select all"
 msgstr "Verwijder een blog"
 
 #, fuzzy
@@ -3318,6 +3344,9 @@ msgid "Third-party repository"
 msgstr "Zoekmachine robot instellingen"
 
 msgid "Plugin from official distribution"
+msgstr ""
+
+msgid "Plugin in development"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -3796,15 +3825,16 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Gegenereede afbeeldinggrootte in pixels"
 
-#, fuzzy
-msgid "small"
-msgstr "Klein:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Miniaturen"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 msgid "Pages"
@@ -4205,6 +4235,129 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "File is not writable."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Blog succesvol geupdate."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+msgid "File already exists."
+msgstr ""
+
+msgid "Cannot write in this directory."
+msgstr ""
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Thema bestaat niet."
+
+msgid "File is not in jail."
+msgstr ""
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr ""
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "Thema bestaat niet."
+
+msgid "Cannot read file"
+msgstr ""
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Thema bestaat niet."
+
+msgid "Cannot read directory"
+msgstr ""
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4220,6 +4373,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "Verkeerde taal code"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Verkeerde taal code"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Verkeerde taal code"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Verkeerde taal code"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Klein:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Miniaturen"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4247,24 +4433,12 @@ msgstr ""
 #~ msgstr "je wachtwoord"
 
 #, fuzzy
-#~ msgid "Media list"
-#~ msgstr "Media en afbeeldingen"
-
-#, fuzzy
 #~ msgid "Activate dark mode"
 #~ msgstr "verwijder geselecteerd thema"
 
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blog instellingen"
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Verkeerde taal code"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Verkeerde taal code"
 
 #, fuzzy
 #~ msgid "Filter comments and trackbacks list"

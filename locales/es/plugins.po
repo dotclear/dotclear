@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -35,9 +35,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr "Gestión de la lista de enlaces"
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -47,7 +44,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -189,8 +189,8 @@ msgstr "Clave no verificada"
 msgid "Get your own API key"
 msgstr "Obtenga su propia clave Akismet"
 
-msgid "Antispam"
-msgstr "Antispam"
+msgid "This comment is a spam:"
+msgstr "Comentario basura:"
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -199,6 +199,30 @@ msgstr "(incluyendo %d comentario basura)"
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(incluyendo %d comentarios basura)"
+
+msgid "Antispam"
+msgstr "Antispam"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Todos los comentarios basura de más de %s día(s) serán borrados automáticamente."
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr "Borrar los comentarios basura tras "
+
+msgid "days"
+msgstr "días"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Filtro de spam Akismet"
 
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "Lista negra / Lista blanca de IP"
@@ -309,30 +333,6 @@ msgstr "Crear una lista predeterminada"
 msgid "This word exists"
 msgstr "Esta palabra existe"
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Todos los comentarios basura de más de %s día(s) serán borrados automáticamente."
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr "Borrar los comentarios basura tras "
-
-msgid "days"
-msgstr "días"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-#, fuzzy
-msgid "Set spam filters."
-msgstr "Filtro de spam Akismet"
-
-msgid "This comment is a spam:"
-msgstr "Comentario basura:"
-
 msgid "Spam moderation"
 msgstr "Moderación de los comentarios basura"
 
@@ -341,16 +341,6 @@ msgstr "Basura"
 
 msgid "Ham"
 msgstr "Aceptable"
-
-msgid "No description"
-msgstr "Ninguna descripción"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr "Filtrado por %1$s (%2$s)"
-
-msgid "Unknown filter."
-msgstr "Filtro desconocido."
 
 msgid "Filter does not exist."
 msgstr "El filtro no existe."
@@ -413,6 +403,16 @@ msgstr "Fuente RSS de comentarios no deseados"
 msgid "Published comments RSS feed"
 msgstr "Fuente RSS de comentarios publicados"
 
+msgid "No description"
+msgstr "Ninguna descripción"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Filtrado por %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Filtro desconocido."
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -432,6 +432,64 @@ msgstr "Gestión de la lista de enlaces"
 
 msgid "Blogroll"
 msgstr "Enlaces"
+
+msgid "You must provide a link title"
+msgstr "Debe indicar un título al enlace"
+
+msgid "You must provide a link URL"
+msgstr "Debe indicar un URL"
+
+msgid "Nothing to import"
+msgstr "Nada que importar"
+
+msgid "links have been successfully imported."
+msgstr "Enlaces importados con éxito."
+
+msgid "Import operation cancelled."
+msgstr "Importación anulada."
+
+msgid "Link has been successfully created."
+msgstr "Enlace creado con éxito."
+
+msgid "category has been successfully created."
+msgstr "Categoría actualizada con éxito."
+
+msgid "Items have been successfully removed."
+msgstr "Los elementos han sido suprimidos con éxito."
+
+msgid "Items order has been successfully updated"
+msgstr "El orden de los elementos ha sido actualizado con éxito"
+
+msgid "Lang"
+msgstr "Idioma"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Borrar esta etiqueta"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "¿Seguro que desea borrar los enlaces seleccionados?"
+
+msgid "Delete selected links"
+msgstr "Borrar los enlaces seleccionados"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "Añadir un enlace nuevo"
+
+msgid "Add a category"
+msgstr "Añadir una categoría"
+
+msgid "Import links"
+msgstr "Importar los enlaces"
+
+msgid "OPML or XBEL File:"
+msgstr "Fichero OPML o XBEL:"
+
+msgid "Import"
+msgstr "Importar"
 
 msgid "No such link or title"
 msgstr "El enlace o el título no existe"
@@ -533,12 +591,6 @@ msgstr "Ligue"
 msgid "_xfn_Sweetheart"
 msgstr "Pareja"
 
-msgid "You must provide a link title"
-msgstr "Debe indicar un título al enlace"
-
-msgid "You must provide a link URL"
-msgstr "Debe indicar un URL"
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Debe proveer un fichero XBEL tú OPML."
 
@@ -550,286 +602,6 @@ msgstr "Todas las categorías"
 
 msgid "Links"
 msgstr "Enlaces"
-
-msgid "Nothing to import"
-msgstr "Nada que importar"
-
-msgid "links have been successfully imported."
-msgstr "Enlaces importados con éxito."
-
-msgid "Import operation cancelled."
-msgstr "Importación anulada."
-
-msgid "Link has been successfully created."
-msgstr "Enlace creado con éxito."
-
-msgid "category has been successfully created."
-msgstr "Categoría actualizada con éxito."
-
-msgid "Items have been successfully removed."
-msgstr "Los elementos han sido suprimidos con éxito."
-
-msgid "Items order has been successfully updated"
-msgstr "El orden de los elementos ha sido actualizado con éxito"
-
-msgid "Lang"
-msgstr "Idioma"
-
-#, fuzzy
-msgid "select this link"
-msgstr "Borrar esta etiqueta"
-
-msgid "Are you sure you want to delete selected links?"
-msgstr "¿Seguro que desea borrar los enlaces seleccionados?"
-
-msgid "Delete selected links"
-msgstr "Borrar los enlaces seleccionados"
-
-msgid "The link list is empty."
-msgstr ""
-
-msgid "Add a new link"
-msgstr "Añadir un enlace nuevo"
-
-msgid "Add a category"
-msgstr "Añadir una categoría"
-
-msgid "Import links"
-msgstr "Importar los enlaces"
-
-msgid "OPML or XBEL File:"
-msgstr "Fichero OPML o XBEL:"
-
-msgid "Import"
-msgstr "Importar"
-
-msgid "default"
-msgstr "por omisión"
-
-#, fuzzy
-msgid "Unable to create css file."
-msgstr "No es posible crear la imágenes."
-
-msgid "Unable to open image."
-msgstr "No es posible abrir la imagen."
-
-msgid "Light linear gradient"
-msgstr "Degradado lineal claro"
-
-msgid "Medium linear gradient"
-msgstr "Degradado lineal medio"
-
-msgid "Dark linear gradient"
-msgstr "Degradado lineal oscuro"
-
-msgid "Solid color"
-msgstr "Color puro"
-
-msgid "Custom..."
-msgstr "Personalizado..."
-
-msgid "Theme configuration has been successfully updated."
-msgstr "La configuración del tema ha sido actualizada con éxito."
-
-msgid "Blowup configuration"
-msgstr "Configuración de Blowup"
-
-msgid "Predefined styles"
-msgstr "Estilos predefinidos"
-
-msgid "Apply code"
-msgstr "Aplicar el código"
-
-#, fuzzy
-msgid "Choose a predefined style"
-msgstr "Estilos predefinidos"
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr "General"
-
-msgid "Background color:"
-msgstr "Color de fondo:"
-
-msgid "Background color fill:"
-msgstr "Relleno de color de fondo:"
-
-msgid "Main text font:"
-msgstr "Tipo de letra del texto principal:"
-
-msgid "Main text font size:"
-msgstr "Tamaño del texto principal:"
-
-msgid "Main text color:"
-msgstr "Color del texto principal:"
-
-msgid "Text line height:"
-msgstr "Altura de las líneas:"
-
-msgid "Links color:"
-msgstr "Color de los enlaces:"
-
-msgid "Visited links color:"
-msgstr "Color de los enlaces visitados:"
-
-msgid "Focus links color:"
-msgstr "Color de los enlaces con foco:"
-
-msgid "Prelude color:"
-msgstr "Color del preludio:"
-
-msgid "Hide main title"
-msgstr "Ocultar el título principal"
-
-msgid "Main title font:"
-msgstr "Tipo de letra del título principal:"
-
-msgid "Main title font size:"
-msgstr "Tamaño de letra del título principal:"
-
-msgid "Main title color:"
-msgstr "Color del título principal:"
-
-msgid "Main title alignment:"
-msgstr "Alineación del título principal:"
-
-msgid "center"
-msgstr "centro"
-
-msgid "left"
-msgstr "izquierda"
-
-msgid "right"
-msgstr "derecha"
-
-msgid "Main title position (x:y)"
-msgstr "Posición del título principal (x:y)"
-
-msgid "Top image"
-msgstr "Imagen de  cabecera"
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr "Elija «Personalizado...» para enviar su propia imagen."
-
-msgid "Add your image:"
-msgstr "Añadir su imagen:"
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "Fichero JPEG o PNG, 800 píxeles de ancho y tamaño máximo de  %s"
-
-msgid "Sidebar"
-msgstr "Barra lateral"
-
-msgid "Sidebar position:"
-msgstr "Posición de la barra lateral:"
-
-msgid "Sidebar text font:"
-msgstr "Tipo de letra del texto de la barra lateral:"
-
-msgid "Sidebar text font size:"
-msgstr "Tamaño del texto  de la barra lateral:"
-
-msgid "Sidebar text color:"
-msgstr "Color del texto de la barra lateral:"
-
-msgid "Sidebar titles font:"
-msgstr "Tipo de letra de los títulos de la barra lateral:"
-
-msgid "Sidebar titles font size:"
-msgstr "Tamaño de los títulos de la barra lateral:"
-
-msgid "Sidebar titles color:"
-msgstr "Color de los títulos de la barra lateral:"
-
-msgid "Sidebar 2nd level titles font:"
-msgstr "Tipo de letra de los títulos de nivel 2 de la barra lateral:"
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr "Tamaño de los títulos de nivel 2 de la barra lateral:"
-
-msgid "Sidebar 2nd level titles color:"
-msgstr "Color de los títulos de nivel 2 de la barra lateral:"
-
-msgid "Sidebar lines color:"
-msgstr "Color de las líneas de la barra lateral:"
-
-msgid "Sidebar links color:"
-msgstr "Color de los enlaces de la barra lateral:"
-
-msgid "Sidebar visited links color:"
-msgstr "Color de los enlaces visitados de la barra lateral:"
-
-msgid "Sidebar focus links color:"
-msgstr "Color de los enlaces con foco de la barra lateral:"
-
-msgid "Date title font:"
-msgstr "Tipo de letra de los títulos de fecha:"
-
-msgid "Date title font size:"
-msgstr "Tamaño de los títulos de fecha:"
-
-msgid "Date title color:"
-msgstr "Color de los títulos de fecha:"
-
-msgid "Entry title font:"
-msgstr "Tipo de letra de los títulos de entrada:"
-
-msgid "Entry title font size:"
-msgstr "Tamaño de letra de los títulos de las entradas:"
-
-msgid "Entry title color:"
-msgstr "Color de los títulos de las entradas:"
-
-msgid "Comment background color:"
-msgstr "Color de fondo de los comentarios:"
-
-msgid "Comment text color:"
-msgstr "Color de texto de los comentarios:"
-
-msgid "My comment background color:"
-msgstr "Color de fondo de mis comentarios:"
-
-msgid "My comment text color:"
-msgstr "Color de texto de mis comentarios:"
-
-msgid "Footer"
-msgstr "Pie de página"
-
-msgid "Footer font:"
-msgstr "Tipo de letra del pie de página:"
-
-msgid "Footer font size:"
-msgstr "Tamaño de letra del pie de página:"
-
-msgid "Footer color:"
-msgstr "Color del pie de página:"
-
-msgid "Footer links color:"
-msgstr "Color de los enlaces del pie de página:"
-
-msgid "Footer background color:"
-msgstr "Color de fondo del pie de página:"
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr "Importar / exportar configuración"
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "Puede compartir su configuración usando el código siguiente. Para aplicar una configuración, copie el código, pulse «Aplicar el código» y grábelo."
-
-msgid "Copy this code:"
-msgstr ""
 
 msgid "Breadcrumb"
 msgstr ""
@@ -859,10 +631,20 @@ msgstr "Todas las etiquetas"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to generate fake l10n file."
+msgstr "Cargar un fichero de respaldo"
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -893,6 +675,9 @@ msgid "The configuration has been updated."
 msgstr "La configuración del tema ha sido actualizada con éxito."
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1077,6 +862,70 @@ msgstr "Verifica si la fuente del retroenlace contiene un enlace hacia la entrad
 msgid "Import/Export"
 msgstr "Importar/exportar"
 
+#, fuzzy
+msgid "Database export"
+msgstr "Exportar a un fichero de texto"
+
+msgid "Download database of current blog"
+msgstr ""
+
+#, fuzzy
+msgid "Compress file"
+msgstr "Ficheros de plantilla"
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr "No hay ningún fichero a leer."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "No es posible crear la imágenes."
+
+msgid "File is not a DotClear backup."
+msgstr "Este fichero no es una copia de respaldo de Dotclear."
+
+msgid "File is not a single blog export."
+msgstr "Este fichero no es una exportación de un único blog."
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr "Este fichero no es una exportación completa."
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "Por favor, espere..."
+
+msgid "Export"
+msgstr "Exportar"
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+# French translation of DotClea"
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+msgid "Congratulation!"
+msgstr "¡Enhorabuena!"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Su blog ha sido importado con éxito. ¡Bienvenido a Dotclear 2!"
+
+msgid "Why don't you blog this now?"
+msgstr "¿Por qué no bloguearlo ahora?"
+
+msgid "visit your dashboard"
+msgstr "ir al tablero de mandos"
+
 msgid "Flat file export"
 msgstr "Exportar a un fichero de texto"
 
@@ -1097,15 +946,8 @@ msgstr "Importar un blog"
 msgid "This will create an export of your current blog: %s"
 msgstr "Esto va a exportar el contenido del blog en uso: %s"
 
-#, fuzzy
-msgid "Compress file"
-msgstr "Ficheros de plantilla"
-
 msgid "You may also want to download your media directory as a zip file"
 msgstr "También puede descargar su carpeta de elementos multimedia como un fichero zip."
-
-msgid "Export"
-msgstr "Exportar"
 
 msgid "Multiple blogs"
 msgstr ""
@@ -1113,18 +955,6 @@ msgstr ""
 #, fuzzy
 msgid "This will create an export of all the content of your database."
 msgstr "Advertencia: Eso pondrá a cero todo el contenido de su base de datos, excepto los usuarios."
-
-msgid "Congratulation!"
-msgstr "¡Enhorabuena!"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "Su blog ha sido importado con éxito. ¡Bienvenido a Dotclear 2!"
-
-msgid "Why don't you blog this now?"
-msgstr "¿Por qué no bloguearlo ahora?"
-
-msgid "visit your dashboard"
-msgstr "ir al tablero de mandos"
 
 msgid "Dotclear 1.2 import"
 msgstr "Importar desde Dotclear 1.2"
@@ -1299,51 +1129,6 @@ msgstr "Formateador del contenido de los comentarios:"
 msgid "WordPress tables not found"
 msgstr "No se encontraron las tablas WordPress"
 
-msgid "No file to read."
-msgstr "No hay ningún fichero a leer."
-
-#, fuzzy
-msgid "Unable to create output file."
-msgstr "No es posible crear la imágenes."
-
-msgid "File is not a DotClear backup."
-msgstr "Este fichero no es una copia de respaldo de Dotclear."
-
-msgid "File is not a single blog export."
-msgstr "Este fichero no es una exportación de un único blog."
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr "Este fichero no es una exportación completa."
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-#, fuzzy
-msgid "Database export"
-msgstr "Exportar a un fichero de texto"
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr "Por favor, espere..."
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-# French translation of DotClea"
-msgid "Maintenance"
-msgstr "Mantenimiento"
-
 #, fuzzy
 msgid "Servicing"
 msgstr "Nombre del servicio:"
@@ -1426,6 +1211,99 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr "Enlace creado con éxito."
 
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "Categoría actualizada con éxito."
+
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "Ajustes actualizados con éxito."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "Esta operación puede tomar mucho tiempo"
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "Ajustes del blog"
+
+#, fuzzy
+msgid "Activation"
+msgstr "Activo"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr "Vaciar el directorio de caché de plantillas"
 
@@ -1452,18 +1330,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr "Comentarios y retroenlaces contabilizados."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1571,99 +1437,8 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
-msgid "Maintenance plugin has been successfully configured."
-msgstr "Categoría actualizada con éxito."
-
-#, fuzzy
-msgid "System settings have been saved."
-msgstr "Ajustes actualizados con éxito."
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-#, fuzzy
-msgid "This may take a very long time."
-msgstr "Esta operación puede tomar mucho tiempo"
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "Ajustes del blog"
-
-#, fuzzy
-msgid "Activation"
-msgstr "Activo"
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
 msgstr "gestionar las páginas"
-
-msgid "New page"
-msgstr "Nueva página"
-
-#, fuzzy
-msgid "My first page"
-msgstr "Modificar la página"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1673,15 +1448,8 @@ msgstr "Modificar la página"
 msgid "%d pages"
 msgstr "Modificar la página"
 
-msgid "No page"
-msgstr "Ninguna página"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "Borrar esta etiqueta"
+msgid "New page"
+msgstr "Nueva página"
 
 #, fuzzy
 msgid "Pages actions"
@@ -1695,6 +1463,16 @@ msgstr "Volver a la lista de etiquetas"
 msgid "Selected pages have been successfully reordered."
 msgstr "Los elementos han sido suprimidos con éxito."
 
+msgid "No page"
+msgstr "Ninguna página"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "Borrar esta etiqueta"
+
 msgid "Published on"
 msgstr "Publicado el"
 
@@ -1704,14 +1482,12 @@ msgstr "Fuente de comentarios de la página"
 msgid "You must provide a valid email address."
 msgstr "Debe indicar una dirección de correo electrónico válida."
 
-msgid "Page title"
-msgstr "Título de la página"
+#, fuzzy
+msgid "My first page"
+msgstr "Modificar la página"
 
-msgid "Page position"
-msgstr "Posición de la página"
-
-msgid "Publication date"
-msgstr "Fecha de publicación"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "¿Seguro que desea borrar las páginas seleccionadas?"
@@ -1765,6 +1541,9 @@ msgstr "Estado de la página:"
 msgid "Page language"
 msgstr "Idioma de la página:"
 
+msgid "Page position"
+msgstr "Posición de la página"
+
 #, fuzzy
 msgid "Hide in widget Pages"
 msgstr "Ocultar el título principal"
@@ -1778,6 +1557,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "Borrar esta etiqueta"
+
+msgid "Page title"
+msgstr "Título de la página"
+
+msgid "Publication date"
+msgstr "Fecha de publicación"
 
 msgid "Pings"
 msgstr "Pings"
@@ -1817,24 +1602,6 @@ msgstr "Activo"
 #, fuzzy
 msgid "active page"
 msgstr "Ver la página"
-
-#, fuzzy
-msgid "Item description"
-msgstr "Ninguna descripción"
-
-#, fuzzy
-msgid "Displayed in link"
-msgstr "Borrar esta etiqueta"
-
-#, fuzzy
-msgid "Used as link title"
-msgstr "El enlace o el título no existe"
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
-msgstr ""
 
 #, fuzzy
 msgid "All months"
@@ -1990,6 +1757,24 @@ msgstr "¿Seguro que desea borrar los enlaces seleccionados?"
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "Ninguna descripción"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "Borrar esta etiqueta"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "El enlace o el título no existe"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "Etiqueta"
 
@@ -2072,23 +1857,8 @@ msgstr "Fuente Atom de los comentarios asociados a esta etiqueta"
 msgid "This tag's entries Atom feed"
 msgstr "Fuente Atom de las entradas asociadas a esta etiqueta"
 
-msgid "Limit (empty means no limit):"
-msgstr "Límite (dejar vacío significa que no hay límite):"
-
-msgid "Tag name"
-msgstr "Nombre de la etiqueta"
-
-msgid "Entries count"
-msgstr "Número de entradas"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
+msgid "No tags on this blog."
+msgstr "Ninguna etiqueta en este blog."
 
 msgid "Tag has been successfully renamed"
 msgstr "La etiqueta ha sido renombrada con éxito"
@@ -2114,8 +1884,23 @@ msgstr "Borrar esta etiqueta"
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
-msgstr "Ninguna etiqueta en este blog."
+msgid "Limit (empty means no limit):"
+msgstr "Límite (dejar vacío significa que no hay límite):"
+
+msgid "Tag name"
+msgstr "Nombre de la etiqueta"
+
+msgid "Entries count"
+msgstr "Número de entradas"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 #, fuzzy
 msgid "Edit theme files"
@@ -2126,33 +1911,6 @@ msgstr ""
 
 msgid "Syntax highlighting in theme editor"
 msgstr ""
-
-msgid "No file"
-msgstr "Ningún fichero"
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr "El fichero no existe."
-
-#, php-format
-msgid "File %s is not readable"
-msgstr "No se puede leer el fichero %s"
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "No se puede escribir el fichero %s. Verifique los permisos de los ficheros y carpetas del tema."
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "No se puede escribir el fichero %s. Verifique los permisos de los ficheros y carpetas del tema."
 
 msgid "The file has been reset."
 msgstr ""
@@ -2211,6 +1969,33 @@ msgstr "Ficheros CSS"
 msgid "You can't edit a distributed theme."
 msgstr "No puede modificar el tema predeterminado."
 
+msgid "No file"
+msgstr "Ningún fichero"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr "El fichero no existe."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "No se puede leer el fichero %s"
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "No se puede escribir el fichero %s. Verifique los permisos de los ficheros y carpetas del tema."
+
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "No se puede escribir el fichero %s. Verifique los permisos de los ficheros y carpetas del tema."
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "La página ha sido actualizada con éxito."
@@ -2235,6 +2020,106 @@ msgid "Widget's textareas"
 msgstr "Etiquetas de plantilla de los componentes"
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr "navegación"
+
+msgid "extra"
+msgstr "extra"
+
+#, fuzzy
+msgid "custom"
+msgstr "Personalizado..."
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "¿Seguro que desea reinicializar las barras laterales?"
+
+msgid "Widgets"
+msgstr "Componentes"
+
+msgid "Available widgets"
+msgstr "Componentes disponibles"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "orden"
+
+msgid "Append to:"
+msgstr "Agregar a:"
+
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "añadir los componentes a las barras laterales"
+
+msgid "Navigation sidebar"
+msgstr "Barra lateral de navegación"
+
+msgid "Extra sidebar"
+msgstr "Barra lateral extra"
+
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "Reinicializar las barras laterales"
+
+msgid "Update sidebars"
+msgstr "actualizar las barras laterales"
+
+msgid "Reset sidebars"
+msgstr "Reinicializar las barras laterales"
+
+msgid "Widget ID:"
+msgstr "Identificador del componente:"
+
+msgid "No setting for this widget"
+msgstr "Ningún ajuste para este componente"
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "Nombre del ajuste:"
+
+#, fuzzy
+msgid "No widget as far."
+msgstr "Ningún componente."
+
+#, fuzzy
+msgid "Up the widget"
+msgstr "Ningún componente."
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "Eliminar el componente"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "Eliminar el componente"
+
+msgid "Remove widget"
+msgstr "Eliminar el componente"
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2345,105 +2230,218 @@ msgstr "Ficheros CSS"
 msgid "Offline"
 msgstr ""
 
-msgid "navigation"
-msgstr "navegación"
-
-msgid "extra"
-msgstr "extra"
+#~ msgid "default"
+#~ msgstr "por omisión"
 
 #, fuzzy
-msgid "custom"
-msgstr "Personalizado..."
+#~ msgid "Unable to create css file."
+#~ msgstr "No es posible crear la imágenes."
 
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
+#~ msgid "Unable to open image."
+#~ msgstr "No es posible abrir la imagen."
 
-msgid "Sidebars have been resetting."
-msgstr ""
+#~ msgid "Light linear gradient"
+#~ msgstr "Degradado lineal claro"
 
-msgid "Widgets"
-msgstr "Componentes"
+#~ msgid "Medium linear gradient"
+#~ msgstr "Degradado lineal medio"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr "¿Seguro que desea reinicializar las barras laterales?"
+#~ msgid "Dark linear gradient"
+#~ msgstr "Degradado lineal oscuro"
 
-msgid "Available widgets"
-msgstr "Componentes disponibles"
+#~ msgid "Solid color"
+#~ msgstr "Color puro"
 
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+#~ msgid "Custom..."
+#~ msgstr "Personalizado..."
 
-msgid "order"
-msgstr "orden"
+#~ msgid "Theme configuration has been successfully updated."
+#~ msgstr "La configuración del tema ha sido actualizada con éxito."
 
-msgid "Append to:"
-msgstr "Agregar a:"
+#~ msgid "Blowup configuration"
+#~ msgstr "Configuración de Blowup"
 
-#, fuzzy
-msgid "Add widgets to sidebars"
-msgstr "añadir los componentes a las barras laterales"
+#~ msgid "Predefined styles"
+#~ msgstr "Estilos predefinidos"
 
-msgid "Navigation sidebar"
-msgstr "Barra lateral de navegación"
-
-msgid "Extra sidebar"
-msgstr "Barra lateral extra"
+#~ msgid "Apply code"
+#~ msgstr "Aplicar el código"
 
 #, fuzzy
-msgid "Custom sidebar"
-msgstr "Reinicializar las barras laterales"
+#~ msgid "Choose a predefined style"
+#~ msgstr "Estilos predefinidos"
 
-msgid "Update sidebars"
-msgstr "actualizar las barras laterales"
+#~ msgid "General"
+#~ msgstr "General"
 
-msgid "Reset sidebars"
-msgstr "Reinicializar las barras laterales"
+#~ msgid "Background color:"
+#~ msgstr "Color de fondo:"
 
-msgid "Widget ID:"
-msgstr "Identificador del componente:"
+#~ msgid "Background color fill:"
+#~ msgstr "Relleno de color de fondo:"
 
-msgid "No setting for this widget"
-msgstr "Ningún ajuste para este componente"
+#~ msgid "Main text font:"
+#~ msgstr "Tipo de letra del texto principal:"
 
-msgid "boolean"
-msgstr ""
+#~ msgid "Main text font size:"
+#~ msgstr "Tamaño del texto principal:"
 
-msgid "possible values:"
-msgstr ""
+#~ msgid "Main text color:"
+#~ msgstr "Color del texto principal:"
 
-msgid "empty string"
-msgstr ""
+#~ msgid "Text line height:"
+#~ msgstr "Altura de las líneas:"
 
-msgid "listitem"
-msgstr ""
+#~ msgid "Links color:"
+#~ msgstr "Color de los enlaces:"
 
-msgid "string"
-msgstr ""
+#~ msgid "Visited links color:"
+#~ msgstr "Color de los enlaces visitados:"
 
-msgid "Setting name:"
-msgstr "Nombre del ajuste:"
+#~ msgid "Focus links color:"
+#~ msgstr "Color de los enlaces con foco:"
 
-#, fuzzy
-msgid "No widget as far."
-msgstr "Ningún componente."
+#~ msgid "Prelude color:"
+#~ msgstr "Color del preludio:"
 
-#, fuzzy
-msgid "Up the widget"
-msgstr "Ningún componente."
+#~ msgid "Hide main title"
+#~ msgstr "Ocultar el título principal"
 
-#, fuzzy
-msgid "Down the widget"
-msgstr "Eliminar el componente"
+#~ msgid "Main title font:"
+#~ msgstr "Tipo de letra del título principal:"
 
-#, fuzzy
-msgid "Remove the widget"
-msgstr "Eliminar el componente"
+#~ msgid "Main title font size:"
+#~ msgstr "Tamaño de letra del título principal:"
 
-msgid "Remove widget"
-msgstr "Eliminar el componente"
+#~ msgid "Main title color:"
+#~ msgstr "Color del título principal:"
 
-msgid "Drag widgets here to remove."
-msgstr ""
+#~ msgid "Main title alignment:"
+#~ msgstr "Alineación del título principal:"
+
+#~ msgid "center"
+#~ msgstr "centro"
+
+#~ msgid "left"
+#~ msgstr "izquierda"
+
+#~ msgid "right"
+#~ msgstr "derecha"
+
+#~ msgid "Main title position (x:y)"
+#~ msgstr "Posición del título principal (x:y)"
+
+#~ msgid "Top image"
+#~ msgstr "Imagen de  cabecera"
+
+#~ msgid "Choose \"Custom...\" to upload your own image."
+#~ msgstr "Elija «Personalizado...» para enviar su propia imagen."
+
+#~ msgid "Add your image:"
+#~ msgstr "Añadir su imagen:"
+
+#, php-format
+#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+#~ msgstr "Fichero JPEG o PNG, 800 píxeles de ancho y tamaño máximo de  %s"
+
+#~ msgid "Sidebar"
+#~ msgstr "Barra lateral"
+
+#~ msgid "Sidebar position:"
+#~ msgstr "Posición de la barra lateral:"
+
+#~ msgid "Sidebar text font:"
+#~ msgstr "Tipo de letra del texto de la barra lateral:"
+
+#~ msgid "Sidebar text font size:"
+#~ msgstr "Tamaño del texto  de la barra lateral:"
+
+#~ msgid "Sidebar text color:"
+#~ msgstr "Color del texto de la barra lateral:"
+
+#~ msgid "Sidebar titles font:"
+#~ msgstr "Tipo de letra de los títulos de la barra lateral:"
+
+#~ msgid "Sidebar titles font size:"
+#~ msgstr "Tamaño de los títulos de la barra lateral:"
+
+#~ msgid "Sidebar titles color:"
+#~ msgstr "Color de los títulos de la barra lateral:"
+
+#~ msgid "Sidebar 2nd level titles font:"
+#~ msgstr "Tipo de letra de los títulos de nivel 2 de la barra lateral:"
+
+#~ msgid "Sidebar 2nd level titles font size:"
+#~ msgstr "Tamaño de los títulos de nivel 2 de la barra lateral:"
+
+#~ msgid "Sidebar 2nd level titles color:"
+#~ msgstr "Color de los títulos de nivel 2 de la barra lateral:"
+
+#~ msgid "Sidebar lines color:"
+#~ msgstr "Color de las líneas de la barra lateral:"
+
+#~ msgid "Sidebar links color:"
+#~ msgstr "Color de los enlaces de la barra lateral:"
+
+#~ msgid "Sidebar visited links color:"
+#~ msgstr "Color de los enlaces visitados de la barra lateral:"
+
+#~ msgid "Sidebar focus links color:"
+#~ msgstr "Color de los enlaces con foco de la barra lateral:"
+
+#~ msgid "Date title font:"
+#~ msgstr "Tipo de letra de los títulos de fecha:"
+
+#~ msgid "Date title font size:"
+#~ msgstr "Tamaño de los títulos de fecha:"
+
+#~ msgid "Date title color:"
+#~ msgstr "Color de los títulos de fecha:"
+
+#~ msgid "Entry title font:"
+#~ msgstr "Tipo de letra de los títulos de entrada:"
+
+#~ msgid "Entry title font size:"
+#~ msgstr "Tamaño de letra de los títulos de las entradas:"
+
+#~ msgid "Entry title color:"
+#~ msgstr "Color de los títulos de las entradas:"
+
+#~ msgid "Comment background color:"
+#~ msgstr "Color de fondo de los comentarios:"
+
+#~ msgid "Comment text color:"
+#~ msgstr "Color de texto de los comentarios:"
+
+#~ msgid "My comment background color:"
+#~ msgstr "Color de fondo de mis comentarios:"
+
+#~ msgid "My comment text color:"
+#~ msgstr "Color de texto de mis comentarios:"
+
+#~ msgid "Footer"
+#~ msgstr "Pie de página"
+
+#~ msgid "Footer font:"
+#~ msgstr "Tipo de letra del pie de página:"
+
+#~ msgid "Footer font size:"
+#~ msgstr "Tamaño de letra del pie de página:"
+
+#~ msgid "Footer color:"
+#~ msgstr "Color del pie de página:"
+
+#~ msgid "Footer links color:"
+#~ msgstr "Color de los enlaces del pie de página:"
+
+#~ msgid "Footer background color:"
+#~ msgstr "Color de fondo del pie de página:"
+
+#~ msgid "Configuration import / export"
+#~ msgstr "Importar / exportar configuración"
+
+#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+#~ msgstr "Puede compartir su configuración usando el código siguiente. Para aplicar una configuración, copie el código, pulse «Aplicar el código» y grábelo."
 
 #, fuzzy
 #~ msgid "Liste des auteurs"

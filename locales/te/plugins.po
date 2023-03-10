@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -33,9 +33,6 @@ msgstr ""
 msgid "Manage your blogroll"
 msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
 
-msgid "Configure your Blowup Theme"
-msgstr ""
-
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
@@ -45,7 +42,10 @@ msgstr ""
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with function/method footprint V1 (< 2.24)"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Trackback validity check"
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Get your own API key"
 msgstr ""
 
-msgid "Antispam"
+msgid "This comment is a spam:"
 msgstr ""
 
 #, php-format
@@ -190,6 +190,29 @@ msgstr ""
 
 #, php-format
 msgid "(including %d spam comments)"
+msgstr ""
+
+msgid "Antispam"
+msgstr ""
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr ""
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+msgid "Delete junk comments older than"
+msgstr ""
+
+msgid "days"
+msgstr "రోజులు"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
+msgid "Set spam filters."
 msgstr ""
 
 msgid "IP Blocklist / Allowlist Filter"
@@ -298,29 +321,6 @@ msgstr ""
 msgid "This word exists"
 msgstr ""
 
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
-
-#, php-format
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Delete junk comments older than"
-msgstr ""
-
-msgid "days"
-msgstr "రోజులు"
-
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
-
-msgid "Set spam filters."
-msgstr ""
-
-msgid "This comment is a spam:"
-msgstr ""
-
 msgid "Spam moderation"
 msgstr ""
 
@@ -328,16 +328,6 @@ msgid "Spam"
 msgstr ""
 
 msgid "Ham"
-msgstr ""
-
-msgid "No description"
-msgstr "వివరణ లేదు"
-
-#, php-format
-msgid "Filtered by %1$s (%2$s)"
-msgstr ""
-
-msgid "Unknown filter."
 msgstr ""
 
 msgid "Filter does not exist."
@@ -400,6 +390,16 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
+msgid "No description"
+msgstr "వివరణ లేదు"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr ""
+
+msgid "Unknown filter."
+msgstr ""
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -419,6 +419,63 @@ msgstr "బ్లాగ్మిత్రులను సంభాళించ�
 
 msgid "Blogroll"
 msgstr "బ్లాగ్మిత్రులు"
+
+msgid "You must provide a link title"
+msgstr ""
+
+msgid "You must provide a link URL"
+msgstr ""
+
+msgid "Nothing to import"
+msgstr ""
+
+msgid "links have been successfully imported."
+msgstr ""
+
+msgid "Import operation cancelled."
+msgstr ""
+
+msgid "Link has been successfully created."
+msgstr ""
+
+msgid "category has been successfully created."
+msgstr ""
+
+msgid "Items have been successfully removed."
+msgstr ""
+
+msgid "Items order has been successfully updated"
+msgstr ""
+
+msgid "Lang"
+msgstr "భాష"
+
+msgid "select this link"
+msgstr ""
+
+msgid "Are you sure you want to delete selected links?"
+msgstr ""
+
+msgid "Delete selected links"
+msgstr ""
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr ""
+
+msgid "Add a category"
+msgstr ""
+
+msgid "Import links"
+msgstr ""
+
+msgid "OPML or XBEL File:"
+msgstr ""
+
+msgid "Import"
+msgstr ""
 
 msgid "No such link or title"
 msgstr ""
@@ -521,12 +578,6 @@ msgstr ""
 msgid "_xfn_Sweetheart"
 msgstr ""
 
-msgid "You must provide a link title"
-msgstr ""
-
-msgid "You must provide a link URL"
-msgstr ""
-
 msgid "You need to provide a XBEL or OPML file."
 msgstr ""
 
@@ -538,283 +589,6 @@ msgstr "అన్ని వర్గాలు"
 
 msgid "Links"
 msgstr "లంకెలు"
-
-msgid "Nothing to import"
-msgstr ""
-
-msgid "links have been successfully imported."
-msgstr ""
-
-msgid "Import operation cancelled."
-msgstr ""
-
-msgid "Link has been successfully created."
-msgstr ""
-
-msgid "category has been successfully created."
-msgstr ""
-
-msgid "Items have been successfully removed."
-msgstr ""
-
-msgid "Items order has been successfully updated"
-msgstr ""
-
-msgid "Lang"
-msgstr "భాష"
-
-msgid "select this link"
-msgstr ""
-
-msgid "Are you sure you want to delete selected links?"
-msgstr ""
-
-msgid "Delete selected links"
-msgstr ""
-
-msgid "The link list is empty."
-msgstr ""
-
-msgid "Add a new link"
-msgstr ""
-
-msgid "Add a category"
-msgstr ""
-
-msgid "Import links"
-msgstr ""
-
-msgid "OPML or XBEL File:"
-msgstr ""
-
-msgid "Import"
-msgstr ""
-
-msgid "default"
-msgstr ""
-
-msgid "Unable to create css file."
-msgstr ""
-
-msgid "Unable to open image."
-msgstr ""
-
-msgid "Light linear gradient"
-msgstr ""
-
-msgid "Medium linear gradient"
-msgstr ""
-
-msgid "Dark linear gradient"
-msgstr ""
-
-msgid "Solid color"
-msgstr ""
-
-msgid "Custom..."
-msgstr ""
-
-msgid "Theme configuration has been successfully updated."
-msgstr ""
-
-msgid "Blowup configuration"
-msgstr ""
-
-msgid "Predefined styles"
-msgstr ""
-
-msgid "Apply code"
-msgstr ""
-
-msgid "Choose a predefined style"
-msgstr ""
-
-msgid "Back to Blog appearance"
-msgstr ""
-
-msgid "Customization"
-msgstr ""
-
-msgid "General"
-msgstr "సాధారణ"
-
-msgid "Background color:"
-msgstr ""
-
-msgid "Background color fill:"
-msgstr ""
-
-msgid "Main text font:"
-msgstr ""
-
-msgid "Main text font size:"
-msgstr ""
-
-msgid "Main text color:"
-msgstr ""
-
-msgid "Text line height:"
-msgstr ""
-
-msgid "Links color:"
-msgstr ""
-
-msgid "Visited links color:"
-msgstr ""
-
-msgid "Focus links color:"
-msgstr ""
-
-msgid "Prelude color:"
-msgstr ""
-
-msgid "Hide main title"
-msgstr ""
-
-msgid "Main title font:"
-msgstr ""
-
-msgid "Main title font size:"
-msgstr ""
-
-msgid "Main title color:"
-msgstr ""
-
-msgid "Main title alignment:"
-msgstr ""
-
-msgid "center"
-msgstr "మధ్య"
-
-msgid "left"
-msgstr "ఎడమ"
-
-msgid "right"
-msgstr "కుడి"
-
-msgid "Main title position (x:y)"
-msgstr ""
-
-msgid "Top image"
-msgstr ""
-
-msgid "Choose \"Custom...\" to upload your own image."
-msgstr ""
-
-msgid "Add your image:"
-msgstr ""
-
-#, php-format
-msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr ""
-
-msgid "Sidebar"
-msgstr "ప్రక్కపట్టీ"
-
-msgid "Sidebar position:"
-msgstr "ప్రక్కపట్టీ స్థానం:"
-
-msgid "Sidebar text font:"
-msgstr "ప్రక్కపట్టీ పాఠ్య ఖతి:"
-
-msgid "Sidebar text font size:"
-msgstr ""
-
-msgid "Sidebar text color:"
-msgstr "ప్రక్కపట్టీ పాఠ్యపు రంగు:"
-
-msgid "Sidebar titles font:"
-msgstr ""
-
-msgid "Sidebar titles font size:"
-msgstr ""
-
-msgid "Sidebar titles color:"
-msgstr ""
-
-msgid "Sidebar 2nd level titles font:"
-msgstr ""
-
-msgid "Sidebar 2nd level titles font size:"
-msgstr ""
-
-msgid "Sidebar 2nd level titles color:"
-msgstr ""
-
-msgid "Sidebar lines color:"
-msgstr ""
-
-msgid "Sidebar links color:"
-msgstr ""
-
-msgid "Sidebar visited links color:"
-msgstr ""
-
-msgid "Sidebar focus links color:"
-msgstr ""
-
-msgid "Date title font:"
-msgstr ""
-
-msgid "Date title font size:"
-msgstr ""
-
-msgid "Date title color:"
-msgstr ""
-
-msgid "Entry title font:"
-msgstr ""
-
-msgid "Entry title font size:"
-msgstr ""
-
-msgid "Entry title color:"
-msgstr ""
-
-msgid "Comment background color:"
-msgstr ""
-
-msgid "Comment text color:"
-msgstr ""
-
-msgid "My comment background color:"
-msgstr ""
-
-msgid "My comment text color:"
-msgstr ""
-
-msgid "Footer"
-msgstr ""
-
-msgid "Footer font:"
-msgstr ""
-
-msgid "Footer font size:"
-msgstr ""
-
-msgid "Footer color:"
-msgstr ""
-
-msgid "Footer links color:"
-msgstr ""
-
-msgid "Footer background color:"
-msgstr ""
-
-msgid "Additional CSS"
-msgstr ""
-
-msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
-
-msgid "Configuration import / export"
-msgstr ""
-
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr ""
-
-msgid "Copy this code:"
-msgstr ""
 
 msgid "Breadcrumb"
 msgstr ""
@@ -844,10 +618,19 @@ msgstr "అన్ని ట్యాగులూ"
 msgid "404"
 msgstr ""
 
-msgid "HTML"
+msgid "Generate fake l10n"
 msgstr ""
 
-msgid "Note(s)"
+msgid "fake l10n file generated."
+msgstr ""
+
+msgid "Failed to generate fake l10n file."
+msgstr ""
+
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Media chooser"
@@ -876,6 +659,9 @@ msgid "The configuration has been updated."
 msgstr ""
 
 msgid "dcCKEditor"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -1049,6 +835,67 @@ msgstr ""
 msgid "Import/Export"
 msgstr ""
 
+msgid "Database export"
+msgstr ""
+
+msgid "Download database of current blog"
+msgstr ""
+
+#, fuzzy
+msgid "Compress file"
+msgstr "ఫైళ్ళు లేవు"
+
+msgid "Download database of all blogs"
+msgstr ""
+
+msgid "No file to read."
+msgstr ""
+
+msgid "Unable to create output file."
+msgstr ""
+
+msgid "File is not a DotClear backup."
+msgstr ""
+
+msgid "File is not a single blog export."
+msgstr ""
+
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+msgid "File is not a full export."
+msgstr ""
+
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "దయచేసి వేచివుండండి..."
+
+msgid "Export"
+msgstr ""
+
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+msgid "Maintenance"
+msgstr ""
+
+msgid "Congratulation!"
+msgstr "అభినందనలు!"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr ""
+
+msgid "Why don't you blog this now?"
+msgstr ""
+
+msgid "visit your dashboard"
+msgstr ""
+
 msgid "Flat file export"
 msgstr ""
 
@@ -1069,32 +916,13 @@ msgstr "బ్లాగ్మిత్రులను సంభాళించ�
 msgid "This will create an export of your current blog: %s"
 msgstr ""
 
-#, fuzzy
-msgid "Compress file"
-msgstr "ఫైళ్ళు లేవు"
-
 msgid "You may also want to download your media directory as a zip file"
-msgstr ""
-
-msgid "Export"
 msgstr ""
 
 msgid "Multiple blogs"
 msgstr ""
 
 msgid "This will create an export of all the content of your database."
-msgstr ""
-
-msgid "Congratulation!"
-msgstr "అభినందనలు!"
-
-msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr ""
-
-msgid "Why don't you blog this now?"
-msgstr ""
-
-msgid "visit your dashboard"
 msgstr ""
 
 msgid "Dotclear 1.2 import"
@@ -1266,48 +1094,6 @@ msgstr ""
 msgid "WordPress tables not found"
 msgstr ""
 
-msgid "No file to read."
-msgstr ""
-
-msgid "Unable to create output file."
-msgstr ""
-
-msgid "File is not a DotClear backup."
-msgstr ""
-
-msgid "File is not a single blog export."
-msgstr ""
-
-#, php-format
-msgid "Error raised at line %s"
-msgstr ""
-
-msgid "File is not a full export."
-msgstr ""
-
-#, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
-
-msgid "Database export"
-msgstr ""
-
-msgid "Download database of current blog"
-msgstr ""
-
-msgid "Download database of all blogs"
-msgstr ""
-
-msgid "Please wait..."
-msgstr "దయచేసి వేచివుండండి..."
-
-#, php-format
-msgid "Export functions are in the page %s."
-msgstr ""
-
-msgid "Maintenance"
-msgstr ""
-
 msgid "Servicing"
 msgstr ""
 
@@ -1389,6 +1175,96 @@ msgstr ""
 msgid "Task successfully executed."
 msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
 
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "పేజీని విజయవంతంగా సృష్టించాం."
+
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+msgid "This may take a very long time."
+msgstr ""
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "బ్లాగు అమరికలు"
+
+msgid "Activation"
+msgstr ""
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
+
 msgid "Empty templates cache directory"
 msgstr ""
 
@@ -1412,18 +1288,6 @@ msgid "Failed to count comments and trackbacks."
 msgstr ""
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
-
-msgid "Delete the Content-Security-Policy report file"
-msgstr ""
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
-
-msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1523,96 +1387,8 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
-msgid "Maintenance plugin has been successfully configured."
-msgstr "పేజీని విజయవంతంగా సృష్టించాం."
-
-msgid "System settings have been saved."
-msgstr ""
-
-msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "You have not sufficient permissions to view this page."
-msgstr ""
-
-msgid "You should execute it now."
-msgstr ""
-
-msgid "Execute task"
-msgstr ""
-
-msgid "This may take a very long time."
-msgstr ""
-
-#, fuzzy
-msgid "Alert settings"
-msgstr "బ్లాగు అమరికలు"
-
-msgid "Activation"
-msgstr ""
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr ""
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
-msgid "Content-Security-Policy"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only"
-msgstr ""
-
-msgid "Enable Content-Security-Policy system by default"
-msgstr ""
-
-msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
-
-msgid "Also apply these settings to all blogs"
-msgstr ""
-
 msgid "manage pages"
 msgstr "పేజీలను సంభాళించండి"
-
-msgid "New page"
-msgstr "కొత్త పేజీ"
-
-#, fuzzy
-msgid "My first page"
-msgstr "పేజీ మార్పు"
-
-msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1622,15 +1398,8 @@ msgstr "పేజీ మార్పు"
 msgid "%d pages"
 msgstr "పేజీ మార్పు"
 
-msgid "No page"
-msgstr "పేజీ లేదు"
-
-msgid "Hidden"
-msgstr ""
-
-#, fuzzy
-msgid "Select this page"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgid "New page"
+msgstr "కొత్త పేజీ"
 
 #, fuzzy
 msgid "Pages actions"
@@ -1643,6 +1412,16 @@ msgstr ""
 msgid "Selected pages have been successfully reordered."
 msgstr "పేజీని విజయవంతంగా సృష్టించాం."
 
+msgid "No page"
+msgstr "పేజీ లేదు"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
 msgid "Published on"
 msgstr "ప్రచురణ సమయం"
 
@@ -1652,14 +1431,12 @@ msgstr ""
 msgid "You must provide a valid email address."
 msgstr ""
 
-msgid "Page title"
-msgstr "పేజీ శీర్షిక"
+#, fuzzy
+msgid "My first page"
+msgstr "పేజీ మార్పు"
 
-msgid "Page position"
-msgstr "పేజీ స్థానం"
-
-msgid "Publication date"
-msgstr "ప్రచురణ తేదీ"
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 #, fuzzy
 msgid "Are you sure you want to delete selected pages?"
@@ -1714,6 +1491,9 @@ msgstr "పేజీ స్థితి:"
 msgid "Page language"
 msgstr "పేజీ భాష:"
 
+msgid "Page position"
+msgstr "పేజీ స్థానం"
+
 msgid "Hide in widget Pages"
 msgstr ""
 
@@ -1726,6 +1506,12 @@ msgstr ""
 #, fuzzy
 msgid "Select this comment"
 msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
+msgid "Page title"
+msgstr "పేజీ శీర్షిక"
+
+msgid "Publication date"
+msgstr "ప్రచురణ తేదీ"
 
 msgid "Pings"
 msgstr ""
@@ -1765,22 +1551,6 @@ msgstr "పేజీని చూడండి"
 #, fuzzy
 msgid "active page"
 msgstr "పేజీని చూడండి"
-
-#, fuzzy
-msgid "Item description"
-msgstr "వివరణ లేదు"
-
-msgid "Displayed in link"
-msgstr ""
-
-msgid "Used as link title"
-msgstr ""
-
-msgid "Displayed in link and used as title"
-msgstr ""
-
-msgid "Not displayed nor used"
-msgstr ""
 
 #, fuzzy
 msgid "All months"
@@ -1932,6 +1702,22 @@ msgstr "ఈ పేజీని మీరు నిజంగానే తొల�
 msgid "No menu items so far."
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "వివరణ లేదు"
+
+msgid "Displayed in link"
+msgstr ""
+
+msgid "Used as link title"
+msgstr ""
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "Tag"
 msgstr "ట్యాగు"
 
@@ -2014,23 +1800,8 @@ msgstr ""
 msgid "This tag's entries Atom feed"
 msgstr ""
 
-msgid "Limit (empty means no limit):"
-msgstr ""
-
-msgid "Tag name"
-msgstr "ట్యాగు పేరు"
-
-msgid "Entries count"
-msgstr "టపాల సంఖ్య"
-
-msgid "Newest entry"
-msgstr ""
-
-msgid "Oldest entry"
-msgstr ""
-
-msgid "Link to all tags:"
-msgstr ""
+msgid "No tags on this blog."
+msgstr "ఈ బ్లాగులో ట్యాగులేమీ లేవు."
 
 msgid "Tag has been successfully renamed"
 msgstr ""
@@ -2056,8 +1827,23 @@ msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-msgid "No tags on this blog."
-msgstr "ఈ బ్లాగులో ట్యాగులేమీ లేవు."
+msgid "Limit (empty means no limit):"
+msgstr ""
+
+msgid "Tag name"
+msgstr "ట్యాగు పేరు"
+
+msgid "Entries count"
+msgstr "టపాల సంఖ్య"
+
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
 
 msgid "Edit theme files"
 msgstr ""
@@ -2066,33 +1852,6 @@ msgid "Syntax highlighting"
 msgstr ""
 
 msgid "Syntax highlighting in theme editor"
-msgstr ""
-
-msgid "No file"
-msgstr "ఫైళ్ళు లేవు"
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
-msgstr ""
-
-msgid "File does not exist."
-msgstr "ఫైలు లేనే లేదు."
-
-#, php-format
-msgid "File %s is not readable"
-msgstr ""
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr ""
-
-#, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
 msgid "The file has been reset."
@@ -2151,6 +1910,33 @@ msgstr "ఫైళ్ళు లేవు"
 msgid "You can't edit a distributed theme."
 msgstr ""
 
+msgid "No file"
+msgstr "ఫైళ్ళు లేవు"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
+msgid "File does not exist."
+msgstr "ఫైలు లేనే లేదు."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr ""
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr ""
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
@@ -2171,6 +1957,102 @@ msgid "Widget's textareas"
 msgstr ""
 
 msgid "Unable to initialize default widgets."
+msgstr ""
+
+msgid "navigation"
+msgstr ""
+
+msgid "extra"
+msgstr ""
+
+msgid "custom"
+msgstr ""
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr ""
+
+msgid "Widgets"
+msgstr "విడ్జెట్లు"
+
+msgid "Available widgets"
+msgstr "అందుబాటులో ఉన్న విడ్జెట్లు"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "క్రమం"
+
+msgid "Append to:"
+msgstr ""
+
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "టపాలకు ట్యాగులను చేర్చండి"
+
+msgid "Navigation sidebar"
+msgstr ""
+
+msgid "Extra sidebar"
+msgstr ""
+
+msgid "Custom sidebar"
+msgstr ""
+
+msgid "Update sidebars"
+msgstr ""
+
+msgid "Reset sidebars"
+msgstr ""
+
+msgid "Widget ID:"
+msgstr ""
+
+msgid "No setting for this widget"
+msgstr ""
+
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "empty string"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "Setting name:"
+msgstr "అమరిక పేరు:"
+
+msgid "No widget as far."
+msgstr ""
+
+#, fuzzy
+msgid "Up the widget"
+msgstr "ప్రదర్శనా విడ్జెట్లు"
+
+msgid "Down the widget"
+msgstr ""
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "ట్యాగులను తొలగించండి"
+
+msgid "Remove widget"
+msgstr ""
+
+msgid "Drag widgets here to remove."
 msgstr ""
 
 msgid "Search engine"
@@ -2279,101 +2161,29 @@ msgstr ""
 msgid "Offline"
 msgstr ""
 
-msgid "navigation"
-msgstr ""
+#~ msgid "General"
+#~ msgstr "సాధారణ"
 
-msgid "extra"
-msgstr ""
+#~ msgid "center"
+#~ msgstr "మధ్య"
 
-msgid "custom"
-msgstr ""
+#~ msgid "left"
+#~ msgstr "ఎడమ"
 
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
+#~ msgid "right"
+#~ msgstr "కుడి"
 
-msgid "Sidebars have been resetting."
-msgstr ""
+#~ msgid "Sidebar"
+#~ msgstr "ప్రక్కపట్టీ"
 
-msgid "Widgets"
-msgstr "విడ్జెట్లు"
+#~ msgid "Sidebar position:"
+#~ msgstr "ప్రక్కపట్టీ స్థానం:"
 
-msgid "Are you sure you want to reset sidebars?"
-msgstr ""
+#~ msgid "Sidebar text font:"
+#~ msgstr "ప్రక్కపట్టీ పాఠ్య ఖతి:"
 
-msgid "Available widgets"
-msgstr "అందుబాటులో ఉన్న విడ్జెట్లు"
-
-msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
-
-msgid "order"
-msgstr "క్రమం"
-
-msgid "Append to:"
-msgstr ""
-
-#, fuzzy
-msgid "Add widgets to sidebars"
-msgstr "టపాలకు ట్యాగులను చేర్చండి"
-
-msgid "Navigation sidebar"
-msgstr ""
-
-msgid "Extra sidebar"
-msgstr ""
-
-msgid "Custom sidebar"
-msgstr ""
-
-msgid "Update sidebars"
-msgstr ""
-
-msgid "Reset sidebars"
-msgstr ""
-
-msgid "Widget ID:"
-msgstr ""
-
-msgid "No setting for this widget"
-msgstr ""
-
-msgid "boolean"
-msgstr ""
-
-msgid "possible values:"
-msgstr ""
-
-msgid "empty string"
-msgstr ""
-
-msgid "listitem"
-msgstr ""
-
-msgid "string"
-msgstr ""
-
-msgid "Setting name:"
-msgstr "అమరిక పేరు:"
-
-msgid "No widget as far."
-msgstr ""
-
-#, fuzzy
-msgid "Up the widget"
-msgstr "ప్రదర్శనా విడ్జెట్లు"
-
-msgid "Down the widget"
-msgstr ""
-
-#, fuzzy
-msgid "Remove the widget"
-msgstr "ట్యాగులను తొలగించండి"
-
-msgid "Remove widget"
-msgstr ""
-
-msgid "Drag widgets here to remove."
-msgstr ""
+#~ msgid "Sidebar text color:"
+#~ msgstr "ప్రక్కపట్టీ పాఠ్యపు రంగు:"
 
 #, fuzzy
 #~ msgid "Liste des auteurs"

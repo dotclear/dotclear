@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 08:45+0100\n"
+"POT-Creation-Date: 2023-03-10 08:44+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -661,6 +661,13 @@ msgstr ""
 #, fuzzy
 msgid "Installed themes"
 msgstr "ইন্সটলকৃত ভাষা"
+
+#, fuzzy
+msgid "Activated themes"
+msgstr "নিস্ক্রিয়"
+
+msgid "(in normal mode)"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
@@ -1796,9 +1803,6 @@ msgstr "ইন্সটলকৃত ভাষা"
 msgid "Activated plugins"
 msgstr "সক্রিয় প্লাগইনসমূহ"
 
-msgid "(in normal mode)"
-msgstr ""
-
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
@@ -2246,6 +2250,9 @@ msgstr ""
 msgid "Font size:"
 msgstr "ফাইল সাইজ:"
 
+msgid "Use operating system font"
+msgstr ""
+
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
@@ -2474,6 +2481,9 @@ msgid "Remind me later"
 msgstr "পড়ে মনে করিয়ে দিও"
 
 msgid "Information about this version"
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
 #, php-format
@@ -3037,6 +3047,22 @@ msgid "Trackback"
 msgstr "ট্র্যাকব্যাক"
 
 #, fuzzy
+msgid "Media type:"
+msgstr "ফাইলের ধরণ:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+#, fuzzy
 msgid "users per page"
 msgstr "প্রতি পেজে ইউজারের সংখ্যা"
 
@@ -3143,10 +3169,11 @@ msgid "Select:"
 msgstr "সব সিলেক্ট করুন"
 
 #, fuzzy
-msgid "no selection"
+msgid "No selection"
 msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
 
-msgid "select all"
+#, fuzzy
+msgid "Select all"
 msgstr "সব সিলেক্ট করুন"
 
 #, fuzzy
@@ -3442,6 +3469,10 @@ msgstr "সার্চ এন্ট্রি:"
 
 msgid "Plugin from official distribution"
 msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "প্লাগইন দেখাশোনা"
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3939,15 +3970,16 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "ছোট:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "থাম্বনেইল:"
+msgid "petite"
+msgstr ""
 
-msgid "square"
+msgid "vignette"
+msgstr ""
+
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -4353,6 +4385,138 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "%s ফাইলটি নেই।"
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "ফাইলটি বৈধ নয়"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "কোনো ফাইল নেই।"
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "ফাইলটি বৈধ নয়"
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "এই ডিরেক্টরিকে একটি zip ফাইল হিসেবে ডাউনলোড করুন"
+
+#, fuzzy
+msgid "File already exists."
+msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "নতুন ডিরেক্টরি"
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "%s ফাইলটি নেই।"
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "%s ফাইলটি নেই।"
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+#, fuzzy
+msgid "File cannot be removed."
+msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "%s ফাইলটি নেই।"
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "%s ফাইলটি নেই।"
+
+#, fuzzy
+msgid "Cannot read file"
+msgstr "ফাইলটি বৈধ নয়"
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "এই এন্ট্রির কোনো অস্তিত্ব নেই।"
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "নতুন ডিরেক্টরি"
+
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4368,6 +4532,39 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+msgid "Bad range"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "ছোট:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "থাম্বনেইল:"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
@@ -4414,14 +4611,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "ব্লগের থিমসমূহ"
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
 
 #, fuzzy
 #~ msgid "Filter blogs list"
@@ -4477,9 +4666,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
-
-#~ msgid "Download this directory as a zip file"
-#~ msgstr "এই ডিরেক্টরিকে একটি zip ফাইল হিসেবে ডাউনলোড করুন"
 
 #~ msgid "Plugin"
 #~ msgstr "প্লাগইন"
