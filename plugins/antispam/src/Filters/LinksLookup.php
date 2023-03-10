@@ -96,6 +96,9 @@ class LinksLookup extends SpamFilter
         array_unshift($urls, $site);
 
         foreach ($urls as $u) {
+            if (empty($u)) {
+                continue;
+            }
             $b = parse_url($u);
             if (!isset($b['host']) || !$b['host']) {
                 continue;
