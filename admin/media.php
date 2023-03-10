@@ -39,7 +39,8 @@ class adminMedia
                 if (strpos(realpath(dcCore::app()->media->root . '/' . dcCore::app()->admin->page->d), (string) realpath(dcCore::app()->media->root)) === 0) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
-                    $zip = new Zip(null, date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . (dcCore::app()->admin->page->d ?: 'media') . '.zip');
+                    $name = date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . (dcCore::app()->admin->page->d ?: 'media') . '.zip';
+                    $zip  = new Zip(null, $name);
                     $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp)$/');
                     $zip->addDirectory(dcCore::app()->media->root . '/' . dcCore::app()->admin->page->d, '', true);
                     $zip->close();

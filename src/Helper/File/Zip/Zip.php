@@ -16,6 +16,8 @@ use files;
 
 class Zip
 {
+    // Constants
+
     /**
      * @var string PHP output stream
      */
@@ -36,6 +38,17 @@ class Zip
     public const PHARZIP_BUGGY_81_MAX = '8.1.16';
     public const PHARZIP_BUGGY_82_MIN = '8.2.0';
     public const PHARZIP_BUGGY_82_MAX = '8.2.3';
+
+    /**
+     * Flag to use a specific archive workflow
+     *
+     * @var        int
+     */
+    public const USE_PHARDATA   = 0;
+    public const USE_ZIPARCHIVE = 1;
+    public const USE_LEGACY     = 2;
+
+    // Properties
 
     /**
      * @var string Archive filename
@@ -77,6 +90,11 @@ class Zip
      */
     protected bool $closed = false;
 
+    /**
+     * @var int Type of archive used
+     */
+    protected int $workflow = self::USE_PHARDATA;
+
     // Legacy
 
     protected $fp;
@@ -95,21 +113,41 @@ class Zip
      *
      * @param      null|string     $output      The archive filename (if null redirect output to php://output stream)
      * @param      null|string     $filename    The archive name (used on streamed output as destination filename)
+     * @param      int             $workflow    Specify the workflow to be used (phardata, ziparchive, legacy)
      *
      * @throws     Exception
      */
-    public function __construct(?string $output = null, ?string $filename = null)
+    public function __construct(?string $output = null, ?string $filename = null, int $workflow = self::USE_PHARDATA)
     {
-        if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '<=') || (version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '>=') && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '<='))
-        ) {
-            // Cannot use PharData zip archive as file's matadata are not preserved when compressed
-            // See PHP Issue #10766 https://github.com/php/php-src/issues/10766
-            $this->phardata = false;
-            if (class_exists('ZipArchive')) {
-                // We will use a ZipArchive archive
-                $this->ziparchive = true;
+        if ($workflow === self::USE_PHARDATA) {
+            if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '<=') || ((version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '>=') && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '<=')))
+            ) {
+                // Cannot use PharData zip archive as file's matadata are not preserved when compressed
+                // See PHP Issue #10766 https://github.com/php/php-src/issues/10766
+                $this->phardata = false;
+                $workflow       = self::USE_ZIPARCHIVE;
+            } else {
+                // We will use a PharData archive
+                $this->phardata   = true;
+                $this->ziparchive = false;
             }
         }
+        if ($workflow === self::USE_ZIPARCHIVE) {
+            if (!class_exists('ZipArchive')) {
+                $this->ziparchive = false;
+                $workflow         = self::USE_LEGACY;
+            } else {
+                // We will use a ZipArchive archive
+                $this->ziparchive = true;
+                $this->phardata   = false;
+            }
+        }
+        if ($workflow === self::USE_LEGACY) {
+            // We will use a legacy archive
+            $this->ziparchive = false;
+            $this->phardata   = false;
+        }
+        $this->workflow = $workflow;
 
         if (!$output || $output === self::STREAM) {
             // Output zip to stream output
@@ -194,25 +232,40 @@ class Zip
                         $this->write();
                     }
                     fclose($this->fp);
-                    unlink($this->archive);
-                    unset($this->archive);
+                    sleep(2);   // Let system finishing writing things if necessary before deleting temporary archive
+                    if ($this->archive) {
+                        unlink($this->archive);
+                        unset($this->archive);
+                    }
                 }
             } catch (Exception $e) {
                 throw new Exception('Unable to output archive');
             }
+        } else {
+            if ($this->ziparchive) {
+                $this->zip->close();
+            } elseif (!$this->phardata && !$this->ziparchive) {
+                // Legacy mode
+                if (!$this->stream) {
+                    // Write legacy archive content
+                    $this->write();
+                    fclose($this->fp);
+                }
+                if ($this->memory_limit) {
+                    ini_set('memory_limit', $this->memory_limit);
+                }
+            }
         }
+    }
 
-        if (!$this->phardata && !$this->ziparchive) {
-            // Legacy mode
-            if (!$this->stream) {
-                // Write legacy archive content
-                $this->write();
-                fclose($this->fp);
-            }
-            if ($this->memory_limit) {
-                ini_set('memory_limit', $this->memory_limit);
-            }
-        }
+    /**
+     * Gets the archive type.
+     *
+     * @return     int   The archive type.
+     */
+    public function getArchiveType(): int
+    {
+        return $this->workflow;
     }
 
     /**

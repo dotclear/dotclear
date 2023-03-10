@@ -51,6 +51,9 @@ $__autoload['mysqlimb4Connection'] = CLEARBRICKS_PATH . '/dblayer/class.mysqlimb
 $__autoload['pgsqlConnection']     = CLEARBRICKS_PATH . '/dblayer/class.pgsql.php';
 $__autoload['sqliteConnection']    = CLEARBRICKS_PATH . '/dblayer/class.sqlite.php';
 
+$__autoload['files'] = CLEARBRICKS_PATH . '/common/lib.files.php';
+$__autoload['path']  = CLEARBRICKS_PATH . '/common/lib.files.php';
+
 function cb_autoload($name)
 {
     global $__autoload;
@@ -64,3 +67,7 @@ spl_autoload_register('cb_autoload');
 // Ensure l10n functions exist
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
+
+// Ensure files class exists
+
+require_once CLEARBRICKS_PATH . '/common/lib.files.php';
