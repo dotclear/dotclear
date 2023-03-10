@@ -200,6 +200,17 @@ class Zip
     }
 
     /**
+     * Destroys the object.
+     */
+    public function __destruct()
+    {
+        // Close the archive if necessary
+        if (!$this->closed) {
+            $this->close();
+        }
+    }
+
+    /**
      * Close the archive
      *
      * @throws     Exception
