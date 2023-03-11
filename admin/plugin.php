@@ -27,7 +27,7 @@ class adminPlugin
     public static function render()
     {
         $p_file = '';
-        $plugin = !empty($_REQUEST['p']) ? $_REQUEST['p'] : null;
+        $plugin = !empty($_REQUEST['p']) ? $_REQUEST['p'] : '';
         $popup  = (int) !empty($_REQUEST['popup']);
 
         if ($popup) {
