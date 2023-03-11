@@ -255,7 +255,7 @@ class Zip
         } else {
             if ($this->ziparchive) {
                 $this->zip->close();
-            } elseif (!$this->phardata && !$this->ziparchive) {
+            } elseif (!$this->phardata) {
                 // Write legacy archive content
                 $this->write();
                 fclose($this->fp);
