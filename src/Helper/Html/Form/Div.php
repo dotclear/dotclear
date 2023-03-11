@@ -43,10 +43,10 @@ class Div extends Component
         if (isset($this->items) && is_array($this->items)) {
             $first = true;
             foreach ($this->items as $item) {
-                if (!$first && $this->separator) {
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
                     $buffer .= (string) $this->separator;
                 }
-                $buffer .= sprintf(($this->format ?: '%s'), $item->render());
+                $buffer .= sprintf(($this->format ?: '%s'), $item->render());   // @phpstan-ignore-line
                 $first = false;
             }
         }

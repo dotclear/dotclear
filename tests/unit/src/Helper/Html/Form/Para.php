@@ -71,6 +71,24 @@ class Para extends atoum
         ;
     }
 
+    public function testWithItemsWithFormat()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Para();
+        $component
+            ->format('[%s]')
+            ->items(
+                [
+                    new \Dotclear\Helper\Html\Form\Text(null, '1st value'),
+                    new \Dotclear\Helper\Html\Form\Text(null, '2nd value'),
+                ]
+            );
+
+        $this
+            ->string($component->render())
+            ->match('/<p.*?>\[1st value\]\[2nd value\]<\/p>/')
+        ;
+    }
+
     public function testWithId()
     {
         $component = new \Dotclear\Helper\Html\Form\Para('myid');

@@ -77,7 +77,7 @@ class Div extends atoum
         ;
     }
 
-    public function testItems()
+    public function testItemsWithSeparator()
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component
@@ -91,6 +91,23 @@ class Div extends atoum
         $this
             ->string($component->render())
             ->contains('</p>' . "\n" . ' <p name="secondpara" id="secondpara">')
+        ;
+    }
+
+    public function testItemsWithFormat()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component
+            ->format('<div>%s</div>')
+            ->items([
+                new \Dotclear\Helper\Html\Form\Para('firstpara'),
+                new \Dotclear\Helper\Html\Form\Para('secondpara'),
+            ])
+        ;
+
+        $this
+            ->string($component->render())
+            ->contains('</p>' . "\n" . '</div><div><p name="secondpara" id="secondpara">')
         ;
     }
 
