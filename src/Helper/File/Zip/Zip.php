@@ -439,6 +439,9 @@ class Zip
 
     // Legacy methods
 
+    /**
+     * Write an archive
+     */
     public function write()
     {
         foreach ($this->entries as $name => $v) {
@@ -463,7 +466,12 @@ class Zip
         );
     }
 
-    protected function writeDirectory($name)
+    /**
+     * Writes a directory in the archive.
+     *
+     * @param      string  $name   The name
+     */
+    protected function writeDirectory(string $name)
     {
         if (!isset($this->entries[$name])) {
             return;
@@ -516,14 +524,21 @@ class Zip
         $this->ctrl_dir[] = $cdrec;
     }
 
-    protected function writeFile($name, $file, $mtime)
+    /**
+     * Writes a file in the archive.
+     *
+     * @param      string    $name   The name
+     * @param      string    $file   The file
+     * @param      int|null  $mtime  The mtime
+     */
+    protected function writeFile(string $name, string $file, ?int $mtime)
     {
         if (!isset($this->entries[$name])) {
             return;
         }
 
         $filesize = filesize($file);
-        $this->memoryAllocate($filesize * 3);
+        $this->memoryAllocate((int) $filesize * 3);
 
         $content = file_get_contents($file);
 
@@ -584,7 +599,14 @@ class Zip
         $this->ctrl_dir[] = $cdrec;
     }
 
-    protected function makeDate($ts)
+    /**
+     * Makes a date.
+     *
+     * @param      int|null  $ts     Timestamp
+     *
+     * @return     int
+     */
+    protected function makeDate(?int $ts)
     {
         $year = date('Y', $ts) - 1980;
         if ($year < 0) {
@@ -595,19 +617,33 @@ class Zip
         $month = sprintf('%04b', date('n', $ts));
         $day   = sprintf('%05b', date('j', $ts));
 
-        return bindec($year . $month . $day);
+        return (int) bindec($year . $month . $day);
     }
 
-    protected function makeTime($ts)
+    /**
+     * Makes a time.
+     *
+     * @param      int|null  $ts     Timestamp
+     *
+     * @return     int
+     */
+    protected function makeTime(?int $ts)
     {
         $hour   = sprintf('%05b', date('G', $ts));
         $minute = sprintf('%06b', date('i', $ts));
         $second = sprintf('%05b', ceil(date('s', $ts) / 2));
 
-        return bindec($hour . $minute . $second);
+        return (int) bindec($hour . $minute . $second);
     }
 
-    protected function memoryAllocate($size)
+    /**
+     * Allocate memory
+     *
+     * @param      int        $size   The size needed
+     *
+     * @throws     Exception
+     */
+    protected function memoryAllocate(int $size)
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
