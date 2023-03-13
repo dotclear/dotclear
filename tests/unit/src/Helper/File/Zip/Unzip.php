@@ -33,6 +33,8 @@ class Unzip extends atoum
 
     public const ZIP_NAME = 'dotclear';
 
+    public const ZIP_EXCLUDE = '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#';
+
     private static function fillFile($filename, int $timeOffset = 0)
     {
         if (!file_exists($filename)) {
@@ -92,7 +94,7 @@ class Unzip extends atoum
         $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, $workflow);
 
         $zip->addDirectory($rootzip, $dirname, true);
-        $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $zip->addExclusion(self::ZIP_EXCLUDE);
         $zip->close();
 
         if (!file_exists($archive)) {

@@ -44,19 +44,24 @@ class Unzip
      */
     protected int $workflow = self::USE_PHARDATA;
 
+    /**
+     * @var array Manifest of archive (may be filtered)
+     */
+    protected $manifest = [];
+
+    /**
+     * @var string Exclusion pattern
+     */
+    protected $exclude = '';
+
     // Legacy
 
-    protected $compressed_list = [];
-    protected $eo_central      = [];
-
-    protected $zip_sig   = "\x50\x4b\x03\x04"; # local file header signature
-    protected $dir_sig   = "\x50\x4b\x01\x02"; # central dir header signature
-    protected $dir_sig_e = "\x50\x4b\x05\x06"; # end of central dir signature
-    protected $fp        = null;
-
+    protected $fp           = null;
+    protected $eo_central   = [];
+    protected $zip_sig      = "\x50\x4b\x03\x04"; # local file header signature
+    protected $dir_sig      = "\x50\x4b\x01\x02"; # central dir header signature
+    protected $dir_sig_e    = "\x50\x4b\x05\x06"; # end of central dir signature
     protected $memory_limit = null;
-
-    protected $exclude_pattern = '';
 
     /**
      * Constructs a new instance.
@@ -73,7 +78,11 @@ class Unzip
         }
         if ($workflow === self::USE_ZIPARCHIVE) {
             if (!class_exists('ZipArchive')) {
-                $workflow = self::USE_LEGACY;
+                if (class_exists('PharData')) {
+                    $workflow = self::USE_PHARDATA;
+                } else {
+                    $workflow = self::USE_LEGACY;
+                }
             }
         }
         $this->workflow = $workflow;
@@ -111,26 +120,34 @@ class Unzip
         }
     }
 
+    /**
+     * Gets the list.
+     *
+     * @param      bool|string  $stop_on_file  The stop on file
+     * @param      bool|string  $exclude       The exclude
+     *
+     * @return     array  The list.
+     */
     public function getList($stop_on_file = false, $exclude = false)
     {
-        if (!empty($this->compressed_list)) {
-            return $this->compressed_list;
+        if (!empty($this->manifest)) {
+            return $this->manifest;
         }
 
         if (!$this->loadFileListByEOF($stop_on_file, $exclude) && !$this->loadFileListBySignatures($stop_on_file, $exclude)) {
             return false;
         }
 
-        return $this->compressed_list;
+        return $this->manifest;
     }
 
     public function unzipAll($target)
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList();
         }
 
-        foreach ($this->compressed_list as $k => $v) {
+        foreach ($this->manifest as $k => $v) {
             if ($v['is_dir']) {
                 continue;
             }
@@ -141,17 +158,17 @@ class Unzip
 
     public function unzip($file_name, $target = false)
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList($file_name);
         }
 
-        if (!isset($this->compressed_list[$file_name])) {
+        if (!isset($this->manifest[$file_name])) {
             throw new Exception(sprintf(__('File %s is not compressed in the zip.'), $file_name));
         }
         if ($this->isFileExcluded($file_name)) {
             return;
         }
-        $details = &$this->compressed_list[$file_name];
+        $details = &$this->manifest[$file_name];
 
         if ($details['is_dir']) {
             throw new Exception(sprintf(__('Trying to unzip a folder name %s'), $file_name));
@@ -179,12 +196,12 @@ class Unzip
 
     public function getFilesList()
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList();
         }
 
         $res = [];
-        foreach ($this->compressed_list as $k => $v) {
+        foreach ($this->manifest as $k => $v) {
             if (!$v['is_dir']) {
                 $res[] = $k;
             }
@@ -195,12 +212,12 @@ class Unzip
 
     public function getDirsList()
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList();
         }
 
         $res = [];
-        foreach ($this->compressed_list as $k => $v) {
+        foreach ($this->manifest as $k => $v) {
             if ($v['is_dir']) {
                 $res[] = substr($k, 0, -1);
             }
@@ -211,7 +228,7 @@ class Unzip
 
     public function getRootDir()
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList();
         }
 
@@ -240,25 +257,25 @@ class Unzip
 
     public function isEmpty()
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList();
         }
 
-        return count($this->compressed_list) == 0;
+        return count($this->manifest) == 0;
     }
 
     public function hasFile($f)
     {
-        if (empty($this->compressed_list)) {
+        if (empty($this->manifest)) {
             $this->getList();
         }
 
-        return isset($this->compressed_list[$f]);
+        return isset($this->manifest[$f]);
     }
 
     public function setExcludePattern($pattern)
     {
-        $this->exclude_pattern = $pattern;
+        $this->exclude = $pattern;
     }
 
     protected function fp()
@@ -276,11 +293,11 @@ class Unzip
 
     protected function isFileExcluded($f)
     {
-        if (!$this->exclude_pattern) {
+        if (!$this->exclude) {
             return false;
         }
 
-        return preg_match($this->exclude_pattern, (string) $f);
+        return preg_match($this->exclude, (string) $f);
     }
 
     protected function putContent($content, $target = false)
@@ -447,17 +464,17 @@ class Unzip
 
                     $i = $this->getFileHeaderInformation($v['relative_offset']);
 
-                    $this->compressed_list[$k]['file_name']             = $k;
-                    $this->compressed_list[$k]['is_dir']                = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
-                    $this->compressed_list[$k]['compression_method']    = $v['compression_method'];
-                    $this->compressed_list[$k]['version_needed']        = $v['version_needed'];
-                    $this->compressed_list[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
-                    $this->compressed_list[$k]['crc-32']                = $v['crc-32'];
-                    $this->compressed_list[$k]['compressed_size']       = $v['compressed_size'];
-                    $this->compressed_list[$k]['uncompressed_size']     = $v['uncompressed_size'];
-                    $this->compressed_list[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
-                    $this->compressed_list[$k]['extra_field']           = $i['extra_field'];
-                    $this->compressed_list[$k]['contents_start_offset'] = $i['contents_start_offset'];
+                    $this->manifest[$k]['file_name']             = $k;
+                    $this->manifest[$k]['is_dir']                = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
+                    $this->manifest[$k]['compression_method']    = $v['compression_method'];
+                    $this->manifest[$k]['version_needed']        = $v['version_needed'];
+                    $this->manifest[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
+                    $this->manifest[$k]['crc-32']                = $v['crc-32'];
+                    $this->manifest[$k]['compressed_size']       = $v['compressed_size'];
+                    $this->manifest[$k]['uncompressed_size']     = $v['uncompressed_size'];
+                    $this->manifest[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
+                    $this->manifest[$k]['extra_field']           = $i['extra_field'];
+                    $this->manifest[$k]['contents_start_offset'] = $i['contents_start_offset'];
 
                     if ($stop_on_file !== false) {
                         if (strtolower($stop_on_file) == strtolower($k)) {
@@ -494,8 +511,8 @@ class Unzip
                 continue;
             }
 
-            $this->compressed_list[$filename] = $details;
-            $return                           = true;
+            $this->manifest[$filename] = $details;
+            $return                    = true;
 
             if ($stop_on_file !== false) {
                 if (strtolower($stop_on_file) == strtolower($filename)) {
