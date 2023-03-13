@@ -194,7 +194,6 @@ class imageTools
     {
         if (!$file) {
             header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: no-cache');
             switch (strtolower($type)) {
                 case 'png':
                     header('Content-type: image/png');
