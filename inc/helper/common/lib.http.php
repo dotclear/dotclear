@@ -324,7 +324,6 @@ class http
         # Common headers list
         $headers[] = 'Last-Modified: ' . gmdate('D, d M Y H:i:s', $timestamp) . ' GMT';
         $headers[] = 'Cache-Control: must-revalidate, max-age=' . abs((int) self::$cache_max_age);
-        $headers[] = 'Pragma:';
 
         if ($since >= $timestamp) {
             self::head(304, 'Not Modified');
