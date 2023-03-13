@@ -78,7 +78,7 @@ class Zip
     /**
      * @var bool True if PharData is enabled
      */
-    protected bool $phardata = true;
+    protected bool $phardata = false;
 
     /**
      * @var bool True if ZipArchive is enabled
@@ -93,7 +93,7 @@ class Zip
     /**
      * @var int Type of archive used
      */
-    protected int $workflow = self::USE_PHARDATA;
+    protected int $workflow = self::USE_ZIPARCHIVE;
 
     // Legacy
 
@@ -107,9 +107,10 @@ class Zip
     /**
      * Constructs a new instance.
      *
-     * If PharData class exists and is enabled and PHP version not buggy, use it
-     * Else if ZipArchive class exists and is enabled, use it
-     * Else use legacy Clearbricks zip archive functions
+     * If no workflow specified:
+     * - If ZipArchive class exists and is enabled, use it
+     * - Else if PharData class exists and is enabled and PHP version not buggy, use it
+     * - Else use legacy Clearbricks zip archive functions
      *
      * @param      null|string     $output      The archive filename (if null redirect output to php://output stream)
      * @param      null|string     $filename    The archive name (used on streamed output as destination filename)
@@ -117,35 +118,38 @@ class Zip
      *
      * @throws     Exception
      */
-    public function __construct(?string $output = null, ?string $filename = null, int $workflow = self::USE_PHARDATA)
+    public function __construct(?string $output = null, ?string $filename = null, int $workflow = self::USE_ZIPARCHIVE)
     {
         if ($workflow === self::USE_PHARDATA) {
-            if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '<=') || ((version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '>=') && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '<=')))
-            ) {
-                // Cannot use PharData zip archive as file's matadata are not preserved when compressed
-                // See PHP Issue #10766 https://github.com/php/php-src/issues/10766
-                $this->phardata = false;
-                $workflow       = self::USE_ZIPARCHIVE;
-            } else {
+            // Check if we can use PharData zip archive
+            if ($this->checkPharData()) {
                 // We will use a PharData archive
-                $this->phardata   = true;
-                $this->ziparchive = false;
-            }
-        }
-        if ($workflow === self::USE_ZIPARCHIVE) {
-            if (!class_exists('ZipArchive')) {
-                $this->ziparchive = false;
-                $workflow         = self::USE_LEGACY;
+                $this->phardata = true;
             } else {
+                // Lets try ZipArchive
+                if ($this->checkZipArchive()) {
+                    // We will use a ZipArchive archive
+                    $this->ziparchive = true;
+                    $workflow         = self::USE_ZIPARCHIVE;
+                } else {
+                    $workflow = self::USE_LEGACY;
+                }
+            }
+        } elseif ($workflow === self::USE_ZIPARCHIVE) {
+            // Check if we cen use ZipArchive zip archive
+            if ($this->checkZipArchive()) {
                 // We will use a ZipArchive archive
                 $this->ziparchive = true;
-                $this->phardata   = false;
+            } else {
+                // Lets try PharData
+                if ($this->checkPharData()) {
+                    // We will use a PharData archive
+                    $this->phardata = true;
+                    $workflow       = self::USE_PHARDATA;
+                } else {
+                    $workflow = self::USE_LEGACY;
+                }
             }
-        }
-        if ($workflow === self::USE_LEGACY) {
-            // We will use a legacy archive
-            $this->ziparchive = false;
-            $this->phardata   = false;
         }
         $this->workflow = $workflow;
 
@@ -197,6 +201,34 @@ class Zip
             // Create legacy archive
             $this->fp = fopen($output, 'wb');
         }
+    }
+
+    /**
+     * Check if PharData archive may be used
+     *
+     * Cannot use PharData zip archive as file's matadata are not preserved when compressed
+     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766
+     *
+     * @return     bool
+     */
+    protected function checkPharData(): bool
+    {
+        if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '<=') || ((version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '>=') && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '<=')))
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Check if ZipArchive archive may be used
+     *
+     * @return     bool
+     */
+    protected function checkZipArchive(): bool
+    {
+        return class_exists('ZipArchive');
     }
 
     /**

@@ -34,6 +34,8 @@ class Zip extends atoum
 
     public const ZIP_NAME = 'dotclear';
 
+    public const ZIP_EXCLUDE = '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#';
+
     private static function fillFile($filename, int $timeOffset = 0)
     {
         if (!file_exists($filename)) {
@@ -98,7 +100,7 @@ class Zip extends atoum
         $type = $zip->getArchiveType();
 
         $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $zip->addExclusion(self::ZIP_EXCLUDE);
         $zip->addDirectory($rootzip, self::ZIP_NAME, true);
         $zip->close();
 
@@ -175,7 +177,7 @@ class Zip extends atoum
         $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $zip->addExclusion(self::ZIP_EXCLUDE);
         $zip->addDirectory($rootzip, self::ZIP_NAME, true);
         unset($zip);
 
@@ -220,7 +222,7 @@ class Zip extends atoum
         $type = $zip->getArchiveType();
 
         $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $zip->addExclusion(self::ZIP_EXCLUDE);
         $zip->addDirectory($rootzip, self::ZIP_NAME, true);
         $zip->close();
 
@@ -280,7 +282,7 @@ class Zip extends atoum
         $type = $zip->getArchiveType();
 
         $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $zip->addExclusion(self::ZIP_EXCLUDE);
         $zip->addDirectory($rootzip, self::ZIP_NAME, true);
         $zip->close();
 
@@ -332,7 +334,7 @@ class Zip extends atoum
                 $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_PHARDATA, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
                 $zip->addExclusion('/(notmine|notyours)$/');
-                $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+                $zip->addExclusion(self::ZIP_EXCLUDE);
                 $zip->addDirectory($rootzip, self::ZIP_NAME, true);
                 $zip->close();
             })
@@ -350,7 +352,7 @@ class Zip extends atoum
                 $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_ZIPARCHIVE, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
                 $zip->addExclusion('/(notmine|notyours)$/');
-                $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+                $zip->addExclusion(self::ZIP_EXCLUDE);
                 $zip->addDirectory($rootzip, self::ZIP_NAME, true);
                 $zip->close();
             })
@@ -368,7 +370,7 @@ class Zip extends atoum
                 $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_LEGACY, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
                 $zip->addExclusion('/(notmine|notyours)$/');
-                $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+                $zip->addExclusion(self::ZIP_EXCLUDE);
                 $zip->addDirectory($rootzip, self::ZIP_NAME, true);
                 $zip->close();
             })
