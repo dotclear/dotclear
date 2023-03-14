@@ -50,30 +50,30 @@ class dcModuleDefine
      *
      * @var     string
      */
-    private $id;
+    private string $id;
 
     /**
      * Dependencies.
      *
      * @var     array
      */
-    private $implies = [];
-    private $missing = [];
-    private $using   = [];
+    private array $implies = [];
+    private array $missing = [];
+    private array $using   = [];
 
     /**
      * Module properties.
      *
      * @var     array
      */
-    private $properties = [];
+    private array $properties = [];
 
     /**
      * Module default properties.
      *
      * @var     array
      */
-    private $default = [
+    private array $default = [
         // set by dc
         'state'         => self::STATE_INIT_DISABLED,
         'root'          => null,

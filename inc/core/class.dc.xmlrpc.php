@@ -13,42 +13,42 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
      *
      * @var null|string
      */
-    private $blog_id;
+    private string $blog_id;
 
     /**
      * Set to true as soon as Blog is set (using Blog ID)
      *
      * @var        bool
      */
-    private $blog_loaded = false;
+    private bool $blog_loaded = false;
 
     /**
      * Debug mode
      *
      * @var        bool
      */
-    private $debug = false;
+    private bool $debug = false;
 
     /**
      * Debug file log
      *
      * @var        string
      */
-    private $debug_file = DC_TPL_CACHE . '/dotclear-xmlrpc.log';
+    private string $debug_file = DC_TPL_CACHE . '/dotclear-xmlrpc.log';
 
     /**
      * Trace arguments
      *
      * @var        bool
      */
-    private $trace_args = true;
+    private bool $trace_args = true;
 
     /**
      * Trace response
      *
      * @var        bool
      */
-    private $trace_response = true;
+    private bool $trace_response = true;
 
     /**
      * Constructs a new instance.

@@ -30,31 +30,31 @@ class Autoloader
      * @var string $root_prefix
      *             Root namespace prepend to added ns
      */
-    private $root_prefix = '';
+    private string $root_prefix = '';
 
     /**
      * @var string $root_base_dir
      *             Root directory prepend to added ns
      */
-    private $root_base_dir = '';
+    private string $root_base_dir = '';
 
     /**
      * @var array<string,array> $prefixes
      *                          Array of registered namespace [prefix=[base dir]]
      */
-    private $prefixes = [];
+    private array $prefixes = [];
 
     /**
      * @var int $loads_count
      *          Keep track of loads count
      */
-    private $loads_count = 0;
+    private int $loads_count = 0;
 
     /**
      * @var int $request_count
      *          Keep track of request count
      */
-    private $request_count = 0;
+    private int $request_count = 0;
 
     /**
      * Register loader with SPL autoloader stack.

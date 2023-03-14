@@ -142,7 +142,7 @@ class Zip
         }
 
         $this->archive  = $output;
-        $this->filename = $filename ? $filename : $output;
+        $this->filename = $filename ?: $output;
 
         if ($this->workflow === self::USE_PHARDATA) {
             // Create PharData archive

@@ -19,7 +19,7 @@ trait dcTraitDynamicProperties
      *
      * @var        array(<string>, <mixed>)
      */
-    protected $properties = [];
+    protected array $properties = [];
 
     /**
      * Magic function, store a property and its value

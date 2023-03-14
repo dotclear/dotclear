@@ -19,7 +19,7 @@ use initAntispam;
 
 class Install extends dcNsProcess
 {
-    private static $module;
+    private static ?string $module = null;
 
     public static function init(): bool
     {

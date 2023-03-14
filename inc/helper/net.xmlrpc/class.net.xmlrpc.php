@@ -770,7 +770,7 @@ class xmlrpcClient extends netHttp
         $user = '';
         $pass = '';
 
-        if (!$this->readUrl($url, $ssl, $host, $port, $path, $user, $pass)) {
+        if (!static::readUrl($url, $ssl, $host, $port, $path, $user, $pass)) {
             return;
         }
 
@@ -1206,11 +1206,11 @@ class xmlrpcBasicServer
     {
         # Initialises capabilities array
         $this->capabilities = [
-            'xmlrpc'           => [
+            'xmlrpc' => [
                 'specUrl'     => 'http://www.xmlrpc.com/spec',
                 'specVersion' => 1,
             ],
-            'faults_interop'   => [
+            'faults_interop' => [
                 'specUrl'     => 'http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php',
                 'specVersion' => 20_010_516,
             ],

@@ -24,7 +24,7 @@ use http;
 
 class Manage extends dcNsProcess
 {
-    private static $edit = false;
+    private static bool $edit = false;
 
     public static function init(): bool
     {

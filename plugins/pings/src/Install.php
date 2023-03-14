@@ -17,7 +17,7 @@ use dcNsProcess;
 
 class Install extends dcNsProcess
 {
-    private static $default_pings_uris = [
+    private static array $default_pings_uris = [
         'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
     ];
 

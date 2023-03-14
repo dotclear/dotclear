@@ -16,7 +16,7 @@ use Autoloader;
  */
 final class App
 {
-    private static $autoload;
+    private static ?\Autoloader $autoload = null;
 
     /**
      * Call Dotclear autoloader.
