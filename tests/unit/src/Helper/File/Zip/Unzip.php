@@ -123,7 +123,7 @@ class Unzip extends atoum
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_PHARDATA, 0, -4);
 
-        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $unzip->setExcludePattern('/(notmine|notyours)$/');
         $unzip->unzipAll($folder);
 
@@ -163,7 +163,7 @@ class Unzip extends atoum
         // Test list with exclusion
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->getList(false, '/(notmine|notyours)$/');
 
         $this
@@ -191,7 +191,7 @@ class Unzip extends atoum
         // Test list without exclusion
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->getList(false, false);
 
         $this
@@ -219,7 +219,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->getFilesList();
 
         $this
@@ -263,7 +263,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->getDirsList();
 
         $this
@@ -299,7 +299,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->getRootDir();
 
         $this
@@ -327,7 +327,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->getRootDir();
 
         $this
@@ -370,7 +370,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->isEmpty();
 
         $this
@@ -398,7 +398,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $manifest = $unzip->hasFile(implode(DIRECTORY_SEPARATOR, ['dotclear', self::ZIP_SUBFOLDER, self::ZIP_FILE_1]));
 
         $this
@@ -437,7 +437,7 @@ class Unzip extends atoum
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_ZIPARCHIVE, 0, -4);
 
-        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $unzip->setExcludePattern('/(notmine|notyours)$/');
         $unzip->unzipAll($folder);
 
@@ -477,7 +477,7 @@ class Unzip extends atoum
         // Test list with exclusion
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->getList(false, '/(notmine|notyours)$/');
 
         $this
@@ -505,7 +505,7 @@ class Unzip extends atoum
         // Test list without exclusion
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->getList(false, false);
 
         $this
@@ -533,7 +533,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->getFilesList();
 
         $this
@@ -577,7 +577,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->getDirsList();
 
         $this
@@ -613,7 +613,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->getRootDir();
 
         $this
@@ -641,7 +641,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, null, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->getRootDir();
 
         $this
@@ -684,7 +684,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->isEmpty();
 
         $this
@@ -712,7 +712,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $manifest = $unzip->hasFile(implode(DIRECTORY_SEPARATOR, ['dotclear', self::ZIP_SUBFOLDER, self::ZIP_FILE_1]));
 
         $this
@@ -752,7 +752,7 @@ class Unzip extends atoum
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_LEGACY, 0, -4);
 
-        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $unzip->setExcludePattern('/(notmine|notyours)$/');
         $unzip->unzipAll($folder);
 
@@ -790,7 +790,7 @@ class Unzip extends atoum
         // Test list with exclusion
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->getList(false, '/(notmine|notyours)$/');
 
         $this
@@ -818,7 +818,7 @@ class Unzip extends atoum
         // Test list without exclusion
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->getList(false, false);
 
         $this
@@ -846,7 +846,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->getFilesList();
 
         $this
@@ -890,7 +890,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->getDirsList();
 
         $this
@@ -926,7 +926,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->getRootDir();
 
         $this
@@ -954,7 +954,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, null, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->getRootDir();
 
         $this
@@ -997,7 +997,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->isEmpty();
 
         $this
@@ -1025,7 +1025,7 @@ class Unzip extends atoum
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Open archive
-        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
+        $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $manifest = $unzip->hasFile(implode(DIRECTORY_SEPARATOR, ['dotclear', self::ZIP_SUBFOLDER, self::ZIP_FILE_1]));
 
         $this

@@ -27,6 +27,9 @@ class Unzip
     public const USE_ZIPARCHIVE = 1;
     public const USE_LEGACY     = 2;
 
+    // Default workflow
+    public const USE_DEFAULT = self::USE_ZIPARCHIVE;
+
     // Properties
 
     /**
@@ -42,7 +45,7 @@ class Unzip
     /**
      * @var int Type of archive used
      */
-    protected int $workflow = self::USE_PHARDATA;
+    protected int $workflow = self::USE_ZIPARCHIVE;
 
     /**
      * @var array Manifest of archive (may be filtered)
@@ -69,24 +72,77 @@ class Unzip
      * @param      string  $archive   The archive filename
      * @param      int     $workflow  Specify the workflow to be used (phardata, ziparchive, legacy)
      */
-    public function __construct(string $archive, int $workflow = self::USE_PHARDATA)
+    public function __construct(string $archive, int $workflow = self::USE_ZIPARCHIVE)
     {
-        if ($workflow === self::USE_PHARDATA) {
-            if (!class_exists('PharData')) {
-                $workflow = self::USE_ZIPARCHIVE;
-            }
-        }
-        if ($workflow === self::USE_ZIPARCHIVE) {
-            if (!class_exists('ZipArchive')) {
-                if (class_exists('PharData')) {
-                    $workflow = self::USE_PHARDATA;
-                } else {
-                    $workflow = self::USE_LEGACY;
-                }
-            }
-        }
-        $this->workflow = $workflow;
+        $this->workflow = $this->checkWorkflow($workflow);
         $this->archive  = $archive;
+    }
+
+    /**
+     * Check required workflow
+     *
+     * @param      int|null   $workflow  The workflow to be checked
+     *
+     * @return     int   the effective workflow to be used
+     */
+    protected function checkWorkflow(?int $workflow): int
+    {
+        // Check validity of workflow
+        if ($workflow === null || !in_array($workflow, [
+            self::USE_LEGACY,
+            self::USE_PHARDATA,
+            self::USE_ZIPARCHIVE,
+        ])) {
+            // Unknown or null workflow, use default
+            $workflow = self::USE_DEFAULT;
+        }
+
+        if ($workflow === self::USE_PHARDATA) {
+            // Check if we can use PharData zip archive
+            if ($this->checkPharData()) {
+                // We will use a PharData archive
+                return $workflow;
+            }
+            // Lets try ZipArchive
+            if ($this->checkZipArchive()) {
+                // We will use a ZipArchive archive
+                return self::USE_ZIPARCHIVE;
+            }
+        } elseif ($workflow === self::USE_ZIPARCHIVE) {
+            // Check if we can use ZipArchive zip archive
+            if ($this->checkZipArchive()) {
+                // We will use a ZipArchive archive
+                return $workflow;
+            }
+            // Lets try PharData
+            if ($this->checkPharData()) {
+                // We will use a PharData archive
+                return self::USE_PHARDATA;
+            }
+        }
+
+        // Fallback to legacy
+        return self::USE_LEGACY;
+    }
+
+    /**
+     * Check if PharData archive may be used
+     *
+     * @return     bool
+     */
+    protected function checkPharData(): bool
+    {
+        return class_exists('PharData');
+    }
+
+    /**
+     * Check if ZipArchive archive may be used
+     *
+     * @return     bool
+     */
+    protected function checkZipArchive(): bool
+    {
+        return class_exists('ZipArchive');
     }
 
     /**
@@ -126,7 +182,7 @@ class Unzip
      * @param      bool|string  $stop_on_file  The stop on file
      * @param      bool|string  $exclude       The exclude
      *
-     * @return     array  The list.
+     * @return     array|false  The list.
      */
     public function getList($stop_on_file = false, $exclude = false)
     {

@@ -48,6 +48,9 @@ class Zip
     public const USE_ZIPARCHIVE = 1;
     public const USE_LEGACY     = 2;
 
+    // Default workflow
+    public const USE_DEFAULT = self::USE_ZIPARCHIVE;
+
     // Properties
 
     /**
@@ -76,16 +79,6 @@ class Zip
     protected array $exclusions = [];
 
     /**
-     * @var bool True if PharData is enabled
-     */
-    protected bool $phardata = false;
-
-    /**
-     * @var bool True if ZipArchive is enabled
-     */
-    protected bool $ziparchive = false;
-
-    /**
      * @var bool True if archive has been closed
      */
     protected bool $closed = false;
@@ -93,7 +86,7 @@ class Zip
     /**
      * @var int Type of archive used
      */
-    protected int $workflow = self::USE_ZIPARCHIVE;
+    protected int $workflow = self::USE_DEFAULT;
 
     // Legacy
 
@@ -118,40 +111,9 @@ class Zip
      *
      * @throws     Exception
      */
-    public function __construct(?string $output = null, ?string $filename = null, int $workflow = self::USE_ZIPARCHIVE)
+    public function __construct(?string $output = null, ?string $filename = null, int $workflow = self::USE_DEFAULT)
     {
-        if ($workflow === self::USE_PHARDATA) {
-            // Check if we can use PharData zip archive
-            if ($this->checkPharData()) {
-                // We will use a PharData archive
-                $this->phardata = true;
-            } else {
-                // Lets try ZipArchive
-                if ($this->checkZipArchive()) {
-                    // We will use a ZipArchive archive
-                    $this->ziparchive = true;
-                    $workflow         = self::USE_ZIPARCHIVE;
-                } else {
-                    $workflow = self::USE_LEGACY;
-                }
-            }
-        } elseif ($workflow === self::USE_ZIPARCHIVE) {
-            // Check if we cen use ZipArchive zip archive
-            if ($this->checkZipArchive()) {
-                // We will use a ZipArchive archive
-                $this->ziparchive = true;
-            } else {
-                // Lets try PharData
-                if ($this->checkPharData()) {
-                    // We will use a PharData archive
-                    $this->phardata = true;
-                    $workflow       = self::USE_PHARDATA;
-                } else {
-                    $workflow = self::USE_LEGACY;
-                }
-            }
-        }
-        $this->workflow = $workflow;
+        $this->workflow = $this->checkWorkflow($workflow);
 
         if (!$output || $output === self::STREAM) {
             // Output zip to stream output
@@ -167,7 +129,7 @@ class Zip
             }
         }
 
-        if ($this->stream && ($this->phardata || $this->ziparchive)) {
+        if ($this->stream && ($this->workflow === self::USE_PHARDATA || $this->workflow === self::USE_ZIPARCHIVE)) {
             // Use a temporary file
             $output = sys_get_temp_dir() . self::TMP_PREFIX . bin2hex(random_bytes(8)) . '.zip';
             if (file_exists($output)) {
@@ -182,7 +144,7 @@ class Zip
         $this->archive  = $output;
         $this->filename = $filename ? $filename : $output;
 
-        if ($this->phardata) {
+        if ($this->workflow === self::USE_PHARDATA) {
             // Create PharData archive
             $this->zip = new \PharData(
                 $output,
@@ -190,7 +152,7 @@ class Zip
                 null,
                 \Phar::ZIP
             );
-        } elseif ($this->ziparchive) {
+        } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
             // Create ZipArchive archive
             $this->zip = new \ZipArchive();
             $this->zip->open(
@@ -204,21 +166,70 @@ class Zip
     }
 
     /**
+     * Check required workflow
+     *
+     * @param      int|null   $workflow  The workflow to be checked
+     *
+     * @return     int   the effective workflow to be used
+     */
+    protected function checkWorkflow(?int $workflow): int
+    {
+        // Check validity of workflow
+        if ($workflow === null || !in_array($workflow, [
+            self::USE_LEGACY,
+            self::USE_PHARDATA,
+            self::USE_ZIPARCHIVE,
+        ])) {
+            // Unknown or null workflow, use default
+            $workflow = self::USE_DEFAULT;
+        }
+
+        if ($workflow === self::USE_PHARDATA) {
+            // Check if we can use PharData zip archive
+            if ($this->checkPharData()) {
+                // We will use a PharData archive
+                return $workflow;
+            }
+            // Lets try ZipArchive
+            if ($this->checkZipArchive()) {
+                // We will use a ZipArchive archive
+                return self::USE_ZIPARCHIVE;
+            }
+        } elseif ($workflow === self::USE_ZIPARCHIVE) {
+            // Check if we can use ZipArchive zip archive
+            if ($this->checkZipArchive()) {
+                // We will use a ZipArchive archive
+                return $workflow;
+            }
+            // Lets try PharData
+            if ($this->checkPharData()) {
+                // We will use a PharData archive
+                return self::USE_PHARDATA;
+            }
+        }
+
+        // Fallback to legacy
+        return self::USE_LEGACY;
+    }
+
+    /**
      * Check if PharData archive may be used
      *
      * Cannot use PharData zip archive as file's matadata are not preserved when compressed
-     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766
+     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — fixed in 8.2.4 (and 8.1.17)
+     *
+     * - -> > 8.1.16 and < 8.2.0 ok
+     * - -> > 8.2.3 ok
      *
      * @return     bool
      */
     protected function checkPharData(): bool
     {
-        if (!class_exists('PharData') || version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '<=') || ((version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '>=') && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '<=')))
-        ) {
-            return false;
-        }
+        $testPHP81 = version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '>')    // > 8.1.16 && < 8.2.0
+                  && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '<');
+        $testPHP82 = version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '>');   // > 8.2.3
 
-        return true;
+        return class_exists('PharData') && ($testPHP81 || $testPHP82);
     }
 
     /**
@@ -266,9 +277,9 @@ class Zip
                 if ($this->fp) {
                     header('Content-Disposition: attachment;filename=' . $this->filename);
                     header('Content-Type: application/x-zip');
-                    if ($this->phardata) {
+                    if ($this->workflow === self::USE_PHARDATA) {
                         readfile($this->archive);
-                    } elseif ($this->ziparchive) {
+                    } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
                         $this->zip->close();
                         readfile($this->archive);
                     } else {
@@ -285,9 +296,9 @@ class Zip
                 throw new Exception('Unable to output archive');
             }
         } else {
-            if ($this->ziparchive) {
+            if ($this->workflow === self::USE_ZIPARCHIVE) {
                 $this->zip->close();
-            } elseif (!$this->phardata) {
+            } elseif ($this->workflow === self::USE_LEGACY) {
                 // Write legacy archive content
                 $this->write();
                 fclose($this->fp);
@@ -346,10 +357,10 @@ class Zip
             throw new Exception(__('Cannot read file'));
         }
 
-        if ($this->phardata) {
+        if ($this->workflow === self::USE_PHARDATA) {
             // Add file to PharData archive
             $this->zip->addFile($file, $name);
-        } elseif ($this->ziparchive) {
+        } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
             // Add file to ZipArchive archive
             $this->zip->addFile($file, $name);
         } else {
@@ -395,10 +406,10 @@ class Zip
 
             $dirname = $this->formatName($dirname);
             if ($dirname !== '') {
-                if ($this->phardata) {
+                if ($this->workflow === self::USE_PHARDATA) {
                     // Add directory to PharData archive
                     $this->zip->addEmptyDir($dirname);
-                } elseif ($this->ziparchive) {
+                } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
                     // Add directory to ZipArchive archive
                     $this->zip->addEmptyDir($dirname);
                 } else {
