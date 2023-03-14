@@ -11,7 +11,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
     /**
      * Blog ID
      *
-     * @var null|string
+     * @var string
      */
     private string $blog_id;
 
