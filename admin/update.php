@@ -259,9 +259,9 @@ class adminUpdate
                 '</form>';
             } else {
                 echo
-                '<p class="static-msg">' . sprintf(__('Dotclear %s is available.'), dcCore::app()->admin->new_v) .
-                (dcCore::app()->admin->version_info ? ' <a href="' . dcCore::app()->admin->version_info . '" class="outgoing" title="' . __('Information about this version') . '">(' .
-                __('Information about this version') . ')&nbsp;<img src="images/outgoing-link.svg" alt=""/></a>' : '') .
+                '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), dcCore::app()->admin->new_v) .
+                (dcCore::app()->admin->version_info ? ' <a href="' . dcCore::app()->admin->version_info . '" title="' . __('Information about this version') . '">(' .
+                __('Information about this version') . ')&nbsp;<img src="images/outgoing-link.svg" class="outgoing-js" alt=""/></a>' : '') .
                 '</p>';
                 if (version_compare(phpversion(), dcCore::app()->admin->updater->getPHPVersion()) < 0) {
                     echo
