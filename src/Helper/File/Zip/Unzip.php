@@ -104,7 +104,7 @@ class Unzip
                 break;
             case self::USE_ZIPARCHIVE:
                 $this->zip = new \ZipArchive();
-                if ($this->zip->open($archive) === false) {
+                if ($this->zip->open($archive) !== true) {
                     unset($this->zip);
 
                     throw new Exception('Unable to open file.');
@@ -163,7 +163,6 @@ class Unzip
 
                 break;
             case self::USE_LEGACY:
-                return $workflow;
 
                 break;
         }
@@ -486,8 +485,6 @@ class Unzip
                     $details['uncompressed_size'],
                     $target
                 );
-
-                break;
         }
     }
 

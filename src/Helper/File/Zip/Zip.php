@@ -223,7 +223,6 @@ class Zip
 
                 break;
             case self::USE_LEGACY:
-                return $workflow;
 
                 break;
         }
