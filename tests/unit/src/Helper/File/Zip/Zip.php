@@ -82,22 +82,25 @@ class Zip extends atoum
 
     public function setUp()
     {
-        $this->dump(sys_get_temp_dir());    // Equal to $TMPDIR on MacOS
+        $this
+            ->dump(sys_get_temp_dir())    // Equal to $TMPDIR on MacOS
+            ->dump(realpath(sys_get_temp_dir()))
+        ;
 
         // Executed *before each* test method.
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         self::prepareTests($rootzip);
     }
 
     public function testPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
-        $type = $zip->getArchiveType();
+        $type = $zip->getWorkflow();
 
         $zip->addExclusion('/(notmine|notyours)$/');
         $zip->addExclusion(self::ZIP_EXCLUDE);
@@ -170,8 +173,8 @@ class Zip extends atoum
 
     public function testPharDataWithUnset()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '--' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '--' . self::ZIP_PHARDATA]);
 
         // Create archive
         $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -213,13 +216,13 @@ class Zip extends atoum
 
     public function testZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
-        $type = $zip->getArchiveType();
+        $type = $zip->getWorkflow();
 
         $zip->addExclusion('/(notmine|notyours)$/');
         $zip->addExclusion(self::ZIP_EXCLUDE);
@@ -273,13 +276,13 @@ class Zip extends atoum
 
     public function testLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         $zip = new \Dotclear\Helper\File\Zip\Zip($archive, null, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
-        $type = $zip->getArchiveType();
+        $type = $zip->getWorkflow();
 
         $zip->addExclusion('/(notmine|notyours)$/');
         $zip->addExclusion(self::ZIP_EXCLUDE);
@@ -328,7 +331,7 @@ class Zip extends atoum
     {
         $this
             ->output(function () {
-                $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+                $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
 
                 // Create archive
                 $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_PHARDATA, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -346,7 +349,7 @@ class Zip extends atoum
     {
         $this
             ->output(function () {
-                $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+                $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
 
                 // Create archive
                 $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_ZIPARCHIVE, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -364,7 +367,7 @@ class Zip extends atoum
     {
         $this
             ->output(function () {
-                $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+                $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
 
                 // Create archive
                 $zip = new \Dotclear\Helper\File\Zip\Zip(null, self::ZIP_LEGACY, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);

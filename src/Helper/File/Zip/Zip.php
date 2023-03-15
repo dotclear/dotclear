@@ -131,7 +131,7 @@ class Zip
 
         if ($this->stream && ($this->workflow === self::USE_PHARDATA || $this->workflow === self::USE_ZIPARCHIVE)) {
             // Use a temporary file
-            $output = sys_get_temp_dir() . self::TMP_PREFIX . bin2hex(random_bytes(8)) . '.zip';
+            $output = realpath(sys_get_temp_dir()) . self::TMP_PREFIX . bin2hex(random_bytes(8)) . '.zip';
             if (file_exists($output)) {
                 try {
                     unlink($output);
@@ -144,24 +144,35 @@ class Zip
         $this->archive  = $output;
         $this->filename = $filename ?: $output;
 
-        if ($this->workflow === self::USE_PHARDATA) {
-            // Create PharData archive
-            $this->zip = new \PharData(
-                $output,
-                \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::UNIX_PATHS,
-                null,
-                \Phar::ZIP
-            );
-        } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
-            // Create ZipArchive archive
-            $this->zip = new \ZipArchive();
-            $this->zip->open(
-                $output,
-                \ZipArchive::CREATE | \ZipArchive::OVERWRITE
-            );
-        } elseif (!$this->stream) {
-            // Create legacy archive
-            $this->fp = fopen($output, 'wb');
+        switch ($this->workflow) {
+            case self::USE_PHARDATA:
+                // Create PharData archive
+                $this->zip = new \PharData(
+                    $output,
+                    \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::UNIX_PATHS,
+                    null,
+                    \Phar::ZIP
+                );
+
+                break;
+
+            case self::USE_ZIPARCHIVE:
+                // Create ZipArchive archive
+                $this->zip = new \ZipArchive();
+                $this->zip->open(
+                    $output,
+                    \ZipArchive::CREATE | \ZipArchive::OVERWRITE
+                );
+
+                break;
+
+            case self::USE_LEGACY:
+                if (!$this->stream) {
+                    // Create legacy archive
+                    $this->fp = fopen($output, 'wb');
+                }
+
+                break;
         }
     }
 
@@ -184,28 +195,37 @@ class Zip
             $workflow = self::USE_DEFAULT;
         }
 
-        if ($workflow === self::USE_PHARDATA) {
-            // Check if we can use PharData zip archive
-            if ($this->checkPharData()) {
-                // We will use a PharData archive
+        switch ($workflow) {
+            case self::USE_PHARDATA:
+                // Check if we can use PharData zip archive
+                if ($this->checkPharData()) {
+                    // We will use a PharData archive
+                    return $workflow;
+                }
+                // Lets try ZipArchive
+                if ($this->checkZipArchive()) {
+                    // We will use a ZipArchive archive
+                    return self::USE_ZIPARCHIVE;
+                }
+
+                break;
+            case self::USE_ZIPARCHIVE:
+                // Check if we can use ZipArchive zip archive
+                if ($this->checkZipArchive()) {
+                    // We will use a ZipArchive archive
+                    return $workflow;
+                }
+                // Lets try PharData
+                if ($this->checkPharData()) {
+                    // We will use a PharData archive
+                    return self::USE_PHARDATA;
+                }
+
+                break;
+            case self::USE_LEGACY:
                 return $workflow;
-            }
-            // Lets try ZipArchive
-            if ($this->checkZipArchive()) {
-                // We will use a ZipArchive archive
-                return self::USE_ZIPARCHIVE;
-            }
-        } elseif ($workflow === self::USE_ZIPARCHIVE) {
-            // Check if we can use ZipArchive zip archive
-            if ($this->checkZipArchive()) {
-                // We will use a ZipArchive archive
-                return $workflow;
-            }
-            // Lets try PharData
-            if ($this->checkPharData()) {
-                // We will use a PharData archive
-                return self::USE_PHARDATA;
-            }
+
+                break;
         }
 
         // Fallback to legacy
@@ -277,13 +297,22 @@ class Zip
                 if ($this->fp) {
                     header('Content-Disposition: attachment;filename=' . $this->filename);
                     header('Content-Type: application/x-zip');
-                    if ($this->workflow === self::USE_PHARDATA) {
-                        readfile($this->archive);
-                    } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
-                        $this->zip->close();
-                        readfile($this->archive);
-                    } else {
-                        $this->write();
+                    switch ($this->workflow) {
+                        case self::USE_PHARDATA:
+                            readfile($this->archive);
+
+                            break;
+
+                        case self::USE_ZIPARCHIVE:
+                            $this->zip->close();
+                            readfile($this->archive);
+
+                            break;
+
+                        case self::USE_LEGACY:
+                            $this->write();
+
+                            break;
                     }
                     fclose($this->fp);
                     sleep(2);   // Let system finishing writing things if necessary before deleting temporary archive
@@ -296,15 +325,35 @@ class Zip
                 throw new Exception('Unable to output archive');
             }
         } else {
-            if ($this->workflow === self::USE_ZIPARCHIVE) {
-                $this->zip->close();
-            } elseif ($this->workflow === self::USE_LEGACY) {
-                // Write legacy archive content
-                $this->write();
-                fclose($this->fp);
-                if ($this->memory_limit) {
-                    ini_set('memory_limit', $this->memory_limit);
-                }
+            switch ($this->workflow) {
+                case self::USE_PHARDATA:
+                    if ($this->zip) {
+                        // No need to close archive
+                        unset($this->zip);
+                    }
+
+                    break;
+
+                case self::USE_ZIPARCHIVE:
+                    if ($this->zip) {
+                        $this->zip->close();
+                        unset($this->zip);
+                    }
+
+                    break;
+
+                case self::USE_LEGACY:
+                    if ($this->fp) {
+                        // Write legacy archive content
+                        $this->write();
+                        fclose($this->fp);
+                        unset($this->fp);
+                    }
+                    if ($this->memory_limit) {
+                        ini_set('memory_limit', $this->memory_limit);
+                    }
+
+                    break;
             }
         }
     }
@@ -314,7 +363,7 @@ class Zip
      *
      * @return     int   The archive type.
      */
-    public function getArchiveType(): int
+    public function getWorkflow(): int
     {
         return $this->workflow;
     }
@@ -357,21 +406,30 @@ class Zip
             throw new Exception(__('Cannot read file'));
         }
 
-        if ($this->workflow === self::USE_PHARDATA) {
-            // Add file to PharData archive
-            $this->zip->addFile($file, $name);
-        } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
-            // Add file to ZipArchive archive
-            $this->zip->addFile($file, $name);
-        } else {
-            // Add file to legacy archive
-            $info = stat($file);
+        switch ($this->workflow) {
+            case self::USE_PHARDATA:
+                // Add file to PharData archive
+                $this->zip->addFile($file, $name);
 
-            $this->entries[$name] = [
-                'file'   => $file,
-                'is_dir' => false,
-                'mtime'  => $info['mtime'],
-            ];
+                break;
+
+            case self::USE_ZIPARCHIVE:
+                // Add file to ZipArchive archive
+                $this->zip->addFile($file, $name);
+
+                break;
+
+            case self::USE_LEGACY:
+                // Add file to legacy archive
+                $info = stat($file);
+
+                $this->entries[$name] = [
+                    'file'   => $file,
+                    'is_dir' => false,
+                    'mtime'  => $info['mtime'],
+                ];
+
+                break;
         }
     }
 
@@ -406,19 +464,28 @@ class Zip
 
             $dirname = $this->formatName($dirname);
             if ($dirname !== '') {
-                if ($this->workflow === self::USE_PHARDATA) {
-                    // Add directory to PharData archive
-                    $this->zip->addEmptyDir($dirname);
-                } elseif ($this->workflow === self::USE_ZIPARCHIVE) {
-                    // Add directory to ZipArchive archive
-                    $this->zip->addEmptyDir($dirname);
-                } else {
-                    // Add directory to legacy archive
-                    $this->entries[$dirname] = [
-                        'file'   => null,
-                        'is_dir' => true,
-                        'mtime'  => time(),
-                    ];
+                switch ($this->workflow) {
+                    case self::USE_PHARDATA:
+                        // Add directory to PharData archive
+                        $this->zip->addEmptyDir($dirname);
+
+                        break;
+
+                    case self::USE_ZIPARCHIVE:
+                        // Add directory to ZipArchive archive
+                        $this->zip->addEmptyDir($dirname);
+
+                        break;
+
+                    case self::USE_LEGACY:
+                        // Add directory to legacy archive
+                        $this->entries[$dirname] = [
+                            'file'   => null,
+                            'is_dir' => true,
+                            'mtime'  => time(),
+                        ];
+
+                        break;
                 }
             }
         }

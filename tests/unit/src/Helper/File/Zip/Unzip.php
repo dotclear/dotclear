@@ -14,6 +14,7 @@ namespace tests\unit\Dotclear\Helper\File\Zip;
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'bootstrap.php']);
 
 use atoum;
+use files;
 
 /**
  * @tags Unzip
@@ -81,10 +82,13 @@ class Unzip extends atoum
 
     public function setUp()
     {
-        $this->dump(sys_get_temp_dir());    // Equal to $TMPDIR on MacOS
+        $this
+            ->dump(sys_get_temp_dir())    // Equal to $TMPDIR on MacOS
+            ->dump(realpath(sys_get_temp_dir()))
+        ;
 
         // Executed *before each* test method.
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         self::prepareTests($rootzip);
     }
 
@@ -110,18 +114,31 @@ class Unzip extends atoum
         sleep(2);
     }
 
+    public static function sortArray(array $array): array
+    {
+        $values = $array;
+        sort($values);
+
+        return $values;
+    }
+
     // PharData workflow
 
     public function testPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
 
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_PHARDATA, 0, -4);
+        if (is_dir($folder)) {
+            files::delTree($folder);
+            clearstatcache(); // stats are cached, clear them!
+            sleep(2);
+        }
 
         $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
         $unzip->setExcludePattern('/(notmine|notyours)$/');
@@ -147,6 +164,14 @@ class Unzip extends atoum
             ->isTrue()
             ->boolean(file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2])))
             ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_2])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_FILE_1])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_FILE_2])))
+            ->isFalse()
         ;
 
         $unzip->close();
@@ -154,8 +179,8 @@ class Unzip extends atoum
 
     public function testGetListPharDataWithExclusion()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -182,8 +207,8 @@ class Unzip extends atoum
 
     public function testGetListPharDataWithoutExclusion()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -212,8 +237,8 @@ class Unzip extends atoum
 
     public function testGetFilesListPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -223,15 +248,15 @@ class Unzip extends atoum
         $manifest = $unzip->getFilesList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear/subfolder/file_1.txt',
                 'dotclear/subfolder/secret.notmine',
                 'dotclear/subfolder/file_2.txt',
                 'dotclear/file_1.txt',
                 'dotclear/file_2.txt',
                 'dotclear/secret.notyours',
-            ])
+            ]))
             ->hasSize(6)
         ;
 
@@ -239,15 +264,15 @@ class Unzip extends atoum
         $manifest = $unzip->getFilesList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear/subfolder/file_1.txt',
                 'dotclear/subfolder/secret.notmine',
                 'dotclear/subfolder/file_2.txt',
                 'dotclear/file_1.txt',
                 'dotclear/file_2.txt',
                 'dotclear/secret.notyours',
-            ])
+            ]))
             ->hasSize(6)
         ;
 
@@ -256,8 +281,8 @@ class Unzip extends atoum
 
     public function testGetDirsListPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -267,11 +292,11 @@ class Unzip extends atoum
         $manifest = $unzip->getDirsList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear',
                 'dotclear/subfolder',
-            ])
+            ]))
             ->hasSize(2)
         ;
 
@@ -279,11 +304,11 @@ class Unzip extends atoum
         $manifest = $unzip->getDirsList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear',
                 'dotclear/subfolder',
-            ])
+            ]))
             ->hasSize(2)
         ;
 
@@ -292,8 +317,8 @@ class Unzip extends atoum
 
     public function testGetRootDirPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -303,6 +328,9 @@ class Unzip extends atoum
         $manifest = $unzip->getRootDir();
 
         $this
+//            ->dump($unzip->getFilesList())
+//            ->dump($unzip->getDirsList())
+//            ->dump($unzip->getManifest())
             ->string($manifest)
             ->isEqualTo('dotclear')
         ;
@@ -320,8 +348,8 @@ class Unzip extends atoum
 
     public function testGetRootDirNoRootPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-no-root-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-no-root-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, null, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -331,6 +359,9 @@ class Unzip extends atoum
         $manifest = $unzip->getRootDir();
 
         $this
+//            ->dump($unzip->getFilesList())
+//            ->dump($unzip->getDirsList())
+//            ->dump($unzip->getManifest())
             ->boolean($manifest)
             ->isFalse()
         ;
@@ -344,18 +375,18 @@ class Unzip extends atoum
         ;
 
         $manifest = $unzip->getFilesList();
-        $tmpdir   = substr(sys_get_temp_dir(), 1);
+        $tmpdir   = substr(realpath(sys_get_temp_dir()), 1);
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_1]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_1]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SECRET_1]),
-            ])
+            ]))
         ;
 
         $unzip->close();
@@ -363,8 +394,8 @@ class Unzip extends atoum
 
     public function testIsEmptyPharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -391,8 +422,8 @@ class Unzip extends atoum
 
     public function testHasFilePharData()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_PHARDATA]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
@@ -424,18 +455,24 @@ class Unzip extends atoum
 
         $unzip->close();
     }
-    // ZipArdhive workflow
+
+    // ZipArchive workflow
 
     public function testZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
 
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_ZIPARCHIVE, 0, -4);
+        if (is_dir($folder)) {
+            files::delTree($folder);
+            clearstatcache(); // stats are cached, clear them!
+            sleep(2);
+        }
 
         $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
         $unzip->setExcludePattern('/(notmine|notyours)$/');
@@ -461,6 +498,14 @@ class Unzip extends atoum
             ->isTrue()
             ->boolean(file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2])))
             ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_2])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_FILE_1])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_FILE_2])))
+            ->isFalse()
         ;
 
         $unzip->close();
@@ -468,8 +513,8 @@ class Unzip extends atoum
 
     public function testGetListZipArchiveWithExclusion()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -496,8 +541,8 @@ class Unzip extends atoum
 
     public function testGetListZipArchiveWithoutExclusion()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -526,8 +571,8 @@ class Unzip extends atoum
 
     public function testGetFilesListZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -537,15 +582,15 @@ class Unzip extends atoum
         $manifest = $unzip->getFilesList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear/subfolder/file_1.txt',
                 'dotclear/subfolder/secret.notmine',
                 'dotclear/subfolder/file_2.txt',
                 'dotclear/file_1.txt',
                 'dotclear/file_2.txt',
                 'dotclear/secret.notyours',
-            ])
+            ]))
             ->hasSize(6)
         ;
 
@@ -553,15 +598,15 @@ class Unzip extends atoum
         $manifest = $unzip->getFilesList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear/subfolder/file_1.txt',
                 'dotclear/subfolder/secret.notmine',
                 'dotclear/subfolder/file_2.txt',
                 'dotclear/file_1.txt',
                 'dotclear/file_2.txt',
                 'dotclear/secret.notyours',
-            ])
+            ]))
             ->hasSize(6)
         ;
 
@@ -570,8 +615,8 @@ class Unzip extends atoum
 
     public function testGetDirsListZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -581,11 +626,11 @@ class Unzip extends atoum
         $manifest = $unzip->getDirsList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear',
                 'dotclear/subfolder',
-            ])
+            ]))
             ->hasSize(2)
         ;
 
@@ -593,11 +638,11 @@ class Unzip extends atoum
         $manifest = $unzip->getDirsList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear',
                 'dotclear/subfolder',
-            ])
+            ]))
             ->hasSize(2)
         ;
 
@@ -606,8 +651,8 @@ class Unzip extends atoum
 
     public function testGetRootDirZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -634,8 +679,8 @@ class Unzip extends atoum
 
     public function testGetRootDirNoRootZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-no-root-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-no-root-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, null, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -658,18 +703,18 @@ class Unzip extends atoum
         ;
 
         $manifest = $unzip->getFilesList();
-        $tmpdir   = substr(sys_get_temp_dir(), 1);
+        $tmpdir   = substr(realpath(sys_get_temp_dir()), 1);
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_1]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_1]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SECRET_1]),
-            ])
+            ]))
         ;
 
         $unzip->close();
@@ -677,8 +722,8 @@ class Unzip extends atoum
 
     public function testIsEmptyZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -705,8 +750,8 @@ class Unzip extends atoum
 
     public function testHasFileZipArchive()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_ZIPARCHIVE]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
@@ -743,14 +788,19 @@ class Unzip extends atoum
 
     public function testLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
 
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_LEGACY, 0, -4);
+        if (is_dir($folder)) {
+            files::delTree($folder);
+            clearstatcache(); // stats are cached, clear them!
+            sleep(2);
+        }
 
         $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
         $unzip->setExcludePattern('/(notmine|notyours)$/');
@@ -776,13 +826,21 @@ class Unzip extends atoum
             ->isTrue()
             ->boolean(file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2])))
             ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_2])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_FILE_1])))
+            ->isFalse()
+            ->boolean(is_dir(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_SUBFOLDER, self::ZIP_FILE_2])))
+            ->isFalse()
         ;
     }
 
     public function testGetListLegacyWithExclusion()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -809,8 +867,8 @@ class Unzip extends atoum
 
     public function testGetListLegacyWithoutExclusion()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -839,8 +897,8 @@ class Unzip extends atoum
 
     public function testGetFilesListLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -850,15 +908,15 @@ class Unzip extends atoum
         $manifest = $unzip->getFilesList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear/subfolder/file_1.txt',
                 'dotclear/subfolder/secret.notmine',
                 'dotclear/subfolder/file_2.txt',
                 'dotclear/file_1.txt',
                 'dotclear/file_2.txt',
                 'dotclear/secret.notyours',
-            ])
+            ]))
             ->hasSize(6)
         ;
 
@@ -866,15 +924,15 @@ class Unzip extends atoum
         $manifest = $unzip->getFilesList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear/subfolder/file_1.txt',
                 'dotclear/subfolder/secret.notmine',
                 'dotclear/subfolder/file_2.txt',
                 'dotclear/file_1.txt',
                 'dotclear/file_2.txt',
                 'dotclear/secret.notyours',
-            ])
+            ]))
             ->hasSize(6)
         ;
 
@@ -883,8 +941,8 @@ class Unzip extends atoum
 
     public function testGetDirsListLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -894,11 +952,11 @@ class Unzip extends atoum
         $manifest = $unzip->getDirsList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear',
                 'dotclear/subfolder',
-            ])
+            ]))
             ->hasSize(2)
         ;
 
@@ -906,11 +964,11 @@ class Unzip extends atoum
         $manifest = $unzip->getDirsList();
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 'dotclear',
                 'dotclear/subfolder',
-            ])
+            ]))
             ->hasSize(2)
         ;
 
@@ -919,8 +977,8 @@ class Unzip extends atoum
 
     public function testGetRootDirLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -947,8 +1005,8 @@ class Unzip extends atoum
 
     public function testGetRootDirNoRootLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-no-root-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-no-root-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, null, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -971,18 +1029,18 @@ class Unzip extends atoum
         ;
 
         $manifest = $unzip->getFilesList();
-        $tmpdir   = substr(sys_get_temp_dir(), 1);
+        $tmpdir   = substr(realpath(sys_get_temp_dir()), 1);
 
         $this
-            ->array($manifest)
-            ->isEqualTo([
+            ->array(self::sortArray($manifest))
+            ->isEqualTo(self::sortArray([
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_1]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_1]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_2]),
                 implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SECRET_1]),
-            ])
+            ]))
         ;
 
         $unzip->close();
@@ -990,8 +1048,8 @@ class Unzip extends atoum
 
     public function testIsEmptyLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -1018,8 +1076,8 @@ class Unzip extends atoum
 
     public function testHasFileLegacy()
     {
-        $rootzip = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER]);
-        $archive = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
 
         // Create archive
         self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_LEGACY);
@@ -1047,6 +1105,54 @@ class Unzip extends atoum
         $this
             ->boolean($manifest)
             ->isFalse()
+        ;
+
+        $unzip->close();
+    }
+
+    // Common methods (using default workflow)
+
+    public function testGetManifest()
+    {
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+
+        // Create archive
+        self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_DEFAULT);
+
+        // Open archive
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive);
+
+        // Test before getting list
+        $this
+            ->array($unzip->getManifest())
+            ->isEmpty()
+        ;
+
+        // Test before getting list
+        $unzip->getList();
+        $this
+            ->array($unzip->getManifest())
+            ->IsNotEmpty()
+        ;
+
+        $unzip->close();
+    }
+
+    public function testBadWorkflow()
+    {
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
+
+        // Create archive
+        self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_DEFAULT);
+
+        // Open archive
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, 42);
+
+        $this
+            ->integer($unzip->getWorkflow())
+            ->isEqualTo(\Dotclear\Helper\File\Zip\Zip::USE_DEFAULT)
         ;
 
         $unzip->close();

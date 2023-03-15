@@ -13,6 +13,7 @@ namespace Dotclear\Helper\File\Zip;
 
 use Exception;
 use files;
+use PharData;
 
 class Unzip
 {
@@ -29,6 +30,11 @@ class Unzip
 
     // Default workflow
     public const USE_DEFAULT = self::USE_ZIPARCHIVE;
+
+    /**
+     * @var string Prefix for temporary archive directory
+     */
+    public const TMP_DIR = 'dc-temp-unzip';
 
     // Properties
 
@@ -53,9 +59,19 @@ class Unzip
     protected $manifest = [];
 
     /**
+     * $var PharData|ZipArchive archive object
+     */
+    protected $zip;
+
+    /**
      * @var string Exclusion pattern
      */
     protected $exclude = '';
+
+    /**
+     * @var string Root folder if not root specified in archive
+     */
+    protected $rootdir = null;
 
     // Legacy
 
@@ -76,6 +92,29 @@ class Unzip
     {
         $this->workflow = $this->checkWorkflow($workflow);
         $this->archive  = $archive;
+
+        switch ($this->workflow) {
+            case self::USE_PHARDATA:
+                $this->zip = new \PharData(
+                    $archive,
+                    \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::UNIX_PATHS | \FilesystemIterator::CURRENT_AS_FILEINFO,
+                    null,
+                    \Phar::ZIP
+                );
+
+                break;
+            case self::USE_ZIPARCHIVE:
+                $this->zip = new \ZipArchive();
+                if ($this->zip->open($archive) === false) {
+                    unset($this->zip);
+
+                    throw new Exception('Unable to open file.');
+                }
+
+                break;
+            case self::USE_LEGACY:
+                break;
+        }
     }
 
     /**
@@ -97,28 +136,37 @@ class Unzip
             $workflow = self::USE_DEFAULT;
         }
 
-        if ($workflow === self::USE_PHARDATA) {
-            // Check if we can use PharData zip archive
-            if ($this->checkPharData()) {
-                // We will use a PharData archive
+        switch ($workflow) {
+            case self::USE_PHARDATA:
+                // Check if we can use PharData zip archive
+                if ($this->checkPharData()) {
+                    // We will use a PharData archive
+                    return $workflow;
+                }
+                // Lets try ZipArchive
+                if ($this->checkZipArchive()) {
+                    // We will use a ZipArchive archive
+                    return self::USE_ZIPARCHIVE;
+                }
+
+                break;
+            case self::USE_ZIPARCHIVE:
+                // Check if we can use ZipArchive zip archive
+                if ($this->checkZipArchive()) {
+                    // We will use a ZipArchive archive
+                    return $workflow;
+                }
+                // Lets try PharData
+                if ($this->checkPharData()) {
+                    // We will use a PharData archive
+                    return self::USE_PHARDATA;
+                }
+
+                break;
+            case self::USE_LEGACY:
                 return $workflow;
-            }
-            // Lets try ZipArchive
-            if ($this->checkZipArchive()) {
-                // We will use a ZipArchive archive
-                return self::USE_ZIPARCHIVE;
-            }
-        } elseif ($workflow === self::USE_ZIPARCHIVE) {
-            // Check if we can use ZipArchive zip archive
-            if ($this->checkZipArchive()) {
-                // We will use a ZipArchive archive
-                return $workflow;
-            }
-            // Lets try PharData
-            if ($this->checkPharData()) {
-                // We will use a PharData archive
-                return self::USE_PHARDATA;
-            }
+
+                break;
         }
 
         // Fallback to legacy
@@ -166,13 +214,31 @@ class Unzip
         }
         $this->closed = true;
 
-        if ($this->fp) {
-            fclose($this->fp);
-            $this->fp = null;
-        }
+        switch ($this->workflow) {
+            case self::USE_PHARDATA:
+                if ($this->zip) {
+                    // No need to close archive
+                    unset($this->zip);
+                }
 
-        if ($this->memory_limit) {
-            ini_set('memory_limit', $this->memory_limit);
+                break;
+            case self::USE_ZIPARCHIVE:
+                if ($this->zip) {
+                    $this->zip->close();
+                    unset($this->zip);
+                }
+
+                break;
+            case self::USE_LEGACY:
+                if ($this->fp) {
+                    fclose($this->fp);
+                    $this->fp = null;
+                }
+                if ($this->memory_limit) {
+                    ini_set('memory_limit', $this->memory_limit);
+                }
+
+                break;
         }
     }
 
@@ -190,13 +256,142 @@ class Unzip
             return $this->manifest;
         }
 
-        if (!$this->loadFileListByEOF($stop_on_file, $exclude) && !$this->loadFileListBySignatures($stop_on_file, $exclude)) {
-            return false;
+        switch ($this->workflow) {
+            case self::USE_PHARDATA:
+                $this->getListPharArchive(null, $stop_on_file, $exclude);
+
+                break;
+
+            case self::USE_ZIPARCHIVE:
+                for ($i = 0; $i < $this->zip->numFiles; $i++) {
+                    $stats    = $this->convertZipArchiveStats($this->zip->statIndex($i));
+                    $filename = $stats['file_name'];
+                    if ($exclude !== false && preg_match($exclude, (string) $filename)) {
+                        continue;
+                    }
+                    // Add item to manifest
+                    $this->manifest[$filename] = $stats;
+
+                    // Check if we must stop
+                    if ($stop_on_file && strtolower($stop_on_file) === strtolower($filename)) {
+                        break;
+                    }
+                }
+
+                break;
+
+            case self::USE_LEGACY:
+                if (!$this->loadFileListByEOF($stop_on_file, $exclude) && !$this->loadFileListBySignatures($stop_on_file, $exclude)) {
+                    return false;
+                }
+
+                break;
         }
 
         return $this->manifest;
     }
 
+    /**
+     * Gets the list of a Phar archive.
+     *
+     * @param      null|string  $directory     The directory
+     * @param      bool|string  $stop_on_file  The stop on file
+     * @param      bool|string  $exclude       The exclude
+     */
+    protected function getListPharArchive(?string $directory = null, $stop_on_file = false, $exclude = false)
+    {
+        $list = $directory === null ? new PharData($this->archive) : new PharData($directory);
+        foreach ($list as $file) {
+            // Get relative path
+            $path = substr($file->getPathname(), strlen('phar://' . realpath($this->archive)));
+
+            // Get archive root dir if necessary
+            if ($directory === null && $this->rootdir === null) {
+                $rootdir = realpath(substr($file->getPathinfo()->getPath(), strlen('phar://')));
+                if (strpos($rootdir, $path) !== false) {
+                    // The archive has no root dir, keep the calculate one
+                    $this->rootdir = $rootdir;
+                } else {
+                    // The archive has a root dir
+                    $this->rootdir = '';
+                }
+            }
+
+            if ($this->rootdir === '' || substr($path, strlen($this->rootdir)) !== '') {
+                // Get infos
+                $stats = [
+                    'file_name'         => $this->cleanFileName($path) . ($file->isDir() ? DIRECTORY_SEPARATOR : ''),
+                    'is_dir'            => $file->isDir(),
+                    'uncompressed_size' => $file->getSize(),
+                    'lastmod_datetime'  => $file->getMTime(),
+                ];
+                $filename = $stats['file_name'];
+
+                // Check if file excluded
+                if ($exclude !== false && preg_match($exclude, (string) $filename)) {
+                    continue;
+                }
+
+                // Add file info
+                $this->manifest[$filename] = $stats;
+
+                // Check if we must stop
+                if ($stop_on_file && strtolower($stop_on_file) === strtolower($filename)) {
+                    break;
+                }
+            }
+
+            // Recursive list if it is a directory
+            if ($file->isDir()) {
+                $this->getListPharArchive($file->getPathname(), $stop_on_file, $exclude);
+            }
+        }
+    }
+
+    /**
+     * Convert ZipArchive file stats to legacy stats
+     *
+     * @param      array  $stats  The statistics
+     *
+     * @return     array
+     */
+    protected function convertZipArchiveStats(array $stats): array
+    {
+        return [
+            'file_name'          => $this->cleanFileName($stats['name']),
+            'is_dir'             => substr($stats['name'], -1, 1) == '/',
+            'uncompressed_size'  => $stats['size'],
+            'lastmod_datetime'   => $stats['mtime'],
+            'compressed_size'    => $stats['comp_size'],
+            'compression_method' => $stats['comp_method'],
+        ];
+    }
+
+    /**
+     * Gets the manifest of the archive (getList() must be called first).
+     *
+     * @return     array  The manifest.
+     */
+    public function getManifest(): array
+    {
+        return $this->manifest;
+    }
+
+    /**
+     * Gets the archive type.
+     *
+     * @return     int   The archive type.
+     */
+    public function getWorkflow(): int
+    {
+        return $this->workflow;
+    }
+
+    /**
+     * Unzip all from archive
+     *
+     * @param      string|bool  $target  The target (or false)
+     */
     public function unzipAll($target)
     {
         if (empty($this->manifest)) {
@@ -208,11 +403,22 @@ class Unzip
                 continue;
             }
 
-            $this->unzip($k, $target . '/' . $k);
+            $this->unzip($k, $target === false ? $target : $target . '/' . $k, $target !== false ? $target : '');
         }
     }
 
-    public function unzip($file_name, $target = false)
+    /**
+     * Unzip a file from archive
+     *
+     * @param      string       $file_name  The file name
+     * @param      bool|string  $target     The target
+     * @param      string       $folder     The base folder
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
+    public function unzip($file_name, $target = false, string $folder = '')
     {
         if (empty($this->manifest)) {
             $this->getList($file_name);
@@ -234,23 +440,64 @@ class Unzip
             $this->testTargetDir(dirname($target));
         }
 
-        if (!$details['uncompressed_size']) {
-            return $this->putContent('', $target);
+        switch ($this->workflow) {
+            case self::USE_PHARDATA:
+                // If no target, extract if to a temporary directory
+                if ($target === false) {
+                    // Use a temporary directory
+                    $output = realpath(sys_get_temp_dir()) . self::TMP_DIR;
+                    $this->testTargetDir($output);
+                    $this->zip->extractTo($output, $file_name, true);
+
+                    return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
+                }
+                $this->zip->extractTo($folder, $file_name, true);
+                files::inheritChmod($target);
+
+                break;
+
+            case self::USE_ZIPARCHIVE:
+                // If no target, extract if to a temporary directory
+                if ($target === false) {
+                    // Use a temporary directory
+                    $output = realpath(sys_get_temp_dir()) . self::TMP_DIR;
+                    $this->testTargetDir($output);
+                    $this->zip->extractTo($output, $file_name);
+
+                    return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
+                }
+                $this->zip->extractTo($folder, $file_name);
+                files::inheritChmod($target);
+
+                break;
+
+            case self::USE_LEGACY:
+
+                if (!$details['uncompressed_size']) {
+                    return $this->putContent('', $target);
+                }
+
+                fseek($this->fp(), $details['contents_start_offset']);
+
+                $this->memoryAllocate($details['compressed_size']);
+
+                return $this->uncompress(
+                    fread($this->fp(), $details['compressed_size']),
+                    $details['compression_method'],
+                    $details['uncompressed_size'],
+                    $target
+                );
+
+                break;
         }
-
-        fseek($this->fp(), $details['contents_start_offset']);
-
-        $this->memoryAllocate($details['compressed_size']);
-
-        return $this->uncompress(
-            fread($this->fp(), $details['compressed_size']),
-            $details['compression_method'],
-            $details['uncompressed_size'],
-            $target
-        );
     }
 
-    public function getFilesList()
+    /**
+     * Gets the files list.
+     *
+     * @return     array  The files list.
+     */
+    public function getFilesList(): array
     {
         if (empty($this->manifest)) {
             $this->getList();
@@ -266,7 +513,12 @@ class Unzip
         return $res;
     }
 
-    public function getDirsList()
+    /**
+     * Gets the dirs list.
+     *
+     * @return     array  The dirs list.
+     */
+    public function getDirsList(): array
     {
         if (empty($this->manifest)) {
             $this->getList();
@@ -282,6 +534,11 @@ class Unzip
         return $res;
     }
 
+    /**
+     * Gets the root dir.
+     *
+     * @return     false|string  The root dir.
+     */
     public function getRootDir()
     {
         if (empty($this->manifest)) {
@@ -311,50 +568,81 @@ class Unzip
         return false;
     }
 
-    public function isEmpty()
+    /**
+     * Determines if archive is empty.
+     *
+     * @return     bool  True if empty, False otherwise.
+     */
+    public function isEmpty(): bool
     {
         if (empty($this->manifest)) {
             $this->getList();
         }
 
-        return count($this->manifest) == 0;
+        return count($this->manifest) === 0;
     }
 
-    public function hasFile($f)
+    /**
+     * Determines if file exists in archive.
+     *
+     * @param      string  $filename  The filename
+     *
+     * @return     bool    True if file, False otherwise.
+     */
+    public function hasFile(string $filename): bool
     {
         if (empty($this->manifest)) {
             $this->getList();
         }
 
-        return isset($this->manifest[$f]);
+        return isset($this->manifest[$filename]);
     }
 
-    public function setExcludePattern($pattern)
+    /**
+     * Sets the exclude pattern.
+     *
+     * @param      string  $pattern  The pattern
+     */
+    public function setExcludePattern(string $pattern)
     {
         $this->exclude = $pattern;
     }
 
-    protected function fp()
+    /**
+     * Determines whether the specified filename is excluded.
+     *
+     * @param      string  $filename      The filename
+     *
+     * @return     bool    True if the specified f is file excluded, False otherwise.
+     */
+    protected function isFileExcluded(string $filename): bool
     {
-        if ($this->fp === null) {
-            $this->fp = @fopen($this->archive, 'rb');
-        }
-
-        if ($this->fp === false) {
-            throw new Exception('Unable to open file.');
-        }
-
-        return $this->fp;
-    }
-
-    protected function isFileExcluded($f)
-    {
-        if (!$this->exclude) {
+        if ($this->exclude === '') {
             return false;
         }
 
-        return preg_match($this->exclude, (string) $f);
+        return (bool) preg_match($this->exclude, (string) $filename);
     }
+
+    /**
+     * Check target directory and create it if necessary
+     *
+     * @param      string     $dir    The target directory
+     *
+     * @throws     Exception
+     */
+    protected function testTargetDir(string $dir)
+    {
+        if (is_dir($dir) && !is_writable($dir)) {
+            throw new Exception(__('Unable to write in target directory, permission denied.'));
+        }
+
+        if (!is_dir($dir)) {
+            files::makeDir($dir, true);
+        }
+    }
+
+    // Legacy
 
     protected function putContent($content, $target = false)
     {
@@ -371,15 +659,17 @@ class Unzip
         return $content;
     }
 
-    protected function testTargetDir($dir)
+    protected function fp()
     {
-        if (is_dir($dir) && !is_writable($dir)) {
-            throw new Exception(__('Unable to write in target directory, permission denied.'));
+        if ($this->fp === null) {
+            $this->fp = @fopen($this->archive, 'rb');
         }
 
-        if (!is_dir($dir)) {
-            files::makeDir($dir, true);
+        if ($this->fp === false) {
+            throw new Exception('Unable to open file.');
         }
+
+        return $this->fp;
     }
 
     protected function uncompress($content, $mode, $size, $target = false)
