@@ -13,7 +13,6 @@ namespace Dotclear\Helper\File\Zip;
 
 use Exception;
 use files;
-use PharData;
 
 class Unzip
 {
@@ -300,7 +299,7 @@ class Unzip
      */
     protected function getListPharArchive(?string $directory = null, $stop_on_file = false, $exclude = false)
     {
-        $list = $directory === null ? new PharData($this->archive) : new PharData($directory);
+        $list = $directory === null ? new \PharData($this->archive) : new \PharData($directory);
         foreach ($list as $file) {
             // Get relative path
             $path = substr($file->getPathname(), strlen('phar://' . realpath($this->archive)));
