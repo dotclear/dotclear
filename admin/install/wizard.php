@@ -22,13 +22,13 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 // ----------------------
 
 // 1. Load Application boostrap file
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'App.php']);
 
 // 2. Instanciante the Application (singleton)
 new App();
 
 // 3. Add root folder for namespaced and autoloaded classes
-App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
 
 // 4. Force CB bootstrap
 new Clearbricks();
