@@ -1315,6 +1315,8 @@ class dcUpgrade
             self::houseCleaning(
                 // Files
                 [
+                    // CB crypt moved to src
+                    'inc/helper/common/lib.crypt.php',
                 ],
                 // Folders
                 [

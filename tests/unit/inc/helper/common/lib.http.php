@@ -16,7 +16,6 @@ namespace tests\unit;
 require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.http.php';
-require_once CLEARBRICKS_PATH . '/common/lib.crypt.php';
 require_once CLEARBRICKS_PATH . '/common/lib.files.php';
 
 if (!defined('TEST_DIRECTORY')) {

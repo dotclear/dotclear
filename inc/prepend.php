@@ -9,6 +9,7 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
+use Dotclear\Helper\Crypt;
 
 /* Start tick  */
 define('DC_START_TIME', microtime(true));
@@ -300,7 +301,7 @@ if (!defined('DC_CRYPT_ALGO')) {
     define('DC_CRYPT_ALGO', 'sha1'); // As in Dotclear 2.9 and previous
 } else {
     // Check length of cryptographic algorithm result and exit if less than 40 characters long
-    if (strlen(crypt::hmac(DC_MASTER_KEY, DC_VENDOR_NAME, DC_CRYPT_ALGO)) < 40) {
+    if (strlen(Crypt::hmac(DC_MASTER_KEY, DC_VENDOR_NAME, DC_CRYPT_ALGO)) < 40) {
         if (!defined('DC_CONTEXT_ADMIN')) {
             __error('Server error', 'Site temporarily unavailable');
         } else {

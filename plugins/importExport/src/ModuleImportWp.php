@@ -22,8 +22,8 @@ use dcCategories;
 use dcCore;
 use dcRecord;
 use dcTrackback;
+use Dotclear\Helper\Crypt;
 use initBlogroll;
-use crypt;
 use form;
 use html;
 use http;
@@ -428,7 +428,7 @@ class ModuleImportWp extends Module
                 if (!dcCore::app()->userExists($user_login)) {
                     $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
                     $cur->user_id          = $user_login;
-                    $cur->user_pwd         = crypt::createPassword();
+                    $cur->user_pwd         = Crypt::createPassword();
                     $cur->user_displayname = $rs->user_nicename;
                     $cur->user_email       = $rs->user_email;
                     $cur->user_url         = $rs->user_url;

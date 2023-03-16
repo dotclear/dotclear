@@ -61,4 +61,7 @@ dcProxyV1::classAliases([
     'tidyDiff'      => 'Dotclear\Helper\Diff\TidyDiff',
     'tidyDiffChunk' => 'Dotclear\Helper\Diff\TidyDiffChunk',
     'tidyDiffLine'  => 'Dotclear\Helper\Diff\TidyDiffLine',
+
+    // Crypt helper
+    'crypt' => 'Dotclear\Helper\Crypt',
 ]);

@@ -9,6 +9,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Crypt;
+
 class http
 {
     /**
@@ -221,7 +224,7 @@ class http
      */
     public static function browserUID(string $key): string
     {
-        return crypt::hmac($key, ($_SERVER['HTTP_USER_AGENT'] ?? '') . ($_SERVER['HTTP_ACCEPT_CHARSET'] ?? ''));
+        return Crypt::hmac($key, ($_SERVER['HTTP_USER_AGENT'] ?? '') . ($_SERVER['HTTP_ACCEPT_CHARSET'] ?? ''));
     }
 
     /**

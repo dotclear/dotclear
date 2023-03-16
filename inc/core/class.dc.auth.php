@@ -11,6 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Crypt;
+
 class dcAuth
 {
     // Constants
@@ -238,7 +241,7 @@ class dcAuth
                 $ret = password_get_info($rs->user_pwd);
                 if (is_array($ret) && isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
-                    if (crypt::hmac(DC_MASTER_KEY, $pwd, DC_CRYPT_ALGO) == $rs->user_pwd) {
+                    if (Crypt::hmac(DC_MASTER_KEY, $pwd, DC_CRYPT_ALGO) == $rs->user_pwd) {
                         // Password Ok, need to store it in new fashion way
                         $rs->user_pwd = $this->crypt($pwd);
                         $rehash       = true;
@@ -329,7 +332,7 @@ class dcAuth
      */
     public function cryptLegacy(string $pwd): string
     {
-        return crypt::hmac(DC_MASTER_KEY, $pwd, DC_CRYPT_ALGO);
+        return Crypt::hmac(DC_MASTER_KEY, $pwd, DC_CRYPT_ALGO);
     }
 
     /**
@@ -793,7 +796,7 @@ class dcAuth
             throw new Exception(__('That key does not exist in the database.'));
         }
 
-        $new_pass = crypt::createPassword();
+        $new_pass = Crypt::createPassword();
 
         $cur                   = $this->con->openCursor($this->user_table);
         $cur->user_pwd         = $this->crypt($new_pass);

@@ -1,15 +1,19 @@
 <?php
 /**
- * @class crypt
- * @brief Functions to handle passwords or sensitive data
+ * @class Crypt
  *
- * @package Clearbricks
- * @subpackage Common
+ * Cryptographic helpers
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class crypt
+declare(strict_types=1);
+
+namespace Dotclear\Helper;
+
+class Crypt
 {
     /**
      * SHA1 or MD5 + HMAC
@@ -33,7 +37,7 @@ class crypt
             return hash_hmac($hashfunc, $data, $key);
         }
 
-        return self::hmac_legacy($key, $data, $hashfunc);
+        return self::hmacLegacy($key, $data, $hashfunc);
     }
 
     /**
@@ -45,7 +49,7 @@ class crypt
      *
      * @return     string
      */
-    public static function hmac_legacy(string $key, string $data, string $hashfunc = 'sha1'): string
+    public static function hmacLegacy(string $key, string $data, string $hashfunc = 'sha1'): string
     {
         // Legacy way
         if ($hashfunc != 'sha1') {

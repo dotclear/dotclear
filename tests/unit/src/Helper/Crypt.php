@@ -1,29 +1,24 @@
 <?php
+/**
+ * Unit tests
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
+namespace tests\unit\Dotclear\Helper;
 
-namespace tests\unit;
-
-require_once __DIR__ . '/../../../bootstrap.php';
-
-require_once CLEARBRICKS_PATH . '/common/lib.crypt.php';
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'bootstrap.php']);
 
 use atoum;
-use Faker;
 
 /**
- * Crypt test.
+ * @tags Crypt
  */
-class crypt extends atoum
+class Crypt extends atoum
 {
     public const BIG_KEY_SIZE = 200;
     public const DATA_SIZE    = 50;
@@ -35,7 +30,7 @@ class crypt extends atoum
     {
         parent::__construct();
 
-        $faker         = Faker\Factory::create();
+        $faker         = \Faker\Factory::create();
         $this->big_key = $faker->text(self::BIG_KEY_SIZE);
         $this->data    = $faker->text(self::DATA_SIZE);
     }
@@ -46,7 +41,7 @@ class crypt extends atoum
     public function testHMacBigKeyMD5()
     {
         $this
-            ->string(\crypt::hmac($this->big_key, $this->data, 'md5'))
+            ->string(\Dotclear\Helper\Crypt::hmac($this->big_key, $this->data, 'md5'))
             ->isIdenticalTo(hash_hmac('md5', $this->data, $this->big_key));
     }
 
@@ -56,7 +51,7 @@ class crypt extends atoum
     public function testHMacSHA1Implicit()
     {
         $this
-            ->string(\crypt::hmac($this->big_key, $this->data))
+            ->string(\Dotclear\Helper\Crypt::hmac($this->big_key, $this->data))
             ->isIdenticalTo(hash_hmac('sha1', $this->data, $this->big_key));
     }
 
@@ -66,7 +61,7 @@ class crypt extends atoum
     public function testHMacSHA1Explicit()
     {
         $this
-            ->string(\crypt::hmac($this->big_key, $this->data, 'sha1'))
+            ->string(\Dotclear\Helper\Crypt::hmac($this->big_key, $this->data, 'sha1'))
             ->isIdenticalTo(hash_hmac('sha1', $this->data, $this->big_key));
     }
 
@@ -76,7 +71,7 @@ class crypt extends atoum
     public function testHMacMD5()
     {
         $this
-            ->string(\crypt::hmac($this->big_key, $this->data, 'md5'))
+            ->string(\Dotclear\Helper\Crypt::hmac($this->big_key, $this->data, 'md5'))
             ->isIdenticalTo(hash_hmac('md5', $this->data, $this->big_key));
     }
 
@@ -86,37 +81,37 @@ class crypt extends atoum
     public function testHMacFallback()
     {
         $this
-            ->string(\crypt::hmac($this->big_key, $this->data, 'dummyencoder'))
+            ->string(\Dotclear\Helper\Crypt::hmac($this->big_key, $this->data, 'dummyencoder'))
             ->isIdenticalTo(hash_hmac('sha1', $this->data, $this->big_key));
     }
 
     /**
-     * hmac_legacy implicit
+     * hmacLegacy implicit
      */
     public function testHMacLegacy()
     {
         $this
-            ->string(\crypt::hmac_legacy($this->big_key, $this->data))
+            ->string(\Dotclear\Helper\Crypt::hmacLegacy($this->big_key, $this->data))
             ->isIdenticalTo(hash_hmac('sha1', $this->data, $this->big_key));
     }
 
     /**
-     * hmac_legacy explicit MD5 encryption
+     * hmacLegacy explicit MD5 encryption
      */
     public function testHMacLegacyMD5()
     {
         $this
-            ->string(\crypt::hmac_legacy($this->big_key, $this->data, 'md5'))
+            ->string(\Dotclear\Helper\Crypt::hmacLegacy($this->big_key, $this->data, 'md5'))
             ->isIdenticalTo(hash_hmac('md5', $this->data, $this->big_key));
     }
 
     /**
-     * hmac_legacy explicit Sha1 encryption
+     * hmacLegacy explicit Sha1 encryption
      */
     public function testHMacLegacySha1()
     {
         $this
-            ->string(\crypt::hmac_legacy($this->big_key, $this->data, 'sha1'))
+            ->string(\Dotclear\Helper\Crypt::hmacLegacy($this->big_key, $this->data, 'sha1'))
             ->isIdenticalTo(hash_hmac('sha1', $this->data, $this->big_key));
     }
 
@@ -126,7 +121,7 @@ class crypt extends atoum
     public function testHMacLegacyFallback()
     {
         $this
-            ->string(\crypt::hmac_legacy($this->big_key, $this->data, 'dummyencoder'))
+            ->string(\Dotclear\Helper\Crypt::hmacLegacy($this->big_key, $this->data, 'dummyencoder'))
             ->isIdenticalTo(hash_hmac('md5', $this->data, $this->big_key));
     }
 
@@ -138,21 +133,21 @@ class crypt extends atoum
     {
         for ($i = 0; $i < 10; $i++) {
             $this
-                ->string(\crypt::createPassword())
+                ->string(\Dotclear\Helper\Crypt::createPassword())
                 ->hasLength(8)
                 ->match('/[a-zA-Z0-9@\!\$]/');
         }
 
         for ($i = 0; $i < 10; $i++) {
             $this
-                ->string(\crypt::createPassword(10))
+                ->string(\Dotclear\Helper\Crypt::createPassword(10))
                 ->hasLength(10)
                 ->match('/[a-zA-Z0-9@\!\$]/');
         }
 
         for ($i = 0; $i < 10; $i++) {
             $this
-                ->string(\crypt::createPassword(13))
+                ->string(\Dotclear\Helper\Crypt::createPassword(13))
                 ->hasLength(13)
                 ->match('/[a-zA-Z0-9@\!\$]/');
         }

@@ -60,7 +60,6 @@ class Clearbricks
         $old_helper_root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']);
         $this->add([
             // Common helpers
-            'crypt'            => $old_helper_root . '/common/lib.crypt.php',
             'dt'               => $old_helper_root . '/common/lib.date.php',
             'files'            => $old_helper_root . '/common/lib.files.php',
             'path'             => $old_helper_root . '/common/lib.files.php',

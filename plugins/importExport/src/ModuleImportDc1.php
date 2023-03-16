@@ -21,8 +21,8 @@ use dcCategories;
 use dcCore;
 use dcRecord;
 use dcTrackback;
+use Dotclear\Helper\Crypt;
 use initBlogroll;
-use crypt;
 use form;
 use html;
 use http;
@@ -381,7 +381,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_name        = $rs->user_nom;
                     $cur->user_firstname   = $rs->user_prenom;
                     $cur->user_displayname = $rs->user_pseudo;
-                    $cur->user_pwd         = crypt::createPassword();
+                    $cur->user_pwd         = Crypt::createPassword();
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
                     $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
