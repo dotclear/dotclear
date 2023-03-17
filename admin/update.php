@@ -261,7 +261,7 @@ class adminUpdate
                 echo
                 '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), dcCore::app()->admin->new_v) .
                 (dcCore::app()->admin->version_info ? ' <a href="' . dcCore::app()->admin->version_info . '" title="' . __('Information about this version') . '">(' .
-                __('Information about this version') . ')&nbsp;<img src="images/outgoing-link.svg" class="outgoing-js" alt=""/></a>' : '') .
+                __('Information about this version') . ')</a>' : '') .
                 '</p>';
                 if (version_compare(phpversion(), dcCore::app()->admin->updater->getPHPVersion()) < 0) {
                     echo
