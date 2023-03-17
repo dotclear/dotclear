@@ -31,13 +31,11 @@ class Zip
     /**
      * @var string Phar::ZIP buggy archive (file metadata, specially date and time not stored) up to this PHP Version
      *
-     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — fixed in 8.2.4 (and 8.1.17)
-     * - -> > 8.1.16 and < 8.2.0 ok
-     * - -> > 8.2.3 ok
+     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — should be fixed in 8.2.? (and 8.1.?)
      */
-    public const PHARZIP_BUGGY_81_MAX = '8.1.16';
+    public const PHARZIP_BUGGY_81_MAX = '8.1.17';   // PHP 8.1.17 does not fix that yet, waiting for next version
     public const PHARZIP_BUGGY_82_MIN = '8.2.0';
-    public const PHARZIP_BUGGY_82_MAX = '8.2.3';
+    public const PHARZIP_BUGGY_82_MAX = '8.2.4';    // PHP 8.2.4 does not fix that yet, waiting for next version
 
     /**
      * Flag to use a specific archive workflow
