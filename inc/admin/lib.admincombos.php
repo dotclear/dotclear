@@ -151,6 +151,7 @@ class dcAdminCombos
         foreach ($langs as $k => $v) {
             $lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
             $option     = new Option($k, $v);
+            $option->lang($v);
             if ($lang_avail) {
                 $option->class('avail10n');
             }
