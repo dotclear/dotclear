@@ -309,7 +309,7 @@ other files.
 .cke_colorblock {
   padding: 3px;
   font-size: 1em;
-  font-family: 'Microsoft Sans Serif', Tahoma, Arial, Verdana, sans-serif;
+  font-family: var(--sans-serif);
 }
 
 .cke_colorblock,
@@ -917,7 +917,7 @@ a.cke_path_item:active {
 }
 
 textarea.cke_source {
-  font-family: 'Courier New', monospace;
+  font-family: var(--monospace);
   font-size: small;
   background-color: #fff;
   white-space: pre-wrap;
@@ -992,7 +992,7 @@ textarea.cke_source {
 .cke_notification_message {
   position: relative;
   margin: 4px 23px 3px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--sans-serif);
   font-size: 1em;
   line-height: 18px;
   z-index: 4;

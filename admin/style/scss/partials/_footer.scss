@@ -28,7 +28,7 @@ span.tooltip {
     bottom: 0.5em;
     background: var(--tooltip-background);
     z-index: 99;
-    font-family: monospace;
+    font-family: var(--monospace);
     text-align: left;
     border: 2px solid var(--tooltip-color);
     border-radius: 1em;
