@@ -246,7 +246,7 @@ class adminLangs
 
                 echo
                 '<tr class="line wide">' .
-                '<td class="maximal nowrap">(' . $lang_code . ') ' .
+                '<td class="maximal nowrap" lang="' . $lang_code . '">(' . $lang_code . ') ' .
                 '<strong>' . html::escapeHTML(dcCore::app()->admin->iso_codes[$lang_code]) . '</strong></td>' .
                 '<td class="nowrap action">';
 
