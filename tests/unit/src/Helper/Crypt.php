@@ -14,6 +14,7 @@ namespace tests\unit\Dotclear\Helper;
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'bootstrap.php']);
 
 use atoum;
+use Faker\Factory;
 
 /**
  * @tags Crypt
@@ -30,7 +31,7 @@ class Crypt extends atoum
     {
         parent::__construct();
 
-        $faker         = \Faker\Factory::create();
+        $faker         = Factory::create();
         $this->big_key = $faker->text(self::BIG_KEY_SIZE);
         $this->data    = $faker->text(self::DATA_SIZE);
     }
