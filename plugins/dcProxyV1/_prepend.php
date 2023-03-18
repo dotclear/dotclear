@@ -64,4 +64,8 @@ dcProxyV1::classAliases([
 
     // Crypt helper
     'crypt' => 'Dotclear\Helper\Crypt',
+
+    // Mail helper
+    'mail'       => 'Dotclear\Helper\Network\Mail\Mail',
+    'socketMail' => 'Dotclear\Helper\Network\Mail\MailSocket',
 ]);

@@ -1,15 +1,22 @@
 <?php
 /**
- * @class socketMail
- * @brief Send email through socket
+ * @class SocketMail
  *
- * @package Clearbricks
- * @subpackage Mail
+ * Send email through socket
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class socketMail
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network\Mail;
+
+use Exception;
+use text;
+
+class MailSocket
 {
     /**
      * Socket handle
@@ -23,14 +30,14 @@ class socketMail
      *
      * @var        int
      */
-    public static $timeout = 10;
+    public static int $timeout = 10;
 
     /**
      * SMTP Relay to user
      *
      * @var        string
      */
-    public static $smtp_relay = null;
+    public static ?string $smtp_relay = null;
 
     /**
      * Send email through socket
@@ -62,7 +69,7 @@ class socketMail
         if (self::$smtp_relay != null) {
             $mx = [gethostbyname(self::$smtp_relay) => 1];
         } else {
-            $mx = mail::getMX($to_host);
+            $mx = Mail::getMX($to_host);
         }
 
         foreach (array_keys($mx) as $mx_host) {
@@ -83,8 +90,8 @@ class socketMail
         fgets(self::$fp);
 
         $data = '';
-        # HELO cmd
-        if (!self::cmd('HELO ' . $from_host, $data)) {
+        # EHLO cmd
+        if (!self::cmd('EHLO ' . $from_host, $data)) {
             self::quit();
 
             throw new Exception($data);

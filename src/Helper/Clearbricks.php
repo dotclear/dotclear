@@ -93,12 +93,6 @@ class Clearbricks
             'imageMeta'  => $old_helper_root . '/image/class.image.meta.php',
             'imageTools' => $old_helper_root . '/image/class.image.tools.php',
 
-            // Send Mail Utilities
-            'mail' => $old_helper_root . '/mail/class.mail.php',
-
-            // Send Mail Through Sockets
-            'socketMail' => $old_helper_root . '/mail/class.socket.mail.php',
-
             // HTML Pager
             'pager' => $old_helper_root . '/pager/class.pager.php',
 

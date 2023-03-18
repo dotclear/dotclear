@@ -1325,6 +1325,8 @@ class dcUpgrade
                     'inc/helper/html.form',
                     // CB diff moved to src
                     'inc/helper/diff',
+                    // CB mail moved to src
+                    'inc/helper/mail',
                 ]
             );
         }

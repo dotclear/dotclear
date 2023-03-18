@@ -1,15 +1,21 @@
 <?php
 /**
- * @class mail
- * @brief Email utilities
+ * @class Mail
  *
- * @package Clearbricks
- * @subpackage Mail
+ * Mail helpers
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class mail
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network\Mail;
+
+use Exception;
+
+class Mail
 {
     /**
      * Send email
@@ -39,14 +45,16 @@ class mail
 
         if (is_array($headers)) {
             $headers = implode($eol, $headers);
+        } elseif (!is_string($headers)) {
+            $headers = [];
         }
 
         if ($user_defined_mail == null) {
-            if (!@mail($to, $subject, $message, $headers, $params)) {
+            if (!@mail($to, $subject, $message, $headers, (string) $params)) {
                 throw new Exception('Unable to send email');
             }
         } else {
-            $user_defined_mail($to, $subject, $message, $headers, $params);
+            $user_defined_mail($to, $subject, $message, $headers, (string) $params);
         }
 
         return true;
