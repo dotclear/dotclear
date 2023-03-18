@@ -129,7 +129,7 @@ class Zip
 
         if ($this->stream && ($this->workflow === self::USE_PHARDATA || $this->workflow === self::USE_ZIPARCHIVE)) {
             // Use a temporary file
-            $output = realpath(sys_get_temp_dir()) . self::TMP_PREFIX . bin2hex(random_bytes(8)) . '.zip';
+            $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . self::TMP_PREFIX . bin2hex(random_bytes(8)) . '.zip';
             if (file_exists($output)) {
                 try {
                     unlink($output);

@@ -418,6 +418,10 @@ class Unzip
      */
     public function unzip($file_name, $target = false, string $folder = '')
     {
+        if ($target !== false && $folder === '') {
+            $folder = dirname($target);
+        }
+
         if (empty($this->manifest)) {
             $this->getList($file_name);
         }
