@@ -1157,4 +1157,43 @@ class Unzip extends atoum
 
         $unzip->close();
     }
+
+    public function testCloseBeforeUnzip()
+    {
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-closed-' . self::ZIP_LEGACY]);
+
+        // Create archive
+        self::prepareArchive($archive, $rootzip, self::ZIP_NAME, \Dotclear\Helper\File\Zip\Zip::USE_DEFAULT);
+
+        // Open archive with ZipArchive
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_ZIPARCHIVE);
+
+        // Close archive
+        $unzip->close();
+
+        // Try to unzip archive
+        $folder = $rootzip . '-' . substr(self::ZIP_ZIPARCHIVE, 0, -4);
+        $this
+            ->exception(function () use ($unzip, $folder) {
+                $unzip->unzipAll($folder);
+            })
+            ->hasMessage(sprintf('Archive %s is closed.', $archive));
+        ;
+
+        // Open archive with PharData
+        $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive, \Dotclear\Helper\File\Zip\Zip::USE_PHARDATA);
+
+        // Close archive
+        $unzip->close();
+
+        // Try to unzip archive
+        $folder = $rootzip . '-' . substr(self::ZIP_PHARDATA, 0, -4);
+        $this
+            ->exception(function () use ($unzip, $folder) {
+                $unzip->unzipAll($folder);
+            })
+            ->hasMessage(sprintf('Archive %s is closed.', $archive));
+        ;
+    }
 }

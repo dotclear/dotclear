@@ -261,6 +261,9 @@ class Unzip
                 break;
 
             case self::USE_ZIPARCHIVE:
+                if (!isset($this->zip)) {
+                    throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
+                }
                 for ($i = 0; $i < $this->zip->numFiles; $i++) {
                     $stats    = $this->convertZipArchiveStats($this->zip->statIndex($i));
                     $filename = $stats['file_name'];
@@ -392,6 +395,10 @@ class Unzip
      */
     public function unzipAll($target)
     {
+        if ($this->workflow !== self::USE_LEGACY && !isset($this->zip)) {
+            throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
+        }
+
         if (empty($this->manifest)) {
             $this->getList();
         }
@@ -444,6 +451,9 @@ class Unzip
 
         switch ($this->workflow) {
             case self::USE_PHARDATA:
+                if (!isset($this->zip)) {
+                    throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
+                }
                 // If no target, extract if to a temporary directory
                 if ($target === false) {
                     // Use a temporary directory
@@ -459,6 +469,9 @@ class Unzip
                 break;
 
             case self::USE_ZIPARCHIVE:
+                if (!isset($this->zip)) {
+                    throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
+                }
                 // If no target, extract if to a temporary directory
                 if ($target === false) {
                     // Use a temporary directory
@@ -474,7 +487,6 @@ class Unzip
                 break;
 
             case self::USE_LEGACY:
-
                 if (!$details['uncompressed_size']) {
                     return $this->putContent('', $target);
                 }
