@@ -6,7 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcPager extends pager
+
+use Dotclear\Helper\Html\Pager;
+
+class dcPager extends Pager
 {
     /**
      * Form-handler
@@ -136,7 +139,7 @@ class dcPager extends pager
         $htmlDirect = ($this->nb_pages > 1 ?
             sprintf(
                 '<li class="direct-access">' . __('Direct access page %s'),
-                form::number([$this->var_page], 1, $this->nb_pages)
+                form::number([$this->var_page], 1, $this->nb_pages, (string) $this->env)
             ) .
             '<input type="submit" value="' . __('ok') . '" class="reset" ' .
             'name="ok" />' . $this->form_hidden . '</li>' : '');

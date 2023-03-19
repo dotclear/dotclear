@@ -68,4 +68,7 @@ dcProxyV1::classAliases([
     // Mail helper
     'mail'       => 'Dotclear\Helper\Network\Mail\Mail',
     'socketMail' => 'Dotclear\Helper\Network\Mail\MailSocket',
+
+    // Pager helper
+    'pager' => 'Dotclear\Helper\Html\Pager',
 ]);

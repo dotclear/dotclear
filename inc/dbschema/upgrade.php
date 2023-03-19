@@ -1327,6 +1327,8 @@ class dcUpgrade
                     'inc/helper/diff',
                     // CB mail moved to src
                     'inc/helper/mail',
+                    // CB pager moved to src
+                    'inc/helper/pager',
                 ]
             );
         }

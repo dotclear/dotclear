@@ -1,17 +1,18 @@
 <?php
 /**
- * @class pager
- * @brief (x)HTML Pager
+ * @class Pager
+ * @brief Implements a pager helper to browse any type of results
  *
- * This class implements a pager helper to browse any type of results.
- *
- * @package Clearbricks
- * @subpackage Pager
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class pager
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html;
+
+class Pager
 {
     /**
      * Current page index
@@ -156,14 +157,14 @@ class pager
     /**
      * Constructor
      *
-     * @param int    $env                   Current page index
+     * @param int    $current_page          Current page index
      * @param int    $nb_elements           Total number of elements
      * @param int    $nb_per_page           Number of items per page
      * @param int    $nb_pages_per_group    Number of pages per group
      */
-    public function __construct(int $env, int $nb_elements, int $nb_per_page = 10, int $nb_pages_per_group = 10)
+    public function __construct(int $current_page, int $nb_elements, int $nb_per_page = 10, int $nb_pages_per_group = 10)
     {
-        $this->env                = abs($env);
+        $this->env                = abs($current_page);
         $this->nb_elements        = abs($nb_elements);
         $this->nb_per_page        = abs($nb_per_page);
         $this->nb_pages_per_group = abs($nb_pages_per_group);
@@ -284,28 +285,30 @@ class pager
         # Changing page ref
         if (preg_match('/[?&]' . $this->var_page . '=\d+/', $url)) {
             $url = preg_replace('/([?&]' . $this->var_page . '=)\d+/', '$1%1$d', $url);
-        } elseif (preg_match('/[?]/', $url)) {
+        } elseif (preg_match('/[\?]/', $url)) {
             $url .= '&' . $this->var_page . '=%1$d';
         } else {
             $url .= '?' . $this->var_page . '=%1$d';
         }
 
-        $this->page_url = html::escapeHTML($url);
+        $this->page_url = $url;
     }
 
     public function debug()
     {
-        return
-        'Elements per page ........... ' . $this->nb_per_page . "\n" .
-        'Pages per group.............. ' . $this->nb_pages_per_group . "\n" .
-        'Elements count .............. ' . $this->nb_elements . "\n" .
-        'Pages ....................... ' . $this->nb_pages . "\n" .
-        'Groups ...................... ' . $this->nb_groups . "\n\n" .
-        'Current page .................' . $this->env . "\n" .
-        'Start index ................. ' . $this->index_start . "\n" .
-        'End index ................... ' . $this->index_end . "\n" .
-        'Current group ............... ' . $this->env_group . "\n" .
-        'Group first page index ...... ' . $this->index_group_start . "\n" .
-        'Group last page index ....... ' . $this->index_group_end;
+        return [
+            $this->nb_per_page,
+            $this->nb_pages_per_group,
+            $this->nb_elements,
+            $this->nb_pages,
+            $this->nb_groups,
+            $this->env,
+            $this->index_start,
+            $this->index_end,
+            $this->env_group,
+            $this->index_group_start,
+            $this->index_group_end,
+            $this->page_url,
+        ];
     }
 }

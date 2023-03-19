@@ -93,9 +93,6 @@ class Clearbricks
             'imageMeta'  => $old_helper_root . '/image/class.image.meta.php',
             'imageTools' => $old_helper_root . '/image/class.image.tools.php',
 
-            // HTML Pager
-            'pager' => $old_helper_root . '/pager/class.pager.php',
-
             // REST Server
             'restServer' => $old_helper_root . '/rest/class.rest.php',
             'xmlTag'     => $old_helper_root . '/rest/class.rest.php',
