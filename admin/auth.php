@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Network\Mail\Mail;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminAuth
