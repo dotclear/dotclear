@@ -1088,7 +1088,7 @@ class adminModulesList
                 if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
                     $settings_urls[] = '<a class="module-config" href="' .
                     dcCore::app()->adminurl->get('admin.plugin.' . $id) .
-                    '">' . __('Plugin settings') . '</a>';
+                    '">' . __('Plugin main page') . '</a>';
                 }
             }
         }

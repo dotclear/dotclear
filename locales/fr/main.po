@@ -3239,6 +3239,9 @@ msgstr "Réglages du plugin (mes préférences)"
 msgid "Plugin settings"
 msgstr "Réglages du plugin"
 
+msgid "Plugin main page"
+msgstr "Page principale du plugin"
+
 msgid "Activate"
 msgstr "Activer"
 
