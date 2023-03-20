@@ -25,19 +25,19 @@ class Backend extends dcNsProcess
     public static function init(): bool
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = true;
+            static::$init = true;
         }
 
         if (!defined('DC_ANTISPAM_CONF_SUPER')) {
             define('DC_ANTISPAM_CONF_SUPER', false);
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -68,7 +68,7 @@ class Backend extends dcNsProcess
                         ]), ]
                 );
             },
-            'adminDashboardFavsIconV2'  => function (string $name, ArrayObject $icon) {
+            'adminDashboardFavsIconV2' => function (string $name, ArrayObject $icon) {
                 // Check if it is comments favs
                 if ($name === 'comments') {
                     // Hack comments title if there is at least one spam

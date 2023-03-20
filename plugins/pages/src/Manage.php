@@ -32,15 +32,15 @@ class Manage extends dcNsProcess
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ]));
 
-            self::$init = ($_REQUEST['act'] ?? 'list') === 'page' ? ManagePage::init() : true;
+            static::$init = ($_REQUEST['act'] ?? 'list') === 'page' ? ManagePage::init() : true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -90,7 +90,7 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

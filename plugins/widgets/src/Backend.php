@@ -25,15 +25,15 @@ class Backend extends dcNsProcess
     public static function init(): bool
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = true;
+            static::$init = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -46,7 +46,7 @@ class Backend extends dcNsProcess
                     'large-icon' => [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
                 ]);
             },
-            'adminRteFlagsV2'           => function (ArrayObject $rte) {
+            'adminRteFlagsV2' => function (ArrayObject $rte) {
                 $rte['widgets_text'] = [true, __('Widget\'s textareas')];
             },
         ]);

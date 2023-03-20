@@ -24,14 +24,14 @@ class Install extends dcNsProcess
     public static function init(): bool
     {
         self::$module = basename(dirname(__DIR__));
-        self::$init   = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion(self::$module, dcCore::app()->plugins->moduleInfo(self::$module, 'version'));
+        static::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion(self::$module, dcCore::app()->plugins->moduleInfo(self::$module, 'version'));
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 

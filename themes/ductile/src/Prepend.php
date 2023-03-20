@@ -8,6 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
@@ -18,14 +19,14 @@ class Prepend extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_CONTEXT_ADMIN');
+        static::$init = defined('DC_CONTEXT_ADMIN');
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 

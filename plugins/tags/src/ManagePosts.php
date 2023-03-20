@@ -28,15 +28,15 @@ class ManagePosts extends dcNsProcess
     public static function init(): bool
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts';
+            static::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts';
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -115,7 +115,7 @@ class ManagePosts extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

@@ -56,10 +56,10 @@ class ManageEdit extends dcNsProcess
                 dcCore::app()->admin->link_xfn   = dcCore::app()->admin->rs->link_xfn;
             }
 
-            self::$init = true;
+            static::$init = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool

@@ -29,7 +29,7 @@ class Manage extends dcNsProcess
             return false;
         }
 
-        self::$init = true;
+        static::$init = true;
 
         // Set env
 
@@ -51,7 +51,7 @@ class Manage extends dcNsProcess
             dcCore::app()->admin->task->code(dcCore::app()->admin->code);
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     /**
@@ -59,7 +59,7 @@ class Manage extends dcNsProcess
      */
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -155,7 +155,7 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

@@ -31,15 +31,15 @@ class Manage extends dcNsProcess
 
             dcCore::app()->admin->editor_std_active = dcCore::app()->blog->settings->dclegacyeditor->active;
 
-            self::$init = true;
+            static::$init = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 

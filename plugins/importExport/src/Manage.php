@@ -24,7 +24,7 @@ class Manage extends dcNsProcess
     public static function init(): bool
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = true;
+            static::$init = true;
         }
 
         $modules = new ArrayObject(['import' => [], 'export' => []]);
@@ -45,12 +45,12 @@ class Manage extends dcNsProcess
             dcCore::app()->admin->module->init();
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -70,7 +70,7 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

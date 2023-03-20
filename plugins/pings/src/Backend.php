@@ -23,14 +23,14 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_CONTEXT_ADMIN');
+        static::$init = defined('DC_CONTEXT_ADMIN');
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -43,10 +43,10 @@ class Backend extends dcNsProcess
         );
 
         dcCore::app()->addBehaviors([
-            'adminPostHeaders'          => fn () => dcPage::jsModuleLoad('pings/js/post.js'),
-            'adminPostFormItems'        => [BackendBehaviors::class, 'pingsFormItems'],
-            'adminAfterPostCreate'      => [BackendBehaviors::class, 'doPings'],
-            'adminAfterPostUpdate'      => [BackendBehaviors::class, 'doPings'],
+            'adminPostHeaders'     => fn () => dcPage::jsModuleLoad('pings/js/post.js'),
+            'adminPostFormItems'   => [BackendBehaviors::class, 'pingsFormItems'],
+            'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],
+            'adminAfterPostUpdate' => [BackendBehaviors::class, 'doPings'],
 
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
                 $favs->register('pings', [
@@ -56,7 +56,7 @@ class Backend extends dcNsProcess
                     'large-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
                 ]);
             },
-            'adminPageHelpBlock'        => function (ArrayObject $blocks) {
+            'adminPageHelpBlock' => function (ArrayObject $blocks) {
                 if (array_search('core_post', $blocks->getArrayCopy(), true) !== false) {
                     $blocks->append('pings_post');
                 }

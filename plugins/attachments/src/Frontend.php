@@ -13,21 +13,20 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\attachments;
 
 use dcCore;
-use dcPage;
 use dcNsProcess;
 
 class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_RC_PATH');
+        static::$init = defined('DC_RC_PATH');
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 

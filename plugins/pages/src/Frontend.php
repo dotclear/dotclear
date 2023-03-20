@@ -20,19 +20,19 @@ class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_RC_PATH');
+        static::$init = defined('DC_RC_PATH');
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
         dcCore::app()->addBehaviors([
-            'publicPrependV2'        => function (): void {
+            'publicPrependV2' => function (): void {
                 // Localized string we find in template
                 __('Published on');
                 __('This page\'s comments feed');
@@ -55,8 +55,8 @@ class Frontend extends dcNsProcess
                     }
                 }
             },
-            'initWidgets'            => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets'     => [Widgets::class, 'initDefaultWidgets'],
+            'initWidgets'        => [Widgets::class, 'initWidgets'],
+            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
         return true;

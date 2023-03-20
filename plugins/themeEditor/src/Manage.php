@@ -31,7 +31,7 @@ class Manage extends dcNsProcess
             return false;
         }
 
-        self::$init = true;
+        static::$init = true;
 
         dcCore::app()->admin->file_default = dcCore::app()->admin->file = new ArrayObject([
             'c'            => null,
@@ -56,7 +56,7 @@ class Manage extends dcNsProcess
         dcCore::app()->admin->theme  = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
         dcCore::app()->admin->editor = new ThemeEditor();
 
-        return self::$init;
+        return static::$init;
     }
 
     /**
@@ -64,7 +64,7 @@ class Manage extends dcNsProcess
      */
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -122,7 +122,7 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

@@ -8,6 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Theme\customCSS;
 
 use Exception;
@@ -36,15 +37,15 @@ class Config extends dcNsProcess
                     )
                 );
             }
-            self::$init = true;
+            static::$init = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -64,7 +65,7 @@ class Config extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

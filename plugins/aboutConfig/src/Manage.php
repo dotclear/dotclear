@@ -30,10 +30,10 @@ class Manage extends dcNsProcess
         if (defined('DC_CONTEXT_ADMIN')) {
             dcPage::checkSuper();
             dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
-            self::$init                = true;
+            static::$init              = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     /**
@@ -41,7 +41,7 @@ class Manage extends dcNsProcess
      */
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -103,7 +103,7 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

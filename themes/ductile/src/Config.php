@@ -30,7 +30,7 @@ class Config extends dcNsProcess
             return false;
         }
 
-        self::$init = true;
+        static::$init = true;
 
         l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/admin');
 
@@ -225,7 +225,7 @@ class Config extends dcNsProcess
 
         dcCore::app()->admin->conf_tab = $_POST['conf_tab'] ?? 'html';
 
-        return self::$init;
+        return static::$init;
     }
 
     /**
@@ -233,7 +233,7 @@ class Config extends dcNsProcess
      */
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -358,7 +358,7 @@ class Config extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

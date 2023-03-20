@@ -55,9 +55,9 @@ class Manage extends dcNsProcess
 
         dcCore::app()->admin->editor_cke_was_actived = dcCore::app()->admin->editor_cke_active;
 
-        self::$init = true;
+        static::$init = true;
 
-        return self::$init;
+        return static::$init;
     }
 
     /**
@@ -65,7 +65,7 @@ class Manage extends dcNsProcess
      */
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -145,7 +145,7 @@ class Manage extends dcNsProcess
 
     public static function render(): void
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 

@@ -23,15 +23,15 @@ class Backend extends dcNsProcess
         __('Breadcrumb') . __('Breadcrumb for Dotclear');
 
         if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = true;
+            static::$init = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 

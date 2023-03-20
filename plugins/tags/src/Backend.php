@@ -23,15 +23,15 @@ class Backend extends dcNsProcess
     public static function init(): bool
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            self::$init = true;
+            static::$init = true;
         }
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -47,30 +47,30 @@ class Backend extends dcNsProcess
         );
 
         dcCore::app()->addBehaviors([
-            'adminPostFormItems'           => [BackendBehaviors::class, 'tagsField'],
+            'adminPostFormItems' => [BackendBehaviors::class, 'tagsField'],
 
-            'adminAfterPostCreate'         => [BackendBehaviors::class, 'setTags'],
-            'adminAfterPostUpdate'         => [BackendBehaviors::class, 'setTags'],
+            'adminAfterPostCreate' => [BackendBehaviors::class, 'setTags'],
+            'adminAfterPostUpdate' => [BackendBehaviors::class, 'setTags'],
 
-            'adminPostHeaders'             => [BackendBehaviors::class, 'postHeaders'],
+            'adminPostHeaders' => [BackendBehaviors::class, 'postHeaders'],
 
-            'adminPostsActions'            => [BackendBehaviors::class, 'adminPostsActions'],
+            'adminPostsActions' => [BackendBehaviors::class, 'adminPostsActions'],
 
             'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminUserForm'],
             'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'setTagListFormat'],
 
-            'adminUserForm'                => [BackendBehaviors::class, 'adminUserForm'],
-            'adminBeforeUserCreate'        => [BackendBehaviors::class, 'setTagListFormat'],
-            'adminBeforeUserUpdate'        => [BackendBehaviors::class, 'setTagListFormat'],
+            'adminUserForm'         => [BackendBehaviors::class, 'adminUserForm'],
+            'adminBeforeUserCreate' => [BackendBehaviors::class, 'setTagListFormat'],
+            'adminBeforeUserUpdate' => [BackendBehaviors::class, 'setTagListFormat'],
 
-            'adminDashboardFavoritesV2'    => [BackendBehaviors::class, 'dashboardFavorites'],
+            'adminDashboardFavoritesV2' => [BackendBehaviors::class, 'dashboardFavorites'],
 
-            'adminPageHelpBlock'           => [BackendBehaviors::class, 'adminPageHelpBlock'],
+            'adminPageHelpBlock' => [BackendBehaviors::class, 'adminPageHelpBlock'],
 
-            'adminPostEditor'              => [BackendBehaviors::class, 'adminPostEditor'],
-            'ckeditorExtraPlugins'         => [BackendBehaviors::class, 'ckeditorExtraPlugins'],
+            'adminPostEditor'      => [BackendBehaviors::class, 'adminPostEditor'],
+            'ckeditorExtraPlugins' => [BackendBehaviors::class, 'ckeditorExtraPlugins'],
 
-            'initWidgets'                  => [Widgets::class, 'initWidgets'],
+            'initWidgets' => [Widgets::class, 'initWidgets'],
         ]);
 
         return true;

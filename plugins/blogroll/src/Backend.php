@@ -24,14 +24,14 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        self::$init = defined('DC_CONTEXT_ADMIN');
+        static::$init = defined('DC_CONTEXT_ADMIN');
 
-        return self::$init;
+        return static::$init;
     }
 
     public static function process(): bool
     {
-        if (!self::$init) {
+        if (!static::$init) {
             return false;
         }
 
@@ -50,10 +50,10 @@ class Backend extends dcNsProcess
                     ]),
                 ]);
             },
-            'adminUsersActionsHeaders'  => fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js'),
+            'adminUsersActionsHeaders' => fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js'),
 
-            'initWidgets'               => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets'        => [Widgets::class, 'initDefaultWidgets'],
+            'initWidgets'        => [Widgets::class, 'initWidgets'],
+            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
         dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(

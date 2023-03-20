@@ -38,7 +38,7 @@ abstract class dcNsProcess
      */
     public static function process(): bool
     {
-        return self::$init;
+        return static::$init;
     }
 
     /**
@@ -50,7 +50,7 @@ abstract class dcNsProcess
     public static function render(): void
     {
         /*
-        if (!self::$init) {
+        if (!static::$init) {
             return;
         }
 
