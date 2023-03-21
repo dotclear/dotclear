@@ -291,9 +291,9 @@ class WidgetsElement
      * @param      mixed      $value            The value
      * @param      string     $type             The type
      *
-     * @return     bool|self
+     * @return     self
      */
-    public function setting(string $name, string $title, $value, string $type = 'text')
+    public function setting(string $name, string $title, $value, string $type = 'text'): self
     {
         $types = [
             // type (string) => list of items may be provided (boolean)
@@ -308,7 +308,7 @@ class WidgetsElement
         ];
 
         if (!array_key_exists($type, $types)) {
-            return false;
+            return $this;
         }
 
         $index = 4; // 1st optional argument (after type)
@@ -316,7 +316,7 @@ class WidgetsElement
         if ($types[$type] && func_num_args() > $index) {
             $options = func_get_arg($index);
             if (!is_array($options)) {
-                return false;
+                return $this;
             }
             $index++;
         }
@@ -471,9 +471,9 @@ class WidgetsElement
      *
      * @param      string  $title  The title
      *
-     * @return     bool|self
+     * @return     self
      */
-    public function addTitle(string $title = '')
+    public function addTitle(string $title = ''): self
     {
         return $this->setting('title', __('Title (optional)') . ' :', $title);
     }
@@ -481,9 +481,9 @@ class WidgetsElement
     /**
      * Adds a home only setting.
      *
-     * @return     bool|self
+     * @return     self
      */
-    public function addHomeOnly(?array $options = null)
+    public function addHomeOnly(?array $options = null): self
     {
         $list = [
             __('All pages')           => self::ALL_PAGES,
@@ -528,9 +528,9 @@ class WidgetsElement
      *
      * @param      int     $content_only  The content only flag
      *
-     * @return     self|bool
+     * @return     self
      */
-    public function addContentOnly(int $content_only = 0)
+    public function addContentOnly(int $content_only = 0): self
     {
         return $this->setting('content_only', __('Content only'), $content_only, 'check');
     }
@@ -540,9 +540,9 @@ class WidgetsElement
      *
      * @param      string  $class  The class
      *
-     * @return     self|bool
+     * @return     self
      */
-    public function addClass(string $class = '')
+    public function addClass(string $class = ''): self
     {
         return $this->setting('class', __('CSS class:'), $class);
     }
@@ -552,9 +552,9 @@ class WidgetsElement
      *
      * @param      int     $offline  The offline flag
      *
-     * @return     self|bool
+     * @return     self
      */
-    public function addOffline(int $offline = 0)
+    public function addOffline(int $offline = 0): self
     {
         return $this->setting('offline', __('Offline'), $offline, 'check');
     }
