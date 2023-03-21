@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
+use Dotclear\Helper\Html\XmlTag;
 use wiki2xhtml;
-use xmlTag;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -29,12 +29,12 @@ class Rest
      * @param      array   $get    The get
      * @param      array   $post   The post
      *
-     * @return     xmlTag  The xml tag.
+     * @return     XmlTag  The xml tag.
      */
-    public static function convert(dcCore $core, array $get, array $post): xmlTag
+    public static function convert(dcCore $core, array $get, array $post): XmlTag
     {
         $wiki = $post['wiki'] ?? '';
-        $rsp  = new xmlTag('wiki');
+        $rsp  = new XmlTag('wiki');
 
         $ret  = false;
         $html = '';

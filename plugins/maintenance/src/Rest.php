@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
+use Dotclear\Helper\Html\XmlTag;
 use Exception;
 use html;
-use xmlTag;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -39,9 +39,9 @@ class Rest
      *
      * @throws     Exception  (description)
      *
-     * @return     xmlTag     XML representation of response.
+     * @return     XmlTag     XML representation of response.
      */
-    public static function step(dcCore $core, array $get, array $post): xmlTag
+    public static function step(dcCore $core, array $get, array $post): XmlTag
     {
         if (!isset($post['task'])) {
             throw new Exception('No task ID');
@@ -61,7 +61,7 @@ class Rest
             $code = 0;
         }
 
-        $rsp        = new xmlTag('step');
+        $rsp        = new XmlTag('step');
         $rsp->code  = $code;
         $rsp->title = html::escapeHTML($task->success());
 

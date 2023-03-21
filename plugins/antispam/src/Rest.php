@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use xmlTag;
+use Dotclear\Helper\Html\XmlTag;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -23,9 +23,9 @@ class Rest
     /**
      * Gets the spams count.
      *
-     * @return     xmlTag  The spams count.
+     * @return     XmlTag  The spams count.
      */
-    public static function getSpamsCount(): xmlTag
+    public static function getSpamsCount(): XmlTag
     {
         $count = Antispam::countSpam();
         if ($count > 0) {
@@ -34,7 +34,7 @@ class Rest
             $str = '';
         }
 
-        $rsp      = new xmlTag('count');
+        $rsp      = new XmlTag('count');
         $rsp->ret = $str;
 
         return $rsp;

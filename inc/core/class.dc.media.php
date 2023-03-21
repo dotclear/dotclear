@@ -10,6 +10,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\XmlTag;
+
 class dcMedia extends filemanager
 {
     // Constants
@@ -1522,7 +1525,7 @@ class dcMedia extends filemanager
             return false;
         }
 
-        $xml  = new xmlTag('meta');
+        $xml  = new XmlTag('meta');
         $meta = imageMeta::readMeta($file);
         $xml->insertNode($meta);
 

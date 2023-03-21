@@ -128,14 +128,6 @@ parameters:
     - message: '#Call to an undefined method dcWidget::#'
       path: %currentWorkingDirectory%
 
-    # xmlTag object and auto properties
-    - message : '#Access to an undefined property xmlTag::#'
-      path: %currentWorkingDirectory%
-
-    # xmlTag object methods
-    - message : '#Call to an undefined method xmlTag::#'
-      path: %currentWorkingDirectory%
-
     # dcSettings object and auto properties
     - message : '#Access to an undefined property dcSettings::#'
       path: %currentWorkingDirectory%
@@ -222,6 +214,14 @@ parameters:
 
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
     - message: '#Access to an undefined property Dotclear\\Helper\\Html\\Form\\[a-zA-Z0-9\\_]+::#'
+      path: %currentWorkingDirectory%
+
+    # XmlTag object and magic properties
+    - message: '#Access to an undefined property Dotclear\\Helper\\Html\\XmlTag::#'
+      path: %currentWorkingDirectory%
+
+    # XmlTag object and magic methods
+    - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
       path: %currentWorkingDirectory%
 
 # Notes:

@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\XmlTag;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 dcCore::app()->rest->addFunction('getPostsCount', [dcRestMethods::class, 'getPostsCount']);
@@ -40,7 +43,7 @@ class dcRestMethods
         $count = dcCore::app()->blog->getPosts([], true)->f(0);
         $str   = sprintf(__('%d post', '%d posts', $count), $count);
 
-        $rsp      = new xmlTag('count');
+        $rsp      = new XmlTag('count');
         $rsp->ret = $str;
 
         return $rsp;
@@ -54,7 +57,7 @@ class dcRestMethods
         $count = dcCore::app()->blog->getComments([], true)->f(0);
         $str   = sprintf(__('%d comment', '%d comments', $count), $count);
 
-        $rsp      = new xmlTag('count');
+        $rsp      = new XmlTag('count');
         $rsp->ret = $str;
 
         return $rsp;
@@ -64,7 +67,7 @@ class dcRestMethods
     {
         # Dotclear news
 
-        $rsp        = new xmlTag('news');
+        $rsp        = new XmlTag('news');
         $rsp->check = false;
         $ret        = __('Dotclear news not available');
 
@@ -110,7 +113,7 @@ class dcRestMethods
     {
         # Dotclear updates notifications
 
-        $rsp        = new xmlTag('update');
+        $rsp        = new XmlTag('update');
         $rsp->check = false;
         $ret        = __('Dotclear update not available');
 
@@ -163,7 +166,7 @@ class dcRestMethods
     {
         # Dotclear store updates notifications
 
-        $rsp        = new xmlTag('update');
+        $rsp        = new XmlTag('update');
         $rsp->check = false;
         $rsp->nb    = 0;
         $ret        = __('No updates are available');
@@ -222,7 +225,7 @@ class dcRestMethods
             throw new Exception('No post for this ID');
         }
 
-        $rsp     = new xmlTag('post');
+        $rsp     = new XmlTag('post');
         $rsp->id = $rs->post_id;
 
         $rsp->blog_id($rs->blog_id);
@@ -257,7 +260,7 @@ class dcRestMethods
         $rsp->post_display_content($rs->getContent(true));
         $rsp->post_display_excerpt($rs->getExcerpt(true));
 
-        $metaTag = new xmlTag('meta');
+        $metaTag = new XmlTag('meta');
         if ($rs->post_meta) {
             if (($meta = @unserialize($rs->post_meta)) !== false) {
                 foreach ($meta as $K => $V) {
@@ -284,7 +287,7 @@ class dcRestMethods
             throw new Exception('No comment for this ID');
         }
 
-        $rsp     = new xmlTag('post');
+        $rsp     = new XmlTag('post');
         $rsp->id = $rs->comment_id;
 
         $rsp->comment_dt($rs->comment_dt);
@@ -352,7 +355,7 @@ class dcRestMethods
         # --BEHAVIOR-- adminAfterPostCreate
         dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-        $rsp     = new xmlTag('post');
+        $rsp     = new XmlTag('post');
         $rsp->id = $return_id;
 
         $post = dcCore::app()->blog->getPosts(['post_id' => $return_id]);
@@ -390,7 +393,7 @@ class dcRestMethods
 
         dcCore::app()->blog->setPostContent(0, $format, $lang, $excerpt, $excerpt_xhtml, $content, $content_xhtml);
 
-        $rsp = new xmlTag('result');
+        $rsp = new XmlTag('result');
 
         $v = htmlValidator::validate($excerpt_xhtml . $content_xhtml);
 
@@ -428,7 +431,7 @@ class dcRestMethods
             throw new Exception('Not a valid file');
         }
 
-        $rsp     = new xmlTag('result');
+        $rsp     = new XmlTag('result');
         $content = dcCore::app()->media->getZipContent($file);
 
         foreach ($content as $k => $v) {
@@ -477,10 +480,10 @@ class dcRestMethods
 
         $rs->sort($sort, $order);
 
-        $rsp = new xmlTag();
+        $rsp = new XmlTag();
 
         while ($rs->fetch()) {
-            $metaTag               = new xmlTag('meta');
+            $metaTag               = new XmlTag('meta');
             $metaTag->type         = $rs->meta_type;
             $metaTag->uri          = rawurlencode($rs->meta_id);
             $metaTag->count        = $rs->count;
@@ -578,11 +581,11 @@ class dcRestMethods
 
         $rs->sort($sort, $order);
 
-        $rsp = new xmlTag();
+        $rsp = new XmlTag();
 
         while ($rs->fetch()) {
             if (stripos($rs->meta_id, (string) $q) === 0) {
-                $metaTag               = new xmlTag('meta');
+                $metaTag               = new XmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
                 $metaTag->uri          = rawurlencode($rs->meta_id);
                 $metaTag->count        = $rs->count;
@@ -655,7 +658,7 @@ class dcRestMethods
             throw new Exception('List name invalid');
         }
 
-        $res = new xmlTag('result');
+        $res = new XmlTag('result');
 
         $su = [];
         foreach ($sorts as $sort_type => $sort_data) {
@@ -720,7 +723,7 @@ class dcRestMethods
 
         $module = adminModulesList::sanitizeModule($id, $module);
 
-        $rsp     = new xmlTag('module');
+        $rsp     = new XmlTag('module');
         $rsp->id = $id;
 
         foreach ($module as $k => $v) {

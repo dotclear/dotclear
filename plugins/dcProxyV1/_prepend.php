@@ -71,4 +71,7 @@ dcProxyV1::classAliases([
 
     // Pager helper
     'pager' => 'Dotclear\Helper\Html\Pager',
+
+    // Pager helper
+    'xmlTag' => 'Dotclear\Helper\Html\XmlTag',
 ]);

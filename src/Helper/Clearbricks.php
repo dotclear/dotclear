@@ -95,7 +95,6 @@ class Clearbricks
 
             // REST Server
             'restServer' => $old_helper_root . '/rest/class.rest.php',
-            'xmlTag'     => $old_helper_root . '/rest/class.rest.php',
 
             // Database PHP Session
             'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
