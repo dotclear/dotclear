@@ -298,7 +298,9 @@ class dbLayer
             require_once DC_DBDRIVER_PATH . '/class.' . $driver . '.php';
         } elseif (file_exists(__DIR__ . '/class.' . $driver . '.php')) {
             require_once __DIR__ . '/class.' . $driver . '.php';
-        } else {
+        }
+
+        if (!is_a($driver_class, 'dbLayer', true) || !is_a($driver_class, 'i_dbLayer', true)) {
             trigger_error('Unable to load DB layer for ' . $driver, E_USER_ERROR);
             exit(1);    // @phpstan-ignore-line
         }
