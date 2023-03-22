@@ -132,7 +132,7 @@ class SynchPostsMeta extends MaintenanceTask
 
         // Get posts ids to update
         $req_limit = $start !== null && $limit !== null ? dcCore::app()->con->limit($start, $limit) : '';
-        $rs        = new dcRecord(dcCore::app()->con->select('SELECT post_id FROM ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' ' . $req_limit, true));
+        $rs        = new dcRecord(dcCore::app()->con->select('SELECT post_id FROM ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' ' . $req_limit));
 
         // Update posts meta
         while ($rs->fetch()) {

@@ -2202,7 +2202,7 @@ final class dcCore
             $strReq .= $this->con->limit($start, $limit);
         }
 
-        $rs = new dcRecord($this->con->select($strReq, true));
+        $rs = new dcRecord($this->con->select($strReq));
 
         $cur = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
 
