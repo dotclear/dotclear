@@ -13,6 +13,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 class imageMeta
 {
     /**
@@ -167,7 +170,7 @@ class imageMeta
         }
 
         foreach ($this->xmp as $k => $v) {
-            $this->xmp[$k] = html::decodeEntities(text::toUTF8($v));
+            $this->xmp[$k] = html::decodeEntities(Text::toUTF8($v));
         }
     }
 
@@ -199,7 +202,7 @@ class imageMeta
 
         foreach ($this->iptc_ref as $k => $v) {
             if (isset($iptc[$k]) && isset($this->iptc_to_property[$v])) {
-                $this->iptc[$this->iptc_to_property[$v]] = text::toUTF8(trim(implode(',', $iptc[$k])));
+                $this->iptc[$this->iptc_to_property[$v]] = Text::toUTF8(trim(implode(',', $iptc[$k])));
             }
         }
     }
@@ -227,10 +230,10 @@ class imageMeta
             if (isset($data[$k])) {
                 if (is_array($data[$k])) {
                     foreach ($data[$k] as $kk => $vv) {
-                        $this->exif[$v . '.' . $kk] = text::toUTF8($vv);
+                        $this->exif[$v . '.' . $kk] = Text::toUTF8($vv);
                     }
                 } else {
-                    $this->exif[$v] = text::toUTF8($data[$k]);
+                    $this->exif[$v] = Text::toUTF8($data[$k]);
                 }
             }
         }

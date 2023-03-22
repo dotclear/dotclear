@@ -53,7 +53,7 @@ $__autoload['sqliteConnection']    = CLEARBRICKS_PATH . '/dblayer/class.sqlite.p
 
 $__autoload['files'] = CLEARBRICKS_PATH . '/common/lib.files.php';
 $__autoload['path']  = CLEARBRICKS_PATH . '/common/lib.files.php';
-$__autoload['text']  = CLEARBRICKS_PATH . '/common/lib.text.php';
+$__autoload['html']  = CLEARBRICKS_PATH . '/common/lib.html.php';
 
 function cb_autoload($name)
 {

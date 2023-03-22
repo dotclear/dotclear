@@ -1317,6 +1317,8 @@ class dcUpgrade
                 [
                     // CB crypt moved to src
                     'inc/helper/common/lib.crypt.php',
+                    // CB text moved to src
+                    'inc/helper/common/lib.text.php',
                 ],
                 // Folders
                 [

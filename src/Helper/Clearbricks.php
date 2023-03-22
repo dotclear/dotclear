@@ -68,7 +68,6 @@ class Clearbricks
             'html'             => $old_helper_root . '/common/lib.html.php',
             'http'             => $old_helper_root . '/common/lib.http.php',
             'l10n'             => $old_helper_root . '/common/lib.l10n.php',
-            'text'             => $old_helper_root . '/common/lib.text.php',
 
             // Database Abstraction Layer
             'dbLayer'  => $old_helper_root . '/dblayer/dblayer.php',

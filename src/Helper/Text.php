@@ -1,15 +1,19 @@
 <?php
 /**
- * @class text
- * @brief Text utilities
+ * @class Text
  *
- * @package Clearbricks
- * @subpackage Common
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class text
+declare(strict_types=1);
+
+namespace Dotclear\Helper;
+
+use html;
+
+class Text
 {
     /**
      * Check email address
@@ -37,7 +41,7 @@ class text
      */
     public static function deaccent(string $str): string
     {
-        $pattern = [];
+        $pattern       = [];
         $pattern['A']  = '\x{00C0}-\x{00C5}';
         $pattern['AE'] = '\x{00C6}';
         $pattern['C']  = '\x{00C7}';
@@ -255,15 +259,15 @@ class text
      */
     public static function utf8badFind(string $str)
     {
-        $UTF8_BAD = '([\x00-\x7F]' . # ASCII (including control chars)
-        '|[\xC2-\xDF][\x80-\xBF]' . # non-overlong 2-byte
-        '|\xE0[\xA0-\xBF][\x80-\xBF]' . # excluding overlongs
-        '|[\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}' . # straight 3-byte
-        '|\xED[\x80-\x9F][\x80-\xBF]' . # excluding surrogates
-        '|\xF0[\x90-\xBF][\x80-\xBF]{2}' . # planes 1-3
-        '|[\xF1-\xF3][\x80-\xBF]{3}' . # planes 4-15
-        '|\xF4[\x80-\x8F][\x80-\xBF]{2}' . # plane 16
-        '|(.{1}))'; # invalid byte
+        $UTF8_BAD = '([\x00-\x7F]' .            // ASCII (including control chars)
+        '|[\xC2-\xDF][\x80-\xBF]' .             // non-overlong 2-byte
+        '|\xE0[\xA0-\xBF][\x80-\xBF]' .         // excluding overlongs
+        '|[\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}' .  // straight 3-byte
+        '|\xED[\x80-\x9F][\x80-\xBF]' .         // excluding surrogates
+        '|\xF0[\x90-\xBF][\x80-\xBF]{2}' .      // planes 1-3
+        '|[\xF1-\xF3][\x80-\xBF]{3}' .          // planes 4-15
+        '|\xF4[\x80-\x8F][\x80-\xBF]{2}' .      // plane 16
+        '|(.{1}))';                             // invalid byte
         $pos = 0;
 
         while (preg_match('/' . $UTF8_BAD . '/S', $str, $matches)) {
@@ -297,56 +301,5 @@ class text
         }
 
         return $str;
-    }
-
-    /**
-     * BOM removal (UTF-8 only)
-     *
-     * Removes BOM from the begining of a string if present.
-     *
-     * @param string    $str        String to clean
-     *
-     * @return string
-     */
-    public static function removeBOM(string $str): string
-    {
-        if (substr_count($str, "\xEF\xBB\xBF")) {
-            return str_replace("\xEF\xBB\xBF", '', $str);
-        }
-
-        return $str;
-    }
-
-    /**
-     * Quoted printable conversion
-     *
-     * Encodes given str to quoted printable
-     *
-     * @param string    $str        String to encode
-     *
-     * @return string
-     */
-    public static function QPEncode(string $str): string
-    {
-        $res = '';
-
-        foreach (preg_split("/\r?\n/msu", $str) as $line) {
-            $l = '';
-            preg_match_all('/./', $line, $m);
-
-            foreach ($m[0] as $c) {
-                $a = ord($c);
-
-                if ($a < 32 || $a == 61 || $a > 126) {
-                    $c = sprintf('=%02X', $a);
-                }
-
-                $l .= $c;
-            }
-
-            $res .= $l . "\r\n";
-        }
-
-        return $res;
     }
 }

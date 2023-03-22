@@ -11,6 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 class dcTrackback
 {
     // Constants
@@ -248,18 +251,18 @@ class dcTrackback
             $title = trim(html::clean($title));
             $title = html::decodeEntities($title);
             $title = html::escapeHTML($title);
-            $title = text::cutString($title, 60);
+            $title = Text::cutString($title, 60);
 
             $excerpt = trim(html::clean($excerpt));
             $excerpt = html::decodeEntities($excerpt);
             $excerpt = preg_replace('/\s+/ms', ' ', $excerpt);
-            $excerpt = text::cutString($excerpt, 252);
+            $excerpt = Text::cutString($excerpt, 252);
             $excerpt = html::escapeHTML($excerpt) . '...';
 
             $blog_name = trim(html::clean($blog_name));
             $blog_name = html::decodeEntities($blog_name);
             $blog_name = html::escapeHTML($blog_name);
-            $blog_name = text::cutString($blog_name, 60);
+            $blog_name = Text::cutString($blog_name, 60);
 
             try {
                 $this->addBacklink($post_id, $url, $blog_name, $title, $excerpt, $comment);
@@ -319,7 +322,7 @@ class dcTrackback
             $title = trim(html::clean($m[1]));
             $title = html::decodeEntities($title);
             $title = html::escapeHTML($title);
-            $title = text::cutString($title, 60);
+            $title = Text::cutString($title, 60);
 
             $blog_name = $this->getSourceName($remote_content);
 
@@ -341,7 +344,7 @@ class dcTrackback
                 }
             }
             if ($excerpt) {
-                $excerpt = '(&#8230;) ' . text::cutString(html::escapeHTML($excerpt), 200) . ' (&#8230;)';
+                $excerpt = '(&#8230;) ' . Text::cutString(html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
                 $excerpt = '(&#8230;)';
             }
@@ -397,7 +400,7 @@ class dcTrackback
             $title = trim(html::clean($m[1]));
             $title = html::decodeEntities($title);
             $title = html::escapeHTML($title);
-            $title = text::cutString($title, 60);
+            $title = Text::cutString($title, 60);
 
             $blog_name = $this->getSourceName($remote_content);
 
@@ -419,7 +422,7 @@ class dcTrackback
                 }
             }
             if ($excerpt) {
-                $excerpt = '(&#8230;) ' . text::cutString(html::escapeHTML($excerpt), 200) . ' (&#8230;)';
+                $excerpt = '(&#8230;) ' . Text::cutString(html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
                 $excerpt = '(&#8230;)';
             }
@@ -689,7 +692,7 @@ class dcTrackback
     private function getSourceName(string $content): string
     {
         // Clean text utility function
-        $clean = fn ($text, $size = 255) => text::cutString(html::escapeHTML(html::decodeEntities(html::clean(trim($text)))), $size);
+        $clean = fn ($text, $size = 255) => Text::cutString(html::escapeHTML(html::decodeEntities(html::clean(trim($text)))), $size);
 
         // First step: look for site name
         // ------------------------------

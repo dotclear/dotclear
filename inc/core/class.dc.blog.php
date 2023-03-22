@@ -10,6 +10,9 @@
  *
  * Dotclear blog class instance is provided by dcCore $blog property.
  */
+
+use Dotclear\Helper\Text;
+
 class dcBlog
 {
     use dcTraitDynamicProperties;
@@ -736,7 +739,7 @@ class dcBlog
         }
 
         if ($cur->cat_url == '') {
-            $url[] = text::tidyURL($cur->cat_title, false);
+            $url[] = Text::tidyURL($cur->cat_title, false);
         } else {
             $url[] = $cur->cat_url;
         }
@@ -790,7 +793,7 @@ class dcBlog
                 }
             }
 
-            $url[]        = text::tidyURL($cur->cat_title, false);
+            $url[]        = Text::tidyURL($cur->cat_title, false);
             $cur->cat_url = implode('/', $url);
         }
 
@@ -983,14 +986,14 @@ class dcBlog
 
         # If we don't have any cat_url, let's do one
         if ($cur->cat_url == '') {
-            $cur->cat_url = text::tidyURL($cur->cat_title, false);
+            $cur->cat_url = Text::tidyURL($cur->cat_title, false);
         }
 
         # Still empty ?
         if ($cur->cat_url == '') {
             throw new Exception(__('You must provide a category URL'));
         }
-        $cur->cat_url = text::tidyURL($cur->cat_url, true);
+        $cur->cat_url = Text::tidyURL($cur->cat_url, true);
 
         # Check if url is unique
         $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
@@ -1246,7 +1249,7 @@ class dcBlog
         }
 
         if (!empty($params['search'])) {
-            $words = text::splitWords($params['search']);
+            $words = Text::splitWords($params['search']);
 
             if (!empty($words)) {
                 # --BEHAVIOR-- corePostSearch
@@ -2183,7 +2186,7 @@ class dcBlog
                 $cur->post_excerpt_xhtml . ' ' .
                 $cur->post_content_xhtml;
 
-            $cur->post_words = implode(' ', text::splitWords($words));
+            $cur->post_words = implode(' ', Text::splitWords($words));
         }
 
         if ($cur->isField('post_firstpub')) {
@@ -2309,7 +2312,7 @@ class dcBlog
             '{y}'  => date('Y', strtotime($post_dt)),
             '{m}'  => date('m', strtotime($post_dt)),
             '{d}'  => date('d', strtotime($post_dt)),
-            '{t}'  => text::tidyURL($post_title),
+            '{t}'  => Text::tidyURL($post_title),
             '{id}' => (int) $post_id,
         ];
 
@@ -2322,7 +2325,7 @@ class dcBlog
                 $this->settings->system->post_url_format
             );
         } else {
-            $url = text::tidyURL($url);
+            $url = Text::tidyURL($url);
         }
 
         # Let's check if URL is taken...
@@ -2551,7 +2554,7 @@ class dcBlog
         }
 
         if (!empty($params['search'])) {
-            $words = text::splitWords($params['search']);
+            $words = Text::splitWords($params['search']);
 
             if (!empty($words)) {
                 # --BEHAVIOR coreCommentSearch
@@ -2887,7 +2890,7 @@ class dcBlog
             throw new Exception(__('You must provide an author name'));
         }
 
-        if ($cur->comment_email != '' && !text::isEmail($cur->comment_email)) {
+        if ($cur->comment_email != '' && !Text::isEmail($cur->comment_email)) {
             throw new Exception(__('Email address is not valid.'));
         }
 
@@ -2905,7 +2908,7 @@ class dcBlog
 
         # Words list
         if ($cur->comment_content !== null) {
-            $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
+            $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
         }
     }
 

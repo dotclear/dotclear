@@ -17,12 +17,12 @@ use dcBlog;
 use dcCore;
 use dcMeta;
 use dcPage;
+use Dotclear\Helper\Text;
 use feedReader;
 use dt;
 use form;
 use html;
 use http;
-use text;
 
 class ModuleImportFeed extends Module
 {
@@ -187,7 +187,7 @@ class ModuleImportFeed extends Module
             $cur->clean();
             $cur->user_id      = dcCore::app()->auth->userID();
             $cur->post_content = $item->content ?: $item->description;
-            $cur->post_title   = $item->title ?: text::cutString(html::clean($cur->post_content), 60);
+            $cur->post_title   = $item->title ?: Text::cutString(html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
             $cur->post_status  = dcBlog::POST_PENDING;
             $cur->post_dt      = dt::strftime('%Y-%m-%d %H:%M:%S', $item->TS);

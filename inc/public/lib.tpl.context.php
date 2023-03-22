@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 class context
 {
     /**
@@ -280,7 +283,7 @@ class context
      */
     public static function cut_string(string $str, int $length): string
     {
-        return text::cutString($str, $length);
+        return Text::cutString($str, $length);
     }
 
     /**

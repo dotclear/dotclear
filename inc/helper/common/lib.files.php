@@ -9,6 +9,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 class files
 {
     /**
@@ -24,13 +27,13 @@ class files
      * @var        array
      */
     public static $mime_types = [
-        'odt'  => 'application/vnd.oasis.opendocument.text',
-        'odp'  => 'application/vnd.oasis.opendocument.presentation',
-        'ods'  => 'application/vnd.oasis.opendocument.spreadsheet',
+        'odt' => 'application/vnd.oasis.opendocument.text',
+        'odp' => 'application/vnd.oasis.opendocument.presentation',
+        'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
 
-        'sxw'  => 'application/vnd.sun.xml.writer',
-        'sxc'  => 'application/vnd.sun.xml.calc',
-        'sxi'  => 'application/vnd.sun.xml.impress',
+        'sxw' => 'application/vnd.sun.xml.writer',
+        'sxc' => 'application/vnd.sun.xml.calc',
+        'sxi' => 'application/vnd.sun.xml.impress',
 
         'ppt'  => 'application/mspowerpoint',
         'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
@@ -46,18 +49,18 @@ class files
         'json' => 'application/json',
         'xml'  => 'application/xml',
 
-        'bin'  => 'application/octet-stream',
-        'exe'  => 'application/octet-stream',
+        'bin' => 'application/octet-stream',
+        'exe' => 'application/octet-stream',
 
-        'bz2'  => 'application/x-bzip',
-        'deb'  => 'application/x-debian-package',
-        'gz'   => 'application/x-gzip',
-        'jar'  => 'application/x-java-archive',
-        'rar'  => 'application/rar',
-        'rpm'  => 'application/x-redhat-package-manager',
-        'tar'  => 'application/x-tar',
-        'tgz'  => 'application/x-gtar',
-        'zip'  => 'application/zip',
+        'bz2' => 'application/x-bzip',
+        'deb' => 'application/x-debian-package',
+        'gz'  => 'application/x-gzip',
+        'jar' => 'application/x-java-archive',
+        'rar' => 'application/rar',
+        'rpm' => 'application/x-redhat-package-manager',
+        'tar' => 'application/x-tar',
+        'tgz' => 'application/x-gtar',
+        'zip' => 'application/zip',
 
         'aiff' => 'audio/x-aiff',
         'ua'   => 'audio/basic',
@@ -502,7 +505,7 @@ class files
      */
     public static function tidyFileName(string $filename): string
     {
-        $filename = preg_replace('/^[.]/u', '', text::deaccent($filename));
+        $filename = preg_replace('/^[.]/u', '', Text::deaccent($filename));
 
         return preg_replace('/[^A-Za-z0-9._-]/u', '_', $filename);
     }

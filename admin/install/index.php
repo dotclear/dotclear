@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 if (isset($_SERVER['DC_RC_PATH'])) {
     $rc_path = $_SERVER['DC_RC_PATH'];
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
@@ -71,7 +74,7 @@ if ($can_install && !empty($_POST)) {
         if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', $u_login)) {
             throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
-        if ($u_email && !text::isEmail($u_email)) {
+        if ($u_email && !Text::isEmail($u_email)) {
             throw new Exception(__('Invalid email address'));
         }
 

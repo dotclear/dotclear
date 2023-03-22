@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\XmlTag;
+use Dotclear\Helper\Text;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -91,7 +92,7 @@ class dcRestMethods
                         $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
                         $ret .= '<dt>' . $dt . '</dt>' .
                         '<dd><p><strong>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
-                        '<em>' . text::cutString(html::clean($item->content), 120) . '...</em></p></dd>';
+                        '<em>' . Text::cutString(html::clean($item->content), 120) . '...</em></p></dd>';
                         $i++;
                         if ($i > 2) {
                             break;

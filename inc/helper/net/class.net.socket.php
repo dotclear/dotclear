@@ -194,7 +194,6 @@ class netSocket
      * Example:
      *
      * <code>
-     * <?php
      * $s = new netSocket('www.google.com',80,2);
      * $s->open();
      * $data = [
@@ -204,7 +203,6 @@ class netSocket
      *     echo $v."\n";
      * }
      * $s->close();
-     * ?>
      * </code>
      *
      * @param   string|array    $data        Data to send

@@ -77,4 +77,7 @@ dcProxyV1::classAliases([
 
     // Rest helper
     'restServer' => 'Dotclear\Helper\RestServer',
+
+    // Text helper
+    'text' => 'Dotclear\Helper\Text',
 ]);

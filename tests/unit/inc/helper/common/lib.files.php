@@ -17,7 +17,6 @@ require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
 require_once CLEARBRICKS_PATH . '/common/lib.files.php';
-require_once CLEARBRICKS_PATH . '/common/lib.text.php';
 
 define('TEST_DIRECTORY', realpath(
     __DIR__ . '/../fixtures/files'

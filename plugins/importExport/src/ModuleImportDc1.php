@@ -22,11 +22,11 @@ use dcCore;
 use dcRecord;
 use dcTrackback;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Text;
 use initBlogroll;
 use form;
 use html;
 use http;
-use text;
 
 class ModuleImportDc1 extends Module
 {
@@ -359,7 +359,7 @@ class ModuleImportDc1 extends Module
      */
     protected function cleanStr(string $str): string
     {
-        return text::cleanUTF8(@text::toUTF8($str));
+        return Text::cleanUTF8(@Text::toUTF8($str));
     }
 
     /**
@@ -598,7 +598,7 @@ class ModuleImportDc1 extends Module
         $cur->post_open_tb      = (int) $rs->post_open_tb;
         $cur->post_lang         = $rs->post_lang;
 
-        $cur->post_words = implode(' ', text::splitWords(
+        $cur->post_words = implode(' ', Text::splitWords(
             $cur->post_title . ' ' .
             $cur->post_excerpt_xhtml . ' ' .
             $cur->post_content_xhtml
@@ -655,7 +655,7 @@ class ModuleImportDc1 extends Module
                 $cur->comment_status = dcBlog::COMMENT_JUNK;
             }
 
-            $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
+            $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
 
             $cur->comment_id = (new dcRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME

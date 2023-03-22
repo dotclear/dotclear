@@ -14,6 +14,7 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Text;
 
 final class dcCore
 {
@@ -2210,7 +2211,7 @@ final class dcCore
             $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
             $rs->post_content_xhtml;
 
-            $cur->post_words = implode(' ', text::splitWords($words));
+            $cur->post_words = implode(' ', Text::splitWords($words));
             $cur->update('WHERE post_id = ' . (int) $rs->post_id);
             $cur->clean();
         }
@@ -2249,7 +2250,7 @@ final class dcCore
         $cur = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
 
         while ($rs->fetch()) {
-            $cur->comment_words = implode(' ', text::splitWords($rs->comment_content));
+            $cur->comment_words = implode(' ', Text::splitWords($rs->comment_content));
             $cur->update('WHERE comment_id = ' . (int) $rs->comment_id);
             $cur->clean();
         }

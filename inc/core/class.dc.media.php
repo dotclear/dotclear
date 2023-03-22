@@ -12,6 +12,7 @@
  */
 
 use Dotclear\Helper\Html\XmlTag;
+use Dotclear\Helper\Text;
 
 class dcMedia extends filemanager
 {
@@ -1321,7 +1322,7 @@ class dcMedia extends filemanager
 
         // Clean-up all extracted filenames
         $clean = function ($name) {
-            $n = text::deaccent($name);
+            $n = Text::deaccent($name);
             $n = preg_replace('/^[.]/u', '', $n);
 
             return preg_replace('/[^A-Za-z0-9._\-\/]/u', '_', $n);

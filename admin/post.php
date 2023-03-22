@@ -8,6 +8,8 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
+use Dotclear\Helper\Text;
+
 class adminPost
 {
     /**
@@ -190,7 +192,7 @@ class adminPost
                 $buffer = preg_replace(
                     '/\s+/ms',
                     ' ',
-                    text::cutString(html::escapeHTML(html::decodeEntities(html::clean($buffer))), 255)
+                    Text::cutString(html::escapeHTML(html::decodeEntities(html::clean($buffer))), 255)
                 );
                 dcCore::app()->admin->tb_excerpt = $buffer;
             }

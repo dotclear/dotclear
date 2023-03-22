@@ -17,11 +17,11 @@ use dcBlog;
 use dcCore;
 use dcPublic;
 use dcUrlHandlers;
+use Dotclear\Helper\Text;
 use Exception;
 use html;
 use http;
 use path;
-use text;
 
 class FrontendUrl extends dcUrlHandlers
 {
@@ -154,7 +154,7 @@ class FrontendUrl extends dcUrlHandlers
                         $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
-                            if (!text::isEmail($cur->comment_email)) {
+                            if (!Text::isEmail($cur->comment_email)) {
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
 

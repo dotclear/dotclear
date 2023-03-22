@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 class dcUrlHandlers extends urlHandler
 {
     /**
@@ -572,7 +575,7 @@ class dcUrlHandlers extends urlHandler
                         $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
-                            if (!text::isEmail($cur->comment_email)) {
+                            if (!Text::isEmail($cur->comment_email)) {
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
 

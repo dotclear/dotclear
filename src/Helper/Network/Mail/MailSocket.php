@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Network\Mail;
 
+use Dotclear\Helper\Text;
 use Exception;
-use text;
 
 class MailSocket
 {
@@ -155,7 +155,7 @@ class MailSocket
                     $from = trim((string) $m[1]);
                 } elseif (preg_match('/^(.+?)\(/si', $from, $m)) {
                     $from = trim((string) $m[1]);
-                } elseif (!text::isEmail($from)) {
+                } elseif (!Text::isEmail($from)) {
                     $from = '';
                 }
 

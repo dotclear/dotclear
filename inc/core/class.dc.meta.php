@@ -10,6 +10,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Text;
+
 class dcMeta
 {
     // Constants
@@ -73,7 +76,7 @@ class dcMeta
      */
     public static function sanitizeMetaID(string $str): string
     {
-        return text::tidyURL($str, false, true);
+        return Text::tidyURL($str, false, true);
     }
 
     /**

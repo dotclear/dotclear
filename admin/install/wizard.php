@@ -9,6 +9,7 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
+use Dotclear\Helper\Text;
 
 if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);
@@ -95,7 +96,7 @@ if (!empty($_POST)) {
             throw new Exception(__('Dotclear is already installed.'));
         }
         # Check master email
-        if (!text::isEmail($ADMINMAILFROM)) {
+        if (!Text::isEmail($ADMINMAILFROM)) {
             throw new Exception(__('Master email is not valid.'));
         }
 
