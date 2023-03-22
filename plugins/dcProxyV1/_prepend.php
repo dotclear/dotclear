@@ -74,4 +74,7 @@ dcProxyV1::classAliases([
 
     // Pager helper
     'xmlTag' => 'Dotclear\Helper\Html\XmlTag',
+
+    // Rest helper
+    'restServer' => 'Dotclear\Helper\RestServer',
 ]);

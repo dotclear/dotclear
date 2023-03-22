@@ -2,8 +2,8 @@
 /**
  * @brief Dotclear REST server extension
  *
- * This class extends restServer to handle dcCore instance in each rest method call.
- * Instance of this class is provided by dcCore $rest.
+ * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
+ * Instance of this class is provided by dcCore::app()->rest.
  *
  * @package Dotclear
  * @subpackage Core
@@ -11,122 +11,30 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcRestServer extends restServer
+
+use Dotclear\Helper\RestServer;
+
+class dcRestServer extends RestServer
 {
-    /**
-     * Payload (JSON)
-     *
-     * @var null|array
-     */
-    public $json;
-
-    /**
-     * Constructs a new instance.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->json = null;
-    }
-
-    /**
-     * Rest method call (XML form).
-     *
-     * @param      string  $name   The method name
-     * @param      array   $get    The GET parameters copy
-     * @param      array   $post   The POST parameters copy
-     *
-     * @return     mixed    Rest method result
-     */
-    protected function callFunction(string $name, array $get, array $post)
-    {
-        if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
-            return call_user_func($this->functions[$name], dcCore::app(), $get, $post);
-        }
-    }
-
-    /**
-     * Rest method call (JSON form).
-     *
-     * @param      string  $name   The method name
-     * @param      array   $get    The GET parameters copy
-     * @param      array   $post   The POST parameters copy
-     *
-     * @return     mixed    Rest method result
-     */
-    protected function callMethod(string $name, array $get, array $post)
-    {
-        if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
-            return call_user_func($this->functions[$name], $get, $post);
-        }
-    }
-
     /**
      * Main server
      *
      * This method creates the main server.
      *
-     * @param string    $encoding        Server charset
+     * @param      string  $encoding  The encoding
+     * @param      int     $format    The format
+     * @param      mixed   $param     The parameter
+     *
+     * @return     bool
      */
-    public function serve(string $encoding = 'UTF-8'): bool
+    public function serve(string $encoding = 'UTF-8', int $format = parent::XML_RESPONSE, $param = null): bool
     {
         if (isset($_REQUEST['json'])) {
-            if (!isset($_REQUEST['f'])) {
-                $this->json = [
-                    'success' => false,
-                    'message' => 'No function given',
-                ];
-                $this->getJSON($encoding);
-
-                return false;
-            }
-
-            if (!isset($this->functions[$_REQUEST['f']])) {
-                $this->json = [
-                    'success' => false,
-                    'message' => 'Function does not exist',
-                ];
-                $this->getJSON($encoding);
-
-                return false;
-            }
-
-            try {
-                $get  = $_GET ?: [];
-                $post = $_POST ?: [];
-
-                $res = $this->callMethod($_REQUEST['f'], $get, $post);
-            } catch (Exception $e) {
-                $this->json = [
-                    'success' => false,
-                    'message' => $e->getMessage(),
-                ];
-                $this->getJSON($encoding);
-
-                return false;
-            }
-
-            $this->json = [
-                'success' => true,
-                'payload' => $res,
-            ];
-            $this->getJSON($encoding);
-
-            return true;
+            // No need to use dcCore::app() with JSON response
+            return parent::serve($encoding, parent::JSON_RESPONSE);
         }
 
-        return parent::serve($encoding);
-    }
-
-    /**
-     * Stream the json data (header and body)
-     *
-     * @param      string  $encoding  The encoding
-     */
-    private function getJSON(string $encoding = 'UTF-8')
-    {
-        header('Content-Type: application/json; charset=' . $encoding);
-        echo json_encode($this->json, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES);
+        // Use dcCore::app() as supplemental parameter to ensure retro-compatibility
+        return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
     }
 }
