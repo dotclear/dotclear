@@ -47,7 +47,7 @@ final class dcCore
     /**
      * Database connection
      *
-     * @var object
+     * @var dbLayer
      */
     public $con;
 
