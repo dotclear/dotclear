@@ -728,15 +728,28 @@ class dbLayer
     {
         if (is_array($i)) {
             foreach ($i as $k => $s) {
-                /* @phpstan-ignore-next-line */
-                $i[$k] = $this->db_escape_string($s, $this->__link);
+                $i[$k] = $this->escapeStr($s);
             }
 
             return $i;
         }
 
+        return $this->escapeStr($i);
+    }
+
+    /**
+     * Escape string
+     *
+     * Returns SQL protected string value.
+     *
+     * @param string    $str        String to protect
+     *
+     * @return string
+     */
+    public function escapeStr($str): string
+    {
         /* @phpstan-ignore-next-line */
-        return $this->db_escape_string($i, $this->__link);
+        return $this->db_escape_string($str, $this->__link);
     }
 
     /**
