@@ -433,20 +433,20 @@ class dcSqlStatement
      */
     public function escape(string $value): string
     {
-        return $this->con->escape($value);
+        return $this->con->escapeStr($value);
     }
 
     /**
      * Quote and escape a value if necessary (type string)
      *
-     * @param      mixed    $value   The value
+     * @param      string   $value   The value
      * @param      boolean  $escape  The escape
      *
      * @return     string
      */
-    public function quote($value, bool $escape = true): string
+    public function quote(string $value, bool $escape = true): string
     {
-        return "'" . ($escape ? $this->con->escape($value) : $value) . "'";
+        return "'" . ($escape ? $this->con->escapeStr($value) : $value) . "'";
     }
 
     /**

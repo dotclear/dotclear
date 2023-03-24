@@ -728,7 +728,7 @@ class dbLayer
     {
         if (is_array($i)) {
             foreach ($i as $k => $s) {
-                $i[$k] = $this->escapeStr($s);
+                $i[$k] = $this->escapeStr((string) $s);
             }
 
             return $i;
@@ -746,7 +746,7 @@ class dbLayer
      *
      * @return string
      */
-    public function escapeStr($str): string
+    public function escapeStr(string $str): string
     {
         /* @phpstan-ignore-next-line */
         return $this->db_escape_string($str, $this->__link);
