@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Pager;
 
 class dcPager extends Pager
@@ -1205,7 +1206,7 @@ class adminMediaList extends adminGenericListV2
 
         $maxchars = 34; // cope with design
         if (strlen($display_name) > $maxchars) {
-            $display_name = substr($display_name, 0, $maxchars - 4) . '...' . ($file->d ? '' : files::getExtension($display_name));
+            $display_name = substr($display_name, 0, $maxchars - 4) . '...' . ($file->d ? '' : Files::getExtension($display_name));
         }
 
         $act = '';
@@ -1269,7 +1270,7 @@ class adminMediaList extends adminGenericListV2
                 $file->media_dtstr .
                 '</time>' .
                 ' - ' .
-                files::size($file->size) . ' - ' .
+                Files::size($file->size) . ' - ' .
                 '<a ' . $class_open . 'href="' . $file->file_url . '">' . __('open') . '</a>' .
                     '</li>';
             }
@@ -1294,7 +1295,7 @@ class adminMediaList extends adminGenericListV2
                 $file->media_dtstr .
                 '</time>'
             ) . '</td>';
-            $res .= '<td class="nowrap count">' . ($file->d ? '' : files::size($file->size) . ' - ' .
+            $res .= '<td class="nowrap count">' . ($file->d ? '' : Files::size($file->size) . ' - ' .
                 '<a ' . $class_open . 'href="' . $file->file_url . '">' . __('open') . '</a>') . '</td>';
             $res .= '</tr>';
         }

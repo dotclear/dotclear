@@ -14,7 +14,6 @@ namespace tests\unit\Dotclear\Helper\File\Zip;
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'bootstrap.php']);
 
 use atoum;
-use files;
 
 /**
  * @tags Unzip
@@ -135,7 +134,7 @@ class Unzip extends atoum
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_PHARDATA, 0, -4);
         if (is_dir($folder)) {
-            files::delTree($folder);
+            \Dotclear\Helper\File\Files::delTree($folder);
             clearstatcache(); // stats are cached, clear them!
             sleep(2);
         }
@@ -469,7 +468,7 @@ class Unzip extends atoum
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_ZIPARCHIVE, 0, -4);
         if (is_dir($folder)) {
-            files::delTree($folder);
+            \Dotclear\Helper\File\Files::delTree($folder);
             clearstatcache(); // stats are cached, clear them!
             sleep(2);
         }
@@ -797,7 +796,7 @@ class Unzip extends atoum
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_LEGACY, 0, -4);
         if (is_dir($folder)) {
-            files::delTree($folder);
+            \Dotclear\Helper\File\Files::delTree($folder);
             clearstatcache(); // stats are cached, clear them!
             sleep(2);
         }

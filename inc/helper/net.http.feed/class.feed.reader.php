@@ -15,6 +15,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+
 class feedReader extends netHttp
 {
     /**
@@ -235,14 +238,14 @@ class feedReader extends netHttp
 
         switch ($this->getStatus()) {
             case '304':
-                @files::touch($cached_file);
+                @Files::touch($cached_file);
 
                 return unserialize(file_get_contents($cached_file));
             case '200':
                 $feed = new feedParser($this->getContent());
 
                 try {
-                    files::makeDir(dirname($cached_file), true);
+                    Files::makeDir(dirname($cached_file), true);
                 } catch (Exception $e) {
                     return $feed;
                 }
@@ -250,7 +253,7 @@ class feedReader extends netHttp
                 if ($fp = @fopen($cached_file, 'wb')) {
                     fwrite($fp, serialize($feed));
                     fclose($fp);
-                    files::inheritChmod($cached_file);
+                    Files::inheritChmod($cached_file);
                 }
 
                 return $feed;

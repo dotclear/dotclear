@@ -15,7 +15,7 @@ use ArrayObject;
 use dcCore;
 use dcNsProcess;
 use dcThemeConfig;
-use files;
+use Dotclear\Helper\File\Files;
 use l10n;
 
 class Frontend extends dcNsProcess
@@ -130,7 +130,7 @@ class Frontend extends dcNsProcess
         $list_types = ['title', 'short', 'full'];
 
         // Get all _entry-*.html in tpl folder of theme
-        $list_types_templates = files::scandir($tpl_path);
+        $list_types_templates = Files::scandir($tpl_path);
         if (is_array($list_types_templates)) {
             foreach ($list_types_templates as $v) {
                 if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {

@@ -9,6 +9,8 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 
 // Prepare namespaced src
 // ----------------------
@@ -59,10 +61,10 @@ if (count($_GET) > 1) {
 }
 
 if (!defined('DC_VAR')) {
-    define('DC_VAR', path::real(__DIR__ . '/..') . '/var');
+    define('DC_VAR', Path::real(__DIR__ . '/..') . '/var');
 }
 
-$var_file = path::real(DC_VAR . '/' . path::clean($_GET['vf']));
+$var_file = Path::real(DC_VAR . '/' . Path::clean($_GET['vf']));
 
 if ($var_file === false || !is_file($var_file) || !is_readable($var_file)) {
     unset($var_file);
@@ -71,7 +73,7 @@ if ($var_file === false || !is_file($var_file) || !is_readable($var_file)) {
     exit;
 }
 
-$extension = files::getExtension($var_file);
+$extension = Files::getExtension($var_file);
 if (!in_array(
     $extension,
     [
@@ -113,7 +115,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
         ]
     )) {
         $base_file = substr($var_file, 0, strlen($var_file) - strlen($extension) - 1);
-        if (files::getExtension($base_file) !== 'min') {
+        if (Files::getExtension($base_file) !== 'min') {
             $minified_file = $base_file . '.min.' . $extension;
             if (is_file($minified_file) && is_readable($minified_file)) {
                 $var_file = $minified_file;
@@ -125,7 +127,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for var files served by ?vf=…
 http::cache([...[$var_file], ...get_included_files()]);
 
-header('Content-Type: ' . files::getMimeType($var_file));
+header('Content-Type: ' . Files::getMimeType($var_file));
 readfile($var_file);
 unset($var_file);
 exit;

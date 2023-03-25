@@ -15,8 +15,8 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use dcThemeConfig;
+use Dotclear\Helper\File\Files;
 use Exception;
-use files;
 use form;
 use html;
 use http;
@@ -56,7 +56,7 @@ class Config extends dcNsProcess
             __('Full')  => 'full',
         ];
         // Get all _entry-*.html in tpl folder of theme
-        $list_types_templates = files::scandir($tpl_path);
+        $list_types_templates = Files::scandir($tpl_path);
         if (is_array($list_types_templates)) {
             foreach ($list_types_templates as $v) {
                 if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
@@ -209,7 +209,7 @@ class Config extends dcNsProcess
             }
         }
         // Get all sticker-*.png in img folder of theme
-        $ductile_stickers_images = files::scandir($img_path);
+        $ductile_stickers_images = Files::scandir($img_path);
         if (is_array($ductile_stickers_images)) {
             foreach ($ductile_stickers_images as $v) {
                 if (preg_match('/^sticker\-(.*)\.png$/', $v) && !in_array($v, $ductile_stickers_full)) {

@@ -8,6 +8,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 class dcUpgrade
 {
     /**
@@ -331,7 +335,7 @@ class dcUpgrade
         if (version_compare($version, '2.5', '<=')) {
             # Try to disable daInstaller plugin if it has been installed outside the default plugins directory
             $path    = explode(PATH_SEPARATOR, DC_PLUGINS_ROOT);
-            $default = path::real(__DIR__ . '/../../plugins/');
+            $default = Path::real(__DIR__ . '/../../plugins/');
             foreach ($path as $root) {
                 if (!is_dir($root) || !is_readable($root)) {
                     continue;
@@ -342,7 +346,7 @@ class dcUpgrade
                 if (($p = @dir($root)) === false) {
                     continue;
                 }
-                if (path::real($root) == $default) {
+                if (Path::real($root) == $default) {
                     continue;
                 }
                 if (($d = @dir($root . 'daInstaller')) === false) {
@@ -392,7 +396,7 @@ class dcUpgrade
                 if (($d = @dir($root . 'daInstaller')) === false) {
                     continue;
                 }
-                files::deltree($root . '/daInstaller');
+                Files::deltree($root . '/daInstaller');
             }
 
             # Some settings change, prepare db queries
@@ -522,7 +526,7 @@ class dcUpgrade
             );
 
             # Create new var directory and its .htaccess file
-            @files::makeDir(DC_VAR);
+            @Files::makeDir(DC_VAR);
             $f = DC_VAR . '/.htaccess';
             if (!file_exists($f)) {
                 @file_put_contents($f, 'Require all denied' . "\n" . 'Deny from all' . "\n");
@@ -1319,6 +1323,8 @@ class dcUpgrade
                     'inc/helper/common/lib.crypt.php',
                     // CB text moved to src
                     'inc/helper/common/lib.text.php',
+                    // CB files/path moved to src
+                    'inc/helper/common/lib.file.php',
                 ],
                 // Folders
                 [
@@ -1432,7 +1438,7 @@ class dcUpgrade
         if (is_array($folders)) {
             foreach ($folders as $f) {
                 if (file_exists(DC_ROOT . '/' . $f)) {
-                    files::deltree(DC_ROOT . '/' . $f);
+                    Files::deltree(DC_ROOT . '/' . $f);
                 }
             }
         }

@@ -10,6 +10,8 @@
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 
 /* Start tick  */
 define('DC_START_TIME', microtime(true));
@@ -191,7 +193,7 @@ if (!defined('DC_DEBUG')) {
 }
 
 # Constants
-define('DC_ROOT', path::real(dcUtils::path([__DIR__, '..'])));
+define('DC_ROOT', Path::real(dcUtils::path([__DIR__, '..'])));
 define('DC_VERSION', '2.26-dev');
 define('DC_DIGESTS', dcUtils::path([__DIR__, 'digests']));
 define('DC_L10N_ROOT', dcUtils::path([__DIR__, '..', 'locales']));
@@ -317,7 +319,7 @@ if (!defined('DC_TPL_CACHE')) {
 // Check existence of cache directory
 if (!is_dir(DC_TPL_CACHE)) {
     // Try to create it
-    @files::makeDir(DC_TPL_CACHE);
+    @Files::makeDir(DC_TPL_CACHE);
     if (!is_dir(DC_TPL_CACHE)) {
         // Admin must create it
         if (!defined('DC_CONTEXT_ADMIN')) {
@@ -335,7 +337,7 @@ if (!defined('DC_VAR')) {
 // Check existence of var directory
 if (!is_dir(DC_VAR)) {
     // Try to create it
-    @files::makeDir(DC_VAR);
+    @Files::makeDir(DC_VAR);
     if (!is_dir(DC_VAR)) {
         // Admin must create it
         if (!defined('DC_CONTEXT_ADMIN')) {
@@ -439,8 +441,8 @@ dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLF
 
 # Store upload_max_filesize in bytes
 (function () {
-    $u_max_size = files::str2bytes(ini_get('upload_max_filesize'));
-    $p_max_size = files::str2bytes(ini_get('post_max_size'));
+    $u_max_size = Files::str2bytes(ini_get('upload_max_filesize'));
+    $p_max_size = Files::str2bytes(ini_get('post_max_size'));
     if ($p_max_size < $u_max_size) {
         $u_max_size = $p_max_size;
     }
@@ -449,7 +451,7 @@ dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLF
 })();
 
 # Register supplemental mime types
-files::registerMimeTypes([
+Files::registerMimeTypes([
     // Audio
     'aac'  => 'audio/aac',
     'ogg'  => 'audio/ogg',

@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\attachments;
 use ArrayObject;
 use dcCore;
 use dcRecord;
-use files;
+use Dotclear\Helper\File\Files;
 use form;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
@@ -62,7 +62,7 @@ class BackendBehaviors
                 '<li><a class="media-link" href="' . dcCore::app()->adminurl->get('admin.media.item', ['id' => $file->media_id]) . '" ' .
                 'title="' . $file->basename . '">' . $ftitle . '</a></li>' .
                 '<li>' . $file->media_dtstr . '</li>' .
-                '<li>' . files::size($file->size) . ' - ' .
+                '<li>' . Files::size($file->size) . ' - ' .
                 '<a href="' . $file->file_url . '">' . __('open') . '</a>' . '</li>' .
 
                 '<li class="media-action"><a class="attachment-remove" id="attachment-' . $file->media_id . '" ' .

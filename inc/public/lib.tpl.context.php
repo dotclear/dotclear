@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Text;
 
 class context
@@ -822,7 +823,7 @@ class context
         $formats = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'wepb', 'avif'];
 
         # Get base name and extension
-        $info = path::info($img);
+        $info = Path::info($img);
         $base = $info['base'];
 
         $res = false;

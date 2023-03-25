@@ -13,8 +13,8 @@ namespace Dotclear\Theme\blowup;
 
 use dcCore;
 use dcThemeConfig;
+use Dotclear\Helper\File\Files;
 use Exception;
-use files;
 use http;
 
 class Blowup
@@ -407,7 +407,7 @@ class Blowup
             # Create top image from uploaded image
             $size = getimagesize($page_t);
             $size = $size[1];
-            $type = files::getMimeType($page_t);
+            $type = Files::getMimeType($page_t);
 
             $d_page_t = imagecreatetruecolor(800, $size);
 

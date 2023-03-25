@@ -10,6 +10,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 class dcModules
 {
     // Constants
@@ -87,7 +91,7 @@ class dcModules
      *
      * @var        array
      */
-    protected $modules_ids   = [];
+    protected $modules_ids          = [];
     protected static $modules_files = ['init' => []];
 
     /**
@@ -643,8 +647,8 @@ class dcModules
                 $this->modules_ids[$this->id] = $this->define->version;
                 $this->defines[]              = $this->define;
             } else {
-                $path1 = path::real($this->moduleInfo($this->id, 'root') ?? '');
-                $path2 = path::real($this->mroot ?? '');
+                $path1 = Path::real($this->moduleInfo($this->id, 'root') ?? '');
+                $path2 = Path::real($this->mroot ?? '');
 
                 $this->errors[] = sprintf(
                     __('Module "%s" is installed twice in "%s" and "%s".'),
@@ -717,7 +721,7 @@ class dcModules
         if (!is_dir($destination)) {
             // New plugin
             try {
-                files::makeDir($destination, true);
+                Files::makeDir($destination, true);
 
                 $sandbox = clone $modules;
                 // Force normal mode
@@ -744,11 +748,11 @@ class dcModules
                     throw new Exception($new_errors);
                 }
 
-                files::deltree($destination);
+                Files::deltree($destination);
             } catch (Exception $e) {
                 $zip->close();
                 unlink($zip_file);
-                files::deltree($destination);
+                Files::deltree($destination);
 
                 throw new Exception($e->getMessage());
             }
@@ -783,7 +787,7 @@ class dcModules
                 $cur_module = $modules->getAnyModules($id);
                 if (!empty($cur_module) && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_modules[$id]['version'], $cur_module['version'], '>', true))) {
                     // delete old module
-                    if (!files::deltree($destination)) {
+                    if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
                     }
 
@@ -905,7 +909,7 @@ class dcModules
             throw new Exception(__('No such module.'));
         }
 
-        if (!files::deltree($module->root)) {
+        if (!Files::deltree($module->root)) {
             throw new Exception(__('Cannot remove module files'));
         }
     }

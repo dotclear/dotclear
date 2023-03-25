@@ -8,6 +8,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 class template
 {
     // Constants
@@ -160,7 +164,7 @@ class template
             return '';
         }
 
-        $src = path::clean($attr['src']);
+        $src = Path::clean($attr['src']);
 
         $tpl_file = $this->getFilePath($src);
         if (!$tpl_file) {
@@ -210,7 +214,7 @@ class template
         }
 
         foreach ($path as $k => $v) {
-            if (($v = path::real($v)) === false) {
+            if (($v = Path::real($v)) === false) {
                 unset($path[$k]);
             }
         }
@@ -245,7 +249,7 @@ class template
             throw new Exception($dir . ' is not writable.');
         }
 
-        $this->cache_dir = path::real($dir) . '/';
+        $this->cache_dir = Path::real($dir) . '/';
     }
 
     /**
@@ -414,7 +418,7 @@ class template
         # - dest_file size == 0
         # - tpl_file is more recent thant dest_file
         if (!$stat_d || !$this->use_cache || $stat_d['size'] == 0 || $stat_f['mtime'] > $stat_d['mtime']) {
-            files::makeDir(dirname($dest_file), true);
+            Files::makeDir(dirname($dest_file), true);
 
             if (($fp = @fopen($dest_file, 'wb')) === false) {
                 throw new Exception('Unable to create cache file');
@@ -423,7 +427,7 @@ class template
             $fc = $this->compileFile($tpl_file);
             fwrite($fp, $fc);
             fclose($fp);
-            files::inheritChmod($dest_file);
+            Files::inheritChmod($dest_file);
         }
 
         return $dest_file;

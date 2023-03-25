@@ -6,6 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 class dcPage
 {
     /**
@@ -691,7 +695,7 @@ class dcPage
         $global_vars = implode(', ', array_keys($GLOBALS));
 
         $res = '<div id="debug"><div>' .
-        '<p>memory usage: ' . memory_get_usage() . ' (' . files::size(memory_get_usage()) . ')</p>';
+        '<p>memory usage: ' . memory_get_usage() . ' (' . Files::size(memory_get_usage()) . ')</p>';
 
         if (self::isXdebugStackAvailable()) {
             $res .= '<p>Elapsed time: ' . xdebug_time_index() . ' seconds</p>';
@@ -1109,7 +1113,7 @@ class dcPage
     public static function jsUpload(array $params = [], ?string $base_url = null): string
     {
         if (!$base_url) {
-            $base_url = path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/';
+            $base_url = Path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/';
         }
 
         $params = array_merge($params, [

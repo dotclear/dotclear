@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\File\Zip;
 
+use Dotclear\Helper\File\Files;
 use Exception;
-use files;
 
 class Zip
 {
@@ -754,12 +754,12 @@ class Zip
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim((string) $mem_limit) === '-1' || !files::str2bytes($mem_limit)) {
+        if ($mem_limit && trim((string) $mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
         if ($mem_used && $mem_limit) {
-            $mem_limit  = files::str2bytes($mem_limit);
+            $mem_limit  = Files::str2bytes($mem_limit);
             $mem_avail  = $mem_limit - $mem_used - (512 * 1024);
             $mem_needed = $size;
 

@@ -210,7 +210,7 @@ class FrontendTemplate
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, 'files::size($attach_f->size)') . '; ?>';
+        return '<?php echo ' . sprintf($f, '\\Dotclear\\Helper\\File\\Files::size($attach_f->size)') . '; ?>';
     }
 
     /**

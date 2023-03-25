@@ -61,8 +61,6 @@ class Clearbricks
         $this->add([
             // Common helpers
             'dt'               => $old_helper_root . '/common/lib.date.php',
-            'files'            => $old_helper_root . '/common/lib.files.php',
-            'path'             => $old_helper_root . '/common/lib.files.php',
             'form'             => $old_helper_root . '/common/lib.form.php',
             'formSelectOption' => $old_helper_root . '/common/lib.form.php',
             'html'             => $old_helper_root . '/common/lib.html.php',

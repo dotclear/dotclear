@@ -13,6 +13,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Text;
 
@@ -2298,7 +2299,7 @@ final class dcCore
     public function emptyTemplatesCache(): void
     {
         if (is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER)) {
-            files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER);
+            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER);
         }
     }
 

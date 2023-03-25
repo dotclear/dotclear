@@ -12,6 +12,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 class adminModulesList
 {
     /**
@@ -1471,7 +1475,7 @@ class adminModulesList
             }
 
             if (!empty($_POST['upload_pkg'])) {
-                files::uploadStatus($_FILES['pkg_file']);
+                Files::uploadStatus($_FILES['pkg_file']);
 
                 $dest = $this->getPath() . '/' . $_FILES['pkg_file']['name'];
                 if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
@@ -1602,7 +1606,7 @@ class adminModulesList
         $module = $this->doSanitizeModule($id, $module);
         $class  = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
         $class  = empty($module['namespace']) || !class_exists($class) ? '' : $class;
-        $file   = path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+        $file   = Path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
 
         if (empty($class) && !file_exists($file)) {
             dcCore::app()->error->add(__('This plugin has no configuration file.'));
@@ -1740,7 +1744,7 @@ class adminModulesList
         // by file name
         } else {
             $root = dcCore::app()->plugins->moduleRoot($id);
-            $has  = !empty($root) && file_exists(path::real($root . DIRECTORY_SEPARATOR . $file));
+            $has  = !empty($root) && file_exists(Path::real($root . DIRECTORY_SEPARATOR . $file));
         }
 
         return $has;
@@ -1923,7 +1927,7 @@ class adminThemesList extends adminModulesList
             # Plugins actions
             if ($current) {
                 # _GET actions
-                if (file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . '/style.css')) {
+                if (file_exists(Path::real(dcCore::app()->blog->themes_path . '/' . $id) . '/style.css')) {
                     $theme_url = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
                     http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . $id) :
                     http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . $id);
@@ -1938,7 +1942,7 @@ class adminThemesList extends adminModulesList
                     $config = $class::init();
                 // by file name
                 } else {
-                    $config = file_exists(path::real(dcCore::app()->blog->themes_path . '/' . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+                    $config = file_exists(Path::real(dcCore::app()->blog->themes_path . '/' . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
                 }
 
                 if ($config) {
@@ -2339,7 +2343,7 @@ class adminThemesList extends adminModulesList
                 }
 
                 if (!empty($_POST['upload_pkg'])) {
-                    files::uploadStatus($_FILES['pkg_file']);
+                    Files::uploadStatus($_FILES['pkg_file']);
 
                     $dest = $this->getPath() . '/' . $_FILES['pkg_file']['name'];
                     if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {

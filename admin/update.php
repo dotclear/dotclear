@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminUpdate
@@ -88,7 +91,7 @@ class adminUpdate
         }
 
         $archives = [];
-        foreach (files::scanDir(DC_BACKUP_PATH) as $v) {
+        foreach (Files::scanDir(DC_BACKUP_PATH) as $v) {
             if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
                 $archives[] = $v;
             }

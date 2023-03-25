@@ -15,12 +15,12 @@ namespace Dotclear\Plugin\importExport;
 use Exception;
 use dcCore;
 use dcPage;
-use files;
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use fileUnzip;
 use form;
 use html;
 use http;
-use path;
 
 class ModuleImportFlat extends Module
 {
@@ -67,7 +67,7 @@ class ModuleImportFlat extends Module
 
         if ($single_upl !== null) {
             if ($single_upl) {
-                files::uploadStatus($_FILES['up_single_file']);
+                Files::uploadStatus($_FILES['up_single_file']);
                 $file = DC_TPL_CACHE . '/' . md5(uniqid());
                 if (!move_uploaded_file($_FILES['up_single_file']['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
@@ -122,7 +122,7 @@ class ModuleImportFlat extends Module
             }
 
             if ($full_upl) {
-                files::uploadStatus($_FILES['up_full_file']);
+                Files::uploadStatus($_FILES['up_full_file']);
                 $file = DC_TPL_CACHE . '/' . md5(uniqid());
                 if (!move_uploaded_file($_FILES['up_full_file']['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
@@ -199,7 +199,7 @@ class ModuleImportFlat extends Module
         '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), html::escapeHTML(dcCore::app()->blog->name)) . '</p>' .
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
-        ' (' . sprintf(__('maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
+        ' (' . sprintf(__('maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
             ' <input type="file" id="up_single_file" name="up_single_file" size="20" />' .
             '</p>';
 
@@ -226,7 +226,7 @@ class ModuleImportFlat extends Module
             '<p class="warning">' . __('This will reset all the content of your database, except users.') . '</p>' .
 
             '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
-            ' (' . sprintf(__('maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
+            ' (' . sprintf(__('maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
                 '<input type="file" id="up_full_file" name="up_full_file" size="20" />' .
                 '</p>';
 
@@ -337,7 +337,7 @@ class ModuleImportFlat extends Module
                 continue;
             }
 
-            $target = path::fullFromRoot($zip_file, dirname($file));
+            $target = Path::fullFromRoot($zip_file, dirname($file));
 
             # Check existing files with same name
             if (file_exists($target)) {

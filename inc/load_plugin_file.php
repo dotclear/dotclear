@@ -9,6 +9,8 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 
 // Prepare namespaced src
 // ----------------------
@@ -63,7 +65,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$requested_file = path::clean($_GET['pf']);
+$requested_file = Path::clean($_GET['pf']);
 
 $paths = array_reverse(explode(PATH_SEPARATOR, DC_PLUGINS_ROOT));
 
@@ -73,7 +75,7 @@ $paths[] = __DIR__ . '/css';
 $paths[] = __DIR__ . '/smilies';
 
 foreach ($paths as $m) {
-    $plugin_file = path::real($m . '/' . $requested_file);
+    $plugin_file = Path::real($m . '/' . $requested_file);
 
     if ($plugin_file !== false) {
         break;
@@ -88,7 +90,7 @@ if ($plugin_file === false || !is_file($plugin_file) || !is_readable($plugin_fil
     exit;
 }
 
-$extension = files::getExtension($plugin_file);
+$extension = Files::getExtension($plugin_file);
 if (!in_array(
     $extension,
     [
@@ -130,7 +132,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
         ]
     )) {
         $base_file = substr($plugin_file, 0, strlen($plugin_file) - strlen($extension) - 1);
-        if (files::getExtension($base_file) !== 'min') {
+        if (Files::getExtension($base_file) !== 'min') {
             $minified_file = $base_file . '.min.' . $extension;
             if (is_file($minified_file) && is_readable($minified_file)) {
                 $plugin_file = $minified_file;
@@ -142,7 +144,7 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=…
 http::cache([...[$plugin_file], ...get_included_files()]);
 
-header('Content-Type: ' . files::getMimeType($plugin_file));
+header('Content-Type: ' . Files::getMimeType($plugin_file));
 readfile($plugin_file);
 unset($plugin_file);
 exit;

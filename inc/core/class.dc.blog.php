@@ -11,6 +11,7 @@
  * Dotclear blog class instance is provided by dcCore $blog property.
  */
 
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Text;
 
 class dcBlog
@@ -208,8 +209,8 @@ class dcBlog
 
             $this->settings = new dcSettings($this->id);
 
-            $this->themes_path = path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
-            $this->public_path = path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
+            $this->themes_path = Path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
+            $this->public_path = Path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
 
             $this->post_status[(string) self::POST_PENDING]     = __('Pending');
             $this->post_status[(string) self::POST_SCHEDULED]   = __('Scheduled');

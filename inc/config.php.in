@@ -50,10 +50,10 @@ define('DC_SESSION_NAME', 'dcxd');
 define('DC_PLUGINS_ROOT', __DIR__ . '/../plugins');
 
 // Template cache directory
-define('DC_TPL_CACHE', path::real(__DIR__ . '/..') . '/cache');
+define('DC_TPL_CACHE', Path::real(__DIR__ . '/..') . '/cache');
 
 // Var directory
-define('DC_VAR', path::real(__DIR__ . '/..') . '/var');
+define('DC_VAR', Path::real(__DIR__ . '/..') . '/var');
 
 // Cryptographic algorithm
 define('DC_CRYPT_ALGO', 'sha512');

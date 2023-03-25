@@ -6,6 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminMediaItem
@@ -133,7 +137,7 @@ class adminMediaItem
             // Upload a new file
 
             try {
-                files::uploadStatus($_FILES['upfile']);
+                Files::uploadStatus($_FILES['upfile']);
                 dcCore::app()->media->uploadFile($_FILES['upfile']['tmp_name'], dcCore::app()->admin->file->basename, true, null, false);
 
                 dcPage::addSuccessNotice(__('File has been successfully updated.'));
@@ -458,7 +462,7 @@ class adminMediaItem
 
             // Let user choose thumbnail size if image
             $media_title = dcCore::app()->admin->file->media_title;
-            if ($media_title == dcCore::app()->admin->file->basename || files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
+            if ($media_title == dcCore::app()->admin->file->basename || Files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
                 $media_title = '';
             }
 
@@ -478,7 +482,7 @@ class adminMediaItem
                     dcCore::app()->blog->settings->system->media_img_use_dto_first,
                     dcCore::app()->blog->settings->system->media_img_no_date_alone
                 );
-                if ($media_title == dcCore::app()->admin->file->basename || files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
+                if ($media_title == dcCore::app()->admin->file->basename || Files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
                     $media_title = '';
                 }
 
@@ -526,7 +530,7 @@ class adminMediaItem
             // Insertion popup
 
             $media_title = dcCore::app()->admin->file->media_title;
-            if ($media_title == dcCore::app()->admin->file->basename || files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
+            if ($media_title == dcCore::app()->admin->file->basename || Files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
                 $media_title = '';
             }
 
@@ -546,7 +550,7 @@ class adminMediaItem
                     dcCore::app()->blog->settings->system->media_img_use_dto_first,
                     dcCore::app()->blog->settings->system->media_img_no_date_alone
                 );
-                if ($media_title == dcCore::app()->admin->file->basename || files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
+                if ($media_title == dcCore::app()->admin->file->basename || Files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
                     $media_title = '';
                 }
 
@@ -806,7 +810,7 @@ class adminMediaItem
             '</p>';
 
             if ($thumb_size !== 'o' && isset(dcCore::app()->admin->file->media_thumb[$thumb_size])) {
-                $path_info = path::info(dcCore::app()->admin->file->file);   // @phpstan-ignore-line
+                $path_info = Path::info(dcCore::app()->admin->file->file);   // @phpstan-ignore-line
                 $alpha     = ($path_info['extension'] == 'png') || ($path_info['extension'] == 'PNG');
                 $alpha     = strtolower($path_info['extension']) === 'png';
                 $webp      = strtolower($path_info['extension']) === 'webp';
@@ -828,7 +832,7 @@ class adminMediaItem
                     '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . ' px</li>';
                 }
                 echo
-                '<li><strong>' . __('File size:') . '</strong> ' . files::size($stats[7]) . '</li>' .
+                '<li><strong>' . __('File size:') . '</strong> ' . Files::size($stats[7]) . '</li>' .
                 '<li><strong>' . __('File URL:') . '</strong> <a href="' . dcCore::app()->admin->file->media_thumb[$thumb_size] . '">' .
                 dcCore::app()->admin->file->media_thumb[$thumb_size] . '</a></li>' .
                 '</ul>';
@@ -857,7 +861,7 @@ class adminMediaItem
             }
         }
         echo
-        '<li><strong>' . __('File size:') . '</strong> ' . files::size(dcCore::app()->admin->file->size) . '</li>' .
+        '<li><strong>' . __('File size:') . '</strong> ' . Files::size(dcCore::app()->admin->file->size) . '</li>' .
         '<li><strong>' . __('File URL:') . '</strong> <a href="' . dcCore::app()->admin->file->file_url . '">' . dcCore::app()->admin->file->file_url . '</a></li>' .
         '</ul>';
 
@@ -882,7 +886,7 @@ class adminMediaItem
                 if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->public_url)) {
                     $media_root = dcCore::app()->blog->settings->system->public_url;
                 } else {
-                    $media_root = dcCore::app()->blog->host . path::clean(dcCore::app()->blog->settings->system->public_url) . '/';
+                    $media_root = dcCore::app()->blog->host . Path::clean(dcCore::app()->blog->settings->system->public_url) . '/';
                 }
                 foreach (dcCore::app()->admin->file->media_thumb as $v) {
                     $v = preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v);
@@ -1041,7 +1045,7 @@ class adminMediaItem
             '<h4>' . __('Change file') . '</h4>' .
             '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) DC_MAX_UPLOAD_SIZE) . '</div>' .
             '<p><label for="upfile">' . __('Choose a file:') .
-            ' (' . sprintf(__('Maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ') ' .
+            ' (' . sprintf(__('Maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ') ' .
             '<input type="file" id="upfile" name="upfile" size="35" />' .
             '</label></p>' .
             '<p><input type="submit" value="' . __('Send') . '" />' .

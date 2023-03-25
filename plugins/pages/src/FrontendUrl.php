@@ -17,11 +17,11 @@ use dcBlog;
 use dcCore;
 use dcPublic;
 use dcUrlHandlers;
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Text;
 use Exception;
 use html;
 use http;
-use path;
 
 class FrontendUrl extends dcUrlHandlers
 {
@@ -186,7 +186,7 @@ class FrontendUrl extends dcUrlHandlers
                 }
 
                 $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
-                $default_template = path::real(dcCore::app()->plugins->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . dcPublic::TPL_ROOT . DIRECTORY_SEPARATOR;
+                $default_template = Path::real(dcCore::app()->plugins->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . dcPublic::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), $default_template . $tplset);
                 } else {

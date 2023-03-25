@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -65,7 +67,7 @@ class adminMedia
 
         # New directory
         if (dcCore::app()->admin->page->getDirs() && !empty($_POST['newdir'])) {
-            $nd = files::tidyFileName($_POST['newdir']);
+            $nd = Files::tidyFileName($_POST['newdir']);
             if (array_filter(dcCore::app()->admin->page->getDirs('files'), fn ($i) => ($i->basename === $nd))
         || array_filter(dcCore::app()->admin->page->getDirs('dirs'), fn ($i) => ($i->basename === $nd))
             ) {
@@ -104,7 +106,7 @@ class adminMedia
                 $message = [];
 
                 try {
-                    files::uploadStatus($upfile);
+                    Files::uploadStatus($upfile);
                     $new_file_id = dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $upfile['title']);
 
                     $message['files'][] = [
@@ -124,7 +126,7 @@ class adminMedia
             }
 
             try {
-                files::uploadStatus($upfile);
+                Files::uploadStatus($upfile);
 
                 $f_title   = (isset($_POST['upfiletitle']) ? html::escapeHTML($_POST['upfiletitle']) : '');
                 $f_private = ($_POST['upfilepriv'] ?? false);
@@ -166,7 +168,7 @@ class adminMedia
             $forget          = false;
 
             try {
-                if (is_dir(path::real(dcCore::app()->media->getPwd() . '/' . path::clean($_POST['remove'])))) {
+                if (is_dir(Path::real(dcCore::app()->media->getPwd() . '/' . Path::clean($_POST['remove'])))) {
                     $msg = __('Directory has been successfully removed.');
                     # Remove dir from recents/favs if necessary
                     $forget = true;
@@ -175,8 +177,8 @@ class adminMedia
                 }
                 dcCore::app()->media->removeItem($_POST['remove']);
                 if ($forget) {
-                    dcCore::app()->admin->page->updateLast(dcCore::app()->admin->page->d . '/' . path::clean($_POST['remove']), true);
-                    dcCore::app()->admin->page->updateFav(dcCore::app()->admin->page->d . '/' . path::clean($_POST['remove']), true);
+                    dcCore::app()->admin->page->updateLast(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
+                    dcCore::app()->admin->page->updateFav(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
                 dcPage::addSuccessNotice($msg);
                 dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
@@ -499,7 +501,7 @@ class adminMedia
             '<button class="button choose_files">' . __('Choose files') . '</button>' .
             '<input type="file" id="upfile" name="upfile[]"' . (dcCore::app()->admin->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" /></p>' .
 
-            '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . files::size(DC_MAX_UPLOAD_SIZE) . '</p>' .
+            '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(DC_MAX_UPLOAD_SIZE) . '</p>' .
 
             '<p class="one-file"><label for="upfiletitle">' . __('Title:') . '</label>' . form::field('upfiletitle', 35, 255) . '</p>' .
             '<p class="one-file"><label for="upfilepriv" class="classic">' . __('Private') . '</label> ' .

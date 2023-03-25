@@ -15,8 +15,8 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use dcThemeConfig;
+use Dotclear\Helper\File\Files;
 use Exception;
-use files;
 use form;
 use html;
 use http;
@@ -196,7 +196,7 @@ class Config extends dcNsProcess
                     }
 
                     if (!empty($_FILES['upfile']) && !empty($_FILES['upfile']['name'])) {
-                        files::uploadStatus($_FILES['upfile']);
+                        Files::uploadStatus($_FILES['upfile']);
                         $uploaded                = Blowup::uploadImage($_FILES['upfile']);
                         $blowup_user['uploaded'] = basename($uploaded);
                     }
@@ -329,7 +329,7 @@ class Config extends dcNsProcess
             '<p>' . __('Choose "Custom..." to upload your own image.') . '</p>' .
 
             '<p id="uploader"><label for="upfile">' . __('Add your image:') . '</label> ' .
-            ' (' . sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), files::size(DC_MAX_UPLOAD_SIZE)) . ')' .
+            ' (' . sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), Files::size(DC_MAX_UPLOAD_SIZE)) . ')' .
             '<input type="file" name="upfile" id="upfile" size="35" />' .
             '</p>' .
 

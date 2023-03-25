@@ -11,6 +11,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
 
@@ -152,7 +154,7 @@ class dcMedia extends filemanager
         if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->public_url)) {
             $root_url = rawurldecode(dcCore::app()->blog->settings->system->public_url);
         } else {
-            $root_url = rawurldecode(dcCore::app()->blog->host . path::clean(dcCore::app()->blog->settings->system->public_url));
+            $root_url = rawurldecode(dcCore::app()->blog->host . Path::clean(dcCore::app()->blog->settings->system->public_url));
         }
 
         if (!is_dir($root)) {
@@ -416,7 +418,7 @@ class dcMedia extends filemanager
 
             # Thumbnails
             $fi->media_thumb = [];
-            $p               = path::info($fi->relname);
+            $p               = Path::info($fi->relname);
 
             $alpha = strtolower($p['extension']) === 'png';
             $webp  = strtolower($p['extension']) === 'webp';
@@ -667,7 +669,7 @@ class dcMedia extends filemanager
                     ->and('media_file = ' . $sql->quote($rs->media_file));
 
                 $sql->delete();
-                $this->callFileHandler(files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
+                $this->callFileHandler(Files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
             }
         }
 
@@ -908,7 +910,7 @@ class dcMedia extends filemanager
         foreach ($dir['files'] as $f) {
             try {
                 $this->chdir(dirname($f->relname));
-                $this->callFileHandler(files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
+                $this->callFileHandler(Files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
             } catch (Exception $e) {
                 // Ignore errors on trying to rebuild thumbnails
             }
@@ -962,7 +964,7 @@ class dcMedia extends filemanager
      */
     public function makeDir(?string $directory): void
     {
-        $directory = files::tidyFileName($directory);
+        $directory = Files::tidyFileName($directory);
         parent::makeDir($directory);
 
         # --BEHAVIOR-- coreAfterMediaDirCreate
@@ -1012,8 +1014,8 @@ class dcMedia extends filemanager
             return false;
         }
 
-        $media_file = $this->relpwd ? path::clean($this->relpwd . '/' . $name) : path::clean($name);
-        $media_type = files::getMimeType($name);
+        $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $name) : Path::clean($name);
+        $media_type = Files::getMimeType($name);
 
         $cur = $this->con->openCursor($this->table);
 
@@ -1117,7 +1119,7 @@ class dcMedia extends filemanager
         $cur = $this->con->openCursor($this->table);
 
         # We need to tidy newFile basename. If dir isn't empty, concat to basename
-        $newFile->relname = files::tidyFileName($newFile->basename);
+        $newFile->relname = Files::tidyFileName($newFile->basename);
         if ($newFile->dir) {
             $newFile->relname = $newFile->dir . '/' . $newFile->relname;
         }
@@ -1178,7 +1180,7 @@ class dcMedia extends filemanager
             throw new Exception(__('Permission denied.'));
         }
 
-        $name = files::tidyFileName($name);
+        $name = Files::tidyFileName($name);
 
         parent::uploadFile($tmp, $name, $overwrite);
 
@@ -1204,7 +1206,7 @@ class dcMedia extends filemanager
             throw new Exception(__('Permission denied.'));
         }
 
-        $name = files::tidyFileName($name);
+        $name = Files::tidyFileName($name);
 
         parent::uploadBits($name, $bits);
 
@@ -1229,7 +1231,7 @@ class dcMedia extends filemanager
             throw new Exception(__('Permission denied.'));
         }
 
-        $media_file = $this->relpwd ? path::clean($this->relpwd . '/' . $name) : path::clean($name);
+        $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $name) : Path::clean($name);
 
         $sql = new dcDeleteStatement();
         $sql
@@ -1251,7 +1253,7 @@ class dcMedia extends filemanager
 
         parent::removeFile($name);
 
-        $this->callFileHandler(files::getMimeType($media_file), 'remove', $name);
+        $this->callFileHandler(Files::getMimeType($media_file), 'remove', $name);
     }
 
     /**
@@ -1364,7 +1366,7 @@ class dcMedia extends filemanager
      */
     public function mediaFireRecreateEvent(fileItem $f): void
     {
-        $media_type = files::getMimeType($f->basename);
+        $media_type = Files::getMimeType($f->basename);
         $this->callFileHandler($media_type, 'recreate', null, $f->basename); // Args list to be completed as necessary (Franck)
     }
 
@@ -1387,7 +1389,7 @@ class dcMedia extends filemanager
             return false;
         }
 
-        $p     = path::info($file);
+        $p     = Path::info($file);
         $alpha = strtolower($p['extension']) === 'png';
         $webp  = strtolower($p['extension']) === 'webp';
         $thumb = sprintf(
@@ -1441,7 +1443,7 @@ class dcMedia extends filemanager
     protected function imageThumbUpdate(fileItem $file, fileItem $newFile): bool
     {
         if ($file->relname !== $newFile->relname) {
-            $p         = path::info($file->relname);
+            $p         = Path::info($file->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
             $thumb_old = sprintf(
@@ -1453,7 +1455,7 @@ class dcMedia extends filemanager
                 '%s'
             );
 
-            $p         = path::info($newFile->relname);
+            $p         = Path::info($newFile->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
             $thumb_new = sprintf(
@@ -1487,7 +1489,7 @@ class dcMedia extends filemanager
      */
     public function imageThumbRemove(string $f): bool
     {
-        $p     = path::info($f);
+        $p     = Path::info($f);
         $alpha = strtolower($p['extension']) === 'png';
         $webp  = strtolower($p['extension']) === 'webp';
         $thumb = sprintf(

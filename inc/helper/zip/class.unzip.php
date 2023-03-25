@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+
 class fileUnzip
 {
     protected $file_name;
@@ -224,7 +227,7 @@ class fileUnzip
             if ($r === false) {
                 throw new Exception(__('Unable to write destination file.'));
             }
-            files::inheritChmod($target);
+            Files::inheritChmod($target);
 
             return true;
         }
@@ -239,7 +242,7 @@ class fileUnzip
         }
 
         if (!is_dir($dir)) {
-            files::makeDir($dir, true);
+            Files::makeDir($dir, true);
         }
     }
 
@@ -516,12 +519,12 @@ class fileUnzip
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim((string) $mem_limit) === '-1' || !files::str2bytes($mem_limit)) {
+        if ($mem_limit && trim((string) $mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
         if ($mem_used && $mem_limit) {
-            $mem_limit  = files::str2bytes($mem_limit);
+            $mem_limit  = Files::str2bytes($mem_limit);
             $mem_avail  = $mem_limit - $mem_used - (512 * 1024);
             $mem_needed = $size;
 

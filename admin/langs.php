@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminLangs
@@ -76,7 +79,7 @@ class adminLangs
             $res         = self::LANG_INSTALLED;
 
             if (is_dir($destination)) {
-                if (!files::deltree($destination)) {
+                if (!Files::deltree($destination)) {
                     throw new Exception(__('An error occurred during language upgrade.'));
                 }
                 $res = self::LANG_UPDATED;
@@ -99,7 +102,7 @@ class adminLangs
                     throw new Exception(__("You can't remove English language."));
                 }
 
-                if (!files::deltree(DC_L10N_ROOT . '/' . $locale_id)) {
+                if (!Files::deltree(DC_L10N_ROOT . '/' . $locale_id)) {
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
@@ -158,7 +161,7 @@ class adminLangs
                     throw new Exception(__('Password verification failed'));
                 }
 
-                files::uploadStatus($_FILES['pkg_file']);
+                Files::uploadStatus($_FILES['pkg_file']);
                 $dest = DC_L10N_ROOT . '/' . $_FILES['pkg_file']['name'];
                 if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
                     throw new Exception(__('Unable to move uploaded file.'));

@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
@@ -102,10 +104,10 @@ class adminBlogTheme
     {
         if (!empty($_GET['shot'])) {
             // Get a theme screenshot
-            $filename = path::real(
+            $filename = Path::real(
                 empty($_GET['src']) ?
                 dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
-                dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/' . path::clean($_GET['src'])
+                dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
             if (!file_exists($filename)) {
@@ -114,7 +116,7 @@ class adminBlogTheme
 
             http::cache([...[$filename], ...get_included_files()]);
 
-            header('Content-Type: ' . files::getMimeType($filename));
+            header('Content-Type: ' . Files::getMimeType($filename));
             header('Content-Length: ' . filesize($filename));
             readfile($filename);
 

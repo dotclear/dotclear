@@ -15,10 +15,10 @@ use Exception;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\File\Path;
 use form;
 use html;
 use l10n;
-use path;
 
 class Config extends dcNsProcess
 {
@@ -26,7 +26,7 @@ class Config extends dcNsProcess
     {
         if (defined('DC_CONTEXT_ADMIN')) {
             l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
-            dcCore::app()->admin->css_file = path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
+            dcCore::app()->admin->css_file = Path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
 
             if (!is_file(dcCore::app()->admin->css_file) && !is_writable(dirname(dcCore::app()->admin->css_file))) {
                 throw new Exception(

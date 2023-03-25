@@ -16,7 +16,6 @@ namespace tests\unit;
 require_once __DIR__ . '/../../../bootstrap.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.http.php';
-require_once CLEARBRICKS_PATH . '/common/lib.files.php';
 
 if (!defined('TEST_DIRECTORY')) {
     define('TEST_DIRECTORY', realpath(
@@ -249,7 +248,7 @@ class http extends atoum
             ->variable(\http::cache([]))
             ->isNull();
 
-        \files::getDirList(TEST_DIRECTORY, $arr);
+        \Dotclear\Helper\File\Files::getDirList(TEST_DIRECTORY, $arr);
         $fl = [];
         foreach ($arr['files'] as $file) {
             if ($file != '.' && $file != '..') {

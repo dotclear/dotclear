@@ -16,8 +16,8 @@ use Exception;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use Dotclear\Helper\File\Files;
 use initBlogroll;
-use files;
 use form;
 use html;
 use http;
@@ -68,7 +68,7 @@ class Manage extends dcNsProcess
             dcCore::app()->admin->default_tab = 'import-links';
 
             try {
-                files::uploadStatus($_FILES['links_file']);
+                Files::uploadStatus($_FILES['links_file']);
                 $ifile = DC_TPL_CACHE . '/' . md5(uniqid());
                 if (!move_uploaded_file($_FILES['links_file']['tmp_name'], $ifile)) {
                     throw new Exception(__('Unable to move uploaded file.'));

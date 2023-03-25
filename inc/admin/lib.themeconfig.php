@@ -10,6 +10,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 class dcThemeConfig
 {
     /**
@@ -225,7 +229,7 @@ class dcThemeConfig
      */
     public static function cssPath(string $folder): string
     {
-        return path::real(dcCore::app()->blog->public_path) . '/' . $folder;
+        return Path::real(dcCore::app()->blog->public_path) . '/' . $folder;
     }
 
     /**
@@ -250,7 +254,7 @@ class dcThemeConfig
      */
     public static function canWriteCss(string $folder, bool $create = false): bool
     {
-        $public = path::real(dcCore::app()->blog->public_path);
+        $public = Path::real(dcCore::app()->blog->public_path);
         $css    = self::cssPath($folder);
 
         if (!is_dir($public)) {
@@ -266,7 +270,7 @@ class dcThemeConfig
                 return false;
             }
             if ($create) {
-                files::makeDir($css);
+                Files::makeDir($css);
             }
 
             return true;
@@ -333,7 +337,7 @@ class dcThemeConfig
      */
     public static function dropCss(string $folder, string $theme)
     {
-        $file = path::real(self::cssPath($folder) . '/' . $theme . '.css');
+        $file = Path::real(self::cssPath($folder) . '/' . $theme . '.css');
         if (is_writable(dirname($file))) {
             @unlink($file);
         }
@@ -366,7 +370,7 @@ class dcThemeConfig
      */
     public static function imagesPath(string $folder)
     {
-        return path::real(dcCore::app()->blog->public_path) . '/' . $folder;
+        return Path::real(dcCore::app()->blog->public_path) . '/' . $folder;
     }
 
     /**
@@ -391,7 +395,7 @@ class dcThemeConfig
      */
     public static function canWriteImages(string $folder, bool $create = false): bool
     {
-        $public = path::real(dcCore::app()->blog->public_path);
+        $public = Path::real(dcCore::app()->blog->public_path);
         $imgs   = self::imagesPath($folder);
 
         if (!function_exists('imagecreatetruecolor') || !function_exists('imagepng') || !function_exists('imagecreatefrompng')) {
@@ -414,7 +418,7 @@ class dcThemeConfig
                 return false;
             }
             if ($create) {
-                files::makeDir($imgs);
+                Files::makeDir($imgs);
             }
 
             return true;
@@ -445,7 +449,7 @@ class dcThemeConfig
         }
 
         $name = $file['name'];
-        $type = files::getMimeType($name);
+        $type = Files::getMimeType($name);
 
         if ($type != 'image/jpeg' && $type != 'image/png') {
             throw new Exception(__('Invalid file type.'));
@@ -475,7 +479,7 @@ class dcThemeConfig
      */
     public static function dropImage(string $folder, string $img)
     {
-        $img = path::real(self::imagesPath($folder) . '/' . $img);
+        $img = Path::real(self::imagesPath($folder) . '/' . $img);
         if (is_writable(dirname($img))) {
             // Delete thumbnails if any
             try {

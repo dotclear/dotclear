@@ -9,6 +9,8 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Text;
 
 if (isset($_SERVER['DC_RC_PATH'])) {
@@ -46,7 +48,7 @@ if (is_file(DC_RC_PATH)) {
 }
 
 if (!is_writable(dirname(DC_RC_PATH))) {
-    $err = '<p>' . sprintf(__('Path <strong>%s</strong> is not writable.'), path::real(dirname(DC_RC_PATH))) . '</p>' .
+    $err = '<p>' . sprintf(__('Path <strong>%s</strong> is not writable.'), Path::real(dirname(DC_RC_PATH))) . '</p>' .
     '<p>' . __('Dotclear installation wizard could not create configuration file for you. ' .
         'You must change folder right or create the <strong>config.php</strong> ' .
         'file manually, please refer to ' .
@@ -66,11 +68,11 @@ if (!empty($_POST)) {
     try {
         if ($DBDRIVER == 'sqlite' && strpos($DBNAME, '/') === false) {
             $sqlite_db_directory = dirname(DC_RC_PATH) . '/../db/';
-            files::makeDir($sqlite_db_directory, true);
+            Files::makeDir($sqlite_db_directory, true);
 
             # Can we write sqlite_db_directory ?
             if (!is_writable($sqlite_db_directory)) {
-                throw new Exception(sprintf(__('Cannot write "%s" directory.'), path::real($sqlite_db_directory, false)));
+                throw new Exception(sprintf(__('Cannot write "%s" directory.'), Path::real($sqlite_db_directory, false)));
             }
             $DBNAME = $sqlite_db_directory . $DBNAME;
         }

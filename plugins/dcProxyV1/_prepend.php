@@ -80,4 +80,8 @@ dcProxyV1::classAliases([
 
     // Text helper
     'text' => 'Dotclear\Helper\Text',
+
+    // Files and Path helpers
+    'files' => 'Dotclear\Helper\File\Files',
+    'path'  => 'Dotclear\Helper\File\Path',
 ]);

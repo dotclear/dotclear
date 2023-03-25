@@ -11,6 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+
 class dcThemes extends dcModules
 {
     /**
@@ -107,17 +110,17 @@ class dcThemes extends dcModules
         if (!is_dir($new_dir)) {
             try {
                 // Create destination folder named $new_dir in themes folder
-                files::makeDir($new_dir, false);
+                Files::makeDir($new_dir, false);
 
                 // Clone directories and files
 
-                $content = files::getDirList($module->root);
+                $content = Files::getDirList($module->root);
 
                 // Create sub directories if necessary
                 foreach ($content['dirs'] as $dir) {
                     $rel = substr($dir, strlen($module->root));
                     if ($rel !== '') {
-                        files::makeDir($new_dir . $rel);
+                        Files::makeDir($new_dir . $rel);
                     }
                 }
 
@@ -166,7 +169,7 @@ class dcThemes extends dcModules
                     }
                 }
             } catch (Exception $e) {
-                files::deltree($new_dir);
+                Files::deltree($new_dir);
 
                 throw new Exception($e->getMessage());
             }

@@ -15,10 +15,10 @@ namespace Dotclear\Plugin\themeEditor;
 use Exception;
 use dcCore;
 use dcPublic;
-use files;
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use html;
 use l10n;
-use path;
 
 class ThemeEditor
 {
@@ -104,13 +104,13 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->user_theme   = path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
+        $this->user_theme   = Path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/' . dcPublic::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
         if (null !== dcCore::app()->themes) {
             $parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'parent');
             if ($parent_theme) {
-                $this->parent_theme = path::real(dcCore::app()->blog->themes_path . '/' . $parent_theme);
+                $this->parent_theme = Path::real(dcCore::app()->blog->themes_path . '/' . $parent_theme);
                 $this->parent_name  = $parent_theme;
             }
             $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
@@ -243,11 +243,11 @@ class ThemeEditor
             }
 
             if ($type == 'tpl' && !is_dir(dirname($dest))) {
-                files::makeDir(dirname($dest));
+                Files::makeDir(dirname($dest));
             }
 
             if ($type == 'po' && !is_dir(dirname($dest))) {
-                files::makeDir(dirname($dest));
+                Files::makeDir(dirname($dest));
             }
 
             $fp = @fopen($dest, 'wb');
@@ -528,7 +528,7 @@ class ThemeEditor
             return 0;
         }
 
-        return strcmp(files::getExtension($a) . '.' . $a, files::getExtension($b) . '.' . $b);
+        return strcmp(Files::getExtension($a) . '.' . $a, Files::getExtension($b) . '.' . $b);
     }
 
     /**
@@ -543,7 +543,7 @@ class ThemeEditor
      */
     protected function getFilesInDir(string $dir, ?string $ext = null, string $prefix = '', ?string $model = null): array
     {
-        $dir = path::real($dir);
+        $dir = Path::real($dir);
         if (!$dir || !is_dir($dir) || !is_readable($dir)) {
             return [];
         }

@@ -6,6 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 // From: https://github.com/nico3333fr/CSP-useful
@@ -22,7 +26,7 @@ class adminCSPReport
     {
         // Specify admin CSP log file if necessary
         if (!defined('DC_CSP_LOGFILE')) {
-            define('DC_CSP_LOGFILE', path::real(DC_VAR) . '/csp/csp_report.json');
+            define('DC_CSP_LOGFILE', Path::real(DC_VAR) . '/csp/csp_report.json');
         }
 
         // Dareboost wants it? Not a problem.
@@ -40,7 +44,6 @@ class adminCSPReport
         // Only continue if it’s valid JSON that is not just `null`, `0`, `false` or an
         // empty string, i.e. if it could be a CSP violation report.
         if ($data = json_decode($data, true, 512, JSON_THROW_ON_ERROR)) {
-
             // get source-file and blocked-URI to perform some tests
             $source_file        = $data['csp-report']['source-file']        ?? '';
             $line_number        = $data['csp-report']['line-number']        ?? '';
@@ -72,7 +75,7 @@ class adminCSPReport
 
                 try {
                     // Check report dir (create it if necessary)
-                    files::makeDir(dirname(DC_CSP_LOGFILE), true);
+                    Files::makeDir(dirname(DC_CSP_LOGFILE), true);
 
                     // Check if report is not already stored in log file
                     $contents = '';

@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\File\Files;
+
 class dcUpdate
 {
     // Constants
@@ -141,7 +144,7 @@ class dcUpdate
 
         if (!is_dir($cache_dir)) {
             try {
-                files::makeDir($cache_dir);
+                Files::makeDir($cache_dir);
             } catch (Exception $e) {
                 return;
             }
