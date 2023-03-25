@@ -13,7 +13,9 @@ class dcProxyV1
     public static function classAliases(array $aliases)
     {
         foreach ($aliases as $aliasName => $realName) {
-            class_alias($realName, $aliasName);
+            if (!class_exists($aliasName)) {
+                class_alias($realName, $aliasName);
+            }
         }
     }
 }

@@ -39,6 +39,11 @@ if (!is_file(DC_RC_PATH)) {
     trigger_error('Unable to open config file', E_USER_ERROR);
 }
 
+// path::real() may be used in inc/config.php
+if (!class_exists('path')) {
+    class_alias('Dotclear\Helper\File\Path', 'path');
+}
+
 require DC_RC_PATH;
 
 if (empty($_GET['pf'])) {

@@ -176,6 +176,11 @@ if (isset($_SERVER['DC_RC_PATH'])) {
     }
 })();
 
+// path::real() may be used in inc/config.php
+if (!class_exists('path')) {
+    class_alias('Dotclear\Helper\File\Path', 'path');
+}
+
 require DC_RC_PATH;
 
 //*== DC_DEBUG ==
