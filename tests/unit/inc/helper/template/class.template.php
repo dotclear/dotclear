@@ -37,7 +37,6 @@ require_once CLEARBRICKS_PATH . '/template/class.tplnodevalueparent.php';
 require_once CLEARBRICKS_PATH . '/template/class.tplnodetext.php';
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
-require_once CLEARBRICKS_PATH . '/common/lib.html.php';
 
 class template extends atoum
 {
