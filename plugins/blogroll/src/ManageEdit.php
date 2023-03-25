@@ -17,9 +17,9 @@ use dcAdminCombos;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use Dotclear\Helper\Html\Html;
 use initBlogroll;
 use form;
-use html;
 use http;
 
 class ManageEdit extends dcNsProcess
@@ -31,7 +31,7 @@ class ManageEdit extends dcNsProcess
                 initBlogroll::PERMISSION_BLOGROLL,
             ]));
 
-            dcCore::app()->admin->id = html::escapeHTML($_REQUEST['id']);
+            dcCore::app()->admin->id = Html::escapeHTML($_REQUEST['id']);
 
             dcCore::app()->admin->rs = null;
 
@@ -67,10 +67,10 @@ class ManageEdit extends dcNsProcess
         if (isset(dcCore::app()->admin->rs) && !dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
 
-            dcCore::app()->admin->link_title = html::escapeHTML($_POST['link_title']);
-            dcCore::app()->admin->link_href  = html::escapeHTML($_POST['link_href']);
-            dcCore::app()->admin->link_desc  = html::escapeHTML($_POST['link_desc']);
-            dcCore::app()->admin->link_lang  = html::escapeHTML($_POST['link_lang']);
+            dcCore::app()->admin->link_title = Html::escapeHTML($_POST['link_title']);
+            dcCore::app()->admin->link_href  = Html::escapeHTML($_POST['link_href']);
+            dcCore::app()->admin->link_desc  = Html::escapeHTML($_POST['link_desc']);
+            dcCore::app()->admin->link_lang  = Html::escapeHTML($_POST['link_lang']);
 
             dcCore::app()->admin->link_xfn = '';
 
@@ -109,7 +109,7 @@ class ManageEdit extends dcNsProcess
         if (isset(dcCore::app()->admin->rs) && dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_cat'])) {
             // Update a category
 
-            dcCore::app()->admin->link_desc = html::escapeHTML($_POST['link_desc']);
+            dcCore::app()->admin->link_desc = Html::escapeHTML($_POST['link_desc']);
 
             try {
                 dcCore::app()->admin->blogroll->updateCategory(dcCore::app()->admin->id, dcCore::app()->admin->link_desc);
@@ -134,7 +134,7 @@ class ManageEdit extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Blogroll')                              => dcCore::app()->admin->getPageURL(),
             ]
         ) .
@@ -149,7 +149,7 @@ class ManageEdit extends dcNsProcess
 
                 '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
                 form::field('link_desc', 30, 255, [
-                    'default'    => html::escapeHTML(dcCore::app()->admin->link_desc),
+                    'default'    => Html::escapeHTML(dcCore::app()->admin->link_desc),
                     'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
 
@@ -167,7 +167,7 @@ class ManageEdit extends dcNsProcess
 
                 '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
                 form::field('link_title', 30, 255, [
-                    'default'    => html::escapeHTML(dcCore::app()->admin->link_title),
+                    'default'    => Html::escapeHTML(dcCore::app()->admin->link_title),
                     'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>' .
@@ -175,7 +175,7 @@ class ManageEdit extends dcNsProcess
                 '<p><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
                 form::url('link_href', [
                     'size'       => 30,
-                    'default'    => html::escapeHTML(dcCore::app()->admin->link_href),
+                    'default'    => Html::escapeHTML(dcCore::app()->admin->link_href),
                     'extra_html' => 'required placeholder="' . __('URL') . '"',
                 ]) .
                 '</p>' .
@@ -186,7 +186,7 @@ class ManageEdit extends dcNsProcess
                     30,
                     255,
                     [
-                        'default'    => html::escapeHTML(dcCore::app()->admin->link_desc),
+                        'default'    => Html::escapeHTML(dcCore::app()->admin->link_desc),
                         'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                     ]
                 ) . '</p>' .

@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use form;
-use html;
 
 abstract class Module
 {
@@ -110,7 +110,7 @@ abstract class Module
      */
     final public function getURL(bool $escape = false): string
     {
-        return $escape ? html::escapeHTML($this->url) : $this->url;
+        return $escape ? Html::escapeHTML($this->url) : $this->url;
     }
 
     /**

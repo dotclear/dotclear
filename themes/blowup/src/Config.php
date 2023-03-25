@@ -16,9 +16,9 @@ use dcNsProcess;
 use dcPage;
 use dcThemeConfig;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use http;
 
 class Config extends dcNsProcess
@@ -441,7 +441,7 @@ class Config extends dcNsProcess
         '<h4 class="border-top">' . __('Additional CSS') . '</h4>' .
         '<p><label for="extra_css">' . __('Any additional CSS styles (must be written using the CSS syntax):') . '</label> ' .
         form::textarea('extra_css', 72, 5, [
-            'default'    => html::escapeHTML(dcCore::app()->admin->blowup_user['extra_css']),
+            'default'    => Html::escapeHTML(dcCore::app()->admin->blowup_user['extra_css']),
             'class'      => 'maximal',
             'extra_html' => 'title="' . __('Additional CSS') . '"',
         ]) .

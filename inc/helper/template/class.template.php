@@ -11,6 +11,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 
 class template
 {
@@ -565,7 +566,7 @@ class template
                         if ($search->getTag() == $tag) {
                             $errors[] = sprintf(
                                 __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
-                                html::escapeHTML($node->getTag())
+                                Html::escapeHTML($node->getTag())
                             );
                             $search->setClosing();
                             $node = $search->getParent();
@@ -614,7 +615,7 @@ class template
         if (($node instanceof tplNodeBlock) && !$node->isClosed()) {
             $errors[] = sprintf(
                 __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
-                html::escapeHTML($node->getTag())
+                Html::escapeHTML($node->getTag())
             );
         }
 

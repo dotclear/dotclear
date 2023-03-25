@@ -15,11 +15,11 @@ namespace Dotclear\Plugin\antispam\Filters;
 use dcCore;
 use dcPage;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use html;
 use http;
 
 class Words extends SpamFilter
@@ -173,7 +173,7 @@ class Words extends SpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        $res = '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        $res = '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label class="classic" for="swa">' . __('Add a word ') . '</label> ' . form::field('swa', 20, 128);
 
         if (dcCore::app()->auth->isSuperAdmin()) {
@@ -190,7 +190,7 @@ class Words extends SpamFilter
         if ($rs->isEmpty()) {
             $res .= '<p><strong>' . __('No word in list.') . '</strong></p>';
         } else {
-            $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+            $res .= '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
             '<h3>' . __('List of bad words') . '</h3>' .
                 '<div class="antispam">';
 
@@ -214,7 +214,7 @@ class Words extends SpamFilter
                         'disabled' => $disabled_word,
                     ]
                 ) . ' ' .
-                html::escapeHTML($rs->rule_content) .
+                Html::escapeHTML($rs->rule_content) .
                     '</label></p>';
 
                 if ($rs->blog_id) {
@@ -242,7 +242,7 @@ class Words extends SpamFilter
         }
 
         if (dcCore::app()->auth->isSuperAdmin()) {
-            $res .= '<form action="' . html::escapeURL($url) . '" method="post">' .
+            $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
             '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
             form::hidden(['spamwords'], 1) .
             form::hidden(['createlist'], 1) .

@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminSearch
@@ -27,8 +30,8 @@ class adminSearch
         ]));
 
         dcCore::app()->addBehaviors([
-            'adminSearchPageComboV2'   => [adminSearch::class,'typeCombo'],
-            'adminSearchPageHeadV2'    => [adminSearch::class,'pageHead'],
+            'adminSearchPageComboV2' => [adminSearch::class,'typeCombo'],
+            'adminSearchPageHeadV2'  => [adminSearch::class,'pageHead'],
             // posts search
             'adminSearchPageProcessV2' => [adminSearch::class,'processPosts'],
             'adminSearchPageDisplayV2' => [adminSearch::class,'displayPosts'],
@@ -84,7 +87,7 @@ class adminSearch
             $starting_scripts,
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Search')                                => '',
                 ]
             )
@@ -94,7 +97,7 @@ class adminSearch
         '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
         '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
         '<p><label for="q">' . __('Query:') . ' </label>' .
-        form::field('q', 30, 255, html::escapeHTML(dcCore::app()->admin->q)) . '</p>' .
+        form::field('q', 30, 255, Html::escapeHTML(dcCore::app()->admin->q)) . '</p>' .
         '<p><label for="qtype">' . __('In:') . '</label> ' .
         form::combo('qtype', dcCore::app()->admin->qtype_combo, dcCore::app()->admin->qtype) . '</p>' .
         '<p><input type="submit" value="' . __('Search') . '" />' .

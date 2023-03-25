@@ -13,6 +13,7 @@
  */
 
 use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Html;
 
 class dcAdminCombos
 {
@@ -34,7 +35,7 @@ class dcAdminCombos
         while ($categories->fetch()) {
             $option = new Option(
                 str_repeat('&nbsp;', ($categories->level - 1) * 4) .
-                html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')',
+                Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')',
                 ($use_url ? $categories->cat_url : $categories->cat_id)
             );
             if ($categories->level - 1) {

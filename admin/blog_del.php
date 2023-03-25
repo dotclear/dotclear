@@ -15,6 +15,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -62,7 +63,7 @@ class adminBlogDel
             } else {
                 try {
                     dcCore::app()->delBlog(dcCore::app()->admin->blog_id);
-                    dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), html::escapeHTML(dcCore::app()->admin->blog_name)));
+                    dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
 
                     dcCore::app()->adminurl->redirect('admin.blogs');
                 } catch (Exception $e) {

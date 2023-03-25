@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use dcCore;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use html;
 use http;
 
 class IpLookup extends SpamFilter
@@ -152,10 +152,10 @@ class IpLookup extends SpamFilter
         /* DISPLAY
         ---------------------------------------------- */
         return
-        '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
             '<h3>' . __('IP Lookup servers') . '</h3>' .
             '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
-                form::textarea('bls', 40, 3, html::escapeHTML($bls), 'maximal') .
+                form::textarea('bls', 40, 3, Html::escapeHTML($bls), 'maximal') .
             '</p>' .
             '<p><input type="submit" value="' . __('Save') . '" />' . dcCore::app()->formNonce() . '</p>' .
         '</form>';

@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
 
@@ -92,7 +93,7 @@ class dcRestMethods
                         $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
                         $ret .= '<dt>' . $dt . '</dt>' .
                         '<dd><p><strong>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
-                        '<em>' . Text::cutString(html::clean($item->content), 120) . '...</em></p></dd>';
+                        '<em>' . Text::cutString(Html::clean($item->content), 120) . '...</em></p></dd>';
                         $i++;
                         if ($i > 2) {
                             break;

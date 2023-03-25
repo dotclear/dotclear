@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 if (!empty($_GET['pf'])) {
     require __DIR__ . '/../inc/load_plugin_file.php';
     exit;
@@ -179,7 +182,7 @@ class adminIndex
             dcCore::app()->callBehavior('adminDashboardHeaders'),
             dcPage::breadcrumb(
                 [
-                    __('Dashboard') . ' : ' . html::escapeHTML(dcCore::app()->blog->name) => '',
+                    __('Dashboard') . ' : ' . Html::escapeHTML(dcCore::app()->blog->name) => '',
                 ],
                 ['home_link' => false]
             )

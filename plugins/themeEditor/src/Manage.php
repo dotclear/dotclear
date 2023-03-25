@@ -19,8 +19,8 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use dcThemes;
+use Dotclear\Helper\Html\Html;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -148,13 +148,13 @@ class Manage extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
                 __('Edit theme files')                      => '',
             ]
         ) .
         dcPage::notices() .
-        '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), html::escapeHTML(dcCore::app()->admin->theme['name'])) . '</strong></p>';
+        '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme['name'])) . '</strong></p>';
 
         if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule(dcCore::app()->blog->settings->system->theme)) {
             echo
@@ -170,7 +170,7 @@ class Manage extends dcNsProcess
                 '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
                 '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . dcCore::app()->admin->file['f']) . '</strong></label></p>' .
                 '<p>' . form::textarea('file_content', 72, 25, [
-                    'default'  => html::escapeHTML(dcCore::app()->admin->file['c']),
+                    'default'  => Html::escapeHTML(dcCore::app()->admin->file['c']),
                     'class'    => 'maximal',
                     'disabled' => !dcCore::app()->admin->file['w'],
                 ]) . '</p>';

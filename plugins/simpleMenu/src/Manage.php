@@ -18,9 +18,9 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -55,7 +55,7 @@ class Manage extends dcNsProcess
         dcCore::app()->admin->page_title = __('Simple menu');
 
         # Url du blog
-        dcCore::app()->admin->blog_url = html::stripHostURL(dcCore::app()->blog->url);
+        dcCore::app()->admin->blog_url = Html::stripHostURL(dcCore::app()->blog->url);
 
         # Liste des catégories
         $categories_label                      = [];
@@ -63,7 +63,7 @@ class Manage extends dcNsProcess
         dcCore::app()->admin->categories_combo = dcAdminCombos::getCategoriesCombo($rs, false, true);
         $rs->moveStart();
         while ($rs->fetch()) {
-            $categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
+            $categories_label[$rs->cat_url] = Html::escapeHTML($rs->cat_title);
         }
         dcCore::app()->admin->categories_label = $categories_label;
 
@@ -272,7 +272,7 @@ class Manage extends dcNsProcess
                                 dcCore::app()->admin->item_select_label = array_search(dcCore::app()->admin->item_select, dcCore::app()->admin->pages_combo);
                                 dcCore::app()->admin->item_label        = dcCore::app()->admin->item_select_label;
                                 dcCore::app()->admin->item_descr        = '';
-                                dcCore::app()->admin->item_url          = html::stripHostURL(dcCore::app()->admin->item_select);
+                                dcCore::app()->admin->item_url          = Html::stripHostURL(dcCore::app()->admin->item_select);
 
                                 break;
                             case 'tags':
@@ -505,7 +505,7 @@ class Manage extends dcNsProcess
             echo
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     dcCore::app()->admin->page_title            => dcCore::app()->admin->getPageURL(),
                     __('Add item')                              => '',
                     $step_label                                 => '',
@@ -519,7 +519,7 @@ class Manage extends dcNsProcess
             echo
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     dcCore::app()->admin->page_title            => '',
                 ]
             ) .
@@ -724,7 +724,7 @@ class Manage extends dcNsProcess
                         'max'        => is_countable(dcCore::app()->admin->menu) ? count(dcCore::app()->admin->menu) : 0,
                         'default'    => $count,
                         'class'      => 'position',
-                        'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($m['label'])) . '"',
+                        'extra_html' => 'title="' . sprintf(__('position of %s'), Html::escapeHTML($m['label'])) . '"',
                     ]) .
                     form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>' .
                     '<td class="minimal">' . form::checkbox(['items_selected[]', 'ims-' . $i], $i) . '</td>' .
@@ -733,7 +733,7 @@ class Manage extends dcNsProcess
                         null,
                         255,
                         [
-                            'default'    => html::escapeHTML($m['label']),
+                            'default'    => Html::escapeHTML($m['label']),
                             'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) . '</td>' .
@@ -742,17 +742,17 @@ class Manage extends dcNsProcess
                         30,
                         255,
                         [
-                            'default'    => html::escapeHTML($m['descr']),
+                            'default'    => Html::escapeHTML($m['descr']),
                             'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) . '</td>' .
-                    '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, html::escapeHTML($m['url'])) . '</td>' .
+                    '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, Html::escapeHTML($m['url'])) . '</td>' .
                     '<td class="nowrap">' . form::checkbox('items_targetBlank' . $i, 'blank', $targetBlank) . '</td>';
                 } else {
                     echo
-                    '<td class="nowrap" scope="row">' . html::escapeHTML($m['label']) . '</td>' .
-                    '<td class="nowrap">' . html::escapeHTML($m['descr']) . '</td>' .
-                    '<td class="nowrap">' . html::escapeHTML($m['url']) . '</td>' .
+                    '<td class="nowrap" scope="row">' . Html::escapeHTML($m['label']) . '</td>' .
+                    '<td class="nowrap">' . Html::escapeHTML($m['descr']) . '</td>' .
+                    '<td class="nowrap">' . Html::escapeHTML($m['url']) . '</td>' .
                     '<td class="nowrap">' . $targetBlankStr . '</td>';
                 }
                 echo
@@ -769,7 +769,7 @@ class Manage extends dcNsProcess
                 '<input type="submit" name="updateaction" value="' . __('Update menu') . '" />' . '</p>' .
                 '<p class="col right">' . '<input id="remove-action" type="submit" class="delete" name="removeaction" ' .
                 'value="' . __('Delete selected menu items') . '" ' .
-                'onclick="return window.confirm(\'' . html::escapeJS(__('Are you sure you want to remove selected menu items?')) . '\');" />' .
+                'onclick="return window.confirm(\'' . Html::escapeJS(__('Are you sure you want to remove selected menu items?')) . '\');" />' .
                 '</p>' .
                 '</div>' .
                 '</form>';

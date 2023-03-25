@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\antispam;
 use dcAuth;
 use dcCore;
 use dcRecord;
-use html;
+use Dotclear\Helper\Html\Html;
 
 class SpamFilter
 {
@@ -220,7 +220,7 @@ class SpamFilter
     public function guiLink(): string
     {
         if (($url = $this->guiURL()) !== false) {
-            $url  = html::escapeHTML($url);
+            $url  = Html::escapeHTML($url);
             $link = '<a href="%2$s">%1$s</a>';
         } else {
             $link = '%1$s';

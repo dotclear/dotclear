@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use dcCore;
 use dcNsProcess;
-use html;
+use Dotclear\Helper\Html\Html;
 
 class Install extends dcNsProcess
 {
@@ -33,7 +33,7 @@ class Install extends dcNsProcess
         }
 
         # Menu par défaut
-        $blog_url     = html::stripHostURL(dcCore::app()->blog->url);
+        $blog_url     = Html::stripHostURL(dcCore::app()->blog->url);
         $menu_default = [
             ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false],
             ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . dcCore::app()->url->getURLFor('archive'), 'targetBlank' => false],

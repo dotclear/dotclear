@@ -15,10 +15,10 @@ namespace Dotclear\Plugin\maintenance;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use dt;
 use Exception;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -205,7 +205,7 @@ class Manage extends dcNsProcess
                 [
                     __('Plugins')                                                                        => '',
                     '<a href="' . dcCore::app()->admin->getPageURL() . '">' . __('Maintenance') . '</a>' => '',
-                    html::escapeHTML(dcCore::app()->admin->task->name())                                 => '',
+                    Html::escapeHTML(dcCore::app()->admin->task->name())                                 => '',
                 ]
             ) .
             dcPage::notices();
@@ -221,7 +221,7 @@ class Manage extends dcNsProcess
             '<p class="step-back">' .
             '<a class="back" href="' . dcCore::app()->admin->getPageURL() . '&amp;tab=' . dcCore::app()->admin->task->tab() . '#' . dcCore::app()->admin->task->tab() . '">' . __('Back') . '</a>' .
             '</p>' .
-            '<h3>' . html::escapeHTML(dcCore::app()->admin->task->name()) . '</h3>' .
+            '<h3>' . Html::escapeHTML(dcCore::app()->admin->task->name()) . '</h3>' .
             '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
             $res .
             '<p class="step-submit">' .
@@ -259,7 +259,7 @@ class Manage extends dcNsProcess
 
                         $res_task .= '<p>' . form::radio(['task', $t->id()], $t->id()) . ' ' .
                             '<label class="classic" for="' . $t->id() . '">' .
-                            html::escapeHTML($t->task()) . '</label>';
+                            Html::escapeHTML($t->task()) . '</label>';
 
                         // Expired task alert message
                         $ts = $t->expired();

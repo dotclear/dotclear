@@ -15,9 +15,9 @@ namespace Dotclear\Plugin\pings;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -96,11 +96,11 @@ class Manage extends dcNsProcess
         foreach (dcCore::app()->admin->pings_uris as $n => $u) {
             echo
             '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
-            form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, html::escapeHTML($n)) . ' ' .
+            form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, Html::escapeHTML($n)) . ' ' .
             '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
             form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
                 'size'    => 40,
-                'default' => html::escapeHTML($u),
+                'default' => Html::escapeHTML($u),
             ]);
 
             if (!empty($_GET['test'])) {

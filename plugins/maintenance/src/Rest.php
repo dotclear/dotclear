@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Exception;
-use html;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -63,7 +63,7 @@ class Rest
 
         $rsp        = new XmlTag('step');
         $rsp->code  = $code;
-        $rsp->title = html::escapeHTML($task->success());
+        $rsp->title = Html::escapeHTML($task->success());
 
         return $rsp;
     }

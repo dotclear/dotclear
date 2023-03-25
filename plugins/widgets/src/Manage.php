@@ -16,9 +16,9 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use http;
 use stdClass;
 
@@ -272,7 +272,7 @@ class Manage extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Widgets')                               => '',
             ]
         ) .
@@ -287,7 +287,7 @@ class Manage extends dcNsProcess
         $j = 0;
         foreach (dcCore::app()->widgets->elements(true) as $w) {
             echo
-            '<li>' . form::hidden(['w[void][0][id]'], html::escapeHTML($w->id())) .
+            '<li>' . form::hidden(['w[void][0][id]'], Html::escapeHTML($w->id())) .
             '<p class="widget-name">' . form::number(['w[void][0][order]'], [
                 'default'    => 0,
                 'class'      => 'hide',
@@ -337,8 +337,8 @@ class Manage extends dcNsProcess
         $widget_elements          = new stdClass();
         $widget_elements->content = '<dl>';
         foreach (dcCore::app()->widgets->elements() as $w) {
-            $widget_elements->content .= '<dt><strong>' . html::escapeHTML($w->name()) . '</strong> (' .
-            __('Widget ID:') . ' <strong>' . html::escapeHTML($w->id()) . '</strong>)' .
+            $widget_elements->content .= '<dt><strong>' . Html::escapeHTML($w->name()) . '</strong> (' .
+            __('Widget ID:') . ' <strong>' . Html::escapeHTML($w->id()) . '</strong>)' .
                 ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</dt>' .
                 '<dd>';
 
@@ -367,7 +367,7 @@ class Manage extends dcNsProcess
                     }
 
                     $widget_elements->content .= '<li>' .
-                    __('Setting name:') . ' <strong>' . html::escapeHTML($n) . '</strong>' .
+                    __('Setting name:') . ' <strong>' . Html::escapeHTML($n) . '</strong>' .
                         ' (' . $s_type . ')' .
                         '</li>';
                 }
@@ -405,7 +405,7 @@ class Manage extends dcNsProcess
             $iname   = 'w[' . $pr . '][' . $i . ']';
             $offline = $w->isOffline() ? ' offline' : '';
 
-            $res .= '<li>' . form::hidden([$iname . '[id]'], html::escapeHTML($w->id())) .
+            $res .= '<li>' . form::hidden([$iname . '[id]'], Html::escapeHTML($w->id())) .
             '<p class="widget-name' . $offline . '">' . form::number([$iname . '[order]'], [
                 'default'    => $i,
                 'class'      => 'hidden',

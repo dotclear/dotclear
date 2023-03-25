@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminPopupPosts
@@ -21,7 +24,7 @@ class adminPopupPosts
         ]));
 
         dcCore::app()->admin->q         = !empty($_GET['q']) ? $_GET['q'] : null;
-        dcCore::app()->admin->plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
+        dcCore::app()->admin->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
 
         dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
         dcCore::app()->admin->nb_per_page = 10;
@@ -80,15 +83,15 @@ class adminPopupPosts
         '<form action="' . dcCore::app()->adminurl->get('admin.popup_posts') . '" method="get">' .
         '<p><label for="type" class="classic">' . __('Entry type:') . '</label> ' . form::combo('type', dcCore::app()->admin->type_combo, dcCore::app()->admin->type) . '' .
         '<noscript><div><input type="submit" value="' . __('Ok') . '" /></div></noscript>' .
-        form::hidden('plugin_id', html::escapeHTML(dcCore::app()->admin->plugin_id)) . '</p>' .
+        form::hidden('plugin_id', Html::escapeHTML(dcCore::app()->admin->plugin_id)) . '</p>' .
         '</form>';
 
         echo
         '<form action="' . dcCore::app()->adminurl->get('admin.popup_posts') . '" method="get">' .
-        '<p><label for="q" class="classic">' . __('Search entry:') . '</label> ' . form::field('q', 30, 255, html::escapeHTML(dcCore::app()->admin->q)) .
+        '<p><label for="q" class="classic">' . __('Search entry:') . '</label> ' . form::field('q', 30, 255, Html::escapeHTML(dcCore::app()->admin->q)) .
         ' <input type="submit" value="' . __('Search') . '" />' .
-        form::hidden('plugin_id', html::escapeHTML(dcCore::app()->admin->plugin_id)) .
-        form::hidden('type', html::escapeHTML(dcCore::app()->admin->type)) .
+        form::hidden('plugin_id', Html::escapeHTML(dcCore::app()->admin->plugin_id)) .
+        form::hidden('type', Html::escapeHTML(dcCore::app()->admin->type)) .
         '</p></form>';
 
         $post_list = null;

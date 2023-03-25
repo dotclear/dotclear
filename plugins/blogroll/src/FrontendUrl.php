@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use Exception;
 use dcCore;
 use dcUrlHandlers;
-use html;
+use Dotclear\Helper\Html\Html;
 use http;
 
 class FrontendUrl extends dcUrlHandlers
@@ -49,14 +49,14 @@ class FrontendUrl extends dcUrlHandlers
         '<!DOCTYPE xbel PUBLIC "+//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML"' . "\n" .
         '"http://www.python.org/topics/xml/dtds/xbel-1.0.dtd">' . "\n" .
         '<xbel version="1.0">' . "\n" .
-        '<title>' . html::escapeHTML(dcCore::app()->blog->name) . ' blogroll</title>' . "\n";
+        '<title>' . Html::escapeHTML(dcCore::app()->blog->name) . ' blogroll</title>' . "\n";
 
         $i = 1;
         foreach ($blogroll->getLinksHierarchy($links) as $cat_title => $links) {
             if ($cat_title != '') {
                 echo
                 '<folder>' . "\n" .
-                '<title>' . html::escapeHTML($cat_title) . '</title>' . "\n";
+                '<title>' . Html::escapeHTML($cat_title) . '</title>' . "\n";
             }
 
             foreach ($links as $v) {
@@ -64,11 +64,11 @@ class FrontendUrl extends dcUrlHandlers
 
                 echo
                 '<bookmark href="' . $v['link_href'] . '"' . $lang . '>' . "\n" .
-                '<title>' . html::escapeHTML($v['link_title']) . '</title>' . "\n";
+                '<title>' . Html::escapeHTML($v['link_title']) . '</title>' . "\n";
 
                 if ($v['link_desc']) {
                     echo
-                    '<desc>' . html::escapeHTML($v['link_desc']) . '</desc>' . "\n";
+                    '<desc>' . Html::escapeHTML($v['link_desc']) . '</desc>' . "\n";
                 }
 
                 if ($v['link_xfn']) {

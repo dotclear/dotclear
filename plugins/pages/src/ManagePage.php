@@ -20,10 +20,10 @@ use dcCore;
 use dcMedia;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use dt;
 use Exception;
 use form;
-use html;
 use http;
 use initPages;
 
@@ -89,9 +89,9 @@ class ManagePage extends dcNsProcess
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_delete = false;
 
-        $post_headlink = '<link rel="%s" title="%s" href="' . html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=%s" />';
+        $post_headlink = '<link rel="%s" title="%s" href="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=%s" />';
 
-        dcCore::app()->admin->post_link = '<a href="' . html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=%s" title="%s">%s</a>';
+        dcCore::app()->admin->post_link = '<a href="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=%s" title="%s">%s</a>';
 
         dcCore::app()->admin->next_link = dcCore::app()->admin->prev_link = dcCore::app()->admin->next_headlink = dcCore::app()->admin->prev_headlink = null;
 
@@ -165,13 +165,13 @@ class ManagePage extends dcNsProcess
                     dcCore::app()->admin->next_link = sprintf(
                         dcCore::app()->admin->post_link,
                         $next_rs->post_id,
-                        html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         __('Next page') . '&nbsp;&#187;'
                     );
                     dcCore::app()->admin->next_headlink = sprintf(
                         $post_headlink,
                         'next',
-                        html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         $next_rs->post_id
                     );
                 }
@@ -180,13 +180,13 @@ class ManagePage extends dcNsProcess
                     dcCore::app()->admin->prev_link = sprintf(
                         dcCore::app()->admin->post_link,
                         $prev_rs->post_id,
-                        html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         '&#171;&nbsp;' . __('Previous page')
                     );
                     dcCore::app()->admin->prev_headlink = sprintf(
                         $post_headlink,
                         'previous',
-                        html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         $prev_rs->post_id
                     );
                 }
@@ -442,13 +442,13 @@ class ManagePage extends dcNsProcess
 
                     break;
             }
-            $edit_entry_title = '&ldquo;' . html::escapeHTML(trim(html::clean(dcCore::app()->admin->post_title))) . '&rdquo;' . ' ' . $img_status;
+            $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title))) . '&rdquo;' . ' ' . $img_status;
         } else {
             $edit_entry_title = dcCore::app()->admin->page_title;
         }
         echo dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Pages')                                 => dcCore::app()->admin->getPageURL(),
                 $edit_entry_title                           => '',
             ]
@@ -475,7 +475,7 @@ class ManagePage extends dcNsProcess
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
             echo
-            '<p><a class="onblog_link outgoing" href="' . dcCore::app()->admin->post->getURL() . '" title="' . html::escapeHTML(trim(html::clean(dcCore::app()->admin->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+            '<p><a class="onblog_link outgoing" href="' . dcCore::app()->admin->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
         }
 
         echo '';
@@ -526,7 +526,7 @@ class ManagePage extends dcNsProcess
                         '</p>',
                         'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
-                            'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
+                            'default' => Html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
                             'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
@@ -538,7 +538,7 @@ class ManagePage extends dcNsProcess
                         '<p>' . form::combo('post_format', dcCore::app()->admin->available_formats, dcCore::app()->admin->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_wiki">' .
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') .
-                        '" href="' . html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;xconv=1">' .
+                        '" href="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;xconv=1">' .
                         __('Convert to HTML') . '</a></p></div>', ], ],
                 'metas-box' => [
                     'title' => __('Filing'),
@@ -573,11 +573,11 @@ class ManagePage extends dcNsProcess
                         __('Hide in widget Pages') . '</label>' .
                         '</p>',
                         'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
-                        form::field('post_password', 10, 32, html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
+                        form::field('post_password', 10, 32, Html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
                         '</p>',
                         'post_url' => '<div class="lockable">' .
                         '<p><label for="post_url">' . __('Edit basename') . '</label>' .
-                        form::field('post_url', 10, 255, html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
+                        form::field('post_url', 10, 255, Html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
                         '</p>' .
                         '<p class="form-note warn">' .
                         __('Warning: If you set the URL manually, it may conflict with another page.') .
@@ -588,7 +588,7 @@ class ManagePage extends dcNsProcess
                     'post_title' => '<p class="col">' .
                     '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
-                        'default'    => html::escapeHTML(dcCore::app()->admin->post_title),
+                        'default'    => Html::escapeHTML(dcCore::app()->admin->post_title),
                         'class'      => 'maximal',
                         'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                     ]) .
@@ -601,7 +601,7 @@ class ManagePage extends dcNsProcess
                         50,
                         5,
                         [
-                            'default'    => html::escapeHTML(dcCore::app()->admin->post_excerpt),
+                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_excerpt),
                             'extra_html' => 'lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                         ]
                     ) .
@@ -614,7 +614,7 @@ class ManagePage extends dcNsProcess
                         50,
                         dcCore::app()->auth->getOption('edit_size'),
                         [
-                            'default'    => html::escapeHTML(dcCore::app()->admin->post_content),
+                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_content),
                             'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                         ]
                     ) .
@@ -627,7 +627,7 @@ class ManagePage extends dcNsProcess
                         50,
                         5,
                         [
-                            'default'    => html::escapeHTML(dcCore::app()->admin->post_notes),
+                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_notes),
                             'extra_html' => 'lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                         ]
                     ) .
@@ -641,7 +641,7 @@ class ManagePage extends dcNsProcess
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
             sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
-            '<form action="' . html::escapeURL(dcCore::app()->admin->redir_url) . '" method="post" id="entry-form">' .
+            '<form action="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
             '<h3 class="out-of-screen-if-js">' . __('Edit page') . '</h3>';
@@ -796,7 +796,7 @@ class ManagePage extends dcNsProcess
                 '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', $combo_action) .
-                form::hidden('redir', html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;co=1') .
+                form::hidden('redir', Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;co=1') .
                 dcCore::app()->formNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
@@ -813,7 +813,7 @@ class ManagePage extends dcNsProcess
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
+                'default'    => Html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
@@ -821,7 +821,7 @@ class ManagePage extends dcNsProcess
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
             form::email('comment_email', [
                 'size'         => 30,
-                'default'      => html::escapeHTML(dcCore::app()->auth->getInfo('user_email')),
+                'default'      => Html::escapeHTML(dcCore::app()->auth->getInfo('user_email')),
                 'autocomplete' => 'email',
             ]) .
             '</p>' .
@@ -829,7 +829,7 @@ class ManagePage extends dcNsProcess
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
             form::url('comment_site', [
                 'size'         => 30,
-                'default'      => html::escapeHTML(dcCore::app()->auth->getInfo('user_url')),
+                'default'      => Html::escapeHTML(dcCore::app()->auth->getInfo('user_url')),
                 'autocomplete' => 'url',
             ]) .
             '</p>' .

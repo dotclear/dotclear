@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class dcUtils
 {
     public const ADMIN_LOCALE  = 'admin';
@@ -168,7 +171,7 @@ class dcUtils
      */
     public static function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        $escaped_src = html::escapeHTML($src);
+        $escaped_src = Html::escapeHTML($src);
         if ($version !== null) {
             $escaped_src = dcUtils::appendVersion($escaped_src, $version);
         }
@@ -201,7 +204,7 @@ class dcUtils
      */
     public static function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {
-        $escaped_src = html::escapeHTML($src);
+        $escaped_src = Html::escapeHTML($src);
         if ($version !== null) {
             $escaped_src = dcUtils::appendVersion($escaped_src, $version);
         }
@@ -236,7 +239,7 @@ class dcUtils
     {
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
-            $ret .= 'var ' . $var . ' = ' . (is_string($value) ? '"' . html::escapeJS($value) . '"' : $value) . ';' . "\n";
+            $ret .= 'var ' . $var . ' = ' . (is_string($value) ? '"' . Html::escapeJS($value) . '"' : $value) . ';' . "\n";
         }
         $ret .= "</script>\n";
 
@@ -270,7 +273,7 @@ class dcUtils
     {
         // Use echo dcUtils::jsLoad(dcCore::app()->blog->getPF('util.js'));
         // to call the JS dotclear.getData() decoder in public mode
-        return '<script type="application/json" id="' . html::escapeHTML($id) . '-data">' . "\n" .
+        return '<script type="application/json" id="' . Html::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
     }
 

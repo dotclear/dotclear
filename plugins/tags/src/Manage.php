@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\tags;
 use dcCore;
 use dcNsProcess;
 use dcPage;
-use html;
+use Dotclear\Helper\Html\Html;
 
 class Manage extends dcNsProcess
 {
@@ -68,7 +68,7 @@ class Manage extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Tags')                                  => '',
             ]
         ) .

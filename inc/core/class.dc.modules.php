@@ -13,6 +13,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 
 class dcModules
 {
@@ -623,9 +624,9 @@ class dcModules
         if ($this->type !== null && $this->define->type !== $this->type) {
             $this->errors[] = sprintf(
                 __('Module "%s" has type "%s" that mismatch required module type "%s".'),
-                '<strong>' . html::escapeHTML($this->define->name) . '</strong>',
-                '<em>' . html::escapeHTML($this->define->type) . '</em>',
-                '<em>' . html::escapeHTML($this->type) . '</em>'
+                '<strong>' . Html::escapeHTML($this->define->name) . '</strong>',
+                '<em>' . Html::escapeHTML($this->define->type) . '</em>',
+                '<em>' . Html::escapeHTML($this->type) . '</em>'
             );
 
             return;

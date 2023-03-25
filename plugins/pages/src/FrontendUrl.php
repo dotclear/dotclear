@@ -18,9 +18,9 @@ use dcCore;
 use dcPublic;
 use dcUrlHandlers;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use Exception;
-use html;
 use http;
 
 class FrontendUrl extends dcUrlHandlers
@@ -143,8 +143,8 @@ class FrontendUrl extends dcUrlHandlers
                         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
                         $cur->comment_author  = $name;
-                        $cur->comment_site    = html::clean($site);
-                        $cur->comment_email   = html::clean($mail);
+                        $cur->comment_site    = Html::clean($site);
+                        $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
                         $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;

@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 class context
@@ -296,7 +297,7 @@ class context
      */
     public static function encode_xml(string $str): string
     {
-        return html::escapeHTML($str);
+        return Html::escapeHTML($str);
     }
 
     /**
@@ -337,7 +338,7 @@ class context
     {
         $str = self::remove_isolated_figcaption($str);
 
-        return html::decodeEntities(html::clean($str));
+        return Html::decodeEntities(Html::clean($str));
     }
 
     /**
@@ -351,7 +352,7 @@ class context
     {
         $str = self::remove_isolated_figcaption($str);
 
-        return trim(preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', html::clean($str))));
+        return trim(preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', Html::clean($str))));
     }
 
     /**

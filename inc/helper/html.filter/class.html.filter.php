@@ -13,6 +13,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class htmlFilter
 {
     /**
@@ -272,7 +275,7 @@ class htmlFilter
         $str = str_replace('<?', '&gt;?', $str);
         $str = str_replace('?>', '?&lt;', $str);
 
-        $str = html::decodeEntities($str, true);
+        $str = Html::decodeEntities($str, true);
 
         $this->content = '';
         xml_parse($this->parser, '<all>' . $str . '</all>');
@@ -315,7 +318,7 @@ class htmlFilter
      */
     private function miniTidyFixAttr(array $match): string
     {
-        return $match[1] . html::escapeHTML(html::decodeEntities($match[2])) . $match[3];
+        return $match[1] . Html::escapeHTML(Html::decodeEntities($match[2])) . $match[3];
     }
 
     /**
@@ -386,7 +389,7 @@ class htmlFilter
      */
     private function cdata($parser, string $cdata): void
     {
-        $this->content .= html::escapeHTML($cdata);
+        $this->content .= Html::escapeHTML($cdata);
     }
 
     /**
@@ -425,7 +428,7 @@ class htmlFilter
             $value = $this->getURI($value);
         }
 
-        return ' ' . $attr . '="' . html::escapeHTML($value) . '"';
+        return ' ' . $attr . '="' . Html::escapeHTML($value) . '"';
     }
 
     /**

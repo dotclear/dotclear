@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Pager;
 
 class dcPager extends Pager
@@ -81,10 +82,10 @@ class dcPager extends Pager
             if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', $k)) {
                 if (is_array($v)) {
                     foreach ($v as $v2) {
-                        $this->form_hidden .= form::hidden([$k . '[]'], html::escapeHTML($v2));
+                        $this->form_hidden .= form::hidden([$k . '[]'], Html::escapeHTML($v2));
                     }
                 } else {
-                    $this->form_hidden .= form::hidden([$k], html::escapeHTML($v));
+                    $this->form_hidden .= form::hidden([$k], Html::escapeHTML($v));
                 }
             }
         }
@@ -347,7 +348,7 @@ class adminPostList extends adminGenericListV2
             $cat_title = sprintf(
                 $cat_link,
                 $this->rs->cat_id,
-                html::escapeHTML($this->rs->cat_title)
+                Html::escapeHTML($this->rs->cat_title)
             );
         } else {
             $cat_title = __('(No cat)');
@@ -412,14 +413,14 @@ class adminPostList extends adminGenericListV2
             '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
-            html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
+            Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
                 '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
                 dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',
             'category'   => '<td class="nowrap">' . $cat_title . '</td>',
-            'author'     => '<td class="nowrap">' . html::escapeHTML($this->rs->user_id) . '</td>',
+            'author'     => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_id) . '</td>',
             'comments'   => '<td class="nowrap count">' . $this->rs->nb_comment . '</td>',
             'trackbacks' => '<td class="nowrap count">' . $this->rs->nb_trackback . '</td>',
             'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
@@ -546,14 +547,14 @@ class adminPostMiniList extends adminGenericListV2
         $cols = [
             'title' => '<td scope="row" class="maximal"><a href="' .
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '" ' .
-            'title="' . html::escapeHTML($this->rs->getURL()) . '">' .
-            html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
+            'title="' . Html::escapeHTML($this->rs->getURL()) . '">' .
+            Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
                 '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
                 dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',
-            'author' => '<td class="nowrap">' . html::escapeHTML($this->rs->user_id) . '</td>',
+            'author' => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_id) . '</td>',
             'status' => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
         ];
 
@@ -750,14 +751,14 @@ class adminCommentList extends adminGenericListV2
                 break;
         }
 
-        $post_title = html::escapeHTML(trim(html::clean($this->rs->post_title)));
+        $post_title = Html::escapeHTML(trim(Html::clean($this->rs->post_title)));
         if (mb_strlen($post_title) > 70) {
             $post_title = mb_strcut($post_title, 0, 67) . '...';
         }
         $comment_title = sprintf(
             __('Edit the %1$s from %2$s'),
             $this->rs->comment_trackback ? __('trackback') : __('comment'),
-            html::escapeHTML($this->rs->comment_author)
+            Html::escapeHTML($this->rs->comment_author)
         );
 
         $res = '<tr class="line ' . ($this->rs->comment_status != dcBlog::COMMENT_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
@@ -772,7 +773,7 @@ class adminCommentList extends adminGenericListV2
             '<img src="images/edit-mini.png" alt="' . __('Edit') . '"/> ' .
             ($this->rs->comment_trackback ? __('trackback') : __('comment')) . ' ' . '</a></td>',
             'author' => '<td class="nowrap maximal"><a href="' . $author_url . '">' .
-            html::escapeHTML($this->rs->comment_author) . '</a></td>',
+            Html::escapeHTML($this->rs->comment_author) . '</a></td>',
             'date' => '<td class="nowrap count">' .
                 '<time datetime="' . dt::iso8601(strtotime($this->rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
                 dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt) .
@@ -798,7 +799,7 @@ class adminCommentList extends adminGenericListV2
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';
         }
         $cols['entry'] = '<td class="nowrap discrete"><a href="' . $post_url . '">' . $post_title . '</a>' .
-            ($this->rs->post_type != 'post' ? ' (' . html::escapeHTML($this->rs->post_type) . ')' : '') . '</td>';
+            ($this->rs->post_type != 'post' ? ' (' . Html::escapeHTML($this->rs->post_type) . ')' : '') . '</td>';
 
         $cols = new ArrayObject($cols);
         dcCore::app()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
@@ -904,7 +905,7 @@ class adminBlogList extends adminGenericListV2
      */
     private function blogLine(bool $checked = false): string
     {
-        $blog_id = html::escapeHTML($this->rs->blog_id);
+        $blog_id = Html::escapeHTML($this->rs->blog_id);
 
         $cols = [
             'check' => (dcCore::app()->auth->isSuperAdmin() ?
@@ -921,11 +922,11 @@ class adminBlogList extends adminGenericListV2
             'name' => '<td class="maximal">' .
             '<a href="' . dcCore::app()->adminurl->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
             'title="' . sprintf(__('Switch to blog %s'), $this->rs->blog_id) . '">' .
-            html::escapeHTML($this->rs->blog_name) . '</a>' .
+            Html::escapeHTML($this->rs->blog_name) . '</a>' .
             '</td>',
             'url' => '<td class="nowrap">' .
             '<a class="outgoing" href="' .
-            html::escapeHTML($this->rs->blog_url) . '">' . html::escapeHTML($this->rs->blog_url) .
+            Html::escapeHTML($this->rs->blog_url) . '">' . Html::escapeHTML($this->rs->blog_url) .
             ' <img src="images/outgoing-link.svg" alt="" /></a></td>',
             'posts' => '<td class="nowrap count">' .
             dcCore::app()->countBlogPosts($this->rs->blog_id) .
@@ -1054,9 +1055,9 @@ class adminUserList extends adminGenericListV2
             'username' => '<td class="maximal" scope="row"><a href="' .
             dcCore::app()->adminurl->get('admin.user', ['id' => $this->rs->user_id]) . '">' .
             $this->rs->user_id . '</a>&nbsp;' . $img_status . '</td>',
-            'first_name'   => '<td class="nowrap">' . html::escapeHTML($this->rs->user_firstname) . '</td>',
-            'last_name'    => '<td class="nowrap">' . html::escapeHTML($this->rs->user_name) . '</td>',
-            'display_name' => '<td class="nowrap">' . html::escapeHTML($this->rs->user_displayname) . '</td>',
+            'first_name'   => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_firstname) . '</td>',
+            'last_name'    => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_name) . '</td>',
+            'display_name' => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_displayname) . '</td>',
             'entries'      => '<td class="nowrap count"><a href="' .
             dcCore::app()->adminurl->get('admin.posts', ['user_id' => $this->rs->user_id]) . '">' .
             $this->rs->nb_post . '</a></td>',
@@ -1185,7 +1186,7 @@ class adminMediaList extends adminGenericListV2
 
         if ($file->d) {
             // Folder
-            $link = dcCore::app()->adminurl->get('admin.media', array_merge($filters->values(), ['d' => html::sanitizeURL($file->relname)]));
+            $link = dcCore::app()->adminurl->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
             if ($file->parent) {
                 $display_name = '..';
                 $class .= ' media-folder-up';

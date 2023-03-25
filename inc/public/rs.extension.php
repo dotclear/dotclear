@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class rsExtendPublic
 {
     /**
@@ -74,7 +77,7 @@ class rsExtPostPublic extends rsExtPost
 
             $content = '<p>' . $content . '... ' .
             '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .
-            html::escapeHTML($rs->post_title) . '</a></p>';
+            Html::escapeHTML($rs->post_title) . '</a></p>';
 
             return $content;
         }

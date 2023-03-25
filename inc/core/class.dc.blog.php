@@ -12,6 +12,7 @@
  */
 
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 class dcBlog
@@ -277,7 +278,7 @@ class dcBlog
     {
         $ret = $this->getQmarkURL() . 'pf=' . $pf;
         if ($strip_host) {
-            $ret = html::stripHostURL($ret);
+            $ret = Html::stripHostURL($ret);
         }
 
         return $ret;
@@ -295,7 +296,7 @@ class dcBlog
     {
         $ret = $this->getQmarkURL() . 'vf=' . $vf;
         if ($strip_host) {
-            $ret = html::stripHostURL($ret);
+            $ret = Html::stripHostURL($ret);
         }
 
         return $ret;

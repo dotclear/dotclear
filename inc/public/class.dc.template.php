@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class dcTemplate extends template
 {
     /**
@@ -380,7 +383,7 @@ class dcTemplate extends template
         $default_order = 'desc';
 
         $default_alias = [
-            'post'    => [
+            'post' => [
                 'title'     => 'post_title',
                 'selected'  => 'post_selected',
                 'author'    => 'user_id',
@@ -2061,7 +2064,7 @@ class dcTemplate extends template
     public function EntryIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
-        $ret = html::escapeHTML($ret);
+        $ret = Html::escapeHTML($ret);
 
         return
         '<?php if (dcCore::app()->ctx->posts->index() == 0) { ' .
@@ -2083,10 +2086,10 @@ class dcTemplate extends template
     public function EntryIfOdd(ArrayObject $attr): string
     {
         $odd = $attr['return'] ?? 'odd';
-        $odd = html::escapeHTML($odd);
+        $odd = Html::escapeHTML($odd);
 
         $even = $attr['even'] ?? '';
-        $even = html::escapeHTML($even);
+        $even = Html::escapeHTML($even);
 
         return '<?php echo ((dcCore::app()->ctx->posts->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
@@ -2108,10 +2111,10 @@ class dcTemplate extends template
     public function EntryIfEven(ArrayObject $attr): string
     {
         $even = $attr['return'] ?? 'even';
-        $even = html::escapeHTML($even);
+        $even = Html::escapeHTML($even);
 
         $odd = $attr['odd'] ?? '';
-        $odd = html::escapeHTML($odd);
+        $odd = Html::escapeHTML($odd);
 
         return '<?php echo ((dcCore::app()->ctx->posts->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
@@ -2132,7 +2135,7 @@ class dcTemplate extends template
     public function EntryIfSelected(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'selected';
-        $ret = html::escapeHTML($ret);
+        $ret = Html::escapeHTML($ret);
 
         return
         '<?php if (dcCore::app()->ctx->posts->post_selected) { ' .
@@ -3517,7 +3520,7 @@ class dcTemplate extends template
     public function CommentIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
-        $ret = html::escapeHTML($ret);
+        $ret = Html::escapeHTML($ret);
 
         return
         '<?php if (dcCore::app()->ctx->comments->index() == 0) { ' .
@@ -3538,7 +3541,7 @@ class dcTemplate extends template
     public function CommentIfMe(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'me';
-        $ret = html::escapeHTML($ret);
+        $ret = Html::escapeHTML($ret);
 
         return
         '<?php if (dcCore::app()->ctx->comments->isMe()) { ' .
@@ -3560,10 +3563,10 @@ class dcTemplate extends template
     public function CommentIfOdd(ArrayObject $attr): string
     {
         $odd = $attr['return'] ?? 'odd';
-        $odd = html::escapeHTML($odd);
+        $odd = Html::escapeHTML($odd);
 
         $even = $attr['even'] ?? '';
-        $even = html::escapeHTML($even);
+        $even = Html::escapeHTML($even);
 
         return '<?php echo ((dcCore::app()->ctx->comments->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
@@ -3585,10 +3588,10 @@ class dcTemplate extends template
     public function CommentIfEven(ArrayObject $attr): string
     {
         $even = $attr['return'] ?? 'even';
-        $even = html::escapeHTML($even);
+        $even = Html::escapeHTML($even);
 
         $odd = $attr['odd'] ?? '';
-        $odd = html::escapeHTML($odd);
+        $odd = Html::escapeHTML($odd);
 
         return '<?php echo ((dcCore::app()->ctx->comments->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
@@ -3972,7 +3975,7 @@ class dcTemplate extends template
     public function PingIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
-        $ret = html::escapeHTML($ret);
+        $ret = Html::escapeHTML($ret);
 
         return
         '<?php if (dcCore::app()->ctx->pings->index() == 0) { ' .
@@ -3994,10 +3997,10 @@ class dcTemplate extends template
     public function PingIfOdd(ArrayObject $attr): string
     {
         $odd = $attr['return'] ?? 'odd';
-        $odd = html::escapeHTML($odd);
+        $odd = Html::escapeHTML($odd);
 
         $even = $attr['even'] ?? '';
-        $even = html::escapeHTML($even);
+        $even = Html::escapeHTML($even);
 
         return '<?php echo ((dcCore::app()->ctx->pings->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
@@ -4019,10 +4022,10 @@ class dcTemplate extends template
     public function PingIfEven(ArrayObject $attr): string
     {
         $even = $attr['return'] ?? 'even';
-        $even = html::escapeHTML($even);
+        $even = Html::escapeHTML($even);
 
         $odd = $attr['odd'] ?? '';
-        $odd = html::escapeHTML($odd);
+        $odd = Html::escapeHTML($odd);
 
         return '<?php echo ((dcCore::app()->ctx->pings->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
@@ -4364,7 +4367,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim((string) $attr['search_count']))) {
-            $if[] = '(isset(dcCore::app()->public->search_count) && dcCore::app()->public->search_count ' . html::decodeEntities($attr['search_count']) . ')';
+            $if[] = '(isset(dcCore::app()->public->search_count) && dcCore::app()->public->search_count ' . Html::decodeEntities($attr['search_count']) . ')';
         }
 
         if (isset($attr['jquery_needed'])) {

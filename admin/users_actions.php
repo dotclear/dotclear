@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminUsersActions
@@ -165,9 +168,9 @@ class adminUsersActions
         }
 
         if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
-            $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
+            $hidden_fields .= form::hidden(['redir'], Html::escapeURL($_POST['redir']));
         } else {
-            $hidden_fields .= form::hidden(['q'], html::escapeHTML($_POST['q'] ?? '')) .
+            $hidden_fields .= form::hidden(['q'], Html::escapeHTML($_POST['q'] ?? '')) .
                 form::hidden(['sortby'], $_POST['sortby'] ?? '') .
                 form::hidden(['order'], $_POST['order'] ?? '') .
                 form::hidden(['page'], $_POST['page'] ?? '') .
@@ -175,7 +178,7 @@ class adminUsersActions
         }
 
         echo
-        '<p><a class="back" href="' . html::escapeURL(dcCore::app()->admin->redir) . '">' . __('Back to user profile') . '</a></p>';
+        '<p><a class="back" href="' . Html::escapeURL(dcCore::app()->admin->redir) . '">' . __('Back to user profile') . '</a></p>';
 
         # --BEHAVIOR-- adminUsersActionsContent
         dcCore::app()->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
@@ -235,8 +238,8 @@ class adminUsersActions
                     ) .
                     '</td>' .
                     '<td class="nowrap">' . $rs->blog_id . '</td>' .
-                    '<td class="maximal">' . html::escapeHTML($rs->blog_name) . '</td>' .
-                    '<td class="nowrap"><a class="outgoing" href="' . html::escapeHTML($rs->blog_url) . '">' . html::escapeHTML($rs->blog_url) .
+                    '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
+                    '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
                     ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
                     '<td class="nowrap">' . dcCore::app()->countBlogPosts($rs->blog_id) . '</td>' .
                     '<td class="status">' . $img_status . '</td>' .
@@ -274,7 +277,7 @@ class adminUsersActions
 
             foreach (dcCore::app()->admin->blogs as $b) {
                 echo
-                '<h3>' . ('Blog:') . ' <a href="' . dcCore::app()->adminurl->get('admin.blog', ['id' => html::escapeHTML($b)]) . '">' . html::escapeHTML($b) . '</a>' .
+                '<h3>' . ('Blog:') . ' <a href="' . dcCore::app()->adminurl->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
                 $unknown_perms = $user_perm;
                 foreach (dcCore::app()->auth->getPermissionsTypes() as $perm_id => $perm) {
@@ -288,9 +291,9 @@ class adminUsersActions
                     }
 
                     echo
-                    '<p><label for="perm' . html::escapeHTML($b) . html::escapeHTML($perm_id) . '" class="classic">' .
+                    '<p><label for="perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id) . '" class="classic">' .
                     form::checkbox(
-                        ['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']', 'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)],
+                        ['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id)],
                         1,
                         $checked
                     ) . ' ' .
@@ -300,10 +303,10 @@ class adminUsersActions
                     foreach ($unknown_perms[$b]['p'] as $perm_id => $v) {
                         $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
                         echo
-                        '<p><label for="perm' . html::escapeHTML($b) . html::escapeHTML($perm_id) . '" class="classic">' .
+                        '<p><label for="perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id) . '" class="classic">' .
                         form::checkbox(
-                            ['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']',
-                                'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id), ],
+                            ['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']',
+                                'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id), ],
                             1,
                             $checked
                         ) . ' ' .

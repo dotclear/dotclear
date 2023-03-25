@@ -17,9 +17,9 @@ use ArrayObject;
 use dcBlog;
 use dcCore;
 use dcPager;
+use Dotclear\Helper\Html\Html;
 use dt;
 use form;
-use html;
 
 class BackendList extends adminGenericListV2
 {
@@ -162,7 +162,7 @@ class BackendList extends adminGenericListV2
                 'min'        => 1,
                 'default'    => $count + 1,
                 'class'      => 'position',
-                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"',
+                'extra_html' => 'title="' . sprintf(__('position of %s'), Html::escapeHTML($this->rs->post_title)) . '"',
             ]) .
             '</td>',
             'check' => '<td class="nowrap">' .
@@ -177,7 +177,7 @@ class BackendList extends adminGenericListV2
             ) . '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
-            html::escapeHTML($this->rs->post_title) . '</a></td>',
+            Html::escapeHTML($this->rs->post_title) . '</a></td>',
             'date' => '<td class="nowrap">' .
                 '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
                 dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .

@@ -14,6 +14,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 class imageMeta
@@ -170,7 +171,7 @@ class imageMeta
         }
 
         foreach ($this->xmp as $k => $v) {
-            $this->xmp[$k] = html::decodeEntities(Text::toUTF8($v));
+            $this->xmp[$k] = Html::decodeEntities(Text::toUTF8($v));
         }
     }
 

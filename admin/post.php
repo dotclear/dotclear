@@ -8,6 +8,7 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 class adminPost
@@ -153,13 +154,13 @@ class adminPost
                     dcCore::app()->admin->next_link = sprintf(
                         dcCore::app()->admin->post_link,
                         $next_rs->post_id,
-                        html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         __('Next entry') . '&nbsp;&#187;'
                     );
                     dcCore::app()->admin->next_headlink = sprintf(
                         $post_headlink,
                         'next',
-                        html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         $next_rs->post_id
                     );
                 }
@@ -168,13 +169,13 @@ class adminPost
                     dcCore::app()->admin->prev_link = sprintf(
                         dcCore::app()->admin->post_link,
                         $prev_rs->post_id,
-                        html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         '&#171;&nbsp;' . __('Previous entry')
                     );
                     dcCore::app()->admin->prev_headlink = sprintf(
                         $post_headlink,
                         'previous',
-                        html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                        Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         $prev_rs->post_id
                     );
                 }
@@ -192,7 +193,7 @@ class adminPost
                 $buffer = preg_replace(
                     '/\s+/ms',
                     ' ',
-                    Text::cutString(html::escapeHTML(html::decodeEntities(html::clean($buffer))), 255)
+                    Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean($buffer))), 255)
                 );
                 dcCore::app()->admin->tb_excerpt = $buffer;
             }
@@ -231,7 +232,7 @@ class adminPost
                 dcCore::app()->admin->tb_urls = $_POST['tb_urls'];
                 dcCore::app()->admin->tb_urls = str_replace("\r", '', dcCore::app()->admin->tb_urls);
 
-                $tb_post_title = html::escapeHTML(trim(html::clean(dcCore::app()->admin->post_title)));
+                $tb_post_title = Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title)));
                 $tb_post_url   = dcCore::app()->admin->post->getURL();
 
                 foreach (explode("\n", dcCore::app()->admin->tb_urls) as $tb_url) {
@@ -413,7 +414,7 @@ class adminPost
 
                     # --BEHAVIOR-- adminAfterPostUpdate
                     dcCore::app()->callBehavior('adminAfterPostUpdate', $cur, dcCore::app()->admin->post_id);
-                    dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), html::escapeHTML(trim(html::clean($cur->post_title)))));
+                    dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     dcCore::app()->adminurl->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id]
@@ -489,7 +490,7 @@ class adminPost
                     $img_status = '';
             }
             $edit_entry_str  = __('&ldquo;%s&rdquo;');
-            $page_title_edit = sprintf($edit_entry_str, html::escapeHTML(trim(html::clean(dcCore::app()->admin->post_title)))) . ' ' . $img_status;
+            $page_title_edit = sprintf($edit_entry_str, Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title)))) . ' ' . $img_status;
         } else {
             $img_status      = '';
             $page_title_edit = '';
@@ -543,7 +544,7 @@ class adminPost
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink,
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Posts')                                 => dcCore::app()->adminurl->get('admin.posts'),
                     (dcCore::app()->admin->post_id ?
                         $page_title_edit :
@@ -583,7 +584,7 @@ class adminPost
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
             echo
-            '<p><a class="onblog_link outgoing" href="' . dcCore::app()->admin->post->getURL() . '" title="' . html::escapeHTML(trim(html::clean(dcCore::app()->admin->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+            '<p><a class="onblog_link outgoing" href="' . dcCore::app()->admin->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
         }
         if (dcCore::app()->admin->post_id) {
             echo
@@ -631,7 +632,7 @@ class adminPost
                         '</p>',
                         'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
-                            'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
+                            'default' => Html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
                             'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
@@ -696,11 +697,11 @@ class adminPost
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
                         'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
-                        form::field('post_password', 10, 32, html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
+                        form::field('post_password', 10, 32, Html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
                         '</p>',
                         'post_url' => '<div class="lockable">' .
                         '<p><label for="post_url">' . __('Edit basename') . '</label>' .
-                        form::field('post_url', 10, 255, html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
+                        form::field('post_url', 10, 255, Html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
                         '</p>' .
                         '<p class="form-note warn">' .
                         __('Warning: If you set the URL manually, it may conflict with another entry.') .
@@ -714,7 +715,7 @@ class adminPost
                     'post_title' => '<p class="col">' .
                     '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
-                        'default'    => html::escapeHTML(dcCore::app()->admin->post_title),
+                        'default'    => Html::escapeHTML(dcCore::app()->admin->post_title),
                         'class'      => 'maximal',
                         'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                     ]) .
@@ -727,7 +728,7 @@ class adminPost
                         50,
                         5,
                         [
-                            'default'    => html::escapeHTML(dcCore::app()->admin->post_excerpt),
+                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_excerpt),
                             'extra_html' => 'lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                         ]
                     ) .
@@ -740,7 +741,7 @@ class adminPost
                         50,
                         dcCore::app()->auth->getOption('edit_size'),
                         [
-                            'default'    => html::escapeHTML(dcCore::app()->admin->post_content),
+                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_content),
                             'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                         ]
                     ) .
@@ -753,7 +754,7 @@ class adminPost
                         50,
                         5,
                         [
-                            'default'    => html::escapeHTML(dcCore::app()->admin->post_notes),
+                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_notes),
                             'extra_html' => 'lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
                         ]
                     ) .
@@ -892,17 +893,17 @@ class adminPost
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
+                'default'    => Html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
 
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, html::escapeHTML(dcCore::app()->auth->getInfo('user_email'))) .
+            form::email('comment_email', 30, 255, Html::escapeHTML(dcCore::app()->auth->getInfo('user_email'))) .
             '</p>' .
 
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, html::escapeHTML(dcCore::app()->auth->getInfo('user_url'))) .
+            form::url('comment_site', 30, 255, Html::escapeHTML(dcCore::app()->auth->getInfo('user_url'))) .
             '</p>' .
 
             '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
@@ -1121,7 +1122,7 @@ class adminPost
                     ]
                 ) :
                 '') . '</td>' .
-            '<td class="maximal">' . html::escapeHTML($rs->comment_author) . '</td>' .
+            '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
             '<td class="nowrap">' .
                 '<time datetime="' . dt::iso8601(strtotime($rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
                 dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .

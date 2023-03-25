@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper;
 
-use html;
+use Dotclear\Helper\Html\Html;
 
 class Text
 {
@@ -175,7 +175,7 @@ class Text
     public static function splitWords(string $str): array
     {
         $non_word = '\x{0000}-\x{002F}\x{003A}-\x{0040}\x{005b}-\x{0060}\x{007B}-\x{007E}\x{00A0}-\x{00BF}\s';
-        if (preg_match_all('/([^' . $non_word . ']{3,})/msu', html::clean($str), $match)) {
+        if (preg_match_all('/([^' . $non_word . ']{3,})/msu', Html::clean($str), $match)) {
             foreach ($match[1] as $i => $v) {
                 $match[1][$i] = mb_strtolower($v);
             }

@@ -14,9 +14,9 @@ namespace Dotclear\Plugin\pings;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return false;
@@ -51,8 +51,8 @@ class BackendBehaviors
         $i    = 0;
         foreach ($pings_uris as $k => $v) {
             $item .= '<p class="ping-services"><label for="pings_do-' . $i . '" class="classic">' .
-            form::checkbox(['pings_do[]', 'pings_do-' . $i], html::escapeHTML($v), in_array($v, $pings_do), 'check-ping-services') . ' ' .
-            html::escapeHTML($k) . '</label></p>';
+            form::checkbox(['pings_do[]', 'pings_do-' . $i], Html::escapeHTML($v), in_array($v, $pings_do), 'check-ping-services') . ' ' .
+            Html::escapeHTML($k) . '</label></p>';
             $i++;
         }
         $sidebar['options-box']['items']['pings'] = $item;

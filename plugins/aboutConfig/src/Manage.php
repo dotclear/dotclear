@@ -16,8 +16,8 @@ use Exception;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use Dotclear\Helper\Html\Html;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -117,13 +117,13 @@ class Manage extends dcNsProcess
         dcPage::breadcrumb(
             [
                 __('System')                                => '',
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('about:config')                          => '',
             ]
         ) .
         dcPage::notices() .
-        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)) . '">' .
-        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)) . '</h3>';
+        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '">' .
+        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '</h3>';
 
         self::settingsTable(false);
 
@@ -256,7 +256,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
+                    Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
                 );
 
                 break;
@@ -267,7 +267,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     null,
                     null,
-                    html::escapeHTML((string) $s['value'])
+                    Html::escapeHTML((string) $s['value'])
                 );
 
                 break;
@@ -277,7 +277,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML((string) $s['value'])
+                    Html::escapeHTML((string) $s['value'])
                 );
 
                 break;
@@ -285,17 +285,17 @@ class Manage extends dcNsProcess
 
         $type = form::hidden(
             [$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
-            html::escapeHTML($s['type'])
+            Html::escapeHTML($s['type'])
         );
 
         $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
 
         return
             '<tr class="line">' .
-            '<td scope="row"><label for="' . $field_name . '_' . $ns . '_' . $id . '">' . sprintf($slabel, html::escapeHTML($id)) . '</label></td>' .
+            '<td scope="row"><label for="' . $field_name . '_' . $ns . '_' . $id . '">' . sprintf($slabel, Html::escapeHTML($id)) . '</label></td>' .
             '<td>' . $field . '</td>' .
             '<td>' . $s['type'] . $type . '</td>' .
-            '<td>' . html::escapeHTML($s['label']) . '</td>' .
+            '<td>' . Html::escapeHTML($s['label']) . '</td>' .
             '</tr>';
     }
 }

@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\antispam;
 use dcBlog;
 use dcCore;
 use dcUrlHandlers;
-use html;
+use Dotclear\Helper\Html\Html;
 
 class FrontendUrl extends dcUrlHandlers
 {
@@ -75,7 +75,7 @@ class FrontendUrl extends dcUrlHandlers
         'xmlns:dc="http://purl.org/dc/elements/1.1/"' . "\n" .
         'xmlns:content="http://purl.org/rss/1.0/modules/content/">' . "\n" .
         '<channel>' . "\n" .
-        '<title>' . html::escapeHTML($title) . '</title>' . "\n" .
+        '<title>' . Html::escapeHTML($title) . '</title>' . "\n" .
         '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'comments.php' . $end_url : 'about:blank') . '</link>' . "\n" .
         '<description></description>' . "\n";
 
@@ -103,12 +103,12 @@ class FrontendUrl extends dcUrlHandlers
 
             echo
             '<item>' . "\n" .
-            '  <title>' . html::escapeHTML($title) . '</title>' . "\n" .
+            '  <title>' . Html::escapeHTML($title) . '</title>' . "\n" .
             '  <link>' . $uri . '</link>' . "\n" .
             '  <guid>' . $id . '</guid>' . "\n" .
             '  <pubDate>' . $rs->getRFC822Date() . '</pubDate>' . "\n" .
-            '  <dc:creator>' . html::escapeHTML($author) . '</dc:creator>' . "\n" .
-            '  <description>' . html::escapeHTML($content) . '</description>' . "\n" .
+            '  <dc:creator>' . Html::escapeHTML($author) . '</dc:creator>' . "\n" .
+            '  <description>' . Html::escapeHTML($content) . '</description>' . "\n" .
                 '</item>';
         }
 

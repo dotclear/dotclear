@@ -9,6 +9,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -43,7 +44,7 @@ class adminMediaItem
         // 0 : none, 1 : single media, >1 : multiple medias
         dcCore::app()->admin->select = !empty($_REQUEST['select']) ? (int) $_REQUEST['select'] : 0;
 
-        dcCore::app()->admin->plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
+        dcCore::app()->admin->plugin_id = isset($_REQUEST['plugin_id']) ? Html::sanitizeURL($_REQUEST['plugin_id']) : '';
 
         dcCore::app()->admin->page_url_params = [
             'popup'   => dcCore::app()->admin->popup,
@@ -161,12 +162,12 @@ class adminMediaItem
                 $newFile->dir     = '';
                 $newFile->relname = $newFile->basename;
             }
-            $newFile->media_title = html::escapeHTML($_POST['media_title']);
+            $newFile->media_title = Html::escapeHTML($_POST['media_title']);
             $newFile->media_dt    = strtotime($_POST['media_dt']);
             $newFile->media_dtstr = $_POST['media_dt'];
             $newFile->media_priv  = !empty($_POST['media_private']);
 
-            $desc = isset($_POST['media_desc']) ? html::escapeHTML($_POST['media_desc']) : '';
+            $desc = isset($_POST['media_desc']) ? Html::escapeHTML($_POST['media_desc']) : '';
 
             if (dcCore::app()->admin->file->media_meta instanceof SimpleXMLElement) {
                 if (count(dcCore::app()->admin->file->media_meta) > 0) {
@@ -423,7 +424,7 @@ class adminMediaItem
             (dcCore::app()->admin->popup ? dcPage::jsPageTabs(dcCore::app()->admin->tab) : ''),
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Media manager')                         => $home_url,
                     $breadcrumb                                 => '',
                 ],
@@ -496,7 +497,7 @@ class adminMediaItem
                     $s_checked = ($s == $defaults['size']);
                     echo
                     '<label class="classic">' .
-                    form::radio(['src'], html::escapeHTML($v), $s_checked) . ' ' .
+                    form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
                     dcCore::app()->media->thumb_sizes[$s][2] . '</label><br /> ';
                 }
                 $s_checked = (!isset(dcCore::app()->admin->file->media_thumb[$defaults['size']]));
@@ -516,9 +517,9 @@ class adminMediaItem
             '<p>' .
             '<button type="button" id="media-select-ok" class="submit">' . __('Select') . '</button> ' .
             '<button type="button" id="media-select-cancel">' . __('Cancel') . '</button>' .
-            form::hidden(['type'], html::escapeHTML($media_type)) .
-            form::hidden(['title'], html::escapeHTML($media_title)) .
-            form::hidden(['description'], html::escapeHTML($media_desc)) .
+            form::hidden(['type'], Html::escapeHTML($media_type)) .
+            form::hidden(['title'], Html::escapeHTML($media_title)) .
+            form::hidden(['description'], Html::escapeHTML($media_desc)) .
             form::hidden(['url'], dcCore::app()->admin->file->file_url) .
             '</p>' .
 
@@ -564,7 +565,7 @@ class adminMediaItem
                     $s_checked = ($s == $defaults['size']);
                     echo
                     '<label class="classic">' .
-                    form::radio(['src'], html::escapeHTML($v), $s_checked) . ' ' .
+                    form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
                     dcCore::app()->media->thumb_sizes[$s][2] . '</label><br /> ';
                 }
                 $s_checked = (!isset(dcCore::app()->admin->file->media_thumb[$defaults['size']]));
@@ -659,8 +660,8 @@ class adminMediaItem
                     $url = substr($url, strlen(dcCore::app()->blog->host));
                 }
                 echo
-                form::hidden('blog_host', html::escapeHTML(dcCore::app()->blog->host)) .
-                form::hidden('public_player', html::escapeHTML(dcMedia::audioPlayer(dcCore::app()->admin->file->type, $url))) .
+                form::hidden('blog_host', Html::escapeHTML(dcCore::app()->blog->host)) .
+                form::hidden('public_player', Html::escapeHTML(dcMedia::audioPlayer(dcCore::app()->admin->file->type, $url))) .
                 '</p>' .
                 '</div>';
             } elseif (dcCore::app()->admin->file_type[0] == 'video') {
@@ -701,8 +702,8 @@ class adminMediaItem
                     $url = substr($url, strlen(dcCore::app()->blog->host));
                 }
                 echo
-                form::hidden('blog_host', html::escapeHTML(dcCore::app()->blog->host)) .
-                form::hidden('public_player', html::escapeHTML(dcMedia::videoPlayer(dcCore::app()->admin->file->type, $url))) .
+                form::hidden('blog_host', Html::escapeHTML(dcCore::app()->blog->host)) .
+                form::hidden('public_player', Html::escapeHTML(dcMedia::videoPlayer(dcCore::app()->admin->file->type, $url))) .
                 '</p>' .
                 '</div>';
             } else {
@@ -716,9 +717,9 @@ class adminMediaItem
             '<p>' .
             '<button type="button" id="media-insert-ok" class="submit">' . __('Insert') . '</button> ' .
             '<button type="button" id="media-insert-cancel">' . __('Cancel') . '</button>' .
-            form::hidden(['type'], html::escapeHTML($media_type)) .
-            form::hidden(['title'], html::escapeHTML($media_title)) .
-            form::hidden(['description'], html::escapeHTML($media_desc)) .
+            form::hidden(['type'], Html::escapeHTML($media_type)) .
+            form::hidden(['title'], Html::escapeHTML($media_title)) .
+            form::hidden(['description'], Html::escapeHTML($media_desc)) .
             form::hidden(['url'], dcCore::app()->admin->file->file_url) .
             '</p>';
 
@@ -929,7 +930,7 @@ class adminMediaItem
                     echo
                     '<li>' . $img_status . ' ' . '<a href="' . dcCore::app()->getPostAdminURL($rs->post_type, $rs->post_id) . '">' .
                     $rs->post_title . '</a>' .
-                    ($rs->post_type != 'post' ? ' (' . html::escapeHTML($rs->post_type) . ')' : '') .
+                    ($rs->post_type != 'post' ? ' (' . Html::escapeHTML($rs->post_type) . ')' : '') .
                     ' - ' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt) . '</li>';
                 }
                 echo
@@ -945,7 +946,7 @@ class adminMediaItem
             if ((is_countable(dcCore::app()->admin->file->media_meta) ? count(dcCore::app()->admin->file->media_meta) : 0) > 0) {
                 foreach (dcCore::app()->admin->file->media_meta as $k => $v) {
                     if ((string) $v) {
-                        $details .= '<li><strong>' . $k . ':</strong> ' . html::escapeHTML((string) $v) . '</li>';
+                        $details .= '<li><strong>' . $k . ':</strong> ' . Html::escapeHTML((string) $v) . '</li>';
                     }
                 }
             }
@@ -1002,14 +1003,14 @@ class adminMediaItem
             '<form class="clear fieldset" action="' . dcCore::app()->adminurl->get('admin.media.item') . '" method="post">' .
             '<h4>' . __('Change media properties') . '</h4>' .
             '<p><label for="media_file">' . __('File name:') . '</label>' .
-            form::field('media_file', 30, 255, html::escapeHTML(dcCore::app()->admin->file->basename)) . '</p>' .
+            form::field('media_file', 30, 255, Html::escapeHTML(dcCore::app()->admin->file->basename)) . '</p>' .
             '<p><label for="media_title">' . __('File title:') . '</label>' .
             form::field(
                 'media_title',
                 30,
                 255,
                 [
-                    'default'    => html::escapeHTML(dcCore::app()->admin->file->media_title),
+                    'default'    => Html::escapeHTML(dcCore::app()->admin->file->media_title),
                     'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) . '</p>';
@@ -1022,7 +1023,7 @@ class adminMediaItem
                     60,
                     255,
                     [
-                        'default'    => html::escapeHTML($getImageDescription(dcCore::app()->admin->file, '')),
+                        'default'    => Html::escapeHTML($getImageDescription(dcCore::app()->admin->file, '')),
                         'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                     ]
                 ) . '</p>' .
@@ -1030,7 +1031,7 @@ class adminMediaItem
             }
 
             echo
-            form::datetime('media_dt', ['default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', dcCore::app()->admin->file->media_dt))]) .
+            form::datetime('media_dt', ['default' => Html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', dcCore::app()->admin->file->media_dt))]) .
             '</p>' .
             '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, dcCore::app()->admin->file->media_priv) . ' ' .
             __('Private') . '</label></p>' .

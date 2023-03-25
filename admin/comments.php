@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminComments
@@ -103,7 +106,7 @@ class adminComments
             dcPage::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(),
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Comments and trackbacks')               => '',
                 ]
             )

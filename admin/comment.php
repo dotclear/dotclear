@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminComment
@@ -50,7 +53,6 @@ class adminComment
     {
         $params = [];
         if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
-
             // Adding comment (comming from post form, comments tab)
 
             try {
@@ -63,8 +65,8 @@ class adminComment
                 $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
                 $cur->comment_author  = $_POST['comment_author'];
-                $cur->comment_email   = html::clean($_POST['comment_email']);
-                $cur->comment_site    = html::clean($_POST['comment_site']);
+                $cur->comment_email   = Html::clean($_POST['comment_email']);
+                $cur->comment_site    = Html::clean($_POST['comment_site']);
                 $cur->comment_content = dcCore::app()->HTMLfilter($_POST['comment_content']);
                 $cur->post_id         = (int) $_POST['post_id'];
 
@@ -143,14 +145,13 @@ class adminComment
             }
 
             if (!empty($_POST['update']) && $can_edit) {
-
                 // update comment
 
                 $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
                 $cur->comment_author  = $_POST['comment_author'];
-                $cur->comment_email   = html::clean($_POST['comment_email']);
-                $cur->comment_site    = html::clean($_POST['comment_site']);
+                $cur->comment_email   = Html::clean($_POST['comment_email']);
+                $cur->comment_site    = Html::clean($_POST['comment_site']);
                 $cur->comment_content = dcCore::app()->HTMLfilter($_POST['comment_content']);
 
                 if (isset($_POST['comment_status'])) {
@@ -174,7 +175,6 @@ class adminComment
             }
 
             if (!empty($_POST['delete']) && dcCore::app()->admin->can_delete) {
-
                 // delete comment
 
                 try {
@@ -202,16 +202,16 @@ class adminComment
     public static function render()
     {
         $breadcrumb = [
-            html::escapeHTML(dcCore::app()->blog->name)       => '',
+            Html::escapeHTML(dcCore::app()->blog->name) => '',
         ];
         $posts_types = dcCore::app()->getPostTypes();
         if (array_key_exists(dcCore::app()->admin->post_type, $posts_types)) {
-            $breadcrumb[html::escapeHTML(__($posts_types[dcCore::app()->admin->post_type]['label']))] = '';
+            $breadcrumb[Html::escapeHTML(__($posts_types[dcCore::app()->admin->post_type]['label']))] = '';
         }
         if (dcCore::app()->admin->comment_id) {
-            $breadcrumb[html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
-        } else  {
-            $breadcrumb[html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id);
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
+        } else {
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id);
         }
         $breadcrumb[__('Edit comment')] = '';
 
@@ -232,7 +232,7 @@ class adminComment
 
             $comment_mailto = '';
             if (dcCore::app()->admin->comment_email) {
-                $comment_mailto = '<a href="mailto:' . html::escapeHTML(dcCore::app()->admin->comment_email) .
+                $comment_mailto = '<a href="mailto:' . Html::escapeHTML(dcCore::app()->admin->comment_email) .
                     '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), dcCore::app()->blog->name)) .
                     '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), dcCore::app()->admin->rs->getPostURL())) . '">' . __('Send an e-mail') . '</a>';
             }
@@ -256,18 +256,18 @@ class adminComment
             '<h3>' . __('Comment submitted') . '</h3>' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr>' . __('Author:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => html::escapeHTML(dcCore::app()->admin->comment_author),
+                'default'    => Html::escapeHTML(dcCore::app()->admin->comment_author),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
 
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, html::escapeHTML(dcCore::app()->admin->comment_email)) .
+            form::email('comment_email', 30, 255, Html::escapeHTML(dcCore::app()->admin->comment_email)) .
             '<span>' . $comment_mailto . '</span>' .
             '</p>' .
 
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, html::escapeHTML(dcCore::app()->admin->comment_site)) .
+            form::url('comment_site', 30, 255, Html::escapeHTML(dcCore::app()->admin->comment_site)) .
             '</p>' .
 
             '<p><label for="comment_status">' . __('Status:') . '</label>' .
@@ -287,7 +287,7 @@ class adminComment
                 50,
                 10,
                 [
-                    'default'    => html::escapeHTML(dcCore::app()->admin->comment_content),
+                    'default'    => Html::escapeHTML(dcCore::app()->admin->comment_content),
                     'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) .

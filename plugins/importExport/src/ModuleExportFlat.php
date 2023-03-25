@@ -22,10 +22,10 @@ use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
+use Dotclear\Helper\Html\Html;
 use initBlogroll;
 use fileZip;
 use form;
-use html;
 use http;
 
 class ModuleExportFlat extends Module
@@ -221,10 +221,10 @@ class ModuleExportFlat extends Module
         echo
         '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . html::escapeHTML(dcCore::app()->blog->name)) . '</strong>.</p>' .
+        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . Html::escapeHTML(dcCore::app()->blog->name)) . '</strong>.</p>' .
 
         '<p><label for="file_name">' . __('File name:') . '</label>' .
-        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . html::escapeHTML(dcCore::app()->blog->id . '-backup.txt')) .
+        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . Html::escapeHTML(dcCore::app()->blog->id . '-backup.txt')) .
         '</p>' .
 
         '<p><label for="file_zip" class="classic">' .

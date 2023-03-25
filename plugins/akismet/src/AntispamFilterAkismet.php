@@ -15,10 +15,10 @@ namespace Dotclear\Plugin\akismet;
 use dcCore;
 use dcPage;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use html;
 use http;
 
 class AntispamFilterAkismet extends SpamFilter
@@ -222,7 +222,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         $res = dcPage::notices();
 
-        $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        $res .= '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label for="ak_key" class="classic">' . __('Akismet API key:') . '</label> ' .
         form::field('ak_key', 12, 128, $ak_key);
 

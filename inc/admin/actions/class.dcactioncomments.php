@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
 use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
 
@@ -86,7 +87,7 @@ class dcCommentsActions extends dcActions
         $this->beginPage(
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Comments')                              => dcCore::app()->adminurl->get('admin.comments'),
                     __('Comments actions')                      => '',
                 ]

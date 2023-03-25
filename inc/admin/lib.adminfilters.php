@@ -15,6 +15,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Html;
 
 class adminGenericFilterV2
 {
@@ -503,7 +504,7 @@ class adminPostFilter extends adminGenericFilterV2
         while ($categories->fetch()) {
             $combo[
                 str_repeat('&nbsp;', ($categories->level - 1) * 4) .
-                html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')'
+                Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')'
             ] = $categories->cat_id;
         }
 
@@ -987,14 +988,14 @@ class adminMediaFilter extends adminGenericFilterV2
 
     protected function getPluginIdFilter(): dcAdminFilter
     {
-        $get = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
+        $get = isset($_REQUEST['plugin_id']) ? Html::sanitizeURL($_REQUEST['plugin_id']) : '';
 
         return new dcAdminFilter('plugin_id', $get);
     }
 
     protected function getLinkTypeFilter(): dcAdminFilter
     {
-        $get = !empty($_REQUEST['link_type']) ? html::escapeHTML($_REQUEST['link_type']) : null;
+        $get = !empty($_REQUEST['link_type']) ? Html::escapeHTML($_REQUEST['link_type']) : null;
 
         return new dcAdminFilter('link_type', $get);
     }

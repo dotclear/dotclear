@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class dcBlogsActions extends dcActions
 {
     /**
@@ -81,7 +84,7 @@ class dcBlogsActions extends dcActions
         $this->beginPage(
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Blogs')                                 => dcCore::app()->adminurl->get('admin.blogs'),
                     __('Blogs actions')                         => '',
                 ]

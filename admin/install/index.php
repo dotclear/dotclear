@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 if (isset($_SERVER['DC_RC_PATH'])) {
@@ -338,20 +339,20 @@ if ($can_install && $step == 0) {
     '<fieldset><legend>' . __('User information') . '</legend>' .
     '<p><label for="u_firstname">' . __('First Name:') . '</label> ' .
     form::field('u_firstname', 30, 255, [
-        'default'      => html::escapeHTML($u_firstname),
+        'default'      => Html::escapeHTML($u_firstname),
         'autocomplete' => 'given-name',
     ]) .
     '</p>' .
     '<p><label for="u_name">' . __('Last Name:') . '</label> ' .
     form::field('u_name', 30, 255, [
-        'default'      => html::escapeHTML($u_name),
+        'default'      => Html::escapeHTML($u_name),
         'autocomplete' => 'family-name',
     ]) .
     '</p>' .
     '<p><label for="u_email">' . __('Email:') . '</label> ' .
     form::email('u_email', [
         'size'         => 30,
-        'default'      => html::escapeHTML($u_email),
+        'default'      => Html::escapeHTML($u_email),
         'autocomplete' => 'email',
     ]) .
     '</p>' .
@@ -360,7 +361,7 @@ if ($can_install && $step == 0) {
     '<fieldset><legend>' . __('Username and password') . '</legend>' .
     '<p><label for="u_login" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Username:') . ' ' .
     form::field('u_login', 30, 32, [
-        'default'      => html::escapeHTML($u_login),
+        'default'      => Html::escapeHTML($u_login),
         'extra_html'   => 'required placeholder="' . __('Username') . '"',
         'autocomplete' => 'username',
     ]) .
@@ -410,20 +411,20 @@ if ($can_install && $step == 0) {
 
     '<h3>' . __('Your account') . '</h3>' .
     '<ul>' .
-    '<li>' . __('Username:') . ' <strong>' . html::escapeHTML($u_login) . '</strong></li>' .
-    '<li>' . __('Password:') . ' <strong id="password">' . html::escapeHTML($u_pwd) . '</strong></li>' .
+    '<li>' . __('Username:') . ' <strong>' . Html::escapeHTML($u_login) . '</strong></li>' .
+    '<li>' . __('Password:') . ' <strong id="password">' . Html::escapeHTML($u_pwd) . '</strong></li>' .
     '</ul>' .
 
     '<h3>' . __('Your blog') . '</h3>' .
     '<ul>' .
-    '<li>' . __('Blog address:') . ' <strong>' . html::escapeHTML(http::getHost() . $root_url) . '/index.php?</strong></li>' .
-    '<li>' . __('Administration interface:') . ' <strong>' . html::escapeHTML(http::getHost() . $admin_url) . '</strong></li>' .
+    '<li>' . __('Blog address:') . ' <strong>' . Html::escapeHTML(http::getHost() . $root_url) . '/index.php?</strong></li>' .
+    '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(http::getHost() . $admin_url) . '</strong></li>' .
     '</ul>' .
 
     '<form action="../auth.php" method="post">' .
     '<p><input type="submit" value="' . __('Manage your blog now') . '" />' .
-    form::hidden(['user_id'], html::escapeHTML($u_login)) .
-    form::hidden(['user_pwd'], html::escapeHTML($u_pwd)) .
+    form::hidden(['user_id'], Html::escapeHTML($u_login)) .
+    form::hidden(['user_pwd'], Html::escapeHTML($u_pwd)) .
         '</p>' .
         '</form>';
 } elseif (!$can_install) {

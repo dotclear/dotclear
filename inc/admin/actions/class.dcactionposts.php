@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class dcPostsActions extends dcActions
 {
     /**
@@ -83,7 +86,7 @@ class dcPostsActions extends dcActions
         $this->beginPage(
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     $this->getCallerTitle()                     => $this->getRedirection(true),
                     __('Posts actions')                         => '',
                 ]
@@ -387,7 +390,7 @@ class dcDefaultPostActions
                         count($ids)
                     ),
                     count($ids),
-                    html::escapeHTML($title)
+                    Html::escapeHTML($title)
                 )
             );
 
@@ -396,7 +399,7 @@ class dcDefaultPostActions
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change category for this selection')    => '',
                     ]
@@ -470,7 +473,7 @@ class dcDefaultPostActions
                         count($ids)
                     ),
                     count($ids),
-                    html::escapeHTML($new_user_id)
+                    Html::escapeHTML($new_user_id)
                 )
             );
 
@@ -496,7 +499,7 @@ class dcDefaultPostActions
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change author for this selection')      => '', ]
                 ),
@@ -546,7 +549,7 @@ class dcDefaultPostActions
                         count($post_ids)
                     ),
                     count($post_ids),
-                    html::escapeHTML(l10n::getLanguageName($new_lang))
+                    Html::escapeHTML(l10n::getLanguageName($new_lang))
                 )
             );
             $ap->redirect(true);
@@ -554,7 +557,7 @@ class dcDefaultPostActions
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change language for this selection')    => '',
                     ]

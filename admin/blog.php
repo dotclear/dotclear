@@ -16,6 +16,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Form\Url;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -67,7 +68,7 @@ class adminBlog
 
                 # --BEHAVIOR-- adminAfterBlogCreate
                 dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
-                dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), html::escapeHTML($cur->blog_name)));
+                dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 dcCore::app()->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

@@ -16,9 +16,9 @@ use dcNsProcess;
 use dcPage;
 use dcThemeConfig;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use http;
 use l10n;
 
@@ -365,7 +365,7 @@ class Config extends dcNsProcess
         // Helpers
 
         $fontDef = fn ($c) => isset(dcCore::app()->admin->font_families[$c]) ?
-            '<abbr title="' . html::escapeHTML(dcCore::app()->admin->font_families[$c]) . '"> ' . __('Font family') . ' </abbr>' :
+            '<abbr title="' . Html::escapeHTML(dcCore::app()->admin->font_families[$c]) . '"> ' . __('Font family') . ' </abbr>' :
             '';
 
         // Legacy mode

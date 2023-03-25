@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -85,7 +86,7 @@ class adminUpdate
         dcCore::app()->admin->step = $_GET['step'] ?? '';
         dcCore::app()->admin->step = in_array(dcCore::app()->admin->step, ['check', 'download', 'backup', 'unzip']) ? dcCore::app()->admin->step : '';
 
-        dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'update';
+        dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'update';
         if (!empty($_POST['backup_file'])) {
             dcCore::app()->admin->default_tab = 'files';
         }
@@ -116,7 +117,7 @@ class adminUpdate
             try {
                 if (!empty($_POST['b_del'])) {
                     if (!@unlink(DC_BACKUP_PATH . '/' . $b_file)) {
-                        throw new Exception(sprintf(__('Unable to delete file %s'), html::escapeHTML($b_file)));
+                        throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
                     http::redirect(dcCore::app()->admin->getPageURL() . '?tab=files');
                 }
@@ -298,8 +299,8 @@ class adminUpdate
                 '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">';
                 foreach ($archives as $archive) {
                     echo
-                    '<p><label class="classic">' . form::radio(['backup_file'], html::escapeHTML($archive)) . ' ' .
-                    html::escapeHTML($archive) . '</label></p>';
+                    '<p><label class="classic">' . form::radio(['backup_file'], Html::escapeHTML($archive)) . ' ' .
+                    Html::escapeHTML($archive) . '</label></p>';
                 }
 
                 echo

@@ -16,6 +16,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -81,7 +82,7 @@ class adminCategory
             while ($rs->fetch()) {
                 if (!isset($parents[$rs->cat_id])) {
                     $stack[] = new Option(
-                        str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title),
+                        str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title),
                         $rs->cat_id
                     );
                 }
@@ -93,7 +94,7 @@ class adminCategory
             $rs    = dcCore::app()->blog->getCategoryFirstChildren(dcCore::app()->admin->cat_parent);
             while ($rs->fetch()) {
                 if ($rs->cat_id != dcCore::app()->admin->cat_id) {
-                    $stack[html::escapeHTML($rs->cat_title)] = $rs->cat_id;
+                    $stack[Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
                 }
             }
             dcCore::app()->admin->cat_siblings = $stack;
@@ -172,7 +173,7 @@ class adminCategory
 
                     dcPage::addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
-                        html::escapeHTML($cur->cat_title)
+                        Html::escapeHTML($cur->cat_title)
                     ));
                     dcCore::app()->adminurl->redirect('admin.categories');
                 }
@@ -187,15 +188,15 @@ class adminCategory
      */
     public static function render()
     {
-        $title = dcCore::app()->admin->cat_id ? html::escapeHTML(dcCore::app()->admin->cat_title) : __('New category');
+        $title = dcCore::app()->admin->cat_id ? Html::escapeHTML(dcCore::app()->admin->cat_title) : __('New category');
 
         $elements = [
-            html::escapeHTML(dcCore::app()->blog->name) => '',
+            Html::escapeHTML(dcCore::app()->blog->name) => '',
             __('Categories')                            => dcCore::app()->adminurl->get('admin.categories'),
         ];
         if (dcCore::app()->admin->cat_id) {
             while (dcCore::app()->admin->cat_parents->fetch()) {
-                $elements[html::escapeHTML(dcCore::app()->admin->cat_parents->cat_title)] = dcCore::app()->adminurl->get('admin.category', ['id' => dcCore::app()->admin->cat_parents->cat_id]);
+                $elements[Html::escapeHTML(dcCore::app()->admin->cat_parents->cat_title)] = dcCore::app()->adminurl->get('admin.category', ['id' => dcCore::app()->admin->cat_parents->cat_id]);
             }
         }
         $elements[$title] = '';
@@ -224,7 +225,7 @@ class adminCategory
         '<h3>' . __('Category information') . '</h3>' .
         '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
         \form::field('cat_title', 40, 255, [
-            'default'    => html::escapeHTML(dcCore::app()->admin->cat_title),
+            'default'    => Html::escapeHTML(dcCore::app()->admin->cat_title),
             'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . dcCore::app()->admin->blog_lang . '" spellcheck="true"',
         ]) .
         '</p>';
@@ -237,7 +238,7 @@ class adminCategory
             '<option value="0">' . __('(none)') . '</option>';
             while ($rs->fetch()) {
                 echo
-                '<option value="' . $rs->cat_id . '" ' . (!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '') . '>' . str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title) . '</option>';
+                '<option value="' . $rs->cat_id . '" ' . (!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '') . '>' . str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title) . '</option>';
             }
             echo
             '</select></label></p>';
@@ -246,7 +247,7 @@ class adminCategory
         echo
         '<div class="lockable">' .
         '<p><label for="cat_url">' . __('URL:') . '</label> '
-        . \form::field('cat_url', 40, 255, html::escapeHTML(dcCore::app()->admin->cat_url)) .
+        . \form::field('cat_url', 40, 255, Html::escapeHTML(dcCore::app()->admin->cat_url)) .
         '</p>' .
         '<p class="form-note warn" id="note-cat-url">' .
         __('Warning: If you set the URL manually, it may conflict with another category.') . '</p>' .
@@ -258,7 +259,7 @@ class adminCategory
             50,
             8,
             [
-                'default'    => html::escapeHTML(dcCore::app()->admin->cat_desc),
+                'default'    => Html::escapeHTML(dcCore::app()->admin->cat_desc),
                 'extra_html' => 'lang="' . dcCore::app()->admin->blog_lang . '" spellcheck="true"',
             ]
         ) .

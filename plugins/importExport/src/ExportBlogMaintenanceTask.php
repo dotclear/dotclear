@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 use form;
-use html;
 
 class ExportBlogMaintenanceTask extends MaintenanceTask
 {
@@ -34,7 +34,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         $this->name = __('Database export');
         $this->task = __('Download database of current blog');
 
-        $this->export_name = html::escapeHTML(dcCore::app()->blog->id . '-backup.txt');
+        $this->export_name = Html::escapeHTML(dcCore::app()->blog->id . '-backup.txt');
         $this->export_type = 'export_blog';
     }
 

@@ -1325,6 +1325,8 @@ class dcUpgrade
                     'inc/helper/common/lib.text.php',
                     // CB files/path moved to src
                     'inc/helper/common/lib.file.php',
+                    // CB html moved to src
+                    'inc/helper/common/lib.html.php',
                 ],
                 // Folders
                 [

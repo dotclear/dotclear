@@ -23,10 +23,10 @@ use dcCore;
 use dcRecord;
 use dcTrackback;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use initBlogroll;
 use form;
-use html;
 use http;
 
 class ModuleImportWp extends Module
@@ -215,7 +215,7 @@ class ModuleImportWp extends Module
                 echo
                 '<p>' . sprintf(
                     __('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -224,15 +224,15 @@ class ModuleImportWp extends Module
                     $this->imForm(1, __('General information'), __('Import my blog now')),
                     '<p>' . __('We first need some information about your old WordPress installation.') . '</p>' .
                     '<p><label for="db_host">' . __('Database Host Name:') . '</label> ' .
-                    form::field('db_host', 30, 255, html::escapeHTML($this->vars['db_host'])) . '</p>' .
-                    '<p><label for="db_name">' . __('Database Name:', html::escapeHTML($this->vars['db_name'])) . '</label> ' .
-                    form::field('db_name', 30, 255, html::escapeHTML($this->vars['db_name'])) . '</p>' .
+                    form::field('db_host', 30, 255, Html::escapeHTML($this->vars['db_host'])) . '</p>' .
+                    '<p><label for="db_name">' . __('Database Name:', Html::escapeHTML($this->vars['db_name'])) . '</label> ' .
+                    form::field('db_name', 30, 255, Html::escapeHTML($this->vars['db_name'])) . '</p>' .
                     '<p><label for="db_user">' . __('Database User Name:') . '</label> ' .
-                    form::field('db_user', 30, 255, html::escapeHTML($this->vars['db_user'])) . '</p>' .
+                    form::field('db_user', 30, 255, Html::escapeHTML($this->vars['db_user'])) . '</p>' .
                     '<p><label for="db_pwd">' . __('Database Password:') . '</label> ' .
                     form::password('db_pwd', 30, 255) . '</p>' .
                     '<p><label for="db_prefix">' . __('Database Tables Prefix:') . '</label> ' .
-                    form::field('db_prefix', 30, 255, html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
+                    form::field('db_prefix', 30, 255, Html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
 
                     '<h3 class="vertical-separator">' . __('Entries import options') . '</h3>' .
                     '<div class="two-cols">' .
@@ -258,9 +258,9 @@ class ModuleImportWp extends Module
                     '<p><label for="cat_as_tags" class="classic">' . form::checkbox('cat_as_tags', 1, $this->vars['cat_as_tags']) . ' ' .
                     __('Import all categories as tags:') . '</label></p>' .
                     '<p><label for="cat_tags_prefix">' . __('Prefix such tags with:') . '</label> ' .
-                    form::field('cat_tags_prefix', 10, 20, html::escapeHTML($this->vars['cat_tags_prefix'])) . '</p>' .
+                    form::field('cat_tags_prefix', 10, 20, Html::escapeHTML($this->vars['cat_tags_prefix'])) . '</p>' .
                     '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
-                    form::number('post_limit', 0, 999, html::escapeHTML((string) $this->vars['post_limit'])) . '</p>' .
+                    form::number('post_limit', 0, 999, Html::escapeHTML((string) $this->vars['post_limit'])) . '</p>' .
                     '</div>' .
 
                     '</div>' .

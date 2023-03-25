@@ -15,11 +15,11 @@ namespace Dotclear\Plugin\antispam\Filters;
 use dcCore;
 use dcPage;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use html;
 use http;
 
 class Ip extends SpamFilter
@@ -182,7 +182,7 @@ class Ip extends SpamFilter
     {
         $res = '<div class="multi-part" id="tab_' . $type . '" title="' . $title . '">' .
 
-        '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
 
         '<p>' .
         form::hidden(['ip_type'], $type) .
@@ -203,7 +203,7 @@ class Ip extends SpamFilter
         if ($rs->isEmpty()) {
             $res .= '<p><strong>' . __('No IP address in list.') . '</strong></p>';
         } else {
-            $res .= '<form action="' . html::escapeURL($url) . '" method="post">' .
+            $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
             '<h3>' . __('IP list') . '</h3>' .
                 '<div class="antispam">';
 
@@ -228,7 +228,7 @@ class Ip extends SpamFilter
                         'disabled' => $disabled_ip,
                     ]
                 ) . ' ' .
-                html::escapeHTML($pattern) .
+                Html::escapeHTML($pattern) .
                     '</label></p>';
 
                 if ($rs->blog_id) {

@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Mail\Mail;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -40,7 +41,7 @@ class adminAuth
 
         dcCore::app()->admin->change_pwd = dcCore::app()->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 
-        dcCore::app()->admin->login_data = !empty($_POST['login_data']) ? html::escapeHTML($_POST['login_data']) : null;
+        dcCore::app()->admin->login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : null;
 
         dcCore::app()->admin->recover = dcCore::app()->auth->allowPassChange() && !empty($_REQUEST['recover']);
         dcCore::app()->admin->akey    = dcCore::app()->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
@@ -96,7 +97,7 @@ class adminAuth
         $headers = [];
         if (dcCore::app()->admin->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
             dcCore::app()->admin->user_id    = $_POST['user_id'];
-            dcCore::app()->admin->user_email = html::escapeHTML($_POST['user_email']);
+            dcCore::app()->admin->user_email = Html::escapeHTML($_POST['user_email']);
 
             // Recover password
 
@@ -285,7 +286,7 @@ class adminAuth
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
         $dlang  = dcCore::app()->admin->dlang;
-        $vendor = html::escapeHTML(DC_VENDOR_NAME);
+        $vendor = Html::escapeHTML(DC_VENDOR_NAME);
         $buffer = '<!DOCTYPE html>' . "\n" .
             '<html lang="' . $dlang . '">' . "\n" .
             '<head>' . "\n" .
@@ -317,7 +318,7 @@ class adminAuth
         dcPage::jsLoad('js/_auth.js');
 
         $action = dcCore::app()->adminurl->get('admin.auth');
-        $banner = html::escapeHTML(DC_VENDOR_NAME);
+        $banner = Html::escapeHTML(DC_VENDOR_NAME);
         $buffer = '</head>' . "\n" .
             '<body id="dotclear-admin" class="auth">' . "\n" .
             '<form action="' . $action . '" method="post" id="login-screen">' . "\n" .
@@ -351,7 +352,7 @@ class adminAuth
                 20,
                 32,
                 [
-                    'default'      => html::escapeHTML(dcCore::app()->admin->user_id),
+                    'default'      => Html::escapeHTML(dcCore::app()->admin->user_id),
                     'autocomplete' => 'username',
                 ]
             ) .
@@ -361,7 +362,7 @@ class adminAuth
             form::email(
                 'user_email',
                 [
-                    'default'      => html::escapeHTML(dcCore::app()->admin->user_email),
+                    'default'      => Html::escapeHTML(dcCore::app()->admin->user_email),
                     'autocomplete' => 'email',
                 ]
             ) .
@@ -433,7 +434,7 @@ class adminAuth
                     20,
                     32,
                     [
-                        'default'      => html::escapeHTML(dcCore::app()->admin->user_id),
+                        'default'      => Html::escapeHTML(dcCore::app()->admin->user_id),
                         'autocomplete' => 'username',
                     ]
                 ) . '</p>' .
@@ -453,7 +454,7 @@ class adminAuth
 
                 if (!empty($_REQUEST['blog'])) {
                     echo
-                    form::hidden('blog', html::escapeHTML($_REQUEST['blog']));
+                    form::hidden('blog', Html::escapeHTML($_REQUEST['blog']));
                 }
                 if (dcCore::app()->admin->safe_mode) {
                     echo

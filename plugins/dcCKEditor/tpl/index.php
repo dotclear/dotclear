@@ -1,4 +1,8 @@
-<?php echo dcPage::breadcrumb([__('Plugins') => '', __('dcCKEditor') => '']) . dcPage::notices(); ?>
+<?php
+
+use Dotclear\Helper\Html\Html;
+
+echo dcPage::breadcrumb([__('Plugins') => '', __('dcCKEditor') => '']) . dcPage::notices(); ?>
 <?php if (dcCore::app()->admin->editor_is_admin): ?>
 <h3 class="hidden-if-js">
   <?php echo __('Settings'); ?>
@@ -48,7 +52,7 @@
       <label for="dcckeditor_custom_color_list">
         <?php echo __('Custom colors list:'); ?>
       </label>
-      <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => html::escapeHTML(dcCore::app()->admin->editor_cke_custom_color_list)]); ?>
+      <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => Html::escapeHTML(dcCore::app()->admin->editor_cke_custom_color_list)]); ?>
     </p>
     <p class="clear form-note">
       <?php echo __('Add colors without # separated by a comma.'); ?><br />

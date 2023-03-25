@@ -16,8 +16,8 @@ use Exception;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use Dotclear\Helper\Html\Html;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -110,7 +110,7 @@ class Manage extends dcNsProcess
         dcPage::breadcrumb(
             [
                 __('System')                                    => '',
-                html::escapeHTML(dcCore::app()->auth->userID()) => '',
+                Html::escapeHTML(dcCore::app()->auth->userID()) => '',
                 __('user:preferences')                          => '',
             ]
         ) .
@@ -247,7 +247,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
+                    Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
                 );
 
                 break;
@@ -258,7 +258,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     null,
                     null,
-                    html::escapeHTML((string) $s['value'])
+                    Html::escapeHTML((string) $s['value'])
                 );
 
                 break;
@@ -268,7 +268,7 @@ class Manage extends dcNsProcess
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     40,
                     null,
-                    html::escapeHTML($s['value'])
+                    Html::escapeHTML($s['value'])
                 );
 
                 break;
@@ -276,17 +276,17 @@ class Manage extends dcNsProcess
 
         $type = form::hidden(
             [$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],
-            html::escapeHTML($s['type'])
+            Html::escapeHTML($s['type'])
         );
 
         $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
 
         return
             '<tr class="line">' .
-            '<td scope="row"><label for="' . $field_name . '_' . $ws . '_' . $id . '">' . sprintf($slabel, html::escapeHTML($id)) . '</label></td>' .
+            '<td scope="row"><label for="' . $field_name . '_' . $ws . '_' . $id . '">' . sprintf($slabel, Html::escapeHTML($id)) . '</label></td>' .
             '<td>' . $field . '</td>' .
             '<td>' . $s['type'] . $type . '</td>' .
-            '<td>' . html::escapeHTML($s['label']) . '</td>' .
+            '<td>' . Html::escapeHTML($s['label']) . '</td>' .
             '</tr>';
     }
 }

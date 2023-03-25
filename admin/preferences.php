@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminUserPrefs
@@ -66,7 +69,7 @@ class adminUserPrefs
         dcCore::app()->admin->user_ui_media_nb_last_dirs = dcCore::app()->auth->user_prefs->interface->media_nb_last_dirs;
         dcCore::app()->admin->user_ui_nocheckadblocker   = dcCore::app()->auth->user_prefs->interface->nocheckadblocker;
 
-        dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
+        dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
 
         if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
             dcCore::app()->admin->default_tab = 'user-favorites';
@@ -486,7 +489,7 @@ class adminUserPrefs
             dcCore::app()->callBehavior('adminPreferencesHeaders'),
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->auth->userID()) => '',
+                    Html::escapeHTML(dcCore::app()->auth->userID()) => '',
                     dcCore::app()->admin->page_title                => '',
                 ]
             )
@@ -500,35 +503,35 @@ class adminUserPrefs
 
         '<p><label for="user_name">' . __('Last Name:') . '</label>' .
         form::field('user_name', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_name),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_name),
             'autocomplete' => 'family-name',
         ]) .
         '</p>' .
 
         '<p><label for="user_firstname">' . __('First Name:') . '</label>' .
         form::field('user_firstname', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_firstname),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_firstname),
             'autocomplete' => 'given-name',
         ]) .
         '</p>' .
 
         '<p><label for="user_displayname">' . __('Display name:') . '</label>' .
         form::field('user_displayname', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_displayname),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_displayname),
             'autocomplete' => 'nickname',
         ]) .
         '</p>' .
 
         '<p><label for="user_email">' . __('Email:') . '</label>' .
         form::email('user_email', [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_email),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_email),
             'autocomplete' => 'email',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
         form::field('user_profile_mails', 50, 255, [
-            'default' => html::escapeHTML(dcCore::app()->admin->user_profile_mails),
+            'default' => Html::escapeHTML(dcCore::app()->admin->user_profile_mails),
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
@@ -536,14 +539,14 @@ class adminUserPrefs
         '<p><label for="user_url">' . __('URL:') . '</label>' .
         form::url('user_url', [
             'size'         => 30,
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_url),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_url),
             'autocomplete' => 'url',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
         form::field('user_profile_urls', 50, 255, [
-            'default' => html::escapeHTML(dcCore::app()->admin->user_profile_urls),
+            'default' => Html::escapeHTML(dcCore::app()->admin->user_profile_urls),
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
@@ -833,7 +836,7 @@ class adminUserPrefs
 
             '<input type="submit" class="delete" name="removeaction" ' .
             'value="' . __('Delete selected favorites') . '" ' .
-            'onclick="return window.confirm(\'' . html::escapeJS(
+            'onclick="return window.confirm(\'' . Html::escapeJS(
                 __('Are you sure you want to remove selected favorites?')
             ) . '\');" /></p>' .
 

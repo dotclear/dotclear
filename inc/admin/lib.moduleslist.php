@@ -15,6 +15,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 
 class adminModulesList
 {
@@ -386,7 +387,7 @@ class adminModulesList
         '<div class="modules-search">' .
         '<form action="' . $this->getURL() . '" method="get">' .
         '<p><label for="m_search" class="classic">' . __('Search in repository:') . '&nbsp;</label><br />' .
-        form::field('m_search', 30, 255, html::escapeHTML($query)) .
+        form::field('m_search', 30, 255, Html::escapeHTML($query)) .
         '<input type="submit" value="' . __('OK') . '" /> ';
 
         if ($query) {
@@ -406,7 +407,7 @@ class adminModulesList
             '<p class="message">' . sprintf(
                 __('Found %d result for search "%s":', 'Found %d results for search "%s":', count($this->data)),
                 count($this->data),
-                html::escapeHTML($query)
+                Html::escapeHTML($query)
             ) .
                 '</p>';
         }
@@ -694,8 +695,8 @@ class adminModulesList
         echo
         '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
         '<div class="table-outer">' .
-        '<table id="' . html::escapeHTML($this->list_id) . '" class="modules' . (in_array('expander', $cols) ? ' expandable' : '') . '">' .
-        '<caption class="hidden">' . html::escapeHTML(__('Plugins list')) . '</caption><tr>';
+        '<table id="' . Html::escapeHTML($this->list_id) . '" class="modules' . (in_array('expander', $cols) ? ' expandable' : '') . '">' .
+        '<caption class="hidden">' . Html::escapeHTML(__('Plugins list')) . '</caption><tr>';
 
         if (in_array('name', $cols)) {
             $colspan = 1;
@@ -769,8 +770,8 @@ class adminModulesList
             $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($module['root'] . '/.git');
 
             echo
-            '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . html::escapeHTML($this->list_id) . '_m_' . html::escapeHTML($id) . '"' .
-                (in_array('desc', $cols) ? ' title="' . html::escapeHTML(__($module['desc'])) . '" ' : '') .
+            '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . Html::escapeHTML($this->list_id) . '_m_' . Html::escapeHTML($id) . '"' .
+                (in_array('desc', $cols) ? ' title="' . Html::escapeHTML(__($module['desc'])) . '" ' : '') .
                 '>';
 
             $tds = 0;
@@ -779,7 +780,7 @@ class adminModulesList
                 $tds++;
                 echo
                 '<td class="module-icon nowrap">' .
-                form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
+                form::checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)], Html::escapeHTML($id)) .
                     '</td>';
             }
 
@@ -805,7 +806,7 @@ class adminModulesList
 
                 echo
                 '<td class="module-icon nowrap">' .
-                dcAdminHelper::adminIcon($icon, false, html::escapeHTML($id), html::escapeHTML($id)) .
+                dcAdminHelper::adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)) .
                 '</td>';
             }
 
@@ -815,17 +816,17 @@ class adminModulesList
             if (in_array('checkbox', $cols)) {
                 if (in_array('expander', $cols)) {
                     echo
-                    html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '');
+                    Html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '');
                 } else {
                     echo
-                    '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
-                    html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
+                    '<label for="' . Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id) . '">' .
+                    Html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
                     '</label>';
                 }
             } else {
                 echo
-                html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
-                form::hidden(['modules[' . $count . ']'], html::escapeHTML($id));
+                Html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
+                form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id));
             }
             echo
             dcCore::app()->formNonce() .
@@ -841,19 +842,19 @@ class adminModulesList
             if (in_array('version', $cols)) {
                 $tds++;
                 echo
-                '<td class="module-version nowrap count">' . html::escapeHTML($module['version']) . '</td>';
+                '<td class="module-version nowrap count">' . Html::escapeHTML($module['version']) . '</td>';
             }
 
             if (in_array('current_version', $cols)) {
                 $tds++;
                 echo
-                '<td class="module-current-version nowrap count">' . html::escapeHTML($module['current_version']) . '</td>';
+                '<td class="module-current-version nowrap count">' . Html::escapeHTML($module['current_version']) . '</td>';
             }
 
             if (in_array('desc', $cols)) {
                 $tds++;
                 echo
-                '<td class="module-desc maximal">' . html::escapeHTML(__($module['desc']));
+                '<td class="module-desc maximal">' . Html::escapeHTML(__($module['desc']));
                 if (!empty($module['cannot_disable']) && $module['state'] == dcModuleDefine::STATE_ENABLED) {
                     echo
                     '<br/><span class="info">' .
@@ -923,7 +924,7 @@ class adminModulesList
 
                     if (!empty($module['author'])) {
                         echo
-                        '<li class="module-author">' . __('Author:') . ' ' . html::escapeHTML($module['author']) . '</li>';
+                        '<li class="module-author">' . __('Author:') . ' ' . Html::escapeHTML($module['author']) . '</li>';
                     }
 
                     $more = [];
@@ -965,12 +966,12 @@ class adminModulesList
 
                     if (!empty($module['section'])) {
                         echo
-                        '<li class="module-section">' . __('Section:') . ' ' . html::escapeHTML($module['section']) . '</li>';
+                        '<li class="module-section">' . __('Section:') . ' ' . Html::escapeHTML($module['section']) . '</li>';
                     }
 
                     if (!empty($module['tags'])) {
                         echo
-                        '<li class="module-tags">' . __('Tags:') . ' ' . html::escapeHTML($module['tags']) . '</li>';
+                        '<li class="module-tags">' . __('Tags:') . ' ' . Html::escapeHTML($module['tags']) . '</li>';
                     }
 
                     echo
@@ -1119,7 +1120,7 @@ class adminModulesList
                 # Deactivate
                 case 'activate':
                     if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && empty($module['cannot_enable'])) {
-                        $submits[] = '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
+                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
                     }
 
                     break;
@@ -1127,7 +1128,7 @@ class adminModulesList
                     # Activate
                 case 'deactivate':
                     if (dcCore::app()->auth->isSuperAdmin() && $module['root_writable'] && empty($module['cannot_disable'])) {
-                        $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
+                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
                     }
 
                     break;
@@ -1136,7 +1137,7 @@ class adminModulesList
                 case 'delete':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && empty($module['cannot_disable'])) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
-                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
+                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }
 
                     break;
@@ -1144,7 +1145,7 @@ class adminModulesList
                     # Clone
                 case 'clone':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
+                        $submits[] = '<input type="submit" class="button clone" name="clone[' . Html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
                     }
 
                     break;
@@ -1152,7 +1153,7 @@ class adminModulesList
                     # Install (from store)
                 case 'install':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="install[' . html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
+                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
                     }
 
                     break;
@@ -1160,7 +1161,7 @@ class adminModulesList
                     # Update (from store)
                 case 'update':
                     if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="update[' . html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
+                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
                     }
 
                     break;
@@ -1690,7 +1691,7 @@ class adminModulesList
             if (!$this->config_module['standalone_config']) {
                 echo
                 '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">' .
-                '<h3>' . sprintf(__('Configure "%s"'), html::escapeHTML($this->config_module['name'])) . '</h3>' .
+                '<h3>' . sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_module['name'])) . '</h3>' .
                 '<p><a class="back" href="' . $this->getRedir() . '">' . __('Back') . '</a></p>';
             }
 
@@ -1785,7 +1786,7 @@ class adminThemesList extends adminModulesList
     {
         echo
         '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
-        '<div id="' . html::escapeHTML($this->list_id) . '" class="modules' . (in_array('expander', $cols) ? ' expandable' : '') . ' one-box">';
+        '<div id="' . Html::escapeHTML($this->list_id) . '" class="modules' . (in_array('expander', $cols) ? ' expandable' : '') . ' one-box">';
 
         $sort_field = $this->getSort();
 
@@ -1819,13 +1820,13 @@ class adminThemesList extends adminModulesList
                 $line .= '<h4 class="module-name">';
 
                 if (in_array('checkbox', $cols)) {
-                    $line .= '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
-                    form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
-                    html::escapeHTML($module['name']) .
+                    $line .= '<label for="' . Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id) . '">' .
+                    form::checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)], Html::escapeHTML($id)) .
+                    Html::escapeHTML($module['name']) .
                         '</label>';
                 } else {
-                    $line .= form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
-                    html::escapeHTML($module['name']);
+                    $line .= form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id)) .
+                    Html::escapeHTML($module['name']);
                 }
 
                 $line .= dcCore::app()->formNonce() .
@@ -1852,7 +1853,7 @@ class adminThemesList extends adminModulesList
                 }
 
                 $line .= '<div class="module-sshot"><img src="' . $sshot . '" loading="lazy" alt="' .
-                sprintf(__('%s screenshot.'), html::escapeHTML($module['name'])) . '" /></div>';
+                sprintf(__('%s screenshot.'), Html::escapeHTML($module['name'])) . '" /></div>';
             }
 
             $line .= $current ? '' : '<details><summary>' . __('Details') . '</summary>';
@@ -1862,13 +1863,13 @@ class adminThemesList extends adminModulesList
                 $line .= '<h4 class="module-name">';
 
                 if (in_array('checkbox', $cols)) {
-                    $line .= '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
-                    form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
-                    html::escapeHTML($module['name']) .
+                    $line .= '<label for="' . Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id) . '">' .
+                    form::checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)], Html::escapeHTML($id)) .
+                    Html::escapeHTML($module['name']) .
                         '</label>';
                 } else {
-                    $line .= form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
-                    html::escapeHTML($module['name']);
+                    $line .= form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id)) .
+                    Html::escapeHTML($module['name']);
                 }
 
                 $line .= '</h4>';
@@ -1877,26 +1878,26 @@ class adminThemesList extends adminModulesList
             $line .= '<p>';
 
             if (in_array('desc', $cols)) {
-                $line .= '<span class="module-desc">' . html::escapeHTML(__($module['desc'])) . '</span> ';
+                $line .= '<span class="module-desc">' . Html::escapeHTML(__($module['desc'])) . '</span> ';
             }
 
             if (in_array('author', $cols)) {
-                $line .= '<span class="module-author">' . sprintf(__('by %s'), html::escapeHTML($module['author'])) . '</span> ';
+                $line .= '<span class="module-author">' . sprintf(__('by %s'), Html::escapeHTML($module['author'])) . '</span> ';
             }
 
             if (in_array('version', $cols)) {
-                $line .= '<span class="module-version">' . sprintf(__('version %s'), html::escapeHTML($module['version'])) . '</span> ';
+                $line .= '<span class="module-version">' . sprintf(__('version %s'), Html::escapeHTML($module['version'])) . '</span> ';
             }
 
             if (in_array('current_version', $cols)) {
-                $line .= '<span class="module-current-version">' . sprintf(__('(current version %s)'), html::escapeHTML($module['current_version'])) . '</span> ';
+                $line .= '<span class="module-current-version">' . sprintf(__('(current version %s)'), Html::escapeHTML($module['current_version'])) . '</span> ';
             }
 
             if (in_array('parent', $cols) && !empty($module['parent'])) {
                 if ($this->modules->moduleExists($module['parent'])) {
-                    $line .= '<span class="module-parent-ok">' . sprintf(__('(built on "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
+                    $line .= '<span class="module-parent-ok">' . sprintf(__('(built on "%s")'), Html::escapeHTML($module['parent'])) . '</span> ';
                 } else {
-                    $line .= '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
+                    $line .= '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), Html::escapeHTML($module['parent'])) . '</span> ';
                 }
             }
 
@@ -2011,7 +2012,7 @@ class adminThemesList extends adminModulesList
         if ($id != dcCore::app()->blog->settings->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
-                $submits[] = '<input type="submit" name="select[' . html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
+                $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
         } else {
             // Currently selected theme
@@ -2107,7 +2108,7 @@ class adminThemesList extends adminModulesList
                 dcCore::app()->blog->triggerBlog();
 
                 $module = $this->modules->getModules($id);
-                dcPage::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), html::escapeHTML($module['name'])));
+                dcPage::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($module['name'])));
                 http::redirect($this->getURL() . '#themes');
             }
         } else {

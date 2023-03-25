@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 class dcUrlHandlers extends urlHandler
@@ -336,7 +337,7 @@ class dcUrlHandlers extends urlHandler
         } else {
             dcCore::app()->url->type = 'search';
 
-            dcCore::app()->public->search = !empty($_GET['q']) ? html::escapeHTML(rawurldecode($_GET['q'])) : '';
+            dcCore::app()->public->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
             if (dcCore::app()->public->search) {
                 $params = new ArrayObject(['search' => dcCore::app()->public->search]);
                 dcCore::app()->callBehavior('publicBeforeSearchCount', $params);
@@ -564,8 +565,8 @@ class dcUrlHandlers extends urlHandler
                         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
 
                         $cur->comment_author  = $name;
-                        $cur->comment_site    = html::clean($site);
-                        $cur->comment_email   = html::clean($mail);
+                        $cur->comment_site    = Html::clean($site);
+                        $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
                         $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;

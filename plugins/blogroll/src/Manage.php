@@ -17,9 +17,9 @@ use dcCore;
 use dcPage;
 use dcNsProcess;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Html;
 use initBlogroll;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -97,9 +97,9 @@ class Manage extends dcNsProcess
             // Import links - import entries
 
             foreach ($_POST['entries'] as $idx) {
-                dcCore::app()->admin->link_title = html::escapeHTML($_POST['title'][$idx]);
-                dcCore::app()->admin->link_href  = html::escapeHTML($_POST['url'][$idx]);
-                dcCore::app()->admin->link_desc  = html::escapeHTML($_POST['desc'][$idx]);
+                dcCore::app()->admin->link_title = Html::escapeHTML($_POST['title'][$idx]);
+                dcCore::app()->admin->link_href  = Html::escapeHTML($_POST['url'][$idx]);
+                dcCore::app()->admin->link_desc  = Html::escapeHTML($_POST['desc'][$idx]);
 
                 try {
                     dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, '');
@@ -123,10 +123,10 @@ class Manage extends dcNsProcess
         if (!empty($_POST['add_link'])) {
             // Add link
 
-            dcCore::app()->admin->link_title = html::escapeHTML($_POST['link_title']);
-            dcCore::app()->admin->link_href  = html::escapeHTML($_POST['link_href']);
-            dcCore::app()->admin->link_desc  = html::escapeHTML($_POST['link_desc']);
-            dcCore::app()->admin->link_lang  = html::escapeHTML($_POST['link_lang']);
+            dcCore::app()->admin->link_title = Html::escapeHTML($_POST['link_title']);
+            dcCore::app()->admin->link_href  = Html::escapeHTML($_POST['link_href']);
+            dcCore::app()->admin->link_desc  = Html::escapeHTML($_POST['link_desc']);
+            dcCore::app()->admin->link_lang  = Html::escapeHTML($_POST['link_lang']);
 
             try {
                 dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang);
@@ -142,7 +142,7 @@ class Manage extends dcNsProcess
         if (!empty($_POST['add_cat'])) {
             // Add category
 
-            dcCore::app()->admin->cat_title = html::escapeHTML($_POST['cat_title']);
+            dcCore::app()->admin->cat_title = Html::escapeHTML($_POST['cat_title']);
 
             try {
                 dcCore::app()->admin->blogroll->addCategory(dcCore::app()->admin->cat_title);
@@ -240,7 +240,7 @@ class Manage extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Blogroll')                              => '',
             ]
         ) .
@@ -287,14 +287,14 @@ class Manage extends dcNsProcess
                 if ($rs->is_cat) {
                     echo
                     '<td colspan="5"><strong><a href="' . dcCore::app()->admin->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
-                    html::escapeHTML($rs->link_desc) . '</a></strong></td>';
+                    Html::escapeHTML($rs->link_desc) . '</a></strong></td>';
                 } else {
                     echo
                     '<td><a href="' . dcCore::app()->admin->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
-                    html::escapeHTML($rs->link_title) . '</a></td>' .
-                    '<td>' . html::escapeHTML($rs->link_desc) . '</td>' .
-                    '<td>' . html::escapeHTML($rs->link_href) . '</td>' .
-                    '<td>' . html::escapeHTML($rs->link_lang) . '</td>';
+                    Html::escapeHTML($rs->link_title) . '</a></td>' .
+                    '<td>' . Html::escapeHTML($rs->link_desc) . '</td>' .
+                    '<td>' . Html::escapeHTML($rs->link_href) . '</td>' .
+                    '<td>' . Html::escapeHTML($rs->link_lang) . '</td>';
                 }
                 echo
                 '</tr>';
@@ -314,7 +314,7 @@ class Manage extends dcNsProcess
             '<input type="submit" name="saveorder" value="' . __('Save order') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .
-            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . html::escapeJS(__('Are you sure you want to delete selected links?')) . ');" /></p>' .
+            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');" /></p>' .
             '</div>' .
             '</form>';
         } else {
@@ -404,9 +404,9 @@ class Manage extends dcNsProcess
 
                 $i = 0;
                 foreach (dcCore::app()->admin->imported as $entry) {
-                    $url   = html::escapeHTML($entry->link);
-                    $title = html::escapeHTML($entry->title);
-                    $desc  = html::escapeHTML($entry->desc);
+                    $url   = Html::escapeHTML($entry->link);
+                    $title = Html::escapeHTML($entry->title);
+                    $desc  = Html::escapeHTML($entry->desc);
 
                     echo
                     '<tr><td>' . form::checkbox(['entries[]'], $i) . '</td>' .

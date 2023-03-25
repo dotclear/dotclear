@@ -11,6 +11,7 @@ use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 if (isset($_SERVER['DC_RC_PATH'])) {
@@ -207,23 +208,23 @@ form::combo(
     ['default' => $DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']
 ) . '</p>' .
 '<p><label for="DBHOST">' . __('Database Host Name:') . '</label> ' .
-form::field('DBHOST', 30, 255, html::escapeHTML($DBHOST)) . '</p>' .
+form::field('DBHOST', 30, 255, Html::escapeHTML($DBHOST)) . '</p>' .
 '<p><label for="DBNAME">' . __('Database Name:') . '</label> ' .
-form::field('DBNAME', 30, 255, html::escapeHTML($DBNAME)) . '</p>' .
+form::field('DBNAME', 30, 255, Html::escapeHTML($DBNAME)) . '</p>' .
 '<p><label for="DBUSER">' . __('Database User Name:') . '</label> ' .
-form::field('DBUSER', 30, 255, html::escapeHTML($DBUSER)) . '</p>' .
+form::field('DBUSER', 30, 255, Html::escapeHTML($DBUSER)) . '</p>' .
 '<p><label for="DBPASSWORD">' . __('Database Password:') . '</label> ' .
 form::password('DBPASSWORD', 30, 255) . '</p>' .
 '<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
 form::field('DBPREFIX', 30, 255, [
-    'default'    => html::escapeHTML($DBPREFIX),
+    'default'    => Html::escapeHTML($DBPREFIX),
     'extra_html' => 'required placeholder="' . __('Prefix') . '"',
 ]) .
 '</p>' .
 '<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
 form::email('ADMINMAILFROM', [
     'size'         => 30,
-    'default'      => html::escapeHTML($ADMINMAILFROM),
+    'default'      => Html::escapeHTML($ADMINMAILFROM),
     'autocomplete' => 'email',
 ]) .
 '</p>' .

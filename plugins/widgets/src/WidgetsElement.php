@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\widgets;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use form;
-use html;
 
 class WidgetsElement
 {
@@ -191,7 +191,7 @@ class WidgetsElement
         // Keep only unique classes
         $class = trim(implode(' ', array_unique(explode(' ', 'widget' . ' ' . $class))));
 
-        return sprintf($wtscheme . "\n", html::escapeHTML($class), $attr, $content);
+        return sprintf($wtscheme . "\n", Html::escapeHTML($class), $attr, $content);
     }
 
     /**
@@ -391,7 +391,7 @@ class WidgetsElement
             case 'text':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::field([$iname, $wfid], 20, 255, [
-                    'default'    => html::escapeHTML((string) $s['value']),
+                    'default'    => Html::escapeHTML((string) $s['value']),
                     'class'      => 'maximal' . $class,
                     'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
@@ -401,7 +401,7 @@ class WidgetsElement
             case 'textarea':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::textarea([$iname, $wfid], 30, 8, [
-                    'default'    => html::escapeHTML($s['value']),
+                    'default'    => Html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
                     'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
@@ -445,7 +445,7 @@ class WidgetsElement
             case 'email':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::email([$iname, $wfid], [
-                    'default'      => html::escapeHTML($s['value']),
+                    'default'      => Html::escapeHTML($s['value']),
                     'autocomplete' => 'email',
                 ]) .
                 '</p>';

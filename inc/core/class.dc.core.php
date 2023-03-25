@@ -15,6 +15,7 @@
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 final class dcCore
@@ -850,7 +851,7 @@ final class dcCore
 
         $url = sprintf($this->post_types[$type]['admin_url'], $post_id);
 
-        return $escaped ? html::escapeURL($url) : $url;
+        return $escaped ? Html::escapeURL($url) : $url;
     }
 
     /**
@@ -870,7 +871,7 @@ final class dcCore
 
         $url = sprintf($this->post_types[$type]['public_url'], $post_url);
 
-        return $escaped ? html::escapeURL($url) : $url;
+        return $escaped ? Html::escapeURL($url) : $url;
     }
 
     /**
@@ -2054,11 +2055,11 @@ final class dcCore
         $res = ['url' => $post->getURL()];
 
         if ($content != $url) {
-            $res['title'] = html::escapeHTML($post->post_title);
+            $res['title'] = Html::escapeHTML($post->post_title);
         }
 
         if ($content == '' || $content == $url) {
-            $res['content'] = html::escapeHTML($post->post_title);
+            $res['content'] = Html::escapeHTML($post->post_title);
         }
 
         if ($post->post_lang) {

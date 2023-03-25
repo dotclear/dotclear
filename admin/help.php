@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminHelp
@@ -90,7 +93,7 @@ class adminHelp
             return $ret;
         };
 
-        $help_page = !empty($_GET['page']) ? html::escapeHTML($_GET['page']) : 'index';
+        $help_page = !empty($_GET['page']) ? Html::escapeHTML($_GET['page']) : 'index';
 
         $content_array = $helpPage($help_page);
 

@@ -15,8 +15,8 @@ namespace Dotclear\Plugin\blogroll;
 use ArrayObject;
 use Exception;
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
-use html;
 use http;
 
 class FrontendTemplate
@@ -112,7 +112,7 @@ class FrontendTemplate
 
         foreach ($hierarchy as $k => $v) {
             if ($k != '') {
-                $res .= sprintf($cat_title, html::escapeHTML($k)) . "\n";
+                $res .= sprintf($cat_title, Html::escapeHTML($k)) . "\n";
             }
 
             $res .= self::getLinksList($v, $block, $item);
@@ -156,12 +156,12 @@ class FrontendTemplate
             $lang  = $link['link_lang'];
             $xfn   = $link['link_xfn'];
 
-            $link = '<a href="' . html::escapeHTML($href) . '"' .
-            ((!$lang) ? '' : ' hreflang="' . html::escapeHTML($lang) . '"') .
-            ((!$desc) ? '' : ' title="' . html::escapeHTML($desc) . '"') .
-            ((!$xfn) ? '' : ' rel="' . html::escapeHTML($xfn) . '"') .
+            $link = '<a href="' . Html::escapeHTML($href) . '"' .
+            ((!$lang) ? '' : ' hreflang="' . Html::escapeHTML($lang) . '"') .
+            ((!$desc) ? '' : ' title="' . Html::escapeHTML($desc) . '"') .
+            ((!$xfn) ? '' : ' rel="' . Html::escapeHTML($xfn) . '"') .
             '>' .
-            html::escapeHTML($title) .
+            Html::escapeHTML($title) .
                 '</a>';
 
             $current_class = $current == $link_id ? ' class="active"' : '';
@@ -199,7 +199,7 @@ class FrontendTemplate
             (bool) $widget->content_only,
             'links ' . $widget->class,
             '',
-            ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+            ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             $links
         );
     }

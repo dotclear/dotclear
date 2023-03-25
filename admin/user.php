@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminUser
@@ -92,13 +95,13 @@ class adminUser
 
                 $cur->user_id          = $_POST['user_id'];
                 $cur->user_super       = dcCore::app()->admin->user_super = !empty($_POST['user_super']) ? 1 : 0;
-                $cur->user_name        = dcCore::app()->admin->user_name = html::escapeHTML($_POST['user_name']);
-                $cur->user_firstname   = dcCore::app()->admin->user_firstname = html::escapeHTML($_POST['user_firstname']);
-                $cur->user_displayname = dcCore::app()->admin->user_displayname = html::escapeHTML($_POST['user_displayname']);
-                $cur->user_email       = dcCore::app()->admin->user_email = html::escapeHTML($_POST['user_email']);
-                $cur->user_url         = dcCore::app()->admin->user_url = html::escapeHTML($_POST['user_url']);
-                $cur->user_lang        = dcCore::app()->admin->user_lang = html::escapeHTML($_POST['user_lang']);
-                $cur->user_tz          = dcCore::app()->admin->user_tz = html::escapeHTML($_POST['user_tz']);
+                $cur->user_name        = dcCore::app()->admin->user_name = Html::escapeHTML($_POST['user_name']);
+                $cur->user_firstname   = dcCore::app()->admin->user_firstname = Html::escapeHTML($_POST['user_firstname']);
+                $cur->user_displayname = dcCore::app()->admin->user_displayname = Html::escapeHTML($_POST['user_displayname']);
+                $cur->user_email       = dcCore::app()->admin->user_email = Html::escapeHTML($_POST['user_email']);
+                $cur->user_url         = dcCore::app()->admin->user_url = Html::escapeHTML($_POST['user_url']);
+                $cur->user_lang        = dcCore::app()->admin->user_lang = Html::escapeHTML($_POST['user_lang']);
+                $cur->user_tz          = dcCore::app()->admin->user_tz = Html::escapeHTML($_POST['user_tz']);
                 $cur->user_post_status = dcCore::app()->admin->user_post_status = (int) $_POST['user_post_status'];
 
                 if (dcCore::app()->admin->user_id && $cur->user_id == dcCore::app()->auth->userID() && dcCore::app()->auth->isSuperAdmin()) {
@@ -116,7 +119,7 @@ class adminUser
                     $cur->user_pwd = $_POST['new_pwd'];
                 }
 
-                dcCore::app()->admin->user_options['post_format'] = html::escapeHTML($_POST['user_post_format']);
+                dcCore::app()->admin->user_options['post_format'] = Html::escapeHTML($_POST['user_post_format']);
                 dcCore::app()->admin->user_options['edit_size']   = (int) $_POST['user_edit_size'];
 
                 if (dcCore::app()->admin->user_options['edit_size'] < 1) {
@@ -159,7 +162,7 @@ class adminUser
                     // Add user
 
                     if (dcCore::app()->getUsers(['user_id' => $cur->user_id], true)->f(0) > 0) {
-                        throw new Exception(sprintf(__('User "%s" already exists.'), html::escapeHTML($cur->user_id)));
+                        throw new Exception(sprintf(__('User "%s" already exists.'), Html::escapeHTML($cur->user_id)));
                     }
 
                     # --BEHAVIOR-- adminBeforeUserCreate
@@ -239,7 +242,7 @@ class adminUser
 
         '<p><label for="user_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('User ID:') . '</label> ' .
         form::field('user_id', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_id),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_id),
             'extra_html'   => 'required placeholder="' . __('Login') . '" aria-describedby="user_id_help user_id_warning"',
             'autocomplete' => 'username',
         ]) .
@@ -306,28 +309,28 @@ class adminUser
 
         '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
         form::field('user_name', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_name),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_name),
             'autocomplete' => 'family-name',
         ]) .
         '</p>' .
 
         '<p><label for="user_firstname">' . __('First Name:') . '</label> ' .
         form::field('user_firstname', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_firstname),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_firstname),
             'autocomplete' => 'given-name',
         ]) .
         '</p>' .
 
         '<p><label for="user_displayname">' . __('Display name:') . '</label> ' .
         form::field('user_displayname', 20, 255, [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_displayname),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_displayname),
             'autocomplete' => 'nickname',
         ]) .
         '</p>' .
 
         '<p><label for="user_email">' . __('Email:') . '</label> ' .
         form::email('user_email', [
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_email),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_email),
             'extra_html'   => 'aria-describedby="user_email_help"',
             'autocomplete' => 'email',
         ]) .
@@ -336,7 +339,7 @@ class adminUser
 
         '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
         form::field('user_profile_mails', 50, 255, [
-            'default' => html::escapeHTML(dcCore::app()->admin->user_profile_mails),
+            'default' => Html::escapeHTML(dcCore::app()->admin->user_profile_mails),
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
@@ -344,14 +347,14 @@ class adminUser
         '<p><label for="user_url">' . __('URL:') . '</label> ' .
         form::url('user_url', [
             'size'         => 30,
-            'default'      => html::escapeHTML(dcCore::app()->admin->user_url),
+            'default'      => Html::escapeHTML(dcCore::app()->admin->user_url),
             'autocomplete' => 'url',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
         form::field('user_profile_urls', 50, 255, [
-            'default' => html::escapeHTML(dcCore::app()->admin->user_profile_urls),
+            'default' => Html::escapeHTML(dcCore::app()->admin->user_profile_urls),
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
@@ -438,8 +441,8 @@ class adminUser
                             echo
                             '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" class="perm-block">' .
                             '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                            dcCore::app()->adminurl->get('admin.blog', ['id' => html::escapeHTML($k)]) . '">' .
-                            html::escapeHTML($v['name']) . '</a> (' . html::escapeHTML($k) . ')</p>';
+                            dcCore::app()->adminurl->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
+                            Html::escapeHTML($v['name']) . '</a> (' . Html::escapeHTML($k) . ')</p>';
 
                             echo
                             '<ul class="ul-perm">';

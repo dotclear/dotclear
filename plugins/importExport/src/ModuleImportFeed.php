@@ -17,11 +17,11 @@ use dcBlog;
 use dcCore;
 use dcMeta;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use feedReader;
 use dt;
 use form;
-use html;
 use http;
 
 class ModuleImportFeed extends Module
@@ -187,7 +187,7 @@ class ModuleImportFeed extends Module
             $cur->clean();
             $cur->user_id      = dcCore::app()->auth->userID();
             $cur->post_content = $item->content ?: $item->description;
-            $cur->post_title   = $item->title ?: Text::cutString(html::clean($cur->post_content), 60);
+            $cur->post_title   = $item->title ?: Text::cutString(Html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
             $cur->post_status  = dcBlog::POST_PENDING;
             $cur->post_dt      = dt::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
@@ -220,10 +220,10 @@ class ModuleImportFeed extends Module
 
         echo
         '<form action="' . $this->getURL(true) . '" method="post">' .
-        '<p>' . sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'), html::escapeHTML(dcCore::app()->blog->name)) . '</p>' .
+        '<p>' . sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'), Html::escapeHTML(dcCore::app()->blog->name)) . '</p>' .
 
         '<p><label for="feed_url">' . __('Feed URL:') . '</label>' .
-        form::url('feed_url', 50, 300, html::escapeHTML($this->feed_url)) . '</p>' .
+        form::url('feed_url', 50, 300, Html::escapeHTML($this->feed_url)) . '</p>' .
 
         '<p>' .
         dcCore::app()->formNonce() .

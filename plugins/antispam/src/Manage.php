@@ -16,10 +16,10 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use dt;
 use Exception;
 use form;
-use html;
 use http;
 
 class Manage extends dcNsProcess
@@ -229,7 +229,7 @@ class Manage extends dcNsProcess
             foreach (dcCore::app()->admin->filters as $fid => $f) {
                 $gui_link = '&nbsp;';
                 if ($f->hasGUI()) {
-                    $gui_link = '<a href="' . html::escapeHTML($f->guiURL()) . '">' .
+                    $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '">' .
                         '<img src="images/edit-mini.png" alt="' . __('Filter configuration') . '" ' .
                         'title="' . __('Filter configuration') . '" /></a>';
                 }

@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require_once __DIR__ . '/../inc/admin/prepend.php';
 
 class adminBlogPref
@@ -119,7 +122,7 @@ class adminBlogPref
             __('post id')              => '{id}',
         ];
         if (!in_array($da->blog_settings->system->post_url_format, $da->post_url_combo)) {
-            $da->post_url_combo[html::escapeHTML($da->blog_settings->system->post_url_format)] = html::escapeHTML($da->blog_settings->system->post_url_format);
+            $da->post_url_combo[Html::escapeHTML($da->blog_settings->system->post_url_format)] = Html::escapeHTML($da->blog_settings->system->post_url_format);
         }
 
         // Note title tag combo
@@ -138,7 +141,7 @@ class adminBlogPref
             __('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
         ];
         if (!in_array($da->blog_settings->system->media_img_title_pattern, $da->img_title_combo)) {
-            $da->img_title_combo[html::escapeHTML($da->blog_settings->system->media_img_title_pattern)] = html::escapeHTML($da->blog_settings->system->media_img_title_pattern);
+            $da->img_title_combo[Html::escapeHTML($da->blog_settings->system->media_img_title_pattern)] = Html::escapeHTML($da->blog_settings->system->media_img_title_pattern);
         }
 
         // Image default size combo
@@ -391,7 +394,7 @@ class adminBlogPref
         if ($da->standalone) {
             $breadcrumb = dcPage::breadcrumb(
                 [
-                    html::escapeHTML($da->blog_name) => '',
+                    Html::escapeHTML($da->blog_name) => '',
                     __('Blog settings')              => '',
                 ]
             );
@@ -400,7 +403,7 @@ class adminBlogPref
                 [
                     __('System')                                                   => '',
                     __('Blogs')                                                    => dcCore::app()->adminurl->get('admin.blogs'),
-                    __('Blog settings') . ' : ' . html::escapeHTML($da->blog_name) => '',
+                    __('Blog settings') . ' : ' . Html::escapeHTML($da->blog_name) => '',
                 ]
             );
         }
@@ -450,7 +453,7 @@ class adminBlogPref
                 30,
                 255,
                 [
-                    'default'    => html::escapeHTML($da->blog_name),
+                    'default'    => Html::escapeHTML($da->blog_name),
                     'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . $da->blog_settings->system->lang . '" spellcheck="true"',
                 ]
             ) . '</p>' .
@@ -460,7 +463,7 @@ class adminBlogPref
                 60,
                 5,
                 [
-                    'default'    => html::escapeHTML($da->blog_desc),
+                    'default'    => Html::escapeHTML($da->blog_desc),
                     'extra_html' => 'lang="' . $da->blog_settings->system->lang . '" spellcheck="true"',
                 ]
             ) . '</p>';
@@ -477,21 +480,21 @@ class adminBlogPref
                  * Otherwise dcCore::getBlogCursor() throws an exception.
                  */
                 echo
-                form::hidden('blog_id', html::escapeHTML($da->blog_id)) .
-                form::hidden('blog_url', html::escapeHTML($da->blog_url));
+                form::hidden('blog_id', Html::escapeHTML($da->blog_id)) .
+                form::hidden('blog_url', Html::escapeHTML($da->blog_url));
             }
 
             echo '</div>' .
 
             '<div class="fieldset"><h4>' . __('Blog configuration') . '</h4>' .
             '<p><label for="editor">' . __('Blog editor name:') . '</label>' .
-            form::field('editor', 30, 255, html::escapeHTML($da->blog_settings->system->editor)) .
+            form::field('editor', 30, 255, Html::escapeHTML($da->blog_settings->system->editor)) .
             '</p>' .
             '<p><label for="lang">' . __('Default language:') . '</label>' .
             form::combo('lang', $da->lang_combo, $da->blog_settings->system->lang, 'l10n') .
             '</p>' .
             '<p><label for="blog_timezone">' . __('Blog timezone:') . '</label>' .
-            form::combo('blog_timezone', dt::getZones(true, true), html::escapeHTML($da->blog_settings->system->blog_timezone)) .
+            form::combo('blog_timezone', dt::getZones(true, true), Html::escapeHTML($da->blog_settings->system->blog_timezone)) .
             '</p>' .
             '<p><label for="copyright_notice">' . __('Copyright notice:') . '</label>' .
             form::field(
@@ -499,7 +502,7 @@ class adminBlogPref
                 30,
                 255,
                 [
-                    'default'    => html::escapeHTML($da->blog_settings->system->copyright_notice),
+                    'default'    => Html::escapeHTML($da->blog_settings->system->copyright_notice),
                     'extra_html' => 'lang="' . $da->blog_settings->system->lang . '" spellcheck="true"',
                 ]
             ) .
@@ -574,16 +577,16 @@ class adminBlogPref
             '<div class="two-cols">' .
             '<div class="col">' .
             '<p><label for="date_format">' . __('Date format:') . '</label> ' .
-            form::field('date_format', 30, 255, html::escapeHTML($da->blog_settings->system->date_format), '', '', false, 'aria-describedby="date_format_help"') .
+            form::field('date_format', 30, 255, Html::escapeHTML($da->blog_settings->system->date_format), '', '', false, 'aria-describedby="date_format_help"') .
             form::combo('date_format_select', $da->date_formats_combo, ['extra_html' => 'title="' . __('Pattern of date') . '"']) .
             '</p>' .
-            '<p class="chosen form-note" id="date_format_help">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($da->blog_settings->system->date_format)) . '</p>' .
+            '<p class="chosen form-note" id="date_format_help">' . __('Sample:') . ' ' . dt::str(Html::escapeHTML($da->blog_settings->system->date_format)) . '</p>' .
 
             '<p><label for="time_format">' . __('Time format:') . '</label>' .
-            form::field('time_format', 30, 255, html::escapeHTML($da->blog_settings->system->time_format), '', '', false, 'aria-describedby="time_format_help"') .
+            form::field('time_format', 30, 255, Html::escapeHTML($da->blog_settings->system->time_format), '', '', false, 'aria-describedby="time_format_help"') .
             form::combo('time_format_select', $da->time_formats_combo, ['extra_html' => 'title="' . __('Pattern of time') . '"']) .
             '</p>' .
-            '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($da->blog_settings->system->time_format)) . '</p>' .
+            '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . dt::str(Html::escapeHTML($da->blog_settings->system->time_format)) . '</p>' .
 
             '<p><label for="use_smilies" class="classic">' .
             form::checkbox('use_smilies', '1', $da->blog_settings->system->use_smilies) .
@@ -663,7 +666,7 @@ class adminBlogPref
             __('Display an entry as static home page') . '</label></p>' .
 
             '<p><label for="static_home_url" class="classic">' . __('Entry URL (its content will be used for the static home page):') . '</label> ' .
-            form::field('static_home_url', 30, 255, html::escapeHTML($da->blog_settings->system->static_home_url), '', '', false, 'aria-describedby="static_home_url_help"') .
+            form::field('static_home_url', 30, 255, Html::escapeHTML($da->blog_settings->system->static_home_url), '', '', false, 'aria-describedby="static_home_url_help"') .
             ' <button type="button" id="static_home_url_selector">' . __('Choose an entry') . '</button>' .
             '</p>' .
             '<p class="form-note" id="static_home_url_help">' . __('Leave empty to use the default presentation.') . '</p> ' .
@@ -724,7 +727,7 @@ class adminBlogPref
             '<div class="col">' .
             '<h5>' . __('Default image insertion attributes') . '</h5>' .
             '<p class="vertical-separator"><label for="media_img_title_pattern">' . __('Inserted image title') . '</label>' .
-            form::combo('media_img_title_pattern', $da->img_title_combo, html::escapeHTML($da->blog_settings->system->media_img_title_pattern)) . '</p>' .
+            form::combo('media_img_title_pattern', $da->img_title_combo, Html::escapeHTML($da->blog_settings->system->media_img_title_pattern)) . '</p>' .
             '<p><label for="media_img_use_dto_first" class="classic">' .
             form::checkbox('media_img_use_dto_first', '1', $da->blog_settings->system->media_img_use_dto_first) .
             __('Use original media date if possible') . '</label></p>' .
@@ -737,17 +740,17 @@ class adminBlogPref
             form::combo(
                 'media_img_default_size',
                 $da->img_default_size_combo,
-                (html::escapeHTML($da->blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($da->blog_settings->system->media_img_default_size) : 'm')
+                (Html::escapeHTML($da->blog_settings->system->media_img_default_size) != '' ? Html::escapeHTML($da->blog_settings->system->media_img_default_size) : 'm')
             ) .
             '</p>' .
             '<p class="field"><label for="media_img_default_alignment">' . __('Image alignment:') . '</label>' .
-            form::combo('media_img_default_alignment', $da->img_default_alignment_combo, html::escapeHTML($da->blog_settings->system->media_img_default_alignment)) .
+            form::combo('media_img_default_alignment', $da->img_default_alignment_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_alignment)) .
             '</p>' .
             '<p><label for="media_img_default_link">' .
             form::checkbox('media_img_default_link', '1', $da->blog_settings->system->media_img_default_link) .
             __('Insert a link to the original image') . '</label></p>' .
             '<p class="field"><label for="media_img_default_legend">' . __('Image legend and title:') . '</label>' .
-            form::combo('media_img_default_legend', $da->img_default_legend_combo, html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
+            form::combo('media_img_default_legend', $da->img_default_legend_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
             '</p>' .
             '</div>' .
             '</div>' . '<br class="clear" />' . //Opera sucks
@@ -761,7 +764,7 @@ class adminBlogPref
                 echo '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
 
                 '<p><label for="blog_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label>' .
-                form::field('blog_id', 30, 32, html::escapeHTML($da->blog_id), '', '', false, 'required placeholder="' . __('Blog ID') . '" aria-describedby="blog_id_help blog_id_warn"') . '</p>' .
+                form::field('blog_id', 30, 32, Html::escapeHTML($da->blog_id), '', '', false, 'required placeholder="' . __('Blog ID') . '" aria-describedby="blog_id_help blog_id_warn"') . '</p>' .
                 '<p class="form-note" id="blog_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p> ' .
                 '<p class="form-note warn" id="blog_id_warn">' . __('Please note that changing your blog ID may require changes in your public index.php file.') . '</p>' .
 
@@ -769,7 +772,7 @@ class adminBlogPref
                 form::url('blog_url', [
                     'size'       => 50,
                     'max'        => 255,
-                    'default'    => html::escapeHTML($da->blog_url),
+                    'default'    => Html::escapeHTML($da->blog_url),
                     'extra_html' => 'required placeholder="' . __('Blog URL') . '"',
                 ]) .
                 '</p>' .
@@ -798,7 +801,7 @@ class adminBlogPref
                         '<p class="form-note warn">' .
                         sprintf(
                             __('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
-                            html::escapeHTML($file),
+                            Html::escapeHTML($file),
                             $status
                         ) .
                         '</p>';
@@ -809,7 +812,7 @@ class adminBlogPref
                             '<p class="form-note warn">' .
                             sprintf(
                                 __('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
-                                html::escapeHTML($file)
+                                Html::escapeHTML($file)
                             ) .
                             '</p>';
                         }
@@ -824,7 +827,7 @@ class adminBlogPref
             '<div class="fieldset"><h4>' . __('Blog configuration') . '</h4>' .
 
             '<p><label for="post_url_format">' . __('New post URL format:') . '</label>' .
-            form::combo('post_url_format', $da->post_url_combo, html::escapeHTML($da->blog_settings->system->post_url_format), '', '', false, 'aria-describedby="post_url_format_help"') .
+            form::combo('post_url_format', $da->post_url_combo, Html::escapeHTML($da->blog_settings->system->post_url_format), '', '', false, 'aria-describedby="post_url_format_help"') .
             '</p>' .
             '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . dcCore::app()->blog->getPostURL('', date('Y-m-d H:i:00', $da->now), __('Dotclear'), 42) . '</p>' .
             '</p>' .
@@ -938,8 +941,8 @@ class adminBlogPref
                     if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                         echo
                         '<div class="user-perm' . ($v['super'] ? ' user_super' : '') . '">' .
-                        '<h4>' . sprintf($user_url_p, html::escapeHTML($k)) .
-                        ' (' . html::escapeHTML(dcUtils::getUserCN(
+                        '<h4>' . sprintf($user_url_p, Html::escapeHTML($k)) .
+                        ' (' . Html::escapeHTML(dcUtils::getUserCN(
                             $k,
                             $v['name'],
                             $v['firstname'],

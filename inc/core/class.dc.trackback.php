@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 class dcTrackback
@@ -120,7 +121,7 @@ class dcTrackback
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
-                'blog_name' => trim(html::escapeHTML(html::clean(dcCore::app()->blog->name))),
+                'blog_name' => trim(Html::escapeHTML(Html::clean(dcCore::app()->blog->name))),
                 //,'__debug' => false
             ];
 
@@ -228,7 +229,7 @@ class dcTrackback
                 $msg = 'Trackbacks are not allowed for this post or weblog.';
             }
 
-            $url = trim(html::clean($url));
+            $url = trim(Html::clean($url));
             if ($this->pingAlreadyDone($post->post_id, $url)) {
                 $err = true;
                 $msg = 'The trackback has already been registered';
@@ -248,20 +249,20 @@ class dcTrackback
                 $blog_name = iconv($charset, 'UTF-8', $blog_name);
             }
 
-            $title = trim(html::clean($title));
-            $title = html::decodeEntities($title);
-            $title = html::escapeHTML($title);
+            $title = trim(Html::clean($title));
+            $title = Html::decodeEntities($title);
+            $title = Html::escapeHTML($title);
             $title = Text::cutString($title, 60);
 
-            $excerpt = trim(html::clean($excerpt));
-            $excerpt = html::decodeEntities($excerpt);
+            $excerpt = trim(Html::clean($excerpt));
+            $excerpt = Html::decodeEntities($excerpt);
             $excerpt = preg_replace('/\s+/ms', ' ', $excerpt);
             $excerpt = Text::cutString($excerpt, 252);
-            $excerpt = html::escapeHTML($excerpt) . '...';
+            $excerpt = Html::escapeHTML($excerpt) . '...';
 
-            $blog_name = trim(html::clean($blog_name));
-            $blog_name = html::decodeEntities($blog_name);
-            $blog_name = html::escapeHTML($blog_name);
+            $blog_name = trim(Html::clean($blog_name));
+            $blog_name = Html::decodeEntities($blog_name);
+            $blog_name = Html::escapeHTML($blog_name);
             $blog_name = Text::cutString($blog_name, 60);
 
             try {
@@ -319,9 +320,9 @@ class dcTrackback
             if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
                 throw new Exception(__('Where\'s your title?'), 0);
             }
-            $title = trim(html::clean($m[1]));
-            $title = html::decodeEntities($title);
-            $title = html::escapeHTML($title);
+            $title = trim(Html::clean($m[1]));
+            $title = Html::decodeEntities($title);
+            $title = Html::escapeHTML($title);
             $title = Text::cutString($title, 60);
 
             $blog_name = $this->getSourceName($remote_content);
@@ -344,7 +345,7 @@ class dcTrackback
                 }
             }
             if ($excerpt) {
-                $excerpt = '(&#8230;) ' . Text::cutString(html::escapeHTML($excerpt), 200) . ' (&#8230;)';
+                $excerpt = '(&#8230;) ' . Text::cutString(Html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
                 $excerpt = '(&#8230;)';
             }
@@ -397,9 +398,9 @@ class dcTrackback
             if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
                 throw new Exception(__('Where\'s your title?'), 0);
             }
-            $title = trim(html::clean($m[1]));
-            $title = html::decodeEntities($title);
-            $title = html::escapeHTML($title);
+            $title = trim(Html::clean($m[1]));
+            $title = Html::decodeEntities($title);
+            $title = Html::escapeHTML($title);
             $title = Text::cutString($title, 60);
 
             $blog_name = $this->getSourceName($remote_content);
@@ -422,7 +423,7 @@ class dcTrackback
                 }
             }
             if ($excerpt) {
-                $excerpt = '(&#8230;) ' . Text::cutString(html::escapeHTML($excerpt), 200) . ' (&#8230;)';
+                $excerpt = '(&#8230;) ' . Text::cutString(Html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
                 $excerpt = '(&#8230;)';
             }
@@ -692,7 +693,7 @@ class dcTrackback
     private function getSourceName(string $content): string
     {
         // Clean text utility function
-        $clean = fn ($text, $size = 255) => Text::cutString(html::escapeHTML(html::decodeEntities(html::clean(trim($text)))), $size);
+        $clean = fn ($text, $size = 255) => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim($text)))), $size);
 
         // First step: look for site name
         // ------------------------------
@@ -786,7 +787,7 @@ class dcTrackback
         preg_match_all($pattern_rdf, $page_content, $rdf_all, PREG_SET_ORDER);
 
         $url_path      = parse_url($url, PHP_URL_PATH);
-        $sanitized_url = str_replace($url_path, html::sanitizeURL($url_path), $url);
+        $sanitized_url = str_replace($url_path, Html::sanitizeURL($url_path), $url);
 
         for ($i = 0; $i < count($rdf_all); $i++) {
             $rdf = $rdf_all[$i][1];
@@ -883,7 +884,7 @@ class dcTrackback
             throw new Exception(__('No valid target URL provided? Try again!'), 0);
         }
 
-        if (html::sanitizeURL(urldecode($from_url)) == html::sanitizeURL(urldecode($to_url))) {
+        if (Html::sanitizeURL(urldecode($from_url)) == Html::sanitizeURL(urldecode($to_url))) {
             throw new Exception(__('LOL!'), 0);
         }
     }

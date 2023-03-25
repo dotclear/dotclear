@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -120,7 +121,7 @@ class adminLangs
                     throw new Exception(__('Password verification failed'));
                 }
 
-                $url  = html::escapeHTML($_POST['pkg_url']);
+                $url  = Html::escapeHTML($_POST['pkg_url']);
                 $dest = DC_L10N_ROOT . '/' . basename($url);
                 if (!preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
                     throw new Exception(__('Invalid language file URL.'));
@@ -250,7 +251,7 @@ class adminLangs
                 echo
                 '<tr class="line wide">' .
                 '<td class="maximal nowrap" lang="' . $lang_code . '">(' . $lang_code . ') ' .
-                '<strong>' . html::escapeHTML(dcCore::app()->admin->iso_codes[$lang_code]) . '</strong></td>' .
+                '<strong>' . Html::escapeHTML(dcCore::app()->admin->iso_codes[$lang_code]) . '</strong></td>' .
                 '<td class="nowrap action">';
 
                 if ($is_deletable) {
@@ -258,7 +259,7 @@ class adminLangs
                     '<form action="' . dcCore::app()->adminurl->get('admin.langs') . '" method="post">' .
                     '<div>' .
                     dcCore::app()->formNonce() .
-                    form::hidden(['locale_id'], html::escapeHTML($lang_code)) .
+                    form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
                     '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
                     '</div>' .
                     '</form>';
@@ -282,7 +283,7 @@ class adminLangs
             $dc_langs_combo = [];
             foreach (dcCore::app()->admin->dc_langs as $lang) {
                 if ($lang->link && isset(dcCore::app()->admin->iso_codes[$lang->title])) {
-                    $dc_langs_combo[html::escapeHTML('(' . $lang->title . ') ' . dcCore::app()->admin->iso_codes[$lang->title])] = html::escapeHTML($lang->link);
+                    $dc_langs_combo[Html::escapeHTML('(' . $lang->title . ') ' . dcCore::app()->admin->iso_codes[$lang->title])] = Html::escapeHTML($lang->link);
                 }
             }
 

@@ -1,15 +1,19 @@
 <?php
 /**
- * @class html
- * @brief HTML utilities
+ * @class Html
  *
- * @package Clearbricks
- * @subpackage Common
+ * HTML utilities
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class html
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html;
+
+class Html
 {
     /**
      * Array of regular expression for {@link absoluteURLs()}

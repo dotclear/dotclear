@@ -15,8 +15,8 @@ namespace Dotclear\Plugin\pages;
 use dcCore;
 use dcPage;
 use dcPostsActions;
+use Dotclear\Helper\Html\Html;
 use Exception;
-use html;
 
 class BackendActions extends dcPostsActions
 {
@@ -47,7 +47,7 @@ class BackendActions extends dcPostsActions
         $this->beginPage(
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Pages')                                 => $this->getRedirection(true),
                     __('Pages actions')                         => '',
                 ]

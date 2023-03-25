@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminCategories
@@ -45,7 +48,7 @@ class adminCategories
                 dcCore::app()->blog->delCategory($cat_id);
                 dcPage::addSuccessNotice(sprintf(
                     __('The category "%s" has been successfully deleted.'),
-                    html::escapeHTML($name)
+                    Html::escapeHTML($name)
                 ));
                 dcCore::app()->adminurl->redirect('admin.categories');
             } catch (Exception $e) {
@@ -75,7 +78,7 @@ class adminCategories
                 }
                 dcPage::addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
-                    html::escapeHTML($name)
+                    Html::escapeHTML($name)
                 ));
                 dcCore::app()->adminurl->redirect('admin.categories');
             } catch (Exception $e) {
@@ -133,7 +136,7 @@ class adminCategories
             $starting_script,
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Categories')                            => '',
                 ]
             )
@@ -178,9 +181,9 @@ class adminCategories
                 }
 
                 echo
-                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . dcCore::app()->adminurl->get('admin.category', ['id' => $rs->cat_id]) . '">' . html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
+                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . dcCore::app()->adminurl->get('admin.category', ['id' => $rs->cat_id]) . '">' . Html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
                 '<p class="cat-nb-posts">(<a href="' . dcCore::app()->adminurl->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' . sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' . ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
-                '<p class="cat-url">' . __('URL:') . ' <code>' . html::escapeHTML($rs->cat_url) . '</code></p>';
+                '<p class="cat-url">' . __('URL:') . ' <code>' . Html::escapeHTML($rs->cat_url) . '</code></p>';
 
                 echo
                 '<p class="cat-buttons">';

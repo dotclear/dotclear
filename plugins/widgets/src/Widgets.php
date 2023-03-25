@@ -14,9 +14,9 @@ namespace Dotclear\Plugin\widgets;
 
 use dcCore;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use feedReader;
-use html;
 use l10n;
 
 class Widgets
@@ -122,7 +122,7 @@ class Widgets
         $rs         = dcCore::app()->blog->getCategories(['post_type' => 'post']);
         $categories = ['' => '', __('Uncategorized') => 'null'];
         while ($rs->fetch()) {
-            $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title)] = $rs->cat_id;
+            $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
         $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), [Widgets::class, 'lastposts'], null, 'List of last entries published');
         $w
@@ -194,10 +194,10 @@ class Widgets
             (bool) $widget->content_only,
             $widget->class,
             'id="search"',
-            ($widget->title ? $widget->renderTitle('<label for="q">' . html::escapeHTML($widget->title) . '</label>') : '') .
+            ($widget->title ? $widget->renderTitle('<label for="q">' . Html::escapeHTML($widget->title) . '</label>') : '') .
             '<form action="' . dcCore::app()->blog->url . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
-            ($widget->placeholder ? 'placeholder="' . html::escapeHTML($widget->placeholder) . '"' : '') .
+            ($widget->placeholder ? 'placeholder="' . Html::escapeHTML($widget->placeholder) . '"' : '') .
             ' aria-label="' . __('Search') . '"/> ' .
             '<input type="submit" class="submit" value="ok" title="' . __('Search') . '" /></p>' .
             '</form>'
@@ -221,7 +221,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<nav role="navigation"><ul>';
 
         if (!dcCore::app()->url->isHome(dcCore::app()->url->type)) {
@@ -272,7 +272,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '');
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
@@ -293,7 +293,7 @@ class Widgets
             }
 
             $res .= '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $rs->cat_url) . '">' .
-            html::escapeHTML($rs->cat_title) . '</a>' .
+            Html::escapeHTML($rs->cat_title) . '</a>' .
                 ($widget->postcount ? ' <span>(' . ($widget->subcatscount ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
 
             $level = $rs->level;
@@ -335,7 +335,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
         while ($rs->fetch()) {
@@ -343,7 +343,7 @@ class Widgets
             if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
-            $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . html::escapeHTML($rs->post_title) . '</a></li> ';
+            $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
         }
 
         $res .= '</ul>';
@@ -375,7 +375,7 @@ class Widgets
         }
 
         $langs = l10n::getISOcodes();
-        $res   = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res   = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
         while ($rs->fetch()) {
@@ -424,7 +424,7 @@ class Widgets
         $p_title = __('This blog\'s entries %s feed');
         $c_title = __('This blog\'s comments %s feed');
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
         $res .= '<li><a type="' . $mime . '" ' .
@@ -476,7 +476,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
         $i = 0;
@@ -492,7 +492,7 @@ class Widgets
                 $title = substr($link, 0, 25) . '...';
             }
 
-            $li = $link ? '<a href="' . html::escapeHTML($item->link) . '">' . $title . '</a>' : $title;
+            $li = $link ? '<a href="' . Html::escapeHTML($item->link) . '">' . $title . '</a>' : $title;
             $res .= ' <li>' . $li . '</li> ';
             $i++;
             if ($i >= $limit) {
@@ -522,7 +522,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') . $widget->text;
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $widget->text;
 
         return $widget->renderDiv((bool) $widget->content_only, 'text ' . $widget->class, '', $res);
     }
@@ -570,7 +570,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
         while ($rs->fetch()) {
@@ -579,7 +579,7 @@ class Widgets
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
-            html::escapeHTML($rs->post_title) . '</a></li>';
+            Html::escapeHTML($rs->post_title) . '</a></li>';
         }
 
         $res .= '</ul>';
@@ -613,14 +613,14 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') . '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . '<ul>';
 
         while ($rs->fetch()) {
             $res .= '<li class="' .
             ((bool) $rs->comment_trackback ? 'last-tb' : 'last-comment') .
             '"><a href="' . $rs->getPostURL() . '#c' . $rs->comment_id . '">' .
-            html::escapeHTML($rs->post_title) . ' - ' .
-            html::escapeHTML($rs->comment_author) .
+            Html::escapeHTML($rs->post_title) . ' - ' .
+            Html::escapeHTML($rs->comment_author) .
                 '</a></li>';
         }
 

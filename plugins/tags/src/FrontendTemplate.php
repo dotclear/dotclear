@@ -16,8 +16,8 @@ use ArrayObject;
 use dcCore;
 use dcTemplate;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
-use html;
 
 class FrontendTemplate
 {
@@ -336,7 +336,7 @@ class FrontendTemplate
             $rs->sort($sort, $order);
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
         if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord) {
@@ -362,7 +362,7 @@ class FrontendTemplate
 
         if (dcCore::app()->url->getURLFor('tags') && !is_null($widget->alltagslinktitle) && $widget->alltagslinktitle !== '') {
             $res .= '<p><strong><a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tags') . '">' .
-            html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
+            Html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
         }
 
         return $widget->renderDiv((bool) $widget->content_only, 'tags ' . $widget->class, '', $res);

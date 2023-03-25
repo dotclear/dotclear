@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminPopupLink
@@ -23,7 +26,7 @@ class adminPopupLink
         dcCore::app()->admin->href      = !empty($_GET['href']) ? $_GET['href'] : '';
         dcCore::app()->admin->hreflang  = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
         dcCore::app()->admin->title     = !empty($_GET['title']) ? $_GET['title'] : '';
-        dcCore::app()->admin->plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
+        dcCore::app()->admin->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
 
         if (dcCore::app()->themes === null) {
             # -- Loading themes, may be useful for some configurable theme --
@@ -56,12 +59,12 @@ class adminPopupLink
         '<form id="link-insert-form" action="#" method="get">' .
         '<p><label class="required" for="href"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Link URL:') . '</label> ' .
         form::field('href', 35, 512, [
-            'default'    => html::escapeHTML(dcCore::app()->admin->href),
+            'default'    => Html::escapeHTML(dcCore::app()->admin->href),
             'extra_html' => 'required placeholder="' . __('URL') . '"',
         ]) .
         '</p>' .
         '<p><label for="title">' . __('Link title:') . '</label> ' .
-        form::field('title', 35, 512, html::escapeHTML(dcCore::app()->admin->title)) . '</p>' .
+        form::field('title', 35, 512, Html::escapeHTML(dcCore::app()->admin->title)) . '</p>' .
         '<p><label for="hreflang">' . __('Link language:') . '</label> ' .
         form::combo('hreflang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->hreflang) .
         '</p>' .

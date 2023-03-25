@@ -13,6 +13,7 @@ use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -69,7 +70,7 @@ class adminBlogTheme
                 dcPage::breadcrumb(
                     [
                         // Active links
-                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(dcCore::app()->blog->name) => '',
                         __('Blog appearance')                       => dcCore::app()->admin->list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
@@ -140,7 +141,7 @@ class adminBlogTheme
             dcCore::app()->callBehavior('themesToolsHeadersV2', false),
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name)                     => '',
+                    Html::escapeHTML(dcCore::app()->blog->name)                     => '',
                     '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
                 ]
             )
@@ -169,8 +170,8 @@ class adminBlogTheme
             $modules = dcCore::app()->admin->list->store->get(true);
             if (!empty($modules)) {
                 echo
-                '<div class="multi-part" id="update" title="' . html::escapeHTML(__('Update themes')) . '">' .
-                '<h3>' . html::escapeHTML(__('Update themes')) . '</h3>' .
+                '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
+                '<h3>' . Html::escapeHTML(__('Update themes')) . '</h3>' .
                 '<p>' . sprintf(
                     __('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', is_countable($modules) ? count($modules) : 0),
                     is_countable($modules) ? count($modules) : 0

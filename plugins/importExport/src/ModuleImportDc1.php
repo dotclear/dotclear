@@ -22,10 +22,10 @@ use dcCore;
 use dcRecord;
 use dcTrackback;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use initBlogroll;
 use form;
-use html;
 use http;
 
 class ModuleImportDc1 extends Module
@@ -192,7 +192,7 @@ class ModuleImportDc1 extends Module
                 echo
                 '<p>' . sprintf(
                     __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
-                    '<strong>' . html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -201,20 +201,20 @@ class ModuleImportDc1 extends Module
                     $this->imForm(1, __('General information'), __('Import my blog now')),
                     '<p>' . __('We first need some information about your old Dotclear 1.2 installation.') . '</p>' .
                     '<p><label for="db_driver">' . __('Database driver:') . '</label> ' .
-                    form::combo('db_driver', $db_drivers, html::escapeHTML($this->vars['db_driver'])) . '</p>' .
+                    form::combo('db_driver', $db_drivers, Html::escapeHTML($this->vars['db_driver'])) . '</p>' .
                     '<p><label for="db_host">' . __('Database Host Name:') . '</label> ' .
-                    form::field('db_host', 30, 255, html::escapeHTML($this->vars['db_host'])) . '</p>' .
-                    '<p><label for="db_name">' . __('Database Name:', html::escapeHTML($this->vars['db_name'])) . '</label> ' .
-                    form::field('db_name', 30, 255, html::escapeHTML($this->vars['db_name'])) . '</p>' .
+                    form::field('db_host', 30, 255, Html::escapeHTML($this->vars['db_host'])) . '</p>' .
+                    '<p><label for="db_name">' . __('Database Name:', Html::escapeHTML($this->vars['db_name'])) . '</label> ' .
+                    form::field('db_name', 30, 255, Html::escapeHTML($this->vars['db_name'])) . '</p>' .
                     '<p><label for="db_user">' . __('Database User Name:') . '</label> ' .
-                    form::field('db_user', 30, 255, html::escapeHTML($this->vars['db_user'])) . '</p>' .
+                    form::field('db_user', 30, 255, Html::escapeHTML($this->vars['db_user'])) . '</p>' .
                     '<p><label for="db_pwd">' . __('Database Password:') . '</label> ' .
                     form::password('db_pwd', 30, 255) . '</p>' .
                     '<p><label for="db_prefix">' . __('Database Tables Prefix:') . '</label> ' .
-                    form::field('db_prefix', 30, 255, html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
+                    form::field('db_prefix', 30, 255, Html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
                     '<h3 class="vertical-separator">' . __('Entries import options') . '</h3>' .
                     '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
-                    form::number('post_limit', 0, 999, html::escapeHTML((string) $this->vars['post_limit'])) . '</p>'
+                    form::number('post_limit', 0, 999, Html::escapeHTML((string) $this->vars['post_limit'])) . '</p>'
                 );
 
                 break;
@@ -574,7 +574,7 @@ class ModuleImportDc1 extends Module
         $cur->post_dt     = $rs->post_dt;
         $cur->post_creadt = $rs->post_creadt;
         $cur->post_upddt  = $rs->post_upddt;
-        $cur->post_title  = html::decodeEntities($this->cleanStr($rs->post_titre));
+        $cur->post_title  = Html::decodeEntities($this->cleanStr($rs->post_titre));
 
         $cur->post_url = date('Y/m/d/', strtotime($cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
         $cur->post_url = substr($cur->post_url, 0, 255);

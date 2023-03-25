@@ -21,9 +21,9 @@ use dcMeta;
 use dcPage;
 use dcPostsActions;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use wiki2xhtml;
 
 class BackendBehaviors
@@ -139,7 +139,7 @@ class BackendBehaviors
             $content = substr($content, 4);
         }
 
-        $tag_url        = html::stripHostURL(dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag'));
+        $tag_url        = Html::stripHostURL(dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag'));
         $res['url']     = $tag_url . '/' . rawurlencode(dcMeta::sanitizeMetaID($url));
         $res['content'] = $content;
 
@@ -270,7 +270,7 @@ class BackendBehaviors
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(dcCore::app()->blog->name) => '',
                         __('Entries')                               => $ap->getRedirection(true),
                         __('Add tags to this selection')            => '',
                     ]
@@ -348,7 +348,7 @@ class BackendBehaviors
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML(dcCore::app()->blog->name)    => '',
+                        Html::escapeHTML(dcCore::app()->blog->name)    => '',
                         __('Entries')                                  => 'posts.php',
                         __('Remove selected tags from this selection') => '',
                     ]
@@ -368,8 +368,8 @@ class BackendBehaviors
                 }
                 echo '<p>' . sprintf(
                     $label,
-                    form::checkbox(['meta_id[]'], html::escapeHTML($k)),
-                    html::escapeHTML($k)
+                    form::checkbox(['meta_id[]'], Html::escapeHTML($k)),
+                    Html::escapeHTML($k)
                 ) .
                     '</p>';
             }

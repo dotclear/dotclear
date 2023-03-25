@@ -17,9 +17,9 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use initPages;
 
 class Manage extends dcNsProcess
@@ -117,7 +117,7 @@ class Manage extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Pages')                                 => '',
             ]
         ) .

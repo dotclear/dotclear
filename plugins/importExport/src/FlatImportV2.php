@@ -25,9 +25,9 @@ use dcPostMedia;
 use dcRecord;
 use dcTrackback;
 use dcWorkspace;
+use Dotclear\Helper\Html\Html;
 use initAntispam;
 use initBlogroll;
-use html;
 
 class FlatImportV2 extends FlatBackup
 {
@@ -780,9 +780,9 @@ class FlatImportV2 extends FlatBackup
     {
         throw new Exception(sprintf(
             __('ID of "%3$s" does not match on record "%1$s" at line %2$s of backup file.'),
-            html::escapeHTML($name),
-            html::escapeHTML($line),
-            html::escapeHTML($related)
+            Html::escapeHTML($name),
+            Html::escapeHTML($line),
+            Html::escapeHTML($related)
         ));
     }
 
@@ -892,7 +892,7 @@ class FlatImportV2 extends FlatBackup
                 break;
             case 'post':
                 $line->substitute('post_titre', 'post_title');
-                $line->post_title         = html::decodeEntities($line->post_title);
+                $line->post_title         = Html::decodeEntities($line->post_title);
                 $line->post_url           = date('Y/m/d/', strtotime($line->post_dt)) . $line->post_id . '-' . $line->post_titre_url;
                 $line->post_url           = substr($line->post_url, 0, 255);
                 $line->post_format        = $line->post_content_wiki == '' ? 'xhtml' : 'wiki';

@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
-use html;
 use http;
 
 class FrontendTemplate
@@ -94,7 +94,7 @@ class FrontendTemplate
             (bool) $widget->content_only,
             'simple-menu ' . $widget->class,
             '',
-            ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') . $menu
+            ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $menu
         );
     }
 
@@ -122,7 +122,7 @@ class FrontendTemplate
             $abs_url = http::getHost() . $url;
 
             // Home recognition var
-            $home_url       = html::stripHostURL(dcCore::app()->blog->url);
+            $home_url       = Html::stripHostURL(dcCore::app()->blog->url);
             $home_directory = dirname($home_url);
             if ($home_directory != '/') {
                 $home_directory = $home_directory . '/';
@@ -132,7 +132,7 @@ class FrontendTemplate
             foreach ($menu as $i => $m) {
                 # $href = lien de l'item de menu
                 $href = $m['url'];
-                $href = html::escapeHTML($href);
+                $href = Html::escapeHTML($href);
 
                 # Cope with request only URL (ie ?query_part)
                 $href_part = '';
@@ -151,13 +151,13 @@ class FrontendTemplate
 
                 if ($m['descr']) {
                     if (($description == 'title' || $description == 'both') && $targetBlank) {
-                        $title = html::escapeHTML($m['descr']) . ' (' .
+                        $title = Html::escapeHTML($m['descr']) . ' (' .
                         __('new window') . ')';
                     } elseif ($description == 'title' || $description == 'both') {
-                        $title = html::escapeHTML($m['descr']);
+                        $title = Html::escapeHTML($m['descr']);
                     }
                     if ($description == 'span' || $description == 'both') {
-                        $span = ' <span class="simple-menu-descr">' . html::escapeHTML($m['descr']) . '</span>';
+                        $span = ' <span class="simple-menu-descr">' . Html::escapeHTML($m['descr']) . '</span>';
                     }
                 }
 
@@ -168,7 +168,7 @@ class FrontendTemplate
                     $title = (empty($title) ? __('Active page') : $title . ' (' . __('active page') . ')');
                 }
 
-                $label = html::escapeHTML($m['label']);
+                $label = Html::escapeHTML($m['label']);
 
                 $item = new ArrayObject([
                     'url'    => $href,   // URL

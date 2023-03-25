@@ -18,9 +18,9 @@ use dcCore;
 use dcMeta;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use html;
 use http;
 
 class ManagePosts extends dcNsProcess
@@ -132,7 +132,7 @@ class ManagePosts extends dcNsProcess
             dcPage::cssModuleLoad('tags/css/style.css') .
             dcPage::jsLoad('js/_posts_list.js') .
             dcPage::jsJson('posts_tags_msg', [
-                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML(dcCore::app()->admin->tag)),
+                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(dcCore::app()->admin->tag)),
             ]) .
             dcPage::jsModuleLoad('tags/js/posts.js') .
             dcPage::jsConfirmClose('tag_rename')
@@ -141,9 +141,9 @@ class ManagePosts extends dcNsProcess
         echo
         dcPage::breadcrumb(
             [
-                html::escapeHTML(dcCore::app()->blog->name)                                      => '',
+                Html::escapeHTML(dcCore::app()->blog->name)                                      => '',
                 __('Tags')                                                                       => dcCore::app()->admin->getPageURL() . '&amp;m=tags',
-                __('Tag') . ' &ldquo;' . html::escapeHTML(dcCore::app()->admin->tag) . '&rdquo;' => '',
+                __('Tag') . ' &ldquo;' . Html::escapeHTML(dcCore::app()->admin->tag) . '&rdquo;' => '',
             ]
         ) .
         dcPage::notices() .
@@ -153,10 +153,10 @@ class ManagePosts extends dcNsProcess
             if (!dcCore::app()->admin->posts->isEmpty()) {
                 echo
                 '<div class="tag-actions vertical-separator">' .
-                '<h3>' . html::escapeHTML(dcCore::app()->admin->tag) . '</h3>' .
+                '<h3>' . Html::escapeHTML(dcCore::app()->admin->tag) . '</h3>' .
                 '<form action="' . $this_url . '" method="post" id="tag_rename">' .
                 '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
-                form::field('new_tag_id', 20, 255, html::escapeHTML(dcCore::app()->admin->tag)) .
+                form::field('new_tag_id', 20, 255, Html::escapeHTML(dcCore::app()->admin->tag)) .
                 '<input type="submit" value="' . __('OK') . '" />' .
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
                 dcCore::app()->formNonce() .
@@ -179,7 +179,7 @@ class ManagePosts extends dcNsProcess
 
             // Show posts
             echo
-            '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), html::escapeHTML(dcCore::app()->admin->tag)) . '</h4>';
+            '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), Html::escapeHTML(dcCore::app()->admin->tag)) . '</h4>';
             dcCore::app()->admin->post_list->display(
                 dcCore::app()->admin->page,
                 dcCore::app()->admin->nb_per_page,

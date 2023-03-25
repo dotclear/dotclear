@@ -17,7 +17,7 @@ use Exception;
 use dcCore;
 use dcNsProcess;
 use dcPage;
-use html;
+use Dotclear\Helper\Html\Html;
 
 class Manage extends dcNsProcess
 {
@@ -89,7 +89,7 @@ class Manage extends dcNsProcess
                 [
                     __('Plugins')                                        => '',
                     $title                                               => dcCore::app()->admin->getPageURL(),
-                    html::escapeHTML(dcCore::app()->admin->module->name) => '',
+                    Html::escapeHTML(dcCore::app()->admin->module->name) => '',
                 ]
             ) .
             dcPage::notices() .
@@ -132,8 +132,8 @@ class Manage extends dcNsProcess
             if (is_subclass_of($id, Module::class)) {
                 $o = new $id(dcCore::app());
 
-                $res .= '<dt><a href="' . $o->getURL(true) . '">' . html::escapeHTML($o->name) . '</a></dt>' .
-                '<dd>' . html::escapeHTML($o->description) . '</dd>';
+                $res .= '<dt><a href="' . $o->getURL(true) . '">' . Html::escapeHTML($o->name) . '</a></dt>' .
+                '<dd>' . Html::escapeHTML($o->description) . '</dd>';
             }
         }
 

@@ -51,8 +51,6 @@ $__autoload['mysqlimb4Connection'] = CLEARBRICKS_PATH . '/dblayer/class.mysqlimb
 $__autoload['pgsqlConnection']     = CLEARBRICKS_PATH . '/dblayer/class.pgsql.php';
 $__autoload['sqliteConnection']    = CLEARBRICKS_PATH . '/dblayer/class.sqlite.php';
 
-$__autoload['html'] = CLEARBRICKS_PATH . '/common/lib.html.php';
-
 function cb_autoload($name)
 {
     global $__autoload;

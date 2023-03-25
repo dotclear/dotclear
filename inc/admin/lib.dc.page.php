@@ -9,6 +9,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 
 class dcPage
 {
@@ -97,8 +98,8 @@ class dcPage
 
         # List of user's blogs
         if (dcCore::app()->auth->getBlogCount() == 1 || dcCore::app()->auth->getBlogCount() > 20) {
-            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . html::escapeHTML(dcCore::app()->blog->url) . '">' .
-            html::escapeHTML(dcCore::app()->blog->name) . '</strong>';
+            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(dcCore::app()->blog->url) . '">' .
+            Html::escapeHTML(dcCore::app()->blog->name) . '</strong>';
 
             if (dcCore::app()->auth->getBlogCount() > 20) {
                 $blog_box .= ' - <a href="' . dcCore::app()->adminurl->get('admin.blogs') . '">' . __('Change blog') . '</a>';
@@ -108,7 +109,7 @@ class dcPage
             $rs_blogs = dcCore::app()->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => 20]);
             $blogs    = [];
             while ($rs_blogs->fetch()) {
-                $blogs[html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
+                $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
             dcCore::app()->formNonce() . form::combo('switchblog', $blogs, dcCore::app()->blog->id) .
@@ -202,7 +203,7 @@ class dcPage
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . html::escapeHTML(dcCore::app()->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
+        '  <title>' . $title . ' - ' . Html::escapeHTML(dcCore::app()->blog->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -448,7 +449,7 @@ class dcPage
         if ($textAlt != '') {
             $text = $textAlt;
         }
-        $text = html::escapeHTML($text);
+        $text = Html::escapeHTML($text);
 
         echo
         '</nav>' . "\n" . // End of #main-menu
@@ -511,7 +512,7 @@ class dcPage
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . html::escapeHTML(dcCore::app()->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(dcCore::app()->blog->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
@@ -707,7 +708,7 @@ class dcPage
                 $prof_url = http::getSelfURI();
                 $prof_url .= (strpos($prof_url, '?') === false) ? '?' : '&';
                 $prof_url .= 'XDEBUG_PROFILE';
-                $res      .= '<p><a href="' . html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
+                $res      .= '<p><a href="' . Html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
             }
         }
 
@@ -796,7 +797,7 @@ class dcPage
      */
     public static function preload(string $src, ?string $version = '', string $type = 'style'): string
     {
-        $escaped_src = html::escapeHTML($src);
+        $escaped_src = Html::escapeHTML($src);
         if (!isset(self::$preloaded[$escaped_src])) {
             self::$preloaded[$escaped_src] = true;
 
@@ -817,7 +818,7 @@ class dcPage
      */
     public static function cssLoad(string $src, string $media = 'screen', ?string $version = ''): string
     {
-        $escaped_src = html::escapeHTML($src);
+        $escaped_src = Html::escapeHTML($src);
         if (!isset(self::$loaded_css[$escaped_src])) {
             self::$loaded_css[$escaped_src] = true;
 
@@ -852,7 +853,7 @@ class dcPage
      */
     public static function jsLoad(string $src, ?string $version = '', bool $module = false): string
     {
-        $escaped_src = html::escapeHTML($src);
+        $escaped_src = Html::escapeHTML($src);
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
 
@@ -1382,7 +1383,7 @@ class dcPage
      */
     public static function jsVar(string $name, $value): string
     {
-        return $name . " = '" . html::escapeJS($value) . "';\n";
+        return $name . " = '" . Html::escapeJS($value) . "';\n";
     }
 
     /**
@@ -1398,7 +1399,7 @@ class dcPage
     {
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
-            $ret .= $var . ' = ' . (is_string($value) ? "'" . html::escapeJS($value) . "'" : $value) . ';' . "\n";
+            $ret .= $var . ' = ' . (is_string($value) ? "'" . Html::escapeJS($value) . "'" : $value) . ';' . "\n";
         }
         $ret .= "</script>\n";
 

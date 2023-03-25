@@ -10,6 +10,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
+use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -73,14 +74,14 @@ class adminMedia
             ) {
                 dcPage::addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
-                    html::escapeHTML($nd)
+                    Html::escapeHTML($nd)
                 ));
             } else {
                 try {
                     dcCore::app()->media->makeDir($_POST['newdir']);
                     dcPage::addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
-                        html::escapeHTML($nd)
+                        Html::escapeHTML($nd)
                     ));
                     dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
                 } catch (Exception $e) {
@@ -98,7 +99,7 @@ class adminMedia
                 'tmp_name' => $_FILES['upfile']['tmp_name'][0],
                 'error'    => $_FILES['upfile']['error'][0],
                 'size'     => $_FILES['upfile']['size'][0],
-                'title'    => html::escapeHTML($_FILES['upfile']['name'][0]),
+                'title'    => Html::escapeHTML($_FILES['upfile']['name'][0]),
             ];
 
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -128,7 +129,7 @@ class adminMedia
             try {
                 Files::uploadStatus($upfile);
 
-                $f_title   = (isset($_POST['upfiletitle']) ? html::escapeHTML($_POST['upfiletitle']) : '');
+                $f_title   = (isset($_POST['upfiletitle']) ? Html::escapeHTML($_POST['upfiletitle']) : '');
                 $f_private = ($_POST['upfilepriv'] ?? false);
 
                 dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
@@ -195,7 +196,7 @@ class adminMedia
                 dcPage::addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully completed.'),
-                        html::escapeHTML(dcCore::app()->admin->page->d)
+                        Html::escapeHTML(dcCore::app()->admin->page->d)
                     )
                 );
                 dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
@@ -209,16 +210,16 @@ class adminMedia
             dcCore::app()->admin->page->openPage(dcCore::app()->admin->page->breadcrumb([__('confirm removal') => '']));
 
             echo
-            '<form action="' . html::escapeURL(dcCore::app()->adminurl->get('admin.media')) . '" method="post">' .
+            '<form action="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media')) . '" method="post">' .
             '<p>' . sprintf(
                 __('Are you sure you want to remove %s?'),
-                html::escapeHTML($_GET['remove'])
+                Html::escapeHTML($_GET['remove'])
             ) . '</p>' .
             '<p><input type="submit" value="' . __('Cancel') . '" /> ' .
             ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '" />' .
             dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
             dcCore::app()->formNonce() .
-            form::hidden('remove', html::escapeHTML($_GET['remove'])) . '</p>' .
+            form::hidden('remove', Html::escapeHTML($_GET['remove'])) . '</p>' .
             '</form>';
 
             dcCore::app()->admin->page->closePage();
@@ -341,7 +342,7 @@ class adminMedia
                 echo
                 '<div class="form-note info"><p>' . sprintf(
                     __('Choose a file to attach to entry %s by clicking on %s'),
-                    '<a href="' . dcCore::app()->getPostAdminURL(dcCore::app()->admin->page->getPostType(), dcCore::app()->admin->page->post_id) . '">' . html::escapeHTML(dcCore::app()->admin->page->getPostTitle()) . '</a>',
+                    '<a href="' . dcCore::app()->getPostAdminURL(dcCore::app()->admin->page->getPostType(), dcCore::app()->admin->page->post_id) . '">' . Html::escapeHTML(dcCore::app()->admin->page->getPostTitle()) . '</a>',
                     '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
                 );
                 if (dcCore::app()->admin->page->mediaWritable()) {
@@ -490,7 +491,7 @@ class adminMedia
             echo
             '<h4>' . __('Add files') . '</h4>' .
             '<p class="more-info">' . __('Please take care to publish media that you own and that are not protected by copyright.') . '</p>' .
-            '<form id="fileupload" action="' . html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
+            '<form id="fileupload" action="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
             '<p>' . form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
             dcCore::app()->formNonce() . '</p>' .
                 '<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>' .
@@ -499,7 +500,7 @@ class adminMedia
 
             '<p><label for="upfile">' . '<span class="add-label one-file">' . __('Choose file') . '</span>' . '</label>' .
             '<button class="button choose_files">' . __('Choose files') . '</button>' .
-            '<input type="file" id="upfile" name="upfile[]"' . (dcCore::app()->admin->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" /></p>' .
+            '<input type="file" id="upfile" name="upfile[]"' . (dcCore::app()->admin->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" /></p>' .
 
             '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(DC_MAX_UPLOAD_SIZE) . '</p>' .
 
@@ -530,7 +531,7 @@ class adminMedia
 
         # Empty remove form (for javascript actions)
         echo
-        '<form id="media-remove-hide" action="' . html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" class="hidden">' .
+        '<form id="media-remove-hide" action="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" class="hidden">' .
         '<div>' .
         form::hidden('rmyes', 1) .
         dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
@@ -926,7 +927,7 @@ class adminMediaPage extends adminMediaFilter
         }
 
         $elements = [
-            html::escapeHTML(dcCore::app()->blog->name) => '',
+            Html::escapeHTML(dcCore::app()->blog->name) => '',
             __('Media manager')                         => empty($param) ? '' :
                 dcCore::app()->adminurl->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];

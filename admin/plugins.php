@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminPlugins
@@ -126,8 +129,8 @@ class adminPlugins
             $modules = dcCore::app()->admin->list->store->get(true);
             if (!empty($modules)) {
                 echo
-                '<div class="multi-part" id="update" title="' . html::escapeHTML(__('Update plugins')) . '">' .
-                '<h3>' . html::escapeHTML(__('Update plugins')) . '</h3>' .
+                '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
+                '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>' .
                 '<p>' . sprintf(
                     __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', is_countable($modules) ? count($modules) : 0),
                     is_countable($modules) ? count($modules) : 0
@@ -286,7 +289,7 @@ class adminPlugins
             dcCore::app()->callBehavior('pluginsToolsHeadersV2', true),
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name)                          => '',
+                    Html::escapeHTML(dcCore::app()->blog->name)                          => '',
                     __('Plugins management')                                             => dcCore::app()->admin->list->getURL('', false),
                     '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
                 ]

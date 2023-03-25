@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminPosts
@@ -78,7 +81,7 @@ class adminPosts
             dcPage::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(),
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Posts')                                 => '',
                 ]
             )

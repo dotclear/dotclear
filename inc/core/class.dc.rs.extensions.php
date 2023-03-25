@@ -14,6 +14,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Html\Html;
+
 class rsExtPost
 {
     /**
@@ -200,7 +203,7 @@ class rsExtPost
     {
         return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
             $rs->post_type,
-            html::sanitizeURL($rs->post_url)
+            Html::sanitizeURL($rs->post_url)
         );
     }
 
@@ -213,7 +216,7 @@ class rsExtPost
      */
     public static function getCategoryURL(dcRecord $rs): string
     {
-        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', html::sanitizeURL($rs->cat_url));
+        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', Html::sanitizeURL($rs->cat_url));
     }
 
     /**
@@ -364,7 +367,7 @@ class rsExtPost
             $res = '<a href="%2$s">%1$s</a>';
         }
 
-        return sprintf($res, html::escapeHTML($rs->getAuthorCN()), html::escapeHTML($url));
+        return sprintf($res, Html::escapeHTML($rs->getAuthorCN()), Html::escapeHTML($url));
     }
 
     /**
@@ -447,7 +450,7 @@ class rsExtPost
     public static function getContent(dcRecord $rs, bool $absolute_urls = false): string
     {
         if ($absolute_urls) {
-            return html::absoluteURLs((string) $rs->post_content_xhtml, $rs->getURL());
+            return Html::absoluteURLs((string) $rs->post_content_xhtml, $rs->getURL());
         }
 
         return (string) $rs->post_content_xhtml;
@@ -465,7 +468,7 @@ class rsExtPost
     public static function getExcerpt(dcRecord $rs, bool $absolute_urls = false): string
     {
         if ($absolute_urls) {
-            return html::absoluteURLs((string) $rs->post_excerpt_xhtml, $rs->getURL());
+            return Html::absoluteURLs((string) $rs->post_excerpt_xhtml, $rs->getURL());
         }
 
         return (string) $rs->post_excerpt_xhtml;
@@ -662,7 +665,7 @@ class rsExtComment
         }
 
         if ($absolute_urls) {
-            $res = html::absoluteURLs($res, $rs->getPostURL());
+            $res = Html::absoluteURLs($res, $rs->getPostURL());
         }
 
         return $res;
@@ -693,7 +696,7 @@ class rsExtComment
     {
         return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
             $rs->post_type,
-            html::sanitizeURL($rs->post_url)
+            Html::sanitizeURL($rs->post_url)
         );
     }
 
@@ -717,7 +720,7 @@ class rsExtComment
             $rel .= ' nofollow';
         }
 
-        return sprintf($res, html::escapeHTML($rs->comment_author), html::escapeHTML($url), $rel);
+        return sprintf($res, Html::escapeHTML($rs->comment_author), Html::escapeHTML($url), $rel);
     }
 
     /**
@@ -748,7 +751,7 @@ class rsExtComment
             (string) $rs->comment_content,
             $match
         )) {
-            return html::decodeEntities($match[1]);
+            return Html::decodeEntities($match[1]);
         }
 
         return '';
@@ -1010,7 +1013,7 @@ class rsExtBlog
 class extStaticRecord extends staticRecord
 {
     private ?string $sortfield = null;
-    private ?int $sortsign = null;
+    private ?int $sortsign     = null;
 
     /**
      * Constructs a new instance.

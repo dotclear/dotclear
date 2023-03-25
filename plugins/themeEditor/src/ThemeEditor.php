@@ -17,7 +17,7 @@ use dcCore;
 use dcPublic;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
-use html;
+use Dotclear\Helper\Html\Html;
 use l10n;
 
 class ThemeEditor
@@ -151,13 +151,13 @@ class ThemeEditor
             foreach ($files as $k => $v) {
                 if (strpos($v, $this->user_theme) === 0) {
                     $li = sprintf('<li class="default-file">%s</li>', $item);
-                    $list_theme .= sprintf($li, $k, html::escapeHTML($k));
+                    $list_theme .= sprintf($li, $k, Html::escapeHTML($k));
                 } elseif ($this->parent_theme && strpos($v, $this->parent_theme) === 0) {
                     $li = sprintf('<li class="parent-file">%s</li>', $item);
-                    $list_parent .= sprintf($li, $k, html::escapeHTML($k));
+                    $list_parent .= sprintf($li, $k, Html::escapeHTML($k));
                 } else {
                     $li = sprintf('<li>%s</li>', $item);
-                    $list_tpl .= sprintf($li, $k, html::escapeHTML($k));
+                    $list_tpl .= sprintf($li, $k, Html::escapeHTML($k));
                 }
             }
             $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
@@ -180,7 +180,7 @@ class ThemeEditor
                 } else {
                     $li = sprintf('<li>%s</li>', $item);
                 }
-                $list .= sprintf($li, $k, html::escapeHTML($k));
+                $list .= sprintf($li, $k, Html::escapeHTML($k));
             }
         }
 

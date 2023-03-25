@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\pages;
 
 use dcCore;
 use dcRecord;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
-use html;
 
 class FrontendTemplate
 {
@@ -59,7 +59,7 @@ class FrontendTemplate
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '') . '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . '<ul>';
 
         while ($rs->fetch()) {
             $class = '';
@@ -67,7 +67,7 @@ class FrontendTemplate
                 $class = ' class="page-current" aria-current="page"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
-            html::escapeHTML($rs->post_title) . '</a></li>';
+            Html::escapeHTML($rs->post_title) . '</a></li>';
         }
 
         $res .= '</ul>';

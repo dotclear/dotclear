@@ -16,8 +16,8 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Html;
 use form;
-use html;
 use l10n;
 
 class Config extends dcNsProcess
@@ -73,6 +73,6 @@ class Config extends dcNsProcess
 
         echo
         '<p class="area"><label>' . __('Style sheet:') . '</label> ' .
-        form::textarea('css', 60, 20, html::escapeHTML($css_content)) . '</p>';
+        form::textarea('css', 60, 20, Html::escapeHTML($css_content)) . '</p>';
     }
 }
