@@ -16,6 +16,7 @@ use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Text;
 
 final class dcCore
@@ -1844,7 +1845,7 @@ final class dcCore
         ]);
         $this->callBehavior('HTMLfilter', $options);
 
-        $filter = new htmlFilter($options['keep_aria'], $options['keep_data'], $options['keep_js']);
+        $filter = new HtmlFilter($options['keep_aria'], $options['keep_data'], $options['keep_js']);
         $str    = trim($filter->apply($str));
 
         return $str;

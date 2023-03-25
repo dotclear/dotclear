@@ -1,22 +1,23 @@
 <?php
 /**
- * @class htmlFilter
- * @brief HTML code filter
+ * @class HtmlFilter
+ *
+ * HTML code filter
  *
  * This class removes all unwanted tags and attributes from an HTML string.
  *
  * This was inspired by Ulf Harnhammar's Kses (http://sourceforge.net/projects/kses)
  *
- * @package Clearbricks
- * @subpackage HTML
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\Helper\Html\Html;
+namespace Dotclear\Helper\Html;
 
-class htmlFilter
+class HtmlFilter
 {
     /**
      * Parser handle
@@ -100,7 +101,7 @@ class htmlFilter
      * Appends hosts to remove from URI. Each method argument is a host. Example:
      *
      * <code>
-     * $filter = new htmlFilter();
+     * $filter = new HtmlFilter();
      * $filter->removeHosts('javascript');
      * </code>
      *
@@ -119,7 +120,7 @@ class htmlFilter
      * Appends tags to remove. Each method argument is a tag. Example:
      *
      * <code>
-     * $filter = new htmlFilter();
+     * $filter = new HtmlFilter();
      * $filter->removeTags('frame','script');
      * </code>
      *
@@ -138,7 +139,7 @@ class htmlFilter
      * Appends attributes to remove. Each method argument is an attribute. Example:
      *
      * <code>
-     * $filter = new htmlFilter();
+     * $filter = new HtmlFilter();
      * $filter->removeAttributes('onclick','onunload');
      * </code>
      *
@@ -157,7 +158,7 @@ class htmlFilter
      * Appends attributes to remove. Example:
      *
      * <code>
-     * $filter = new htmlFilter();
+     * $filter = new HtmlFilter();
      * $filter->removeAttributes(['onload','onerror']);
      * </code>
      *
@@ -176,7 +177,7 @@ class htmlFilter
      * Appends attribute patterns to remove. Each method argument is an attribute pattern. Example:
      *
      * <code>
-     * $filter = new htmlFilter();
+     * $filter = new HtmlFilter();
      * $filter->removeAttributes('data-.*');
      * </code>
      *
@@ -196,7 +197,7 @@ class htmlFilter
      * an array of tags with attributes. Example:
      *
      * <code>
-     * $filter = new htmlFilter();
+     * $filter = new HtmlFilter();
      * $filter->removeTagAttributes(['a' => ['src','title']]);
      * </code>
      *
@@ -253,7 +254,7 @@ class htmlFilter
 
             $str = '<p>tt</p>' . $str; // Fixes a big issue
 
-            $tidy = new tidy();
+            $tidy = new \tidy();
             $tidy->parseString($str, $config, 'utf8');
             $tidy->cleanRepair();
 

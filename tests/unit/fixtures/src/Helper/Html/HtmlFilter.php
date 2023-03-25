@@ -1,6 +1,7 @@
 <?php
 
 // See: https://github.com/cure53/DOMPurify/blob/master/test/fixtures/expect.js
+
 $dataTest = [
     [
         'title'    => "Don't remove ARIA attributes if not prohibited",

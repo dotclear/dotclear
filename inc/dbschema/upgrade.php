@@ -1341,6 +1341,8 @@ class dcUpgrade
                     'inc/helper/pager',
                     // CB rest moved to src
                     'inc/helper/rest',
+                    // CB htmlFilter moved to src
+                    'inc/helper/html.filter',
                 ]
             );
         }

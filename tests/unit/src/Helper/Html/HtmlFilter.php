@@ -1,33 +1,28 @@
 <?php
+/**
+ * Unit tests
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
+namespace tests\unit\Dotclear\Helper\Html;
 
-namespace tests\unit;
-
-require_once __DIR__ . '/../../../bootstrap.php';
-
-require_once CLEARBRICKS_PATH . '/html.filter/class.html.filter.php';
-require_once CLEARBRICKS_PATH . '/common/lib.html.php';
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
 
 use atoum;
 
 /**
- * html.filter test.
+ * @tags HtmlFilter
  */
-class htmlFilter extends atoum
+class HtmlFilter extends atoum
 {
     public function testTidySimple()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         if (extension_loaded('tidy') && class_exists('tidy')) {
             $this->string($filter->apply('<p>test</I>'))
@@ -40,7 +35,7 @@ class htmlFilter extends atoum
 
     public function testTidyComplex()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $str    = <<<EODTIDY
             <p>Hello</p>
             <div aria-role="navigation">
@@ -94,7 +89,7 @@ class htmlFilter extends atoum
 
     public function testTidyOnerror()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         if (extension_loaded('tidy') && class_exists('tidy')) {
             $this->string($filter->apply('<p onerror="alert(document.domain)">test</I>'))
@@ -107,7 +102,7 @@ class htmlFilter extends atoum
 
     public function testSimple()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         $this->string($filter->apply('<p>test</I>', false))
             ->isIdenticalTo('<p>test');
@@ -115,7 +110,7 @@ class htmlFilter extends atoum
 
     public function testSimpleAttr()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeAttributes('id');
 
         $this->string($filter->apply('<p id="para">test</I>', false))
@@ -124,7 +119,7 @@ class htmlFilter extends atoum
 
     public function testSimpleTagAttr()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeTagAttributes('p', 'id');
 
         $this->string($filter->apply('<p id="para">test<span id="sp">x</span></I>', false))
@@ -133,7 +128,7 @@ class htmlFilter extends atoum
 
     public function testSimpleURI()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         $this->string($filter->apply('<img src="ssh://localhost/sample.jpg" />', false))
             ->isIdenticalTo('<img src="#" />');
@@ -141,7 +136,7 @@ class htmlFilter extends atoum
 
     public function testSimpleOwnTags()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->setTags(['span' => []]);
 
         $this->string($filter->apply('<p id="para">test<span id="sp">x</span></I>', false))
@@ -150,7 +145,7 @@ class htmlFilter extends atoum
 
     public function testRemovedAttr()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeTagAttributes('a', ['href']);
 
         $this->string($filter->apply('<a href="#" title="test" target="#">test</a>', false))
@@ -159,7 +154,7 @@ class htmlFilter extends atoum
 
     public function testRemovedAttrs()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeTagAttributes('a', ['target', 'href']);
 
         $this->string($filter->apply('<a href="#" title="test" target="#">test</a>', false))
@@ -168,7 +163,7 @@ class htmlFilter extends atoum
 
     public function testComplex()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $str    = <<<EOD
             <p>Hello</p>
             <div aria-role="navigation">
@@ -201,7 +196,7 @@ class htmlFilter extends atoum
 
     public function testComplexWithAria()
     {
-        $filter = new \htmlFilter(true);
+        $filter = new \Dotclear\Helper\Html\HtmlFilter(true);
         $str    = <<<EODA
             <p>Hello</p>
             <div aria-role="navigation">
@@ -234,7 +229,7 @@ class htmlFilter extends atoum
 
     public function testOnerror()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         $this->string($filter->apply('<p onerror="alert(document.domain)">test</I>', false))
             ->isIdenticalTo('<p>test');
@@ -242,7 +237,7 @@ class htmlFilter extends atoum
 
     public function testAccesskey()
     {
-        $filter = new \htmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         $this->string($filter->apply('<a accesskey="x">test</a>', false))
             ->isIdenticalTo('<a accesskey="x">test</a>');
@@ -253,16 +248,16 @@ class htmlFilter extends atoum
      */
     protected function testAllDataProvider()
     {
-        require_once __DIR__ . '/../fixtures/data/class.html.filter.php';
+        require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'HtmlFilter.php']);
 
         return array_values($dataTest);
     }
 
     public function testAll($title, $payload, $expected)
     {
-        $filter = new \htmlFilter(true, true);
+        $filter = new \Dotclear\Helper\Html\HtmlFilter(true, true);
 
-        $this->string($result = $filter->apply($payload, false))
+        $this->string($filter->apply($payload, false))
             ->isIdenticalTo($expected);
     }
 }

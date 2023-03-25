@@ -86,5 +86,6 @@ dcProxyV1::classAliases([
     'path'  => 'Dotclear\Helper\File\Path',
 
     // Html helper
-    'html' => 'Dotclear\Helper\Html\Html',
+    'html'       => 'Dotclear\Helper\Html\Html',
+    'htmlFilter' => 'Dotclear\Helper\Html\HtmlFilter',
 ]);

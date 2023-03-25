@@ -79,9 +79,6 @@ class Clearbricks
             'feedParser' => $old_helper_root . '/net.http.feed/class.feed.parser.php',
             'feedReader' => $old_helper_root . '/net.http.feed/class.feed.reader.php',
 
-            // HTML Filter
-            'htmlFilter' => $old_helper_root . '/html.filter/class.html.filter.php',
-
             // HTML Validator
             'htmlValidator' => $old_helper_root . '/html.validator/class.html.validator.php',
 
