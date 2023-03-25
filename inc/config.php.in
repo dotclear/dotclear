@@ -6,6 +6,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Path;
+
 if (!defined('DC_RC_PATH')) {
   return;
 }
