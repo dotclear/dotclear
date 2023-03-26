@@ -74,7 +74,7 @@ class dcSettings
                 'setting_ns',
             ])
             ->from($this->table)
-            ->where('blog_id = ' . $sql->quote($this->blog_id))
+            ->where('blog_id = ' . $sql->quote((string) $this->blog_id))
             ->or('blog_id IS NULL')
             ->order([
                 'setting_ns ASC',
