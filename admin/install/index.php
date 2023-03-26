@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
 if (isset($_SERVER['DC_RC_PATH'])) {
@@ -25,7 +26,7 @@ $can_install = true;
 $err         = '';
 
 # Loading locales for detected language
-$dlang = http::getAcceptLanguage();
+$dlang = Http::getAcceptLanguage();
 if ($dlang != 'en') {
     l10n::init($dlang);
     l10n::set(DC_L10N_ROOT . '/' . $dlang . '/date');
@@ -136,7 +137,7 @@ if ($can_install && !empty($_POST)) {
         # Create blog
         $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
         $cur->blog_id   = 'default';
-        $cur->blog_url  = http::getHost() . $root_url . '/index.php?';
+        $cur->blog_url  = Http::getHost() . $root_url . '/index.php?';
         $cur->blog_name = __('My first blog');
         dcCore::app()->addBlog($cur);
 
@@ -417,8 +418,8 @@ if ($can_install && $step == 0) {
 
     '<h3>' . __('Your blog') . '</h3>' .
     '<ul>' .
-    '<li>' . __('Blog address:') . ' <strong>' . Html::escapeHTML(http::getHost() . $root_url) . '/index.php?</strong></li>' .
-    '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(http::getHost() . $admin_url) . '</strong></li>' .
+    '<li>' . __('Blog address:') . ' <strong>' . Html::escapeHTML(Http::getHost() . $root_url) . '/index.php?</strong></li>' .
+    '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(Http::getHost() . $admin_url) . '</strong></li>' .
     '</ul>' .
 
     '<form action="../auth.php" method="post">' .

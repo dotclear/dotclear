@@ -16,11 +16,11 @@ use dcCore;
 use dcPage;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use http;
 
 class Words extends SpamFilter
 {
@@ -141,7 +141,7 @@ class Words extends SpamFilter
             try {
                 $this->defaultWordsList();
                 dcPage::addSuccessNotice(__('Words have been successfully added.'));
-                http::redirect($url);
+                Http::redirect($url);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -154,7 +154,7 @@ class Words extends SpamFilter
             try {
                 $this->addRule($_POST['swa'], $globalsw);
                 dcPage::addSuccessNotice(__('Word has been successfully added.'));
-                http::redirect($url);
+                Http::redirect($url);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -165,7 +165,7 @@ class Words extends SpamFilter
             try {
                 $this->removeRule($_POST['swd']);
                 dcPage::addSuccessNotice(__('Words have been successfully removed.'));
-                http::redirect($url);
+                Http::redirect($url);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

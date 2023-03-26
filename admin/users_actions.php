@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -89,7 +90,7 @@ class adminUsersActions
                 }
                 if (!dcCore::app()->error->flag()) {
                     dcPage::addSuccessNotice(__('User has been successfully deleted.'));
-                    http::redirect(dcCore::app()->admin->redir);
+                    Http::redirect(dcCore::app()->admin->redir);
                 }
             }
 
@@ -120,7 +121,7 @@ class adminUsersActions
                 }
                 if (!dcCore::app()->error->flag()) {
                     dcPage::addSuccessNotice(__('User has been successfully updated.'));
-                    http::redirect(dcCore::app()->admin->redir);
+                    Http::redirect(dcCore::app()->admin->redir);
                 }
             }
         }

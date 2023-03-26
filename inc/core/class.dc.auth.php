@@ -13,6 +13,7 @@
  */
 
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Network\Http;
 
 class dcAuth
 {
@@ -270,7 +271,7 @@ class dcAuth
             }
         } elseif (is_string($user_key) && $user_key !== '') {
             // Avoid time attacks by measuring server response time during comparison
-            if (!hash_equals(http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
+            if (!hash_equals(Http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
                 return false;
             }
         }
@@ -379,7 +380,7 @@ class dcAuth
         } else {
             // Check here for user and IP address
             $this->checkUser($_SESSION['sess_user_id']);
-            $uid = $uid ?: http::browserUID(DC_MASTER_KEY);
+            $uid = $uid ?: Http::browserUID(DC_MASTER_KEY);
 
             if (($this->userID() === null) || ($uid !== $_SESSION['sess_browser_uid'])) {
                 $welcome = false;

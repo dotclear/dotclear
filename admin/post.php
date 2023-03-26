@@ -9,6 +9,7 @@
 require __DIR__ . '/../inc/admin/prepend.php';
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
 class adminPost
@@ -787,7 +788,7 @@ class adminPost
             'accesskey="s" name="save" /> ';
 
             if (dcCore::app()->admin->post_id) {
-                $preview_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('preview', dcCore::app()->auth->userID() . '/' . http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . dcCore::app()->admin->post->post_url);
+                $preview_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('preview', dcCore::app()->auth->userID() . '/' . Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . dcCore::app()->admin->post->post_url);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));

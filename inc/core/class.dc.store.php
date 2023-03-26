@@ -12,6 +12,9 @@
  *
  * @since 2.6
  */
+
+use Dotclear\Helper\Network\Http;
+
 class dcStore
 {
     /**
@@ -55,7 +58,7 @@ class dcStore
      */
     protected $data = [
         'new'    => [],
-        'update' => []
+        'update' => [],
     ];
 
     /**
@@ -119,7 +122,7 @@ class dcStore
             # per module third-party repository
             if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {
                 try {
-                    $dcs_url    = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
+                    $dcs_url    = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : Http::concatURL($p_infos['repository'], 'dcstore.xml');
                     $dcs_parser = dcStoreReader::quickParse($dcs_url, DC_TPL_CACHE, $force);
                     if ($dcs_parser !== false) {
                         $dcs_raw_datas = $dcs_parser->getModules();

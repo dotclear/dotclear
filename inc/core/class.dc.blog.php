@@ -13,6 +13,7 @@
 
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
 class dcBlog
@@ -203,7 +204,7 @@ class dcBlog
             $this->name   = $blog->blog_name;
             $this->desc   = $blog->blog_desc;
             $this->url    = $blog->blog_url;
-            $this->host   = http::getHostFromURL($this->url);
+            $this->host   = Http::getHostFromURL($this->url);
             $this->creadt = strtotime($blog->blog_creadt);
             $this->upddt  = strtotime($blog->blog_upddt);
             $this->status = $blog->blog_status;
@@ -2626,7 +2627,7 @@ class dcBlog
             $this->getCommentCursor($cur);
 
             if ($cur->comment_ip === null) {
-                $cur->comment_ip = http::realIP();
+                $cur->comment_ip = Http::realIP();
             }
 
             # --BEHAVIOR-- coreBeforeCommentCreate

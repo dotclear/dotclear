@@ -12,6 +12,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Network\Http;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -57,7 +58,7 @@ class adminPostMedia
                     echo json_encode(['url' => dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false)], JSON_THROW_ON_ERROR);
                     exit();
                 }
-                http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
+                Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
             }
 
             dcCore::app()->media = new dcMedia();
@@ -81,9 +82,9 @@ class adminPostMedia
                 $pm->removePostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
 
                 dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));
-                http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
+                Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
             } elseif (isset($_POST['post_id'])) {
-                http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
+                Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
             }
 
             if (!empty($_GET['remove'])) {

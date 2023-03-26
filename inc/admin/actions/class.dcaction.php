@@ -11,6 +11,7 @@
 
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Network\Http;
 
 abstract class dcActions
 {
@@ -276,7 +277,7 @@ abstract class dcActions
      */
     public function redirect(bool $with_selected_entries = false, array $params = [])
     {
-        http::redirect($this->getRedirection($with_selected_entries, $params));
+        Http::redirect($this->getRedirection($with_selected_entries, $params));
         exit;
     }
 

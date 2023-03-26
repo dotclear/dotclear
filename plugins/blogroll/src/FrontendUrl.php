@@ -16,7 +16,7 @@ use Exception;
 use dcCore;
 use dcUrlHandlers;
 use Dotclear\Helper\Html\Html;
-use http;
+use Dotclear\Helper\Network\Http;
 
 class FrontendUrl extends dcUrlHandlers
 {
@@ -40,7 +40,7 @@ class FrontendUrl extends dcUrlHandlers
             self::p404();
         }
 
-        http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
+        Http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
 
         header('Content-Type: text/xml; charset=UTF-8');
 

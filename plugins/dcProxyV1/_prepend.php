@@ -90,4 +90,7 @@ dcProxyV1::classAliases([
     // Html helper
     'html'       => 'Dotclear\Helper\Html\Html',
     'htmlFilter' => 'Dotclear\Helper\Html\HtmlFilter',
+
+    // Mail helper
+    'http' => 'Dotclear\Helper\Network\Http',
 ]);

@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Network\Http;
+
 require __DIR__ . '/../inc/prepend.php';
 
 class adminXMLRPCpage
@@ -21,7 +24,7 @@ class adminXMLRPCpage
 
         if (empty($blog_id)) {
             header('Content-Type: text/plain');
-            http::head(412);
+            Http::head(412);
             echo 'No blog ID given';
             exit;
         }

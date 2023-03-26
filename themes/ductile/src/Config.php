@@ -17,9 +17,9 @@ use dcPage;
 use dcThemeConfig;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
-use http;
 use l10n;
 
 class Config extends dcNsProcess
@@ -35,9 +35,9 @@ class Config extends dcNsProcess
         l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/admin');
 
         if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url)) {
-            dcCore::app()->admin->img_url = http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme . '/img/');
+            dcCore::app()->admin->img_url = Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme . '/img/');
         } else {
-            dcCore::app()->admin->img_url = http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/');
+            dcCore::app()->admin->img_url = Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/');
         }
 
         $img_path = __DIR__ . '/../img/';

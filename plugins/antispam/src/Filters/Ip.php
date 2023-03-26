@@ -16,11 +16,11 @@ use dcCore;
 use dcPage;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use http;
 
 class Ip extends SpamFilter
 {
@@ -145,7 +145,7 @@ class Ip extends SpamFilter
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
                 dcPage::addSuccessNotice(__('IP address has been successfully added.'));
-                http::redirect($url . '&ip_type=' . $ip_type);
+                Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -156,7 +156,7 @@ class Ip extends SpamFilter
             try {
                 $this->removeRule($_POST['delip']);
                 dcPage::addSuccessNotice(__('IP addresses have been successfully removed.'));
-                http::redirect($url . '&ip_type=' . $ip_type);
+                Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

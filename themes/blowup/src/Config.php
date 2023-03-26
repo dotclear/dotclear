@@ -17,9 +17,9 @@ use dcPage;
 use dcThemeConfig;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
-use http;
 
 class Config extends dcNsProcess
 {
@@ -228,7 +228,7 @@ class Config extends dcNsProcess
                 dcCore::app()->admin->blowup_user = $blowup_user;
 
                 dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
-                http::redirect(dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']));
+                Http::redirect(dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -317,7 +317,7 @@ class Config extends dcNsProcess
 
         if (dcCore::app()->admin->can_write_images) {
             if (dcCore::app()->admin->blowup_user['top_image'] == 'custom' && dcCore::app()->admin->blowup_user['uploaded']) {
-                $preview_image = http::concatURL(dcCore::app()->blog->url, Blowup::imagesURL() . '/page-t.png');
+                $preview_image = Http::concatURL(dcCore::app()->blog->url, Blowup::imagesURL() . '/page-t.png');
             } else {
                 $preview_image = Blowup::themeURL() . '/alpha-img/page-t/' . dcCore::app()->admin->blowup_user['top_image'] . '.png';
             }

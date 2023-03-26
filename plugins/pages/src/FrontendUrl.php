@@ -19,9 +19,9 @@ use dcPublic;
 use dcUrlHandlers;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Exception;
-use http;
 
 class FrontendUrl extends dcUrlHandlers
 {
@@ -98,7 +98,7 @@ class FrontendUrl extends dcUrlHandlers
                 if ($post_comment) {
                     # Spam trap
                     if (!empty($_POST['f_mail'])) {
-                        http::head(412, 'Precondition Failed');
+                        Http::head(412, 'Precondition Failed');
                         header('Content-Type: text/plain');
                         echo 'So Long, and Thanks For All the Fish';
                         # Exits immediately the application to preserve the server.
@@ -148,7 +148,7 @@ class FrontendUrl extends dcUrlHandlers
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
                         $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
-                        $cur->comment_ip      = http::realIP();
+                        $cur->comment_ip      = Http::realIP();
 
                         $redir = dcCore::app()->ctx->posts->getURL();
                         $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';

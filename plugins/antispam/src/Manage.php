@@ -17,10 +17,10 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use dt;
 use Exception;
 use form;
-use http;
 
 class Manage extends dcNsProcess
 {
@@ -73,7 +73,7 @@ class Manage extends dcNsProcess
                 Antispam::delAllSpam($ts);
 
                 dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             }
 
             // Update filters
@@ -117,7 +117,7 @@ class Manage extends dcNsProcess
                 Antispam::$filters->saveFilterOpts($filters_opt);
 
                 dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

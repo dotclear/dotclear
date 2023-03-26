@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Network\Http;
+
 class dcAdmin
 {
     use dcTraitDynamicProperties;
@@ -60,7 +63,7 @@ class dcAdmin
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    http::redirect(dcCore::app()->adminurl->get('admin.auth', $params));
+                    Http::redirect(dcCore::app()->adminurl->get('admin.auth', $params));
                 }
             } catch (Exception $e) {
                 __error(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), 20);
@@ -69,7 +72,7 @@ class dcAdmin
             # Check nonce from POST requests
             if (!empty($_POST)) {
                 if (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check'])) {
-                    http::head(412);
+                    Http::head(412);
                     header('Content-Type: text/plain');
                     echo 'Precondition Failed';
                     exit;
@@ -96,7 +99,7 @@ class dcAdmin
                     $redir = preg_replace('/d=(.*?)(&|$)/', '', $redir);
                 }
 
-                http::redirect($redir);
+                Http::redirect($redir);
                 exit;
             }
 
@@ -125,7 +128,7 @@ class dcAdmin
                 dcCore::app()->setBlog($_SESSION['sess_blog_id']);
             } else {
                 dcCore::app()->session->destroy();
-                http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+                Http::redirect(dcCore::app()->adminurl->get('admin.auth'));
             }
         }
 

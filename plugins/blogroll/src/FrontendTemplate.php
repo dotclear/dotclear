@@ -16,8 +16,8 @@ use ArrayObject;
 use Exception;
 use dcCore;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
-use http;
 
 class FrontendTemplate
 {
@@ -138,10 +138,10 @@ class FrontendTemplate
 
         $current      = -1;
         $current_size = 0;
-        $self_uri     = http::getSelfURI();
+        $self_uri     = Http::getSelfURI();
         foreach ($links as $link_id => $link) {
             if (!preg_match('$^([a-z][a-z0-9.+-]+://)$', (string) $link['link_href'])) {
-                $url = http::concatURL($self_uri, (string) $link['link_href']);
+                $url = Http::concatURL($self_uri, (string) $link['link_href']);
                 if (strlen($url) > $current_size && preg_match('/^' . preg_quote($url, '/') . '/', $self_uri)) {
                     $current      = $link_id;
                     $current_size = strlen($url);

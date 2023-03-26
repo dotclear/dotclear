@@ -63,7 +63,6 @@ class Clearbricks
             'dt'               => $old_helper_root . '/common/lib.date.php',
             'form'             => $old_helper_root . '/common/lib.form.php',
             'formSelectOption' => $old_helper_root . '/common/lib.form.php',
-            'http'             => $old_helper_root . '/common/lib.http.php',
             'l10n'             => $old_helper_root . '/common/lib.l10n.php',
 
             // Database Abstraction Layer

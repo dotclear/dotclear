@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
+use Dotclear\Helper\Network\Http;
 use Exception;
-use http;
 use netHttp;
 
 class Akismet extends netHttp
@@ -187,7 +187,7 @@ class Akismet extends netHttp
         # Prepare comment data
         $data = [
             'blog'                 => $this->blog_url,
-            'user_ip'              => http::realIP(),
+            'user_ip'              => Http::realIP(),
             'user_agent'           => $ua,
             'referrer'             => $referer,
             'permalink'            => $permalink,

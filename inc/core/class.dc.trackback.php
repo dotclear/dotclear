@@ -13,6 +13,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
 class dcTrackback
@@ -184,7 +185,7 @@ class dcTrackback
     {
         header('Content-Type: text/xml; charset=UTF-8');
         if (empty($_POST)) {
-            http::head(405, 'Method Not Allowed');
+            Http::head(405, 'Method Not Allowed');
             echo
                 '<?xml version="1.0" encoding="utf-8"?>' . "\n" .
                 "<response>\n" .
@@ -433,14 +434,14 @@ class dcTrackback
 
             # All done, thanks
             $code = dcCore::app()->blog->settings->system->trackbacks_pub ? 200 : 202;
-            http::head($code);
+            Http::head($code);
 
             return;
         } catch (Exception $e) {
             $err = $e->getMessage();
         }
 
-        http::head(400);
+        Http::head(400);
         echo $err ?: 'Something went wrong.';
     }
 
@@ -496,7 +497,7 @@ class dcTrackback
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
         $cur->comment_status    = dcCore::app()->blog->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
-        $cur->comment_ip        = http::realIP();
+        $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate
         dcCore::app()->callBehavior('publicBeforeTrackbackCreate', $cur);
@@ -764,7 +765,7 @@ class dcTrackback
     private function getPingURL(string $url)
     {
         if (strpos($url, '/') === 0) {
-            $url = http::getHost() . $url;
+            $url = Http::getHost() . $url;
         }
 
         try {

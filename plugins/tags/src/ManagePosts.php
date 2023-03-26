@@ -19,9 +19,9 @@ use dcMeta;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
-use http;
 
 class ManagePosts extends dcNsProcess
 {
@@ -85,7 +85,7 @@ class ManagePosts extends dcNsProcess
             try {
                 if (dcCore::app()->meta->updateMeta(dcCore::app()->admin->tag, $new_id, 'tag')) {
                     dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
-                    http::redirect(dcCore::app()->admin->getPageURL() . '&m=tag_posts&tag=' . $new_id);
+                    Http::redirect(dcCore::app()->admin->getPageURL() . '&m=tag_posts&tag=' . $new_id);
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -101,7 +101,7 @@ class ManagePosts extends dcNsProcess
             try {
                 dcCore::app()->meta->delMeta(dcCore::app()->admin->tag, 'tag');
                 dcPage::addSuccessNotice(__('Tag has been successfully removed'));
-                http::redirect(dcCore::app()->admin->getPageURL() . '&m=tags');
+                Http::redirect(dcCore::app()->admin->getPageURL() . '&m=tags');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

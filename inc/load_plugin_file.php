@@ -11,6 +11,7 @@ use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Network\Http;
 
 // Prepare namespaced src
 // ----------------------
@@ -48,7 +49,7 @@ require DC_RC_PATH;
 
 if (empty($_GET['pf'])) {
     header('Content-Type: text/plain');
-    http::head(404, 'Not Found');
+    Http::head(404, 'Not Found');
     exit;
 }
 
@@ -66,7 +67,7 @@ if (isset($_GET['t'])) {
 // Only $_GET['pf'] is allowed in URL
 if (count($_GET) > 1) {
     header('Content-Type: text/plain');
-    http::head(403, 'Forbidden');
+    Http::head(403, 'Forbidden');
     exit;
 }
 
@@ -91,7 +92,7 @@ unset($paths, $requested_file);
 if ($plugin_file === false || !is_file($plugin_file) || !is_readable($plugin_file)) {
     unset($plugin_file);
     header('Content-Type: text/plain');
-    http::head(404, 'Not Found');
+    Http::head(404, 'Not Found');
     exit;
 }
 
@@ -122,7 +123,7 @@ if (!in_array(
 )) {
     unset($plugin_file);
     header('Content-Type: text/plain');
-    http::head(404, 'Not Found');
+    Http::head(404, 'Not Found');
     exit;
 }
 
@@ -146,8 +147,8 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
     }
 }
 
-http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=…
-http::cache([...[$plugin_file], ...get_included_files()]);
+Http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=…
+Http::cache([...[$plugin_file], ...get_included_files()]);
 
 header('Content-Type: ' . Files::getMimeType($plugin_file));
 readfile($plugin_file);

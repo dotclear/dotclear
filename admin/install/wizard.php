@@ -12,6 +12,7 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
 if (isset($_SERVER['DC_RC_PATH'])) {
@@ -38,14 +39,14 @@ App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__,
 new Clearbricks();
 
 // Loading locales for detected language
-$dlang = http::getAcceptLanguage();
+$dlang = Http::getAcceptLanguage();
 if ($dlang != 'en') {
     l10n::init($dlang);
     l10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
 }
 
 if (is_file(DC_RC_PATH)) {
-    http::redirect('index.php');
+    Http::redirect('index.php');
 }
 
 if (!is_writable(dirname(DC_RC_PATH))) {
@@ -125,7 +126,7 @@ if (!empty($_POST)) {
         writeConfigValue('DC_DBPREFIX', $DBPREFIX, $full_conf);
 
         $admin_url = preg_replace('%install/wizard.php$%', '', (string) $_SERVER['REQUEST_URI']);
-        writeConfigValue('DC_ADMIN_URL', http::getHost() . $admin_url, $full_conf);
+        writeConfigValue('DC_ADMIN_URL', Http::getHost() . $admin_url, $full_conf);
         $admin_email = !empty($ADMINMAILFROM) ? $ADMINMAILFROM : 'dotclear@' . $_SERVER['HTTP_HOST'];
         writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
         writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
@@ -139,7 +140,7 @@ if (!empty($_POST)) {
         chmod(DC_RC_PATH, 0666);
 
         $con->close();
-        http::redirect('index.php?wiz=1');
+        Http::redirect('index.php?wiz=1');
     } catch (Exception $e) {
         $err = $e->getMessage();
     }

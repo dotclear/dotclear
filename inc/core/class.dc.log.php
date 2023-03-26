@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Network\Http;
+
 class dcLog
 {
     // Constants
@@ -200,7 +203,7 @@ class dcLog
         }
 
         if ($cur->log_ip === null) {
-            $cur->log_ip = http::realIP();
+            $cur->log_ip = Http::realIP();
         }
     }
 

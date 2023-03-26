@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Network\Http;
+
 class dcPublic
 {
     use dcTraitDynamicProperties;
@@ -82,7 +85,7 @@ class dcPublic
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
-                    $detected_languages = http::getAcceptLanguages();
+                    $detected_languages = Http::getAcceptLanguages();
                     foreach ($detected_languages as $language) {
                         if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
                             l10n::lang($language);

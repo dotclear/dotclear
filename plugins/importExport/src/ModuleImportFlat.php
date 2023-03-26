@@ -18,9 +18,9 @@ use dcPage;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use fileUnzip;
 use form;
-use http;
 
 class ModuleImportFlat extends Module
 {
@@ -105,7 +105,7 @@ class ModuleImportFlat extends Module
             if ($to_unlink) {
                 @unlink($file);
             }
-            http::redirect($this->getURL() . '&do=single');
+            Http::redirect($this->getURL() . '&do=single');
         }
 
         # Full import
@@ -160,7 +160,7 @@ class ModuleImportFlat extends Module
             if ($to_unlink) {
                 @unlink($file);
             }
-            http::redirect($this->getURL() . '&do=full');
+            Http::redirect($this->getURL() . '&do=full');
         }
 
         header('content-type:text/plain');

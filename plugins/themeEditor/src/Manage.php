@@ -20,8 +20,8 @@ use dcNsProcess;
 use dcPage;
 use dcThemes;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use form;
-use http;
 
 class Manage extends dcNsProcess
 {
@@ -108,7 +108,7 @@ class Manage extends dcNsProcess
                     dcCore::app()->admin->file['f']
                 );
                 dcPage::addSuccessNotice(__('The file has been reset.'));
-                http::redirect(dcCore::app()->admin->getPageURL() . '&' . dcCore::app()->admin->file['type'] . '=' . dcCore::app()->admin->file['f']);
+                Http::redirect(dcCore::app()->admin->getPageURL() . '&' . dcCore::app()->admin->file['type'] . '=' . dcCore::app()->admin->file['f']);
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

@@ -15,8 +15,8 @@ namespace Dotclear\Plugin\simpleMenu;
 use ArrayObject;
 use dcCore;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
-use http;
 
 class FrontendTemplate
 {
@@ -119,7 +119,7 @@ class FrontendTemplate
         if (is_array($menu)) {
             // Current relative URL
             $url     = $_SERVER['REQUEST_URI'];
-            $abs_url = http::getHost() . $url;
+            $abs_url = Http::getHost() . $url;
 
             // Home recognition var
             $home_url       = Html::stripHostURL(dcCore::app()->blog->url);

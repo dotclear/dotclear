@@ -19,9 +19,9 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
-use http;
 
 class Manage extends dcNsProcess
 {
@@ -188,7 +188,7 @@ class Manage extends dcNsProcess
 
                 // All done successfully, return to menu items list
                 dcPage::addSuccessNotice(__('Configuration successfully updated.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -344,7 +344,7 @@ class Manage extends dcNsProcess
 
                                 // All done successfully, return to menu items list
                                 dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
-                                http::redirect(dcCore::app()->admin->getPageURL());
+                                Http::redirect(dcCore::app()->admin->getPageURL());
                             } else {
                                 dcCore::app()->admin->step              = self::STEP_ATTRIBUTES;
                                 dcCore::app()->admin->item_select_label = dcCore::app()->admin->item_label;
@@ -382,7 +382,7 @@ class Manage extends dcNsProcess
 
                             // All done successfully, return to menu items list
                             dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
-                            http::redirect(dcCore::app()->admin->getPageURL());
+                            Http::redirect(dcCore::app()->admin->getPageURL());
                         } else {
                             throw new Exception(__('No menu items selected.'));
                         }
@@ -447,7 +447,7 @@ class Manage extends dcNsProcess
 
                         // All done successfully, return to menu items list
                         dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
-                        http::redirect(dcCore::app()->admin->getPageURL());
+                        Http::redirect(dcCore::app()->admin->getPageURL());
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
                     }

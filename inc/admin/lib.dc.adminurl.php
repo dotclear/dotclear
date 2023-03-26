@@ -10,6 +10,7 @@
  */
 
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Network\Http;
 
 class dcAdminURL
 {
@@ -109,7 +110,7 @@ class dcAdminURL
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
         }
-        http::redirect($this->get($name, $params, '&') . $suffix);
+        Http::redirect($this->get($name, $params, '&') . $suffix);
     }
 
     /**

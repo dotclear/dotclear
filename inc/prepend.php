@@ -12,6 +12,7 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Network\Http;
 
 /* Start tick  */
 define('DC_START_TIME', microtime(true));
@@ -172,7 +173,7 @@ if (isset($_SERVER['DC_RC_PATH'])) {
                 implode(DIRECTORY_SEPARATOR, ['install', 'wizard.php']) :
                 'wizard.php';
         }
-        http::redirect($path);
+        Http::redirect($path);
     }
 })();
 
@@ -267,10 +268,10 @@ if (!defined('DC_ADMIN_SSL')) {
 }
 
 if (defined('DC_FORCE_SCHEME_443') && DC_FORCE_SCHEME_443) {
-    http::$https_scheme_on_443 = true;
+    Http::$https_scheme_on_443 = true;
 }
 if (defined('DC_REVERSE_PROXY') && DC_REVERSE_PROXY) {
-    http::$reverse_proxy = true;
+    Http::$reverse_proxy = true;
 }
 if (!defined('DC_DBPERSIST')) {
     define('DC_DBPERSIST', false);
@@ -368,7 +369,7 @@ try {
 } catch (Exception $e) {
     // Loading locales for detected language
     (function () {
-        $detected_languages = http::getAcceptLanguages();
+        $detected_languages = Http::getAcceptLanguages();
         foreach ($detected_languages as $language) {
             if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
                 l10n::lang($language);
@@ -421,7 +422,7 @@ try {
     }
 })();
 
-http::trimRequest();
+Http::trimRequest();
 
 dcCore::app()->url->registerDefault([dcUrlHandlers::class, 'home']);
 

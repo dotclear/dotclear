@@ -21,10 +21,10 @@ use dcMedia;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use dt;
 use Exception;
 use form;
-use http;
 use initPages;
 
 class ManagePage extends dcNsProcess
@@ -278,7 +278,7 @@ class ManagePage extends dcNsProcess
                 # --BEHAVIOR-- adminBeforePageDelete
                 dcCore::app()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -328,7 +328,7 @@ class ManagePage extends dcNsProcess
                     # --BEHAVIOR-- adminAfterPageUpdate
                     dcCore::app()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
-                    http::redirect(dcCore::app()->admin->redir_url . '&id=' . dcCore::app()->admin->post_id . '&upd=1');
+                    Http::redirect(dcCore::app()->admin->redir_url . '&id=' . dcCore::app()->admin->post_id . '&upd=1');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -344,7 +344,7 @@ class ManagePage extends dcNsProcess
                     # --BEHAVIOR-- adminAfterPageCreate
                     dcCore::app()->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
-                    http::redirect(dcCore::app()->admin->redir_url . '&id=' . $return_id . '&crea=1');
+                    Http::redirect(dcCore::app()->admin->redir_url . '&id=' . $return_id . '&crea=1');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -663,7 +663,7 @@ class ManagePage extends dcNsProcess
                     dcCore::app()->url->getURLFor(
                         'pagespreview',
                         dcCore::app()->auth->userID() . '/' .
-                        http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) .
+                        Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) .
                         '/' . dcCore::app()->admin->post->post_url
                     );
 

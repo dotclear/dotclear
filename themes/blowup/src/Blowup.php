@@ -14,8 +14,8 @@ namespace Dotclear\Theme\blowup;
 use dcCore;
 use dcThemeConfig;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Network\Http;
 use Exception;
-use http;
 
 class Blowup
 {
@@ -97,8 +97,8 @@ class Blowup
     public static function themeURL()
     {
         return preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url) ?
-            http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme) :
-            http::concatURL(dcCore::app()->blog->url, \dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme);
+            Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme) :
+            Http::concatURL(dcCore::app()->blog->url, \dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme);
     }
 
     public static function cssPath()

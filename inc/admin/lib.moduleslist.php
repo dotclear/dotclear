@@ -16,6 +16,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 class adminModulesList
 {
@@ -1314,7 +1315,7 @@ class adminModulesList
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
-            http::redirect($this->getURL());
+            Http::redirect($this->getURL());
         } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['install'])) {
             if (is_array($_POST['install'])) {
                 $modules = array_keys($_POST['install']);
@@ -1348,7 +1349,7 @@ class adminModulesList
             dcPage::addSuccessNotice(
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
-            http::redirect($this->getURL());
+            Http::redirect($this->getURL());
         } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['activate'])) {
             if (is_array($_POST['activate'])) {
                 $modules = array_keys($_POST['activate']);
@@ -1379,7 +1380,7 @@ class adminModulesList
             dcPage::addSuccessNotice(
                 __('Plugin has been successfully activated.', 'Plugins have been successuflly activated.', $count)
             );
-            http::redirect($this->getURL());
+            Http::redirect($this->getURL());
         } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
             if (is_array($_POST['deactivate'])) {
                 $modules = array_keys($_POST['deactivate']);
@@ -1423,7 +1424,7 @@ class adminModulesList
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
-            http::redirect($this->getURL());
+            Http::redirect($this->getURL());
         } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['update'])) {
             if (is_array($_POST['update'])) {
                 $modules = array_keys($_POST['update']);
@@ -1465,7 +1466,7 @@ class adminModulesList
             dcPage::addSuccessNotice(
                 __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
             );
-            http::redirect($this->getURL() . $tab);
+            Http::redirect($this->getURL() . $tab);
         }
 
         # Manual actions
@@ -1501,7 +1502,7 @@ class adminModulesList
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
-            http::redirect($this->getURL() . '#plugins');
+            Http::redirect($this->getURL() . '#plugins');
         } else {
             # --BEHAVIOR-- adminModulesListDoActions
             dcCore::app()->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
@@ -1930,8 +1931,8 @@ class adminThemesList extends adminModulesList
                 # _GET actions
                 if (file_exists(Path::real(dcCore::app()->blog->themes_path . '/' . $id) . '/style.css')) {
                     $theme_url = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
-                    http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . $id) :
-                    http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . $id);
+                    Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . $id) :
+                    Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . $id);
                     $line .= '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';
                 }
 
@@ -2109,7 +2110,7 @@ class adminThemesList extends adminModulesList
 
                 $module = $this->modules->getModules($id);
                 dcPage::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($module['name'])));
-                http::redirect($this->getURL() . '#themes');
+                Http::redirect($this->getURL() . '#themes');
             }
         } else {
             if (!$this->isWritablePath()) {
@@ -2146,7 +2147,7 @@ class adminThemesList extends adminModulesList
                 dcPage::addSuccessNotice(
                     __('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
                 );
-                http::redirect($this->getURL());
+                Http::redirect($this->getURL());
             } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
                 if (is_array($_POST['deactivate'])) {
                     $modules = array_keys($_POST['deactivate']);
@@ -2190,7 +2191,7 @@ class adminThemesList extends adminModulesList
                         __('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
                     );
                 }
-                http::redirect($this->getURL());
+                Http::redirect($this->getURL());
             } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['clone'])) {
                 if (is_array($_POST['clone'])) {
                     $modules = array_keys($_POST['clone']);
@@ -2216,7 +2217,7 @@ class adminThemesList extends adminModulesList
                 dcPage::addSuccessNotice(
                     __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
                 );
-                http::redirect($this->getURL());
+                Http::redirect($this->getURL());
             } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['delete'])) {
                 if (is_array($_POST['delete'])) {
                     $modules = array_keys($_POST['delete']);
@@ -2264,7 +2265,7 @@ class adminThemesList extends adminModulesList
                         __('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
                     );
                 }
-                http::redirect($this->getURL());
+                Http::redirect($this->getURL());
             } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['install'])) {
                 if (is_array($_POST['install'])) {
                     $modules = array_keys($_POST['install']);
@@ -2298,7 +2299,7 @@ class adminThemesList extends adminModulesList
                 dcPage::addSuccessNotice(
                     __('Theme has been successfully installed.', 'Themes have been successfully installed.', $count)
                 );
-                http::redirect($this->getURL());
+                Http::redirect($this->getURL());
             } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['update'])) {
                 if (is_array($_POST['update'])) {
                     $modules = array_keys($_POST['update']);
@@ -2333,7 +2334,7 @@ class adminThemesList extends adminModulesList
                 dcPage::addSuccessNotice(
                     __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                 );
-                http::redirect($this->getURL() . $tab);
+                Http::redirect($this->getURL() . $tab);
             }
 
             # Manual actions
@@ -2369,7 +2370,7 @@ class adminThemesList extends adminModulesList
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')
                 );
-                http::redirect($this->getURL() . '#themes');
+                Http::redirect($this->getURL() . '#themes');
             } else {
                 # --BEHAVIOR-- adminModulesListDoActions
                 dcCore::app()->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');

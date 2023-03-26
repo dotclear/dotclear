@@ -10,6 +10,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 class dcPage
 {
@@ -51,13 +52,13 @@ class dcPage
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             // Go back to the dashboard
-            http::redirect(DC_ADMIN_URL);
+            Http::redirect(DC_ADMIN_URL);
         }
 
         if (session_id()) {
             dcCore::app()->session->destroy();
         }
-        http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+        Http::redirect(dcCore::app()->adminurl->get('admin.auth'));
     }
 
     /**
@@ -74,13 +75,13 @@ class dcPage
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 // Go back to the dashboard
-                http::redirect(DC_ADMIN_URL);
+                Http::redirect(DC_ADMIN_URL);
             }
 
             if (session_id()) {
                 dcCore::app()->session->destroy();
             }
-            http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+            Http::redirect(dcCore::app()->adminurl->get('admin.auth'));
         }
     }
 
@@ -705,7 +706,7 @@ class dcPage
             if ($prof_file) {
                 $res .= '<p>Profiler file : ' . xdebug_get_profiler_filename() . '</p>';
             } else {
-                $prof_url = http::getSelfURI();
+                $prof_url = Http::getSelfURI();
                 $prof_url .= (strpos($prof_url, '?') === false) ? '?' : '&';
                 $prof_url .= 'XDEBUG_PROFILE';
                 $res      .= '<p><a href="' . Html::escapeURL($prof_url) . '">Trigger profiler</a></p>';

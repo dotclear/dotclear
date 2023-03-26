@@ -23,10 +23,10 @@ use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use initBlogroll;
 use fileZip;
 use form;
-use http;
 
 class ModuleExportFlat extends Module
 {
@@ -118,7 +118,7 @@ class ModuleExportFlat extends Module
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
                 $_SESSION['export_filezip']  = !empty($_POST['file_zip']);
-                http::redirect($this->getURL() . '&do=ok');
+                Http::redirect($this->getURL() . '&do=ok');
             } catch (Exception $e) {
                 @unlink($fullname);
 
@@ -156,7 +156,7 @@ class ModuleExportFlat extends Module
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
                 $_SESSION['export_filezip']  = !empty($_POST['file_zip']);
-                http::redirect($this->getURL() . '&do=ok');
+                Http::redirect($this->getURL() . '&do=ok');
             } catch (Exception $e) {
                 @unlink($fullname);
 

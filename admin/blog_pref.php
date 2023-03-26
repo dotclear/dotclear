@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 require_once __DIR__ . '/../inc/admin/prepend.php';
 
@@ -371,7 +372,7 @@ class adminBlogPref
                 }
                 dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
 
-                http::redirect(sprintf($da->redir, $da->blog_id));
+                Http::redirect(sprintf($da->redir, $da->blog_id));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

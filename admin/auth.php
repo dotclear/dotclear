@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -26,7 +27,7 @@ class adminAuth
 
         // Loading locales for detected language
         // That's a tricky hack but it works ;)
-        dcCore::app()->admin->dlang = http::getAcceptLanguage();
+        dcCore::app()->admin->dlang = Http::getAcceptLanguage();
         dcCore::app()->admin->dlang = (dcCore::app()->admin->dlang === '' ? 'en' : dcCore::app()->admin->dlang);
         if (dcCore::app()->admin->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->admin->dlang)) {
             l10n::lang(dcCore::app()->admin->dlang);
@@ -36,7 +37,7 @@ class adminAuth
         if (defined('DC_ADMIN_URL')) {
             dcCore::app()->admin->page_url = DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.auth');
         } else {
-            dcCore::app()->admin->page_url = http::getHost() . $_SERVER['REQUEST_URI'];
+            dcCore::app()->admin->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
         }
 
         dcCore::app()->admin->change_pwd = dcCore::app()->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
@@ -184,7 +185,7 @@ class adminAuth
 
                 dcCore::app()->session->start();
                 $_SESSION['sess_user_id']     = dcCore::app()->admin->user_id;
-                $_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
+                $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
 
                 if ($data['user_remember']) {
                     setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
@@ -212,7 +213,7 @@ class adminAuth
                 $check_perms = false;
             }
 
-            $cookie_admin = http::browserUID(DC_MASTER_KEY . dcCore::app()->admin->user_id . dcCore::app()->auth->cryptLegacy(dcCore::app()->admin->user_id)) . bin2hex(pack('a32', dcCore::app()->admin->user_id));
+            $cookie_admin = Http::browserUID(DC_MASTER_KEY . dcCore::app()->admin->user_id . dcCore::app()->auth->cryptLegacy(dcCore::app()->admin->user_id)) . bin2hex(pack('a32', dcCore::app()->admin->user_id));
 
             if ($check_perms && dcCore::app()->auth->mustChangePassword()) {
                 // User need to change password
@@ -238,7 +239,7 @@ class adminAuth
 
                 dcCore::app()->session->start();
                 $_SESSION['sess_user_id']     = dcCore::app()->admin->user_id;
-                $_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
+                $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
 
                 if (!empty($_POST['blog'])) {
                     $_SESSION['sess_blog_id'] = $_POST['blog'];

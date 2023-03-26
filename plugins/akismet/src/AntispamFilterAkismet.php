@@ -16,10 +16,10 @@ use dcCore;
 use dcPage;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use http;
 
 class AntispamFilterAkismet extends SpamFilter
 {
@@ -205,7 +205,7 @@ class AntispamFilterAkismet extends SpamFilter
                 dcCore::app()->blog->settings->akismet->put('ak_key', $ak_key, 'string');
 
                 dcPage::addSuccessNotice(__('Filter configuration have been successfully saved.'));
-                http::redirect($url);
+                Http::redirect($url);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

@@ -14,6 +14,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 class dcModules
 {
@@ -336,7 +337,7 @@ class dcModules
             );
             dcPage::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
             $url = $redirect_url . (strpos($redirect_url, '?') ? '&' : '?') . 'dep=1';
-            http::redirect($url);
+            Http::redirect($url);
 
             return true;
         }

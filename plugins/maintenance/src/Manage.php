@@ -16,10 +16,10 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use dt;
 use Exception;
 use form;
-use http;
 
 class Manage extends dcNsProcess
 {
@@ -75,7 +75,7 @@ class Manage extends dcNsProcess
                     dcCore::app()->admin->maintenance->setLog(dcCore::app()->admin->task->id());
 
                     dcPage::addSuccessNotice(dcCore::app()->admin->task->success());
-                    http::redirect(dcCore::app()->admin->getPageURL() . '&task=' . dcCore::app()->admin->task->id() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
+                    Http::redirect(dcCore::app()->admin->getPageURL() . '&task=' . dcCore::app()->admin->task->id() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -116,7 +116,7 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
-                http::redirect(dcCore::app()->admin->getPageURL() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
+                Http::redirect(dcCore::app()->admin->getPageURL() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -141,7 +141,7 @@ class Manage extends dcNsProcess
                     dcPage::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
-                http::redirect(dcCore::app()->admin->getPageURL() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
+                Http::redirect(dcCore::app()->admin->getPageURL() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

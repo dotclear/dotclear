@@ -18,9 +18,9 @@ use dcPage;
 use dcNsProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use initBlogroll;
 use form;
-use http;
 
 class Manage extends dcNsProcess
 {
@@ -110,7 +110,7 @@ class Manage extends dcNsProcess
             }
 
             dcPage::addSuccessNotice(__('links have been successfully imported.'));
-            http::redirect(dcCore::app()->admin->getPageURL());
+            Http::redirect(dcCore::app()->admin->getPageURL());
         }
 
         if (!empty($_POST['cancel_import'])) {
@@ -132,7 +132,7 @@ class Manage extends dcNsProcess
                 dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang);
 
                 dcPage::addSuccessNotice(__('Link has been successfully created.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
                 dcCore::app()->admin->default_tab = 'add-link';
@@ -147,7 +147,7 @@ class Manage extends dcNsProcess
             try {
                 dcCore::app()->admin->blogroll->addCategory(dcCore::app()->admin->cat_title);
                 dcPage::addSuccessNotice(__('category has been successfully created.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
                 dcCore::app()->admin->default_tab = 'add-cat';
@@ -169,7 +169,7 @@ class Manage extends dcNsProcess
 
             if (!dcCore::app()->error->flag()) {
                 dcPage::addSuccessNotice(__('Items have been successfully removed.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             }
         }
 
@@ -199,7 +199,7 @@ class Manage extends dcNsProcess
 
             if (!dcCore::app()->error->flag()) {
                 dcPage::addSuccessNotice(__('Items order has been successfully updated'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             }
         }
 

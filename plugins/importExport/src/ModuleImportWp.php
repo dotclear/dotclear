@@ -24,10 +24,10 @@ use dcRecord;
 use dcTrackback;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use initBlogroll;
 use form;
-use http;
 
 class ModuleImportWp extends Module
 {
@@ -183,7 +183,7 @@ class ModuleImportWp extends Module
                 $this->post_offset = !empty($_REQUEST['offset']) ? abs((int) $_REQUEST['offset']) : 0;
                 $percent           = 0;
                 if ($this->importPosts($percent) === -1) {
-                    http::redirect($this->getURL() . '&do=ok');
+                    Http::redirect($this->getURL() . '&do=ok');
                 } else {
                     echo $this->progressBar(ceil($percent * 0.93) + 7);
                 }

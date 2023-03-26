@@ -18,11 +18,11 @@ use dcCore;
 use dcMeta;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use feedReader;
 use dt;
 use form;
-use http;
 
 class ModuleImportFeed extends Module
 {
@@ -206,7 +206,7 @@ class ModuleImportFeed extends Module
         }
 
         dcCore::app()->con->commit();
-        http::redirect($this->getURL() . '&do=ok');
+        Http::redirect($this->getURL() . '&do=ok');
     }
 
     /**

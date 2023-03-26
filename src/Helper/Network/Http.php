@@ -1,18 +1,22 @@
 <?php
 /**
- * @class http
- * @brief HTTP utilities
+ * @class Http
  *
- * @package Clearbricks
- * @subpackage Common
+ * HTTP utilities
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network;
 
 use Dotclear\Helper\Crypt;
+use Exception;
 
-class http
+class Http
 {
     /**
      * Force HTTPS scheme on server port 443 in {@link getHost()}

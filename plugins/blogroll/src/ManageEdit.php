@@ -18,9 +18,9 @@ use dcCore;
 use dcPage;
 use dcNsProcess;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use initBlogroll;
 use form;
-use http;
 
 class ManageEdit extends dcNsProcess
 {
@@ -100,7 +100,7 @@ class ManageEdit extends dcNsProcess
             try {
                 dcCore::app()->admin->blogroll->updateLink(dcCore::app()->admin->id, dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang, trim((string) dcCore::app()->admin->link_xfn));
                 dcPage::addSuccessNotice(__('Link has been successfully updated'));
-                http::redirect(dcCore::app()->admin->getPageURL() . '&edit=1&id=' . dcCore::app()->admin->id);
+                Http::redirect(dcCore::app()->admin->getPageURL() . '&edit=1&id=' . dcCore::app()->admin->id);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -114,7 +114,7 @@ class ManageEdit extends dcNsProcess
             try {
                 dcCore::app()->admin->blogroll->updateCategory(dcCore::app()->admin->id, dcCore::app()->admin->link_desc);
                 dcPage::addSuccessNotice(__('Category has been successfully updated'));
-                http::redirect(dcCore::app()->admin->getPageURL() . '&edit=1&id=' . dcCore::app()->admin->id);
+                Http::redirect(dcCore::app()->admin->getPageURL() . '&edit=1&id=' . dcCore::app()->admin->id);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

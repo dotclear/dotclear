@@ -14,6 +14,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -115,7 +116,7 @@ class adminBlogTheme
                 $filename = __DIR__ . '/images/noscreenshot.png';
             }
 
-            http::cache([...[$filename], ...get_included_files()]);
+            Http::cache([...[$filename], ...get_included_files()]);
 
             header('Content-Type: ' . Files::getMimeType($filename));
             header('Content-Length: ' . filesize($filename));

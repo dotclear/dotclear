@@ -4507,7 +4507,7 @@ class dcTemplate extends template
      */
     public function SysSelfURI(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'http::getSelfURI()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), '\\Dotclear\\Helper\\Network\\Http::getSelfURI()') . '; ?>';
     }
 
     /**

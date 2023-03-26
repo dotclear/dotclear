@@ -15,10 +15,10 @@ namespace Dotclear\Plugin\antispam\Filters;
 use dcCore;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
-use http;
 
 class IpLookup extends SpamFilter
 {
@@ -143,7 +143,7 @@ class IpLookup extends SpamFilter
             try {
                 dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
                 dcPage::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
-                http::redirect($url);
+                Http::redirect($url);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

@@ -9,6 +9,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -78,7 +79,7 @@ class adminUpdate
         # Hide "update me" message
         if (!empty($_GET['hide_msg'])) {
             dcCore::app()->admin->updater->setNotify(false);
-            http::redirect('index.php');
+            Http::redirect('index.php');
         }
 
         dcCore::app()->admin->setPageURL('update.php');
@@ -119,14 +120,14 @@ class adminUpdate
                     if (!@unlink(DC_BACKUP_PATH . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
-                    http::redirect(dcCore::app()->admin->getPageURL() . '?tab=files');
+                    Http::redirect(dcCore::app()->admin->getPageURL() . '?tab=files');
                 }
 
                 if (!empty($_POST['b_revert'])) {
                     $zip = new fileUnzip(DC_BACKUP_PATH . '/' . $b_file);
                     $zip->unzipAll(DC_BACKUP_PATH . '/');
                     @unlink(DC_BACKUP_PATH . '/' . $b_file);
-                    http::redirect(dcCore::app()->admin->getPageURL() . '?tab=files');
+                    Http::redirect(dcCore::app()->admin->getPageURL() . '?tab=files');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -141,7 +142,7 @@ class adminUpdate
                 switch (dcCore::app()->admin->step) {
                     case 'check':
                         dcCore::app()->admin->updater->checkIntegrity(DC_ROOT . '/inc/digests', DC_ROOT);
-                        http::redirect(dcCore::app()->admin->getPageURL() . '?step=download');
+                        Http::redirect(dcCore::app()->admin->getPageURL() . '?step=download');
 
                         break;
                     case 'download':
@@ -155,7 +156,7 @@ class adminUpdate
                                     '<a href="https://dotclear.org/download">update manually</a>.')
                             );
                         }
-                        http::redirect(dcCore::app()->admin->getPageURL() . '?step=backup');
+                        Http::redirect(dcCore::app()->admin->getPageURL() . '?step=backup');
 
                         break;
                     case 'backup':
@@ -166,7 +167,7 @@ class adminUpdate
                             DC_ROOT . '/inc/digests',
                             DC_BACKUP_PATH . '/backup-' . DC_VERSION . '.zip'
                         );
-                        http::redirect(dcCore::app()->admin->getPageURL() . '?step=unzip');
+                        Http::redirect(dcCore::app()->admin->getPageURL() . '?step=unzip');
 
                         break;
                     case 'unzip':

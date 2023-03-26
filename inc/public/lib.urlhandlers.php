@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
 class dcUrlHandlers extends urlHandler
@@ -144,7 +145,7 @@ class dcUrlHandlers extends urlHandler
 
         if (dcCore::app()->ctx->http_cache) {
             dcCore::app()->cache['mod_files'][] = $tpl_file;
-            http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
+            Http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
         }
 
         header('Content-Type: ' . dcCore::app()->ctx->content_type . '; charset=UTF-8');
@@ -187,7 +188,7 @@ class dcUrlHandlers extends urlHandler
         dcCore::app()->callBehavior('urlHandlerServeDocument', $result);
 
         if (dcCore::app()->ctx->http_cache && dcCore::app()->ctx->http_etag) {
-            http::etag($result['content'], http::getSelfURI());
+            Http::etag($result['content'], Http::getSelfURI());
         }
         echo $result['content'];
     }
@@ -258,7 +259,7 @@ class dcUrlHandlers extends urlHandler
         }
 
         header('Content-Type: text/html; charset=UTF-8');
-        http::head(404, 'Not Found');
+        Http::head(404, 'Not Found');
 
         dcCore::app()->url->type         = '404';
         dcCore::app()->ctx->current_tpl  = '404.html';
@@ -520,7 +521,7 @@ class dcUrlHandlers extends urlHandler
                 if ($post_comment) {
                     // Spam honeypot
                     if (!empty($_POST['f_mail'])) {
-                        http::head(412, 'Precondition Failed');
+                        Http::head(412, 'Precondition Failed');
                         header('Content-Type: text/plain');
                         echo 'So Long, and Thanks For All the Fish';
                         // Exits immediately the application to preserve the server.
@@ -570,7 +571,7 @@ class dcUrlHandlers extends urlHandler
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
                         $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
-                        $cur->comment_ip      = http::realIP();
+                        $cur->comment_ip      = Http::realIP();
 
                         $redir = dcCore::app()->ctx->posts->getURL();
                         $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
@@ -677,7 +678,7 @@ class dcUrlHandlers extends urlHandler
 
         if (preg_match('#^rss2/xslt$#', (string) $args, $matches)) {
             // RSS XSLT stylesheet
-            http::$cache_max_age = 60 * 60 * 24 * 7; // One week cache for XSLT
+            Http::$cache_max_age = 60 * 60 * 24 * 7; // One week cache for XSLT
             self::serveDocument('rss2.xsl', 'text/xml');
 
             return;
@@ -753,7 +754,7 @@ class dcUrlHandlers extends urlHandler
         dcCore::app()->ctx->feed_subtitle = $subtitle;
 
         header('X-Robots-Tag: ' . context::robotsPolicy(dcCore::app()->blog->settings->system->robots_policy, ''));
-        http::$cache_max_age = 60 * 60; // 1 hour cache for feed
+        Http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {
             // Check if some entries must be published
@@ -828,7 +829,7 @@ class dcUrlHandlers extends urlHandler
     public static function wpfaker(?string $args): void
     {
         // Rick Roll script kiddies
-        http::redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+        Http::redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
         exit;
     }
 }

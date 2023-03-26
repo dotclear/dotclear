@@ -16,8 +16,8 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Network\Http;
 use Exception;
-use http;
 
 class Manage extends dcNsProcess
 {
@@ -134,7 +134,7 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('The configuration has been updated.'));
-                http::redirect(dcCore::app()->admin->getPageURL());
+                Http::redirect(dcCore::app()->admin->getPageURL());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -82,7 +83,7 @@ class adminComment
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
-            http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false) . '&co=1');
+            Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false) . '&co=1');
         }
 
         dcCore::app()->admin->rs         = null;
@@ -184,7 +185,7 @@ class adminComment
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
                     dcPage::addSuccessNotice(__('Comment has been successfully deleted.'));
-                    http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id) . '&co=1');
+                    Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id) . '&co=1');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
