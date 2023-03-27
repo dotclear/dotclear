@@ -100,9 +100,6 @@ class Clearbricks
             // URL Handler
             'urlHandler' => $old_helper_root . '/url.handler/class.url.handler.php',
 
-            // Wiki to XHTML Converter
-            'wiki2xhtml' => $old_helper_root . '/text.wiki2xhtml/class.wiki2xhtml.php',
-
             // Common Socket Class
             'netSocket' => $old_helper_root . '/net/class.net.socket.php',
 

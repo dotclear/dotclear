@@ -22,9 +22,9 @@ use dcPage;
 use dcPostsActions;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\WikiToHtml;
 use Exception;
 use form;
-use wiki2xhtml;
 
 class BackendBehaviors
 {
@@ -116,11 +116,11 @@ class BackendBehaviors
     /**
      * Init wiki tag URL scheme (tag:)
      *
-     * @param      wiki2xhtml  $wiki2xhtml  The wiki 2 HTML
+     * @param      WikiToHtml  $wiki  The wiki 2 HTML
      */
-    public static function coreInitWikiPost(wiki2xhtml $wiki2xhtml): void
+    public static function coreInitWikiPost(WikiToHtml $wiki): void
     {
-        $wiki2xhtml->registerFunction('url:tag', ['tagsBehaviors', 'wiki2xhtmlTag']);
+        $wiki->registerFunction('url:tag', ['tagsBehaviors', 'wikiTag']);
     }
 
     /**
@@ -131,7 +131,7 @@ class BackendBehaviors
      *
      * @return     array   ( description_of_the_return_value )
      */
-    public static function wiki2xhtmlTag(string $url, string $content): array
+    public static function wikiTag(string $url, string $content): array
     {
         $res = [];
         $url = substr($url, 4);

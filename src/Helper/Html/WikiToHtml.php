@@ -1,12 +1,15 @@
 <?php
 /**
- * @class wiki2xhtml
+ * @class WikiToHtml
  *
- * @package Clearbricks
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html;
 
 /*
 Contributor(s):
@@ -146,7 +149,7 @@ History :
 => début de quelque chose pour la reconnaissance auto d'url (avec Mat)
  */
 
-class wiki2xhtml
+class WikiToHtml
 {
     // Constants
 
@@ -814,7 +817,7 @@ class wiki2xhtml
         // Titre
         elseif ($this->getOpt('active_title') && preg_match('/^([!]{1,4})(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'title';
-            $mode = strlen($cap[1]);
+            $mode = (string) strlen($cap[1]);
             $line = trim((string) $cap[2]);
             if (isset($cap[4])) {
                 // Attribut HTML présent
@@ -1509,7 +1512,7 @@ class wiki2xhtml
         $data = $this->__splitTagsAttr($str);
 
         $acronym = $data[0];
-        $title   = $lang   = '';
+        $title   = $lang = '';
 
         if (count($data) > 1) {
             $title = $data[1];
@@ -1700,7 +1703,7 @@ class wiki2xhtml
      */
     public function help(): string
     {
-        $help = [];
+        $help      = [];
         $help['b'] = [];
         $help['i'] = [];
 

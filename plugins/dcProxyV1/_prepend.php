@@ -93,4 +93,7 @@ dcProxyV1::classAliases([
 
     // Mail helper
     'http' => 'Dotclear\Helper\Network\Http',
+
+    // Wiki helper
+    'wiki2xhtml' => 'Dotclear\Helper\Html\WikiToHtml',
 ]);

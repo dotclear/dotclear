@@ -1,100 +1,89 @@
 <?php
+/**
+ * Unit tests
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
-# ***** BEGIN LICENSE BLOCK *****
-# This file is part of Clearbricks.
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# All rights reserved.
-#
-# Clearbricks is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# Clearbricks is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Clearbricks; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#
-# ***** END LICENSE BLOCK *****
+namespace tests\unit\Dotclear\Helper\Html;
 
-namespace tests\unit;
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
 
 use atoum;
-use Faker;
+use Faker\Factory;
 
-require_once __DIR__ . '/../../../bootstrap.php';
-
-require_once CLEARBRICKS_PATH . '/text.wiki2xhtml/class.wiki2xhtml.php';
-
-class wiki2xhtml extends atoum
+/**
+ * @tags Wiki
+ */
+class WikiToHtml extends atoum
 {
     public function testHelp()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $this
-            ->string($wiki2xhtml->help())
+            ->string($wiki->help())
             ->isNotEmpty();
     }
 
     public function testAntispam()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $email = 'contact@dotclear.org';
 
         $this
-            ->string($wiki2xhtml->transform('Email: [Email|mailto:' . $email . '].'))
+            ->string($wiki->transform('Email: [Email|mailto:' . $email . '].'))
             ->isIdenticalTo('<p>Email: <a href="mailto:%63%6f%6e%74%61%63%74%40%64%6f%74%63%6c%65%61%72%2e%6f%72%67">Email</a>.</p>');
 
-        $wiki2xhtml->setOpt('active_antispam', 0);
+        $wiki->setOpt('active_antispam', 0);
         $this
-            ->string($wiki2xhtml->transform('Email: [Email|mailto:' . $email . '].'))
+            ->string($wiki->transform('Email: [Email|mailto:' . $email . '].'))
             ->isIdenticalTo('<p>Email: <a href="mailto:' . $email . '">Email</a>.</p>');
     }
 
     public function testOpt()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $url = 'https://dotclear.org/';
 
-        $wiki2xhtml->setOpt('first_title_level', 5);
+        $wiki->setOpt('first_title_level', 5);
         $this
-            ->string($wiki2xhtml->transform('!!!H5'))
+            ->string($wiki->transform('!!!H5'))
             ->isIdenticalTo('<h4>H5</h4>');
 
-        $wiki2xhtml->setOpt('active_setext_title', 1);
+        $wiki->setOpt('active_setext_title', 1);
         $this
-            ->string($wiki2xhtml->transform('Title' . "\n" . '=====' . "\n" . 'Subtitle' . "\n" . '-----'))
+            ->string($wiki->transform('Title' . "\n" . '=====' . "\n" . 'Subtitle' . "\n" . '-----'))
             ->isIdenticalTo('<h4>Title</h4>' . "\n\n" . '<h5>Subtitle</h5>');
 
-        $wiki2xhtml->setOpt('active_auto_urls', 1);
+        $wiki->setOpt('active_auto_urls', 1);
         $this
-            ->string($wiki2xhtml->transform('URL: ' . $url))
+            ->string($wiki->transform('URL: ' . $url))
             ->isIdenticalTo('<p>URL: <a href="' . $url . '" title="' . $url . '">' . $url . '</a></p>');
 
-        $wiki2xhtml->setOpt('active_urls', 0);
+        $wiki->setOpt('active_urls', 0);
         $this
-            ->string($wiki2xhtml->transform('URL: ' . $url))
+            ->string($wiki->transform('URL: ' . $url))
             ->isIdenticalTo('<p>URL: <a href="' . $url . '" title="' . $url . '">' . $url . '</a></p>');
 
-        $wiki2xhtml->setOpt('active_hr', 0);
+        $wiki->setOpt('active_hr', 0);
         $this
-            ->string($wiki2xhtml->transform('----'))
+            ->string($wiki->transform('----'))
             ->isIdenticalTo('<p><del></del></p>');
 
-        $wiki2xhtml->setOpt('active_hr', 1);
+        $wiki->setOpt('active_hr', 1);
         $this
-            ->string($wiki2xhtml->transform('----'))
+            ->string($wiki->transform('----'))
             ->isIdenticalTo('<hr />');
 
-        $wiki2xhtml->setOpts([
+        $wiki->setOpts([
             'active_urls'        => 0,
             'active_auto_urls'   => 0,
             'active_img'         => 0,
@@ -124,7 +113,7 @@ class wiki2xhtml extends atoum
             'active_span'        => 0,
             'active_details'     => 0,
         ]);
-        $wiki = <<<EOW
+        $text = <<<EOW
 
             URL: https://dotclear.org/
             ((/public/image.jpg))
@@ -220,51 +209,50 @@ class wiki2xhtml extends atoum
             |</p>
             EOH;
         $this
-            ->string($wiki2xhtml->transform($wiki))
+            ->string($wiki->transform($text))
             ->isIdenticalTo($html);
     }
 
     public function testOpts()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
-        $wiki2xhtml->setOpts([
+        $wiki->setOpts([
             'active_hr' => 0,
             'active_br' => 0, ]);
         $this
-            ->string($wiki2xhtml->transform('----' . "\n" . 'Line%%%'))
+            ->string($wiki->transform('----' . "\n" . 'Line%%%'))
             ->isIdenticalTo('<p><del></del>' . "\n" . 'Line%%%</p>');
 
-        $wiki2xhtml->setOpts([
+        $wiki->setOpts([
             'active_hr' => 1,
             'active_br' => 1, ]);
         $this
-            ->string($wiki2xhtml->transform('----' . "\n" . 'Line%%%'))
+            ->string($wiki->transform('----' . "\n" . 'Line%%%'))
             ->isIdenticalTo('<hr />' . "\n\n" . '<p>Line<br /></p>');
     }
 
     public function testTagTransform($tag, $delimiters)
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
-        $faker  = Faker\Factory::create();
+        $faker  = Factory::create();
         $phrase = $faker->text(20);
-        $url    = $faker->url();
 
         $this
-            ->string($wiki2xhtml->transform(sprintf('Before %s%s%s After', $delimiters[0], $phrase, $delimiters[1])))
+            ->string($wiki->transform(sprintf('Before %s%s%s After', $delimiters[0], $phrase, $delimiters[1])))
             ->isIdenticalTo(sprintf('<p>Before <%1$s>%2$s</%1$s> After</p>', $tag, $phrase));
 
         $this
-            ->string($wiki2xhtml->transform(sprintf('%s%s%s', $delimiters[0], $phrase, $delimiters[1])))
+            ->string($wiki->transform(sprintf('%s%s%s', $delimiters[0], $phrase, $delimiters[1])))
             ->isIdenticalTo(sprintf('<p><%1$s>%2$s</%1$s></p>', $tag, $phrase));
     }
 
     public function testLinks()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
 
         $lang  = $faker->languageCode();
         $title = $faker->text(10);
@@ -272,46 +260,46 @@ class wiki2xhtml extends atoum
         $url   = $faker->url();
 
         $this
-            ->string($wiki2xhtml->transform(sprintf('[%s|%s]', $label, $url)))
+            ->string($wiki->transform(sprintf('[%s|%s]', $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s">%2$s</a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[%s|%s|%s]', $label, $url, $lang)))
+            ->string($wiki->transform(sprintf('[%s|%s|%s]', $label, $url, $lang)))
             ->isIdenticalTo(sprintf('<p><a href="%s" hreflang="%s">%s</a></p>', $url, $lang, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[%s|%s|%s|%s]', $label, $url, $lang, $title)))
+            ->string($wiki->transform(sprintf('[%s|%s|%s|%s]', $label, $url, $lang, $title)))
             ->isIdenticalTo(sprintf('<p><a href="%s" hreflang="%s" title="%s">%s</a></p>', $url, $lang, $title, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[\'\'%s\'\'|%s]', $label, $url)))
+            ->string($wiki->transform(sprintf('[\'\'%s\'\'|%s]', $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s"><em>%2$s</em></a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[\'\'%s\'\' (em first)|%s]', $label, $url)))
+            ->string($wiki->transform(sprintf('[\'\'%s\'\' (em first)|%s]', $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s"><em>%2$s</em> (em first)</a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[(em last) \'\'%s\'\'|%s]', $label, $url)))
+            ->string($wiki->transform(sprintf('[(em last) \'\'%s\'\'|%s]', $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s">(em last) <em>%2$s</em></a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[(not first) \'\'%s\'\' (not last)|%s]', $label, $url)))
+            ->string($wiki->transform(sprintf('[(not first) \'\'%s\'\' (not last)|%s]', $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s">(not first) <em>%2$s</em> (not last)</a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[__%s__|%s]', $label, $url)))
+            ->string($wiki->transform(sprintf('[__%s__|%s]', $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s"><strong>%2$s</strong></a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[em: \'\'%s\'\' and strong: __%s__|%s]', $label, $label, $url)))
+            ->string($wiki->transform(sprintf('[em: \'\'%s\'\' and strong: __%s__|%s]', $label, $label, $url)))
             ->isIdenticalTo(sprintf('<p><a href="%1$s">em: <em>%2$s</em> and strong: <strong>%2$s</strong></a></p>', $url, $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[%s|%s]', $label, 'javascript:alert(1);')))
+            ->string($wiki->transform(sprintf('[%s|%s]', $label, 'javascript:alert(1);')))
             ->isIdenticalTo(sprintf('<p><a href="#">%s</a></p>', $label))
 
-            ->string($wiki2xhtml->transform(sprintf('[%s|%s|9%s]', $label, $url, $lang)))
+            ->string($wiki->transform(sprintf('[%s|%s|9%s]', $label, $url, $lang)))
             ->isIdenticalTo(sprintf('<p><a href="%s">%s</a></p>', $url, $label))
         ;
     }
 
     public function testImages()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
 
         $title  = $faker->text(10);
         $alt    = $faker->text(20);
@@ -319,61 +307,61 @@ class wiki2xhtml extends atoum
         $legend = $faker->text(30);
 
         $this
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s))', $url, $alt)))
+            ->string($wiki->transform(sprintf('((%s|%s))', $url, $alt)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" /></p>', $url, $alt))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s||%s))', $url, $alt, $title)))
+            ->string($wiki->transform(sprintf('((%s|%s||%s))', $url, $alt, $title)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" title="%s" /></p>', $url, $alt, $title))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|))', $url)))
+            ->string($wiki->transform(sprintf('((%s|))', $url)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="" /></p>', $url))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|L))', $url, $alt)))
+            ->string($wiki->transform(sprintf('((%s|%s|L))', $url, $alt)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" /></p>', $url, $alt))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|L|%s))', $url, $alt, $title)))
+            ->string($wiki->transform(sprintf('((%s|%s|L|%s))', $url, $alt, $title)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s" /></p>', $url, $alt, $title))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|G))', $url, $alt)))
+            ->string($wiki->transform(sprintf('((%s|%s|G))', $url, $alt)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" /></p>', $url, $alt))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|G|%s))', $url, $alt, $title)))
+            ->string($wiki->transform(sprintf('((%s|%s|G|%s))', $url, $alt, $title)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s" /></p>', $url, $alt, $title))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|D))', $url, $alt)))
+            ->string($wiki->transform(sprintf('((%s|%s|D))', $url, $alt)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" /></p>', $url, $alt))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|D|%s))', $url, $alt, $title)))
+            ->string($wiki->transform(sprintf('((%s|%s|D|%s))', $url, $alt, $title)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s" /></p>', $url, $alt, $title))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|R))', $url, $alt)))
+            ->string($wiki->transform(sprintf('((%s|%s|R))', $url, $alt)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" /></p>', $url, $alt))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|R|%s))', $url, $alt, $title)))
+            ->string($wiki->transform(sprintf('((%s|%s|R|%s))', $url, $alt, $title)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s" /></p>', $url, $alt, $title))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|C))', $url, $alt)))
+            ->string($wiki->transform(sprintf('((%s|%s|C))', $url, $alt)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;" /></p>', $url, $alt))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|C|%s))', $url, $alt, $title)))
+            ->string($wiki->transform(sprintf('((%s|%s|C|%s))', $url, $alt, $title)))
             ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s" /></p>', $url, $alt, $title))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|R|%s|%s))', $url, $alt, $title, $legend)))
+            ->string($wiki->transform(sprintf('((%s|%s|R|%s|%s))', $url, $alt, $title, $legend)))
             ->isIdenticalTo(sprintf('<figure style="float:right; margin: 0 0 1em 1em;"><img src="%s" alt="%s" title="%s" /><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|G|%s|%s))', $url, $alt, $title, $legend)))
+            ->string($wiki->transform(sprintf('((%s|%s|G|%s|%s))', $url, $alt, $title, $legend)))
             ->isIdenticalTo(sprintf('<figure style="float:left; margin: 0 1em 1em 0;"><img src="%s" alt="%s" title="%s" /><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
 
-            ->string($wiki2xhtml->transform(sprintf('((%s|%s|C|%s|%s))', $url, $alt, $title, $legend)))
+            ->string($wiki->transform(sprintf('((%s|%s|C|%s|%s))', $url, $alt, $title, $legend)))
             ->isIdenticalTo(sprintf('<figure style="display:block; margin:0 auto;"><img src="%s" alt="%s" title="%s" /><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
         ;
     }
 
     public function testBlocks($in, $out, $count)
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
 
         $url  = $faker->url();
         $word = $faker->word();
@@ -394,33 +382,31 @@ class wiki2xhtml extends atoum
             $out = vsprintf($out, $phrase);
         }
         $this
-            ->string($this->removeSpace($wiki2xhtml->transform($in)))
+            ->string($this->removeSpace($wiki->transform($in)))
             ->isIdenticalTo($out);
     }
 
     public function testAutoBR()
     {
-        $wiki2xhtml = new \wiki2xhtml();
-        $faker      = Faker\Factory::create();
+        $wiki  = new \Dotclear\Helper\Html\WikiToHtml();
+        $faker = Factory::create();
 
         $text = $faker->paragraphs(3);
 
         $this
-            ->string($wiki2xhtml->transform(implode("\n", $text)))
+            ->string($wiki->transform(implode("\n", $text)))
             ->isIdenticalTo('<p>' . implode("\n", $text) . '</p>')
 
-            ->if($wiki2xhtml->setOpt('active_auto_br', 1))
+            ->if($wiki->setOpt('active_auto_br', 1))
             ->then()
-            ->string($wiki2xhtml->transform(implode("\n", $text)))
+            ->string($wiki->transform(implode("\n", $text)))
             ->isIdenticalTo('<p>' . nl2br(implode("\n", $text)) . '</p>')
         ;
     }
 
     public function testMacro()
     {
-        $wiki2xhtml = new \wiki2xhtml();
-
-        $macro_name = 'php';
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $in_html  = "///html\n<p>some text</p>\n<p><strong>un</strong> autre</p>\n///";
         $out_html = "<p>some text</p>\n<p><strong>un</strong> autre</p>\n";
@@ -430,83 +416,84 @@ class wiki2xhtml extends atoum
         $out               = "[[<?php\necho \"Hello World!\";\n?>\n]]";
 
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html)
 
-            ->string($wiki2xhtml->transform($in))
+            ->string($wiki->transform($in))
             ->isIdenticalTo($out_without_macro);
 
         $this
-            ->if($wiki2xhtml->registerFunction('macro:dummy-macro', fn ($s) => "[[$s]]"))
-            ->object($wiki2xhtml->functions['macro:dummy-macro'])
+            ->if($wiki->registerFunction('macro:dummy-macro', fn ($s) => "[[$s]]"))
+            ->object($wiki->functions['macro:dummy-macro'])
             ->isCallable()
-            ->string($wiki2xhtml->transform($in))
+            ->string($wiki->transform($in))
             ->isIdenticalTo($out);
     }
 
     public function testAcronyms()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $in_html           = "Some __strong__ and ''em'' ??dc?? texts with {{citation}} and @@code@@ plus an ??cb?? ??ACME|american company manufacturing everything?? where we can ++insert++ and --delete-- texts, and with some ``<span class=\"focus\">focus</span>`` on specific part";
         $out_html          = '<p>Some <strong>strong</strong> and <em>em</em> <abbr>dc</abbr> texts with <q>citation</q> and <code>code</code> plus an <abbr>cb</abbr> <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific part</p>';
         $out_html_acronyms = '<p>Some <strong>strong</strong> and <em>em</em> <abbr title="dotclear">dc</abbr> texts with <q>citation</q> and <code>code</code> plus an <abbr title="clearbicks">cb</abbr> <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific part</p>';
 
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html);
 
-        $wiki2xhtml->setOpt('acronyms_file', __DIR__ . '/../fixtures/data/acronyms.txt');
+        $acronyms = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'acronyms.txt']);
+        $wiki->setOpt('acronyms_file', $acronyms);
 
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html_acronyms);
     }
 
     public function testWikiWords()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $in_html           = "Some __strong__ and ''em'' texts with {{citation}} and @@code@@ plus an ??ACME|american company manufacturing everything?? where we can ++insert++ and --delete-- texts, and with some ``<span class=\"focus\">focus</span>`` on specific WikiWord part";
         $out_html          = '<p>Some <strong>strong</strong> and <em>em</em> texts with <q>citation</q> and <code>code</code> plus an <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific WikiWord part</p>';
         $out_html_acronyms = '<p>Some <strong>strong</strong> and <em>em</em> texts with <q>citation</q> and <code>code</code> plus an <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific wikiword part</p>';
 
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html);
 
-        $wiki2xhtml->setOpt('active_wikiwords', 1);
+        $wiki->setOpt('active_wikiwords', 1);
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html);
 
-        $wiki2xhtml->registerFunction('wikiword', fn ($str) => strtolower($str));
+        $wiki->registerFunction('wikiword', fn ($str) => strtolower($str));
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html_acronyms);
     }
 
     public function testSpecialURLs()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $in_html          = 'Test with an [Wiki first link|wiki:first_link] !';
         $out_html         = '<p>Test with an <a href="wiki:first_link">Wiki first link</a>&nbsp;!</p>';
         $out_html_special = '<p>Test with an <a href="https://example.org/wiki/first_link" title="Wiki">Wiki first link</a>&nbsp;!</p>';
 
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html);
 
-        $wiki2xhtml->registerFunction('url:wiki', fn ($url, $content) => ['url' => 'https://example.org/wiki/' . substr($url, 5), 'content' => $content, 'title' => 'Wiki']);
+        $wiki->registerFunction('url:wiki', fn ($url, $content) => ['url' => 'https://example.org/wiki/' . substr($url, 5), 'content' => $content, 'title' => 'Wiki']);
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html_special);
     }
 
     public function testAttributes()
     {
-        $wiki2xhtml = new \wiki2xhtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $in_html = <<<EOW
             ) lorem ipsum 1
@@ -541,7 +528,7 @@ class wiki2xhtml extends atoum
             EOH;
 
         $this
-            ->string($wiki2xhtml->transform($in_html))
+            ->string($wiki->transform($in_html))
             ->isIdenticalTo($out_html);
     }
 

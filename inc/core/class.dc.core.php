@@ -17,6 +17,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
+use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Helper\Text;
 
 final class dcCore
@@ -98,9 +99,18 @@ final class dcCore
     public $rest;
 
     /**
-     * wiki2xhtml instance
+     * WikiToHtml instance
      *
-     * @var wiki2xhtml
+     * @var WikiToHtml
+     */
+    public $wiki;
+
+    /**
+     * WikiToHtml instance
+     *
+     * alias of $this->wiki
+     *
+     * @var WikiToHtml
      */
     public $wiki2xhtml;
 
@@ -1852,18 +1862,19 @@ final class dcCore
     }
     //@}
 
-    /// @name wiki2xhtml methods
+    /// @name WikiToHtml methods
     //@{
     /**
-     * Initializes the wiki2xhtml methods.
+     * Initializes the WikiToHtml methods.
      */
     private function initWiki(): void
     {
-        $this->wiki2xhtml = new wiki2xhtml();
+        $this->wiki       = new WikiToHtml();
+        $this->wiki2xhtml = $this->wiki;
     }
 
     /**
-     * Returns a transformed string with wiki2xhtml.
+     * Returns a transformed string with WikiToHtml.
      *
      * @param      string  $str    The string
      *
@@ -1871,21 +1882,21 @@ final class dcCore
      */
     public function wikiTransform(string $str): string
     {
-        if (!($this->wiki2xhtml instanceof wiki2xhtml)) {
+        if (!($this->wiki instanceof WikiToHtml)) {
             $this->initWiki();
         }
 
-        return $this->wiki2xhtml->transform($str);
+        return $this->wiki->transform($str);
     }
 
     /**
-     * Inits <var>wiki2xhtml</var> property for blog post.
+     * Inits <var>wiki</var> property for blog post.
      */
     public function initWikiPost(): void
     {
         $this->initWiki();
 
-        $this->wiki2xhtml->setOpts([
+        $this->wiki->setOpts([
             'active_title'        => 1,
             'active_setext_title' => 0,
             'active_hr'           => 1,
@@ -1926,20 +1937,20 @@ final class dcCore
             'img_style_center'    => 'display:table; margin:0 auto;',
         ]);
 
-        $this->wiki2xhtml->registerFunction('url:post', [$this, 'wikiPostLink']);
+        $this->wiki->registerFunction('url:post', [$this, 'wikiPostLink']);
 
         # --BEHAVIOR-- coreWikiPostInit
-        $this->callBehavior('coreInitWikiPost', $this->wiki2xhtml);
+        $this->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
     /**
-     * Inits <var>wiki2xhtml</var> property for simple blog comment (basic syntax).
+     * Inits <var>wiki</var> property for simple blog comment (basic syntax).
      */
     public function initWikiSimpleComment(): void
     {
         $this->initWiki();
 
-        $this->wiki2xhtml->setOpts([
+        $this->wiki->setOpts([
             'active_title'        => 0,
             'active_setext_title' => 0,
             'active_hr'           => 0,
@@ -1978,17 +1989,17 @@ final class dcCore
         ]);
 
         # --BEHAVIOR-- coreInitWikiSimpleComment
-        $this->callBehavior('coreInitWikiSimpleComment', $this->wiki2xhtml);
+        $this->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
     /**
-     * Inits <var>wiki2xhtml</var> property for blog comment.
+     * Inits <var>wiki</var> property for blog comment.
      */
     public function initWikiComment(): void
     {
         $this->initWiki();
 
-        $this->wiki2xhtml->setOpts([
+        $this->wiki->setOpts([
             'active_title'        => 0,
             'active_setext_title' => 0,
             'active_hr'           => 0,
@@ -2026,7 +2037,7 @@ final class dcCore
         ]);
 
         # --BEHAVIOR-- coreInitWikiComment
-        $this->callBehavior('coreInitWikiComment', $this->wiki2xhtml);
+        $this->callBehavior('coreInitWikiComment', $this->wiki);
     }
 
     /**

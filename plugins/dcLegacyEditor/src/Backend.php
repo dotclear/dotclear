@@ -17,7 +17,7 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
-use wiki2xhtml;
+use Dotclear\Helper\Html\WikiToHtml;
 
 class Backend extends dcNsProcess
 {
@@ -46,14 +46,14 @@ class Backend extends dcNsProcess
         );
 
         if (dcCore::app()->blog->settings->dclegacyeditor->active) {
-            if (!(dcCore::app()->wiki2xhtml instanceof wiki2xhtml)) {
+            if (!(dcCore::app()->wiki instanceof WikiToHtml)) {
                 dcCore::app()->initWikiPost();
             }
 
             dcCore::app()->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
             dcCore::app()->addFormaterName('xhtml', __('HTML'));
 
-            dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki2xhtml, 'transform']);
+            dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki, 'transform']);
             dcCore::app()->addFormaterName('wiki', __('Dotclear wiki'));
 
             dcCore::app()->addBehaviors([

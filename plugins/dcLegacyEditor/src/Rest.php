@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
+use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Helper\Html\XmlTag;
-use wiki2xhtml;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -39,7 +39,7 @@ class Rest
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
-            if (!(dcCore::app()->wiki2xhtml instanceof wiki2xhtml)) {
+            if (!(dcCore::app()->wiki instanceof WikiToHtml)) {
                 dcCore::app()->initWikiPost();
             }
             $html = dcCore::app()->callFormater('wiki', $wiki);
