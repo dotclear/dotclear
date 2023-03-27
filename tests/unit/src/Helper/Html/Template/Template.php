@@ -1,56 +1,44 @@
 <?php
+/**
+ * Unit tests
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
-# ***** BEGIN LICENSE BLOCK *****
-# This file is part of Clearbricks.
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# All rights reserved.
-#
-# Clearbricks is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# Clearbricks is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Clearbricks; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#
-# ***** END LICENSE BLOCK *****
+namespace tests\unit\Dotclear\Helper\Html\Template;
 
-namespace tests\unit;
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'bootstrap.php']);
 
 use atoum;
+use Exception;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
-require_once __DIR__ . '/../../../bootstrap.php';
-
-require_once CLEARBRICKS_PATH . '/template/class.template.php';
-
-require_once CLEARBRICKS_PATH . '/template/class.tplnode.php';
-require_once CLEARBRICKS_PATH . '/template/class.tplnodeblock.php';
-require_once CLEARBRICKS_PATH . '/template/class.tplnodeblockdef.php';
-require_once CLEARBRICKS_PATH . '/template/class.tplnodevalue.php';
-require_once CLEARBRICKS_PATH . '/template/class.tplnodevalueparent.php';
-require_once CLEARBRICKS_PATH . '/template/class.tplnodetext.php';
-
-require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
-
-class template extends atoum
+/**
+ * @tags Template
+ */
+class Template extends atoum
 {
-    protected $fixturesDir;
+    protected $fixtures;
+
     /**
      * @dataProvider getTestTemplates
      */
     public function testTemplate($file)
     {
         $this->dump('being tested with : ' . $file . "\n");
-        \tplNodeBlockDefinition::reset();
-        $t        = $this->parse($file);
-        $dir      = sys_get_temp_dir() . '/tpl';
-        $cachedir = sys_get_temp_dir() . '/cbtpl';
+
+        \Dotclear\Helper\Html\Template\TplNodeBlockDefinition::reset();
+
+        $t = $this->parse($file);
+
+        $dir      = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'tpl']);
+        $cachedir = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'cbtpl']);
+
         @mkdir($dir);
         @mkdir($cachedir);
 
@@ -66,8 +54,9 @@ class template extends atoum
             }
             file_put_contents($targetdir . '/' . $targetfile, $content);
         }
-        $GLOBALS['tpl']            = new \template($cachedir, '$tpl');
+        $GLOBALS['tpl']            = new \Dotclear\Helper\Html\Template\Template($cachedir, '$tpl');
         $GLOBALS['tpl']->use_cache = false;
+
         if (empty($t['path'])) {
             $GLOBALS['tpl']->setPath($dir);
         } else {
@@ -78,19 +67,22 @@ class template extends atoum
             $GLOBALS['tpl']->setPath($path);
         }
 
-        testTpls::register($GLOBALS['tpl']);
+        testTemplates::register($GLOBALS['tpl']);
         if ($t['exception'] === false) {
             $result = $GLOBALS['tpl']->getData($basetpl);
             $this
-                ->string(testTpls::trimHereDoc($result))
-                ->isEqualTo(testTpls::trimHereDoc($t['outputs'][0][1]));
+                ->string(testTemplates::trimHereDoc($result))
+                ->isEqualTo(testTemplates::trimHereDoc($t['outputs'][0][1]))
+            ;
         } else {
             $this
                 ->exception(function () use ($basetpl) {
-                    $result = $GLOBALS['tpl']->getData($basetpl);
+                    $GLOBALS['tpl']->getData($basetpl);
                 })
-                ->hasMessage(trim($t['exception']));
+                ->hasMessage(trim($t['exception']))
+            ;
         }
+
         foreach ($t['templates'] as $name => $content) {
             unlink($dir . '/' . $name);
         }
@@ -116,11 +108,11 @@ class template extends atoum
             $exception = false;
             preg_match_all('/--EXPECT--\s*(.*?)$/s', $test, $outputs, PREG_SET_ORDER);
         } else {
-            throw new \Exception(sprintf('Test "%s" is not valid.', str_replace($this->fixturesDir . '/', '', $file)));
+            throw new Exception(sprintf('Test "%s" is not valid.', str_replace($this->fixtures . '/', '', $file)));
         }
 
         $ret = [
-            'name'      => str_replace($this->fixturesDir . '/', '', $file),
+            'name'      => str_replace($this->fixtures . '/', '', $file),
             'msg'       => $message,
             'condition' => $condition,
             'templates' => $templates,
@@ -145,14 +137,16 @@ class template extends atoum
 
     public function getTestTemplates()
     {
-        $this->fixturesDir = __DIR__ . '/../fixtures/templates';
-        $tests             = [];
+        $this->fixtures = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'Template']);
+        $this->dump($this->fixtures);
 
-        foreach (new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($this->fixturesDir),
-            \RecursiveIteratorIterator::LEAVES_ONLY
+        $tests = [];
+
+        foreach (new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($this->fixtures),
+            RecursiveIteratorIterator::LEAVES_ONLY
         ) as $file) {
-            if (preg_match('/\.test$/', $file)) {
+            if (preg_match('/\.test$/', $file->getFilename())) {
                 $tests[] = $file->getRealpath();
             }
         }
@@ -162,28 +156,30 @@ class template extends atoum
 
     public function testGetPath()
     {
-        $dir      = sys_get_temp_dir() . '/tpl';
-        $cachedir = sys_get_temp_dir() . '/cbtpl';
+        $dir      = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'tplpath']);
+        $cachedir = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'cbtplpath']);
+
         @mkdir($dir);
         @mkdir($cachedir);
 
-        $GLOBALS['tpl']            = new \template($cachedir, '$tpl');
+        $GLOBALS['tpl']            = new \Dotclear\Helper\Html\Template\Template($cachedir, '$tpl');
         $GLOBALS['tpl']->use_cache = false;
-
         $GLOBALS['tpl']->setPath($dir);
+
         $this
             ->array($GLOBALS['tpl']->getPath())
-            ->string[0]->isEqualTo($dir);
+            ->string[0]->isEqualTo($dir)
+        ;
     }
 }
 
-class testTpls
+class testTemplates
 {
     public static function register($tpl)
     {
-        $tpl->addValue('echo', ['tests\\unit\\testTpls', 'tplecho']);
-        $tpl->addBlock('loop', ['tests\\unit\\testTpls', 'tplloop']);
-        $tpl->addBlock('entity', ['tests\\unit\\testTpls', 'tplentity']);
+        $tpl->addValue('echo', [self::class, 'tplecho']);
+        $tpl->addBlock('loop', [self::class, 'tplloop']);
+        $tpl->addBlock('entity', [self::class, 'tplentity']);
     }
 
     public static function tplentity($attr, $content)
@@ -225,7 +221,7 @@ class testTpls
             unset($attr['times']);
         }
         if (!empty($attr)) {
-            $ret = self::tplecho($attr) . $ret;
+            $ret = self::tplecho($attr, '') . $ret;
         }
 
         return $ret;

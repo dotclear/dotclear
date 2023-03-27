@@ -1347,6 +1347,8 @@ class dcUpgrade
                     'inc/helper/html.filter',
                     // CB wiki2xhtml moved to src
                     'inc/helper/text.wiki2xhtml',
+                    // CB template moved to src
+                    'inc/helper/template',
                 ]
             );
         }

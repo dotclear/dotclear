@@ -1,22 +1,27 @@
 <?php
 /**
- * @class tplNode
- * @brief Template nodes, for parsing purposes
+ * @class TplNode
  *
+ * Template nodes, for parsing purposes
  * Generic list node, this one may only be instanciated once for root element
  *
- * @package Clearbricks
- * @subpackage Template
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplNode
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Template;
+
+use ArrayObject;
+
+class TplNode
 {
     /**
      * Basic tree structure : links to parent, children forrest
      *
-     * @var null|tplNode|tplNodeBlock|tplNodeBlockDefinition|tplNodeText|tplNodeValue|tplNodeValueParent
+     * @var null|TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent
      */
     protected $parentNode;
 
@@ -47,11 +52,11 @@ class tplNode
     /**
      * Returns compiled block
      *
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return     string
      */
-    public function compile(template $tpl)
+    public function compile(Template $tpl)
     {
         $res = '';
         foreach ($this->children as $child) {
@@ -64,7 +69,7 @@ class tplNode
     /**
      * Add a children to current node.
      *
-     * @param      tplNode|tplNodeBlock|tplNodeBlockDefinition|tplNodeText|tplNodeValue|tplNodeValueParent  $child  The child
+     * @param      TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent  $child  The child
      */
     public function addChild($child)
     {
@@ -90,7 +95,7 @@ class tplNode
     /**
      * Defines parent for current node.
      *
-     * @param      null|tplNode|tplNodeBlock|tplNodeBlockDefinition|tplNodeValue|tplNodeValueParent  $parent  The parent
+     * @param      null|TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeValue|TplNodeValueParent  $parent  The parent
      */
     protected function setParent($parent)
     {
@@ -102,7 +107,7 @@ class tplNode
      *
      * If parent is root node, null is returned
      *
-     * @return     null|tplNode|tplNodeBlock|tplNodeBlockDefinition|tplNodeValue|tplNodeValueParent  The parent.
+     * @return     null|TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeValue|TplNodeValueParent  The parent.
      */
     public function getParent()
     {

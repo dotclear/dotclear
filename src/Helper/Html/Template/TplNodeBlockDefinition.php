@@ -1,15 +1,21 @@
 <?php
 /**
- * @class tplNodeBlockDefinition
- * @brief Block node, for all <tpl:Tag>...</tpl:Tag>
+ * @class TplNodeBlockDefinition
  *
- * @package Clearbricks
- * @subpackage Template
+ * Block node, for all <tpl:Tag>...</tpl:Tag>
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplNodeBlockDefinition extends tplNodeBlock
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Template;
+
+use ArrayObject;
+
+class TplNodeBlockDefinition extends TplNodeBlock
 {
     /**
      * Stack of blocks
@@ -35,11 +41,11 @@ class tplNodeBlockDefinition extends tplNodeBlock
     /**
      * Renders the parent block of currently being displayed block
      *
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return string      The compiled parent block
      */
-    public static function renderParent(template $tpl)
+    public static function renderParent(Template $tpl)
     {
         return self::getStackBlock(self::$current_block, $tpl);
     }
@@ -57,11 +63,11 @@ class tplNodeBlockDefinition extends tplNodeBlock
      * Retrieves block defined in call stack
      *
      * @param  string       $name   The block name
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return string       The block (empty string if unavailable)
      */
-    public static function getStackBlock(string $name, template $tpl)
+    public static function getStackBlock(string $name, Template $tpl)
     {
         $stack = &self::$stack[$name];
         $pos   = $stack['pos'];
@@ -127,11 +133,11 @@ class tplNodeBlockDefinition extends tplNodeBlock
     /**
      * Compile the block definition : grab latest block content being defined
      *
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return string       The compiled block
      */
-    public function compile(template $tpl): string
+    public function compile(Template $tpl): string
     {
         return $tpl->compileBlockNode(
             $this->tag,

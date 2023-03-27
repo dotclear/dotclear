@@ -1,15 +1,19 @@
 <?php
 /**
- * @class tplNodeBlock
- * @brief Block node, for all <tpl:Tag>...</tpl:Tag>
+ * @class TplNodeBlock
  *
- * @package Clearbricks
- * @subpackage Template
+ * Block node, for all <tpl:Tag>...</tpl:Tag>
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplNodeBlock extends tplNode
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Template;
+
+class TplNodeBlock extends TplNode
 {
     /**
      * Node block tag name
@@ -76,11 +80,11 @@ class tplNodeBlock extends tplNode
     /**
      * Compile the node block
      *
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return     string
      */
-    public function compile(template $tpl): string
+    public function compile(Template $tpl): string
     {
         if ($this->closed) {
             $content = parent::compile($tpl);

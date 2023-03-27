@@ -1,15 +1,19 @@
 <?php
 /**
- * @class tplNodeValue
- * @brief Value node, for all {{tpl:Tag}}
+ * @class TplNodeValue
  *
- * @package Clearbricks
- * @subpackage Template
+ * Value node, for all {{tpl:Tag}}
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplNodeValue extends tplNode
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Template;
+
+class TplNodeValue extends TplNode
 {
     /**
      * Node tag
@@ -58,11 +62,11 @@ class tplNodeValue extends tplNode
     /**
      * Compile the value node
      *
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return     string
      */
-    public function compile(template $tpl): string
+    public function compile(Template $tpl): string
     {
         return $tpl->compileValueNode($this->tag, $this->attr, $this->str_attr);
     }

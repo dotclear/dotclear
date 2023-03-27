@@ -1,15 +1,19 @@
 <?php
 /**
- * @class tplNodeText
- * @brief Text node, for any non-tpl content
+ * @class TplNodeText
  *
- * @package Clearbricks
- * @subpackage Template
+ * Text node, for any non-tpl content
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class tplNodeText extends tplNode
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html\Template;
+
+class TplNodeText extends TplNode
 {
     /**
      * Simple text node, only holds its content
@@ -27,11 +31,11 @@ class tplNodeText extends tplNode
     /**
      * Compile node text
      *
-     * @param  template     $tpl    The current template engine instance
+     * @param  Template     $tpl    The current template engine instance
      *
      * @return     string
      */
-    public function compile(template $tpl): string
+    public function compile(Template $tpl): string
     {
         return $this->content;
     }

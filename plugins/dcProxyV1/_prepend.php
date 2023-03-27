@@ -96,4 +96,13 @@ dcProxyV1::classAliases([
 
     // Wiki helper
     'wiki2xhtml' => 'Dotclear\Helper\Html\WikiToHtml',
+
+    // Simple Template Systeme
+    'template'               => 'Dotclear\Helper\Html\Template\Template',
+    'tplNode'                => 'Dotclear\Helper\Html\Template\TplNode',
+    'tplNodeBlock'           => 'Dotclear\Helper\Html\Template\TplNodeBlock',
+    'tplNodeText'            => 'Dotclear\Helper\Html\Template\TplNodeText',
+    'tplNodeValue'           => 'Dotclear\Helper\Html\Template\TplNodeValue',
+    'tplNodeBlockDefinition' => 'Dotclear\Helper\Html\Template\TplNodeBlockDefinition',
+    'tplNodeValueParent'     => 'Dotclear\Helper\Html\Template\TplNodeValueParent',
 ]);

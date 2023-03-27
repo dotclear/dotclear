@@ -8,8 +8,9 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\Template\Template;
 
-class dcTemplate extends template
+class dcTemplate extends Template
 {
     /**
      * Current tag

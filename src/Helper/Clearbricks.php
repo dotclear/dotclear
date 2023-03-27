@@ -88,15 +88,6 @@ class Clearbricks
             // Database PHP Session
             'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
 
-            // Simple Template Systeme
-            'template'               => $old_helper_root . '/template/class.template.php',
-            'tplNode'                => $old_helper_root . '/template/class.tplnode.php',
-            'tplNodeBlock'           => $old_helper_root . '/template/class.tplnodeblock.php',
-            'tplNodeText'            => $old_helper_root . '/template/class.tplnodetext.php',
-            'tplNodeValue'           => $old_helper_root . '/template/class.tplnodevalue.php',
-            'tplNodeBlockDefinition' => $old_helper_root . '/template/class.tplnodeblockdef.php',
-            'tplNodeValueParent'     => $old_helper_root . '/template/class.tplnodevalueparent.php',
-
             // URL Handler
             'urlHandler' => $old_helper_root . '/url.handler/class.url.handler.php',
 

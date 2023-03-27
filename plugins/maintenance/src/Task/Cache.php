@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use dcCore;
+use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
-use template;
 
 class Cache extends MaintenanceTask
 {
@@ -36,7 +36,7 @@ class Cache extends MaintenanceTask
         $this->success = __('Templates cache directory emptied.');
         $this->error   = __('Failed to empty templates cache directory.');
 
-        $this->description = sprintf(__("It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."), DIRECTORY_SEPARATOR . template::CACHE_FOLDER . DIRECTORY_SEPARATOR);
+        $this->description = sprintf(__("It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."), DIRECTORY_SEPARATOR . Template::CACHE_FOLDER . DIRECTORY_SEPARATOR);
     }
 
     /**

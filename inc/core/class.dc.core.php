@@ -17,6 +17,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
+use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Helper\Text;
 
@@ -2311,8 +2312,8 @@ final class dcCore
      */
     public function emptyTemplatesCache(): void
     {
-        if (is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER)) {
-            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . template::CACHE_FOLDER);
+        if (is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
+            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER);
         }
     }
 
