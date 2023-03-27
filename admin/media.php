@@ -675,9 +675,9 @@ class adminMediaPage extends adminMediaFilter
      *
      * @param string $type  dir, file, all type
      *
-     * @return array Dirs and/or files fileItem objects
+     * @return null|array Dirs and/or files fileItem objects
      */
-    public function getDirs(string $type = ''): array
+    public function getDirs(string $type = ''): ?array
     {
         if (!empty($type)) {
             return $this->media_dir[$type] ?? null;
