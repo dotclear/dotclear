@@ -98,6 +98,41 @@ class Http extends atoum
         $this
             ->string(\Dotclear\Helper\Network\Http::getSelfURI())
             ->isEqualTo('http://localhost/test.html');
+
+        // Check with HTTPS
+        $_SERVER['HTTPS']       = 'on';
+        $_SERVER['HTTP_HOST']   = 'localhost';
+        $_SERVER['SERVER_PORT'] = 80;
+        $_SERVER['REQUEST_URI'] = '/test.html';
+        $this
+            ->string(\Dotclear\Helper\Network\Http::getSelfURI())
+            ->isEqualTo('https://localhost/test.html');
+
+        // Check with HTTPS and port 443
+        $_SERVER['HTTPS']       = 'on';
+        $_SERVER['HTTP_HOST']   = 'localhost';
+        $_SERVER['SERVER_PORT'] = 443;
+        $_SERVER['REQUEST_URI'] = '/test.html';
+        $this
+            ->string(\Dotclear\Helper\Network\Http::getSelfURI())
+            ->isEqualTo('https://localhost/test.html');
+
+        // Force scheme
+        \Dotclear\Helper\Network\Http::$https_scheme_on_443 = true;
+
+        $_SERVER['HTTP_HOST']   = 'localhost';
+        $_SERVER['SERVER_PORT'] = 80;
+        $_SERVER['REQUEST_URI'] = '/test.html';
+        $this
+            ->string(\Dotclear\Helper\Network\Http::getSelfURI())
+            ->isEqualTo('https://localhost/test.html');
+
+        $_SERVER['HTTP_HOST']   = 'localhost';
+        $_SERVER['SERVER_PORT'] = 443;
+        $_SERVER['REQUEST_URI'] = '/test.html';
+        $this
+            ->string(\Dotclear\Helper\Network\Http::getSelfURI())
+            ->isEqualTo('https://localhost/test.html');
     }
 
     public function testPrepareRedirect()
