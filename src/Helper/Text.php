@@ -302,4 +302,16 @@ class Text
 
         return $str;
     }
+
+    /**
+     * Clean a string
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
+     */
+    public static function cleanStr(string $str): string
+    {
+        return self::cleanUTF8(self::toUTF8($str));
+    }
 }

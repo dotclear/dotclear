@@ -399,18 +399,6 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Clean a string
-     *
-     * @param      string  $str    The string
-     *
-     * @return     string
-     */
-    protected function cleanStr(string $str): string
-    {
-        return Text::cleanUTF8(@Text::toUTF8($str));
-    }
-
-    /**
      * Users import
      */
     protected function importUsers(): void
@@ -441,15 +429,15 @@ class ModuleImportWp extends Module
                     while ($rs_meta->fetch()) {
                         switch ($rs_meta->meta_key) {
                             case 'first_name':
-                                $cur->user_firstname = $this->cleanStr($rs_meta->meta_value);
+                                $cur->user_firstname = Text::cleanStr($rs_meta->meta_value);
 
                                 break;
                             case 'last_name':
-                                $cur->user_name = $this->cleanStr($rs_meta->meta_value);
+                                $cur->user_name = Text::cleanStr($rs_meta->meta_value);
 
                                 break;
                             case 'description':
-                                $cur->user_desc = $this->cleanStr($rs_meta->meta_value);
+                                $cur->user_desc = Text::cleanStr($rs_meta->meta_value);
 
                                 break;
                             case 'rich_editing':
@@ -541,9 +529,9 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $cur            = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = $this->cleanStr($rs->name);
-                $cur->cat_desc  = $this->cleanStr($rs->description);
-                $cur->cat_url   = $this->cleanStr($rs->slug);
+                $cur->cat_title = Text::cleanStr($rs->name);
+                $cur->cat_desc  = Text::cleanStr($rs->description);
+                $cur->cat_url   = Text::cleanStr($rs->slug);
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
@@ -580,10 +568,10 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $cur             = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
                 $cur->blog_id    = $this->blog_id;
-                $cur->link_href  = $this->cleanStr($rs->link_url);
-                $cur->link_title = $this->cleanStr($rs->link_name);
-                $cur->link_desc  = $this->cleanStr($rs->link_description);
-                $cur->link_xfn   = $this->cleanStr($rs->link_rel);
+                $cur->link_href  = Text::cleanStr($rs->link_url);
+                $cur->link_title = Text::cleanStr($rs->link_name);
+                $cur->link_desc  = Text::cleanStr($rs->link_description);
+                $cur->link_xfn   = Text::cleanStr($rs->link_rel);
 
                 $cur->link_id = (new dcRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME
@@ -678,7 +666,7 @@ class ModuleImportWp extends Module
         $cur->post_dt     = $post_date;
         $cur->post_creadt = $post_date;
         $cur->post_upddt  = $rs->post_modified;
-        $cur->post_title  = $this->cleanStr($rs->post_title);
+        $cur->post_title  = Text::cleanStr($rs->post_title);
 
         if (!$cur->post_title) {
             $cur->post_title = 'No title';
@@ -728,10 +716,10 @@ class ModuleImportWp extends Module
         $_post_content    = explode('<!--more-->', $rs->post_content, 2);
         if (count($_post_content) == 1) {
             $cur->post_excerpt = null;
-            $cur->post_content = $this->cleanStr(array_shift($_post_content));
+            $cur->post_content = Text::cleanStr(array_shift($_post_content));
         } else {
-            $cur->post_excerpt = $this->cleanStr(array_shift($_post_content));
-            $cur->post_content = $this->cleanStr(array_shift($_post_content));
+            $cur->post_excerpt = Text::cleanStr(array_shift($_post_content));
+            $cur->post_content = Text::cleanStr(array_shift($_post_content));
         }
 
         $cur->post_content_xhtml = dcCore::app()->callFormater($this->vars['post_formater'], $cur->post_content);
@@ -780,7 +768,7 @@ class ModuleImportWp extends Module
         if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
             $old_cat_ids->moveStart();
             while ($old_cat_ids->fetch()) {
-                dcCore::app()->meta->setPostMeta($cur->post_id, 'tag', $this->cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
+                dcCore::app()->meta->setPostMeta($cur->post_id, 'tag', Text::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
             }
         }
     }
@@ -804,14 +792,14 @@ class ModuleImportWp extends Module
         while ($rs->fetch()) {
             $cur                    = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
             $cur->post_id           = (int) $new_post_id;
-            $cur->comment_author    = $this->cleanStr($rs->comment_author);
+            $cur->comment_author    = Text::cleanStr($rs->comment_author);
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
-            $cur->comment_email     = $this->cleanStr($rs->comment_author_email);
-            $cur->comment_content   = dcCore::app()->callFormater($this->vars['comment_formater'], $this->cleanStr($rs->comment_content));
+            $cur->comment_email     = Text::cleanStr($rs->comment_author_email);
+            $cur->comment_content   = dcCore::app()->callFormater($this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
-            $cur->comment_site      = substr($this->cleanStr($rs->comment_author_url), 0, 255);
+            $cur->comment_site      = substr(Text::cleanStr($rs->comment_author_url), 0, 255);
             if ($cur->comment_site == '') {
                 $cur->comment_site = null;
             }
@@ -867,7 +855,7 @@ class ModuleImportWp extends Module
         unset($pings[0]);
 
         foreach ($pings as $ping_url) {
-            $url = $this->cleanStr($ping_url);
+            $url = Text::cleanStr($ping_url);
             if (isset($urls[$url])) {
                 continue;
             }
@@ -906,7 +894,7 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            dcCore::app()->meta->setPostMeta($new_post_id, 'tag', $this->cleanStr($rs->name));
+            dcCore::app()->meta->setPostMeta($new_post_id, 'tag', Text::cleanStr($rs->name));
         }
     }
 }

@@ -351,18 +351,6 @@ class ModuleImportDc1 extends Module
     }
 
     /**
-     * Clean a string
-     *
-     * @param      string  $str    The string
-     *
-     * @return     string
-     */
-    protected function cleanStr(string $str): string
-    {
-        return Text::cleanUTF8(@Text::toUTF8($str));
-    }
-
-    /**
      * User import
      */
     protected function importUsers(): void
@@ -451,9 +439,9 @@ class ModuleImportDc1 extends Module
             while ($rs->fetch()) {
                 $cur            = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = $this->cleanStr(htmlspecialchars_decode($rs->cat_libelle));
-                $cur->cat_desc  = $this->cleanStr($rs->cat_desc);
-                $cur->cat_url   = $this->cleanStr($rs->cat_libelle_url);
+                $cur->cat_title = Text::cleanStr(htmlspecialchars_decode($rs->cat_libelle));
+                $cur->cat_desc  = Text::cleanStr($rs->cat_desc);
+                $cur->cat_url   = Text::cleanStr($rs->cat_libelle_url);
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
@@ -490,11 +478,11 @@ class ModuleImportDc1 extends Module
             while ($rs->fetch()) {
                 $cur                = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
                 $cur->blog_id       = $this->blog_id;
-                $cur->link_href     = $this->cleanStr($rs->href);
-                $cur->link_title    = $this->cleanStr($rs->label);
-                $cur->link_desc     = $this->cleanStr($rs->title);
-                $cur->link_lang     = $this->cleanStr($rs->lang);
-                $cur->link_xfn      = $this->cleanStr($rs->rel);
+                $cur->link_href     = Text::cleanStr($rs->href);
+                $cur->link_title    = Text::cleanStr($rs->label);
+                $cur->link_desc     = Text::cleanStr($rs->title);
+                $cur->link_lang     = Text::cleanStr($rs->lang);
+                $cur->link_xfn      = Text::cleanStr($rs->rel);
                 $cur->link_position = (int) $rs->position;
 
                 $cur->link_id = (new dcRecord($this->con->select(
@@ -574,24 +562,24 @@ class ModuleImportDc1 extends Module
         $cur->post_dt     = $rs->post_dt;
         $cur->post_creadt = $rs->post_creadt;
         $cur->post_upddt  = $rs->post_upddt;
-        $cur->post_title  = Html::decodeEntities($this->cleanStr($rs->post_titre));
+        $cur->post_title  = Html::decodeEntities(Text::cleanStr($rs->post_titre));
 
         $cur->post_url = date('Y/m/d/', strtotime($cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
         $cur->post_url = substr($cur->post_url, 0, 255);
 
         $cur->post_format        = $rs->post_content_wiki == '' ? 'xhtml' : 'wiki';
-        $cur->post_content_xhtml = $this->cleanStr($rs->post_content);
-        $cur->post_excerpt_xhtml = $this->cleanStr($rs->post_chapo);
+        $cur->post_content_xhtml = Text::cleanStr($rs->post_content);
+        $cur->post_excerpt_xhtml = Text::cleanStr($rs->post_chapo);
 
         if ($cur->post_format == 'wiki') {
-            $cur->post_content = $this->cleanStr($rs->post_content_wiki);
-            $cur->post_excerpt = $this->cleanStr($rs->post_chapo_wiki);
+            $cur->post_content = Text::cleanStr($rs->post_content_wiki);
+            $cur->post_excerpt = Text::cleanStr($rs->post_chapo_wiki);
         } else {
-            $cur->post_content = $this->cleanStr($rs->post_content);
-            $cur->post_excerpt = $this->cleanStr($rs->post_chapo);
+            $cur->post_content = Text::cleanStr($rs->post_content);
+            $cur->post_excerpt = Text::cleanStr($rs->post_chapo);
         }
 
-        $cur->post_notes        = $this->cleanStr($rs->post_notes);
+        $cur->post_notes        = Text::cleanStr($rs->post_notes);
         $cur->post_status       = (int) $rs->post_pub;
         $cur->post_selected     = (int) $rs->post_selected;
         $cur->post_open_comment = (int) $rs->post_open_comment;
@@ -637,16 +625,16 @@ class ModuleImportDc1 extends Module
         while ($rs->fetch()) {
             $cur                    = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
             $cur->post_id           = $new_post_id;
-            $cur->comment_author    = $this->cleanStr($rs->comment_auteur);
+            $cur->comment_author    = Text::cleanStr($rs->comment_auteur);
             $cur->comment_status    = (int) $rs->comment_pub;
             $cur->comment_dt        = $rs->comment_dt;
             $cur->comment_upddt     = $rs->comment_upddt;
-            $cur->comment_email     = $this->cleanStr($rs->comment_email);
-            $cur->comment_content   = $this->cleanStr($rs->comment_content);
+            $cur->comment_email     = Text::cleanStr($rs->comment_email);
+            $cur->comment_content   = Text::cleanStr($rs->comment_content);
             $cur->comment_ip        = $rs->comment_ip;
             $cur->comment_trackback = (int) $rs->comment_trackback;
 
-            $cur->comment_site = $this->cleanStr($rs->comment_site);
+            $cur->comment_site = Text::cleanStr($rs->comment_site);
             if ($cur->comment_site != '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
@@ -699,7 +687,7 @@ class ModuleImportDc1 extends Module
         );
 
         while ($rs->fetch()) {
-            $url = $this->cleanStr($rs->ping_url);
+            $url = Text::cleanStr($rs->ping_url);
             if (isset($urls[$url])) {
                 continue;
             }
@@ -733,7 +721,7 @@ class ModuleImportDc1 extends Module
         }
 
         while ($rs->fetch()) {
-            dcCore::app()->meta->setPostMeta($new_post_id, $this->cleanStr($rs->meta_key), $this->cleanStr($rs->meta_value));
+            dcCore::app()->meta->setPostMeta($new_post_id, Text::cleanStr($rs->meta_key), Text::cleanStr($rs->meta_value));
         }
     }
 }

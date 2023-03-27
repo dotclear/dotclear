@@ -192,4 +192,18 @@ class Text extends atoum
             ->isEqualTo('Étrange et ? curieux/=À vous? !')
         ;
     }
+
+    public function testCleanStr()
+    {
+        $this
+            ->string(\Dotclear\Helper\Text::cleanStr('Étrange et curieux/=À vous !'))
+            ->isEqualTo('Étrange et curieux/=À vous !')
+        ;
+
+        $test = mb_convert_encoding('Étrange et curieux/=À vous !', 'ISO-8859-1');
+        $this
+            ->string(\Dotclear\Helper\Text::cleanStr($test))
+            ->isEqualTo('Étrange et curieux/=À vous !')
+        ;
+    }
 }
