@@ -129,7 +129,7 @@ class dcNamespace
                 ])
                 ->from($this->table)
                 ->where($sql->orGroup([
-                    'blog_id = ' . $sql->quote($this->blog_id),
+                    'blog_id = ' . $sql->quote((string) $this->blog_id),
                     'blog_id IS NULL',
                 ]))
                 ->and('setting_ns = ' . $sql->quote($this->namespace))
