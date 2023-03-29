@@ -92,7 +92,9 @@ class ModuleImportFlat extends Module
 
                 $bk->importSingle();
             } catch (Exception $e) {
-                @unlink($unzip_file);
+                if (false !== $unzip_file) {
+                    @unlink($unzip_file);
+                }
                 if ($to_unlink) {
                     @unlink($file);
                 }
@@ -147,7 +149,9 @@ class ModuleImportFlat extends Module
 
                 $bk->importFull();
             } catch (Exception $e) {
-                @unlink($unzip_file);
+                if (false !== $unzip_file) {
+                    @unlink($unzip_file);
+                }
                 if ($to_unlink) {
                     @unlink($file);
                 }
