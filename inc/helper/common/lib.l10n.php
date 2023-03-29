@@ -364,9 +364,13 @@ class l10n
         foreach ($strings as $vo => $tr) {
             $vo = str_replace("'", "\\'", $vo);
             if (is_array($tr)) {
+                $items = [];
                 foreach ($tr as $i => $t) {
-                    $t = str_replace("'", "\\'", $t);
-                    $fcontent .= 'l10n::$locales[\'' . $vo . '\'][' . $i . '] = \'' . $t . '\';' . "\n";
+                    $t       = str_replace("'", "\\'", $t);
+                    $items[] = '\'' . $t . '\'';
+                }
+                if (count($items)) {
+                    $fcontent .= 'l10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . join(',' . "\n\t", $items) . ",\n" . '];' . "\n";
                 }
             } else {
                 $tr = str_replace("'", "\\'", $tr);
@@ -419,13 +423,12 @@ class l10n
             // there are more headers but these ones are default
         ];
         $headers_searched = $headers_found = false;
-        $h_line           = $h_val           = $h_key           = '';
-        $entries          = $entry          = $desc          = [];
+        $h_line           = $h_val = $h_key = '';
+        $entries          = $entry = $desc = [];
         $i                = 0;
 
         // read through lines
         for ($i = 0; $i < count($lines); $i++) {
-
             // some people like mirovinben add white space at the end of line
             $line = trim((string) $lines[$i]);
 
@@ -436,7 +439,6 @@ class l10n
 
             // headers
             if (!$headers_searched && preg_match('/^msgid\s+""$/', trim((string) $line))) {
-
                 // headers start wih empty msgid and msgstr follow be multine
                 if (!preg_match('/^msgstr\s+""$/', trim((string) $lines[$i + 1]))
                     || !preg_match('/^"(.*)"$/', trim((string) $lines[$i + 2]))) {
@@ -448,7 +450,6 @@ class l10n
 
                         // an header has key:val
                         if (false === ($h_index = strpos($h_line, ':'))) {
-
                             // multiline value
                             if (!empty($h_key) && !empty($headers[$h_key])) {
                                 $headers[$h_key] = trim((string) $headers[$h_key] . $h_line);
@@ -474,7 +475,7 @@ class l10n
                     // headers found so stop search and clean previous comments
                     if ($headers_found) {
                         $headers_searched = true;
-                        $entry            = $desc            = [];
+                        $entry            = $desc = [];
                         $i                = $l - 1;
 
                         continue;
@@ -487,7 +488,6 @@ class l10n
                 $str = self::cleanPoString($def[2]);
 
                 switch ($def[1]) {
-
                     // translator comments
                     case ' ':
                         if (!isset($desc['translator-comments'])) {
@@ -542,10 +542,8 @@ class l10n
 
             // msgid
             elseif (false !== ($def = self::cleanPoLine('msgid', $line))) {
-
                 // add last translation and start new one
                 if ((isset($entry['msgid']) || isset($entry['msgid_plural'])) && isset($entry['msgstr'])) {
-
                     // save last translation and start new one
                     $entries[] = $entry;
                     $entry     = [];
