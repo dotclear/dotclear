@@ -371,7 +371,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
     {
         $pattern = str_replace('%M', '%i', $pattern);
 
-        return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escape($pattern) . "') ";
+        return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escape($pattern) . "')";
     }
 
     /**

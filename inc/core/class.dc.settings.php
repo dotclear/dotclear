@@ -12,6 +12,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
+
 class dcSettings
 {
     // Properties
@@ -63,7 +68,7 @@ class dcSettings
      */
     private function loadSettings(): void
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'blog_id',
@@ -144,7 +149,7 @@ class dcSettings
         unset($this->namespaces[$old_namespace]);
 
         // Rename the namespace in the database
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->ref($this->table)
             ->set('setting_ns = ' . $sql->quote($new_namespace))
@@ -171,7 +176,7 @@ class dcSettings
         unset($this->namespaces[$namespace]);
 
         // Delete all settings from the namespace in the database
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('setting_ns = ' . $sql->quote($namespace));

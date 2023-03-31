@@ -11,6 +11,9 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\XmlTag;
@@ -557,7 +560,7 @@ class dcMedia extends filemanager
 
         $media_dir = $this->relpwd ?: '.';
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'media_file',
@@ -588,7 +591,7 @@ class dcMedia extends filemanager
         $rs = $sql->select();
 
         // Get list of private files in dir
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'media_file',
@@ -646,7 +649,7 @@ class dcMedia extends filemanager
                     if (isset($f_reg[$rs->media_file])) {
                         # That media is duplicated in the database,
                         # time to do a bit of house cleaning.
-                        $sql = new dcDeleteStatement();
+                        $sql = new DeleteStatement();
                         $sql
                             ->from($this->table)
                             ->where('media_id = ' . $f->media_id);
@@ -662,7 +665,7 @@ class dcMedia extends filemanager
                 # Because we don't want to erase everything on
                 # dotclear upgrade, do it only if there are files
                 # in directory and directory is root
-                $sql = new dcDeleteStatement();
+                $sql = new DeleteStatement();
                 $sql
                     ->from($this->table)
                     ->where('media_path = ' . $sql->quote($this->path))
@@ -709,7 +712,7 @@ class dcMedia extends filemanager
      */
     public function getFile(int $id): ?fileItem
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table)
             ->columns([
@@ -755,7 +758,7 @@ class dcMedia extends filemanager
             return false;
         }
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table)
             ->columns([
@@ -929,7 +932,7 @@ class dcMedia extends filemanager
     {
         $media_dir = $pwd ?: '.';
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table)
             ->columns([
@@ -948,7 +951,7 @@ class dcMedia extends filemanager
             }
         }
         if (!empty($del_ids)) {
-            $sql = new dcDeleteStatement();
+            $sql = new DeleteStatement();
             $sql
                 ->from($this->table)
                 ->where('media_id' . $sql->in($del_ids));
@@ -1019,7 +1022,7 @@ class dcMedia extends filemanager
 
         $cur = $this->con->openCursor($this->table);
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table)
             ->column('media_id')
@@ -1032,7 +1035,7 @@ class dcMedia extends filemanager
             $this->con->writeLock($this->table);
 
             try {
-                $sql = new dcSelectStatement();
+                $sql = new SelectStatement();
                 $sql
                     ->from($this->table)
                     ->column($sql->max('media_id'));
@@ -1075,7 +1078,7 @@ class dcMedia extends filemanager
 
             $cur->media_upddt = date('Y-m-d H:i:s');
 
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
             $sql->where('media_id = ' . $media_id);
 
             $sql->update($cur);
@@ -1150,7 +1153,7 @@ class dcMedia extends filemanager
             $cur->media_meta = $newFile->media_meta->asXML();
         }
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('media_id = ' . $id);
 
         $sql->update($cur);
@@ -1233,7 +1236,7 @@ class dcMedia extends filemanager
 
         $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $name) : Path::clean($name);
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('media_path = ' . $sql->quote($this->path))
@@ -1269,7 +1272,7 @@ class dcMedia extends filemanager
     {
         $dir = [];
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table)
             ->column('distinct media_dir')
@@ -1553,7 +1556,7 @@ class dcMedia extends filemanager
         # --BEHAVIOR-- coreBeforeImageMetaCreate
         dcCore::app()->callBehavior('coreBeforeImageMetaCreate', $c);
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('media_id = ' . $id);
 
         $sql->update($c);

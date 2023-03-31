@@ -64,3 +64,7 @@ spl_autoload_register('cb_autoload');
 // Ensure l10n functions exist
 
 require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
+
+// Ensure some core classes exist
+
+require_once __DIR__ . '/../../inc/core/class.dc.record.php';

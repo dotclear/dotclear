@@ -326,7 +326,7 @@ class sqliteConnection extends dbLayer implements i_dbLayer
      */
     public function db_escape_string($str, $handle = null): string
     {
-        return $handle instanceof PDO ? trim($handle->quote($str), "'") : $str;
+        return $handle instanceof PDO ? trim($handle->quote($str), "'") : addslashes($str);
     }
 
     public function escapeSystem(string $str): string
@@ -393,7 +393,7 @@ class sqliteConnection extends dbLayer implements i_dbLayer
      */
     public function dateFormat(string $field, string $pattern): string
     {
-        return "strftime('" . $this->escape($pattern) . "'," . $field . ') ';
+        return "strftime('" . $this->escape($pattern) . "'," . $field . ')';
     }
 
     /**

@@ -11,6 +11,10 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Text;
 
 class dcMeta
@@ -176,7 +180,7 @@ class dcMeta
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->from(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME)
                 ->column('post_id')
@@ -200,7 +204,7 @@ class dcMeta
     {
         $post_id = (int) $post_id;
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table)
             ->columns([
@@ -221,7 +225,7 @@ class dcMeta
         $cur            = $this->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
         $cur->post_meta = $post_meta;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('post_id = ' . $post_id);
 
         $sql->update($cur);
@@ -237,17 +241,17 @@ class dcMeta
      *
      * @param      array                    $params      The parameters
      * @param      bool                     $count_only  Only count results
-     * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
+     * @param      SelectStatement|null     $ext_sql     Optional SqlStatement instance
      *
      * @return     dcRecord   The resulting posts record.
      */
-    public function getPostsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): ?dcRecord
+    public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): ?dcRecord
     {
         if (!isset($params['meta_id'])) {
             return null;
         }
 
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
+        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
         $sql
             ->from($this->table . ' META')
@@ -273,17 +277,17 @@ class dcMeta
      *
      * @param      array                    $params      The parameters
      * @param      bool                     $count_only  Only count results
-     * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
+     * @param      SelectStatement|null     $ext_sql     Optional SqlStatement instance
      *
      * @return     dcRecord   The resulting comments record.
      */
-    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): ?dcRecord
+    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): ?dcRecord
     {
         if (!isset($params['meta_id'])) {
             return null;
         }
 
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
+        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
         $sql
             ->from($this->table . ' META')
@@ -312,13 +316,13 @@ class dcMeta
      *
      * @param      array                    $params      The parameters
      * @param      bool                     $count_only  Only counts results
-     * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
+     * @param      SelectStatement|null     $ext_sql     Optional SqlStatement instance
      *
      * @return     dcRecord  The metadata.
      */
-    public function getMetadata(array $params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): dcRecord
+    public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): dcRecord
     {
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
+        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('M.meta_id')));
@@ -335,7 +339,7 @@ class dcMeta
         $sql
             ->from($sql->as($this->table, 'M'))
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                 ->left()
                 ->from($sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
@@ -471,7 +475,7 @@ class dcMeta
 
         $this->checkPermissionsOnPost($post_id);
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('post_id = ' . $post_id);
@@ -507,7 +511,7 @@ class dcMeta
             return true;
         }
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from([
                 $sql->as($this->table, 'M'),
@@ -560,7 +564,7 @@ class dcMeta
 
         # Delete duplicate meta
         if (!empty($to_remove)) {
-            $sqlDel = new dcDeleteStatement();
+            $sqlDel = new DeleteStatement();
             $sqlDel
                 ->from($this->table)
                 ->where('post_id' . $sqlDel->in($to_remove, 'int'))      // Note: will cast all values to integer
@@ -579,7 +583,7 @@ class dcMeta
 
         # Update meta
         if (!empty($to_update)) {
-            $sqlUpd = new dcUpdateStatement();
+            $sqlUpd = new UpdateStatement();
             $sqlUpd
                 ->from($this->table)
                 ->set('meta_id = ' . $sqlUpd->quote($new_meta_id))
@@ -611,7 +615,7 @@ class dcMeta
      */
     public function delMeta(string $meta_id, ?string $type = null, ?string $post_type = null): array
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->column('M.post_id')
             ->from([
@@ -641,7 +645,7 @@ class dcMeta
             $ids[] = $rs->post_id;
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('post_id' . $sql->in($ids, 'int'))

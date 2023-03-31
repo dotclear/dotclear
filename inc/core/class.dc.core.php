@@ -13,6 +13,10 @@
  */
 
 use Dotclear\App;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Html;
@@ -927,7 +931,7 @@ final class dcCore
     {
         # Fetch versions if needed
         if (!is_array($this->versions)) {
-            $rs = (new dcSelectStatement())
+            $rs = (new SelectStatement())
                 ->columns([
                     'module',
                     'version',
@@ -954,7 +958,7 @@ final class dcCore
     {
         // Fetch versions if needed
         if (!is_array($this->versions)) {
-            $rs = (new dcSelectStatement())
+            $rs = (new SelectStatement())
                 ->columns([
                     'module',
                     'version',
@@ -987,7 +991,7 @@ final class dcCore
         if ($cur_version === null) {
             $cur->insert();
         } else {
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
             $sql->where('module = ' . $sql->quote($module));
 
             $sql->update($cur);
@@ -1035,7 +1039,7 @@ final class dcCore
      */
     public function delVersion(string $module)
     {
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::VERSION_TABLE_NAME)
             ->where('module = ' . $sql->quote($module));
@@ -1080,7 +1084,7 @@ final class dcCore
      */
     public function getUsers($params = [], bool $count_only = false): dcRecord
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
 
         if ($count_only) {
             $sql
@@ -1114,7 +1118,7 @@ final class dcCore
             }
             $sql
                 ->join(
-                    (new dcJoinStatement())
+                    (new JoinStatement())
                         ->left()
                         ->from($sql->as($this->prefix . dcBlog::POST_TABLE_NAME, 'P'))
                         ->on('U.user_id = P.user_id')
@@ -1236,7 +1240,7 @@ final class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
@@ -1249,7 +1253,7 @@ final class dcCore
         }
 
         # Updating all user's blogs
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->distinct()
             ->column('blog_id')
@@ -1290,7 +1294,7 @@ final class dcCore
             return;
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . dcAuth::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
@@ -1310,7 +1314,7 @@ final class dcCore
      */
     public function userExists(string $id): bool
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->column('user_id')
             ->from($this->prefix . dcAuth::USER_TABLE_NAME)
@@ -1337,7 +1341,7 @@ final class dcCore
      */
     public function getUserPermissions(string $id): array
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'B.blog_id',
@@ -1347,7 +1351,7 @@ final class dcCore
             ])
             ->from($sql->as($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME, 'P'))
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                 ->inner()
                 ->from($sql->as($this->prefix . dcBlog::BLOG_TABLE_NAME, 'B'))
                 ->on('P.blog_id = B.blog_id')
@@ -1387,7 +1391,7 @@ final class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
@@ -1426,7 +1430,7 @@ final class dcCore
         $cur->permissions = $perms;
 
         if ($delete_first || $no_perm) {
-            $sql = new dcDeleteStatement();
+            $sql = new DeleteStatement();
             $sql
                 ->from($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id))
@@ -1452,7 +1456,7 @@ final class dcCore
 
         $cur->user_default_blog = (string) $blog_id;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
@@ -1469,7 +1473,7 @@ final class dcCore
 
         $cur->user_default_blog = null;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('user_default_blog' . $sql->in($ids));
 
         $sql->update($cur);
@@ -1553,7 +1557,7 @@ final class dcCore
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'U.user_id as user_id',
@@ -1565,7 +1569,7 @@ final class dcCore
                 'permissions',
             ])
             ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
-            ->join((new dcJoinStatement())
+            ->join((new JoinStatement())
                 ->from($sql->as($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME, 'P'))
                 ->on('U.user_id = P.user_id')
                 ->statement())
@@ -1573,7 +1577,7 @@ final class dcCore
 
         if ($with_super) {
             $sql->union(
-                (new dcSelectStatement())
+                (new SelectStatement())
                 ->columns([
                     'U.user_id as user_id',
                     'user_super',
@@ -2282,13 +2286,13 @@ final class dcCore
      */
     public function countAllComments(): void
     {
-        $sql_com = new dcUpdateStatement();
+        $sql_com = new UpdateStatement();
         $sql_com
             ->ref($sql_com->alias($this->prefix . dcBlog::POST_TABLE_NAME, 'P'));
 
         $sql_tb = clone $sql_com;
 
-        $sql_count_com = new dcSelectStatement();
+        $sql_count_com = new SelectStatement();
         $sql_count_com
             ->field($sql_count_com->count('C.comment_id'))
             ->from($sql_count_com->alias($this->prefix . dcBlog::COMMENT_TABLE_NAME, 'C'))

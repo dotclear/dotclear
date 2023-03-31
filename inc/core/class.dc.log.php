@@ -7,6 +7,10 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
 
 class dcLog
@@ -64,7 +68,7 @@ class dcLog
      */
     public function getLogs(array $params = [], bool $count_only = false): dcRecord
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count('log_id'));
@@ -88,7 +92,7 @@ class dcLog
 
         if (!$count_only) {
             $sql->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                 ->left()
                 ->from($sql->alias($this->user_table, 'U'))
                 ->on('U.user_id = L.user_id')
@@ -147,7 +151,7 @@ class dcLog
 
         try {
             # Get ID
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column($sql->max('log_id'))
                 ->from($this->log_table);
@@ -216,11 +220,11 @@ class dcLog
     public function delLogs($id, bool $all = false)
     {
         if ($all) {
-            $sql = new dcTruncateStatement();
+            $sql = new TruncateStatement();
             $sql
                 ->from($this->log_table);
         } else {
-            $sql = new dcDeleteStatement();
+            $sql = new DeleteStatement();
             $sql
                 ->from($this->log_table)
                 ->where('log_id ' . $sql->in($id));

@@ -8,6 +8,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+
 class dcNotices
 {
     // Constants
@@ -58,7 +62,7 @@ class dcNotices
      */
     public function getNotices(array $params = [], bool $count_only = false): dcRecord
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->from($this->table);
 
@@ -129,7 +133,7 @@ class dcNotices
 
         try {
             # Get ID
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column($sql->max('notice_id'))
                 ->from($this->table);
@@ -191,7 +195,7 @@ class dcNotices
      */
     public function delNotices(?int $id, bool $all = false): void
     {
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 

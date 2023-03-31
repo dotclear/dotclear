@@ -8,6 +8,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
+
 class dcWorkspace
 {
     // Constants
@@ -121,7 +126,7 @@ class dcWorkspace
     private function getPrefs(?dcRecord $rs = null): void
     {
         if ($rs === null) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->columns([
                     'user_id',
@@ -363,7 +368,7 @@ class dcWorkspace
         }
 
         if ($this->prefExists($name, $global) && $this->workspace === $this->prefs[$name]['ws']) {
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
 
             if ($global) {
                 $sql->where('user_id IS NULL');
@@ -413,7 +418,7 @@ class dcWorkspace
         unset($this->prefs[$old_name]);
 
         // Rename the pref in the database
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->ref($this->table)
             ->set('pref_id = ' . $sql->quote($new_name))
@@ -443,7 +448,7 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 
@@ -482,7 +487,7 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 
@@ -519,7 +524,7 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 

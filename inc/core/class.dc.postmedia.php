@@ -6,6 +6,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
+
 class dcPostMedia
 {
     // Constants
@@ -51,7 +56,7 @@ class dcPostMedia
      */
     public function getPostMedia(array $params = []): dcRecord
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'M.media_file',
@@ -74,7 +79,7 @@ class dcPostMedia
         $sql
             ->from($sql->as(dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME, 'M'))
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                 ->inner()
                 ->from($this->table . ' PM')
                 ->on('M.media_id = PM.media_id')
@@ -150,7 +155,7 @@ class dcPostMedia
         $post_id  = (int) $post_id;
         $media_id = (int) $media_id;
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('post_id = ' . $post_id)

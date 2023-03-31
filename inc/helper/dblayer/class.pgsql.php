@@ -395,7 +395,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
 
         $pattern = str_replace(array_keys($rep), array_values($rep), $pattern);
 
-        return 'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "') ";
+        return 'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";
     }
 
     /**

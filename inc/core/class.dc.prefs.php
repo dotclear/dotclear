@@ -12,6 +12,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
+
 class dcPrefs
 {
     // Properties
@@ -71,7 +76,7 @@ class dcPrefs
      */
     private function loadPrefs(?string $workspace = null): void
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'user_id',
@@ -157,7 +162,7 @@ class dcPrefs
         unset($this->workspaces[$old_workspace]);
 
         // Rename the workspace in the database
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->ref($this->table)
             ->set('pref_ws = ' . $sql->quote($new_workspace))
@@ -184,7 +189,7 @@ class dcPrefs
         unset($this->workspaces[$workspace]);
 
         // Delete all preferences from the workspace in the database
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('pref_ws = ' . $sql->quote($workspace));

@@ -105,4 +105,14 @@ dcProxyV1::classAliases([
     'tplNodeValue'           => 'Dotclear\Helper\Html\Template\TplNodeValue',
     'tplNodeBlockDefinition' => 'Dotclear\Helper\Html\Template\TplNodeBlockDefinition',
     'tplNodeValueParent'     => 'Dotclear\Helper\Html\Template\TplNodeValueParent',
+
+    // Core -------------------
+
+    'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',
+    'dcSelectStatement'   => 'Dotclear\Database\Statement\SelectStatement',
+    'dcJoinStatement'     => 'Dotclear\Database\Statement\JoinStatement',
+    'dcUpdateStatement'   => 'Dotclear\Database\Statement\UpdateStatement',
+    'dcInsertStatement'   => 'Dotclear\Database\Statement\InsertStatement',
+    'dcDeleteStatement'   => 'Dotclear\Database\Statement\DeleteStatement',
+    'dcTruncateStatement' => 'Dotclear\Database\Statement\TruncateStatement',
 ]);

@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 
@@ -1157,7 +1158,7 @@ class dcUpgrade
         if (version_compare($version, '2.25', '<')) {
             // Remove removed blogs from users default blog
             $ids = [];
-            $rs  = (new dcSelectStatement())
+            $rs  = (new SelectStatement())
                 ->from(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME)
                 ->where('blog_status = ' . dcBlog::BLOG_REMOVED)
                 ->select();
@@ -1329,6 +1330,8 @@ class dcUpgrade
                     'inc/helper/common/lib.html.php',
                     // CB http moved to src
                     'inc/helper/common/lib.http.php',
+                    // Core
+                    'inc/core/class.dc.sql.statement.php',
                 ],
                 // Folders
                 [

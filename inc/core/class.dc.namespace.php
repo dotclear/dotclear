@@ -8,6 +8,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
+
 class dcNamespace
 {
     // Constants
@@ -117,7 +122,7 @@ class dcNamespace
     private function getSettings(?dcRecord $rs = null)
     {
         if ($rs === null) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->columns([
                     'blog_id',
@@ -357,7 +362,7 @@ class dcNamespace
         }
 
         if ($this->settingExists($name, $global) && $this->namespace == $this->settings[$name]['ns']) {
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
 
             if ($global) {
                 $sql->where('blog_id IS NULL');
@@ -407,7 +412,7 @@ class dcNamespace
         unset($this->settings[$old_name]);
 
         // Rename the setting in the database
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->ref($this->table)
             ->set('setting_id = ' . $sql->quote($new_name))
@@ -432,7 +437,7 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 
@@ -463,7 +468,7 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 
@@ -490,7 +495,7 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->table);
 

@@ -11,6 +11,10 @@
  * Dotclear blog class instance is provided by dcCore $blog property.
  */
 
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -366,7 +370,7 @@ class dcBlog
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('blog_id = ' . $sql->quote($this->id));
 
         $sql->update($cur);
@@ -401,7 +405,7 @@ class dcBlog
 
         // Get posts affected by comments edition
         if (empty($affected_posts)) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column('post_id')
                 ->from($this->prefix . self::COMMENT_TABLE_NAME)
@@ -421,7 +425,7 @@ class dcBlog
         }
 
         // Count number of comments if exists for affected posts
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'post_id',
@@ -460,7 +464,7 @@ class dcBlog
                 $cur->nb_comment   = empty($posts[$post_id]['comment']) ? 0 : $posts[$post_id]['comment'];
             }
 
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
             $sql->where('post_id = ' . $sql->quote($post_id));
 
             $sql->update($cur);
@@ -678,7 +682,7 @@ class dcBlog
      */
     private function getCategoriesCounter($params = []): array
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'C.cat_id',
@@ -686,7 +690,7 @@ class dcBlog
             ])
             ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                     ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
                     ->on('C.cat_id = P.cat_id')
                     ->and('P.blog_id = ' . $sql->quote($this->id))
@@ -805,7 +809,7 @@ class dcBlog
         # --BEHAVIOR-- coreBeforeCategoryUpdate
         dcCore::app()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->where('cat_id = ' . (int) $id)
             ->and('blog_id = ' . $sql->quote($this->id));
@@ -871,7 +875,7 @@ class dcBlog
             throw new Exception(__('You are not allowed to delete categories'));
         }
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->column($sql->count('post_id', 'nb_post'))
             ->from($this->prefix . self::POST_TABLE_NAME)
@@ -914,7 +918,7 @@ class dcBlog
     private function checkCategory(string $url, ?int $id = null): string
     {
         # Let's check if URL is taken...
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->column('cat_url')
             ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
@@ -928,7 +932,7 @@ class dcBlog
         $rs = $sql->select();
 
         if (!$rs->isEmpty()) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column('cat_url')
                 ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
@@ -1044,17 +1048,17 @@ class dcBlog
      *
      * @param    array|ArrayObject  $params        Parameters
      * @param    bool               $count_only    Only counts results
-     * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
+     * @param    SelectStatement  $ext_sql       Optional SelectStatement instance
      *
      * @return   dcRecord    A record with some more capabilities
      */
-    public function getPosts($params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): dcRecord
+    public function getPosts($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): dcRecord
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
         dcCore::app()->callBehavior('coreBlogBeforeGetPosts', $params);
 
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
+        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('P.post_id')));
@@ -1110,14 +1114,14 @@ class dcBlog
         $sql
             ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'), false, true)
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                     ->inner()
                     ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
                     ->on('U.user_id = P.user_id')
                     ->statement()
             )
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                     ->left()
                     ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
@@ -1268,7 +1272,7 @@ class dcBlog
         }
 
         if (isset($params['media'])) {
-            $sqlExists = new dcSelectStatement();
+            $sqlExists = new SelectStatement();
             $sqlExists
                 ->from($sql->as($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME, 'M'))
                 ->column('M.post_id')
@@ -1384,7 +1388,7 @@ class dcBlog
      */
     public function getLangs($params = []): dcRecord
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 $sql->count('post_id', 'nb_post'),
@@ -1467,7 +1471,7 @@ class dcBlog
         $dt_f  .= ' 00:00:00';
         $dt_fc .= '000000';
 
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->distinct()
             ->columns([
@@ -1476,7 +1480,7 @@ class dcBlog
             ])
             ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                     ->left()
                     ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
@@ -1582,7 +1586,7 @@ class dcBlog
 
         try {
             # Get ID
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column($sql->max('post_id'))
                 ->from($this->prefix . self::POST_TABLE_NAME);
@@ -1674,7 +1678,7 @@ class dcBlog
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column('post_id')
                 ->from($this->prefix . self::POST_TABLE_NAME)
@@ -1730,7 +1734,7 @@ class dcBlog
         $posts_ids = dcUtils::cleanIds($ids);
         $status    = (int) $status;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('post_id' . $sql->in($posts_ids));
@@ -1784,7 +1788,7 @@ class dcBlog
         $posts_ids = dcUtils::cleanIds($ids);
         $selected  = (bool) $selected;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('post_id' . $sql->in($posts_ids));
@@ -1836,7 +1840,7 @@ class dcBlog
         $posts_ids = dcUtils::cleanIds($ids);
         $cat_id    = (int) $cat_id;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('post_id' . $sql->in($posts_ids));
@@ -1877,7 +1881,7 @@ class dcBlog
         $old_cat_id = (int) $old_cat_id;
         $new_cat_id = (int) $new_cat_id;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('cat_id = ' . (int) $old_cat_id);
@@ -1923,7 +1927,7 @@ class dcBlog
             throw new Exception(__('No such entry ID'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($this->id))
@@ -1945,7 +1949,7 @@ class dcBlog
      */
     public function publishScheduledEntries(): void
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'post_id',
@@ -1981,7 +1985,7 @@ class dcBlog
             # --BEHAVIOR-- coreBeforeScheduledEntriesPublish
             dcCore::app()->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
                 ->set('post_status = ' . (string) self::POST_PUBLISHED)
@@ -2017,7 +2021,7 @@ class dcBlog
         }
 
         if (count($to_change)) {
-            $sql = new dcUpdateStatement();
+            $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
                 ->set('post_firstpub = 1')
@@ -2040,7 +2044,7 @@ class dcBlog
      */
     public function getPostsUsers(string $post_type = 'post'): dcRecord
     {
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->columns([
                 'P.user_id',
@@ -2102,7 +2106,7 @@ class dcBlog
         }
 
         if (!empty($sub)) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->columns([
                     'cat_id',
@@ -2332,7 +2336,7 @@ class dcBlog
         }
 
         # Let's check if URL is taken...
-        $sql = new dcSelectStatement();
+        $sql = new SelectStatement();
         $sql
             ->column('post_url')
             ->from($this->prefix . self::POST_TABLE_NAME)
@@ -2344,7 +2348,7 @@ class dcBlog
         $rs = $sql->select();
 
         if (!$rs->isEmpty()) {
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column('post_url')
                 ->from($this->prefix . self::POST_TABLE_NAME)
@@ -2406,13 +2410,13 @@ class dcBlog
      *
      * @param    array|ArrayObject  $params        Parameters
      * @param    bool               $count_only    Only counts results
-     * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
+     * @param    SelectStatement    $ext_sql       Optional SelectStatement instance
      *
      * @return   dcRecord    A record with some more capabilities
      */
-    public function getComments($params = [], bool $count_only = false, ?dcSelectStatement $ext_sql = null): dcRecord
+    public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): dcRecord
     {
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement();
+        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count('comment_id'));
@@ -2453,14 +2457,14 @@ class dcBlog
         $sql
             ->from($sql->as($this->prefix . self::COMMENT_TABLE_NAME, 'C'))
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                     ->inner()
                     ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
                     ->on('C.post_id = P.post_id')
                     ->statement()
             )
             ->join(
-                (new dcJoinStatement())
+                (new JoinStatement())
                     ->inner()
                     ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
                     ->on('P.user_id = U.user_id')
@@ -2610,7 +2614,7 @@ class dcBlog
 
         try {
             # Get ID
-            $sql = new dcSelectStatement();
+            $sql = new SelectStatement();
             $sql
                 ->column($sql->max('comment_id'))
                 ->from($this->prefix . self::COMMENT_TABLE_NAME);
@@ -2704,7 +2708,7 @@ class dcBlog
         # --BEHAVIOR-- coreBeforeCommentUpdate
         dcCore::app()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql->where('comment_id = ' . $id);
 
         $sql->update($cur);
@@ -2747,13 +2751,13 @@ class dcBlog
         $co_ids = dcUtils::cleanIds($ids);
         $status = (int) $status;
 
-        $sql = new dcUpdateStatement();
+        $sql = new UpdateStatement();
         $sql
             ->ref($this->prefix . self::COMMENT_TABLE_NAME)
             ->set('comment_status = ' . $status)
             ->where('comment_id' . $sql->in($co_ids));
 
-        $sqlIn = new dcSelectStatement();
+        $sqlIn = new SelectStatement();
         $sqlIn
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
@@ -2805,7 +2809,7 @@ class dcBlog
 
         # Retrieve posts affected by comments edition
         $affected_posts = [];
-        $sql            = new dcSelectStatement();
+        $sql            = new SelectStatement();
         $sql
             ->column('post_id')
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
@@ -2817,12 +2821,12 @@ class dcBlog
             $affected_posts[] = (int) $rs->post_id;
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
             ->where('comment_id' . $sql->in($co_ids));
 
-        $sqlIn = new dcSelectStatement();
+        $sqlIn = new SelectStatement();
         $sqlIn
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
@@ -2854,12 +2858,12 @@ class dcBlog
             throw new Exception(__('You are not allowed to delete comments'));
         }
 
-        $sql = new dcDeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
             ->where('comment_status = ' . (string) self::COMMENT_JUNK);
 
-        $sqlIn = new dcSelectStatement();
+        $sqlIn = new SelectStatement();
         $sqlIn
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
@@ -2924,7 +2928,7 @@ class dcBlog
      */
     public function checkSleepmodeTimeout(bool $apply = true): bool
     {
-        $sql  = new dcSelectStatement();
+        $sql  = new SelectStatement();
         $last = $sql
             ->column('post_upddt')
             ->from($this->prefix . self::POST_TABLE_NAME)

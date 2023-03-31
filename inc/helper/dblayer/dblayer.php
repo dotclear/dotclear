@@ -581,7 +581,7 @@ class dbLayer
     public function dateFormat(string $field, string $pattern): string
     {
         return
-        'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "') ";
+        'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";
     }
 
     /**
@@ -641,7 +641,7 @@ class dbLayer
             return ' IN (' . implode(',', $in) . ') ';
         }
 
-        return ' IN ( ' . (int) $in . ') ';
+        return ' IN (' . (int) $in . ') ';
     }
 
     /**
