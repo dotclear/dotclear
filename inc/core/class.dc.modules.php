@@ -347,11 +347,17 @@ class dcModules
 
     /**
      * Should run in safe mode?
+     * 
+     * @param      null|bool   $mode   Mode, null to read current mode
      *
      * @return     bool
      */
-    public function safeMode(): bool
+    public function safeMode(?bool $mode = null): bool
     {
+        if (is_bool($mode)) {
+            $this->safe_mode = $mode;
+        }
+
         return $this->safe_mode;
     }
 
@@ -727,7 +733,7 @@ class dcModules
 
                 $sandbox = clone $modules;
                 // Force normal mode
-                $sandbox->safe_mode = false;
+                $sandbox->safeMode(false);
 
                 if ($zip->hasFile($init)) {
                     $zip->unzip($init, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
@@ -762,7 +768,7 @@ class dcModules
             //
             $sandbox = clone $modules;
             // Force normal mode
-            $sandbox->safe_mode = false;
+            $sandbox->safeMode(false);
 
             if ($zip->hasFile($init)) {
                 $zip->unzip($init, $target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
