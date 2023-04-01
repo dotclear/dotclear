@@ -126,20 +126,20 @@ class adminPlugins
             '</form>';
 
             // Updated modules from repo
-            $modules = dcCore::app()->admin->list->store->get(true);
-            if (!empty($modules)) {
+            $defines = dcCore::app()->admin->list->store->getDefines(true);
+            if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
                 '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>' .
                 '<p>' . sprintf(
-                    __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', is_countable($modules) ? count($modules) : 0),
-                    is_countable($modules) ? count($modules) : 0
+                    __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', count($defines)),
+                    count($defines)
                 ) . '</p>';
 
                 dcCore::app()->admin->list
                     ->setList('plugin-update')
                     ->setTab('update')
-                    ->setModules($modules)
+                    ->setDefines($defines)
                     ->displayModules(
                         /* cols */
                         ['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
@@ -162,8 +162,10 @@ class adminPlugins
         '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
 
         # Activated modules
-        $modules = dcCore::app()->admin->list->modules->getModules();
-        if (!empty($modules)) {
+        $defines = dcCore::app()->admin->list->modules->getDefines(
+            ['state' => dcCore::app()->admin->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+        );
+        if (!empty($defines)) {
             echo
             '<h3>' .
             (dcCore::app()->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
@@ -174,7 +176,7 @@ class adminPlugins
             dcCore::app()->admin->list
                 ->setList('plugin-activate')
                 ->setTab('plugins')
-                ->setModules($modules)
+                ->setDefines($defines)
                 ->displayModules(
                     /* cols */
                     ['expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'],
@@ -185,8 +187,8 @@ class adminPlugins
 
         # Deactivated modules
         if (dcCore::app()->auth->isSuperAdmin()) {
-            $modules = dcCore::app()->admin->list->modules->getHardDisabledModules();
-            if (!empty($modules)) {
+            $defines = dcCore::app()->admin->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+            if (!empty($defines)) {
                 echo
                 '<h3>' . __('Deactivated plugins') . '</h3>' .
                 '<p class="more-info">' . __('Deactivated plugins are installed but not usable. You can activate them from here.') . '</p>';
@@ -194,7 +196,7 @@ class adminPlugins
                 dcCore::app()->admin->list
                     ->setList('plugin-deactivate')
                     ->setTab('plugins')
-                    ->setModules($modules)
+                    ->setDefines($defines)
                     ->displayModules(
                         /* cols */
                         ['expander', 'icon', 'name', 'version', 'desc', 'distrib'],
@@ -210,9 +212,9 @@ class adminPlugins
         if (dcCore::app()->auth->isSuperAdmin() && dcCore::app()->admin->list->isWritablePath()) {
             # New modules from repo
             $search  = dcCore::app()->admin->list->getSearch();
-            $modules = $search ? dcCore::app()->admin->list->store->search($search) : dcCore::app()->admin->list->store->get();
+            $defines = $search ? dcCore::app()->admin->list->store->searchDefines($search) : dcCore::app()->admin->list->store->getDefines();
 
-            if (!empty($search) || !empty($modules)) {
+            if (!empty($search) || !empty($defines)) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add plugins') . '">' .
                 '<h3>' . __('Add plugins from repository') . '</h3>';
@@ -220,7 +222,7 @@ class adminPlugins
                 dcCore::app()->admin->list
                     ->setList('plugin-new')
                     ->setTab('new')
-                    ->setModules($modules)
+                    ->setDefines($defines)
                     ->displaySearch()
                     ->displayIndex()
                     ->displayModules(

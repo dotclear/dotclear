@@ -62,9 +62,9 @@ class dcProxyV2AdminBehaviors
     {
         return dcCore::app()->callBehavior('adminCommentsSpamForm', dcCore::app());
     }
-    public static function adminCurrentThemeDetails($id, $module)
+    public static function adminCurrentThemeDetails($id, $define)
     {
-        return dcCore::app()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $module);
+        return dcCore::app()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $define->dump());
     }
     public static function adminDashboardContents($__dashboard_contents)
     {
@@ -97,6 +97,10 @@ class dcProxyV2AdminBehaviors
     public static function adminMediaFilter($filters)
     {
         return dcCore::app()->callBehavior('adminMediaFilter', dcCore::app(), $filters);
+    }
+    public static function adminModulesListGetActions($list, $define)
+    {
+        return dcCore::app()->callBehavior('adminModulesListGetActions', $list, $define->getId(), $define->dump());
     }
     public static function adminPageFooter($text)
     {

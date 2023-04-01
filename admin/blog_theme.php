@@ -168,20 +168,20 @@ class adminBlogTheme
                 ->render();
 
             // Updated themes from repo
-            $modules = dcCore::app()->admin->list->store->get(true);
-            if (!empty($modules)) {
+            $defines = dcCore::app()->admin->list->store->getDefines(true);
+            if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
                 '<h3>' . Html::escapeHTML(__('Update themes')) . '</h3>' .
                 '<p>' . sprintf(
-                    __('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', is_countable($modules) ? count($modules) : 0),
-                    is_countable($modules) ? count($modules) : 0
+                    __('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', count($defines)),
+                    count($defines)
                 ) . '</p>';
 
                 dcCore::app()->admin->list
                     ->setList('theme-update')
                     ->setTab('themes')
-                    ->setModules($modules)
+                    ->setDefines($defines)
                     ->displayModules(
                         // cols
                         ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
@@ -200,8 +200,10 @@ class adminBlogTheme
         }
 
         // Activated themes
-        $modules = dcCore::app()->admin->list->modules->getModules();
-        if (!empty($modules)) {
+        $defines = dcCore::app()->admin->list->modules->getDefines(
+            ['state' => dcCore::app()->admin->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+        );
+        if (!empty($defines)) {
             echo
             '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
             '<h3>' .
@@ -213,7 +215,7 @@ class adminBlogTheme
             dcCore::app()->admin->list
                 ->setList('theme-activate')
                 ->setTab('themes')
-                ->setModules($modules)
+                ->setDefines($defines)
                 ->displayModules(
                     // cols
                     ['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'],
@@ -226,8 +228,8 @@ class adminBlogTheme
         }
 
         // Deactivated modules
-        $modules = dcCore::app()->admin->list->modules->getHardDisabledModules();
-        if (!empty($modules)) {
+        $defines = dcCore::app()->admin->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+        if (!empty($defines)) {
             echo
             '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .
             '<h3>' . __('Deactivated themes') . '</h3>' .
@@ -236,7 +238,7 @@ class adminBlogTheme
             dcCore::app()->admin->list
                 ->setList('theme-deactivate')
                 ->setTab('themes')
-                ->setModules($modules)
+                ->setDefines($defines)
                 ->displayModules(
                     // cols
                     ['sshot', 'name', 'distrib', 'desc', 'author', 'version'],
@@ -251,9 +253,9 @@ class adminBlogTheme
         if (dcCore::app()->auth->isSuperAdmin() && dcCore::app()->admin->list->isWritablePath()) {
             // New modules from repo
             $search  = dcCore::app()->admin->list->getSearch();
-            $modules = $search ? dcCore::app()->admin->list->store->search($search) : dcCore::app()->admin->list->store->get();
+            $defines = $search ? dcCore::app()->admin->list->store->searchDefines($search) : dcCore::app()->admin->list->store->getDefines();
 
-            if (!empty($search) || !empty($modules)) {
+            if (!empty($search) || !empty($defines)) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add themes') . '">' .
                 '<h3>' . __('Add themes from repository') . '</h3>';
@@ -261,7 +263,7 @@ class adminBlogTheme
                 dcCore::app()->admin->list
                     ->setList('theme-new')
                     ->setTab('new')
-                    ->setModules($modules)
+                    ->setDefines($defines)
                     ->displaySearch()
                     ->displayIndex()
                     ->displayModules(
