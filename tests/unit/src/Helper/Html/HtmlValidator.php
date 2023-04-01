@@ -1,34 +1,32 @@
 <?php
+/**
+ * Unit tests
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
+namespace tests\unit\Dotclear\Helper\Html;
 
-namespace tests\unit;
-
-require_once __DIR__ . '/../../../bootstrap.php';
-
-require_once CLEARBRICKS_PATH . '/net/class.net.socket.php';
-require_once CLEARBRICKS_PATH . '/net.http/class.net.http.php';
-require_once CLEARBRICKS_PATH . '/html.validator/class.html.validator.php';
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
 
 use atoum;
 
+require_once CLEARBRICKS_PATH . '/net/class.net.socket.php';
+require_once CLEARBRICKS_PATH . '/net.http/class.net.http.php';
+
 /**
- * html.validator test.
+ * @tags HtmlValidator
  */
-class htmlValidator extends atoum
+class HtmlValidator extends atoum
 {
     public function testNetworkError()
     {
-        $mockValidator = new \mock\htmlValidator();
+        $mockValidator = new \mock\Dotclear\Helper\Html\HtmlValidator();
+
         // Always return service unavailable HTTP status code
         $this->calling($mockValidator)->getStatus = 500;
 
@@ -36,14 +34,14 @@ class htmlValidator extends atoum
 
         $this
             ->exception(function () use ($mockValidator, $doc) {
-                $result = $mockValidator->perform($doc);
+                $mockValidator->perform($doc);
             })
             ->hasMessage('Status code line invalid.');
     }
 
     public function testGetDocument()
     {
-        $validator = new \htmlValidator();
+        $validator = new \Dotclear\Helper\Html\HtmlValidator();
         $str       = <<<EODTIDY
             <p>Hello</p>
             EODTIDY;
@@ -66,7 +64,7 @@ class htmlValidator extends atoum
 
     public function testGetErrors()
     {
-        $validator = new \htmlValidator();
+        $validator = new \Dotclear\Helper\Html\HtmlValidator();
         $str       = <<<EODTIDYE
             <p>Hello</b>
             EODTIDYE;
@@ -90,11 +88,11 @@ class htmlValidator extends atoum
     public function testValidate()
     {
         $this
-            ->variable(\htmlValidator::validate('<p>Hello</p>'))
+            ->variable(\Dotclear\Helper\Html\HtmlValidator::validate('<p>Hello</p>'))
             ->isEqualTo(true);
 
         $this
-            ->array(\htmlValidator::validate('<p>Hello</b>'))
+            ->array(\Dotclear\Helper\Html\HtmlValidator::validate('<p>Hello</b>'))
             ->hasSize(2)
             ->boolean['valid']->isEqualTo(false);
     }

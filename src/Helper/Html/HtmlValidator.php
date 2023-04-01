@@ -1,17 +1,24 @@
 <?php
 /**
- * @class htmlValidator
- * @brief HTML Validator
+ * @class HtmlValidator
+ *
+ * HTML Validator
  *
  * This class will perform an HTML validation upon WDG validator.
  *
- * @package Clearbricks
- * @subpackage HTML
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class htmlValidator extends netHttp
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Html;
+
+use Exception;
+use netHttp;
+
+class HtmlValidator extends netHttp
 {
     /**
      * Validator host

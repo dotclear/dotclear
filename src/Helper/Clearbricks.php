@@ -78,9 +78,6 @@ class Clearbricks
             'feedParser' => $old_helper_root . '/net.http.feed/class.feed.parser.php',
             'feedReader' => $old_helper_root . '/net.http.feed/class.feed.reader.php',
 
-            // HTML Validator
-            'htmlValidator' => $old_helper_root . '/html.validator/class.html.validator.php',
-
             // Image Manipulation Tools
             'imageMeta'  => $old_helper_root . '/image/class.image.meta.php',
             'imageTools' => $old_helper_root . '/image/class.image.tools.php',

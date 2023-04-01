@@ -1348,6 +1348,8 @@ class dcUpgrade
                     'inc/helper/rest',
                     // CB htmlFilter moved to src
                     'inc/helper/html.filter',
+                    // CB htmlValidator moved to src
+                    'inc/helper/html.validator',
                     // CB wiki2xhtml moved to src
                     'inc/helper/text.wiki2xhtml',
                     // CB template moved to src

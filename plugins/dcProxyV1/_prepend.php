@@ -106,6 +106,9 @@ dcProxyV1::classAliases([
     'tplNodeBlockDefinition' => 'Dotclear\Helper\Html\Template\TplNodeBlockDefinition',
     'tplNodeValueParent'     => 'Dotclear\Helper\Html\Template\TplNodeValueParent',
 
+    // HTML Validation
+    'htmlValidator' => 'Dotclear\Helper\Html\HtmlValidator',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',

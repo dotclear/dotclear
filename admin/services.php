@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\HtmlValidator;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
 
@@ -397,7 +398,7 @@ class dcRestMethods
 
         $rsp = new XmlTag('result');
 
-        $v = htmlValidator::validate($excerpt_xhtml . $content_xhtml);
+        $v = HtmlValidator::validate($excerpt_xhtml . $content_xhtml);
 
         $rsp->valid($v['valid']);
         $rsp->errors($v['errors']);
