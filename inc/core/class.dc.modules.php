@@ -784,16 +784,14 @@ class dcModules
 
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
-            $new_modules = $sandbox->getModules();
+            $new_defines = $sandbox->getDefines();
 
-            if (!empty($new_modules)) {
+            if (count($new_defines) == 1) {
                 // Check if module is disabled
                 $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
 
-                $tmp        = array_keys($new_modules);
-                $id         = $tmp[0];
-                $cur_module = $modules->getAnyModules($id);
-                if (!empty($cur_module) && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_modules[$id]['version'], $cur_module['version'], '>', true))) {
+                $cur_define = $modules->getDefines($new_defines[0]->getId());
+                if ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
