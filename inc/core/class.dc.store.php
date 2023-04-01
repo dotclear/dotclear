@@ -170,7 +170,7 @@ class dcStore
         }
         foreach ($this->defines['update'] as $define) {
             // keep only higher vesion
-            if (!isset($this->data['update'][$p_id]) || dcUtils::versionsCompare($define->get('version'), $this->data['update'][$p_id]['version'], '>')) {
+            if (!isset($this->data['update'][$define->getId()]) || dcUtils::versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')) {
                 $this->data['update'][$define->getId()] = $define->dump();
             }
         }
@@ -227,7 +227,6 @@ class dcStore
         # For each modules
         $defines = [];
         foreach ($this->defines['new'] as $define) {
-  
             # Loop through required module fields
             foreach (self::$weighting as $field => $weight) {
                 # Skip fields which not exsist on module
@@ -271,7 +270,7 @@ class dcStore
     public function search(string $pattern): array
     {
         $result = [];
-        foreach($this->searchDefines($pattern) as $define) {
+        foreach ($this->searchDefines($pattern) as $define) {
             $result[$define->getId()] = $define->dump();
         }
 
