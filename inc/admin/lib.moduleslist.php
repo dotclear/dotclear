@@ -63,11 +63,11 @@ class adminModulesList
     protected $defines = [];
 
     /**
-     * Module to configure
+     * Module define to configure
      *
-     * @var        array
+     * @var        dcModuleDefine
      */
-    protected $config_module = [];
+    protected $config_define;
     /**
      * Module class to configure
      *
@@ -625,23 +625,19 @@ class adminModulesList
      * be used in lists.
      *
      * @param      dcModuleDefine   $define The module definition
-     * @param      string           $id      The identifier
      * @param      array            $module  The module
-     *
-     * @return   array  Array of the module informations
      */
-    private static function fillSanitizeModule(dcModuleDefine $define, array $module = []): array
+    private static function fillSanitizeModule(dcModuleDefine $define, array $module = []): void
     {
         foreach ($module as $k => $v) {
             $define->set($k, $v);
         }
 
-        return $define
+        $define
             ->set('sid', self::sanitizeString($define->getId()))
             ->set('label', empty($define->get('label')) ? $define->getId() : $define->get('label'))
             ->set('name', __(empty($define->get('name')) ? $define->label : $define->get('name')))
-            ->set('sname', self::sanitizeString($define->get('name')))
-            ->dump();
+            ->set('sname', self::sanitizeString($define->get('name')));
     }
 
     /**
@@ -661,8 +657,9 @@ class adminModulesList
     public static function sanitizeModule(string $id, array $module): array
     {
         $define = new dcModuleDefine($id);
+        self::fillSanitizeModule($define, $module);
 
-        return self::fillSanitizeModule($define, $module);
+        return $define->dump();
     }
 
     /**
@@ -680,8 +677,9 @@ class adminModulesList
     public function doSanitizeModule(string $id, array $module): array
     {
         $define = $this->modules->getDefine($id);
+        self::fillSanitizeModule($define, $module);
 
-        return self::fillSanitizeModule($define, $module);
+        return $define->dump();
     }
 
     /**
@@ -1637,17 +1635,17 @@ class adminModulesList
             $id = $_REQUEST['module'];
         }
 
-        if (!$this->modules->moduleExists($id)) {
+        $define = $this->modules->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        if (!$define->isDefined()) {
             dcCore::app()->error->add(__('Unknown plugin ID'));
 
             return false;
         }
 
-        $module = $this->modules->getModules($id);
-        $module = $this->doSanitizeModule($id, $module);
-        $class  = $module['namespace'] . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
-        $class  = empty($module['namespace']) || !class_exists($class) ? '' : $class;
-        $file   = Path::real($module['root'] . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+        self::fillSanitizeModule($define);
+        $class = $define->get('namespace') . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
+        $class = empty($define->get('namespace')) || !class_exists($class) ? '' : $class;
+        $file  = Path::real($define->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
 
         if (empty($class) && !file_exists($file)) {
             dcCore::app()->error->add(__('This plugin has no configuration file.'));
@@ -1663,7 +1661,7 @@ class adminModulesList
             return false;
         }
 
-        $this->config_module  = $module;
+        $this->config_define  = $define;
         $this->config_class   = $class;
         $this->config_file    = $file;
         $this->config_content = '';
@@ -1727,20 +1725,20 @@ class adminModulesList
      */
     public function displayConfiguration(): adminModulesList
     {
-        if (!empty($this->config_class) || !empty($this->config_file)) {
-            if (!$this->config_module['standalone_config']) {
+        if (($this->config_define instanceof dcModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
+            if (!$this->config_define->get('standalone_config')) {
                 echo
                 '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">' .
-                '<h3>' . sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_module['name'])) . '</h3>' .
+                '<h3>' . sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_define->get('name'))) . '</h3>' .
                 '<p><a class="back" href="' . $this->getRedir() . '">' . __('Back') . '</a></p>';
             }
 
             echo $this->config_content;
 
-            if (!$this->config_module['standalone_config']) {
+            if (!$this->config_define->get('standalone_config')) {
                 echo
                 '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '" />' .
-                form::hidden('module', $this->config_module['id']) .
+                form::hidden('module', $this->config_define->getId()) .
                 form::hidden('redir', $this->getRedir()) .
                 dcCore::app()->formNonce() . '</p>' .
                     '</form>';
