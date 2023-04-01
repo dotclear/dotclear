@@ -17,7 +17,7 @@ class dcStoreParser
     /**
      * XML object of feed contents
      *
-     * @var    object
+     * @var    false|SimpleXMLElement
      */
     protected $xml;
 
@@ -26,7 +26,14 @@ class dcStoreParser
      *
      * @var    array
      */
-    protected $items;
+    protected $items = [];
+
+    /**
+     * Array of Define instances of feed contents
+     *
+     * @var    array
+     */
+    protected $defines = [];
 
     /**
      * XML bloc tag
@@ -42,12 +49,7 @@ class dcStoreParser
      */
     public function __construct(string $data)
     {
-        if (!is_string($data)) {
-            throw new Exception(__('Failed to read data feed'));
-        }
-
-        $this->xml   = simplexml_load_string($data);
-        $this->items = [];
+        $this->xml = simplexml_load_string($data);
 
         if ($this->xml === false) {
             throw new Exception(__('Wrong data feed'));
@@ -55,7 +57,8 @@ class dcStoreParser
 
         $this->_parse();
 
-        unset($data, $this->xml);
+        $this->xml = false;
+        unset($data);
     }
 
     /**
@@ -69,36 +72,48 @@ class dcStoreParser
 
         foreach ($this->xml->module as $i) {
             $attrs = $i->attributes();
+            if (!isset($attrs['id'])) {
+                continue;
+            }
 
-            $item = [];
+            $define = new dcModuleDefine((string) $attrs['id']);
 
             # DC/DA shared markers
-            $item['id']      = (string) $attrs['id'];
-            $item['file']    = (string) $i->file;
-            $item['label']   = (string) $i->name; // deprecated
-            $item['name']    = (string) $i->name;
-            $item['version'] = (string) $i->version;
-            $item['author']  = (string) $i->author;
-            $item['desc']    = (string) $i->desc;
+            $define->set('file', (string) $i->file);
+            $define->set('label', (string) $i->name); // deprecated
+            $define->set('name', (string) $i->name);
+            $define->set('version', (string) $i->version);
+            $define->set('author', (string) $i->author);
+            $define->set('desc', (string) $i->desc);
 
             # DA specific markers
-            $item['dc_min']  = (string) $i->children(self::$bloc)->dcmin;
-            $item['details'] = (string) $i->children(self::$bloc)->details;
-            $item['section'] = (string) $i->children(self::$bloc)->section;
-            $item['support'] = (string) $i->children(self::$bloc)->support;
-            $item['sshot']   = (string) $i->children(self::$bloc)->sshot;
+            $define->set('dc_min', (string) $i->children(self::$bloc)->dcmin);
+            $define->set('details',(string) $i->children(self::$bloc)->details);
+            $define->set('section', (string) $i->children(self::$bloc)->section);
+            $define->set('support', (string) $i->children(self::$bloc)->support);
+            $define->set('sshot', (string) $i->children(self::$bloc)->sshot);
 
             $tags = [];
             foreach ($i->children(self::$bloc)->tags as $t) {
                 $tags[] = (string) $t->tag;
             }
-            $item['tags'] = implode(', ', $tags);
+            $define->set('tags', implode(', ', $tags));
 
             # First filter right now. If DC_DEV is set all modules are parse
-            if (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare(DC_VERSION, $item['dc_min'], '>=', false)) {
-                $this->items[$item['id']] = $item;
+            if (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare(DC_VERSION, $define->get('dc_min'), '>=', false)) {
+                $this->defines[] = $define;
             }
         }
+    }
+
+    /**
+     * Get modules Defines.
+     *
+     * @return    array        Modules Define list
+     */
+    public function getDefines(): array
+    {
+        return $this->defines;
     }
 
     /**
@@ -108,6 +123,13 @@ class dcStoreParser
      */
     public function getModules(): array
     {
+        // fill property once on demand
+        if (empty($this->items) && !empty($this->defines)) {
+            foreach ($this->defines as $define) {
+                $this->items[$define->getId()] = $define->dump();
+            }
+        }
+
         return $this->items;
     }
 }
