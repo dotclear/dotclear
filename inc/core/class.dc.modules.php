@@ -1016,6 +1016,8 @@ class dcModules
 
     /**
      * Returns all modules associative array or only one module if <var>$id</var> is present.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @param      string  $id     The optionnal module identifier
      *
@@ -1030,6 +1032,8 @@ class dcModules
 
     /**
      * Gets all modules (whatever are their statuses) or only one module if <var>$id</var> is present.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @param      string  $id     The optionnal module identifier
      *
@@ -1044,6 +1048,8 @@ class dcModules
 
     /**
      * Determines if module exists.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @param      string  $id     The module identifier
      *
@@ -1056,6 +1062,8 @@ class dcModules
 
     /**
      * Gets the disabled modules.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @return     array  The disabled modules.
      */
@@ -1066,6 +1074,8 @@ class dcModules
 
     /**
      * Gets the hard disabled modules.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @return     array  The hard disabled modules.
      */
@@ -1076,6 +1086,8 @@ class dcModules
 
     /**
      * Gets the soft disabled modules (safe mode and not hard disabled).
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @return     array  The soft disabled modules.
      */

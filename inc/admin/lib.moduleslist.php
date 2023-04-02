@@ -627,7 +627,7 @@ class adminModulesList
      * @param      dcModuleDefine   $define The module definition
      * @param      array            $module  The module
      */
-    private static function fillSanitizeModule(dcModuleDefine $define, array $module = []): void
+    public static function fillSanitizeModule(dcModuleDefine $define, array $module = []): void
     {
         foreach ($module as $k => $v) {
             $define->set($k, $v);
@@ -648,6 +648,8 @@ class adminModulesList
      * be used in lists.
      *
      * Warning: this static method will not fill module dependencies
+     * 
+     * @deprecated since 2.26 Use self::fillSanitizeModule()
      *
      * @param      string  $id      The identifier
      * @param      array   $module  The module
@@ -668,6 +670,8 @@ class adminModulesList
      * This clean infos of a module by adding default keys
      * and clean some of them, sanitize module can safely
      * be used in lists.
+     * 
+     * @deprecated since 2.26 Use self::fillSanitizeModule()
      *
      * @param      string  $id      The identifier
      * @param      array   $module  The module

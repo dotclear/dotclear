@@ -159,8 +159,8 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             throw new Exception('Blog does not exist.');
         }
 
-        foreach (array_keys(dcCore::app()->plugins->getModules()) as $id) {
-            dcCore::app()->plugins->loadNsFile($id, 'xmlrpc');
+        foreach (dcCore::app()->plugins->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
+            dcCore::app()->plugins->loadNsFile($define->getId(), 'xmlrpc');
         }
 
         return true;

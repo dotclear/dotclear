@@ -70,8 +70,8 @@ class l10nFaker
 
         $plugin .= "\n// Plugin names\n\n";
         foreach ($this->bundled_plugins as $id) {
-            $p = dcCore::app()->plugins->getModules($id);
-            $plugin .= $this->fake_l10n($p['desc']);
+            $define = dcCore::app()->plugins->getDefine($id);
+            $plugin .= $this->fake_l10n($define->get('desc'));
         }
 
         $plugin .= "\n// Widget settings names\n\n";
