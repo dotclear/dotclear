@@ -62,9 +62,9 @@ class dcProxyV2AdminBehaviors
     {
         return dcCore::app()->callBehavior('adminCommentsSpamForm', dcCore::app());
     }
-    public static function adminCurrentThemeDetails($id, $module)
+    public static function adminCurrentThemeDetails($id, $define)
     {
-        return dcCore::app()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $module);
+        return dcCore::app()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $define->dump());
     }
     public static function adminDashboardContents($__dashboard_contents)
     {
@@ -97,6 +97,10 @@ class dcProxyV2AdminBehaviors
     public static function adminMediaFilter($filters)
     {
         return dcCore::app()->callBehavior('adminMediaFilter', dcCore::app(), $filters);
+    }
+    public static function adminModulesListGetActions($list, $define)
+    {
+        return dcCore::app()->callBehavior('adminModulesListGetActions', $list, $define->getId(), $define->dump());
     }
     public static function adminPageFooter($text)
     {
@@ -225,6 +229,38 @@ class dcProxyV2AdminBehaviors
     {
         return dcCore::app()->callBehavior('pluginsToolsTabs', dcCore::app());
     }
+    public static function pluginBeforeDelete($define)
+    {
+        return dcCore::app()->callBehavior('pluginBeforeDelete', $define->dump());
+    }
+    public static function pluginAfterDelete($define)
+    {
+        return dcCore::app()->callBehavior('pluginAfterDelete', $define->dump());
+    }
+    public static function pluginBeforeAdd($define)
+    {
+        return dcCore::app()->callBehavior('pluginBeforeAdd', $define->dump());
+    }
+    public static function pluginAfterAdd($define)
+    {
+        return dcCore::app()->callBehavior('pluginAfterAdd', $define->dump());
+    }
+    public static function pluginBeforeDeactivate($define)
+    {
+        return dcCore::app()->callBehavior('pluginBeforeDeactivate', $define->dump());
+    }
+    public static function pluginAfterDeactivate($define)
+    {
+        return dcCore::app()->callBehavior('pluginAfterDeactivate', $define->dump());
+    }
+    public static function pluginBeforeUpdate($define)
+    {
+        return dcCore::app()->callBehavior('pluginBeforeUpdate', $define->dump());
+    }
+    public static function pluginAfterUpdate($define)
+    {
+        return dcCore::app()->callBehavior('pluginAfterUpdate', $define->dump());
+    }
 
     public static function restCheckStoreUpdate($store, $mod, $url)
     {
@@ -238,5 +274,37 @@ class dcProxyV2AdminBehaviors
     public static function themesToolsTabs()
     {
         return dcCore::app()->callBehavior('themesToolsTabs', dcCore::app());
+    }
+    public static function themeBeforeDeactivate($define)
+    {
+        return dcCore::app()->callBehavior('themeBeforeDeactivate', $define->dump());
+    }
+    public static function themeAfterDeactivate($define)
+    {
+        return dcCore::app()->callBehavior('themeAfterDeactivate', $define->dump());
+    }
+    public static function themeBeforeDelete($define)
+    {
+        return dcCore::app()->callBehavior('themeBeforeDelete', $define->dump());
+    }
+    public static function themeAfterDelete($define)
+    {
+        return dcCore::app()->callBehavior('themeAfterDelete', $define->dump());
+    }
+    public static function themeBeforeAdd($define)
+    {
+        return dcCore::app()->callBehavior('themeBeforeAdd', $define->dump());
+    }
+    public static function themeAfterAdd($define)
+    {
+        return dcCore::app()->callBehavior('themeAfterAdd', $define->dump());
+    }
+    public static function themeBeforeUpdate($define)
+    {
+        return dcCore::app()->callBehavior('themeBeforeUpdate', $define->dump());
+    }
+    public static function themeAfterUpdate($define)
+    {
+        return dcCore::app()->callBehavior('themeAfterUpdate', $define->dump());
     }
 }

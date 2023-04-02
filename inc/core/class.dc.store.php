@@ -106,8 +106,9 @@ class dcStore
             return false;
         }
 
-        $new_defines = [];
-        $upd_defines = [];
+        $new_defines  = [];
+        $upd_defines  = [];
+        $upd_versions = [];
 
         // check update/new from main repository
         if ($str_parser !== false) {
@@ -120,6 +121,10 @@ class dcStore
                         $str_define->set('root', $cur_define->get('root'));
                         $str_define->set('root_writable', $cur_define->get('root_writable'));
                         $str_define->set('current_version', $cur_define->get('version'));
+
+                        // set memo for third party updates
+                        $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
+
                         $upd_defines[] = $str_define;
                     }
                 // it's new
@@ -141,12 +146,18 @@ class dcStore
 
                     foreach ($str_parser->getDefines() as $str_define) {
                         if ($str_define->getId() == $cur_define->getId() && dcUtils::versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
-                            //todo: maybe check if it's more recent than from offical repository
                             $str_define->set('repository', true);
                             $str_define->set('root', $cur_define->get('root'));
                             $str_define->set('root_writable', $cur_define->get('root_writable'));
                             $str_define->set('current_version', $cur_define->get('version'));
-                            $upd_defines[] = $str_define;
+
+                            // if no update from main repository, add third party update (or even if it's duplicate for DC_DEV mode)
+                            if (DC_DEV || !isset($upd_version[$str_define->getId()])) {
+                                $upd_defines[] = $str_define;
+                            // if update from third party repo is more recent than main repo, replace this last one
+                            } elseif (isset($upd_versions[$str_define->getId()]) && dcUtils::versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
+                                $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+                            }
                         }
                     }
                 } catch (Exception $e) {
