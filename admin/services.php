@@ -197,12 +197,12 @@ class dcRestMethods
         }
 
         $repo = new dcStore($mod, $url);
-        $upd  = $repo->get(true);
+        $upd  = $repo->getDefines(true);
         if (!empty($upd)) {
-            $ret = sprintf(__('An update is available', '%s updates are available.', is_countable($upd) ? count($upd) : 0), is_countable($upd) ? count($upd) : 0);   // @phpstan-ignore-line
+            $ret = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));   // @phpstan-ignore-line
 
             $rsp->check = true;
-            $rsp->nb    = is_countable($upd) ? count($upd) : 0; // @phpstan-ignore-line
+            $rsp->nb    = count($upd); // @phpstan-ignore-line
         }
 
         $rsp->ret = $ret;
@@ -697,14 +697,10 @@ class dcRestMethods
 
         $id     = $get['id'];
         $list   = $get['list'];
-        $module = [];
+        $define = new dcModuleDefine($id);
 
         if ($list == 'plugin-activate') {
-            $modules = dcCore::app()->plugins->getModules();
-            if (empty($modules) || !isset($modules[$id])) {
-                throw new Exception('Unknown module ID');
-            }
-            $module = $modules[$id];
+            $define = dcCore::app()->plugins->getDefine($id);
         } elseif ($list == 'plugin-new') {
             $store = new dcStore(
                 dcCore::app()->plugins,
@@ -712,24 +708,24 @@ class dcRestMethods
             );
             $store->check();
 
-            $modules = $store->get();
-            if (empty($modules) || !isset($modules[$id])) {
-                throw new Exception('Unknown module ID');
+            foreach($store->getDefines() as $str_define) {
+                if ($str_define->getId() != $id) {
+                    continue;
+                }
+                $define = $str_define;
             }
-            $module = $modules[$id];
         }
-        // behavior not implemented yet
 
-        if (empty($module)) {
+        if (!$define->isDefined() || !$define->get('enabled')) {
             throw new Exception('Unknown module ID');
         }
 
-        $module = adminModulesList::sanitizeModule($id, $module);
+        adminModulesList::fillSanitizeModule($define);
 
         $rsp     = new XmlTag('module');
         $rsp->id = $id;
 
-        foreach ($module as $k => $v) {
+        foreach ($define->dump() as $k => $v) {
             $rsp->{$k}((string) $v);
         }
 

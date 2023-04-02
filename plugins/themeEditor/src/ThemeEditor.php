@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\themeEditor;
 
 use Exception;
 use dcCore;
+use dcModuleDefine;
 use dcPublic;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -450,14 +451,13 @@ class ThemeEditor
         $this->tpl = array_merge($this->tpl, $this->getFilesInDir($this->user_theme . '/tpl'));
 
         # Then we look in dcPublic::TPL_ROOT plugins directory
-        $plugins = dcCore::app()->plugins->getModules();
-        foreach ($plugins as $p) {
+        foreach (dcCore::app()->plugins->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
             // Looking in dcPublic::TPL_ROOT directory
-            $this->tpl       = array_merge($this->getFilesInDir($p['root'] . '/' . dcPublic::TPL_ROOT), $this->tpl);
-            $this->tpl_model = array_merge($this->getFilesInDir($p['root'] . '/' . dcPublic::TPL_ROOT), $this->tpl_model);
+            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT), $this->tpl);
+            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT), $this->tpl_model);
             // Looking in dcPublic::TPL_ROOT/tplset directory
-            $this->tpl       = array_merge($this->getFilesInDir($p['root'] . '/' . dcPublic::TPL_ROOT . '/' . $this->tplset_name), $this->tpl);
-            $this->tpl_model = array_merge($this->getFilesInDir($p['root'] . '/' . dcPublic::TPL_ROOT . '/' . $this->tplset_name), $this->tpl_model);
+            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT . '/' . $this->tplset_name), $this->tpl);
+            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT . '/' . $this->tplset_name), $this->tpl_model);
         }
 
         uksort($this->tpl, [$this, 'sortFilesHelper']);

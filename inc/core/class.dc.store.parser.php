@@ -118,6 +118,8 @@ class dcStoreParser
 
     /**
      * Get modules.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @return    array        Modules list
      */

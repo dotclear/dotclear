@@ -53,7 +53,7 @@ class Manage extends dcNsProcess
             dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
         }
 
-        dcCore::app()->admin->theme  = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
+        dcCore::app()->admin->theme  = dcCore::app()->themes->getDefine(dcCore::app()->blog->settings->system->theme);
         dcCore::app()->admin->editor = new ThemeEditor();
 
         return static::$init;
@@ -154,7 +154,7 @@ class Manage extends dcNsProcess
             ]
         ) .
         dcPage::notices() .
-        '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme['name'])) . '</strong></p>';
+        '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme->get('name'))) . '</strong></p>';
 
         if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule(dcCore::app()->blog->settings->system->theme)) {
             echo

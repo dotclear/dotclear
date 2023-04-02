@@ -203,6 +203,8 @@ class dcStore
 
     /**
      * Get a list of modules.
+     * 
+     * @deprecated since 2.26 Use self::getDefines()
      *
      * @param    bool    $update    True to get update modules, false for new ones
      *
@@ -271,8 +273,8 @@ class dcStore
 
     /**
      * Search a module.
-     *
-     * @see self::searchDefines()
+     * 
+     * @deprecated since 2.26 Use self::searchDefines()
      *
      * @param    string    $pattern    String to search
      *
