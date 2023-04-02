@@ -637,7 +637,7 @@ class adminModulesList
             ->set('sid', self::sanitizeString($define->getId()))
             ->set('label', empty($define->get('label')) ? $define->getId() : $define->get('label'))
             ->set('name', __(empty($define->get('name')) ? $define->label : $define->get('name')))
-            ->set('sname', self::sanitizeString($define->get('name')));
+            ->set('sname', self::sanitizeString(strtolower(dcUtils::removeDiacritics($define->get('name')))));
     }
 
     /**
