@@ -480,10 +480,10 @@ class defaultFavorites
                 'url'         => dcCore::app()->adminurl->get('admin.blogs'),
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
+                'permissions' => !dcCore::app()->auth->isSuperAdmin() && dcCore::app()->auth->getBlogCount() > 1 ? dcCore::app()->auth->makePermissions([
                     dcAuth::PERMISSION_USAGE,
                     dcAuth::PERMISSION_CONTENT_ADMIN,
-                ]), ],
+                ]) : null, ],
             'users'      => [
                 'title'      => __('Users'),
                 'url'        => dcCore::app()->adminurl->get('admin.users'),
