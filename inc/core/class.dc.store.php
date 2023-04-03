@@ -155,7 +155,7 @@ class dcStore
                             if (!isset($upd_versions[$str_define->getId()])) {
                                 $upd_defines[] = $str_define;
                             // if update from third party repo is more recent than main repo, replace this last one
-                            } elseif (isset($upd_versions[$str_define->getId()]) && dcUtils::versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
+                            } elseif (dcUtils::versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
                             }
                         }
@@ -203,7 +203,7 @@ class dcStore
 
     /**
      * Get a list of modules.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @param    bool    $update    True to get update modules, false for new ones
@@ -273,7 +273,7 @@ class dcStore
 
     /**
      * Search a module.
-     * 
+     *
      * @deprecated since 2.26 Use self::searchDefines()
      *
      * @param    string    $pattern    String to search

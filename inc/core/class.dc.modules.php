@@ -347,7 +347,7 @@ class dcModules
 
     /**
      * Should run in safe mode?
-     * 
+     *
      * @param      null|bool   $mode   Mode, null to read current mode
      *
      * @return     bool
@@ -790,7 +790,7 @@ class dcModules
                 // Check if module is disabled
                 $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
 
-                $cur_define = $modules->getDefines($new_defines[0]->getId());
+                $cur_define = $modules->getDefine($new_defines[0]->getId());
                 if ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
@@ -1016,7 +1016,7 @@ class dcModules
 
     /**
      * Returns all modules associative array or only one module if <var>$id</var> is present.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @param      string  $id     The optionnal module identifier
@@ -1032,7 +1032,7 @@ class dcModules
 
     /**
      * Gets all modules (whatever are their statuses) or only one module if <var>$id</var> is present.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @param      string  $id     The optionnal module identifier
@@ -1048,7 +1048,7 @@ class dcModules
 
     /**
      * Determines if module exists.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @param      string  $id     The module identifier
@@ -1062,7 +1062,7 @@ class dcModules
 
     /**
      * Gets the disabled modules.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @return     array  The disabled modules.
@@ -1074,7 +1074,7 @@ class dcModules
 
     /**
      * Gets the hard disabled modules.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @return     array  The hard disabled modules.
@@ -1086,7 +1086,7 @@ class dcModules
 
     /**
      * Gets the soft disabled modules (safe mode and not hard disabled).
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @return     array  The soft disabled modules.

@@ -579,7 +579,7 @@ class adminModulesList
 
     /**
      * Set modules and sanitize them.
-     * 
+     *
      * @deprecated since 2.26 Use self::setDefines()
      *
      * @param   array   $modules
@@ -591,7 +591,7 @@ class adminModulesList
         $defines = [];
         foreach ($modules as $id => $module) {
             $define = new dcModuleDefine($id);
-            foreach($module as $k => $v) {
+            foreach ($module as $k => $v) {
                 $define->set($k, $v);
             }
             $defines[] = $define;
@@ -602,7 +602,7 @@ class adminModulesList
 
     /**
      * Get modules currently set.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @return    array        Array of modules
@@ -610,7 +610,7 @@ class adminModulesList
     public function getModules(): array
     {
         $res = [];
-        foreach($this->defines as $define) {
+        foreach ($this->defines as $define) {
             $res[$define->getId()] = $define->dump();
         }
 
@@ -648,7 +648,7 @@ class adminModulesList
      * be used in lists.
      *
      * Warning: this static method will not fill module dependencies
-     * 
+     *
      * @deprecated since 2.26 Use self::fillSanitizeModule()
      *
      * @param      string  $id      The identifier
@@ -670,7 +670,7 @@ class adminModulesList
      * This clean infos of a module by adding default keys
      * and clean some of them, sanitize module can safely
      * be used in lists.
-     * 
+     *
      * @deprecated since 2.26 Use self::fillSanitizeModule()
      *
      * @param      string  $id      The identifier
@@ -1150,8 +1150,7 @@ class adminModulesList
     /**
      * Get action buttons to add to modules list.
      *
-     * @param    string             $id         Module ID
-     * @param    dcModuleDefine     $module     Module info
+     * @param    dcModuleDefine     $define     Module info
      * @param    array              $actions    Actions keys
      *
      * @return   array    Array of actions buttons
@@ -1322,14 +1321,13 @@ class adminModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $define = $this->module->getDefine($id);
+                $define = $this->modules->getDefine($id);
                 // module is not defined
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such plugin.'));
                 }
                 // module is enabled
                 if ($define->get('state') == dcModuleDefine::STATE_ENABLED) {
-
                     if (!$this->isDeletablePath($define->get('root'))) {
                         $failed = true;
 
@@ -1471,7 +1469,7 @@ class adminModulesList
                 $modules = array_keys($_POST['update']);
             }
 
-            $count = 0;
+            $count   = 0;
             $defines = $this->store->getDefines(true);
             foreach ($defines as $define) {
                 if (!in_array($define->getId(), $modules)) {
@@ -2043,7 +2041,7 @@ class adminThemesList extends adminModulesList
     /**
      * Gets the actions.
      *
-     * @param      dcModuleDefine   $module   The module define
+     * @param      dcModuleDefine   $define   The module define
      * @param      array            $actions  The actions
      *
      * @return     array  The actions.
@@ -2051,7 +2049,7 @@ class adminThemesList extends adminModulesList
     protected function getActions(dcModuleDefine $define, array $actions): array
     {
         $submits = [];
-        $id = $define->getId();
+        $id      = $define->getId();
 
         if ($id != dcCore::app()->blog->settings->system->theme) {
             # Select theme to use on curent blog
@@ -2142,7 +2140,7 @@ class adminThemesList extends adminModulesList
             # Can select only one theme at a time!
             if (is_array($_POST['select'])) {
                 $modules = array_keys($_POST['select']);
-                $define = $this->modules->getDefine($modules[0]);
+                $define  = $this->modules->getDefine($modules[0]);
 
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such theme.'));
@@ -2296,12 +2294,10 @@ class adminThemesList extends adminModulesList
                     $count++;
                 }
 
-                if (!$count) {
-                    throw new Exception(__('No such theme.'));
-                }
-
                 if (!$count && $failed) {
                     throw new Exception(__("You don't have permissions to delete this theme."));
+                } elseif (!$count) {
+                    throw new Exception(__('No such theme.'));
                 } elseif ($failed) {
                     dcPage::addWarningNotice(__('Some themes have not been delete.'));
                 } else {
@@ -2347,7 +2343,7 @@ class adminThemesList extends adminModulesList
                     $modules = array_keys($_POST['update']);
                 }
 
-                $count = 0;
+                $count   = 0;
                 $defines = $this->store->getDefines(true);
                 foreach ($defines as $define) {
                     if (!in_array($define->getId(), $modules)) {
