@@ -128,7 +128,7 @@ class dcLog
             }
         }
 
-        if (!empty($params['limit'])) {
+        if (!$count_only && !empty($params['limit'])) {
             $sql->limit($params['limit']);
         }
 
