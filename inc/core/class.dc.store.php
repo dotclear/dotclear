@@ -212,6 +212,8 @@ class dcStore
      */
     public function get(bool $update = false): array
     {
+        dcDeprecated::set('dcStore::getDefines()', '2.26');
+
         return $this->data[$update ? 'update' : 'new'];
     }
 
@@ -282,6 +284,8 @@ class dcStore
      */
     public function search(string $pattern): array
     {
+        dcDeprecated::set('dcStore::searchDefines()', '2.26');
+
         $result = [];
         foreach ($this->searchDefines($pattern) as $define) {
             $result[$define->getId()] = $define->dump();

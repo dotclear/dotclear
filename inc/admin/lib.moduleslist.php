@@ -588,6 +588,8 @@ class adminModulesList
      */
     public function setModules(array $modules): adminModulesList
     {
+        dcDeprecated::set('adminModulesList::setDefines()', '2.26');
+
         $defines = [];
         foreach ($modules as $id => $module) {
             $define = new dcModuleDefine($id);
@@ -609,6 +611,8 @@ class adminModulesList
      */
     public function getModules(): array
     {
+        dcDeprecated::set('adminModulesList::getDefines()', '2.26');
+
         $res = [];
         foreach ($this->defines as $define) {
             $res[$define->getId()] = $define->dump();
@@ -658,6 +662,8 @@ class adminModulesList
      */
     public static function sanitizeModule(string $id, array $module): array
     {
+        dcDeprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
+
         $define = new dcModuleDefine($id);
         self::fillSanitizeModule($define, $module);
 
@@ -680,6 +686,8 @@ class adminModulesList
      */
     public function doSanitizeModule(string $id, array $module): array
     {
+        dcDeprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
+
         $define = $this->modules->getDefine($id);
         self::fillSanitizeModule($define, $module);
 
@@ -701,6 +709,8 @@ class adminModulesList
     /**
      * Sort modules list by specific field.
      *
+     * @deprecated since 2.26 Use something like uasort($defines, fn ($a, $b) => $a->get($field) <=> $b->get($field));
+     *
      * @param    array     $modules      Array of modules
      * @param    string    $field        Field to sort from
      * @param    bool      $asc          Sort asc if true, else decs
@@ -709,6 +719,8 @@ class adminModulesList
      */
     public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
+        dcDeprecated::set('uasort()', '2.26');
+
         $origin = $sorter = $final = [];
 
         foreach ($modules as $module) {
@@ -1784,7 +1796,7 @@ class adminModulesList
             $has = $class::init();
         // by file name
         } else {
-            $root = dcCore::app()->plugins->moduleRoot($id);
+            $root = dcCore::app()->plugins->moduleInfo($id, 'root');
             $has  = !empty($root) && file_exists(Path::real($root . DIRECTORY_SEPARATOR . $file));
         }
 

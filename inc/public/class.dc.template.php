@@ -1147,6 +1147,8 @@ class dcTemplate extends Template
      */
     public function BlogRSDURL(ArrayObject $attr): string
     {
+        dcDeprecated::set('', '2.24');
+
         return '';
     }
 

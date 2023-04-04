@@ -125,6 +125,8 @@ class dcStoreParser
      */
     public function getModules(): array
     {
+        dcDeprecated::set('dcStoreParser::getDefines()', '2.26');
+
         // fill property once on demand
         if (empty($this->items) && !empty($this->defines)) {
             foreach ($this->defines as $define) {

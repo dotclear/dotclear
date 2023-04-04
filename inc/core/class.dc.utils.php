@@ -237,6 +237,8 @@ class dcUtils
      */
     public static function jsVars(array $vars): string
     {
+        dcDeprecated::set('dcUtils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
             $ret .= 'var ' . $var . ' = ' . (is_string($value) ? '"' . Html::escapeJS($value) . '"' : $value) . ';' . "\n";
@@ -258,6 +260,8 @@ class dcUtils
      */
     public static function jsVar(string $name, $value): string
     {
+        dcDeprecated::set('dcUtils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+
         return dcUtils::jsVars([$name => $value]);
     }
 

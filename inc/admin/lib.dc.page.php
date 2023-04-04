@@ -1333,6 +1333,8 @@ class dcPage
      */
     public static function help()
     {
+        dcDeprecated::set('', '2.24');
+
         # Deprecated but we keep this for plugins.
     }
 
@@ -1343,6 +1345,8 @@ class dcPage
      */
     public static function jsColorPicker(): string
     {
+        dcDeprecated::set('', '2.16');
+
         return '';
     }
 
@@ -1355,6 +1359,8 @@ class dcPage
      */
     public static function jsDatePicker(): string
     {
+        dcDeprecated::set('', '2.21');
+
         return '';
     }
 
@@ -1367,6 +1373,8 @@ class dcPage
      */
     public static function jsToolBar()
     {
+        dcDeprecated::set('', '2.21');
+
         # Deprecated but we keep this for plugins.
 
         return '';
@@ -1384,6 +1392,8 @@ class dcPage
      */
     public static function jsVar(string $name, $value): string
     {
+        dcDeprecated::set('dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+
         return $name . " = '" . Html::escapeJS($value) . "';\n";
     }
 
@@ -1398,6 +1408,8 @@ class dcPage
      */
     public static function jsVars(array $vars): string
     {
+        dcDeprecated::set('dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
             $ret .= $var . ' = ' . (is_string($value) ? "'" . Html::escapeJS($value) . "'" : $value) . ';' . "\n";
@@ -1414,6 +1426,8 @@ class dcPage
      */
     public static function jsLoadIE7()
     {
+        dcDeprecated::set('', '2.11', '2.27');
+
         return '';
     }
 }
