@@ -71,7 +71,8 @@ class Deprecated
                 $title = $class . $func . ' is deprecated' .
                     ($since !== null ? ' since version ' . $since : '') .
                     ($upto !== null ? ' and wil be removed in version ' . $upto : '') .
-                    ', use ' . $replacement . ' as replacement.';
+                    (!empty($replacement) ? ', use ' . $replacement . ' as replacement' : '') .
+                    '.';
             }
 
             $lines[] = $class . $func . $file . $line;
