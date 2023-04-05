@@ -57,6 +57,7 @@ Clearbricks::lib()->autoload([
     'dcUpdate'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.update.php']),
     'dcUtils'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.utils.php']),
     'dcXmlRpc'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.xmlrpc.php']),
+    'dcDeprecated'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.deprecated.php']),
     'dcLog'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.log.php']),
     'rsExtLog'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.log.php']),
     'dcWorkspace'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.workspace.php']),

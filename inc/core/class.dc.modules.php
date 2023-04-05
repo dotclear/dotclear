@@ -1025,6 +1025,8 @@ class dcModules
      */
     public function getModules(?string $id = null): array
     {
+        dcDeprecated::set('dcModules::getDefines()', '2.26');
+
         $modules = $this->getDefines(['state' => $this->safe_mode ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED], true);
 
         return $id && isset($modules[$id]) ? $modules[$id] : $modules;
@@ -1041,15 +1043,15 @@ class dcModules
      */
     public function getAnyModules(?string $id = null): array
     {
+        dcDeprecated::set('dcModules::getDefines()', '2.26');
+
         $modules = $this->getDefines([], true);
 
         return $id && isset($modules[$id]) ? $modules[$id] : $modules;
     }
 
     /**
-     * Determines if module exists.
-     *
-     * @deprecated since 2.26 Use self::getDefines()
+     * Determines if module exists and is enabled.
      *
      * @param      string  $id     The module identifier
      *
@@ -1069,6 +1071,8 @@ class dcModules
      */
     public function getDisabledModules(): array
     {
+        dcDeprecated::set('dcModules::getDefines()', '2.26');
+
         return $this->getDefines(['state' => '!' . dcModuleDefine::STATE_ENABLED], true);
     }
 
@@ -1081,6 +1085,8 @@ class dcModules
      */
     public function getHardDisabledModules(): array
     {
+        dcDeprecated::set('dcModules::getDefines()', '2.26');
+
         return $this->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED], true);
     }
 
@@ -1093,11 +1099,15 @@ class dcModules
      */
     public function getSoftDisabledModules(): array
     {
+        dcDeprecated::set('dcModules::getDefines()', '2.26');
+
         return $this->getDefines(['state' => dcModuleDefine::STATE_SOFT_DISABLED], true);
     }
 
     /**
      * Returns root path for module with ID <var>$id</var>.
+     *
+     * @deprecated since 2.26 Use self::moduleInfo()
      *
      * @param      string  $id     The module identifier
      *
@@ -1105,6 +1115,8 @@ class dcModules
      */
     public function moduleRoot(string $id)
     {
+        dcDeprecated::set('dcModules::moduleInfo()', '2.26');
+
         return $this->moduleInfo($id, 'root');
     }
 

@@ -1652,6 +1652,8 @@ class dcMedia extends filemanager
      */
     public static function flvplayer(string $url, ?string $player = null, $args = null): string
     {
+        dcDeprecated::set('', '2.15');
+
         return '';
     }
 }
