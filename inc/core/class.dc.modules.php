@@ -470,11 +470,8 @@ class dcModules
         }
         $this->checkDependencies();
 
-        // Sort plugins
-        //
-        // Plugins with lower priority are loaded first (in alphabetic order for the same priority)
-        // Plugins without priority are set to dcModuleDefine::DEFAULT_PRIORITY (1000)
-        uasort($this->defines, [$this, 'sortModules']);
+        // Sort plugins by priority
+        uasort($this->defines, fn ($a, $b) => $a->get('priority') <=> $b->get('priority'));
 
         // Context loop
         foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
@@ -515,30 +512,6 @@ class dcModules
                 $this->loadNsFile($module->getId(), $ns);
             }
         }
-    }
-
-    /**
-     * Sort callback
-     *
-     * @param      null|dcModuleDefine      $first_module       1st module
-     * @param      null|dcModuleDefine      $second_module      2nd module
-     *
-     * @return     int
-     */
-    private function sortModules(?dcModuleDefine $first_module, ?dcModuleDefine $second_module): int
-    {
-        if (!$first_module || !$second_module) {
-            // One or both of modules is not defined
-            return 0;
-        }
-
-        if ($first_module->priority === $second_module->priority) {
-            // Use alphabetic order
-            return strcasecmp($first_module->name, $second_module->name);
-        }
-
-        // Compare priorities
-        return $first_module->priority <=> $second_module->priority;
     }
 
     /**

@@ -108,7 +108,7 @@ class adminAuth
                 $subject = mail::B64Header('Dotclear ' . __('Password reset'));
                 $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . dcCore::app()->admin->page_url . "\n" . __('Username:') . ' ' . dcCore::app()->admin->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . dcCore::app()->admin->page_url . '?akey=' . $recover_key;
 
-                $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && DC_ADMIN_MAILFROM ? DC_ADMIN_MAILFROM : 'dotclear@local');
+                $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 mail::sendMail(dcCore::app()->admin->user_email, $subject, $message, $headers);
@@ -124,7 +124,7 @@ class adminAuth
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
                 $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) dcCore::app()->admin->page_url);
-                $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && DC_ADMIN_MAILFROM ? DC_ADMIN_MAILFROM : 'dotclear@local');
+                $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
