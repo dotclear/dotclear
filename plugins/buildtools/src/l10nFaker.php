@@ -19,19 +19,11 @@ use dt;
 class l10nFaker
 {
     /**
-     * List of bundled plugins
-     *
-     * @var array
-     */
-    protected $bundled_plugins;
-
-    /**
      * Constructs a new instance.
      */
     public function __construct()
     {
-        $this->bundled_plugins = explode(',', DC_DISTRIB_PLUGINS);
-        dcCore::app()->media   = new dcMedia();
+        dcCore::app()->media = new dcMedia();
     }
 
     /**
@@ -69,9 +61,10 @@ class l10nFaker
         file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
 
         $plugin .= "\n// Plugin names\n\n";
-        foreach ($this->bundled_plugins as $id) {
-            $define = dcCore::app()->plugins->getDefine($id);
-            $plugin .= $this->fake_l10n($define->get('desc'));
+        foreach (dcCore::app()->plugins->getDefines() as $define) {
+            if ($define->get('distributed')) {
+                $plugin .= $this->fake_l10n($define->get('desc'));
+            }
         }
 
         $plugin .= "\n// Widget settings names\n\n";

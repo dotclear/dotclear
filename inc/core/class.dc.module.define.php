@@ -79,6 +79,7 @@ class dcModuleDefine
         'root'          => null,
         'namespace'     => null,
         'root_writable' => false,
+        'distributed'   => false,
 
         // required
         'name'    => self::DEFAULT_NAME,

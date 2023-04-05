@@ -45,7 +45,7 @@ class Manage extends dcNsProcess
         dcCore::app()->admin->user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsyntax;
         dcCore::app()->admin->user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 
-        # Loading themes
+        # Loading themes // deprecated since 2.26
         adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (!is_a(dcCore::app()->themes, 'dcThemes')) {
@@ -156,7 +156,9 @@ class Manage extends dcNsProcess
         dcPage::notices() .
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme->get('name'))) . '</strong></p>';
 
-        if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule(dcCore::app()->blog->settings->system->theme)) {
+        if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') 
+            || !dcCore::app()->themes->getDefine(dcCore::app()->blog->settings->system->theme)->distributed
+        ) {
             echo
             '<div id="file-box">' .
             '<div id="file-editor">';

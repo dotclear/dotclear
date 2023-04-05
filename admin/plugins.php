@@ -29,6 +29,7 @@ class adminPlugins
         );
 
         adminModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
+        // deprecated since 2.26
         adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
         if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.plugins', []))) {
