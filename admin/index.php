@@ -209,7 +209,7 @@ class adminIndex
             '</p>';
         }
 
-        if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
+        if (!defined('DC_ADMIN_MAILFROM') || !strpos(DC_ADMIN_MAILFROM, '@')) {
             echo
             '<p class="static-msg">' .
             sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') .
