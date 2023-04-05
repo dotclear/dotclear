@@ -3,7 +3,7 @@
  * @brief Deprecated logger class
  *
  * @since 2.26
- * 
+ *
  * @package Dotclear
  * @subpackage Core
  *
@@ -29,10 +29,10 @@ class dcDeprecated extends Deprecated
 
     /**
      * Get deprecated logs
-     * 
+     *
      * @param   mixed   $limit          Limit parameter
      * @param   bool    $count_only     Count only resultats
-     * 
+     *
      * @return  dcRecord    The logs.
      */
     public static function get(mixed $limit, bool $count_only = false): dcRecord
@@ -54,8 +54,9 @@ class dcDeprecated extends Deprecated
                 throw new Exception('too early');
             }
         } catch (Throwable $e) {
-                parent::log($title, $lines);
-                return;
+            parent::log($title, $lines);
+
+            return;
         }
 
         self::purge();
@@ -78,7 +79,7 @@ class dcDeprecated extends Deprecated
     private static function purge(): void
     {
         // check once per page (and if a deprecated is thrown)
-        if (self::$purged){
+        if (self::$purged) {
             return;
         }
         self::$purged = true;

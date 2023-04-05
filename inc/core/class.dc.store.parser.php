@@ -88,7 +88,7 @@ class dcStoreParser
 
             # DA specific markers
             $define->set('dc_min', (string) $i->children(self::$bloc)->dcmin);
-            $define->set('details',(string) $i->children(self::$bloc)->details);
+            $define->set('details', (string) $i->children(self::$bloc)->details);
             $define->set('section', (string) $i->children(self::$bloc)->section);
             $define->set('support', (string) $i->children(self::$bloc)->support);
             $define->set('sshot', (string) $i->children(self::$bloc)->sshot);
@@ -118,7 +118,7 @@ class dcStoreParser
 
     /**
      * Get modules.
-     * 
+     *
      * @deprecated since 2.26 Use self::getDefines()
      *
      * @return    array        Modules list

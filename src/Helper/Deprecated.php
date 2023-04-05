@@ -28,9 +28,9 @@ class Deprecated
 
     /**
      * Set a custom logger.
-     * 
+     *
      * The custom logger has priority on this class or child class logger.
-     * 
+     *
      * @param   String  $logger  Logger class name
      */
     public static function setLogger(string $logger): void
@@ -45,7 +45,7 @@ class Deprecated
 
     /**
      * Set a deprecated log.
-     * 
+     *
      * @param   null|string     $replacement    Function to use in replacement of deprecated one
      * @param   null|string     $since          Version from which this is deprecated
      * @param   null|string     $upto           Version where this is removed
@@ -59,8 +59,8 @@ class Deprecated
         array_shift($traces);
 
         // clean trace
-        $title  = '';
-        $lines  = [];
+        $title = '';
+        $lines = [];
         foreach ($traces as $line) {
             $class = !empty($line['class']) ? $line['class'] . '::' : '';
             $func  = !empty($line['function']) ? $line['function'] . '() ' : '';
@@ -88,10 +88,10 @@ class Deprecated
 
     /**
      * Log deprecated function.
-     * 
+     *
      * Child class must implement this method to log traces.
      * Note this method trigger low level error.
-     * 
+     *
      * @param   string  $title  The title
      * @param   array   $lines  The cleaned trace lines
      */
