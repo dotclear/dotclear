@@ -585,6 +585,8 @@ class dcModules
             $this->define->set('priority', 1);
         }
 
+        $this->define->set('distributed' , in_array($this->define->getId(), explode(',', $this->define->type == 'theme' ?  DC_DISTRIB_THEMES : DC_DISTRIB_PLUGINS)));
+
         if ($this->disabled_mode) {
             $this->defines[] = $this->define;
 

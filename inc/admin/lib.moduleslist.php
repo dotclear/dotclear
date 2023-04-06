@@ -43,6 +43,8 @@ class adminModulesList
 
     /**
      * List of modules distributed with Dotclear
+     * 
+     * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
      *
      * @var        array
      */
@@ -696,6 +698,8 @@ class adminModulesList
 
     /**
      * Check if a module is part of the distribution.
+     * 
+     * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
      *
      * @param    string    $id        Module root directory
      *
@@ -703,6 +707,8 @@ class adminModulesList
      */
     public static function isDistributedModule(string $id): bool
     {
+        dcDeprecated::set('dcModules::getDefine($id)->distributed', '2.26');
+
         return in_array($id, self::$distributed_modules);
     }
 
@@ -945,7 +951,7 @@ class adminModulesList
             if (in_array('distrib', $cols)) {
                 $tds++;
                 echo
-                    '<td class="module-distrib">' . (self::isDistributedModule($id) ?
+                    '<td class="module-distrib">' . ($define->get('distributed') ?
                     '<img src="images/dotclear-leaf.svg" alt="' .
                     __('Plugin from official distribution') . '" title="' .
                     __('Plugin from official distribution') . '" />'
@@ -1864,7 +1870,7 @@ class adminThemesList extends adminModulesList
             }
 
             $current = dcCore::app()->blog->settings->system->theme == $id && $this->modules->moduleExists($id);
-            $distrib = self::isDistributedModule($id) ? ' dc-box' : '';
+            $distrib = $define->get('distributed') ? ' dc-box' : '';
 
             $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
 
@@ -2080,7 +2086,7 @@ class adminThemesList extends adminModulesList
             }
         }
 
-        if (self::isDistributedModule($id) && ($pos = array_search('delete', $actions, true))) {
+        if ($define->get('distributed') && ($pos = array_search('delete', $actions, true))) {
             // Remove 'delete' action for officially distributed themes
             unset($actions[$pos]);
         }

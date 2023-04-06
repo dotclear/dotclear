@@ -32,7 +32,9 @@ class BackendBehaviors
     {
         if (dcCore::app()->auth->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
-            if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule($id)) {
+            if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') 
+                || !dcCore::app()->themes->getDefine($id)->distributed
+            ) {
                 return '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.themeEditor') . '" class="button">' . __('Edit theme files') . '</a></p>';
             }
         }

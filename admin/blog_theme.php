@@ -42,6 +42,7 @@ class adminBlogTheme
             dcCore::app()->blog->settings->system->store_theme_url,
             !empty($_GET['nocache'])
         );
+        // deprecated since 2.26
         adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (dcCore::app()->themes->disableDepModules(dcCore::app()->adminurl->get('admin.blog.theme', []))) {
