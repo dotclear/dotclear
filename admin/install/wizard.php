@@ -137,7 +137,11 @@ if (!empty($_POST)) {
         }
         fwrite($fp, $full_conf);
         fclose($fp);
-        chmod(DC_RC_PATH, 0666);
+
+        try {
+            chmod(DC_RC_PATH, 0666);
+        } catch (Exception $e) {
+        }
 
         $con->close();
         Http::redirect('index.php?wiz=1');

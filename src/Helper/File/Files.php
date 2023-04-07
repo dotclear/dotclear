@@ -325,11 +325,17 @@ class Files
      */
     public static function inheritChmod(string $file): bool
     {
-        if (self::$dir_mode === null) {
-            return (bool) @chmod($file, @fileperms(dirname($file)));
+        try {
+            if (self::$dir_mode === null) {
+                return (bool) chmod($file, fileperms(dirname($file)));
+            }
+
+            return (bool) chmod($file, self::$dir_mode);
+        } catch (Exception $e) {
+            // chmod and maybe fileperms functions may be disabled so catch exception and return false
         }
 
-        return (bool) @chmod($file, self::$dir_mode);
+        return false;
     }
 
     /**
