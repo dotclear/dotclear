@@ -3,13 +3,15 @@
 
 $(() => {
   const current = dotclear.getData('theme_editor_current');
-  const editor = CodeMirror.fromTextArea(document.getElementById('codemirror'), {
+  const elt = document.getElementById('codemirror');
+  const editor = CodeMirror.fromTextArea(elt, {
     mode: 'javascript',
     tabMode: 'indent',
     lineWrapping: 1,
     lineNumbers: 1,
     matchBrackets: 1,
     autoCloseBrackets: 1,
+    readOnly: elt.readOnly,
     theme: current.theme || 'default',
   });
 
