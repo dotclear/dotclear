@@ -196,6 +196,21 @@ abstract class dcActions
     }
 
     /**
+     * Returns the list of selected entries as an array of formHidden object.
+     *
+     * @return array The hidden form fields.
+     */
+    public function IDsHidden(): array
+    {
+        $ret = [];
+        foreach (array_keys($this->entries) as $id) {
+            $ret[] = (new Hidden($this->field_entries . '[]', $id));
+        }
+
+        return $ret;
+    }
+
+    /**
      * Returns all redirection parameters as HTML hidden fields
      *
      * @param boolean $with_ids if true, also include ids in HTML code
@@ -210,6 +225,26 @@ abstract class dcActions
         }
         if ($with_ids) {
             $ret .= $this->getIDsHidden();
+        }
+
+        return $ret;
+    }
+
+    /**
+     * Returns all redirection parameters as an array of formHidden object.
+     *
+     * @param boolean $with_ids if true, also include ids in array
+     *
+     * @return array The hidden form fields.
+     */
+    public function hiddenFields(bool $with_ids = false): string
+    {
+        $ret = [];
+        foreach ($this->redir_args as $name => $value) {
+            $ret[] = (new Hidden([$name], $value));
+        }
+        if ($with_ids) {
+            $ret = array_merge($ret, $this->IDsHidden());
         }
 
         return $ret;
