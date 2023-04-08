@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 
 class dcPostsActions extends dcActions
 {
@@ -549,7 +550,7 @@ class dcDefaultPostActions
                         count($post_ids)
                     ),
                     count($post_ids),
-                    Html::escapeHTML(l10n::getLanguageName($new_lang))
+                    Html::escapeHTML(L10n::getLanguageName($new_lang))
                 )
             );
             $ap->redirect(true);
@@ -566,8 +567,8 @@ class dcDefaultPostActions
             # lang list
             # Languages combo
             $rs         = dcCore::app()->blog->getLangs(['order' => 'asc']);
-            $all_langs  = l10n::getISOcodes(false, true);
-            $lang_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(true, true)];
+            $all_langs  = L10n::getISOcodes(false, true);
+            $lang_combo = ['' => '', __('Most used') => [], __('Available') => L10n::getISOcodes(true, true)];
             while ($rs->fetch()) {
                 if (isset($all_langs[$rs->post_lang])) {
                     $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;

@@ -63,7 +63,6 @@ class Clearbricks
             'dt'               => $old_helper_root . '/common/lib.date.php',
             'form'             => $old_helper_root . '/common/lib.form.php',
             'formSelectOption' => $old_helper_root . '/common/lib.form.php',
-            'l10n'             => $old_helper_root . '/common/lib.l10n.php',
 
             // Database Abstraction Layer
             'dbLayer'  => $old_helper_root . '/dblayer/dblayer.php',
@@ -118,7 +117,7 @@ class Clearbricks
     public static function init(): void
     {
         // We may need l10n __() function
-        \l10n::bootstrap();
+        L10n::bootstrap();
 
         // We set default timezone to avoid warning
         \dt::setTZ('UTC');

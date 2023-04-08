@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\L10n;
+
 class dcAdminHelper
 {
     /**
@@ -55,13 +58,13 @@ class dcAdminHelper
         dcCore::app()->lang = (string) dcCore::app()->auth->getInfo('user_lang');
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
-        l10n::lang(dcCore::app()->lang);
-        if (l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
-            l10n::set(DC_L10N_ROOT . '/en/date');
+        L10n::lang(dcCore::app()->lang);
+        if (L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+            L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/main');
-        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
-        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/main');
+        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
 
         // Set lexical lang
         dcUtils::setlexicalLang('admin', dcCore::app()->lang);

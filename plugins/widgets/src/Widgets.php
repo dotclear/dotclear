@@ -15,9 +15,9 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use Exception;
 use feedReader;
-use l10n;
 
 class Widgets
 {
@@ -374,7 +374,7 @@ class Widgets
             return '';
         }
 
-        $langs = l10n::getISOcodes();
+        $langs = L10n::getISOcodes();
         $res   = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 

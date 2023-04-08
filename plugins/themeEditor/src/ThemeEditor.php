@@ -19,7 +19,7 @@ use dcPublic;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
-use l10n;
+use Dotclear\Helper\L10n;
 
 class ThemeEditor
 {
@@ -491,7 +491,7 @@ class ThemeEditor
      */
     protected function findLocales(): void
     {
-        $langs = l10n::getISOcodes(true, true);
+        $langs = L10n::getISOcodes(true, true);
         foreach ($langs as $v) {
             if ($this->parent_theme) {
                 $this->po = array_merge($this->po, $this->getFilesInDir($this->parent_theme . '/locales/' . $v, 'po', $v . '/'));

@@ -10,6 +10,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
 class dcPage
@@ -142,7 +143,7 @@ class dcPage
             $csp = new ArrayObject([]);
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
-                                                                                // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
+            // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = dcCore::app()->con->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
             $csp_suffix = dcCore::app()->con->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
@@ -208,7 +209,7 @@ class dcPage
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (l10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -519,7 +520,7 @@ class dcPage
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (l10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 

@@ -17,15 +17,15 @@ use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use form;
-use l10n;
 
 class Config extends dcNsProcess
 {
     public static function init(): bool
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+            L10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
             dcCore::app()->admin->css_file = Path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
 
             if (!is_file(dcCore::app()->admin->css_file) && !is_writable(dirname(dcCore::app()->admin->css_file))) {

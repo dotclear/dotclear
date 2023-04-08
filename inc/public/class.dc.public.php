@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
 class dcPublic
@@ -87,8 +88,8 @@ class dcPublic
                 (function () {
                     $detected_languages = Http::getAcceptLanguages();
                     foreach ($detected_languages as $language) {
-                        if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
-                            l10n::lang($language);
+                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                            L10n::lang($language);
 
                             // We stop at first accepted language
                             break;
@@ -167,12 +168,12 @@ class dcPublic
          */
         $GLOBALS['_lang'] = &dcCore::app()->lang;
 
-        l10n::lang(dcCore::app()->lang);
-        if (l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
-            l10n::set(DC_L10N_ROOT . '/en/date');
+        L10n::lang(dcCore::app()->lang);
+        if (L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+            L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
-        l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
 
         // Set lexical lang
         dcUtils::setlexicalLang('public', dcCore::app()->lang);

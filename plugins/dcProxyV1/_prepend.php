@@ -112,6 +112,9 @@ dcProxyV1::classAliases([
     // Socket
     'netSocket' => 'Dotclear\Helper\Network\Socket\Socket',
 
+    // L10n
+    'l10n' => 'Dotclear\Helper\L10n',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',

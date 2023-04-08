@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\breadcrumb;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Helper\L10n;
 use dt;
-use l10n;
 
 class FrontendTemplate
 {
@@ -34,7 +34,7 @@ class FrontendTemplate
     {
         $separator = $attr['separator'] ?? '';
 
-        return '<?php echo ' . self::class .'::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
+        return '<?php echo ' . self::class . '::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
     }
 
     /**
@@ -83,7 +83,7 @@ class FrontendTemplate
                         // Home (first page only)
                         $ret = '<span id="bc-home">' . __('Home') . '</span>';
                         if (dcCore::app()->ctx->cur_lang) {
-                            $langs = l10n::getISOCodes();
+                            $langs = L10n::getISOCodes();
                             $ret .= $separator . ($langs[dcCore::app()->ctx->cur_lang] ?? dcCore::app()->ctx->cur_lang);
                         }
                     }
@@ -97,7 +97,7 @@ class FrontendTemplate
                         $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Blog') . '</a>';
                     } else {
                         if (dcCore::app()->ctx->cur_lang) {
-                            $langs = l10n::getISOCodes();
+                            $langs = L10n::getISOCodes();
                             $ret .= $separator . ($langs[dcCore::app()->ctx->cur_lang] ?? dcCore::app()->ctx->cur_lang);
                         }
                     }
@@ -141,7 +141,7 @@ class FrontendTemplate
                 case 'lang':
                     // Lang
                     $ret   = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                    $langs = l10n::getISOCodes();
+                    $langs = L10n::getISOCodes();
                     $ret .= $separator . ($langs[dcCore::app()->ctx->cur_lang] ?? dcCore::app()->ctx->cur_lang);
 
                     break;

@@ -12,6 +12,7 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
 /* Start tick  */
@@ -351,7 +352,7 @@ if (!is_dir(DC_VAR)) {
     }
 }
 
-l10n::init();
+L10n::init();
 
 try {
     /**
@@ -367,8 +368,8 @@ try {
     (function () {
         $detected_languages = Http::getAcceptLanguages();
         foreach ($detected_languages as $language) {
-            if ($language === 'en' || l10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
-                l10n::lang($language);
+            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                L10n::lang($language);
 
                 // We stop at first accepted language
                 break;

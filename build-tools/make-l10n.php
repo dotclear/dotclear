@@ -9,7 +9,7 @@ $license_block = <<<EOF
      */
     EOF;
 
-require __DIR__ . '/../inc/helper/common/lib.l10n.php';
+require __DIR__ . '/../src/Helper/L10n.php';
 
 $path = (!empty($_SERVER['argv'][1])) ? $_SERVER['argv'][1] : getcwd();
 $path = realpath($path);
@@ -23,7 +23,7 @@ foreach ($eres as $f) {
     $dest = dirname($f) . '/' . basename($f, '.po') . '.lang.php';
     echo 'l10n file ' . $dest . ': ';
 
-    if (l10n::generatePhpFileFromPo(dirname($f) . '/' . basename($f, '.po'), $license_block)) {
+    if (Dotclear\Helper\L10n::generatePhpFileFromPo(dirname($f) . '/' . basename($f, '.po'), $license_block)) {
         echo 'OK';
     } else {
         echo 'FAILED';

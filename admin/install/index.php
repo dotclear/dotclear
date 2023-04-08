@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
@@ -28,10 +29,10 @@ $err         = '';
 # Loading locales for detected language
 $dlang = Http::getAcceptLanguage();
 if ($dlang != 'en') {
-    l10n::init($dlang);
-    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/date');
-    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/main');
-    l10n::set(DC_L10N_ROOT . '/' . $dlang . '/plugins');
+    L10n::init($dlang);
+    L10n::set(DC_L10N_ROOT . '/' . $dlang . '/date');
+    L10n::set(DC_L10N_ROOT . '/' . $dlang . '/main');
+    L10n::set(DC_L10N_ROOT . '/' . $dlang . '/plugins');
 }
 
 if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {

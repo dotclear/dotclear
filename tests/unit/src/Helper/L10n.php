@@ -1,39 +1,23 @@
 <?php
+/**
+ * Unit tests
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
-# ***** BEGIN LICENSE BLOCK *****
-# This file is part of Clearbricks.
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# All rights reserved.
-#
-# Clearbricks is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# Clearbricks is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.    See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Clearbricks; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA    02111-1307    USA
-#
-# ***** END LICENSE BLOCK *****
+namespace tests\unit\Dotclear\Helper;
 
-namespace tests\unit;
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'bootstrap.php']);
 
 use atoum;
-use Faker;
-
-require_once __DIR__ . '/../../../bootstrap.php';
-
-require_once CLEARBRICKS_PATH . '/common/lib.l10n.php';
+use Faker\Factory;
 
 class l10n extends atoum
 {
-    private $l10n_dir = '/../fixtures/l10n';
-
     public function testWithEmpty()
     {
         $this
@@ -43,7 +27,7 @@ class l10n extends atoum
 
     public function testWithoutTranslation()
     {
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $text  = $faker->text(50);
 
         $this
@@ -53,8 +37,10 @@ class l10n extends atoum
 
     public function testSimpleSingular()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/core');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','core']));
 
         $this
             ->string(__('Dotclear has been upgraded.'))
@@ -63,7 +49,7 @@ class l10n extends atoum
 
     public function testZeroForCountEn()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $this
             ->string(__('singular', 'plural', 0))
@@ -72,8 +58,10 @@ class l10n extends atoum
 
     public function testZeroForCountFr()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/main');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','main']));
 
         $this
             ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 0))
@@ -86,9 +74,11 @@ class l10n extends atoum
 
     public function testZeroForCountFrUsingLang()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/main');
-        \l10n::lang('fr');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','main']));
+        \Dotclear\Helper\L10n::lang('fr');
 
         $this
             ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 0))
@@ -97,8 +87,10 @@ class l10n extends atoum
 
     public function testPluralWithSingularOnly()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/main');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','main']));
 
         $this
             ->string(__('Dotclear has been upgraded.', 'Dotclear has been upgraded (plural).', 0))
@@ -107,55 +99,57 @@ class l10n extends atoum
 
     public function testCodeLang()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $this
-            ->boolean(\l10n::isCode('xx'))
+            ->boolean(\Dotclear\Helper\L10n::isCode('xx'))
             ->isEqualTo(false);
 
         $this
-            ->boolean(\l10n::isCode('fr'))
+            ->boolean(\Dotclear\Helper\L10n::isCode('fr'))
             ->isEqualTo(true);
     }
 
     public function testChangeNonExistingLangShouldUseDefaultOne()
     {
-        \l10n::init('en');
+        \Dotclear\Helper\L10n::init('en');
 
         $this
-            ->string(\l10n::lang('xx'))
+            ->string(\Dotclear\Helper\L10n::lang('xx'))
             ->isEqualTo('en');
     }
 
     public function testgetLanguageName()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $this
-            ->string(\l10n::getLanguageName('fr'))
+            ->string(\Dotclear\Helper\L10n::getLanguageName('fr'))
             ->isEqualTo('Français');
     }
 
     public function testgetCode()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $this
-            ->string(\l10n::getCode('Français'))
+            ->string(\Dotclear\Helper\L10n::getCode('Français'))
             ->isEqualTo('fr');
 
         $this
-            ->string(\l10n::getCode(\l10n::getLanguageName('es')))
+            ->string(\Dotclear\Helper\L10n::getCode(\Dotclear\Helper\L10n::getLanguageName('es')))
             ->isEqualTo('es');
     }
 
     public function testPhpFormatSingular()
     {
-        $faker = Faker\Factory::create();
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        $faker = Factory::create();
         $text  = $faker->text(20);
 
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/php-format');
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','php-format']));
 
         $this
             ->string(sprintf(__('The e-mail was sent successfully to %s.'), $text))
@@ -164,8 +158,10 @@ class l10n extends atoum
 
     public function testPluralWithoutTranslation()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/dummy');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'dummy']));
 
         $this
             ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 1))
@@ -178,8 +174,10 @@ class l10n extends atoum
 
     public function testPluralWithEmptyTranslation()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/empty');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'empty']));
 
         $this
             ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 1))
@@ -192,21 +190,23 @@ class l10n extends atoum
 
     public function testPluralForLanguageWithoutPluralForms()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $this
-            ->integer(\l10n::getLanguagePluralsNumber('aa'))
-            ->isEqualTo(\l10n::getLanguagePluralsNumber('en'));
+            ->integer(\Dotclear\Helper\L10n::getLanguagePluralsNumber('aa'))
+            ->isEqualTo(\Dotclear\Helper\L10n::getLanguagePluralsNumber('en'));
 
         $this
-            ->string(\l10n::getLanguagePluralExpression('aa'))
-            ->isEqualTo(\l10n::getLanguagePluralExpression('en'));
+            ->string(\Dotclear\Helper\L10n::getLanguagePluralExpression('aa'))
+            ->isEqualTo(\Dotclear\Helper\L10n::getLanguagePluralExpression('en'));
     }
 
     public function testSimplePlural()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/main');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','main']));
 
         /*
         msgid "The category has been successfully removed."
@@ -226,8 +226,10 @@ class l10n extends atoum
 
     public function testNotExistingPhpAndPoFiles()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/dummy');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'dummy']));
 
         $this
             ->string(__('Dotclear has been upgraded.'))
@@ -236,8 +238,10 @@ class l10n extends atoum
 
     public function testNotExistingPoFile()
     {
-        \l10n::init();
-        \l10n::set(__DIR__ . '/../fixtures/l10n/fr/nopo');
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','nopo']));
 
         $this
             ->string(__('Dotclear has been upgraded.'))
@@ -246,20 +250,23 @@ class l10n extends atoum
 
     public function testGetFilePath()
     {
-        \l10n::init();
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
 
         $this
-            ->string(\l10n::getFilePath(__DIR__ . $this->l10n_dir, 'main.po', 'fr'))
-            ->isEqualTo(__DIR__ . $this->l10n_dir . '/fr/main.po');
+            ->dump($l10n_dir)
+            ->string(\Dotclear\Helper\L10n::getFilePath($l10n_dir, 'main.po', 'fr'))
+            ->isEqualTo(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr','main.po']));
 
         $this
-            ->boolean(\l10n::getFilePath(__DIR__ . $this->l10n_dir, 'dummy.po', 'fr'))
+            ->boolean(\Dotclear\Helper\L10n::getFilePath($l10n_dir, 'dummy.po', 'fr'))
             ->isEqualTo(false);
     }
 
     public function testMultiLineIdString()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $en_str  = 'Not a real long sentence';
         $content = 'msgid ""' . "\n" . '"';
@@ -268,7 +275,7 @@ class l10n extends atoum
         $content .= 'msgstr "Pas vraiment une très longue phrase"' . "\n";
 
         $tmp_file = $this->tempPoFile($content);
-        \l10n::set(str_replace('.po', '', $tmp_file));
+        \Dotclear\Helper\L10n::set(str_replace('.po', '', $tmp_file));
 
         $this
             ->string(__($en_str))
@@ -281,7 +288,7 @@ class l10n extends atoum
 
     public function testMultiLineValueString()
     {
-        \l10n::init();
+        \Dotclear\Helper\L10n::init();
 
         $en_str  = 'Not a real long sentence';
         $fr_str  = 'Pas vraiment une très longue phrase';
@@ -291,7 +298,7 @@ class l10n extends atoum
         $content .= '"' . "\n";
 
         $tmp_file = $this->tempPoFile($content);
-        \l10n::set(str_replace('.po', '', $tmp_file));
+        \Dotclear\Helper\L10n::set(str_replace('.po', '', $tmp_file));
 
         $this
             ->string(__($en_str))
@@ -304,14 +311,16 @@ class l10n extends atoum
 
     public function testSimpleStringInPhpFile()
     {
-        \l10n::init();
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
 
-        $file = __DIR__ . '/../fixtures/l10n/fr/simple';
+        \Dotclear\Helper\L10n::init();
+
+        $file = implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr', 'simple']);
         if (file_exists("$file.lang.php")) {
             unlink("$file.lang.php");
         }
-        \l10n::generatePhpFileFromPo($file);
-        \l10n::set($file);
+        \Dotclear\Helper\L10n::generatePhpFileFromPo($file);
+        \Dotclear\Helper\L10n::set($file);
 
         $this
             ->array($GLOBALS['__l10n'])
@@ -320,14 +329,16 @@ class l10n extends atoum
 
     public function testPluralStringsInPhpFile()
     {
-        \l10n::init();
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
 
-        $file = __DIR__ . '/../fixtures/l10n/fr/plurals';
+        \Dotclear\Helper\L10n::init();
+
+        $file = implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'fr', 'plurals']);
         if (file_exists("$file.lang.php")) {
             unlink("$file.lang.php");
         }
-        \l10n::generatePhpFileFromPo($file);
-        \l10n::set($file);
+        \Dotclear\Helper\L10n::generatePhpFileFromPo($file);
+        \Dotclear\Helper\L10n::set($file);
 
         $this
             ->array($GLOBALS['__l10n'])
@@ -337,12 +348,12 @@ class l10n extends atoum
     public function testParsePluralExpression()
     {
         $this
-            ->array(\l10n::parsePluralExpression('nplurals=2; plural=(n > 1)'))
+            ->array(\Dotclear\Helper\L10n::parsePluralExpression('nplurals=2; plural=(n > 1)'))
             ->hasSize(2)
             ->containsValues([2, '(n > 1)']);
 
         $this
-            ->array(\l10n::parsePluralExpression('nplurals=6; plural=(n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5)'))
+            ->array(\Dotclear\Helper\L10n::parsePluralExpression('nplurals=6; plural=(n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5)'))
             ->hasSize(2)
             ->containsValues([6, '(n == 0  ? ( 0 ) : ( n == 1  ? ( 1 ) : ( n == 2  ? ( 2 ) : ( n % 100 >= 3 && n % 100 <= 10  ? ( 3 ) : ( n % 100 >= 11  ? ( 4 ) : ( 5))))))']);
     }
@@ -350,36 +361,36 @@ class l10n extends atoum
     public function testGetISOcodes()
     {
         $this
-            ->array(\l10n::getISOcodes())
+            ->array(\Dotclear\Helper\L10n::getISOcodes())
             ->string['fr']->isEqualTo('Français');
 
         $this
-            ->array(\l10n::getISOcodes(true))
+            ->array(\Dotclear\Helper\L10n::getISOcodes(true))
             ->string['Français']->isEqualTo('fr');
 
         $this
-            ->array(\l10n::getISOcodes(false, true))
+            ->array(\Dotclear\Helper\L10n::getISOcodes(false, true))
             ->string['fr']->isEqualTo('fr - Français');
 
         $this
-            ->array(\l10n::getISOcodes(true, true))
+            ->array(\Dotclear\Helper\L10n::getISOcodes(true, true))
             ->string['fr - Français']->isEqualTo('fr');
     }
 
     public function testGetTextDirection()
     {
         $this
-            ->string(\l10n::getLanguageTextDirection('fr'))
+            ->string(\Dotclear\Helper\L10n::getLanguageTextDirection('fr'))
             ->isEqualTo('ltr');
 
         $this
-            ->string(\l10n::getLanguageTextDirection('ar'))
+            ->string(\Dotclear\Helper\L10n::getLanguageTextDirection('ar'))
             ->isEqualTo('rtl');
     }
 
     public function testGetLanguagesDefinitions()
     {
-        $getLangDefs = new \ReflectionMethod('\l10n', 'getLanguagesDefinitions');
+        $getLangDefs = new \ReflectionMethod('\Dotclear\Helper\L10n', 'getLanguagesDefinitions');
         $getLangDefs->setAccessible(true);
 
         $this
@@ -419,14 +430,12 @@ class l10n extends atoum
             ->string['fr']->isEqualTo('n > 1');
     }
 
-    /*
-     **/
     protected function tempPoFile($content)
     {
-        $filename = sys_get_temp_dir() . '/temp.po';
+        $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'dc-temp-test-' . bin2hex(random_bytes(8)) . '.po';
 
-        file_put_contents($filename, $content);
+        file_put_contents($output, $content);
 
-        return $filename;
+        return $output;
     }
 }

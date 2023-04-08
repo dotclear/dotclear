@@ -12,6 +12,7 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
@@ -41,8 +42,8 @@ new Clearbricks();
 // Loading locales for detected language
 $dlang = Http::getAcceptLanguage();
 if ($dlang != 'en') {
-    l10n::init($dlang);
-    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
+    L10n::init($dlang);
+    L10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
 }
 
 if (is_file(DC_RC_PATH)) {

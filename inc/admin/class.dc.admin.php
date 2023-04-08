@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
 class dcAdmin
@@ -166,7 +167,7 @@ class dcAdmin
         if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
             # Loading resources and help files
             require DC_L10N_ROOT . '/en/resources.php';
-            if ($f = l10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
+            if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
                 require $f;
             }
             unset($f);

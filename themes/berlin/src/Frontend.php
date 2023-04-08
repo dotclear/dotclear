@@ -15,7 +15,7 @@ namespace Dotclear\Theme\berlin;
 use dcCore;
 use dcNsProcess;
 use dcUtils;
-use l10n;
+use Dotclear\Helper\L10n;
 
 class Frontend extends dcNsProcess
 {
@@ -32,7 +32,7 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        l10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+        L10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
 
         dcCore::app()->addBehavior('publicHeadContent', function () {
             echo

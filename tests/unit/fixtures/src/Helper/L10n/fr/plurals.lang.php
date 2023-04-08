@@ -4,7 +4,9 @@
 # DOT NOT MODIFY THIS FILE !
 #
 
-l10n::$locales['The category has been successfully removed.'] = [
+use Dotclear\Helper\L10n;
+
+L10n::$locales['The category has been successfully removed.'] = [
 	'Catégorie supprimée avec succès.',
 	'Catégories supprimées avec succès.',
 ];

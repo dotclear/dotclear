@@ -9,6 +9,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -27,7 +28,7 @@ class adminLangs
         dcPage::checkSuper();
 
         dcCore::app()->admin->is_writable = is_dir(DC_L10N_ROOT) && is_writable(DC_L10N_ROOT);
-        dcCore::app()->admin->iso_codes   = l10n::getISOCodes();
+        dcCore::app()->admin->iso_codes   = L10n::getISOCodes();
 
         # Get languages list on Dotclear.net
         dcCore::app()->admin->dc_langs = false;

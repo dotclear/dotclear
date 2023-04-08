@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
 
@@ -30,8 +31,8 @@ class adminAuth
         dcCore::app()->admin->dlang = Http::getAcceptLanguage();
         dcCore::app()->admin->dlang = (dcCore::app()->admin->dlang === '' ? 'en' : dcCore::app()->admin->dlang);
         if (dcCore::app()->admin->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->admin->dlang)) {
-            l10n::lang(dcCore::app()->admin->dlang);
-            l10n::set(DC_L10N_ROOT . '/' . dcCore::app()->admin->dlang . '/main');
+            L10n::lang(dcCore::app()->admin->dlang);
+            L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->admin->dlang . '/main');
         }
 
         if (defined('DC_ADMIN_URL')) {

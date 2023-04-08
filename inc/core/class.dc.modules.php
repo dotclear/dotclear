@@ -14,6 +14,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
 class dcModules
@@ -585,7 +586,7 @@ class dcModules
             $this->define->set('priority', 1);
         }
 
-        $this->define->set('distributed' , in_array($this->define->getId(), explode(',', $this->define->type == 'theme' ?  DC_DISTRIB_THEMES : DC_DISTRIB_PLUGINS)));
+        $this->define->set('distributed', in_array($this->define->getId(), explode(',', $this->define->type == 'theme' ? DC_DISTRIB_THEMES : DC_DISTRIB_PLUGINS)));
 
         if ($this->disabled_mode) {
             $this->defines[] = $this->define;
@@ -967,8 +968,8 @@ class dcModules
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
-            if (l10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
-                l10n::set(sprintf($lfile, 'en', $file));
+            if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
+                L10n::set(sprintf($lfile, 'en', $file));
             }
         }
     }
@@ -983,7 +984,7 @@ class dcModules
     {
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
-            if ($file = l10n::getFilePath($module->root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
+            if ($file = L10n::getFilePath($module->root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
                 $this->loadModuleFile($file);
             }
         }
