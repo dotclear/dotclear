@@ -109,6 +109,9 @@ dcProxyV1::classAliases([
     // HTML Validation
     'htmlValidator' => 'Dotclear\Helper\Html\HtmlValidator',
 
+    // Socket
+    'netSocket' => 'Dotclear\Helper\Network\Socket\Socket',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',
