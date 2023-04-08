@@ -1,17 +1,21 @@
 <?php
 /**
- * @class netSocket
- * @brief Network base
+ * @class Socket
  *
  * This class handles network socket through an iterator.
  *
- * @package Clearbricks
- * @subpackage Network
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class netSocket
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network\Socket;
+
+use Exception;
+
+class Socket
 {
     /**
      * Server host
@@ -53,7 +57,7 @@ class netSocket
      *
      * @param string      $host        Server host
      * @param int         $port        Server port
-     * @param int         $timeout     Connection timeout
+     * @param int         $timeout     Connection timeout in seconds
      */
     public function __construct(string $host, int $port, int $timeout = 10)
     {
@@ -142,7 +146,7 @@ class netSocket
      *
      * @param   bool    $block
      *
-     * @return    boolean
+     * @return    bool
      */
     public function setBlocking(bool $block): bool
     {
@@ -156,16 +160,17 @@ class netSocket
     /**
      * Open connection.
      *
-     * Opens socket connection and Returns an object of type {@link netSocketIterator}
+     * Opens socket connection and Returns an object of type Iterator
      * which can be iterate with a simple foreach loop.
      *
-     * @return    netSocketIterator|bool
+     * @return    Iterator|false
      */
     public function open()
     {
-        $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, $this->_timeout);
+        $errno  = $errstr = null;
+        $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
         if (!$handle) {
-            throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ')');
+            throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ')' . $this->_transport . $this->_host);
         }
         $this->_handle = $handle;
 
@@ -187,14 +192,14 @@ class netSocket
      * Send data
      *
      * Sends data to current socket and returns an object of type
-     * {@link netSocketIterator} which can be iterate with a simple foreach loop.
+     * {@link Iterator} which can be iterate with a simple foreach loop.
      *
      * <var>$data</var> can be a string or an array of lines.
      *
      * Example:
      *
      * <code>
-     * $s = new netSocket('www.google.com',80,2);
+     * $s = new Socket('www.google.com',80,2);
      * $s->open();
      * $data = [
      *     'GET / HTTP/1.0'
@@ -207,7 +212,7 @@ class netSocket
      *
      * @param   string|array    $data        Data to send
      *
-     * @return    netSocketIterator|false
+     * @return    Iterator|false
      */
     public function write($data)
     {
@@ -241,7 +246,7 @@ class netSocket
     /**
      * Iterator
      *
-     * @return    netSocketIterator|false
+     * @return    Iterator|false
      */
     protected function iterator()
     {
@@ -249,7 +254,7 @@ class netSocket
             return false;
         }
 
-        return new netSocketIterator($this->_handle);
+        return new Iterator($this->_handle);
     }
 
     /**
@@ -262,96 +267,5 @@ class netSocket
     public function isOpen()
     {
         return is_resource($this->_handle);
-    }
-}
-
-/**
- * @class netSocketIterator
- * @brief Network socket iterator
- *
- * This class offers an iterator for network operations made with
- * {@link netSocket}.
- *
- * @see netSocket::write()
- */
-class netSocketIterator implements Iterator
-{
-    /**
-     * Socket resource handler
-     *
-     * @var resource
-     */
-    protected $_handle;
-
-    /**
-     * Current index position
-     *
-     * @var int
-     */
-    protected $_index;
-
-    /**
-     * Constructor
-     *
-     * @param resource    $handle        Socket resource handler
-     */
-    public function __construct(&$handle)
-    {
-        if (!is_resource($handle)) {
-            throw new Exception('Handle is not a resource');
-        }
-        $this->_handle = &$handle;
-        $this->_index  = 0;
-    }
-
-    /* Iterator methods
-    --------------------------------------------------- */
-    /**
-     * Rewind
-     */
-    #[\ReturnTypeWillChange]
-    public function rewind()
-    {
-        # Nothing
-    }
-
-    /**
-     * Valid
-     *
-     * @return bool    True if EOF of handler
-     */
-    public function valid(): bool
-    {
-        return !feof($this->_handle);
-    }
-
-    /**
-     * Move index forward
-     */
-    #[\ReturnTypeWillChange]
-    public function next()
-    {
-        $this->_index++;
-    }
-
-    /**
-     * Current index
-     *
-     * @return int    Current index
-     */
-    public function key(): int
-    {
-        return $this->_index;
-    }
-
-    /**
-     * Current value
-     *
-     * @return string    Current socket response line
-     */
-    #[\ReturnTypeWillChange]
-    public function current()
-    {
-        return fgets($this->_handle, 4096);
     }
 }

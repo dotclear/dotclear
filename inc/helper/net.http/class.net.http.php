@@ -37,7 +37,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class netHttp extends netSocket
+
+use Dotclear\Helper\Network\Socket\Socket;
+
+class netHttp extends Socket
 {
     /**
      * Server host

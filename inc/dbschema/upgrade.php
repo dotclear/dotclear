@@ -578,7 +578,7 @@ class dcUpgrade
             );
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
-                                                                                // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
+            // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = dcCore::app()->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
             $csp_suffix = dcCore::app()->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
@@ -671,7 +671,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.12.2', '<')) {
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
-                                                                                // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
+            // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = dcCore::app()->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
 
             # Update CSP img-src default directive
@@ -1354,6 +1354,8 @@ class dcUpgrade
                     'inc/helper/text.wiki2xhtml',
                     // CB template moved to src
                     'inc/helper/template',
+                    // CB netSocket moved to src
+                    'inc/helper/net',
                 ]
             );
         }

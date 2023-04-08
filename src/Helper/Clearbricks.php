@@ -88,9 +88,6 @@ class Clearbricks
             // URL Handler
             'urlHandler' => $old_helper_root . '/url.handler/class.url.handler.php',
 
-            // Common Socket Class
-            'netSocket' => $old_helper_root . '/net/class.net.socket.php',
-
             // HTTP Client
             'netHttp'    => $old_helper_root . '/net.http/class.net.http.php',
             'HttpClient' => $old_helper_root . '/net.http/class.net.http.php',
