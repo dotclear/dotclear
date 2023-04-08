@@ -237,7 +237,7 @@ abstract class dcActions
      *
      * @return array The hidden form fields.
      */
-    public function hiddenFields(bool $with_ids = false): string
+    public function hiddenFields(bool $with_ids = false): array
     {
         $ret = [];
         foreach ($this->redir_args as $name => $value) {
