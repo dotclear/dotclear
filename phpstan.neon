@@ -140,10 +140,6 @@ parameters:
     - message : '#Access to an undefined property dbStruct::#'
       path: %currentWorkingDirectory%
 
-    # fileItem object and auto properties
-    - message : '#Access to an undefined property fileItem::#'
-      path: %currentWorkingDirectory%
-
     # cursor object and auto properties
     - message : '#Access to an undefined property cursor::#'
       path: %currentWorkingDirectory%
