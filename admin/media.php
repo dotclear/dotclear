@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
@@ -576,7 +577,7 @@ class adminMediaPage extends adminMediaFilter
     /** @var boolean Media dir is archivable */
     protected $media_archivable = null;
 
-    /** @var array Dirs and files fileItem objects */
+    /** @var array Dirs and files File objects */
     protected $media_dir = null;
 
     /** @var array User media recents */
@@ -671,11 +672,11 @@ class adminMediaPage extends adminMediaFilter
     }
 
     /**
-     * Return list of fileItem objects of current dir
+     * Return list of File objects of current dir
      *
      * @param string $type  dir, file, all type
      *
-     * @return null|array Dirs and/or files fileItem objects
+     * @return null|array Dirs and/or files File objects
      */
     public function getDirs(string $type = ''): ?array
     {
@@ -687,9 +688,9 @@ class adminMediaPage extends adminMediaFilter
     }
 
     /**
-     * Return dcRecord instance of fileItem objects
+     * Return dcRecord instance of File objects
      *
-     * @return dcRecord Dirs and/or files fileItem objects
+     * @return dcRecord Dirs and/or files File objects
      */
     public function getDirsRecord(): dcRecord
     {
@@ -704,8 +705,8 @@ class adminMediaPage extends adminMediaFilter
         }
         $items = array_values(array_merge($dir['dirs'], $dir['files']));
 
-        // Transform each fileItem array value to associative array if necessary
-        $items = array_map(fn ($v) => $v instanceof fileItem ? (array) $v : $v, $items);
+        // Transform each File array value to associative array if necessary
+        $items = array_map(fn ($v) => $v instanceof File ? (array) $v : $v, $items);
 
         return dcRecord::newFromArray($items);
     }

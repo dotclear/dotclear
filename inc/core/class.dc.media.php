@@ -14,12 +14,14 @@
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Manager;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
 
-class dcMedia extends filemanager
+class dcMedia extends Manager
 {
     // Constants
 
@@ -299,16 +301,16 @@ class dcMedia extends filemanager
      *
      * @param      dcRecord    $rs  The recordset
      *
-     * @return     fileItem  The file item.
+     * @return     File  The file item.
      */
-    protected function fileRecord(dcRecord $rs): ?fileItem
+    protected function fileRecord(dcRecord $rs): ?File
     {
         if ($rs->isEmpty()) {
             return null;
         }
 
         if (!$this->isFileExclude($this->root . '/' . $rs->media_file) && is_file($this->root . '/' . $rs->media_file)) {
-            $fi = new fileItem($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
+            $fi = new File($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
 
             if ($this->type && $fi->type_prefix !== $this->type) {
                 // Check file mimetype base (before 1st /)
@@ -494,12 +496,12 @@ class dcMedia extends filemanager
     /**
      * Sort calllback
      *
-     * @param      fileItem  $a      1st media
-     * @param      fileItem  $b      2nd media
+     * @param      File  $a      1st media
+     * @param      File  $b      2nd media
      *
      * @return     int
      */
-    protected function sortFileHandler(?fileItem $a, ?fileItem $b): int
+    protected function sortFileHandler(?File $a, ?File $b): int
     {
         if (is_null($a) || is_null($b)) {
             return (is_null($a) ? 1 : -1);
@@ -708,9 +710,9 @@ class dcMedia extends filemanager
      *
      * @param      int     $id     The file identifier
      *
-     * @return     fileItem  The file.
+     * @return     File  The file.
      */
-    public function getFile(int $id): ?fileItem
+    public function getFile(int $id): ?File
     {
         $sql = new SelectStatement();
         $sql
@@ -812,13 +814,13 @@ class dcMedia extends filemanager
 
     /**
      * Returns media items attached to a blog post. Result is an array containing
-     * fileItems objects.
+     * Files objects.
      *
      * @param      int      $post_id    The post identifier
      * @param      mixed    $media_id   The media identifier(s)
      * @param      mixed    $link_type  The link type(s)
      *
-     * @return     array   Array of fileItems.
+     * @return     array   Array of Files.
      */
     public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array
     {
@@ -1092,12 +1094,12 @@ class dcMedia extends filemanager
     /**
      * Updates a file in database.
      *
-     * @param      fileItem     $file     The file
-     * @param      fileItem     $newFile  The new file
+     * @param      File     $file     The file
+     * @param      File     $newFile  The new file
      *
      * @throws     Exception
      */
-    public function updateFile(fileItem $file, fileItem $newFile)
+    public function updateFile(File $file, File $newFile)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -1264,7 +1266,7 @@ class dcMedia extends filemanager
      *
      * Returns an array of directory under {@link $root} directory.
      *
-     * @uses fileItem
+     * @uses File
      *
      * @return array
      */
@@ -1291,14 +1293,14 @@ class dcMedia extends filemanager
     /**
      * Extract zip file in current location.
      *
-     * @param      fileItem     $f           fileItem object
+     * @param      File         $f           File object
      * @param      bool         $create_dir  Create dir
      *
      * @throws     Exception
      *
      * @return     string     destination
      */
-    public function inflateZipFile(fileItem $f, bool $create_dir = true): string
+    public function inflateZipFile(File $f, bool $create_dir = true): string
     {
         $zip = new fileUnzip($f->file);
         $zip->setExcludePattern($this->exclude_pattern);
@@ -1349,11 +1351,11 @@ class dcMedia extends filemanager
     /**
      * Gets the zip content.
      *
-     * @param      fileItem  $f      fileItem object
+     * @param      File  $f      File object
      *
      * @return     array  The zip content.
      */
-    public function getZipContent(fileItem $f): array
+    public function getZipContent(File $f): array
     {
         $zip  = new fileUnzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
@@ -1365,9 +1367,9 @@ class dcMedia extends filemanager
     /**
      * Calls file handlers registered for recreate event.
      *
-     * @param      fileItem  $f      fileItem object
+     * @param      File  $f      File object
      */
-    public function mediaFireRecreateEvent(fileItem $f): void
+    public function mediaFireRecreateEvent(File $f): void
     {
         $media_type = Files::getMimeType($f->basename);
         $this->callFileHandler($media_type, 'recreate', null, $f->basename); // Args list to be completed as necessary (Franck)
@@ -1438,12 +1440,12 @@ class dcMedia extends filemanager
     /**
      * Update image thumbnails
      *
-     * @param      fileItem  $file     The file
-     * @param      fileItem  $newFile  The new file
+     * @param      File  $file     The file
+     * @param      File  $newFile  The new file
      *
      * @return  bool
      */
-    protected function imageThumbUpdate(fileItem $file, fileItem $newFile): bool
+    protected function imageThumbUpdate(File $file, File $newFile): bool
     {
         if ($file->relname !== $newFile->relname) {
             $p         = Path::info($file->relname);

@@ -69,10 +69,6 @@ class Clearbricks
             'dbStruct' => $old_helper_root . '/dbschema/class.dbstruct.php',
             'dbSchema' => $old_helper_root . '/dbschema/class.dbschema.php',
 
-            // Files Manager
-            'filemanager' => $old_helper_root . '/filemanager/class.filemanager.php',
-            'fileItem'    => $old_helper_root . '/filemanager/class.filemanager.php',
-
             // Feed Reader
             'feedParser' => $old_helper_root . '/net.http.feed/class.feed.parser.php',
             'feedReader' => $old_helper_root . '/net.http.feed/class.feed.reader.php',

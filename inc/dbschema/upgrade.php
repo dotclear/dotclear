@@ -1358,6 +1358,8 @@ class dcUpgrade
                     'inc/helper/template',
                     // CB netSocket moved to src
                     'inc/helper/net',
+                    // CB filemanager moved to src
+                    'inc/helper/filemanager',
                 ]
             );
         }

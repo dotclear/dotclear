@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -311,7 +312,7 @@ class adminMediaItem
         // Display helpers
 
         # Function to get image title based on meta
-        $getImageTitle = function (?fileItem $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
+        $getImageTitle = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
             if (!$file) {
                 return '';
             }
@@ -357,7 +358,7 @@ class adminMediaItem
             return implode($sep, $res);
         };
 
-        $getImageDescription = function (?fileItem $file, string $default = ''): string {
+        $getImageDescription = function (?File $file, string $default = ''): string {
             if (!$file) {
                 return (string) $default;
             }
@@ -373,7 +374,7 @@ class adminMediaItem
             return (string) $default;
         };
 
-        $getImageDefaults = function (?fileItem $file): array {
+        $getImageDefaults = function (?File $file): array {
             $defaults = [
                 'size'      => dcCore::app()->blog->settings->system->media_img_default_size ?: 'm',
                 'alignment' => dcCore::app()->blog->settings->system->media_img_default_alignment ?: 'none',

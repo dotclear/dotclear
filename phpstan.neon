@@ -224,6 +224,10 @@ parameters:
     - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
       path: %currentWorkingDirectory%
 
+    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
+    - message : '#Access to an undefined property Dotclear\\Helper\\File\\File::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

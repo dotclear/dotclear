@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Pager;
@@ -1103,7 +1104,7 @@ class adminMediaList extends adminGenericListV2
             $items = $this->rs->rows();
             foreach ($items as $item) {
                 if (is_array($item)) {
-                    // Convert array to object->properties (will then pretend to be like a fileItem object)
+                    // Convert array to object->properties (will then pretend to be like a File object)
                     $item = (object) $item;
                 }
                 if ($item->d) {
@@ -1124,7 +1125,7 @@ class adminMediaList extends adminGenericListV2
             for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
                 $item = $items[$index];
                 if (is_array($item)) {
-                    // Convert array to object->properties (will then pretend to be like a fileItem object)
+                    // Convert array to object->properties (will then pretend to be like a File object)
                     $item = (object) $item;
                 }
                 $group[$item->d ? 'dirs' : 'files'][] = static::mediaLine($filters, $items[$index], $index_in_page, $query, $page_adminurl);
@@ -1164,7 +1165,7 @@ class adminMediaList extends adminGenericListV2
      * Display a media item
      *
      * @param      adminMediaFilter  $filters        The filters
-     * @param      fileItem|array    $file           The media file
+     * @param      File|array        $file           The media file
      * @param      int               $index          Current index in page
      * @param      bool              $query          The query
      * @param      string            $page_adminurl  The page adminurl
@@ -1174,7 +1175,7 @@ class adminMediaList extends adminGenericListV2
     public static function mediaLine(adminMediaFilter $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {
         if (is_array($file)) {
-            // Convert array to object->properties (will then pretend to be like a fileItem object)
+            // Convert array to object->properties (will then pretend to be like a File object)
             $file = (object) $file;
         }
 

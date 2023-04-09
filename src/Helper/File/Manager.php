@@ -1,19 +1,21 @@
 <?php
 /**
- * @class filemanager
- * @brief Files management class
+ * @class Manager
  *
- * @package Clearbricks
- * @subpackage Filemanager
+ * Files management class
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\Helper\File\Files;
-use Dotclear\Helper\File\Path;
+namespace Dotclear\Helper\File;
 
-class filemanager
+use Exception;
+
+class Manager
 {
     /**
      * Files manager root path
@@ -135,7 +137,7 @@ class filemanager
     /**
      * Add exclusion
      *
-     * Appends an exclusion to exclusions list. $f should be a regexp.
+     * Appends an exclusion to exclusions list.
      *
      * @see $exclude_list
      *
@@ -178,6 +180,16 @@ class filemanager
     }
 
     /**
+     * Sets the exclude pattern.
+     *
+     * @param      string  $pattern  The regexp pattern
+     */
+    public function setExcludePattern(string $pattern)
+    {
+        $this->exclude_pattern = $pattern;
+    }
+
+    /**
      * File is excluded
      *
      * Returns true if file $file is excluded. $file is relative to {@link $root}
@@ -191,11 +203,11 @@ class filemanager
      */
     protected function isFileExclude(string $file): bool
     {
-        if (!$this->exclude_pattern) {
+        if ($this->exclude_pattern === '') {
             return false;
         }
 
-        return preg_match($this->exclude_pattern, $file);
+        return (bool) preg_match($this->exclude_pattern, $file);
     }
 
     /**
@@ -212,7 +224,7 @@ class filemanager
         $path = Path::real($path);
 
         if ($path !== false) {
-            return preg_match('|^' . preg_quote($this->root, '|') . '|', $path);
+            return (bool) preg_match('|^' . preg_quote($this->root, '|') . '|', $path);
         }
 
         return false;
@@ -223,7 +235,7 @@ class filemanager
      *
      * Returns true if file $file is in files array of {@link $dir}.
      *
-     * @param string    $file            File to match
+     * @param string    $file            File to match (relative to root)
      *
      * @return bool
      */
@@ -243,7 +255,7 @@ class filemanager
      *
      * Creates list of items in working directory and append it to {@link $dir}
      *
-     * @uses sortHandler(), fileItem
+     * @uses sortHandler(), File
      */
     public function getDir(): void
     {
@@ -261,7 +273,7 @@ class filemanager
 
             if ($this->inJail($filename) && !$this->isExclude($filename)) {
                 if (is_dir($filename) && $file !== '.') {
-                    $directory = new fileItem($filename, $this->root, $this->root_url);
+                    $directory = new File($filename, $this->root, $this->root_url);
                     if ($file === '..') {
                         $directory->parent = true;
                     }
@@ -269,7 +281,7 @@ class filemanager
                 }
 
                 if (is_file($filename) && strpos($file, '.') !== 0 && !$this->isFileExclude($file)) {
-                    $files[] = new fileItem($filename, $this->root, $this->root_url);
+                    $files[] = new File($filename, $this->root, $this->root_url);
                 }
             }
         }
@@ -289,7 +301,7 @@ class filemanager
      *
      * Returns an array of directory under {@link $root} directory.
      *
-     * @uses fileItem
+     * @uses File
      *
      * @return array
      */
@@ -299,7 +311,7 @@ class filemanager
 
         $res = [];
         foreach ($directories['dirs'] as $directory) {
-            $res[] = new fileItem($directory, $this->root, $this->root_url);
+            $res[] = new File($directory, $this->root, $this->root_url);
         }
 
         return $res;
@@ -515,220 +527,17 @@ class filemanager
      * This method is called by {@link getDir()} to sort files. Can be overrided
      * in inherited classes.
      *
-     * @param fileItem    $a            fileItem object
-     * @param fileItem    $b            fileItem object
+     * @param File    $a            File object
+     * @param File    $b            File object
      *
      * @return int
      */
-    protected function sortHandler(fileItem $a, fileItem $b): int
+    protected function sortHandler(File $a, File $b): int
     {
         if ($a->parent && !$b->parent || !$a->parent && $b->parent) {
             return ($a->parent) ? -1 : 1;
         }
 
         return strcasecmp($a->basename, $b->basename);
-    }
-}
-
-/**
- * @class fileItem
- * @brief File item
- *
- * File item class used by {@link filemanager}. In this class {@link $file} could
- * be either a file or a directory.
- *
- * @package Clearbricks
- * @subpackage Filemanager
- */
-#[\AllowDynamicProperties]
-class fileItem
-{
-    /**
-     * Complete path to file
-     *
-     * @var string
-     */
-    public $file;
-
-    /**
-     * File basename
-     *
-     * @var string
-     */
-    public $basename;
-
-    /**
-     * File directory name
-     *
-     * @var string
-     */
-    public $dir;
-
-    /**
-     * File URL
-     *
-     * @var string
-     */
-    public $file_url;
-
-    /**
-     * File directory URL
-     *
-     * @var string
-     */
-    public $dir_url;
-
-    /**
-     * File extension
-     *
-     * @var string
-     */
-    public $extension;
-
-    /**
-     * File path relative to <var>$root</var> given in constructor
-     *
-     * @var string
-     */
-    public $relname;
-
-    /**
-     * Parent directory (ie. "..")
-     *
-     * @var        bool
-     */
-    public $parent = false;
-
-    /**
-     * File MimeType
-     *
-     * @see {@link Files::getMimeType()}
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
-     * File MimeType prefix
-     *
-     * @var string
-     */
-    public $type_prefix;
-
-    /**
-     * File modification timestamp
-     *
-     * @var int
-     */
-    public $mtime;
-
-    /**
-     * File size
-     *
-     * @var int
-     */
-    public $size;
-
-    /**
-     * File permissions mode
-     *
-     * @var int
-     */
-    public $mode;
-
-    /**
-     * File owner ID
-     *
-     * @var int
-     */
-    public $uid;
-
-    /**
-     * File group ID
-     *
-     * @var int
-     */
-    public $gid;
-
-    /**
-     * True if file or directory is writable
-     *
-     * @var bool
-     */
-    public $w;
-
-    /**
-     * True if file is a directory
-     *
-     * @var bool
-     */
-    public $d;
-
-    /**
-     * True if file file is executable or directory is traversable
-     *
-     * @var bool
-     */
-    public $x;
-
-    /**
-     * True if file is a file
-     *
-     * @var bool
-     */
-    public $f;
-
-    /**
-     * True if file or directory is deletable
-     *
-     * @var bool
-     */
-    public $del;
-
-    /**
-     * Constructor
-     *
-     * Creates an instance of fileItem object.
-     *
-     * @param string    $file           Absolute file or directory path
-     * @param string    $root           File root path
-     * @param string    $root_url       File root URL
-     */
-    public function __construct(string $file, ?string $root, ?string $root_url = '')
-    {
-        $file = Path::real($file);
-        $stat = stat($file);
-        $path = Path::info($file);
-
-        $rel = preg_replace('/^' . preg_quote($root, '/') . '\/?/', '', (string) $file);
-
-        // Properties
-        $this->file     = $file;
-        $this->basename = $path['basename'];
-        $this->dir      = $path['dirname'];
-        $this->relname  = $rel;
-
-        // URL
-        $this->file_url = $root_url . str_replace('%2F', '/', rawurlencode($rel));
-        $this->dir_url  = dirname($this->file_url);
-
-        // File type
-        $this->extension   = $path['extension'];
-        $this->type        = $this->d ? null : Files::getMimeType($file);
-        $this->type_prefix = preg_replace('/^(.+?)\/.+$/', '$1', (string) $this->type);
-
-        // Filesystem infos
-        $this->mtime = $stat[9];
-        $this->size  = $stat[7];
-        $this->mode  = $stat[2];
-        $this->uid   = $stat[4];
-        $this->gid   = $stat[5];
-
-        // Flags
-        $this->w   = is_writable($file);
-        $this->d   = is_dir($file);
-        $this->f   = is_file($file);
-        $this->x   = $this->d ? file_exists($file . '/.') : false;
-        $this->del = Files::isDeletable($file);
     }
 }

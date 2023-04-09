@@ -83,9 +83,11 @@ dcProxyV1::classAliases([
     // Text helper
     'text' => 'Dotclear\Helper\Text',
 
-    // Files and Path helpers
-    'files' => 'Dotclear\Helper\File\Files',
-    'path'  => 'Dotclear\Helper\File\Path',
+    // Files and Path, … helpers
+    'files'       => 'Dotclear\Helper\File\Files',
+    'path'        => 'Dotclear\Helper\File\Path',
+    'filemanager' => 'Dotclear\Helper\File\Manager',
+    'fileItem'    => 'Dotclear\Helper\File\File',
 
     // Html helper
     'html'       => 'Dotclear\Helper\Html\Html',
