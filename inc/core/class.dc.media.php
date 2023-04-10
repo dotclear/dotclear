@@ -220,6 +220,13 @@ class dcMedia extends Manager
 
         # --BEHAVIOR-- coreMediaConstruct
         dcCore::app()->callBehavior('coreMediaConstruct', $this);
+
+        // Sort thumb_sizes DESC on largest sizes
+        $sizes = [];
+        foreach ($this->thumb_sizes as $code => $size) {
+            $sizes[$code] = $size[0];
+        }
+        array_multisort($sizes, SORT_DESC, $this->thumb_sizes);
     }
 
     /**
