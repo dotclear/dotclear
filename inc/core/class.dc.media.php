@@ -16,6 +16,8 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Image\ImageMeta;
+use Dotclear\Helper\File\Image\ImageTools;
 use Dotclear\Helper\File\Manager;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\XmlTag;
@@ -1414,7 +1416,7 @@ class dcMedia extends Manager
         );
 
         try {
-            $img = new imageTools();
+            $img = new ImageTools();
             $img->loadImage($file);
 
             $w = $img->getW();
@@ -1541,7 +1543,7 @@ class dcMedia extends Manager
         }
 
         $xml  = new XmlTag('meta');
-        $meta = imageMeta::readMeta($file);
+        $meta = ImageMeta::readMeta($file);
         $xml->insertNode($meta);
 
         $c             = dcCore::app()->con->openCursor($this->table);

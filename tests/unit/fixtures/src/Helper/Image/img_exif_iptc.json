@@ -1,0 +1,51 @@
+{
+  "File info": {
+    "File Size": "2.8 kB",
+    "File Type": "JPEG",
+    "MIME Type": "image/jpeg",
+    "Comment": "This is a jpeg comment, about the green smiley.",
+    "Exif Byte Order": "Big-endian (Motorola, MM)",
+    "Current IPTC Digest": "b571fab190edd6cc0fe3ea57b3e18bce",
+    "Image Width": 167,
+    "Image Height": 140,
+    "Encoding Process": "Baseline DCT, Huffman coding",
+    "Bits Per Sample": 8,
+    "Color Components": 3,
+    "Y Cb Cr Sub Sampling": "YCbCr4:2:0 (2 2)"
+  },
+  "EXIF info": {
+    "Image Description": "Well it is a smiley that happens to be green",
+    "X Resolution": 72,
+    "Y Resolution": 72,
+    "Resolution Unit": "inches",
+    "Software": "ImageReady",
+    "Modify Date": "13.07.2004, 21:23:44",
+    "Artist": "No one",
+    "Copyright": "",
+    "Flash": "Off, Red-eye reduction",
+    "Exif Image Width": 167,
+    "Exif Image Height": 140
+  },
+  "IPTC": {
+    "Headline": "The headline I am",
+    "Keywords": "Yet another keyword",
+    "Date Created": "2004:08:03",
+    "Urgency": "Unknown (very!)",
+    "Envelope Record Version": 42,
+    "Time Sent": "14:41:00-05:00",
+    "Rasterized Caption": "(Binary data 8 bytes)"
+  },
+  "Ducky": {
+    "Quality": "30%"
+  },
+  "APP14": {
+    "DCT Encode Version": 100,
+    "APP14 Flags 0": "[14], Encoded with Blend=1 downsampling",
+    "APP14 Flags 1": "(none)",
+    "Color Transform": "YCbCr"
+  },
+  "Composite": {
+    "Image Size": "167x140",
+    "Megapixels": 0.023
+  }
+}

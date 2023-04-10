@@ -1,20 +1,22 @@
 <?php
 /**
- * @class imageTools
- * @brief Image manipulations
+ * @class ImageTools
  *
  * Class to manipulate images. Some methods are based on https://dev.media-box.net/big/
  *
- * @package Clearbricks
- * @subpackage Images
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\File\Image;
 
 use Dotclear\Helper\File\Files;
+use Exception;
 
-class imageTools
+class ImageTools
 {
     /**
      * Image resource
@@ -156,7 +158,7 @@ class imageTools
      *
      * @throws     Exception
      */
-    public function memoryAllocate(int $width, int $height, int $bpp = 4)
+    protected function memoryAllocate(int $width, int $height, int $bpp = 4)
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
@@ -189,18 +191,18 @@ class imageTools
      *
      * @param string         $type        Image type (png, jpg, webp or avif)
      * @param string|null    $file        Output file. If null, output will be echoed in STDOUT
-     * @param int            $qual        JPEG image quality
+     * @param int|null       $qual        JPEG/WepB/Avif image quality (0-100)
      *
-     * @return mixed
+     * @return bool
      */
-    public function output(string $type = 'png', ?string $file = null, int $qual = 90)
+    public function output(string $type = 'png', ?string $file = null, ?int $qual = 90): bool
     {
         if (!$file) {
             header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
             switch (strtolower($type)) {
                 case 'png':
                     header('Content-type: image/png');
-                    imagepng($this->res);
+                    imagepng($this->res, null, -1, -1);
 
                     return true;
                 case 'jpeg':
@@ -209,7 +211,12 @@ class imageTools
                     imagejpeg($this->res, null, $qual);
 
                     return true;
-                case 'wepb':
+                case 'gif':
+                    header('Content-type: image/gif');
+                    imagegif($this->res, null);
+
+                    return true;
+                case 'webp':
                     if (function_exists('imagewebp')) {
                         header('Content-type: image/webp');
                         imagewebp($this->res, null, $qual);
@@ -221,8 +228,9 @@ class imageTools
                 case 'avif':
                     if (function_exists('imageavif')) {
                         // PHP 8.1+
+                        $qual = $qual === null ? -1 : abs($qual / 10);
                         header('Content-type: image/avif');
-                        imageavif($this->res, null, $qual);
+                        imageavif($this->res, null, $qual, -1);
 
                         return true;
                     }
@@ -234,19 +242,34 @@ class imageTools
         } elseif (is_writable(dirname($file))) {
             switch (strtolower($type)) {
                 case 'png':
-                    return imagepng($this->res, $file);
+                    imagepng($this->res, $file);
+
+                    return file_exists($file);
+
                 case 'jpeg':
                 case 'jpg':
-                    return imagejpeg($this->res, $file, $qual);
+                    imagejpeg($this->res, $file, $qual);
+
+                    return file_exists($file);
+
+                case 'gif':
+                    imagegif($this->res, $file);
+
+                    return file_exists($file);
+
                 case 'webp':
                     if (function_exists('imagewebp')) {
-                        return imagewebp($this->res, $file, $qual);
+                        imagewebp($this->res, $file, $qual);
+
+                        return file_exists($file);
                     }
 
                     return false;
                 case 'avif':
                     if (function_exists('imageavif')) {
-                        return imageavif($this->res, $file, $qual);
+                        imageavif($this->res, $file, $qual);
+
+                        return file_exists($file);
                     }
 
                     return false;
@@ -278,11 +301,11 @@ class imageTools
         $imgage_height = $this->getH();
 
         if (strpos((string) $width, '%', 0)) {
-            $width = $imgage_width * $width / 100;
+            $width = $imgage_width * (int) trim($width, '%') / 100;
         }
 
         if (strpos((string) $height, '%', 0)) {
-            $height = $imgage_height * $height / 100;
+            $height = $imgage_height * (int) trim($height, '%') / 100;
         }
 
         $ratio = $imgage_width / $imgage_height;

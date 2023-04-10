@@ -1360,6 +1360,8 @@ class dcUpgrade
                     'inc/helper/net',
                     // CB filemanager moved to src
                     'inc/helper/filemanager',
+                    // CB image helper moved to src
+                    'inc/helper/image',
                 ]
             );
         }

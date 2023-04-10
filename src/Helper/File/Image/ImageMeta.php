@@ -1,44 +1,75 @@
 <?php
 /**
- * @class imageMeta
- * @brief Image metadata
+ * @class ImageMeta
  *
  * This class reads EXIF, IPTC and XMP metadata from a JPEG file.
  *
  * - Contributor: Mathieu Lecarme.
  *
- * @package Clearbricks
- * @subpackage Images
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\File\Image;
 
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
+use Exception;
 
-class imageMeta
+class ImageMeta
 {
     /**
      * Internal XMP array
      *
-     * @var        array
+     * @var     array
      */
     protected $xmp = [];
 
     /**
      * Internal IPTC array
      *
-     * @var        array
+     * @var     array
      */
     protected $iptc = [];
 
     /**
      * Internal EXIF array
      *
-     * @var        array
+     * @var     array
      */
     protected $exif = [];
+
+    /**
+     * array $properties Final properties array
+     *
+     * @var     array<string, mixed>
+     */
+    protected $properties = [
+        'Title'             => null,
+        'Description'       => null,
+        'Creator'           => null,
+        'Rights'            => null,
+        'Make'              => null,
+        'Model'             => null,
+        'Exposure'          => null,
+        'FNumber'           => null,
+        'MaxApertureValue'  => null,
+        'ExposureProgram'   => null,
+        'ISOSpeedRatings'   => null,
+        'DateTimeOriginal'  => null,
+        'ExposureBiasValue' => null,
+        'MeteringMode'      => null,
+        'FocalLength'       => null,
+        'Lens'              => null,
+        'CountryCode'       => null,
+        'Country'           => null,
+        'State'             => null,
+        'City'              => null,
+        'Keywords'          => null,
+    ];
 
     /**
      * Read metadata
@@ -231,41 +262,14 @@ class imageMeta
             if (isset($data[$k])) {
                 if (is_array($data[$k])) {
                     foreach ($data[$k] as $kk => $vv) {
-                        $this->exif[$v . '.' . $kk] = Text::toUTF8($vv);
+                        $this->exif[$v . '.' . $kk] = is_string($vv) ? Text::toUTF8($vv) : $vv;
                     }
                 } else {
-                    $this->exif[$v] = Text::toUTF8($data[$k]);
+                    $this->exif[$v] = is_string($data[$k]) ? Text::toUTF8($data[$k]) : $data[$k];
                 }
             }
         }
     }
-
-    /**
-     * array $properties Final properties array
-     */
-    protected $properties = [
-        'Title'             => null,
-        'Description'       => null,
-        'Creator'           => null,
-        'Rights'            => null,
-        'Make'              => null,
-        'Model'             => null,
-        'Exposure'          => null,
-        'FNumber'           => null,
-        'MaxApertureValue'  => null,
-        'ExposureProgram'   => null,
-        'ISOSpeedRatings'   => null,
-        'DateTimeOriginal'  => null,
-        'ExposureBiasValue' => null,
-        'MeteringMode'      => null,
-        'FocalLength'       => null,
-        'Lens'              => null,
-        'CountryCode'       => null,
-        'Country'           => null,
-        'State'             => null,
-        'City'              => null,
-        'Keywords'          => null,
-    ];
 
     # XMP
     protected $xmp_reg = [

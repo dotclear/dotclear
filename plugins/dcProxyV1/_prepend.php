@@ -117,6 +117,10 @@ dcProxyV1::classAliases([
     // L10n
     'l10n' => 'Dotclear\Helper\L10n',
 
+    // Image helper
+    'imageMeta'  => 'Dotclear\Helper\File\Image\ImageMeta',
+    'imageTools' => 'Dotclear\Helper\File\Image\ImageTools',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',

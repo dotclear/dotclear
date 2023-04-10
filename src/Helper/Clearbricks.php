@@ -73,10 +73,6 @@ class Clearbricks
             'feedParser' => $old_helper_root . '/net.http.feed/class.feed.parser.php',
             'feedReader' => $old_helper_root . '/net.http.feed/class.feed.reader.php',
 
-            // Image Manipulation Tools
-            'imageMeta'  => $old_helper_root . '/image/class.image.meta.php',
-            'imageTools' => $old_helper_root . '/image/class.image.tools.php',
-
             // Database PHP Session
             'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
 
