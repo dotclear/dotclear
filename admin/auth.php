@@ -89,6 +89,11 @@ class adminAuth
             }
             dcCore::app()->admin->user_id = $user_id;
         }
+
+        // Enable REST service if disabled
+        if (!dcCore::app()->serveRestRequests()) {
+            dcCore::app()->enableRestServer(true);
+        }
     }
 
     /**

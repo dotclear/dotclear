@@ -33,7 +33,9 @@ dcCore::app()->rest->addFunction('getModuleById', [dcRestMethods::class, 'getMod
 dcCore::app()->rest->addFunction('setDashboardPositions', [dcRestMethods::class, 'setDashboardPositions']);
 dcCore::app()->rest->addFunction('setListsOptions', [dcRestMethods::class, 'setListsOptions']);
 
-dcCore::app()->rest->serve();
+if (dcCore::app()->serveRestRequests()) {
+    dcCore::app()->rest->serve();
+}
 
 /* Common REST methods */
 class dcRestMethods
@@ -708,7 +710,7 @@ class dcRestMethods
             );
             $store->check();
 
-            foreach($store->getDefines() as $str_define) {
+            foreach ($store->getDefines() as $str_define) {
                 if ($str_define->getId() != $id) {
                     continue;
                 }

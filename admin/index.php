@@ -53,6 +53,10 @@ class adminIndex
     public static function process()
     {
         if (!empty($_GET['logout'])) {
+            // Enable REST service if disabled, for next requests
+            if (!dcCore::app()->serveRestRequests()) {
+                dcCore::app()->enableRestServer(true);
+            }
             // Kill admin session
             dcCore::app()->killAdminSession();
             // Logout

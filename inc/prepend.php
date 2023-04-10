@@ -352,6 +352,11 @@ if (!is_dir(DC_VAR)) {
     }
 }
 
+// REST server watchdog file (used to enable/disable REST services during last phase of Dotclear upgrade)
+if (!defined('DC_UPGRADE')) {
+    define('DC_UPGRADE', dcUtils::path([DC_ROOT, 'inc', 'upgrade']));
+}
+
 L10n::init();
 
 try {

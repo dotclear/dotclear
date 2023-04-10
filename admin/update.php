@@ -179,6 +179,9 @@ class adminUpdate
                             DC_ROOT . '/inc/digests'
                         );
 
+                        // Disable REST service until next authentication
+                        dcCore::app()->enableRestServer(false);
+
                         break;
                 }
             } catch (Exception $e) {

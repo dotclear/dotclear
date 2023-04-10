@@ -2322,6 +2322,35 @@ final class dcCore
     }
 
     /**
+     * Serve or not the REST requests (using a file as token)
+     *
+     * @param      bool  $serve  The flag
+     */
+    public function enableRestServer(bool $serve = true)
+    {
+        try {
+            if ($serve && file_exists(DC_UPGRADE)) {
+                // Remove watchdog file
+                unlink(DC_UPGRADE);
+            } elseif (!$serve && !file_exists(DC_UPGRADE)) {
+                // Create watchdog file
+                touch(DC_UPGRADE);
+            }
+        } catch (Exception $e) {
+        }
+    }
+
+    /**
+     * Check if we need to serve REST requests
+     *
+     * @return     bool
+     */
+    public function serveRestRequests(): bool
+    {
+        return !file_exists(DC_UPGRADE);
+    }
+
+    /**
      * Return elapsed time since script has been started
      *
      * @param      float   $mtime  timestamp (microtime format) to evaluate delta from current time is taken if null
