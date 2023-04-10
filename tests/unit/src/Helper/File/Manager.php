@@ -197,7 +197,6 @@ class Manager extends atoum
     public function testGetSubDir()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
         $manager->chdir('sub');
 
         $this
@@ -302,7 +301,6 @@ class Manager extends atoum
     public function testUploadFile()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
         $manager->setExcludePattern('/stop\.md$/');
 
         if (file_exists($this->root . DIRECTORY_SEPARATOR . 'valid-clone.md')) {
@@ -396,7 +394,6 @@ class Manager extends atoum
     public function testUploadBits()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
         $manager->setExcludePattern('/warning\.md$/');
 
         if (file_exists($this->root . DIRECTORY_SEPARATOR . 'valid-bits.md')) {
@@ -468,8 +465,6 @@ class Manager extends atoum
     public function testMakeDir()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (is_dir($this->root . DIRECTORY_SEPARATOR . 'hello')) {
             @rmdir($this->root . DIRECTORY_SEPARATOR . 'hello');
@@ -490,8 +485,6 @@ class Manager extends atoum
     public function testMoveFile()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (file_exists($this->root . DIRECTORY_SEPARATOR . 'hello.md')) {
             unlink($this->root . DIRECTORY_SEPARATOR . 'hello.md');
@@ -533,8 +526,6 @@ class Manager extends atoum
     public function testMoveFileError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         $this
             // Mock rename()
@@ -550,8 +541,6 @@ class Manager extends atoum
     public function testRemoveFile()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         $this
             ->given($manager->uploadBits('valid-file.md', 'I\'m validl!'))
@@ -569,8 +558,6 @@ class Manager extends atoum
     public function testRemoveFileUnlinkError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (file_exists($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-unlink.md')) {
             unlink($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-unlink.md');
@@ -594,8 +581,6 @@ class Manager extends atoum
     public function testRemoveFileInJailError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         $this
             ->exception(function () use ($manager) {
@@ -608,8 +593,6 @@ class Manager extends atoum
     public function testRemoveFilePermError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (file_exists($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-perm.md')) {
             unlink($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-perm.md');
@@ -636,8 +619,6 @@ class Manager extends atoum
     public function testRemoveDir()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         $this
             ->given($manager->makeDir('valid-dir'))
@@ -654,8 +635,6 @@ class Manager extends atoum
     public function testRemoveDirRmdirError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (is_dir($manager->getPwd() . DIRECTORY_SEPARATOR . 'dir-rmdir')) {
             rmdir($manager->getPwd() . DIRECTORY_SEPARATOR . 'dir-rmdir');
@@ -679,8 +658,6 @@ class Manager extends atoum
     public function testRemoveDirInJailError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         $this
             ->exception(function () use ($manager) {
@@ -693,8 +670,6 @@ class Manager extends atoum
     public function testRemoveDirPermError()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (is_dir($manager->getPwd() . DIRECTORY_SEPARATOR . 'dir-perm')) {
             rmdir($manager->getPwd() . DIRECTORY_SEPARATOR . 'dir-perm');
@@ -720,8 +695,6 @@ class Manager extends atoum
     public function testRemoveItem()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
-        $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
-        $manager->setExcludePattern('/not\.md$/');
 
         if (is_dir($this->root . DIRECTORY_SEPARATOR . 'item')) {
             @rmdir($this->root . DIRECTORY_SEPARATOR . 'item');
