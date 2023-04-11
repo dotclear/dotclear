@@ -1374,6 +1374,8 @@ class dcUpgrade
                     'inc/helper/filemanager',
                     // CB image helper moved to src
                     'inc/helper/image',
+                    // CB urlHandler moved to src
+                    'inc/helper/url.handler',
                 ]
             );
         }

@@ -121,6 +121,9 @@ dcProxyV1::classAliases([
     'imageMeta'  => 'Dotclear\Helper\File\Image\ImageMeta',
     'imageTools' => 'Dotclear\Helper\File\Image\ImageTools',
 
+    // URL Handler
+    'urlHandler' => 'Dotclear\Helper\Network\UrlHandler',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',

@@ -1,13 +1,19 @@
 <?php
 /**
- * @class urlHandler
+ * @class UrlHandler
  *
- * @package Clearbricks
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class urlHandler
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network;
+
+use Exception;
+
+class UrlHandler
 {
     /**
      * Stack of URL types (name)
@@ -19,7 +25,7 @@ class urlHandler
     /**
      * Default handler, used if requested type handler not registered
      *
-     * @var callable|array
+     * @var callable|array|null
      */
     protected $default_handler;
 
@@ -221,7 +227,7 @@ class urlHandler
      * @param      string           $args     The arguments
      * @param      string           $type     The URL handler type
      */
-    public function callHelper($handler, ?string $args, string $type = 'default'): void
+    protected function callHelper($handler, ?string $args = null, string $type = 'default'): void
     {
         if (!is_callable($handler)) {
             throw new Exception('Unable to call function');
@@ -248,7 +254,7 @@ class urlHandler
      *
      * @throws     Exception
      */
-    public function callHandler(string $type, ?string $args): void
+    public function callHandler(string $type, ?string $args = null): void
     {
         if (!isset($this->types[$type])) {
             throw new Exception('Unknown URL type');
@@ -264,8 +270,12 @@ class urlHandler
      *
      * @throws     Exception
      */
-    public function callDefaultHandler(?string $args): void
+    public function callDefaultHandler(?string $args = null): void
     {
+        if (!isset($this->default_handler)) {
+            throw new Exception('Undefined default URL handler');
+        }
+
         $this->callHelper($this->default_handler, $args, 'default');
     }
 

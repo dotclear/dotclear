@@ -76,9 +76,6 @@ class Clearbricks
             // Database PHP Session
             'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
 
-            // URL Handler
-            'urlHandler' => $old_helper_root . '/url.handler/class.url.handler.php',
-
             // HTTP Client
             'netHttp'    => $old_helper_root . '/net.http/class.net.http.php',
             'HttpClient' => $old_helper_root . '/net.http/class.net.http.php',

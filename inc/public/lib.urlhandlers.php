@@ -9,9 +9,10 @@
 
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\UrlHandler;
 use Dotclear\Helper\Text;
 
-class dcUrlHandlers extends urlHandler
+class dcUrlHandlers extends UrlHandler
 {
     /**
      * URI arguments (depends on URL representation)
