@@ -294,6 +294,10 @@ if (!defined('DC_STORE_NOT_UPDATE')) {
     define('DC_STORE_NOT_UPDATE', false);
 }
 
+if (!defined('DC_REST_SERVICES')) {
+    define('DC_REST_SERVICES', true);
+}
+
 if (!defined('DC_ALLOW_REPOSITORIES')) {
     define('DC_ALLOW_REPOSITORIES', true);
 }

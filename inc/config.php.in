@@ -85,6 +85,9 @@ define('DC_CRYPT_ALGO', 'sha512');
 // Store update checking
 //define('DC_STORE_NOT_UPDATE', false);
 
+// Disable REST services (may be useful during debugging session)
+//define('DC_REST_SERVICES', false);
+
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
 //    $_SERVER['ORIG_PATH_INFO'] = '';

@@ -2347,7 +2347,7 @@ final class dcCore
      */
     public function serveRestRequests(): bool
     {
-        return !file_exists(DC_UPGRADE);
+        return !file_exists(DC_UPGRADE) && (!defined('DC_REST_SERVICES') || DC_REST_SERVICES);
     }
 
     /**
