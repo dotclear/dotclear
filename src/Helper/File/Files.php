@@ -327,10 +327,10 @@ class Files
     {
         try {
             if (self::$dir_mode === null) {
-                return (bool) chmod($file, fileperms(dirname($file)));
+                return (bool) @chmod($file, @fileperms(dirname($file)));
             }
 
-            return (bool) chmod($file, self::$dir_mode);
+            return (bool) @chmod($file, self::$dir_mode);
         } catch (Exception $e) {
             // chmod and maybe fileperms functions may be disabled so catch exception and return false
         }
