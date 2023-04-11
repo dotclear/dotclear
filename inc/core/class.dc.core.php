@@ -2120,7 +2120,7 @@ final class dcCore
                     'Enable HTML filter', ],
                 ['lang', 'string', 'en',
                     'Default blog language', ],
-                ['media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i',
+                ['media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i',
                     'File name exclusion pattern in media manager. (PCRE value)', ],
                 ['media_img_m_size', 'integer', 448,
                     'Image medium size in media manager', ],

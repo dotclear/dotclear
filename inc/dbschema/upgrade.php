@@ -10,6 +10,7 @@
  */
 
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 
@@ -1316,6 +1317,17 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.26', '<')) {
+            // Update file exclusion upload regex
+            $sql = new UpdateStatement();
+            $sql
+                ->from(dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME)
+                ->set('setting_value = ' . $sql->quote('/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i'))
+                ->where('setting_id = ' . $sql->quote('media_exclusion'))
+                ->and('setting_ns = ' . $sql->quote('system'))
+                ->and('setting_value = ' . $sql->quote('/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i'))
+            ;
+            $sql->update();
+
             // A bit of housecleaning for no longer needed folders
             self::houseCleaning(
                 // Files
