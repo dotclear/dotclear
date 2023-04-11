@@ -75,6 +75,7 @@ parameters:
     - DC_PLUGINS_ROOT
     - DC_QUERY_TIMEOUT
     - DC_RC_PATH
+    - DC_REST_SERVICES
     - DC_REVERSE_PROXY
     - DC_ROOT
     - DC_SESSION_NAME

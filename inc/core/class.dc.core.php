@@ -2347,7 +2347,7 @@ final class dcCore
      */
     public function serveRestRequests(): bool
     {
-        return !file_exists(DC_UPGRADE) && DC_REST_SERVICES;    // @phpstan-ignore-line
+        return !file_exists(DC_UPGRADE) && DC_REST_SERVICES;
     }
 
     /**
