@@ -3465,7 +3465,7 @@ msgid "next &#187;"
 msgstr "suiv. &#187;"
 
 msgid "No entry matches the filter"
-msgstr "Aucune résultat correspondant au filtre"
+msgstr "Aucun résultat correspondant au filtre"
 
 msgid "No entry"
 msgstr "Pas de résultat"
