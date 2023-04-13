@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:46+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -17,64 +17,64 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
 
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-msgid "Akismet interface for Dotclear"
+msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
-msgid "Manage post attachments"
-msgstr ""
-
-msgid "Manage your blogroll"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
-msgstr ""
-
-msgid "dotclear CKEditor integration"
-msgstr ""
-
-msgid "dotclear legacy editor"
-msgstr ""
-
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
-
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgid "Akismet interface for Dotclear"
 msgstr ""
 
 msgid "Trackback validity check"
 msgstr ""
 
-msgid "Import and Export your blog"
-msgstr ""
-
-msgid "Maintain your installation"
+msgid "Manage post attachments"
 msgstr ""
 
 msgid "Serve entries as simple web pages"
 msgstr ""
 
-msgid "Ping services"
+msgid "Manage every blog configuration directive"
 msgstr ""
 
-msgid "Simple menu for Dotclear"
-msgstr ""
-
-msgid "Tags for posts"
+msgid "dotclear legacy editor"
 msgstr ""
 
 msgid "Theme Editor"
 msgstr ""
 
+msgid "Simple menu for Dotclear"
+msgstr ""
+
+msgid "Import and Export your blog"
+msgstr ""
+
 msgid "Manage every user preference directive"
 msgstr ""
 
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "Maintain your installation"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+msgid "Manage your blogroll"
+msgstr ""
+
+msgid "Ping services"
+msgstr ""
+
+msgid "Tags for posts"
+msgstr ""
+
 msgid "Widgets for your blog sidebars"
+msgstr ""
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 msgid "Search engine form"
@@ -110,10 +110,10 @@ msgstr ""
 msgid "List of published pages"
 msgstr ""
 
-msgid "Blogroll list"
+msgid "List of simple menu items"
 msgstr ""
 
-msgid "List of simple menu items"
+msgid "Blogroll list"
 msgstr ""
 
 msgid "Tags cloud"

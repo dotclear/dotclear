@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -3261,6 +3261,10 @@ msgstr "Liitännäisen asetukset (käyttäjän valitsemissa asetuksissa)"
 msgid "Plugin settings"
 msgstr "Liitännäisen asetukset"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Liitännäisten hallinta"
+
 msgid "Activate"
 msgstr "Ota käyttöön"
 
@@ -3702,17 +3706,14 @@ msgstr "Virhe tiedostoa kirjoitettaessa."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
 
-msgid "moyenne"
-msgstr ""
+msgid "small"
+msgstr "pieni"
 
-msgid "petite"
-msgstr ""
+msgid "thumbnail"
+msgstr "pikkukuva"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
-msgstr ""
+msgid "square"
+msgstr "neliö"
 
 msgid "Pages"
 msgstr "Sivut"
@@ -3967,29 +3968,6 @@ msgstr "Nimiavaruuksia ei saatu luettua:"
 msgid "Invalid setting namespace: %s"
 msgstr "Nimiavaruus, asetus ei kelpaa: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT vaatii FROM-lähteen"
-
-#, fuzzy
-msgid "SQL JOIN requires a source"
-msgstr "SQL INSERT vaatii INTO-lähteen"
-
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE vaatii FROM-lähteen"
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr "SQL UPDATE vaatii INTO-lähteen"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT vaatii INTO-lähteen"
-
-#, fuzzy
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr "SQL UPDATE vaatii INTO-lähteen"
-
-msgid "Failed to read data feed"
-msgstr "Syötetietoja ei saatu luettua"
-
 msgid "Wrong data feed"
 msgstr "Väärä tietosyöte"
 
@@ -4113,109 +4091,6 @@ msgstr "Ei määriteltyä työavaruutta"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
 
-#, fuzzy
-msgid "Unable to open directory."
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-#, fuzzy
-msgid "Unable to create directory."
-msgstr "Kuvien luonti ei onnistu."
-
-#, fuzzy
-msgid "File is not writable."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
-
-#, fuzzy
-msgid "Not an uploaded file."
-msgstr "Kelpaamaton tiedosto"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#, fuzzy
-msgid "No file was uploaded."
-msgstr "Ei ladattavaa tiedostoa"
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-#, fuzzy
-msgid "Failed to write file to disk."
-msgstr "Tiedostoa %s ei voi poistaa"
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%s is not a directory."
-msgstr "Kelpaamaton tiedosto"
-
-#, fuzzy
-msgid "Uploading this file is not allowed."
-msgstr "Luvaton tiedosto."
-
-#, fuzzy
-msgid "Destination directory is not in jail."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Uusi tiedosto on jo."
-
-#, fuzzy
-msgid "Cannot write in this directory."
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Source file does not exist."
-msgstr "Tiedostoa %s ei ole."
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "Luvaton tiedosto."
-
-#, fuzzy
-msgid "Destination directory is not writable."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Unable to rename file."
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-#, fuzzy
-msgid "File cannot be removed."
-msgstr "Tiedosto on poistettu."
-
-#, fuzzy
-msgid "Directory is not in jail."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Directory cannot be removed."
-msgstr "Hakemistoa \"%s\" ei voi muokata."
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
-
 #, fuzzy, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Tiedostoa ei ole tietokannassa."
@@ -4266,6 +4141,27 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE vaatii FROM-lähteen"
+
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT vaatii INTO-lähteen"
+
+#, fuzzy
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL INSERT vaatii INTO-lähteen"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT vaatii FROM-lähteen"
+
+#, fuzzy
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL UPDATE vaatii INTO-lähteen"
+
+#, fuzzy
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL DELETE vaatii FROM-lähteen"
+
 msgid "Bad range"
 msgstr ""
 
@@ -4290,14 +4186,118 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Tiivistelmätiedosto ei kelpaa."
 
-#~ msgid "small"
-#~ msgstr "pieni"
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
 
-#~ msgid "thumbnail"
-#~ msgstr "pikkukuva"
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "Kuvien luonti ei onnistu."
 
-#~ msgid "square"
-#~ msgstr "neliö"
+#, fuzzy
+msgid "File is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Kelpaamaton tiedosto"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Ei ladattavaa tiedostoa"
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to write file to disk."
+msgstr "Tiedostoa %s ei voi poistaa"
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "Kelpaamaton tiedosto"
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "Luvaton tiedosto."
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Uusi tiedosto on jo."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Tiedostoa %s ei ole."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Luvaton tiedosto."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+#, fuzzy
+msgid "File cannot be removed."
+msgstr "Tiedosto on poistettu."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "Hakemistoa \"%s\" ei voi muokata."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Arkistoa ei löydy."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#~ msgid "SQL UPDATE requires an INTO source"
+#~ msgstr "SQL UPDATE vaatii INTO-lähteen"
+
+#~ msgid "Failed to read data feed"
+#~ msgstr "Syötetietoja ei saatu luettua"
 
 #, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

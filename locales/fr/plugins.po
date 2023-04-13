@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -16,65 +16,65 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /master/locales/en/plugins.po\n"
 
-msgid "Manage every blog configuration directive"
-msgstr "Gestion des directives de configuration des blogs"
-
-msgid "Akismet interface for Dotclear"
-msgstr "Interface Akismet pour Dotclear"
+msgid "Cope with old core classes (< 2.26)"
+msgstr "Compatibilité avec les classes obsolètes (< 2.26)"
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Antispam générique pour Dotclear"
 
-msgid "Manage post attachments"
-msgstr "Gestion des fichiers attachés"
-
-msgid "Manage your blogroll"
-msgstr "Gestion de votre liste de liens"
-
-msgid "Breadcrumb for Dotclear"
-msgstr "Fil d'Ariane pour Dotclear"
-
-msgid "dotclear CKEditor integration"
-msgstr "éditeur CKEditor pour Dotclear"
-
-msgid "dotclear legacy editor"
-msgstr "éditeur standard de Dotclear"
-
-msgid "Cope with old core classes (< 2.26)"
-msgstr "Compatibilité avec les classes obsolètes (< 2.26)"
-
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr "Compatibilité avec les signatures de fonctions/méthodes V1 (< 2.24, 2.25)"
+msgid "Akismet interface for Dotclear"
+msgstr "Interface Akismet pour Dotclear"
 
 msgid "Trackback validity check"
 msgstr "Contrôle de validité des rétroliens"
 
-msgid "Import and Export your blog"
-msgstr "Importez et exportez votre blog"
-
-msgid "Maintain your installation"
-msgstr "Maintenez votre installation"
+msgid "Manage post attachments"
+msgstr "Gestion des fichiers attachés"
 
 msgid "Serve entries as simple web pages"
 msgstr "Publie des billets comme de simples pages web"
 
-msgid "Ping services"
-msgstr "Services de signalement"
+msgid "Manage every blog configuration directive"
+msgstr "Gestion des directives de configuration des blogs"
 
-msgid "Simple menu for Dotclear"
-msgstr "Menu simple pour Dotclear"
-
-msgid "Tags for posts"
-msgstr "Mots-clés pour les billets"
+msgid "dotclear legacy editor"
+msgstr "éditeur standard de Dotclear"
 
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
 
+msgid "Simple menu for Dotclear"
+msgstr "Menu simple pour Dotclear"
+
+msgid "Import and Export your blog"
+msgstr "Importez et exportez votre blog"
+
 msgid "Manage every user preference directive"
 msgstr "Gestion des préférences utilisateur·rice"
 
+msgid "dotclear CKEditor integration"
+msgstr "éditeur CKEditor pour Dotclear"
+
+msgid "Maintain your installation"
+msgstr "Maintenez votre installation"
+
+msgid "Breadcrumb for Dotclear"
+msgstr "Fil d'Ariane pour Dotclear"
+
+msgid "Manage your blogroll"
+msgstr "Gestion de votre liste de liens"
+
+msgid "Ping services"
+msgstr "Services de signalement"
+
+msgid "Tags for posts"
+msgstr "Mots-clés pour les billets"
+
 msgid "Widgets for your blog sidebars"
 msgstr "Widgets pour les volets de votre blog"
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr "Compatibilité avec les signatures de fonctions/méthodes V1 (< 2.24, 2.25)"
 
 msgid "Search engine form"
 msgstr "Formulaire de recherche"
@@ -109,11 +109,11 @@ msgstr "Liste des derniers commentaires publiés"
 msgid "List of published pages"
 msgstr "Liste des pages publiées"
 
-msgid "Blogroll list"
-msgstr "Liste de liens"
-
 msgid "List of simple menu items"
 msgstr "Liste des éléments de menu simple"
+
+msgid "Blogroll list"
+msgstr "Liste de liens"
 
 msgid "Tags cloud"
 msgstr "Nuage de mots-clés"

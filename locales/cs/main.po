@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -3530,6 +3530,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Nastavení blogu"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Správce pluginů"
+
 msgid "Activate"
 msgstr "Aktivovat"
 
@@ -4037,16 +4041,15 @@ msgstr "Během zípisu do souboru nastala chyba."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Vygenerované velikosti obrázků (v pixelech)"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Malý:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Náhledy:"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4312,28 +4315,6 @@ msgstr "Nelze získat jmenný prostor:"
 msgid "Invalid setting namespace: %s"
 msgstr "Chybný jmenný prostor nastavení: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Nelze číst shrnující soubor."
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Vypráznit feed"
@@ -4461,92 +4442,6 @@ msgstr "Nebyl specifikován žádný jmenný prostor"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Něco se stalo špatně při automatické aktualizaci:"
 
-msgid "Unable to open directory."
-msgstr "Nelze otevřít adresář."
-
-msgid "Unable to create directory."
-msgstr "Nelze vytvořit adresář."
-
-msgid "File is not writable."
-msgstr "Soubor není schopen zápisu."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Nelze přejmenovat soubor."
-
-msgid "Not an uploaded file."
-msgstr "Není nahrán soubor."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Nahrávaný soubor překročil max. povolenou velikost."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Soubor byl částečně nahrán."
-
-msgid "No file was uploaded."
-msgstr "Nebyly nahrány žádné soubory."
-
-msgid "Missing a temporary folder."
-msgstr "Chybí dočasaný adresář."
-
-msgid "Failed to write file to disk."
-msgstr "Neúspěšný zápis souboru na disk."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s není adresář."
-
-msgid "Uploading this file is not allowed."
-msgstr "Tento typ souboru není pro nahrávání povolen."
-
-msgid "Destination directory is not in jail."
-msgstr "Cílový adresář není ve vězení."
-
-msgid "File already exists."
-msgstr "Soubor již existuje."
-
-msgid "Cannot write in this directory."
-msgstr "Nelze zapisovat do tohoto adresáře."
-
-msgid "Source file does not exist."
-msgstr "Zdrojový soubor neexistuje"
-
-msgid "File is not in jail."
-msgstr "Soubor není ve vězení."
-
-msgid "Destination directory is not writable."
-msgstr "Cílový adresář není zapisovatelný."
-
-msgid "Unable to rename file."
-msgstr "Nelze přejmenovat soubor."
-
-msgid "File cannot be removed."
-msgstr "Soubor nelze odstranit."
-
-msgid "Directory is not in jail."
-msgstr "Adresář není ve vězení."
-
-msgid "Directory cannot be removed."
-msgstr "Adresář nelze přesunout."
-
-msgid "Not enough memory to open image."
-msgstr "Nedostatek paměti prootevření obrázku."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Nastaly následujíci chyby při čtení z databáze:"
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Soubor \"%s\"není komprimován v zip archívu."
@@ -4593,6 +4488,24 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Neznámý kód jazyka"
@@ -4618,13 +4531,99 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Nevalidní shrnující soubor."
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Malý:"
+msgid "Unable to open directory."
+msgstr "Nelze otevřít adresář."
+
+msgid "Unable to create directory."
+msgstr "Nelze vytvořit adresář."
+
+msgid "File is not writable."
+msgstr "Soubor není schopen zápisu."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Náhledy:"
+msgid "Unable to open file."
+msgstr "Nelze přejmenovat soubor."
+
+msgid "Not an uploaded file."
+msgstr "Není nahrán soubor."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Nahrávaný soubor překročil max. povolenou velikost."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Soubor byl částečně nahrán."
+
+msgid "No file was uploaded."
+msgstr "Nebyly nahrány žádné soubory."
+
+msgid "Missing a temporary folder."
+msgstr "Chybí dočasaný adresář."
+
+msgid "Failed to write file to disk."
+msgstr "Neúspěšný zápis souboru na disk."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s není adresář."
+
+msgid "Not enough memory to open image."
+msgstr "Nedostatek paměti prootevření obrázku."
+
+msgid "Uploading this file is not allowed."
+msgstr "Tento typ souboru není pro nahrávání povolen."
+
+msgid "Destination directory is not in jail."
+msgstr "Cílový adresář není ve vězení."
+
+msgid "File already exists."
+msgstr "Soubor již existuje."
+
+msgid "Cannot write in this directory."
+msgstr "Nelze zapisovat do tohoto adresáře."
+
+msgid "Source file does not exist."
+msgstr "Zdrojový soubor neexistuje"
+
+msgid "File is not in jail."
+msgstr "Soubor není ve vězení."
+
+msgid "Destination directory is not writable."
+msgstr "Cílový adresář není zapisovatelný."
+
+msgid "Unable to rename file."
+msgstr "Nelze přejmenovat soubor."
+
+msgid "File cannot be removed."
+msgstr "Soubor nelze odstranit."
+
+msgid "Directory is not in jail."
+msgstr "Adresář není ve vězení."
+
+msgid "Directory cannot be removed."
+msgstr "Adresář nelze přesunout."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Archív nebyl nalezen"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Nelze číst shrnující soubor."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

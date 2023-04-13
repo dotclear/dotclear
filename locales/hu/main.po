@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -3562,6 +3562,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Blog beállításai"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Kiegészítő-kezelő"
+
 msgid "Activate"
 msgstr "Bekapcsol"
 
@@ -4050,16 +4054,15 @@ msgstr "Hiba történt a fájl írása közben."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Elkészített képméretek (pixelben)"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Kicsi:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Előnézet:"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4328,28 +4331,6 @@ msgstr "Nem lehet a beállításokat lekérni:"
 msgid "Invalid setting namespace: %s"
 msgstr "Hibás beállítási név: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Nem lehet digest fájlt olvasni."
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Feedek megcsonkítása"
@@ -4484,92 +4465,6 @@ msgstr "Nincs meghatározva név"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Valami elszállt automata frissítés közben:"
 
-msgid "Unable to open directory."
-msgstr "Nem lehet megnyitni a mappát."
-
-msgid "Unable to create directory."
-msgstr "Nem lehet létrehozni a mappát."
-
-msgid "File is not writable."
-msgstr "A fájl nem írható."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Nem lehet átnevezni a fájlt."
-
-msgid "Not an uploaded file."
-msgstr "Nem egy feltöltött fájl."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
-
-msgid "No file was uploaded."
-msgstr "Nem érkezett fájl a kiszolgálóra."
-
-msgid "Missing a temporary folder."
-msgstr "Az ideiglenes mappa hiányzik!"
-
-msgid "Failed to write file to disk."
-msgstr "Nem tudok a lemezre írni."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "a(z) %s nem mappa."
-
-msgid "Uploading this file is not allowed."
-msgstr "Nem engedélyezett feltölteni ezt a fájlt."
-
-msgid "Destination directory is not in jail."
-msgstr "Hibás célmappanév."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Az új fájl már létezik."
-
-msgid "Cannot write in this directory."
-msgstr "Nem tudok a mappába írni."
-
-msgid "Source file does not exist."
-msgstr "A forrásfájl nem létezik."
-
-msgid "File is not in jail."
-msgstr "Hibás fájlnév."
-
-msgid "Destination directory is not writable."
-msgstr "A célmappa nem írható."
-
-msgid "Unable to rename file."
-msgstr "Nem lehet átnevezni a fájlt."
-
-msgid "File cannot be removed."
-msgstr "A fájlt nem lehet eltávolítani."
-
-msgid "Directory is not in jail."
-msgstr "Hibás mappanév."
-
-msgid "Directory cannot be removed."
-msgstr "A mappát nem lehet eltávolítani."
-
-msgid "Not enough memory to open image."
-msgstr "Nincs elég memória a kép megnyitásához."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "A(z) %s nincs zip-be tömörítve."
@@ -4616,6 +4511,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Hibás nyelvkód"
@@ -4641,13 +4554,99 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Érvénytelen digest fájl."
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Kicsi:"
+msgid "Unable to open directory."
+msgstr "Nem lehet megnyitni a mappát."
+
+msgid "Unable to create directory."
+msgstr "Nem lehet létrehozni a mappát."
+
+msgid "File is not writable."
+msgstr "A fájl nem írható."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Előnézet:"
+msgid "Unable to open file."
+msgstr "Nem lehet átnevezni a fájlt."
+
+msgid "Not an uploaded file."
+msgstr "Nem egy feltöltött fájl."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
+
+msgid "No file was uploaded."
+msgstr "Nem érkezett fájl a kiszolgálóra."
+
+msgid "Missing a temporary folder."
+msgstr "Az ideiglenes mappa hiányzik!"
+
+msgid "Failed to write file to disk."
+msgstr "Nem tudok a lemezre írni."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "a(z) %s nem mappa."
+
+msgid "Not enough memory to open image."
+msgstr "Nincs elég memória a kép megnyitásához."
+
+msgid "Uploading this file is not allowed."
+msgstr "Nem engedélyezett feltölteni ezt a fájlt."
+
+msgid "Destination directory is not in jail."
+msgstr "Hibás célmappanév."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Az új fájl már létezik."
+
+msgid "Cannot write in this directory."
+msgstr "Nem tudok a mappába írni."
+
+msgid "Source file does not exist."
+msgstr "A forrásfájl nem létezik."
+
+msgid "File is not in jail."
+msgstr "Hibás fájlnév."
+
+msgid "Destination directory is not writable."
+msgstr "A célmappa nem írható."
+
+msgid "Unable to rename file."
+msgstr "Nem lehet átnevezni a fájlt."
+
+msgid "File cannot be removed."
+msgstr "A fájlt nem lehet eltávolítani."
+
+msgid "Directory is not in jail."
+msgstr "Hibás mappanév."
+
+msgid "Directory cannot be removed."
+msgstr "A mappát nem lehet eltávolítani."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "A DotClear archívumot nem találom."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Nem lehet digest fájlt olvasni."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

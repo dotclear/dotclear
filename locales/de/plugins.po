@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -17,65 +17,65 @@ msgstr ""
 "X-Generator: Poedit 2.0.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Manage every blog configuration directive"
-msgstr "Verwalten von allen Blog-Konfigurationsrichtlinien"
-
-msgid "Akismet interface for Dotclear"
-msgstr "Akismet Interface für Dotclear"
+msgid "Cope with old core classes (< 2.26)"
+msgstr ""
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Standard Antispam Plugin für Dotclear"
 
-msgid "Manage post attachments"
-msgstr "Anlagen verwalten."
-
-msgid "Manage your blogroll"
-msgstr "Blogroll verwalten"
-
-msgid "Breadcrumb for Dotclear"
-msgstr "Breadcrumb für Dotclear"
-
-msgid "dotclear CKEditor integration"
-msgstr "Dotclear CKEditor"
-
-msgid "dotclear legacy editor"
-msgstr "Dotclear legacy editor"
-
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
-
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
+msgid "Akismet interface for Dotclear"
+msgstr "Akismet Interface für Dotclear"
 
 msgid "Trackback validity check"
 msgstr "Trackback Überprufung"
 
-msgid "Import and Export your blog"
-msgstr "Import/Export Blog"
-
-msgid "Maintain your installation"
-msgstr "Installation warten"
+msgid "Manage post attachments"
+msgstr "Anlagen verwalten."
 
 msgid "Serve entries as simple web pages"
 msgstr "Einträge als einfache Webseite speichern"
 
-msgid "Ping services"
-msgstr "Ping-Dienst"
+msgid "Manage every blog configuration directive"
+msgstr "Verwalten von allen Blog-Konfigurationsrichtlinien"
 
-msgid "Simple menu for Dotclear"
-msgstr "Einfaches Menü für Dotclear"
-
-msgid "Tags for posts"
-msgstr "Tags für Einträge"
+msgid "dotclear legacy editor"
+msgstr "Dotclear legacy editor"
 
 msgid "Theme Editor"
 msgstr "Theme-Editor"
 
+msgid "Simple menu for Dotclear"
+msgstr "Einfaches Menü für Dotclear"
+
+msgid "Import and Export your blog"
+msgstr "Import/Export Blog"
+
 msgid "Manage every user preference directive"
 msgstr "Verwalten von allen Benutzer-Konfigurationsrichtlinien"
 
+msgid "dotclear CKEditor integration"
+msgstr "Dotclear CKEditor"
+
+msgid "Maintain your installation"
+msgstr "Installation warten"
+
+msgid "Breadcrumb for Dotclear"
+msgstr "Breadcrumb für Dotclear"
+
+msgid "Manage your blogroll"
+msgstr "Blogroll verwalten"
+
+msgid "Ping services"
+msgstr "Ping-Dienst"
+
+msgid "Tags for posts"
+msgstr "Tags für Einträge"
+
 msgid "Widgets for your blog sidebars"
 msgstr "Widgets für Blog Sidebar"
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr ""
 
 msgid "Search engine form"
 msgstr "Formular für Suchmaschine"
@@ -110,11 +110,11 @@ msgstr "Liste der zuletzt veröfftlichten Kommentare"
 msgid "List of published pages"
 msgstr "Liste der veröffentlichten Seiten"
 
-msgid "Blogroll list"
-msgstr "Blogroll Liste"
-
 msgid "List of simple menu items"
 msgstr "Liste der einfachen Menus"
+
+msgid "Blogroll list"
+msgstr "Blogroll Liste"
 
 msgid "Tags cloud"
 msgstr "Tag Wolke"

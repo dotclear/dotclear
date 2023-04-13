@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -3518,6 +3518,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Ustawienia bloga"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Zarządzanie wtyczkami"
+
 msgid "Activate"
 msgstr "Aktywuj"
 
@@ -4025,16 +4029,15 @@ msgstr "Wystąpił błąd podczas zapisywania pliku."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Rozmiar generowanego obrazu (w pikselach)"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Małe:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Miniaturki:"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 msgid "Pages"
@@ -4297,28 +4300,6 @@ msgstr "Nie można odczytać przestrzeni nazw:"
 msgid "Invalid setting namespace: %s"
 msgstr "Nieprawidłowe ustawienie przestrzeni nazw: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Nie można odczytac pliku digests."
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Obcinaj kanały"
@@ -4444,92 +4425,6 @@ msgstr "Nie wskazano przestrzeni roboczej"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Coś poszło źle z automatyczną aktualizacją:"
 
-msgid "Unable to open directory."
-msgstr "Nie można otworzyć katalogu."
-
-msgid "Unable to create directory."
-msgstr "Nie można utworzyć katalogu."
-
-msgid "File is not writable."
-msgstr "Plik nie jest zapisywalny."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Nie można zmienić nazwy pliku."
-
-msgid "Not an uploaded file."
-msgstr "To nie jest wysłany plik."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Wysyłany plik przekroczył maksymalną dozwoloną wielkość."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Wysyłany plik został tylko częściowo dostarczony."
-
-msgid "No file was uploaded."
-msgstr "Plik nie został wysłany."
-
-msgid "Missing a temporary folder."
-msgstr "Brak katalogu tymczasowego."
-
-msgid "Failed to write file to disk."
-msgstr "Zapisywanie pliku na dysk nie powiodło się."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s nie jest katalogiem."
-
-msgid "Uploading this file is not allowed."
-msgstr "Wysłanie tego pliku nie jest dozwolone."
-
-msgid "Destination directory is not in jail."
-msgstr "Katalog docelowy nie jest oznaczony jako niechciany."
-
-msgid "File already exists."
-msgstr "Wskazany plik już istnieje."
-
-msgid "Cannot write in this directory."
-msgstr "Nie można zapisywać do tego katalogu."
-
-msgid "Source file does not exist."
-msgstr "Plik źródłowy nie istnieje."
-
-msgid "File is not in jail."
-msgstr "Plik nie jest oznaczony jako niechciany."
-
-msgid "Destination directory is not writable."
-msgstr "Katalog docelowy nie jest zapisywalny."
-
-msgid "Unable to rename file."
-msgstr "Nie można zmienić nazwy pliku."
-
-msgid "File cannot be removed."
-msgstr "Plik nie może zostać usunięty."
-
-msgid "Directory is not in jail."
-msgstr "Katalog nie jest oznaczony jako \"niechciany\"."
-
-msgid "Directory cannot be removed."
-msgstr "Katalog nie może zostać usunięty."
-
-msgid "Not enough memory to open image."
-msgstr "Brak wystarczającej ilości pamięci do otwarcia obrazu."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Pplk %s nie jest poprawnym plikiem archiwum."
@@ -4576,6 +4471,24 @@ msgstr "<p>To oznacza że nazwa użytkownika i hasło w Twoim pliku <strong>conf
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Niepoprawny kod języka"
@@ -4601,13 +4514,99 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Nieprawidłowy plik digests."
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Małe:"
+msgid "Unable to open directory."
+msgstr "Nie można otworzyć katalogu."
+
+msgid "Unable to create directory."
+msgstr "Nie można utworzyć katalogu."
+
+msgid "File is not writable."
+msgstr "Plik nie jest zapisywalny."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Miniaturki:"
+msgid "Unable to open file."
+msgstr "Nie można zmienić nazwy pliku."
+
+msgid "Not an uploaded file."
+msgstr "To nie jest wysłany plik."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Wysyłany plik przekroczył maksymalną dozwoloną wielkość."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Wysyłany plik został tylko częściowo dostarczony."
+
+msgid "No file was uploaded."
+msgstr "Plik nie został wysłany."
+
+msgid "Missing a temporary folder."
+msgstr "Brak katalogu tymczasowego."
+
+msgid "Failed to write file to disk."
+msgstr "Zapisywanie pliku na dysk nie powiodło się."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s nie jest katalogiem."
+
+msgid "Not enough memory to open image."
+msgstr "Brak wystarczającej ilości pamięci do otwarcia obrazu."
+
+msgid "Uploading this file is not allowed."
+msgstr "Wysłanie tego pliku nie jest dozwolone."
+
+msgid "Destination directory is not in jail."
+msgstr "Katalog docelowy nie jest oznaczony jako niechciany."
+
+msgid "File already exists."
+msgstr "Wskazany plik już istnieje."
+
+msgid "Cannot write in this directory."
+msgstr "Nie można zapisywać do tego katalogu."
+
+msgid "Source file does not exist."
+msgstr "Plik źródłowy nie istnieje."
+
+msgid "File is not in jail."
+msgstr "Plik nie jest oznaczony jako niechciany."
+
+msgid "Destination directory is not writable."
+msgstr "Katalog docelowy nie jest zapisywalny."
+
+msgid "Unable to rename file."
+msgstr "Nie można zmienić nazwy pliku."
+
+msgid "File cannot be removed."
+msgstr "Plik nie może zostać usunięty."
+
+msgid "Directory is not in jail."
+msgstr "Katalog nie jest oznaczony jako \"niechciany\"."
+
+msgid "Directory cannot be removed."
+msgstr "Katalog nie może zostać usunięty."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Nie odnaleziono archiwum."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Nie można odczytac pliku digests."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

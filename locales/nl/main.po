@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -3366,6 +3366,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Blog instellingen"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Blog instellingen"
+
 msgid "Activate"
 msgstr ""
 
@@ -3825,16 +3829,15 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Gegenereede afbeeldinggrootte in pixels"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Klein:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Miniaturen"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 msgid "Pages"
@@ -4090,27 +4093,6 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-msgid "Failed to read data feed"
-msgstr ""
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Verklein feeds"
@@ -4235,97 +4217,6 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-#, fuzzy
-msgid "Unable to open directory."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-#, fuzzy
-msgid "Unable to create directory."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "File is not writable."
-msgstr ""
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-#, fuzzy
-msgid "Not an uploaded file."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#, fuzzy
-msgid "No file was uploaded."
-msgstr "Blog succesvol geupdate."
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-msgid "File already exists."
-msgstr ""
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-#, fuzzy
-msgid "Source file does not exist."
-msgstr "Thema bestaat niet."
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-#, fuzzy
-msgid "Unable to rename file."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr ""
@@ -4374,6 +4265,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Verkeerde taal code"
@@ -4400,12 +4309,99 @@ msgid "Invalid diff format"
 msgstr "Verkeerde taal code"
 
 #, fuzzy
-#~ msgid "small"
-#~ msgstr "Klein:"
+msgid "Unable to open directory."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Miniaturen"
+msgid "Unable to create directory."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "File is not writable."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Blog succesvol geupdate."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+msgid "File already exists."
+msgstr ""
+
+msgid "Cannot write in this directory."
+msgstr ""
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Thema bestaat niet."
+
+msgid "File is not in jail."
+msgstr ""
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+#, php-format
+msgid "Archive %s is closed."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

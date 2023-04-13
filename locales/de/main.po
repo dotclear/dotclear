@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -3314,6 +3314,10 @@ msgstr "Plugin-Einstellungen (in Benutzer-Einstellungen)"
 msgid "Plugin settings"
 msgstr "Plugin-Einstellungen"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Plugin-Verwaltung"
+
 msgid "Activate"
 msgstr "Aktivieren"
 
@@ -3759,17 +3763,14 @@ msgstr "Fehler beim Schreiben der Datei."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Aktualisiertes Bild ist nicht %s Pixel breit."
 
-msgid "moyenne"
-msgstr ""
+msgid "small"
+msgstr "klein"
 
-msgid "petite"
-msgstr ""
+msgid "thumbnail"
+msgstr "Vorschaubild"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
-msgstr ""
+msgid "square"
+msgstr "quadratisch"
 
 msgid "Pages"
 msgstr "Seiten"
@@ -4025,28 +4026,6 @@ msgstr "Kann Namespaces nicht abrufen:"
 msgid "Invalid setting namespace: %s"
 msgstr "Falsch eingestellter Namespace: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Kann die Auswertungsdatei nicht lesen."
-
 msgid "Wrong data feed"
 msgstr "Falscher Data Feed"
 
@@ -4173,92 +4152,6 @@ msgstr "Kein Workspace festgelegt"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Selbst-Aktualisierung misslungen:"
 
-msgid "Unable to open directory."
-msgstr "Kann Verzeichnis nicht öffnen."
-
-msgid "Unable to create directory."
-msgstr "Kann Verzeichnis nicht anlegen."
-
-msgid "File is not writable."
-msgstr "Datei ist nicht beschreibbar."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Datei kann nicht umbenannt werden."
-
-msgid "Not an uploaded file."
-msgstr "Keine hochgeladene Datei."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Die hochgeladene Datei überschreitet die maximal erlaubte Dateigröße."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Die Datei wurde nur teilweise hochgeladen."
-
-msgid "No file was uploaded."
-msgstr "Keine Datei hochgeladen."
-
-msgid "Missing a temporary folder."
-msgstr "Temporäres Verzeichnis fehlt."
-
-msgid "Failed to write file to disk."
-msgstr "Fehler beim Schreiben der Datei auf den Speicher."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s ist kein Verzeichnis."
-
-msgid "Uploading this file is not allowed."
-msgstr "Hochladen dieser Datei ist nicht erlaubt."
-
-msgid "Destination directory is not in jail."
-msgstr "Ziel-Verzeichnis ist nicht im gesicherten Bereich."
-
-msgid "File already exists."
-msgstr "Datei ist schon vorhanden."
-
-msgid "Cannot write in this directory."
-msgstr "Kann nicht in dieses Verzeichnis schreiben."
-
-msgid "Source file does not exist."
-msgstr "Quelle-Datei ist nicht vorhanden."
-
-msgid "File is not in jail."
-msgstr "Datei ist nicht im gesicherten Bereich."
-
-msgid "Destination directory is not writable."
-msgstr "Ziel-Verzeichnis ist nicht beschreibbar."
-
-msgid "Unable to rename file."
-msgstr "Datei kann nicht umbenannt werden."
-
-msgid "File cannot be removed."
-msgstr "Datei kann nicht entfernen werden."
-
-msgid "Directory is not in jail."
-msgstr "Verzeichnis ist nicht im gesicherten Bereich."
-
-msgid "Directory cannot be removed."
-msgstr "Verzeichnis kann nicht entfernt werden."
-
-msgid "Not enough memory to open image."
-msgstr "Nicht genug Speicher zum Öffnen der Grafik."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Datei %s ist nicht ZIP-komprimiert."
@@ -4305,6 +4198,24 @@ msgstr "<p>Dies bedeutet, dass entweder dein Benutzername und dein Passwort in d
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 msgid "Bad range"
 msgstr "Falscher Bereich"
 
@@ -4326,14 +4237,99 @@ msgstr "Schlechte Kontext (beim Löschen)"
 msgid "Invalid diff format"
 msgstr "Ungültiges Diff Format"
 
-#~ msgid "small"
-#~ msgstr "klein"
+msgid "Unable to open directory."
+msgstr "Kann Verzeichnis nicht öffnen."
 
-#~ msgid "thumbnail"
-#~ msgstr "Vorschaubild"
+msgid "Unable to create directory."
+msgstr "Kann Verzeichnis nicht anlegen."
 
-#~ msgid "square"
-#~ msgstr "quadratisch"
+msgid "File is not writable."
+msgstr "Datei ist nicht beschreibbar."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Datei kann nicht umbenannt werden."
+
+msgid "Not an uploaded file."
+msgstr "Keine hochgeladene Datei."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Die hochgeladene Datei überschreitet die maximal erlaubte Dateigröße."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Die Datei wurde nur teilweise hochgeladen."
+
+msgid "No file was uploaded."
+msgstr "Keine Datei hochgeladen."
+
+msgid "Missing a temporary folder."
+msgstr "Temporäres Verzeichnis fehlt."
+
+msgid "Failed to write file to disk."
+msgstr "Fehler beim Schreiben der Datei auf den Speicher."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s ist kein Verzeichnis."
+
+msgid "Not enough memory to open image."
+msgstr "Nicht genug Speicher zum Öffnen der Grafik."
+
+msgid "Uploading this file is not allowed."
+msgstr "Hochladen dieser Datei ist nicht erlaubt."
+
+msgid "Destination directory is not in jail."
+msgstr "Ziel-Verzeichnis ist nicht im gesicherten Bereich."
+
+msgid "File already exists."
+msgstr "Datei ist schon vorhanden."
+
+msgid "Cannot write in this directory."
+msgstr "Kann nicht in dieses Verzeichnis schreiben."
+
+msgid "Source file does not exist."
+msgstr "Quelle-Datei ist nicht vorhanden."
+
+msgid "File is not in jail."
+msgstr "Datei ist nicht im gesicherten Bereich."
+
+msgid "Destination directory is not writable."
+msgstr "Ziel-Verzeichnis ist nicht beschreibbar."
+
+msgid "Unable to rename file."
+msgstr "Datei kann nicht umbenannt werden."
+
+msgid "File cannot be removed."
+msgstr "Datei kann nicht entfernen werden."
+
+msgid "Directory is not in jail."
+msgstr "Verzeichnis ist nicht im gesicherten Bereich."
+
+msgid "Directory cannot be removed."
+msgstr "Verzeichnis kann nicht entfernt werden."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Archiv nicht gefunden."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Kann die Auswertungsdatei nicht lesen."
 
 #, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

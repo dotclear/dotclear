@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -3558,6 +3558,10 @@ msgid "Plugin settings"
 msgstr "Paràmetres del blog"
 
 #, fuzzy
+msgid "Plugin main page"
+msgstr "Gestió de les extensions"
+
+#, fuzzy
 msgid "Activate"
 msgstr "Privat"
 
@@ -4039,16 +4043,15 @@ msgstr "Ha succeït un error mentre s'intentava gravar l'arxiu."
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Correu electrònic:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Detalls de la imatge"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4317,28 +4320,6 @@ msgstr "Impossible obtenir els paràmetres:"
 msgid "Invalid setting namespace: %s"
 msgstr "Adreça de correu electrònica incorrecte"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Impossible re-nombrar l'arxiu."
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Registres truncats"
@@ -4474,94 +4455,6 @@ msgstr "Cap espai de nom especificat"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Quelcom ha anat malament amb l'auto actualització:"
 
-msgid "Unable to open directory."
-msgstr "Impossible obrir el directori."
-
-msgid "Unable to create directory."
-msgstr "Impossible crear el directori."
-
-msgid "File is not writable."
-msgstr "L'arxiu no es gravable."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Impossible re-nombrar l'arxiu."
-
-msgid "Not an uploaded file."
-msgstr "Arxiu no carregable."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "El fitxer carregat excedeix la mida màxima autoritzada pels fitxers."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "El fitxer carregat només s'ha carregat parcialment."
-
-msgid "No file was uploaded."
-msgstr "No s'ha carregat cap fitxer."
-
-msgid "Missing a temporary folder."
-msgstr "Perdent una carpeta provisional."
-
-msgid "Failed to write file to disk."
-msgstr "Gravació de l'arxiu al disc fallida."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s no és un directori."
-
-#, fuzzy
-msgid "Uploading this file is not allowed."
-msgstr "L'arxiu no es gravable."
-
-msgid "Destination directory is not in jail."
-msgstr "El directori de destinació no està disponible."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "El nou fitxer ja existeix."
-
-msgid "Cannot write in this directory."
-msgstr "Impossible gravar res en aquest directori."
-
-#, fuzzy
-msgid "Source file does not exist."
-msgstr "El fitxer %s no existeix."
-
-msgid "File is not in jail."
-msgstr "El fitxer no està disponible."
-
-msgid "Destination directory is not writable."
-msgstr "El directori de destinació no és gravable."
-
-msgid "Unable to rename file."
-msgstr "Impossible re-nombrar l'arxiu."
-
-msgid "File cannot be removed."
-msgstr "El fitxer no es pot suprimir."
-
-msgid "Directory is not in jail."
-msgstr "El directori no està disponible."
-
-msgid "Directory cannot be removed."
-msgstr "El directori no es pot suprimir."
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, fuzzy, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "El fitxer no existeix en la base de dades."
@@ -4614,6 +4507,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Adreça de correu electrònica incorrecte"
@@ -4639,13 +4550,101 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Adreça de correu electrònica incorrecte"
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Correu electrònic:"
+msgid "Unable to open directory."
+msgstr "Impossible obrir el directori."
+
+msgid "Unable to create directory."
+msgstr "Impossible crear el directori."
+
+msgid "File is not writable."
+msgstr "L'arxiu no es gravable."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Detalls de la imatge"
+msgid "Unable to open file."
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "Not an uploaded file."
+msgstr "Arxiu no carregable."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "El fitxer carregat excedeix la mida màxima autoritzada pels fitxers."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "El fitxer carregat només s'ha carregat parcialment."
+
+msgid "No file was uploaded."
+msgstr "No s'ha carregat cap fitxer."
+
+msgid "Missing a temporary folder."
+msgstr "Perdent una carpeta provisional."
+
+msgid "Failed to write file to disk."
+msgstr "Gravació de l'arxiu al disc fallida."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s no és un directori."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "L'arxiu no es gravable."
+
+msgid "Destination directory is not in jail."
+msgstr "El directori de destinació no està disponible."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "El nou fitxer ja existeix."
+
+msgid "Cannot write in this directory."
+msgstr "Impossible gravar res en aquest directori."
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "El fitxer %s no existeix."
+
+msgid "File is not in jail."
+msgstr "El fitxer no està disponible."
+
+msgid "Destination directory is not writable."
+msgstr "El directori de destinació no és gravable."
+
+msgid "Unable to rename file."
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "File cannot be removed."
+msgstr "El fitxer no es pot suprimir."
+
+msgid "Directory is not in jail."
+msgstr "El directori no està disponible."
+
+msgid "Directory cannot be removed."
+msgstr "El directori no es pot suprimir."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Extensió no trobada"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Impossible re-nombrar l'arxiu."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -20,69 +20,69 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: /home/pil/Documents/TRAD/pt\n"
 
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-msgid "Akismet interface for Dotclear"
+msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
 msgid "Manage post attachments"
 msgstr ""
 
-#, fuzzy
-msgid "Manage your blogroll"
-msgstr "Gerir os blogroll"
-
-msgid "Breadcrumb for Dotclear"
+msgid "Serve entries as simple web pages"
 msgstr ""
 
-msgid "dotclear CKEditor integration"
+msgid "Manage every blog configuration directive"
 msgstr ""
 
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgid "Theme Editor"
+msgstr "Editor do tema"
 
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
-
-msgid "Trackback validity check"
+msgid "Simple menu for Dotclear"
 msgstr ""
 
 #, fuzzy
 msgid "Import and Export your blog"
 msgstr "Exportar um blog"
 
+msgid "Manage every user preference directive"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
 msgid "Maintain your installation"
 msgstr ""
 
-msgid "Serve entries as simple web pages"
+msgid "Breadcrumb for Dotclear"
 msgstr ""
+
+#, fuzzy
+msgid "Manage your blogroll"
+msgstr "Gerir os blogroll"
 
 #, fuzzy
 msgid "Ping services"
 msgstr "Teste serviços de ping"
 
-msgid "Simple menu for Dotclear"
-msgstr ""
-
 msgid "Tags for posts"
-msgstr ""
-
-msgid "Theme Editor"
-msgstr "Editor do tema"
-
-msgid "Manage every user preference directive"
 msgstr ""
 
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "Acrescentar widgets nas barras laterais"
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -123,12 +123,12 @@ msgid "List of published pages"
 msgstr ""
 
 #, fuzzy
-msgid "Blogroll list"
-msgstr "Blogroll"
-
-#, fuzzy
 msgid "List of simple menu items"
 msgstr "Suprimir os links seleccionados"
+
+#, fuzzy
+msgid "Blogroll list"
+msgstr "Blogroll"
 
 #, fuzzy
 msgid "Tags cloud"

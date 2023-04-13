@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -18,69 +18,69 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.8\n"
 
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-msgid "Akismet interface for Dotclear"
+msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
 msgid "Manage post attachments"
 msgstr ""
 
-#, fuzzy
-msgid "Manage your blogroll"
-msgstr "zarządzaj polecanymi odnośnikami"
-
-msgid "Breadcrumb for Dotclear"
+msgid "Serve entries as simple web pages"
 msgstr ""
 
-msgid "dotclear CKEditor integration"
+msgid "Manage every blog configuration directive"
 msgstr ""
 
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgid "Theme Editor"
+msgstr "Edytor motywów"
 
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
-
-msgid "Trackback validity check"
+msgid "Simple menu for Dotclear"
 msgstr ""
 
 #, fuzzy
 msgid "Import and Export your blog"
 msgstr "Eksportuj blog"
 
+msgid "Manage every user preference directive"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
 msgid "Maintain your installation"
 msgstr ""
 
-msgid "Serve entries as simple web pages"
+msgid "Breadcrumb for Dotclear"
 msgstr ""
+
+#, fuzzy
+msgid "Manage your blogroll"
+msgstr "zarządzaj polecanymi odnośnikami"
 
 #, fuzzy
 msgid "Ping services"
 msgstr "Testuj usługi pingów"
 
-msgid "Simple menu for Dotclear"
-msgstr ""
-
 msgid "Tags for posts"
-msgstr ""
-
-msgid "Theme Editor"
-msgstr "Edytor motywów"
-
-msgid "Manage every user preference directive"
 msgstr ""
 
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "dodaj widgety do paska bocznego"
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -121,12 +121,12 @@ msgid "List of published pages"
 msgstr ""
 
 #, fuzzy
-msgid "Blogroll list"
-msgstr "Blogroll"
-
-#, fuzzy
 msgid "List of simple menu items"
 msgstr "Usuń wybrane odnośniki"
+
+#, fuzzy
+msgid "Blogroll list"
+msgstr "Blogroll"
 
 #, fuzzy
 msgid "Tags cloud"

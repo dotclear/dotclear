@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -3517,6 +3517,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Configurações do blog"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Gerir os plugins"
+
 msgid "Activate"
 msgstr "Activar"
 
@@ -4006,16 +4010,15 @@ msgstr "Ocorreu um erro ao escrever o ficheiro."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Tamanho de imagens geradas (em pixeis)"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Pequeno:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Miniaturas:"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4284,28 +4287,6 @@ msgstr "Não consigo recuperar os parâmetros:"
 msgid "Invalid setting namespace: %s"
 msgstr "Parâmetro do espaço de nome invalido: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Não consigo ler o ficheiro compilado."
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Truncar os feeds"
@@ -4434,91 +4415,6 @@ msgstr "Nenhum espaço de nomes especificado"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Um erro aconteceu durante a actualização automática:"
 
-msgid "Unable to open directory."
-msgstr "Não consigo abrir a pasta."
-
-msgid "Unable to create directory."
-msgstr "Não consigo criar a pasta."
-
-msgid "File is not writable."
-msgstr "O ficheiro não tem acesso de escrita."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Não consigo renomear o ficheiro."
-
-msgid "Not an uploaded file."
-msgstr "O ficheiro não é um ficheiro enviado."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "O ficheiro enviado excede o tamanho máximo autorizado."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "O ficheiro só foi recebido parcialmente."
-
-msgid "No file was uploaded."
-msgstr "Nenhum ficheiro foi enviado."
-
-msgid "Missing a temporary folder."
-msgstr "Falta uma pasta temporária."
-
-msgid "Failed to write file to disk."
-msgstr "Falha ao gravar o ficheiro no disco."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s não é uma pasta."
-
-msgid "Uploading this file is not allowed."
-msgstr "Enviar este ficheiro não é permitido."
-
-msgid "Destination directory is not in jail."
-msgstr "A pasta alcançada não é dentro do \"Jail\""
-
-msgid "File already exists."
-msgstr "O ficheiro já existe."
-
-msgid "Cannot write in this directory."
-msgstr "Não consigo escrever nesta pasta."
-
-msgid "Source file does not exist."
-msgstr "O ficheiro não existe."
-
-msgid "File is not in jail."
-msgstr "O ficheiro não é dentro do \"Jail\""
-
-msgid "Destination directory is not writable."
-msgstr "A pasta não tem acesso de escrita."
-
-msgid "Unable to rename file."
-msgstr "Não consigo renomear o ficheiro."
-
-msgid "File cannot be removed."
-msgstr "O ficheiro não pode ser removido."
-
-msgid "Directory is not in jail."
-msgstr "A pasta não é dentro do \"Jail\""
-
-msgid "Directory cannot be removed."
-msgstr "A pasta não pode ser removida."
-
-msgid "Not enough memory to open image."
-msgstr "Memória insuficiente para abrir a imagem."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "O ficheiro %s não está compactado no zip."
@@ -4565,6 +4461,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Código de língua errado"
@@ -4590,13 +4504,98 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Ficheiro compilados inválido."
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Pequeno:"
+msgid "Unable to open directory."
+msgstr "Não consigo abrir a pasta."
+
+msgid "Unable to create directory."
+msgstr "Não consigo criar a pasta."
+
+msgid "File is not writable."
+msgstr "O ficheiro não tem acesso de escrita."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Miniaturas:"
+msgid "Unable to open file."
+msgstr "Não consigo renomear o ficheiro."
+
+msgid "Not an uploaded file."
+msgstr "O ficheiro não é um ficheiro enviado."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "O ficheiro enviado excede o tamanho máximo autorizado."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "O ficheiro só foi recebido parcialmente."
+
+msgid "No file was uploaded."
+msgstr "Nenhum ficheiro foi enviado."
+
+msgid "Missing a temporary folder."
+msgstr "Falta uma pasta temporária."
+
+msgid "Failed to write file to disk."
+msgstr "Falha ao gravar o ficheiro no disco."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s não é uma pasta."
+
+msgid "Not enough memory to open image."
+msgstr "Memória insuficiente para abrir a imagem."
+
+msgid "Uploading this file is not allowed."
+msgstr "Enviar este ficheiro não é permitido."
+
+msgid "Destination directory is not in jail."
+msgstr "A pasta alcançada não é dentro do \"Jail\""
+
+msgid "File already exists."
+msgstr "O ficheiro já existe."
+
+msgid "Cannot write in this directory."
+msgstr "Não consigo escrever nesta pasta."
+
+msgid "Source file does not exist."
+msgstr "O ficheiro não existe."
+
+msgid "File is not in jail."
+msgstr "O ficheiro não é dentro do \"Jail\""
+
+msgid "Destination directory is not writable."
+msgstr "A pasta não tem acesso de escrita."
+
+msgid "Unable to rename file."
+msgstr "Não consigo renomear o ficheiro."
+
+msgid "File cannot be removed."
+msgstr "O ficheiro não pode ser removido."
+
+msgid "Directory is not in jail."
+msgstr "A pasta não é dentro do \"Jail\""
+
+msgid "Directory cannot be removed."
+msgstr "A pasta não pode ser removida."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Arquivo não encontrado."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Não consigo ler o ficheiro compilado."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

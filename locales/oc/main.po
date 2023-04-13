@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -3285,6 +3285,9 @@ msgstr ""
 msgid "Plugin settings"
 msgstr ""
 
+msgid "Plugin main page"
+msgstr ""
+
 msgid "Activate"
 msgstr "Activar"
 
@@ -3723,16 +3726,15 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Pichona"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Minuatura"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 msgid "Pages"
@@ -3988,27 +3990,6 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-msgid "Failed to read data feed"
-msgstr ""
-
 msgid "Wrong data feed"
 msgstr ""
 
@@ -4131,100 +4112,6 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-#, fuzzy
-msgid "Unable to open directory."
-msgstr "Crear un dossièr novèl"
-
-#, fuzzy
-msgid "Unable to create directory."
-msgstr "Crear un dossièr novèl"
-
-#, fuzzy
-msgid "File is not writable."
-msgstr "Lo fichièr %s existís pas."
-
-msgid "Unable to open file."
-msgstr ""
-
-#, fuzzy
-msgid "Not an uploaded file."
-msgstr "Es pas un fichièr valid"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#, fuzzy
-msgid "No file was uploaded."
-msgstr "Cap de fichièr"
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Lo fichièr %s existís pas."
-
-#, fuzzy
-msgid "Cannot write in this directory."
-msgstr "Crear un dossièr novèl"
-
-#, fuzzy
-msgid "Source file does not exist."
-msgstr "Lo fichièr %s existís pas."
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "Lo fichièr %s existís pas."
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-#, fuzzy
-msgid "Directory cannot be removed."
-msgstr "Nom del dossièr :"
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, fuzzy, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Lo fichièr %s existís pas."
@@ -4275,6 +4162,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 msgid "Bad range"
 msgstr ""
 
@@ -4299,12 +4204,102 @@ msgid "Invalid diff format"
 msgstr ""
 
 #, fuzzy
-#~ msgid "small"
-#~ msgstr "Pichona"
+msgid "Unable to open directory."
+msgstr "Crear un dossièr novèl"
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Minuatura"
+msgid "Unable to create directory."
+msgstr "Crear un dossièr novèl"
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "Lo fichièr %s existís pas."
+
+msgid "Unable to open file."
+msgstr ""
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Es pas un fichièr valid"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Cap de fichièr"
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Lo fichièr %s existís pas."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Crear un dossièr novèl"
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Lo fichièr %s existís pas."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Lo fichièr %s existís pas."
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+msgid "Unable to rename file."
+msgstr ""
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "Nom del dossièr :"
+
+#, php-format
+msgid "Archive %s is closed."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
 
 #, fuzzy
 #~ msgid "extra-large"

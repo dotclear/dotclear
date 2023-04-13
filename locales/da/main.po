@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -3474,6 +3474,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Blog indstillinger"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Blog indstillinger"
+
 msgid "Activate"
 msgstr ""
 
@@ -3945,16 +3949,15 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Genereret billede størrelser (i pixel)"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Small:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Thumbnails:"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4214,27 +4217,6 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-msgid "Failed to read data feed"
-msgstr ""
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "Truncate feeds"
@@ -4360,106 +4342,6 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-#, fuzzy
-msgid "Unable to open directory."
-msgstr "Det er ikke muligt at flytte den oploadede fil."
-
-#, fuzzy
-msgid "Unable to create directory."
-msgstr "Det er ikke muligt at flytte den oploadede fil."
-
-#, fuzzy
-msgid "File is not writable."
-msgstr "Cache mappen %s er ikke skrivbar."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Det er ikke muligt at flytte den oploadede fil."
-
-#, fuzzy
-msgid "Not an uploaded file."
-msgstr "Det er ikke muligt at flytte den oploadede fil."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#, fuzzy
-msgid "No file was uploaded."
-msgstr "Bloggen er opdateret uden fejl."
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%s is not a directory."
-msgstr "Kan ikke skrive til filen %s."
-
-#, fuzzy
-msgid "Uploading this file is not allowed."
-msgstr "SPL modul er ikke tilgængelig."
-
-#, fuzzy
-msgid "Destination directory is not in jail."
-msgstr "Cache mappen %s er ikke skrivbar."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Filen %s eksisterer ikke."
-
-#, fuzzy
-msgid "Cannot write in this directory."
-msgstr "Kan ikke skrive til filen %s."
-
-#, fuzzy
-msgid "Source file does not exist."
-msgstr "Filen %s eksisterer ikke."
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "SPL modul er ikke tilgængelig."
-
-#, fuzzy
-msgid "Destination directory is not writable."
-msgstr "Cache mappen %s er ikke skrivbar."
-
-#, fuzzy
-msgid "Unable to rename file."
-msgstr "Det er ikke muligt at flytte den oploadede fil."
-
-#, fuzzy
-msgid "File cannot be removed."
-msgstr "Dotclear kan ikke installeres."
-
-#, fuzzy
-msgid "Directory is not in jail."
-msgstr "Cache mappen %s er ikke skrivbar."
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, fuzzy, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Filen %s eksisterer ikke."
@@ -4510,6 +4392,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Ugyldig sprog kode"
@@ -4536,12 +4436,108 @@ msgid "Invalid diff format"
 msgstr "Ugyldig sprog kode"
 
 #, fuzzy
-#~ msgid "small"
-#~ msgstr "Small:"
+msgid "Unable to open directory."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Thumbnails:"
+msgid "Unable to create directory."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Bloggen er opdateret uden fejl."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "Kan ikke skrive til filen %s."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "SPL modul er ikke tilgængelig."
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Filen %s eksisterer ikke."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Kan ikke skrive til filen %s."
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Filen %s eksisterer ikke."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "SPL modul er ikke tilgængelig."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+#, fuzzy
+msgid "File cannot be removed."
+msgstr "Dotclear kan ikke installeres."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "Cache mappen %s er ikke skrivbar."
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+#, php-format
+msgid "Archive %s is closed."
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

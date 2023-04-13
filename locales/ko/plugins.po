@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -17,69 +17,69 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.8\n"
 
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-msgid "Akismet interface for Dotclear"
+msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
 msgid "Manage post attachments"
 msgstr ""
 
-#, fuzzy
-msgid "Manage your blogroll"
-msgstr "링크모음 관리"
-
-msgid "Breadcrumb for Dotclear"
+msgid "Serve entries as simple web pages"
 msgstr ""
 
-msgid "dotclear CKEditor integration"
+msgid "Manage every blog configuration directive"
 msgstr ""
 
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgid "Theme Editor"
+msgstr "테마 편집기"
 
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
-
-msgid "Trackback validity check"
+msgid "Simple menu for Dotclear"
 msgstr ""
 
 #, fuzzy
 msgid "Import and Export your blog"
 msgstr "블로그 내보내기"
 
+msgid "Manage every user preference directive"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
 msgid "Maintain your installation"
 msgstr ""
 
-msgid "Serve entries as simple web pages"
+msgid "Breadcrumb for Dotclear"
 msgstr ""
+
+#, fuzzy
+msgid "Manage your blogroll"
+msgstr "링크모음 관리"
 
 #, fuzzy
 msgid "Ping services"
 msgstr "ping 서비스 테스트"
 
-msgid "Simple menu for Dotclear"
-msgstr ""
-
 msgid "Tags for posts"
-msgstr ""
-
-msgid "Theme Editor"
-msgstr "테마 편집기"
-
-msgid "Manage every user preference directive"
 msgstr ""
 
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "위젯을 측면판에 추가"
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -120,12 +120,12 @@ msgid "List of published pages"
 msgstr ""
 
 #, fuzzy
-msgid "Blogroll list"
-msgstr "링크모음"
-
-#, fuzzy
 msgid "List of simple menu items"
 msgstr "선택된 링크들 삭제"
+
+#, fuzzy
+msgid "Blogroll list"
+msgstr "링크모음"
 
 #, fuzzy
 msgid "Tags cloud"

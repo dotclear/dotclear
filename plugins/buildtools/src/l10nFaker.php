@@ -50,7 +50,7 @@ class l10nFaker
 
         $main .= "\n// Media sizes\n\n";
         foreach (dcCore::app()->media->thumb_sizes as $v) {
-            $main .= $this->fake_l10n($v[2]);
+            $main .= $this->fake_l10n($v[3]);
         }
 
         $post_types = dcCore::app()->getPostTypes();

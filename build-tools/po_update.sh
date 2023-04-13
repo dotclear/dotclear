@@ -90,7 +90,7 @@ if [ -z "$PO_MODULE" ]; then
   # Create po template files
   #
   echo "Building main PO template..."
-  find ./admin ./inc ./src -name '*.php' -not -regex '.*/inc/public/.*' -not -regex '.*/inc/libs/.*' -print | \
+  find ./admin ./inc ./src -name '*.php' -not -regex '.*/inc/public/.*' -print | \
     extract_strings \
     --package-name="Dotclear 2" \
     -o locales/_pot/main.pot \
@@ -221,7 +221,7 @@ else
   sed -i.bak 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php
   rm -- $PO_MODULE/__html_tpl_dummy.php.bak
 
-  find $PO_MODULE -name '*.php' -not -regex '.*/_config.php' -print | \
+  find $PO_MODULE -name '*.php' -not -regex '.*/_config.php' -not -regex '.*/Config.php' -print | \
     extract_strings \
     --package-name="Dotclear 2 `basename $PO_MODULE` module" \
     -o $PO_MODULE/locales/_pot/main.pot \

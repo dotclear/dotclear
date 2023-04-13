@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:20+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -3509,6 +3509,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "Blog ayarları"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Eklenti yönetimi"
+
 msgid "Activate"
 msgstr "Etkinleştir"
 
@@ -3994,16 +3998,15 @@ msgstr ""
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Küçük:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Pullar:"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4272,28 +4275,6 @@ msgstr "Dosya yeniden adlandırılamadı."
 msgid "Invalid setting namespace: %s"
 msgstr "Geçersiz namespace ayarlama: %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "Dosya diske yazılamadı."
-
 msgid "Wrong data feed"
 msgstr ""
 
@@ -4420,96 +4401,6 @@ msgstr "Namespace belirlenmedi"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Oto güncelleme sırasında birşeyler ters gitti:"
 
-msgid "Unable to open directory."
-msgstr "Dizin açılamadı."
-
-msgid "Unable to create directory."
-msgstr "Dizin oluşturulamadı."
-
-msgid "File is not writable."
-msgstr "Dosya yazılabilir değil."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Dizin açılamadı."
-
-msgid "Not an uploaded file."
-msgstr "Yüklenmiş bir dosya değil."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr "Dosya yüklenilmedi."
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr "Dosya diske yazılamadı."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s bir klasör değil."
-
-msgid "Uploading this file is not allowed."
-msgstr "Bu dosyanın gönderilmesine izin yok."
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-msgid "File already exists."
-msgstr "Dosya zan var."
-
-#, fuzzy
-msgid "Cannot write in this directory."
-msgstr "Dizin okunamadı"
-
-msgid "Source file does not exist."
-msgstr "Kaynak dosya mevcut değil."
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "Dosya yazılabilir değil."
-
-#, fuzzy
-msgid "Destination directory is not writable."
-msgstr "Dosya yazılabilir değil."
-
-#, fuzzy
-msgid "Unable to rename file."
-msgstr "Dosya yeniden adlandırılamadı."
-
-msgid "File cannot be removed."
-msgstr "Dosya silinemedi."
-
-#, fuzzy
-msgid "Directory is not in jail."
-msgstr "%s dizini mevcut değil."
-
-msgid "Directory cannot be removed."
-msgstr "Dizin silinemedi."
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, fuzzy, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "%s dosyası mevcut değil."
@@ -4558,6 +4449,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "Geçersiz dil kodu"
@@ -4583,13 +4492,103 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "Geçersiz özet dosyası."
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Küçük:"
+msgid "Unable to open directory."
+msgstr "Dizin açılamadı."
+
+msgid "Unable to create directory."
+msgstr "Dizin oluşturulamadı."
+
+msgid "File is not writable."
+msgstr "Dosya yazılabilir değil."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Pullar:"
+msgid "Unable to open file."
+msgstr "Dizin açılamadı."
+
+msgid "Not an uploaded file."
+msgstr "Yüklenmiş bir dosya değil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded."
+msgstr "Dosya yüklenilmedi."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr "Dosya diske yazılamadı."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s bir klasör değil."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr "Bu dosyanın gönderilmesine izin yok."
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+msgid "File already exists."
+msgstr "Dosya zan var."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Dizin okunamadı"
+
+msgid "Source file does not exist."
+msgstr "Kaynak dosya mevcut değil."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Dosya yazılabilir değil."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Dosya yazılabilir değil."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Dosya yeniden adlandırılamadı."
+
+msgid "File cannot be removed."
+msgstr "Dosya silinemedi."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "%s dizini mevcut değil."
+
+msgid "Directory cannot be removed."
+msgstr "Dizin silinemedi."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "Arşiv bulunamadı"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "Dosya diske yazılamadı."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

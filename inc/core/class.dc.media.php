@@ -214,12 +214,6 @@ class dcMedia extends Manager
         $this->thumb_sizes['s'][0] = abs(dcCore::app()->blog->settings->system->media_img_s_size);
         $this->thumb_sizes['t'][0] = abs(dcCore::app()->blog->settings->system->media_img_t_size);
 
-        # Thumbnails sizes names
-        $this->thumb_sizes['m'][2]  = __($this->thumb_sizes['m'][2]);
-        $this->thumb_sizes['s'][2]  = __($this->thumb_sizes['s'][2]);
-        $this->thumb_sizes['t'][2]  = __($this->thumb_sizes['t'][2]);
-        $this->thumb_sizes['sq'][2] = __($this->thumb_sizes['sq'][2]);
-
         # --BEHAVIOR-- coreMediaConstruct
         dcCore::app()->callBehavior('coreMediaConstruct', $this);
 
@@ -229,6 +223,12 @@ class dcMedia extends Manager
             $sizes[$code] = $size[0];
         }
         array_multisort($sizes, SORT_DESC, $this->thumb_sizes);
+
+        // Set thumbnails translations
+        foreach ($this->thumb_sizes as $code => $size) {
+            $this->thumb_sizes[$code][3] = $this->thumb_sizes[$code][2];
+            $this->thumb_sizes[$code][2] = __($this->thumb_sizes[$code][2]);
+        }
     }
 
     /**

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
-msgid "Manage every blog configuration directive"
+msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:7
-msgid "Akismet interface for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:8
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
+#: plugins/_fake_plugin/_fake_l10n.php:8
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
 #: plugins/_fake_plugin/_fake_l10n.php:9
-msgid "Manage post attachments"
+msgid "Trackback validity check"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-msgid "Manage your blogroll"
+msgid "Manage post attachments"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/breadcrumb/src/Backend.php:23
-msgid "Breadcrumb for Dotclear"
+#: plugins/_fake_plugin/_fake_l10n.php:11
+msgid "Serve entries as simple web pages"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
-msgid "dotclear CKEditor integration"
+msgid "Manage every blog configuration directive"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
@@ -50,51 +50,51 @@ msgid "dotclear legacy editor"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:15
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:16
-msgid "Trackback validity check"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:17
-msgid "Import and Export your blog"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:18
-msgid "Maintain your installation"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:19
-msgid "Serve entries as simple web pages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:20
-msgid "Ping services"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:21
-msgid "Simple menu for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:22
-msgid "Tags for posts"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:23
 msgid "Theme Editor"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:15
+msgid "Simple menu for Dotclear"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:16
+msgid "Import and Export your blog"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:17
 msgid "Manage every user preference directive"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:18
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:19
+msgid "Maintain your installation"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:23
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:21
+msgid "Manage your blogroll"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:22
+msgid "Ping services"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:23
+msgid "Tags for posts"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:24
 msgid "Widgets for your blog sidebars"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:25
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:29
@@ -142,11 +142,11 @@ msgid "List of published pages"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:40
-msgid "Blogroll list"
+msgid "List of simple menu items"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:41
-msgid "List of simple menu items"
+msgid "Blogroll list"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:42
@@ -637,8 +637,8 @@ msgstr ""
 #: plugins/blogroll/src/Manage.php:387 plugins/blogroll/src/Manage.php:431
 #: plugins/importExport/src/Manage.php:112
 #: plugins/importExport/src/ModuleImportFeed.php:231
-#: plugins/importExport/src/ModuleImportFlat.php:218
-#: plugins/importExport/src/ModuleImportFlat.php:256
+#: plugins/importExport/src/ModuleImportFlat.php:222
+#: plugins/importExport/src/ModuleImportFlat.php:260
 msgid "Import"
 msgstr ""
 
@@ -913,7 +913,7 @@ msgstr ""
 msgid "The configuration has been updated."
 msgstr ""
 
-#: plugins/dcCKEditor/src/Manage.php:152 plugins/dcCKEditor/tpl/index.php:1
+#: plugins/dcCKEditor/src/Manage.php:152 plugins/dcCKEditor/tpl/index.php:5
 msgid "dcCKEditor"
 msgstr ""
 
@@ -921,95 +921,95 @@ msgstr ""
 msgid "Note(s)"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:4 plugins/dcLegacyEditor/tpl/index.php:4
+#: plugins/dcCKEditor/tpl/index.php:8 plugins/dcLegacyEditor/tpl/index.php:4
 msgid "Settings"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:9 plugins/dcLegacyEditor/tpl/index.php:7
+#: plugins/dcCKEditor/tpl/index.php:13 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:14
+#: plugins/dcCKEditor/tpl/index.php:18
 msgid "Enable dcCKEditor plugin"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:26
+#: plugins/dcCKEditor/tpl/index.php:30
 msgid "Add alignment buttons"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:32
+#: plugins/dcCKEditor/tpl/index.php:36
 msgid "Add lists buttons"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:38
+#: plugins/dcCKEditor/tpl/index.php:42
 msgid "Add text color button"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:44
+#: plugins/dcCKEditor/tpl/index.php:48
 msgid "Add background text color button"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:49
+#: plugins/dcCKEditor/tpl/index.php:53
 msgid "Custom colors list:"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:54
+#: plugins/dcCKEditor/tpl/index.php:58
 msgid "Add colors without # separated by a comma."
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:55
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Leave empty to use the default palette:"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:57
+#: plugins/dcCKEditor/tpl/index.php:61
 msgid "Example of custom color list:"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:62
+#: plugins/dcCKEditor/tpl/index.php:66
 msgid "Colors per row in palette:"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:67
+#: plugins/dcCKEditor/tpl/index.php:71
 msgid "Valid range: 4 to 16"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:72
+#: plugins/dcCKEditor/tpl/index.php:76
 msgid "Add collapse button"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:78
+#: plugins/dcCKEditor/tpl/index.php:82
 msgid "Add format selection"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:83
+#: plugins/dcCKEditor/tpl/index.php:87
 msgid "Custom formats"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:88
+#: plugins/dcCKEditor/tpl/index.php:92
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:93
+#: plugins/dcCKEditor/tpl/index.php:97
 msgid "Add table button"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:99
+#: plugins/dcCKEditor/tpl/index.php:103
 msgid "Add clipboard buttons"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:103
+#: plugins/dcCKEditor/tpl/index.php:107
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:108
+#: plugins/dcCKEditor/tpl/index.php:112
 msgid "Add undo/redo buttons"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:114
+#: plugins/dcCKEditor/tpl/index.php:118
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr ""
 
-#: plugins/dcCKEditor/tpl/index.php:122 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/dcCKEditor/tpl/index.php:126 plugins/dcLegacyEditor/tpl/index.php:19
 #: plugins/simpleMenu/src/Manage.php:661
 msgid "Save configuration"
 msgstr ""
@@ -1258,7 +1258,7 @@ msgid "Failed to compress export file."
 msgstr ""
 
 #: plugins/importExport/src/ModuleExportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:198
+#: plugins/importExport/src/ModuleImportFlat.php:202
 msgid "Single blog"
 msgstr ""
 
@@ -1272,7 +1272,7 @@ msgid "You may also want to download your media directory as a zip file"
 msgstr ""
 
 #: plugins/importExport/src/ModuleExportFlat.php:247
-#: plugins/importExport/src/ModuleImportFlat.php:225
+#: plugins/importExport/src/ModuleImportFlat.php:229
 msgid "Multiple blogs"
 msgstr ""
 
@@ -1397,7 +1397,7 @@ msgid "No items in feed."
 msgstr ""
 
 #: plugins/importExport/src/ModuleImportFeed.php:218
-#: plugins/importExport/src/ModuleImportFlat.php:182
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Content successfully imported."
 msgstr ""
 
@@ -1419,48 +1419,48 @@ msgstr ""
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:177
+#: plugins/importExport/src/ModuleImportFlat.php:181
 msgid "Single blog successfully imported."
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:193
+#: plugins/importExport/src/ModuleImportFlat.php:197
 msgid "Are you sure you want to import a full backup file?"
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:199
+#: plugins/importExport/src/ModuleImportFlat.php:203
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:201
-#: plugins/importExport/src/ModuleImportFlat.php:228
+#: plugins/importExport/src/ModuleImportFlat.php:205
+#: plugins/importExport/src/ModuleImportFlat.php:232
 msgid "Upload a backup file"
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:202
-#: plugins/importExport/src/ModuleImportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:206
+#: plugins/importExport/src/ModuleImportFlat.php:233
 #, php-format
 msgid "maximum size %s"
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:208
-#: plugins/importExport/src/ModuleImportFlat.php:235
+#: plugins/importExport/src/ModuleImportFlat.php:212
+#: plugins/importExport/src/ModuleImportFlat.php:239
 msgid "or pick up a local file in your public directory"
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:226
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "This will reset all the content of your database, except users."
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:347
+#: plugins/importExport/src/ModuleImportFlat.php:351
 msgid "Another file with same name exists."
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:355
+#: plugins/importExport/src/ModuleImportFlat.php:359
 msgid "Failed to extract backup file."
 msgstr ""
 
-#: plugins/importExport/src/ModuleImportFlat.php:367
+#: plugins/importExport/src/ModuleImportFlat.php:371
 msgid "No backup in compressed file."
 msgstr ""
 
@@ -2103,7 +2103,7 @@ msgstr ""
 msgid "Test ping services"
 msgstr ""
 
-#: plugins/simpleMenu/src/Backend.php:42 plugins/simpleMenu/src/Backend.php:56
+#: plugins/simpleMenu/src/Backend.php:42 plugins/simpleMenu/src/Backend.php:55
 #: plugins/simpleMenu/src/Manage.php:55 plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
 msgstr ""
@@ -2488,17 +2488,17 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
-#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/BackendBehaviors.php:38
 #: plugins/themeEditor/src/Manage.php:146
 #: plugins/themeEditor/src/Manage.php:153
 msgid "Edit theme files"
 msgstr ""
 
-#: plugins/themeEditor/src/BackendBehaviors.php:76
+#: plugins/themeEditor/src/BackendBehaviors.php:78
 msgid "Syntax highlighting"
 msgstr ""
 
-#: plugins/themeEditor/src/BackendBehaviors.php:81
+#: plugins/themeEditor/src/BackendBehaviors.php:83
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
@@ -2527,84 +2527,84 @@ msgstr ""
 msgid "Your current theme on this blog is \"%s\"."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:166
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Please select a file to edit."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:170
+#: plugins/themeEditor/src/Manage.php:172
 msgid "File editor"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:171
+#: plugins/themeEditor/src/Manage.php:173
 #, php-format
 msgid "Editing file %s"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Reset"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:187
+#: plugins/themeEditor/src/Manage.php:189
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:217
 msgid "Templates files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:220
 msgid "CSS files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:221
+#: plugins/themeEditor/src/Manage.php:223
 msgid "JavaScript files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:224
+#: plugins/themeEditor/src/Manage.php:226
 msgid "Locales files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:229
 msgid "PHP files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:234
+#: plugins/themeEditor/src/Manage.php:236
 msgid "You can't edit a distributed theme."
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:143
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:163
+#: plugins/themeEditor/src/ThemeEditor.php:164
 msgid "From theme:"
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:165
+#: plugins/themeEditor/src/ThemeEditor.php:166
 msgid "From parent:"
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:170
+#: plugins/themeEditor/src/ThemeEditor.php:171
 msgid "From template set:"
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:205
-#: plugins/themeEditor/src/ThemeEditor.php:235
-#: plugins/themeEditor/src/ThemeEditor.php:319
+#: plugins/themeEditor/src/ThemeEditor.php:206
+#: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:320
 msgid "File does not exist."
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:210
+#: plugins/themeEditor/src/ThemeEditor.php:211
 #, php-format
 msgid "File %s is not readable"
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:267
+#: plugins/themeEditor/src/ThemeEditor.php:268
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:332
+#: plugins/themeEditor/src/ThemeEditor.php:333
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""

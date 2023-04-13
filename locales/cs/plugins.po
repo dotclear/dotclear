@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -16,69 +16,69 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 1.8.8\n"
 
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-msgid "Akismet interface for Dotclear"
+msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
 msgid "Manage post attachments"
 msgstr ""
 
-#, fuzzy
-msgid "Manage your blogroll"
-msgstr "spravovat odkazy"
-
-msgid "Breadcrumb for Dotclear"
+msgid "Serve entries as simple web pages"
 msgstr ""
 
-msgid "dotclear CKEditor integration"
+msgid "Manage every blog configuration directive"
 msgstr ""
 
 msgid "dotclear legacy editor"
 msgstr ""
 
-msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgid "Theme Editor"
+msgstr "Editor vzhledu"
 
-msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
-
-msgid "Trackback validity check"
+msgid "Simple menu for Dotclear"
 msgstr ""
 
 #, fuzzy
 msgid "Import and Export your blog"
 msgstr "Exportovat blog"
 
+msgid "Manage every user preference directive"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
 msgid "Maintain your installation"
 msgstr ""
 
-msgid "Serve entries as simple web pages"
+msgid "Breadcrumb for Dotclear"
 msgstr ""
+
+#, fuzzy
+msgid "Manage your blogroll"
+msgstr "spravovat odkazy"
 
 #, fuzzy
 msgid "Ping services"
 msgstr "Otestovat pingovací rozšíření"
 
-msgid "Simple menu for Dotclear"
-msgstr ""
-
 msgid "Tags for posts"
-msgstr ""
-
-msgid "Theme Editor"
-msgstr "Editor vzhledu"
-
-msgid "Manage every user preference directive"
 msgstr ""
 
 #, fuzzy
 msgid "Widgets for your blog sidebars"
 msgstr "přidat widget do panelů"
+
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr ""
 
 #, fuzzy
 msgid "Search engine form"
@@ -119,12 +119,12 @@ msgid "List of published pages"
 msgstr ""
 
 #, fuzzy
-msgid "Blogroll list"
-msgstr "Odkazy"
-
-#, fuzzy
 msgid "List of simple menu items"
 msgstr "Smazat vybrané odkazy"
+
+#, fuzzy
+msgid "Blogroll list"
+msgstr "Odkazy"
 
 #, fuzzy
 msgid "Tags cloud"

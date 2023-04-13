@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 08:44+0100\n"
+"POT-Creation-Date: 2023-04-13 18:19+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -3520,6 +3520,10 @@ msgstr ""
 msgid "Plugin settings"
 msgstr "블로그 설정"
 
+#, fuzzy
+msgid "Plugin main page"
+msgstr "플러그인 관리"
+
 msgid "Activate"
 msgstr "작동켜기"
 
@@ -3989,16 +3993,15 @@ msgstr "파일 쓰기 도중 오류가 발생했습니다."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "생성된 이미지 크기 (픽셀단위)"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "작은 크기 :"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "꼬맹이사진 :"
 
-msgid "vignette"
-msgstr ""
-
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4267,28 +4270,6 @@ msgstr "설정값을 읽어볼 수 없게함 :"
 msgid "Invalid setting namespace: %s"
 msgstr "바르지 않은 영역이름 : %s"
 
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL JOIN requires a source"
-msgstr ""
-
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires an INTO source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a table source"
-msgstr ""
-
-#, fuzzy
-msgid "Failed to read data feed"
-msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
-
 #, fuzzy
 msgid "Wrong data feed"
 msgstr "글꼭지 타래소식에 글꼭지 일부만 보냄"
@@ -4417,93 +4398,6 @@ msgstr "정해진 영역이름이 없습니다"
 msgid "Something went wrong with auto upgrade:"
 msgstr "자동 갱신 중 오류가 발생했습니다 :"
 
-msgid "Unable to open directory."
-msgstr "해당 폴더를 열 수 없습니다."
-
-msgid "Unable to create directory."
-msgstr "해당 폴더를 만들 수 없습니다."
-
-msgid "File is not writable."
-msgstr "파일이 쓰기 금지 상태입니다."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "파일 이름을 바꿀 수 없습니다."
-
-msgid "Not an uploaded file."
-msgstr "해당하는 파일이 없습니다."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "올리려는 파일이 크기한계를 초과합니다."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "파일의 일부만 올려졌습니다."
-
-msgid "No file was uploaded."
-msgstr "아무 파일도 올려지지 않았습니다."
-
-msgid "Missing a temporary folder."
-msgstr "임시폴더가 없습니다."
-
-msgid "Failed to write file to disk."
-msgstr "파일을 쓸 수가 없습니다."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s는 폴더가 아닙니다."
-
-msgid "Uploading this file is not allowed."
-msgstr "이 파일은 올리기 금지된 파일입니다."
-
-msgid "Destination directory is not in jail."
-msgstr "목표 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "새 파일이 이미 있습니다."
-
-msgid "Cannot write in this directory."
-msgstr "이 폴더에 쓰기를 할 수 없습니다."
-
-msgid "Source file does not exist."
-msgstr "소스파일이 존재하지 않습니다."
-
-msgid "File is not in jail."
-msgstr "파일이 접근가능영역(Jail) 안에 있지 않습니다."
-
-msgid "Destination directory is not writable."
-msgstr "목표 폴더가 쓰기 금지상태입니다."
-
-msgid "Unable to rename file."
-msgstr "파일 이름을 바꿀 수 없습니다."
-
-msgid "File cannot be removed."
-msgstr "이 파일은 지울 수 없습니다."
-
-# décidément ! mais que veut dire "jail" ? -- réponse de baramme : Jail est un système pour fabriquer une zone protégée sur FreeBSD système. Notamment, un accès à l'intérieur de Jail est (doit être) complètement isolé de son extérieur.
-msgid "Directory is not in jail."
-msgstr "해당 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
-
-msgid "Directory cannot be removed."
-msgstr "이 폴더는 지울 수 없습니다."
-
-msgid "Not enough memory to open image."
-msgstr "이미지를 열기에 메모리가 충분하지 않습니다."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "%s 파일은 zip파일이 아닙니다. (또는 zip파일 안에 있지 않습니다.)"
@@ -4550,6 +4444,24 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
 #, fuzzy
 msgid "Bad range"
 msgstr "잘못된 언어 코드"
@@ -4575,13 +4487,100 @@ msgstr ""
 msgid "Invalid diff format"
 msgstr "컨트롤파일(digests)이 비정상적입니다."
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "작은 크기 :"
+msgid "Unable to open directory."
+msgstr "해당 폴더를 열 수 없습니다."
+
+msgid "Unable to create directory."
+msgstr "해당 폴더를 만들 수 없습니다."
+
+msgid "File is not writable."
+msgstr "파일이 쓰기 금지 상태입니다."
 
 #, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "꼬맹이사진 :"
+msgid "Unable to open file."
+msgstr "파일 이름을 바꿀 수 없습니다."
+
+msgid "Not an uploaded file."
+msgstr "해당하는 파일이 없습니다."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "올리려는 파일이 크기한계를 초과합니다."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "파일의 일부만 올려졌습니다."
+
+msgid "No file was uploaded."
+msgstr "아무 파일도 올려지지 않았습니다."
+
+msgid "Missing a temporary folder."
+msgstr "임시폴더가 없습니다."
+
+msgid "Failed to write file to disk."
+msgstr "파일을 쓸 수가 없습니다."
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s는 폴더가 아닙니다."
+
+msgid "Not enough memory to open image."
+msgstr "이미지를 열기에 메모리가 충분하지 않습니다."
+
+msgid "Uploading this file is not allowed."
+msgstr "이 파일은 올리기 금지된 파일입니다."
+
+msgid "Destination directory is not in jail."
+msgstr "목표 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "새 파일이 이미 있습니다."
+
+msgid "Cannot write in this directory."
+msgstr "이 폴더에 쓰기를 할 수 없습니다."
+
+msgid "Source file does not exist."
+msgstr "소스파일이 존재하지 않습니다."
+
+msgid "File is not in jail."
+msgstr "파일이 접근가능영역(Jail) 안에 있지 않습니다."
+
+msgid "Destination directory is not writable."
+msgstr "목표 폴더가 쓰기 금지상태입니다."
+
+msgid "Unable to rename file."
+msgstr "파일 이름을 바꿀 수 없습니다."
+
+msgid "File cannot be removed."
+msgstr "이 파일은 지울 수 없습니다."
+
+# décidément ! mais que veut dire "jail" ? -- réponse de baramme : Jail est un système pour fabriquer une zone protégée sur FreeBSD système. Notamment, un accès à l'intérieur de Jail est (doit être) complètement isolé de son extérieur.
+msgid "Directory is not in jail."
+msgstr "해당 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
+
+msgid "Directory cannot be removed."
+msgstr "이 폴더는 지울 수 없습니다."
+
+#, fuzzy, php-format
+msgid "Archive %s is closed."
+msgstr "갱신파일을 찾을 수 없습니다."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Failed to read data feed"
+#~ msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
