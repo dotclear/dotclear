@@ -568,6 +568,9 @@ class dcUpdate
         }
         @unlink($zip_file);
 
+        # Clear file status cache to avoid running old code after update
+        clearstatcache();
+
         # Try to clear PHP OPcache to avoid running old code after update
         try {
             if ((extension_loaded('opcache') || extension_loaded('Zend OPcache')) && is_array(opcache_get_status())) {
