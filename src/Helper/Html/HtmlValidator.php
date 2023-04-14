@@ -15,10 +15,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
+use Dotclear\Helper\Network\HttpClient;
 use Exception;
-use netHttp;
 
-class HtmlValidator extends netHttp
+class HtmlValidator extends HttpClient
 {
     /**
      * Validator host

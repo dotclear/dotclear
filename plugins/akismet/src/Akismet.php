@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\akismet;
 
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\HttpClient;
 use Exception;
-use netHttp;
 
-class Akismet extends netHttp
+class Akismet extends HttpClient
 {
     /**
      * Akismet domain

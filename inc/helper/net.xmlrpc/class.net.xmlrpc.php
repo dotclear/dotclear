@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Network\HttpClient;
+
 /**
  * @class xmlrpcException
  * @brief XML-RPC Exception
@@ -367,7 +369,7 @@ class xmlrpcMessage
                 $this->messageType = $tag;
 
                 break;
-            # Deal with stacks of arrays and structs
+                # Deal with stacks of arrays and structs
             case 'data': # data is to all intents and puposes more interesting than array
                 $this->_arraystructstypes[] = 'array';
                 $this->_arraystructs[]      = [];
@@ -738,7 +740,7 @@ class xmlrpcBase64
  * Basic XML-RPC Client.
  */
 
-class xmlrpcClient extends netHttp
+class xmlrpcClient extends HttpClient
 {
     /**
      * XML-RPC Request object
@@ -826,7 +828,7 @@ class xmlrpcClient extends netHttp
     /**
      * Builds an request.
      *
-     * Overloading netHttp::buildRequest method, we don't need all the stuff of HTTP client.
+     * Overloading HttpClient::buildRequest method, we don't need all the stuff of HTTP client.
      *
      * @return     array  The request.
      */

@@ -17,8 +17,9 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Network\HttpClient;
 
-class feedReader extends netHttp
+class feedReader extends HttpClient
 {
     /**
      * User agent

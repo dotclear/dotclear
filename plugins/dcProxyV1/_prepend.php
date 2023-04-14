@@ -124,6 +124,9 @@ dcProxyV1::classAliases([
     // URL Handler
     'urlHandler' => 'Dotclear\Helper\Network\UrlHandler',
 
+    // net HTTP Client
+    'netHttp' => 'Dotclear\Helper\Network\HttpClient',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',

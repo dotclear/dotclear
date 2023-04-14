@@ -88,6 +88,8 @@ parameters:
     - DC_VENDOR_NAME
     - DC_VERSION
     - DC_XMLRPC_URL
+    - HTTP_PROXY_HOST
+    - HTTP_PROXY_PORT
 
   reportUnmatchedIgnoredErrors: false
 

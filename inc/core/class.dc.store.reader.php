@@ -14,8 +14,9 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Network\HttpClient;
 
-class dcStoreReader extends netHttp
+class dcStoreReader extends HttpClient
 {
     /**
      * User agent used to query repository
@@ -68,7 +69,7 @@ class dcStoreReader extends netHttp
     /**
      * Constructor.
      *
-     * Bypass first argument of clearbricks netHttp constructor.
+     * Bypass first argument of clearbricks HttpClient constructor.
      */
     public function __construct()
     {

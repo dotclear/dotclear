@@ -9,6 +9,7 @@
 
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\HttpClient;
 
 require_once __DIR__ . '/../inc/admin/prepend.php';
 
@@ -788,7 +789,7 @@ class adminBlogPref
                     $status  = '404';
                     $content = '';
 
-                    $client = netHttp::initClient($file, $path);
+                    $client = HttpClient::initClient($file, $path);
                     if ($client !== false) {
                         $client->setTimeout(DC_QUERY_TIMEOUT);
                         $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);

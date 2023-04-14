@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Network\HttpClient;
 
 class dcUpdate
 {
@@ -156,7 +157,7 @@ class dcUpdate
             $status = 0;
 
             $http_get = function ($http_url) use (&$status, $path) {
-                $client = netHttp::initClient($http_url, $path);
+                $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(DC_QUERY_TIMEOUT);
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
@@ -346,7 +347,7 @@ class dcUpdate
             $status = 0;
 
             $http_get = function ($http_url) use (&$status, $dest, $path) {
-                $client = netHttp::initClient($http_url, $path);
+                $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(DC_QUERY_TIMEOUT);
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);

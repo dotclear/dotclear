@@ -76,10 +76,6 @@ class Clearbricks
             // Database PHP Session
             'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
 
-            // HTTP Client
-            'netHttp'    => $old_helper_root . '/net.http/class.net.http.php',
-            'HttpClient' => $old_helper_root . '/net.http/class.net.http.php',
-
             // XML-RPC Client and Server
             'xmlrpcValue'               => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
             'xmlrpcMessage'             => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',

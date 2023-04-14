@@ -1377,6 +1377,8 @@ class dcUpgrade
                     'inc/helper/image',
                     // CB urlHandler moved to src
                     'inc/helper/url.handler',
+                    // CB netHttp moved to src
+                    'inc/helper/net.http',
                 ]
             );
         }

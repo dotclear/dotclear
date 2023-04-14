@@ -1,7 +1,8 @@
 <?php
 /**
- * @class netHttp
- * @brief HTTP Client
+ * @class HttpClient
+ *
+ * HTTP Client
  *
  * Features:
  *
@@ -31,16 +32,19 @@
  * - Handles redirects on other hosts
  * - Configurable output
  *
- * @package Clearbricks
- * @subpackage Network
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network;
 
 use Dotclear\Helper\Network\Socket\Socket;
+use Exception;
 
-class netHttp extends Socket
+class HttpClient extends Socket
 {
     /**
      * Server host
@@ -99,11 +103,32 @@ class netHttp extends Socket
     protected $referer;
 
     /**
+     * HTTP accept mime-types
+     *
+     * @var array
+     */
+    protected $mime_types = [
+        'text/xml',
+        'application/xml',
+        'application/xhtml+xml',
+        'text/html',
+        'text/plain',
+        'image/png',
+        'image/jpeg',
+        'image/gif',
+        'image/webp',
+        'image/avif',
+        '*/*',
+    ];
+
+    /**
      * HTTP accept header
+     *
+     * Composed with $mime_types (see above)
      *
      * @var string
      */
-    protected $accept = 'text/xml,application/xml,application/xhtml+xml,text/html,text/plain,image/png,image/jpeg,image/gif,image/webp,*/*';
+    protected $accept = '';
 
     /**
      * HTTP accept encoding
@@ -124,7 +149,7 @@ class netHttp extends Socket
      *
      * @var string
      */
-    protected $user_agent = 'Clearbricks HTTP Client';
+    protected $user_agent = 'Dotclear HTTP Client';
 
     /**
      * HTTP optional headers
@@ -213,14 +238,14 @@ class netHttp extends Socket
     /**
      * Proxy server host
      *
-     * @var string
+     * @var string|null
      */
     protected $proxy_host;
 
     /**
      * Proxy server port
      *
-     * @var int
+     * @var int|null
      */
     protected $proxy_port;
 
@@ -297,6 +322,8 @@ class netHttp extends Socket
      */
     public function __construct($host, int $port = 80, ?int $timeout = null)
     {
+        $this->accept = implode(',', $this->mime_types);
+
         $this->setHost($host, $port);
 
         if (defined('HTTP_PROXY_HOST') && defined('HTTP_PROXY_PORT')) {
@@ -401,7 +428,7 @@ class netHttp extends Socket
      */
     protected function doRequest(): bool
     {
-        if ($this->proxy_host && $this->proxy_port) {
+        if (isset($this->proxy_host) && isset($this->proxy_port)) {
             $this->_host      = $this->proxy_host;
             $this->_port      = $this->proxy_port;
             $this->_transport = '';
@@ -417,60 +444,62 @@ class netHttp extends Socket
         $this->outputOpen();
 
         $request = $this->buildRequest();
-        $this->debug('Request', implode("\r", $request));
+        $this->debug('Request', $request);
 
         $this->open();
         $this->debug('Connecting to ' . $this->_transport . $this->_host . ':' . $this->_port);
         foreach ($this->write($request) as $index => $line) {
-            // Deal with first line of returned data
-            if ($index == 0) {
-                $line = rtrim((string) $line, "\r\n");
-                if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
-                    throw new Exception('Status code line invalid: ' . $line);
+            if ($line !== false) {
+                // Deal with first line of returned data
+                if ($index == 0) {
+                    $line = rtrim((string) $line, "\r\n");
+                    if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
+                        throw new Exception('Status code line invalid: ' . $line);
+                    }
+                    $this->status        = (int) $m[2];
+                    $this->status_string = $m[3];
+                    $this->debug($line);
+
+                    continue;
                 }
-                $this->status        = (int) $m[2];
-                $this->status_string = $m[3];
-                $this->debug($line);
 
-                continue;
-            }
+                // Read headers
+                if ($in_headers) {
+                    $line = rtrim((string) $line, "\r\n");
+                    if ($line == '') {
+                        $in_headers = false;
+                        $this->debug('Received Headers', $this->headers);
+                        if ($this->headers_only) {
+                            break;
+                        }
 
-            // Read headers
-            if ($in_headers) {
-                $line = rtrim((string) $line, "\r\n");
-                if ($line == '') {
-                    $in_headers = false;
-                    $this->debug('Received Headers', $this->headers);
-                    if ($this->headers_only) {
-                        break;
+                        continue;
                     }
 
-                    continue;
-                }
+                    if (!preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
+                        // Skip to the next header
+                        continue;
+                    }
+                    $key = strtolower(trim((string) $m[1]));
+                    $val = trim((string) $m[2]);
 
-                if (!preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
-                    // Skip to the next header
-                    continue;
-                }
-                $key = strtolower(trim((string) $m[1]));
-                $val = trim((string) $m[2]);
-
-                // Deal with the possibility of multiple headers of same name
-                if (isset($this->headers[$key])) {
-                    if (is_array($this->headers[$key])) {
-                        $this->headers[$key][] = $val;
+                    // Deal with the possibility of multiple headers of same name
+                    if (isset($this->headers[$key])) {
+                        if (is_array($this->headers[$key])) {
+                            $this->headers[$key][] = $val;
+                        } else {
+                            $this->headers[$key] = [$this->headers[$key], $val];
+                        }
                     } else {
-                        $this->headers[$key] = [$this->headers[$key], $val];
+                        $this->headers[$key] = $val;
                     }
-                } else {
-                    $this->headers[$key] = $val;
+
+                    continue;
                 }
 
-                continue;
+                // We're not in the headers, so append the line to the contents
+                $this->outputWrite($line);
             }
-
-            // We're not in the headers, so append the line to the contents
-            $this->outputWrite($line);
         }
         $this->close();
         $this->outputClose();
@@ -552,7 +581,7 @@ class netHttp extends Socket
     {
         $headers = [];
 
-        if ($this->proxy_host) {
+        if (isset($this->proxy_host)) {
             $path = $this->getRequestURL();
         } else {
             $path = $this->path;
@@ -588,7 +617,7 @@ class netHttp extends Socket
         if (isset($_SERVER['REMOTE_ADDR'])) {
             $xforward[] = $_SERVER['REMOTE_ADDR'];
         }
-        if ($this->proxy_host && isset($_SERVER['SERVER_ADDR'])) {
+        if (isset($this->proxy_host) && isset($_SERVER['SERVER_ADDR'])) {
             $xforward[] = $_SERVER['SERVER_ADDR'];
         }
         if (count($xforward)) {
@@ -777,8 +806,16 @@ class netHttp extends Socket
      * @param string    $host                Proxy host
      * @param int       $port                Proxy port
      */
-    public function setProxy($host, int $port = 8080): void
+    public function setProxy(?string $host, ?int $port = 8080): void
     {
+        if ($host === null || $port === null) {
+            $this->proxy_host = '';
+            $this->proxy_port = 0;
+            unset($this->proxy_host, $this->proxy_port);
+
+            return;
+        }
+
         $this->proxy_host = $host;
         $this->proxy_port = abs($port);
     }
@@ -797,7 +834,7 @@ class netHttp extends Socket
      * User Agent String
      *
      * Sets the user agent string to be used in the request. Default is
-     * "Clearbricks HTTP Client".
+     * "Dotclear HTTP Client".
      *
      * @param string    $user_agent            User agent string
      */
@@ -1032,7 +1069,7 @@ class netHttp extends Socket
      * @param string    $url                Request URL
      * @param string    $path               Resulting path
      *
-     * @return netHttp|false
+     * @return HttpClient|false
      */
     public static function initClient(string $url, string &$path)
     {
@@ -1084,7 +1121,7 @@ class netHttp extends Socket
 
         $scheme = $bits['scheme'];
         $host   = $bits['host'];
-        $port   = isset($bits['port']) ? (int) $bits['host'] : 0;
+        $port   = (int) ($bits['port'] ?? 0);
         $path   = $bits['path'] ?? '/';
         $user   = $bits['user'] ?? null;
         $pass   = $bits['pass'] ?? null;
@@ -1110,7 +1147,7 @@ class netHttp extends Socket
      * optional object to be displayed (usually an array). Default behaviour is to
      * display the message and the object in a red bordered div. If you wish
      * debugging information to be handled in a different way you can do so by
-     * creating a new class that extends netHttp and over-riding the debug()
+     * creating a new class that extends HttpClient and over-riding the debug()
      * method in that class.
      *
      * @param string        $msg               Debug message
@@ -1120,24 +1157,12 @@ class netHttp extends Socket
     {
         if ($this->debug) {
             echo "-----------------------------------------------------------\n";
-            echo '-- netHttp Debug: ' . $msg . "\n";
+            echo '-- HttpClient Debug: ' . $msg . "\n";
             if ($object) {
                 print_r($object);
                 echo "\n";
             }
             echo "-----------------------------------------------------------\n\n";
         }
-    }
-}
-
-/**
- * This class describes a http client.
- *
- * @deprecated since Clearbricks 1.3, use netHttp instead
- */
-class HttpClient extends netHttp
-{
-    public function getError()
-    {
     }
 }

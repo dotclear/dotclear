@@ -14,6 +14,7 @@
 
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Text;
 
 class dcTrackback
@@ -854,11 +855,11 @@ class dcTrackback
      * @param      string  $url    The url
      * @param      string  $path   The path
      *
-     * @return     false|netHttp
+     * @return     false|HttpClient
      */
     private static function initHttp(string $url, string &$path)
     {
-        $client = netHttp::initClient($url, $path);
+        $client = HttpClient::initClient($url, $path);
         $client->setTimeout(DC_QUERY_TIMEOUT);
         $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);

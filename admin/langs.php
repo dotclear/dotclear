@@ -10,6 +10,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Network\HttpClient;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -129,7 +130,7 @@ class adminLangs
                 }
 
                 $path   = '';
-                $client = netHttp::initClient($url, $path);
+                $client = HttpClient::initClient($url, $path);
                 $client->setUserAgent('Dotclear - https://dotclear.org/');
                 $client->useGzip(false);
                 $client->setPersistReferers(false);

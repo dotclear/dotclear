@@ -14,6 +14,7 @@
  */
 
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\HttpClient;
 
 class dcStore
 {
@@ -323,7 +324,7 @@ class dcStore
         }
         // Download package
         $path = '';
-        if ($client = netHttp::initClient($url, $path)) {
+        if ($client = HttpClient::initClient($url, $path)) {
             try {
                 $client->setUserAgent($this->user_agent);
                 $client->useGzip(false);

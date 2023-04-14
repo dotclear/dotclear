@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\fairTrackbacks;
 
 use dcCore;
+use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
-use netHttp;
 
 class AntispamFilterFairTrackbacks extends SpamFilter
 {
@@ -103,7 +103,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             }
 
             $path       = '';
-            $http_query = netHttp::initClient($site, $path);
+            $http_query = HttpClient::initClient($site, $path);
             $http_query->setTimeout(DC_QUERY_TIMEOUT);
             $http_query->get($path);
 
