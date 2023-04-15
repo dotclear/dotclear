@@ -2297,7 +2297,7 @@ class adminThemesList extends adminModulesList
                     if (!$define->isDefined()) {
                         continue;
                     }
-                    if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+                    if ($define->get('state') == dcModuleDefine::STATE_ENABLED) {
                         if (!$this->isDeletablePath($define->get('root'))) {
                             $failed = true;
 
