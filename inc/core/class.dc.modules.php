@@ -213,7 +213,7 @@ class dcModules
             $add_it = true;
             foreach ($search as $key => $value) {
                 if (substr($value, 0, 1) == '!') {
-                    if ($module->get($key) === substr($value, 0, 1)) {
+                    if ((string) $module->get($key) === (string) substr($value, 1)) {
                         $add_it = false;
 
                         break;
