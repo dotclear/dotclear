@@ -1,8 +1,8 @@
 <?php
 /**
- * @class TruncateStatement
+ * @class DropStatement
  *
- * Truncate Statement : small utility to build truncate queries
+ * Drop Statement : small utility to build srop queries
  *
  * @package Dotclear
  *
@@ -15,38 +15,38 @@ namespace Dotclear\Database\Statement;
 
 use dcCore;
 
-class TruncateStatement extends SqlStatement
+class DropStatement extends SqlStatement
 {
     /**
-     * Returns the truncate statement
+     * Returns the drop statement
      *
      * @return string the statement
      */
     public function statement(): string
     {
-        # --BEHAVIOR-- coreBeforeTruncateStatement
+        # --BEHAVIOR-- coreBeforeDropStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreBeforeTruncateStatement', $this);
+            dcCore::app()->callBehavior('coreBeforeDropStatement', $this);
         }
 
         // Check if source given
         if (!count($this->from)) {
-            trigger_error(__('SQL TRUNCATE TABLE requires a FROM source'), E_USER_ERROR);
+            trigger_error(__('SQL DROP TABLE requires a FROM source'), E_USER_ERROR);
 
             return '';  // @phpstan-ignore-line
         }
 
         // Query
-        $query = 'TRUNCATE ';
+        $query = 'DROP ';
 
         // Reference
         $query .= 'TABLE ' . $this->from[0] . ' ';
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertTruncateStatement
+        # --BEHAVIOR-- coreAfertDropStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreAfterTruncateStatement', $this, $query);
+            dcCore::app()->callBehavior('coreAfterDropStatement', $this, $query);
         }
 
         return $query;
@@ -57,7 +57,7 @@ class TruncateStatement extends SqlStatement
      *
      * @return     bool
      */
-    public function truncate(): bool
+    public function drop(): bool
     {
         if ($this->con && ($sql = $this->statement())) {
             return $this->con->execute($sql);
@@ -67,12 +67,12 @@ class TruncateStatement extends SqlStatement
     }
 
     /**
-     * truncate() alias
+     * drop() alias
      *
      * @return     bool
      */
     public function run(): bool
     {
-        return $this->truncate();
+        return $this->drop();
     }
 }

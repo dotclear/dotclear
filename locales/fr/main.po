@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 18:19+0200\n"
+"POT-Creation-Date: 2023-04-15 19:32+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -4105,6 +4105,9 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 msgid "SQL DELETE requires a FROM source"
 msgstr "SQL DELETE requiert une source FROM"
+
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP TABLE requiert une table source"
 
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT requiert une source INTO"

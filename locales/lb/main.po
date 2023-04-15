@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 18:19+0200\n"
+"POT-Creation-Date: 2023-04-15 19:32+0200\n"
 "PO-Revision-Date: 2016-07-18 15:46+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -4097,6 +4097,9 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL DROP TABLE requires a FROM source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 18:20+0200\n"
+"POT-Creation-Date: 2023-04-15 19:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Request a new password"
 msgstr ""
 
-#: admin/auth.php:368 admin/blog_pref.php:955 admin/comment.php:265
+#: admin/auth.php:368 admin/blog_pref.php:956 admin/comment.php:265
 #: admin/install/index.php:354 admin/post.php:902 admin/preferences.php:525
 #: admin/user.php:331 inc/admin/lib.adminfilters.php:734
 #: inc/admin/lib.dc.page.php:960
@@ -202,15 +202,15 @@ msgstr ""
 msgid "New blog"
 msgstr ""
 
-#: admin/blog.php:93 admin/blog_del.php:86 admin/blog_pref.php:405
-#: admin/blogs.php:89 admin/langs.php:203 admin/plugin.php:119
+#: admin/blog.php:93 admin/blog_del.php:86 admin/blog_pref.php:406
+#: admin/blogs.php:89 admin/langs.php:204 admin/plugin.php:119
 #: admin/plugins.php:84 admin/update.php:35 admin/update.php:54
 #: admin/update.php:236 admin/user.php:221 admin/users.php:85
 #: admin/users_actions.php:138 admin/users_actions.php:146
 msgid "System"
 msgstr ""
 
-#: admin/blog.php:94 admin/blog_del.php:87 admin/blog_pref.php:406
+#: admin/blog.php:94 admin/blog_del.php:87 admin/blog_pref.php:407
 #: inc/admin/actions/class.dcactionblogs.php:28
 #: inc/admin/actions/class.dcactionblogs.php:52
 #: inc/admin/actions/class.dcactionblogs.php:59
@@ -220,22 +220,22 @@ msgstr ""
 msgid "Blogs"
 msgstr ""
 
-#: admin/blog.php:115 admin/blog_pref.php:768 admin/users_actions.php:218
+#: admin/blog.php:115 admin/blog_pref.php:769 admin/users_actions.php:218
 #: inc/admin/lib.admincombos.php:286
 msgid "Blog ID"
 msgstr ""
 
-#: admin/blog.php:118 admin/blog_pref.php:767
+#: admin/blog.php:118 admin/blog_pref.php:768
 msgid "Blog ID:"
 msgstr ""
 
 #: admin/blog.php:118 admin/blog.php:139 admin/blog.php:155
-#: admin/blog_pref.php:451 admin/blog_pref.php:767 admin/blog_pref.php:772
+#: admin/blog_pref.php:452 admin/blog_pref.php:768 admin/blog_pref.php:773
 #: admin/category.php:226 admin/comment.php:258 admin/index.php:401
 #: admin/index.php:408 admin/install/index.php:364 admin/install/index.php:372
 #: admin/install/index.php:379 admin/install/wizard.php:206
-#: admin/install/wizard.php:224 admin/langs.php:298 admin/langs.php:319
-#: admin/langs.php:321 admin/popup_link.php:60 admin/post.php:717
+#: admin/install/wizard.php:224 admin/langs.php:299 admin/langs.php:320
+#: admin/langs.php:322 admin/popup_link.php:60 admin/post.php:717
 #: admin/post.php:739 admin/post.php:895 admin/post.php:910 admin/user.php:243
 #: admin/user.php:262 admin/user.php:277 admin/user.php:397
 #: admin/users_actions.php:323 inc/admin/lib.moduleslist.php:1584
@@ -244,29 +244,29 @@ msgstr ""
 msgid "Required field"
 msgstr ""
 
-#: admin/blog.php:126 admin/blog_pref.php:769 admin/user.php:250
+#: admin/blog.php:126 admin/blog_pref.php:770 admin/user.php:250
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr ""
 
-#: admin/blog.php:134 admin/blog_pref.php:458 admin/users_actions.php:219
+#: admin/blog.php:134 admin/blog_pref.php:459 admin/users_actions.php:219
 #: inc/admin/actions/class.dcactionblogs.php:121
 #: inc/admin/lib.admincombos.php:285 inc/admin/lib.pager.php:850
 msgid "Blog name"
 msgstr ""
 
-#: admin/blog.php:139 admin/blog_pref.php:451
+#: admin/blog.php:139 admin/blog_pref.php:452
 msgid "Blog name:"
 msgstr ""
 
-#: admin/blog.php:152 admin/blog_pref.php:777
+#: admin/blog.php:152 admin/blog_pref.php:778
 msgid "Blog URL"
 msgstr ""
 
-#: admin/blog.php:155 admin/blog_pref.php:772
+#: admin/blog.php:155 admin/blog_pref.php:773
 msgid "Blog URL:"
 msgstr ""
 
-#: admin/blog.php:172 admin/blog_pref.php:461
+#: admin/blog.php:172 admin/blog_pref.php:462
 msgid "Blog description:"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: admin/blog.php:185 admin/blog_del.php:131 admin/blog_pref.php:887
+#: admin/blog.php:185 admin/blog_del.php:131 admin/blog_pref.php:888
 #: admin/category.php:269 admin/comment.php:300 admin/media.php:219
 #: admin/media.php:558 admin/media_item.php:520 admin/media_item.php:720
 #: admin/media_item.php:1082 admin/popup_link.php:74 admin/post.php:803
@@ -288,7 +288,7 @@ msgstr ""
 msgid "No such blog ID"
 msgstr ""
 
-#: admin/blog_del.php:62 admin/langs.php:122 admin/langs.php:163
+#: admin/blog_del.php:62 admin/langs.php:123 admin/langs.php:164
 #: admin/user.php:91 admin/users_actions.php:101
 #: inc/admin/actions/class.dcactionblogs.php:245
 #: inc/admin/lib.moduleslist.php:1533 inc/admin/lib.moduleslist.php:2400
@@ -317,66 +317,66 @@ msgstr ""
 msgid "Please give your password to confirm the blog deletion."
 msgstr ""
 
-#: admin/blog_del.php:119 admin/langs.php:298 admin/langs.php:321
+#: admin/blog_del.php:119 admin/langs.php:299 admin/langs.php:322
 #: admin/user.php:397 admin/users_actions.php:323
 #: inc/admin/lib.moduleslist.php:1586 inc/admin/lib.moduleslist.php:1609
 msgid "Your password:"
 msgstr ""
 
-#: admin/blog_del.php:128 admin/blog_pref.php:895
+#: admin/blog_del.php:128 admin/blog_pref.php:896
 msgid "Delete this blog"
 msgstr ""
 
-#: admin/blog_pref.php:64
+#: admin/blog_pref.php:65
 msgid "No given blog id."
 msgstr ""
 
-#: admin/blog_pref.php:69
+#: admin/blog_pref.php:70
 msgid "No such blog."
 msgstr ""
 
-#: admin/blog_pref.php:118
+#: admin/blog_pref.php:119
 msgid "year/month/day/title"
 msgstr ""
 
-#: admin/blog_pref.php:119
+#: admin/blog_pref.php:120
 msgid "year/month/title"
 msgstr ""
 
-#: admin/blog_pref.php:120
+#: admin/blog_pref.php:121
 msgid "year/title"
 msgstr ""
 
-#: admin/blog_pref.php:121
+#: admin/blog_pref.php:122
 msgid "title"
 msgstr ""
 
-#: admin/blog_pref.php:122
+#: admin/blog_pref.php:123
 msgid "post id/title"
 msgstr ""
 
-#: admin/blog_pref.php:123
+#: admin/blog_pref.php:124
 msgid "post id"
 msgstr ""
 
-#: admin/blog_pref.php:131
+#: admin/blog_pref.php:132
 msgid "H4"
 msgstr ""
 
-#: admin/blog_pref.php:132
+#: admin/blog_pref.php:133
 msgid "H3"
 msgstr ""
 
-#: admin/blog_pref.php:133
+#: admin/blog_pref.php:134
 msgid "P"
 msgstr ""
 
-#: admin/blog_pref.php:138 admin/blog_pref.php:956 admin/category.php:238
+#: admin/blog_pref.php:139 admin/blog_pref.php:957 admin/category.php:238
 #: admin/media_item.php:602 admin/media_item.php:604
 msgid "(none)"
 msgstr ""
 
-#: admin/blog_pref.php:139 admin/blog_pref.php:174 admin/index.php:404
+#: admin/blog_pref.php:140 admin/blog_pref.php:175 admin/index.php:404
 #: admin/media_item.php:593 admin/post.php:721
 #: inc/admin/actions/class.dcaction.php:100
 #: inc/admin/actions/class.dcactioncomments.php:107
@@ -385,417 +385,417 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: admin/blog_pref.php:140
+#: admin/blog_pref.php:141
 msgid "Title, Date"
 msgstr ""
 
-#: admin/blog_pref.php:141
+#: admin/blog_pref.php:142
 msgid "Title, Country, Date"
 msgstr ""
 
-#: admin/blog_pref.php:142
+#: admin/blog_pref.php:143
 msgid "Title, City, Country, Date"
 msgstr ""
 
-#: admin/blog_pref.php:154 admin/media_item.php:507 admin/media_item.php:575
+#: admin/blog_pref.php:155 admin/media_item.php:507 admin/media_item.php:575
 #: admin/media_item.php:811
 msgid "original"
 msgstr ""
 
-#: admin/blog_pref.php:165 admin/blog_pref.php:175 admin/media_item.php:599
+#: admin/blog_pref.php:166 admin/blog_pref.php:176 admin/media_item.php:599
 #: admin/media_item.php:611 admin/media_item.php:646 admin/media_item.php:688
 msgid "None"
 msgstr ""
 
-#: admin/blog_pref.php:166 admin/media_item.php:612 admin/media_item.php:647
+#: admin/blog_pref.php:167 admin/media_item.php:612 admin/media_item.php:647
 #: admin/media_item.php:689
 msgid "Left"
 msgstr ""
 
-#: admin/blog_pref.php:167 admin/media_item.php:613 admin/media_item.php:648
+#: admin/blog_pref.php:168 admin/media_item.php:613 admin/media_item.php:648
 #: admin/media_item.php:690
 msgid "Right"
 msgstr ""
 
-#: admin/blog_pref.php:168 admin/media_item.php:614 admin/media_item.php:649
+#: admin/blog_pref.php:169 admin/media_item.php:614 admin/media_item.php:649
 #: admin/media_item.php:691
 msgid "Center"
 msgstr ""
 
-#: admin/blog_pref.php:173 admin/media_item.php:587
+#: admin/blog_pref.php:174 admin/media_item.php:587
 msgid "Legend and title"
 msgstr ""
 
-#: admin/blog_pref.php:180
+#: admin/blog_pref.php:181
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr ""
 
-#: admin/blog_pref.php:181
+#: admin/blog_pref.php:182
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr ""
 
-#: admin/blog_pref.php:182
+#: admin/blog_pref.php:183
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr ""
 
-#: admin/blog_pref.php:187 admin/preferences.php:114
+#: admin/blog_pref.php:188 admin/preferences.php:114
 msgid "Default"
 msgstr ""
 
-#: admin/blog_pref.php:199
+#: admin/blog_pref.php:200
 msgid "Never"
 msgstr ""
 
-#: admin/blog_pref.php:200
+#: admin/blog_pref.php:201
 msgid "Three months"
 msgstr ""
 
-#: admin/blog_pref.php:201
+#: admin/blog_pref.php:202
 msgid "Six months"
 msgstr ""
 
-#: admin/blog_pref.php:202
+#: admin/blog_pref.php:203
 msgid "One year"
 msgstr ""
 
-#: admin/blog_pref.php:203
+#: admin/blog_pref.php:204
 msgid "Two years"
 msgstr ""
 
-#: admin/blog_pref.php:286
+#: admin/blog_pref.php:287
 msgid "This blog ID is already used."
 msgstr ""
 
-#: admin/blog_pref.php:294
+#: admin/blog_pref.php:295
 msgid "Invalid language code"
 msgstr ""
 
-#: admin/blog_pref.php:373 admin/blog_pref.php:442
+#: admin/blog_pref.php:374 admin/blog_pref.php:443
 msgid "Blog has been successfully updated."
 msgstr ""
 
-#: admin/blog_pref.php:399 admin/blog_pref.php:407 admin/blog_pref.php:420
+#: admin/blog_pref.php:400 admin/blog_pref.php:408 admin/blog_pref.php:421
 #: inc/admin/class.dc.admin.php:235 inc/admin/class.dc.favorites.php:463
 msgid "Blog settings"
 msgstr ""
 
-#: admin/blog_pref.php:422
+#: admin/blog_pref.php:423
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
-#: admin/blog_pref.php:423
+#: admin/blog_pref.php:424
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
-#: admin/blog_pref.php:438
+#: admin/blog_pref.php:439
 msgid "Blog has been successfully created."
 msgstr ""
 
-#: admin/blog_pref.php:446
+#: admin/blog_pref.php:447
 msgid "Parameters"
 msgstr ""
 
-#: admin/blog_pref.php:447 admin/media.php:553
+#: admin/blog_pref.php:448 admin/media.php:553
 msgid "Blog parameters"
 msgstr ""
 
-#: admin/blog_pref.php:449 admin/blog_pref.php:765
+#: admin/blog_pref.php:450 admin/blog_pref.php:766
 msgid "Blog details"
 msgstr ""
 
-#: admin/blog_pref.php:474
+#: admin/blog_pref.php:475
 msgid "Blog status:"
 msgstr ""
 
-#: admin/blog_pref.php:490 admin/blog_pref.php:828
+#: admin/blog_pref.php:491 admin/blog_pref.php:829
 msgid "Blog configuration"
 msgstr ""
 
-#: admin/blog_pref.php:491
+#: admin/blog_pref.php:492
 msgid "Blog editor name:"
 msgstr ""
 
-#: admin/blog_pref.php:494
+#: admin/blog_pref.php:495
 msgid "Default language:"
 msgstr ""
 
-#: admin/blog_pref.php:497
+#: admin/blog_pref.php:498
 msgid "Blog timezone:"
 msgstr ""
 
-#: admin/blog_pref.php:500
+#: admin/blog_pref.php:501
 msgid "Copyright notice:"
 msgstr ""
 
-#: admin/blog_pref.php:513 admin/comments.php:105 admin/comments.php:110
+#: admin/blog_pref.php:514 admin/comments.php:105 admin/comments.php:110
 msgid "Comments and trackbacks"
 msgstr ""
 
-#: admin/blog_pref.php:519 admin/post.php:686
+#: admin/blog_pref.php:520 admin/post.php:686
 msgid "Accept comments"
 msgstr ""
 
-#: admin/blog_pref.php:522
+#: admin/blog_pref.php:523
 msgid "Moderate comments"
 msgstr ""
 
-#: admin/blog_pref.php:524
+#: admin/blog_pref.php:525
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr ""
 
-#: admin/blog_pref.php:535 admin/blog_pref.php:563
+#: admin/blog_pref.php:536 admin/blog_pref.php:564
 msgid "No limit: leave blank."
 msgstr ""
 
-#: admin/blog_pref.php:538
+#: admin/blog_pref.php:539
 msgid "Wiki syntax for comments"
 msgstr ""
 
-#: admin/blog_pref.php:541
+#: admin/blog_pref.php:542
 msgid "Preview of comment before submit is not mandatory"
 msgstr ""
 
-#: admin/blog_pref.php:547 admin/post.php:694
+#: admin/blog_pref.php:548 admin/post.php:694
 msgid "Accept trackbacks"
 msgstr ""
 
-#: admin/blog_pref.php:550
+#: admin/blog_pref.php:551
 msgid "Moderate trackbacks"
 msgstr ""
 
-#: admin/blog_pref.php:552
+#: admin/blog_pref.php:553
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr ""
 
-#: admin/blog_pref.php:566
+#: admin/blog_pref.php:567
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr ""
 
-#: admin/blog_pref.php:570
+#: admin/blog_pref.php:571
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr ""
 
-#: admin/blog_pref.php:577
+#: admin/blog_pref.php:578
 msgid "Blog presentation"
 msgstr ""
 
-#: admin/blog_pref.php:580
+#: admin/blog_pref.php:581
 msgid "Date format:"
 msgstr ""
 
-#: admin/blog_pref.php:582
+#: admin/blog_pref.php:583
 msgid "Pattern of date"
 msgstr ""
 
-#: admin/blog_pref.php:584 admin/blog_pref.php:590 admin/blog_pref.php:833
+#: admin/blog_pref.php:585 admin/blog_pref.php:591 admin/blog_pref.php:834
 msgid "Sample:"
 msgstr ""
 
-#: admin/blog_pref.php:586
+#: admin/blog_pref.php:587
 msgid "Time format:"
 msgstr ""
 
-#: admin/blog_pref.php:588
+#: admin/blog_pref.php:589
 msgid "Pattern of time"
 msgstr ""
 
-#: admin/blog_pref.php:594
+#: admin/blog_pref.php:595
 msgid "Display smilies on entries and comments"
 msgstr ""
 
-#: admin/blog_pref.php:598
+#: admin/blog_pref.php:599
 msgid "Disable internal search system"
 msgstr ""
 
-#: admin/blog_pref.php:605
+#: admin/blog_pref.php:606
 #, php-format
 msgid "Display %s entries on first page"
 msgstr ""
 
-#: admin/blog_pref.php:617
+#: admin/blog_pref.php:618
 #, php-format
 msgid "Display %s entries per page"
 msgstr ""
 
-#: admin/blog_pref.php:629
+#: admin/blog_pref.php:630
 #, php-format
 msgid "Display %s entries per feed"
 msgstr ""
 
-#: admin/blog_pref.php:641
+#: admin/blog_pref.php:642
 #, php-format
 msgid "Display %s comments per feed"
 msgstr ""
 
-#: admin/blog_pref.php:654
+#: admin/blog_pref.php:655
 msgid "Truncate feeds"
 msgstr ""
 
-#: admin/blog_pref.php:658
+#: admin/blog_pref.php:659
 msgid "Include sub-categories in category page and category posts feed"
 msgstr ""
 
-#: admin/blog_pref.php:667
+#: admin/blog_pref.php:668
 msgid "Display an entry as static home page"
 msgstr ""
 
-#: admin/blog_pref.php:669
+#: admin/blog_pref.php:670
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr ""
 
-#: admin/blog_pref.php:671
+#: admin/blog_pref.php:672
 msgid "Choose an entry"
 msgstr ""
 
-#: admin/blog_pref.php:673
+#: admin/blog_pref.php:674
 msgid "Leave empty to use the default presentation."
 msgstr ""
 
-#: admin/blog_pref.php:677
+#: admin/blog_pref.php:678
 msgid "Media and images"
 msgstr ""
 
-#: admin/blog_pref.php:679
+#: admin/blog_pref.php:680
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr ""
 
-#: admin/blog_pref.php:680
+#: admin/blog_pref.php:681
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-#: admin/blog_pref.php:681
+#: admin/blog_pref.php:682
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr ""
 
-#: admin/blog_pref.php:685
+#: admin/blog_pref.php:686
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
-#: admin/blog_pref.php:686
+#: admin/blog_pref.php:687
 msgid "Thumbnail"
 msgstr ""
 
-#: admin/blog_pref.php:694
+#: admin/blog_pref.php:695
 msgid "Small"
 msgstr ""
 
-#: admin/blog_pref.php:702
+#: admin/blog_pref.php:703
 msgid "Medium"
 msgstr ""
 
-#: admin/blog_pref.php:710
+#: admin/blog_pref.php:711
 msgid "Default size of the inserted video (in pixels)"
 msgstr ""
 
-#: admin/blog_pref.php:711
+#: admin/blog_pref.php:712
 msgid "Width"
 msgstr ""
 
-#: admin/blog_pref.php:719
+#: admin/blog_pref.php:720
 msgid "Height"
 msgstr ""
 
-#: admin/blog_pref.php:729
+#: admin/blog_pref.php:730
 msgid "Default image insertion attributes"
 msgstr ""
 
-#: admin/blog_pref.php:730
+#: admin/blog_pref.php:731
 msgid "Inserted image title"
 msgstr ""
 
-#: admin/blog_pref.php:734
+#: admin/blog_pref.php:735
 msgid "Use original media date if possible"
 msgstr ""
 
-#: admin/blog_pref.php:737
+#: admin/blog_pref.php:738
 msgid "Do not display date if alone in title"
 msgstr ""
 
-#: admin/blog_pref.php:738
+#: admin/blog_pref.php:739
 msgid "It is retrieved from the picture's metadata."
 msgstr ""
 
-#: admin/blog_pref.php:740
+#: admin/blog_pref.php:741
 msgid "Size of inserted image:"
 msgstr ""
 
-#: admin/blog_pref.php:747
+#: admin/blog_pref.php:748
 msgid "Image alignment:"
 msgstr ""
 
-#: admin/blog_pref.php:752
+#: admin/blog_pref.php:753
 msgid "Insert a link to the original image"
 msgstr ""
 
-#: admin/blog_pref.php:753
+#: admin/blog_pref.php:754
 msgid "Image legend and title:"
 msgstr ""
 
-#: admin/blog_pref.php:762
+#: admin/blog_pref.php:763
 msgid "Advanced parameters"
 msgstr ""
 
-#: admin/blog_pref.php:770
+#: admin/blog_pref.php:771
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr ""
 
-#: admin/blog_pref.php:781
+#: admin/blog_pref.php:782
 msgid "URL scan method:"
 msgstr ""
 
-#: admin/blog_pref.php:804
+#: admin/blog_pref.php:805
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr ""
 
-#: admin/blog_pref.php:815
+#: admin/blog_pref.php:816
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr ""
 
-#: admin/blog_pref.php:830
+#: admin/blog_pref.php:831
 msgid "New post URL format:"
 msgstr ""
 
-#: admin/blog_pref.php:833
+#: admin/blog_pref.php:834
 msgid "Dotclear"
 msgstr ""
 
-#: admin/blog_pref.php:836
+#: admin/blog_pref.php:837
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
-#: admin/blog_pref.php:843
+#: admin/blog_pref.php:844
 msgid "Search engines robots policy"
 msgstr ""
 
-#: admin/blog_pref.php:856
+#: admin/blog_pref.php:857
 msgid "jQuery javascript library"
 msgstr ""
 
-#: admin/blog_pref.php:859
+#: admin/blog_pref.php:860
 msgid "Load the jQuery library"
 msgstr ""
 
-#: admin/blog_pref.php:861
+#: admin/blog_pref.php:862
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
-#: admin/blog_pref.php:867
+#: admin/blog_pref.php:868
 msgid "Blog security"
 msgstr ""
 
-#: admin/blog_pref.php:871
+#: admin/blog_pref.php:872
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
 
-#: admin/blog_pref.php:879
+#: admin/blog_pref.php:880
 msgid "Plugins parameters"
 msgstr ""
 
-#: admin/blog_pref.php:886 admin/category.php:268 admin/category.php:300
+#: admin/blog_pref.php:887 admin/category.php:268 admin/category.php:300
 #: admin/category.php:334 admin/comment.php:299 admin/index.php:426
 #: admin/install/index.php:387 admin/media_item.php:1041 admin/post.php:787
 #: admin/post.php:923 admin/user.php:407 admin/users_actions.php:333
@@ -806,60 +806,60 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: admin/blog_pref.php:901 inc/admin/actions/class.dcactionblogs.php:251
+#: admin/blog_pref.php:902 inc/admin/actions/class.dcactionblogs.php:251
 msgid "The current blog cannot be deleted."
 msgstr ""
 
-#: admin/blog_pref.php:903
+#: admin/blog_pref.php:904
 msgid "Only superadmin can delete a blog."
 msgstr ""
 
-#: admin/blog_pref.php:916 admin/user.php:222 admin/users.php:81
+#: admin/blog_pref.php:917 admin/user.php:222 admin/users.php:81
 #: admin/users.php:86 admin/users_actions.php:139 admin/users_actions.php:147
 #: admin/users_actions.php:154 inc/admin/class.dc.admin.php:327
 #: inc/admin/class.dc.favorites.php:488 inc/admin/lib.adminuserpref.php:102
 msgid "Users"
 msgstr ""
 
-#: admin/blog_pref.php:917
+#: admin/blog_pref.php:918
 msgid "Users on this blog"
 msgstr ""
 
-#: admin/blog_pref.php:920
+#: admin/blog_pref.php:921
 msgid "No users"
 msgstr ""
 
-#: admin/blog_pref.php:961
+#: admin/blog_pref.php:962
 msgid "Publications on this blog:"
 msgstr ""
 
-#: admin/blog_pref.php:968
+#: admin/blog_pref.php:969
 #, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: admin/blog_pref.php:973
+#: admin/blog_pref.php:974
 msgid "Permissions:"
 msgstr ""
 
-#: admin/blog_pref.php:976 admin/user.php:307
+#: admin/blog_pref.php:977 admin/user.php:307
 msgid "Super administrator"
 msgstr ""
 
-#: admin/blog_pref.php:977
+#: admin/blog_pref.php:978
 msgid "All rights on all blogs."
 msgstr ""
 
-#: admin/blog_pref.php:983 admin/users_actions.php:314
+#: admin/blog_pref.php:984 admin/users_actions.php:314
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr ""
 
-#: admin/blog_pref.php:987
+#: admin/blog_pref.php:988
 msgid "All rights on this blog."
 msgstr ""
 
-#: admin/blog_pref.php:998 admin/user.php:457
+#: admin/blog_pref.php:999 admin/user.php:457
 msgid "Change permissions"
 msgstr ""
 
@@ -1235,7 +1235,7 @@ msgstr ""
 msgid "Comment:"
 msgstr ""
 
-#: admin/comment.php:303 admin/langs.php:264 admin/post.php:809
+#: admin/comment.php:303 admin/langs.php:265 admin/post.php:809
 #: admin/users.php:23 inc/admin/actions/class.dcactionblogs.php:170
 #: inc/admin/actions/class.dcactionblogs.php:171
 #: inc/admin/actions/class.dcactioncomments.php:183
@@ -1556,8 +1556,8 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: admin/install/index.php:375 admin/install/index.php:381 admin/langs.php:304
-#: admin/langs.php:327 admin/post.php:700 admin/user.php:270 admin/user.php:283
+#: admin/install/index.php:375 admin/install/index.php:381 admin/langs.php:305
+#: admin/langs.php:328 admin/post.php:700 admin/user.php:270 admin/user.php:283
 #: admin/user.php:403 admin/users_actions.php:329
 #: inc/admin/lib.moduleslist.php:1592 inc/admin/lib.moduleslist.php:1615
 msgid "Password"
@@ -1711,119 +1711,119 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: admin/langs.php:72
+#: admin/langs.php:73
 msgid "Invalid language zip file."
 msgstr ""
 
-#: admin/langs.php:76
+#: admin/langs.php:77
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr ""
 
-#: admin/langs.php:85
+#: admin/langs.php:86
 msgid "An error occurred during language upgrade."
 msgstr ""
 
-#: admin/langs.php:100
+#: admin/langs.php:101
 msgid "No such installed language"
 msgstr ""
 
-#: admin/langs.php:104
+#: admin/langs.php:105
 msgid "You can't remove English language."
 msgstr ""
 
-#: admin/langs.php:108
+#: admin/langs.php:109
 msgid "Permissions to delete language denied."
 msgstr ""
 
-#: admin/langs.php:111 admin/langs.php:210
+#: admin/langs.php:112 admin/langs.php:211
 msgid "Language has been successfully deleted."
 msgstr ""
 
-#: admin/langs.php:128
+#: admin/langs.php:129
 msgid "Invalid language file URL."
 msgstr ""
 
-#: admin/langs.php:149 admin/langs.php:182 admin/langs.php:214
+#: admin/langs.php:150 admin/langs.php:183 admin/langs.php:215
 msgid "Language has been successfully upgraded"
 msgstr ""
 
-#: admin/langs.php:151 admin/langs.php:184 admin/langs.php:214
+#: admin/langs.php:152 admin/langs.php:185 admin/langs.php:215
 msgid "Language has been successfully installed."
 msgstr ""
 
-#: admin/langs.php:169 inc/admin/lib.moduleslist.php:1541
+#: admin/langs.php:170 inc/admin/lib.moduleslist.php:1541
 #: inc/admin/lib.moduleslist.php:2408
 msgid "Unable to move uploaded file."
 msgstr ""
 
-#: admin/langs.php:199 admin/langs.php:204
+#: admin/langs.php:200 admin/langs.php:205
 msgid "Languages management"
 msgstr ""
 
-#: admin/langs.php:218
+#: admin/langs.php:219
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr ""
 
-#: admin/langs.php:220
+#: admin/langs.php:221
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr ""
 
-#: admin/langs.php:226
+#: admin/langs.php:227
 msgid "Installed languages"
 msgstr ""
 
-#: admin/langs.php:240
+#: admin/langs.php:241
 msgid "No additional language is installed."
 msgstr ""
 
-#: admin/langs.php:245
+#: admin/langs.php:246
 msgid "Language"
 msgstr ""
 
-#: admin/langs.php:246 inc/admin/lib.moduleslist.php:807
+#: admin/langs.php:247 inc/admin/lib.moduleslist.php:807
 msgid "Action"
 msgstr ""
 
-#: admin/langs.php:276
+#: admin/langs.php:277
 msgid "Install or upgrade languages"
 msgstr ""
 
-#: admin/langs.php:279
+#: admin/langs.php:280
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr ""
 
-#: admin/langs.php:293
+#: admin/langs.php:294
 msgid "Available languages"
 msgstr ""
 
-#: admin/langs.php:294
+#: admin/langs.php:295
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr ""
 
-#: admin/langs.php:296 admin/user.php:367
+#: admin/langs.php:297 admin/user.php:367
 msgid "Language:"
 msgstr ""
 
-#: admin/langs.php:307
+#: admin/langs.php:308
 msgid "Install language"
 msgstr ""
 
-#: admin/langs.php:317 inc/admin/lib.moduleslist.php:1583
+#: admin/langs.php:318 inc/admin/lib.moduleslist.php:1583
 msgid "Upload a zip file"
 msgstr ""
 
-#: admin/langs.php:318
+#: admin/langs.php:319
 msgid "You can install languages by uploading zip files."
 msgstr ""
 
-#: admin/langs.php:319
+#: admin/langs.php:320
 msgid "Language zip file:"
 msgstr ""
 
-#: admin/langs.php:330
+#: admin/langs.php:331
 msgid "Upload language"
 msgstr ""
 
@@ -5372,7 +5372,7 @@ msgstr ""
 msgid "Wrong data feed"
 msgstr ""
 
-#: inc/core/class.dc.store.php:337 inc/core/class.dc.store.php:340
+#: inc/core/class.dc.store.php:338 inc/core/class.dc.store.php:341
 msgid "An error occurred while downloading the file."
 msgstr ""
 
@@ -5401,115 +5401,115 @@ msgstr ""
 msgid "Destination folder already exist"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:88
+#: inc/core/class.dc.trackback.php:89
 #, php-format
 msgid "%s has still been pinged"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:111 inc/core/class.dc.trackback.php:136
-#: inc/core/class.dc.trackback.php:160
+#: inc/core/class.dc.trackback.php:112 inc/core/class.dc.trackback.php:137
+#: inc/core/class.dc.trackback.php:161
 msgid "Unable to ping URL"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:116
+#: inc/core/class.dc.trackback.php:117
 msgid "Bad server response code"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:144
+#: inc/core/class.dc.trackback.php:145
 #, php-format
 msgid "%s is not a ping URL"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:165
+#: inc/core/class.dc.trackback.php:166
 #, php-format
 msgid "%s, ping error:"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:315
+#: inc/core/class.dc.trackback.php:316
 msgid "Don't repeat yourself, please."
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:322 inc/core/class.dc.trackback.php:400
+#: inc/core/class.dc.trackback.php:323 inc/core/class.dc.trackback.php:401
 msgid "Where's your title?"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:357
+#: inc/core/class.dc.trackback.php:358
 msgid "Sorry, an internal problem has occured."
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:360
+#: inc/core/class.dc.trackback.php:361
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:580
+#: inc/core/class.dc.trackback.php:581
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:599
+#: inc/core/class.dc.trackback.php:600
 msgid "Sorry but you can not ping this type of content."
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:611
+#: inc/core/class.dc.trackback.php:612
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:616
+#: inc/core/class.dc.trackback.php:617
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:643
+#: inc/core/class.dc.trackback.php:644
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:881
+#: inc/core/class.dc.trackback.php:882
 msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:885
+#: inc/core/class.dc.trackback.php:886
 msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-#: inc/core/class.dc.trackback.php:889
+#: inc/core/class.dc.trackback.php:890
 msgid "LOL!"
 msgstr ""
 
-#: inc/core/class.dc.update.php:310
+#: inc/core/class.dc.update.php:311
 msgid "Digests file not found."
 msgstr ""
 
-#: inc/core/class.dc.update.php:337
+#: inc/core/class.dc.update.php:338
 msgid "No file to download"
 msgstr ""
 
-#: inc/core/class.dc.update.php:341 inc/core/class.dc.update.php:424
+#: inc/core/class.dc.update.php:342 inc/core/class.dc.update.php:425
 msgid "Root directory is not writable."
 msgstr ""
 
-#: inc/core/class.dc.update.php:379
+#: inc/core/class.dc.update.php:380
 msgid "An error occurred while downloading archive."
 msgstr ""
 
-#: inc/core/class.dc.update.php:413 inc/core/class.dc.update.php:499
+#: inc/core/class.dc.update.php:414 inc/core/class.dc.update.php:500
 msgid "Archive not found."
 msgstr ""
 
-#: inc/core/class.dc.update.php:419 inc/core/class.dc.update.php:505
+#: inc/core/class.dc.update.php:420 inc/core/class.dc.update.php:506
 msgid "Unable to read current digests file."
 msgstr ""
 
-#: inc/core/class.dc.update.php:442 inc/core/class.dc.update.php:513
+#: inc/core/class.dc.update.php:443 inc/core/class.dc.update.php:514
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr ""
 
-#: inc/core/class.dc.update.php:536
+#: inc/core/class.dc.update.php:537
 msgid "Incomplete archive."
 msgstr ""
 
-#: inc/core/class.dc.update.php:645
+#: inc/core/class.dc.update.php:646
 msgid "Unable to read digests file."
 msgstr ""
 
-#: inc/core/class.dc.update.php:669
+#: inc/core/class.dc.update.php:670
 msgid "Invalid digests file."
 msgstr ""
 
@@ -5593,6 +5593,10 @@ msgstr ""
 
 #: src/Database/Statement/DeleteStatement.php:34
 msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+#: src/Database/Statement/DropStatement.php:34
+msgid "SQL DROP TABLE requires a FROM source"
 msgstr ""
 
 #: src/Database/Statement/InsertStatement.php:129

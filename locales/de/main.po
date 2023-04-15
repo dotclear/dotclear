@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-13 18:19+0200\n"
+"POT-Creation-Date: 2023-04-15 19:32+0200\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -4199,6 +4199,9 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL DROP TABLE requires a FROM source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
