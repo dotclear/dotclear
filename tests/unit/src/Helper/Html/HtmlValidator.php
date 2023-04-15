@@ -15,8 +15,6 @@ require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap
 
 use atoum;
 
-require_once CLEARBRICKS_PATH . '/net.http/class.net.http.php';
-
 /**
  * @tags HtmlValidator
  */
