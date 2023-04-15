@@ -43,7 +43,7 @@ class adminModulesList
 
     /**
      * List of modules distributed with Dotclear
-     * 
+     *
      * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
      *
      * @var        array
@@ -698,7 +698,7 @@ class adminModulesList
 
     /**
      * Check if a module is part of the distribution.
-     * 
+     *
      * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
      *
      * @param    string    $id        Module root directory
@@ -1361,7 +1361,13 @@ class adminModulesList
                     dcCore::app()->callBehavior('pluginAfterDeleteV2', $define);
                 // module is disabled
                 } else {
+                    # --BEHAVIOR-- moduleBeforeDelete
+                    dcCore::app()->callBehavior('pluginBeforeDeleteV2', $define);
+
                     $this->modules->deleteModule($define->getId(), true);
+
+                    # --BEHAVIOR-- moduleAfterDelete
+                    dcCore::app()->callBehavior('pluginAfterDeleteV2', $define);
                 }
 
                 $count++;
