@@ -24,7 +24,7 @@ class TruncateStatement extends SqlStatement
      */
     public function statement(): string
     {
-        # --BEHAVIOR-- coreBeforeTruncateStatement
+        # --BEHAVIOR-- coreBeforeTruncateStatement -- SqlStatement
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreBeforeTruncateStatement', $this);
         }
@@ -44,7 +44,7 @@ class TruncateStatement extends SqlStatement
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertTruncateStatement
+        # --BEHAVIOR-- coreAfertTruncateStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreAfterTruncateStatement', $this, $query);
         }

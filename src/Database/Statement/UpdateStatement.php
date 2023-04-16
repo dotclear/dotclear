@@ -105,7 +105,7 @@ class UpdateStatement extends SqlStatement
      */
     public function whereStatement(): string
     {
-        # --BEHAVIOR-- coreBeforeUpdateWhereStatement
+        # --BEHAVIOR-- coreBeforeUpdateWhereStatement -- SqlStatement
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreBeforeUpdateWhereStatement', $this);
         }
@@ -133,7 +133,7 @@ class UpdateStatement extends SqlStatement
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertUpdateWhereStatement
+        # --BEHAVIOR-- coreAfertUpdateWhereStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
         }
@@ -148,7 +148,7 @@ class UpdateStatement extends SqlStatement
      */
     public function statement(): string
     {
-        # --BEHAVIOR-- coreBeforeUpdateStatement
+        # --BEHAVIOR-- coreBeforeUpdateStatement -- SqlStatement
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreBeforeUpdateStatement', $this);
         }
@@ -183,7 +183,7 @@ class UpdateStatement extends SqlStatement
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertUpdateStatement
+        # --BEHAVIOR-- coreAfertUpdateStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreAfterUpdateStatement', $this, $query);
         }

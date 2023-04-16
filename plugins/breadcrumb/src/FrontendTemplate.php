@@ -61,8 +61,9 @@ class FrontendTemplate
         $page = (int) dcCore::app()->public->getPageNumber();
 
         // Test if complete breadcrumb will be provided
+        # --BEHAVIOR-- publicBreadcrumbExtended -- string
         if (dcCore::app()->callBehavior('publicBreadcrumbExtended', dcCore::app()->url->type)) {
-            # --BEHAVIOR-- publicBreadcrumb
+            # --BEHAVIOR-- publicBreadcrumb -- string, string
             $special = dcCore::app()->callBehavior('publicBreadcrumb', dcCore::app()->url->type, $separator);
 
             $ret = $special ?? '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
@@ -208,7 +209,7 @@ class FrontendTemplate
 
                 default:
                     $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                    # --BEHAVIOR-- publicBreadcrumb
+                    # --BEHAVIOR-- publicBreadcrumb -- string, string
                     # Should specific breadcrumb if any, will be added after home page url
                     $special = dcCore::app()->callBehavior('publicBreadcrumb', dcCore::app()->url->type, $separator);
                     if ($special) {

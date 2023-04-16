@@ -83,7 +83,7 @@ class JoinStatement extends SqlStatement
      */
     public function statement(): string
     {
-        # --BEHAVIOR-- coreBeforeJoinStatement
+        # --BEHAVIOR-- coreBeforeJoinStatement -- SqlStatement
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreBeforeJoinStatement', $this);
         }
@@ -123,7 +123,7 @@ class JoinStatement extends SqlStatement
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertJoinStatement
+        # --BEHAVIOR-- coreAfertJoinStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreAfterJoinStatement', $this, $query);
         }
