@@ -189,7 +189,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         // Time to get things done...
         $this->setBlog();
 
-        # --BEHAVIOR-- publicBeforeReceiveTrackback
+        # --BEHAVIOR-- publicBeforeReceiveTrackback -- array<string,string>
         dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
         return (new dcTrackback())->receivePingback($from_url, $to_url);

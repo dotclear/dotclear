@@ -1216,7 +1216,7 @@ final class dcCore
 
         $cur->insert();
 
-        # --BEHAVIOR-- coreAfterAddUser
+        # --BEHAVIOR-- coreAfterAddUser -- cursor
         $this->callBehavior('coreAfterAddUser', $cur);
 
         return $cur->user_id;
@@ -1245,7 +1245,7 @@ final class dcCore
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterUpdUser
+        # --BEHAVIOR-- coreAfterUpdUser -- cursor
         $this->callBehavior('coreAfterUpdUser', $cur);
 
         if ($cur->user_id !== null) {
@@ -1301,7 +1301,7 @@ final class dcCore
 
         $sql->delete();
 
-        # --BEHAVIOR-- coreAfterDelUser
+        # --BEHAVIOR-- coreAfterDelUser -- string
         $this->callBehavior('coreAfterDelUser', $id);
     }
 
@@ -1858,6 +1858,7 @@ final class dcCore
             'keep_data' => false,
             'keep_js'   => false,
         ]);
+        # --BEHAVIOR-- HTMLfilter -- ArrayObject
         $this->callBehavior('HTMLfilter', $options);
 
         $filter = new HtmlFilter($options['keep_aria'], $options['keep_data'], $options['keep_js']);
@@ -1944,7 +1945,7 @@ final class dcCore
 
         $this->wiki->registerFunction('url:post', [$this, 'wikiPostLink']);
 
-        # --BEHAVIOR-- coreWikiPostInit
+        # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
         $this->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
@@ -1993,7 +1994,8 @@ final class dcCore
             'active_fr_syntax'    => 0,
         ]);
 
-        # --BEHAVIOR-- coreInitWikiSimpleComment
+        # --BEHAVIOR-- coreInitWikiSimpleComment -- 
+        # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
         $this->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
@@ -2041,7 +2043,8 @@ final class dcCore
             'active_fr_syntax'    => 0,
         ]);
 
-        # --BEHAVIOR-- coreInitWikiComment
+        # --BEHAVIOR-- coreInitWikiComment -- 
+        # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
         $this->callBehavior('coreInitWikiComment', $this->wiki);
     }
 

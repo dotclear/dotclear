@@ -164,7 +164,7 @@ class dcLog
 
             $this->fillLogCursor($cur);
 
-            # --BEHAVIOR-- coreBeforeLogCreate
+            # --BEHAVIOR-- coreBeforeLogCreate -- dcLog, cursor
             dcCore::app()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
@@ -175,7 +175,7 @@ class dcLog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterLogCreate
+        # --BEHAVIOR-- coreAfterLogCreate -- dcLog, cursor
         dcCore::app()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
