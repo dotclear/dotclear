@@ -2297,7 +2297,7 @@ class adminThemesList extends adminModulesList
                     if (!$define->isDefined()) {
                         continue;
                     }
-                    if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+                    if ($define->get('state') == dcModuleDefine::STATE_ENABLED) {
                         if (!$this->isDeletablePath($define->get('root'))) {
                             $failed = true;
 
@@ -2312,7 +2312,14 @@ class adminThemesList extends adminModulesList
                         # --BEHAVIOR-- themeAfterDelete
                         dcCore::app()->callBehavior('themeAfterDeleteV2', $define);
                     } else {
+
+                        # --BEHAVIOR-- themeBeforeDelete
+                        dcCore::app()->callBehavior('themeBeforeDeleteV2', $define);
+
                         $this->modules->deleteModule($define->getId(), true);
+
+                        # --BEHAVIOR-- themeAfterDelete
+                        dcCore::app()->callBehavior('themeAfterDeleteV2', $define);
                     }
 
                     $count++;
