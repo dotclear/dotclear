@@ -55,9 +55,8 @@
 .module-post-actions {
   display: flex;
   flex-wrap: wrap;
-  input {
-    margin: 0 0.25em 0.5em 0;
-  }
+  align-items: flex-start;
+  gap: 0.5em;
 }
 
 .bloc-toggler {
