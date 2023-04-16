@@ -58,7 +58,7 @@ class Maintenance
      */
     protected function init(): void
     {
-        # --BEHAVIOR-- dcMaintenanceInit
+        # --BEHAVIOR-- dcMaintenanceInit -- Maintenance
         dcCore::app()->callBehavior('dcMaintenanceInit', $this);
     }
 

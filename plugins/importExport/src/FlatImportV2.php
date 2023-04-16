@@ -122,7 +122,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
-        # --BEHAVIOR-- importInit
+        # --BEHAVIOR-- importInit -- FlatBackup
         dcCore::app()->callBehavior('importInitV2', $this);
     }
 
@@ -254,7 +254,7 @@ class FlatImportV2 extends FlatBackup
                         break;
                 }
 
-                # --BEHAVIOR-- importSingle
+                # --BEHAVIOR-- importSingle -- string, FlatBackup
                 dcCore::app()->callBehavior('importSingleV2', $line, $this);
             }
 
@@ -358,7 +358,7 @@ class FlatImportV2 extends FlatBackup
 
                         break;
                 }
-                # --BEHAVIOR-- importFull
+                # --BEHAVIOR-- importFull -- line, FlatBackup
                 dcCore::app()->callBehavior('importFullV2', $line, $this);
             }
         } catch (Exception $e) {
@@ -933,7 +933,7 @@ class FlatImportV2 extends FlatBackup
                 break;
         }
 
-        # --BEHAVIOR-- importPrepareDC12
+        # --BEHAVIOR-- importPrepareDC12 -- line, FlatBackup
         dcCore::app()->callBehavior('importPrepareDC12V2', $line, $this);
     }
 }

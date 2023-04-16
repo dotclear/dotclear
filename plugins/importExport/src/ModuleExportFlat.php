@@ -112,7 +112,7 @@ class ModuleExportFlat extends Module
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
 
-                # --BEHAVIOR-- exportSingle
+                # --BEHAVIOR-- exportSingle -- FlatExport, string
                 dcCore::app()->callBehavior('exportSingleV2', $exp, $blog_id);
 
                 $_SESSION['export_file']     = $fullname;
@@ -150,7 +150,7 @@ class ModuleExportFlat extends Module
                 $exp->exportTable('spamrule');
                 $exp->exportTable('version');
 
-                # --BEHAVIOR-- exportFull
+                # --BEHAVIOR-- exportFull -- FlatExport
                 dcCore::app()->callBehavior('exportFullV2', $exp);
 
                 $_SESSION['export_file']     = $fullname;

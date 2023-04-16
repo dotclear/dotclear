@@ -257,6 +257,7 @@ class Manage extends dcNsProcess
             $head .= dcPage::jsModuleLoad('widgets/js/dragdrop.js');
         }
         if ($rte_flag) {
+            # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             $head .= dcCore::app()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],

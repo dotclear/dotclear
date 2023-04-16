@@ -142,7 +142,7 @@ class Manage extends dcNsProcess
             $items['tags'] = new ArrayObject([__('Tags'), true]);
         }
 
-        # --BEHAVIOR-- adminSimpleMenuAddType
+        # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject
         # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
         dcCore::app()->callBehavior('adminSimpleMenuAddType', $items);
 
@@ -291,7 +291,7 @@ class Manage extends dcNsProcess
                             case 'special':
                                 break;
                             default:
-                                # --BEHAVIOR-- adminSimpleMenuBeforeEdit
+                                # --BEHAVIOR-- adminSimpleMenuBeforeEdit - string, string, array<int,string>
                                 # Should modify if necessary $item_label, $item_descr and $item_url
                                 # Should set if necessary $item_select_label (displayed on further admin step only)
                                 [
@@ -591,7 +591,7 @@ class Manage extends dcNsProcess
                                 break;
                             default:
                                 echo
-                                # --BEHAVIOR-- adminSimpleMenuSelect
+                                # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
                                 # Optional step once dcCore::app()->admin->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
                                 dcCore::app()->callBehavior('adminSimpleMenuSelect', dcCore::app()->admin->item_type, 'item_select');
                         }

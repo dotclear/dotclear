@@ -148,7 +148,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        # --BEHAVIOR-- initWidgets
+        # --BEHAVIOR-- initWidgets -- WidgetsStack
         dcCore::app()->callBehavior('initWidgets', dcCore::app()->widgets);
 
         # Default widgets
@@ -163,7 +163,7 @@ class Widgets
         dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->categories);
         dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM]->append(dcCore::app()->widgets->subscribe);
 
-        # --BEHAVIOR-- initDefaultWidgets
+        # --BEHAVIOR-- initDefaultWidgets -- WidgetsStack, array<string,WidgetsStack>
         dcCore::app()->callBehavior('initDefaultWidgets', dcCore::app()->widgets, dcCore::app()->default_widgets);
     }
 

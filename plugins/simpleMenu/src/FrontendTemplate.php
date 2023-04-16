@@ -179,7 +179,7 @@ class FrontendTemplate
                     'class'  => '',      // additional <li> class (optional)
                 ]);
 
-                # --BEHAVIOR-- publicSimpleMenuItem
+                # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
                 dcCore::app()->callBehavior('publicSimpleMenuItem', $i, $item);
 
                 $ret .= '<li class="li' . ($i + 1) .
