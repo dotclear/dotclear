@@ -89,6 +89,7 @@ class BackendActions extends dcPostsActions
     {
         // We could have added a behavior here, but we want default action to be setup first
         BackendDefaultActions::adminPagesActionsPage($this);
+        # --BEHAVIOR-- adminPagesActions -- dcActions
         dcCore::app()->callBehavior('adminPagesActions', $this);
     }
 

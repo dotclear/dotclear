@@ -125,12 +125,12 @@ class adminIndex
             $dashboardItem++;
         }
 
-        # --BEHAVIOR-- adminDashboardItemsV2
+        # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject
         dcCore::app()->callBehavior('adminDashboardItemsV2', $__dashboard_items);
 
         // Dashboard content
         $__dashboard_contents = new ArrayObject([new ArrayObject(), new ArrayObject()]);
-        # --BEHAVIOR-- adminDashboardContentsV2
+        # --BEHAVIOR-- adminDashboardContentsV2 -- ArrayObject
         dcCore::app()->callBehavior('adminDashboardContentsV2', $__dashboard_contents);
 
         // Editor stuff
@@ -144,7 +144,7 @@ class adminIndex
                 $post_format = dcCore::app()->auth->getOption('post_format');
                 $post_editor = dcCore::app()->auth->getOption('editor');
                 if ($post_editor && !empty($post_editor[$post_format])) {
-                    # --BEHAVIOR-- adminPostEditor
+                    # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
                     $admin_post_behavior = dcCore::app()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
@@ -182,7 +182,7 @@ class adminIndex
             $admin_post_behavior .
             dcPage::jsAdsBlockCheck() .
 
-            # --BEHAVIOR-- adminDashboardHeaders
+            # --BEHAVIOR-- adminDashboardHeaders --
             dcCore::app()->callBehavior('adminDashboardHeaders'),
             dcPage::breadcrumb(
                 [

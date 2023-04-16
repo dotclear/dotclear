@@ -232,7 +232,7 @@ class SelectStatement extends SqlStatement
      */
     public function statement(): string
     {
-        # --BEHAVIOR-- coreBeforeSelectStatement
+        # --BEHAVIOR-- coreBeforeSelectStatement -- SqlStatement
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreBeforeSelectStatement', $this);
         }
@@ -317,7 +317,7 @@ class SelectStatement extends SqlStatement
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertSelectStatement
+        # --BEHAVIOR-- coreAfertSelectStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreAfterSelectStatement', $this, $query);
         }

@@ -275,7 +275,7 @@ class ManagePage extends dcNsProcess
             // Delete page
 
             try {
-                # --BEHAVIOR-- adminBeforePageDelete
+                # --BEHAVIOR-- adminBeforePageDelete -- int
                 dcCore::app()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
                 Http::redirect(dcCore::app()->admin->getPageURL());
@@ -320,12 +320,12 @@ class ManagePage extends dcNsProcess
                 // Update post
 
                 try {
-                    # --BEHAVIOR-- adminBeforePageUpdate
+                    # --BEHAVIOR-- adminBeforePageUpdate -- cursor, int
                     dcCore::app()->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
-                    # --BEHAVIOR-- adminAfterPageUpdate
+                    # --BEHAVIOR-- adminAfterPageUpdate -- cursor, int
                     dcCore::app()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     Http::redirect(dcCore::app()->admin->redir_url . '&id=' . dcCore::app()->admin->post_id . '&upd=1');
@@ -336,12 +336,12 @@ class ManagePage extends dcNsProcess
                 $cur->user_id = dcCore::app()->auth->userID();
 
                 try {
-                    # --BEHAVIOR-- adminBeforePageCreate
+                    # --BEHAVIOR-- adminBeforePageCreate -- cursor
                     dcCore::app()->callBehavior('adminBeforePageCreate', $cur);
 
                     $return_id = dcCore::app()->blog->addPost($cur);
 
-                    # --BEHAVIOR-- adminAfterPageCreate
+                    # --BEHAVIOR-- adminAfterPageCreate -- cursor, int
                     dcCore::app()->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
                     Http::redirect(dcCore::app()->admin->redir_url . '&id=' . $return_id . '&crea=1');
@@ -381,6 +381,7 @@ class ManagePage extends dcNsProcess
                 $c_edit = dcCore::app()->admin->post_editor['xhtml'];
             }
             if ($p_edit == $c_edit) {
+                # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
                 $admin_post_behavior .= dcCore::app()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
@@ -389,6 +390,7 @@ class ManagePage extends dcNsProcess
                     dcCore::app()->admin->post_format
                 );
             } else {
+                # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
                 $admin_post_behavior .= dcCore::app()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
@@ -396,6 +398,7 @@ class ManagePage extends dcNsProcess
                     ['#post_excerpt', '#post_content'],
                     dcCore::app()->admin->post_format
                 );
+                # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
                 $admin_post_behavior .= dcCore::app()->callBehavior(
                     'adminPostEditor',
                     $c_edit,
@@ -414,7 +417,7 @@ class ManagePage extends dcNsProcess
             dcPage::jsModuleLoad('pages/js/page.js') .
             $admin_post_behavior .
             dcPage::jsConfirmClose('entry-form', 'comment-form') .
-            # --BEHAVIOR-- adminPageHeaders
+            # --BEHAVIOR-- adminPageHeaders --
             dcCore::app()->callBehavior('adminPageHeaders') .
             dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink
@@ -496,7 +499,7 @@ class ManagePage extends dcNsProcess
                 dcCore::app()->admin->next_link;
             }
 
-            # --BEHAVIOR-- adminPageNavLinks
+            # --BEHAVIOR-- adminPageNavLinks -- dcRecord|null
             dcCore::app()->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
 
             echo
@@ -635,7 +638,7 @@ class ManagePage extends dcNsProcess
                 ]
             );
 
-            # --BEHAVIOR-- adminPostFormItems
+            # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, dcRecord|null
             dcCore::app()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
 
             echo
@@ -650,7 +653,7 @@ class ManagePage extends dcNsProcess
                 echo $item;
             }
 
-            # --BEHAVIOR-- adminPageForm
+            # --BEHAVIOR-- adminPageForm -- dcRecord|null
             dcCore::app()->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
 
             echo
@@ -706,14 +709,14 @@ class ManagePage extends dcNsProcess
                 '</div>';
             }
 
-            # --BEHAVIOR-- adminPageFormSidebar
+            # --BEHAVIOR-- adminPageFormSidebar -- dcRecord|null
             dcCore::app()->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
-            # --BEHAVIOR-- adminPostForm
+            # --BEHAVIOR-- adminPostForm -- dcRecord|null
             dcCore::app()->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
 
             echo

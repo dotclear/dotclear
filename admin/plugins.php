@@ -77,7 +77,7 @@ class adminPlugins
             dcPage::jsLoad('js/_plugins.js') .
             dcPage::jsPageTabs() .
 
-            # --BEHAVIOR-- pluginsToolsHeaders
+            # --BEHAVIOR-- pluginsToolsHeaders -- bool
             dcCore::app()->callBehavior('pluginsToolsHeadersV2', false),
             dcPage::breadcrumb(
                 [
@@ -257,7 +257,7 @@ class adminPlugins
             '</div>';
         }
 
-        # --BEHAVIOR-- pluginsToolsTabs
+        # --BEHAVIOR-- pluginsToolsTabs --
         dcCore::app()->callBehavior('pluginsToolsTabsV2');
 
         # -- Notice for super admin --
@@ -288,7 +288,7 @@ class adminPlugins
         dcPage::open(
             __('Plugins management'),
 
-            # --BEHAVIOR-- pluginsToolsHeaders
+            # --BEHAVIOR-- pluginsToolsHeaders -- bool
             dcCore::app()->callBehavior('pluginsToolsHeadersV2', true),
             dcPage::breadcrumb(
                 [

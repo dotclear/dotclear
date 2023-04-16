@@ -228,7 +228,7 @@ class dcBlog
             $this->comment_status[(string) self::COMMENT_UNPUBLISHED] = __('Unpublished');
             $this->comment_status[(string) self::COMMENT_PUBLISHED]   = __('Published');
 
-            # --BEHAVIOR-- coreBlogConstruct
+            # --BEHAVIOR-- coreBlogConstruct -- dcBlog
             dcCore::app()->callBehavior('coreBlogConstruct', $this);
         }
     }
@@ -375,7 +375,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreBlogAfterTriggerBlog
+        # --BEHAVIOR-- coreBlogAfterTriggerBlog -- cursor
         dcCore::app()->callBehavior('coreBlogAfterTriggerBlog', $cur);
     }
 
@@ -756,7 +756,7 @@ class dcBlog
         $this->fillCategoryCursor($cur);
         $cur->blog_id = (string) $this->id;
 
-        # --BEHAVIOR-- coreBeforeCategoryCreate
+        # --BEHAVIOR-- coreBeforeCategoryCreate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
 
         $id = $this->categories()->addNode($cur, $parent);
@@ -768,7 +768,7 @@ class dcBlog
             $cur->cat_rgt = $rs->cat_rgt;
         }
 
-        # --BEHAVIOR-- coreAfterCategoryCreate
+        # --BEHAVIOR-- coreAfterCategoryCreate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
@@ -806,7 +806,7 @@ class dcBlog
 
         $this->fillCategoryCursor($cur, $id);
 
-        # --BEHAVIOR-- coreBeforeCategoryUpdate
+        # --BEHAVIOR-- coreBeforeCategoryUpdate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
         $sql = new UpdateStatement();
@@ -816,7 +816,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterCategoryUpdate
+        # --BEHAVIOR-- coreAfterCategoryUpdate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreAfterCategoryUpdate', $this, $cur);
 
         $this->triggerBlog();
@@ -1056,6 +1056,7 @@ class dcBlog
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
+        # --BEHAVIOR-- coreBlogBeforeGetPosts -- ArrayObject
         dcCore::app()->callBehavior('coreBlogBeforeGetPosts', $params);
 
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
@@ -1260,7 +1261,8 @@ class dcBlog
 
             if (!empty($words)) {
                 # --BEHAVIOR-- corePostSearch
-                if (dcCore::app()->hasBehavior('corePostSearch')) {
+                if (dcCore::app()->hasBehavior('corePostSearch') || dcCore::app()->hasBehavior('corePostSearchV2')) {
+                    # --BEHAVIOR-- corePostSearchV2 -- array<int,mixed>
                     dcCore::app()->callBehavior('corePostSearchV2', [&$words, &$params, $sql]);
                 }
 
@@ -1306,10 +1308,10 @@ class dcBlog
         $rs->_nb_media = [];
         $rs->extend('rsExtPost');
 
-        # --BEHAVIOR-- coreBlogGetPosts
+        # --BEHAVIOR-- coreBlogGetPosts -- dcRecord
         dcCore::app()->callBehavior('coreBlogGetPosts', $rs);
 
-        # --BEHAVIOR-- coreBlogAfterGetPosts
+        # --BEHAVIOR-- coreBlogAfterGetPosts -- dcRecord, ArrayObject
         $alt = new arrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
         dcCore::app()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
         if ($alt['rs']) {
@@ -1612,7 +1614,7 @@ class dcBlog
                 $cur->post_status = self::POST_PENDING;
             }
 
-            # --BEHAVIOR-- coreBeforePostCreate
+            # --BEHAVIOR-- coreBeforePostCreate -- dcBlog, cursor
             dcCore::app()->callBehavior('coreBeforePostCreate', $this, $cur);
 
             $cur->insert();
@@ -1623,7 +1625,7 @@ class dcBlog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterPostCreate
+        # --BEHAVIOR-- coreAfterPostCreate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreAfterPostCreate', $this, $cur);
 
         $this->triggerBlog();
@@ -1690,12 +1692,12 @@ class dcBlog
             }
         }
 
-        # --BEHAVIOR-- coreBeforePostUpdate
+        # --BEHAVIOR-- coreBeforePostUpdate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreBeforePostUpdate', $this, $cur);
 
         $cur->update('WHERE post_id = ' . $id . ' ');
 
-        # --BEHAVIOR-- coreAfterPostUpdate
+        # --BEHAVIOR-- coreAfterPostUpdate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreAfterPostUpdate', $this, $cur);
 
         $this->triggerBlog();
@@ -1982,7 +1984,7 @@ class dcBlog
             }
         }
         if (count($to_change)) {
-            # --BEHAVIOR-- coreBeforeScheduledEntriesPublish
+            # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- dcBlog, ArrayObject
             dcCore::app()->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
             $sql = new UpdateStatement();
@@ -1995,7 +1997,7 @@ class dcBlog
             $sql->update();
             $this->triggerBlog();
 
-            # --BEHAVIOR-- coreAfterScheduledEntriesPublish
+            # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- dcBlog, ArrayObject
             dcCore::app()->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
 
             $this->firstPublicationEntries($to_change);
@@ -2030,7 +2032,7 @@ class dcBlog
 
             $sql->update();
 
-            # --BEHAVIOR-- coreFirstPublicationEntries
+            # --BEHAVIOR-- coreFirstPublicationEntries -- dcBlog, ArrayObject
             dcCore::app()->callBehavior('coreFirstPublicationEntries', $this, $to_change);
         }
     }
@@ -2291,7 +2293,7 @@ class dcBlog
             $content_xhtml = '';
         }
 
-        # --BEHAVIOR-- coreAfterPostContentFormat
+        # --BEHAVIOR-- coreAfterPostContentFormat -- arra<string,string>
         dcCore::app()->callBehavior('coreAfterPostContentFormat', [
             'excerpt'       => &$excerpt,
             'content'       => &$content,
@@ -2565,7 +2567,8 @@ class dcBlog
 
             if (!empty($words)) {
                 # --BEHAVIOR coreCommentSearch
-                if (dcCore::app()->hasBehavior('coreCommentSearch')) {
+                if (dcCore::app()->hasBehavior('coreCommentSearch') || dcCore::app()->hasBehavior('coreCommentSearchV2')) {
+                    # --BEHAVIOR-- coreCommentSearchV2 -- array<int,mixed>
                     dcCore::app()->callBehavior('coreCommentSearchV2', [&$words, &$sql, &$params]);
                 }
 
@@ -2595,7 +2598,7 @@ class dcBlog
         $rs = $sql->select();
         $rs->extend('rsExtComment');
 
-        # --BEHAVIOR-- coreBlogGetComments
+        # --BEHAVIOR-- coreBlogGetComments -- dcRecord
         dcCore::app()->callBehavior('coreBlogGetComments', $rs);
 
         return $rs;
@@ -2634,7 +2637,7 @@ class dcBlog
                 $cur->comment_ip = Http::realIP();
             }
 
-            # --BEHAVIOR-- coreBeforeCommentCreate
+            # --BEHAVIOR-- coreBeforeCommentCreate -- dcBlog, cursor
             dcCore::app()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
             $cur->insert();
@@ -2645,7 +2648,7 @@ class dcBlog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterCommentCreate
+        # --BEHAVIOR-- coreAfterCommentCreate -- dcBlog, cursor
         dcCore::app()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
@@ -2705,7 +2708,7 @@ class dcBlog
             $cur->unsetField('comment_status');
         }
 
-        # --BEHAVIOR-- coreBeforeCommentUpdate
+        # --BEHAVIOR-- coreBeforeCommentUpdate -- dcBlog, cursor, dcRecord
         dcCore::app()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
         $sql = new UpdateStatement();
@@ -2713,7 +2716,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterCommentUpdate
+        # --BEHAVIOR-- coreAfterCommentUpdate -- dcBlog, cursor, dcRecord
         dcCore::app()->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
 
         $this->triggerComment($id);

@@ -23,7 +23,7 @@ class adminUsers
             __('Delete')          => 'deleteuser',
         ];
 
-        # --BEHAVIOR-- adminUsersActionsCombo
+        # --BEHAVIOR-- adminUsersActionsCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 
         dcCore::app()->admin->combo_action = $combo_action;
@@ -42,7 +42,7 @@ class adminUsers
             'user_firstname'   => 'user_firstname',
             'user_displayname' => 'user_displayname', ];
 
-        # --BEHAVIOR-- adminUsersSortbyLexCombo
+        # --BEHAVIOR-- adminUsersSortbyLexCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(dcCore::app()->admin->user_filter->sortby, $sortby_lex) ?
@@ -55,6 +55,7 @@ class adminUsers
         try {
             # --BEHAVIOR-- adminGetUsers
             $params = new ArrayObject($params);
+            # --BEHAVIOR-- adminGetUsers -- ArrayObject
             dcCore::app()->callBehavior('adminGetUsers', $params);
 
             $rs       = dcCore::app()->getUsers($params);

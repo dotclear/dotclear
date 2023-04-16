@@ -409,6 +409,7 @@ class adminMediaItem
 
         $starting_scripts = dcPage::jsModal() . dcPage::jsLoad('js/_media_item.js');
         if (dcCore::app()->admin->popup && dcCore::app()->admin->plugin_id !== '') {
+            # --BEHAVIOR-- adminPopupMedia -- string
             $starting_scripts .= dcCore::app()->callBehavior('adminPopupMedia', dcCore::app()->admin->plugin_id);
         }
         $temp_params      = dcCore::app()->admin->media_page_url_params;
@@ -1066,7 +1067,7 @@ class adminMediaItem
                 '</form>';
             }
 
-            # --BEHAVIOR-- adminMediaItemForm
+            # --BEHAVIOR-- adminMediaItemForm -- File
             dcCore::app()->callBehavior('adminMediaItemForm', dcCore::app()->admin->file);
         }
 

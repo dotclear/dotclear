@@ -69,7 +69,7 @@ class adminUsersActions
                 dcCore::app()->error->add(__('No blog or user given.'));
             }
 
-            # --BEHAVIOR-- adminUsersActions
+            # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
             dcCore::app()->callBehavior('adminUsersActions', dcCore::app()->admin->users, dcCore::app()->admin->blogs, dcCore::app()->admin->action, dcCore::app()->admin->redir);
 
             if (dcCore::app()->admin->action == 'deleteuser' && !empty(dcCore::app()->admin->users)) {
@@ -80,7 +80,7 @@ class adminUsersActions
                             throw new Exception(__('You cannot delete yourself.'));
                         }
 
-                        # --BEHAVIOR-- adminBeforeUserDelete
+                        # --BEHAVIOR-- adminBeforeUserDelete -- string
                         dcCore::app()->callBehavior('adminBeforeUserDelete', $u);
 
                         dcCore::app()->delUser($u);
@@ -153,7 +153,7 @@ class adminUsersActions
         dcPage::open(
             __('Users'),
             dcPage::jsLoad('js/_users_actions.js') .
-            # --BEHAVIOR-- adminUsersActionsHeaders
+            # --BEHAVIOR-- adminUsersActionsHeaders --
             dcCore::app()->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
         );
@@ -181,7 +181,7 @@ class adminUsersActions
         echo
         '<p><a class="back" href="' . Html::escapeURL(dcCore::app()->admin->redir) . '">' . __('Back to user profile') . '</a></p>';
 
-        # --BEHAVIOR-- adminUsersActionsContent
+        # --BEHAVIOR-- adminUsersActionsContent -- string, string
         dcCore::app()->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
 
         if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {

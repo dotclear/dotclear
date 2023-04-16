@@ -312,7 +312,7 @@ class adminAuth
         echo
         $buffer . dcPage::jsCommon();
 
-        # --BEHAVIOR-- loginPageHTMLHead
+        # --BEHAVIOR-- loginPageHTMLHead --
         dcCore::app()->callBehavior('loginPageHTMLHead');
 
         echo

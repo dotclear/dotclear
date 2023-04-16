@@ -504,6 +504,7 @@ class dcModules
         }
 
         // Give opportunity to do something before loading context (admin,public,xmlrpc) files
+        # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- dcModules, string|null
         dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
         // Load module context

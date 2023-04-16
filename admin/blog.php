@@ -50,7 +50,7 @@ class adminBlog
             dcCore::app()->admin->blog_desc = $cur->blog_desc = $_POST['blog_desc'];
 
             try {
-                # --BEHAVIOR-- adminBeforeBlogCreate
+                # --BEHAVIOR-- adminBeforeBlogCreate -- cursor, string
                 dcCore::app()->callBehavior('adminBeforeBlogCreate', $cur, dcCore::app()->admin->blog_id);
 
                 dcCore::app()->addBlog($cur);
@@ -66,7 +66,7 @@ class adminBlog
                     $blog_settings->system->put('url_scan', 'path_info');
                 }
 
-                # --BEHAVIOR-- adminAfterBlogCreate
+                # --BEHAVIOR-- adminAfterBlogCreate -- cursor, string, dcSettings
                 dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
                 dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 dcCore::app()->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);

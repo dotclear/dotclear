@@ -67,7 +67,7 @@ class adminBlogTheme
                 __('Blog appearance'),
                 dcPage::jsPageTabs() .
 
-                # --BEHAVIOR-- themesToolsHeaders
+                # --BEHAVIOR-- themesToolsHeaders -- bool
                 dcCore::app()->callBehavior('themesToolsHeadersV2', true),
                 dcPage::breadcrumb(
                     [
@@ -139,7 +139,7 @@ class adminBlogTheme
             dcPage::jsLoad('js/_blog_theme.js') .
             dcPage::jsPageTabs() .
 
-            # --BEHAVIOR-- themesToolsHeaders
+            # --BEHAVIOR-- themesToolsHeaders -- bool
             dcCore::app()->callBehavior('themesToolsHeadersV2', false),
             dcPage::breadcrumb(
                 [
@@ -297,7 +297,7 @@ class adminBlogTheme
             '</div>';
         }
 
-        # --BEHAVIOR-- themesToolsTabs
+        # --BEHAVIOR-- themesToolsTabs --
         dcCore::app()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin

@@ -172,7 +172,7 @@ class dcPage
             # Allow everything in iframe (used by editors to preview public content)
             $csp['frame-src'] = '*';
 
-            # --BEHAVIOR-- adminPageHTTPHeaderCSP
+            # --BEHAVIOR-- adminPageHTTPHeaderCSP -- ArrayObject
             dcCore::app()->callBehavior('adminPageHTTPHeaderCSP', $csp);
 
             // Construct CSP header
@@ -189,7 +189,7 @@ class dcPage
             }
         }
 
-        # --BEHAVIOR-- adminPageHTTPHeaders
+        # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject
         dcCore::app()->callBehavior('adminPageHTTPHeaders', $headers);
         foreach ($headers as $key => $value) {
             header($value);
@@ -446,7 +446,7 @@ class dcPage
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: So far so good)');
 
-        # --BEHAVIOR-- adminPageFooter
+        # --BEHAVIOR-- adminPageFooter --
         $textAlt = dcCore::app()->callBehavior('adminPageFooterV2', $text);
         if ($textAlt != '') {
             $text = $textAlt;
@@ -545,7 +545,7 @@ class dcPage
         self::jsToggles() .
             $head;
 
-        # --BEHAVIOR-- adminPageHTMLHead
+        # --BEHAVIOR-- adminPageHTMLHead --
         dcCore::app()->callBehavior('adminPageHTMLHead');
 
         echo
@@ -735,7 +735,7 @@ class dcPage
 
         $args = new ArrayObject($params);
 
-        # --BEHAVIOR-- adminPageHelpBlock
+        # --BEHAVIOR-- adminPageHelpBlock -- ArrayObject
         dcCore::app()->callBehavior('adminPageHelpBlock', $args);
 
         if (!count($args)) {

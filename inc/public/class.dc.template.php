@@ -237,7 +237,7 @@ class dcTemplate extends Template
      */
     public function getData(string $________): string
     {
-        # --BEHAVIOR-- tplBeforeData
+        # --BEHAVIOR-- tplBeforeData --
         if (dcCore::app()->hasBehavior('tplBeforeData') || dcCore::app()->hasBehavior('tplBeforeDataV2')) {
             self::$_r = dcCore::app()->callBehavior('tplBeforeDataV2');
             if (self::$_r) {
@@ -247,7 +247,7 @@ class dcTemplate extends Template
 
         parent::getData($________);
 
-        # --BEHAVIOR-- tplAfterData
+        # --BEHAVIOR-- tplAfterData -- string
         if (dcCore::app()->hasBehavior('tplAfterData') || dcCore::app()->hasBehavior('tplAfterDataV2')) {
             dcCore::app()->callBehavior('tplAfterDataV2', self::$_r);
         }
@@ -269,15 +269,15 @@ class dcTemplate extends Template
         $this->current_tag = $tag;
         $attr              = new ArrayObject($attr);
 
-        # --BEHAVIOR-- templateBeforeBlock
+        # --BEHAVIOR-- templateBeforeBlock -- string, ArrayObject
         $res = dcCore::app()->callBehavior('templateBeforeBlockV2', $this->current_tag, $attr);
 
-        # --BEHAVIOR-- templateInsideBlock
+        # --BEHAVIOR-- templateInsideBlock -- string, ArrayObject, array<int,string>
         dcCore::app()->callBehavior('templateInsideBlockV2', $this->current_tag, $attr, [& $content]);
 
         $res .= parent::compileBlockNode($this->current_tag, $attr, $content);
 
-        # --BEHAVIOR-- templateAfterBlock
+        # --BEHAVIOR-- templateAfterBlock -- string, ArrayObject
         $res .= dcCore::app()->callBehavior('templateAfterBlockV2', $this->current_tag, $attr);
 
         return $res;
@@ -297,12 +297,12 @@ class dcTemplate extends Template
         $this->current_tag = $tag;
         $attr              = new ArrayObject($attr);
 
-        # --BEHAVIOR-- templateBeforeValue
+        # --BEHAVIOR-- templateBeforeValue -- string, ArrayObject
         $res = dcCore::app()->callBehavior('templateBeforeValueV2', $this->current_tag, $attr);
 
         $res .= parent::compileValueNode($this->current_tag, $attr, $str_attr);
 
-        # --BEHAVIOR-- templateAfterValue
+        # --BEHAVIOR-- templateAfterValue -- string, ArrayObject
         $res .= dcCore::app()->callBehavior('templateAfterValueV2', $this->current_tag, $attr);
 
         return $res;
@@ -402,7 +402,7 @@ class dcTemplate extends Template
 
         $alias = new ArrayObject();
 
-        # --BEHAVIOR-- templateCustomSortByAlias
+        # --BEHAVIOR-- templateCustomSortByAlias -- ArrayObject
         dcCore::app()->callBehavior('templateCustomSortByAlias', $alias);
 
         $alias = $alias->getArrayCopy();
@@ -634,6 +634,7 @@ class dcTemplate extends Template
 
         $res = "<?php\n" .
             $params .
+            # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
              dcCore::app()->callBehavior(
                  'templatePrepareParams',
                  ['tag' => 'Archives', 'method' => 'blog::getDates'],
@@ -793,6 +794,7 @@ class dcTemplate extends Template
 
         $res = "<?php\n";
         $res .= $params;
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'ArchiveNext', 'method' => 'blog::getDates'],
@@ -840,6 +842,7 @@ class dcTemplate extends Template
         $params .= "\$params['previous'] = dcCore::app()->ctx->archives->dt;";
 
         $res = "<?php\n";
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'ArchivePrevious', 'method' => 'blog::getDates'],
@@ -1360,6 +1363,7 @@ class dcTemplate extends Template
         if (isset($attr['with_empty']) && ((bool) $attr['with_empty'])) {
             $params .= "\$params['without_empty'] = false;\n";
         }
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $params .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             [
@@ -1493,6 +1497,7 @@ class dcTemplate extends Template
             $if[] = 'dcCore::app()->ctx->categories->cat_desc ' . $sign . ' ""';
         }
 
+        # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, string, array<int,string>
         dcCore::app()->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
 
         if (count($if)) {
@@ -1813,6 +1818,7 @@ class dcTemplate extends Template
 
         $res = "<?php\n";
         $res .= $params;
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Entries', 'method' => 'blog::getPosts'],
@@ -2044,6 +2050,7 @@ class dcTemplate extends Template
             }
         }
 
+        # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
         dcCore::app()->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
 
         if (count($if)) {
@@ -2903,6 +2910,7 @@ class dcTemplate extends Template
 
         $res = "<?php\n";
         $res .= $params;
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Languages', 'method' => 'blog::getLangs'],
@@ -3044,6 +3052,7 @@ class dcTemplate extends Template
     {
         $params = "<?php\n" .
             '$params = dcCore::app()->ctx->post_params;' . "\n" .
+            # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
             dcCore::app()->callBehavior(
                 'templatePrepareParams',
                 [
@@ -3129,6 +3138,7 @@ class dcTemplate extends Template
             $if[] = $sign . 'context::PaginationEnd()';
         }
 
+        # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, array<int,string>
         dcCore::app()->callBehavior('tplIfConditions', 'PaginationIf', $attr, $content, $if);
 
         if (count($if)) {
@@ -3233,6 +3243,7 @@ class dcTemplate extends Template
         }
 
         $res = "<?php\n";
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Comments', 'method' => 'blog::getComments'],
@@ -3500,6 +3511,7 @@ class dcTemplate extends Template
             $if[] = $sign . 'dcCore::app()->ctx->comments->comment_trackback';
         }
 
+        # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
         dcCore::app()->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
 
         if (count($if)) {
@@ -4148,6 +4160,7 @@ class dcTemplate extends Template
 
         $res = "<?php\n";
         $res .= $params;
+        # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Pings', 'method' => 'blog::getComments'],
@@ -4378,6 +4391,7 @@ class dcTemplate extends Template
             $if[] = $sign . 'dcCore::app()->blog->settings->system->jquery_needed';
         }
 
+        # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
         dcCore::app()->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
 
         if (count($if)) {

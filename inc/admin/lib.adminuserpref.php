@@ -16,14 +16,14 @@ class adminUserPref
     /**
      * Columns preferences
      *
-     * @var arrayObject
+     * @var ArrayObject
      */
     protected static $cols = null;
 
     /**
      * Sorts filters preferences
      *
-     * @var arrayObject
+     * @var ArrayObject
      */
     protected static $sorts = null;
 
@@ -47,17 +47,17 @@ class adminUserPref
      * Gets the user columns.
      *
      * @param      null|string          $type     The type
-     * @param      array|arrayObject    $columns  The columns
+     * @param      array|ArrayObject    $columns  The columns
      *
-     * @return     arrayObject  The user columns.
+     * @return     ArrayObject  The user columns.
      */
     public static function getUserColumns(?string $type = null, $columns = null): ArrayObject
     {
         # Get default colums (admin lists)
         $cols = self::getDefaultColumns();
-        $cols = new arrayObject($cols);
+        $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminColumnsLists
+        # --BEHAVIOR-- adminColumnsLists -- ArrayObject 
         dcCore::app()->callBehavior('adminColumnsListsV2', $cols);
 
         # Load user settings
@@ -163,9 +163,9 @@ class adminUserPref
     {
         if (self::$sorts === null) {
             $sorts = self::getDefaultFilters();
-            $sorts = new arrayObject($sorts);
+            $sorts = new ArrayObject($sorts);
 
-            # --BEHAVIOR-- adminFiltersLists
+            # --BEHAVIOR-- adminFiltersLists -- ArrayObject
             dcCore::app()->callBehavior('adminFiltersListsV2', $sorts);
 
             $sorts_user = dcCore::app()->auth->user_prefs->interface->sorts;

@@ -51,6 +51,7 @@ class dcUrlHandlers extends UrlHandler
      */
     public function getURLFor(string $type, string $value = ''): string
     {
+        # --BEHAVIOR-- publicGetURLFor -- string, string
         $url = dcCore::app()->callBehavior('publicGetURLFor', $type, $value);
         if (!$url) {
             $url = $this->getBase($type);
@@ -76,6 +77,7 @@ class dcUrlHandlers extends UrlHandler
     public function register(string $type, string $url, string $representation, $handler): void
     {
         $url_handler = new ArrayObject([$type, $url, $representation, $handler]);
+        # --BEHAVIOR-- publicRegisterURL -- ArrayObject
         dcCore::app()->callBehavior('publicRegisterURL', $url_handler);
         parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);
     }
@@ -142,6 +144,7 @@ class dcUrlHandlers extends UrlHandler
         dcCore::app()->ctx->http_cache   = $http_cache;
         dcCore::app()->ctx->http_etag    = $http_etag;
 
+        # --BEHAVIOR-- urlHandlerBeforeGetData -- context
         dcCore::app()->callBehavior('urlHandlerBeforeGetData', dcCore::app()->ctx);
 
         if (dcCore::app()->ctx->http_cache) {
@@ -169,7 +172,7 @@ class dcUrlHandlers extends UrlHandler
             $headers->append($header);
         }
 
-        # --BEHAVIOR-- urlHandlerServeDocumentHeaders
+        # --BEHAVIOR-- urlHandlerServeDocumentHeaders -- ArrayObject
         dcCore::app()->callBehavior('urlHandlerServeDocumentHeaders', $headers);
 
         // Send additional headers if any
@@ -185,7 +188,7 @@ class dcUrlHandlers extends UrlHandler
             'headers'      => headers_list(),
         ]);
 
-        # --BEHAVIOR-- urlHandlerServeDocument
+        # --BEHAVIOR-- urlHandlerServeDocument -- ArrayObject
         dcCore::app()->callBehavior('urlHandlerServeDocument', $result);
 
         if (dcCore::app()->ctx->http_cache && dcCore::app()->ctx->http_etag) {
@@ -234,7 +237,7 @@ class dcUrlHandlers extends UrlHandler
         // Determine URI type and optional arguments
         $this->getArgs($part, $type, $this->args);
 
-        # --BEHAVIOR-- urlHandlerGetArgsDocument
+        # --BEHAVIOR-- urlHandlerGetArgsDocument -- Urlhandler
         dcCore::app()->callBehavior('urlHandlerGetArgsDocument', $this);
 
         if (!$type) {
@@ -268,7 +271,7 @@ class dcUrlHandlers extends UrlHandler
 
         echo dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl);
 
-        # --BEHAVIOR-- publicAfterDocument
+        # --BEHAVIOR-- publicAfterDocument --
         dcCore::app()->callBehavior('publicAfterDocumentV2');
         exit;
     }
@@ -342,6 +345,7 @@ class dcUrlHandlers extends UrlHandler
             dcCore::app()->public->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
             if (dcCore::app()->public->search) {
                 $params = new ArrayObject(['search' => dcCore::app()->public->search]);
+                # --BEHAVIOR-- publicBeforeSearchCount -- ArrayObject
                 dcCore::app()->callBehavior('publicBeforeSearchCount', $params);
                 dcCore::app()->public->search_count = dcCore::app()->blog->getPosts($params, true)->f(0);
             }
@@ -363,6 +367,7 @@ class dcUrlHandlers extends UrlHandler
                 'lang' => $args,
             ]
         );
+        # --BEHAVIOR-- publicLangBeforeGetLangs -- ArrayObject, string|null
         dcCore::app()->callBehavior('publicLangBeforeGetLangs', $params, $args);
         dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params);
 
@@ -398,6 +403,7 @@ class dcUrlHandlers extends UrlHandler
                     'without_empty' => false,
                 ]
             );
+            # --BEHAVIOR-- publicCategoryBeforeGetCategories -- ArrayObject, string|null
             dcCore::app()->callBehavior('publicCategoryBeforeGetCategories', $params, $args);
             dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);
 
@@ -431,6 +437,7 @@ class dcUrlHandlers extends UrlHandler
                     'type'  => 'month',
                 ]
             );
+            # --BEHAVIOR-- publicArchiveBeforeGetDates -- ArrayObject, string|null
             dcCore::app()->callBehavior('publicArchiveBeforeGetDates', $params, $args);
             dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params);
 
@@ -464,6 +471,7 @@ class dcUrlHandlers extends UrlHandler
                     'post_url' => $args,
                 ]
             );
+            # --BEHAVIOR-- publicPostBeforeGetPosts -- ArrayObject, string|null
             dcCore::app()->callBehavior('publicPostBeforeGetPosts', $params, $args);
             dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
@@ -536,7 +544,7 @@ class dcUrlHandlers extends UrlHandler
                     $preview = !empty($_POST['preview']);
 
                     if ($content != '') {
-                        # --BEHAVIOR-- publicBeforeCommentTransform
+                        # --BEHAVIOR-- publicBeforeCommentTransform -- string
                         $buffer = dcCore::app()->callBehavior('publicBeforeCommentTransform', $content);
                         if ($buffer != '') {
                             $content = $buffer;
@@ -558,7 +566,7 @@ class dcUrlHandlers extends UrlHandler
                     dcCore::app()->ctx->comment_preview['site']       = $site;
 
                     if ($preview) {
-                        # --BEHAVIOR-- publicBeforeCommentPreview
+                        # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
                         dcCore::app()->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
 
                         dcCore::app()->ctx->comment_preview['preview'] = true;
@@ -582,12 +590,12 @@ class dcUrlHandlers extends UrlHandler
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
 
-                            # --BEHAVIOR-- publicBeforeCommentCreate
+                            # --BEHAVIOR-- publicBeforeCommentCreate - cursor
                             dcCore::app()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
                                 $comment_id = dcCore::app()->blog->addComment($cur);
 
-                                # --BEHAVIOR-- publicAfterCommentCreate
+                                # --BEHAVIOR-- publicAfterCommentCreate - cursor, int
                                 dcCore::app()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
@@ -597,6 +605,7 @@ class dcUrlHandlers extends UrlHandler
                                 $redir_arg = 'pub=0';
                             }
 
+                            # --BEHAVIOR-- publicBeforeCommentRedir -- cursor
                             $redir_arg .= filter_var(dcCore::app()->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);
 
                             header('Location: ' . $redir . $redir_arg);
@@ -667,6 +676,7 @@ class dcUrlHandlers extends UrlHandler
                 ]
             );
             $args = $matches[3];
+            # --BEHAVIOR-- publicFeedBeforeGetLangs -- ArrayObject, string|null
             dcCore::app()->callBehavior('publicFeedBeforeGetLangs', $params, $args);
             dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params);
 
@@ -708,6 +718,7 @@ class dcUrlHandlers extends UrlHandler
                     'post_type' => 'post',
                 ]
             );
+            # --BEHAVIOR-- publicFeedBeforeGetCategories -- ArrayObject, string|null
             dcCore::app()->callBehavior('publicFeedBeforeGetCategories', $params, $args);
             dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);
 
@@ -725,6 +736,7 @@ class dcUrlHandlers extends UrlHandler
                     'post_type' => '',
                 ]
             );
+            # --BEHAVIOR-- publicFeedBeforeGetPosts -- ArrayObject, string|null
             dcCore::app()->callBehavior('publicFeedBeforeGetPosts', $params, $args);
             dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
@@ -782,7 +794,7 @@ class dcUrlHandlers extends UrlHandler
                 'type'    => 'trackback',
             ];
 
-            # --BEHAVIOR-- publicBeforeReceiveTrackback
+            # --BEHAVIOR-- publicBeforeReceiveTrackback -- string|null
             dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
             (new dcTrackback())->receiveTrackback($post_id);
@@ -800,7 +812,7 @@ class dcUrlHandlers extends UrlHandler
             'type' => 'webmention',
         ];
 
-        # --BEHAVIOR-- publicBeforeReceiveTrackback
+        # --BEHAVIOR-- publicBeforeReceiveTrackback -- string|null
         dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
         (new dcTrackback())->receiveWebmention();

@@ -214,7 +214,7 @@ class dcMedia extends Manager
         $this->thumb_sizes['s'][0] = abs(dcCore::app()->blog->settings->system->media_img_s_size);
         $this->thumb_sizes['t'][0] = abs(dcCore::app()->blog->settings->system->media_img_t_size);
 
-        # --BEHAVIOR-- coreMediaConstruct
+        # --BEHAVIOR-- coreMediaConstruct -- Manager
         dcCore::app()->callBehavior('coreMediaConstruct', $this);
 
         // Sort thumb_sizes DESC on largest sizes
@@ -981,7 +981,7 @@ class dcMedia extends Manager
         $directory = Files::tidyFileName($directory);
         parent::makeDir($directory);
 
-        # --BEHAVIOR-- coreAfterMediaDirCreate
+        # --BEHAVIOR-- coreAfterMediaDirCreate -- string|null
         dcCore::app()->callBehavior('coreAfterMediaDirCreate', $directory);
     }
 
@@ -996,7 +996,7 @@ class dcMedia extends Manager
     {
         parent::removeDir($directory);
 
-        # --BEHAVIOR-- coreAfterMediaDirDelete
+        # --BEHAVIOR-- coreAfterMediaDirDelete - string|null
         dcCore::app()->callBehavior('coreAfterMediaDirDelete', $directory);
     }
 
@@ -1564,7 +1564,7 @@ class dcMedia extends Manager
             }
         }
 
-        # --BEHAVIOR-- coreBeforeImageMetaCreate
+        # --BEHAVIOR-- coreBeforeImageMetaCreate -- cursor
         dcCore::app()->callBehavior('coreBeforeImageMetaCreate', $c);
 
         $sql = new UpdateStatement();

@@ -190,7 +190,7 @@ class dcRestMethods
             $mod = dcCore::app()->plugins;
             $url = dcCore::app()->blog->settings->system->store_plugin_url;
         } else {
-            # --BEHAVIOR-- restCheckStoreUpdate
+            # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
             dcCore::app()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
@@ -331,12 +331,12 @@ class dcRestMethods
 
             $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
-            # --BEHAVIOR-- adminBeforeCategoryCreate
+            # --BEHAVIOR-- adminBeforeCategoryCreate -- cursor
             dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
             $post['cat_id'] = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
-            # --BEHAVIOR-- adminAfterCategoryCreate
+            # --BEHAVIOR-- adminAfterCategoryCreate -- cursor, int
             dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
@@ -352,12 +352,12 @@ class dcRestMethods
         $cur->post_open_comment = (int) dcCore::app()->blog->settings->system->allow_comments;
         $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
 
-        # --BEHAVIOR-- adminBeforePostCreate
+        # --BEHAVIOR-- adminBeforePostCreate -- cursor
         dcCore::app()->callBehavior('adminBeforePostCreate', $cur);
 
         $return_id = dcCore::app()->blog->addPost($cur);
 
-        # --BEHAVIOR-- adminAfterPostCreate
+        # --BEHAVIOR-- adminAfterPostCreate -- cursor, int
         dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
         $rsp     = new XmlTag('post');

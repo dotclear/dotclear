@@ -119,7 +119,7 @@ class InsertStatement extends SqlStatement
      */
     public function statement(): string
     {
-        # --BEHAVIOR-- coreBeforeInsertStatement
+        # --BEHAVIOR-- coreBeforeInsertStatement -- SqlStatement
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreBeforeInsertStatement', $this);
         }
@@ -158,7 +158,7 @@ class InsertStatement extends SqlStatement
 
         $query = trim($query);
 
-        # --BEHAVIOR-- coreAfertInsertStatement
+        # --BEHAVIOR-- coreAfertInsertStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
             dcCore::app()->callBehavior('coreAfterInsertStatement', $this, $query);
         }

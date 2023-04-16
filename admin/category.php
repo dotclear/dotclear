@@ -149,12 +149,12 @@ class adminCategory
                 if (dcCore::app()->admin->cat_id) {
                     // Update category
 
-                    # --BEHAVIOR-- adminBeforeCategoryUpdate
+                    # --BEHAVIOR-- adminBeforeCategoryUpdate -- cursor, string|int
                     dcCore::app()->callBehavior('adminBeforeCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
                     dcCore::app()->blog->updCategory($_POST['id'], $cur);
 
-                    # --BEHAVIOR-- adminAfterCategoryUpdate
+                    # --BEHAVIOR-- adminAfterCategoryUpdate -- cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
                     dcPage::addSuccessNotice(__('The category has been successfully updated.'));
@@ -163,12 +163,12 @@ class adminCategory
                 } else {
                     // Create category
 
-                    # --BEHAVIOR-- adminBeforeCategoryCreate
+                    # --BEHAVIOR-- adminBeforeCategoryCreate -- cursor
                     dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur);
 
                     $id = dcCore::app()->blog->addCategory($cur, (int) $_POST['new_cat_parent']);
 
-                    # --BEHAVIOR-- adminAfterCategoryCreate
+                    # --BEHAVIOR-- adminAfterCategoryCreate -- cursor, string
                     dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
                     dcPage::addSuccessNotice(sprintf(
@@ -212,6 +212,7 @@ class adminCategory
             $title,
             dcPage::jsConfirmClose('category-form') .
             dcPage::jsLoad('js/_category.js') .
+            # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? dcCore::app()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
             dcPage::breadcrumb($elements)
         );

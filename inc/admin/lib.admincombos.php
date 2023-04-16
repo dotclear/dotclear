@@ -255,7 +255,7 @@ class dcAdminCombos
             __('Number of comments')   => 'nb_comment',
             __('Number of trackbacks') => 'nb_trackback',
         ];
-        # --BEHAVIOR-- adminPostsSortbyCombo
+        # --BEHAVIOR-- adminPostsSortbyCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
@@ -272,7 +272,7 @@ class dcAdminCombos
             __('IP')          => 'comment_ip',
             __('Spam filter') => 'comment_spam_filter',
         ];
-        # --BEHAVIOR-- adminCommentsSortbyCombo
+        # --BEHAVIOR-- adminCommentsSortbyCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
@@ -286,7 +286,7 @@ class dcAdminCombos
             __('Blog ID')     => 'B.blog_id',
             __('Status')      => 'blog_status',
         ];
-        # --BEHAVIOR-- adminBlogsSortbyCombo
+        # --BEHAVIOR-- adminBlogsSortbyCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
@@ -303,7 +303,7 @@ class dcAdminCombos
                 __('Display name')      => 'user_displayname',
                 __('Number of entries') => 'nb_post',
             ];
-            # --BEHAVIOR-- adminUsersSortbyCombo
+            # --BEHAVIOR-- adminUsersSortbyCombo -- array<int,array<string,string>>
             dcCore::app()->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
         }
 

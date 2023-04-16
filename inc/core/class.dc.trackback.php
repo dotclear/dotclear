@@ -500,12 +500,12 @@ class dcTrackback
         $cur->comment_status    = dcCore::app()->blog->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
         $cur->comment_ip        = Http::realIP();
 
-        # --BEHAVIOR-- publicBeforeTrackbackCreate
+        # --BEHAVIOR-- publicBeforeTrackbackCreate -- cursor
         dcCore::app()->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id) {
             $comment_id = dcCore::app()->blog->addComment($cur);
 
-            # --BEHAVIOR-- publicAfterTrackbackCreate
+            # --BEHAVIOR-- publicAfterTrackbackCreate -- cursor, int
             dcCore::app()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
         }
     }

@@ -296,6 +296,7 @@ class adminMedia
 
         $starting_scripts = '';
         if (dcCore::app()->admin->page->popup && (dcCore::app()->admin->page->plugin_id !== '')) {
+            # --BEHAVIOR-- adminPopupMediaManager -- string
             $starting_scripts .= dcCore::app()->callBehavior('adminPopupMediaManager', dcCore::app()->admin->page->plugin_id);
         }
 
