@@ -71,12 +71,12 @@ class adminComment
                 $cur->comment_content = dcCore::app()->HTMLfilter($_POST['comment_content']);
                 $cur->post_id         = (int) $_POST['post_id'];
 
-                # --BEHAVIOR-- adminBeforeCommentCreate
+                # --BEHAVIOR-- adminBeforeCommentCreate -- cursor
                 dcCore::app()->callBehavior('adminBeforeCommentCreate', $cur);
 
                 dcCore::app()->admin->comment_id = dcCore::app()->blog->addComment($cur);
 
-                # --BEHAVIOR-- adminAfterCommentCreate
+                # --BEHAVIOR-- adminAfterCommentCreate -- cursor, string|int
                 dcCore::app()->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
 
                 dcPage::addSuccessNotice(__('Comment has been successfully created.'));
@@ -160,12 +160,12 @@ class adminComment
                 }
 
                 try {
-                    # --BEHAVIOR-- adminBeforeCommentUpdate
+                    # --BEHAVIOR-- adminBeforeCommentUpdate -- cursor
                     dcCore::app()->callBehavior('adminBeforeCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->updComment(dcCore::app()->admin->comment_id, $cur);
 
-                    # --BEHAVIOR-- adminAfterCommentUpdate
+                    # --BEHAVIOR-- adminAfterCommentUpdate -- cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
@@ -179,7 +179,7 @@ class adminComment
                 // delete comment
 
                 try {
-                    # --BEHAVIOR-- adminBeforeCommentDelete
+                    # --BEHAVIOR-- adminBeforeCommentDelete -- string|int
                     dcCore::app()->callBehavior('adminBeforeCommentDelete', dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
@@ -220,8 +220,9 @@ class adminComment
             __('Edit comment'),
             dcPage::jsConfirmClose('comment-form') .
             dcPage::jsLoad('js/_comment.js') .
+            # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
             dcCore::app()->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
-            # --BEHAVIOR-- adminCommentHeaders
+            # --BEHAVIOR-- adminCommentHeaders --
             dcCore::app()->callBehavior('adminCommentHeaders'),
             dcPage::breadcrumb($breadcrumb)
         );
@@ -279,7 +280,7 @@ class adminComment
             ) .
             '</p>' .
 
-            # --BEHAVIOR-- adminAfterCommentDesc
+            # --BEHAVIOR-- adminAfterCommentDesc -- dcRecord
             dcCore::app()->callBehavior('adminAfterCommentDesc', dcCore::app()->admin->rs) .
 
             '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .

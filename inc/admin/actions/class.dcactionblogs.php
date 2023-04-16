@@ -28,6 +28,7 @@ class dcBlogsActions extends dcActions
         $this->cb_title      = __('Blogs');
 
         $this->loadDefaults();
+        # --BEHAVIOR-- adminBlogsActions -- dcActions
         dcCore::app()->callBehavior('adminBlogsActions', $this);
     }
 
@@ -255,7 +256,7 @@ class dcDefaultBlogActions
         }
 
         if (!empty($checked_ids)) {
-            # --BEHAVIOR-- adminBeforeBlogsDelete
+            # --BEHAVIOR-- adminBeforeBlogsDelete -- array<int,string>
             dcCore::app()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 
             foreach ($checked_ids as $id) {

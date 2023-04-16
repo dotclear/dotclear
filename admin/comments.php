@@ -51,7 +51,7 @@ class adminComments
             'comment_author'      => 'comment_author',
             'comment_spam_filter' => 'comment_spam_filter', ];
 
-        # --BEHAVIOR-- adminCommentsSortbyLexCombo
+        # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(dcCore::app()->admin->comment_filter->sortby, $sortby_lex) ?
@@ -143,7 +143,7 @@ class adminComments
                 dcCore::app()->formNonce() .
                 '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
 
-                # --BEHAVIOR-- adminCommentsSpamForm
+                # --BEHAVIOR-- adminCommentsSpamForm --
                 dcCore::app()->callBehavior('adminCommentsSpamForm');
 
                 echo

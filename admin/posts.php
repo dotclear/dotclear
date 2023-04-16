@@ -46,7 +46,7 @@ class adminPosts
             'cat_title'  => 'cat_title',
             'user_id'    => 'P.user_id', ];
 
-        # --BEHAVIOR-- adminPostsSortbyLexCombo
+        # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(dcCore::app()->admin->post_filter->sortby, $sortby_lex) ?

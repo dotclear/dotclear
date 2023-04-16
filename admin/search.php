@@ -43,7 +43,7 @@ class adminSearch
         ]);
 
         $qtype_combo = [];
-        # --BEHAVIOR-- adminSearchPageCombo
+        # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
         dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
         dcCore::app()->admin->qtype_combo = $qtype_combo;
     }
@@ -74,11 +74,11 @@ class adminSearch
     {
         $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
 
-        # --BEHAVIOR-- adminSearchPageHead
+        # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
         $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->callBehavior('adminSearchPageHeadV2', $args) : '';
 
         if (dcCore::app()->admin->q) {
-            # --BEHAVIOR-- adminSearchPageProcess
+            # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
             dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
         }
 
@@ -109,7 +109,7 @@ class adminSearch
         if (dcCore::app()->admin->q && !dcCore::app()->error->flag()) {
             ob_start();
 
-            # --BEHAVIOR-- adminSearchPageDisplay
+            # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
             dcCore::app()->callBehavior('adminSearchPageDisplayV2', $args);
 
             $res = ob_get_contents();

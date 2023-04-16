@@ -31,6 +31,7 @@ class dcCommentsActions extends dcActions
         $this->cb_title      = __('Comments');
 
         $this->loadDefaults();
+        # --BEHAVIOR-- adminCommentsActions -- dcActions
         dcCore::app()->callBehavior('adminCommentsActions', $this);
     }
 
@@ -262,11 +263,11 @@ class dcDefaultCommentActions
         }
         // Backward compatibility
         foreach ($ids as $id) {
-            # --BEHAVIOR-- adminBeforeCommentDelete
+            # --BEHAVIOR-- adminBeforeCommentDelete -- string
             dcCore::app()->callBehavior('adminBeforeCommentDelete', $id);
         }
 
-        # --BEHAVIOR-- adminBeforeCommentsDelete
+        # --BEHAVIOR-- adminBeforeCommentsDelete -- array<int,string>
         dcCore::app()->callBehavior('adminBeforeCommentsDelete', $ids);
 
         dcCore::app()->blog->delComments($ids);

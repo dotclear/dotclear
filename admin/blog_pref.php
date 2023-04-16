@@ -288,7 +288,7 @@ class adminBlogPref
                     }
                 }
 
-                # --BEHAVIOR-- adminBeforeBlogUpdate
+                # --BEHAVIOR-- adminBeforeBlogUpdate -- cursor, string
                 dcCore::app()->callBehavior('adminBeforeBlogUpdate', $cur, $da->blog_id);
 
                 if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $_POST['lang'])) {
@@ -302,7 +302,7 @@ class adminBlogPref
                     dcCore::app()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
 
-                # --BEHAVIOR-- adminAfterBlogUpdate
+                # --BEHAVIOR-- adminAfterBlogUpdate -- cursor, string
                 dcCore::app()->callBehavior('adminAfterBlogUpdate', $cur, $da->blog_id);
 
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
@@ -365,7 +365,7 @@ class adminBlogPref
 
                 $da->blog_settings->system->put('sleepmode_timeout', $_POST['sleepmode_timeout']);
 
-                # --BEHAVIOR-- adminBeforeBlogSettingsUpdate
+                # --BEHAVIOR-- adminBeforeBlogSettingsUpdate -- dcSettings
                 dcCore::app()->callBehavior('adminBeforeBlogSettingsUpdate', $da->blog_settings);
 
                 if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
@@ -424,10 +424,11 @@ class adminBlogPref
                 'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'),
             ]) .
             dcPage::jsConfirmClose('blog-form') .
+            # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? dcCore::app()->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
             dcPage::jsLoad('js/_blog_pref.js') .
 
-            # --BEHAVIOR-- adminBlogPreferencesHeaders
+            # --BEHAVIOR-- adminBlogPreferencesHeaders --
             dcCore::app()->callBehavior('adminBlogPreferencesHeaders') .
 
             dcPage::jsPageTabs(),
@@ -879,7 +880,7 @@ class adminBlogPref
 
             '<div id="plugins-pref"><h3>' . __('Plugins parameters') . '</h3>';
 
-            # --BEHAVIOR-- adminBlogPreferencesForm
+            # --BEHAVIOR-- adminBlogPreferencesForm -- dcSettings
             dcCore::app()->callBehavior('adminBlogPreferencesFormV2', $da->blog_settings);
 
             echo '</div>' . // End 3rd party, aka plugins

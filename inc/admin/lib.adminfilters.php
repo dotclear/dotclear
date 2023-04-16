@@ -440,7 +440,7 @@ class adminPostFilter extends adminGenericFilterV2
             $this->getPostTrackbackFilter(),
         ]);
 
-        # --BEHAVIOR-- adminPostFilter
+        # --BEHAVIOR-- adminPostFilter -- ArrayObject
         dcCore::app()->callBehavior('adminPostFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
@@ -735,7 +735,7 @@ class adminCommentFilter extends adminGenericFilterV2
             dcAdminFilters::getInputFilter('site', __('Web site:'), 'comment_site'),
         ]);
 
-        # --BEHAVIOR-- adminCommentFilter
+        # --BEHAVIOR-- adminCommentFilter -- ArrayObject
         dcCore::app()->callBehavior('adminCommentFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
@@ -819,7 +819,7 @@ class adminUserFilter extends adminGenericFilterV2
             dcAdminFilters::getSearchFilter(),
         ]);
 
-        # --BEHAVIOR-- adminUserFilter
+        # --BEHAVIOR-- adminUserFilter -- ArrayObject
         dcCore::app()->callBehavior('adminUserFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
@@ -840,7 +840,7 @@ class adminBlogFilter extends adminGenericFilterV2
             $this->getBlogStatusFilter(),
         ]);
 
-        # --BEHAVIOR-- adminBlogFilter
+        # --BEHAVIOR-- adminBlogFilter -- ArrayObject
         dcCore::app()->callBehavior('adminBlogFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
@@ -887,7 +887,7 @@ class adminMediaFilter extends adminGenericFilterV2
             $this->getSelectFilter(),
         ]);
 
-        # --BEHAVIOR-- adminMediaFilter
+        # --BEHAVIOR-- adminMediaFilter -- ArrayObject
         dcCore::app()->callBehavior('adminMediaFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
@@ -904,6 +904,7 @@ class adminMediaFilter extends adminGenericFilterV2
     {
         $values = new ArrayObject($this->values());
 
+        # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
         dcCore::app()->callBehavior('adminMediaURLParams', $values);
 
         foreach ($values->getArrayCopy() as $filter => $new_value) {

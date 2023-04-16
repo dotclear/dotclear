@@ -129,6 +129,7 @@ class adminUserPrefs
             'cat_descr'  => [true, __('Category description')],
         ];
         $rte = new ArrayObject($rte);
+        # --BEHAVIOR-- adminRteFlagsV2 -- ArrayObject
         dcCore::app()->callBehavior('adminRteFlagsV2', $rte);
         // Load user settings
         $rte_flags = @dcCore::app()->auth->user_prefs->interface->rte_flags;
@@ -194,7 +195,7 @@ class adminUserPrefs
                     $cur->user_pwd = $_POST['new_pwd'];
                 }
 
-                # --BEHAVIOR-- adminBeforeUserUpdate
+                # --BEHAVIOR-- adminBeforeUserUpdate -- cursor, string
                 dcCore::app()->callBehavior('adminBeforeUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user
@@ -212,7 +213,7 @@ class adminUserPrefs
                 dcCore::app()->auth->user_prefs->profile->put('mails', $mails, 'string');
                 dcCore::app()->auth->user_prefs->profile->put('urls', $urls, 'string');
 
-                # --BEHAVIOR-- adminAfterUserUpdate
+                # --BEHAVIOR-- adminAfterUserUpdate -- cursor, string
                 dcCore::app()->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
@@ -255,7 +256,7 @@ class adminUserPrefs
 
                 $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
 
-                # --BEHAVIOR-- adminBeforeUserOptionsUpdate
+                # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- cursor, string
                 dcCore::app()->callBehavior('adminBeforeUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user prefs
@@ -323,7 +324,7 @@ class adminUserPrefs
                 // Update user
                 dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
 
-                # --BEHAVIOR-- adminAfterUserOptionsUpdate
+                # --BEHAVIOR-- adminAfterUserOptionsUpdate -- cursor, string
                 dcCore::app()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
@@ -337,7 +338,7 @@ class adminUserPrefs
             // Dashboard options
 
             try {
-                # --BEHAVIOR-- adminBeforeUserOptionsUpdate
+                # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- string
                 dcCore::app()->callBehavior('adminBeforeDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
                 // Update user prefs
@@ -350,7 +351,7 @@ class adminUserPrefs
                 }
                 dcCore::app()->auth->user_prefs->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
 
-                # --BEHAVIOR-- adminAfterUserOptionsUpdate
+                # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 dcCore::app()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
                 dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
@@ -485,7 +486,7 @@ class adminUserPrefs
             dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
             dcPage::jsAdsBlockCheck() .
 
-            # --BEHAVIOR-- adminPreferencesHeaders
+            # --BEHAVIOR-- adminPreferencesHeaders --
             dcCore::app()->callBehavior('adminPreferencesHeaders'),
             dcPage::breadcrumb(
                 [
@@ -771,7 +772,7 @@ class adminUserPrefs
 
         '<h4 class="pretty-title">' . __('Other options') . '</h4>';
 
-        # --BEHAVIOR-- adminPreferencesForm
+        # --BEHAVIOR-- adminPreferencesForm --
         dcCore::app()->callBehavior('adminPreferencesFormV2');
 
         echo
@@ -949,7 +950,7 @@ class adminUserPrefs
         echo
         '</div>';
 
-        # --BEHAVIOR-- adminDashboardOptionsForm
+        # --BEHAVIOR-- adminDashboardOptionsForm --
         dcCore::app()->callBehavior('adminDashboardOptionsFormV2');
 
         echo

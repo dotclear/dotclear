@@ -131,7 +131,7 @@ class adminUser
                 if (dcCore::app()->admin->user_id) {
                     // Update user
 
-                    # --BEHAVIOR-- adminBeforeUserUpdate
+                    # --BEHAVIOR-- adminBeforeUserUpdate -- cursor, string
                     dcCore::app()->callBehavior('adminBeforeUserUpdate', $cur, dcCore::app()->admin->user_id);
 
                     $new_id = dcCore::app()->updUser(dcCore::app()->admin->user_id, $cur);
@@ -149,7 +149,7 @@ class adminUser
                     $user_prefs->profile->put('mails', $mails, 'string');
                     $user_prefs->profile->put('urls', $urls, 'string');
 
-                    # --BEHAVIOR-- adminAfterUserUpdate
+                    # --BEHAVIOR-- adminAfterUserUpdate -- cursor, string
                     dcCore::app()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
                     if (dcCore::app()->admin->user_id == dcCore::app()->auth->userID() && dcCore::app()->admin->user_id != $new_id) {
@@ -165,7 +165,7 @@ class adminUser
                         throw new Exception(sprintf(__('User "%s" already exists.'), Html::escapeHTML($cur->user_id)));
                     }
 
-                    # --BEHAVIOR-- adminBeforeUserCreate
+                    # --BEHAVIOR-- adminBeforeUserCreate -- cursor
                     dcCore::app()->callBehavior('adminBeforeUserCreate', $cur);
 
                     $new_id = dcCore::app()->addUser($cur);
@@ -183,7 +183,7 @@ class adminUser
                     $user_prefs->profile->put('mails', $mails, 'string');
                     $user_prefs->profile->put('urls', $urls, 'string');
 
-                    # --BEHAVIOR-- adminAfterUserCreate
+                    # --BEHAVIOR-- adminAfterUserCreate -- cursor, string
                     dcCore::app()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
                     dcPage::addSuccessNotice(__('User has been successfully created.'));
@@ -215,6 +215,7 @@ class adminUser
             ]) .
             dcPage::jsLoad('js/pwstrength.js') .
             dcPage::jsLoad('js/_user.js') .
+            # --BEHAVIOR-- adminUserHeaders --
             dcCore::app()->callBehavior('adminUserHeaders'),
             dcPage::breadcrumb(
                 [
@@ -385,7 +386,7 @@ class adminUser
         form::number('user_edit_size', 10, 999, dcCore::app()->admin->user_options['edit_size']) .
         '</p>';
 
-        # --BEHAVIOR-- adminUserForm
+        # --BEHAVIOR-- adminUserForm -- dcRecord|null
         dcCore::app()->callBehavior('adminUserForm', dcCore::app()->admin->rs ?? null);
 
         echo
