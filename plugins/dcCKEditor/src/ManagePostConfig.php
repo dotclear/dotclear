@@ -17,7 +17,7 @@ header('Content-type: text/javascript');
 $context = $_GET['context'] ?? '';
 
 $__extraPlugins = new ArrayObject();
-# --BEHAVIOR-- exportSingle -- ckeditorExtraPlugins, ArrayObject, string
+# --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject, string
 dcCore::app()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
 $extraPlugins = $__extraPlugins->getArrayCopy();
 
