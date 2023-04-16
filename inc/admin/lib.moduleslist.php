@@ -1344,31 +1344,21 @@ class adminModulesList
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such plugin.'));
                 }
-                // module is enabled
-                if ($define->get('state') == dcModuleDefine::STATE_ENABLED) {
-                    if (!$this->isDeletablePath($define->get('root'))) {
-                        $failed = true;
+                if (!$this->isDeletablePath($define->get('root'))) {
+                    $failed = true;
 
-                        continue;
-                    }
-
-                    # --BEHAVIOR-- moduleBeforeDelete
-                    dcCore::app()->callBehavior('pluginBeforeDeleteV2', $define);
-
-                    $this->modules->deleteModule($define->getId());
-
-                    # --BEHAVIOR-- moduleAfterDelete
-                    dcCore::app()->callBehavior('pluginAfterDeleteV2', $define);
-                // module is disabled
-                } else {
-                    # --BEHAVIOR-- moduleBeforeDelete
-                    dcCore::app()->callBehavior('pluginBeforeDeleteV2', $define);
-
-                    $this->modules->deleteModule($define->getId(), true);
-
-                    # --BEHAVIOR-- moduleAfterDelete
-                    dcCore::app()->callBehavior('pluginAfterDeleteV2', $define);
+                    continue;
                 }
+
+                $disabled = $define->get('state') != dcModuleDefine::STATE_ENABLED;
+
+                # --BEHAVIOR-- moduleBeforeDelete
+                dcCore::app()->callBehavior('pluginBeforeDeleteV2', $define);
+
+                $this->modules->deleteModule($define->getId(), $disabled);
+
+                # --BEHAVIOR-- moduleAfterDelete
+                dcCore::app()->callBehavior('pluginAfterDeleteV2', $define);
 
                 $count++;
             }
@@ -2297,30 +2287,21 @@ class adminThemesList extends adminModulesList
                     if (!$define->isDefined()) {
                         continue;
                     }
-                    if ($define->get('state') == dcModuleDefine::STATE_ENABLED) {
-                        if (!$this->isDeletablePath($define->get('root'))) {
-                            $failed = true;
+                    if (!$this->isDeletablePath($define->get('root'))) {
+                        $failed = true;
 
-                            continue;
-                        }
-
-                        # --BEHAVIOR-- themeBeforeDelete
-                        dcCore::app()->callBehavior('themeBeforeDeleteV2', $define);
-
-                        $this->modules->deleteModule($define->getId());
-
-                        # --BEHAVIOR-- themeAfterDelete
-                        dcCore::app()->callBehavior('themeAfterDeleteV2', $define);
-                    } else {
-
-                        # --BEHAVIOR-- themeBeforeDelete
-                        dcCore::app()->callBehavior('themeBeforeDeleteV2', $define);
-
-                        $this->modules->deleteModule($define->getId(), true);
-
-                        # --BEHAVIOR-- themeAfterDelete
-                        dcCore::app()->callBehavior('themeAfterDeleteV2', $define);
+                        continue;
                     }
+
+                    $disabled = $define->get('state') != dcModuleDefine::STATE_ENABLED;
+
+                    # --BEHAVIOR-- themeBeforeDelete
+                    dcCore::app()->callBehavior('themeBeforeDeleteV2', $define);
+
+                    $this->modules->deleteModule($define->getId(), $disabled);
+
+                    # --BEHAVIOR-- themeAfterDelete
+                    dcCore::app()->callBehavior('themeAfterDeleteV2', $define);
 
                     $count++;
                 }
