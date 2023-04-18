@@ -15,6 +15,8 @@
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
+use Dotclear\Helper\Network\XmlRpc\Client;
+use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
 
 class dcTrackback
@@ -151,10 +153,10 @@ class dcTrackback
         # Damnit ! Let's play pingback
         else {
             try {
-                $xmlrpc     = new xmlrpcClient($ping_parts[0]);
+                $xmlrpc     = new Client($ping_parts[0]);
                 $res        = $xmlrpc->query('pingback.ping', $post_url, $ping_parts[1]);
                 $ping_error = '0';
-            } catch (xmlrpcException $e) {
+            } catch (XmlRpcException $e) {
                 $ping_error = $e->getCode();
                 $ping_msg   = $e->getMessage();
             } catch (Exception $e) {

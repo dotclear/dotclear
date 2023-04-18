@@ -76,17 +76,6 @@ class Clearbricks
             // Database PHP Session
             'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
 
-            // XML-RPC Client and Server
-            'xmlrpcValue'               => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcMessage'             => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcRequest'             => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcDate'                => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcBase64'              => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcClient'              => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcClientMulticall'     => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcBasicServer'         => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-            'xmlrpcIntrospectionServer' => $old_helper_root . '/net.xmlrpc/class.net.xmlrpc.php',
-
             // Zip tools
             'fileUnzip' => $old_helper_root . '/zip/class.unzip.php',
             'fileZip'   => $old_helper_root . '/zip/class.zip.php',

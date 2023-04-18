@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "my.dtd">
+<my>
+  <myCode>42</myCode>
+  <myMessage>I'm afraid I can't do that Dave!</myString>
+</myContent>

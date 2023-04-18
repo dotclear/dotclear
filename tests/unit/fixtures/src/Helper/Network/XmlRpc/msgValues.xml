@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "xmlrpc.dtd">
+<methodResponse>
+  <params>
+    <param>
+      <boolean>1</boolean>
+    </param>
+    <param>
+      <int>13</int>
+    </param>
+    <param>
+      <double>3.14</double>
+    </param>
+    <param>
+      <string>dotclear</string>
+    </param>
+    <param>
+      <dateTime.iso8601>20030813T00:01:42</dateTime.iso8601>
+    </param>
+    <param>
+      <base64>ZGF0YQ==</base64>
+    </param>
+    <param>
+      <value>zero</value>
+    </param>
+    <param>
+      <array><data>
+        <value><string>2003</string></value>
+        <value><string>08</string></value>
+        <value><string>13</string></value>
+        <value><string>00</string></value>
+        <value><string>01</string></value>
+        <value><string>42</string></value>
+        <value><int>1060732902</int></value>
+      </data></array>
+    </param>
+    <param>
+      <struct>
+        <member>
+          <name>faultCode</name>
+          <value><int>42</int></value>
+        </member>
+        <member>
+          <name>faultString</name>
+          <value><string>I'm afraid I can't do that Dave!</string></value>
+        </member>
+      </struct>
+    </param>
+  </params>
+</methodResponse>

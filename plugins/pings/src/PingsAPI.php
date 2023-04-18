@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
+use Dotclear\Helper\Network\XmlRpc\Client;
 use Exception;
-use xmlrpcClient;
 
-class PingsAPI extends xmlrpcClient
+class PingsAPI extends Client
 {
     /**
      * Does pings.

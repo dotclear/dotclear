@@ -6,7 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcXmlRpc extends xmlrpcIntrospectionServer
+
+use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
+
+class dcXmlRpc extends IntrospectionServer
 {
     /**
      * Blog ID

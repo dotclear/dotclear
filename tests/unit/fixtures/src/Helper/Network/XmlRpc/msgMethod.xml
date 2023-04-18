@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "xmlrpc.dtd">
+<methodCall>
+  <methodName>sample.sumAndDifference</methodName>
+  <params>
+    <param><value><int>5</int></value></param>
+    <param><value><int>3</int></value></param>
+  </params>
+</methodCall>

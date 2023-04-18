@@ -127,6 +127,18 @@ dcProxyV1::classAliases([
     // net HTTP Client
     'netHttp' => 'Dotclear\Helper\Network\HttpClient',
 
+    // XML-RPC helper
+    'xmlrpcException'           => 'Dotclear\Helper\Network\XmlRpc\XmlRpcException',
+    'xmlrpcValue'               => 'Dotclear\Helper\Network\XmlRpc\Value',
+    'xmlrpcMessage'             => 'Dotclear\Helper\Network\XmlRpc\Message',
+    'xmlrpcRequest'             => 'Dotclear\Helper\Network\XmlRpc\Request',
+    'xmlrpcDate'                => 'Dotclear\Helper\Network\XmlRpc\Date',
+    'xmlrpcBase64'              => 'Dotclear\Helper\Network\XmlRpc\Base64',
+    'xmlrpcClient'              => 'Dotclear\Helper\Network\XmlRpc\Client',
+    'xmlrpcClientMulticall'     => 'Dotclear\Helper\Network\XmlRpc\ClientMulticall',
+    'xmlrpcBasicServer'         => 'Dotclear\Helper\Network\XmlRpc\BasicServer',
+    'xmlrpcIntrospectionServer' => 'Dotclear\Helper\Network\XmlRpc\IntrospectionServer',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',
