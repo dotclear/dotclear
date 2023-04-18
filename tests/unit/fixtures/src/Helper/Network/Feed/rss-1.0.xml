@@ -1,0 +1,39 @@
+<!--  Disparition de la DTD  -->
+<!--  Nouvelle Racine XML  -->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+<!--  Attribut rdf:about obligatoire  -->
+<channel rdf:about="http://www.openweb.eu.org/">
+<title>Openweb.eu.org</title>
+<link>http://www.openweb.eu.org/</link>
+<description>Description du site OpenWeb</description>
+<!--  Disparition de l'élément <language>  -->
+<!--  "Table des matières" RDF  -->
+<items>
+<rdf:Seq>
+<rdf:li rdf:resource="http://openweb.eu.org/articles/png_vs_gif/"/>
+<rdf:li rdf:resource="http://openweb.eu.org/articles/initiation_css/"/>
+<rdf:li rdf:resource="http://openweb.eu.org/articles/interview_ned_baldessin/"/>
+</rdf:Seq>
+</items>
+<!--  On clôt le Channel ici désormais  -->
+</channel>
+<!--  Attribut rdf:about obligatoire  -->
+<item rdf:about="http://openweb.eu.org/articles/png_vs_gif/">
+<title>Le PNG face au GIF</title>
+<link>http://openweb.eu.org/articles/png_vs_gif/</link>
+<description>Qui est donc ce remplaçant du GIF, datant de 1996 et méconnu de la plupart des graphistes, amateurs comme professionnels ?</description>
+</item>
+<!--  Attribut rdf:about obligatoire  -->
+<item rdf:about="http://openweb.eu.org/articles/initiation_css/">
+<title>Passer aux feuilles de style</title>
+<link>http://openweb.eu.org/articles/initiation_css/</link>
+<description>Vous utilisiez les balises HTML de présentation ? Pour tirer parti des avantages offerts par les standards, découvrez le vocabulaire élémentaire des feuilles de style.</description>
+</item>
+<!--  Attribut rdf:about obligatoire  -->
+<item rdf:about="http://openweb.eu.org/articles/interview_ned_baldessin/">
+<title>Les bénéfices des standards par un graphiste Web</title>
+<link>http://openweb.eu.org/articles/interview_ned_baldessin/</link>
+<description>Ned Baldessin, professionnel du Web, nous présente le point de vue des graphistes sur les différentes technologies qui forment les standardsde l'Internet.</description>
+</item>
+<!--  cloture du fil  -->
+</rdf:RDF>

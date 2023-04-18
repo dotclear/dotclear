@@ -10,6 +10,7 @@
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlValidator;
 use Dotclear\Helper\Html\XmlTag;
+use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Text;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -81,7 +82,7 @@ class dcRestMethods
                 if (empty(dcCore::app()->resources['rss_news'])) {
                     throw new Exception();
                 }
-                $feed_reader = new feedReader();
+                $feed_reader = new Reader();
                 $feed_reader->setCacheDir(DC_TPL_CACHE);
                 $feed_reader->setTimeout(2);
                 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');

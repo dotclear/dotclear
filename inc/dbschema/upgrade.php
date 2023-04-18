@@ -1381,6 +1381,9 @@ class dcUpgrade
                     'inc/helper/net.http',
                     // CB xmlrpc moved to src
                     'inc/helper/net.xmlrpc',
+                    // CB feed moved to src
+                    'inc/helper/net.http.feed',
+
                 ]
             );
         }

@@ -139,6 +139,10 @@ dcProxyV1::classAliases([
     'xmlrpcBasicServer'         => 'Dotclear\Helper\Network\XmlRpc\BasicServer',
     'xmlrpcIntrospectionServer' => 'Dotclear\Helper\Network\XmlRpc\IntrospectionServer',
 
+    // Feed Helpers
+    'feedParser' => 'Dotclear\Helper\Network\Feed\Parser',
+    'feedReader' => 'Dotclear\Helper\Network\Feed\Reader',
+
     // Core -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',

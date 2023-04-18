@@ -10,6 +10,7 @@
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpClient;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -34,7 +35,7 @@ class adminLangs
         # Get languages list on Dotclear.net
         dcCore::app()->admin->dc_langs = false;
 
-        $feed_reader = new feedReader();
+        $feed_reader = new Reader();
 
         $feed_reader->setCacheDir(DC_TPL_CACHE);
         $feed_reader->setTimeout(5);

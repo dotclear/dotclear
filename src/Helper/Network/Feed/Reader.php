@@ -1,7 +1,6 @@
 <?php
 /**
- * @class feedReader
- * @brief Feed Reader
+ * @class Parser
  *
  * Features:
  *
@@ -9,24 +8,27 @@
  * - HTTP cache negociation support
  * - Cache TTL.
  *
- * @package Clearbricks
- * @subpackage Feeds
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network\Feed;
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\HttpClient;
+use Exception;
 
-class feedReader extends HttpClient
+class Reader extends HttpClient
 {
     /**
      * User agent
      *
      * @var        string
      */
-    protected $user_agent = 'Clearbricks Feed Reader/0.2';
+    protected $user_agent = 'Dotclear Feed Reader/0.2';
 
     /**
      * Connection timeout (in seconds)
@@ -76,14 +78,14 @@ class feedReader extends HttpClient
     /**
      * Parse Feed
      *
-     * Returns a new feedParser instance for given URL or false if source URL is
+     * Returns a new Parser instance for given URL or false if source URL is
      * not a valid feed.
      *
-     * @uses feedParser
+     * @uses Parser
      *
      * @param string    $url            Feed URL
      *
-     * @return feedParser|false
+     * @return Parser|false
      */
     public function parse(string $url)
     {
@@ -99,19 +101,19 @@ class feedReader extends HttpClient
             return false;
         }
 
-        return new feedParser($this->getContent());
+        return new Parser($this->getContent());
     }
 
     /**
      * Quick Parse
      *
-     * This static method returns a new {@link feedParser} instance for given URL. If a
+     * This static method returns a new {@link Parser} instance for given URL. If a
      * <var>$cache_dir</var> is specified, cache will be activated.
      *
      * @param string    $url            Feed URL
      * @param string    $cache_dir      Cache directory
      *
-     * @return feedParser|false
+     * @return Parser|false
      */
     public static function quickParse(string $url, ?string $cache_dir = null)
     {
@@ -196,12 +198,12 @@ class feedReader extends HttpClient
     /**
      * Cache content
      *
-     * Returns feedParser object from cache if present or write it to cache and
+     * Returns Parser object from cache if present or write it to cache and
      * returns result.
      *
      * @param string    $url            Feed URL
      *
-     * @return feedParser|false
+     * @return Parser|false
      */
     protected function withCache(string $url)
     {
@@ -243,7 +245,7 @@ class feedReader extends HttpClient
 
                 return unserialize(file_get_contents($cached_file));
             case '200':
-                $feed = new feedParser($this->getContent());
+                $feed = new Parser($this->getContent());
 
                 try {
                     Files::makeDir(dirname($cached_file), true);

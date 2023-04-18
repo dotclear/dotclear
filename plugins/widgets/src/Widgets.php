@@ -16,8 +16,8 @@ use dcCore;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Network\Feed\Reader;
 use Exception;
-use feedReader;
 
 class Widgets
 {
@@ -468,7 +468,7 @@ class Widgets
         $limit = abs((int) $widget->limit);
 
         try {
-            $feed = feedReader::quickParse($widget->url, DC_TPL_CACHE);
+            $feed = Reader::quickParse($widget->url, DC_TPL_CACHE);
             if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
                 return '';
             }

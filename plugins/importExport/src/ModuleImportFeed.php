@@ -18,9 +18,9 @@ use dcCore;
 use dcMeta;
 use dcPage;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
-use feedReader;
 use dt;
 use form;
 
@@ -173,7 +173,7 @@ class ModuleImportFeed extends Module
             }
         }
 
-        $feed = feedReader::quickParse($this->feed_url);
+        $feed = Reader::quickParse($this->feed_url);
         if ($feed === false) {
             throw new Exception(__('Cannot retrieve feed URL.'));
         }

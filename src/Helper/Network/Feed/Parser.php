@@ -1,18 +1,23 @@
 <?php
 /**
- * @class feedParser
- * @brief Feed parser
+ * @class Parser
  *
  * This class can read RSS 1.0, RSS 2.0, Atom 0.3 and Atom 1.0 feeds. Works with
- * {@link feedReader}
+ * {@link Reader}
  *
- * @package Clearbricks
- * @subpackage Feeds
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class feedParser
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network\Feed;
+
+use SimpleXMLElement;
+use stdClass;
+
+class Parser
 {
     /**
      * Feed type
@@ -73,7 +78,7 @@ class feedParser
     /**
      * Constructor.
      *
-     * Takes some <var>$data</var> as input. Returns false if data is
+     * Takes some <var>$data</var> as input. Returns void if data is
      * not a valid XML stream. If everything's fine, feed is parsed and items
      * are in {@link $items} property.
      *
@@ -266,7 +271,7 @@ class feedParser
         }
 
         foreach ($this->xml->entry as $i) {
-            $item = new stdClass();
+            $item = new \stdClass();
 
             foreach ($i->link as $link) {
                 if ($link['rel'] == 'alternate' && ($link['type'] == 'text/html' || $link['type'] == 'application/xhtml+xml')) {
