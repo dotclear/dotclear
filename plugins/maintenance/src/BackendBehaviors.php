@@ -20,7 +20,7 @@ use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcPage;
-use dt;
+use Dotclear\Helper\Date;
 use form;
 
 class BackendBehaviors
@@ -69,11 +69,11 @@ class BackendBehaviors
     public static function adminDashboardFavorites(dcFavorites $favs): void
     {
         $favs->register('maintenance', [
-            'title'        => __('Maintenance'),
-            'url'          => dcCore::app()->adminurl->get('admin.plugin.maintenance'),
-            'small-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
-            'large-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
-            'permissions'  => dcCore::app()->auth->makePermissions([
+            'title'       => __('Maintenance'),
+            'url'         => dcCore::app()->adminurl->get('admin.plugin.maintenance'),
+            'small-icon'  => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
+            'large-icon'  => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
+            'permissions' => dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_ADMIN,
             ]),
             'active_cb'    => [self::class, 'adminDashboardFavoritesActive'],
@@ -152,8 +152,8 @@ class BackendBehaviors
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    dt::dt2str(dcCore::app()->blog->settings->system->date_format, (string) $ts) . ' ' .
-                    dt::dt2str(dcCore::app()->blog->settings->system->time_format, (string) $ts)
+                    Date::dt2str(dcCore::app()->blog->settings->system->date_format, (string) $ts) . ' ' .
+                    Date::dt2str(dcCore::app()->blog->settings->system->time_format, (string) $ts)
                 )
             ) . '">' . $t->task() . '</li>';
         }

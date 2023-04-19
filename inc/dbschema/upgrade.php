@@ -1345,6 +1345,9 @@ class dcUpgrade
                     'inc/helper/common/lib.http.php',
                     // CB l10n moved to src
                     'inc/helper/common/lib.l10n.php',
+                    // CB dt moved to src
+                    'inc/helper/common/lib.date.php',
+                    'inc/helper/common/tz.dat',
                     // Core
                     'inc/core/class.dc.sql.statement.php',
                 ],

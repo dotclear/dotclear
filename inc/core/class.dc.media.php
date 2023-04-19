@@ -14,6 +14,7 @@
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Image\ImageMeta;
@@ -335,7 +336,7 @@ class dcMedia extends Manager
             $fi->media_user  = $rs->user_id;
             $fi->media_priv  = (bool) $rs->media_private;
             $fi->media_dt    = strtotime($rs->media_dt);
-            $fi->media_dtstr = dt::str('%Y-%m-%d %H:%M', $fi->media_dt);
+            $fi->media_dtstr = Date::str('%Y-%m-%d %H:%M', $fi->media_dt);
 
             $fi->media_image   = false;
             $fi->media_preview = false;
@@ -1068,7 +1069,7 @@ class dcMedia extends Manager
                 if ($dt) {
                     $cur->media_dt = (string) $dt;
                 } else {
-                    $cur->media_dt = dt::strftime('%Y-%m-%d %H:%M:%S', filemtime($file));
+                    $cur->media_dt = Date::strftime('%Y-%m-%d %H:%M:%S', filemtime($file));
                 }
 
                 try {
@@ -1559,8 +1560,8 @@ class dcMedia extends Manager
             # We set picture time to user timezone
             $media_ts = strtotime($meta['DateTimeOriginal']);
             if ($media_ts !== false) {
-                $o           = dt::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'), $media_ts);
-                $c->media_dt = dt::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
+                $o           = Date::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'), $media_ts);
+                $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
             }
         }
 

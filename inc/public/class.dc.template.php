@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
 
@@ -458,7 +459,7 @@ class dcTemplate extends Template
     {
         if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', (string) $attr['age'])) {
             if (($ts = strtotime((string) $attr['age'])) !== false) {
-                return dt::str('%Y-%m-%d %H:%m:%S', $ts);
+                return Date::str('%Y-%m-%d %H:%m:%S', $ts);
             }
         }
 
@@ -732,7 +733,7 @@ class dcTemplate extends Template
             $format = addslashes($attr['format']);
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), "dt::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), "\\Dotclear\\Helper\\Date::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
     }
 
     /**
@@ -1087,9 +1088,9 @@ class dcTemplate extends Template
      *
      * attributes:
      *
-     *      - format                  Use dt::str() (if iso8601 nor rfc822 were specified default to %Y-%m-%d %H:%M:%S)
-     *      - iso8601         (1|0)   Use dt::iso8601()
-     *      - rfc822          (1|0)   Use dt::rfc822()
+     *      - format                  Use Date::str() (if iso8601 nor rfc822 were specified default to %Y-%m-%d %H:%M:%S)
+     *      - iso8601         (1|0)   Use Date::iso8601()
+     *      - rfc822          (1|0)   Use Date::rfc822()
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
@@ -1111,12 +1112,12 @@ class dcTemplate extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, 'dt::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($filters, '\\Dotclear\\Helper\\Date::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, 'dt::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($filters, '\\Dotclear\\Helper\\Date::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, "dt::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
+        return '<?php echo ' . sprintf($filters, "\\Dotclear\\Helper\\Date::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
     }
 
     /**
@@ -2683,7 +2684,7 @@ class dcTemplate extends Template
      *
      * attributes:
      *
-     *      - format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      - format      string      Date format (see Date::str() by default if iso8601 or rfc822 not specified)
      *      - iso8601     (1|0)       If set, display date in ISO 8601 format
      *      - rfc822      (1|0)       If set, display date in RFC 822 format
      *      - upddt       (1|0)       If set, uses the post update time
@@ -3365,7 +3366,7 @@ class dcTemplate extends Template
      *
      * attributes:
      *
-     *      - format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      - format      string      Date format (see Date::str() by default if iso8601 or rfc822 not specified)
      *      - iso8601     (1|0)       If set, display date in ISO 8601 format
      *      - rfc822      (1|0)       If set, display date in RFC 822 format
      *      - upddt       (1|0)       If set, uses the comment update time
@@ -3875,7 +3876,7 @@ class dcTemplate extends Template
      *
      * attributes:
      *
-     *      - format      string      Date format (see dt::str() by default if iso8601 or rfc822 not specified)
+     *      - format      string      Date format (see Date::str() by default if iso8601 or rfc822 not specified)
      *      - iso8601     (1|0)       If set, display date in ISO 8601 format
      *      - rfc822      (1|0)       If set, display date in RFC 822 format
      *      - upddt       (1|0)       If set, uses the ping update time

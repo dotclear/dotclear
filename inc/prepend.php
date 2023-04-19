@@ -10,6 +10,7 @@
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\L10n;
@@ -124,7 +125,7 @@ Clearbricks::lib()->autoload([
 mb_internal_encoding('UTF-8');
 
 # Setting timezone
-dt::setTZ('UTC');
+Date::setTZ('UTC');
 
 # CLI_MODE, boolean constant that tell if we are in CLI mode
 define('CLI_MODE', PHP_SAPI == 'cli');

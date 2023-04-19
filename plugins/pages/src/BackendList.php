@@ -17,8 +17,8 @@ use ArrayObject;
 use dcBlog;
 use dcCore;
 use dcPager;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
-use dt;
 use form;
 
 class BackendList extends adminGenericListV2
@@ -180,8 +180,8 @@ class BackendList extends adminGenericListV2
             dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
             Html::escapeHTML($this->rs->post_title) . '</a></td>',
             'date' => '<td class="nowrap">' .
-                '<time datetime="' . dt::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-                dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',
             'author'     => '<td class="nowrap">' . $this->rs->user_id . '</td>',

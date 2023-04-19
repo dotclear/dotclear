@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -102,7 +103,7 @@ class dcAdminCombos
     {
         $dt_m_combo = [];
         while ($dates->fetch()) {
-            $dt_m_combo[dt::str('%B %Y', $dates->ts())] = $dates->year() . $dates->month();
+            $dt_m_combo[Date::str('%B %Y', $dates->ts())] = $dates->year() . $dates->month();
         }
 
         return $dt_m_combo;

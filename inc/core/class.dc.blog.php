@@ -15,6 +15,7 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -1968,12 +1969,12 @@ class dcBlog
             return;
         }
 
-        $now       = dt::toUTC(time());
+        $now       = Date::toUTC(time());
         $to_change = new ArrayObject();
 
         while ($rs->fetch()) {
             # Now timestamp with post timezone
-            $now_tz = $now + dt::getTimeOffset($rs->post_tz, $now);
+            $now_tz = $now + Date::getTimeOffset($rs->post_tz, $now);
 
             # Post timestamp
             $post_ts = strtotime($rs->post_dt);
@@ -2179,7 +2180,7 @@ class dcBlog
         }
 
         if ($cur->post_dt == '') {
-            $offset       = dt::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'));
+            $offset       = Date::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'));
             $now          = time() + $offset;
             $cur->post_dt = date('Y-m-d H:i:00', $now);
         }
@@ -2628,7 +2629,7 @@ class dcBlog
             $cur->comment_id    = (int) $rs->f(0) + 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
-            $offset          = dt::getTimeOffset($this->settings->system->blog_timezone);
+            $offset          = Date::getTimeOffset($this->settings->system->blog_timezone);
             $cur->comment_dt = date('Y-m-d H:i:s', time() + $offset);
             $cur->comment_tz = $this->settings->system->blog_timezone;
 

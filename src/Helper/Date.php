@@ -1,15 +1,27 @@
 <?php
 /**
- * @class dt
+ * @class Date
+ *
  * @brief Date/time utilities
  *
- * @package Clearbricks
- * @subpackage Common
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dt
+declare(strict_types=1);
+
+namespace Dotclear\Helper;
+
+use DateTime;
+use DateTimeInterface;
+use DateTimeZone;
+use Exception;
+use IntlDateFormatter;
+use IntlGregorianCalendar;
+use InvalidArgumentException;
+
+class Date
 {
     private static ?array $timezones = null;
 
@@ -125,8 +137,7 @@ class dt
             '%A' => $intl_formatter,
             '%d' => 'd',
             '%e' => fn ($timestamp) => sprintf('% 2u', $timestamp->format('j')),
-            '%j' => fn($timestamp) => // Day number in year, 001 to 366
-sprintf('%03d', $timestamp->format('z') + 1),
+            '%j' => fn ($timestamp) => sprintf('%03d', $timestamp->format('z') + 1), // Day number in year, 001 to 366
             '%u' => 'N',
             '%w' => 'w',
 
@@ -152,8 +163,7 @@ sprintf('%03d', $timestamp->format('z') + 1),
             '%m' => 'm',
 
             // Year
-            '%C' => fn($timestamp) => // Century (-1): 19 for 20th century
-floor($timestamp->format('Y') / 100),
+            '%C' => fn ($timestamp) => floor($timestamp->format('Y') / 100),    // Century (-1): 19 for 20th century
             '%g' => fn ($timestamp) => substr($timestamp->format('o'), -2),
             '%G' => 'o',
             '%y' => 'y',
@@ -478,7 +488,7 @@ floor($timestamp->format('Y') / 100),
     {
         if (is_null(self::$timezones)) {
             // Read timezones from file
-            if (!is_readable($file = __DIR__ . '/tz.dat')) {
+            if (!is_readable($file = __DIR__ . DIRECTORY_SEPARATOR . 'tz.dat')) {
                 return [];
             }
             $timezones = file($file);

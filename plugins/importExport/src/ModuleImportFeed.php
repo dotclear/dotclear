@@ -17,11 +17,11 @@ use dcBlog;
 use dcCore;
 use dcMeta;
 use dcPage;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
-use dt;
 use form;
 
 class ModuleImportFeed extends Module
@@ -190,7 +190,7 @@ class ModuleImportFeed extends Module
             $cur->post_title   = $item->title ?: Text::cutString(Html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
             $cur->post_status  = dcBlog::POST_PENDING;
-            $cur->post_dt      = dt::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
+            $cur->post_dt      = Date::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
 
             try {
                 $post_id = dcCore::app()->blog->addPost($cur);

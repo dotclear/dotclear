@@ -16,9 +16,9 @@ use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use dt;
 use Exception;
 use form;
 
@@ -68,7 +68,7 @@ class Manage extends dcNsProcess
 
             // Remove all spam
             if (!empty($_POST['delete_all'])) {
-                $ts = dt::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], dcCore::app()->blog->settings->system->blog_timezone);
+                $ts = Date::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], dcCore::app()->blog->settings->system->blog_timezone);
 
                 Antispam::delAllSpam($ts);
 

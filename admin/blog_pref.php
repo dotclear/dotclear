@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
@@ -98,13 +99,13 @@ class adminBlogPref
 
         $stack = ['' => ''];
         foreach ($date_formats as $format) {
-            $stack[dt::str($format, $da->now)] = $format;
+            $stack[Date::str($format, $da->now)] = $format;
         }
         $da->date_formats_combo = $stack;
 
         $stack = ['' => ''];
         foreach ($time_formats as $format) {
-            $stack[dt::str($format, $da->now)] = $format;
+            $stack[Date::str($format, $da->now)] = $format;
         }
         $da->time_formats_combo = $stack;
 
@@ -497,7 +498,7 @@ class adminBlogPref
             form::combo('lang', $da->lang_combo, $da->blog_settings->system->lang, 'l10n') .
             '</p>' .
             '<p><label for="blog_timezone">' . __('Blog timezone:') . '</label>' .
-            form::combo('blog_timezone', dt::getZones(true, true), Html::escapeHTML($da->blog_settings->system->blog_timezone)) .
+            form::combo('blog_timezone', Date::getZones(true, true), Html::escapeHTML($da->blog_settings->system->blog_timezone)) .
             '</p>' .
             '<p><label for="copyright_notice">' . __('Copyright notice:') . '</label>' .
             form::field(
@@ -583,13 +584,13 @@ class adminBlogPref
             form::field('date_format', 30, 255, Html::escapeHTML($da->blog_settings->system->date_format), '', '', false, 'aria-describedby="date_format_help"') .
             form::combo('date_format_select', $da->date_formats_combo, ['extra_html' => 'title="' . __('Pattern of date') . '"']) .
             '</p>' .
-            '<p class="chosen form-note" id="date_format_help">' . __('Sample:') . ' ' . dt::str(Html::escapeHTML($da->blog_settings->system->date_format)) . '</p>' .
+            '<p class="chosen form-note" id="date_format_help">' . __('Sample:') . ' ' . Date::str(Html::escapeHTML($da->blog_settings->system->date_format)) . '</p>' .
 
             '<p><label for="time_format">' . __('Time format:') . '</label>' .
             form::field('time_format', 30, 255, Html::escapeHTML($da->blog_settings->system->time_format), '', '', false, 'aria-describedby="time_format_help"') .
             form::combo('time_format_select', $da->time_formats_combo, ['extra_html' => 'title="' . __('Pattern of time') . '"']) .
             '</p>' .
-            '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . dt::str(Html::escapeHTML($da->blog_settings->system->time_format)) . '</p>' .
+            '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . Date::str(Html::escapeHTML($da->blog_settings->system->time_format)) . '</p>' .
 
             '<p><label for="use_smilies" class="classic">' .
             form::checkbox('use_smilies', '1', $da->blog_settings->system->use_smilies) .

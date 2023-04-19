@@ -27,7 +27,7 @@ dcProxyV1::classAliases([
     // Deprecated since 2.26
     'Clearbricks' => 'Dotclear\Helper\Clearbricks',
 
-    // Form helper
+    // Form helpers
     'formButton'    => 'Dotclear\Helper\Html\Form\Button',
     'formCheckbox'  => 'Dotclear\Helper\Html\Form\Checkbox',
     'formColor'     => 'Dotclear\Helper\Html\Form\Color',
@@ -58,29 +58,29 @@ dcProxyV1::classAliases([
     'formTime'      => 'Dotclear\Helper\Html\Form\Time',
     'formUrl'       => 'Dotclear\Helper\Html\Form\Url',
 
-    // Diff helper
+    // Diff helpers
     'diff'          => 'Dotclear\Helper\Diff\Diff',
     'tidyDiff'      => 'Dotclear\Helper\Diff\TidyDiff',
     'tidyDiffChunk' => 'Dotclear\Helper\Diff\TidyDiffChunk',
     'tidyDiffLine'  => 'Dotclear\Helper\Diff\TidyDiffLine',
 
-    // Crypt helper
+    // Crypt helpers
     'crypt' => 'Dotclear\Helper\Crypt',
 
-    // Mail helper
+    // Mail helpers
     'mail'       => 'Dotclear\Helper\Network\Mail\Mail',
     'socketMail' => 'Dotclear\Helper\Network\Mail\MailSocket',
 
-    // Pager helper
+    // Pager helpers
     'pager' => 'Dotclear\Helper\Html\Pager',
 
-    // Pager helper
+    // XmlTag helpers
     'xmlTag' => 'Dotclear\Helper\Html\XmlTag',
 
-    // Rest helper
+    // Rest helpers
     'restServer' => 'Dotclear\Helper\RestServer',
 
-    // Text helper
+    // Text helpers
     'text' => 'Dotclear\Helper\Text',
 
     // Files and Path, … helpers
@@ -89,14 +89,14 @@ dcProxyV1::classAliases([
     'filemanager' => 'Dotclear\Helper\File\Manager',
     'fileItem'    => 'Dotclear\Helper\File\File',
 
-    // Html helper
+    // Html helpers
     'html'       => 'Dotclear\Helper\Html\Html',
     'htmlFilter' => 'Dotclear\Helper\Html\HtmlFilter',
 
-    // Mail helper
+    // Mail helpers
     'http' => 'Dotclear\Helper\Network\Http',
 
-    // Wiki helper
+    // Wiki helpers
     'wiki2xhtml' => 'Dotclear\Helper\Html\WikiToHtml',
 
     // Simple Template Systeme
@@ -117,7 +117,7 @@ dcProxyV1::classAliases([
     // L10n
     'l10n' => 'Dotclear\Helper\L10n',
 
-    // Image helper
+    // Image helpers
     'imageMeta'  => 'Dotclear\Helper\File\Image\ImageMeta',
     'imageTools' => 'Dotclear\Helper\File\Image\ImageTools',
 
@@ -142,6 +142,9 @@ dcProxyV1::classAliases([
     // Feed Helpers
     'feedParser' => 'Dotclear\Helper\Network\Feed\Parser',
     'feedReader' => 'Dotclear\Helper\Network\Feed\Reader',
+
+    // Date helpers
+    'dt' => 'Dotclear\Helper\Date',
 
     // Database -------------------
 

@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\breadcrumb;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
-use dt;
 
 class FrontendTemplate
 {
@@ -156,7 +156,7 @@ class FrontendTemplate
                     } else {
                         // Month archive
                         $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('archive') . '">' . __('Archives') . '</a>';
-                        $ret .= $separator . dt::dt2str('%B %Y', dcCore::app()->ctx->archives->dt);
+                        $ret .= $separator . Date::dt2str('%B %Y', dcCore::app()->ctx->archives->dt);
                     }
 
                     break;

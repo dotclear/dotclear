@@ -15,6 +15,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
 class rsExtPost
@@ -189,7 +190,7 @@ class rsExtPost
     public static function isRepublished(dcRecord $rs): bool
     {
         // Take care of post_dt does not store seconds
-        return (($rs->getTS('upddt') + dt::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60));
+        return (($rs->getTS('upddt') + Date::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60));
     }
 
     /**
@@ -261,10 +262,10 @@ class rsExtPost
     public static function getISO8601Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt' || $type === 'creadt') {
-            return dt::iso8601($rs->getTS($type) + dt::getTimeOffset($rs->post_tz), $rs->post_tz);
+            return Date::iso8601($rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
         }
 
-        return dt::iso8601($rs->getTS(), $rs->post_tz);
+        return Date::iso8601($rs->getTS(), $rs->post_tz);
     }
 
     /**
@@ -278,10 +279,10 @@ class rsExtPost
     public static function getRFC822Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt' || $type === 'creadt') {
-            return dt::rfc822($rs->getTS($type) + dt::getTimeOffset($rs->post_tz), $rs->post_tz);
+            return Date::rfc822($rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
         }
 
-        return dt::rfc822($rs->getTS($type), $rs->post_tz);
+        return Date::rfc822($rs->getTS($type), $rs->post_tz);
     }
 
     /**
@@ -301,12 +302,12 @@ class rsExtPost
         }
 
         if ($type == 'upddt') {
-            return dt::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
+            return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
         } elseif ($type == 'creadt') {
-            return dt::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
+            return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
         }
 
-        return dt::dt2str($format, (string) $rs->post_dt);
+        return Date::dt2str($format, (string) $rs->post_dt);
     }
 
     /**
@@ -326,12 +327,12 @@ class rsExtPost
         }
 
         if ($type == 'upddt') {
-            return dt::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
+            return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
         } elseif ($type == 'creadt') {
-            return dt::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
+            return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
         }
 
-        return dt::dt2str($format, (string) $rs->post_dt);
+        return Date::dt2str($format, (string) $rs->post_dt);
     }
 
     /**
@@ -545,10 +546,10 @@ class rsExtComment
         }
 
         if ($type === 'upddt') {
-            return dt::dt2str($format, (string) $rs->comment_upddt, (string) $rs->comment_tz);
+            return Date::dt2str($format, (string) $rs->comment_upddt, (string) $rs->comment_tz);
         }
 
-        return dt::dt2str($format, (string) $rs->comment_dt);
+        return Date::dt2str($format, (string) $rs->comment_dt);
     }
 
     /**
@@ -568,10 +569,10 @@ class rsExtComment
         }
 
         if ($type === 'upddt') {
-            return dt::dt2str($format, (string) $rs->comment_updt, (string) $rs->comment_tz);
+            return Date::dt2str($format, (string) $rs->comment_updt, (string) $rs->comment_tz);
         }
 
-        return dt::dt2str($format, (string) $rs->comment_dt);
+        return Date::dt2str($format, (string) $rs->comment_dt);
     }
 
     /**
@@ -602,10 +603,10 @@ class rsExtComment
     public static function getISO8601Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt') {
-            return dt::iso8601($rs->getTS($type) + dt::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
+            return Date::iso8601($rs->getTS($type) + Date::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
         }
 
-        return dt::iso8601($rs->getTS(), (string) $rs->comment_tz);
+        return Date::iso8601($rs->getTS(), (string) $rs->comment_tz);
     }
 
     /**
@@ -619,10 +620,10 @@ class rsExtComment
     public static function getRFC822Date(dcRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt') {
-            return dt::rfc822($rs->getTS($type) + dt::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
+            return Date::rfc822($rs->getTS($type) + Date::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
         }
 
-        return dt::rfc822($rs->getTS(), (string) $rs->comment_tz);
+        return Date::rfc822($rs->getTS(), (string) $rs->comment_tz);
     }
 
     /**

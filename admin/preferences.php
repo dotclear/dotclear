@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -556,7 +557,7 @@ class adminUserPrefs
         form::combo('user_lang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->user_lang, 'l10n') . '</p>' .
 
         '<p><label for="user_tz">' . __('My timezone:') . '</label>' .
-        form::combo('user_tz', dt::getZones(true, true), dcCore::app()->admin->user_tz) . '</p>';
+        form::combo('user_tz', Date::getZones(true, true), dcCore::app()->admin->user_tz) . '</p>';
 
         if (dcCore::app()->auth->allowPassChange()) {
             echo

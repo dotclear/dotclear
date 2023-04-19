@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\buildtools;
 
 use dcCore;
 use dcMedia;
-use dt;
+use Dotclear\Helper\Date;
 
 class l10nFaker
 {
@@ -46,7 +46,7 @@ class l10nFaker
      */
     public function generate_file(): void
     {
-        $main = $plugin = "<?php\n" . '// Generated on ' . dt::dt2str('%Y-%m-%d %H:%M %z', (string) time(), dcCore::app()->auth->getInfo('user_tz')) . "\n";
+        $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), dcCore::app()->auth->getInfo('user_tz')) . "\n";
 
         $main .= "\n// Media sizes\n\n";
         foreach (dcCore::app()->media->thumb_sizes as $v) {

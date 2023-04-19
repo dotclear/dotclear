@@ -8,6 +8,7 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
@@ -27,7 +28,7 @@ class adminPost
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dt::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
+        Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
 
         // IP are available only for super-admin and admin
         dcCore::app()->admin->show_ip = dcCore::app()->auth->check(
@@ -402,7 +403,7 @@ class adminPost
             }
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
-            dt::setTZ('UTC');
+            Date::setTZ('UTC');
 
             if (dcCore::app()->admin->post_id) {
                 // Update post
@@ -636,7 +637,7 @@ class adminPost
                         '</p>',
                         'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
-                            'default' => Html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
+                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
                             'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
@@ -1010,7 +1011,7 @@ class adminPost
                     '<ul class="nice">';
                     while ($pings->fetch()) {
                         echo
-                        '<li>' . dt::dt2str(__('%Y-%m-%d %H:%M'), $pings->ping_dt) . ' - ' . $pings->ping_url . '</li>';
+                        '<li>' . Date::dt2str(__('%Y-%m-%d %H:%M'), $pings->ping_dt) . ' - ' . $pings->ping_url . '</li>';
                     }
                     echo
                     '</ul>';
@@ -1128,8 +1129,8 @@ class adminPost
                 '') . '</td>' .
             '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
             '<td class="nowrap">' .
-                '<time datetime="' . dt::iso8601(strtotime($rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-                dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
+                '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
                 '</time>' .
             '</td>' .
             ($show_ip ?

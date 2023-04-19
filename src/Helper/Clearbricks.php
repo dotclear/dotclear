@@ -87,7 +87,7 @@ class Clearbricks
         L10n::bootstrap();
 
         // We set default timezone to avoid warning
-        \dt::setTZ('UTC');
+        Date::setTZ('UTC');
     }
 
     /**

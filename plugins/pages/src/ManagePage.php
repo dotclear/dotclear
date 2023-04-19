@@ -20,9 +20,9 @@ use dcCore;
 use dcMedia;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use dt;
 use Exception;
 use form;
 use initPages;
@@ -50,7 +50,7 @@ class ManagePage extends dcNsProcess
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dt::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
+        Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
 
         dcCore::app()->admin->redir_url = dcCore::app()->admin->getPageURL() . '&act=page';
 
@@ -314,7 +314,7 @@ class ManagePage extends dcNsProcess
             }
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
-            dt::setTZ('UTC');
+            Date::setTZ('UTC');
 
             if (dcCore::app()->admin->post_id) {
                 // Update post
@@ -529,7 +529,7 @@ class ManagePage extends dcNsProcess
                         '</p>',
                         'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
-                            'default' => Html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
+                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
                             'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
@@ -949,7 +949,7 @@ class ManagePage extends dcNsProcess
                 '') .
             '</td>' .
             '<td class="maximal">' . $rs->comment_author . '</td>' .
-            '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
+            '<td class="nowrap">' . Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
             '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' .
             '<td class="nowrap status">' . $img_status . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '">' .

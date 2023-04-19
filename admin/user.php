@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
 require __DIR__ . '/../inc/admin/prepend.php';
@@ -370,7 +371,7 @@ class adminUser
         '</p>' .
 
         '<p><label for="user_tz">' . __('Timezone:') . '</label> ' .
-        form::combo('user_tz', dt::getZones(true, true), dcCore::app()->admin->user_tz) .
+        form::combo('user_tz', Date::getZones(true, true), dcCore::app()->admin->user_tz) .
         '</p>' .
 
         '<h4>' . __('Edition') . '</h4>' .

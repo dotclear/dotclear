@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -336,14 +337,14 @@ class adminMediaItem
                     $items++;
                 } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
                     if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
-                        $res[] = dt::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
+                        $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
                     } else {
-                        $res[] = dt::str($m[1], $file->media_dt);
+                        $res[] = Date::str($m[1], $file->media_dt);
                     }
                     $items++;
                     $dates++;
                 } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m) && $file->media_meta->DateTimeOriginal) {
-                    $res[] = dt::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
+                    $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
                     $items++;
                     $dates++;
                 } elseif (preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
@@ -933,7 +934,7 @@ class adminMediaItem
                     '<li>' . $img_status . ' ' . '<a href="' . dcCore::app()->getPostAdminURL($rs->post_type, $rs->post_id) . '">' .
                     $rs->post_title . '</a>' .
                     ($rs->post_type != 'post' ? ' (' . Html::escapeHTML($rs->post_type) . ')' : '') .
-                    ' - ' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt) . '</li>';
+                    ' - ' . Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt) . '</li>';
                 }
                 echo
                 '</ul>';
@@ -1033,7 +1034,7 @@ class adminMediaItem
             }
 
             echo
-            form::datetime('media_dt', ['default' => Html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', dcCore::app()->admin->file->media_dt))]) .
+            form::datetime('media_dt', ['default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', dcCore::app()->admin->file->media_dt))]) .
             '</p>' .
             '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, dcCore::app()->admin->file->media_priv) . ' ' .
             __('Private') . '</label></p>' .

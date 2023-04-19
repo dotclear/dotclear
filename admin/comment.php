@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 
@@ -252,7 +253,7 @@ class adminComment
 
             echo
             '<p>' . __('Date:') . ' ' .
-            dt::dt2str(__('%Y-%m-%d %H:%M'), dcCore::app()->admin->comment_dt) . '</p>' .
+            Date::dt2str(__('%Y-%m-%d %H:%M'), dcCore::app()->admin->comment_dt) . '</p>' .
             '</div>' .
 
             '<h3>' . __('Comment submitted') . '</h3>' .

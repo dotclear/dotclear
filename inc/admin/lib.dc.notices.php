@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Helper\Date;
+
 class dcAdminNotices
 {
     /* Constants */
@@ -127,9 +130,9 @@ class dcAdminNotices
         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCore::app()->notices->getTable());
 
         $now = function () {
-            dt::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');    // Set user TZ
+            Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');    // Set user TZ
             $dt = date('Y-m-d H:i:s');
-            dt::setTZ('UTC');                                               // Back to default TZ
+            Date::setTZ('UTC');                                               // Back to default TZ
 
             return $dt;
         };
@@ -213,8 +216,8 @@ class dcAdminNotices
         $timestamp = '';
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
             $timestamp = '<span class="notice-ts">' .
-                '<time datetime="' . dt::iso8601(strtotime($notice['ts']), $core->auth->getInfo('user_tz')) . '">' .
-                dt::dt2str(__('%H:%M:%S'), $notice['ts'], $core->auth->getInfo('user_tz')) .
+                '<time datetime="' . Date::iso8601(strtotime($notice['ts']), $core->auth->getInfo('user_tz')) . '">' .
+                Date::dt2str(__('%H:%M:%S'), $notice['ts'], $core->auth->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';
         }
@@ -246,8 +249,8 @@ class dcAdminNotices
             $ts = '';
             if ($timestamp) {
                 $ts = '<span class="notice-ts">' .
-                    '<time datetime="' . dt::iso8601(time(), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-                    dt::str(__('%H:%M:%S'), null, dcCore::app()->auth->getInfo('user_tz')) .
+                    '<time datetime="' . Date::iso8601(time(), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                    Date::str(__('%H:%M:%S'), null, dcCore::app()->auth->getInfo('user_tz')) .
                     '</time>' .
                     '</span> ';
             }

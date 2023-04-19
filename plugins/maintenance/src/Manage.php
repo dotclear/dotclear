@@ -15,9 +15,9 @@ namespace Dotclear\Plugin\maintenance;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use dt;
 use Exception;
 use form;
 
@@ -272,8 +272,8 @@ class Manage extends dcNsProcess
                                 $res_task .= '<br /> <span class="warn">' .
                                     sprintf(
                                         __('Last execution of this task was on %s.'),
-                                        dt::str(dcCore::app()->blog->settings->system->date_format, $ts) . ' ' .
-                                        dt::str(dcCore::app()->blog->settings->system->time_format, $ts)
+                                        Date::str(dcCore::app()->blog->settings->system->date_format, $ts) . ' ' .
+                                        Date::str(dcCore::app()->blog->settings->system->time_format, $ts)
                                     ) . ' ' .
                                     __('You should execute it now.') . '</span>';
                             }
