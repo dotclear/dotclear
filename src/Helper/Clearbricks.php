@@ -69,9 +69,6 @@ class Clearbricks
             'dbStruct' => $old_helper_root . '/dbschema/class.dbstruct.php',
             'dbSchema' => $old_helper_root . '/dbschema/class.dbschema.php',
 
-            // Database PHP Session
-            'sessionDB' => $old_helper_root . '/session.db/class.session.db.php',
-
             // Zip tools
             'fileUnzip' => $old_helper_root . '/zip/class.unzip.php',
             'fileZip'   => $old_helper_root . '/zip/class.zip.php',

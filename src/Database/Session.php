@@ -1,17 +1,26 @@
 <?php
 /**
- * @class sessionDB
- * @brief Database Session Handler
+ * @class Session
+ *
+ * Database Session Handler
  *
  * This class allows you to handle session data in database.
  *
- * @package Clearbricks
- * @subpackage Session
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class sessionDB
+declare(strict_types=1);
+
+namespace Dotclear\Database;
+
+use dbLayer;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
+
+class Session
 {
     /**
      * dbLayer handler
@@ -62,7 +71,7 @@ class sessionDB
     /**
      * Constructor
      *
-     * This method creates an instance of sessionDB class.
+     * This method creates an instance of Session class.
      *
      * @param dbLayer    $con               dbLayer inherited database instance
      * @param string     $table             Table name
@@ -222,11 +231,14 @@ class sessionDB
      */
     public function _read(string $ses_id): string
     {
-        $strReq = 'SELECT ses_value FROM ' . $this->table . ' ' .
-        'WHERE ses_id = \'' . $this->checkID($ses_id) . '\' ';
+        $sql = new SelectStatement($this->con, $this->con->syntax());
+        $sql
+            ->field('ses_value')
+            ->from($this->table)
+            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
+        ;
 
-        $rs = $this->con->select($strReq);
-
+        $rs = $sql->select();
         if ($rs->isEmpty()) {
             return '';
         }
@@ -244,18 +256,25 @@ class sessionDB
      */
     public function _write(string $ses_id, string $data): bool
     {
-        $strReq = 'SELECT ses_id ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE ses_id = '" . $this->checkID($ses_id) . "' ";
+        $sql = new SelectStatement($this->con, $this->con->syntax());
+        $sql
+            ->field('ses_id')
+            ->from($this->table)
+            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
+        ;
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         $cur            = $this->con->openCursor($this->table);
         $cur->ses_time  = (string) time();
         $cur->ses_value = (string) $data;
 
         if (!$rs->isEmpty()) {
-            $cur->update("WHERE ses_id = '" . $this->checkID($ses_id) . "' ");
+            $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
+            $sqlUpdate
+                ->where('ses_id = ' . $sqlUpdate->quote($this->checkID($ses_id)))
+                ->update($cur)
+            ;
         } else {
             $cur->ses_id    = $this->checkID($ses_id);
             $cur->ses_start = (string) time();
@@ -275,10 +294,12 @@ class sessionDB
      */
     public function _destroy(string $ses_id): bool
     {
-        $strReq = 'DELETE FROM ' . $this->table . ' ' .
-        'WHERE ses_id = \'' . $this->checkID($ses_id) . '\' ';
-
-        $this->con->execute($strReq);
+        $sql = new DeleteStatement($this->con, $this->con->syntax());
+        $sql
+            ->from($this->table)
+            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
+        ;
+        $sql->delete();
 
         if (!$this->transient) {
             $this->_optimize();
@@ -296,10 +317,12 @@ class sessionDB
     {
         $ses_life = strtotime($this->ttl);
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ' .
-            'WHERE ses_time < ' . $ses_life . ' ';
-
-        $this->con->execute($strReq);
+        $sql = new DeleteStatement($this->con, $this->con->syntax());
+        $sql
+            ->from($this->table)
+            ->where('ses_time = ' . $ses_life)
+        ;
+        $sql->delete();
 
         if ($this->con->changes() > 0) {
             $this->_optimize();

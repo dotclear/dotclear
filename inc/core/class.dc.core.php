@@ -13,6 +13,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Database\Session;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -83,9 +84,9 @@ final class dcCore
     public $auth;
 
     /**
-     * sessionDB instance
+     * Session in database instance
      *
-     * @var sessionDB
+     * @var Session
      */
     public $session;
 
@@ -389,7 +390,7 @@ final class dcCore
 
         $this->error   = new dcError();
         $this->auth    = $this->authInstance();
-        $this->session = new sessionDB($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
+        $this->session = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
         $this->url     = new dcUrlHandlers();
         $this->plugins = new dcPlugins();
         $this->rest    = new dcRestServer();
@@ -1994,7 +1995,7 @@ final class dcCore
             'active_fr_syntax'    => 0,
         ]);
 
-        # --BEHAVIOR-- coreInitWikiSimpleComment -- 
+        # --BEHAVIOR-- coreInitWikiSimpleComment --
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
         $this->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
@@ -2043,7 +2044,7 @@ final class dcCore
             'active_fr_syntax'    => 0,
         ]);
 
-        # --BEHAVIOR-- coreInitWikiComment -- 
+        # --BEHAVIOR-- coreInitWikiComment --
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
         $this->callBehavior('coreInitWikiComment', $this->wiki);
     }

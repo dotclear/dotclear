@@ -143,7 +143,7 @@ dcProxyV1::classAliases([
     'feedParser' => 'Dotclear\Helper\Network\Feed\Parser',
     'feedReader' => 'Dotclear\Helper\Network\Feed\Reader',
 
-    // Core -------------------
+    // Database -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',
     'dcSelectStatement'   => 'Dotclear\Database\Statement\SelectStatement',
@@ -152,4 +152,9 @@ dcProxyV1::classAliases([
     'dcInsertStatement'   => 'Dotclear\Database\Statement\InsertStatement',
     'dcDeleteStatement'   => 'Dotclear\Database\Statement\DeleteStatement',
     'dcTruncateStatement' => 'Dotclear\Database\Statement\TruncateStatement',
+
+    'sessionDB' => 'Dotclear\Database\Session',
+
+    // Core -----------------------
+
 ]);

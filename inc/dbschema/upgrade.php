@@ -1383,6 +1383,8 @@ class dcUpgrade
                     'inc/helper/net.xmlrpc',
                     // CB feed moved to src
                     'inc/helper/net.http.feed',
+                    // CB sessionDB moved to src
+                    'inc/helper/session.db',
 
                 ]
             );
