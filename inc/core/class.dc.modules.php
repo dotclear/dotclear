@@ -204,7 +204,7 @@ class dcModules
      * @param   array   $search     The search parameters
      * @param   bool    $to_array   Return arrays of modules properties
      *
-     * @return  array<dcModuleDefine>   The modules defines or properties
+     * @return  array   The modules defines or properties
      */
     public function getDefines(array $search = [], bool $to_array = false): array
     {
