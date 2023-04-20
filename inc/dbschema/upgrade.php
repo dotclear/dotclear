@@ -1333,21 +1333,6 @@ class dcUpgrade
             self::houseCleaning(
                 // Files
                 [
-                    // CB crypt moved to src
-                    'inc/helper/common/lib.crypt.php',
-                    // CB text moved to src
-                    'inc/helper/common/lib.text.php',
-                    // CB files/path moved to src
-                    'inc/helper/common/lib.file.php',
-                    // CB html moved to src
-                    'inc/helper/common/lib.html.php',
-                    // CB http moved to src
-                    'inc/helper/common/lib.http.php',
-                    // CB l10n moved to src
-                    'inc/helper/common/lib.l10n.php',
-                    // CB dt moved to src
-                    'inc/helper/common/lib.date.php',
-                    'inc/helper/common/tz.dat',
                     // Core
                     'inc/core/class.dc.sql.statement.php',
                 ],
@@ -1388,6 +1373,8 @@ class dcUpgrade
                     'inc/helper/net.http.feed',
                     // CB sessionDB moved to src
                     'inc/helper/session.db',
+                    // CB common moved to src
+                    'inc/helper/common',
 
                 ]
             );
