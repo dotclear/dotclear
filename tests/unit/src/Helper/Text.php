@@ -206,4 +206,12 @@ class Text extends atoum
             ->isEqualTo('Étrange et curieux/=À vous !')
         ;
     }
+
+    public function testRemoveDiacritics()
+    {
+        $this
+            ->string(\Dotclear\Helper\Text::removeDiacritics('&#9398;&#42802;&#508;&#42804;&#42806;&#42810;&#42812;&#7682;&#262;&#393;&#497;&#453;&#518;&#65318;&#500;&#11381;&#407;&#65322;&#7728;&#319;&#455;&#456;&#7742;&#9411;&#458;&#459;&#492;&#338;&#418;&#42830;&#65349;'))
+            ->isEqualTo('AAAAEAOAUAVAYBCDDZDzEFGHIJKLLJLjMNNJNjOOEOIOOe')
+        ;
+    }
 }

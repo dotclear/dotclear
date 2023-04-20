@@ -425,7 +425,7 @@ class dcMeta
 
         $rs_static->moveStart();
         while ($rs_static->fetch()) {   // @phpstan-ignore-line
-            $rs_static->set('meta_id_lower', dcUtils::removeDiacritics(mb_strtolower($rs_static->meta_id)));
+            $rs_static->set('meta_id_lower', Text::removeDiacritics(mb_strtolower($rs_static->meta_id)));
 
             $percent = ((int) $rs_static->count) * 100 / $max[$rs_static->meta_type];
 

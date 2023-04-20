@@ -9,6 +9,7 @@
 
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Text;
 
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -869,8 +870,8 @@ class adminUserPrefs
         '<h5 class="pretty-title">' . __('Other available favorites') . '</h5>';
         $count = 0;
         uasort($avail_fav, fn ($a, $b) => strcoll(
-            strtolower(dcUtils::removeDiacritics($a['title'])),
-            strtolower(dcUtils::removeDiacritics($b['title']))
+            strtolower(Text::removeDiacritics($a['title'])),
+            strtolower(Text::removeDiacritics($b['title']))
         ));
 
         foreach ($avail_fav as $k => $v) {

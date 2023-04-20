@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use dcCore;
-use dcUtils;
+use Dotclear\Helper\Text;
 
 class WidgetsStack
 {
@@ -110,8 +110,8 @@ class WidgetsStack
     {
         if ($sorted) {
             uasort($this->widgets, function ($a, $b) {
-                $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
-                $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
+                $c = Text::removeDiacritics(mb_strtolower($a->name()));
+                $d = Text::removeDiacritics(mb_strtolower($b->name()));
 
                 return $c <=> $d;
             });

@@ -17,6 +17,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Text;
 
 class adminModulesList
 {
@@ -643,7 +644,7 @@ class adminModulesList
             ->set('sid', self::sanitizeString($define->getId()))
             ->set('label', empty($define->get('label')) ? $define->getId() : $define->get('label'))
             ->set('name', __(empty($define->get('name')) ? $define->label : $define->get('name')))
-            ->set('sname', self::sanitizeString(strtolower(dcUtils::removeDiacritics($define->get('name')))));
+            ->set('sname', self::sanitizeString(strtolower(Text::removeDiacritics($define->get('name')))));
     }
 
     /**
