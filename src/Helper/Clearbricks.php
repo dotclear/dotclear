@@ -60,7 +60,6 @@ class Clearbricks
         $old_helper_root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']);
         $this->add([
             // Common helpers
-            'dt'               => $old_helper_root . '/common/lib.date.php',
             'form'             => $old_helper_root . '/common/lib.form.php',
             'formSelectOption' => $old_helper_root . '/common/lib.form.php',
 
