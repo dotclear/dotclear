@@ -10,7 +10,7 @@
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
-use Dotclear\Helper\Http;
+use Dotclear\Helper\Network\Http;
 
 class dcTemplate extends Template
 {
