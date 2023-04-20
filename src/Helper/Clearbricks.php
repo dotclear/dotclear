@@ -58,10 +58,13 @@ class Clearbricks
 
         // Load old CB classes
         $old_helper_root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']);
+
+        $legacy_form_root = implode(DIRECTORY_SEPARATOR, [__DIR__, 'Html', 'Form']);
+
         $this->add([
             // Common helpers
-            'form'             => $old_helper_root . '/common/lib.form.php',
-            'formSelectOption' => $old_helper_root . '/common/lib.form.php',
+            'form'             => $legacy_form_root . DIRECTORY_SEPARATOR . 'Legacy.php',
+            'formSelectOption' => $legacy_form_root . DIRECTORY_SEPARATOR . 'Legacy.php',
 
             // Database Abstraction Layer
             'dbLayer'  => $old_helper_root . '/dblayer/dblayer.php',

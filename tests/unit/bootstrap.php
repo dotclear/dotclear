@@ -23,6 +23,7 @@ $autoloader->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..
 // Clearbricks Autoloader (deprecated)
 
 define('CLEARBRICKS_PATH', __DIR__ . '/../../inc/helper');  // Used in old tests/unit/inc/*
+
 $__autoload = [
     'dbStruct'        => CLEARBRICKS_PATH . '/dbschema/class.dbstruct.php',
     'dbSchema'        => CLEARBRICKS_PATH . '/dbschema/class.dbschema.php',
@@ -36,6 +37,9 @@ $__autoload = [
     'mysqlimb4Connection' => CLEARBRICKS_PATH . '/dblayer/class.mysqlimb4.php',
     'pgsqlConnection'     => CLEARBRICKS_PATH . '/dblayer/class.pgsql.php',
     'sqliteConnection'    => CLEARBRICKS_PATH . '/dblayer/class.sqlite.php',
+
+    'form'             => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),
+    'formSelectOption' => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),
 ];
 spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[$name])) { require_once $__autoload[$name]; }});
 
