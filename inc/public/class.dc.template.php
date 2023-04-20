@@ -10,6 +10,7 @@
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
+use Dotclear\Helper\Http;
 
 class dcTemplate extends Template
 {
@@ -733,7 +734,7 @@ class dcTemplate extends Template
             $format = addslashes($attr['format']);
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), "\\Dotclear\\Helper\\Date::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
     }
 
     /**
@@ -1112,12 +1113,12 @@ class dcTemplate extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, '\\Dotclear\\Helper\\Date::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($filters, Date::class . '::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, '\\Dotclear\\Helper\\Date::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($filters, Date::class . '::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, "\\Dotclear\\Helper\\Date::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
+        return '<?php echo ' . sprintf($filters, Date::class . "::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
     }
 
     /**
@@ -4525,7 +4526,7 @@ class dcTemplate extends Template
      */
     public function SysSelfURI(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), '\\Dotclear\\Helper\\Network\\Http::getSelfURI()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), Http::class . '::getSelfURI()') . '; ?>';
     }
 
     /**

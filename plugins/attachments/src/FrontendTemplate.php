@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\attachments;
 use ArrayObject;
 use dcCore;
 use dcTemplate;
+use Dotclear\Helper\File\Files;
 
 class FrontendTemplate
 {
@@ -210,7 +211,7 @@ class FrontendTemplate
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, '\\Dotclear\\Helper\\File\\Files::size($attach_f->size)') . '; ?>';
+        return '<?php echo ' . sprintf($f, Files::class . '::size($attach_f->size)') . '; ?>';
     }
 
     /**

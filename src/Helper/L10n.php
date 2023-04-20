@@ -337,7 +337,7 @@ namespace Dotclear\Helper {
                 "# DOT NOT MODIFY THIS FILE !\n" .
                 "#\n" .
                 "\n" .
-                "use Dotclear\\Helper\\L10n;\n" .
+                'use ' . self::class . ";\n" .
                 "\n";
 
             foreach ($strings as $vo => $tr) {
