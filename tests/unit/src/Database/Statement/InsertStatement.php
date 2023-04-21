@@ -81,14 +81,14 @@ class InsertStatement extends atoum
 
         $sql
             ->values([
-                '\'Marielle\', \'Ribeiro\', \'Maillères\', 27',
-                ['Hilaire', 'Savary', 'Conie-Molitard', 58],
+                '\'Marielle\', NULL, \'Maillères\', 27',
+                ['Hilaire', null, 'Conie-Molitard', 58],
             ], true)
         ;
 
         $this
             ->string($sql->statement())
-            ->isEqualTo('INSERT INTO MyTable (prenom, nom, ville, age) VALUES (\'Marielle\', \'Ribeiro\', \'Maillères\', 27), (\'Hilaire\', \'Savary\', \'Conie-Molitard\', 58)')
+            ->isEqualTo('INSERT INTO MyTable (prenom, nom, ville, age) VALUES (\'Marielle\', NULL, \'Maillères\', 27), (\'Hilaire\', NULL, \'Conie-Molitard\', 58)')
         ;
     }
 
