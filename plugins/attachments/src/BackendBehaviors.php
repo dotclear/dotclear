@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
 use dcCore;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\Files;
 use form;
 
@@ -41,9 +41,9 @@ class BackendBehaviors
      *
      * @param      ArrayObject  $main     The main part of the entry form
      * @param      ArrayObject  $sidebar  The sidebar part of the entry form
-     * @param      dcRecord     $post     The post
+     * @param      MetaRecord     $post     The post
      */
-    public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?dcRecord $post): void
+    public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
         if ($post !== null) {
             $post_media = dcCore::app()->media->getPostMedia((int) $post->post_id, null, 'attachment');
@@ -91,9 +91,9 @@ class BackendBehaviors
     /**
      * Add attchment remove form template
      *
-     * @param      dcRecord  $post   The post
+     * @param      MetaRecord  $post   The post
      */
-    public static function adminPostAfterForm(?dcRecord $post): void
+    public static function adminPostAfterForm(?MetaRecord $post): void
     {
         if ($post !== null) {
             echo

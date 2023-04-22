@@ -1,14 +1,21 @@
 <?php
 /**
- * @class pgsqlSchema
+ * @class Schema
  *
- * @package Clearbricks
- * @subpackage DBSchema
+ * PostgreSQL Database schema Handler
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class pgsqlSchema extends dbSchema implements i_dbSchema
+declare(strict_types=1);
+
+namespace Dotclear\Database\Driver\Pgsql;
+
+use Dotclear\Database\AbstractSchema;
+
+class Schema extends AbstractSchema
 {
     protected $ref_actions_map = [
         'a' => 'no action',

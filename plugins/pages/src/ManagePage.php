@@ -320,12 +320,12 @@ class ManagePage extends dcNsProcess
                 // Update post
 
                 try {
-                    # --BEHAVIOR-- adminBeforePageUpdate -- cursor, int
+                    # --BEHAVIOR-- adminBeforePageUpdate -- Cursor, int
                     dcCore::app()->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
-                    # --BEHAVIOR-- adminAfterPageUpdate -- cursor, int
+                    # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     Http::redirect(dcCore::app()->admin->redir_url . '&id=' . dcCore::app()->admin->post_id . '&upd=1');
@@ -336,12 +336,12 @@ class ManagePage extends dcNsProcess
                 $cur->user_id = dcCore::app()->auth->userID();
 
                 try {
-                    # --BEHAVIOR-- adminBeforePageCreate -- cursor
+                    # --BEHAVIOR-- adminBeforePageCreate -- Cursor
                     dcCore::app()->callBehavior('adminBeforePageCreate', $cur);
 
                     $return_id = dcCore::app()->blog->addPost($cur);
 
-                    # --BEHAVIOR-- adminAfterPageCreate -- cursor, int
+                    # --BEHAVIOR-- adminAfterPageCreate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
                     Http::redirect(dcCore::app()->admin->redir_url . '&id=' . $return_id . '&crea=1');
@@ -499,7 +499,7 @@ class ManagePage extends dcNsProcess
                 dcCore::app()->admin->next_link;
             }
 
-            # --BEHAVIOR-- adminPageNavLinks -- dcRecord|null
+            # --BEHAVIOR-- adminPageNavLinks -- MetaRecord|null
             dcCore::app()->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
 
             echo
@@ -638,7 +638,7 @@ class ManagePage extends dcNsProcess
                 ]
             );
 
-            # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, dcRecord|null
+            # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null
             dcCore::app()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
 
             echo
@@ -653,7 +653,7 @@ class ManagePage extends dcNsProcess
                 echo $item;
             }
 
-            # --BEHAVIOR-- adminPageForm -- dcRecord|null
+            # --BEHAVIOR-- adminPageForm -- MetaRecord|null
             dcCore::app()->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
 
             echo
@@ -709,14 +709,14 @@ class ManagePage extends dcNsProcess
                 '</div>';
             }
 
-            # --BEHAVIOR-- adminPageFormSidebar -- dcRecord|null
+            # --BEHAVIOR-- adminPageFormSidebar -- MetaRecord|null
             dcCore::app()->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
-            # --BEHAVIOR-- adminPostForm -- dcRecord|null
+            # --BEHAVIOR-- adminPostForm -- MetaRecord|null
             dcCore::app()->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
 
             echo

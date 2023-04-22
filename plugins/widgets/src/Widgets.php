@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use dcCore;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -277,8 +277,8 @@ class Widgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((dcCore::app()->url->type == 'category' && dcCore::app()->ctx->categories instanceof dcRecord && dcCore::app()->ctx->categories->cat_id == $rs->cat_id)
-                || (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord && dcCore::app()->ctx->posts->cat_id == $rs->cat_id)) {
+            if ((dcCore::app()->url->type == 'category' && dcCore::app()->ctx->categories instanceof MetaRecord && dcCore::app()->ctx->categories->cat_id == $rs->cat_id)
+                || (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -340,7 +340,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -575,7 +575,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof dcRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

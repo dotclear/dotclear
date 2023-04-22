@@ -1,16 +1,21 @@
 <?php
 /**
- * @class mysqlimb4Schema
+ * @class Schema
  *
- * @package Clearbricks
- * @subpackage DBSchema
+ * MySQL (mb4) Database schema Handler
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-require_once 'class.mysqli.dbschema.php';
+declare(strict_types=1);
 
-class mysqlimb4Schema extends mysqliSchema
+namespace Dotclear\Database\Driver\Mysqlimb4;
+
+use Dotclear\Database\Driver\Mysqli\Schema as MysqliSchema;
+
+class Schema extends MysqliSchema
 {
     /**
      * Create a table

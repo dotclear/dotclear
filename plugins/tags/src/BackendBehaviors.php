@@ -13,14 +13,14 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use cursor;
+use Dotclear\Database\Cursor;
 use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcMeta;
 use dcPage;
 use dcPostsActions;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
 use Exception;
@@ -151,9 +151,9 @@ class BackendBehaviors
      *
      * @param      ArrayObject  $main     The main part of the entry form
      * @param      ArrayObject  $sidebar  The sidebar part of the entry form
-     * @param      dcRecord     $post     The post
+     * @param      MetaRecord     $post     The post
      */
-    public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?dcRecord $post): void
+    public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
         $meta = dcCore::app()->meta;
 
@@ -169,10 +169,10 @@ class BackendBehaviors
     /**
      * Store the tags of an entry.
      *
-     * @param      cursor  $cur      The current
+     * @param      Cursor  $cur      The current
      * @param      mixed   $post_id  The post identifier
      */
-    public static function setTags(cursor $cur, $post_id): void
+    public static function setTags(Cursor $cur, $post_id): void
     {
         $post_id = (int) $post_id;
 
@@ -440,10 +440,10 @@ class BackendBehaviors
     /**
      * Sets the tag list format.
      *
-     * @param      cursor       $cur      The current
+     * @param      Cursor       $cur      The current
      * @param      null|string  $user_id  The user identifier
      */
-    public static function setTagListFormat(cursor $cur, ?string $user_id = null)
+    public static function setTagListFormat(Cursor $cur, ?string $user_id = null)
     {
         if (!is_null($user_id)) {
             $cur->user_options['tag_list_format'] = $_POST['user_tag_list_format'];

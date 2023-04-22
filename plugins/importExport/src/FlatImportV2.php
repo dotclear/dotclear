@@ -22,9 +22,9 @@ use dcMedia;
 use dcMeta;
 use dcNamespace;
 use dcPostMedia;
-use dcRecord;
 use dcTrackback;
 use dcWorkspace;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
 use initBlogroll;
@@ -145,31 +145,31 @@ class FlatImportV2 extends FlatBackup
 
         $this->blog_id = dcCore::app()->blog->id;
 
-        $this->stack['categories'] = new dcRecord($this->con->select(
+        $this->stack['categories'] = new MetaRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
             'FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
         ));
 
-        $rs                    = new dcRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME));
+        $rs                    = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME));
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = new dcRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
+        $rs                     = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
         $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = new dcRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME));
+        $rs                     = new MetaRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME));
         $this->stack['post_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                      = new dcRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME));
+        $rs                      = new MetaRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME));
         $this->stack['media_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                        = new dcRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME));
+        $rs                        = new MetaRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME));
         $this->stack['comment_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                    = new dcRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME));
+        $rs                    = new MetaRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME));
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs = new dcRecord($this->con->select(
+        $rs = new MetaRecord($this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape(dcCore::app()->blog->id) . "'"
         ));
@@ -834,7 +834,7 @@ class FlatImportV2 extends FlatBackup
         'FROM ' . $this->prefix . dcAuth::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
 
-        $rs = new dcRecord($this->con->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         $this->stack['users'][$user_id] = !$rs->isEmpty();
 
@@ -853,7 +853,7 @@ class FlatImportV2 extends FlatBackup
             $strReq .= "AND user_id = '" . $this->con->escape($user_id) . "' ";
         }
 
-        $rs = new dcRecord($this->con->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         return !$rs->isEmpty();
     }
@@ -865,7 +865,7 @@ class FlatImportV2 extends FlatBackup
         "WHERE media_path = '" . $this->con->escape($this->cur_media->media_path) . "' " .
         "AND media_file = '" . $this->con->escape($this->cur_media->media_file) . "' ";
 
-        $rs = new dcRecord($this->con->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         return !$rs->isEmpty();
     }

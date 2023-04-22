@@ -111,10 +111,6 @@ parameters:
     - message: '#Access to an undefined property context::#'
       path: %currentWorkingDirectory%
 
-    # record object and auto properties
-    - message: '#Access to an undefined property record::#'
-      path: %currentWorkingDirectory%
-
     # dcWidgets object and auto properties
     - message: '#Access to an undefined property dcWidgets::#'
       path: %currentWorkingDirectory%
@@ -137,22 +133,6 @@ parameters:
 
     # dcPrefs object and auto properties
     - message : '#Access to an undefined property dcPrefs::#'
-      path: %currentWorkingDirectory%
-
-    # dbStruct object and auto properties
-    - message : '#Access to an undefined property dbStruct::#'
-      path: %currentWorkingDirectory%
-
-    # cursor object and auto properties
-    - message : '#Access to an undefined property cursor::#'
-      path: %currentWorkingDirectory%
-
-    # dcRecord object and auto properties
-    - message: '#Access to an undefined property dcRecord::#'
-      path: %currentWorkingDirectory%
-
-    # dcRecord object methods
-    - message: '#Call to an undefined method dcRecord::#'
       path: %currentWorkingDirectory%
 
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
@@ -225,6 +205,26 @@ parameters:
 
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
     - message : '#Access to an undefined property Dotclear\\Helper\\File\\File::#'
+      path: %currentWorkingDirectory%
+
+    # Record object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Database\\Record::#'
+      path: %currentWorkingDirectory%
+
+    # Cursor object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Database\\Cursor::#'
+      path: %currentWorkingDirectory%
+
+    # MetaRecord object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Database\\MetaRecord::#'
+      path: %currentWorkingDirectory%
+
+    # MetaRecord object methods
+    - message: '#Call to an undefined method Dotclear\\Database\\MetaRecord::#'
+      path: %currentWorkingDirectory%
+
+    # Structure object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Database\\Structure::#'
       path: %currentWorkingDirectory%
 
 # Notes:

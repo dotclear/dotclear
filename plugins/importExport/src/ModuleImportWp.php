@@ -14,14 +14,14 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dbLayer;
 use dcAdminCombos;
 use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcCore;
-use dcRecord;
 use dcTrackback;
+use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -367,7 +367,7 @@ class ModuleImportWp extends Module
      */
     protected function db()
     {
-        $db = dbLayer::init('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = AbstractHandler::init('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {
@@ -535,7 +535,7 @@ class ModuleImportWp extends Module
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
-                $cur->cat_id = (new dcRecord($this->con->select(
+                $cur->cat_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME
                 )))->f(0) + 1;
                 $this->vars['cat_ids'][$rs->term_id] = $cur->cat_id;
@@ -573,7 +573,7 @@ class ModuleImportWp extends Module
                 $cur->link_desc  = Text::cleanStr($rs->link_description);
                 $cur->link_xfn   = Text::cleanStr($rs->link_rel);
 
-                $cur->link_id = (new dcRecord($this->con->select(
+                $cur->link_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME
                 )))->f(0) + 1;
                 $cur->insert();
@@ -752,7 +752,7 @@ class ModuleImportWp extends Module
             $cur->post_content_xhtml
         ));
 
-        $cur->post_id = (new dcRecord($this->con->select(
+        $cur->post_id = (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME
         )))->f(0) + 1;
 
@@ -810,7 +810,7 @@ class ModuleImportWp extends Module
 
             $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
 
-            $cur->comment_id = (new dcRecord($this->con->select(
+            $cur->comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME
             )))->f(0) + 1;
 

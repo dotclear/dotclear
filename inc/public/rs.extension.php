@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 
 class rsExtendPublic
@@ -36,9 +37,9 @@ class rsExtendPublic
     /**
      * Extend Posts recordset methods
      *
-     * @param      dcRecord  $rs     Posts recordset
+     * @param      MetaRecord  $rs     Posts recordset
      */
-    public static function coreBlogGetPosts(dcRecord $rs)
+    public static function coreBlogGetPosts(MetaRecord $rs)
     {
         $rs->extend('rsExtPostPublic');
     }
@@ -46,9 +47,9 @@ class rsExtendPublic
     /**
      * Extend Comments recordset methods
      *
-     * @param      dcRecord  $rs     Comments recordset
+     * @param      MetaRecord  $rs     Comments recordset
      */
-    public static function coreBlogGetComments(dcRecord $rs)
+    public static function coreBlogGetComments(MetaRecord $rs)
     {
         $rs->extend('rsExtCommentPublic');
     }
@@ -62,12 +63,12 @@ class rsExtPostPublic extends rsExtPost
      * Return content cut to 350 characters in short feed context
      * Replace textual smilies by their image representation if requested
      *
-     * @param      dcRecord  $rs     Invisible parameter
-     * @param      bool      $absolute_urls  Use absolute urls
+     * @param      MetaRecord   $rs             Invisible parameter
+     * @param      bool|int     $absolute_urls  Use absolute urls
      *
      * @return     string  The content.
      */
-    public static function getContent(dcRecord $rs, bool $absolute_urls = false): string
+    public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
         // Not very nice hack but it does the job :)
         if (isset(dcCore::app()->ctx) && dcCore::app()->ctx->short_feed_items === true) {
@@ -94,12 +95,12 @@ class rsExtPostPublic extends rsExtPost
      *
      * Replace textual smilies by their image representation if requested
      *
-     * @param      dcRecord  $rs             Invisible parameter
-     * @param      bool      $absolute_urls  Use absolute urls
+     * @param      MetaRecord   $rs             Invisible parameter
+     * @param      bool|int     $absolute_urls  Use absolute urls
      *
      * @return     string  The excerpt.
      */
-    public static function getExcerpt(dcRecord $rs, bool $absolute_urls = false): string
+    public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
         if (dcCore::app()->blog->settings->system->use_smilies) {
             return self::smilies(parent::getExcerpt($rs, $absolute_urls), dcCore::app()->blog);
@@ -133,12 +134,12 @@ class rsExtCommentPublic extends rsExtComment
      *
      * Replace textual smilies by their image representation if requested
      *
-     * @param      dcRecord  $rs             Invisible parameter
-     * @param      bool      $absolute_urls  Use absolute urls
+     * @param      MetaRecord   $rs             Invisible parameter
+     * @param      bool|int     $absolute_urls  Use absolute urls
      *
      * @return     string  The content.
      */
-    public static function getContent(dcRecord $rs, bool $absolute_urls = false): string
+    public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
         if (dcCore::app()->blog->settings->system->use_smilies) {
             $content = parent::getContent($rs, $absolute_urls);

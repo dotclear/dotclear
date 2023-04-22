@@ -67,7 +67,6 @@ Clearbricks::lib()->autoload([
     'dcStore'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.php']),
     'dcStoreReader'  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.reader.php']),
     'dcStoreParser'  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.store.parser.php']),
-    'dcRecord'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.record.php']),
     'rsExtPost'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
     'rsExtComment'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),
     'rsExtDates'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'core', 'class.dc.rs.extensions.php']),

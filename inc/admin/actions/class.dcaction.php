@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Network\Http;
@@ -32,7 +33,7 @@ abstract class dcActions
      */
     protected $entries = [];
     /**
-     * @var dcRecord record that challenges ids against permissions
+     * @var MetaRecord record that challenges ids against permissions
      */
     protected $rs;
     /**
@@ -253,9 +254,9 @@ abstract class dcActions
     /**
      * Get record from DB Query containing requested IDs
      *
-     * @return dcRecord
+     * @return MetaRecord
      */
-    public function getRS(): dcRecord
+    public function getRS(): MetaRecord
     {
         return $this->rs;
     }
@@ -439,7 +440,7 @@ abstract class dcActions
      * This method may setup the following attributes
      * - entries : list of entries (checked against permissions)
      *   entries ids are array keys, values contain entry description (if relevant)
-     * - rs : dcRecord given by db request
+     * - rs : MetaRecord given by db request
      *
      * @param ArrayObject $from
      */

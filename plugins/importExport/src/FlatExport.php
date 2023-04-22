@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dbSchema;
-use dcRecord;
+use Dotclear\Database\AbstractSchema;
+use Dotclear\Database\MetaRecord;
 
 class FlatExport
 {
@@ -46,7 +46,7 @@ class FlatExport
 
     public function export($name, $sql)
     {
-        $rs = new dcRecord($this->con->select($sql));
+        $rs = new MetaRecord($this->con->select($sql));
 
         if (!$rs->isEmpty()) {
             fwrite($this->fp, "\n[" . $name . ' ' . implode(',', $rs->columns()) . "]\n");
@@ -75,7 +75,7 @@ class FlatExport
 
     public function getTables()
     {
-        $schema    = dbSchema::init($this->con);
+        $schema    = AbstractSchema::init($this->con);
         $db_tables = $schema->getTables();
 
         $tables = [];

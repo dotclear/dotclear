@@ -158,6 +158,21 @@ dcProxyV1::classAliases([
 
     'sessionDB' => 'Dotclear\Database\Session',
 
+    'cursor'          => 'Dotclear\Database\Cursor',
+    'record'          => 'Dotclear\Database\Record',
+    'staticRecord'    => 'Dotclear\Database\StaticRecord',
+    'extStaticRecord' => 'Dotclear\Database\StaticRecord',
+
+    'i_dbLayer' => 'Dotclear\Database\InterfaceHandler',
+    'dbLayer'   => 'Dotclear\Database\AbstractHandler',
+
+    'i_dbSchema' => 'Dotclear\Database\InterfaceSchema',
+    'dbSchema'   => 'Dotclear\Database\AbstractSchema',
+
+    'dbStruct'      => 'Dotclear\Database\Structure',
+    'dbStructTable' => 'Dotclear\Database\Table',
+
     // Core -----------------------
 
+    'dcRecord' => 'Dotclear\Database\MetaRecord',
 ]);

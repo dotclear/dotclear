@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -52,9 +53,9 @@ class dcPostMedia
      *
      * @param      array   $params  The parameters
      *
-     * @return     dcRecord  The post media.
+     * @return     MetaRecord  The post media.
      */
-    public function getPostMedia(array $params = []): dcRecord
+    public function getPostMedia(array $params = []): MetaRecord
     {
         $sql = new SelectStatement();
         $sql

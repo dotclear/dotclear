@@ -9,8 +9,10 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 
@@ -21,7 +23,7 @@ class dcUpgrade
      *
      * @throws     Exception
      *
-     * @return     bool|dbStruct|int
+     * @return     bool|Structure|int
      */
     public static function dotclearUpgrade()
     {
@@ -38,10 +40,10 @@ class dcUpgrade
                 }
 
                 # Database upgrade
-                $_s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
+                $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 require __DIR__ . '/db-schema.php';
 
-                $si      = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
+                $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 $changes = $si->synchronize($_s);
 
                 /* Some other upgrades
@@ -113,7 +115,7 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.1-alpha2-r2383', '<')) {
-            $schema = dbSchema::init(dcCore::app()->con);
+            $schema = AbstractSchema::init(dcCore::app()->con);
             $schema->dropUnique(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME, dcCore::app()->prefix . 'uk_cat_title');
 
             # Reindex categories
@@ -1335,6 +1337,7 @@ class dcUpgrade
                 [
                     // Core
                     'inc/core/class.dc.sql.statement.php',
+                    'inc/core/class.dc.record.php',
                 ],
                 // Folders
                 [
@@ -1375,7 +1378,9 @@ class dcUpgrade
                     'inc/helper/session.db',
                     // CB common moved to src
                     'inc/helper/common',
-
+                    // CB database moved to src
+                    'inc/helper/dblayer',
+                    'inc/helper/dbschema',
                 ]
             );
         }

@@ -15,7 +15,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use dbLayer;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -23,9 +22,9 @@ use Dotclear\Database\Statement\UpdateStatement;
 class Session
 {
     /**
-     * dbLayer handler
+     * AbstractHandler handler
      *
-     * @var dbLayer
+     * @var AbstractHandler
      */
     private $con;
 
@@ -73,17 +72,17 @@ class Session
      *
      * This method creates an instance of Session class.
      *
-     * @param dbLayer    $con               dbLayer inherited database instance
-     * @param string     $table             Table name
-     * @param string     $cookie_name       Session cookie name
-     * @param string     $cookie_path       Session cookie path
-     * @param string     $cookie_domain     Session cookie domaine
-     * @param bool       $cookie_secure     Session cookie is available only through SSL if true
-     * @param string     $ttl               TTL (default -120 minutes)
-     * @param bool       $transient         Transient session : no db optimize on session destruction if true
+     * @param AbstractHandler   $con               AbstractHandler inherited database instance
+     * @param string            $table             Table name
+     * @param string            $cookie_name       Session cookie name
+     * @param string            $cookie_path       Session cookie path
+     * @param string            $cookie_domain     Session cookie domaine
+     * @param bool              $cookie_secure     Session cookie is available only through SSL if true
+     * @param string            $ttl               TTL (default -120 minutes)
+     * @param bool              $transient         Transient session : no db optimize on session destruction if true
      */
     public function __construct(
-        dbLayer $con,
+        AbstractHandler $con,
         string $table,
         string $cookie_name,
         ?string $cookie_path = null,

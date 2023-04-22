@@ -72,12 +72,12 @@ class adminComment
                 $cur->comment_content = dcCore::app()->HTMLfilter($_POST['comment_content']);
                 $cur->post_id         = (int) $_POST['post_id'];
 
-                # --BEHAVIOR-- adminBeforeCommentCreate -- cursor
+                # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
                 dcCore::app()->callBehavior('adminBeforeCommentCreate', $cur);
 
                 dcCore::app()->admin->comment_id = dcCore::app()->blog->addComment($cur);
 
-                # --BEHAVIOR-- adminAfterCommentCreate -- cursor, string|int
+                # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
                 dcCore::app()->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
 
                 dcPage::addSuccessNotice(__('Comment has been successfully created.'));
@@ -161,12 +161,12 @@ class adminComment
                 }
 
                 try {
-                    # --BEHAVIOR-- adminBeforeCommentUpdate -- cursor
+                    # --BEHAVIOR-- adminBeforeCommentUpdate -- Cursor
                     dcCore::app()->callBehavior('adminBeforeCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->updComment(dcCore::app()->admin->comment_id, $cur);
 
-                    # --BEHAVIOR-- adminAfterCommentUpdate -- cursor, string|int
+                    # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
@@ -281,7 +281,7 @@ class adminComment
             ) .
             '</p>' .
 
-            # --BEHAVIOR-- adminAfterCommentDesc -- dcRecord
+            # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
             dcCore::app()->callBehavior('adminAfterCommentDesc', dcCore::app()->admin->rs) .
 
             '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .

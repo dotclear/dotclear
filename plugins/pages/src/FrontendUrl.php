@@ -159,12 +159,12 @@ class FrontendUrl extends dcUrlHandlers
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
 
-                            # --BEHAVIOR-- publicBeforeCommentCreate -- cursor
+                            # --BEHAVIOR-- publicBeforeCommentCreate -- Cursor
                             dcCore::app()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
                                 $comment_id = dcCore::app()->blog->addComment($cur);
 
-                                # --BEHAVIOR-- publicAfterCommentCreate -- cursor, int
+                                # --BEHAVIOR-- publicAfterCommentCreate -- Cursor, int
                                 dcCore::app()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 

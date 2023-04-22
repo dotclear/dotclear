@@ -10,6 +10,8 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Helper\Deprecated;
 
@@ -33,9 +35,9 @@ class dcDeprecated extends Deprecated
      * @param   mixed   $limit          Limit parameter
      * @param   bool    $count_only     Count only resultats
      *
-     * @return  dcRecord    The logs.
+     * @return  MetaRecord    The logs.
      */
-    public static function get(mixed $limit, bool $count_only = false): dcRecord
+    public static function get(mixed $limit, bool $count_only = false): MetaRecord
     {
         return dcCore::app()->log->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
     }

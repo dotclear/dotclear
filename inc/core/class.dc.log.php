@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -64,9 +66,9 @@ class dcLog
      * @param      array   $params      The parameters
      * @param      bool    $count_only  Count only resultats
      *
-     * @return     dcRecord  The logs.
+     * @return     MetaRecord  The logs.
      */
-    public function getLogs(array $params = [], bool $count_only = false): dcRecord
+    public function getLogs(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
 
@@ -139,13 +141,13 @@ class dcLog
     }
 
     /**
-     * Creates a new log. Takes a cursor as input and returns the new log ID.
+     * Creates a new log. Takes a Cursor as input and returns the new log ID.
      *
-     * @param      cursor  $cur    The current
+     * @param      Cursor  $cur    The current
      *
      * @return     integer
      */
-    public function addLog(cursor $cur): int
+    public function addLog(Cursor $cur): int
     {
         dcCore::app()->con->writeLock($this->log_table);
 
@@ -164,7 +166,7 @@ class dcLog
 
             $this->fillLogCursor($cur);
 
-            # --BEHAVIOR-- coreBeforeLogCreate -- dcLog, cursor
+            # --BEHAVIOR-- coreBeforeLogCreate -- dcLog, Cursor
             dcCore::app()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
@@ -175,20 +177,20 @@ class dcLog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterLogCreate -- dcLog, cursor
+        # --BEHAVIOR-- coreAfterLogCreate -- dcLog, Cursor
         dcCore::app()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }
 
     /**
-     * Fills the log cursor.
+     * Fills the log Cursor.
      *
-     * @param      cursor   $cur     The current
+     * @param      Cursor   $cur     The current
      *
      * @throws     Exception
      */
-    private function fillLogCursor(cursor $cur)
+    private function fillLogCursor(Cursor $cur)
     {
         if ($cur->log_msg === '') {
             throw new Exception(__('No log message'));
@@ -235,18 +237,18 @@ class dcLog
 }
 
 /**
- * Extent log record class.
+ * Extent log Record class.
  */
 class rsExtLog
 {
     /**
      * Gets the user common name.
      *
-     * @param      dcRecord  $rs     Invisible parameter
+     * @param      MetaRecord  $rs     Invisible parameter
      *
      * @return     string  The user common name.
      */
-    public static function getUserCN(dcRecord $rs): string
+    public static function getUserCN(MetaRecord $rs): string
     {
         $user = dcUtils::getUserCN(
             $rs->user_id,

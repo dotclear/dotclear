@@ -1,17 +1,24 @@
 <?php
 /**
- * @class mysqliConnection
- * @brief MySQLi Database Driver
+ * @class Handler
  *
- * See the {@link dbLayer} documentation for common methods.
+ * MySQL Database handler
  *
- * @package Clearbricks
- * @subpackage DBLayer
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class mysqliConnection extends dbLayer implements i_dbLayer
+declare(strict_types=1);
+
+namespace Dotclear\Database\Driver\Mysqli;
+
+use Dotclear\Database\AbstractHandler;
+use Exception;
+use mysqli;
+use mysqli_result;
+
+class Handler extends AbstractHandler
 {
     /**
      * Enables weak locks if true
@@ -121,7 +128,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_close($handle)
     {
-        if ($handle instanceof MySQLi) {
+        if ($handle instanceof mysqli) {
             $handle->close();
         }
     }
@@ -135,7 +142,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_version($handle): string
     {
-        if ($handle instanceof MySQLi) {
+        if ($handle instanceof mysqli) {
             $v = $handle->server_version;
 
             return sprintf('%s.%s.%s', ($v - ($v % 10000)) / 10000, ($v - ($v % 100)) % 10000 / 100, $v % 100);
@@ -156,7 +163,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_query($handle, string $query)
     {
-        if ($handle instanceof MySQLi) {
+        if ($handle instanceof mysqli) {
             $res = @$handle->query($query);
             if ($res === false) {
                 throw new Exception($this->db_last_error($handle));
@@ -190,7 +197,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_num_fields($res): int
     {
-        return $res instanceof MySQLi_Result ? $res->field_count : 0;
+        return $res instanceof mysqli_result ? $res->field_count : 0;
     }
 
     /**
@@ -202,7 +209,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_num_rows($res): int
     {
-        return $res instanceof MySQLi_Result ? $res->num_rows : 0;
+        return $res instanceof mysqli_result ? $res->num_rows : 0;
     }
 
     /**
@@ -215,7 +222,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_field_name($res, int $position): string
     {
-        if ($res instanceof MySQLi_Result) {
+        if ($res instanceof mysqli_result) {
             $res->field_seek($position);
             $finfo = $res->fetch_field();
 
@@ -235,11 +242,11 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_field_type($res, int $position): string
     {
-        if ($res instanceof MySQLi_Result) {
+        if ($res instanceof mysqli_result) {
             $res->field_seek($position);
             $finfo = $res->fetch_field();
 
-            return $this->_convert_types($finfo->type); // @phpstan-ignore-line
+            return $this->_convert_types((string) $finfo->type); // @phpstan-ignore-line
         }
 
         return '';
@@ -254,7 +261,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_fetch_assoc($res)
     {
-        if ($res instanceof MySQLi_Result) {
+        if ($res instanceof mysqli_result) {
             $v = $res->fetch_assoc();
 
             return ($v === null) ? false : $v;
@@ -273,7 +280,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_result_seek($res, int $row): bool
     {
-        return $res instanceof MySQLi_Result ? $res->data_seek($row) : false;
+        return $res instanceof mysqli_result ? $res->data_seek($row) : false;
     }
 
     /**
@@ -286,7 +293,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_changes($handle, $res): int
     {
-        return $handle instanceof MySQLi ? (int) $handle->affected_rows : 0;
+        return $handle instanceof mysqli ? (int) $handle->affected_rows : 0;
     }
 
     /**
@@ -298,7 +305,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_last_error($handle)
     {
-        if ($handle instanceof MySQLi && ($e = $handle->error)) {
+        if ($handle instanceof mysqli && ($e = $handle->error)) {
             return $e . ' (' . $handle->errno . ')';
         }
 
@@ -315,7 +322,7 @@ class mysqliConnection extends dbLayer implements i_dbLayer
      */
     public function db_escape_string($str, $handle = null): string
     {
-        return $handle instanceof MySQLi ? $handle->real_escape_string((string) $str) : addslashes($str);
+        return $handle instanceof mysqli ? $handle->real_escape_string((string) $str) : addslashes($str);
     }
 
     /**

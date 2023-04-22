@@ -8,6 +8,8 @@
  */
 
 use Dotclear\App;
+use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\AbstractSchema;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -82,7 +84,7 @@ if (!empty($_POST)) {
 
         # Tries to connect to database
         try {
-            $con = dbLayer::init($DBDRIVER, $DBHOST, $DBNAME, $DBUSER, $DBPASSWORD);
+            $con = AbstractHandler::init($DBDRIVER, $DBHOST, $DBNAME, $DBUSER, $DBPASSWORD);
         } catch (Exception $e) {
             throw new Exception('<p>' . __($e->getMessage()) . '</p>');
         }
@@ -96,7 +98,7 @@ if (!empty($_POST)) {
         }
 
         # Check if dotclear is already installed
-        $schema = dbSchema::init($con);
+        $schema = AbstractSchema::init($con);
         if (in_array($DBPREFIX . 'version', $schema->getTables())) {
             throw new Exception(__('Dotclear is already installed.'));
         }

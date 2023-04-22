@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
@@ -50,7 +51,7 @@ class dcTrackback
      *
      * @param      integer  $post_id  The post identifier
      *
-     * @return     dcRecord   The post pings.
+     * @return     MetaRecord   The post pings.
      */
     public function getPostPings(int $post_id)
     {
@@ -58,7 +59,7 @@ class dcTrackback
         'FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . (int) $post_id;
 
-        return new dcRecord(dcCore::app()->con->select($strReq));
+        return new MetaRecord(dcCore::app()->con->select($strReq));
     }
 
     /**
@@ -85,7 +86,7 @@ class dcTrackback
         'WHERE post_id = ' . $post_id . ' ' .
         "AND ping_url = '" . dcCore::app()->con->escape($url) . "' ";
 
-        $rs = new dcRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
 
         if (!$rs->isEmpty()) {
             throw new Exception(sprintf(__('%s has still been pinged'), $url));
@@ -502,12 +503,12 @@ class dcTrackback
         $cur->comment_status    = dcCore::app()->blog->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
         $cur->comment_ip        = Http::realIP();
 
-        # --BEHAVIOR-- publicBeforeTrackbackCreate -- cursor
+        # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
         dcCore::app()->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id) {
             $comment_id = dcCore::app()->blog->addComment($cur);
 
-            # --BEHAVIOR-- publicAfterTrackbackCreate -- cursor, int
+            # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
             dcCore::app()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
         }
     }
@@ -572,9 +573,9 @@ class dcTrackback
      *
      * @throws     Exception
      *
-     * @return     dcRecord     The target post.
+     * @return     MetaRecord     The target post.
      */
-    private function getTargetPost(string $to_url): dcRecord
+    private function getTargetPost(string $to_url): MetaRecord
     {
         $reg = '!^' . preg_quote(dcCore::app()->blog->url) . '(.*)!';
 

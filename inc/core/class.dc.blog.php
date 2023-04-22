@@ -11,6 +11,9 @@
  * Dotclear blog class instance is provided by dcCore $blog property.
  */
 
+use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Record;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -376,7 +379,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreBlogAfterTriggerBlog -- cursor
+        # --BEHAVIOR-- coreBlogAfterTriggerBlog -- Cursor
         dcCore::app()->callBehavior('coreBlogAfterTriggerBlog', $cur);
     }
 
@@ -502,9 +505,9 @@ class dcBlog
      *
      * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     dcRecord  The categories.
+     * @return     MetaRecord  The categories.
      */
-    public function getCategories($params = []): dcRecord
+    public function getCategories($params = []): MetaRecord
     {
         $c_params = [];
         if (isset($params['post_type'])) {
@@ -597,7 +600,7 @@ class dcBlog
             }
         }
 
-        return dcRecord::newFromArray($data);
+        return MetaRecord::newFromArray($data);
     }
 
     /**
@@ -605,9 +608,9 @@ class dcBlog
      *
      * @param      int      $id     The category identifier
      *
-     * @return     dcRecord  The category.
+     * @return     MetaRecord  The category.
      */
-    public function getCategory(?int $id): dcRecord
+    public function getCategory(?int $id): MetaRecord
     {
         return $this->getCategories(['cat_id' => $id]);
     }
@@ -617,9 +620,9 @@ class dcBlog
      *
      * @param      int      $id     The category identifier
      *
-     * @return     dcRecord  The category parents.
+     * @return     MetaRecord  The category parents.
      */
-    public function getCategoryParents(?int $id): dcRecord
+    public function getCategoryParents(?int $id): MetaRecord
     {
         return $this->categories()->getParents((int) $id);
     }
@@ -629,9 +632,9 @@ class dcBlog
      *
      * @param      int      $id     The category identifier
      *
-     * @return     dcRecord  The category parent.
+     * @return     MetaRecord  The category parent.
      */
-    public function getCategoryParent(?int $id): dcRecord
+    public function getCategoryParent(?int $id): MetaRecord
     {
         return $this->categories()->getParent((int) $id);
     }
@@ -641,9 +644,9 @@ class dcBlog
      *
      * @param      int     $id     The category identifier
      *
-     * @return     dcRecord  The category first children.
+     * @return     MetaRecord  The category first children.
      */
-    public function getCategoryFirstChildren(int $id): dcRecord
+    public function getCategoryFirstChildren(int $id): MetaRecord
     {
         return $this->getCategories(['start' => $id, 'level' => $id === 0 ? 1 : 2]);
     }
@@ -719,16 +722,16 @@ class dcBlog
     }
 
     /**
-     * Adds a new category. Takes a cursor as input and returns the new category ID.
+     * Adds a new category. Takes a Cursor as input and returns the new category ID.
      *
-     * @param      cursor        $cur     The category cursor
+     * @param      Cursor        $cur     The category Cursor
      * @param      int           $parent  The parent category ID
      *
      * @throws     Exception
      *
      * @return     int  New category ID
      */
-    public function addCategory(cursor $cur, int $parent = 0): int
+    public function addCategory(Cursor $cur, int $parent = 0): int
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -757,19 +760,19 @@ class dcBlog
         $this->fillCategoryCursor($cur);
         $cur->blog_id = (string) $this->id;
 
-        # --BEHAVIOR-- coreBeforeCategoryCreate -- dcBlog, cursor
+        # --BEHAVIOR-- coreBeforeCategoryCreate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
 
         $id = $this->categories()->addNode($cur, $parent);
 
-        // Update category's cursor in order to give an updated cursor to callback behaviors
+        // Update category's Cursor in order to give an updated Cursor to callback behaviors
         $rs = $this->getCategory($id);
         if (!$rs->isEmpty()) {
             $cur->cat_lft = $rs->cat_lft;
             $cur->cat_rgt = $rs->cat_rgt;
         }
 
-        # --BEHAVIOR-- coreAfterCategoryCreate -- dcBlog, cursor
+        # --BEHAVIOR-- coreAfterCategoryCreate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
@@ -780,11 +783,11 @@ class dcBlog
      * Updates an existing category.
      *
      * @param      int         $id     The category ID
-     * @param      cursor      $cur    The category cursor
+     * @param      Cursor      $cur    The category Cursor
      *
      * @throws     Exception
      */
-    public function updCategory(int $id, cursor $cur): void
+    public function updCategory(int $id, Cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
@@ -807,7 +810,7 @@ class dcBlog
 
         $this->fillCategoryCursor($cur, $id);
 
-        # --BEHAVIOR-- coreBeforeCategoryUpdate -- dcBlog, cursor
+        # --BEHAVIOR-- coreBeforeCategoryUpdate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
         $sql = new UpdateStatement();
@@ -817,7 +820,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterCategoryUpdate -- dcBlog, cursor
+        # --BEHAVIOR-- coreAfterCategoryUpdate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreAfterCategoryUpdate', $this, $cur);
 
         $this->triggerBlog();
@@ -979,14 +982,14 @@ class dcBlog
     }
 
     /**
-     * Fills the category cursor.
+     * Fills the category Cursor.
      *
-     * @param      cursor     $cur    The category cursor
+     * @param      Cursor     $cur    The category Cursor
      * @param      int        $id     The category ID
      *
      * @throws     Exception
      */
-    private function fillCategoryCursor(cursor $cur, ?int $id = null): void
+    private function fillCategoryCursor(Cursor $cur, ?int $id = null): void
     {
         if ($cur->cat_title == '') {
             throw new Exception(__('You must provide a category title'));
@@ -1051,9 +1054,9 @@ class dcBlog
      * @param    bool               $count_only    Only counts results
      * @param    SelectStatement  $ext_sql       Optional SelectStatement instance
      *
-     * @return   dcRecord    A record with some more capabilities
+     * @return   MetaRecord    A record with some more capabilities
      */
-    public function getPosts($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): dcRecord
+    public function getPosts($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
@@ -1309,16 +1312,16 @@ class dcBlog
         $rs->_nb_media = [];
         $rs->extend('rsExtPost');
 
-        # --BEHAVIOR-- coreBlogGetPosts -- dcRecord
+        # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
         dcCore::app()->callBehavior('coreBlogGetPosts', $rs);
 
-        # --BEHAVIOR-- coreBlogAfterGetPosts -- dcRecord, ArrayObject
+        # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
         $alt = new arrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
         dcCore::app()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
         if ($alt['rs']) {
-            if ($alt['rs'] instanceof record) { // @phpstan-ignore-line
-                $rs = new dcRecord($alt['rs']);
-            } elseif ($alt['rs'] instanceof dcRecord) { // @phpstan-ignore-line
+            if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
+                $rs = new MetaRecord($alt['rs']);
+            } elseif ($alt['rs'] instanceof MetaRecord) { // @phpstan-ignore-line
                 $rs = $alt['rs'];
             }
         }
@@ -1327,18 +1330,18 @@ class dcBlog
     }
 
     /**
-     * Returns a dcRecord with post id, title and date for next or previous post
+     * Returns a MetaRecord with post id, title and date for next or previous post
      * according to the post ID.
      * $dir could be 1 (next post) or -1 (previous post).
      *
-     * @param      dcRecord  $post                  The post ID
+     * @param      MetaRecord  $post                  The post ID
      * @param      int       $dir                   The search direction
      * @param      bool      $restrict_to_category  Restrict to same category
      * @param      bool      $restrict_to_lang      Restrict to same language
      *
-     * @return     dcRecord|null   The next post.
+     * @return     MetaRecord|null   The next post.
      */
-    public function getNextPost(dcRecord $post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false): ?dcRecord
+    public function getNextPost(MetaRecord $post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false): ?MetaRecord
     {
         $dt      = $post->post_dt;
         $post_id = (int) $post->post_id;
@@ -1387,9 +1390,9 @@ class dcBlog
      *
      * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     dcRecord  The langs.
+     * @return     MetaRecord  The langs.
      */
-    public function getLangs($params = []): dcRecord
+    public function getLangs($params = []): MetaRecord
     {
         $sql = new SelectStatement();
         $sql
@@ -1440,7 +1443,7 @@ class dcBlog
     }
 
     /**
-     * Returns a dcRecord with all distinct blog dates and post count.
+     * Returns a MetaRecord with all distinct blog dates and post count.
      * <var>$params</var> is an array taking the following optionnal parameters:
      *
      * - type: (day|month|year) Get days, months or years
@@ -1456,9 +1459,9 @@ class dcBlog
      *
      * @param      array|ArrayObject   $params  The parameters
      *
-     * @return     dcRecord  The dates.
+     * @return     MetaRecord  The dates.
      */
-    public function getDates($params = []): dcRecord
+    public function getDates($params = []): MetaRecord
     {
         $dt_f  = '%Y-%m-%d';
         $dt_fc = '%Y%m%d';
@@ -1568,15 +1571,15 @@ class dcBlog
     }
 
     /**
-     * Creates a new entry. Takes a cursor as input and returns the new entry ID.
+     * Creates a new entry. Takes a Cursor as input and returns the new entry ID.
      *
-     * @param      cursor     $cur    The post cursor
+     * @param      Cursor     $cur    The post Cursor
      *
      * @throws     Exception
      *
      * @return     int
      */
-    public function addPost(cursor $cur): int
+    public function addPost(Cursor $cur): int
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1615,7 +1618,7 @@ class dcBlog
                 $cur->post_status = self::POST_PENDING;
             }
 
-            # --BEHAVIOR-- coreBeforePostCreate -- dcBlog, cursor
+            # --BEHAVIOR-- coreBeforePostCreate -- dcBlog, Cursor
             dcCore::app()->callBehavior('coreBeforePostCreate', $this, $cur);
 
             $cur->insert();
@@ -1626,7 +1629,7 @@ class dcBlog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterPostCreate -- dcBlog, cursor
+        # --BEHAVIOR-- coreAfterPostCreate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreAfterPostCreate', $this, $cur);
 
         $this->triggerBlog();
@@ -1640,11 +1643,11 @@ class dcBlog
      * Updates an existing post.
      *
      * @param      int         $id     The post identifier
-     * @param      cursor      $cur    The post cursor
+     * @param      Cursor      $cur    The post Cursor
      *
      * @throws     Exception
      */
-    public function updPost($id, cursor $cur): void
+    public function updPost($id, Cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -1693,12 +1696,12 @@ class dcBlog
             }
         }
 
-        # --BEHAVIOR-- coreBeforePostUpdate -- dcBlog, cursor
+        # --BEHAVIOR-- coreBeforePostUpdate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreBeforePostUpdate', $this, $cur);
 
         $cur->update('WHERE post_id = ' . $id . ' ');
 
-        # --BEHAVIOR-- coreAfterPostUpdate -- dcBlog, cursor
+        # --BEHAVIOR-- coreAfterPostUpdate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreAfterPostUpdate', $this, $cur);
 
         $this->triggerBlog();
@@ -2044,9 +2047,9 @@ class dcBlog
      *
      * @param    string     $post_type post_type filter (post)
      *
-     * @return    dcRecord
+     * @return    MetaRecord
      */
-    public function getPostsUsers(string $post_type = 'post'): dcRecord
+    public function getPostsUsers(string $post_type = 'post'): MetaRecord
     {
         $sql = new SelectStatement();
         $sql
@@ -2158,14 +2161,14 @@ class dcBlog
     }
 
     /**
-     * Gets the post cursor.
+     * Gets the post Cursor.
      *
-     * @param      cursor      $cur      The post cursor
+     * @param      Cursor      $cur      The post Cursor
      * @param      int         $post_id  The post identifier
      *
      * @throws     Exception
      */
-    private function getPostCursor(cursor $cur, $post_id = null): void
+    private function getPostCursor(Cursor $cur, $post_id = null): void
     {
         if ($cur->post_title == '') {
             throw new Exception(__('No entry title'));
@@ -2208,10 +2211,10 @@ class dcBlog
     /**
      * Gets the post content.
      *
-     * @param      cursor  $cur      The post cursor
+     * @param      Cursor  $cur      The post Cursor
      * @param      int     $post_id  The post identifier
      */
-    private function getPostContent(cursor $cur, $post_id): void
+    private function getPostContent(Cursor $cur, $post_id): void
     {
         [
             $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
@@ -2416,9 +2419,9 @@ class dcBlog
      * @param    bool               $count_only    Only counts results
      * @param    SelectStatement    $ext_sql       Optional SelectStatement instance
      *
-     * @return   dcRecord    A record with some more capabilities
+     * @return   MetaRecord    A record with some more capabilities
      */
-    public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): dcRecord
+    public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
@@ -2600,20 +2603,20 @@ class dcBlog
         $rs = $sql->select();
         $rs->extend('rsExtComment');
 
-        # --BEHAVIOR-- coreBlogGetComments -- dcRecord
+        # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
         dcCore::app()->callBehavior('coreBlogGetComments', $rs);
 
         return $rs;
     }
 
     /**
-     * Creates a new comment. Takes a cursor as input and returns the new comment ID.
+     * Creates a new comment. Takes a Cursor as input and returns the new comment ID.
      *
-     * @param      cursor  $cur    The comment cursor
+     * @param      Cursor  $cur    The comment Cursor
      *
      * @return     int
      */
-    public function addComment(cursor $cur): int
+    public function addComment(Cursor $cur): int
     {
         $this->con->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
 
@@ -2639,7 +2642,7 @@ class dcBlog
                 $cur->comment_ip = Http::realIP();
             }
 
-            # --BEHAVIOR-- coreBeforeCommentCreate -- dcBlog, cursor
+            # --BEHAVIOR-- coreBeforeCommentCreate -- dcBlog, Cursor
             dcCore::app()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
             $cur->insert();
@@ -2650,7 +2653,7 @@ class dcBlog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterCommentCreate -- dcBlog, cursor
+        # --BEHAVIOR-- coreAfterCommentCreate -- dcBlog, Cursor
         dcCore::app()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
@@ -2665,11 +2668,11 @@ class dcBlog
      * Updates an existing comment.
      *
      * @param      int         $id     The comment identifier
-     * @param      cursor      $cur    The comment cursor
+     * @param      Cursor      $cur    The comment Cursor
      *
      * @throws     Exception
      */
-    public function updComment($id, cursor $cur): void
+    public function updComment($id, Cursor $cur): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -2710,7 +2713,7 @@ class dcBlog
             $cur->unsetField('comment_status');
         }
 
-        # --BEHAVIOR-- coreBeforeCommentUpdate -- dcBlog, cursor, dcRecord
+        # --BEHAVIOR-- coreBeforeCommentUpdate -- dcBlog, Cursor, MetaRecord
         dcCore::app()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
         $sql = new UpdateStatement();
@@ -2718,7 +2721,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterCommentUpdate -- dcBlog, cursor, dcRecord
+        # --BEHAVIOR-- coreAfterCommentUpdate -- dcBlog, Cursor, MetaRecord
         dcCore::app()->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
 
         $this->triggerComment($id);
@@ -2886,13 +2889,13 @@ class dcBlog
     }
 
     /**
-     * Gets the comment cursor.
+     * Gets the comment Cursor.
      *
-     * @param      cursor     $cur    The comment cursor
+     * @param      Cursor     $cur    The comment Cursor
      *
      * @throws     Exception
      */
-    private function getCommentCursor(cursor $cur): void
+    private function getCommentCursor(Cursor $cur): void
     {
         if ($cur->comment_content !== null && $cur->comment_content == '') {
             throw new Exception(__('You must provide a comment'));

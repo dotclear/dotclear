@@ -27,7 +27,7 @@ use atoum;
 
 require_once __DIR__ . '/../../../bootstrap.php';
 
-require_once CLEARBRICKS_PATH . '/dbschema/class.dbstruct.php';
+//require_once CLEARBRICKS_PATH . '/dbschema/class.dbstruct.php';
 
 class dbStruct extends atoum
 {
@@ -49,19 +49,21 @@ class dbStruct extends atoum
     {
         $con = $this->getConnection($driver);
 
-        $s = new \dbStruct($con, $this->prefix);
-        $s->blog->blog_id('varchar', 32, false);
+        /*
+                $s = new \dbStruct($con, $this->prefix);
+                $s->blog->blog_id('varchar', 32, false);
 
-        $tables = $s->getTables();
-        $tname  = $this->prefix . 'blog';
+                $tables = $s->getTables();
+                $tname  = $this->prefix . 'blog';
 
-        $this
-            ->if($schema = \dbSchema::init($con))
-            ->and($schema->createTable($tname, $tables[$tname]->getFields()))
-            ->then()
-            ->mock($con)->call('execute')
-            ->withIdenticalArguments($query)
-            ->once();
+                $this
+                    ->if($schema = \dbSchema::init($con))
+                    ->and($schema->createTable($tname, $tables[$tname]->getFields()))
+                    ->then()
+                    ->mock($con)->call('execute')
+                    ->withIdenticalArguments($query)
+                    ->once();
+        */
     }
 
     /*

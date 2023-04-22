@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -95,11 +96,11 @@ class dcNamespace
      *
      * @param      mixed      $blog_id  The blog identifier
      * @param      string     $name     The namespace ID
-     * @param      dcRecord   $rs       The recordset
+     * @param      MetaRecord   $rs       The recordset
      *
      * @throws     Exception
      */
-    public function __construct($blog_id, string $name, ?dcRecord $rs = null)
+    public function __construct($blog_id, string $name, ?MetaRecord $rs = null)
     {
         if (preg_match(self::NS_NAME_SCHEMA, $name)) {
             $this->namespace = $name;
@@ -117,9 +118,9 @@ class dcNamespace
     /**
      * Gets the settings.
      *
-     * @param      dcRecord  $rs     The recordset
+     * @param      MetaRecord  $rs     The recordset
      */
-    private function getSettings(?dcRecord $rs = null)
+    private function getSettings(?MetaRecord $rs = null)
     {
         if ($rs === null) {
             $sql = new SelectStatement();

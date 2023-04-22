@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -95,11 +96,11 @@ class dcWorkspace
      *
      * @param      string        $user_id  The user identifier
      * @param      string        $name     The workspace name
-     * @param      dcRecord      $rs       The recordset
+     * @param      MetaRecord      $rs       The recordset
      *
      * @throws     Exception
      */
-    public function __construct(string $user_id, string $name, ?dcRecord $rs = null)
+    public function __construct(string $user_id, string $name, ?MetaRecord $rs = null)
     {
         if (preg_match(self::WS_NAME_SCHEMA, $name)) {
             $this->workspace = $name;
@@ -121,9 +122,9 @@ class dcWorkspace
     /**
      * Gets the preferences.
      *
-     * @param      dcRecord      $rs       The recordset
+     * @param      MetaRecord      $rs       The recordset
      */
-    private function getPrefs(?dcRecord $rs = null): void
+    private function getPrefs(?MetaRecord $rs = null): void
     {
         if ($rs === null) {
             $sql = new SelectStatement();

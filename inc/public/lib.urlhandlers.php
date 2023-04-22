@@ -590,12 +590,12 @@ class dcUrlHandlers extends UrlHandler
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
 
-                            # --BEHAVIOR-- publicBeforeCommentCreate - cursor
+                            # --BEHAVIOR-- publicBeforeCommentCreate - Cursor
                             dcCore::app()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
                                 $comment_id = dcCore::app()->blog->addComment($cur);
 
-                                # --BEHAVIOR-- publicAfterCommentCreate - cursor, int
+                                # --BEHAVIOR-- publicAfterCommentCreate - Cursor, int
                                 dcCore::app()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
@@ -605,7 +605,7 @@ class dcUrlHandlers extends UrlHandler
                                 $redir_arg = 'pub=0';
                             }
 
-                            # --BEHAVIOR-- publicBeforeCommentRedir -- cursor
+                            # --BEHAVIOR-- publicBeforeCommentRedir -- Cursor
                             $redir_arg .= filter_var(dcCore::app()->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);
 
                             header('Location: ' . $redir . $redir_arg);

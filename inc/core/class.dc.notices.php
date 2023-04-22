@@ -9,6 +9,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 
@@ -58,9 +60,9 @@ class dcNotices
      * @param      array              $params      The parameters
      * @param      bool               $count_only  The count only
      *
-     * @return     dcRecord  The notices.
+     * @return     MetaRecord  The notices.
      */
-    public function getNotices(array $params = [], bool $count_only = false): dcRecord
+    public function getNotices(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
         $sql
@@ -123,11 +125,11 @@ class dcNotices
     /**
      * Adds a notice.
      *
-     * @param      cursor  $cur    The cursor
+     * @param      Cursor  $cur    The Cursor
      *
      * @return     int     The notice id
      */
-    public function addNotice(cursor $cur): int
+    public function addNotice(Cursor $cur): int
     {
         dcCore::app()->con->writeLock($this->table);
 
@@ -145,7 +147,7 @@ class dcNotices
 
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
-            # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, cursor
+            # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, Cursor
             dcCore::app()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
@@ -156,21 +158,21 @@ class dcNotices
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, cursor
+        # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, Cursor
         dcCore::app()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }
 
     /**
-     * Fills the notice cursor.
+     * Fills the notice Cursor.
      *
-     * @param      cursor     $cur        The current
+     * @param      Cursor     $cur        The current
      * @param      int        $notice_id  The notice identifier
      *
      * @throws     Exception
      */
-    private function fillNoticeCursor(cursor $cur, ?int $notice_id = null): void
+    private function fillNoticeCursor(Cursor $cur, ?int $notice_id = null): void
     {
         if ($cur->notice_msg === '') {
             throw new Exception(__('No notice message'));

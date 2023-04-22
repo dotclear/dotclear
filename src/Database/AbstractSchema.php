@@ -1,218 +1,19 @@
 <?php
 /**
- * @interface i_dbSchema
+ * @class AbstractSchema
  *
- * @package Clearbricks
- * @subpackage DBSchema
+ * Database schema abstraction
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-interface i_dbSchema
-{
-    /**
-     * This method should return an array of all tables in database for the current connection.
-     *
-     * @return     array<string>
-     */
-    public function db_get_tables(): array;
+declare(strict_types=1);
 
-    /**
-     * This method should return an associative array of columns in given table
-     * <var>$table</var> with column names in keys. Each line value is an array
-     * with following values:
-     *
-     * - [type] data type (string)
-     * - [len] data length (integer or null)
-     * - [null] is null? (boolean)
-     * - [default] default value (string)
-     *
-     * @param      string $table Table name
-     *
-     * @return     array
-     */
-    public function db_get_columns(string $table): array;
+namespace Dotclear\Database;
 
-    /**
-     * This method should return an array of keys in given table
-     * <var>$table</var>. Each line value is an array with following values:
-     *
-     * - [name] index name (string)
-     * - [primary] primary key (boolean)
-     * - [unique] unique key (boolean)
-     * - [cols] columns (array)
-     *
-     * @param      string $table Table name
-     *
-     * @return     array
-     */
-    public function db_get_keys(string $table): array;
-
-    /**
-     * This method should return an array of indexes in given table
-     * <var>$table</var>. Each line value is an array with following values:
-     *
-     * - [name] index name (string)
-     * - [type] index type (string)
-     * - [cols] columns (array)
-     *
-     * @param      string $table Table name
-     *
-     * @return     array
-     */
-    public function db_get_indexes(string $table): array;
-
-    /**
-     * This method should return an array of foreign keys in given table
-     * <var>$table</var>. Each line value is an array with following values:
-     *
-     * - [name] key name (string)
-     * - [c_cols] child columns (array)
-     * - [p_table] parent table (string)
-     * - [p_cols] parent columns (array)
-     * - [update] on update statement (string)
-     * - [delete] on delete statement (string)
-     *
-     * @param      string $table Table name
-     *
-     * @return     array
-     */
-    public function db_get_references(string $table): array;
-
-    /**
-     * Create table
-     *
-     * @param      string  $name    The name
-     * @param      array   $fields  The fields
-     */
-    public function db_create_table(string $name, array $fields): void;
-
-    /**
-     * Create a field
-     *
-     * @param      string    $table    The table
-     * @param      string    $name     The name
-     * @param      string    $type     The type
-     * @param      int|null  $len      The length
-     * @param      bool      $null     The null
-     * @param      mixed     $default  The default
-     */
-    public function db_create_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void;
-
-    /**
-     * Create primary index
-     *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      array   $fields The fields
-     */
-    public function db_create_primary(string $table, string $name, array $fields): void;
-
-    /**
-     * Create unique field
-     *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      array   $fields The fields
-     */
-    public function db_create_unique(string $table, string $name, array $fields): void;
-
-    /**
-     * Create index
-     *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      string  $type   The type
-     * @param      array   $fields The fields
-     */
-    public function db_create_index(string $table, string $name, string $type, array $fields): void;
-
-    /**
-     * Create reference
-     *
-     * @param      string       $name               The name
-     * @param      string       $table              The table
-     * @param      array        $fields             The fields
-     * @param      string       $foreign_table      The foreign table
-     * @param      array        $foreign_fields     The foreign fields
-     * @param      bool|string  $update             The update
-     * @param      bool|string  $delete             The delete
-     */
-    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
-
-    /**
-     * Modify field
-     *
-     * @param      string    $table    The table
-     * @param      string    $name     The name
-     * @param      string    $type     The type
-     * @param      int|null  $len      The length
-     * @param      bool      $null     The null
-     * @param      mixed     $default  The default
-     */
-    public function db_alter_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void;
-
-    /**
-     * Modify primary index
-     *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The new name
-     * @param      array   $fields   The fields
-     */
-    public function db_alter_primary(string $table, string $name, string $newname, array $fields): void;
-
-    /**
-     * Modify unique field
-     *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The new name
-     * @param      array   $fields   The fields
-     */
-    public function db_alter_unique(string $table, string $name, string $newname, array $fields): void;
-
-    /**
-     * Modify index
-     *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The new name
-     * @param      string  $type     The type
-     * @param      array   $fields   The fields
-     */
-    public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void;
-
-    /**
-     * Modify reference
-     *
-     * @param      string       $name               The name
-     * @param      string       $newname            The new name
-     * @param      string       $table              The table
-     * @param      array        $fields             The fields
-     * @param      string       $foreign_table      The foreign table
-     * @param      array        $foreign_fields     The foreign fields
-     * @param      bool|string  $update             The update
-     * @param      bool|string  $delete             The delete
-     */
-    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
-
-    /**
-     * Drop unique
-     *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     */
-    public function db_drop_unique(string $table, string $name): void;
-}
-
-/**
- * @class dbSchema
- *
- * @package Clearbricks
- * @subpackage DBSchema
- */
-class dbSchema
+abstract class AbstractSchema implements InterfaceSchema
 {
     /**
      * @var mixed DB handle
@@ -238,21 +39,26 @@ class dbSchema
      */
     public static function init($con)
     {
-        $driver       = $con->driver();
-        $driver_class = $driver . 'Schema';
+        $driver = $con->driver();
+        $parent = __CLASS__;
+        $class  = $driver . 'Schema';
 
-        if (!class_exists($driver_class)) {
-            if (defined('DC_DBDRIVER_PATH') && file_exists(DC_DBDRIVER_PATH . '/class.' . $driver . '.dbschema.php')) {   // Experimental
-                require_once DC_DBDRIVER_PATH . '/class.' . $driver . '.dbschema.php';
-            } elseif (file_exists(__DIR__ . '/class.' . $driver . '.dbschema.php')) {
-                require __DIR__ . '/class.' . $driver . '.dbschema.php';
-            } else {
-                trigger_error('Unable to load DB schema layer for ' . $driver, E_USER_ERROR);
-                exit(1);    // @phpstan-ignore-line
-            }
+        // Set full namespace of distributed database driver
+        if (in_array($driver, ['mysqli', 'mysqlimb4', 'pgsql', 'sqlite'])) {
+            $class = __NAMESPACE__ . '\\Driver\\' . ucfirst($driver) . '\\Schema';
         }
 
-        return new $driver_class($con);
+        // You can set DC_DBDRIVER_CLASS to whatever you want.
+        // Your new class *should* inherits Dotclear\Database\Schema\AbstractSchema class.
+        $class = defined('DC_DBDRIVER_CLASS') ? \DC_DBDRIVER_CLASS : $class;
+
+        if (!class_exists($class) || !is_subclass_of($class, $parent)) {
+            trigger_error('Database schema class ' . $class . ' does not exist or does not inherit ' . $parent);
+
+            exit(1);
+        }
+
+        return new $class($con);
     }
 
     /**
@@ -300,7 +106,7 @@ class dbSchema
     /**
      * Returns an array of all table names.
      *
-     * @see        i_dbSchema::db_get_tables
+     * @see        InterfaceSchema::db_get_tables
      *
      * @return     array<string>
      */
@@ -313,7 +119,7 @@ class dbSchema
     /**
      * Returns an array of columns (name and type) of a given table.
      *
-     * @see        i_dbSchema::db_get_columns
+     * @see        InterfaceSchema::db_get_columns
      *
      * @param      string $table Table name
      *
@@ -328,7 +134,7 @@ class dbSchema
     /**
      * Returns an array of index of a given table.
      *
-     * @see        i_dbSchema::db_get_keys
+     * @see        InterfaceSchema::db_get_keys
      *
      * @param      string $table Table name
      *
@@ -343,7 +149,7 @@ class dbSchema
     /**
      * Returns an array of indexes of a given table.
      *
-     * @see        i_dbSchema::db_get_index
+     * @see        InterfaceSchema::db_get_index
      *
      * @param      string $table Table name
      *
@@ -358,7 +164,7 @@ class dbSchema
     /**
      * Returns an array of foreign keys of a given table.
      *
-     * @see        i_dbSchema::db_get_references
+     * @see        InterfaceSchema::db_get_references
      *
      * @param      string $table Table name
      *

@@ -333,12 +333,12 @@ class dcRestMethods
 
             $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
-            # --BEHAVIOR-- adminBeforeCategoryCreate -- cursor
+            # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
             dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
             $post['cat_id'] = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
-            # --BEHAVIOR-- adminAfterCategoryCreate -- cursor, int
+            # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
             dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
@@ -354,12 +354,12 @@ class dcRestMethods
         $cur->post_open_comment = (int) dcCore::app()->blog->settings->system->allow_comments;
         $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
 
-        # --BEHAVIOR-- adminBeforePostCreate -- cursor
+        # --BEHAVIOR-- adminBeforePostCreate -- Cursor
         dcCore::app()->callBehavior('adminBeforePostCreate', $cur);
 
         $return_id = dcCore::app()->blog->addPost($cur);
 
-        # --BEHAVIOR-- adminAfterPostCreate -- cursor, int
+        # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
         dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
         $rsp     = new XmlTag('post');

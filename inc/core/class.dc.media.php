@@ -11,6 +11,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -309,11 +311,11 @@ class dcMedia extends Manager
     /**
      * Get media file information from recordset
      *
-     * @param      dcRecord    $rs  The recordset
+     * @param      MetaRecord    $rs  The recordset
      *
      * @return     File  The file item.
      */
-    protected function fileRecord(dcRecord $rs): ?File
+    protected function fileRecord(MetaRecord $rs): ?File
     {
         if ($rs->isEmpty()) {
             return null;
@@ -1390,13 +1392,13 @@ class dcMedia extends Manager
     /**
      * Create image thumbnails
      *
-     * @param      cursor  $cur    The cursor
+     * @param      Cursor  $cur    The Cursor
      * @param      string  $f      Image filename
      * @param      bool    $force  Force creation
      *
      * @return     bool
      */
-    public function imageThumbCreate(?cursor $cur, string $f, bool $force = true): bool
+    public function imageThumbCreate(?Cursor $cur, string $f, bool $force = true): bool
     {
         $file = $this->pwd . '/' . $f;
 
@@ -1439,7 +1441,7 @@ class dcMedia extends Manager
             $img->close();
         } catch (Exception $e) {
             if ($cur === null) {
-                # Called only if cursor is null (public call)
+                # Called only if Cursor is null (public call)
                 throw $e;
             }
         }
@@ -1529,13 +1531,13 @@ class dcMedia extends Manager
     /**
      * Create image meta
      *
-     * @param      cursor  $cur    The cursor
+     * @param      Cursor  $cur    The Cursor
      * @param      string  $f      Image filename
      * @param      int     $id     The media identifier
      *
      * @return     bool
      */
-    protected function imageMetaCreate(cursor $cur, string $f, int $id): bool
+    protected function imageMetaCreate(Cursor $cur, string $f, int $id): bool
     {
         $file = $this->pwd . '/' . $f;
 
@@ -1565,7 +1567,7 @@ class dcMedia extends Manager
             }
         }
 
-        # --BEHAVIOR-- coreBeforeImageMetaCreate -- cursor
+        # --BEHAVIOR-- coreBeforeImageMetaCreate -- Cursor
         dcCore::app()->callBehavior('coreBeforeImageMetaCreate', $c);
 
         $sql = new UpdateStatement();

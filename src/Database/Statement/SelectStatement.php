@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use dcCore;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 
 class SelectStatement extends SqlStatement
 {
@@ -328,12 +328,12 @@ class SelectStatement extends SqlStatement
     /**
      * Run the SQL select query and return result
      *
-     * @return     dcRecord  record
+     * @return     MetaRecord  record
      */
-    public function select(): ?dcRecord
+    public function select(): ?MetaRecord
     {
         if ($this->con && ($sql = $this->statement())) {
-            return new dcRecord($this->con->select($sql));
+            return new MetaRecord($this->con->select($sql));
         }
 
         return null;
@@ -342,9 +342,9 @@ class SelectStatement extends SqlStatement
     /**
      * select() alias
      *
-     * @return     dcRecord  record
+     * @return     MetaRecord  record
      */
-    public function run(): ?dcRecord
+    public function run(): ?MetaRecord
     {
         return $this->select();
     }

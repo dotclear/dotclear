@@ -370,12 +370,12 @@ class dcDefaultPostActions
 
                 $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
-                # --BEHAVIOR-- adminBeforeCategoryCreate -- cursor
+                # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
                 $new_cat_id = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
-                # --BEHAVIOR-- adminAfterCategoryCreate -- cursor, string
+                # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
             }
 

@@ -1,14 +1,22 @@
 <?php
 /**
- * @class sqliteSchema
+ * @class Schema
  *
- * @package Clearbricks
- * @subpackage DBSchema
+ * SQLite Database schema Handler
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class sqliteSchema extends dbSchema implements i_dbSchema
+declare(strict_types=1);
+
+namespace Dotclear\Database\Driver\Sqlite;
+
+use Dotclear\Database\AbstractSchema;
+use Exception;
+
+class Schema extends AbstractSchema
 {
     private array $table_hist = [];
 

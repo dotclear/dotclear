@@ -1,14 +1,21 @@
 <?php
 /**
- * @class mysqlSchema
+ * @class Schema
  *
- * @package Clearbricks
- * @subpackage DBSchema
+ * MySQL Database schema Handler
+ *
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class mysqliSchema extends dbSchema implements i_dbSchema
+declare(strict_types=1);
+
+namespace Dotclear\Database\Driver\Mysqli;
+
+use Dotclear\Database\AbstractSchema;
+
+class Schema extends AbstractSchema
 {
     /**
      * Translate DB type to universal type

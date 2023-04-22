@@ -1,23 +1,22 @@
 <?php
 /**
- * @class mysqlimb4Connection
- * @brief MySQLi utf8-mb4 Database Driver
+ * @class Handler
  *
- * See the {@link dbLayer} documentation for common methods.
+ * MySQL (utf8mb4) Database handler
  *
- * @package Clearbricks
- * @subpackage DBLayer
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-/**
- * Need to load parent class before extending it, may be use another technique in the future?
- */
-require_once __DIR__ . '/class.mysqli.php';
+namespace Dotclear\Database\Driver\Mysqlimb4;
 
-class mysqlimb4Connection extends mysqliConnection
+use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
+use Exception;
+
+class Handler extends MysqliHandler
 {
     /**
      * Driver name

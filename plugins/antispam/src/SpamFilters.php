@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use cursor;
+use Dotclear\Database\Cursor;
 use dcBlog;
 use dcCore;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 
 class SpamFilters
 {
@@ -69,13 +69,13 @@ class SpamFilters
     }
 
     /**
-     * Determines whether the specified cursor is a spam.
+     * Determines whether the specified Cursor is a spam.
      *
-     * @param      cursor  $cur    The cursor
+     * @param      Cursor  $cur    The Cursor
      *
      * @return     bool    True if the specified current is spam, False otherwise.
      */
-    public function isSpam(cursor $cur): bool
+    public function isSpam(Cursor $cur): bool
     {
         foreach ($this->filters as $fid => $f) {
             if (!$f->active) {
@@ -114,11 +114,11 @@ class SpamFilters
     /**
      * Train antispam filters with current comment in record
      *
-     * @param      dcRecord      $rs             The comment record
+     * @param      MetaRecord      $rs             The comment record
      * @param      string        $status         The status
      * @param      string        $filter_name    The filter name
      */
-    public function trainFilters(dcRecord $rs, string $status, string $filter_name): void
+    public function trainFilters(MetaRecord $rs, string $status, string $filter_name): void
     {
         foreach ($this->filters as $f) {
             if (!$f->active) {
@@ -139,12 +139,12 @@ class SpamFilters
     /**
      * Get filter status message
      *
-     * @param      dcRecord      $rs             The comment record
+     * @param      MetaRecord      $rs             The comment record
      * @param      string        $filter_name    The filter name
      *
      * @return     string
      */
-    public function statusMessage(dcRecord $rs, string $filter_name): string
+    public function statusMessage(MetaRecord $rs, string $filter_name): string
     {
         $filter = $this->filters[$filter_name] ?? null;
 

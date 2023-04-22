@@ -8,7 +8,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!($_s instanceof dbStruct)) {   // @phpstan-ignore-line
+
+use Dotclear\Database\Structure;
+
+if (!($_s instanceof Structure)) {   // @phpstan-ignore-line
     throw new Exception('No valid schema object');
 }
 

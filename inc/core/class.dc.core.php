@@ -13,6 +13,12 @@
  */
 
 use Dotclear\App;
+use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\Cursor;
+use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
+use Dotclear\Database\Driver\Mysqlimb4\Handler as Mysqlimb4Handler;
+use Dotclear\Database\Driver\Pgsql\Handler as PgsqlHandler;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Session;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
@@ -58,7 +64,7 @@ final class dcCore
     /**
      * Database connection
      *
-     * @var dbLayer
+     * @var AbstractHandler
      */
     public $con;
 
@@ -358,18 +364,17 @@ final class dcCore
         // Deprecated since 2.26
         $this->autoload = App::autoload();
 
-        $this->con = dbLayer::init($driver, $host, $db, $user, $password, $persist);
+        $this->con = AbstractHandler::init($driver, $host, $db, $user, $password, $persist);
 
         // Define weak_locks for mysql
-        // Begin test by mysqlimb4Connection as it extends mysqliConnection
-        if ($this->con instanceof mysqlimb4Connection) {
-            mysqlimb4Connection::$weak_locks = true;
-        } elseif ($this->con instanceof mysqliConnection) {
-            mysqliConnection::$weak_locks = true;
+        if ($this->con instanceof Mysqlimb4Handler) {
+            Mysqlimb4Handler::$weak_locks = true;
+        } elseif ($this->con instanceof MysqliHandler) {
+            MysqliHandler::$weak_locks = true;
         }
 
         # define searchpath for postgresql
-        if ($this->con instanceof pgsqlConnection) {
+        if ($this->con instanceof PgsqlHandler) {
             $searchpath = explode('.', $prefix, 2);
             if (count($searchpath) > 1) {
                 $prefix = $searchpath[1];
@@ -1060,9 +1065,9 @@ final class dcCore
      *
      * @param      string  $id     The identifier
      *
-     * @return     dcRecord  The user.
+     * @return     MetaRecord  The user.
      */
-    public function getUser(string $id): dcRecord
+    public function getUser(string $id): MetaRecord
     {
         $params['user_id'] = $id;
 
@@ -1081,9 +1086,9 @@ final class dcCore
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
      *
-     * @return     dcRecord  The users.
+     * @return     MetaRecord  The users.
      */
-    public function getUsers($params = [], bool $count_only = false): dcRecord
+    public function getUsers($params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
 
@@ -1187,15 +1192,15 @@ final class dcCore
     }
 
     /**
-     * Adds a new user. Takes a cursor as input and returns the new user ID.
+     * Adds a new user. Takes a Cursor as input and returns the new user ID.
      *
-     * @param      cursor     $cur    The user cursor
+     * @param      Cursor     $cur    The user Cursor
      *
      * @throws     Exception
      *
      * @return     string
      */
-    public function addUser(cursor $cur): string
+    public function addUser(Cursor $cur): string
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1217,7 +1222,7 @@ final class dcCore
 
         $cur->insert();
 
-        # --BEHAVIOR-- coreAfterAddUser -- cursor
+        # --BEHAVIOR-- coreAfterAddUser -- Cursor
         $this->callBehavior('coreAfterAddUser', $cur);
 
         return $cur->user_id;
@@ -1227,13 +1232,13 @@ final class dcCore
      * Updates an existing user. Returns the user ID.
      *
      * @param      string     $id     The user identifier
-     * @param      cursor     $cur    The cursor
+     * @param      Cursor     $cur    The Cursor
      *
      * @throws     Exception
      *
      * @return     string
      */
-    public function updUser(string $id, cursor $cur): string
+    public function updUser(string $id, Cursor $cur): string
     {
         $this->fillUserCursor($cur);
 
@@ -1246,7 +1251,7 @@ final class dcCore
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterUpdUser -- cursor
+        # --BEHAVIOR-- coreAfterUpdUser -- Cursor
         $this->callBehavior('coreAfterUpdUser', $cur);
 
         if ($cur->user_id !== null) {
@@ -1481,13 +1486,13 @@ final class dcCore
     }
 
     /**
-     * Fills the user cursor.
+     * Fills the user Cursor.
      *
-     * @param      cursor     $cur    The user cursor
+     * @param      Cursor     $cur    The user Cursor
      *
      * @throws     Exception
      */
-    private function fillUserCursor(cursor $cur)
+    private function fillUserCursor(Cursor $cur)
     {
         if ($cur->isField('user_id')
             && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', (string) $cur->user_id)) {
@@ -1617,7 +1622,7 @@ final class dcCore
      *
      * @param      string  $id     The blog identifier
      *
-     * @return     dcRecord|false    The blog.
+     * @return     MetaRecord|false    The blog.
      */
     public function getBlog(string $id)
     {
@@ -1631,7 +1636,7 @@ final class dcCore
     }
 
     /**
-     * Returns a dcRecord of blogs. <b>$params</b> is an array with the following
+     * Returns a MetaRecord of blogs. <b>$params</b> is an array with the following
      * optionnal parameters:
      *
      * - <var>blog_id</var>: Blog ID
@@ -1641,9 +1646,9 @@ final class dcCore
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
      *
-     * @return     dcRecord  The blogs.
+     * @return     MetaRecord  The blogs.
      */
-    public function getBlogs($params = [], bool $count_only = false): dcRecord
+    public function getBlogs($params = [], bool $count_only = false): MetaRecord
     {
         $join  = ''; // %1$s
         $where = ''; // %2$s
@@ -1713,17 +1718,17 @@ final class dcCore
 
         $strReq = sprintf($strReq, $join, $where);
 
-        return new dcRecord($this->con->select($strReq));
+        return new MetaRecord($this->con->select($strReq));
     }
 
     /**
      * Adds a new blog.
      *
-     * @param      cursor     $cur    The blog cursor
+     * @param      Cursor     $cur    The blog Cursor
      *
      * @throws     Exception
      */
-    public function addBlog(cursor $cur): void
+    public function addBlog(Cursor $cur): void
     {
         if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
@@ -1742,9 +1747,9 @@ final class dcCore
      * Updates a given blog.
      *
      * @param      string  $id     The blog identifier
-     * @param      cursor  $cur    The cursor
+     * @param      Cursor  $cur    The Cursor
      */
-    public function updBlog(string $id, cursor $cur): void
+    public function updBlog(string $id, Cursor $cur): void
     {
         $this->fillBlogCursor($cur);
 
@@ -1754,13 +1759,13 @@ final class dcCore
     }
 
     /**
-     * Fills the blog cursor.
+     * Fills the blog Cursor.
      *
-     * @param      cursor  $cur    The cursor
+     * @param      Cursor  $cur    The Cursor
      *
      * @throws     Exception
      */
-    private function fillBlogCursor(cursor $cur): void
+    private function fillBlogCursor(Cursor $cur): void
     {
         if (($cur->blog_id !== null
             && !preg_match('/^[A-Za-z0-9._-]{2,}$/', (string) $cur->blog_id)) || (!$cur->blog_id)) {
@@ -1810,7 +1815,7 @@ final class dcCore
         'FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME . ' ' .
         "WHERE blog_id = '" . $this->con->escape($id) . "' ";
 
-        $rs = new dcRecord($this->con->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         return !$rs->isEmpty();
     }
@@ -1833,7 +1838,7 @@ final class dcCore
             $strReq .= "AND post_type = '" . $this->con->escape($type) . "' ";
         }
 
-        return (new dcRecord($this->con->select($strReq)))->f(0);
+        return (new MetaRecord($this->con->select($strReq)))->f(0);
     }
     //@}
 
@@ -2216,7 +2221,7 @@ final class dcCore
     {
         $strReq = 'SELECT COUNT(post_id) ' .
         'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME;
-        $rs    = new dcRecord($this->con->select($strReq));
+        $rs    = new MetaRecord($this->con->select($strReq));
         $count = $rs->f(0);
 
         $strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml ' .
@@ -2226,7 +2231,7 @@ final class dcCore
             $strReq .= $this->con->limit($start, $limit);
         }
 
-        $rs = new dcRecord($this->con->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         $cur = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
 
@@ -2258,7 +2263,7 @@ final class dcCore
     {
         $strReq = 'SELECT COUNT(comment_id) ' .
         'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME;
-        $rs    = new dcRecord($this->con->select($strReq));
+        $rs    = new MetaRecord($this->con->select($strReq));
         $count = $rs->f(0);
 
         $strReq = 'SELECT comment_id, comment_content ' .
@@ -2268,7 +2273,7 @@ final class dcCore
             $strReq .= $this->con->limit($start, $limit);
         }
 
-        $rs = new dcRecord($this->con->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         $cur = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
 

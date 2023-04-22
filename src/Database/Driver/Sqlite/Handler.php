@@ -1,63 +1,33 @@
 <?php
 /**
- * @class pgsqlConnection
- * @brief PostgreSQL Database Driver
+ * @class Handler
  *
- * See the {@link dbLayer} documentation for common methods.
+ * SQLite Database handler
  *
  * This class adds a method for PostgreSQL only: {@link callFunction()}.
  *
- * @package Clearbricks
- * @subpackage DBLayer
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class pgsqlConnection extends dbLayer implements i_dbLayer
+declare(strict_types=1);
+
+namespace Dotclear\Database\Driver\Sqlite;
+
+use Collator;
+use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\StaticRecord;
+use Exception;
+use PDO;
+use PDOStatement;
+
+class Handler extends AbstractHandler
 {
-    protected $__driver        = 'pgsql';
-    protected $__syntax        = 'postgresql';
+    protected $__driver        = 'sqlite';
+    protected $__syntax        = 'sqlite';
     protected $utf8_unicode_ci = null;
-
-    /**
-     * Gets the PostgreSQL connection string.
-     *
-     * @param      string  $host      The host
-     * @param      string  $user      The user
-     * @param      string  $password  The password
-     * @param      string  $database  The database
-     *
-     * @return     string  The connection string.
-     */
-    private function get_connection_string(string $host, string $user, string $password, string $database): string
-    {
-        $str  = '';
-        $port = false;
-
-        if ($host) {
-            if (strpos($host, ':') !== false) {
-                $bits = explode(':', $host);
-                $host = array_shift($bits);
-                $port = abs((int) array_shift($bits));
-            }
-            $str .= "host = '" . addslashes($host) . "' ";
-
-            if ($port) {
-                $str .= 'port = ' . $port . ' ';
-            }
-        }
-        if ($user) {
-            $str .= "user = '" . addslashes($user) . "' ";
-        }
-        if ($password) {
-            $str .= "password = '" . addslashes($password) . "' ";
-        }
-        if ($database) {
-            $str .= "dbname = '" . addslashes($database) . "' ";
-        }
-
-        return $str;
-    }
+    protected $vacuum          = false;
 
     /**
      * Open a DB connection
@@ -73,16 +43,11 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_connect(string $host, string $user, string $password, string $database)
     {
-        if (!function_exists('pg_connect')) {
-            throw new Exception('PHP PostgreSQL functions are not available');
+        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
+            throw new Exception('PDO SQLite class is not available');
         }
 
-        $str = $this->get_connection_string($host, $user, $password, $database);
-
-        if (($link = @pg_connect($str)) === false) {
-            throw new Exception('Unable to connect to database');
-        }
-
+        $link = new PDO('sqlite:' . $database);
         $this->db_post_connect($link);
 
         return $link;
@@ -100,16 +65,11 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_pconnect(string $host, string $user, string $password, string $database)
     {
-        if (!function_exists('pg_pconnect')) {
-            throw new Exception('PHP PostgreSQL functions are not available');
+        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
+            throw new Exception('PDO SQLite class is not available');
         }
 
-        $str = $this->get_connection_string($host, $user, $password, $database);
-
-        if (($link = @pg_pconnect($str)) === false) {
-            throw new Exception('Unable to connect to database');
-        }
-
+        $link = new PDO('sqlite:' . $database, null, null, [PDO::ATTR_PERSISTENT => true]);
         $this->db_post_connect($link);
 
         return $link;
@@ -122,13 +82,15 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     private function db_post_connect($handle): void
     {
-        if (version_compare($this->db_version($handle), '9.1') >= 0) {
-            // Only for PostgreSQL 9.1+
-            $result = $this->db_query($handle, "SELECT * FROM pg_collation WHERE (collcollate LIKE '%.utf8')");
-            if ($this->db_num_rows($result) > 0) {
-                $this->db_result_seek($result, 0);
-                $row                   = $this->db_fetch_assoc($result);
-                $this->utf8_unicode_ci = '"' . $row['collname'] . '"';
+        if ($handle instanceof PDO) {
+            $this->db_exec($handle, 'PRAGMA short_column_names = 1');
+            $this->db_exec($handle, 'PRAGMA encoding = "UTF-8"');
+            $handle->sqliteCreateFunction('now', [$this, 'now'], 0);
+            if (class_exists('Collator') && method_exists($handle, 'sqliteCreateCollation')) {
+                $this->utf8_unicode_ci = new Collator('root');
+                if (!$handle->sqliteCreateCollation('utf8_unicode_ci', [$this->utf8_unicode_ci, 'compare'])) {
+                    $this->utf8_unicode_ci = null;
+                }
             }
         }
     }
@@ -140,8 +102,12 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_close($handle): void
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof PgSql\Connection)) {
-            pg_close($handle);
+        if ($handle instanceof PDO) {
+            if ($this->vacuum) {
+                $this->db_exec($handle, 'VACUUM');
+            }
+            $handle       = null;
+            $this->__link = null;
         }
     }
 
@@ -154,11 +120,48 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_version($handle): string
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof PgSql\Connection)) {
-            return pg_parameter_status($handle, 'server_version');
+        return $handle instanceof PDO ? $handle->getAttribute(PDO::ATTR_SERVER_VERSION) : '';
+    }
+
+    /**
+     * Get query data in a StaticRecord
+     *
+     * There is no other way than get all selected data in a StaticRecord with SQlite
+     *
+     * @param      string        $sql    The sql
+     *
+     * @return     StaticRecord  The static record.
+     */
+    public function select(string $sql): StaticRecord
+    {
+        $result              = $this->db_query($this->__link, $sql);
+        $this->__last_result = &$result;
+
+        $info         = [];
+        $info['con']  = &$this;
+        $info['cols'] = $this->db_num_fields($result);
+        $info['info'] = [];
+
+        for ($i = 0; $i < $info['cols']; $i++) {
+            $info['info']['name'][] = $this->db_field_name($result, $i);
+            $info['info']['type'][] = $this->db_field_type($result, $i);
         }
 
-        return '';
+        $data = [];
+        while ($r = $result->fetch(PDO::FETCH_ASSOC)) { // @phpstan-ignore-line
+            $R = [];
+            foreach ($r as $k => $v) {
+                $k     = preg_replace('/^(.*)\./', '', $k);
+                $R[$k] = $v;
+                $R[]   = &$R[$k];
+            }
+            $data[] = $R;
+        }
+
+        $info['rows'] = count($data);
+        $result->closeCursor(); // @phpstan-ignore-line
+
+        return new StaticRecord($data, $info);
     }
 
     /**
@@ -173,14 +176,16 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_query($handle, string $query)
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof PgSql\Connection)) {
-            $res = @pg_query($handle, $query);
+        if ($handle instanceof PDO) {
+            $res = $handle->query($query);
             if ($res === false) {
                 throw new Exception($this->db_last_error($handle));
             }
 
             return $res;
         }
+
+        return null;
     }
 
     /**
@@ -205,11 +210,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_num_fields($res): int
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_num_fields($res);
-        }
-
-        return 0;
+        return $res instanceof PDOStatement ? $res->columnCount() : 0;
     }
 
     /**
@@ -221,10 +222,6 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_num_rows($res): int
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_num_rows($res);
-        }
-
         return 0;
     }
 
@@ -238,8 +235,10 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_field_name($res, int $position): string
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_field_name($res, $position);
+        if ($res instanceof PDOStatement) {
+            $m = $res->getColumnMeta($position);
+
+            return preg_replace('/^.+\./', '', $m['name']); # we said short_column_names = 1
         }
 
         return '';
@@ -255,8 +254,18 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_field_type($res, int $position): string
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_field_type($res, $position);
+        if ($res instanceof PDOStatement) {
+            $m = $res->getColumnMeta($position);
+            switch ($m['pdo_type']) {
+                case PDO::PARAM_BOOL:
+                    return 'boolean';
+                case PDO::PARAM_NULL:
+                    return 'null';
+                case PDO::PARAM_INT:
+                    return 'integer';
+                default:
+                    return 'varchar';
+            }
         }
 
         return '';
@@ -271,10 +280,6 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_fetch_assoc($res)
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_fetch_assoc($res);
-        }
-
         return false;
     }
 
@@ -286,12 +291,8 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      *
      * @return     bool
      */
-    public function db_result_seek($res, int $row): bool
+    public function db_result_seek($res, $row): bool
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_result_seek($res, (int) $row);
-        }
-
         return false;
     }
 
@@ -305,11 +306,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_changes($handle, $res): int
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof PgSql\Result)) {
-            return pg_affected_rows($res);
-        }
-
-        return 0;
+        return $res instanceof PDOStatement ? $res->rowCount() : 0;
     }
 
     /**
@@ -321,8 +318,10 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_last_error($handle)
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof PgSql\Connection)) {
-            return pg_last_error($handle);
+        if ($handle instanceof PDO) {
+            $err = $handle->errorInfo();
+
+            return $err[2] . ' (' . $err[1] . ')';
         }
 
         return false;
@@ -338,11 +337,33 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_escape_string($str, $handle = null): string
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof PgSql\Connection)) {
-            return pg_escape_string($handle, (string) $str);
-        }
+        return $handle instanceof PDO ? trim($handle->quote($str), "'") : addslashes($str);
+    }
 
-        return addslashes((string) $str);
+    public function escapeSystem(string $str): string
+    {
+        return "'" . $this->escape($str) . "'";
+    }
+
+    public function begin(): void
+    {
+        if ($this->__link instanceof PDO) {
+            $this->__link->beginTransaction();
+        }
+    }
+
+    public function commit(): void
+    {
+        if ($this->__link instanceof PDO) {
+            $this->__link->commit();
+        }
+    }
+
+    public function rollback(): void
+    {
+        if ($this->__link instanceof PDO) {
+            $this->__link->rollBack();
+        }
     }
 
     /**
@@ -352,8 +373,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function db_write_lock(string $table): void
     {
-        $this->execute('BEGIN');
-        $this->execute('LOCK TABLE ' . $this->escapeSystem($table) . ' IN EXCLUSIVE MODE');
+        $this->execute('BEGIN EXCLUSIVE TRANSACTION');
     }
 
     /**
@@ -371,7 +391,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function vacuum(string $table): void
     {
-        $this->execute('VACUUM FULL ' . $this->escapeSystem($table));
+        $this->vacuum = true;
     }
 
     /**
@@ -384,18 +404,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function dateFormat(string $field, string $pattern): string
     {
-        $rep = [
-            '%d' => 'DD',
-            '%H' => 'HH24',
-            '%M' => 'MI',
-            '%m' => 'MM',
-            '%S' => 'SS',
-            '%Y' => 'YYYY',
-        ];
-
-        $pattern = str_replace(array_keys($rep), array_values($rep), $pattern);
-
-        return 'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";
+        return "strftime('" . $this->escape($pattern) . "'," . $field . ')';
     }
 
     /**
@@ -418,8 +427,8 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
                 $v          = array_merge($default, $v);
                 $v['order'] = (strtoupper($v['order']) == 'DESC' ? 'DESC' : '');
                 if ($v['collate']) {
-                    if ($this->utf8_unicode_ci) {
-                        $res[] = $v['field'] . ' COLLATE ' . $this->utf8_unicode_ci . ' ' . $v['order'];
+                    if ($this->utf8_unicode_ci instanceof Collator) {
+                        $res[] = $v['field'] . ' COLLATE utf8_unicode_ci ' . $v['order'];
                     } else {
                         $res[] = 'LOWER(' . $v['field'] . ') ' . $v['order'];
                     }
@@ -441,7 +450,7 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
      */
     public function lexFields(...$args): string
     {
-        $fmt = $this->utf8_unicode_ci ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
+        $fmt = $this->utf8_unicode_ci instanceof Collator ? '%s COLLATE utf8_unicode_ci' : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
@@ -453,36 +462,9 @@ class pgsqlConnection extends dbLayer implements i_dbLayer
         return empty($res) ? '' : implode(',', $res);
     }
 
-    /**
-     * Function call
-     *
-     * Calls a PostgreSQL function an returns the result as a {@link record}.
-     * After <var>$name</var>, you can add any parameters you want to append
-     * them to the PostgreSQL function. You don't need to escape string in
-     * arguments.
-     *
-     * @param string    $name    Function name
-     *
-     * @return    record
-     */
-    public function callFunction(string $name, ...$data): record
+    # Internal SQLite function that adds NOW() SQL function.
+    public function now()
     {
-        foreach ($data as $k => $v) {
-            if (is_null($v)) {
-                $data[$k] = 'NULL';
-            } elseif (is_string($v)) {
-                $data[$k] = "'" . $this->escape($v) . "'";
-            } elseif (is_array($v)) {
-                $data[$k] = $v[0];
-            } else {
-                $data[$k] = $v;
-            }
-        }
-
-        $req = 'SELECT ' . $name . "(\n" .
-        implode(",\n", array_values($data)) .
-            "\n) ";
-
-        return $this->select($req);
+        return date('Y-m-d H:i:s');
     }
 }

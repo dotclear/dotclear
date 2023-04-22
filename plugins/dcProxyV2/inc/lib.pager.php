@@ -6,6 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\MetaRecord;
+
 class adminGenericList extends adminGenericListV2
 {
     /**
@@ -16,8 +19,8 @@ class adminGenericList extends adminGenericListV2
      */
     public function __construct(dcCore $core, $rs, $rs_count)   // @phpstan-ignore-line
     {
-        if ($rs && !($rs instanceof dcRecord)) {
-            $rs = new dcRecord($rs);
+        if ($rs && !($rs instanceof MetaRecord)) {
+            $rs = new MetaRecord($rs);
         }
         parent::__construct($rs, $rs_count);
     }

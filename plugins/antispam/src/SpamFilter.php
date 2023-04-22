@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\antispam;
 
 use dcAuth;
 use dcCore;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 
 class SpamFilter
@@ -143,9 +143,9 @@ class SpamFilter
      * @param      string        $site     The comment author site
      * @param      string        $ip       The comment author IP
      * @param      string        $content  The comment content
-     * @param      dcRecord      $rs       The comment record
+     * @param      MetaRecord      $rs       The comment record
      */
-    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, dcRecord $rs)
+    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs)
     {
     }
 

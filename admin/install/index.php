@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\AbstractSchema;
+use Dotclear\Database\Structure;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -41,7 +43,7 @@ if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {
 }
 
 # Check if dotclear is already installed
-$schema = dbSchema::init(dcCore::app()->con);
+$schema = AbstractSchema::init(dcCore::app()->con);
 if (in_array(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, $schema->getTables())) {
     $can_install = false;
     $err         = '<p>' . __('Dotclear is already installed.') . '</p>';
@@ -109,10 +111,10 @@ if ($can_install && !empty($_POST)) {
         }
 
         # Create schema
-        $_s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
+        $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
         require __DIR__ . '/../../inc/dbschema/db-schema.php';
 
-        $si      = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
+        $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
         $changes = $si->synchronize($_s);
 
         # Create user

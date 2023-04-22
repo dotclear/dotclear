@@ -16,7 +16,7 @@ namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
 use dcLog;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 
 class Maintenance
 {
@@ -216,7 +216,7 @@ class Maintenance
         }
 
         // Get logs from this task
-        $rs = new dcRecord(dcCore::app()->con->select(
+        $rs = new MetaRecord(dcCore::app()->con->select(
             'SELECT log_id ' .
             'FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
             "WHERE log_msg = '" . dcCore::app()->con->escape($id) . "' " .

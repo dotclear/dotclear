@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Html;
@@ -22,13 +23,13 @@ class dcAdminCombos
     /**
      * Returns an hierarchical categories combo from a category record
      *
-     * @param      dcRecord  $categories     The categories
-     * @param      bool      $include_empty  Includes empty categories
-     * @param      bool      $use_url        Use url or ID
+     * @param      MetaRecord   $categories     The categories
+     * @param      bool         $include_empty  Includes empty categories
+     * @param      bool         $use_url        Use url or ID
      *
      * @return     array   The categories combo.
      */
-    public static function getCategoriesCombo(dcRecord $categories, bool $include_empty = true, bool $use_url = false): array
+    public static function getCategoriesCombo(MetaRecord $categories, bool $include_empty = true, bool $use_url = false): array
     {
         $categories_combo = [];
         if ($include_empty) {
@@ -67,11 +68,11 @@ class dcAdminCombos
     /**
      * Returns an users combo from a users record.
      *
-     * @param      dcRecord  $users  The users
+     * @param      MetaRecord  $users  The users
      *
      * @return     array   The users combo.
      */
-    public static function getUsersCombo(dcRecord $users): array
+    public static function getUsersCombo(MetaRecord $users): array
     {
         $users_combo = [];
         while ($users->fetch()) {
@@ -95,11 +96,11 @@ class dcAdminCombos
     /**
      * Gets the dates combo.
      *
-     * @param      dcRecord  $dates  The dates
+     * @param      MetaRecord  $dates  The dates
      *
      * @return     array   The dates combo.
      */
-    public static function getDatesCombo(dcRecord $dates): array
+    public static function getDatesCombo(MetaRecord $dates): array
     {
         $dt_m_combo = [];
         while ($dates->fetch()) {
@@ -112,12 +113,12 @@ class dcAdminCombos
     /**
      * Gets the langs combo.
      *
-     * @param      dcRecord  $langs           The langs
+     * @param      MetaRecord  $langs           The langs
      * @param      bool      $with_available  If false, only list items from record if true, also list available languages
      *
      * @return     array   The langs combo.
      */
-    public static function getLangsCombo(dcRecord $langs, bool $with_available = false): array
+    public static function getLangsCombo(MetaRecord $langs, bool $with_available = false): array
     {
         $all_langs = L10n::getISOcodes(false, true);
         if ($with_available) {

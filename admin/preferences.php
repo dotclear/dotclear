@@ -197,7 +197,7 @@ class adminUserPrefs
                     $cur->user_pwd = $_POST['new_pwd'];
                 }
 
-                # --BEHAVIOR-- adminBeforeUserUpdate -- cursor, string
+                # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminBeforeUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user
@@ -215,7 +215,7 @@ class adminUserPrefs
                 dcCore::app()->auth->user_prefs->profile->put('mails', $mails, 'string');
                 dcCore::app()->auth->user_prefs->profile->put('urls', $urls, 'string');
 
-                # --BEHAVIOR-- adminAfterUserUpdate -- cursor, string
+                # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
@@ -258,7 +258,7 @@ class adminUserPrefs
 
                 $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
 
-                # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- cursor, string
+                # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminBeforeUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user prefs
@@ -326,7 +326,7 @@ class adminUserPrefs
                 // Update user
                 dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
 
-                # --BEHAVIOR-- adminAfterUserOptionsUpdate -- cursor, string
+                # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));

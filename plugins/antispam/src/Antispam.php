@@ -12,12 +12,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use cursor;
+use Dotclear\Database\Cursor;
 use dcAuth;
 use dcBlog;
 use dcCore;
 use dcPage;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use initAntispam;
 
 class Antispam extends initAntispam
@@ -45,13 +45,13 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Determines whether the specified cursor content is spam.
+     * Determines whether the specified Cursor content is spam.
      *
-     * The cursor may be modified (or deleted) according to the result
+     * The Cursor may be modified (or deleted) according to the result
      *
-     * @param      cursor  $cur    The current
+     * @param      Cursor  $cur    The current
      */
-    public static function isSpam(cursor $cur)
+    public static function isSpam(Cursor $cur)
     {
         self::initFilters();
         self::$filters->isSpam($cur);
@@ -61,10 +61,10 @@ class Antispam extends initAntispam
      * Train the filters with current record
      *
      * @param      dcBlog        $blog   The blog
-     * @param      cursor        $cur    The cursor
-     * @param      dcRecord      $rs     The comment record
+     * @param      Cursor        $cur    The Cursor
+     * @param      MetaRecord      $rs     The comment record
      */
-    public static function trainFilters(dcBlog $blog, cursor $cur, dcRecord $rs): void
+    public static function trainFilters(dcBlog $blog, Cursor $cur, MetaRecord $rs): void
     {
         $status = null;
         // From ham to spam
@@ -89,11 +89,11 @@ class Antispam extends initAntispam
     /**
      * Get filter status message
      *
-     * @param      dcRecord      $rs     The comment record
+     * @param      MetaRecord      $rs     The comment record
      *
      * @return     string
      */
-    public static function statusMessage(dcRecord $rs): string
+    public static function statusMessage(MetaRecord $rs): string
     {
         if ($rs->exists('comment_status') && $rs->comment_status == dcBlog::COMMENT_JUNK) {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
@@ -171,7 +171,7 @@ class Antispam extends initAntispam
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
 
-        $rs = new dcRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
         $r  = [];
         while ($rs->fetch()) {
             $r[] = (int) $rs->comment_id;
@@ -222,7 +222,7 @@ class Antispam extends initAntispam
         'FROM ' . dcCore::app()->prefix . dcAuth::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . dcCore::app()->con->escape($user_id) . "' ";
 
-        $rs = new dcRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
 
         if ($rs->isEmpty()) {
             return false;

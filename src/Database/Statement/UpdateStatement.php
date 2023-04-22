@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Statement;
 
-use cursor;
+use Dotclear\Database\Cursor;
 use dcCore;
 
 class UpdateStatement extends SqlStatement
@@ -99,7 +99,7 @@ class UpdateStatement extends SqlStatement
     /**
      * Returns the WHERE part of update statement
      *
-     * Useful to construct the where clause used with cursor->update() method
+     * Useful to construct the where clause used with Cursor->update() method
      *
      * @return string The where part of update statement
      */
@@ -194,11 +194,11 @@ class UpdateStatement extends SqlStatement
     /**
      * Run the SQL update query
      *
-     * @param      cursor|null  $cur    The cursor
+     * @param      Cursor|null  $cur    The Cursor
      *
      * @return     bool
      */
-    public function update(?cursor $cur = null): bool
+    public function update(?Cursor $cur = null): bool
     {
         if ($cur) {
             return $cur->update($this->whereStatement());
@@ -214,11 +214,11 @@ class UpdateStatement extends SqlStatement
     /**
      * update() alias
      *
-     * @param      cursor|null  $cur    The cursor
+     * @param      Cursor|null  $cur    The Cursor
      *
      * @return     bool
      */
-    public function run(?cursor $cur = null): bool
+    public function run(?Cursor $cur = null): bool
     {
         return $this->update($cur);
     }

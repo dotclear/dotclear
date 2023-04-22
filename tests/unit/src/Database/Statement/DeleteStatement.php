@@ -28,11 +28,12 @@ class DeleteStatement extends atoum
         $controller              = new controller();
         $controller->__construct = function () {};
 
-        $class_name = sprintf('\mock\%sConnection', $driver);
-        $con        = new $class_name($driver, $controller);
+        $class_name = sprintf('\\mock\\Dotclear\\Database\\Driver\\%s\\Handler', ucfirst($driver));
+        $con        = new $class_name($controller, $driver);
 
-        $this->calling($con)->driver = $driver;
-        $this->calling($con)->syntax = $syntax;
+        $this->calling($con)->driver    = $driver;
+        $this->calling($con)->syntax    = $syntax;
+        $this->calling($con)->escapeStr = fn ($str) => addslashes((string) $str);
         $this->calling($con)
             ->methods(
                 function ($method) {

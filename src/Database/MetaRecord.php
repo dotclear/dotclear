@@ -1,6 +1,6 @@
 <?php
 /**
- * @brief Dotclear dcRecord class
+ * @brief MetaRecord class
  *
  * @package Dotclear
  * @subpackage Core
@@ -8,31 +8,38 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Database;
+
+use Countable;
+use Iterator;
+
 #[\AllowDynamicProperties]
-class dcRecord implements Iterator, Countable
+class MetaRecord implements Iterator, Countable
 {
     /**
      * Record object
      *
-     * @var null|record
+     * @var null|Record
      */
     protected $dynamic;
 
     /**
      * Static record object
      *
-     * @var null|staticRecord|extStaticRecord
+     * @var null|StaticRecord
      */
     protected $static;
 
     /**
      * Constructs a new instance.
      *
-     * @param      record|staticRecord|extStaticRecord            $record    The record
+     * @param      Record|StaticRecord            $record    The record
      */
     public function __construct($record)
     {
-        if ($record instanceof extStaticRecord || $record instanceof staticRecord) {
+        if ($record instanceof StaticRecord) {
             $this->static = $record;
         } else {
             $this->dynamic = $record;
@@ -40,18 +47,18 @@ class dcRecord implements Iterator, Countable
     }
 
     /**
-     * To staticRecord
+     * To static Record
      *
-     * Converts the dynamic record to a {@link staticRecord} instance.
+     * Converts the dynamic record to a {@link StaticRecord} instance.
      *
-     * Note:    All dcRecord methods (unless staticRecord spécific, see at end of this file) will try first
-     *          with the extStaticRecord|staticRecord instance, if exist.
+     * Note:    All MetaRecord methods (unless StaticRecord specific, see at end of this file) will try first
+     *          with the StaticRecord instance, if exist.
      *
      * @return     self  Static representation of the object.
      */
     public function toStatic(): self
     {
-        if ($this->dynamic instanceof record) {
+        if ($this->dynamic instanceof Record) {
             $this->static = $this->dynamic->toStatic();
         }
 
@@ -59,31 +66,15 @@ class dcRecord implements Iterator, Countable
     }
 
     /**
-     * To extStaticRecord
-     *
-     * Converts the static record to a {@link extStaticRecord} instance.
-     *
-     * Notes:
-     *
-     *  - The static record is created from the dynamic one if it does not exist
-     *  - All dcRecord methods (unless (ext)staticRecord spécific, see at end of this file) will try first
-     *  with the extStaticRecord|staticRecord instance, if exist.
+     * Alias of toStatic()
      *
      * @return     self  Static representation of the object.
+     *
+     * @deprecated Since 2.26 use toStatic() instead
      */
     public function toExtStatic(): self
     {
-        if ($this->static instanceof extStaticRecord) {
-            return $this;
-        }
-
-        if (!$this->static) {
-            // Convert to static if necessary
-            $this->static = $this->dynamic->toStatic();
-        }
-        $this->static = new extStaticRecord($this->static);
-
-        return $this;
+        return $this->toStatic();
     }
 
     /**
@@ -99,15 +90,15 @@ class dcRecord implements Iterator, Countable
      */
     public function __call(string $f, $args)
     {
-        // Search method in staticRecord instance first
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        // Search method in StaticRecord instance first
+        if ($this->static instanceof StaticRecord) {
             $extensions = $this->static->extensions();
             if (isset($extensions[$f])) {
                 return $extensions[$f]($this, ...$args);
             }
         }
         // Then search method in record instance
-        if ($this->dynamic instanceof record) {
+        if ($this->dynamic instanceof Record) {
             $extensions = $this->dynamic->extensions();
             if (isset($extensions[$f])) {
                 return $extensions[$f]($this, ...$args);
@@ -154,9 +145,9 @@ class dcRecord implements Iterator, Countable
      */
     public function field($n)
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->field($n);
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->field($n);
         }
 
@@ -172,9 +163,9 @@ class dcRecord implements Iterator, Countable
      */
     public function exists($n): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->exists($n);
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->exists($n);
         }
 
@@ -192,9 +183,9 @@ class dcRecord implements Iterator, Countable
      */
     public function __isset(string $n): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->__isset($n);
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->__isset($n);
         }
 
@@ -214,9 +205,9 @@ class dcRecord implements Iterator, Countable
      */
     public function extend(string $class): void
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             $this->static->extend($class);
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             $this->dynamic->extend($class);
         }
     }
@@ -229,10 +220,10 @@ class dcRecord implements Iterator, Countable
     public function extensions(): array
     {
         $extensions = [];
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             $extensions = array_merge($extensions, $this->static->extensions());
         }
-        if ($this->dynamic instanceof record) {
+        if ($this->dynamic instanceof Record) {
             $extensions = array_merge($extensions, $this->dynamic->extensions());
         }
 
@@ -248,9 +239,9 @@ class dcRecord implements Iterator, Countable
      */
     public function index(?int $row = null)
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->index($row);
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->index($row);
         }
 
@@ -272,9 +263,9 @@ class dcRecord implements Iterator, Countable
      */
     public function fetch(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->fetch();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->fetch();
         }
 
@@ -288,9 +279,9 @@ class dcRecord implements Iterator, Countable
      */
     public function moveStart(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->moveStart();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->moveStart();
         }
 
@@ -304,9 +295,9 @@ class dcRecord implements Iterator, Countable
      */
     public function moveEnd(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->moveEnd();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->moveEnd();
         }
 
@@ -320,9 +311,9 @@ class dcRecord implements Iterator, Countable
      */
     public function moveNext(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->moveNext();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->moveNext();
         }
 
@@ -336,9 +327,9 @@ class dcRecord implements Iterator, Countable
      */
     public function movePrev(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->movePrev();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->movePrev();
         }
 
@@ -352,9 +343,9 @@ class dcRecord implements Iterator, Countable
      */
     public function isEnd(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->isEnd();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->isEnd();
         }
 
@@ -368,9 +359,9 @@ class dcRecord implements Iterator, Countable
      */
     public function isStart(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->isStart();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->isStart();
         }
 
@@ -384,9 +375,9 @@ class dcRecord implements Iterator, Countable
      */
     public function isEmpty(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->isEmpty();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->isEmpty();
         }
 
@@ -400,9 +391,9 @@ class dcRecord implements Iterator, Countable
      */
     public function columns(): array
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->columns();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->columns();
         }
 
@@ -416,9 +407,9 @@ class dcRecord implements Iterator, Countable
      */
     public function rows(): array
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->rows();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->rows();
         }
 
@@ -430,9 +421,9 @@ class dcRecord implements Iterator, Countable
      */
     public function row(): array
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->row();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->row();
         }
 
@@ -446,9 +437,9 @@ class dcRecord implements Iterator, Countable
      */
     public function count(): int
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->count();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->count();
         }
 
@@ -480,9 +471,9 @@ class dcRecord implements Iterator, Countable
      */
     public function next(): void
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             $this->static->fetch();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             $this->dynamic->fetch();
         }
     }
@@ -492,9 +483,9 @@ class dcRecord implements Iterator, Countable
      */
     public function rewind(): void
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             $this->static->rewind();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             $this->dynamic->rewind();
         }
     }
@@ -504,9 +495,9 @@ class dcRecord implements Iterator, Countable
      */
     public function valid(): bool
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->valid();
-        } elseif ($this->dynamic instanceof record) {
+        } elseif ($this->dynamic instanceof Record) {
             return $this->dynamic->valid();
         }
 
@@ -514,21 +505,21 @@ class dcRecord implements Iterator, Countable
     }
 
     /**
-     * dcRecord from array
+     * MetaRecord from array
      *
      * Returns a new instance of object from an associative array.
      *
      * @param array        $data        Data array
      *
-     * @return dcRecord
+     * @return MetaRecord
      */
     public static function newFromArray(?array $data): self
     {
-        return new self(staticRecord::newFromArray($data));
+        return new self(StaticRecord::newFromArray($data));
     }
 
-    // Methods valid on staticRecord or extStaticRecord instance only
-    // --------------------------------------------------------------
+    // Methods valid on StaticRecord instance only
+    // -------------------------------------------
 
     /**
      * Changes value of a given field in the current row.
@@ -540,7 +531,7 @@ class dcRecord implements Iterator, Countable
      */
     public function set($n, $v)
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             return $this->static->set($n, $v);
         }
     }
@@ -555,13 +546,10 @@ class dcRecord implements Iterator, Countable
      */
     public function sort($field, string $order = 'asc')
     {
-        if ($this->static instanceof extStaticRecord || $this->static instanceof staticRecord) {
+        if ($this->static instanceof StaticRecord) {
             $this->static->sort($field, $order);
         }
     }
-
-    // Methods valid on extStaticRecord instance only
-    // ----------------------------------------------
 
     /**
      * Lexically sorts values by a field in a given order.
@@ -571,7 +559,7 @@ class dcRecord implements Iterator, Countable
      */
     public function lexicalSort(string $field, string $order = 'asc')
     {
-        if ($this->static instanceof extStaticRecord) {
+        if ($this->static instanceof StaticRecord) {
             $this->static->lexicalSort($field, $order);
         }
     }

@@ -289,7 +289,7 @@ class adminBlogPref
                     }
                 }
 
-                # --BEHAVIOR-- adminBeforeBlogUpdate -- cursor, string
+                # --BEHAVIOR-- adminBeforeBlogUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminBeforeBlogUpdate', $cur, $da->blog_id);
 
                 if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $_POST['lang'])) {
@@ -303,7 +303,7 @@ class adminBlogPref
                     dcCore::app()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
 
-                # --BEHAVIOR-- adminAfterBlogUpdate -- cursor, string
+                # --BEHAVIOR-- adminAfterBlogUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterBlogUpdate', $cur, $da->blog_id);
 
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {

@@ -28,11 +28,12 @@ class SelectStatement extends atoum
         $controller              = new controller();
         $controller->__construct = function () {};
 
-        $class_name = sprintf('\mock\%sConnection', $driver);
-        $con        = new $class_name($driver, $controller);
+        $class_name = sprintf('\mock\Handler', $driver);
+        $con        = new $class_name($controller);
 
-        $this->calling($con)->driver = $driver;
-        $this->calling($con)->syntax = $syntax;
+        $this->calling($con)->driver    = $driver;
+        $this->calling($con)->syntax    = $syntax;
+        $this->calling($con)->escapeStr = fn ($str) => addslashes((string) $str);
         $this->calling($con)
             ->methods(
                 function ($method) {
@@ -43,9 +44,9 @@ class SelectStatement extends atoum
             )
         ;
 
-        $this->mockGenerator->generate('\dcRecord', null, 'dcRecord');
-        $rc                              = new \mock\dcRecord(null);
-        $this->calling($rc)->__construct = function ($record) {};
+        $this->mockGenerator->generate('\Dotclear\Database\MetaRecord', 'mock', 'MetaRecord');
+        //        $rc                              = new \mock\MetaRecord(null);
+        //        $this->calling($rc)->__construct = function ($record) {};
 
         return $con;
     }
@@ -469,7 +470,7 @@ class SelectStatement extends atoum
 
         $this
             ->object($sql->run())
-            ->isInstanceOf('\dcRecord')
+            ->isInstanceOf('\Dotclear\Database\MetaRecord')
         ;
     }
 }

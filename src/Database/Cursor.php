@@ -1,20 +1,26 @@
 <?php
 /**
- * @class cursor
- * @brief DBLayer Cursor
+ * @class Cursor
  *
  * This class implements facilities to insert or update in a table.
  *
- * @package Clearbricks
- * @subpackage DBLayer
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class cursor
+declare(strict_types=1);
+
+namespace Dotclear\Database;
+
+use Dotclear\Database\Statement\InsertStatement;
+use Dotclear\Database\Statement\UpdateStatement;
+use Exception;
+
+class Cursor
 {
     /**
-     * @var        dbLayer
+     * @var        AbstractHandler
      */
     private $__con;
 
@@ -31,27 +37,25 @@ class cursor
     /**
      * Constructor
      *
-     * Init cursor object on a given table. Note that you can init it with
-     * {@link dbLayer::openCursor() openCursor()} method of your connection object.
+     * Init Cursor object on a given table. Note that you can init it with
+     * {@link AbstractHandler::openCursor() openCursor()} method of your connection object.
      *
      * Example:
      * <code>
-     * <?php
      *    $cur = $con->openCursor('table');
      *    $cur->field1 = 1;
      *    $cur->field2 = 'foo';
      *    $cur->insert(); // Insert field ...
      *
      *    $cur->update('WHERE field3 = 4'); // ... or update field
-     * ?>
      * </code>
      *
-     * @see dbLayer::openCursor()
+     * @see AbstractHandler::openCursor()
      *
-     * @param dbLayer   $con      Connection object
-     * @param string    $table    Table name
+     * @param AbstractHandler   $con      Connection object
+     * @param string            $table    Table name
      */
-    public function __construct(dbLayer $con, string $table)
+    public function __construct(AbstractHandler $con, string $table)
     {
         $this->__con = &$con;
         $this->setTable($table);
@@ -82,11 +86,11 @@ class cursor
      * @see __set()
      *
      * @param string    $name        Field name
-     * @param mixed     $value        Field value
+     * @param mixed     $value       Field value
      */
     public function setField(string $name, $value): void
     {
-        $this->__data[$name] = $value;
+        $this->__data[$name] = is_array($value) ? $value[0] : $value;
     }
 
     /**
@@ -157,27 +161,6 @@ class cursor
         $this->__data = [];
     }
 
-    private function formatFields(): array
-    {
-        $data = [];
-
-        foreach ($this->__data as $k => $v) {
-            $k = $this->__con->escapeSystem($k);
-
-            if (is_null($v)) {
-                $data[$k] = 'NULL';
-            } elseif (is_string($v)) {
-                $data[$k] = "'" . $this->__con->escape($v) . "'";
-            } elseif (is_array($v)) {
-                $data[$k] = is_string($v[0]) ? "'" . $this->__con->escape($v[0]) . "'" : $v[0];
-            } else {
-                $data[$k] = $v;
-            }
-        }
-
-        return $data;
-    }
-
     /**
      * Get insert query
      *
@@ -187,11 +170,14 @@ class cursor
      */
     public function getInsert(): string
     {
-        $data = $this->formatFields();
+        $sql = new InsertStatement($this->__con);
+        $sql
+            ->into($this->__table)
+            ->columns(array_keys($this->__data))
+            ->values([array_values($this->__data)])
+        ;
 
-        return 'INSERT INTO ' . $this->__con->escapeSystem($this->__table) . " (\n" .
-        implode(",\n", array_keys($data)) . "\n) VALUES (\n" .
-        implode(",\n", array_values($data)) . "\n) ";
+        return $sql->statement();
     }
 
     /**
@@ -205,19 +191,18 @@ class cursor
      */
     public function getUpdate(string $where): string
     {
-        $data   = $this->formatFields();
-        $fields = [];
+        // Legacy: remove WHERE from beginning of $where arg
+        $where = trim(preg_replace('/^(?:\s*)WHERE(.*?)$/i', '$1', $where, 1));
 
-        $updReq = 'UPDATE ' . $this->__con->escapeSystem($this->__table) . " SET \n";
+        $sql = new UpdateStatement($this->__con);
+        $sql
+            ->from($this->__table)
+            ->columns(array_keys($this->__data))
+            ->set(array_values($this->__data))
+            ->where($where)
+        ;
 
-        foreach ($data as $k => $v) {
-            $fields[] = $k . ' = ' . $v . '';
-        }
-
-        $updReq .= implode(",\n", $fields);
-        $updReq .= "\n" . $where;
-
-        return $updReq;
+        return $sql->statement();
     }
 
     /**

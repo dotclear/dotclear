@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use dcCore;
 use dcPage;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
@@ -256,9 +256,9 @@ class Words extends SpamFilter
     /**
      * Gets the rules.
      *
-     * @return     dcRecord  The rules.
+     * @return     MetaRecord  The rules.
      */
-    private function getRules(): dcRecord
+    private function getRules(): MetaRecord
     {
         $strReq = 'SELECT rule_id, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
@@ -267,7 +267,7 @@ class Words extends SpamFilter
             'OR blog_id IS NULL ) ' .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
-        return new dcRecord(dcCore::app()->con->select($strReq));
+        return new MetaRecord(dcCore::app()->con->select($strReq));
     }
 
     /**
@@ -286,7 +286,7 @@ class Words extends SpamFilter
         if (!$general) {
             $strReq .= ' AND blog_id = \'' . dcCore::app()->blog->id . '\'';
         }
-        $rs = new dcRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
 
         if (!$rs->isEmpty() && !$general) {
             throw new Exception(__('This word exists'));
@@ -305,7 +305,7 @@ class Words extends SpamFilter
         if (!$rs->isEmpty() && $general) {
             $cur->update('WHERE rule_id = ' . $rs->rule_id);
         } else {
-            $rs_max       = new dcRecord(dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table));
+            $rs_max       = new MetaRecord(dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table));
             $cur->rule_id = (int) $rs_max->f(0) + 1;
             $cur->insert();
         }

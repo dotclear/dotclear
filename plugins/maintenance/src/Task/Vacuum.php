@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dbSchema;
 use dcCore;
+use Dotclear\Database\AbstractSchema;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
 class Vacuum extends MaintenanceTask
@@ -50,7 +50,7 @@ class Vacuum extends MaintenanceTask
      */
     public function execute()
     {
-        $schema = dbSchema::init(dcCore::app()->con);
+        $schema = AbstractSchema::init(dcCore::app()->con);
 
         foreach ($schema->getTables() as $table) {
             if (strpos($table, (string) dcCore::app()->prefix) === 0) {

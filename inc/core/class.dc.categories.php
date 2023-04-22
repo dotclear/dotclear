@@ -11,6 +11,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
+
 class dcCategories extends nestedTree
 {
     // Constants
@@ -69,9 +73,9 @@ class dcCategories extends nestedTree
      * @param      string  $sort    The sort
      * @param      array   $fields  The fields
      *
-     * @return     dcRecord  The children.
+     * @return     MetaRecord  The children.
      */
-    public function getChildren(int $start = 0, int $id = null, string $sort = 'asc', array $fields = []): dcRecord
+    public function getChildren(int $start = 0, int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
 
@@ -84,9 +88,9 @@ class dcCategories extends nestedTree
      * @param      int     $id      The category identifier
      * @param      array   $fields  The fields
      *
-     * @return     dcRecord  The parents.
+     * @return     MetaRecord  The parents.
      */
-    public function getParents(int $id, array $fields = []): dcRecord
+    public function getParents(int $id, array $fields = []): MetaRecord
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
 
@@ -99,9 +103,9 @@ class dcCategories extends nestedTree
      * @param      int      $id      The category identifier
      * @param      array    $fields  The fields
      *
-     * @return     dcRecord  The parent.
+     * @return     MetaRecord  The parent.
      */
-    public function getParent(int $id, array $fields = []): dcRecord
+    public function getParent(int $id, array $fields = []): MetaRecord
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
 
@@ -166,9 +170,9 @@ abstract class nestedTree
      * @param      string        $sort    The sort
      * @param      array         $fields  The fields
      *
-     * @return     dcRecord        The children.
+     * @return     MetaRecord        The children.
      */
-    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = []): dcRecord
+    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
     {
         $fields = count($fields) > 0 ? ', C2.' . implode(', C2.', $fields) : '';
 
@@ -188,7 +192,7 @@ abstract class nestedTree
 
         $sql = sprintf($sql, $from, $where, $having);
 
-        return new dcRecord($this->con->select($sql));
+        return new MetaRecord($this->con->select($sql));
     }
 
     /**
@@ -197,13 +201,13 @@ abstract class nestedTree
      * @param      int           $id      The identifier
      * @param      array         $fields  The fields
      *
-     * @return     dcRecord        The parents.
+     * @return     MetaRecord        The parents.
      */
-    public function getParents(int $id, array $fields = []): dcRecord
+    public function getParents(int $id, array $fields = []): MetaRecord
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
 
-        return new dcRecord($this->con->select(
+        return new MetaRecord($this->con->select(
             'SELECT C1.' . $this->f_id . ' ' . $fields . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' ASC '
         ));
     }
@@ -214,13 +218,13 @@ abstract class nestedTree
      * @param      int          $id      The identifier
      * @param      array        $fields  The fields
      *
-     * @return     dcRecord        The parents.
+     * @return     MetaRecord        The parents.
      */
-    public function getParent(int $id, array $fields = []): dcRecord
+    public function getParent(int $id, array $fields = []): MetaRecord
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
 
-        return new dcRecord($this->con->select(
+        return new MetaRecord($this->con->select(
             'SELECT C1.' . $this->f_id . ' ' . $fields . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . $this->con->limit(1)
         ));
     }
@@ -241,7 +245,7 @@ abstract class nestedTree
      */
     public function addNode($data, int $target = 0)
     {
-        if (!is_array($data) && !($data instanceof cursor)) {
+        if (!is_array($data) && !($data instanceof Cursor)) {
             throw new Exception('Invalid data block');
         }
 
@@ -258,10 +262,10 @@ abstract class nestedTree
         $this->con->writeLock($this->table);
 
         try {
-            $rs = new dcRecord($this->con->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
+            $rs = new MetaRecord($this->con->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
             $id = (int) $rs->n_id;
 
-            $rs = new dcRecord($this->con->select(
+            $rs = new MetaRecord($this->con->select(
                 'SELECT MAX(' . $this->f_right . ') as n_r ' .
                 'FROM ' . $this->table .
                 $this->getCondition('WHERE')
@@ -358,7 +362,7 @@ abstract class nestedTree
      */
     public function resetOrder()
     {
-        $rs = new dcRecord($this->con->select(
+        $rs = new MetaRecord($this->con->select(
             'SELECT ' . $this->f_id . ' ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE') . 'ORDER BY ' . $this->f_left . ' ASC '
         ));
         $lft = 2;
@@ -403,7 +407,7 @@ abstract class nestedTree
         if ($target > 0) {
             $rs = $this->getChildren(0, $target);
         } else {
-            $rs = new dcRecord($this->con->select(
+            $rs = new MetaRecord($this->con->select(
                 'SELECT MIN(' . $this->f_left . ')-1 AS ' . $this->f_left . ', MAX(' . $this->f_right . ')+1 AS ' . $this->f_right . ', 0 AS level ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE')
             ));
         }

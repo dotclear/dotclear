@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -689,11 +690,11 @@ class adminMediaPage extends adminMediaFilter
     }
 
     /**
-     * Return dcRecord instance of File objects
+     * Return MetaRecord instance of File objects
      *
-     * @return dcRecord Dirs and/or files File objects
+     * @return MetaRecord Dirs and/or files File objects
      */
-    public function getDirsRecord(): dcRecord
+    public function getDirsRecord(): MetaRecord
     {
         $dir = $this->media_dir;
         // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
@@ -709,7 +710,7 @@ class adminMediaPage extends adminMediaFilter
         // Transform each File array value to associative array if necessary
         $items = array_map(fn ($v) => $v instanceof File ? (array) $v : $v, $items);
 
-        return dcRecord::newFromArray($items);
+        return MetaRecord::newFromArray($items);
     }
 
     /**

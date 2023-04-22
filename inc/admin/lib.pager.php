@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
@@ -168,7 +169,7 @@ class dcPager extends Pager
 class adminGenericListV2
 {
     /**
-     * dcRecord Elements listed
+     * MetaRecord Elements listed
      */
     protected $rs;
 
@@ -190,10 +191,10 @@ class adminGenericListV2
     /**
      * Constructs a new instance.
      *
-     * @param      dcRecord  $rs        The record
-     * @param      mixed     $rs_count  The rs count
+     * @param      MetaRecord   $rs        The record
+     * @param      mixed        $rs_count  The rs count
      */
-    public function __construct(dcRecord $rs, $rs_count)
+    public function __construct(MetaRecord $rs, $rs_count)
     {
         $this->rs        = &$rs;
         $this->rs_count  = $rs_count;
@@ -290,7 +291,7 @@ class adminPostList extends adminGenericListV2
                 'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
             $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminPostListHeaderV2 -- dcRecord, ArrayObject
+            # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
@@ -429,7 +430,7 @@ class adminPostList extends adminGenericListV2
             'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
         ];
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostListValueV2 -- dcRecord, ArrayObject
+        # --BEHAVIOR-- adminPostListValueV2 -- MetaRecord, ArrayObject
         dcCore::app()->callBehavior('adminPostListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
@@ -469,7 +470,7 @@ class adminPostMiniList extends adminGenericListV2
             ];
 
             $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminPostMiniListHeaderV2 -- dcRecord, ArrayObject
+            # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
@@ -564,7 +565,7 @@ class adminPostMiniList extends adminGenericListV2
         ];
 
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostMiniListValueV2 -- dcRecord, ArrayObject
+        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject
         dcCore::app()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
@@ -678,7 +679,7 @@ class adminCommentList extends adminGenericListV2
             $cols['entry'] = '<th scope="col" abbr="entry">' . __('Entry') . '</th>';
 
             $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminCommentListHeaderV2 -- dcRecord, ArrayObject
+            # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
@@ -809,7 +810,7 @@ class adminCommentList extends adminGenericListV2
             ($this->rs->post_type != 'post' ? ' (' . Html::escapeHTML($this->rs->post_type) . ')' : '') . '</td>';
 
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminCommentListValueV2 -- dcRecord, ArrayObject
+        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject
         dcCore::app()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
@@ -862,7 +863,7 @@ class adminBlogList extends adminGenericListV2
             ];
 
             $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminBlogListHeaderV2 -- dcRecord, ArrayObject
+            # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
 
             $html_block = '<div class="table-outer"><table>' .
@@ -955,7 +956,7 @@ class adminBlogList extends adminGenericListV2
         ];
 
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminBlogListValueV2 -- dcRecord, ArrayObject
+        # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject
         dcCore::app()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
@@ -1007,7 +1008,7 @@ class adminUserList extends adminGenericListV2
             ];
 
             $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminUserListHeaderV2 -- dcRecord, ArrayObject
+            # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
@@ -1075,7 +1076,7 @@ class adminUserList extends adminGenericListV2
         ];
 
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminUserListValueV2 -- dcRecord, ArrayObject
+        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject
         dcCore::app()->callBehavior('adminUserListValueV2', $this->rs, $cols);
 
         // Cope with optional columns

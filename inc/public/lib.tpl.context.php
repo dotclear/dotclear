@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Record;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
@@ -32,9 +34,9 @@ class context
             $this->pop($name);
         } else {
             $this->stack[$name][] = &$var;
-            if ($var instanceof record) {
-                $this->stack['cur_loop'][] = new dcRecord($var);
-            } elseif ($var instanceof dcRecord) {
+            if ($var instanceof Record) {
+                $this->stack['cur_loop'][] = new MetaRecord($var);
+            } elseif ($var instanceof MetaRecord) {
                 $this->stack['cur_loop'][] = &$var;
             }
         }
@@ -81,7 +83,7 @@ class context
     {
         if (isset($this->stack[$name])) {
             $v = array_pop($this->stack[$name]);
-            if (($v instanceof record || $v instanceof dcRecord) && isset($this->stack['cur_loop'])) {
+            if (($v instanceof Record || $v instanceof MetaRecord) && isset($this->stack['cur_loop'])) {
                 array_pop($this->stack['cur_loop']);
             }
             unset($v);

@@ -149,12 +149,12 @@ class adminCategory
                 if (dcCore::app()->admin->cat_id) {
                     // Update category
 
-                    # --BEHAVIOR-- adminBeforeCategoryUpdate -- cursor, string|int
+                    # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminBeforeCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
                     dcCore::app()->blog->updCategory($_POST['id'], $cur);
 
-                    # --BEHAVIOR-- adminAfterCategoryUpdate -- cursor, string|int
+                    # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
                     dcPage::addSuccessNotice(__('The category has been successfully updated.'));
@@ -163,12 +163,12 @@ class adminCategory
                 } else {
                     // Create category
 
-                    # --BEHAVIOR-- adminBeforeCategoryCreate -- cursor
+                    # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                     dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur);
 
                     $id = dcCore::app()->blog->addCategory($cur, (int) $_POST['new_cat_parent']);
 
-                    # --BEHAVIOR-- adminAfterCategoryCreate -- cursor, string
+                    # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
                     dcPage::addSuccessNotice(sprintf(

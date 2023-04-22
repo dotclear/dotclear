@@ -8,6 +8,7 @@
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -369,12 +370,12 @@ class adminPost
 
                 $parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
 
-                # --BEHAVIOR-- adminBeforeCategoryCreate -- cursor
+                # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
                 dcCore::app()->admin->cat_id = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
-                # --BEHAVIOR-- adminAfterCategoryCreate -- cursor, string|int
+                # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string|int
                 dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, dcCore::app()->admin->cat_id);
             }
 
@@ -409,12 +410,12 @@ class adminPost
                 // Update post
 
                 try {
-                    # --BEHAVIOR-- adminBeforePostUpdate -- cursor, string|int
+                    # --BEHAVIOR-- adminBeforePostUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminBeforePostUpdate', $cur, dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
-                    # --BEHAVIOR-- adminAfterPostUpdate -- cursor, string|int
+                    # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterPostUpdate', $cur, dcCore::app()->admin->post_id);
                     dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     dcCore::app()->adminurl->redirect(
@@ -428,12 +429,12 @@ class adminPost
                 $cur->user_id = dcCore::app()->auth->userID();
 
                 try {
-                    # --BEHAVIOR-- adminBeforePostCreate -- cursor
+                    # --BEHAVIOR-- adminBeforePostCreate -- Cursor
                     dcCore::app()->callBehavior('adminBeforePostCreate', $cur);
 
                     $return_id = dcCore::app()->blog->addPost($cur);
 
-                    # --BEHAVIOR-- adminAfterPostCreate -- cursor, int
+                    # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
                     dcPage::addSuccessNotice(__('Entry has been successfully created.'));
@@ -607,7 +608,7 @@ class adminPost
                 dcCore::app()->admin->next_link;
             }
 
-            # --BEHAVIOR-- adminPostNavLinks -- dcRecord|null, string
+            # --BEHAVIOR-- adminPostNavLinks -- MetaRecord|null, string
             dcCore::app()->callBehavior('adminPostNavLinks', dcCore::app()->admin->post ?? null, 'post');
 
             echo
@@ -767,7 +768,7 @@ class adminPost
                 ]
             );
 
-            # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, dcRecord|null, string
+            # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null, string
             dcCore::app()->callBehavior('adminPostFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null, 'post');
 
             echo
@@ -782,7 +783,7 @@ class adminPost
                 echo $item;
             }
 
-            # --BEHAVIOR-- adminPostForm (may be deprecated) -- dcRecord|null, string
+            # --BEHAVIOR-- adminPostForm (may be deprecated) -- MetaRecord|null, string
             dcCore::app()->callBehavior('adminPostForm', dcCore::app()->admin->post ?? null, 'post');
 
             echo
@@ -831,14 +832,14 @@ class adminPost
                 '</div>';
             }
 
-            # --BEHAVIOR-- adminPostFormSidebar (may be deprecated) -- dcRecord|null, string
+            # --BEHAVIOR-- adminPostFormSidebar (may be deprecated) -- MetaRecord|null, string
             dcCore::app()->callBehavior('adminPostFormSidebar', dcCore::app()->admin->post ?? null, 'post');
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
-            # --BEHAVIOR-- adminPostAfterForm -- dcRecord|null, string
+            # --BEHAVIOR-- adminPostAfterForm -- MetaRecord|null, string
             dcCore::app()->callBehavior('adminPostAfterForm', dcCore::app()->admin->post ?? null, 'post');
 
             echo
@@ -1059,12 +1060,12 @@ class adminPost
     /**
      * Shows the comments or trackbacks.
      *
-     * @param      dcRecord $rs          The recordset
-     * @param      bool     $has_action  Indicates if action is possible
-     * @param      bool     $tb          Is trackbacks?
-     * @param      bool     $show_ip     Show ip?
+     * @param      MetaRecord   $rs          The recordset
+     * @param      bool         $has_action  Indicates if action is possible
+     * @param      bool         $tb          Is trackbacks?
+     * @param      bool         $show_ip     Show ip?
      */
-    protected static function showComments(dcRecord $rs, bool $has_action, bool $tb = false, bool $show_ip = true): void
+    protected static function showComments(MetaRecord $rs, bool $has_action, bool $tb = false, bool $show_ip = true): void
     {
         echo
             '<div class="table-outer">' .

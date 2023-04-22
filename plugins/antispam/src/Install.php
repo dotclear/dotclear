@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use dbStruct;
 use dcCore;
 use dcNsProcess;
+use Dotclear\Database\Structure;
 use initAntispam;
 
 class Install extends dcNsProcess
@@ -37,7 +37,7 @@ class Install extends dcNsProcess
 
         /* Database schema
         -------------------------------------------------------- */
-        $schema = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
+        $schema = new Structure(dcCore::app()->con, dcCore::app()->prefix);
 
         $schema->{initAntispam::SPAMRULE_TABLE_NAME}
             ->rule_id('bigint', 0, false)
@@ -56,7 +56,7 @@ class Install extends dcNsProcess
         }
 
         // Schema installation
-        (new dbStruct(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
+        (new Structure(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
 
         // Creating default wordslist
         if (dcCore::app()->getVersion(self::$module) === null) {

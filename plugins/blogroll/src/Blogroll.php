@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use Exception;
 use dcBlog;
 use dcCore;
-use dcRecord;
+use Dotclear\Database\MetaRecord;
 use initBlogroll;
 
 class Blogroll extends initBlogroll
@@ -48,9 +48,9 @@ class Blogroll extends initBlogroll
      *
      * @param      array   $params  The parameters
      *
-     * @return     dcRecord  The links.
+     * @return     MetaRecord  The links.
      */
-    public function getLinks(array $params = []): dcRecord
+    public function getLinks(array $params = []): MetaRecord
     {
         $strReq = 'SELECT link_id, link_title, link_desc, link_href, ' .
         'link_lang, link_xfn, link_position ' .
@@ -63,7 +63,7 @@ class Blogroll extends initBlogroll
 
         $strReq .= 'ORDER BY link_position ';
 
-        $rs = new dcRecord($this->blog->con->select($strReq));
+        $rs = new MetaRecord($this->blog->con->select($strReq));
         $rs = $rs->toStatic();
 
         $this->setLinksData($rs);
@@ -76,9 +76,9 @@ class Blogroll extends initBlogroll
      *
      * @param      array   $params  The parameters
      *
-     * @return     dcRecord  The links.
+     * @return     MetaRecord  The links.
      */
-    public function getLangs(array $params = []): dcRecord
+    public function getLangs(array $params = []): MetaRecord
     {
         // Use post_lang as an alias of link_lang to be able to use the dcAdminCombos::getLangsCombo() function
         $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
@@ -99,7 +99,7 @@ class Blogroll extends initBlogroll
         }
         $strReq .= 'ORDER BY link_lang ' . $order . ' ';
 
-        return new dcRecord($this->blog->con->select($strReq));
+        return new MetaRecord($this->blog->con->select($strReq));
     }
 
     /**
@@ -107,9 +107,9 @@ class Blogroll extends initBlogroll
      *
      * @param      string  $id     The identifier
      *
-     * @return     dcRecord  The link.
+     * @return     MetaRecord  The link.
      */
-    public function getLink(string $id): dcRecord
+    public function getLink(string $id): MetaRecord
     {
         return $this->getLinks(['link_id' => $id]);
     }
@@ -145,7 +145,7 @@ class Blogroll extends initBlogroll
         }
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = new dcRecord($this->blog->con->select($strReq));
+        $rs           = new MetaRecord($this->blog->con->select($strReq));
         $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
@@ -233,7 +233,7 @@ class Blogroll extends initBlogroll
         }
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = new dcRecord($this->blog->con->select($strReq));
+        $rs           = new MetaRecord($this->blog->con->select($strReq));
         $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
@@ -278,9 +278,9 @@ class Blogroll extends initBlogroll
     /**
      * Sets the links data.
      *
-     * @param      dcRecord  $rs     The links
+     * @param      MetaRecord  $rs     The links
      */
-    private function setLinksData(dcRecord $rs): void
+    private function setLinksData(MetaRecord $rs): void
     {
         $cat_title = null;
         while ($rs->fetch()) {
@@ -299,11 +299,11 @@ class Blogroll extends initBlogroll
     /**
      * Gets the links hierarchy.
      *
-     * @param      dcRecord  $rs     The links
+     * @param      MetaRecord  $rs     The links
      *
      * @return     array   The links hierarchy.
      */
-    public function getLinksHierarchy(dcRecord $rs): array
+    public function getLinksHierarchy(MetaRecord $rs): array
     {
         $res = [];
 
