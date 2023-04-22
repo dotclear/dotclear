@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simpleMenu;
 
 use dcAdmin;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
@@ -44,7 +43,7 @@ class Backend extends dcNsProcess
                     'small-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
                     'large-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
                     'permissions' => dcCore::app()->auth->makePermissions([
-                        dcAuth::PERMISSION_ADMIN,
+                        dcCore::app()->auth::PERMISSION_ADMIN,
                     ]),
                 ]);
             },
@@ -57,7 +56,7 @@ class Backend extends dcNsProcess
             dcPage::getPF('simpleMenu/icon.svg'),
             preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.simpleMenu')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_ADMIN,
+                dcCore::app()->auth::PERMISSION_ADMIN,
             ]), dcCore::app()->blog->id)
         );
 

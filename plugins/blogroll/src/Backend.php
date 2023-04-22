@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use dcAdmin;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcPage;
@@ -45,8 +44,8 @@ class Backend extends dcNsProcess
                     'small-icon'  => [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
                     'large-icon'  => [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
                     'permissions' => dcCore::app()->auth->makePermissions([
-                        dcAuth::PERMISSION_USAGE,
-                        dcAuth::PERMISSION_CONTENT_ADMIN,
+                        dcCore::app()->auth::PERMISSION_USAGE,
+                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                     ]),
                 ]);
             },
@@ -62,8 +61,8 @@ class Backend extends dcNsProcess
             [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
             preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.blogroll')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_USAGE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)
         );
 

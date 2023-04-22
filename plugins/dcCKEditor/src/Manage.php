@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcCKEditor;
 
-use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
@@ -28,8 +27,8 @@ class Manage extends dcNsProcess
         }
 
         dcCore::app()->admin->editor_is_admin = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_ADMIN,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
         dcCore::app()->admin->editor_cke_active                      = dcCore::app()->blog->settings->dcckeditor->active;

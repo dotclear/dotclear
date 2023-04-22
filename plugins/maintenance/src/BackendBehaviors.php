@@ -16,7 +16,6 @@ namespace Dotclear\Plugin\maintenance;
 
 use ArrayObject;
 use dcAdminHelper;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcPage;
@@ -72,7 +71,7 @@ class BackendBehaviors
             'small-icon'  => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
             'large-icon'  => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
             'permissions' => dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_ADMIN,
+                dcCore::app()->auth::PERMISSION_ADMIN,
             ]),
             'active_cb'    => [self::class, 'adminDashboardFavoritesActive'],
             'dashboard_cb' => [self::class, 'adminDashboardFavoritesCallback'],

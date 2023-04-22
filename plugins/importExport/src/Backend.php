@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use dcAdmin;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
@@ -41,7 +40,7 @@ class Backend extends dcNsProcess
             [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
             preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.importExport')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_ADMIN,
+                dcCore::app()->auth::PERMISSION_ADMIN,
             ]), dcCore::app()->blog->id)
         );
 
@@ -53,7 +52,7 @@ class Backend extends dcNsProcess
                     'small-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
                     'large-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
                     'permissions' => dcCore::app()->auth->makePermissions([
-                        dcAuth::PERMISSION_ADMIN,
+                        dcCore::app()->auth::PERMISSION_ADMIN,
                     ]),
                 ]);
             },
