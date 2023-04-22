@@ -30,7 +30,7 @@ class Prepend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->spamfilters[] = __NAMESPACE__ . '\AntispamFilterAkismet';
+        dcCore::app()->spamfilters[] = AntispamFilterAkismet::class;
 
         return true;
     }
