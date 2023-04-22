@@ -30,8 +30,6 @@ class Prepend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->autoload->addNamespace(__NAMESPACE__ . '\Filters', __DIR__ . DIRECTORY_SEPARATOR . 'Filters');
-
         dcCore::app()->spamfilters = [
             Filters\Ip::class,
             Filters\IpLookup::class,

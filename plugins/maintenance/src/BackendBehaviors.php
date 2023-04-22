@@ -32,8 +32,6 @@ class BackendBehaviors
      */
     public static function dcMaintenanceInit(Maintenance $maintenance): void
     {
-        dcCore::app()->autoload->addNamespace(__NAMESPACE__ . '\Task', __DIR__ . DIRECTORY_SEPARATOR . 'Task');
-
         $maintenance
             ->addTab('maintenance', __('Servicing'), ['summary' => __('Tools to maintain the performance of your blogs.')])
             ->addTab('backup', __('Backup'), ['summary' => __('Tools to back up your content.')])
