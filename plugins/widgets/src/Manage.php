@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
@@ -28,7 +27,7 @@ class Manage extends dcNsProcess
     {
         if (defined('DC_CONTEXT_ADMIN')) {
             dcPage::check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_ADMIN,
+                dcCore::app()->auth::PERMISSION_ADMIN,
             ]));
 
             static::$init = true;

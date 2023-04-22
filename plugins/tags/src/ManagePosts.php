@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use adminPostList;
-use dcAuth;
 use dcCore;
 use dcMeta;
 use dcNsProcess;
@@ -93,8 +92,8 @@ class ManagePosts extends dcNsProcess
         }
 
         if (!empty($_POST['delete']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_PUBLISH,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             // Delete a tag
 
@@ -164,7 +163,7 @@ class ManagePosts extends dcNsProcess
 
                 // Remove tag
                 if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]), dcCore::app()->blog->id)) {
                     echo
                     '<form id="tag_delete" action="' . $this_url . '" method="post">' .

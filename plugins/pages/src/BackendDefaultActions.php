@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use dcAuth;
 use dcBlog;
 use dcCore;
 use dcPage;
@@ -30,8 +29,8 @@ class BackendDefaultActions
     public static function adminPagesActionsPage(BackendActions $ap): void
     {
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_PUBLISH,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Status') => [
@@ -44,7 +43,7 @@ class BackendDefaultActions
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            dcCore::app()->auth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
@@ -53,8 +52,8 @@ class BackendDefaultActions
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_DELETE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
@@ -81,8 +80,8 @@ class BackendDefaultActions
     {
         foreach ($post['order'] as $post_id => $value) {
             if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_PUBLISH,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_PUBLISH,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 throw new Exception(__('You are not allowed to change this entry status'));
             }
@@ -92,7 +91,7 @@ class BackendDefaultActions
 
             #If user can only publish, we need to check the post's owner
             if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
             }

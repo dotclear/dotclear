@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcCore;
@@ -49,7 +48,7 @@ class ModuleExportFlat extends Module
     {
         // Export a blog
         if ($do === 'export_blog' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            dcCore::app()->auth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
             $blog_id  = dcCore::app()->con->escape(dcCore::app()->blog->id);

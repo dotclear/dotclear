@@ -31,7 +31,7 @@ class Frontend extends dcNsProcess
         }
 
         if (DC_FAIRTRACKBACKS_FORCE) {
-            dcCore::app()->spamfilters[] = __NAMESPACE__ . '\AntispamFilterFairTrackbacks';
+            dcCore::app()->spamfilters[] = AntispamFilterFairTrackbacks::class;
         }
 
         return true;

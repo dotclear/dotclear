@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
 use dcAdmin;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
@@ -47,7 +46,7 @@ class Backend extends dcNsProcess
             [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
             preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_ADMIN,
+                dcCore::app()->auth::PERMISSION_ADMIN,
             ]), dcCore::app()->blog->id)
         );
 
@@ -64,7 +63,7 @@ class Backend extends dcNsProcess
                         'small-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
                         'large-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
                         'permissions' => dcCore::app()->auth->makePermissions([
-                            dcAuth::PERMISSION_ADMIN,
+                            dcCore::app()->auth::PERMISSION_ADMIN,
                         ]), ]
                 );
             },

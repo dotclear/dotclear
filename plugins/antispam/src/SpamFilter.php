@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use dcAuth;
 use dcCore;
 use dcRecord;
 use Dotclear\Helper\Html\Html;
@@ -185,7 +184,7 @@ class SpamFilter
     public function hasGUI(): bool
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            dcCore::app()->auth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             return false;
         }
