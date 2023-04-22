@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
 use Dotclear\Database\Cursor;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcMeta;
@@ -107,8 +106,8 @@ class BackendBehaviors
             'small-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
             'large-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
             'permissions' => dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_USAGE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]),
         ]);
     }
@@ -200,8 +199,8 @@ class BackendBehaviors
         );
 
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_DELETE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Tags') => [__('Remove tags') => 'tags_remove']],
@@ -306,8 +305,8 @@ class BackendBehaviors
     public static function adminRemoveTags(dcPostsActions $ap, ArrayObject $post): void
     {
         if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_DELETE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $meta  = dcCore::app()->meta;
             $posts = $ap->getRS();
