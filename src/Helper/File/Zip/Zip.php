@@ -33,9 +33,9 @@ class Zip
      *
      * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — Fixed in 8.2.5 (and 8.1.18)
      */
-    public const PHARZIP_BUGGY_81_MAX = '8.1.17';   // PHP 8.1.17 does not fix that yet, waiting for next version
+    public const PHARZIP_BUGGY_81_MAX = '8.1.17';
     public const PHARZIP_BUGGY_82_MIN = '8.2.0';
-    public const PHARZIP_BUGGY_82_MAX = '8.2.4';    // PHP 8.2.4 does not fix that yet, waiting for next version
+    public const PHARZIP_BUGGY_82_MAX = '8.2.4';
 
     /**
      * Flag to use a specific archive workflow
@@ -233,18 +233,18 @@ class Zip
      * Check if PharData archive may be used
      *
      * Cannot use PharData zip archive as file's matadata are not preserved when compressed
-     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — fixed in 8.2.4 (and 8.1.17)
+     * See PHP Issue #10766 https://github.com/php/php-src/issues/10766 — fixed in 8.2.5 (and 8.1.18)
      *
-     * - -> > 8.1.16 and < 8.2.0 ok
-     * - -> > 8.2.3 ok
+     * - -> > 8.1.17 and < 8.2.0 ok
+     * - -> > 8.2.4 ok
      *
      * @return     bool
      */
     protected function checkPharData(): bool
     {
-        $testPHP81 = version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '>')    // > 8.1.16 && < 8.2.0
+        $testPHP81 = version_compare(PHP_VERSION, self::PHARZIP_BUGGY_81_MAX, '>')    // > 8.1.17 && < 8.2.0
                   && version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MIN, '<');
-        $testPHP82 = version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '>');   // > 8.2.3
+        $testPHP82 = version_compare(PHP_VERSION, self::PHARZIP_BUGGY_82_MAX, '>');   // > 8.2.4
 
         return class_exists('PharData') && ($testPHP81 || $testPHP82);
     }
