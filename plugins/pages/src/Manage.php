@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use adminUserPref;
-use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;
@@ -29,7 +28,7 @@ class Manage extends dcNsProcess
         if (defined('DC_CONTEXT_ADMIN')) {
             dcPage::check(dcCore::app()->auth->makePermissions([
                 initPages::PERMISSION_PAGES,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]));
 
             static::$init = ($_REQUEST['act'] ?? 'list') === 'page' ? ManagePage::init() : true;

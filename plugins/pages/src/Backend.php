@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcAdmin;
-use dcAuth;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
@@ -63,7 +62,7 @@ class Backend extends dcNsProcess
                     'small-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
                     'large-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
                     'permissions' => dcCore::app()->auth->makePermissions([
-                        dcAuth::PERMISSION_CONTENT_ADMIN,
+                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                         initPages::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
@@ -83,7 +82,7 @@ class Backend extends dcNsProcess
                     'small-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
                     'large-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
                     'permissions' => dcCore::app()->auth->makePermissions([
-                        dcAuth::PERMISSION_CONTENT_ADMIN,
+                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                         initPages::PERMISSION_PAGES,
                     ]),
                     'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && isset($params['act']) && $params['act'] == 'page',
@@ -100,8 +99,8 @@ class Backend extends dcNsProcess
             [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
             preg_match('/plugin.php(.*)$/', $_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p'] == 'pages',
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_USAGE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)
         );
 

@@ -30,18 +30,16 @@ class Prepend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->autoload->addNamespace(__NAMESPACE__ . '\Filters', __DIR__ . DIRECTORY_SEPARATOR . 'Filters');
-
         dcCore::app()->spamfilters = [
-            __NAMESPACE__ . '\Filters\Ip',
-            __NAMESPACE__ . '\Filters\IpLookup',
-            __NAMESPACE__ . '\Filters\Words',
-            __NAMESPACE__ . '\Filters\LinksLookup',
+            Filters\Ip::class,
+            Filters\IpLookup::class,
+            Filters\Words::class,
+            Filters\LinksLookup::class,
         ];
 
         // IP v6 filter depends on some math libraries, so enable it only if one of them is available
         if (function_exists('gmp_init') || function_exists('bcadd')) {
-            dcCore::app()->spamfilters[] = __NAMESPACE__ . '\Filters\IpV6';
+            dcCore::app()->spamfilters[] = Filters\IpV6::class;
         }
 
         dcCore::app()->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', [FrontendUrl::class, 'spamFeed']);

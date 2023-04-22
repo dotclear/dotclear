@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use dcAuth;
 use dcCore;
 use dcPage;
 use Dotclear\Helper\L10n;
@@ -157,8 +156,8 @@ class BackendBehaviors
         // End of tricky code
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            dcCore::app()->auth::PERMISSION_MEDIA,
+            dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }

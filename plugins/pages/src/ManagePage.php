@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcAdminCombos;
-use dcAuth;
 use dcBlog;
 use dcCore;
 use dcMedia;
@@ -47,7 +46,7 @@ class ManagePage extends dcNsProcess
         $params = [];
         dcPage::check(dcCore::app()->auth->makePermissions([
             initPages::PERMISSION_PAGES,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
@@ -80,12 +79,12 @@ class ManagePage extends dcNsProcess
         dcCore::app()->admin->can_view_page = true;
         dcCore::app()->admin->can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             initPages::PERMISSION_PAGES,
-            dcAuth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_USAGE,
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             initPages::PERMISSION_PAGES,
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_PUBLISH,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_delete = false;
 
@@ -746,8 +745,8 @@ class ManagePage extends dcNsProcess
             # Actions combo box
             $combo_action = [];
             if (dcCore::app()->admin->can_edit_page && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_PUBLISH,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_PUBLISH,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 $combo_action[__('Publish')]         = 'publish';
                 $combo_action[__('Unpublish')]       = 'unpublish';
@@ -756,8 +755,8 @@ class ManagePage extends dcNsProcess
             }
 
             if (dcCore::app()->admin->can_edit_page && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_DELETE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_DELETE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 $combo_action[__('Delete')] = 'delete';
             }
