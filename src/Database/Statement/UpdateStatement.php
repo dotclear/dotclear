@@ -170,7 +170,7 @@ class UpdateStatement extends SqlStatement
         if (is_countable($this->set) ? count($this->set) : 0) {
             if (count($this->columns)) {
                 $sets        = [];
-                $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : $v;
+                $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : (is_null($v) ? 'NULL' : $v);
                 for ($i = 0; $i < min(count($this->set), count($this->columns)) ; $i++) {
                     $sets[] = $this->columns[$i] . ' = ' . $formatValue($this->set[$i]);
                 }
