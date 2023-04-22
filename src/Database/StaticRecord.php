@@ -101,7 +101,7 @@ class StaticRecord extends Record
      */
     public function field($n)
     {
-        return $this->__data[$this->__index][$n];
+        return $this->__data[$this->__index][$n] ?? null;
     }
 
     /**

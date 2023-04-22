@@ -18,9 +18,9 @@ use atoum\atoum\mock\controller;
 
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'bootstrap.php']);
 
-class RecordExtend
+class MetaRecordExtend
 {
-    public static function isEditable(\Dotclear\Database\Record $rs): bool
+    public static function isEditable(\Dotclear\Database\MetaRecord $rs): bool
     {
         return ($rs->index() === 0);
     }
@@ -29,7 +29,7 @@ class RecordExtend
 /*
  * @tags RecordDB
  */
-class Record extends atoum
+class MetaRecord extends atoum
 {
     private function getConnection($driver, $syntax)
     {
@@ -118,7 +118,7 @@ class Record extends atoum
             return $ret;
         };
 
-        $record = new \Dotclear\Database\Record($rows, $info);
+        $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\Record($rows, $info));
 
         $this
             // Initial index
@@ -294,7 +294,7 @@ class Record extends atoum
         };
 
         $result = null;
-        $record = new \Dotclear\Database\Record($result, $info);
+        $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\Record($result, $info));
         $static = $record->toStatic();
         $double = $static->toStatic();
 
@@ -374,7 +374,7 @@ class Record extends atoum
             return $ret;
         };
 
-        $record = new \Dotclear\Database\Record($rows, $info);
+        $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\Record($rows, $info));
 
         $this
             // Initial index
@@ -388,11 +388,11 @@ class Record extends atoum
             ->isEqualTo(0)
 
             // Extend
-            ->given($record->extend(\tests\unit\Dotclear\Database\RecordExtend::class))
+            ->given($record->extend(\tests\unit\Dotclear\Database\MetaRecordExtend::class))
             ->array($record->extensions())
             ->isEqualTo([
                 'isEditable' => [
-                    \tests\unit\Dotclear\Database\RecordExtend::class,
+                    \tests\unit\Dotclear\Database\MetaRecordExtend::class,
                     'isEditable',
                 ],
             ])
@@ -422,7 +422,7 @@ class Record extends atoum
             ->isEqualTo(1)
             ->when(fn () => $record->unknown())
             ->error()
-                ->withMessage('Call to undefined method Record::unknown()')
+                ->withMessage('Call to undefined method unknown()')
                 ->exists()
         ;
     }
@@ -494,7 +494,7 @@ class Record extends atoum
             return $ret;
         };
 
-        $record = new \Dotclear\Database\Record($rows, $info);
+        $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\Record($rows, $info));
 
         $this
             // Rows/GetData
@@ -523,6 +523,196 @@ class Record extends atoum
     }
 
     protected function testRowsDataProvider()
+    {
+        return [
+            // driver, syntax
+            ['mysqli', 'mysql'],
+            ['mysqlimb4', 'mysql'],
+            ['pgsql', 'postgresql'],
+            ['sqlite', 'sqlite'],
+        ];
+    }
+
+    public function testStatic($driver, $syntax)
+    {
+        $con  = $this->getConnection($driver, $syntax);
+        $info = [
+            'con'  => $con,
+            'cols' => 3,
+            'rows' => 2,
+            'info' => [
+                'name' => [
+                    'Name',
+                    'Town',
+                    'Age',
+                ],
+                'type' => [
+                    'string',
+                    'string',
+                    'int',
+                ],
+            ],
+        ];
+
+        // Sample data
+        $rows = [
+            [
+                'Name' => 'Dotclear',
+                'Town' => 'Paris',
+                'Age'  => 42,
+            ],
+            [
+                'Name' => 'Wordpress',
+                'Town' => 'Chicago',
+                'Age'  => 13,
+            ],
+        ];
+
+        // Mock db_result_seek and db_fetch_assoc
+        $valid   = true;
+        $pointer = 0;
+
+        $this->calling($con)->db_result_seek = function ($res, $row) use (&$valid, &$pointer) {
+            $valid   = ($row >= 0 && $row < 2);
+            $pointer = $valid ? $row : 0;
+
+            return $valid;
+        };
+        $this->calling($con)->db_fetch_assoc = function ($res) use (&$valid, &$pointer, $rows) {
+            $ret = $valid ? $rows[$pointer] : false;
+
+            $pointer++;
+
+            $valid   = ($pointer >= 0 && $pointer < 2);
+            $pointer = $valid ? $pointer : 0;
+
+            return $ret;
+        };
+
+        $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\StaticRecord(null, $info));
+
+        $this
+            // Info
+            ->integer($record->count())
+            ->isEqualTo(2)
+            ->array($record->columns())
+            ->isEqualTo([
+                'Name',
+                'Town',
+                'Age',
+            ])
+            ->boolean($record->isEmpty())
+            ->isFalse()
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+            ->boolean($record->exists('Country'))
+            ->isFalse()
+            ->integer($record->index())
+            ->isEqualTo(0)
+            ->boolean($record->index(99))
+            ->isFalse()
+            ->boolean($record->index(1))
+            ->isTrue()
+            ->array($record->rows())
+            ->isEqualTo([
+                [
+                    'Name' => 'Dotclear',
+                    'Town' => 'Paris',
+                    'Age'  => 42,
+                    'Dotclear',
+                    'Paris',
+                    42,
+                ],
+                [
+                    'Name' => 'Wordpress',
+                    'Town' => 'Chicago',
+                    'Age'  => 13,
+                    'Wordpress',
+                    'Chicago',
+                    13,
+                ],
+            ])
+            ->integer($record->Age)
+            ->isEqualTo(13)
+            ->given($record->set('Age', 14))
+            ->integer($record->Age)
+            ->isEqualTo(14)
+            ->given($record->sort('Age', 'asc'))
+            ->and($record->index(0))
+            ->string($record->Name)
+            ->isEqualTo('Wordpress')
+            ->given($record->sort('Age', 'desc'))
+            ->and($record->index(0))
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+            ->given($record->sort('Name', 'asc'))
+            ->and($record->index(0))
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+            ->given($record->lexicalSort('Name', 'asc'))
+            ->and($record->index(0))
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+            ->given($record->lexicalSort('Name', 'desc'))
+            ->and($record->index(0))
+            ->string($record->Name)
+            ->isEqualTo('Wordpress')
+            ->given($record->lexicalSort('Age', 'asc'))
+            ->and($record->index(0))
+            ->string($record->Name)
+            ->isEqualTo('Wordpress')
+        ;
+
+        // From array
+
+        $record = new \Dotclear\Database\MetaRecord(\Dotclear\Database\StaticRecord::newFromArray($rows));
+
+        $this
+            ->integer($record->count())
+            ->isEqualTo(2)
+            ->boolean($record->isEmpty())
+            ->isFalse()
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+            ->boolean($record->exists('Country'))
+            ->isFalse()
+            ->integer($record->index())
+            ->array($record->rows())
+            ->isEqualTo([
+                [
+                    'Name' => 'Dotclear',
+                    'Town' => 'Paris',
+                    'Age'  => 42,
+                ],
+                [
+                    'Name' => 'Wordpress',
+                    'Town' => 'Chicago',
+                    'Age'  => 13,
+                ],
+            ])
+        ;
+
+        // From null
+
+        $record = new \Dotclear\Database\MetaRecord(\Dotclear\Database\StaticRecord::newFromArray(null));
+
+        $this
+            ->integer($record->count())
+            ->isEqualTo(0)
+            ->boolean($record->isEmpty())
+            ->isTrue()
+            ->variable($record->Name)
+            ->isNull()
+            ->boolean($record->exists('Country'))
+            ->isFalse()
+            ->integer($record->index())
+            ->array($record->rows())
+            ->isEqualTo([
+            ])
+        ;
+    }
+
+    protected function testStaticDataProvider()
     {
         return [
             // driver, syntax

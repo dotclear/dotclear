@@ -92,6 +92,8 @@ class Record implements Iterator, Countable
         $this->__result = $result;
         $this->__info   = $info;
         $this->__link   = $info['con']->link();
+
+        // Move to first row
         $this->index(0);
     }
 
@@ -168,7 +170,7 @@ class Record implements Iterator, Countable
      */
     public function field($n)
     {
-        return $this->__row[$n];
+        return $this->__row[$n] ?? null;
     }
 
     /**
@@ -390,7 +392,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array    array of columns, with name as key and type as value.
+     * @return array    array of columns names
      */
     public function columns(): array
     {
