@@ -37,7 +37,7 @@ class dcNamespace
      *
      * @var        string
      */
-    protected const NS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    public const NS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
     // Properties
 

@@ -37,7 +37,7 @@ class dcWorkspace
      *
      * @var        string
      */
-    protected const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    public const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
     // Properties
 
