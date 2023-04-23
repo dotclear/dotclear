@@ -58,7 +58,7 @@ class Clearbricks
 
         // Load old CB classes
         $legacy_form_root = implode(DIRECTORY_SEPARATOR, [__DIR__, 'Html', 'Form']);
-        $old_helper_root  = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'helper']);
+        $legacy_zip_root  = implode(DIRECTORY_SEPARATOR, [__DIR__, 'File', 'Zip']);
 
         $this->add([
             // Common helpers legacy classes
@@ -66,8 +66,8 @@ class Clearbricks
             'formSelectOption' => $legacy_form_root . DIRECTORY_SEPARATOR . 'Legacy.php',
 
             // Zip tools
-            'fileUnzip' => $old_helper_root . '/zip/class.unzip.php',
-            'fileZip'   => $old_helper_root . '/zip/class.zip.php',
+            'fileUnzip' => $legacy_zip_root . DIRECTORY_SEPARATOR . 'LegacyUnzip.php',
+            'fileZip'   => $legacy_zip_root . DIRECTORY_SEPARATOR . 'Legacyzip.php',
         ]);
 
         // Helpers bootsrap

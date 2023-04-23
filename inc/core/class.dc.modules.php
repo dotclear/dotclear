@@ -13,6 +13,7 @@
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -667,7 +668,11 @@ class dcModules
      */
     public static function installPackage(string $zip_file, dcModules &$modules): int
     {
-        $zip = new fileUnzip($zip_file);
+        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+            $zip = new Unzip($zip_file);
+        } else {
+            $zip = new fileUnzip($zip_file);
+        }
         $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
         $zip_root_dir = $zip->getRootDir();

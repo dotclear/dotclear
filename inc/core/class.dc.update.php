@@ -8,6 +8,8 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Zip\Unzip;
+use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Network\HttpClient;
 
 class dcUpdate
@@ -429,13 +431,18 @@ class dcUpdate
             return false;
         }
 
-        $b_fp = @fopen($dest, 'wb');
-        if ($b_fp === false) {
-            return false;
-        }
+        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+            $zip   = new Unzip($zip_file);
+            $b_zip = new Zip($dest);
+        } else {
+            $zip = new fileUnzip($zip_file);
 
-        $zip   = new fileUnzip($zip_file);
-        $b_zip = new fileZip($b_fp);
+            $b_fp = @fopen($dest, 'wb');
+            if ($b_fp === false) {
+                return false;
+            }
+            $b_zip = new fileZip($b_fp);
+        }
 
         if (!$zip->hasFile($zip_digests)) {
             @unlink($zip_file);
@@ -476,9 +483,13 @@ class dcUpdate
             throw $e;
         }
 
-        $b_zip->write();
-        fclose($b_fp);
-        $b_zip->close();
+        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+            $b_zip->close();
+        } else {
+            $b_zip->write();
+            fclose($b_fp);
+            $b_zip->close();
+        }
 
         return true;
     }
@@ -506,7 +517,11 @@ class dcUpdate
             throw new Exception(__('Unable to read current digests file.'));
         }
 
-        $zip = new fileUnzip($zip_file);
+        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+            $zip = new Unzip($zip_file);
+        } else {
+            $zip = new fileUnzip($zip_file);
+        }
 
         if (!$zip->hasFile($zip_digests)) {
             @unlink($zip_file);

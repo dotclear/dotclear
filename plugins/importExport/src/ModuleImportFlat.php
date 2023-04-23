@@ -17,6 +17,7 @@ use dcCore;
 use dcPage;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use fileUnzip;
@@ -319,7 +320,11 @@ class ModuleImportFlat extends Module
      */
     private function unzip(string $file)
     {
-        $zip = new fileUnzip($file);
+        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+            $zip = new Unzip($file);
+        } else {
+            $zip = new fileUnzip($file);
+        }
 
         if ($zip->isEmpty()) {
             $zip->close();

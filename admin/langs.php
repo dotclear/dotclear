@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -67,7 +68,11 @@ class adminLangs
          */
         $lang_install = function ($file): int {
             // Language installation function
-            $zip = new fileUnzip($file);
+            if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+                $zip = new Unzip($file);
+            } else {
+                $zip = new fileUnzip($file);
+            }
             $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
             if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', (string) $zip->getRootDir())) {

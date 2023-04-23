@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 
@@ -124,7 +125,11 @@ class adminUpdate
                 }
 
                 if (!empty($_POST['b_revert'])) {
-                    $zip = new fileUnzip(DC_BACKUP_PATH . '/' . $b_file);
+                    if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+                        $zip = new Unzip(DC_BACKUP_PATH . '/' . $b_file);
+                    } else {
+                        $zip = new fileUnzip(DC_BACKUP_PATH . '/' . $b_file);
+                    }
                     $zip->unzipAll(DC_BACKUP_PATH . '/');
                     @unlink(DC_BACKUP_PATH . '/' . $b_file);
                     Http::redirect(dcCore::app()->admin->getPageURL() . '?tab=files');

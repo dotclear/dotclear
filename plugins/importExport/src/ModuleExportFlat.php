@@ -21,10 +21,11 @@ use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
+use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use initBlogroll;
 use fileZip;
+use initBlogroll;
 use form;
 
 class ModuleExportFlat extends Module
@@ -191,15 +192,22 @@ class ModuleExportFlat extends Module
             try {
                 $file_zipname = $_SESSION['export_filename'] . '.zip';
 
-                $fp  = fopen('php://output', 'wb');
-                $zip = new fileZip($fp);
+                if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+                    $zip = new Zip(null, $file_zipname);
+                } else {
+                    $fp  = fopen('php://output', 'wb');
+                    $zip = new fileZip($fp);
+                }
                 $zip->addFile($_SESSION['export_file'], $_SESSION['export_filename']);
 
-                header('Content-Disposition: attachment;filename=' . $file_zipname);
-                header('Content-Type: application/x-zip');
+                if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
+                    $zip->close();
+                } else {
+                    header('Content-Disposition: attachment;filename=' . $file_zipname);
+                    header('Content-Type: application/x-zip');
 
-                $zip->write();
-
+                    $zip->write();
+                }
                 unlink($_SESSION['export_file']);
                 unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
                 exit;

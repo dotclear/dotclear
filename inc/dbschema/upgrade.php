@@ -1341,46 +1341,10 @@ class dcUpgrade
                 ],
                 // Folders
                 [
-                    // CB html.form and extensions moved to src
+                    // DC html.form moved to src
                     'inc/admin/html.form',
-                    'inc/helper/html.form',
-                    // CB diff moved to src
-                    'inc/helper/diff',
-                    // CB mail moved to src
-                    'inc/helper/mail',
-                    // CB pager moved to src
-                    'inc/helper/pager',
-                    // CB rest moved to src
-                    'inc/helper/rest',
-                    // CB htmlFilter moved to src
-                    'inc/helper/html.filter',
-                    // CB htmlValidator moved to src
-                    'inc/helper/html.validator',
-                    // CB wiki2xhtml moved to src
-                    'inc/helper/text.wiki2xhtml',
-                    // CB template moved to src
-                    'inc/helper/template',
-                    // CB netSocket moved to src
-                    'inc/helper/net',
-                    // CB filemanager moved to src
-                    'inc/helper/filemanager',
-                    // CB image helper moved to src
-                    'inc/helper/image',
-                    // CB urlHandler moved to src
-                    'inc/helper/url.handler',
-                    // CB netHttp moved to src
-                    'inc/helper/net.http',
-                    // CB xmlrpc moved to src
-                    'inc/helper/net.xmlrpc',
-                    // CB feed moved to src
-                    'inc/helper/net.http.feed',
-                    // CB sessionDB moved to src
-                    'inc/helper/session.db',
-                    // CB common moved to src
-                    'inc/helper/common',
-                    // CB database moved to src
-                    'inc/helper/dblayer',
-                    'inc/helper/dbschema',
+                    // CB moved to src
+                    'inc/helper',
                 ]
             );
         }
