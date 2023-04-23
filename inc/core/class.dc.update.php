@@ -487,7 +487,7 @@ class dcUpdate
             $b_zip->close();
         } else {
             $b_zip->write();
-            fclose($b_fp);
+            fclose($b_fp);    // @phpstan-ignore-line
             $b_zip->close();
         }
 

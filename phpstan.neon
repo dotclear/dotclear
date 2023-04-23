@@ -227,6 +227,12 @@ parameters:
     - message: '#Access to an undefined property Dotclear\\Database\\Structure::#'
       path: %currentWorkingDirectory%
 
+    # getDefines() ambiguous return value
+    - message: '#Call to an undefined method object::addMissing\(\).#'
+      path: */*/inc/core/class.dc.modules.php
+    - message: '#Call to an undefined method object::getId\(\).#'
+      path: */*/inc/core/class.dc.modules.php
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
