@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace Dotclear;
 
 use Autoloader;
+use Dotclear\Helper\Date;
+use Dotclear\Helper\L10n;
 
 /**
  * Application.
@@ -31,5 +33,17 @@ final class App
         }
 
         return self::$autoload;
+    }
+
+    /**
+     * Initializes the object.
+     */
+    public static function init(): void
+    {
+        // We may need l10n __() function
+        L10n::bootstrap();
+
+        // We set default timezone to avoid warning
+        Date::setTZ('UTC');
     }
 }

@@ -28,8 +28,9 @@ require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 // 2. Instanciante the Application (singleton)
 new App();
 
-// 3. Add root folder for namespaced and autoloaded classes
+// 3. Add root folder for namespaced and autoloaded classes and do some init
 App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+App::init();
 
 // Load core classes (old way)
 Clearbricks::lib()->autoload([

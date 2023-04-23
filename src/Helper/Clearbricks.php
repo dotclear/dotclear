@@ -2,24 +2,6 @@
 /**
  * @package Clearbricks
  *
- * Tiny library including:
- * - Database abstraction layer (MySQL/MariadDB, postgreSQL and SQLite)
- * - File manager
- * - Feed reader
- * - HTML filter/validator
- * - Images manipulation tools
- * - Mail utilities
- * - HTML pager
- * - REST Server
- * - Database driven session handler
- * - Simple Template Systeme
- * - URL Handler
- * - Wiki to XHTML Converter
- * - HTTP/NNTP clients
- * - XML-RPC Client and Server
- * - Zip tools
- * - Diff tools
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  * @version 2.0
@@ -69,21 +51,6 @@ class Clearbricks
             'fileUnzip' => $legacy_zip_root . DIRECTORY_SEPARATOR . 'LegacyUnzip.php',
             'fileZip'   => $legacy_zip_root . DIRECTORY_SEPARATOR . 'Legacyzip.php',
         ]);
-
-        // Helpers bootsrap
-        self::init();
-    }
-
-    /**
-     * Initializes the object.
-     */
-    public static function init(): void
-    {
-        // We may need l10n __() function
-        L10n::bootstrap();
-
-        // We set default timezone to avoid warning
-        Date::setTZ('UTC');
     }
 
     /**
@@ -114,6 +81,8 @@ class Clearbricks
      * Add class(es) to autoloader stack
      *
      * @param      array  $stack  Array of class => file (strings)
+     *
+     * @deprecated Since 2.26, use namespaces instead
      */
     public function add(array $stack)
     {
