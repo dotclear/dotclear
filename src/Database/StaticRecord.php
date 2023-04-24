@@ -139,6 +139,14 @@ class StaticRecord extends Record
     }
 
     /**
+     * @return array    current rows.
+     */
+    public function row(): array
+    {
+        return $this->__data[$this->__index] ?? [];
+    }
+
+    /**
      * Get record rows
      *
      * @return     array

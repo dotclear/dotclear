@@ -296,7 +296,7 @@ class MetaRecord extends atoum
         $result = null;
         $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\Record($result, $info));
         $static = $record->toStatic();
-        $double = $static->toStatic();
+        $double = $static->toExtStatic();
 
         $this
             // Info
@@ -592,6 +592,128 @@ class MetaRecord extends atoum
         $record = new \Dotclear\Database\MetaRecord(new \Dotclear\Database\StaticRecord(null, $info));
 
         $this
+            // Initial index
+            ->integer($record->index())
+            ->isEqualTo(0)
+
+            // First row
+            ->boolean($record->fetch())
+            ->isTrue()
+            ->integer($record->index())
+            ->isEqualTo(0)
+
+            // Second row
+            ->boolean($record->fetch())
+            ->isTrue()
+            ->integer($record->index())
+            ->isEqualTo(1)
+
+            // Back to beginning
+            ->given($record->next())
+            ->integer($record->key())
+            ->isEqualTo(0)
+            ->boolean($record->valid())
+            ->isFalse()
+
+            // Rewind to start
+            ->given($record->rewind())
+            ->integer($record->index())
+            ->isEqualTo(0)
+            ->boolean($record->valid())
+            ->isTrue()
+
+            // Fields
+            ->string($record->f('Name'))
+            ->isEqualTo('Dotclear')
+            ->boolean($record->exists('name'))
+            ->isFalse()
+            ->variable($record->f('name'))
+            ->isNull()
+
+            // Info
+            ->integer($record->count())
+            ->isEqualTo(2)
+            ->array($record->columns())
+            ->isEqualTo([
+                'Name',
+                'Town',
+                'Age',
+            ])
+            ->boolean($record->isEmpty())
+            ->isFalse()
+
+            // Various
+            ->given($record->rewind())
+            ->array($record->row())
+            ->isEqualTo([
+                'Name' => 'Dotclear',
+                'Town' => 'Paris',
+                'Age'  => 42,
+                'Dotclear',
+                'Paris',
+                42,
+            ])
+            ->variable($record->current())
+            ->isEqualTo($record)
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+
+            // Moves
+            ->given($record->moveEnd())
+            ->integer($record->index())
+            ->isEqualTo(1)
+            ->boolean($record->isEnd())
+            ->isTrue()
+            ->boolean($record->isStart())
+            ->isFalse()
+            ->given($record->moveNext())
+            ->integer($record->index())
+            ->isEqualTo(1)
+            ->boolean($record->isEnd())
+            ->isTrue()
+            ->boolean($record->isStart())
+            ->isFalse()
+            ->given($record->moveStart())
+            ->integer($record->index())
+            ->isEqualTo(0)
+            ->boolean($record->isEnd())
+            ->isFalse()
+            ->boolean($record->isStart())
+            ->isTrue()
+            ->given($record->moveNext())
+            ->integer($record->index())
+            ->isEqualTo(1)
+            ->given($record->moveNext())
+            ->integer($record->index())
+            ->isEqualTo(1)
+            ->given($record->movePrev())
+            ->integer($record->index())
+            ->isEqualTo(0)
+            ->given($record->movePrev())
+            ->integer($record->index())
+            ->isEqualTo(0)
+
+            // Extend
+            ->given($record->extend(\tests\unit\Dotclear\Database\MetaRecordExtend::class))
+            ->array($record->extensions())
+            ->isEqualTo([
+                'isEditable' => [
+                    \tests\unit\Dotclear\Database\MetaRecordExtend::class,
+                    'isEditable',
+                ],
+            ])
+            ->boolean($record->isEditable())
+            ->isTrue()
+
+            // Extend error
+            ->given($record->extend('unknown'))
+            ->integer(count($record->extensions()))
+            ->isEqualTo(1)
+            ->when(fn () => $record->unknown())
+            ->error()
+                ->withMessage('Call to undefined method unknown()')
+                ->exists()
+
             // Info
             ->integer($record->count())
             ->isEqualTo(2)
@@ -666,6 +788,35 @@ class MetaRecord extends atoum
         // From array
 
         $record = new \Dotclear\Database\MetaRecord(\Dotclear\Database\StaticRecord::newFromArray($rows));
+
+        $this
+            ->integer($record->count())
+            ->isEqualTo(2)
+            ->boolean($record->isEmpty())
+            ->isFalse()
+            ->string($record->Name)
+            ->isEqualTo('Dotclear')
+            ->boolean($record->exists('Country'))
+            ->isFalse()
+            ->integer($record->index())
+            ->array($record->rows())
+            ->isEqualTo([
+                [
+                    'Name' => 'Dotclear',
+                    'Town' => 'Paris',
+                    'Age'  => 42,
+                ],
+                [
+                    'Name' => 'Wordpress',
+                    'Town' => 'Chicago',
+                    'Age'  => 13,
+                ],
+            ])
+        ;
+
+        // Direct from array
+
+        $record = \Dotclear\Database\MetaRecord::newFromArray($rows);
 
         $this
             ->integer($record->count())
