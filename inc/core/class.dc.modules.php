@@ -790,7 +790,7 @@ class dcModules
                 $zip->close();
                 unlink($zip_file);
 
-                throw new Exception(sprintf(__('Unable to read new %s file', self::MODULE_FILE_DEFINE)));
+                throw new Exception(sprintf(__('Unable to read new %s file'), self::MODULE_FILE_DEFINE));
             }
         }
         $zip->unzipAll($target);
