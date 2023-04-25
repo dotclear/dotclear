@@ -457,13 +457,13 @@ class Unzip
                 // If no target, extract if to a temporary directory
                 if ($target === false) {
                     // Use a temporary directory
-                    $output = realpath(sys_get_temp_dir()) . self::TMP_DIR;
+                    $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . self::TMP_DIR . bin2hex(random_bytes(8));
                     $this->testTargetDir($output);
                     $this->zip->extractTo($output, $file_name, true);
 
                     return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
                 }
-                $this->zip->extractTo($folder, $file_name, true);
+                $this->zip->extractTo($folder, basename($file_name), true);
                 Files::inheritChmod($target);
 
                 break;
@@ -475,13 +475,13 @@ class Unzip
                 // If no target, extract if to a temporary directory
                 if ($target === false) {
                     // Use a temporary directory
-                    $output = realpath(sys_get_temp_dir()) . self::TMP_DIR;
+                    $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . self::TMP_DIR . bin2hex(random_bytes(8));
                     $this->testTargetDir($output);
                     $this->zip->extractTo($output, $file_name);
 
                     return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
                 }
-                $this->zip->extractTo($folder, $file_name);
+                $this->zip->extractTo($folder, basename($file_name));
                 Files::inheritChmod($target);
 
                 break;
