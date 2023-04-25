@@ -147,6 +147,11 @@ class Unzip extends atoum
         sleep(2);
 
         $this
+            //->dump($unzip->getFilesList())
+            //->dump($unzip->getDirsList())
+            //->dump($unzip->getManifest())
+            //->dump($archive)
+            //->dump($folder)
             ->variable($unzip)
             ->isNotNull()
             ->boolean(file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1])))
@@ -481,6 +486,9 @@ class Unzip extends atoum
         sleep(2);
 
         $this
+            //->dump($unzip->getFilesList())
+            //->dump($unzip->getDirsList())
+            //->dump($unzip->getManifest())
             ->variable($unzip)
             ->isNotNull()
             ->boolean(file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1])))
@@ -809,6 +817,9 @@ class Unzip extends atoum
         sleep(2);
 
         $this
+            //->dump($unzip->getFilesList())
+            //->dump($unzip->getDirsList())
+            //->dump($unzip->getManifest())
             ->variable($unzip)
             ->isNotNull()
             ->boolean(file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1])))

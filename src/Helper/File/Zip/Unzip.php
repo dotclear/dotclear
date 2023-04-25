@@ -408,7 +408,8 @@ class Unzip
                 continue;
             }
 
-            $this->unzip($k, $target === false ? $target : $target . '/' . $k, $target !== false ? $target : '');
+            $pathname = $target === false ? $target : $target . '/' . $k;
+            $this->unzip($k, $pathname, $target);
         }
     }
 
@@ -463,7 +464,7 @@ class Unzip
 
                     return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
                 }
-                $this->zip->extractTo($folder, basename($file_name), true);
+                $this->zip->extractTo($folder, $file_name, true);
                 Files::inheritChmod($target);
 
                 break;
@@ -481,7 +482,7 @@ class Unzip
 
                     return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
                 }
-                $this->zip->extractTo($folder, basename($file_name));
+                $this->zip->extractTo($folder, $file_name);
                 Files::inheritChmod($target);
 
                 break;
