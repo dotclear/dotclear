@@ -36,7 +36,7 @@ class BackendBehaviors
         }
 
         $alt_tags = new ArrayObject($tags);
-        # --BEHAVIOR-- adminPostEditorTags -- string, string, string, array<int,string>, string
+        # --BEHAVIOR-- adminPostEditorTags -- string, string, string, ArrayObject, string
         dcCore::app()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, $syntax);
 
         $js = [
