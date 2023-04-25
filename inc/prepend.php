@@ -164,10 +164,10 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 
 (function () {
     if (!is_file(DC_RC_PATH)) {
-        if (strpos($_SERVER['SCRIPT_FILENAME'], DIRECTORY_SEPARATOR . 'admin') === false) {
+        if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
             $path = implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'wizard.php']);
         } else {
-            $path = strpos($_SERVER['PHP_SELF'], DIRECTORY_SEPARATOR . 'install') === false ?
+            $path = (strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false ?
                 implode(DIRECTORY_SEPARATOR, ['install', 'wizard.php']) :
                 'wizard.php';
         }
