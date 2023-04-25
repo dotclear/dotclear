@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
+use ArrayObject;
 use dcCore;
 use dcPage;
 use Dotclear\Helper\L10n;
@@ -34,10 +35,14 @@ class BackendBehaviors
             return;
         }
 
+        $alt_tags = new ArrayObject($tags);
+        # --BEHAVIOR-- adminPostEditorTags -- string, string, string, array<int,string>, string
+        dcCore::app()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, $syntax);
+
         $js = [
             'legacy_editor_context'      => $context,
             'legacy_editor_syntax'       => $syntax,
-            'legacy_editor_tags_context' => [$context => $tags],
+            'legacy_editor_tags_context' => [$context => (array) $alt_tags],
         ];
 
         return

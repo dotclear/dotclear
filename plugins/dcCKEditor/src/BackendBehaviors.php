@@ -53,10 +53,14 @@ class BackendBehaviors
             $config_js .= '&context=' . $context;
         }
 
+        $alt_tags = new ArrayObject($tags);
+        # --BEHAVIOR-- adminPostEditorTags -- string, string, string, array<int,string>, string
+        dcCore::app()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, 'xhtml');
+
         return
         dcPage::jsJson('ck_editor_ctx', [
             'ckeditor_context'      => $context,
-            'ckeditor_tags_context' => [$context => $tags],
+            'ckeditor_tags_context' => [$context => (array) $alt_tags],
             'admin_base_url'        => DC_ADMIN_URL,
             'base_url'              => dcCore::app()->blog->host,
             'dcckeditor_plugin_url' => DC_ADMIN_URL . self::$p_url,
