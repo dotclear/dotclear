@@ -16,7 +16,6 @@ use dcCore;
 use dcMedia;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
-use fileZip;
 
 class ZipMedia extends MaintenanceTask
 {
@@ -77,12 +76,8 @@ class ZipMedia extends MaintenanceTask
 
         // Create zip
         @set_time_limit(300);
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip = new Zip(null, date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . 'media.zip');
-        } else {
-            $fp  = fopen('php://output', 'wb');
-            $zip = new fileZip($fp);
-        }
+        $fp  = fopen('php://output', 'wb');
+        $zip = new Zip($fp);
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
         $zip->addDirectory(dcCore::app()->media->root . '/', '', true);
 
@@ -90,14 +85,10 @@ class ZipMedia extends MaintenanceTask
         $this->log();
 
         // Send zip
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip->close();
-        } else {
-            header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . 'media.zip');
-            header('Content-Type: application/x-zip');
+        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . 'media.zip');
+        header('Content-Type: application/x-zip');
 
-            $zip->write();
-        }
+        $zip->write();
         unset($zip);
         exit(1);
     }

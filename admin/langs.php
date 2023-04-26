@@ -68,11 +68,7 @@ class adminLangs
          */
         $lang_install = function ($file): int {
             // Language installation function
-            if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-                $zip = new Unzip($file);
-            } else {
-                $zip = new fileUnzip($file);
-            }
+            $zip = new Unzip($file);
             $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
             if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', (string) $zip->getRootDir())) {

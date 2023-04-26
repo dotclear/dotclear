@@ -1315,11 +1315,7 @@ class dcMedia extends Manager
      */
     public function inflateZipFile(File $f, bool $create_dir = true): string
     {
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip = new Unzip($f->file);
-        } else {
-            $zip = new fileUnzip($f->file);
-        }
+        $zip = new Unzip($f->file);
         $zip->setExcludePattern($this->exclude_pattern);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
@@ -1374,11 +1370,7 @@ class dcMedia extends Manager
      */
     public function getZipContent(File $f): array
     {
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip = new Unzip($f->file);
-        } else {
-            $zip = new fileUnzip($f->file);
-        }
+        $zip  = new Unzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
         $zip->close();
 

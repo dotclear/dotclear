@@ -16,7 +16,6 @@ use dcCore;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
-use fileZip;
 
 class ZipTheme extends MaintenanceTask
 {
@@ -80,12 +79,8 @@ class ZipTheme extends MaintenanceTask
 
         // Create zip
         @set_time_limit(300);
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip = new Zip(null, 'theme-' . $theme . '.zip');
-        } else {
-            $fp  = fopen('php://output', 'wb');
-            $zip = new fileZip($fp);
-        }
+        $fp  = fopen('php://output', 'wb');
+        $zip = new Zip($fp);
 
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
         $zip->addDirectory($dir . '/', '', true);
@@ -94,14 +89,10 @@ class ZipTheme extends MaintenanceTask
         $this->log();
 
         // Send zip
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip->close();
-        } else {
-            header('Content-Disposition: attachment;filename=theme-' . $theme . '.zip');
-            header('Content-Type: application/x-zip');
+        header('Content-Disposition: attachment;filename=theme-' . $theme . '.zip');
+        header('Content-Type: application/x-zip');
 
-            $zip->write();
-        }
+        $zip->write();
         unset($zip);
         exit(1);
     }

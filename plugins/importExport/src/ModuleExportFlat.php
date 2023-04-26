@@ -24,7 +24,6 @@ use dcTrackback;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use fileZip;
 use initBlogroll;
 use form;
 
@@ -192,22 +191,15 @@ class ModuleExportFlat extends Module
             try {
                 $file_zipname = $_SESSION['export_filename'] . '.zip';
 
-                if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-                    $zip = new Zip(null, $file_zipname);
-                } else {
-                    $fp  = fopen('php://output', 'wb');
-                    $zip = new fileZip($fp);
-                }
+                $fp  = fopen('php://output', 'wb');
+                $zip = new Zip($fp);
                 $zip->addFile($_SESSION['export_file'], $_SESSION['export_filename']);
 
-                if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-                    $zip->close();
-                } else {
-                    header('Content-Disposition: attachment;filename=' . $file_zipname);
-                    header('Content-Type: application/x-zip');
+                header('Content-Disposition: attachment;filename=' . $file_zipname);
+                header('Content-Type: application/x-zip');
 
-                    $zip->write();
-                }
+                $zip->write();
+
                 unlink($_SESSION['export_file']);
                 unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
                 exit;

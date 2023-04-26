@@ -668,11 +668,7 @@ class dcModules
      */
     public static function installPackage(string $zip_file, dcModules &$modules): int
     {
-        if (defined('DC_RISKY_ZIP') && DC_RISKY_ZIP) {
-            $zip = new Unzip($zip_file);
-        } else {
-            $zip = new fileUnzip($zip_file);
-        }
+        $zip = new Unzip($zip_file);
         $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
         $zip_root_dir = $zip->getRootDir();

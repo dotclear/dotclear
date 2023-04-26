@@ -2,12 +2,12 @@
 /**
  * @class Unzip
  *
- * @package Dotclear
+ * @package Clearbricks
+ * @subpackage Zip
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-declare(strict_types=1);
 
 namespace Dotclear\Helper\File\Zip;
 
@@ -16,431 +16,82 @@ use Exception;
 
 class Unzip
 {
-    // Constants
+    protected $file_name;
+    protected $compressed_list = [];
+    protected $eo_central      = [];
 
-    /**
-     * Flag to use a specific archive workflow
-     *
-     * @var        int
-     */
-    public const USE_PHARDATA   = 0;
-    public const USE_ZIPARCHIVE = 1;
-    public const USE_LEGACY     = 2;
+    protected $zip_sig   = "\x50\x4b\x03\x04"; # local file header signature
+    protected $dir_sig   = "\x50\x4b\x01\x02"; # central dir header signature
+    protected $dir_sig_e = "\x50\x4b\x05\x06"; # end of central dir signature
+    protected $fp        = null;
 
-    // Default workflow
-    public const USE_DEFAULT = self::USE_ZIPARCHIVE;
-
-    /**
-     * @var string Prefix for temporary archive directory
-     */
-    public const TMP_DIR = 'dc-temp-unzip';
-
-    // Properties
-
-    /**
-     * @var string Archive filename
-     */
-    protected ?string $archive;
-
-    /**
-     * @var bool True if archive has been closed
-     */
-    protected bool $closed = false;
-
-    /**
-     * @var int Type of archive used
-     */
-    protected int $workflow = self::USE_ZIPARCHIVE;
-
-    /**
-     * @var array Manifest of archive (may be filtered)
-     */
-    protected $manifest = [];
-
-    /**
-     * $var PharData|ZipArchive archive object
-     */
-    protected $zip;
-
-    /**
-     * @var string Exclusion pattern
-     */
-    protected $exclude = '';
-
-    /**
-     * @var string Root folder if not root specified in archive
-     */
-    protected $rootdir = null;
-
-    // Legacy
-
-    protected $fp           = null;
-    protected $eo_central   = [];
-    protected $zip_sig      = "\x50\x4b\x03\x04"; # local file header signature
-    protected $dir_sig      = "\x50\x4b\x01\x02"; # central dir header signature
-    protected $dir_sig_e    = "\x50\x4b\x05\x06"; # end of central dir signature
     protected $memory_limit = null;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param      string  $archive   The archive filename
-     * @param      int     $workflow  Specify the workflow to be used (phardata, ziparchive, legacy)
-     */
-    public function __construct(string $archive, int $workflow = self::USE_ZIPARCHIVE)
+    protected $exclude_pattern = '';
+
+    public function __construct($file_name)
     {
-        $this->workflow = $this->checkWorkflow($workflow);
-        $this->archive  = $archive;
-
-        switch ($this->workflow) {
-            case self::USE_PHARDATA:
-                $this->zip = new \PharData(
-                    $archive,
-                    \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::UNIX_PATHS | \FilesystemIterator::CURRENT_AS_FILEINFO,
-                    null,
-                    \Phar::ZIP
-                );
-
-                break;
-            case self::USE_ZIPARCHIVE:
-                $this->zip = new \ZipArchive();
-                if ($this->zip->open($archive) !== true) {
-                    unset($this->zip);
-
-                    throw new Exception('Unable to open file.');
-                }
-
-                break;
-            case self::USE_LEGACY:
-                break;
-        }
+        $this->file_name = $file_name;
     }
 
-    /**
-     * Check required workflow
-     *
-     * @param      int|null   $workflow  The workflow to be checked
-     *
-     * @return     int   the effective workflow to be used
-     */
-    protected function checkWorkflow(?int $workflow): int
-    {
-        // Check validity of workflow
-        if ($workflow === null || !in_array($workflow, [
-            self::USE_LEGACY,
-            self::USE_PHARDATA,
-            self::USE_ZIPARCHIVE,
-        ])) {
-            // Unknown or null workflow, use default
-            $workflow = self::USE_DEFAULT;
-        }
-
-        switch ($workflow) {
-            case self::USE_PHARDATA:
-                // Check if we can use PharData zip archive
-                if ($this->checkPharData()) {
-                    // We will use a PharData archive
-                    return $workflow;
-                }
-                // Lets try ZipArchive
-                if ($this->checkZipArchive()) {
-                    // We will use a ZipArchive archive
-                    return self::USE_ZIPARCHIVE;
-                }
-
-                break;
-            case self::USE_ZIPARCHIVE:
-                // Check if we can use ZipArchive zip archive
-                if ($this->checkZipArchive()) {
-                    // We will use a ZipArchive archive
-                    return $workflow;
-                }
-                // Lets try PharData
-                if ($this->checkPharData()) {
-                    // We will use a PharData archive
-                    return self::USE_PHARDATA;
-                }
-
-                break;
-            case self::USE_LEGACY:
-
-                break;
-        }
-
-        // Fallback to legacy
-        return self::USE_LEGACY;
-    }
-
-    /**
-     * Check if PharData archive may be used
-     *
-     * @return     bool
-     */
-    protected function checkPharData(): bool
-    {
-        return class_exists('PharData');
-    }
-
-    /**
-     * Check if ZipArchive archive may be used
-     *
-     * @return     bool
-     */
-    protected function checkZipArchive(): bool
-    {
-        return class_exists('ZipArchive');
-    }
-
-    /**
-     * Destroys the object.
-     */
     public function __destruct()
     {
-        // Close the archive if necessary
-        if (!$this->closed) {
-            $this->close();
-        }
+        $this->close();
     }
 
-    /**
-     * Close the archive
-     */
     public function close()
     {
-        if ($this->closed) {
-            return;
+        if ($this->fp) {
+            fclose($this->fp);
+            $this->fp = null;
         }
-        $this->closed = true;
 
-        switch ($this->workflow) {
-            case self::USE_PHARDATA:
-                if ($this->zip) {
-                    // No need to close archive
-                    unset($this->zip);
-                }
-
-                break;
-            case self::USE_ZIPARCHIVE:
-                if ($this->zip) {
-                    $this->zip->close();
-                    unset($this->zip);
-                }
-
-                break;
-            case self::USE_LEGACY:
-                if ($this->fp) {
-                    fclose($this->fp);
-                    $this->fp = null;
-                }
-                if ($this->memory_limit) {
-                    ini_set('memory_limit', $this->memory_limit);
-                }
-
-                break;
+        if ($this->memory_limit) {
+            ini_set('memory_limit', $this->memory_limit);
         }
     }
 
-    /**
-     * Gets the list.
-     *
-     * @param      bool|string  $stop_on_file  The stop on file
-     * @param      bool|string  $exclude       The exclude
-     *
-     * @return     array|false  The list.
-     */
     public function getList($stop_on_file = false, $exclude = false)
     {
-        if (!empty($this->manifest)) {
-            return $this->manifest;
+        if (!empty($this->compressed_list)) {
+            return $this->compressed_list;
         }
 
-        switch ($this->workflow) {
-            case self::USE_PHARDATA:
-                $this->getListPharArchive(null, $stop_on_file, $exclude);
-
-                break;
-
-            case self::USE_ZIPARCHIVE:
-                if (!isset($this->zip)) {
-                    throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
-                }
-                for ($i = 0; $i < $this->zip->numFiles; $i++) {
-                    $stats    = $this->convertZipArchiveStats($this->zip->statIndex($i));
-                    $filename = $stats['file_name'];
-                    if ($exclude !== false && preg_match($exclude, (string) $filename)) {
-                        continue;
-                    }
-                    // Add item to manifest
-                    $this->manifest[$filename] = $stats;
-
-                    // Check if we must stop
-                    if ($stop_on_file && strtolower($stop_on_file) === strtolower($filename)) {
-                        break;
-                    }
-                }
-
-                break;
-
-            case self::USE_LEGACY:
-                if (!$this->loadFileListByEOF($stop_on_file, $exclude) && !$this->loadFileListBySignatures($stop_on_file, $exclude)) {
-                    return false;
-                }
-
-                break;
+        if (!$this->loadFileListByEOF($stop_on_file, $exclude) && !$this->loadFileListBySignatures($stop_on_file, $exclude)) {
+            return false;
         }
 
-        return $this->manifest;
+        return $this->compressed_list;
     }
 
-    /**
-     * Gets the list of a Phar archive.
-     *
-     * @param      null|string  $directory     The directory
-     * @param      bool|string  $stop_on_file  The stop on file
-     * @param      bool|string  $exclude       The exclude
-     */
-    protected function getListPharArchive(?string $directory = null, $stop_on_file = false, $exclude = false)
-    {
-        $list = $directory === null ? new \PharData($this->archive) : new \PharData($directory);
-        foreach ($list as $file) {
-            // Get relative path
-            $path = substr($file->getPathname(), strlen('phar://' . realpath($this->archive)));
-
-            // Get archive root dir if necessary
-            if ($directory === null && $this->rootdir === null) {
-                $rootdir = realpath(substr($file->getPathinfo()->getPath(), strlen('phar://')));
-                if (strpos($rootdir, $path) !== false) {
-                    // The archive has no root dir, keep the calculate one
-                    $this->rootdir = $rootdir;
-                } else {
-                    // The archive has a root dir
-                    $this->rootdir = '';
-                }
-            }
-
-            if ($this->rootdir === '' || substr($path, strlen($this->rootdir)) !== '') {
-                // Get infos
-                $stats = [
-                    'file_name'         => $this->cleanFileName($path) . ($file->isDir() ? DIRECTORY_SEPARATOR : ''),
-                    'is_dir'            => $file->isDir(),
-                    'uncompressed_size' => $file->getSize(),
-                    'lastmod_datetime'  => $file->getMTime(),
-                ];
-                $filename = $stats['file_name'];
-
-                // Check if file excluded
-                if ($exclude !== false && preg_match($exclude, (string) $filename)) {
-                    continue;
-                }
-
-                // Add file info
-                $this->manifest[$filename] = $stats;
-
-                // Check if we must stop
-                if ($stop_on_file && strtolower($stop_on_file) === strtolower($filename)) {
-                    break;
-                }
-            }
-
-            // Recursive list if it is a directory
-            if ($file->isDir()) {
-                $this->getListPharArchive($file->getPathname(), $stop_on_file, $exclude);
-            }
-        }
-    }
-
-    /**
-     * Convert ZipArchive file stats to legacy stats
-     *
-     * @param      array  $stats  The statistics
-     *
-     * @return     array
-     */
-    protected function convertZipArchiveStats(array $stats): array
-    {
-        return [
-            'file_name'          => $this->cleanFileName($stats['name']),
-            'is_dir'             => substr($stats['name'], -1, 1) == '/',
-            'uncompressed_size'  => $stats['size'],
-            'lastmod_datetime'   => $stats['mtime'],
-            'compressed_size'    => $stats['comp_size'],
-            'compression_method' => $stats['comp_method'],
-        ];
-    }
-
-    /**
-     * Gets the manifest of the archive (getList() must be called first).
-     *
-     * @return     array  The manifest.
-     */
-    public function getManifest(): array
-    {
-        return $this->manifest;
-    }
-
-    /**
-     * Gets the archive type.
-     *
-     * @return     int   The archive type.
-     */
-    public function getWorkflow(): int
-    {
-        return $this->workflow;
-    }
-
-    /**
-     * Unzip all from archive
-     *
-     * @param      string|bool  $target  The target (or false)
-     */
     public function unzipAll($target)
     {
-        if ($this->workflow !== self::USE_LEGACY && !isset($this->zip)) {
-            throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
-        }
-
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList();
         }
 
-        foreach ($this->manifest as $k => $v) {
+        foreach ($this->compressed_list as $k => $v) {
             if ($v['is_dir']) {
                 continue;
             }
 
-            $pathname = $target === false ? $target : $target . '/' . $k;
-            $this->unzip($k, $pathname, $target);
+            $this->unzip($k, $target . '/' . $k);
         }
     }
 
-    /**
-     * Unzip a file from archive
-     *
-     * @param      string       $file_name  The file name
-     * @param      bool|string  $target     The target
-     * @param      string       $folder     The base folder
-     *
-     * @throws     Exception
-     *
-     * @return     mixed
-     */
-    public function unzip($file_name, $target = false, string $folder = '')
+    public function unzip($file_name, $target = false)
     {
-        if ($target !== false && $folder === '') {
-            $folder = dirname($target);
-        }
-
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList($file_name);
         }
 
-        if (!isset($this->manifest[$file_name])) {
+        if (!isset($this->compressed_list[$file_name])) {
             throw new Exception(sprintf(__('File %s is not compressed in the zip.'), $file_name));
         }
         if ($this->isFileExcluded($file_name)) {
             return;
         }
-        $details = &$this->manifest[$file_name];
+        $details = &$this->compressed_list[$file_name];
 
         if ($details['is_dir']) {
             throw new Exception(sprintf(__('Trying to unzip a folder name %s'), $file_name));
@@ -450,74 +101,30 @@ class Unzip
             $this->testTargetDir(dirname($target));
         }
 
-        switch ($this->workflow) {
-            case self::USE_PHARDATA:
-                if (!isset($this->zip)) {
-                    throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
-                }
-                // If no target, extract if to a temporary directory
-                if ($target === false) {
-                    // Use a temporary directory
-                    $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . self::TMP_DIR . bin2hex(random_bytes(8));
-                    $this->testTargetDir($output);
-                    $this->zip->extractTo($output, $file_name, true);
-
-                    return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
-                }
-                $this->zip->extractTo($folder, $file_name, true);
-                Files::inheritChmod($target);
-
-                break;
-
-            case self::USE_ZIPARCHIVE:
-                if (!isset($this->zip)) {
-                    throw new Exception(sprintf(__('Archive %s is closed.'), $this->archive));
-                }
-                // If no target, extract if to a temporary directory
-                if ($target === false) {
-                    // Use a temporary directory
-                    $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . self::TMP_DIR . bin2hex(random_bytes(8));
-                    $this->testTargetDir($output);
-                    $this->zip->extractTo($output, $file_name);
-
-                    return file_get_contents(implode(DIRECTORY_SEPARATOR, [$output, $file_name]));
-                }
-                $this->zip->extractTo($folder, $file_name);
-                Files::inheritChmod($target);
-
-                break;
-
-            case self::USE_LEGACY:
-                if (!$details['uncompressed_size']) {
-                    return $this->putContent('', $target);
-                }
-
-                fseek($this->fp(), $details['contents_start_offset']);
-
-                $this->memoryAllocate($details['compressed_size']);
-
-                return $this->uncompress(
-                    fread($this->fp(), $details['compressed_size']),
-                    $details['compression_method'],
-                    $details['uncompressed_size'],
-                    $target
-                );
+        if (!$details['uncompressed_size']) {
+            return $this->putContent('', $target);
         }
+
+        fseek($this->fp(), $details['contents_start_offset']);
+
+        $this->memoryAllocate($details['compressed_size']);
+
+        return $this->uncompress(
+            fread($this->fp(), $details['compressed_size']),
+            $details['compression_method'],
+            $details['uncompressed_size'],
+            $target
+        );
     }
 
-    /**
-     * Gets the files list.
-     *
-     * @return     array  The files list.
-     */
-    public function getFilesList(): array
+    public function getFilesList()
     {
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList();
         }
 
         $res = [];
-        foreach ($this->manifest as $k => $v) {
+        foreach ($this->compressed_list as $k => $v) {
             if (!$v['is_dir']) {
                 $res[] = $k;
             }
@@ -526,19 +133,14 @@ class Unzip
         return $res;
     }
 
-    /**
-     * Gets the dirs list.
-     *
-     * @return     array  The dirs list.
-     */
-    public function getDirsList(): array
+    public function getDirsList()
     {
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList();
         }
 
         $res = [];
-        foreach ($this->manifest as $k => $v) {
+        foreach ($this->compressed_list as $k => $v) {
             if ($v['is_dir']) {
                 $res[] = substr($k, 0, -1);
             }
@@ -547,14 +149,9 @@ class Unzip
         return $res;
     }
 
-    /**
-     * Gets the root dir.
-     *
-     * @return     false|string  The root dir.
-     */
     public function getRootDir()
     {
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList();
         }
 
@@ -581,81 +178,50 @@ class Unzip
         return false;
     }
 
-    /**
-     * Determines if archive is empty.
-     *
-     * @return     bool  True if empty, False otherwise.
-     */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList();
         }
 
-        return count($this->manifest) === 0;
+        return count($this->compressed_list) == 0;
     }
 
-    /**
-     * Determines if file exists in archive.
-     *
-     * @param      string  $filename  The filename
-     *
-     * @return     bool    True if file, False otherwise.
-     */
-    public function hasFile(string $filename): bool
+    public function hasFile($f)
     {
-        if (empty($this->manifest)) {
+        if (empty($this->compressed_list)) {
             $this->getList();
         }
 
-        return isset($this->manifest[$filename]);
+        return isset($this->compressed_list[$f]);
     }
 
-    /**
-     * Sets the exclude pattern.
-     *
-     * @param      string  $pattern  The pattern
-     */
-    public function setExcludePattern(string $pattern)
+    public function setExcludePattern($pattern)
     {
-        $this->exclude = $pattern;
+        $this->exclude_pattern = $pattern;
     }
 
-    /**
-     * Determines whether the specified filename is excluded.
-     *
-     * @param      string  $filename      The filename
-     *
-     * @return     bool    True if the specified f is file excluded, False otherwise.
-     */
-    protected function isFileExcluded(string $filename): bool
+    protected function fp()
     {
-        if ($this->exclude === '') {
+        if ($this->fp === null) {
+            $this->fp = @fopen($this->file_name, 'rb');
+        }
+
+        if ($this->fp === false) {
+            throw new Exception('Unable to open file.');
+        }
+
+        return $this->fp;
+    }
+
+    protected function isFileExcluded($f)
+    {
+        if (!$this->exclude_pattern) {
             return false;
         }
 
-        return (bool) preg_match($this->exclude, (string) $filename);
+        return preg_match($this->exclude_pattern, (string) $f);
     }
-
-    /**
-     * Check target directory and create it if necessary
-     *
-     * @param      string     $dir    The target directory
-     *
-     * @throws     Exception
-     */
-    protected function testTargetDir(string $dir)
-    {
-        if (is_dir($dir) && !is_writable($dir)) {
-            throw new Exception(__('Unable to write in target directory, permission denied.'));
-        }
-
-        if (!is_dir($dir)) {
-            Files::makeDir($dir, true);
-        }
-    }
-
-    // Legacy
 
     protected function putContent($content, $target = false)
     {
@@ -672,17 +238,15 @@ class Unzip
         return $content;
     }
 
-    protected function fp()
+    protected function testTargetDir($dir)
     {
-        if ($this->fp === null) {
-            $this->fp = @fopen($this->archive, 'rb');
+        if (is_dir($dir) && !is_writable($dir)) {
+            throw new Exception(__('Unable to write in target directory, permission denied.'));
         }
 
-        if ($this->fp === false) {
-            throw new Exception('Unable to open file.');
+        if (!is_dir($dir)) {
+            Files::makeDir($dir, true);
         }
-
-        return $this->fp;
     }
 
     protected function uncompress($content, $mode, $size, $target = false)
@@ -823,22 +387,20 @@ class Unzip
 
                     $i = $this->getFileHeaderInformation($v['relative_offset']);
 
-                    $this->manifest[$k]['file_name']             = $k;
-                    $this->manifest[$k]['is_dir']                = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
-                    $this->manifest[$k]['compression_method']    = $v['compression_method'];
-                    $this->manifest[$k]['version_needed']        = $v['version_needed'];
-                    $this->manifest[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
-                    $this->manifest[$k]['crc-32']                = $v['crc-32'];
-                    $this->manifest[$k]['compressed_size']       = $v['compressed_size'];
-                    $this->manifest[$k]['uncompressed_size']     = $v['uncompressed_size'];
-                    $this->manifest[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
-                    $this->manifest[$k]['extra_field']           = $i['extra_field'];
-                    $this->manifest[$k]['contents_start_offset'] = $i['contents_start_offset'];
+                    $this->compressed_list[$k]['file_name']             = $k;
+                    $this->compressed_list[$k]['is_dir']                = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
+                    $this->compressed_list[$k]['compression_method']    = $v['compression_method'];
+                    $this->compressed_list[$k]['version_needed']        = $v['version_needed'];
+                    $this->compressed_list[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
+                    $this->compressed_list[$k]['crc-32']                = $v['crc-32'];
+                    $this->compressed_list[$k]['compressed_size']       = $v['compressed_size'];
+                    $this->compressed_list[$k]['uncompressed_size']     = $v['uncompressed_size'];
+                    $this->compressed_list[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
+                    $this->compressed_list[$k]['extra_field']           = $i['extra_field'];
+                    $this->compressed_list[$k]['contents_start_offset'] = $i['contents_start_offset'];
 
-                    if ($stop_on_file !== false) {
-                        if (strtolower($stop_on_file) == strtolower($k)) {
-                            break;
-                        }
+                    if (strtolower($stop_on_file) == strtolower($k)) {
+                        break;
                     }
                 }
 
@@ -870,13 +432,11 @@ class Unzip
                 continue;
             }
 
-            $this->manifest[$filename] = $details;
-            $return                    = true;
+            $this->compressed_list[$filename] = $details;
+            $return                           = true;
 
-            if ($stop_on_file !== false) {
-                if (strtolower($stop_on_file) == strtolower($filename)) {
-                    break;
-                }
+            if (strtolower($stop_on_file) == strtolower($filename)) {
+                break;
             }
         }
 

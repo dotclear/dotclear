@@ -146,6 +146,10 @@ dcProxyV1::classAliases([
     // Date helpers
     'dt' => 'Dotclear\Helper\Date',
 
+    // Zip helpers
+    'fileZip'   => 'Dotclear\Helper\File\Zip\Zip',
+    'fileUnzip' => 'Dotclear\Helper\File\Zip\Unip',
+
     // Database -------------------
 
     'dcSqlStatement'      => 'Dotclear\Database\Statement\SqlStatement',
