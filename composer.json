@@ -16,7 +16,8 @@
     "phpstan/phpstan": "1.9.x-dev",
     "atoum/atoum": "4.1.0",
     "atoum/reports-extension": "4.0.0",
-    "fakerphp/faker": "1.21.0"
+    "fakerphp/faker": "1.21.0",
+    "vimeo/psalm": "^5.0@dev"
   },
   "config": {
     "bin-dir": "bin/"

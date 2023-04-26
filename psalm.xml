@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<psalm
+  errorLevel="4"
+  resolveFromConfigFile="true"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="https://getpsalm.org/schema/config"
+  xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+  findUnusedBaselineEntry="true"
+  phpVersion="7.4"
+  autoloader="psalm.bootstrap.php"
+>
+  <fileExtensions>
+    <extension name=".php" />
+    <extension name=".in" />
+  </fileExtensions>
+  <projectFiles>
+    <file name="index.php" />
+    <directory name="admin" />
+    <directory name="inc" />
+    <directory name="src" />
+    <directory name="plugins" />
+    <directory name="themes/berlin" />
+    <directory name="themes/blowup" />
+    <directory name="themes/blueSilence" />
+    <directory name="themes/customCSS" />
+    <directory name="themes/ductile" />
+    <ignoreFiles>
+      <file name="inc/config.php" />
+    </ignoreFiles>
+  </projectFiles>
+</psalm>
