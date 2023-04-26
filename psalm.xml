@@ -1,18 +1,12 @@
 <?xml version="1.0"?>
-<psalm
-  errorLevel="4"
-  resolveFromConfigFile="true"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="https://getpsalm.org/schema/config"
-  xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
-  findUnusedBaselineEntry="true"
-  phpVersion="7.4"
-  autoloader="psalm.bootstrap.php"
->
+<psalm errorLevel="4" resolveFromConfigFile="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd" findUnusedBaselineEntry="true" phpVersion="7.4" autoloader="psalm.bootstrap.php" findUnusedCode="false" errorBaseline="psalm-baseline.xml">
   <fileExtensions>
     <extension name=".php" />
     <extension name=".in" />
   </fileExtensions>
+  <stubs>
+    <file name="psalm.constants.php" />
+  </stubs>
   <projectFiles>
     <file name="index.php" />
     <directory name="admin" />

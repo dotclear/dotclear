@@ -1,6 +1,6 @@
 <?php
 /**
- * Unit tests bootstrap
+ * Psalm bootstrap
  *
  * @package Dotclear
  *
