@@ -287,7 +287,7 @@ class adminModulesList
      */
     public function setURL(string $url): adminModulesList
     {
-        $this->page_qs  = strpos('?', $url) ? '&amp;' : '?';
+        $this->page_qs  = strpos($url, '?') ? '&amp;' : '?';
         $this->page_url = $url;
 
         return $this;
