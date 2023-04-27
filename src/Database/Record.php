@@ -61,9 +61,9 @@ class Record implements Iterator, Countable
     /**
      * Current result row content
      *
-     * @var        bool|array
+     * @var        array
      */
-    protected $__row = false;
+    protected $__row = [];
 
     /**
      * Fetch occured once?
@@ -437,7 +437,7 @@ class Record implements Iterator, Countable
     /**
      * @return array    current rows.
      */
-    public function row(): array
+    public function row()
     {
         return $this->__row;
     }

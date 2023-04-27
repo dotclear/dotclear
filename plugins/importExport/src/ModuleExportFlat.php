@@ -188,9 +188,9 @@ class ModuleExportFlat extends Module
 
             // Zip export
 
-            try {
-                $file_zipname = $_SESSION['export_filename'] . '.zip';
+            $file_zipname = $_SESSION['export_filename'] . '.zip';
 
+            try {
                 $fp  = fopen('php://output', 'wb');
                 $zip = new Zip($fp);
                 $zip->addFile($_SESSION['export_file'], $_SESSION['export_filename']);
@@ -201,13 +201,13 @@ class ModuleExportFlat extends Module
                 $zip->write();
 
                 unlink($_SESSION['export_file']);
-                unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
                 exit;
             } catch (Exception $e) {
-                unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
                 @unlink($_SESSION['export_file']);
 
                 throw new Exception(__('Failed to compress export file.'));
+            } finally {
+                unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
             }
         }
     }

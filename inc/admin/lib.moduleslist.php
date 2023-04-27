@@ -447,7 +447,7 @@ class adminModulesList
      */
     public function getIndex(): string
     {
-        return isset($_REQUEST['m_nav']) && in_array($_REQUEST['m_nav'], $this->nav_list) ? $_REQUEST['m_nav'] : $this->nav_list[0];
+        return (string) (isset($_REQUEST['m_nav']) && in_array($_REQUEST['m_nav'], $this->nav_list) ? $_REQUEST['m_nav'] : $this->nav_list[0]);
     }
 
     /**
@@ -526,7 +526,7 @@ class adminModulesList
      */
     public function getSort(): string
     {
-        return !empty($_REQUEST['m_sort']) ? $_REQUEST['m_sort'] : $this->sort_field;
+        return (string) (!empty($_REQUEST['m_sort']) ? $_REQUEST['m_sort'] : $this->sort_field);
     }
 
     /**

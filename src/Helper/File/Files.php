@@ -465,9 +465,9 @@ class Files
      * @param string        $directory    Directory name
      * @param array         $list         Contents array (leave it empty)
      *
-     * @return array
+     * @return array<array-key, mixed>|null
      */
-    public static function getDirList(string $directory, array &$list = null): array
+    public static function getDirList(string $directory, array &$list = null): ?array
     {
         if (!$list) {
             $list = [

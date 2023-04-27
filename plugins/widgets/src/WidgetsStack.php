@@ -81,12 +81,10 @@ class WidgetsStack
      */
     public function append(WidgetsElement $widget): void
     {
-        if ($widget instanceof WidgetsElement) {
-            if (is_callable($widget->append_callback)) {
-                call_user_func($widget->append_callback, $widget);
-            }
-            $this->widgets[] = $widget;
+        if (is_callable($widget->append_callback)) {
+            call_user_func($widget->append_callback, $widget);
         }
+        $this->widgets[] = $widget;
     }
 
     /**
@@ -151,17 +149,13 @@ class WidgetsStack
     /**
      * Loads an array of widgets.
      *
-     * @param      array                $A        { parameter_description }
-     * @param      WidgetsStack            $widgets  The widgets
+     * @param      array                $A
+     * @param      WidgetsStack         $widgets  The widgets
      *
-     * @return     bool|WidgetsStack|self
+     * @return     self
      */
-    public static function loadArray(array $A, WidgetsStack $widgets)
+    public static function loadArray(array $A, self $widgets): self
     {
-        if (!($widgets instanceof self)) {
-            return false;
-        }
-
         uasort($A, fn ($a, $b) => $a['order'] <=> $b['order']);
 
         $result = new self();

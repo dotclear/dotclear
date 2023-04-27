@@ -209,7 +209,7 @@ class Handler extends AbstractHandler
      */
     public function db_num_rows($res): int
     {
-        return $res instanceof mysqli_result ? $res->num_rows : 0;
+        return $res instanceof mysqli_result ? (int) $res->num_rows : 0;
     }
 
     /**
@@ -301,7 +301,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed       $handle  The handle
      *
-     * @return     bool|string
+     * @return     false|string
      */
     public function db_last_error($handle)
     {
@@ -462,32 +462,32 @@ class Handler extends AbstractHandler
     protected function _convert_types(string $id)
     {
         $id2type = [
-            '1' => 'int',
-            '2' => 'int',
-            '3' => 'int',
-            '8' => 'int',
-            '9' => 'int',
+            1 => 'int',
+            2 => 'int',
+            3 => 'int',
+            8 => 'int',
+            9 => 'int',
 
-            '16' => 'int', //BIT type recognized as unknown with mysql adapter
+            16 => 'int', //BIT type recognized as unknown with mysql adapter
 
-            '4'   => 'real',
-            '5'   => 'real',
-            '246' => 'real',
+            4   => 'real',
+            5   => 'real',
+            246 => 'real',
 
-            '253' => 'string',
-            '254' => 'string',
+            253 => 'string',
+            254 => 'string',
 
-            '10' => 'date',
-            '11' => 'time',
-            '12' => 'datetime',
-            '13' => 'year',
+            10 => 'date',
+            11 => 'time',
+            12 => 'datetime',
+            13 => 'year',
 
-            '7' => 'timestamp',
+            7 => 'timestamp',
 
-            '252' => 'blob',
+            252 => 'blob',
 
         ];
 
-        return $id2type[$id] ?? 'unknown';
+        return $id2type[(int) $id] ?? 'unknown';
     }
 }

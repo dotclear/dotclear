@@ -49,7 +49,7 @@ class adminCategory
             $rs = null;
 
             try {
-                $rs = dcCore::app()->blog->getCategory($_REQUEST['id']);
+                $rs = dcCore::app()->blog->getCategory((int) $_REQUEST['id']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

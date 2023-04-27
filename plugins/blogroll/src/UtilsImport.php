@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use StdClass;
+use stdClass;
 
 class UtilsImport
 {
@@ -60,7 +60,7 @@ class UtilsImport
                 continue;
             }
 
-            $entry = new StdClass();
+            $entry = new stdClass();
 
             $entry->link  = $link;
             $entry->title = (!empty($outline['title'])) ? $outline['title'] : '';
@@ -91,7 +91,7 @@ class UtilsImport
                 continue;
             }
 
-            $entry = new StdClass();
+            $entry = new stdClass();
 
             $entry->link  = $outline['href'];
             $entry->title = (!empty($outline->title)) ? $outline->title : '';

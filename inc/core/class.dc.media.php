@@ -978,15 +978,15 @@ class dcMedia extends Manager
     /**
      * Makes a dir.
      *
-     * @param      string  $directory      the directory to create
+     * @param      string  $name      the directory to create
      */
-    public function makeDir(?string $directory): void
+    public function makeDir(?string $name): void
     {
-        $directory = Files::tidyFileName($directory);
-        parent::makeDir($directory);
+        $name = Files::tidyFileName($name);
+        parent::makeDir($name);
 
         # --BEHAVIOR-- coreAfterMediaDirCreate -- string|null
-        dcCore::app()->callBehavior('coreAfterMediaDirCreate', $directory);
+        dcCore::app()->callBehavior('coreAfterMediaDirCreate', $name);
     }
 
     /**
@@ -1180,7 +1180,7 @@ class dcMedia extends Manager
      * Uploads a file.
      *
      * @param      string     $tmp        The full path of temporary uploaded file
-     * @param      string     $name       The file name (relative to working directory)me
+     * @param      string     $dest       The file name (relative to working directory)me
      * @param      bool       $overwrite  File should be overwrite
      * @param      string     $title      The file title (should be string|null)
      * @param      bool       $private    File is private
@@ -1189,7 +1189,7 @@ class dcMedia extends Manager
      *
      * @return     mixed      New media ID or false (should be int|false)
      */
-    public function uploadFile(string $tmp, string $name, bool $overwrite = false, ?string $title = null, bool $private = false)
+    public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -1198,11 +1198,11 @@ class dcMedia extends Manager
             throw new Exception(__('Permission denied.'));
         }
 
-        $name = Files::tidyFileName($name);
+        $dest = Files::tidyFileName($dest);
 
-        parent::uploadFile($tmp, $name, $overwrite);
+        parent::uploadFile($tmp, $dest, $overwrite);
 
-        return $this->createFile($name, $title, $private);
+        return $this->createFile($dest, $title, $private);
     }
 
     /**
@@ -1236,11 +1236,11 @@ class dcMedia extends Manager
     /**
      * Removes a file.
      *
-     * @param      string     $name      filename
+     * @param      string     $file      filename
      *
      * @throws     Exception
      */
-    public function removeFile(?string $name): void
+    public function removeFile(?string $file): void
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
@@ -1249,7 +1249,7 @@ class dcMedia extends Manager
             throw new Exception(__('Permission denied.'));
         }
 
-        $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $name) : Path::clean($name);
+        $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $file) : Path::clean($file);
 
         $sql = new DeleteStatement();
         $sql
@@ -1269,9 +1269,9 @@ class dcMedia extends Manager
             throw new Exception(__('File does not exist in the database.'));
         }
 
-        parent::removeFile($name);
+        parent::removeFile($file);
 
-        $this->callFileHandler(Files::getMimeType($media_file), 'remove', $name);
+        $this->callFileHandler(Files::getMimeType($media_file), 'remove', $file);
     }
 
     /**

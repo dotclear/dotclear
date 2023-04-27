@@ -44,8 +44,6 @@ class ClientMulticall extends Client
      *
      * @param string    $method
      * @param mixed     $args
-     *
-     * @return mixed
      */
     public function addCall(string $method, ...$args)
     {

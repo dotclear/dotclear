@@ -57,12 +57,10 @@ class Config extends dcNsProcess
         ];
         // Get all _entry-*.html in tpl folder of theme
         $list_types_templates = Files::scandir($tpl_path);
-        if (is_array($list_types_templates)) {
-            foreach ($list_types_templates as $v) {
-                if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
-                    // template not already in full list
-                    $list_types[__($m[1])] = $m[1];
-                }
+        foreach ($list_types_templates as $v) {
+            if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
+                // template not already in full list
+                $list_types[__($m[1])] = $m[1];
             }
         }
         dcCore::app()->admin->list_types = $list_types;
@@ -203,22 +201,18 @@ class Config extends dcNsProcess
 
         $ductile_stickers_full = [];
         // Get all sticker images already used
-        if (is_array($ductile_stickers)) {
-            foreach ($ductile_stickers as $v) {
-                $ductile_stickers_full[] = $v['image'];
-            }
+        foreach ($ductile_stickers as $v) {
+            $ductile_stickers_full[] = $v['image'];
         }
         // Get all sticker-*.png in img folder of theme
         $ductile_stickers_images = Files::scandir($img_path);
-        if (is_array($ductile_stickers_images)) {
-            foreach ($ductile_stickers_images as $v) {
-                if (preg_match('/^sticker\-(.*)\.png$/', $v) && !in_array($v, $ductile_stickers_full)) {
-                    // image not already used
-                    $ductile_stickers[] = [
-                        'label' => null,
-                        'url'   => null,
-                        'image' => $v, ];
-                }
+        foreach ($ductile_stickers_images as $v) {
+            if (preg_match('/^sticker\-(.*)\.png$/', $v) && !in_array($v, $ductile_stickers_full)) {
+                // image not already used
+                $ductile_stickers[] = [
+                    'label' => null,
+                    'url'   => null,
+                    'image' => $v, ];
             }
         }
         dcCore::app()->admin->ductile_stickers = $ductile_stickers;

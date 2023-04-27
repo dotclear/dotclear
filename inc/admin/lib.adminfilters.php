@@ -425,7 +425,7 @@ class adminPostFilter extends adminGenericFilterV2
             $this->add((new dcAdminFilter('post_type', $post_type))->param('post_type'));
         }
 
-        $filters = new arrayObject([
+        $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
             $this->getPostUserFilter(),
             $this->getPostCategoriesFilter(),
@@ -725,7 +725,7 @@ class adminCommentFilter extends adminGenericFilterV2
     {
         parent::__construct('comments');
 
-        $filters = new arrayObject([
+        $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
             $this->getCommentAuthorFilter(),
             $this->getCommentTypeFilter(),
@@ -814,7 +814,7 @@ class adminUserFilter extends adminGenericFilterV2
     {
         parent::__construct('users');
 
-        $filters = new arrayObject([
+        $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
             dcAdminFilters::getSearchFilter(),
         ]);
@@ -834,7 +834,7 @@ class adminBlogFilter extends adminGenericFilterV2
     {
         parent::__construct('blogs');
 
-        $filters = new arrayObject([
+        $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
             dcAdminFilters::getSearchFilter(),
             $this->getBlogStatusFilter(),
@@ -873,7 +873,7 @@ class adminMediaFilter extends adminGenericFilterV2
     {
         parent::__construct($type);
 
-        $filters = new arrayObject([
+        $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
             dcAdminFilters::getSearchFilter(),
 

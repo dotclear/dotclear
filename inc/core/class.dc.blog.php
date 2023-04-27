@@ -1316,7 +1316,7 @@ class dcBlog
         dcCore::app()->callBehavior('coreBlogGetPosts', $rs);
 
         # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
-        $alt = new arrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
+        $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
         dcCore::app()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
         if ($alt['rs']) {
             if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line

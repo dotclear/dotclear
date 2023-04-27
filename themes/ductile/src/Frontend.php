@@ -131,12 +131,10 @@ class Frontend extends dcNsProcess
 
         // Get all _entry-*.html in tpl folder of theme
         $list_types_templates = Files::scandir($tpl_path);
-        if (is_array($list_types_templates)) {
-            foreach ($list_types_templates as $v) {
-                if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
-                    // template not already in full list
-                    $list_types[] = $m[1];
-                }
+        foreach ($list_types_templates as $v) {
+            if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
+                // template not already in full list
+                $list_types[] = $m[1];
             }
         }
 
@@ -158,7 +156,7 @@ class Frontend extends dcNsProcess
         return $ret;
     }
 
-    public static function ductileEntriesListHelper(?string $default): string
+    public static function ductileEntriesListHelper(string $default): string
     {
         $s = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_entries_lists');
         if ($s !== null) {
@@ -258,7 +256,7 @@ class Frontend extends dcNsProcess
 
     protected static function cleanStickers(array $s): bool
     {
-        if (is_array($s) && isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null) {
+        if (isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null) {
             return true;
         }
 

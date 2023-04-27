@@ -541,8 +541,6 @@ class MetaRecord implements Iterator, Countable
      *
      * @param string|int    $field        Field name|position
      * @param string        $order        Sort type (asc or desc)
-     *
-     * @return mixed
      */
     public function sort($field, string $order = 'asc')
     {

@@ -321,7 +321,7 @@ class dcFavorites
      * Adds favorites icons to index page
      * shall not be called outside admin/index.php...
      *
-     * @param array|arrayObject  $icons   dashboard icon list to enrich
+     * @param array|ArrayObject  $icons   dashboard icon list to enrich
      */
     public function appendDashboardIcons($icons)
     {
@@ -401,12 +401,12 @@ class defaultFavorites
     public static function initDefaultFavorites(dcFavorites $favs)
     {
         $favs->registerMultiple([
-            'prefs'      => [
+            'prefs' => [
                 'title'      => __('My preferences'),
                 'url'        => dcCore::app()->adminurl->get('admin.user.preferences'),
                 'small-icon' => 'images/menu/user-pref.svg',
                 'large-icon' => 'images/menu/user-pref.svg', ],
-            'new_post'   => [
+            'new_post' => [
                 'title'       => __('New post'),
                 'url'         => dcCore::app()->adminurl->get('admin.post'),
                 'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
@@ -415,28 +415,28 @@ class defaultFavorites
                     dcAuth::PERMISSION_USAGE,
                     dcAuth::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'active_cb'   => ['defaultFavorites', 'newpostActive'], ],
-            'posts'      => [
-                'title'        => __('Posts'),
-                'url'          => dcCore::app()->adminurl->get('admin.posts'),
-                'small-icon'   => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
-                'large-icon'   => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
-                'permissions'  => dcCore::app()->auth->makePermissions([
+                'active_cb' => ['defaultFavorites', 'newpostActive'], ],
+            'posts' => [
+                'title'       => __('Posts'),
+                'url'         => dcCore::app()->adminurl->get('admin.posts'),
+                'small-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
+                'large-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
+                'permissions' => dcCore::app()->auth->makePermissions([
                     dcAuth::PERMISSION_USAGE,
                     dcAuth::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', 'postsDashboard'], ],
-            'comments'   => [
-                'title'        => __('Comments'),
-                'url'          => dcCore::app()->adminurl->get('admin.comments'),
-                'small-icon'   => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
-                'large-icon'   => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
-                'permissions'  => dcCore::app()->auth->makePermissions([
+            'comments' => [
+                'title'       => __('Comments'),
+                'url'         => dcCore::app()->adminurl->get('admin.comments'),
+                'small-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
+                'large-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
+                'permissions' => dcCore::app()->auth->makePermissions([
                     dcAuth::PERMISSION_USAGE,
                     dcAuth::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', 'commentsDashboard'], ],
-            'search'     => [
+            'search' => [
                 'title'       => __('Search'),
                 'url'         => dcCore::app()->adminurl->get('admin.search'),
                 'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
@@ -453,7 +453,7 @@ class defaultFavorites
                 'permissions' => dcCore::app()->auth->makePermissions([
                     dcAuth::PERMISSION_CATEGORIES,
                 ]), ],
-            'media'      => [
+            'media' => [
                 'title'       => __('Media manager'),
                 'url'         => dcCore::app()->adminurl->get('admin.media'),
                 'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
@@ -462,7 +462,7 @@ class defaultFavorites
                     dcAuth::PERMISSION_MEDIA,
                     dcAuth::PERMISSION_MEDIA_ADMIN,
                 ]), ],
-            'blog_pref'  => [
+            'blog_pref' => [
                 'title'       => __('Blog settings'),
                 'url'         => dcCore::app()->adminurl->get('admin.blog.pref'),
                 'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
@@ -478,7 +478,7 @@ class defaultFavorites
                 'permissions' => dcCore::app()->auth->makePermissions([
                     dcAuth::PERMISSION_ADMIN,
                 ]), ],
-            'blogs'      => [
+            'blogs' => [
                 'title'       => __('Blogs'),
                 'url'         => dcCore::app()->adminurl->get('admin.blogs'),
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
@@ -487,22 +487,22 @@ class defaultFavorites
                     dcAuth::PERMISSION_USAGE,
                     dcAuth::PERMISSION_CONTENT_ADMIN,
                 ]) : null, ],
-            'users'      => [
+            'users' => [
                 'title'      => __('Users'),
                 'url'        => dcCore::app()->adminurl->get('admin.users'),
                 'small-icon' => 'images/menu/users.svg',
                 'large-icon' => 'images/menu/users.svg', ],
-            'plugins'    => [
+            'plugins' => [
                 'title'      => __('Plugins management'),
                 'url'        => dcCore::app()->adminurl->get('admin.plugins'),
                 'small-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
                 'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'], ],
-            'langs'      => [
+            'langs' => [
                 'title'      => __('Languages'),
                 'url'        => dcCore::app()->adminurl->get('admin.langs'),
                 'small-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
                 'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'], ],
-            'help'       => [
+            'help' => [
                 'title'      => __('Global help'),
                 'url'        => dcCore::app()->adminurl->get('admin.help'),
                 'small-icon' => 'images/menu/help.svg',

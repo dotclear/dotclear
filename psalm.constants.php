@@ -48,7 +48,7 @@ define('DC_ROOT', __DIR__);
 define('DC_SESSION_NAME', '');
 define('DC_STORE_NOT_UPDATE', false);
 define('DC_TPL_CACHE', __DIR__ . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'cbtpl');
-define('DC_UPGRADE', false);
+define('DC_UPGRADE', __DIR__ . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'upgrade');
 define('DC_UPDATE_URL', 'https://download.dotclear.org/versions.xml');
 define('DC_UPDATE_VERSION', 'stable');
 define('DC_VAR', __DIR__ . DIRECTORY_SEPARATOR . 'var');

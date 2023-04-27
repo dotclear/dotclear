@@ -347,8 +347,8 @@ class dcDefaultPostActions
     /**
      * Does a change post category.
      *
-     * @param      dcPostsActions  $ap
-     * @param      arrayObject           $post   The parameters ($_POST)
+     * @param      dcPostsActions       $ap
+     * @param      ArrayObject          $post   The parameters ($_POST)
      *
      * @throws     Exception             If no entry selected
      */

@@ -220,9 +220,7 @@ class HtmlFilter
      */
     public function setTags(array $tags): void
     {
-        if (is_array($tags)) {
-            $this->tags = $tags;
-        }
+        $this->tags = $tags;
     }
 
     /**

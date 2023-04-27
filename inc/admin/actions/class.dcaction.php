@@ -67,7 +67,7 @@ abstract class dcActions
     /**
      * @var string title for caller page title
      */
-    protected $caller_title;
+    protected string $caller_title;
     /**
      * @var boolean true if we are acting inside a plugin (different handling of begin/endpage)
      */
@@ -332,7 +332,7 @@ abstract class dcActions
      *
      * @return string the form URI
      */
-    public function getCallerTitle(): ?string
+    public function getCallerTitle(): string
     {
         return $this->caller_title;
     }

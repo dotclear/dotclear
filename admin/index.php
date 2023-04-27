@@ -121,7 +121,7 @@ class adminIndex
             }
 
             $doc_links .= '</ul></div>';
-            $__dashboard_items[$dashboardItem][] = $doc_links;  // @phpstan-ignore-line
+            $__dashboard_items[$dashboardItem]->append($doc_links);
             $dashboardItem++;
         }
 

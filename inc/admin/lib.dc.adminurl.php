@@ -55,7 +55,7 @@ class dcAdminURL
     public function registercopy(string $name, string $orig, array $params = [], string $newurl = '')
     {
         if (!isset($this->urls[$orig])) {
-            throw new exception('Unknown URL handler for ' . $orig);
+            throw new Exception('Unknown URL handler for ' . $orig);
         }
         $url       = $this->urls[$orig];
         $url['qs'] = array_merge($url['qs'], $params);
@@ -73,14 +73,14 @@ class dcAdminURL
      * @param      string     $separator   The separator (used between query string parameters)
      * @param      bool       $parametric  Set to true if url will be used as (s)printf() format
      *
-     * @throws     exception  If unknown URL
+     * @throws     Exception  If unknown URL
      *
      * @return     string     The forged URL
      */
     public function get(string $name, array $params = [], string $separator = '&amp;', bool $parametric = false): string
     {
         if (!isset($this->urls[$name])) {
-            throw new exception('Unknown URL handler for ' . $name);
+            throw new Exception('Unknown URL handler for ' . $name);
         }
         $url = $this->urls[$name];
         $qs  = array_merge($url['qs'], $params);
@@ -103,12 +103,12 @@ class dcAdminURL
      * @param      array      $params  The parameters
      * @param      string     $suffix  The suffix
      *
-     * @throws     exception  If unknown URL
+     * @throws     Exception  If unknown URL
      */
     public function redirect(string $name, array $params = [], string $suffix = '')
     {
         if (!isset($this->urls[$name])) {
-            throw new exception('Unknown URL handler for ' . $name);
+            throw new Exception('Unknown URL handler for ' . $name);
         }
         Http::redirect($this->get($name, $params, '&') . $suffix);
     }
@@ -121,14 +121,14 @@ class dcAdminURL
      *
      * @param      string     $name   The name
      *
-     * @throws     exception  If unknown URL
+     * @throws     Exception  If unknown URL
      *
      * @return     string     The URL base.
      */
     public function getBase(string $name): string
     {
         if (!isset($this->urls[$name])) {
-            throw new exception('Unknown URL handler for ' . $name);
+            throw new Exception('Unknown URL handler for ' . $name);
         }
 
         return $this->urls[$name]['url'];
@@ -143,14 +143,14 @@ class dcAdminURL
      * @param      string     $name    The name
      * @param      array      $params  The parameters
      *
-     * @throws     exception  If unknown URL
+     * @throws     Exception  If unknown URL
      *
      * @return     string     The hidden form fields.
      */
     public function getHiddenFormFields(string $name, array $params = []): string
     {
         if (!isset($this->urls[$name])) {
-            throw new exception('Unknown URL handler for ' . $name);
+            throw new Exception('Unknown URL handler for ' . $name);
         }
         $url = $this->urls[$name];
         $qs  = array_merge($url['qs'], $params);
@@ -171,14 +171,14 @@ class dcAdminURL
      * @param      string     $name    The name
      * @param      array      $params  The parameters
      *
-     * @throws     exception  If unknown URL
+     * @throws     Exception  If unknown URL
      *
      * @return     array      The hidden form fields.
      */
     public function hiddenFormFields(string $name, array $params = []): array
     {
         if (!isset($this->urls[$name])) {
-            throw new exception('Unknown URL handler for ' . $name);
+            throw new Exception('Unknown URL handler for ' . $name);
         }
         $url   = $this->urls[$name];
         $qs    = array_merge($url['qs'], $params);

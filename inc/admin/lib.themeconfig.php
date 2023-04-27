@@ -141,9 +141,9 @@ class dcThemeConfig
      *
      * @param  string $size font size
      *
-     * @return string    checked font size
+     * @return string|null    checked font size
      */
-    public static function adjustFontSize(?string $size): string
+    public static function adjustFontSize(?string $size): ?string
     {
         if ($size) {
             if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {

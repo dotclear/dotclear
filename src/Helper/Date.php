@@ -420,9 +420,9 @@ class Date
      * Get time offset for a timezone and an optionnal $ts timestamp.
      *
      * @param string            $timezone        Timezone
-     * @param integer|boolean   $timestamp       Timestamp
+     * @param int|bool          $timestamp       Timestamp
      *
-     * @return integer
+     * @return int
      */
     public static function getTimeOffset(string $timezone, $timestamp = false): int
     {
@@ -431,10 +431,10 @@ class Date
         }
 
         $server_timezone = self::getTZ();
-        $server_offset   = date('Z', $timestamp);
+        $server_offset   = (int) date('Z', $timestamp);
 
         self::setTZ($timezone);
-        $current_offset = date('Z', $timestamp);
+        $current_offset = (int) date('Z', $timestamp);
 
         self::setTZ($server_timezone);
 

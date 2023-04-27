@@ -25,7 +25,7 @@ abstract class Component
     private ?string $htmlElement = null;
 
     /**
-     * @var array(<string>, <mixed>) Custom component properties (see __get() and __set())
+     * @var array<array-key, mixed> Custom component properties (see __get() and __set())
      */
     protected $properties = [];
 

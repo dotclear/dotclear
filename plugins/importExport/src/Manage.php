@@ -38,10 +38,11 @@ class Manage extends dcNsProcess
         }
 
         dcCore::app()->admin->modules = $modules;
+        dcCore::app()->admin->module  = null;
 
-        dcCore::app()->admin->module = null;
-        if (dcCore::app()->admin->type && !empty($_REQUEST['module']) && isset(dcCore::app()->admin->modules[dcCore::app()->admin->type]) && in_array($_REQUEST['module'], dcCore::app()->admin->modules[dcCore::app()->admin->type])) {
-            dcCore::app()->admin->module = new $_REQUEST['module'](dcCore::app());
+        $module = $_REQUEST['module'] ?? false;
+        if (dcCore::app()->admin->type && $module !== false && isset(dcCore::app()->admin->modules[dcCore::app()->admin->type]) && in_array($module, dcCore::app()->admin->modules[dcCore::app()->admin->type])) {
+            dcCore::app()->admin->module = new $module(dcCore::app());
             dcCore::app()->admin->module->init();
         }
 

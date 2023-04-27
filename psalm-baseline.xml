@@ -1,2 +1,1038 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@c059388274a641b0c577c11b845050891fbfbe2c" />
+<files psalm-version="dev-master@c059388274a641b0c577c11b845050891fbfbe2c">
+  <file src="admin/blog_pref.php">
+    <RedundantCondition>
+      <code><![CDATA[$status != '200']]></code>
+    </RedundantCondition>
+  </file>
+  <file src="admin/blogs.php">
+    <DuplicateArrayKey>
+      <code><![CDATA[dcCore::app()->adminurl->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true))]]></code>
+    </DuplicateArrayKey>
+  </file>
+  <file src="admin/category.php">
+    <InvalidScalarArgument>
+      <code><![CDATA[$_POST['id']]]></code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="admin/index.php">
+    <RedundantCondition>
+      <code>!DC_ADMIN_URL</code>
+    </RedundantCondition>
+  </file>
+  <file src="admin/install/index.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+      <code>(string) DC_VERSION</code>
+    </RedundantCast>
+    <TypeDoesNotContainType>
+      <code><![CDATA[DC_MASTER_KEY === '']]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="admin/install/wizard.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="admin/media.php">
+    <RedundantCondition>
+      <code>0</code>
+      <code>0</code>
+      <code>is_countable($rs)</code>
+      <code>is_countable($rs)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[is_array($_FILES['upfile']['error'])]]></code>
+      <code><![CDATA[is_array($_FILES['upfile']['size'])]]></code>
+    </TypeDoesNotContainType>
+    <UndefinedThisPropertyAssignment>
+      <code><![CDATA[$this->d]]></code>
+      <code><![CDATA[$this->d]]></code>
+      <code><![CDATA[$this->d]]></code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="admin/media_item.php">
+    <RedundantCast>
+      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+      <code>(string) $default</code>
+      <code>(string) $default</code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code>file_get_contents($local)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainNull>
+      <code><![CDATA['']]></code>
+    </TypeDoesNotContainNull>
+    <UndefinedPropertyFetch>
+      <code><![CDATA[$file->media_dt]]></code>
+      <code><![CDATA[$file->media_meta]]></code>
+      <code><![CDATA[$file->media_meta]]></code>
+      <code><![CDATA[$file->media_title]]></code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="admin/preferences.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$_POST['cols_' . $col_type]]]></code>
+      <code>$ct[$col_name]</code>
+    </InvalidArrayOffset>
+    <InvalidScalarArgument>
+      <code>$v</code>
+    </InvalidScalarArgument>
+    <RedundantCondition>
+      <code>is_countable($user_fav)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>0</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="admin/services.php">
+    <RedundantCast>
+      <code>(int) $id</code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code>!DC_NOT_UPDATE</code>
+    </RedundantCondition>
+    <UndefinedPropertyFetch>
+      <code><![CDATA[$file->editable]]></code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="admin/user.php">
+    <RedundantCondition>
+      <code>is_countable($permissions)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>0</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="admin/xmlrpc.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['PATH_INFO']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="inc/admin/class.dc.admin.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="inc/admin/class.dc.favorites.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="inc/admin/lib.dc.notices.php">
+    <InvalidGlobal>
+      <code>global $core;</code>
+      <code>global $core;</code>
+    </InvalidGlobal>
+  </file>
+  <file src="inc/admin/lib.dc.page.php">
+    <InvalidArgument>
+      <code><![CDATA['Content-Type: text/html; charset=UTF-8']]></code>
+      <code><![CDATA['content-type']]></code>
+      <code><![CDATA['content-type']]></code>
+    </InvalidArgument>
+    <RedundantCast>
+      <code>(bool) $show</code>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+    <TypeDoesNotContainType>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/admin/lib.helper.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="inc/admin/lib.moduleslist.php">
+    <InvalidLiteralArgument>
+      <code><![CDATA['?']]></code>
+    </InvalidLiteralArgument>
+    <InvalidScalarArgument>
+      <code>$modules[0]</code>
+    </InvalidScalarArgument>
+    <RedundantCondition>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_DEV</code>
+      <code>DC_DEV</code>
+      <code>DC_DEV</code>
+      <code>DC_DEV</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/admin/lib.themeconfig.php">
+    <RedundantCondition>
+      <code><![CDATA[$background !== '']]></code>
+      <code><![CDATA[$color !== '']]></code>
+      <code><![CDATA[$size !== '']]></code>
+    </RedundantCondition>
+  </file>
+  <file src="inc/core/class.dc.auth.php">
+    <InvalidArrayOffset>
+      <code>$_COOKIE[DC_SESSION_NAME]</code>
+    </InvalidArrayOffset>
+    <RedundantCondition>
+      <code>is_array($ret)</code>
+    </RedundantCondition>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$rs->user_pwd]]></code>
+      <code><![CDATA[$rs->user_pwd]]></code>
+    </UndefinedPropertyAssignment>
+  </file>
+  <file src="inc/core/class.dc.blog.php">
+    <InvalidArgument>
+      <code>array_values($url_patterns)</code>
+    </InvalidArgument>
+    <InvalidNullableReturnType>
+      <code>MetaRecord</code>
+      <code>MetaRecord</code>
+    </InvalidNullableReturnType>
+    <InvalidOperand>
+      <code>$to_change</code>
+    </InvalidOperand>
+    <NullableReturnStatement>
+      <code>$rs</code>
+      <code><![CDATA[$sql->select()]]></code>
+      <code><![CDATA[$sql->select()]]></code>
+    </NullableReturnStatement>
+    <RedundantCast>
+      <code>(int) $id</code>
+      <code>(int) $id</code>
+      <code>(int) $id</code>
+      <code>(int) $id</code>
+      <code>(int) $old_cat_id</code>
+    </RedundantCast>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$rs->_nb_media]]></code>
+    </UndefinedPropertyAssignment>
+  </file>
+  <file src="inc/core/class.dc.categories.php">
+    <RedundantCast>
+      <code>(int) $start</code>
+    </RedundantCast>
+  </file>
+  <file src="inc/core/class.dc.core.php">
+    <InvalidNullableReturnType>
+      <code>array</code>
+      <code>dcCore</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->versions]]></code>
+      <code>self::$instance</code>
+    </NullableReturnStatement>
+    <RedundantCast>
+      <code>(string) $blog_id</code>
+      <code>(string) $blog_id</code>
+      <code>(string) $id</code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code>DC_REST_SERVICES</code>
+    </RedundantCondition>
+  </file>
+  <file src="inc/core/class.dc.deprecated.php">
+    <TypeDoesNotContainType>
+      <code>!DC_DEV</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/core/class.dc.media.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$fi->media_thumb[$suffix]]]></code>
+      <code><![CDATA[$fi->media_thumb[$suffix]]]></code>
+    </InvalidArrayOffset>
+    <InvalidDocblock>
+      <code>public $thumb_sizes = [</code>
+    </InvalidDocblock>
+    <InvalidScalarArgument>
+      <code>$id</code>
+    </InvalidScalarArgument>
+    <LessSpecificImplementedReturnType>
+      <code>mixed</code>
+    </LessSpecificImplementedReturnType>
+    <RedundantCast>
+      <code>(bool) $private</code>
+      <code>(int) $id</code>
+      <code>(string) $media_file</code>
+      <code>(string) $name</code>
+      <code><![CDATA[(string) $newFile->relname]]></code>
+      <code><![CDATA[(string) $this->path]]></code>
+      <code>(string) $title</code>
+      <code>(string) dirname($media_file)</code>
+      <code><![CDATA[(string) dirname($newFile->relname)]]></code>
+    </RedundantCast>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$fi->editable]]></code>
+      <code><![CDATA[$fi->editable]]></code>
+      <code><![CDATA[$fi->media_dt]]></code>
+      <code><![CDATA[$fi->media_dtstr]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_icon]]></code>
+      <code><![CDATA[$fi->media_id]]></code>
+      <code><![CDATA[$fi->media_image]]></code>
+      <code><![CDATA[$fi->media_image]]></code>
+      <code><![CDATA[$fi->media_meta]]></code>
+      <code><![CDATA[$fi->media_preview]]></code>
+      <code><![CDATA[$fi->media_preview]]></code>
+      <code><![CDATA[$fi->media_priv]]></code>
+      <code><![CDATA[$fi->media_thumb]]></code>
+      <code><![CDATA[$fi->media_thumb]]></code>
+      <code><![CDATA[$fi->media_thumb]]></code>
+      <code><![CDATA[$fi->media_title]]></code>
+      <code><![CDATA[$fi->media_type]]></code>
+      <code><![CDATA[$fi->media_user]]></code>
+    </UndefinedPropertyAssignment>
+    <UndefinedPropertyFetch>
+      <code><![CDATA[$a->media_dt]]></code>
+      <code><![CDATA[$a->media_dt]]></code>
+      <code><![CDATA[$b->media_dt]]></code>
+      <code><![CDATA[$b->media_dt]]></code>
+      <code><![CDATA[$f->media_id]]></code>
+      <code><![CDATA[$file->media_id]]></code>
+      <code><![CDATA[$file->media_user]]></code>
+      <code><![CDATA[$newFile->media_dtstr]]></code>
+      <code><![CDATA[$newFile->media_meta]]></code>
+      <code><![CDATA[$newFile->media_priv]]></code>
+      <code><![CDATA[$newFile->media_title]]></code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="inc/core/class.dc.meta.php">
+    <InvalidNullableReturnType>
+      <code>MetaRecord</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code>$rs</code>
+    </NullableReturnStatement>
+    <RedundantCast>
+      <code>(int) $post_id</code>
+      <code>(string) $str</code>
+    </RedundantCast>
+  </file>
+  <file src="inc/core/class.dc.modules.php">
+    <InvalidGlobal>
+      <code>global ${self::$_n};</code>
+    </InvalidGlobal>
+  </file>
+  <file src="inc/core/class.dc.notices.php">
+    <InvalidNullableReturnType>
+      <code>MetaRecord</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code><![CDATA[$sql->select()]]></code>
+    </NullableReturnStatement>
+  </file>
+  <file src="inc/core/class.dc.postmedia.php">
+    <InvalidNullableReturnType>
+      <code>MetaRecord</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code>$rs</code>
+    </NullableReturnStatement>
+    <RedundantCast>
+      <code>(int) $media_id</code>
+      <code>(int) $post_id</code>
+    </RedundantCast>
+  </file>
+  <file src="inc/core/class.dc.rs.extensions.php">
+    <FalsableReturnStatement>
+      <code><![CDATA[date('Y', strtotime((string) $rs->dt))]]></code>
+      <code><![CDATA[date('d', strtotime((string) $rs->dt))]]></code>
+      <code><![CDATA[date('m', strtotime((string) $rs->dt))]]></code>
+    </FalsableReturnStatement>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$rs->_nb_media]]></code>
+    </UndefinedPropertyAssignment>
+  </file>
+  <file src="inc/core/class.dc.store.php">
+    <RedundantCondition>
+      <code>DC_ALLOW_REPOSITORIES</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>DC_STORE_NOT_UPDATE</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/core/class.dc.themes.php">
+    <InvalidPropertyFetch>
+      <code><![CDATA[$parent->root]]></code>
+    </InvalidPropertyFetch>
+  </file>
+  <file src="inc/core/class.dc.trackback.php">
+    <RedundantCast>
+      <code>(int) $post_id</code>
+      <code>(int) $post_id</code>
+      <code>(int) $post_id</code>
+      <code>(string) $blog_name</code>
+      <code>(string) $comment</code>
+      <code>(string) $match[1]</code>
+      <code>(string) $url</code>
+      <code>(string) $url</code>
+    </RedundantCast>
+  </file>
+  <file src="inc/core/class.dc.update.php">
+    <RedundantCast>
+      <code><![CDATA[(int) $client->getStatus()]]></code>
+      <code><![CDATA[(int) $client->getStatus()]]></code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code><![CDATA[!empty($r) && is_array($r)]]></code>
+      <code>is_array($r)</code>
+    </RedundantCondition>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$e->bad_files]]></code>
+      <code><![CDATA[$e->bad_files]]></code>
+      <code><![CDATA[$e->bad_files]]></code>
+    </UndefinedPropertyAssignment>
+  </file>
+  <file src="inc/core/class.dc.xmlrpc.php">
+    <MoreSpecificImplementedParamType>
+      <code>$data</code>
+    </MoreSpecificImplementedParamType>
+  </file>
+  <file src="inc/core/trait.dc.dynprop.php">
+    <InvalidDocblock>
+      <code>protected array $properties = [];</code>
+    </InvalidDocblock>
+  </file>
+  <file src="inc/core_error.php">
+    <InvalidGlobal>
+      <code>global $code, $summary, $message;</code>
+    </InvalidGlobal>
+  </file>
+  <file src="inc/dbschema/db-schema.php">
+    <UndefinedGlobalVariable>
+      <code>$_s</code>
+    </UndefinedGlobalVariable>
+  </file>
+  <file src="inc/dbschema/upgrade.php">
+    <TypeDoesNotContainType>
+      <code><![CDATA[DC_ROOT === '']]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/load_plugin_file.php">
+    <RedundantCondition>
+      <code>!DC_DEBUG</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>!DC_DEV</code>
+      <code><![CDATA[empty($_GET['pf'])]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/load_var_file.php">
+    <RedundantCondition>
+      <code>!DC_DEBUG</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>!DC_DEV</code>
+      <code><![CDATA[empty($_GET['vf'])]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/prepend.php">
+    <MissingFile>
+      <code>include DC_ERRORFILE</code>
+    </MissingFile>
+    <TypeDoesNotContainType>
+      <code>DC_DEBUG</code>
+      <code>DC_FORCE_SCHEME_443</code>
+      <code>DC_REVERSE_PROXY</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/public/class.dc.template.php">
+    <FalsableReturnStatement>
+      <code>self::$_r</code>
+    </FalsableReturnStatement>
+    <TypeDoesNotContainType>
+      <code>!is_array($default_alias[$k])</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="inc/public/lib.tpl.context.php">
+    <RedundantCast>
+      <code><![CDATA[(int) dcCore::app()->public->getPageNumber()]]></code>
+      <code><![CDATA[(int) dcCore::app()->public->getPageNumber()]]></code>
+      <code><![CDATA[(int) dcCore::app()->public->getPageNumber()]]></code>
+      <code><![CDATA[(int) dcCore::app()->public->getPageNumber()]]></code>
+      <code><![CDATA[(string) $_SERVER['URL_REQUEST_PART']]]></code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code><![CDATA[$policies['ARCHIVE'] === 'ARCHIVE']]></code>
+    </RedundantCondition>
+  </file>
+  <file src="plugins/akismet/src/AntispamFilterAkismet.php">
+    <RedundantCondition>
+      <code>DC_AKISMET_SUPER</code>
+    </RedundantCondition>
+  </file>
+  <file src="plugins/antispam/src/Backend.php">
+    <TypeDoesNotContainType>
+      <code>!DC_ANTISPAM_CONF_SUPER</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/antispam/src/Filters/Ip.php">
+    <RedundantCast>
+      <code>(string) $content</code>
+      <code>(string) $content</code>
+      <code>(string) $type</code>
+      <code>(string) $type</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/antispam/src/Filters/IpLookup.php">
+    <TypeDoesNotContainType>
+      <code>DC_DNSBL_SUPER</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/antispam/src/Filters/IpV6.php">
+    <RedundantCast>
+      <code>(string) $pattern</code>
+      <code>(string) $pattern</code>
+      <code>(string) $type</code>
+      <code>(string) $type</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/antispam/src/Filters/Words.php">
+    <RedundantCast>
+      <code>(string) $content</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/antispam/src/FrontendUrl.php">
+    <TypeDoesNotContainType>
+      <code>DC_ADMIN_URL</code>
+      <code>DC_ADMIN_URL</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/antispam/src/Manage.php">
+    <InvalidArgument>
+      <code>$filters_opt</code>
+    </InvalidArgument>
+    <TypeDoesNotContainType>
+      <code>DC_ADMIN_URL</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/antispam/src/SpamFilter.php">
+    <InvalidNullableReturnType>
+      <code>false|string</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->gui_url]]></code>
+    </NullableReturnStatement>
+  </file>
+  <file src="plugins/attachments/src/BackendBehaviors.php">
+    <RedundantCondition>
+      <code>is_countable($post_media)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>0</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/attachments/src/FrontendTemplate.php">
+    <RedundantCast>
+      <code>(array) $if</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/blogroll/src/Blogroll.php">
+    <RedundantCast>
+      <code>(string) $desc</code>
+      <code>(string) $href</code>
+      <code>(string) $lang</code>
+      <code>(string) $title</code>
+      <code>(string) $title</code>
+      <code>(string) $xfn</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/blogroll/src/Manage.php">
+    <RedundantCast>
+      <code>(int) $pos</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/blogroll/src/ManageEdit.php">
+    <InvalidArgument>
+      <code><![CDATA[$_POST['professional']]]></code>
+      <code><![CDATA[$_POST['romantic']]]></code>
+    </InvalidArgument>
+  </file>
+  <file src="plugins/breadcrumb/src/FrontendTemplate.php">
+    <RedundantCast>
+      <code><![CDATA[(int) dcCore::app()->public->getPageNumber()]]></code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/dcLegacyEditor/src/BackendBehaviors.php">
+    <RedundantCast>
+      <code><![CDATA[(bool) isset(dcCore::app()->auth)]]></code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/fairTrackbacks/src/Frontend.php">
+    <RedundantCondition>
+      <code>DC_FAIRTRACKBACKS_FORCE</code>
+    </RedundantCondition>
+  </file>
+  <file src="plugins/fairTrackbacks/src/Prepend.php">
+    <TypeDoesNotContainType>
+      <code>!DC_FAIRTRACKBACKS_FORCE</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/importExport/src/ExportBlogMaintenanceTask.php">
+    <LessSpecificImplementedReturnType>
+      <code>mixed</code>
+    </LessSpecificImplementedReturnType>
+  </file>
+  <file src="plugins/importExport/src/ExportFullMaintenanceTask.php">
+    <LessSpecificImplementedReturnType>
+      <code>mixed</code>
+    </LessSpecificImplementedReturnType>
+  </file>
+  <file src="plugins/importExport/src/FlatImportV2.php">
+    <InvalidPropertyFetch>
+      <code><![CDATA[$line->__line]]></code>
+      <code><![CDATA[$line->__line]]></code>
+    </InvalidPropertyFetch>
+    <RedundantCast>
+      <code>(string) $user_id</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/importExport/src/Manage.php">
+    <UndefinedClass>
+      <code>new $module(dcCore::app())</code>
+    </UndefinedClass>
+  </file>
+  <file src="plugins/importExport/src/ModuleImportDc1.php">
+    <RedundantCast>
+      <code>(int) $new_post_id</code>
+      <code>(int) $new_post_id</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/importExport/src/ModuleImportFlat.php">
+    <ForbiddenCode>
+      <code>var_dump($_POST)</code>
+    </ForbiddenCode>
+    <RedundantCast>
+      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/importExport/src/ModuleImportWp.php">
+    <RedundantCast>
+      <code>(int) $new_post_id</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/maintenance/src/MaintenanceTask.php">
+    <InvalidNullableReturnType>
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->id]]></code>
+    </NullableReturnStatement>
+  </file>
+  <file src="plugins/maintenance/src/Manage.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$_POST['settings_ts_' . $t->id()]]]></code>
+    </InvalidArrayOffset>
+  </file>
+  <file src="plugins/simpleMenu/src/FrontendTemplate.php">
+    <InvalidOperand>
+      <code>$i</code>
+    </InvalidOperand>
+  </file>
+  <file src="plugins/tags/src/BackendBehaviors.php">
+    <RedundantCondition>
+      <code>is_countable($tags)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>0</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="plugins/tags/src/FrontendUrl.php">
+    <RedundantCast>
+      <code>(string) $m[1]</code>
+      <code>(string) $m[2]</code>
+    </RedundantCast>
+  </file>
+  <file src="plugins/widgets/src/Manage.php">
+    <EmptyArrayAccess>
+      <code><![CDATA[$_POST['w'][$nsid]]]></code>
+    </EmptyArrayAccess>
+    <InvalidArrayOffset>
+      <code><![CDATA[$_POST['w'][$nsid][$i]]]></code>
+      <code><![CDATA[$_POST['w'][$nsid][$i]]]></code>
+      <code><![CDATA[$_POST['w'][Widgets::WIDGETS_CUSTOM]]]></code>
+      <code><![CDATA[$_POST['w'][Widgets::WIDGETS_EXTRA]]]></code>
+    </InvalidArrayOffset>
+    <RedundantCondition>
+      <code><![CDATA[!is_array($_POST['w'])]]></code>
+      <code><![CDATA[!isset($_POST['w']) || !is_array($_POST['w'])]]></code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Database/AbstractHandler.php">
+    <InvalidDocblock>
+      <code>protected $__database;</code>
+    </InvalidDocblock>
+    <RedundantCondition>
+      <code><![CDATA[$v['field']]]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$v['collate']]]></code>
+      <code><![CDATA[$v['collate']]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Database/Driver/Mysqli/Handler.php">
+    <RedundantCondition>
+      <code><![CDATA['']]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$v['collate']]]></code>
+      <code><![CDATA[$v['collate']]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Database/Driver/Mysqli/Schema.php">
+    <LessSpecificImplementedReturnType>
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+    <RedundantCast>
+      <code>(string) $m[1]</code>
+      <code>(string) $m[1]</code>
+      <code>(string) $match[5][$i]</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Database/Driver/Mysqlimb4/Handler.php">
+    <RedundantCondition>
+      <code><![CDATA['']]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$v['collate']]]></code>
+      <code><![CDATA[$v['collate']]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Database/Driver/Pgsql/Handler.php">
+    <RedundantCast>
+      <code>(int) $row</code>
+    </RedundantCast>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$v['collate']]]></code>
+      <code><![CDATA[$v['collate']]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Database/Driver/Pgsql/Schema.php">
+    <ForbiddenCode>
+      <code>var_dump($default)</code>
+    </ForbiddenCode>
+    <LessSpecificImplementedReturnType>
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+  </file>
+  <file src="src/Database/Driver/Sqlite/Handler.php">
+    <ImplementedReturnTypeMismatch>
+      <code>bool|string</code>
+    </ImplementedReturnTypeMismatch>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$v['collate']]]></code>
+      <code><![CDATA[$v['collate']]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Database/Driver/Sqlite/Schema.php">
+    <LessSpecificImplementedReturnType>
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+  </file>
+  <file src="src/Database/MetaRecord.php">
+    <MissingTemplateParam>
+      <code>Iterator</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Database/Record.php">
+    <InvalidArrayOffset>
+      <code>$r[$k]</code>
+      <code><![CDATA[$this->__row[$k]]]></code>
+    </InvalidArrayOffset>
+    <MissingTemplateParam>
+      <code>Iterator</code>
+    </MissingTemplateParam>
+    <RedundantCast>
+      <code>(int) $row</code>
+      <code>(int) $row</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Database/Session.php">
+    <RedundantCast>
+      <code><![CDATA[(bool) $this->cookie_secure]]></code>
+      <code>(string) $data</code>
+      <code><![CDATA[(string) $this->cookie_path]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Database/Statement/SqlStatement.php">
+    <ForbiddenCode>
+      <code>var_dump($external)</code>
+      <code>var_dump($str)</code>
+    </ForbiddenCode>
+    <TypeDoesNotContainType>
+      <code>self::VERBOSE_SQL_ALIAS</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Database/Structure.php">
+    <EmptyArrayAccess>
+      <code><![CDATA[$this->tables[$tname]]]></code>
+    </EmptyArrayAccess>
+  </file>
+  <file src="src/Database/Table.php">
+    <RedundantCast>
+      <code>(bool) $null</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Clearbricks.php">
+    <InvalidNullableReturnType>
+      <code>self</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code>self::$instance</code>
+    </NullableReturnStatement>
+  </file>
+  <file src="src/Helper/Date.php">
+    <InvalidArgument>
+      <code><![CDATA[function ($match) use ($translation_table, $timestamp) {
+            $prefix  = $match[1];
+            $char    = $match[2];
+            $pattern = '%' . $char;
+            if ($pattern == '%n') {
+                return "\n";
+            } elseif ($pattern == '%t') {
+                return "\t";
+            }
+
+            if (!isset($translation_table[$pattern])) {
+                throw new InvalidArgumentException(sprintf('Format "%s" is unknown in time format', $pattern));
+            }
+
+            $replace = $translation_table[$pattern];
+
+            if (is_string($replace)) {
+                $result = $timestamp->format($replace);
+            } else {
+                $result = $replace($timestamp, $pattern);   // @phpstan-ignore-line
+            }
+
+            switch ($prefix) {
+                case '_':
+                    // replace leading zeros with spaces but keep last char if also zero
+                    return preg_replace('/\G0(?=.)/', ' ', $result);
+                case '#':
+                case '-':
+                    // remove leading zeros but keep last char if also zero
+                    return preg_replace('/^0+(?=.)/', '', $result);
+            }
+
+            return $result;
+        }]]></code>
+    </InvalidArgument>
+    <TooManyArguments>
+      <code>$replace($timestamp, $pattern)</code>
+    </TooManyArguments>
+    <UndefinedMethod>
+      <code>setGregorianChange</code>
+    </UndefinedMethod>
+  </file>
+  <file src="src/Helper/Diff/Diff.php">
+    <InvalidOperand>
+      <code>$m[1]</code>
+      <code>$m[3]</code>
+    </InvalidOperand>
+  </file>
+  <file src="src/Helper/Diff/TidyDiffChunk.php">
+    <RedundantCondition>
+      <code>$delete === $insert</code>
+      <code>$delete === $insert</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Helper/File/Files.php">
+    <RedundantCast>
+      <code>(bool) @chmod($file, @fileperms(dirname($file)))</code>
+      <code>(bool) @chmod($file, self::$dir_mode)</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/File/Image/ImageMeta.php">
+    <TypeDoesNotContainType>
+      <code>!is_array($imageinfo)</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Helper/File/Image/ImageTools.php">
+    <RedundantCast>
+      <code>(string) $mem_limit</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/File/Zip/Unzip.php">
+    <InvalidScalarArgument>
+      <code>$lastmod_dateD</code>
+      <code>$lastmod_dateM</code>
+      <code>$lastmod_dateY</code>
+      <code>$lastmod_timeH</code>
+      <code>$lastmod_timeM</code>
+      <code>$lastmod_timeS</code>
+    </InvalidScalarArgument>
+    <RedundantCast>
+      <code>(string) $mem_limit</code>
+      <code>(string) $n</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/File/Zip/Zip.php">
+    <RedundantCast>
+      <code>(string) $mem_limit</code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code><![CDATA[substr($dir, -1 - 1) != '/']]></code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Helper/Html/HtmlFilter.php">
+    <DuplicateArrayKey>
+      <code>$args</code>
+      <code>$args</code>
+      <code>$args</code>
+      <code>$args</code>
+      <code>$args</code>
+    </DuplicateArrayKey>
+    <InvalidCast>
+      <code>$tidy</code>
+    </InvalidCast>
+  </file>
+  <file src="src/Helper/Html/Pager.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Html/Template/Template.php">
+    <InvalidGlobal>
+      <code>global ${self::$_n};</code>
+    </InvalidGlobal>
+    <RedundantCast>
+      <code>(string) $str_attr</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Html/WikiToHtml.php">
+    <NoValue>
+      <code><![CDATA[$this->foot_notes]]></code>
+    </NoValue>
+    <RedundantCast>
+      <code>(string) $cap[1]</code>
+      <code>(string) $cap[1]</code>
+      <code>(string) $cap[1]</code>
+      <code>(string) $cap[2]</code>
+      <code>(string) $cap[2]</code>
+      <code>(string) $cap[2]</code>
+      <code>(string) $cap[2]</code>
+      <code>(string) $cap[3]</code>
+      <code>(string) $line</code>
+      <code>(string) $v</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/L10n.php">
+    <RedundantCast>
+      <code>(string) $headers[$h_key]</code>
+      <code>(string) $lines[$i + 1]</code>
+      <code>(string) $lines[$i + 2]</code>
+      <code>(string) $lines[$i]</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Network/Feed/Parser.php">
+    <InvalidArrayAccess>
+      <code><![CDATA[$this->xml['version']]]></code>
+    </InvalidArrayAccess>
+    <RedundantCast>
+      <code>(string) $data</code>
+      <code>(string) $data</code>
+      <code>(string) $data</code>
+      <code><![CDATA[(string) $item->link]]></code>
+      <code><![CDATA[(string) $item->link]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Network/Http.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['HTTP_IF_MODIFIED_SINCE']]]></code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code>is_countable($matches[1])</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>!is_array($mod_files)</code>
+      <code>0</code>
+      <code>empty($mod_files) || !is_array($mod_files)</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Helper/Network/HttpClient.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$this->output_h]]></code>
+    </InvalidPropertyAssignmentValue>
+    <RedundantCast>
+      <code><![CDATA[(int) ($bits['port'] ?? 0)]]></code>
+      <code>(string) $m[1]</code>
+      <code>(string) $m[2]</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Network/Mail/MailSocket.php">
+    <RedundantCast>
+      <code>(string) $m[1]</code>
+      <code>(string) $m[1]</code>
+      <code>(string) $m[1]</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Network/Socket/Iterator.php">
+    <MissingTemplateParam>
+      <code>\Iterator</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Helper/Network/Socket/Socket.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$this->_handle]]></code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Helper/Network/UrlHandler.php">
+    <RedundantCast>
+      <code>(string) $part</code>
+    </RedundantCast>
+  </file>
+  <file src="src/Helper/Network/XmlRpc/Message.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $this->_currentTagContents]]></code>
+    </RedundantCast>
+  </file>
+  <file src="themes/blowup/src/Blowup.php">
+    <InvalidArrayOffset>
+      <code>$body_color[1]</code>
+      <code>$body_color[2]</code>
+    </InvalidArrayOffset>
+    <InvalidScalarArgument>
+      <code>$body_color[0]</code>
+      <code>$body_color[1]</code>
+      <code>$body_color[2]</code>
+      <code>$comment_color[0]</code>
+      <code>$comment_color[0]</code>
+      <code>$comment_color[1]</code>
+      <code>$comment_color[1]</code>
+      <code>$comment_color[2]</code>
+      <code>$comment_color[2]</code>
+      <code>$prelude_color[0]</code>
+      <code>$prelude_color[1]</code>
+      <code>$prelude_color[2]</code>
+    </InvalidScalarArgument>
+  </file>
+</files>

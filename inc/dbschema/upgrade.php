@@ -542,10 +542,10 @@ class dcUpgrade
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             # Import feed control
             dcCore::app()->con->execute(
-                sprintf($strReq, 'import_feed_url_control', true, 'boolean', 'Control feed URL before import')
+                sprintf($strReq, 'import_feed_url_control', (string) true, 'boolean', 'Control feed URL before import')
             );
             dcCore::app()->con->execute(
-                sprintf($strReq, 'import_feed_no_private_ip', true, 'boolean', 'Prevent import feed from private IP')
+                sprintf($strReq, 'import_feed_no_private_ip', (string) true, 'boolean', 'Prevent import feed from private IP')
             );
             dcCore::app()->con->execute(
                 sprintf($strReq, 'import_feed_ip_regexp', '', 'string', 'Authorize import feed only from this IP regexp')
@@ -555,7 +555,7 @@ class dcUpgrade
             );
             # CSP directive (admin part)
             dcCore::app()->con->execute(
-                sprintf($strReq, 'csp_admin_on', true, 'boolean', 'Send CSP header (admin)')
+                sprintf($strReq, 'csp_admin_on', (string) true, 'boolean', 'Send CSP header (admin)')
             );
             dcCore::app()->con->execute(
                 sprintf($strReq, 'csp_admin_default', "''self''", 'string', 'CSP default-src directive')
@@ -577,7 +577,7 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
-                sprintf($strReq, 'csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)')
+                sprintf($strReq, 'csp_admin_report_only', (string) false, 'boolean', 'CSP Report only violations (admin)')
             );
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
@@ -762,7 +762,7 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
-                sprintf($strReq, 'jquery_needed', true, 'boolean', 'Load jQuery library')
+                sprintf($strReq, 'jquery_needed', (string) true, 'boolean', 'Load jQuery library')
             );
 
             // A bit of housecleaning for no longer needed folders
@@ -887,10 +887,10 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             dcCore::app()->con->execute(
-                sprintf($strReq, 'prevents_clickjacking', true, 'boolean', 'Prevents Clickjacking')
+                sprintf($strReq, 'prevents_clickjacking', (string) true, 'boolean', 'Prevents Clickjacking')
             );
             dcCore::app()->con->execute(
-                sprintf($strReq, 'prevents_floc', true, 'boolean', 'Prevents FLoC tracking')
+                sprintf($strReq, 'prevents_floc', (string) true, 'boolean', 'Prevents FLoC tracking')
             );
         }
 

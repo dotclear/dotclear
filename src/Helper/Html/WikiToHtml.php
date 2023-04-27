@@ -789,7 +789,7 @@ class WikiToHtml
      * @param      null|string  $mode   The mode
      * @param      null|string  $attr   The attribute
      *
-     * @return     bool|string  The line.
+     * @return     bool|string|null  The line.
      */
     private function __getLine(int $i, ?string &$type, ?string &$mode, ?string &$attr)
     {
@@ -1129,7 +1129,7 @@ class WikiToHtml
      * @param      string       $attr               The attribute
      * @param      string       $type               The type
      *
-     * @return     bool|string
+     * @return     bool|string|null
      */
     private function __makeTag(array &$tree, string &$tag, int $position, int &$next_position, string &$attr, string &$type)
     {

@@ -57,7 +57,7 @@ class adminUserPref
         $cols = self::getDefaultColumns();
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminColumnsLists -- ArrayObject 
+        # --BEHAVIOR-- adminColumnsLists -- ArrayObject
         dcCore::app()->callBehavior('adminColumnsListsV2', $cols);
 
         # Load user settings
@@ -77,10 +77,10 @@ class adminUserPref
             }
         }
         if ($columns !== null) {
-            return $columns;
+            return new ($columns instanceof ArrayObject ? $columns : new ArrayObject($columns));
         }
         if ($type !== null) {
-            return $cols[$type] ?? [];
+            return new ArrayObject($cols[$type] ?? []);
         }
 
         return $cols;
@@ -108,7 +108,7 @@ class adminUserPref
         }
 
         return [
-            'posts'    => [
+            'posts' => [
                 __('Posts'),
                 dcAdminCombos::getPostsSortbyCombo(),
                 'post_dt',
@@ -122,15 +122,15 @@ class adminUserPref
                 'desc',
                 [__('comments per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_comments_per_page)],
             ],
-            'blogs'    => [
+            'blogs' => [
                 __('Blogs'),
                 dcAdminCombos::getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
                 [__('blogs per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_blogs_per_page)],
             ],
-            'users'    => $users,
-            'media'    => [
+            'users' => $users,
+            'media' => [
                 __('Media manager'),
                 [
                     __('Name') => 'name',
@@ -141,7 +141,7 @@ class adminUserPref
                 'asc',
                 [__('media per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->media_by_page)],
             ],
-            'search'   => [
+            'search' => [
                 __('Search'),
                 null,
                 null,

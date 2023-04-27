@@ -325,7 +325,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed       $handle  The handle
      *
-     * @return     bool|string
+     * @return     false|string
      */
     public function db_last_error($handle)
     {

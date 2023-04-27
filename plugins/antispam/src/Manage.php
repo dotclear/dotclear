@@ -67,7 +67,8 @@ class Manage extends dcNsProcess
 
             // Remove all spam
             if (!empty($_POST['delete_all'])) {
-                $ts = Date::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], dcCore::app()->blog->settings->system->blog_timezone);
+                $ts = isset($_POST['ts']) ? (int) $_POST['ts'] : null;
+                $ts = Date::str('%Y-%m-%d %H:%M:%S', $ts, dcCore::app()->blog->settings->system->blog_timezone);
 
                 Antispam::delAllSpam($ts);
 

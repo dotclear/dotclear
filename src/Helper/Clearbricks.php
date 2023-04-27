@@ -81,9 +81,7 @@ class Clearbricks
      */
     public function add(array $stack)
     {
-        if (is_array($stack)) {
-            $this->stack = array_merge($this->stack, $stack);
-        }
+        $this->stack = array_merge($this->stack, $stack);
     }
 
     /**

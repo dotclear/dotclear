@@ -100,7 +100,7 @@ class adminUpdate
             }
         }
         if (!empty($archives)) {
-            usort($archives, 'version_compare');
+            usort($archives, fn ($a, $b) => $a <=> $b);
         } else {
             dcCore::app()->admin->default_tab = 'update';
         }
