@@ -148,7 +148,7 @@ dcProxyV1::classAliases([
 
     // Zip helpers
     'fileZip'   => 'Dotclear\Helper\File\Zip\Zip',
-    'fileUnzip' => 'Dotclear\Helper\File\Zip\Unip',
+    'fileUnzip' => 'Dotclear\Helper\File\Zip\Unzip',
 
     // Database -------------------
 
