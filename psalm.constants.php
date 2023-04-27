@@ -1,6 +1,6 @@
 <?php
 /**
- * Psalm bootstrap
+ * Psalm mock global constants
  *
  * @package Dotclear
  *
@@ -9,7 +9,6 @@
  */
 declare(strict_types=1);
 
-// Mock some global constants
 define('DC_ADBLOCKER_CHECK', true);
 define('DC_ADMIN_SSL', true);
 define('DC_ADMIN_URL', '');
@@ -42,6 +41,7 @@ define('DC_MASTER_KEY', 'PASSWORD');
 define('DC_MAX_UPLOAD_SIZE', 42);
 define('DC_PLUGINS_ROOT', '');
 define('DC_QUERY_TIMEOUT', 5);
+define('DC_RC_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'config.php');
 define('DC_REST_SERVICES', true);
 define('DC_REVERSE_PROXY', false);
 define('DC_ROOT', __DIR__);
@@ -49,6 +49,8 @@ define('DC_SESSION_NAME', '');
 define('DC_STORE_NOT_UPDATE', false);
 define('DC_TPL_CACHE', __DIR__ . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'cbtpl');
 define('DC_UPGRADE', false);
+define('DC_UPDATE_URL', 'https://download.dotclear.org/versions.xml');
+define('DC_UPDATE_VERSION', 'stable');
 define('DC_VAR', __DIR__ . DIRECTORY_SEPARATOR . 'var');
 define('DC_VENDOR_NAME', 'Dotclear');
 define('DC_VERSION', '2.42');

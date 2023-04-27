@@ -118,3 +118,25 @@ spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[
 
 // Ensure L10n functions exist
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'Helper','L10n.php']);
+
+/**
+ * Local error handler
+ *
+ * @param      string  $summary  The summary
+ * @param      string  $message  The message
+ * @param      int     $code     The code
+ */
+function __error(string $summary, string $message, int $code = 0)
+{
+    # Error codes
+    # 10 : no config file
+    # 20 : database issue
+    # 30 : blog is not defined
+    # 40 : template files creation
+    # 50 : no default theme
+    # 60 : template processing error
+    # 70 : blog is offline
+
+    trigger_error($summary, E_USER_ERROR);
+    exit;
+}

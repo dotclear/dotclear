@@ -6,6 +6,7 @@
   </fileExtensions>
   <stubs>
     <file name="psalm.constants.php" />
+    <file name="psalm.attributes.php" />
   </stubs>
   <projectFiles>
     <file name="index.php" />
@@ -22,4 +23,15 @@
       <file name="inc/config.php" />
     </ignoreFiles>
   </projectFiles>
+
+  <!-- Filters -->
+
+  <issueHandlers>
+    <InvalidScope>
+      <errorLevel type="suppress">
+        <file name="plugins/*/_define.php" />
+        <file name="themes/*/_define.php" />
+      </errorLevel>
+    </InvalidScope>
+  </issueHandlers>
 </psalm>
