@@ -147,9 +147,6 @@
     </RedundantCast>
   </file>
   <file src="inc/admin/lib.moduleslist.php">
-    <InvalidLiteralArgument>
-      <code><![CDATA['?']]></code>
-    </InvalidLiteralArgument>
     <InvalidScalarArgument>
       <code>$modules[0]</code>
     </InvalidScalarArgument>

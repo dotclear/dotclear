@@ -65,7 +65,7 @@ class Value
         switch ($this->type) {
             case 'boolean':
             case 'bool':
-                return '<boolean>' . (!is_null($this->data) ? (($this->data) ? '1' : '0') : '') . '</boolean>';
+                return '<boolean>' . (!is_null($this->data) ? ($this->data ? '1' : '0') : '') . '</boolean>';
             case 'integer':
             case 'int':
                 return '<int>' . (!is_null($this->data) && !is_object($this->data) ? (int) $this->data : '') . '</int>';

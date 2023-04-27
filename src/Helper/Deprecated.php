@@ -36,7 +36,7 @@ class Deprecated
     public static function setLogger(string $logger): void
     {
         // chek and set only once an external logger
-        if (!(self::$logger instanceof self) || !is_subclass_of($logger, 'Dotclear\Helper\Deprecated', true)) {
+        if (!(self::$logger instanceof self) || !is_subclass_of($logger, self::class, true)) {
             return;
         }
 
