@@ -110,7 +110,7 @@ class Schema extends AbstractSchema
     public function flushStack(): void
     {
         foreach ($this->table_stack as $table => $def) {
-            $sql = 'CREATE TABLE ' . $table . " (\n" . implode(",\n", $def) . "\n)\n ";
+            $sql = 'CREATE TABLE ' . $table . ' (' . implode(', ', $def) . ')';
             $this->con->execute($sql);
         }
 
@@ -377,7 +377,7 @@ class Schema extends AbstractSchema
             $a[] = $n . ' ' . $type . $len . ' ' . $null . ' ' . $default;
         }
 
-        $this->table_stack[$name][] = implode(",\n", $a);
+        $this->table_stack[$name][] = implode(', ', $a);
         $this->table_hist[$name]    = $fields;
     }
 
@@ -417,7 +417,7 @@ class Schema extends AbstractSchema
      */
     public function db_create_primary(string $table, string $name, array $fields): void
     {
-        $this->table_stack[$table][] = 'CONSTRAINT ' . $name . ' PRIMARY KEY (' . implode(',', $fields) . ') ';
+        $this->table_stack[$table][] = 'CONSTRAINT ' . $name . ' PRIMARY KEY (' . implode(',', $fields) . ')';
     }
 
     /**
@@ -429,7 +429,7 @@ class Schema extends AbstractSchema
      */
     public function db_create_unique(string $table, string $name, array $fields): void
     {
-        $this->table_stack[$table][] = 'CONSTRAINT ' . $name . ' UNIQUE (' . implode(',', $fields) . ') ';
+        $this->table_stack[$table][] = 'CONSTRAINT ' . $name . ' UNIQUE (' . implode(',', $fields) . ')';
     }
 
     /**
@@ -442,7 +442,7 @@ class Schema extends AbstractSchema
      */
     public function db_create_index(string $table, string $name, string $type, array $fields): void
     {
-        $this->x_stack[] = 'CREATE INDEX ' . $name . ' ON ' . $table . ' (' . implode(',', $fields) . ') ';
+        $this->x_stack[] = 'CREATE INDEX ' . $name . ' ON ' . $table . ' (' . implode(',', $fields) . ')';
     }
 
     /**
@@ -477,67 +477,67 @@ class Schema extends AbstractSchema
         $cnull = $this->table_hist[$table][$c_col]['null'];
 
         # Create constraint
-        $this->x_stack[] = 'CREATE TRIGGER bir_' . $name . "\n" .
-            'BEFORE INSERT ON ' . $table . "\n" .
-            "FOR EACH ROW BEGIN\n" .
-            '  SELECT RAISE(ROLLBACK,\'insert on table "' . $table . '" violates foreign key constraint "' . $name . '"\')' . "\n" .
-            '  WHERE ' .
-            ($cnull ? 'NEW.' . $c_col . " IS NOT NULL\n  AND " : '') .
-            '(SELECT ' . $p_col . ' FROM ' . $foreign_table . ' WHERE ' . $p_col . ' = NEW.' . $c_col . ") IS NULL;\n" .
-            "END;\n";
+        $this->x_stack[] = 'CREATE TRIGGER bir_' . $name . ' ' .
+            'BEFORE INSERT ON ' . $table . ' ' .
+            'FOR EACH ROW BEGIN ' .
+            'SELECT RAISE(ROLLBACK,\'insert on table "' . $table . '" violates foreign key constraint "' . $name . '"\')' . ' ' .
+            'WHERE ' .
+            ($cnull ? 'NEW.' . $c_col . ' IS NOT NULL AND ' : '') .
+            '(SELECT ' . $p_col . ' FROM ' . $foreign_table . ' WHERE ' . $p_col . ' = NEW.' . $c_col . ') IS NULL; ' .
+            'END;';
 
         # Update constraint
-        $this->x_stack[] = 'CREATE TRIGGER bur_' . $name . "\n" .
-            'BEFORE UPDATE ON ' . $table . "\n" .
-            "FOR EACH ROW BEGIN\n" .
-            '  SELECT RAISE(ROLLBACK,\'update on table "' . $table . '" violates foreign key constraint "' . $name . '"\')' . "\n" .
-            '  WHERE ' .
-            ($cnull ? 'NEW.' . $c_col . " IS NOT NULL\n  AND " : '') .
-            '(SELECT ' . $p_col . ' FROM ' . $foreign_table . ' WHERE ' . $p_col . ' = NEW.' . $c_col . ") IS NULL;\n" .
-            "END;\n";
+        $this->x_stack[] = 'CREATE TRIGGER bur_' . $name . ' ' .
+            'BEFORE UPDATE ON ' . $table . ' ' .
+            'FOR EACH ROW BEGIN ' .
+            'SELECT RAISE(ROLLBACK,\'update on table "' . $table . '" violates foreign key constraint "' . $name . '"\')' . ' ' .
+            'WHERE ' .
+            ($cnull ? 'NEW.' . $c_col . ' IS NOT NULL AND ' : '') .
+            '(SELECT ' . $p_col . ' FROM ' . $foreign_table . ' WHERE ' . $p_col . ' = NEW.' . $c_col . ') IS NULL; ' .
+            'END;';
 
         # ON UPDATE
         if ($update === 'cascade') {
-            $this->x_stack[] = 'CREATE TRIGGER aur_' . $name . "\n" .
-                'AFTER UPDATE ON ' . $foreign_table . "\n" .
-                "FOR EACH ROW BEGIN\n" .
-                '  UPDATE ' . $table . ' SET ' . $c_col . ' = NEW.' . $p_col . ' WHERE ' . $c_col . ' = OLD.' . $p_col . ";\n" .
-                "END;\n";
+            $this->x_stack[] = 'CREATE TRIGGER aur_' . $name . ' ' .
+                'AFTER UPDATE ON ' . $foreign_table . ' ' .
+                'FOR EACH ROW BEGIN ' .
+                'UPDATE ' . $table . ' SET ' . $c_col . ' = NEW.' . $p_col . ' WHERE ' . $c_col . ' = OLD.' . $p_col . '; ' .
+                'END;';
         } elseif ($update === 'set null') {
-            $this->x_stack[] = 'CREATE TRIGGER aur_' . $name . "\n" .
-                'AFTER UPDATE ON ' . $foreign_table . "\n" .
-                "FOR EACH ROW BEGIN\n" .
-                '  UPDATE ' . $table . ' SET ' . $c_col . ' = NULL WHERE ' . $c_col . ' = OLD.' . $p_col . ";\n" .
-                "END;\n";
+            $this->x_stack[] = 'CREATE TRIGGER aur_' . $name . ' ' .
+                'AFTER UPDATE ON ' . $foreign_table . ' ' .
+                'FOR EACH ROW BEGIN ' .
+                'UPDATE ' . $table . ' SET ' . $c_col . ' = NULL WHERE ' . $c_col . ' = OLD.' . $p_col . '; ' .
+                'END;';
         } else { # default on restrict
-            $this->x_stack[] = 'CREATE TRIGGER burp_' . $name . "\n" .
-                'BEFORE UPDATE ON ' . $foreign_table . "\n" .
-                "FOR EACH ROW BEGIN\n" .
-                '  SELECT RAISE (ROLLBACK,\'update on table "' . $foreign_table . '" violates foreign key constraint "' . $name . '"\')' . "\n" .
-                '  WHERE (SELECT ' . $c_col . ' FROM ' . $table . ' WHERE ' . $c_col . ' = OLD.' . $p_col . ") IS NOT NULL;\n" .
-                "END;\n";
+            $this->x_stack[] = 'CREATE TRIGGER burp_' . $name . ' ' .
+                'BEFORE UPDATE ON ' . $foreign_table . ' ' .
+                'FOR EACH ROW BEGIN ' .
+                'SELECT RAISE (ROLLBACK,\'update on table "' . $foreign_table . '" violates foreign key constraint "' . $name . '"\')' . ' ' .
+                'WHERE (SELECT ' . $c_col . ' FROM ' . $table . ' WHERE ' . $c_col . ' = OLD.' . $p_col . ') IS NOT NULL; ' .
+                'END;';
         }
 
         # ON DELETE
         if ($delete === 'cascade') {
-            $this->x_stack[] = 'CREATE TRIGGER bdr_' . $name . "\n" .
-                'BEFORE DELETE ON ' . $foreign_table . "\n" .
-                "FOR EACH ROW BEGIN\n" .
-                '  DELETE FROM ' . $table . ' WHERE ' . $c_col . ' = OLD.' . $p_col . ";\n" .
-                "END;\n";
+            $this->x_stack[] = 'CREATE TRIGGER bdr_' . $name . ' ' .
+                'BEFORE DELETE ON ' . $foreign_table . ' ' .
+                'FOR EACH ROW BEGIN ' .
+                'DELETE FROM ' . $table . ' WHERE ' . $c_col . ' = OLD.' . $p_col . '; ' .
+                'END;';
         } elseif ($delete === 'set null') {
-            $this->x_stack[] = 'CREATE TRIGGER bdr_' . $name . "\n" .
-                'BEFORE DELETE ON ' . $foreign_table . "\n" .
-                "FOR EACH ROW BEGIN\n" .
-                '  UPDATE ' . $table . ' SET ' . $c_col . ' = NULL WHERE ' . $c_col . ' = OLD.' . $p_col . ";\n" .
-                "END;\n";
+            $this->x_stack[] = 'CREATE TRIGGER bdr_' . $name . ' ' .
+                'BEFORE DELETE ON ' . $foreign_table . ' ' .
+                'FOR EACH ROW BEGIN ' .
+                'UPDATE ' . $table . ' SET ' . $c_col . ' = NULL WHERE ' . $c_col . ' = OLD.' . $p_col . '; ' .
+                'END;';
         } else {
-            $this->x_stack[] = 'CREATE TRIGGER bdr_' . $name . "\n" .
-                'BEFORE DELETE ON ' . $foreign_table . "\n" .
-                "FOR EACH ROW BEGIN\n" .
-                '  SELECT RAISE (ROLLBACK,\'delete on table "' . $foreign_table . '" violates foreign key constraint "' . $name . '"\')' . "\n" .
-                '  WHERE (SELECT ' . $c_col . ' FROM ' . $table . ' WHERE ' . $c_col . ' = OLD.' . $p_col . ") IS NOT NULL;\n" .
-                "END;\n";
+            $this->x_stack[] = 'CREATE TRIGGER bdr_' . $name . ' ' .
+                'BEFORE DELETE ON ' . $foreign_table . ' ' .
+                'FOR EACH ROW BEGIN ' .
+                'SELECT RAISE (ROLLBACK,\'delete on table "' . $foreign_table . '" violates foreign key constraint "' . $name . '"\')' . ' ' .
+                'WHERE (SELECT ' . $c_col . ' FROM ' . $table . ' WHERE ' . $c_col . ' = OLD.' . $p_col . ') IS NOT NULL; ' .
+                'END;';
         }
     }
 
@@ -605,7 +605,7 @@ class Schema extends AbstractSchema
     public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void
     {
         $this->con->execute('DROP INDEX IF EXISTS ' . $name);
-        $this->con->execute('CREATE INDEX ' . $newname . ' ON ' . $table . ' (' . implode(',', $fields) . ') ');
+        $this->con->execute('CREATE INDEX ' . $newname . ' ON ' . $table . ' (' . implode(',', $fields) . ')');
     }
 
     /**
