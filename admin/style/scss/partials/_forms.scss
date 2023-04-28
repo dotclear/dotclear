@@ -26,10 +26,9 @@ form {
 }
 
 fieldset {
-  display: block;
   margin: 1em 0;
   padding: 1em 0.5em;
-  border-width: 1px 0;
+  border-width: 1px;
   border-style: solid;
   border-color: var(--fieldset-border);
   background: var(--fieldset-background);
@@ -37,11 +36,27 @@ fieldset {
   hr {
     background-color: var(--fieldset-border);
     border-width: 0;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
   }
 
   &:focus-within {
     background-color: var(--fieldset-focus-background);
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  legend,
+  h3,
+  h4 {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0.75em;
+    color: var(--fieldset-pretty-title-color);
+    font-size: 1em;
+    font-weight: bold;
   }
 }
 
@@ -57,15 +72,6 @@ input[type='number'],
 textarea {
   font-family: var(--sans-serif-input);
   font-size: 100%;
-}
-
-legend {
-  padding: 0.2em 0.6em;
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--legend-border);
-  background: var(--legend-background);
-  margin-bottom: 0.5em;
 }
 
 label .maximal,

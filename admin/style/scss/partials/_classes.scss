@@ -310,24 +310,36 @@ img.go_home {
 }
 
 .fieldset {
+  margin: 1em 0;
+  padding: 1em 0.5em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--fieldset-border);
   background: var(--fieldset-background);
-  border: 1px solid var(--fieldset-border);
-  border-radius: 3px;
-  padding: 1em 0.7em 0.5em;
-  margin-bottom: 1em;
-
-  h3 {
-    margin-top: 0;
-  }
 
   hr {
     background-color: var(--fieldset-border);
     border-width: 0;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
   }
 
   &:focus-within {
     background-color: var(--fieldset-focus-background);
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  h3,
+  h4 {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0.75em;
+    color: var(--fieldset-pretty-title-color);
+    font-size: 1em;
+    font-weight: bold;
   }
 }
 
