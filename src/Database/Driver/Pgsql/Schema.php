@@ -292,7 +292,6 @@ class Schema extends AbstractSchema
     public function db_create_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
-        var_dump($default);
         if ($default === null) {
             $default = 'DEFAULT NULL';
         } elseif ($default !== false) {

@@ -198,7 +198,7 @@ class Cursor
         $sql
             ->from($this->__table)
             ->columns(array_keys($this->__data))
-            ->set(array_values($this->__data))
+            ->values(array_values($this->__data))
             ->where($where)
         ;
 
@@ -237,7 +237,6 @@ class Cursor
         }
 
         $updReq = $this->getUpdate($where);
-
         $this->__con->execute($updReq);
 
         return true;

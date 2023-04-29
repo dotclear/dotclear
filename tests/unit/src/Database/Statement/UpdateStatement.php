@@ -59,7 +59,7 @@ class UpdateStatement extends atoum
             ->ref('client')
             ->reference('client')
             ->fields(['prenom', 'nom', 'ville', 'age'])
-            ->set(['Rébecca', 'Armand', 'Saint-Didier-des-Bois', 24])
+            ->values(['Rébecca', 'Armand', 'Saint-Didier-des-Bois', 24])
             ->where('id = 2')
             ->cond('AND ' . $sql->isNull('super'))
             ->sql('OR (group = 0)')
@@ -76,12 +76,41 @@ class UpdateStatement extends atoum
         ;
 
         $sql
-            ->sets('Irma', true)
+            ->values('Irma', true)
         ;
 
         $this
             ->string($sql->statement())
             ->isEqualTo('UPDATE client SET prenom = \'Irma\' WHERE id = 2 AND super IS NULL OR (group = 0)')
+        ;
+
+        $sql
+            ->sets('age = 13')
+        ;
+
+        $this
+            ->string($sql->statement())
+            ->isEqualTo('UPDATE client SET prenom = \'Irma\', age = 13 WHERE id = 2 AND super IS NULL OR (group = 0)')
+        ;
+    }
+
+    public function testNoFields()
+    {
+        $driver = 'mysqli';
+        $syntax = 'mysql';
+
+        $con = $this->getConnection($driver, $syntax);
+        $sql = new \Dotclear\Database\Statement\UpdateStatement($con, $syntax);
+
+        $sql
+            ->ref('client')
+            ->sets('age = 13')
+            ->cond('AND ' . $sql->isNull('super'))
+        ;
+
+        $this
+            ->string($sql->statement())
+            ->isEqualTo('UPDATE client SET age = 13 WHERE TRUE AND super IS NULL')
         ;
     }
 
@@ -97,7 +126,7 @@ class UpdateStatement extends atoum
             ->ref('client')
             ->reference('client')
             ->fields(['prenom', 'nom', 'ville', 'age'])
-            ->set(['Rébecca', 'Armand', 'Saint-Didier-des-Bois', 24])
+            ->values(['Rébecca', 'Armand', 'Saint-Didier-des-Bois', 24])
             ->cond('AND ' . $sql->isNull('super'))
         ;
 

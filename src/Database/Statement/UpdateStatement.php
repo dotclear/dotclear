@@ -18,7 +18,8 @@ use dcCore;
 
 class UpdateStatement extends SqlStatement
 {
-    protected $set;
+    protected $sets;
+    protected $values;
 
     /**
      * Constructs a new instance.
@@ -28,7 +29,8 @@ class UpdateStatement extends SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->set = [];
+        $this->sets   = [];
+        $this->values = [];
 
         parent::__construct($con, $syntax);
     }
@@ -62,7 +64,7 @@ class UpdateStatement extends SqlStatement
     }
 
     /**
-     * Adds update value(s)
+     * Adds update set(s) (column = value)
      *
      * @param mixed     $c      the udpate values(s)
      * @param boolean   $reset  reset previous update value(s) first
@@ -72,12 +74,12 @@ class UpdateStatement extends SqlStatement
     public function set($c, bool $reset = false): UpdateStatement
     {
         if ($reset) {
-            $this->set = [];
+            $this->sets = [];
         }
         if (is_array($c)) {
-            $this->set = array_merge($this->set, $c);
+            $this->sets = array_merge($this->sets, $c);
         } else {
-            array_push($this->set, $c);
+            array_push($this->sets, $c);
         }
 
         return $this;
@@ -94,6 +96,41 @@ class UpdateStatement extends SqlStatement
     public function sets($c, bool $reset = false): UpdateStatement
     {
         return $this->set($c, $reset);
+    }
+
+    /**
+     * Adds update value(s) (needs fields/columns)
+     *
+     * @param mixed     $c      the udpate values(s)
+     * @param boolean   $reset  reset previous update value(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function value($c, bool $reset = false): UpdateStatement
+    {
+        if ($reset) {
+            $this->values = [];
+        }
+        if (is_array($c)) {
+            $this->values = array_merge($this->values, $c);
+        } else {
+            array_push($this->values, $c);
+        }
+
+        return $this;
+    }
+
+    /**
+     * value() alias
+     *
+     * @param      mixed    $c      the update value(s)
+     * @param      boolean  $reset  reset previous update value(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function values($c, bool $reset = false): UpdateStatement
+    {
+        return $this->value($c, $reset);
     }
 
     /**
@@ -166,16 +203,22 @@ class UpdateStatement extends SqlStatement
         // Reference
         $query .= $this->from[0] . ' ';
 
+        $sets = [];
         // Value(s)
-        if (is_countable($this->set) ? count($this->set) : 0) {
+        if (is_countable($this->values) ? count($this->values) : 0) {
             if (count($this->columns)) {
-                $sets        = [];
                 $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : (is_null($v) ? 'NULL' : $v);
-                for ($i = 0; $i < min(count($this->set), count($this->columns)) ; $i++) {
-                    $sets[] = $this->columns[$i] . ' = ' . $formatValue($this->set[$i]);
+                for ($i = 0; $i < min(count($this->values), count($this->columns)) ; $i++) {
+                    $sets[] = $this->columns[$i] . ' = ' . $formatValue($this->values[$i]);
                 }
-                $query .= 'SET ' . join(', ', $sets) . ' ';
             }
+        }
+        // Set(s)
+        if (is_countable($this->sets) ? count($this->sets) : 0) {
+            $sets = array_merge($sets, $this->sets);
+        }
+        if (count($sets)) {
+            $query .= 'SET ' . join(', ', $sets) . ' ';
         }
 
         // Where
