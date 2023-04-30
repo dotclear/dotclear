@@ -900,18 +900,6 @@ $(() => {
 
   $('#help').helpViewer();
 
-  // Notices
-  $('p.success,p.warning,p.error,div.error').each(function () {
-    $(this).addClass('close-notice-parent');
-    $(this).append(
-      `<button class="close-notice" type="button"><img src="images/close.svg" alt="${dotclear.msg.close_notice}" /></button>`,
-    );
-  });
-  $('button.close-notice').on('click', function (e) {
-    e.preventDefault();
-    $(this).parent().hide();
-  });
-
   // Password helpers
   dotclear.passwordHelpers();
   // Password

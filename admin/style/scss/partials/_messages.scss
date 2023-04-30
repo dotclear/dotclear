@@ -100,41 +100,6 @@
   filter: opacity(0.85);
 }
 
-.close-notice-parent {
-  position: relative;
-  padding-right: 3em;
-}
-
-.close-notice {
-  padding: 0.5em;
-  background: none;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  position: absolute;
-  top: 1em;
-  right: 0.5em;
-
-  img {
-    width: 1.5em;
-    height: 1.5em;
-  }
-
-  &:hover,
-  &:focus {
-    background: none;
-  }
-}
-
-p .close-notice {
-  top: 0.125em;
-  right: 0;
-  img {
-    width: 1.25em;
-    height: 1.25em;
-  }
-}
-
 .warning-msg {
   color: var(--msg-warn-color);
   background: url(msg-warning.svg) no-repeat 0.75em 0.75em;
