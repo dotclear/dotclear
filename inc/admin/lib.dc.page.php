@@ -1211,12 +1211,31 @@ class dcPage
     {
         $ret = self::cssLoad('js/codemirror/lib/codemirror.css') .
         self::jsLoad('js/codemirror/lib/codemirror.js');
+
+        /**
+         * Allow 3rd party plugin to add their own textarea, the given ArrayObject should be completed with the
+         * list of required modes (css, htmlmixed, javascript, php, xml, clike).
+         *
+         * Example:
+         *
+         * $tab->append('xml');
+         */
+        $alt = new ArrayObject();
+        # --BEHAVIOR-- adminLoadCodeMirror -- array
+        dcCore::app()->callBehavior('adminLoadCodeMirror', $alt);
+        foreach ($alt as $item) {
+            if (!in_array($item, $modes)) {
+                $modes[] = $item;
+            }
+        }
+
         if ($multi) {
             $ret .= self::jsLoad('js/codemirror/addon/mode/multiplex.js');
         }
         foreach ($modes as $mode) {
             $ret .= self::jsLoad('js/codemirror/mode/' . $mode . '/' . $mode . '.js');
         }
+
         $ret .= self::jsLoad('js/codemirror/addon/edit/closebrackets.js') .
         self::jsLoad('js/codemirror/addon/edit/matchbrackets.js') .
         self::cssLoad('js/codemirror/addon/display/fullscreen.css') .
@@ -1249,6 +1268,31 @@ class dcPage
                 'mode'  => $mode,
                 'theme' => $theme ?: 'default',
             ]];
+        }
+
+        /**
+         * Allow 3rd party plugin to add their own textarea, the given ArrayObject should be completed with the
+         * same structure (string name, string id, string mode, string theme).
+         *
+         * Example:
+         *
+         * $tab->append([
+         *     'name'  => 'my_editor_css',  // Editor id (should be unique)
+         *     'id'    => 'css_content',    // Textarea id
+         *     'mode'  => 'css',            // Codemirror mode ()
+         *     'theme' => dcCore::app()->auth->user_prefs->interface->colorsyntax_theme ?: 'default'
+         * ]);
+         */
+        $alt = new ArrayObject();
+        # --BEHAVIOR-- adminRunCodeMirror -- array
+        dcCore::app()->callBehavior('adminRunCodeMirror', $alt);
+        foreach ($alt as $item) {
+            $js[] = [
+                'name'  => $item['name'],
+                'id'    => $item['id'],
+                'mode'  => $item['mode'],
+                'theme' => $item['theme'] ?: 'default',
+            ];
         }
 
         return
