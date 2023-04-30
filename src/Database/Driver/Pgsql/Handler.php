@@ -184,7 +184,12 @@ class Handler extends AbstractHandler
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
             $res = @pg_query($handle, $query);
             if ($res === false) {
-                throw new Exception($this->db_last_error($handle));
+                $msg = (string) $this->db_last_error($handle);
+                if (defined('DC_DEV') && DC_DEV) {
+                    $msg .= ' SQL=[' . $query . ']';
+                }
+
+                throw new Exception($msg);
             }
 
             return $res;

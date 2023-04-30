@@ -166,7 +166,12 @@ class Handler extends AbstractHandler
         if ($handle instanceof mysqli) {
             $res = @$handle->query($query);
             if ($res === false) {
-                throw new Exception($this->db_last_error($handle));
+                $msg = (string) $this->db_last_error($handle);
+                if (defined('DC_DEV') && DC_DEV) {
+                    $msg .= ' SQL=[' . $query . ']';
+                }
+
+                throw new Exception($msg);
             }
 
             return $res;
