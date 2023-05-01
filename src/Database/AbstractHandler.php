@@ -70,7 +70,7 @@ abstract class AbstractHandler implements InterfaceHandler
      * @param string    $password       Password
      * @param bool      $persistent     Persistent connection
      *
-     * @return mixed
+     * @return AbstractHandler
      */
     public static function init(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false)
     {
