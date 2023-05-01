@@ -918,29 +918,28 @@ class adminModulesList
 
             if (in_array('desc', $cols)) {
                 $tds++;
-                echo
-                '<td class="module-desc maximal">' . Html::escapeHTML(__($define->get('desc')));
+                $note = '';
                 if (!empty($define->getUsing()) && $define->get('state') == dcModuleDefine::STATE_ENABLED) {
-                    echo
-                    '<br/><span class="info">' .
+                    $note .= '<p><span class="info">' .
                     sprintf(
                         __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
                         join(',', $define->getUsing())
-                    ) .
-                        '</span>';
+                    ) . '</span></p>';
                 }
                 if (!empty($define->getMissing()) && $define->get('state') != dcModuleDefine::STATE_ENABLED) {
-                    echo
-                    '<br/><span class="info">' .
-                    __('This module cannot be enabled, because of the following reasons :') .
-                        '<ul>';
+                    $note .= '<p><span class="info">' .
+                    __('This module cannot be enabled, because of the following reasons :') . '<ul>';
                     foreach ($define->getMissing() as $reason) {
-                        echo '<li>' . $reason . '</li>';
+                        $note .= '<li>' . $reason . '</li>';
                     }
-                    echo '</ul>' .
-                        '</span>';
+                    $note .= '</ul></span></p>';
                 }
-                echo '</td>';
+                echo
+                '<td class="module-desc maximal">' .
+                ($note !== '' ? '<details><summary>' : '') .
+                Html::escapeHTML(__($define->get('desc'))) .
+                ($note !== '' ? '</summary>' . $note . '</details>' : '') .
+                '</td>';
             }
 
             if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
