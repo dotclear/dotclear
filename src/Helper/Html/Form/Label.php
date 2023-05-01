@@ -17,12 +17,39 @@ class Label extends Component
     private const DEFAULT_ELEMENT = 'label';
 
     // Position of linked component and position of text/label
-    public const INSIDE_TEXT_BEFORE   = 0;
-    public const INSIDE_TEXT_AFTER    = 1;
+
+    /**
+     * Put field inside label with label text before field (ex: Number: [ ])
+     * Useful for input field, select, …
+     *
+     * @var        int
+     */
+    public const INSIDE_TEXT_BEFORE = 0;
+
+    /**
+     * Put field inside label with label text after field (ex: [] Active)
+     * Useful for radio, checkbox, …
+     *
+     * @var        int
+     */
+    public const INSIDE_TEXT_AFTER = 1;
+
+    /**
+     * Put field after label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
     public const OUTSIDE_LABEL_BEFORE = 2;
-    public const OUTSIDE_LABEL_AFTER  = 3;
+
+    /**
+     * Put field before label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
+    public const OUTSIDE_LABEL_AFTER = 3;
 
     // Aliases
+
     public const INSIDE_LABEL_BEFORE = 0;
     public const INSIDE_LABEL_AFTER  = 1;
     public const OUTSIDE_TEXT_BEFORE = 2;
@@ -33,8 +60,8 @@ class Label extends Component
      *
      *   INSIDE_TEXT_BEFORE   = inside label, label text before component
      *   INSIDE_TEXT_AFTER    = inside label, label text after component
-     *   OUTSIDE_LABEL_BEFORE = after label
-     *   OUTSIDE_LABEL_AFTER  = before label
+     *   OUTSIDE_LABEL_BEFORE = after label (for=field_id will be set automatically)
+     *   OUTSIDE_LABEL_AFTER  = before label (for=field_id will be set automatically)
      */
     private int $_position = self::INSIDE_TEXT_BEFORE;
 

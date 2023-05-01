@@ -122,7 +122,14 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<string>
+     * @return array[
+     *      'fields' =>     array[
+     *          'type'      string
+     *          'len'       int|null
+     *          'null'      bool
+     *          'default'   string
+     *      ]
+     * ]
      */
     public function getColumns(string $table): array
     {
@@ -137,7 +144,12 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<string>
+     * @return array[
+     *  'name'      string
+     *  'primary'   bool
+     *  'unique'    bool
+     *  'cols'      array
+     * ]
      */
     public function getKeys(string $table): array
     {
@@ -152,7 +164,14 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<string>
+     * @return array[
+     *  'name'      string
+     *  'c_cols'    array
+     *  'p_table'   string
+     *  'p_cols'    array
+     *  'update'    string
+     *  'delete'    string
+     * ]
      */
     public function getIndexes(string $table): array
     {
@@ -167,7 +186,14 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<string>
+     * @return array[
+     *  'name'      string
+     *  'c_cols'    array
+     *  'p_table'   string
+     *  'p_cols'    array
+     *  'update'    string
+     *  'delete'    string
+     * ]
      */
     public function getReferences(string $table): array
     {
