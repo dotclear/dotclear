@@ -48,9 +48,9 @@ abstract class AbstractSchema implements InterfaceSchema
             $class = __NAMESPACE__ . '\\Driver\\' . ucfirst($driver) . '\\Schema';
         }
 
-        // You can set DC_DBDRIVER_CLASS to whatever you want.
+        // You can set DC_DBSCHEMA_CLASS to whatever you want.
         // Your new class *should* inherits Dotclear\Database\Schema\AbstractSchema class.
-        $class = defined('DC_DBDRIVER_CLASS') ? \DC_DBDRIVER_CLASS : $class;
+        $class = defined('DC_DBSCHEMA_CLASS') ? \DC_DBSCHEMA_CLASS : $class;
 
         if (!class_exists($class) || !is_subclass_of($class, $parent)) {
             trigger_error('Database schema class ' . $class . ' does not exist or does not inherit ' . $parent);
