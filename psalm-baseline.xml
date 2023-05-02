@@ -139,6 +139,7 @@
     <TypeDoesNotContainType>
       <code>DC_DEBUG</code>
       <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
     </TypeDoesNotContainType>
   </file>
   <file src="inc/admin/lib.helper.php">
@@ -405,6 +406,11 @@
       <code><![CDATA[$e->bad_files]]></code>
       <code><![CDATA[$e->bad_files]]></code>
     </UndefinedPropertyAssignment>
+  </file>
+  <file src="inc/core/class.dc.utils.php">
+    <TypeDoesNotContainType>
+      <code>DC_DEBUG</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="inc/core/class.dc.xmlrpc.php">
     <MoreSpecificImplementedParamType>
@@ -698,6 +704,7 @@
   <file src="src/Database/Driver/Mysqli/Handler.php">
     <RedundantCondition>
       <code><![CDATA['']]></code>
+      <code>DC_DEV</code>
     </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
@@ -705,9 +712,12 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Database/Driver/Mysqli/Schema.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
+    <InvalidReturnStatement>
+      <code>$res</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>]]></code>
+    </InvalidReturnType>
     <RedundantCast>
       <code>(string) $m[1]</code>
       <code>(string) $m[1]</code>
@@ -727,32 +737,25 @@
     <RedundantCast>
       <code>(int) $row</code>
     </RedundantCast>
+    <RedundantCondition>
+      <code>DC_DEV</code>
+    </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="src/Database/Driver/Pgsql/Schema.php">
-    <ForbiddenCode>
-      <code>var_dump($default)</code>
-    </ForbiddenCode>
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
   </file>
   <file src="src/Database/Driver/Sqlite/Handler.php">
     <ImplementedReturnTypeMismatch>
       <code>bool|string</code>
     </ImplementedReturnTypeMismatch>
+    <RedundantCondition>
+      <code>DC_DEV</code>
+    </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="src/Database/Driver/Sqlite/Schema.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
   </file>
   <file src="src/Database/MetaRecord.php">
     <MissingTemplateParam>

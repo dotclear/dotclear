@@ -112,7 +112,7 @@ class Schema extends AbstractSchema
     /**
      * Get DB tables
      *
-     * @return     array
+     * @return     array<string>
      */
     public function db_get_tables(): array
     {
@@ -132,7 +132,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array Array of fields properties
+     * @return     array<string, array{type: string, len: int|null, null: bool, default: string}>
      */
     public function db_get_columns(string $table): array
     {
@@ -175,7 +175,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array   Array of keys properties
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: array}>
      */
     public function db_get_keys(string $table): array
     {
@@ -215,7 +215,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array   Array of indexes properties
+     * @return     array<array{name: string, type: string, cols: array}>
      */
     public function db_get_indexes(string $table): array
     {
@@ -255,7 +255,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array   Array of reference's properties
+     * @return     array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>
      */
     public function db_get_references(string $table): array
     {
@@ -270,10 +270,10 @@ class Schema extends AbstractSchema
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 # Columns transformation
-                $t_cols = str_replace('`', '', $match[2][$i]);
-                $t_cols = explode(',', $t_cols);
-                $r_cols = str_replace('`', '', $match[4][$i]);
-                $r_cols = explode(',', $r_cols);
+                $st_cols = str_replace('`', '', $match[2][$i]);
+                $t_cols  = explode(',', $st_cols);
+                $sr_cols = str_replace('`', '', $match[4][$i]);
+                $r_cols  = explode(',', $sr_cols);
 
                 # ON UPDATE|DELETE
                 $on        = trim((string) $match[5][$i], ', ');

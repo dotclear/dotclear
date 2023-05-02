@@ -34,14 +34,7 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return array[
-     *      'fields' =>     array[
-     *          'type'      string
-     *          'len'       int|null
-     *          'null'      bool
-     *          'default'   string
-     *      ]
-     * ]
+     * @return     array<string, array{type: string, len: int|null, null: bool, default: string}>
      */
     public function db_get_columns(string $table): array;
 
@@ -56,12 +49,7 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return array[
-     *  'name'      string
-     *  'primary'   bool
-     *  'unique'    bool
-     *  'cols'      array
-     * ]
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: array}>
      */
     public function db_get_keys(string $table): array;
 
@@ -75,11 +63,7 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return array[
-     *  'name'      string
-     *  'type'      string
-     *  'cols'      array
-     * ]
+     * @return     array<array{name: string, type: string, cols: array}>
      */
     public function db_get_indexes(string $table): array;
 
@@ -96,14 +80,7 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return array[
-     *  'name'      string
-     *  'c_cols'    array
-     *  'p_table'   string
-     *  'p_cols'    array
-     *  'update'    string
-     *  'delete'    string
-     * ]
+     * @return     array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>
      */
     public function db_get_references(string $table): array;
 
