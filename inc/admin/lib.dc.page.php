@@ -889,6 +889,10 @@ class dcPage
      */
     private static function appendVersion(string $src, ?string $version = ''): string
     {
+        if (defined('DC_DEBUG') && DC_DEBUG) {
+            return $src;
+        }
+
         return $src .
             (strpos($src, '?') === false ? '?' : '&amp;') .
             'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
