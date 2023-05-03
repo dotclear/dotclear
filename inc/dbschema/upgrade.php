@@ -1324,7 +1324,7 @@ class dcUpgrade
             $sql
                 ->ref(dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME)
                 ->column('setting_value')
-                ->set('/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i')
+                ->value('/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i')
                 ->where('setting_id = ' . $sql->quote('media_exclusion'))
                 ->and('setting_ns = ' . $sql->quote('system'))
                 ->and('setting_value = ' . $sql->quote('/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i'))
