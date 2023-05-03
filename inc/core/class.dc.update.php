@@ -78,6 +78,13 @@ class dcUpdate
     protected $forced_files = [];
 
     /**
+     * Stack of bad files checked (digest)
+     *
+     * @var        array
+     */
+    protected $bad_files = [];
+
+    /**
      * Constructor
      *
      * @param string $url           Versions file URL
@@ -316,13 +323,23 @@ class dcUpdate
         $changes = $this->md5sum($root, $digests_file);
 
         if (!empty($changes)) {
-            $e            = new Exception('Some files have changed.', self::ERR_FILES_CHANGED);
-            $e->bad_files = $changes;   // @phpstan-ignore-line
+            $e               = new Exception('Some files have changed.', self::ERR_FILES_CHANGED);
+            $this->bad_files = $changes;
 
             throw $e;
         }
 
         return true;
+    }
+
+    /**
+     * Gets the bad files.
+     *
+     * @return     array  The bad files.
+     */
+    public function getBadFiles(): array
+    {
+        return $this->bad_files;
     }
 
     /**
