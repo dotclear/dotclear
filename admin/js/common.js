@@ -725,6 +725,9 @@ dotclear.jsonServices = (
           return;
         }
       } catch (e) {
+        if (dotclear.debug) {
+          console.log(fn, data);
+        }
         console.log(e);
       }
     },
