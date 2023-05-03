@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -715,8 +716,8 @@ class dcPage
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .
-            '<p>Autoloader requests: ' . dcCore::app()->autoload->getRequestsCount() .
-            ' | Autoloader loads: ' . dcCore::app()->autoload->getLoadsCount() . '</p>' .
+            '<p>Autoloader requests: ' . App::autoload()->getRequestsCount() .
+            ' | Autoloader loads: ' . App::autoload()->getLoadsCount() . '</p>' .
             '</div></div>';
 
         return $res;
