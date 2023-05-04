@@ -1,7 +1,6 @@
-preserve_hierarchy: true
+preserve_hierarchy: 1
 files:
   - source: /locales/_pot/
-    ignore_settings: 1
     ignore:
       - _*.pot
     translation: /locales/%two_letters_code%/%file_name%.po
