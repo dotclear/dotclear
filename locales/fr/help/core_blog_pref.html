@@ -94,12 +94,6 @@
   <dt>Laisser les rétroliens ouverts durant <em>x</em> jours</dt>
   <dd>Permet d'indiquer le nombre de jours durant lesquels les rétroliens
   sont possibles sur un billet après sa publication. Laisser ce champ vide pour ne fixer aucune limite.</dd>
-
-  <dt>Ajouter la relation "nofollow" aux liens des commentaires et rétroliens</dt>
-  <dd>Ajoute un attribut sur les liens des commentaires et rétroliens indiquant
-  aux robots des moteurs de recherche de ne pas les suivre. Cette mesure
-  est censée permettre de lutter contre le spam mais n'a pas encore vraiment
-  prouvé son efficacité.</dd>
 </dl>
 
 <h4>Présentation du blog</h4>
@@ -134,7 +128,6 @@
   <dt>Inclure les sous-catégories dans la page des catégories et dans les flux de billets pour une catégorie</dt>
   <dd>Cette option permet d'inclure les sous-catégories de la catégorie courante dans l'affichage coté public
   d'une catégorie, ou d'un flux de billets pour une catégorie.</dd>
-
 </dl>
 
 <h4>Médias et images</h4>
@@ -159,6 +152,9 @@
   <dt>Insérer le lien vers l'image originale</dt>
   <dd>Cette option permet de rendre l'image affichée cliquable, un clic sur l'image en question pointant vers l'image originale.</dd>
 
+  <dt>Insérer un lien vers l'image originale</dt>
+  <dd>Lorsque cette option est activée, les images insérées dans un article de blog seront cliquables et pointeront sur l'image de taille originale.</dd>
+
 </dl>
 
 <h4>Paramètres d'indexation par les moteurs de recherche</h4>
@@ -172,6 +168,9 @@ indésirables soient automatiquement supprimés. Laisser ce champ de saisie vide
 
 <h4>Formatage des dates et des heures</h4>
 <p>Certains champs permettent de formater les dates ou les heures avec des caractères particuliers dont voici la définition&nbsp;:</p>
+
+<h3>Référence de format</h3>
+<p>Liste les utilisateur·rice·s de ce blog, ainsi que leurs permissions. Si l'utilisateur·rice n'est ni super administrateur·rice ni administrateur·rice, le bouton <strong>Changer les permissions</strong> permet de lui en ajouter ou supprimer.</p>
 
 <ul>
   <li><strong>%a</strong>&nbsp;: nom abrégé du jour de la semaine (local),</li>
@@ -232,11 +231,8 @@ indésirables soient automatiquement supprimés. Laisser ce champ de saisie vide
   <li><strong>%Y</strong>&nbsp;: l'année, numérique, sur quatre chiffres,</li>
   <li><strong>%Z ou %z</strong>&nbsp;: fuseau horaire, ou nom ou
   abréviation,</li>
-  <li><strong>%%</strong>&nbsp;: un caractère `%' littéral.</li>
+  <li>: un caractère `%' littéral.</li>
 </ul>
-
-<h4>Utilisateur·rice·s de ce blog</h4>
-<p>Liste les utilisateur·rice·s de ce blog, ainsi que leurs permissions. Si l'utilisateur·rice n'est ni super administrateur·rice ni administrateur·rice, le bouton <strong>Changer les permissions</strong> permet de lui en ajouter ou supprimer.</p>
 
 </body>
 </html>
