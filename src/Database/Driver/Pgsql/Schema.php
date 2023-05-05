@@ -69,10 +69,7 @@ class Schema extends AbstractSchema
             $null    = strtolower($rs->is_nullable) == 'yes';
             $default = $rs->column_default;
             $len     = $rs->character_maximum_length;
-
-            if ($len == '') {
-                $len = null;
-            }
+            $len     = $len == '' ? null : (int) $len;
 
             $default = preg_replace('/::([\w\d\s]*)$/', '', (string) $default);
             $default = preg_replace('/^\((-?\d*)\)$/', '$1', $default);
