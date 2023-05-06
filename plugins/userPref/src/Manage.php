@@ -16,6 +16,7 @@ use Exception;
 use dcCore;
 use dcPage;
 use dcNsProcess;
+use dcWorkspace;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use form;
@@ -59,7 +60,7 @@ class Manage extends dcNsProcess
             try {
                 foreach ($_POST['s'] as $ws => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ws][$k] == 'array') {
+                        if ($_POST['s_type'][$ws][$k] === dcWorkspace::WS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->auth->user_prefs->$ws->put($k, $v);
@@ -78,7 +79,7 @@ class Manage extends dcNsProcess
             try {
                 foreach ($_POST['gs'] as $ws => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ws][$k] == 'array') {
+                        if ($_POST['gs_type'][$ws][$k] === dcWorkspace::WS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
@@ -233,7 +234,8 @@ class Manage extends dcNsProcess
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
     {
         switch ($s['type']) {
-            case 'boolean':
+            case dcWorkspace::WS_BOOLEAN:
+            case dcWorkspace::WS_BOOL:
                 $field = form::combo(
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     [__('yes') => 1, __('no') => 0],
@@ -242,7 +244,7 @@ class Manage extends dcNsProcess
 
                 break;
 
-            case 'array':
+            case dcWorkspace::WS_ARRAY:
                 $field = form::field(
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                     40,
@@ -252,6 +254,9 @@ class Manage extends dcNsProcess
 
                 break;
 
+            case dcWorkspace::WS_INTEGER:
+            case dcWorkspace::WS_INT:
+            case dcWorkspace::WS_FLOAT:
             case 'integer':
             case 'float':
                 $field = form::number(
@@ -263,6 +268,8 @@ class Manage extends dcNsProcess
 
                 break;
 
+            case dcWorkspace::WS_STRING:
+            case dcWorkspace::WS_TEXT:
             default:
                 $field = form::field(
                     [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],

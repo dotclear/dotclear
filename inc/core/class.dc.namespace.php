@@ -39,6 +39,21 @@ class dcNamespace
      */
     public const NS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
+    // Settings types (stored in table, subset of settype() allowed type)
+    public const NS_STRING = 'string';
+    public const NS_FLOAT  = 'float';
+    public const NS_BOOL   = 'boolean';
+    public const NS_INT    = 'integer';
+    public const NS_ARRAY  = 'array';
+
+    // Settings types converted to another type
+    public const NS_DOUBLE = 'double';     // -> NS_FLOAT
+
+    // Settings types aliases
+    public const NS_TEXT    = self::NS_STRING;
+    public const NS_BOOLEAN = self::NS_BOOL;
+    public const NS_INTEGER = self::NS_INT;
+
     // Properties
 
     /**
@@ -155,13 +170,13 @@ class dcNamespace
             $value = $rs->f('setting_value');
             $type  = $rs->f('setting_type');
 
-            if ($type === 'array') {
+            if ($type === self::NS_ARRAY) {
                 $value = @json_decode($value, true, 512, JSON_THROW_ON_ERROR);
             } else {
-                if ($type === 'float' || $type === 'double') {
-                    $type = 'float';
-                } elseif ($type !== 'boolean' && $type !== 'integer') {
-                    $type = 'string';
+                if ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
+                    $type = self::NS_FLOAT;
+                } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT) {
+                    $type = self::NS_STRING;
                 }
             }
 
@@ -279,7 +294,7 @@ class dcNamespace
     /**
      * Creates or updates a setting.
      *
-     * $type could be 'string', 'integer', 'float', 'boolean', 'array' or null. If $type is
+     * $type could be self::NS_STRING, self::NS_INT, self::NS_FLOAT, self::NS_BOOL, self::NS_ARRAY or null. If $type is
      * null and setting exists, it will keep current setting type.
      *
      * $ignore_value allow you to not change setting. Useful if you need to change
@@ -310,8 +325,8 @@ class dcNamespace
         }
 
         # Setting type
-        if ($type === 'double') {
-            $type = 'float';
+        if ($type === self::NS_DOUBLE) {
+            $type = self::NS_FLOAT;
         } elseif ($type === null) {
             if (!$global && $this->settingExists($name, false)) {
                 $type = $this->local_settings[$name]['type'];
@@ -319,13 +334,13 @@ class dcNamespace
                 $type = $this->global_settings[$name]['type'];
             } else {
                 if (is_array($value)) {
-                    $type = 'array';
+                    $type = self::NS_ARRAY;
                 } else {
-                    $type = 'string';
+                    $type = self::NS_STRING;
                 }
             }
-        } elseif ($type !== 'boolean' && $type !== 'integer' && $type !== 'float' && $type !== 'array') {
-            $type = 'string';
+        } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT && $type !== self::NS_FLOAT && $type !== self::NS_ARRAY) {
+            $type = self::NS_STRING;
         }
 
         # We don't change label
@@ -337,7 +352,7 @@ class dcNamespace
             }
         }
 
-        if ($type !== 'array') {
+        if ($type !== self::NS_ARRAY) {
             settype($value, $type);
         } else {
             $value = json_encode($value, JSON_THROW_ON_ERROR);
@@ -345,7 +360,7 @@ class dcNamespace
 
         $cur = $this->con->openCursor($this->table);
 
-        $cur->setting_value = ($type === 'boolean') ? (string) (int) $value : (string) $value;
+        $cur->setting_value = ($type === self::NS_BOOL) ? (string) (int) $value : (string) $value;
         $cur->setting_type  = $type;
         $cur->setting_label = $label;
 

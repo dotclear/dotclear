@@ -39,6 +39,21 @@ class dcWorkspace
      */
     public const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
+    // Preferences types (stored in table, subset of settype() allowed type)
+    public const WS_STRING = 'string';
+    public const WS_FLOAT  = 'float';
+    public const WS_BOOL   = 'boolean';
+    public const WS_INT    = 'integer';
+    public const WS_ARRAY  = 'array';
+
+    // Preferences types converted to another type
+    public const WS_DOUBLE = 'double';     // -> NS_FLOAT
+
+    // Preferences types aliases
+    public const WS_TEXT    = self::WS_STRING;
+    public const WS_BOOLEAN = self::WS_BOOL;
+    public const WS_INTEGER = self::WS_INT;
+
     // Properties
 
     /**
@@ -159,13 +174,13 @@ class dcWorkspace
             $value = $rs->f('pref_value');
             $type  = $rs->f('pref_type');
 
-            if ($type === 'array') {
+            if ($type === self::WS_ARRAY) {
                 $value = @json_decode($value, true);
             } else {
-                if ($type === 'float' || $type === 'double') {
-                    $type = 'float';
-                } elseif ($type !== 'boolean' && $type !== 'integer') {
-                    $type = 'string';
+                if ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
+                    $type = self::WS_FLOAT;
+                } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT) {
+                    $type = self::WS_STRING;
                 }
             }
 
@@ -285,7 +300,7 @@ class dcWorkspace
     /**
      * Creates or updates a pref.
      *
-     * $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
+     * $type could be self::WS_STRING, self::WS_INT, self::WS_FLOAT, self::WS_BOOL or null. If $type is
      * null and pref exists, it will keep current pref type.
      *
      * $ignore_value allow you to not change pref. Useful if you need to change
@@ -316,8 +331,8 @@ class dcWorkspace
         }
 
         // Pref type
-        if ($type === 'double') {
-            $type = 'float';
+        if ($type === self::WS_DOUBLE) {
+            $type = self::WS_FLOAT;
         } elseif ($type === null) {
             if (!$global && $this->prefExists($name, false)) {
                 $type = $this->local_prefs[$name]['type'];
@@ -325,13 +340,13 @@ class dcWorkspace
                 $type = $this->global_prefs[$name]['type'];
             } else {
                 if (is_array($value)) {
-                    $type = 'array';
+                    $type = self::WS_ARRAY;
                 } else {
-                    $type = 'string';
+                    $type = self::WS_STRING;
                 }
             }
-        } elseif ($type !== 'boolean' && $type !== 'integer' && $type !== 'float' && $type !== 'array') {
-            $type = 'string';
+        } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT && $type !== self::WS_FLOAT && $type !== self::WS_ARRAY) {
+            $type = self::WS_STRING;
         }
 
         // We don't change label
@@ -343,7 +358,7 @@ class dcWorkspace
             }
         }
 
-        if ($type !== 'array') {
+        if ($type !== self::WS_ARRAY) {
             settype($value, $type);
         } else {
             $value = json_encode($value);
@@ -351,7 +366,7 @@ class dcWorkspace
 
         $cur = $this->con->openCursor($this->table);
 
-        $cur->pref_value = ($type === 'boolean') ? (string) (int) $value : (string) $value;
+        $cur->pref_value = ($type === self::WS_BOOL) ? (string) (int) $value : (string) $value;
         $cur->pref_type  = $type;
         $cur->pref_label = $label;
 

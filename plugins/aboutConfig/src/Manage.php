@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\aboutConfig;
 
 use Exception;
 use dcCore;
+use dcNamespace;
 use dcPage;
 use dcNsProcess;
 use Dotclear\Helper\Html\Html;
@@ -60,7 +61,7 @@ class Manage extends dcNsProcess
             try {
                 foreach ($_POST['s'] as $ns => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ns][$k] == 'array') {
+                        if ($_POST['s_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->blog->settings->$ns->put($k, $v);
@@ -80,7 +81,7 @@ class Manage extends dcNsProcess
             try {
                 foreach ($_POST['gs'] as $ns => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ns][$k] == 'array') {
+                        if ($_POST['gs_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         dcCore::app()->blog->settings->$ns->put($k, $v, null, null, true, true);
@@ -242,7 +243,8 @@ class Manage extends dcNsProcess
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
     {
         switch ($s['type']) {
-            case 'boolean':
+            case dcNamespace::NS_BOOL:
+            case dcNamespace::NS_BOOLEAN:
                 $field = form::combo(
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     [__('yes') => 1, __('no') => 0],
@@ -251,7 +253,7 @@ class Manage extends dcNsProcess
 
                 break;
 
-            case 'array':
+            case dcNamespace::NS_ARRAY:
                 $field = form::field(
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     40,
@@ -261,8 +263,9 @@ class Manage extends dcNsProcess
 
                 break;
 
-            case 'integer':
-            case 'float':
+            case dcNamespace::NS_INTEGER:
+            case dcNamespace::NS_INT:
+            case dcNamespace::NS_FLOAT:
                 $field = form::number(
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                     null,
@@ -272,6 +275,8 @@ class Manage extends dcNsProcess
 
                 break;
 
+            case dcNamespace::NS_STRING:
+            case dcNamespace::NS_TEXT:
             default:
                 $field = form::field(
                     [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
