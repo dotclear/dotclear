@@ -372,6 +372,7 @@ abstract class dcActions
                     }
                 }
             } catch (Exception $e) {
+                $this->error($e);
                 $performed = true;
             }
 
@@ -416,6 +417,19 @@ abstract class dcActions
         $ret .= '</table>';
 
         return $ret;
+    }
+
+    /**
+     * Manage error.
+     * 
+     * This method is called on Exception from self::process();
+     * Default method does not stop script execution.
+     *
+     * @param      Exception  $e
+     */
+    public function error(Exception $e)
+    {
+        dcCore::app()->error->add($e->getMessage());
     }
 
     /**
