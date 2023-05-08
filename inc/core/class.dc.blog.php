@@ -2030,8 +2030,7 @@ class dcBlog
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->column('post_firstpub')
-                ->value('1')
+                ->set('post_firstpub = 1')
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
