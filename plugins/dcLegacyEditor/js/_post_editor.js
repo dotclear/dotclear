@@ -22,8 +22,8 @@ $(() => {
   let contentTb;
 
   if (
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content') &&
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_excerpt')
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_excerpt') ||
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')
   ) {
     // Get document format and prepare toolbars
     formatField = $('#post_format').get(0);
@@ -37,8 +37,12 @@ $(() => {
 
       // Confirm post format change
       if (window.confirm(dotclear.msg.confirm_change_post_format_noconvert)) {
-        excerptTb.switchMode(post_format);
-        contentTb.switchMode(post_format);
+        if (excerptTb !== undefined) {
+          excerptTb.switchMode(post_format);
+        }
+        if (contentTb !== undefined) {
+          contentTb.switchMode(post_format);
+        }
         last_post_format = $(this).val();
       } else {
         // Restore last format if change cancelled
@@ -49,9 +53,14 @@ $(() => {
       $(`.format_control:not(.control_no_${post_format}) > *`).removeClass('hide');
     });
 
-    excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
-    contentTb = new jsToolBar(document.getElementById('post_content'));
-    excerptTb.context = contentTb.context = 'post';
+    if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_excerpt')) {
+      excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
+      excerptTb.context = 'post';
+    }
+    if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')) {
+      contentTb = new jsToolBar(document.getElementById('post_content'));
+      contentTb.context = 'post';
+    }
 
     $('.format_control > *').addClass('hide');
     $(`.format_control:not(.control_no_${last_post_format}) > *`).removeClass('hide');
@@ -83,9 +92,11 @@ $(() => {
     }
 
     // Load toolbars
-    if (contentTb !== undefined && excerptTb !== undefined) {
-      contentTb.switchMode(formatField.value);
+    if (excerptTb !== undefined) {
       excerptTb.switchMode(formatField.value);
+    }
+    if (contentTb !== undefined) {
+      contentTb.switchMode(formatField.value);
     }
 
     // Check unsaved changes before HTML conversion
