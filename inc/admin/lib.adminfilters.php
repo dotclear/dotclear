@@ -539,7 +539,7 @@ class adminPostFilter extends adminGenericFilterV2
         $available_formats = [];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[$format] = $format;
+                $available_formats[dcCore::app()->getFormaterName($format)] = $format;
             }
         }
 
