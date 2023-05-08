@@ -64,11 +64,12 @@ class BackendActions extends dcPostsActions
      */
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
-        echo
-        '<html><head><title>' . __('Pages') . '</title>' .
-        dcPage::jsLoad('js/_posts_actions.js') .
-        $head .
-        '</script></head><body>' .
+        dcPage::openModule(
+            __('Pages'),
+            dcPage::jsLoad('js/_posts_actions.js') .
+            $head
+        );
+        echo 
         $breadcrumb .
         '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
     }
@@ -78,8 +79,7 @@ class BackendActions extends dcPostsActions
      */
     public function endPage(): void
     {
-        echo
-        '</body></html>';
+        dcPage::closeModule();
     }
 
     /**

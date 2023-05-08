@@ -49,11 +49,12 @@ class dcPostsActions extends dcActions
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
-            echo '<html><head><title>' . __('Posts') . '</title>' .
-            dcPage::jsLoad('js/_posts_actions.js') .
-                $head .
-                '</script></head><body>' .
-                $breadcrumb;
+            dcPage::openModule(
+                __('Posts'),
+                dcPage::jsLoad('js/_posts_actions.js') .
+                $head
+            );
+            echo $breadcrumb;
         } else {
             dcPage::open(
                 __('Posts'),
@@ -71,7 +72,7 @@ class dcPostsActions extends dcActions
     public function endPage()
     {
         if ($this->in_plugin) {
-            echo '</body></html>';
+            dcPage::closeModule();
         } else {
             dcPage::close();
         }

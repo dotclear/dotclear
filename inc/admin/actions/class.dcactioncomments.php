@@ -53,11 +53,12 @@ class dcCommentsActions extends dcActions
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
-            echo '<html><head><title>' . __('Comments') . '</title>' .
-            dcPage::jsLoad('js/_comments_actions.js') .
-                $head .
-                '</script></head><body>' .
-                $breadcrumb;
+            dcPage::openModule(
+                __('Comments'),
+                dcPage::jsLoad('js/_comments_actions.js') .
+                $head
+            );
+            echo $breadcrumb;
         } else {
             dcPage::open(
                 __('Comments'),
@@ -74,7 +75,11 @@ class dcCommentsActions extends dcActions
      */
     public function endPage()
     {
-        dcPage::close();
+        if ($this->in_plugin) {
+            dcPage::closeModule();
+        } else {
+            dcPage::close();
+        }
     }
 
     /**
