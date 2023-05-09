@@ -489,8 +489,8 @@ class dcUpdate
 
         # If only one file is not readable, stop everything now
         if (!empty($not_readable)) {
-            $e            = new Exception('Some files are not readable.', self::ERR_FILES_UNREADABLE);
-            $e->bad_files = $not_readable;  // @phpstan-ignore-line
+            $e               = new Exception('Some files are not readable.', self::ERR_FILES_UNREADABLE);
+            $this->bad_files = $not_readable;
 
             throw $e;
         }
@@ -572,8 +572,8 @@ class dcUpdate
 
         # If only one file is not writable, stop everything now
         if (!empty($not_writable)) {
-            $e            = new Exception('Some files are not writable', self::ERR_FILES_UNWRITALBE);
-            $e->bad_files = $not_writable;  // @phpstan-ignore-line
+            $e               = new Exception('Some files are not writable', self::ERR_FILES_UNWRITALBE);
+            $this->bad_files = $not_writable;
 
             throw $e;
         }
