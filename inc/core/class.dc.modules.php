@@ -251,8 +251,11 @@ class dcModules
      */
     public function checkDependencies(): void
     {
-        // Sanitize current Dotclear version
-        $dc_version = preg_replace('/\-dev.*$/', '', DC_VERSION);
+        // Grab current Dotclear and PHP version
+        $versions  = [
+            'core' => preg_replace('/\-dev.*$/', '', DC_VERSION),
+            'php'  => phpversion(),
+        ];
 
         foreach ($this->getDefines() as $module) {
             if (!empty($module->requires)) {
@@ -262,16 +265,22 @@ class dcModules
                     }
                     $found = $this->getDefine($dep[0]);
                     // grab missing dependencies
-                    if (!$found->isDefined() && $dep[0] != 'core') {
+                    if (!$found->isDefined() && !isset($versions[$dep[0]])) {
                         // module not present
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is not installed'), $dep[0]));
-                    } elseif ((count($dep) > 1) && version_compare(($dep[0] == 'core' ? $dc_version : $found->version), $dep[1]) == -1) {
+                    } elseif ((count($dep) > 1) && version_compare((isset($versions[$dep[0]]) ? $versions[$dep[0]] : $found->version), $dep[1]) == -1) {
                         // module present, but version missing
-                        if ($dep[0] == 'core') {
+                        if ($dep[0] == 'php') {
+                            $module->addMissing($dep[0], sprintf(
+                                __('Requires PHP version %s, but version %s is installed'),
+                                $dep[1],
+                                $versions['php']
+                            ));
+                        } elseif ($dep[0] == 'core') {
                             $module->addMissing($dep[0], sprintf(
                                 __('Requires Dotclear version %s, but version %s is installed'),
                                 $dep[1],
-                                $dc_version
+                                $versions['core']
                             ));
                         } else {
                             $module->addMissing($dep[0], sprintf(
@@ -281,7 +290,7 @@ class dcModules
                                 $found->version
                             ));
                         }
-                    } elseif (($dep[0] != 'core') && $found->state != dcModuleDefine::STATE_ENABLED) {
+                    } elseif (!isset($versions[$dep[0]]) && $found->state != dcModuleDefine::STATE_ENABLED) {
                         // module disabled
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is disabled'), $dep[0]));
                     }
