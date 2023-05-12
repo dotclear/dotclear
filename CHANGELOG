@@ -1,3 +1,30 @@
+Dotclear 2.26 - 2023-05-13
+===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0/8.1/8.2 compliance
+* Fix: Remove pragma for correct caching behaviour (pragma header is deprecated)
+* Fix: Ensure codemirror rendered area is readonly if textarea source is readonly too
+* Fix: Allow dcLegacyEditor applied on excerpt or content textarea only
+* Fix: Show format (syntax) label rather than format code in filter
+* Core: Clearbricks library has been directly included in Dotclear
+* Core: Update timezones from https://www.iana.org/time-zones
+* Core: Disabled REST services during last phase of update
+* Core: Clear file status cache to avoid running old code after update
+* Core: Add php min in requires property in module define
+* Admin: A media type has been added to media filter
+* Admin: Add post type in breadcrumb if necessary
+* Admin: Sort media thumb sizes in descending order (largest first)
+* Admin: Add a constant to disable REST services (may be useful during debugging session)
+* Admin: Avoid uploading of phar media
+* Admin: Fix appearance of action buttons for blog themes
+* Admin: Allow 3rd party plugin to use CKEditor to their own textarea on complex admin pages
+* Admin: Allow 3rd party plugin to use CodeMirror to their own textarea on complex admin pages
+* Admin: Harmonize fieldset (+legend/h3/h4) and CSS class .fieldset (h3/h4)
+* Admin: Hide dependency information of module (in details/summary) in plugins management page
+* a11y: Add lang attribute for each language select options or list
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+* 📣 Warning: Next major release (2.27) may require PHP 8.1 (announced in backend) or PHP 8.2
+
 Dotclear 2.25.3 - 2023-02-25
 ===========================================================
 * Fix: Check import/export module class before listing them (should have been in 2.25.1 but not)
