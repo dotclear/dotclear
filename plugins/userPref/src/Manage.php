@@ -156,7 +156,9 @@ class Manage extends dcNsProcess
             '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        $prefs = [];
+        /** @var array<string|dcWorkspace> */
+        $workspaces = dcCore::app()->auth->user_prefs->dumpWorkspaces();
+        $prefs      = [];
         if ($global) {
             $prefix     = 'g_';
             $prefix_id  = '#' . $prefix;
@@ -164,7 +166,7 @@ class Manage extends dcNsProcess
             $nav_id     = 'gp_nav';
             $submit_id  = 'gp_submit';
 
-            foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
+            foreach ($workspaces as $ws => $workspace) {
                 foreach ($workspace->dumpGlobalPrefs() as $k => $v) {
                     $prefs[$ws][$k] = $v;
                 }
@@ -176,14 +178,14 @@ class Manage extends dcNsProcess
             $nav_id     = 'lp_nav';
             $submit_id  = 'lp_submit';
 
-            foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
+            foreach ($workspaces as $ws => $workspace) {
                 foreach ($workspace->dumpPrefs() as $k => $v) {
                     $prefs[$ws][$k] = $v;
                 }
             }
         }
 
-        ksort($prefs);
+        ksort($prefs, SORT_FLAG_CASE | SORT_STRING);
         if (count($prefs)) {
             $ws_combo = [];
             foreach ($prefs as $ws => $s) {

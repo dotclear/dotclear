@@ -164,7 +164,9 @@ class Manage extends dcNsProcess
                 '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        $settings = [];
+        /** @var array<string|dcNamespace> */
+        $namespaces = dcCore::app()->blog->settings->dumpNamespaces();
+        $settings   = [];
         if ($global) {
             $prefix     = 'g_';
             $prefix_id  = '#' . $prefix;
@@ -172,7 +174,7 @@ class Manage extends dcNsProcess
             $nav_id     = 'gs_nav';
             $submit_id  = 'gs_submit';
 
-            foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
+            foreach ($namespaces as $ns => $namespace) {
                 foreach ($namespace->dumpGlobalSettings() as $k => $v) {
                     $settings[$ns][$k] = $v;
                 }
@@ -184,14 +186,14 @@ class Manage extends dcNsProcess
             $nav_id     = 'ls_nav';
             $submit_id  = 'ls_submit';
 
-            foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
+            foreach ($namespaces as $ns => $namespace) {
                 foreach ($namespace->dumpSettings() as $k => $v) {
                     $settings[$ns][$k] = $v;
                 }
             }
         }
 
-        ksort($settings);
+        ksort($settings, SORT_FLAG_CASE | SORT_STRING);
         if (count($settings)) {
             $ns_combo = [];
             foreach ($settings as $ns => $s) {
