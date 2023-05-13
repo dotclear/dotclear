@@ -127,6 +127,59 @@ class Files extends atoum
         $this->cleanTemp();
     }
 
+    public function testLock()
+    {
+        $this
+            ->string(\Dotclear\Helper\File\Files::lock('unknown.file'))
+            ->isEqualTo('')
+            ->string(\Dotclear\Helper\File\Files::getlastLockError())
+            ->isEqualTo('Can\'t create file')
+        ;
+
+        $this
+            ->string(\Dotclear\Helper\File\Files::lock($this->testDirectory))
+            ->isEqualTo('')
+            ->string(\Dotclear\Helper\File\Files::getlastLockError())
+            ->isEqualTo('Can\'t lock a directory')
+        ;
+
+        $file = implode(DIRECTORY_SEPARATOR, [$this->testDirectory, '1-one.txt']);
+
+        $this
+            ->string(\Dotclear\Helper\File\Files::lock($file))
+            ->isEqualTo($file)
+            ->variable(\Dotclear\Helper\File\Files::lock($file))
+            ->isEqualTo(null)
+            ->given(\Dotclear\Helper\File\Files::unlock($file))
+            ->then()
+            ->string(\Dotclear\Helper\File\Files::lock($file))
+            ->isEqualTo($file)
+        ;
+
+        $file_lock = implode(DIRECTORY_SEPARATOR, [$this->providerDirectory, 'watchdog.lock']);
+        if (file_exists($file_lock)) {
+            unlink($file_lock);
+        }
+
+        $lock = \Dotclear\Helper\File\Files::lock($file_lock, true);
+
+        $this
+            ->string($lock)
+            ->isEqualTo($file_lock)
+            ->boolean(file_exists($file_lock))
+            ->isTrue()
+            ->given(\Dotclear\Helper\File\Files::unlock($lock))
+        ;
+
+        sleep(2);
+        clearstatcache(true, $lock);
+
+        $this
+            ->boolean(file_exists($lock))
+            ->isFalse()
+        ;
+    }
+
     /**
      * Scan a directory. For that we use the /../fixtures/files which contains
      * know files
@@ -247,11 +300,11 @@ class Files extends atoum
 
         $ret = \Dotclear\Helper\File\Files::isDeletable($dirname);
 
-//        $dirname   = 'testDirIsDeletable';
-//        $directory = stream::get($dirname);
-//        $directory->mkdir($dirname, self::READ_WRITE_EXECUTE_USER_GROUP);
+        //        $dirname   = 'testDirIsDeletable';
+        //        $directory = stream::get($dirname);
+        //        $directory->mkdir($dirname, self::READ_WRITE_EXECUTE_USER_GROUP);
 
-//        $ret = \Dotclear\Helper\File\Files::isDeletable(self::ATOUM_STREAM . $dirname);
+        //        $ret = \Dotclear\Helper\File\Files::isDeletable(self::ATOUM_STREAM . $dirname);
 
         $this
             ->boolean($ret)

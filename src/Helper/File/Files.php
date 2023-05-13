@@ -27,19 +27,19 @@ class Files
 
     /**
      * Locked files resource stack.
-     * 
+     *
      * @var    array<string,resource>
      */
     protected static $lock_stack = [];
 
     /**
      * Locked files status stack.
-     * 
+     *
      * @var    array<string,bool>
      */
     protected static $lock_disposable = [];
 
-    /** 
+    /**
      * Last lock attempt error
      *
      * @var    string
@@ -592,7 +592,7 @@ class Files
                 return '';
             }
             fwrite($resource, '1', strlen('1'));
-            //fclose($resource);
+        //fclose($resource);
         } else {
             # Open existsing file
             $resource = @fopen($file, 'r+');
@@ -618,7 +618,7 @@ class Files
 
     /**
      * Unlock file.
-     * 
+     *
      * @param   string  $file           The file to unlock
      * @param   bool    $disposable     File only use to lock
      */
@@ -626,8 +626,10 @@ class Files
     {
         if (isset(self::$lock_stack[$file])) {
             fclose(self::$lock_stack[$file]);
-            if (!empty(self::$lock_disposable[$file]) && file_exists($file)) {
-                @unlink($file);
+            if (self::$lock_disposable[$file] && file_exists($file)) {
+                if (@unlink($file) === false) {
+                    throw new Exception(__('File cannot be removed.'));
+                }
             }
             unset(
                 self::$lock_stack[$file],
@@ -637,8 +639,20 @@ class Files
     }
 
     /**
+     * Gets the lock handle.
+     *
+     * @param      string  $file   The file
+     *
+     * @return     resource|null  The lock handle.
+     */
+    public static function getLockHandle(string $file)
+    {
+        return self::$lock_stack[$file] ?? null;
+    }
+
+    /**
      * Get last error from lock method.
-     * 
+     *
      * @return  string  The last lock error
      */
     public static function getlastLockError(): string
