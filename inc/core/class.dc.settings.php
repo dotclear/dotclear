@@ -144,10 +144,6 @@ class dcSettings
             throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_namespace));
         }
 
-        // Rename the namespace in the namespace array
-        $this->namespaces[$new_namespace] = $this->namespaces[$old_namespace];
-        unset($this->namespaces[$old_namespace]);
-
         // Rename the namespace in the database
         $sql = new UpdateStatement();
         $sql
@@ -155,6 +151,12 @@ class dcSettings
             ->set('setting_ns = ' . $sql->quote($new_namespace))
             ->where('setting_ns = ' . $sql->quote($old_namespace));
         $sql->update();
+
+        // Reload the renamed namespace in the namespace array
+        $this->namespaces[$new_namespace] = new dcNamespace($this->blog_id, $new_namespace);
+
+        // Remove the old namespace from the namespace array
+        unset($this->namespaces[$old_namespace]);
 
         return true;
     }
