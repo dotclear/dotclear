@@ -157,10 +157,6 @@ class dcPrefs
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $new_workspace));
         }
 
-        // Rename the workspace in the workspace array
-        $this->workspaces[$new_workspace] = $this->workspaces[$old_workspace];
-        unset($this->workspaces[$old_workspace]);
-
         // Rename the workspace in the database
         $sql = new UpdateStatement();
         $sql
@@ -168,6 +164,12 @@ class dcPrefs
             ->set('pref_ws = ' . $sql->quote($new_workspace))
             ->where('pref_ws = ' . $sql->quote($old_workspace));
         $sql->update();
+
+        // Reload the renamed workspace in the workspace array
+        $this->workspaces[$new_workspace] = new dcWorkspace($this->user_id, $new_workspace);
+
+        // Remove the old workspace from the workspace array
+        unset($this->workspaces[$old_workspace]);
 
         return true;
     }
