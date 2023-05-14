@@ -1178,12 +1178,19 @@ class adminModulesList
         $submits = [];
         $id      = $define->getId();
 
+        // mark module state
+        if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
+        }
+
         # Use loop to keep requested order
         foreach ($actions as $action) {
             switch ($action) {
                 # Deactivate
                 case 'activate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing())) {
+                    // do not allow activation of duplciate modules already activated
+                    $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => dcModuleDefine::STATE_ENABLED])) > 0;
+                    if (dcCore::app()->auth->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
                         $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
                     }
 
@@ -1339,7 +1346,8 @@ class adminModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id);
+                $disabled = !empty($_POST['disabled'][$id]);
+                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
                 // module is not defined
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such plugin.'));
@@ -1349,8 +1357,6 @@ class adminModulesList
 
                     continue;
                 }
-
-                $disabled = $define->get('state') != dcModuleDefine::STATE_ENABLED;
 
                 # --BEHAVIOR-- moduleBeforeDelete -- dcModuleDefine
                 dcCore::app()->callBehavior('pluginBeforeDeleteV2', $define);
@@ -1412,8 +1418,8 @@ class adminModulesList
 
             $count = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id);
-                if (!$define->isDefined() || $define->get('state') == dcModuleDefine::STATE_ENABLED) {
+                $define = $this->modules->getDefine($id, ['state' => '!' . dcModuleDefine::STATE_ENABLED]);
+                if (!$define->isDefined()) {
                     continue;
                 }
 
@@ -2065,6 +2071,11 @@ class adminThemesList extends adminModulesList
         $submits = [];
         $id      = $define->getId();
 
+        // mark module state
+        if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
+        }
+
         if ($id != dcCore::app()->blog->settings->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
@@ -2283,7 +2294,8 @@ class adminThemesList extends adminModulesList
                 $failed = false;
                 $count  = 0;
                 foreach ($modules as $id) {
-                    $define = $this->modules->getDefine($id);
+                $disabled = !empty($_POST['disabled'][$id]);;
+                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
                     if (!$define->isDefined()) {
                         continue;
                     }
@@ -2292,8 +2304,6 @@ class adminThemesList extends adminModulesList
 
                         continue;
                     }
-
-                    $disabled = $define->get('state') != dcModuleDefine::STATE_ENABLED;
 
                     # --BEHAVIOR-- themeBeforeDelete -- dcModuleDefine
                     dcCore::app()->callBehavior('themeBeforeDeleteV2', $define);
