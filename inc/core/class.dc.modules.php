@@ -214,13 +214,13 @@ class dcModules
         foreach ($this->defines as $module) {
             $add_it = true;
             foreach ($search as $key => $value) {
-                if (substr($value, 0, 1) == '!') {
+                if (substr($value, 0, 1) === '!') {
                     if ((string) $module->get($key) === (string) substr($value, 1)) {
                         $add_it = false;
 
                         break;
                     }
-                } elseif ($module->get($key) !== $value) {
+                } elseif ((string) $module->get($key) !== (string) $value) {
                     $add_it = false;
 
                     break;
