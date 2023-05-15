@@ -303,6 +303,13 @@ class dcAdmin
 
             dcAdminHelper::addMenuItem(
                 dcAdmin::MENU_SYSTEM,
+                __('My preferences'),
+                'admin.user.preferences',
+                ['images/menu/user-pref.svg', 'images/menu/user-pref.svg'],
+                true
+            );
+            dcAdminHelper::addMenuItem(
+                dcAdmin::MENU_SYSTEM,
                 __('Update'),
                 'admin.update',
                 ['images/menu/update.svg', 'images/menu/update-dark.svg'],
