@@ -270,7 +270,6 @@ class dcPage
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.home')) . '$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . dcCore::app()->adminurl->get('admin.home') . '">' . __('My dashboard') . '</a></li>' .
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . dcCore::app()->adminurl->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
         '<li><a href="' . dcCore::app()->adminurl->get('admin.home', ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
@@ -621,7 +620,7 @@ class dcPage
         $hl_pos         = $options['hl_pos']    ?? -1;
 
         // First item of array elements should be blog's name, System or Plugins
-        $res = '<h2>' . ($with_home_link ?
+        $res = '<h2 role="navigation">' . ($with_home_link ?
             '<a class="go_home" href="' . dcCore::app()->adminurl->get('admin.home') . '">' .
             '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '" />' .
             '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '" />' .
