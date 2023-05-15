@@ -261,7 +261,7 @@ class dcPage
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
-        '<h1><a href="' . dcCore::app()->adminurl->get('admin.home') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
+        '<h1><a href="' . dcCore::app()->adminurl->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
 
         echo
         '<form action="' . dcCore::app()->adminurl->get('admin.home') . '" method="post" id="top-info-blog">' .
