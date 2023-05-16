@@ -143,7 +143,7 @@ if (!empty($_POST)) {
         fclose($fp);
 
         try {
-            @chmod(DC_RC_PATH, 0666);
+            chmod(DC_RC_PATH, 0666);
         } catch (Exception $e) {
         }
 
