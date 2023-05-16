@@ -280,12 +280,12 @@ class dcModules
                         // module present, but version missing
                         if ($dep[0] == 'php') {
                             $dep[0] = 'PHP';
-                            $devp_v = $special['php'];
+                            $dep_v = $special['php'];
                         } elseif ($dep[0] == 'core') {
                             $dep[0] = 'Dotclear';
-                            $devp_v = $special['core'];
+                            $dep_v = $special['core'];
                         } else {
-                            $devp_v = $found->version;
+                            $dep_v = $found->version;
                         }
                         $module->addMissing($dep[0], sprintf(
                             __('Requires %s version %s, but version %s is installed'),
