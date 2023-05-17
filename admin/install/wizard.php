@@ -142,9 +142,11 @@ if (!empty($_POST)) {
         fwrite($fp, $full_conf);
         fclose($fp);
 
-        try {
-            chmod(DC_RC_PATH, 0666);
-        } catch (Exception $e) {
+        if (function_exists('chmod')) {
+            try {
+                @chmod(DC_RC_PATH, 0666);
+            } catch (Exception $e) {
+            }
         }
 
         $con->close();
