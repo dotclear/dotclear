@@ -48,10 +48,12 @@ class lambdaModule
 		$this->createFile('copyright',$this->copyrightTPL());
 		$this->createFile('dirs',$this->dirsTPL());
 		$this->createFile('rules',$this->rulesTPL());
-    try {
-      chmod($this->deb.'/rules',0755);
-     } catch (Exception $e) {
-     }
+    if (function_exists('chmod')) {
+      try {
+        @chmod($this->deb.'/rules',0755);
+       } catch (Exception $e) {
+       }
+    }
 	}
 
 	private function registerModule($name,$desc,$author,$version)
