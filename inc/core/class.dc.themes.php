@@ -194,7 +194,7 @@ class dcThemes extends dcModules
 
         switch ($ns) {
             case 'public':
-                $parent = $this->getDefine($define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
+                $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
                 if ($parent->isDefined()) {
                     // This is not a real cascade - since we don't call loadNsFile -,
                     // thus limiting inclusion process.
@@ -203,14 +203,14 @@ class dcThemes extends dcModules
                     // by class name
                     if ($this->loadNsClass($parent->getId(), self::MODULE_CLASS_PUPLIC) === '') {
                         // by file name
-                        $this->loadModuleFile($parent->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                        $this->loadModuleFile((string) $parent->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
                     }
                 }
 
                 // by class name
                 if ($this->loadNsClass($id, self::MODULE_CLASS_PUPLIC) === '') {
                     // by file name
-                    $this->loadModuleFile($define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
+                    $this->loadModuleFile((string) $define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
                 }
 
                 break;
