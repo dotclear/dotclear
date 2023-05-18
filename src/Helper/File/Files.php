@@ -622,7 +622,6 @@ class Files
      * Unlock file.
      *
      * @param   string  $file           The file to unlock
-     * @param   bool    $disposable     File only use to lock
      */
     public static function unlock(string $file): void
     {
