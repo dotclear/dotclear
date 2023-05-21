@@ -255,4 +255,17 @@ class File extends atoum
             ->isFalse()
         ;
     }
+
+    public function testInvalid()
+    {
+        $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'invalid.md', $this->root);
+
+        $this
+            ->object($file)
+            ->isNotNull()
+            ->class('\Dotclear\Helper\File\File')
+            ->variable($file->file)
+            ->isNull()
+        ;
+    }
 }

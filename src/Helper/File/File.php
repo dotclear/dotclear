@@ -171,6 +171,11 @@ class File
     public function __construct(string $file, ?string $root, ?string $root_url = '')
     {
         $file = Path::real($file);
+        if (!$file) {
+            // File does not exist
+            return;
+        }
+
         $stat = stat($file);
         $path = Path::info($file);
 
