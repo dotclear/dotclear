@@ -427,6 +427,7 @@ class adminPostFilter extends adminGenericFilterV2
 
         $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
+            dcAdminFilters::getCurrentBlogFilter(),
             $this->getPostUserFilter(),
             $this->getPostCategoriesFilter(),
             $this->getPostStatusFilter(),
@@ -727,6 +728,7 @@ class adminCommentFilter extends adminGenericFilterV2
 
         $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
+            dcAdminFilters::getCurrentBlogFilter(),
             $this->getCommentAuthorFilter(),
             $this->getCommentTypeFilter(),
             $this->getCommentStatusFilter(),
@@ -1339,5 +1341,18 @@ class dcAdminFilters
             ->form('input')
             ->title(__('Search:'))
             ->prime(true);
+    }
+
+    /**
+     * Current blog filter (no field).
+     * 
+     * This forces sql request to have where clause with current blog id.
+     * Use your_filters->remove('current_blog')  to remove limitation.
+     */
+    public static function getCurrentBlogFilter(string $id = 'current_blog'): dcAdminFilter
+    {
+        return (new dcAdminFilter($id))
+            ->value(dcCore::app()->con->escape(dcCore::app()->blog->id))
+            ->param('where', fn ($f) => " AND P.blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' ");
     }
 }
