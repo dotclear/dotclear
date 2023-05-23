@@ -427,6 +427,7 @@ class adminPostFilter extends adminGenericFilterV2
 
         $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
+            dcAdminFilters::getCurrentBlogFilter(),
             $this->getPostUserFilter(),
             $this->getPostCategoriesFilter(),
             $this->getPostStatusFilter(),
@@ -544,7 +545,7 @@ class adminPostFilter extends adminGenericFilterV2
         }
 
         return (new dcAdminFilter('format'))
-            ->param('where', ['adminPostFilter', 'getPostFormatParam'])
+            ->param('where', fn ($f) => " AND post_format = '" . $f[0] . "' ")
             ->title(__('Format:'))
             ->options(array_merge(
                 ['-' => ''],
@@ -553,18 +554,13 @@ class adminPostFilter extends adminGenericFilterV2
             ->prime(true);
     }
 
-    public static function getPostFormatParam($f)
-    {
-        return " AND post_format = '" . $f[0] . "' ";
-    }
-
     /**
      * Posts password state select
      */
     public function getPostPasswordFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('password'))
-            ->param('where', ['adminPostFilter', 'getPostPasswordParam'])
+            ->param('where', fn ($f) => ' AND post_password IS ' . ($f[0] ? 'NOT ' : '') . 'NULL ')
             ->title(__('Password:'))
             ->options([
                 '-'                    => '',
@@ -572,11 +568,6 @@ class adminPostFilter extends adminGenericFilterV2
                 __('Without password') => '0',
             ])
             ->prime(true);
-    }
-
-    public static function getPostPasswordParam($f)
-    {
-        return ' AND post_password IS ' . ($f[0] ? 'NOT ' : '') . 'NULL ';
     }
 
     /**
@@ -632,23 +623,13 @@ class adminPostFilter extends adminGenericFilterV2
         }
 
         return (new dcAdminFilter('month'))
-            ->param('post_month', ['adminPostFilter', 'getPostMonthParam'])
-            ->param('post_year', ['adminPostFilter', 'getPostYearParam'])
+            ->param('post_month', fn ($f) => substr($f[0], 4, 2))
+            ->param('post_year', fn ($f) => substr($f[0], 0, 4))
             ->title(__('Month:'))
             ->options(array_merge(
                 ['-' => ''],
                 dcAdminCombos::getDatesCombo($dates)
             ));
-    }
-
-    public static function getPostMonthParam($f): string
-    {
-        return substr($f[0], 4, 2);
-    }
-
-    public static function getPostYearParam($f): string
-    {
-        return substr($f[0], 0, 4);
     }
 
     /**
@@ -684,7 +665,7 @@ class adminPostFilter extends adminGenericFilterV2
     public function getPostCommentFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('comment'))
-            ->param('where', ['adminPostFilter', 'getPostCommentParam'])
+            ->param('where', fn ($f) => " AND post_open_comment = '" . $f[0] . "' ")
             ->title(__('Comments:'))
             ->options([
                 '-'          => '',
@@ -693,29 +674,19 @@ class adminPostFilter extends adminGenericFilterV2
             ]);
     }
 
-    public static function getPostCommentParam($f): string
-    {
-        return " AND post_open_comment = '" . $f[0] . "' ";
-    }
-
     /**
      * Posts trackbacks state select
      */
     public function getPostTrackbackFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('trackback'))
-            ->param('where', ['adminPostFilter', 'getPostTrackbackParam'])
+            ->param('where', fn ($f) => " AND post_open_tb = '" . $f[0] . "' ")
             ->title(__('Trackbacks:'))
             ->options([
                 '-'          => '',
                 __('Opened') => '1',
                 __('Closed') => '0',
             ]);
-    }
-
-    public static function getPostTrackbackParam($f): string
-    {
-        return " AND post_open_tb = '" . $f[0] . "' ";
     }
 }
 
@@ -727,6 +698,7 @@ class adminCommentFilter extends adminGenericFilterV2
 
         $filters = new ArrayObject([
             dcAdminFilters::getPageFilter(),
+            dcAdminFilters::getCurrentBlogFilter(),
             $this->getCommentAuthorFilter(),
             $this->getCommentTypeFilter(),
             $this->getCommentStatusFilter(),
@@ -760,7 +732,7 @@ class adminCommentFilter extends adminGenericFilterV2
     public function getCommentTypeFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('type'))
-            ->param('comment_trackback', ['adminCommentFilter', 'getCommentTypeParam'])
+            ->param('comment_trackback', fn ($f) => $f[0] == 'tb')
             ->title(__('Type:'))
             ->options([
                 '-'             => '',
@@ -768,11 +740,6 @@ class adminCommentFilter extends adminGenericFilterV2
                 __('Trackback') => 'tb',
             ])
             ->prime(true);
-    }
-
-    public static function getCommentTypeParam($f): bool
-    {
-        return $f[0] == 'tb';
     }
 
     /**
@@ -1339,5 +1306,18 @@ class dcAdminFilters
             ->form('input')
             ->title(__('Search:'))
             ->prime(true);
+    }
+
+    /**
+     * Current blog filter (no field).
+     * 
+     * This forces sql request to have where clause with current blog id.
+     * Use your_filters->remove('current_blog')  to remove limitation.
+     */
+    public static function getCurrentBlogFilter(string $id = 'current_blog'): dcAdminFilter
+    {
+        return (new dcAdminFilter($id))
+            ->value(dcCore::app()->con->escape(dcCore::app()->blog->id))
+            ->param('where', fn ($f) => " AND P.blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' ");
     }
 }
