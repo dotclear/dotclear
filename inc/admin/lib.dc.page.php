@@ -286,16 +286,16 @@ class dcPage
             '<main id="main" role="main">' . "\n" .
             '<div id="content" class="clearfix">' . "\n";
 
-        # Safe mode
+        // Display breadcrumb (if given) before any error messages
+        echo $breadcrumb;
+
+        // Safe mode
         if ($safe_mode) {
             echo
             '<div class="warning" role="alert"><h3>' . __('Safe mode') . '</h3>' .
             '<p>' . __('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities') . '</p>' .
                 '</div>';
         }
-
-        // Display breadcrumb (if given) before any error messages
-        echo $breadcrumb;
 
         // Display notices and errors
         echo dcAdminNotices::getNotices();
