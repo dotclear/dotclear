@@ -282,20 +282,5 @@ body.ajax-loader {
   & > div.warning-msg,
   & > div.dc-update {
     margin-top: 1em;
-    margin-right: 10em;
-  }
-
-  @media screen and (max-width: $tablet-screen) {
-    & > div.warn,
-    & > div.warning,
-    & > div.info,
-    & > div.error,
-    & > div.message,
-    & > div.static-msg,
-    & > div.success,
-    & > div.warning-msg,
-    & > div.dc-update {
-      margin-right: 2em;
-    }
   }
 }
