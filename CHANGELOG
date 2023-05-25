@@ -1,3 +1,17 @@
+Dotclear 2.26.1 - 2023-??-??
+===========================================================
+* Fix: Rename of namespaces/workspaces (respectively for settings/preferences)
+* Fix: Module search engine
+* Fix: Actions on duplicate modules
+* Fix: try…catch with chmod()/fileperms() which may be disabled
+* Fix: Never loaded parent theme
+* Fix: Type hint (theme management)
+* Fix: File helper, do not initialize property if given file does not exist
+* Fix: Restrict filters to current blog
+* Fix: Check existence of opcache_get_status() and opcache_reset() before using them
+* Fix: Move safe-mode notice under breadcrumb
+* Fix: Remove redundant new keyword (preferences management)
+
 Dotclear 2.26 - 2023-05-13
 ===========================================================
 * 🐘 PHP 7.4+ is required, PHP 8.0/8.1/8.2 compliance
