@@ -51,7 +51,6 @@ class Backend extends dcNsProcess
             'adminDashboardOptionsFormV2'      => [BackendBehaviors::class, 'adminDashboardOptionsForm'],
             'adminAfterDashboardOptionsUpdate' => [BackendBehaviors::class, 'adminAfterDashboardOptionsUpdate'],
             'adminPageHelpBlock'               => [BackendBehaviors::class, 'adminPageHelpBlock'],
-            'pluginsToolsHeadersV2'            => [BackendBehaviors::class, 'pluginsToolsHeaders'],
         ]);
 
         // Rest method

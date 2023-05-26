@@ -262,20 +262,4 @@ class BackendBehaviors
             }
         }
     }
-
-    /**
-     * Add javascript for plugin configuration.
-     *
-     * @param      string  $module  The module
-     *
-     * @return     string
-     */
-    public static function pluginsToolsHeaders(string $module): string
-    {
-        if ($module === 'maintenance') {
-            return dcPage::jsModuleLoad('maintenance/js/settings.js');
-        }
-
-        return '';
-    }
 }
