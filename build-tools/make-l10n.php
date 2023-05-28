@@ -14,7 +14,7 @@ require __DIR__ . '/../src/Helper/L10n.php';
 $path = (!empty($_SERVER['argv'][1])) ? $_SERVER['argv'][1] : getcwd();
 $path = realpath($path);
 
-$cmd = 'find ' . $path . ' -type f -name \'*.po\'';
+$cmd = 'find ' . $path . ' -type f -name \'*.po\' -not -path \'*demo*\'';
 exec($cmd, $eres, $ret);
 
 $res = [];
