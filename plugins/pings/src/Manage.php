@@ -93,19 +93,19 @@ class Manage extends dcNsProcess
         __('Activate pings extension') . '</label></p>';
 
         $i = 0;
-        foreach (dcCore::app()->admin->pings_uris as $n => $u) {
+        foreach (dcCore::app()->admin->pings_uris as $name => $uri) {
             echo
             '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
-            form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, Html::escapeHTML($n)) . ' ' .
+            form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, Html::escapeHTML((string) $name)) . ' ' .
             '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
             form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
                 'size'    => 40,
-                'default' => Html::escapeHTML($u),
+                'default' => Html::escapeHTML($uri),
             ]);
 
             if (!empty($_GET['test'])) {
                 try {
-                    PingsAPI::doPings($u, 'Example site', 'http://example.com');
+                    PingsAPI::doPings($uri, 'Example site', 'http://example.com');
                     echo ' <img src="images/check-on.png" alt="OK" />';
                 } catch (Exception $e) {
                     echo ' <img src="images/check-off.png" alt="' . __('Error') . '" /> ' . $e->getMessage();
