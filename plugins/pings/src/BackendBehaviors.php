@@ -49,10 +49,10 @@ class BackendBehaviors
 
         $item = '<h5 class="ping-services">' . __('Pings') . '</h5>';
         $i    = 0;
-        foreach ($pings_uris as $k => $v) {
+        foreach ($pings_uris as $name => $uri) {
             $item .= '<p class="ping-services"><label for="pings_do-' . $i . '" class="classic">' .
-            form::checkbox(['pings_do[]', 'pings_do-' . $i], Html::escapeHTML($v), in_array($v, $pings_do), 'check-ping-services') . ' ' .
-            Html::escapeHTML($k) . '</label></p>';
+            form::checkbox(['pings_do[]', 'pings_do-' . $i], Html::escapeHTML($uri), in_array($uri, $pings_do), 'check-ping-services') . ' ' .
+            Html::escapeHTML((string) $name) . '</label></p>';
             $i++;
         }
         $sidebar['options-box']['items']['pings'] = $item;
