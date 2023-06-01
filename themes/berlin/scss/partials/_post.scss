@@ -280,7 +280,7 @@ button.preview:active {
   }
 }
 
-@media all and(min-width: $small-screen+.1em) {
+@media all and(min-width: $small-screen) {
   .post-day-date:after,
   .post-day-date:before {
     display: inline-block;

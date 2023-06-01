@@ -162,7 +162,7 @@ aside:not(#sidebar) {
   margin: 0 -5em 1em 2em;
   border-left: 3px solid #267daf;
 }
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: $large-screen) {
   aside {
     float: inherit;
     width: inherit;

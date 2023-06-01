@@ -94,14 +94,14 @@
 .sidebar li:hover ul {
   background-color: $gray-very-dark;
 }
-@media screen and(min-width: ($small-screen + 0.1em)) and (max-width: $large-screen) {
+@media screen and(min-width: $small-screen) and (max-width: $large-screen) {
   .blognav__widgets .widget,
   .blogextra__widgets .widget {
     width: 50%;
     float: left;
   }
 }
-@media screen and(min-width: ($large-screen + .1em)) and(max-width: $xlarge-screen) {
+@media screen and(min-width: $large-screen) and(max-width: $xlarge-screen) {
   .blognav__widgets .widget,
   .blogextra__widgets .widget {
     width: 33.33%;
