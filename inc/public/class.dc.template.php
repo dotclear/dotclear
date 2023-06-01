@@ -1717,6 +1717,7 @@ class dcTemplate extends Template
         }
 
         $params = 'if (dcCore::app()->public->getPageNumber() === 0) { dcCore::app()->public->setPageNumber(1); }' . "\n";
+        $params .= "if (!isset(\$params) || !isset(\$params['sql'])) { \$params['sql'] = ''; }\n";
 
         if ($lastn != 0) {
             // Set limit (aka nb of entries needed)
@@ -1757,11 +1758,11 @@ class dcTemplate extends Template
         }
 
         if (isset($attr['with_category']) && $attr['with_category']) {
-            $params .= "@\$params['sql'] .= ' AND P.cat_id IS NOT NULL ';\n";
+            $params .= "\$params['sql'] .= ' AND P.cat_id IS NOT NULL ';\n";
         }
 
         if (isset($attr['no_category']) && $attr['no_category']) {
-            $params .= "@\$params['sql'] .= ' AND P.cat_id IS NULL ';\n";
+            $params .= "\$params['sql'] .= ' AND P.cat_id IS NULL ';\n";
             $params .= "unset(\$params['cat_url']);\n";
         }
 
@@ -1815,7 +1816,7 @@ class dcTemplate extends Template
 
         if (isset($attr['age'])) {
             $age = static::getAge($attr);
-            $params .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
+            $params .= !empty($age) ? "\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
         }
 
         $res = "<?php\n";
@@ -3199,7 +3200,8 @@ class dcTemplate extends Template
      */
     public function Comments(ArrayObject $attr, string $content): string
     {
-        $params = '';
+        $params = "if (!isset(\$params) || !isset(\$params['sql'])) { \$params['sql'] = ''; }\n";
+
         if (empty($attr['with_pings'])) {
             $params .= "\$params['comment_trackback'] = false;\n";
         }
@@ -3241,7 +3243,7 @@ class dcTemplate extends Template
 
         if (isset($attr['age'])) {
             $age = static::getAge($attr);
-            $params .= !empty($age) ? "@\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
+            $params .= !empty($age) ? "\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
         }
 
         $res = "<?php\n";
