@@ -155,4 +155,23 @@ class Path
 
         return $root . '/' . $path;
     }
+
+    /**
+     * Reset server agressive cache.
+     * 
+     * Try to clear PHP OPcache to avoid running old code after update
+     */
+    public static function resetServerCache(): void
+    {
+        try {
+            if ((extension_loaded('opcache') || extension_loaded('Zend OPcache'))) {
+                if (function_exists('opcache_get_status') && function_exists('opcache_reset')) {
+                    if (is_array(opcache_get_status())) {
+                        opcache_reset();
+                    }
+                }
+            }
+        } catch (Exception $e) {
+        }
+    }
 }
