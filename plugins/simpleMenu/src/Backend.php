@@ -22,11 +22,7 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -37,11 +33,11 @@ class Backend extends dcNsProcess
 
         dcCore::app()->addBehaviors([
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
-                $favs->register('simpleMenu', [
-                    'title'       => __('Simple menu'),
-                    'url'         => dcCore::app()->adminurl->get('admin.plugin.simpleMenu'),
-                    'small-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
-                    'large-icon'  => dcPage::getPF('simpleMenu/icon.svg'),
+                $favs->register(My::id(), [
+                    'title'       => My::name(),
+                    'url'         => My::manageUrl(),
+                    'small-icon'  => My::icons(),
+                    'large-icon'  => My::icons(),
                     'permissions' => dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,
                     ]),
@@ -50,15 +46,7 @@ class Backend extends dcNsProcess
             'initWidgets' => [Widgets::class, 'initWidgets'],
         ]);
 
-        dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-            __('Simple menu'),
-            dcCore::app()->adminurl->get('admin.plugin.simpleMenu'),
-            dcPage::getPF('simpleMenu/icon.svg'),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.simpleMenu')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG);
 
         return true;
     }
