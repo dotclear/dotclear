@@ -3074,6 +3074,9 @@ msgstr "Attention : audit d'un contenu qui n'est pas encore enregistré."
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non enregistrées. Changer le format de publication va perdre ces modifications. Continuer quand même ?"
 
+msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
+msgstr "Votre batterie semble déchargée (%d%) et vous avez des modifications non enregistrées, vous devriez les sauvegarder."
+
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Attention : la modification du format de publication ne convertira pas le contenu existant. Vous devrez appliquer le nouveau format par vous-même. Continuer quand même ?"
 

@@ -163,8 +163,31 @@ window.addEventListener('load', () => {
 
   dotclear.confirmClosePage = new dotclear.confirmClose(...confirm_close.forms);
   dotclear.confirmClosePage.prompt = confirm_close.prompt;
+  dotclear.confirmClosePage.lowbattery = confirm_close.lowbattery;
 
   dotclear.confirmClosePage.getCurrentForms();
+
+  if (navigator.getBattery) {
+    const checkBattery = () => {
+      navigator.getBattery().then(function (battery) {
+        const level = battery.level * 100;
+        if (level < 5) {
+          // Low battery level, check form
+          if (
+            dotclear.confirmClosePage !== undefined &&
+            !dotclear.confirmClosePage.form_submit &&
+            !dotclear.confirmClosePage.compareForms()
+          ) {
+            // Form unsaved, emit a warning
+            const message = dotclear.confirmClosePage.lowbattery.replace(/%d/, level);
+            alert(message);
+          }
+        }
+      });
+    };
+    // Add monitor to detect low battery
+    dotclear.confirmClosePage.monitor = setInterval(checkBattery, 60 * 5 * 1000);
+  }
 });
 
 window.addEventListener('beforeunload', (event) => {

@@ -1070,8 +1070,9 @@ class dcPage
     public static function jsConfirmClose(...$args): string
     {
         $js = [
-            'prompt' => __('You have unsaved changes.'),
-            'forms'  => $args,
+            'prompt'     => __('You have unsaved changes.'),
+            'lowbattery' => __('your battery charge seems low (%d%) and you have unsaved changes, you should save them.'),
+            'forms'      => $args,
         ];
 
         return
