@@ -13,6 +13,7 @@
 
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Deprecated;
 
 class dcDeprecated extends Deprecated
@@ -21,7 +22,7 @@ class dcDeprecated extends Deprecated
     public const DEPRECATED_LOG_TABLE = 'dcDeprecated';
 
     /** @var    int     Logs limit in table */
-    public const DEPRECATED_PURGE_LIMIT = 100;
+    public const DEPRECATED_PURGE_LIMIT = 200;
 
     /** @var    string  The trace lines separator */
     public const DEPRECATED_LINE_SEPARATOR = "\n";
@@ -71,14 +72,16 @@ class dcDeprecated extends Deprecated
         $cursor = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
-        $cursor->setField('user_id', dcCore::app()->auth->userID());
+        $cursor->setField('user_id', is_null(dcCore::app()->auth) ? 'unknown' : dcCore::app()->auth->userID());
         $log->addLog($cursor);
     }
 
     /**
-     * Purge deprecated logs
+     * Purge deprecated logs.
+     *
+     * @param   bool    $all    Purge all deprecated logs
      */
-    private static function purge(): void
+    private static function purge(bool $all = false): void
     {
         // check once per page (and if a deprecated is thrown)
         if (self::$purged) {
@@ -86,12 +89,32 @@ class dcDeprecated extends Deprecated
         }
         self::$purged = true;
 
+        // count deprecated logs
+        $count = static::get(null, true)->f(0);
+        $count = is_numeric($count) ? (int) $count : 0;
+
         // check logs limit and delete them if it's required
-        if ((int) static::get(null, true)->f(0) > self::DEPRECATED_PURGE_LIMIT) {
+        if ($count > self::DEPRECATED_PURGE_LIMIT) {
             $sql = new DeleteStatement();
             $sql->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
-                ->where('log_table = ' . $sql->quote(self::DEPRECATED_LOG_TABLE))
-                ->run();
+                ->where('log_table = ' . $sql->quote(self::DEPRECATED_LOG_TABLE));
+
+            if (!$all) {
+                $sql_dt = new SelectStatement();
+                $rs = $sql_dt->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
+                    ->column('log_dt')
+                    ->where('log_table = ' . $sql_dt->quote(self::DEPRECATED_LOG_TABLE))
+                    ->order('log_dt DESC')
+                    ->limit([self::DEPRECATED_PURGE_LIMIT, 1])
+                    ->select();
+
+                if (!is_null($rs) && !$rs->isEmpty()) {
+                    $sql->and('log_dt < ' . $sql_dt->quote($rs->f('log_dt')));
+                }
+                unset($sql_dt);
+            }
+
+            $sql->run();
             unset($sql);
         }
     }

@@ -23,129 +23,108 @@ class dcModules
 {
     // Constants
 
-    /**
-     * Return code for package installation
-     *
-     * @var        int
-     */
+    /** @var    int     Return code for package installation */
     public const PACKAGE_INSTALLED = 1;
-    public const PACKAGE_UPDATED   = 2;
 
-    /**
-     * Module's files
-     *
-     * @var        string
-     */
-    public const MODULE_FILE_INSTALL  = '_install.php';
-    public const MODULE_FILE_INIT     = '_init.php';
-    public const MODULE_FILE_DEFINE   = '_define.php';
-    public const MODULE_FILE_PREPEND  = '_prepend.php';
-    public const MODULE_FILE_ADMIN    = '_admin.php';
-    public const MODULE_FILE_CONFIG   = '_config.php';
-    public const MODULE_FILE_MANAGE   = 'index.php';
-    public const MODULE_FILE_PUBLIC   = '_public.php';
-    public const MODULE_FILE_XMLRPC   = '_xmlrpc.php';
+    /** @var    int     Return code for package update */
+    public const PACKAGE_UPDATED = 2;
+
+    /** @var    string  Name of module old style installation file */
+    public const MODULE_FILE_INSTALL = '_install.php';
+
+    /** @var    string  Name of module old style initialization file */
+    public const MODULE_FILE_INIT = '_init.php';
+
+    /** @var    string  Name of module define file */
+    public const MODULE_FILE_DEFINE = '_define.php';
+
+    /** @var    string  Name of module old style prepend file */
+    public const MODULE_FILE_PREPEND = '_prepend.php';
+
+    /** @var    string  Name of module old style backend file */
+    public const MODULE_FILE_ADMIN = '_admin.php';
+
+    /** @var    string  Name of module old style configuration file */
+    public const MODULE_FILE_CONFIG = '_config.php';
+
+    /** @var    string  Name of module old style manage file */
+    public const MODULE_FILE_MANAGE = 'index.php';
+
+    /** @var    string  Name of module old style frontend file */
+    public const MODULE_FILE_PUBLIC = '_public.php';
+
+    /** @var    string  Name of module old style xmlrpc file */
+    public const MODULE_FILE_XMLRPC = '_xmlrpc.php';
+
+    /** @var    string  Name of module hard deactivation file */
     public const MODULE_FILE_DISABLED = '_disabled';
 
-    /**
-     * Module's class
-     *
-     * @var        string
-     */
-    public const MODULE_CLASS_DIR     = 'src';
-    public const MODULE_CLASS_PREPEND = 'Prepend';      // Common (ex _prepend.php)
-    public const MODULE_CLASS_INSTALL = 'Install';      // Installation (ex _install.php)
-    public const MODULE_CLASS_ADMIN   = 'Backend';      // Backend common (ex _admin.php)
-    public const MODULE_CLASS_CONFIG  = 'Config';       // Module configuration (ex _config.php)
-    public const MODULE_CLASS_MANAGE  = 'Manage';       // Module backend (ex index.php)
-    public const MODULE_CLASS_PUPLIC  = 'Frontend';     // Module frontend (ex _public.php)
-    public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';       // Module XMLRPC services (ex _xmlrpc.php) - obsolete since 2.24
+    /** @var    string  Directory for module namespace */
+    public const MODULE_CLASS_DIR = 'src';
+
+    /** @var    string  Name of module prepend class (ex _prepend.php) */
+    public const MODULE_CLASS_PREPEND = 'Prepend';
+
+    /** @var    string  Name of module installation class (ex _install.php) */
+    public const MODULE_CLASS_INSTALL = 'Install';
+
+    /** @var    string  Name of module backend class (ex _admin.php) */
+    public const MODULE_CLASS_ADMIN = 'Backend';
+
+    /** @var    string  Name of module configuration class (ex _config.php) */
+    public const MODULE_CLASS_CONFIG = 'Config';
+
+    /** @var    string  Name of module manage class (ex index.php) */
+    public const MODULE_CLASS_MANAGE = 'Manage';
+
+    /** @var    string  Name of module frontend class (ex _public.php) */
+    public const MODULE_CLASS_PUPLIC = 'Frontend';
+
+    /** @var    string  Name of module XMLRPC services class (ex _xmlrpc.php) - obsolete since 2.24 */
+    public const MODULE_CLASS_XMLRPC = 'Xmlrpc';
 
     // Properties
 
-    /**
-     * Safe mode activated?
-     *
-     * @var bool
-     */
+    /** @var    bool    Safe mode execution */
     protected $safe_mode = false;
 
-    /**
-     * Stack of modules paths
-     *
-     * @var array
-     */
-    protected $path;
+    /** @var    array<int,string>   Stack of modules paths */
+    protected $path = [];
 
-    /**
-     * Stack of modules
-     *
-     * @var        array
-     */
+    /** @var    array<int,dcModuleDefine>   Stack of modules */
     protected $defines = [];
 
-    /**
-     * Stack of error messages
-     *
-     * @var        array<string>
-     */
+    /** @var    array<int,string>   Stack of error messages */
     protected $errors = [];
 
-    /**
-     * Stack of modules ids
-     *
-     * @var        array
-     */
-    protected $modules_ids          = [];
-    protected static $modules_files = ['init' => []];
+    /** @var    array<string,string>   Stack of modules id|version pairs */
+    protected $modules_ids = [];
 
-    /**
-     * Current deactivation mode
-     *
-     * @var        bool
-     */
+    /** @var    array<string,array<int,string>> Stack of modules paths (used as internal cache) */
+    protected $modules_paths = [];
+
+    /** @var    array<int,string>   Stack of loaded modules _init files (prevent twice load)*/
+    protected static $modules_init = [];
+
+    /** @var    bool    Current deactivation mode */
     protected $disabled_mode = false;
 
-    /**
-     * Current dc namespace
-     *
-     * @var string
-     */
-    protected $ns;
+    /** @var    string|null     Current dc namespace */
+    protected $ns = null;
 
-    /**
-     * Current module
-     *
-     * @var dcModuleDefine
-     */
+    /** @var    dcModuleDefine  Current module Define */
     protected $define;
 
-    /**
-     * Current module identifier
-     *
-     * @var string|null
-     */
-    protected $id;
+    /** @var    string|null     Current module identifier */
+    protected $id = null;
 
-    /**
-     * Module root path (where _define.php is located)
-     *
-     * @var string|null
-     */
-    protected $mroot;
+    /** @var    string|null     Current module root path (where _define.php is located) */
+    protected $mroot = null;
 
-    /**
-     * Current module php namespace
-     *
-     * @var string|null
-     */
-    protected $namespace;
+    /** @var    string|null     Current module php namespace */
+    protected $namespace = null;
 
-    /**
-     * Inclusion variables
-     *
-     * @var        array
-     */
+    /** @var    array<int,string>   Inclusion variables */
     protected static $superglobals = [
         'GLOBALS',
         '_SERVER',
@@ -158,25 +137,13 @@ class dcModules
         '_SESSION',
     ];
 
-    /**
-     * Superglobals array keys
-     *
-     * @var        array<string>
-     */
+    /** @var    array<int,string>   Superglobals array keys */
     protected static $_k;
 
-    /**
-     * Superglobals key name
-     *
-     * @var        string
-     */
+    /** @var    string  Superglobals key name */
     protected static $_n;
 
-    /**
-     * Module type to work with
-     *
-     * @var string|null
-     */
+    /** @var    string|null     Module type to work with */
     protected $type = null;
 
     /**
@@ -186,8 +153,8 @@ class dcModules
      * if module definition does not exist, it is created on the fly
      * with default properties.
      *
-     * @param   string  $id         The module identifier
-     * @param   array   $search     The search parameters
+     * @param   string                  $id         The module identifier
+     * @param   array<string,mixed>     $search     The search parameters
      *
      * @return  dcModuleDefine   The first matching module define or properties
      */
@@ -203,24 +170,37 @@ class dcModules
      *
      * More than one module can have same id in this stack.
      *
-     * @param   array   $search     The search parameters
-     * @param   bool    $to_array   Return arrays of modules properties
+     * @param   array<string,mixed>     $search     The search parameters
+     * @param   bool                    $to_array   Return arrays of modules properties
      *
      * @return  array   The modules defines or properties
      */
     public function getDefines(array $search = [], bool $to_array = false): array
     {
+        // only compare some types of values
+        $to_string = function (mixed $value): ?string { return is_bool($value) || is_int($value) || is_string($value) ? (string) $value : null; };
+
         $list = [];
         foreach ($this->defines as $module) {
             $add_it = true;
             foreach ($search as $key => $value) {
+                // check types
+                if (!is_string($key) || is_null($module->get($key))) {
+                    continue;
+                }
+                // compare string format
+                $value  = $to_string($value);
+                $source = $to_string($module->get($key));
+                if (is_null($source) || is_null($value)) {
+                    continue;
+                }
                 if (substr($value, 0, 1) === '!') {
-                    if ((string) $module->get($key) === (string) substr($value, 1)) {
+                    if ($source === substr($value, 1)) {
                         $add_it = false;
 
                         break;
                     }
-                } elseif ((string) $module->get($key) !== (string) $value) {
+                } elseif ($source !== $value) {
                     $add_it = false;
 
                     break;
@@ -228,7 +208,7 @@ class dcModules
             }
             if ($add_it) {
                 if ($to_array) {
-                    $list[$module->id] = $module->dump();
+                    $list[$module->getId()] = $module->dump();
                 } else {
                     $list[] = $module;
                 }
@@ -257,7 +237,9 @@ class dcModules
             'php'  => phpversion(),
         ];
 
-        foreach ($this->getDefines() as $module) {
+        $modules = $this->getDefines();
+
+        foreach ($modules as $module) {
             // module has required modules
             if (!empty($module->requires)) {
                 foreach ($module->requires as $dep) {
@@ -302,7 +284,7 @@ class dcModules
             }
         }
         // Check modules that cannot be disabled
-        foreach ($this->getDefines() as $module) {
+        foreach ($modules as $module) {
             if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
                 foreach ($module->getImplies() as $im) {
                     foreach ($this->getDefines(['id' => $im]) as $found) {
@@ -381,10 +363,15 @@ class dcModules
      *
      * @param      string  $root   The root modules directory to parse
      *
-     * @return     array   List of modules, may be an empty array
+     * @return     array<int,string>    List of modules, may be an empty array
      */
     protected function parsePathModules(string $root): array
     {
+        // already scan
+        if (isset($this->modules_paths[$root])) {
+            return $this->modules_paths[$root];
+        }
+
         if (!is_dir($root) || !is_readable($root)) {
             return [];
         }
@@ -395,16 +382,16 @@ class dcModules
         }
 
         // Dir cache
-        $stack = [];
+        $this->modules_paths[$root] = [];
         while (($entry = $d->read()) !== false) {
             $full_entry = $root . $entry;
             if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
-                $stack[] = $entry;
+                $this->modules_paths[$root][] = $entry;
             }
         }
         $d->close();
 
-        return $stack;
+        return $this->modules_paths[$root];
     }
 
     /**
@@ -439,13 +426,7 @@ class dcModules
             // Init loop
             $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
-                $full_entry = $root . $entry;
-                if (!in_array($entry, self::$modules_files['init']) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
-                    self::$modules_files['init'][] = $entry;
-                    ob_start();
-                    require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
-                    ob_end_clean();
-                }
+                $this->loadModuleInit($entry, $root . $entry);
             }
         }
 
@@ -470,9 +451,7 @@ class dcModules
                     $this->disabled_mode = true;
                 }
 
-                ob_start();
-                require $full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
-                ob_end_clean();
+                $this->requireSilently($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 if (!$module_enabled) {
                     $this->disabled_mode = false;
@@ -488,8 +467,10 @@ class dcModules
         // Sort plugins by priority
         uasort($this->defines, fn ($a, $b) => $a->get('priority') <=> $b->get('priority'));
 
+        $modules = $this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]);
+
         // Context loop
-        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
+        foreach ($modules as $module) {
             # Load translation and _prepend
             $ret = '';
 
@@ -522,7 +503,7 @@ class dcModules
         dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
         // Load module context
-        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
+        foreach ($modules as $module) {
             if (!in_array($module->getId(), $ignored)) {
                 // Load ns_file
                 $this->loadNsFile($module->getId(), $ns);
@@ -540,13 +521,8 @@ class dcModules
     {
         $this->id = $id;
         if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
-            ob_start();
-            if (!in_array($id, self::$modules_files['init']) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
-                self::$modules_files['init'][] = $id;
-                require $dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT;
-            }
-            require $dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE;
-            ob_end_clean();
+            $this->loadModuleInit($id, $dir);
+            $this->requireSilently($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
         }
         $this->id = null;
     }
@@ -1138,10 +1114,14 @@ class dcModules
     /**
      * Loads namespace <var>$ns</var> specific files for all modules.
      *
+     * @deprecated since 2.27 Use nothing instead !
+     *
      * @param      string  $ns
      */
     public function loadNsFiles(?string $ns = null): void
     {
+        dcDeprecated::set('nothing', '2.27');
+
         foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
             $this->loadNsFile($module->getId(), $ns);
         }
@@ -1230,11 +1210,25 @@ class dcModules
     /**
      * Gets the errors.
      *
-     * @return     array  The errors.
+     * @return  array<int,string>   The errors.
      */
     public function getErrors(): array
     {
         return $this->errors;
+    }
+
+    /**
+     * Require once module init file.
+     *
+     * @param   string  $id     The moduile id
+     * @param   string  $dir    The module path
+     */
+    protected function loadModuleInit(string $id, string $dir): void
+    {
+        if (!in_array($id, self::$modules_init) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+            self::$modules_init[] = $id;
+            $this->requireSilently($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+        }
     }
 
     /**
@@ -1259,15 +1253,25 @@ class dcModules
             }
         }
 
-        if ($catch) {
-            // Catch ouput to prevents hacked or corrupted modules
+        return $catch ? $this->requireSilently($________) : require $________;
+    }
+
+    /**
+     * Require a php file without output.
+     *
+     * @param   string  $________   The file to require
+     *
+     * @return  mixed   The file return.
+     */
+    protected function requireSilently(string $________): mixed
+    {
+        $ret = null;
+        if (file_exists($________)) {
             ob_start();
             $ret = require $________;
             ob_end_clean();
-
-            return $ret;
         }
 
-        return require $________;
+        return $ret;
     }
 }
