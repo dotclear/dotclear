@@ -114,4 +114,35 @@ class Path extends atoum
             ->isEqualTo('/home/sweethome/test/string')
         ;
     }
+
+    public function testdirWithSym()
+    {
+        $target = $this->testDirectory . DIRECTORY_SEPARATOR . 'target';
+        if (!is_dir($target)) {
+            mkdir($target);
+        }
+
+        $symlink = $this->testDirectory . DIRECTORY_SEPARATOR . 'symlink';
+        if (!file_exists($symlink)) {
+            symlink($target, $symlink);
+        }
+
+        $this
+            ->boolean(is_link($symlink))
+            ->isTrue()
+            ->string(\Dotclear\Helper\File\Path::dirWithSym($symlink))
+            ->isEqualTo($target)
+            ->string(\Dotclear\Helper\File\Path::dirWithSym($target))
+            ->isEqualTo($target)
+            ->string(\Dotclear\Helper\File\Path::dirWithSym($this->testDirectory . DIRECTORY_SEPARATOR . '1-one.txt'))
+            ->isEqualTo('')
+        ;
+
+        if (file_exists($symlink)) {
+            unlink($symlink);
+        }
+        if (is_dir($target)) {
+            rmdir($target);
+        }
+    }
 }

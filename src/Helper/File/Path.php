@@ -179,7 +179,7 @@ class Path
 
     /**
      * Get real directory path.
-     * 
+     *
      * If $dir does not exist, it returns empty string.
      * If $dir is a symbolic link it returns the real path.
      * Else it returns $dir.
@@ -195,7 +195,11 @@ class Path
         }
 
         $info = pathinfo(self::real($dir, false));
-        $dir = $info['dirname'] . DIRECTORY_SEPARATOR . $info['basename'];
+        $dir  = $info['dirname'] . DIRECTORY_SEPARATOR . $info['basename'];
+
+        if (!is_link($dir)) {
+            return $dir;
+        }
 
         $info = linkinfo($dir);
         if (-1 === $info || false === $info) {
