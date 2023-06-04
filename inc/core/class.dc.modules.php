@@ -813,6 +813,9 @@ class dcModules
             }
         }
 
+        // reset server cache (opcache) before refresh modules dirs
+        Path::resetServerCache();
+
         return $ret_code;
     }
 
