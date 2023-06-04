@@ -594,7 +594,7 @@ class Files
                 return '';
             }
             fwrite($resource, '1', strlen('1'));
-        //fclose($resource);
+            //fclose($resource);
         } else {
             # Open existsing file
             $resource = @fopen($file, 'r+');
@@ -622,7 +622,6 @@ class Files
      * Unlock file.
      *
      * @param   string  $file           The file to unlock
-     * @param   bool    $disposable     File only use to lock
      */
     public static function unlock(string $file): void
     {

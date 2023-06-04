@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\File;
 
+use Exception;
+
 class Path
 {
     /**
@@ -158,7 +160,7 @@ class Path
 
     /**
      * Reset server agressive cache.
-     * 
+     *
      * Try to clear PHP OPcache to avoid running old code after update
      */
     public static function resetServerCache(): void
