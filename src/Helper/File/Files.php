@@ -594,7 +594,7 @@ class Files
                 return '';
             }
             fwrite($resource, '1', strlen('1'));
-        //fclose($resource);
+            //fclose($resource);
         } else {
             # Open existsing file
             $resource = @fopen($file, 'r+');
