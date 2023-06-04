@@ -169,7 +169,7 @@ window.addEventListener('load', () => {
 
   if (navigator.getBattery) {
     const checkBattery = () => {
-      navigator.getBattery().then(function (battery) {
+      navigator.getBattery().then((battery) => {
         const level = battery.level * 100;
         if (level < 5) {
           // Low battery level, check form
