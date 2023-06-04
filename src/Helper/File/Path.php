@@ -176,4 +176,32 @@ class Path
         } catch (Exception $e) {
         }
     }
+
+    /**
+     * Get real directory path.
+     * 
+     * If $dir does not exist, it returns empty string.
+     * If $dir is a symbolic link it returns the real path.
+     * Else it returns $dir.
+     *
+     * @param   string  $dir    The directory path to test
+     *
+     * @return  string  The real path
+     */
+    public static function dirWithSym(string $dir): string
+    {
+        if (empty($dir) || !is_dir($dir)) {
+            return '';
+        }
+
+        $info = pathinfo(self::real($dir, false));
+        $dir = $info['dirname'] . DIRECTORY_SEPARATOR . $info['basename'];
+
+        $info = linkinfo($dir);
+        if (-1 === $info || false === $info) {
+            return $dir;
+        }
+
+        return readlink($dir);
+    }
 }

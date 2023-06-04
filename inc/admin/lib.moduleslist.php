@@ -1497,7 +1497,7 @@ class adminModulesList
                 }
 
                 if (!self::$allow_multi_install) {
-                    $dest = implode(DIRECTORY_SEPARATOR, [$define->get('root'), '..', basename($define->get('file'))]);
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
                 } else {
                     $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
                     if ($define->get('root') != $dest) {
@@ -2372,7 +2372,7 @@ class adminThemesList extends adminModulesList
                         continue;
                     }
 
-                    $dest = implode(DIRECTORY_SEPARATOR, [$define->get('root'), '..', basename($define->get('file'))]);
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
 
                     # --BEHAVIOR-- themeBeforeUpdate -- dcModuleDefine
                     dcCore::app()->callBehavior('themeBeforeUpdateV2', $define);
