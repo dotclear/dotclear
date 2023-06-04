@@ -14,6 +14,7 @@ Dotclear 2.26.1 - 2023-06-04
 * Fix: Remove unused behavior in maintenance plugin
 * Fix: Comments search in backend
 * Fix: Fix Berlin theme layout on large screens
+* Fix: Clear server PHP cache after module update
 
 Dotclear 2.26 - 2023-05-13
 ===========================================================
