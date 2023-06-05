@@ -22,16 +22,9 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            dcCore::app()->admin->editor_is_admin = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
+        static::$init = My::checkContext(My::MANAGE);
 
-            dcCore::app()->admin->editor_std_active = dcCore::app()->blog->settings->dclegacyeditor->active;
-
-            static::$init = true;
-        }
+        dcCore::app()->admin->editor_std_active = static::$init && dcCore::app()->blog->settings->dclegacyeditor->active;
 
         return static::$init;
     }
@@ -62,9 +55,9 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        dcPage::openModule(__('dcLegacyEditor'));
+        dcPage::openModule(My::name());
 
-        require __DIR__ . '/../tpl/index.php';
+        require My::path() . '/tpl/index.php';
 
         dcPage::closeModule();
     }

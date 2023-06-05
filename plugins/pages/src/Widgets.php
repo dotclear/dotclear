@@ -25,8 +25,8 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create('pages', __('Pages'), [FrontendTemplate::class, 'pagesWidget'], null, 'List of published pages')
-            ->addTitle(__('Pages'))
+            ->create('pages', My::name(), [FrontendTemplate::class, 'pagesWidget'], null, 'List of published pages')
+            ->addTitle(My::name())
             ->setting(
                 'sortby',
                 __('Order by:'),

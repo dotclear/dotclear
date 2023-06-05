@@ -18,15 +18,12 @@ use dcCore;
 use dcFavorites;
 use dcNsProcess;
 use dcPage;
-use initPages;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -35,11 +32,11 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->auth->setPermissionType(initPages::PERMISSION_PAGES, __('manage pages'));
+        dcCore::app()->auth->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
 
         dcCore::app()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {
-                $cols['pages'] = [__('Pages'), [
+                $cols['pages'] = [My::name(), [
                     'date'       => [true, __('Date')],
                     'author'     => [true, __('Author')],
                     'comments'   => [true, __('Comments')],
@@ -48,7 +45,7 @@ class Backend extends dcNsProcess
             },
             'adminFiltersListsV2' => function (ArrayObject $sorts) {
                 $sorts['pages'] = [
-                    __('Pages'),
+                    My::name(),
                     null,
                     null,
                     null,
@@ -56,14 +53,14 @@ class Backend extends dcNsProcess
                 ];
             },
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
-                $favs->register('pages', [
-                    'title'       => __('Pages'),
-                    'url'         => dcCore::app()->adminurl->get('admin.plugin.pages'),
-                    'small-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
-                    'large-icon'  => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+                $favs->register(My::id(), [
+                    'title'       => My::name(),
+                    'url'         => My::manageUrl(),
+                    'small-icon'  => My::icons(),
+                    'large-icon'  => My::icons(),
                     'permissions' => dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-                        initPages::PERMISSION_PAGES,
+                        My::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
                         $params              = new ArrayObject();
@@ -74,34 +71,31 @@ class Backend extends dcNsProcess
                             $icon['title'] = sprintf($str_pages, $page_count);
                         }
                     },
-                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && !(isset($params['act']) && $params['act'] == 'page'),
+                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == My::id() && !(isset($params['act']) && $params['act'] == 'page'),
                 ]);
                 $favs->register('newpage', [
                     'title'       => __('New page'),
-                    'url'         => dcCore::app()->adminurl->get('admin.plugin.pages', ['act' => 'page']),
-                    'small-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
-                    'large-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
+                    'url'         => My::manageUrl(['act' => 'page']),
+                    'small-icon'  => My::icons(),
+                    'large-icon'  => My::icons(),
                     'permissions' => dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-                        initPages::PERMISSION_PAGES,
+                        My::PERMISSION_PAGES,
                     ]),
-                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && isset($params['act']) && $params['act'] == 'page',
+                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
                 ]);
             },
-            'adminUsersActionsHeaders' => fn () => dcPage::jsLoad('index.php?pf=pages/js/_users_actions.js'),
+            'adminUsersActionsHeaders' => fn () => dcPage::jsModuleLoad(My::id() . '/js/_users_actions.js'),
             'initWidgets'              => [Widgets::class, 'initWidgets'],
             'initDefaultWidgets'       => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
         dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-            __('Pages'),
-            dcCore::app()->adminurl->get('admin.plugin.pages'),
-            [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+            My::name(),
+            My::manageUrl(),
+            My::icons(),
             preg_match('/plugin.php(.*)$/', $_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p'] == 'pages',
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_USAGE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)
+            My::checkContext(My::MENU)
         );
 
         return true;

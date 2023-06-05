@@ -25,15 +25,7 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            dcPage::check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-            ]));
-
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::MANAGE));
     }
 
     public static function process(): bool
@@ -45,7 +37,7 @@ class Manage extends dcNsProcess
         Antispam::initFilters();
 
         dcCore::app()->admin->filters     = Antispam::$filters->getFilters();
-        dcCore::app()->admin->page_name   = __('Antispam');
+        dcCore::app()->admin->page_name   = My::name();
         dcCore::app()->admin->filter_gui  = false;
         dcCore::app()->admin->default_tab = null;
         dcCore::app()->admin->filter      = null;
@@ -142,8 +134,8 @@ class Manage extends dcNsProcess
                 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
         $head .= dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
-            dcPage::jsModuleLoad('antispam/js/antispam.js') .
-            dcPage::cssModuleLoad('antispam/css/style.css');
+            dcPage::jsModuleLoad(My::id() . '/js/antispam.js') .
+            dcPage::cssModuleLoad(My::id() . '/css/style.css');
 
         dcPage::openModule($title, $head);
 

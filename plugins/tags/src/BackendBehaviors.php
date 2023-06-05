@@ -77,7 +77,7 @@ class BackendBehaviors
         $extraPlugins[] = [
             'name'   => 'dctags',
             'button' => 'dcTags',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=tags/js/ckeditor-tags-plugin.js',
+            'url'    => DC_ADMIN_URL . 'index.php?pf=' . My::id() . '/js/ckeditor-tags-plugin.js',
         ];
     }
 
@@ -100,11 +100,11 @@ class BackendBehaviors
      */
     public static function dashboardFavorites(dcFavorites $favs): void
     {
-        $favs->register('tags', [
-            'title'       => __('Tags'),
-            'url'         => dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
-            'small-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
-            'large-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
+        $favs->register(My::id(), [
+            'title'       => My::name(),
+            'url'         => My::manageUrl(['m' => 'tags']),
+            'small-icon'  => My::icons(),
+            'large-icon'  => My::icons(),
             'permissions' => dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
@@ -119,7 +119,7 @@ class BackendBehaviors
      */
     public static function coreInitWikiPost(WikiToHtml $wiki): void
     {
-        $wiki->registerFunction('url:tag', ['tagsBehaviors', 'wikiTag']);
+        $wiki->registerFunction('url:tag', [BackendBehaviors::class, 'wikiTag']);
     }
 
     /**
@@ -161,7 +161,7 @@ class BackendBehaviors
         } else {
             $value = ($post) ? $meta->getMetaStr($post->post_meta, 'tag') : '';
         }
-        $sidebar['metas-box']['items']['post_tags'] = '<h5><label class="s-tags" for="post_tags">' . __('Tags') . '</label></h5>' .
+        $sidebar['metas-box']['items']['post_tags'] = '<h5><label class="s-tags" for="post_tags">' . My::name() . '</label></h5>' .
         '<div class="p s-tags" id="tags-edit">' . form::textarea('post_tags', 20, 3, $value, 'maximal') . '</div>';
     }
 
@@ -194,8 +194,8 @@ class BackendBehaviors
     public static function adminPostsActions(dcPostsActions $ap): void
     {
         $ap->addAction(
-            [__('Tags') => [__('Add tags') => 'tags']],
-            ['tagsBehaviors', 'adminAddTags']
+            [My::name() => [__('Add tags') => 'tags']],
+            [BackendBehaviors::class, 'adminAddTags']
         );
 
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -203,8 +203,8 @@ class BackendBehaviors
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
-                [__('Tags') => [__('Remove tags') => 'tags_remove']],
-                ['tagsBehaviors', 'adminRemoveTags']
+                [My::name() => [__('Remove tags') => 'tags_remove']],
+                [BackendBehaviors::class, 'adminRemoveTags']
             );
         }
     }
@@ -251,7 +251,7 @@ class BackendBehaviors
             $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
-                'meta_url'            => 'plugin.php?p=tags&m=tag_posts&amp;tag=',
+                'meta_url'            => 'plugin.php?p=' . My::id() . '&m=tag_posts&amp;tag=',
                 'list_type'           => $type,
                 'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
                 'text_add_meta'       => __('Add a tag to this entry'),
@@ -278,8 +278,8 @@ class BackendBehaviors
                 dcPage::jsJson('editor_tags_options', $editor_tags_options) .
                 dcPage::jsJson('editor_tags_msg', $msg) .
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-                dcPage::jsModuleLoad('tags/js/posts_actions.js') .
-                dcPage::cssModuleLoad('tags/css/style.css')
+                dcPage::jsModuleLoad(My::id() . '/js/posts_actions.js') .
+                dcPage::cssModuleLoad(My::id() . '/css/style.css')
             );
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .
@@ -392,7 +392,7 @@ class BackendBehaviors
         $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [
-            'meta_url'            => 'plugin.php?p=tags&m=tag_posts&amp;tag=',
+            'meta_url'            => 'plugin.php?p=' . My::id() . '&m=tag_posts&amp;tag=',
             'list_type'           => $type,
             'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
             'text_add_meta'       => __('Add a tag to this entry'),
@@ -411,8 +411,8 @@ class BackendBehaviors
         dcPage::jsJson('editor_tags_options', $editor_tags_options) .
         dcPage::jsJson('editor_tags_msg', $msg) .
         dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-        dcPage::jsModuleLoad('tags/js/post.js') .
-        dcPage::cssModuleLoad('tags/css/style.css');
+        dcPage::jsModuleLoad(My::id() . '/js/post.js') .
+        dcPage::cssModuleLoad(My::id() . '/css/style.css');
     }
 
     /**
@@ -430,7 +430,7 @@ class BackendBehaviors
         $value = array_key_exists('tag_list_format', $opts) ? $opts['tag_list_format'] : 'more';
 
         echo
-        '<div class="fieldset"><h5 id="tags_prefs">' . __('Tags') . '</h5>' .
+        '<div class="fieldset"><h5 id="tags_prefs">' . My::name() . '</h5>' .
         '<p><label for="user_tag_list_format" class="classic">' . __('Tags list format:') . '</label> ' .
         form::combo('user_tag_list_format', $combo, $value) .
         '</p></div>';

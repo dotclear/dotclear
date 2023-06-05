@@ -13,19 +13,15 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
-use dcAdmin;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            static::$init = true;
-        }
+        static::$init = My::checkContext(My::BACKEND);
 
         if (!defined('DC_ANTISPAM_CONF_SUPER')) {
             define('DC_ANTISPAM_CONF_SUPER', false);
@@ -40,15 +36,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
-            __('Antispam'),
-            dcCore::app()->adminurl->get('admin.plugin.antispam'),
-            [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon();
 
         dcCore::app()->addBehaviors([
             'coreAfterCommentUpdate'    => [Antispam::class, 'trainFilters'],
@@ -56,12 +44,12 @@ class Backend extends dcNsProcess
             'adminDashboardHeaders'     => [Antispam::class, 'dashboardHeaders'],
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
                 $favs->register(
-                    'antispam',
+                    My::id(),
                     [
-                        'title'       => __('Antispam'),
-                        'url'         => dcCore::app()->adminurl->get('admin.plugin.antispam'),
-                        'small-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
-                        'large-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
+                        'title'       => My::name(),
+                        'url'         => My::manageUrl(),
+                        'small-icon'  => My::icons(),
+                        'large-icon'  => My::icons(),
                         'permissions' => dcCore::app()->auth->makePermissions([
                             dcCore::app()->auth::PERMISSION_ADMIN,
                         ]), ]

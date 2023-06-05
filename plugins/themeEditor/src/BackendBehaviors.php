@@ -35,7 +35,7 @@ class BackendBehaviors
             if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') 
                 || !dcCore::app()->themes->getDefine($id)->distributed
             ) {
-                return '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.themeEditor') . '" class="button">' . __('Edit theme files') . '</a></p>';
+                return '<p><a href="' . My::manageUrl() . '" class="button">' . __('Edit theme files') . '</a></p>';
             }
         }
 
@@ -117,7 +117,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
 </textarea>';
         echo
         dcPage::jsJson('theme_editor_current', ['theme' => $current_theme]) .
-        dcPage::jsModuleLoad('themeEditor/js/theme.js');
+        dcPage::jsModuleLoad(My::id() . '/js/theme.js');
         echo '</div>';
         echo '</div>';
     }

@@ -25,7 +25,7 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!My::checkContext(My::MANAGE)) {
             return false;
         }
 
@@ -172,22 +172,22 @@ class Manage extends dcNsProcess
         // Display page
 
         $head = dcPage::jsPageTabs(dcCore::app()->admin->tab) .
-            dcPage::jsModuleLoad('maintenance/js/settings.js');
+            dcPage::jsModuleLoad(My::id() . '/js/settings.js');
         if (dcCore::app()->admin->task && dcCore::app()->admin->task->ajax()) {
             $head .= dcPage::jsJson('maintenance', ['wait' => __('Please wait...')]) .
-                dcPage::jsModuleLoad('maintenance/js/dc.maintenance.js');
+                dcPage::jsModuleLoad(My::id() . '/js/dc.maintenance.js');
         }
         $head .= dcCore::app()->admin->maintenance->getHeaders();
 
-        dcPage::openModule(__('Maintenance'), $head);
+        dcPage::openModule(My::name(), $head);
 
         // Check if there is something to display according to user permissions
         if (empty(dcCore::app()->admin->tasks)) {
             echo
             dcPage::breadcrumb(
                 [
-                    __('Plugins')     => '',
-                    __('Maintenance') => '',
+                    __('Plugins') => '',
+                    My::name()    => '',
                 ]
             ) .
             '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>';
@@ -203,9 +203,9 @@ class Manage extends dcNsProcess
             echo
             dcPage::breadcrumb(
                 [
-                    __('Plugins')                                                                        => '',
-                    '<a href="' . dcCore::app()->admin->getPageURL() . '">' . __('Maintenance') . '</a>' => '',
-                    Html::escapeHTML(dcCore::app()->admin->task->name())                                 => '',
+                    __('Plugins')                                                                 => '',
+                    '<a href="' . dcCore::app()->admin->getPageURL() . '">' . My::name() . '</a>' => '',
+                    Html::escapeHTML(dcCore::app()->admin->task->name())                          => '',
                 ]
             ) .
             dcPage::notices();
@@ -238,8 +238,8 @@ class Manage extends dcNsProcess
             echo
             dcPage::breadcrumb(
                 [
-                    __('Plugins')     => '',
-                    __('Maintenance') => '',
+                    __('Plugins') => '',
+                    My::name()    => '',
                 ]
             ) .
             dcPage::notices();

@@ -21,7 +21,7 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
+        if (My::checkContext(My::MANAGE)) {
             static::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts' ? ManagePosts::init() : true;
         }
 
@@ -61,15 +61,15 @@ class Manage extends dcNsProcess
         }
 
         dcPage::openModule(
-            __('Tags'),
-            dcPage::cssModuleLoad('tags/css/style.css')
+            My::name(),
+            dcPage::cssModuleLoad(My::id() . '/css/style.css')
         );
 
         echo
         dcPage::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
-                __('Tags')                                  => '',
+                My::name()                                  => '',
             ]
         ) .
         dcPage::notices();
@@ -113,7 +113,7 @@ class Manage extends dcNsProcess
             '<p>' . __('No tags on this blog.') . '</p>';
         }
 
-        dcPage::helpBlock('tags');
+        dcPage::helpBlock(My::id());
 
         dcPage::closeModule();
     }

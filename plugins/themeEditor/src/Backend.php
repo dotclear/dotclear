@@ -19,29 +19,19 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
-            return false;
+        if (static::$init) {
+            dcCore::app()->addBehaviors([
+                'adminCurrentThemeDetailsV2'   => [BackendBehaviors::class, 'adminCurrentThemeDetails'],
+                'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'adminBeforeUserUpdate'],
+                'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminPreferencesForm'],
+            ]);
         }
 
-        if (!isset(dcCore::app()->resources['help']['themeEditor'])) {
-            dcCore::app()->resources['help']['themeEditor'] = __DIR__ . '/../help.html';
-        }
-
-        dcCore::app()->addBehaviors([
-            'adminCurrentThemeDetailsV2'   => [BackendBehaviors::class, 'adminCurrentThemeDetails'],
-            'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'adminBeforeUserUpdate'],
-            'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminPreferencesForm'],
-        ]);
-
-        return true;
+        return static::$init;
     }
 }

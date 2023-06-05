@@ -23,9 +23,7 @@ class Prepend extends dcNsProcess
             define('DC_FAIRTRACKBACKS_FORCE', false);
         }
 
-        static::$init = defined('DC_RC_PATH');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::PREPEND));
     }
 
     public static function process(): bool

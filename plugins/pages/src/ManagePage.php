@@ -24,13 +24,12 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
-use initPages;
 
 class ManagePage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
+        if (My::checkContext(My::MANAGE)) {
             static::$init = ($_REQUEST['act'] ?? 'list') === 'page';
         }
 
@@ -45,7 +44,7 @@ class ManagePage extends dcNsProcess
 
         $params = [];
         dcPage::check(dcCore::app()->auth->makePermissions([
-            initPages::PERMISSION_PAGES,
+            My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
@@ -78,11 +77,11 @@ class ManagePage extends dcNsProcess
 
         dcCore::app()->admin->can_view_page = true;
         dcCore::app()->admin->can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            initPages::PERMISSION_PAGES,
+            My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_USAGE,
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            initPages::PERMISSION_PAGES,
+            My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_PUBLISH,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id);
@@ -409,11 +408,11 @@ class ManagePage extends dcNsProcess
         }
 
         dcPage::openModule(
-            dcCore::app()->admin->page_title . ' - ' . __('Pages'),
+            dcCore::app()->admin->page_title . ' - ' . My::name(),
             dcPage::jsModal() .
             dcPage::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
             dcPage::jsLoad('js/_post.js') .
-            dcPage::jsModuleLoad('pages/js/page.js') .
+            dcPage::jsModuleLoad(My::id() . '/js/page.js') .
             $admin_post_behavior .
             dcPage::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --
@@ -451,7 +450,7 @@ class ManagePage extends dcNsProcess
         echo dcPage::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
-                __('Pages')                                 => dcCore::app()->admin->getPageURL(),
+                My::name()                                  => dcCore::app()->admin->getPageURL(),
                 $edit_entry_title                           => '',
             ]
         );

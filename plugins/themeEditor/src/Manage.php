@@ -27,7 +27,7 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!My::checkContext(My::MANAGE)) {
             return false;
         }
 
@@ -136,12 +136,12 @@ class Manage extends dcNsProcess
             'error_occurred'     => __('An error occurred:'),
             'confirm_reset_file' => __('Are you sure you want to reset this file?'),
         ]) .
-            dcPage::jsModuleLoad('themeEditor/js/script.js') .
+            dcPage::jsModuleLoad(My::id() . '/js/script.js') .
             dcPage::jsConfirmClose('file-form');
         if (dcCore::app()->admin->user_ui_colorsyntax) {
             $head .= dcPage::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
         }
-        $head .= dcPage::cssModuleLoad('themeEditor/css/style.css');
+        $head .= dcPage::cssModuleLoad(My::id() . '/css/style.css');
 
         dcPage::openModule(__('Edit theme files'), $head);
 
@@ -204,7 +204,7 @@ class Manage extends dcNsProcess
                                     'text/html'))));
                     echo
                     dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]) .
-                    dcPage::jsModuleLoad('themeEditor/js/mode.js') .
+                    dcPage::jsModuleLoad(My::id() . '/js/mode.js') .
                     dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', dcCore::app()->admin->user_ui_colorsyntax_theme);
                 }
             }
@@ -230,7 +230,7 @@ class Manage extends dcNsProcess
             dcCore::app()->admin->editor->filesList('php', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;php=%2$s" class="php-link">%1$s</a>') .
             '</div>';
 
-            dcPage::helpBlock('themeEditor');
+            dcPage::helpBlock(My::id());
         } else {
             echo
             '<div class="error"><p>' . __("You can't edit a distributed theme.") . '</p></div>';

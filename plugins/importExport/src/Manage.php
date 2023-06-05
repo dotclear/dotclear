@@ -23,7 +23,7 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
+        if (My::checkContext(My::MANAGE)) {
             static::$init = true;
         }
 
@@ -75,13 +75,11 @@ class Manage extends dcNsProcess
             return;
         }
 
-        $title = __('Import/Export');
-
         dcPage::openModule(
-            $title,
-            dcPage::cssModuleLoad('importExport/css/style.css') .
+            My::name(),
+            dcPage::cssModuleLoad(My::id() . '/css/style.css') .
             dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
-            dcPage::jsModuleLoad('importExport/js/script.js')
+            dcPage::jsModuleLoad(My::id() . '/js/script.js')
         );
 
         if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null) {
@@ -89,7 +87,7 @@ class Manage extends dcNsProcess
             dcPage::breadcrumb(
                 [
                     __('Plugins')                                        => '',
-                    $title                                               => dcCore::app()->admin->getPageURL(),
+                    My::name()                                           => dcCore::app()->admin->getPageURL(),
                     Html::escapeHTML(dcCore::app()->admin->module->name) => '',
                 ]
             ) .
@@ -105,7 +103,7 @@ class Manage extends dcNsProcess
             dcPage::breadcrumb(
                 [
                     __('Plugins') => '',
-                    $title        => '',
+                    My::name()    => '',
                 ]
             ) .
             dcPage::notices() .

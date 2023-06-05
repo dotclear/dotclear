@@ -23,9 +23,7 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -34,26 +32,20 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-            __('Pings'),
-            dcCore::app()->adminurl->get('admin.plugin.pings'),
-            [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.pings')) . '/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->isSuperAdmin()
-        );
+        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG, [], '');
 
         dcCore::app()->addBehaviors([
-            'adminPostHeaders'     => fn () => dcPage::jsModuleLoad('pings/js/post.js'),
+            'adminPostHeaders'     => fn () => dcPage::jsModuleLoad(My::id() . '/js/post.js'),
             'adminPostFormItems'   => [BackendBehaviors::class, 'pingsFormItems'],
             'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],
             'adminAfterPostUpdate' => [BackendBehaviors::class, 'doPings'],
 
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
-                $favs->register('pings', [
-                    'title'      => __('Pings'),
-                    'url'        => dcCore::app()->adminurl->get('admin.plugin.pings'),
-                    'small-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
-                    'large-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
+                $favs->register(My::id(), [
+                    'title'      => My::name(),
+                    'url'        => My::manageUrl(),
+                    'small-icon' => My::icons(),
+                    'large-icon' => My::icons(),
                 ]);
             },
             'adminPageHelpBlock' => function (ArrayObject $blocks) {

@@ -14,32 +14,21 @@ namespace Dotclear\Plugin\userPref;
 
 use dcAdmin;
 use dcCore;
-use dcPage;
 use dcNsProcess;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
-            return false;
+        if (static::$init) {
+            My::backendSidebarMenuIcon(dcAdmin::MENU_SYSTEM);
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_SYSTEM]->addItem(
-            'user:preferences',
-            dcCore::app()->adminurl->get('admin.plugin.userPref'),
-            dcPage::getPF('userPref/icon.svg'),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.userPref')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->isSuperAdmin()
-        );
-
-        return true;
+        return static::$init;
     }
 }

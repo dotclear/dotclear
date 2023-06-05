@@ -21,9 +21,7 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -32,16 +30,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
-            'dcCKEditor',
-            dcCore::app()->adminurl->get('admin.plugin.dcCKEditor'),
-            [dcPage::getPF('dcCKEditor/icon.svg'), dcPage::getPF('dcCKEditor/icon-dark.svg')],
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.dcCKEditor')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon();
 
         if (dcCore::app()->blog->settings->dcckeditor->active) {
             dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);

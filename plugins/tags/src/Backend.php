@@ -15,17 +15,12 @@ namespace Dotclear\Plugin\tags;
 use dcAdmin;
 use dcCore;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -34,16 +29,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-            __('Tags'),
-            dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
-            [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.tags')) . '&m=tag(s|_posts)?(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_USAGE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
 
         dcCore::app()->addBehaviors([
             'adminPostFormItems' => [BackendBehaviors::class, 'tagsField'],
