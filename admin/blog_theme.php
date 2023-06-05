@@ -40,7 +40,7 @@ class adminBlogTheme
             dcCore::app()->themes,
             dcCore::app()->blog->themes_path,
             dcCore::app()->blog->settings->system->store_theme_url,
-            !empty($_GET['nocache'])
+            !empty($_GET['nocache']) ? true : null
         );
         // deprecated since 2.26
         adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
@@ -136,6 +136,9 @@ class adminBlogTheme
         // Page header
         dcPage::open(
             __('Themes management'),
+            (empty($_GET['nocache']) && empty($_GET['showupdate']) ?
+                dcPage::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
+            ) .
             dcPage::jsLoad('js/_blog_theme.js') .
             dcPage::jsPageTabs() .
 

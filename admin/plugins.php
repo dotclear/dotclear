@@ -25,7 +25,7 @@ class adminPlugins
             dcCore::app()->plugins,
             DC_PLUGINS_ROOT,
             dcCore::app()->blog->settings->system->store_plugin_url,
-            !empty($_GET['nocache'])
+            !empty($_GET['nocache']) ? true : null
         );
 
         adminModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
@@ -74,6 +74,9 @@ class adminPlugins
         // -- Page header --
         dcPage::open(
             __('Plugins management'),
+            (empty($_GET['nocache']) && empty($_GET['showupdate']) ?
+                dcPage::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
+            ) .
             dcPage::jsLoad('js/_plugins.js') .
             dcPage::jsPageTabs() .
 
@@ -121,7 +124,7 @@ class adminPlugins
             }
 
             echo
-            '<form action="' . dcCore::app()->admin->list->getURL('', false) . '" method="get">' .
+            '<form id="force-checking" action="' . dcCore::app()->admin->list->getURL('', false) . '" method="get">' .
             '<p><input type="hidden" name="nocache" value="1" />' .
             '<input type="submit" value="' . __('Force checking update of plugins') . '" /></p>' .
             '</form>';

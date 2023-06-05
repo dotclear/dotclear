@@ -1,6 +1,32 @@
 /*global $, dotclear */
 'use strict';
 
+dotclear.dbStoreUpdate = (store, url) => {
+  if (url.length) {
+    const params = {
+      f: 'checkStoreUpdate',
+      xd_check: dotclear.nonce,
+      store,
+    };
+    $.post('services.php', params, (data) => {
+      if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('new') == 1) {
+        if ($('rsp>update', data).attr('check') == 1) {
+          const nb = Number($('rsp>update', data).attr('nb'));
+          if (nb) {
+            $('#force-checking').replaceWith(
+              '<p class="info"><a href="' + url + '" title="' + $('rsp>update', data).attr('ret') + '">' + $('rsp>update', data).attr('ret') + '</a></p>'
+            );
+          }
+        } else {
+          $('#force-checking p').prepend(
+            '<span class="info">' + $('rsp>update', data).attr('ret') + '</span> '
+          );
+        }
+      }
+    });
+  }
+};
+
 $(() => {
   // expand a module line
   $('table.modules.expandable tr.line').each(function () {
@@ -91,4 +117,6 @@ $(() => {
       return true;
     });
   });
+
+  dotclear.dbStoreUpdate('plugins', dotclear.getData('module_update_url'));
 });

@@ -18,6 +18,15 @@ use Dotclear\Helper\Network\HttpClient;
 
 class dcStoreReader extends HttpClient
 {
+    /** @var    string  Read nothing */
+    public const READ_FROM_NONE   = -1;
+
+    /** @var    string  Read from local cache file */
+    public const READ_FROM_CACHE  = 0;
+
+    /** @var    string  Read from repository server */
+    public const READ_FROM_SOURCE = 1;
+
     /**
      * User agent used to query repository
      *
@@ -61,10 +70,21 @@ class dcStoreReader extends HttpClient
 
     /**
      * Force query server
+     * 
+     * True: query server even if cache is not expired
+     * False: query server if there's no cache or cache is expired
+     * Null: query server only if there's no cache (we don't look at ttl)
      *
-     * @var    bool
+     * @var    null|bool
      */
     protected $force = false;
+
+    /**
+     * Last response source (from cache or repository).
+     *
+     * @var     int
+     */
+    private static int $read_code = self::READ_FROM_NONE;
 
     /**
      * Constructor.
@@ -91,33 +111,45 @@ class dcStoreReader extends HttpClient
 
         if ($this->cache_dir) {
             return $this->withCache($url);
+        } elseif($this->force === null) {
+            return false;
         } elseif (!$this->getModulesXML($url) || $this->getStatus() != '200') {
             return false;
         }
 
+        static::$read_code = static::READ_FROM_SOURCE;
         return new dcStoreParser($this->getContent());
     }
 
     /**
      * Quick parse modules feed.
      *
-     * @param    string    $url          XML feed URL
-     * @param    string    $cache_dir    Cache directoy or null for no cache
-     * @param    bool      $force        Force query repository
+     * @param    string     $url          XML feed URL
+     * @param    string     $cache_dir    Cache directoy or null for no cache
+     * @param    null|bool  $force        Force query repository. null to use cache without ttl
      *
      * @return   mixed     Feed content, dcStoreParser instance or false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, bool $force = false)
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false)
     {
         $parser = new self();
         if ($cache_dir) {
             $parser->setCacheDir($cache_dir);
         }
-        if ($force) {
-            $parser->setForce($force);
-        }
+
+        $parser->setForce($force);
 
         return $parser->parse($url);
+    }
+
+    /**
+     * Get last parsed reponse from.
+     *
+     * @return  int     The code
+     */
+    public static function readCode(): int
+    {
+        return static::$read_code;
     }
 
     /**
@@ -157,9 +189,9 @@ class dcStoreReader extends HttpClient
     /**
      * Set force query repository.
      *
-     * @param    bool    $force    True to force query
+     * @param    null|bool    $force    True to force query
      */
-    public function setForce(bool $force): void
+    public function setForce(?bool $force): void
     {
         $this->force = $force;
     }
@@ -217,11 +249,12 @@ class dcStoreReader extends HttpClient
         $may_use_cached = false;
 
         # Use cache file ?
-        if (@file_exists($cached_file) && !$this->force) {
+        if (@file_exists($cached_file) && $this->force !== true) {
             $may_use_cached = true;
             $ts             = @filemtime($cached_file);
-            if ($ts > strtotime($this->cache_ttl)) {
+            if ($ts > strtotime($this->cache_ttl) || $this->force === null) {
                 # Direct cache
+                static::$read_code = static::READ_FROM_CACHE;
                 return unserialize(file_get_contents($cached_file));
             }
             $this->setValidator('IfModifiedSince', $ts);
@@ -235,6 +268,7 @@ class dcStoreReader extends HttpClient
                     @Files::touch($cached_file);
                 }
                 # Connection failed - fetched from cache
+                static::$read_code = static::READ_FROM_CACHE;
                 return unserialize(file_get_contents($cached_file));
             }
 
@@ -247,10 +281,12 @@ class dcStoreReader extends HttpClient
             case '304':
                 @Files::touch($cached_file);
 
+                static::$read_code = static::READ_FROM_CACHE;
                 return unserialize(file_get_contents($cached_file));
                 # Ok, parse feed
             case '200':
                 $modules = new dcStoreParser($this->getContent());
+                static::$read_code = static::READ_FROM_SOURCE;
 
                 try {
                     Files::makeDir(dirname($cached_file), true);

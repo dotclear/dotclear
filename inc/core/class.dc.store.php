@@ -73,13 +73,20 @@ class dcStore
     ];
 
     /**
+     * Repositories new updates status.
+     *
+     * @var     bool
+     */
+    private bool $has_new_update = false;
+
+    /**
      * Constructor.
      *
-     * @param    dcModules $modules        dcModules instance
-     * @param    string    $xml_url        XML feed URL
-     * @param    bool      $force          Force query repository
+     * @param    dcModules      $modules        dcModules instance
+     * @param    string         $xml_url        XML feed URL
+     * @param    null|bool      $force          Force query repository
      */
-    public function __construct(dcModules $modules, string $xml_url, bool $force = false)
+    public function __construct(dcModules $modules, string $xml_url, ?bool $force = false)
     {
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
@@ -93,9 +100,9 @@ class dcStore
      *
      * @param    bool    $force        Force query repository
      *
-     * @return    bool    True if get feed or cache
+     * @return    null|bool    True if get feed or cache
      */
-    public function check(bool $force = false): bool
+    public function check(?bool $force = false): bool
     {
         if (!$this->xml_url) {
             return false;
@@ -127,6 +134,11 @@ class dcStore
                         $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
 
                         $upd_defines[] = $str_define;
+
+                        // This update is new from main repository
+                        if (dcStoreReader::readCode() === dcStoreReader::READ_FROM_SOURCE) {
+                            $this->has_new_update = true;
+                        }
                     }
                 // it's new
                 } else {
@@ -158,6 +170,11 @@ class dcStore
                             // if update from third party repo is more recent than main repo, replace this last one
                             } elseif (dcUtils::versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+
+                                // This update is new from third party repository
+                                if (dcStoreReader::readCode() === dcStoreReader::READ_FROM_SOURCE) {
+                                    $this->has_new_update = true;
+                                }
                             }
                         }
                     }
@@ -188,6 +205,16 @@ class dcStore
         }
 
         return true;
+    }
+
+    /**
+     * Check if repositories have new updates.
+     *
+     * @return  bool    True on new updates
+     */
+    public function hasNewUdpates(): bool
+    {
+        return $this->has_new_update;
     }
 
     /**
