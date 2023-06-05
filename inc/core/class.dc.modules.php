@@ -178,7 +178,7 @@ class dcModules
     public function getDefines(array $search = [], bool $to_array = false): array
     {
         // only compare some types of values
-        $to_string = function (mixed $value): ?string { return is_bool($value) || is_int($value) || is_string($value) ? (string) $value : null; };
+        $to_string = function ($value): ?string { return is_bool($value) || is_int($value) || is_string($value) ? (string) $value : null; };
 
         $list = [];
         foreach ($this->defines as $module) {
@@ -1263,7 +1263,7 @@ class dcModules
      *
      * @return  mixed   The file return.
      */
-    protected function requireSilently(string $________): mixed
+    protected function requireSilently(string $________)
     {
         $ret = null;
         if (file_exists($________)) {

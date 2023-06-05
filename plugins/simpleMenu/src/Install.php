@@ -20,10 +20,7 @@ class Install extends dcNsProcess
 {
     public static function init(): bool
     {
-        $module       = basename(dirname(__DIR__));
-        static::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::INSTALL));
     }
 
     public static function process(): bool

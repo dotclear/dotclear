@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 $this->registerModule(
-    'simpleMenu',               // Name
+    'Simple menu',               // Name
     'Simple menu for Dotclear', // Description
     'Franck Paul',              // Author
     '2.0',                      // Version
