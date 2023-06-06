@@ -119,7 +119,7 @@ class BackendBehaviors
      */
     public static function coreInitWikiPost(WikiToHtml $wiki): void
     {
-        $wiki->registerFunction('url:tag', ['tagsBehaviors', 'wikiTag']);
+        $wiki->registerFunction('url:tag', [BackendBehaviors::class, 'wikiTag']);
     }
 
     /**
@@ -195,7 +195,7 @@ class BackendBehaviors
     {
         $ap->addAction(
             [__('Tags') => [__('Add tags') => 'tags']],
-            ['tagsBehaviors', 'adminAddTags']
+            [BackendBehaviors::class, 'adminAddTags']
         );
 
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -204,7 +204,7 @@ class BackendBehaviors
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Tags') => [__('Remove tags') => 'tags_remove']],
-                ['tagsBehaviors', 'adminRemoveTags']
+                [BackendBehaviors::class, 'adminRemoveTags']
             );
         }
     }
