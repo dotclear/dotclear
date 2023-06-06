@@ -19,8 +19,8 @@ class Prepend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_RC_PATH')) {
-            static::$init = dcCore::app()->blog->settings->system->theme === basename(dirname(__DIR__));
+        if (My::checkContext(My::PREPEND)) {
+            static::$init = dcCore::app()->blog->settings->system->theme === My::id();
         }
 
         return static::$init;

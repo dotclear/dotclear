@@ -15,15 +15,12 @@ namespace Dotclear\Theme\berlin;
 use dcCore;
 use dcNsProcess;
 use dcUtils;
-use Dotclear\Helper\L10n;
 
 class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_RC_PATH');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::FRONTEND));
     }
 
     public static function process(): bool
@@ -32,7 +29,7 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        L10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+        My::l10n('main');
 
         dcCore::app()->addBehavior('publicHeadContent', function () {
             echo

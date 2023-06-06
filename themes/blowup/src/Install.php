@@ -19,22 +19,15 @@ class Install extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion(
-            basename(dirname(__DIR__)),
-            dcCore::app()->plugins->moduleInfo(basename(dirname(__DIR__)), 'version')
-        );
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::INSTALL));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
-            return false;
+        if (static::$init) {
+            dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
         }
 
-        dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
-
-        return true;
+        return static::$init;
     }
 }
