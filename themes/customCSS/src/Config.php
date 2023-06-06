@@ -24,8 +24,10 @@ class Config extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            L10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+        // limit to backend permissions
+        if (My::checkContext(My::CONFIG)) {
+            // load locales
+            My::l10n('main');
             dcCore::app()->admin->css_file = Path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
 
             if (!is_file(dcCore::app()->admin->css_file) && !is_writable(dirname(dcCore::app()->admin->css_file))) {

@@ -25,9 +25,7 @@ class Config extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::CONFIG));
     }
 
     public static function process(): bool
@@ -37,9 +35,7 @@ class Config extends dcNsProcess
         }
 
         // Load contextual help
-        if (file_exists(__DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php')) {
-            require __DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php';
-        }
+        dcCore::app()->themes->loadModuleL10Nresources(My::id(), dcCore::app()->lang);
 
         dcCore::app()->admin->standalone_config = (bool) dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'standalone_config');
 

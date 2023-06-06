@@ -22,9 +22,7 @@ class Frontend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_RC_PATH');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::FRONTEND));
     }
 
     public static function process(): bool
@@ -33,7 +31,8 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        L10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/main');
+        # load locales
+        My::l10n('main');
 
         # Behaviors
         dcCore::app()->addBehaviors([
@@ -126,7 +125,7 @@ class Frontend extends dcNsProcess
 
     public static function ductileEntriesList(ArrayObject $attr): string
     {
-        $tpl_path   = __DIR__ . '/../tpl/';
+        $tpl_path   = My::path() . '/tpl/';
         $list_types = ['title', 'short', 'full'];
 
         // Get all _entry-*.html in tpl folder of theme

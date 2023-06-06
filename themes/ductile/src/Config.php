@@ -26,13 +26,15 @@ class Config extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        // limit to backend permissions
+        static::$init = My::checkContext(My::CONFIG);
+
+        if (!static::$init) {
             return false;
         }
 
-        static::$init = true;
-
-        L10n::set(__DIR__ . '/../locales/' . dcCore::app()->lang . '/admin');
+        // load locales
+        My::l10n('admin');
 
         if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url)) {
             dcCore::app()->admin->img_url = Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme . '/img/');
@@ -40,15 +42,13 @@ class Config extends dcNsProcess
             dcCore::app()->admin->img_url = Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/');
         }
 
-        $img_path = __DIR__ . '/../img/';
-        $tpl_path = __DIR__ . '/../tpl/';
+        $img_path = My::path() . '/img/';
+        $tpl_path = My::path() . '/tpl/';
 
         dcCore::app()->admin->standalone_config = (bool) dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'standalone_config');
 
         // Load contextual help
-        if (file_exists(__DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php')) {
-            require __DIR__ . '/../locales/' . dcCore::app()->lang . '/resources.php';
-        }
+        dcCore::app()->themes->loadModuleL10Nresources(My::id(), dcCore::app()->lang);
 
         $list_types = [
             __('Title') => 'title',
