@@ -24,12 +24,7 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            dcPage::checkSuper();
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::MANAGE));
     }
 
     public static function process(): bool
@@ -78,7 +73,7 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        dcPage::openModule(__('Pings'));
+        dcPage::openModule(My::name());
 
         echo
         dcPage::breadcrumb(
@@ -134,7 +129,7 @@ class Manage extends dcNsProcess
 
         '<p><a class="button" href="' . dcCore::app()->admin->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
 
-        dcPage::helpBlock('pings');
+        dcPage::helpBlock(My::id());
 
         dcPage::closeModule();
     }

@@ -22,14 +22,13 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        static::$init = My::checkContext(My::MANAGE);
+
+        dcCore::app()->admin->editor_is_admin = static::$init;
+
+        if (!static::$init) {
             return false;
         }
-
-        dcCore::app()->admin->editor_is_admin = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
         dcCore::app()->admin->editor_cke_active                      = dcCore::app()->blog->settings->dcckeditor->active;
         dcCore::app()->admin->editor_cke_alignment_buttons           = dcCore::app()->blog->settings->dcckeditor->alignment_buttons;
@@ -148,9 +147,9 @@ class Manage extends dcNsProcess
             return;
         }
 
-        dcPage::openModule(__('dcCKEditor'));
+        dcPage::openModule(My::name());
 
-        require __DIR__ . '/../tpl/index.php';
+        require My::path() . '/tpl/index.php';
 
         dcPage::closeModule();
     }

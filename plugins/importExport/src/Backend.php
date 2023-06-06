@@ -12,20 +12,16 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use dcAdmin;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
-use dcPage;
 use Dotclear\Plugin\maintenance\Maintenance;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -34,23 +30,15 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
-            __('Import/Export'),
-            dcCore::app()->adminurl->get('admin.plugin.importExport'),
-            [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.importExport')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon();
 
         dcCore::app()->addBehaviors([
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
-                $favs->register('importExport', [
-                    'title'       => __('Import/Export'),
-                    'url'         => dcCore::app()->adminurl->get('admin.plugin.importExport'),
-                    'small-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
-                    'large-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
+                $favs->register(My::id(), [
+                    'title'       => My::name(),
+                    'url'         => My::manageUrl(),
+                    'small-icon'  => My::icons(),
+                    'large-icon'  => My::icons(),
                     'permissions' => dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,
                     ]),

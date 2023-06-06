@@ -26,11 +26,9 @@ class ManageEdit extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN') && !empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
-            dcPage::check(dcCore::app()->auth->makePermissions([
-                initBlogroll::PERMISSION_BLOGROLL,
-            ]));
+        static::$init = My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']);
 
+        if (static::$init) {
             dcCore::app()->admin->id = Html::escapeHTML($_REQUEST['id']);
 
             dcCore::app()->admin->rs = null;
@@ -129,13 +127,13 @@ class ManageEdit extends dcNsProcess
         $links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
         $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 
-        dcPage::openModule(__('Blogroll'));
+        dcPage::openModule(My::name());
 
         echo
         dcPage::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
-                __('Blogroll')                              => dcCore::app()->admin->getPageURL(),
+                My::name()                                  => dcCore::app()->admin->getPageURL(),
             ]
         ) .
         dcPage::notices() .
@@ -338,7 +336,7 @@ class ManageEdit extends dcNsProcess
                 '</table></div>' .
 
                 '</div>' .
-                '<p class="clear">' . form::hidden('p', 'blogroll') .
+                '<p class="clear">' . form::hidden('p', My::id()) .
                 form::hidden('edit', 1) .
                 form::hidden('id', dcCore::app()->admin->id) .
                 dcCore::app()->formNonce() .

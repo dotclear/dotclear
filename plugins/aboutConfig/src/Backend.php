@@ -13,33 +13,21 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\aboutConfig;
 
 use dcAdmin;
-use dcCore;
-use dcPage;
 use dcNsProcess;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
-            return false;
+        if (static::$init) {
+            My::backendSidebarMenuIcon(dcAdmin::MENU_SYSTEM);
         }
 
-        dcCore::app()->menu[dcAdmin::MENU_SYSTEM]->addItem(
-            'about:config',
-            dcCore::app()->adminurl->get('admin.plugin.aboutConfig'),
-            dcPage::getPF('aboutConfig/icon.svg'),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.aboutConfig')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->isSuperAdmin()
-        );
-
-        return true;
+        return static::$init;
     }
 }

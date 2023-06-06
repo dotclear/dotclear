@@ -20,10 +20,7 @@ class Install extends dcNsProcess
 {
     public static function init(): bool
     {
-        $module       = basename(dirname(__DIR__));
-        static::$init = defined('DC_CONTEXT_ADMIN') && dcCore::app()->newVersion($module, dcCore::app()->plugins->moduleInfo($module, 'version'));
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::INSTALL));
     }
 
     public static function process(): bool
@@ -32,7 +29,7 @@ class Install extends dcNsProcess
             return false;
         }
 
-        if (dcCore::app()->getVersion('pages') == null) {
+        if (dcCore::app()->getVersion(My::id()) == null) {
             // Create a first pending page, only on a new installation of this plugin
             $params = [
                 'post_type'  => 'page',

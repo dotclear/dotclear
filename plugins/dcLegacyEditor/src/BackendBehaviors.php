@@ -48,7 +48,7 @@ class BackendBehaviors
         return
         self::jsToolBar() .
         dcPage::jsJson('legacy_editor_ctx', $js) .
-        dcPage::jsModuleLoad('dcLegacyEditor/js/_post_editor.js');
+        dcPage::jsModuleLoad(My::id() . '/js/_post_editor.js');
     }
 
     public static function adminPopupMedia($editor = '')
@@ -57,7 +57,7 @@ class BackendBehaviors
             return;
         }
 
-        return dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/popup_media.js');
+        return dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/popup_media.js');
     }
 
     public static function adminPopupLink($editor = '')
@@ -66,7 +66,7 @@ class BackendBehaviors
             return;
         }
 
-        return dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/popup_link.js');
+        return dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/popup_link.js');
     }
 
     public static function adminPopupPosts($editor = '')
@@ -75,7 +75,7 @@ class BackendBehaviors
             return;
         }
 
-        return dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/popup_posts.js');
+        return dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/popup_posts.js');
     }
 
     protected static function jsToolBar()
@@ -168,15 +168,15 @@ class BackendBehaviors
         }
 
         $res = dcPage::jsJson('legacy_editor', $js) .
-        dcPage::cssModuleLoad('dcLegacyEditor/css/jsToolBar/jsToolBar.css') .
-        dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.js');
+        dcPage::cssModuleLoad(My::id() . '/css/jsToolBar/jsToolBar.css') .
+        dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/jsToolBar.js');
 
         if (isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('enable_wysiwyg')) {
-            $res .= dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.wysiwyg.js');
+            $res .= dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/jsToolBar.wysiwyg.js');
         }
 
-        $res .= dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js') .
-        dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.config.js');
+        $res .= dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/jsToolBar.dotclear.js') .
+        dcPage::jsModuleLoad(My::id() . '/js/jsToolBar/jsToolBar.config.js');
 
         return $res;
     }

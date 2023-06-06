@@ -174,6 +174,7 @@ class dcRestMethods
         # Dotclear store updates notifications
 
         $rsp        = new XmlTag('update');
+        $rsp->new   = false;
         $rsp->check = false;
         $rsp->nb    = 0;
         $ret        = __('No updates are available');
@@ -205,6 +206,7 @@ class dcRestMethods
         if (!empty($upd)) {
             $ret = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));   // @phpstan-ignore-line
 
+            $rsp->new   = $repo->hasNewUdpates();
             $rsp->check = true;
             $rsp->nb    = count($upd); // @phpstan-ignore-line
         }

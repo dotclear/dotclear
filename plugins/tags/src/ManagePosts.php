@@ -26,7 +26,7 @@ class ManagePosts extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
+        if (My::checkContext(My::MANAGE)) {
             static::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts';
         }
 
@@ -66,7 +66,7 @@ class ManagePosts extends dcNsProcess
 
         dcCore::app()->admin->posts_actions_page = new BackendActions(
             'plugin.php',
-            ['p' => 'tags', 'm' => 'tag_posts', 'tag' => dcCore::app()->admin->tag]
+            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => dcCore::app()->admin->tag]
         );
 
         dcCore::app()->admin->posts_actions_page_rendered = null;
@@ -127,13 +127,13 @@ class ManagePosts extends dcNsProcess
         $this_url = dcCore::app()->admin->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(dcCore::app()->admin->tag);
 
         dcPage::openModule(
-            __('Tags'),
-            dcPage::cssModuleLoad('tags/css/style.css') .
+            My::name(),
+            dcPage::cssModuleLoad(My::id() . '/css/style.css') .
             dcPage::jsLoad('js/_posts_list.js') .
             dcPage::jsJson('posts_tags_msg', [
                 'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(dcCore::app()->admin->tag)),
             ]) .
-            dcPage::jsModuleLoad('tags/js/posts.js') .
+            dcPage::jsModuleLoad(My::id() . '/js/posts.js') .
             dcPage::jsConfirmClose('tag_rename')
         );
 
@@ -141,7 +141,7 @@ class ManagePosts extends dcNsProcess
         dcPage::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name)                                      => '',
-                __('Tags')                                                                       => dcCore::app()->admin->getPageURL() . '&amp;m=tags',
+                My::name()                                                                       => dcCore::app()->admin->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(dcCore::app()->admin->tag) . '&rdquo;' => '',
             ]
         ) .
@@ -190,7 +190,7 @@ class ManagePosts extends dcNsProcess
                 form::combo('action', dcCore::app()->admin->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('OK') . '" /></p>' .
                 form::hidden('post_type', '') .
-                form::hidden('p', 'tags') .
+                form::hidden('p', My::id()) .
                 form::hidden('m', 'tag_posts') .
                 form::hidden('tag', dcCore::app()->admin->tag) .
                 dcCore::app()->formNonce() .

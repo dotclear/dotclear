@@ -12,18 +12,14 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dcAdmin;
 use dcCore;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_CONTEXT_ADMIN');
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -33,15 +29,7 @@ class Backend extends dcNsProcess
         }
 
         // Sidebar menu
-        dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
-            __('Maintenance'),
-            dcCore::app()->adminurl->get('admin.plugin.maintenance'),
-            dcPage::getPF('maintenance/icon.svg'),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.maintenance')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon();
 
         // Admin behaviors
         dcCore::app()->addBehaviors([

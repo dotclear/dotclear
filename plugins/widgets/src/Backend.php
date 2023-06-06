@@ -17,17 +17,12 @@ use dcAdmin;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
@@ -38,11 +33,11 @@ class Backend extends dcNsProcess
 
         dcCore::app()->addBehaviors([
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
-                $favs->register('widgets', [
-                    'title'      => __('Presentation widgets'),
-                    'url'        => dcCore::app()->adminurl->get('admin.plugin.widgets'),
-                    'small-icon' => [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
-                    'large-icon' => [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
+                $favs->register(My::id(), [
+                    'title'      => My::name(),
+                    'url'        => My::manageUrl(),
+                    'small-icon' => My::icons(),
+                    'large-icon' => My::icons(),
                 ]);
             },
             'adminRteFlagsV2' => function (ArrayObject $rte) {
@@ -50,15 +45,7 @@ class Backend extends dcNsProcess
             },
         ]);
 
-        dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-            __('Presentation widgets'),
-            dcCore::app()->adminurl->get('admin.plugin.widgets'),
-            [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.widgets')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-            dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id)
-        );
+        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG);
 
         return true;
     }

@@ -28,10 +28,10 @@ class Manage extends dcNsProcess
      */
     public static function init(): bool
     {
-        if (defined('DC_CONTEXT_ADMIN')) {
-            dcPage::checkSuper();
+        static::$init = My::checkContext(My::MANAGE);
+
+        if (static::$init) {
             dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
-            static::$init              = true;
         }
 
         return static::$init;
@@ -109,9 +109,9 @@ class Manage extends dcNsProcess
         }
 
         dcPage::openModule(
-            'about:config',
+            My::name(),
             dcPage::jsPageTabs(dcCore::app()->admin->part) .
-            dcPage::jsModuleLoad('aboutConfig/js/index.js')
+            dcPage::jsModuleLoad(My::id() . '/js/index.js')
         );
 
         echo
@@ -119,7 +119,7 @@ class Manage extends dcNsProcess
             [
                 __('System')                                => '',
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
-                __('about:config')                          => '',
+                My::name()                                  => '',
             ]
         ) .
         dcPage::notices() .
@@ -139,7 +139,7 @@ class Manage extends dcNsProcess
         echo
         '</div>';
 
-        dcPage::helpBlock('aboutConfig');
+        dcPage::helpBlock(My::id());
 
         dcPage::closeModule();
     }
@@ -205,7 +205,7 @@ class Manage extends dcNsProcess
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ns_combo, ['class' => 'navigation']) .
             ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
-            '<input type="hidden" name="p" value="aboutConfig" />' .
+            '<input type="hidden" name="p" value="' . My::id() . '" />' .
             dcCore::app()->formNonce() .
             '</p></form>';
         }
@@ -225,7 +225,7 @@ class Manage extends dcNsProcess
         echo
         '<p><input type="submit" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        '<input type="hidden" name="p" value="aboutConfig" />' .
+        '<input type="hidden" name="p" value="' . My::id() . '" />' .
         dcCore::app()->formNonce() .
         '</p>' .
         '</form>';

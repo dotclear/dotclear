@@ -22,11 +22,7 @@ class Backend extends dcNsProcess
         // dead but useful code, in order to have translations
         __('Breadcrumb') . __('Breadcrumb for Dotclear');
 
-        if (defined('DC_CONTEXT_ADMIN')) {
-            static::$init = true;
-        }
-
-        return static::$init;
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool

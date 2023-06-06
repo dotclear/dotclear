@@ -25,7 +25,7 @@ class BackendBehaviors
     public static function adminBlogPreferencesForm(dcSettings $settings): void
     {
         echo
-        '<div class="fieldset"><h4 id="breadcrumb_params">' . __('Breadcrumb') . '</h4>' .
+        '<div class="fieldset"><h4 id="breadcrumb_params">' . My::name() . '</h4>' .
         '<p><label class="classic">' .
         form::checkbox('breadcrumb_enabled', '1', $settings->breadcrumb->breadcrumb_enabled) .
         __('Enable breadcrumb for this blog') . '</label></p>' .

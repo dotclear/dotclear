@@ -19,20 +19,6 @@ use dcCore;
 class BackendBehaviors
 {
     /**
-     * Plugin URL
-     *
-     * @var        string
-     */
-    protected static $p_url = 'index.php?pf=dcCKEditor';
-
-    /**
-     * PLugin config URL
-     *
-     * @var        string
-     */
-    protected static $config_url = 'plugin.php?p=dcCKEditor&config=1';
-
-    /**
      * adminPostEditor add javascript to the DOM to load ckeditor depending on context
      *
      * @param      string  $editor   The wanted editor
@@ -48,7 +34,7 @@ class BackendBehaviors
             return '';
         }
 
-        $config_js = self::$config_url;
+        $config_js = 'plugin.php?p=' . My::id() . '&config=1';
         if (!empty($context)) {
             $config_js .= '&context=' . $context;
         }
@@ -63,11 +49,11 @@ class BackendBehaviors
             'ckeditor_tags_context' => [$context => (array) $alt_tags],
             'admin_base_url'        => DC_ADMIN_URL,
             'base_url'              => dcCore::app()->blog->host,
-            'dcckeditor_plugin_url' => DC_ADMIN_URL . self::$p_url,
+            'dcckeditor_plugin_url' => DC_ADMIN_URL . 'index.php?pf=' . My::id(),
             'user_language'         => dcCore::app()->auth->getInfo('user_lang'),
         ]) .
         dcPage::jsJson('ck_editor_var', [
-            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . self::$p_url . '/js/ckeditor/',
+            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . 'index.php?pf=' . My::id() . '/js/ckeditor/',
         ]) .
         dcPage::jsJson('ck_editor_msg', [
             'img_select_title'     => __('Media chooser'),
@@ -78,9 +64,9 @@ class BackendBehaviors
             'img_title'            => __('External image'),
             'url_cannot_be_empty'  => __('URL field cannot be empty.'),
         ]) .
-        dcPage::jsLoad(self::$p_url . '/js/_post_editor.js') .
-        dcPage::jsLoad(self::$p_url . '/js/ckeditor/ckeditor.js') .
-        dcPage::jsLoad(self::$p_url . '/js/ckeditor/adapters/jquery.js') .
+        dcPage::jsModuleLoad(My::id() . '/js/_post_editor.js') .
+        dcPage::jsModuleLoad(My::id() . '/js/ckeditor/ckeditor.js') .
+        dcPage::jsModuleLoad(My::id() . '/js/ckeditor/adapters/jquery.js') .
         dcPage::jsLoad($config_js);
     }
 
@@ -97,7 +83,7 @@ class BackendBehaviors
             return '';
         }
 
-        return dcPage::jsLoad(self::$p_url . '/js/popup_media.js');
+        return dcPage::jsModuleLoad(My::id() . '/js/popup_media.js');
     }
 
     /**
@@ -113,7 +99,7 @@ class BackendBehaviors
             return '';
         }
 
-        return dcPage::jsLoad(self::$p_url . '/js/popup_link.js');
+        return dcPage::jsModuleLoad(My::id() . '/js/popup_link.js');
     }
 
     /**
@@ -129,7 +115,7 @@ class BackendBehaviors
             return '';
         }
 
-        return dcPage::jsLoad(self::$p_url . '/js/popup_posts.js');
+        return dcPage::jsModuleLoad(My::id() . '/js/popup_posts.js');
     }
 
     /**
