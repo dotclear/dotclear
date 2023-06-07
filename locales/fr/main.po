@@ -3364,6 +3364,22 @@ msgid "(current version %s)"
 msgstr "(version courante %s)"
 
 #, php-format
+msgid "update locked"
+msgstr "mise à jour verrouillée"
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Les mises à jour des plugins suivants sont verrouillées : %s"
+
+#, php-format
+msgid "Following themes updates are locked: %s"
+msgstr "Les mises à jour des themes suivants sont verrouillées : %s"
+
+#, php-format
+msgid "Unable to upgrade "%s". (update locked)"
+msgstr "Impossible de mettre à jour "%s". (mise à jour verrouillée)""
+
+#, php-format
 msgid "(built on \"%s\")"
 msgstr "(basé sur \"%s\")"
 

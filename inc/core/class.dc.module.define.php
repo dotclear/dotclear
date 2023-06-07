@@ -152,6 +152,16 @@ class dcModuleDefine
         return $this->get('name') != self::DEFAULT_NAME;
     }
 
+    /**
+     * Check if module update is locked.
+     *
+     * @return  bool    True if update is disabled
+     */
+    public function updLocked(): bool
+    {
+        return is_string($this->get('root')) && file_exists($this->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_LOCKED);
+    }
+
     public function addImplies(string $dep): void
     {
         $this->implies[] = $dep;

@@ -1000,6 +1000,10 @@ class adminModulesList
                         $more[] = '<a class="module-support" href="' . $define->get('support') . '">' . __('Support') . '</a>';
                     }
 
+                    if ($define->updLocked()) {
+                        $more[] = '<span class="module-locked">' . __('update locked') . '</span>';
+                    }
+
                     if (!empty($more)) {
                         echo
                         '<li>' . implode(' - ', $more) . '</li>';
@@ -1231,7 +1235,7 @@ class adminModulesList
 
                     # Update (from store)
                 case 'update':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable && !$define->updLocked()) {
                         $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
                     }
 
@@ -1489,10 +1493,16 @@ class adminModulesList
                 $modules = array_keys($_POST['update']);
             }
 
+            $locked  = [];
             $count   = 0;
             $defines = $this->store->getDefines(true);
             foreach ($defines as $define) {
                 if (!in_array($define->getId(), $modules)) {
+                    continue;
+                }
+
+                if ($define->updLocked()) {
+                    $locked[] = $define->get('name');
                     continue;
                 }
 
@@ -1516,15 +1526,19 @@ class adminModulesList
                 $count++;
             }
 
-            if (!$count) {
-                throw new Exception(__('No such plugin.'));
-            }
-
             $tab = $count == count($defines) ? '#plugins' : '#update';   // @phpstan-ignore-line
 
-            dcPage::addSuccessNotice(
-                __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
-            );
+            if ($count) {
+                dcPage::addSuccessNotice(
+                    __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
+                );
+            } elseif(!empty($locked)) {
+                dcPage::addWarningNotice(
+                    sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
+                );
+            } else {
+                throw new Exception(__('No such plugin.'));
+            }
             Http::redirect($this->getURL() . $tab);
         }
 
@@ -1967,6 +1981,10 @@ class adminThemesList extends adminModulesList
                 $line .= '<span class="module-repository">' . (!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')) . '</span> ';
             }
 
+            if ($define->updLocked()) {
+                $line .= '<span class="module-locked">' . __('update locked') . '</span> ';
+            }
+
             $has_details = in_array('details', $cols) && !empty($define->get('details'));
             $has_support = in_array('support', $cols) && !empty($define->get('support'));
             if ($has_details || $has_support) {
@@ -2385,15 +2403,19 @@ class adminThemesList extends adminModulesList
                     $count++;
                 }
 
-                if (!$count) {
+                $tab = $count == count($defines) ? '#themes' : '#update';   // @phpstan-ignore-line
+
+                if ($count) {
+                    dcPage::addSuccessNotice(
+                        __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
+                    );
+                } elseif(!empty($locked)) {
+                    dcPage::addWarningNotice(
+                        sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
+                    );
+                } else {
                     throw new Exception(__('No such theme.'));
                 }
-
-                $tab = $count == count($defines) ? '#themes' : '#update';    // @phpstan-ignore-line
-
-                dcPage::addSuccessNotice(
-                    __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
-                );
                 Http::redirect($this->getURL() . $tab);
             }
 

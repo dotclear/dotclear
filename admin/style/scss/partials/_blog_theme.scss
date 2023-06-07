@@ -72,7 +72,7 @@
   }
 }
 
-span.module-version::before {
+span.module-version::before, span.module-locked::before {
   content: '- ';
 }
 

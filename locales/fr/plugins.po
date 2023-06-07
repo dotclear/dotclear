@@ -1784,6 +1784,18 @@ msgstr "Coloration syntaxique"
 msgid "Syntax highlighting in theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
 
+msgid "The theme update has been locked."
+msgstr "La mise à jour du thème a été verrouillé."
+
+msgid "The theme update has been unlocked."
+msgstr "La mise à jour du thème a été déverrouillé."
+
+msgid "Unlock update"
+msgstr "Déverrouiller"
+
+msgid "Lock update"
+msgstr "Verrouiller"
+
 msgid "The file has been reset."
 msgstr "Le fichier a été réinitialisé."
 

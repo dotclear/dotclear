@@ -59,6 +59,9 @@ class dcModules
     /** @var    string  Name of module hard deactivation file */
     public const MODULE_FILE_DISABLED = '_disabled';
 
+    /** @var    string  The update locked file name */
+    public const MODULE_FILE_LOCKED = '_locked';
+
     /** @var    string  Directory for module namespace */
     public const MODULE_CLASS_DIR = 'src';
 
@@ -758,7 +761,13 @@ class dcModules
                 $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
 
                 $cur_define = $modules->getDefine($new_defines[0]->getId());
-                if ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                // current module update is locked
+                if ($cur_define->updLocked()) {
+                    $zip->close();
+                    unlink($zip_file);
+
+                    throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
+                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));

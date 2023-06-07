@@ -27,11 +27,17 @@ class Manage extends dcNsProcess
 {
     public static function init(): bool
     {
-        if (!My::checkContext(My::MANAGE)) {
+        return (static::$init = My::checkContext(My::MANAGE));
+    }
+
+    /**
+     * Processes the request(s).
+     */
+    public static function process(): bool
+    {
+        if (!static::$init) {
             return false;
         }
-
-        static::$init = true;
 
         dcCore::app()->admin->file_default = dcCore::app()->admin->file = new ArrayObject([
             'c'            => null,
@@ -56,18 +62,6 @@ class Manage extends dcNsProcess
         dcCore::app()->admin->theme  = dcCore::app()->themes->getDefine(dcCore::app()->blog->settings->system->theme);
         dcCore::app()->admin->editor = new ThemeEditor();
 
-        return static::$init;
-    }
-
-    /**
-     * Processes the request(s).
-     */
-    public static function process(): bool
-    {
-        if (!static::$init) {
-            return false;
-        }
-
         try {
             try {
                 if (!empty($_REQUEST['tpl'])) {
@@ -85,6 +79,22 @@ class Manage extends dcNsProcess
                 dcCore::app()->admin->file = dcCore::app()->admin->file_default;
 
                 throw $e;
+            }
+
+            if (dcCore::app()->auth->isSuperAdmin()
+                && !empty($_POST['lock'])
+                && is_string(dcCore::app()->admin->theme->get('root'))
+            ) {
+                file_put_contents(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED, '');
+                dcPage::addSuccessNotice(__('The theme update has been locked.'));
+            }
+            if (dcCore::app()->auth->isSuperAdmin()
+                && !empty($_POST['unlock'])
+                && is_string(dcCore::app()->admin->theme->get('root')) 
+                && file_exists(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED)
+            ) {
+                unlink(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED);
+                dcPage::addSuccessNotice(__('The theme update has been unocked.'));
             }
 
             if (!empty($_POST['write'])) {
@@ -214,6 +224,17 @@ class Manage extends dcNsProcess
             '</div>' .
 
             '<div id="file-chooser">' .
+            (dcCore::app()->auth->isSuperAdmin() ?
+                '<h3>' . __('Update') . '</h3>' .
+                '<form id="lock-update" method="post" action="' . dcCore::app()->admin->getPageURL() . '">' .
+                (dcCore::app()->admin->theme->updLocked() ?
+                    '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '" />' :
+                    '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '" />'
+                )
+                : ''
+            ) .
+            dcCore::app()->formNonce() .
+            '</form>' .
             '<h3>' . __('Templates files') . '</h3>' .
             dcCore::app()->admin->editor->filesList('tpl', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
 
