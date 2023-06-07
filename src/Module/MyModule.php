@@ -219,12 +219,17 @@ abstract class MyModule
      * This method is used to load module define.
      * see MyPlugin::define() and MyTheme::define()
      *
-     * @param   dcModules   $modules    The modules instance (Themes or Plugins)
+     * @param   null|dcModules  $modules    The modules instance (Themes or Plugins)
      *
      * @return  dcModuleDefine  The module define
      */
-    final protected static function getDefineFromNamespace(dcModules $modules): dcModuleDefine
+    final protected static function getDefineFromNamespace(?dcModules $modules): dcModuleDefine
     {
+        // take into account modules not loaded
+        if (null === $modules) {
+            static::exception('Failed to load modules for ' . static::class);
+        }
+
         // check if Define is already known
         if (!isset(static::$defines[static::class])) {
             // note: namespace from Modules start with a backslash

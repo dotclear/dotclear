@@ -18,6 +18,7 @@ namespace Dotclear\Module;
 
 use dcCore;
 use dcModuleDefine;
+use dcThemes;
 
 /**
  * Theme module helper.
@@ -28,6 +29,14 @@ abstract class MyTheme extends MyModule
 {
     protected static function define(): dcModuleDefine
     {
+        // load once themes
+        if (is_null(dcCore::app()->themes)) {
+            dcCore::app()->themes = new dcThemes();
+            if (!is_null(dcCore::app()->blog)) {
+                dcCore::app()->loadModules(dcCore::app()->blog->themes_path, null);
+            }
+        }
+
         return static::getDefineFromNamespace(dcCore::app()->themes);
     }
 
