@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 2em;
+  clear: both;
 }
 #file-editor {
   flex-grow: 1;
