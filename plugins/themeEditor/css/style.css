@@ -1,19 +1,22 @@
 #file-box {
-  width: 100%;
-  float: left;
-  margin-right: -15em;
-  /* was -180px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2em;
 }
 #file-editor {
-  margin-right: 15em;
-  /* was 180px; */
+  flex-grow: 1;
 }
 #file-chooser {
-  float: right;
-  width: 14em;
-  /* was 170px; */
+  max-width: 20em;
+}
+#file-chooser h3,
+#file-form h3 {
+  font-variant: small-caps;
+  margin-bottom: inherit;
 }
 #file-chooser ul {
+  margin-top: 0;
   padding-left: 0;
 }
 #file-chooser li {
@@ -37,5 +40,9 @@ textarea {
   font: 1em Monaco, 'Courier New', Courier, monospace;
 }
 .CodeMirror {
+  border: 1px solid;
   height: 30em;
+}
+#lock-form {
+  margin-top: 2em;
 }

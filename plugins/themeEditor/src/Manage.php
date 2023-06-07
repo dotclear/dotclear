@@ -90,7 +90,7 @@ class Manage extends dcNsProcess
             }
             if (dcCore::app()->auth->isSuperAdmin()
                 && !empty($_POST['unlock'])
-                && is_string(dcCore::app()->admin->theme->get('root')) 
+                && is_string(dcCore::app()->admin->theme->get('root'))
                 && file_exists(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED)
             ) {
                 unlink(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED);
@@ -136,6 +136,23 @@ class Manage extends dcNsProcess
             return;
         }
 
+        $lock_form = (dcCore::app()->auth->isSuperAdmin()) ?
+            '<fieldset id="lock-form"><legend>' . __('Update') . '</legend>' .
+            '<form id="lock-update" method="post" action="' . dcCore::app()->admin->getPageURL() . '">' .
+                '<p>' .
+                (dcCore::app()->admin->theme->updLocked() ?
+                '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '" />' :
+                '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '" />') .
+                dcCore::app()->formNonce() .
+                '</p>' .
+                '<p class="info">' .
+                __('Lock update of the theme does not prevent to modify its files, only to update it globally.') .
+                '</p>' .
+            '</form>' .
+            '</fieldset>' :
+            ''
+        ;
+
         $head = '';
         if (dcCore::app()->admin->user_ui_colorsyntax) {
             $head .= dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => dcCore::app()->admin->user_ui_colorsyntax]);
@@ -163,10 +180,12 @@ class Manage extends dcNsProcess
                 __('Edit theme files')                      => '',
             ]
         ) .
-        dcPage::notices() .
+        dcPage::notices();
+
+        echo
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme->get('name'))) . '</strong></p>';
 
-        if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') 
+        if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path')
             || !dcCore::app()->themes->getDefine(dcCore::app()->blog->settings->system->theme)->distributed
         ) {
             echo
@@ -176,10 +195,11 @@ class Manage extends dcNsProcess
             if (dcCore::app()->admin->file['c'] === null) {
                 echo
                 '<p>' . __('Please select a file to edit.') . '</p>';
+                echo $lock_form;
             } else {
                 echo
                 '<form id="file-form" action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
-                '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
+                '<h3>' . __('File editor') . '</h3>' .
                 '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . dcCore::app()->admin->file['f']) . '</strong></label></p>' .
                 '<p>' . form::textarea('file_content', 72, 25, [
                     'default'  => Html::escapeHTML(dcCore::app()->admin->file['c']),
@@ -198,9 +218,9 @@ class Manage extends dcNsProcess
                     echo
                     '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';
                 }
-
                 echo
-                '</div></form>';
+                '</form>';
+                echo $lock_form;
 
                 if (dcCore::app()->admin->user_ui_colorsyntax) {
                     $editorMode = (!empty($_REQUEST['css']) ?
@@ -221,20 +241,8 @@ class Manage extends dcNsProcess
 
             echo
             '</div>' .
-            '</div>' .
 
             '<div id="file-chooser">' .
-            (dcCore::app()->auth->isSuperAdmin() ?
-                '<h3>' . __('Update') . '</h3>' .
-                '<form id="lock-update" method="post" action="' . dcCore::app()->admin->getPageURL() . '">' .
-                (dcCore::app()->admin->theme->updLocked() ?
-                    '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '" />' :
-                    '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '" />'
-                )
-                : ''
-            ) .
-            dcCore::app()->formNonce() .
-            '</form>' .
             '<h3>' . __('Templates files') . '</h3>' .
             dcCore::app()->admin->editor->filesList('tpl', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
 
@@ -249,6 +257,8 @@ class Manage extends dcNsProcess
 
             '<h3>' . __('PHP files') . '</h3>' .
             dcCore::app()->admin->editor->filesList('php', '<a href="' . dcCore::app()->admin->getPageURL() . '&amp;php=%2$s" class="php-link">%1$s</a>') .
+
+            '</div>' .
             '</div>';
 
             dcPage::helpBlock(My::id());

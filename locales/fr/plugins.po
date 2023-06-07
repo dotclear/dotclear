@@ -1791,10 +1791,13 @@ msgid "The theme update has been unlocked."
 msgstr "La mise à jour du thème a été déverrouillé."
 
 msgid "Unlock update"
-msgstr "Déverrouiller"
+msgstr "Déverrouiller la mise à jour"
 
 msgid "Lock update"
-msgstr "Verrouiller"
+msgstr "Verrouiller la mise à jour"
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
+msgstr "Verrouiller la mise à jour le thème n'empêche pas de modifier ses fichiers, mais seulement de le mettre à jour globalement."
 
 msgid "The file has been reset."
 msgstr "Le fichier a été réinitialisé."
