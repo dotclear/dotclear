@@ -27,3 +27,4 @@ mkdocs
 # Dotclear Specific
 dcstore.xml
 _disabled
+_locked
