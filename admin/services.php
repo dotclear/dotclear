@@ -190,7 +190,7 @@ class dcRestMethods
             if (is_null(dcCore::app()->themes)) {
                 dcCore::app()->themes = new dcThemes();
                 if (!is_null(dcCore::app()->blog)) {
-                    dcCore::app()->loadModules(dcCore::app()->blog->themes_path, null);
+                    dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
                 }
             }
             $mod = dcCore::app()->themes;
