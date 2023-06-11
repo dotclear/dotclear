@@ -158,7 +158,7 @@ $no_cache_ext_dev = [
     'html',
 ];
 if (defined('DC_DEV') && DC_DEV || defined('DC_DEBUG') && DC_DEBUG) {
-    if (!in_array($extension, $no_cache_ext_dev)) {
+    if (in_array($extension, $no_cache_ext_dev)) {
         // No cache for code resource (js, css, …) in dev/debug mode
         $ttl = 0;
     }
