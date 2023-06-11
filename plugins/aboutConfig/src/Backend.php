@@ -25,7 +25,7 @@ class Backend extends dcNsProcess
     public static function process(): bool
     {
         if (static::$init) {
-            My::backendSidebarMenuIcon(dcAdmin::MENU_SYSTEM);
+            My::addBackendMenuItem(dcAdmin::MENU_SYSTEM);
         }
 
         return static::$init;

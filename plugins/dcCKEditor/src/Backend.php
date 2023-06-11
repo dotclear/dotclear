@@ -12,10 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcCKEditor;
 
-use dcAdmin;
 use dcCore;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
@@ -30,7 +28,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        My::backendSidebarMenuIcon();
+        My::addBackendMenuItem();
 
         if (dcCore::app()->blog->settings->dcckeditor->active) {
             dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);

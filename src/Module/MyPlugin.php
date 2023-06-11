@@ -35,13 +35,13 @@ abstract class MyPlugin extends MyModule
     }
 
     /**
-     * Register backend sidebar menu icon.
+     * Register backend sidebar menu item.
      *
      * @param   string                  $menu   The menu (from dcAdmin constant)
      * @param   array<string,string>    $params The URL params
      * @param   string                  $scheme the URL end scheme
      */
-    public static function backendSidebarMenuIcon(string $menu = dcAdmin::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$'): void
+    public static function addBackendMenuItem(string $menu = dcAdmin::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$'): void
     {
         if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->adminurl) || !(dcCore::app()->menu[$menu] instanceof dcMenu)) {
             return;

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\userPref;
 
 use dcAdmin;
-use dcCore;
 use dcNsProcess;
 
 class Backend extends dcNsProcess
@@ -26,7 +25,7 @@ class Backend extends dcNsProcess
     public static function process(): bool
     {
         if (static::$init) {
-            My::backendSidebarMenuIcon(dcAdmin::MENU_SYSTEM);
+            My::addBackendMenuItem(dcAdmin::MENU_SYSTEM);
         }
 
         return static::$init;

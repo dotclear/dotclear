@@ -45,7 +45,7 @@ class Backend extends dcNsProcess
             },
         ]);
 
-        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG);
+        My::addBackendMenuItem(dcAdmin::MENU_BLOG);
 
         return true;
     }

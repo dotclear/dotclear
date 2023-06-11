@@ -36,7 +36,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        My::backendSidebarMenuIcon();
+        My::addBackendMenuItem();
 
         dcCore::app()->addBehaviors([
             'coreAfterCommentUpdate'    => [Antispam::class, 'trainFilters'],

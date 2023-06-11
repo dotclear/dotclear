@@ -30,7 +30,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        My::backendSidebarMenuIcon(dcAdmin::MENU_PLUGINS, [], '');
+        My::addBackendMenuItem(dcAdmin::MENU_PLUGINS, [], '');
 
         if (dcCore::app()->blog->settings->dclegacyeditor->active) {
             if (!(dcCore::app()->wiki instanceof WikiToHtml)) {

@@ -16,7 +16,6 @@ use dcAdmin;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
@@ -46,7 +45,7 @@ class Backend extends dcNsProcess
             'initWidgets' => [Widgets::class, 'initWidgets'],
         ]);
 
-        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG);
+        My::addBackendMenuItem(dcAdmin::MENU_BLOG);
 
         return true;
     }

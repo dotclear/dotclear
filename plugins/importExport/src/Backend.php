@@ -30,7 +30,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        My::backendSidebarMenuIcon();
+        My::addBackendMenuItem();
 
         dcCore::app()->addBehaviors([
             'adminDashboardFavoritesV2' => function (dcFavorites $favs) {

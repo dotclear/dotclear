@@ -29,7 +29,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
+        My::addBackendMenuItem(dcAdmin::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
 
         dcCore::app()->addBehaviors([
             'adminPostFormItems' => [BackendBehaviors::class, 'tagsField'],

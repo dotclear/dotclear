@@ -32,7 +32,7 @@ class Backend extends dcNsProcess
             return false;
         }
 
-        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG, [], '');
+        My::addBackendMenuItem(dcAdmin::MENU_BLOG, [], '');
 
         dcCore::app()->addBehaviors([
             'adminPostHeaders'     => fn () => dcPage::jsModuleLoad(My::id() . '/js/post.js'),

@@ -54,7 +54,7 @@ class Backend extends dcNsProcess
             'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
-        My::backendSidebarMenuIcon(dcAdmin::MENU_BLOG);
+        My::addBackendMenuItem(dcAdmin::MENU_BLOG);
 
         return true;
     }

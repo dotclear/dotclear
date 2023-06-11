@@ -29,7 +29,7 @@ class Backend extends dcNsProcess
         }
 
         // Sidebar menu
-        My::backendSidebarMenuIcon();
+        My::addBackendMenuItem();
 
         // Admin behaviors
         dcCore::app()->addBehaviors([
