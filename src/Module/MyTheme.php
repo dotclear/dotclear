@@ -33,7 +33,7 @@ abstract class MyTheme extends MyModule
         if (is_null(dcCore::app()->themes)) {
             dcCore::app()->themes = new dcThemes();
             if (!is_null(dcCore::app()->blog)) {
-                dcCore::app()->loadModules(dcCore::app()->blog->themes_path, null);
+                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
             }
         }
 
@@ -54,7 +54,7 @@ abstract class MyTheme extends MyModule
                         dcCore::app()->auth::PERMISSION_ADMIN,
                     ]), dcCore::app()->blog->id);
 
-            break;
+                break;
         }
 
         return null;
