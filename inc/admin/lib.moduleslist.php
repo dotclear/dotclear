@@ -1503,6 +1503,7 @@ class adminModulesList
 
                 if ($define->updLocked()) {
                     $locked[] = $define->get('name');
+
                     continue;
                 }
 
@@ -1532,7 +1533,7 @@ class adminModulesList
                 dcPage::addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
-            } elseif(!empty($locked)) {
+            } elseif (!empty($locked)) {
                 dcPage::addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
@@ -1816,7 +1817,7 @@ class adminModulesList
         $class = $ns . Autoloader::NS_SEP . $class;
         if (!empty($ns) && class_exists($class)) {
             $has = $class::init();
-        // by file name
+            // by file name
         } else {
             $root = dcCore::app()->plugins->moduleInfo($id, 'root');
             $has  = !empty($root) && file_exists(Path::real($root . DIRECTORY_SEPARATOR . $file));
@@ -2021,7 +2022,7 @@ class adminThemesList extends adminModulesList
                 $class = $define->get('namespace') . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
                 if (!empty($define->get('namespace')) && class_exists($class)) {
                     $config = $class::init();
-                // by file name
+                    // by file name
                 } else {
                     $config = file_exists(Path::real(dcCore::app()->blog->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
                 }
@@ -2312,8 +2313,9 @@ class adminThemesList extends adminModulesList
                 $failed = false;
                 $count  = 0;
                 foreach ($modules as $id) {
-                $disabled = !empty($_POST['disabled'][$id]);;
-                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
+                    $disabled = !empty($_POST['disabled'][$id]);
+                    ;
+                    $define = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
                     if (!$define->isDefined()) {
                         continue;
                     }
@@ -2383,10 +2385,17 @@ class adminThemesList extends adminModulesList
                     $modules = array_keys($_POST['update']);
                 }
 
+                $locked  = [];
                 $count   = 0;
                 $defines = $this->store->getDefines(true);
                 foreach ($defines as $define) {
                     if (!in_array($define->getId(), $modules)) {
+                        continue;
+                    }
+
+                    if ($define->updLocked()) {
+                        $locked[] = $define->get('name');
+
                         continue;
                     }
 
@@ -2409,7 +2418,7 @@ class adminThemesList extends adminModulesList
                     dcPage::addSuccessNotice(
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                     );
-                } elseif(!empty($locked)) {
+                } elseif (!empty($locked)) {
                     dcPage::addWarningNotice(
                         sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
                     );

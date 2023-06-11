@@ -30,7 +30,7 @@ abstract class MyTheme extends MyModule
     protected static function define(): dcModuleDefine
     {
         // load once themes
-        if (is_null(dcCore::app()->themes)) {
+        if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
             dcCore::app()->themes = new dcThemes();
             if (!is_null(dcCore::app()->blog)) {
                 dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
@@ -53,8 +53,6 @@ abstract class MyTheme extends MyModule
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,
                     ]), dcCore::app()->blog->id);
-
-                break;
         }
 
         return null;

@@ -187,7 +187,7 @@ class dcRestMethods
 
         if ($post['store'] == 'themes') {
             // load once themes
-            if (is_null(dcCore::app()->themes)) {
+            if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
                 dcCore::app()->themes = new dcThemes();
                 if (!is_null(dcCore::app()->blog)) {
                     dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);

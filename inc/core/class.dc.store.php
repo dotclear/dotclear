@@ -100,7 +100,7 @@ class dcStore
      *
      * @param    bool    $force        Force query repository
      *
-     * @return    null|bool    True if get feed or cache
+     * @return    bool    True if get feed or cache
      */
     public function check(?bool $force = false): bool
     {
@@ -140,7 +140,7 @@ class dcStore
                             $this->has_new_update = true;
                         }
                     }
-                // it's new
+                    // it's new
                 } else {
                     $new_defines[] = $str_define;
                 }
@@ -167,7 +167,7 @@ class dcStore
                             // if no update from main repository, add third party update
                             if (!isset($upd_versions[$str_define->getId()])) {
                                 $upd_defines[] = $str_define;
-                            // if update from third party repo is more recent than main repo, replace this last one
+                                // if update from third party repo is more recent than main repo, replace this last one
                             } elseif (dcUtils::versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
 

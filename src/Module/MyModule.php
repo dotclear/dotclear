@@ -113,22 +113,16 @@ abstract class MyModule
                     && dcCore::app()->newVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version'))
                 ;
 
-                break;
-
             case self::UNINSTALL: // Uninstallation of module
                 return defined('DC_RC_PATH')
                     && !is_null(dcCore::app()->auth)
                     && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
                 ;
 
-                break;
-
             case self::PREPEND:
             case self::FRONTEND: // Prpend and Frontend context
                 return defined('DC_RC_PATH')
                 ;
-
-                break;
 
             case self::BACKEND: // Backend context
                 return defined('DC_CONTEXT_ADMIN')
@@ -140,8 +134,6 @@ abstract class MyModule
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                     ]), dcCore::app()->blog->id)
                 ;
-
-                break;
 
             case self::MANAGE:
             case self::MENU:
@@ -155,15 +147,11 @@ abstract class MyModule
                     ]), dcCore::app()->blog->id)
                 ;
 
-                break;
-
             case self::CONFIG: // Config page of module
                 return defined('DC_CONTEXT_ADMIN')
                     && !is_null(dcCore::app()->auth)
                     && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
                 ;
-
-                break;
         }
 
         return false;

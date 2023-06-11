@@ -106,7 +106,7 @@ class Manage extends dcNsProcess
                 dcCore::app()->admin->editor->writeFile(
                     dcCore::app()->admin->file['type'], // @phpstan-ignore-line
                     dcCore::app()->admin->file['f'],    // @phpstan-ignore-line
-                    dcCore::app()->admin->file['c']
+                    dcCore::app()->admin->file['c']     // @phpstan-ignore-line
                 );
             }
 
@@ -114,8 +114,8 @@ class Manage extends dcNsProcess
                 // Delete file
 
                 dcCore::app()->admin->editor->deleteFile(
-                    dcCore::app()->admin->file['type'],
-                    dcCore::app()->admin->file['f']
+                    dcCore::app()->admin->file['type'], // @phpstan-ignore-line
+                    dcCore::app()->admin->file['f']     // @phpstan-ignore-line
                 );
                 dcPage::addSuccessNotice(__('The file has been reset.'));
                 Http::redirect(dcCore::app()->admin->getPageURL() . '&' . dcCore::app()->admin->file['type'] . '=' . dcCore::app()->admin->file['f']);

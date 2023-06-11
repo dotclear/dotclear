@@ -18,13 +18,13 @@ use Dotclear\Helper\Network\HttpClient;
 
 class dcStoreReader extends HttpClient
 {
-    /** @var    string  Read nothing */
-    public const READ_FROM_NONE   = -1;
+    /** @var    int  Read nothing */
+    public const READ_FROM_NONE = -1;
 
-    /** @var    string  Read from local cache file */
-    public const READ_FROM_CACHE  = 0;
+    /** @var    int  Read from local cache file */
+    public const READ_FROM_CACHE = 0;
 
-    /** @var    string  Read from repository server */
+    /** @var    int  Read from repository server */
     public const READ_FROM_SOURCE = 1;
 
     /**
@@ -70,7 +70,7 @@ class dcStoreReader extends HttpClient
 
     /**
      * Force query server
-     * 
+     *
      * True: query server even if cache is not expired
      * False: query server if there's no cache or cache is expired
      * Null: query server only if there's no cache (we don't look at ttl)
@@ -111,13 +111,14 @@ class dcStoreReader extends HttpClient
 
         if ($this->cache_dir) {
             return $this->withCache($url);
-        } elseif($this->force === null) {
+        } elseif ($this->force === null) {
             return false;
         } elseif (!$this->getModulesXML($url) || $this->getStatus() != '200') {
             return false;
         }
 
-        static::$read_code = static::READ_FROM_SOURCE;
+        self::$read_code = static::READ_FROM_SOURCE;
+
         return new dcStoreParser($this->getContent());
     }
 
@@ -149,7 +150,7 @@ class dcStoreReader extends HttpClient
      */
     public static function readCode(): int
     {
-        return static::$read_code;
+        return self::$read_code;
     }
 
     /**
@@ -254,7 +255,8 @@ class dcStoreReader extends HttpClient
             $ts             = @filemtime($cached_file);
             if ($ts > strtotime($this->cache_ttl) || $this->force === null) {
                 # Direct cache
-                static::$read_code = static::READ_FROM_CACHE;
+                self::$read_code = static::READ_FROM_CACHE;
+
                 return unserialize(file_get_contents($cached_file));
             }
             $this->setValidator('IfModifiedSince', $ts);
@@ -268,7 +270,8 @@ class dcStoreReader extends HttpClient
                     @Files::touch($cached_file);
                 }
                 # Connection failed - fetched from cache
-                static::$read_code = static::READ_FROM_CACHE;
+                self::$read_code = static::READ_FROM_CACHE;
+
                 return unserialize(file_get_contents($cached_file));
             }
 
@@ -281,12 +284,13 @@ class dcStoreReader extends HttpClient
             case '304':
                 @Files::touch($cached_file);
 
-                static::$read_code = static::READ_FROM_CACHE;
+                self::$read_code = static::READ_FROM_CACHE;
+
                 return unserialize(file_get_contents($cached_file));
                 # Ok, parse feed
             case '200':
-                $modules = new dcStoreParser($this->getContent());
-                static::$read_code = static::READ_FROM_SOURCE;
+                $modules         = new dcStoreParser($this->getContent());
+                self::$read_code = static::READ_FROM_SOURCE;
 
                 try {
                     Files::makeDir(dirname($cached_file), true);

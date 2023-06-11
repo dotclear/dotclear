@@ -165,7 +165,7 @@ class BackendBehaviors
             __('Maintenance') . '</h3>' .
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .
-            '<p><a href="' . My::managerUrl() . '">' . __('Manage tasks') . '</a></p>' .
+            '<p><a href="' . My::manageUrl() . '">' . __('Manage tasks') . '</a></p>' .
             '</div>',
         ]);
     }

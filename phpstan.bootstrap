@@ -25,6 +25,7 @@ define('DC_MAX_UPLOAD_SIZE', 42);
 define('DC_PLUGINS_ROOT', '');
 define('DC_REVERSE_PROXY', false);
 define('DC_SESSION_NAME', '');
+define('DC_START_TIME', 0);
 define('HTTP_PROXY_HOST', null);
 define('HTTP_PROXY_PORT', null);
 
