@@ -463,19 +463,6 @@ dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLF
     unset($u_max_size, $p_max_size);
 })();
 
-# Register supplemental mime types
-Files::registerMimeTypes([
-    // Audio
-    'aac'  => 'audio/aac',
-    'ogg'  => 'audio/ogg',
-    'weba' => 'audio/webm',
-    'm4a'  => 'audio/mp4',
-    // Video
-    'mp4'  => 'video/mp4',
-    'm4p'  => 'video/mp4',
-    'webm' => 'video/webm',
-]);
-
 /*
  * Register local shutdown handler
  */

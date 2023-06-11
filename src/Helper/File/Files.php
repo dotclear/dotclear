@@ -52,31 +52,40 @@ class Files
      * @var        array
      */
     public static $mime_types = [
-        'odt' => 'application/vnd.oasis.opendocument.text',
+
+        // Open-office
         'odp' => 'application/vnd.oasis.opendocument.presentation',
         'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
+        'odt' => 'application/vnd.oasis.opendocument.text',
 
-        'sxw' => 'application/vnd.sun.xml.writer',
+        // Sun
         'sxc' => 'application/vnd.sun.xml.calc',
         'sxi' => 'application/vnd.sun.xml.impress',
+        'sxw' => 'application/vnd.sun.xml.writer',
 
-        'ppt'  => 'application/mspowerpoint',
-        'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        // Microsoft
         'doc'  => 'application/msword',
         'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'ppt'  => 'application/mspowerpoint',
+        'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
         'xls'  => 'application/msexcel',
         'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 
-        'pdf'  => 'application/pdf',
-        'ps'   => 'application/postscript',
-        'ai'   => 'application/postscript',
-        'eps'  => 'application/postscript',
+        // Adobe
+        'ai'  => 'application/postscript',
+        'eps' => 'application/postscript',
+        'pdf' => 'application/pdf',
+        'ps'  => 'application/postscript',
+
+        // Data exchange
         'json' => 'application/json',
         'xml'  => 'application/xml',
 
+        // Executable
         'bin' => 'application/octet-stream',
         'exe' => 'application/octet-stream',
 
+        // Archive
         'bz2' => 'application/x-bzip',
         'deb' => 'application/x-debian-package',
         'gz'  => 'application/x-gzip',
@@ -87,33 +96,43 @@ class Files
         'tgz' => 'application/x-gtar',
         'zip' => 'application/zip',
 
+        // Audio
+        'aac'  => 'audio/aac',
         'aiff' => 'audio/x-aiff',
         'ua'   => 'audio/basic',
-        'mp3'  => 'audio/mpeg3',
+        'm4a'  => 'audio/mp4',
         'mid'  => 'audio/x-midi',
         'midi' => 'audio/x-midi',
-        'ogg'  => 'application/ogg',
+        'mp3'  => 'audio/mpeg3',
+        'oga'  => 'audio/ogg',
+        'ogg'  => 'audio/ogg',
         'ra'   => 'audio/x-pn-realaudio',
         'ram'  => 'audio/x-pn-realaudio',
         'wav'  => 'audio/x-wav',
+        'weba' => 'audio/webm',
         'wma'  => 'audio/x-ms-wma',
 
+        // Flash
         'swf'  => 'application/x-shockwave-flash',
         'swfl' => 'application/x-shockwave-flash',
 
+        // Image
+        'avif' => 'image/avif',
         'bmp'  => 'image/bmp',
         'gif'  => 'image/gif',
         'ico'  => 'image/vnd.microsoft.icon',
         'jpeg' => 'image/jpeg',
-        'jpg'  => 'image/jpeg',
         'jpe'  => 'image/jpeg',
+        'jpg'  => 'image/jpeg',
+        'jxl'  => 'image/jxl',
         'png'  => 'image/png',
         'svg'  => 'image/svg+xml',
-        'tiff' => 'image/tiff',
         'tif'  => 'image/tiff',
+        'tiff' => 'image/tiff',
         'webp' => 'image/webp',
         'xbm'  => 'image/x-xbitmap',
 
+        // Text
         'css'  => 'text/css',
         'csv'  => 'text/csv',
         'html' => 'text/html',
@@ -124,18 +143,21 @@ class Files
         'rtf'  => 'text/richtext',
         'rtx'  => 'text/richtext',
 
+        // Video
+        'avi'  => 'video/x-msvideo',
+        'flv'  => 'video/x-flv',
+        'm4p'  => 'video/mp4',
+        'm4v'  => 'video/x-m4v',
+        'mov'  => 'video/quicktime',
+        'mp4'  => 'video/mp4',
         'mpg'  => 'video/mpeg',
         'mpeg' => 'video/mpeg',
         'mpe'  => 'video/mpeg',
         'ogv'  => 'video/ogg',
+        'qt'   => 'video/quicktime',
         'viv'  => 'video/vnd.vivo',
         'vivo' => 'video/vnd.vivo',
-        'qt'   => 'video/quicktime',
-        'mov'  => 'video/quicktime',
-        'mp4'  => 'video/mp4',
-        'm4v'  => 'video/x-m4v',
-        'flv'  => 'video/x-flv',
-        'avi'  => 'video/x-msvideo',
+        'webm' => 'video/webm',
         'wmv'  => 'video/x-ms-wmv',
     ];
 

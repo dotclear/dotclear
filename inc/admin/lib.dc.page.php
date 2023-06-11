@@ -712,6 +712,11 @@ class dcPage
                 $prof_url .= 'XDEBUG_PROFILE';
                 $res      .= '<p><a href="' . Html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
             }
+        } else {
+            $start    = DC_START_TIME;
+            $end      = microtime(true);
+            $duration = (int) (($end - $start) * 1000); // in milliseconds
+            $res .= sprintf('<p>Page construction time (without asynchronous/secondary HTTP requests): %dms</p>', $duration);
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .

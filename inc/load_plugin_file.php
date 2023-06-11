@@ -148,7 +148,23 @@ if ((!defined('DC_DEV') || !DC_DEV) && (!defined('DC_DEBUG') || !DC_DEBUG)) {
     }
 }
 
-Http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=…
+// Define TTL cache (one week by default)
+$ttl = 7 * 24 * 60 * 60;
+/** @var array<string> no cache for these extensions in dev/debug mode */
+$no_cache_ext_dev = [
+    'css',
+    'js',
+    'mjs',
+    'html',
+];
+if (defined('DC_DEV') && DC_DEV || defined('DC_DEBUG') && DC_DEBUG) {
+    if (!in_array($ext, $no_cache_ext_dev)) {
+        // No cache for code resource (js, css, …) in dev/debug mode
+        $ttl = 0;
+    }
+}
+
+Http::$cache_max_age = $ttl;
 Http::cache([...[$plugin_file], ...get_included_files()]);
 
 header('Content-Type: ' . Files::getMimeType($plugin_file));
