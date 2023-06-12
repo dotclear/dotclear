@@ -119,6 +119,11 @@ class dcModuleDefine
         // modules list specifics
         'sid'   => '',
         'sname' => '',
+
+        // special widgets
+        'widgettitleformat'     => '',
+        'widgetsubtitleformat'  => '',
+        'widgetcontainerformat' => '',
     ];
 
     /**
