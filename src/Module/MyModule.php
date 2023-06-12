@@ -230,6 +230,7 @@ abstract class MyModule
      * Return a HTML CSS resource load (usually in HTML head).
      *
      * Resource MUST be in 'css' module subfolder.
+     * or put a / at the beginning to use another path, ex: My::cssLoad('/lib/external.css');
      *
      * @param   string          $resource   The resource
      * @param   string          $media      The media
@@ -239,13 +240,16 @@ abstract class MyModule
      */
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
-        return dcUtils::cssLoad(self::fileURL('css/' . $resource), $media, $version);
+        $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
+
+        return dcUtils::cssLoad(self::fileURL($base . $resource), $media, $version);
     }
 
     /**
      * Return a HTML JS resource load (usually in HTML head).
      *
-     * Resource MUST be in 'js' module subfolder.
+     * Resource MUST be in 'js' module subfolder
+     * or put a / at the beginning to use another path, ex: My::jsLoad('/lib/external.js');
      *
      * @param   string          $resource   The resource
      * @param   null|string     $version    The version
@@ -255,7 +259,9 @@ abstract class MyModule
      */
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
-        return dcUtils::jsLoad(self::fileURL('js/' . $resource), $version, $module);
+        $base = substr($resource, 0, 1) === '/' ? '' : 'js/';
+
+        return dcUtils::jsLoad(self::fileURL($base . $resource), $version, $module);
     }
 
     /**
