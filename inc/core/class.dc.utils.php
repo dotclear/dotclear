@@ -185,7 +185,7 @@ class dcUtils
     }
 
     /**
-     * Return a HTML CSS resource (from module) load (usually in HTML head)
+     * @deprecated since 2.27 use My::cssLoad()
      *
      * @param      string       $src        The source
      * @param      string       $media      The media
@@ -195,6 +195,8 @@ class dcUtils
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
+        dcDeprecated::set('My::cssLoad()', '2.27');
+
         return self::cssLoad(dcCore::app()->blog->getPF($src), $media, $version);
     }
 
@@ -218,7 +220,7 @@ class dcUtils
     }
 
     /**
-     * Return a HTML JS resource (from a module) load (usually in HTML head)
+     * @deprecated since 2.27 use My::jsLoad()
      *
      * @param      string       $src        The source
      * @param      string       $version    The version
@@ -228,6 +230,8 @@ class dcUtils
      */
     public static function jsModuleLoad(string $src, ?string $version = null, bool $module = false): string
     {
+        dcDeprecated::set('My::jsLoad()', '2.27');
+
         return self::jsLoad(dcCore::app()->blog->getPF($src), $version);
     }
 

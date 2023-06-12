@@ -836,20 +836,6 @@ class dcPage
     }
 
     /**
-     * Wrapper for cssLoad to be used by module
-     *
-     * @param      string       $src         The source
-     * @param      string       $media       The media
-     * @param      null|string  $version     The version
-     *
-     * @return     string
-     */
-    public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = ''): string
-    {
-        return self::cssLoad(urldecode(self::getPF($src)), $media, $version);
-    }
-
-    /**
      * Get HTML code to load JS script
      *
      * @param      string       $src         The source
@@ -868,20 +854,6 @@ class dcPage
         }
 
         return '';
-    }
-
-    /**
-     * Wrapper for jsLoad to be used by module
-     *
-     * @param      string       $src         The source
-     * @param      null|string  $version     The version
-     * @param      bool         $module      Load source as JS module
-     *
-     * @return     string
-     */
-    public static function jsModuleLoad(string $src, ?string $version = '', bool $module = false): string
-    {
-        return self::jsLoad(urldecode(self::getPF($src)), $version, $module);
     }
 
     /**
@@ -1484,5 +1456,37 @@ class dcPage
         dcDeprecated::set('', '2.11', '2.27');
 
         return '';
+    }
+
+    /**
+     * @deprecated since 2.27 use My::cssLoad()
+     *
+     * @param      string       $src         The source
+     * @param      string       $media       The media
+     * @param      null|string  $version     The version
+     *
+     * @return     string
+     */
+    public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = ''): string
+    {
+        dcDeprecated::set('My::cssLoad()', '2.27');
+
+        return self::cssLoad(urldecode(self::getPF($src)), $media, $version);
+    }
+
+    /**
+     * @deprecated since 2.27 use My::cssLoad()
+     *
+     * @param      string       $src         The source
+     * @param      null|string  $version     The version
+     * @param      bool         $module      Load source as JS module
+     *
+     * @return     string
+     */
+    public static function jsModuleLoad(string $src, ?string $version = '', bool $module = false): string
+    {
+        dcDeprecated::set('My::jsLoad()', '2.27');
+
+        return self::jsLoad(urldecode(self::getPF($src)), $version, $module);
     }
 }
