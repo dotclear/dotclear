@@ -241,6 +241,7 @@ class dcModules
         ];
 
         $modules = $this->getDefines();
+        $optionnals = [];
 
         foreach ($modules as $module) {
             // module has required modules
@@ -252,13 +253,13 @@ class dcModules
                     // optionnal minimum dependancy
                     $optionnal = false;
                     if (substr($dep[0], -1) == '?') {
-                        $optionnal = true;
                         $dep[0] = substr($dep[0], 0, -1);
+                        $optionnals[$module->getId()][$dep[0]] = true;
                     }
                     // search required module 
                     $found = $this->getDefine($dep[0]);
                     // grab missing dependencies
-                    if (!$found->isDefined() && !isset($special[$dep[0]]) && !$optionnal) {
+                    if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
                         // module not present, nor php or dotclear, nor optionnal
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is not installed'), $dep[0]));
                     } elseif ((count($dep) > 1) && version_compare((isset($special[$dep[0]]) ? $special[$dep[0]] : $found->version), $dep[1]) == -1) {
@@ -290,6 +291,9 @@ class dcModules
         foreach ($modules as $module) {
             if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
                 foreach ($module->getImplies() as $im) {
+                    if (isset($optionnals[$im][$module->getId()])) {
+                        continue;
+                    }
                     foreach ($this->getDefines(['id' => $im]) as $found) {
                         if ($found->state == dcModuleDefine::STATE_ENABLED) {
                             $module->addUsing($im);
