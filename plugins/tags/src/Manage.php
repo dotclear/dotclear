@@ -62,7 +62,7 @@ class Manage extends dcNsProcess
 
         dcPage::openModule(
             My::name(),
-            dcPage::cssModuleLoad(My::id() . '/css/style.css')
+            My::cssLoad('style.css')
         );
 
         echo

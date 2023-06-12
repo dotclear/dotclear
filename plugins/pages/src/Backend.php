@@ -17,7 +17,6 @@ use dcAdmin;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
@@ -85,7 +84,7 @@ class Backend extends dcNsProcess
                     'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
                 ]);
             },
-            'adminUsersActionsHeaders' => fn () => dcPage::jsModuleLoad(My::id() . '/js/_users_actions.js'),
+            'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions.js'),
             'initWidgets'              => [Widgets::class, 'initWidgets'],
             'initDefaultWidgets'       => [Widgets::class, 'initDefaultWidgets'],
         ]);

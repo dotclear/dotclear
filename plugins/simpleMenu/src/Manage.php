@@ -465,7 +465,7 @@ class Manage extends dcNsProcess
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
                 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-                dcPage::jsModuleLoad('simpleMenu/js/simplemenu.js');
+                My::jsLoad('simplemenu.js');
         }
         $head .= dcPage::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 

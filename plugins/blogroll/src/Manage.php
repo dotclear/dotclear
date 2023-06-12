@@ -19,7 +19,6 @@ use dcNsProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use initBlogroll;
 use form;
 
 class Manage extends dcNsProcess
@@ -229,7 +228,7 @@ class Manage extends dcNsProcess
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
                 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-                dcPage::jsModuleLoad(My::id() . '/js/blogroll.js');
+                My::jsLoad('blogroll.js');
         }
         $head .= dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
 

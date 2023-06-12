@@ -77,9 +77,9 @@ class Manage extends dcNsProcess
 
         dcPage::openModule(
             My::name(),
-            dcPage::cssModuleLoad(My::id() . '/css/style.css') .
+            My::cssLoad('style.css') .
             dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
-            dcPage::jsModuleLoad(My::id() . '/js/script.js')
+            My::jsLoad('script.js')
         );
 
         if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null) {

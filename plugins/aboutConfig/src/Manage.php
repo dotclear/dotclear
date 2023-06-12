@@ -111,7 +111,7 @@ class Manage extends dcNsProcess
         dcPage::openModule(
             My::name(),
             dcPage::jsPageTabs(dcCore::app()->admin->part) .
-            dcPage::jsModuleLoad(My::id() . '/js/index.js')
+            My::jsLoad('index.js')
         );
 
         echo

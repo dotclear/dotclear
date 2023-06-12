@@ -204,7 +204,7 @@ abstract class MyModule
 
     /**
      * Returns URL of a module file.
-     * 
+     *
      * In frontend it returns public URL,
      * In backend it returns admin URL (or public with $frontend=true)
      *
@@ -215,11 +215,15 @@ abstract class MyModule
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if (!defined('DC_CONTEXT_ADMIN') || !DC_CONTEXT_ADMIN || $frontend) {
-            return is_null(dcCore::app()->blog) ? '' : dcCore::app()->blog->getPF(self::id() . '/' . $resource);
-        } else {
-            return is_null(dcCore::app()->adminurl) ? '' : dcCore::app()->adminurl->get('load.plugin.file', ['pf' => self::id() . '/' . $resource]);
+        if (!empty($resource)) {
+            // cope with root folder URL (ie dcKEditor)
+            $resource = '/' . $resource;
         }
+        if (defined('DC_CONTEXT_ADMIN') && DC_CONTEXT_ADMIN && !$frontend) {
+            return is_null(dcCore::app()->adminurl) ? '' : urldecode(dcCore::app()->adminurl->get('load.plugin.file', ['pf' => self::id() . $resource]));
+        }
+
+        return is_null(dcCore::app()->blog) ? '' : urldecode(dcCore::app()->blog->getQmarkURL() . 'pf=' . self::id() . $resource);
     }
 
     /**
@@ -235,7 +239,7 @@ abstract class MyModule
      */
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
-        return dcUtils::cssLoad(urldecode(self::fileURL('css/' . $resource)), $media, $version);
+        return dcUtils::cssLoad(self::fileURL('css/' . $resource), $media, $version);
     }
 
     /**
@@ -251,7 +255,7 @@ abstract class MyModule
      */
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
-        return dcUtils::jsLoad(urldecode(self::fileURL('js/' . $resource)), $version, $module);
+        return dcUtils::jsLoad(self::fileURL('js/' . $resource), $version, $module);
     }
 
     /**

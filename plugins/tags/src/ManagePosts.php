@@ -128,12 +128,12 @@ class ManagePosts extends dcNsProcess
 
         dcPage::openModule(
             My::name(),
-            dcPage::cssModuleLoad(My::id() . '/css/style.css') .
+            My::cssLoad('style.css') .
             dcPage::jsLoad('js/_posts_list.js') .
             dcPage::jsJson('posts_tags_msg', [
                 'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(dcCore::app()->admin->tag)),
             ]) .
-            dcPage::jsModuleLoad(My::id() . '/js/posts.js') .
+            My::jsLoad('posts.js') .
             dcPage::jsConfirmClose('tag_rename')
         );
 

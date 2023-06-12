@@ -19,7 +19,6 @@ use dcPage;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
-use initPages;
 
 class Manage extends dcNsProcess
 {
@@ -105,7 +104,7 @@ class Manage extends dcNsProcess
             dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
             dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
-            dcPage::jsModuleLoad(My::id() . '/js/list.js')
+            My::jsLoad('list.js')
         );
 
         echo

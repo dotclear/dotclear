@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\attachments;
 
 use dcCore;
-use dcPage;
 use dcNsProcess;
 
 class Backend extends dcNsProcess
@@ -32,10 +31,10 @@ class Backend extends dcNsProcess
         dcCore::app()->addBehaviors([
             'adminPostFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
             'adminPostAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
-            'adminPostHeaders'   => fn () => dcPage::jsModuleLoad('attachments/js/post.js'),
+            'adminPostHeaders'   => fn () => My::jsLoad('post.js'),
             'adminPageFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
             'adminPageAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
-            'adminPageHeaders'   => fn () => dcPage::jsModuleLoad('attachments/js/post.js'),
+            'adminPageHeaders'   => fn () => My::jsLoad('post.js'),
             'adminPageHelpBlock' => [BackendBehaviors::class, 'adminPageHelpBlock'],
         ]);
 

@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\blogroll;
 use dcAdmin;
 use dcCore;
 use dcFavorites;
-use dcPage;
 use dcNsProcess;
 use initBlogroll;
 
@@ -48,7 +47,7 @@ class Backend extends dcNsProcess
                     ]),
                 ]);
             },
-            'adminUsersActionsHeaders' => fn () => dcPage::jsModuleLoad(My::id() . '/js/_users_actions.js'),
+            'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions.js'),
 
             'initWidgets'        => [Widgets::class, 'initWidgets'],
             'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],

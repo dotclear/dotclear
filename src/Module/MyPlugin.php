@@ -20,7 +20,6 @@ use dcAdmin;
 use dcCore;
 use dcMenu;
 use dcModuleDefine;
-use dcPage;
 
 /**
  * Plugin module helper.
@@ -66,10 +65,10 @@ abstract class MyPlugin extends MyModule
         $icons = [];
         if (defined('DC_CONTEXT_ADMIN')) {
             if (file_exists(static::path() . DIRECTORY_SEPARATOR . 'icon.svg')) {
-                $icons[] = urldecode(dcPage::getPF(static::id() . '/icon.svg'));
+                $icons[] = static::fileURL('icon.svg');
             }
             if (file_exists(static::path() . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
-                $icons[] = urldecode(dcPage::getPF(static::id() . '/icon-dark.svg'));
+                $icons[] = static::fileURL('icon-dark.svg');
             }
         }
 
@@ -83,8 +82,8 @@ abstract class MyPlugin extends MyModule
      *
      * @return  string
      */
-    public static function manageUrl(array $params = []): string
+    public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
-        return defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->adminurl) ? dcCore::app()->adminurl->get('admin.plugin.' . static::id(), $params) : '';
+        return defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->adminurl) ? dcCore::app()->adminurl->get('admin.plugin.' . static::id(), $params, $separator) : '';
     }
 }

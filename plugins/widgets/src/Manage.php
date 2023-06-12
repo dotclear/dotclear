@@ -234,18 +234,18 @@ class Manage extends dcNsProcess
             $rte_flag = $rte_flags['widgets_text'];
         }
 
-        $head = dcPage::cssModuleLoad(My::id()  . '/css/style.css') .
+        $head = My::cssLoad('style.css') .
             dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
             dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             dcPage::jsJson('widgets', [
                 'widget_noeditor' => ($rte_flag ? 0 : 1),
                 'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
             ]) .
-            dcPage::jsModuleLoad(My::id()  . '/js/widgets.js');
+            My::jsLoad('widgets.js');
 
         $user_dm_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
-            $head .= dcPage::jsModuleLoad(My::id()  . '/js/dragdrop.js');
+            $head .= My::jsLoad('dragdrop.js');
         }
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string

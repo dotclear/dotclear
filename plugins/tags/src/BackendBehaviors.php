@@ -52,7 +52,7 @@ class BackendBehaviors
                     'url'   => $tag_url,
                 ],
             ]) .
-            dcPage::jsModuleLoad('tags/js/legacy-post.js');
+            My::jsLoad('legacy-post.js');
         }
 
         // dcCKEditor
@@ -77,7 +77,7 @@ class BackendBehaviors
         $extraPlugins[] = [
             'name'   => 'dctags',
             'button' => 'dcTags',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=' . My::id() . '/js/ckeditor-tags-plugin.js',
+            'url'    => DC_ADMIN_URL . My::fileURL('js/ckeditor-tags-plugin.js'),
         ];
     }
 
@@ -278,8 +278,8 @@ class BackendBehaviors
                 dcPage::jsJson('editor_tags_options', $editor_tags_options) .
                 dcPage::jsJson('editor_tags_msg', $msg) .
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-                dcPage::jsModuleLoad(My::id() . '/js/posts_actions.js') .
-                dcPage::cssModuleLoad(My::id() . '/css/style.css')
+                My::jsLoad('posts_actions.js') .
+                My::cssLoad('style.css')
             );
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .
@@ -411,8 +411,8 @@ class BackendBehaviors
         dcPage::jsJson('editor_tags_options', $editor_tags_options) .
         dcPage::jsJson('editor_tags_msg', $msg) .
         dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-        dcPage::jsModuleLoad(My::id() . '/js/post.js') .
-        dcPage::cssModuleLoad(My::id() . '/css/style.css');
+        My::jsLoad('post.js') .
+        My::cssLoad('style.css');
     }
 
     /**

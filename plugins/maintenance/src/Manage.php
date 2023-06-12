@@ -172,10 +172,10 @@ class Manage extends dcNsProcess
         // Display page
 
         $head = dcPage::jsPageTabs(dcCore::app()->admin->tab) .
-            dcPage::jsModuleLoad(My::id() . '/js/settings.js');
+            My::jsLoad('settings.js');
         if (dcCore::app()->admin->task && dcCore::app()->admin->task->ajax()) {
             $head .= dcPage::jsJson('maintenance', ['wait' => __('Please wait...')]) .
-                dcPage::jsModuleLoad(My::id() . '/js/dc.maintenance.js');
+                My::jsLoad('dc.maintenance.js');
         }
         $head .= dcCore::app()->admin->maintenance->getHeaders();
 
