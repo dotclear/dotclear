@@ -412,7 +412,7 @@ class ManagePage extends dcNsProcess
             dcPage::jsModal() .
             dcPage::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
             dcPage::jsLoad('js/_post.js') .
-            dcPage::jsModuleLoad(My::id() . '/js/page.js') .
+            My::jsLoad('page.js') .
             $admin_post_behavior .
             dcPage::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --

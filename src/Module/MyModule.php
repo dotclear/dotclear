@@ -23,6 +23,7 @@ namespace Dotclear\Module;
 use dcCore;
 use dcModules;
 use dcModuleDefine;
+use dcUtils;
 use Dotclear\Helper\L10n;
 use Exception;
 
@@ -199,6 +200,62 @@ abstract class MyModule
     final public static function l10n(string $process): void
     {
         L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', dcCore::app()->lang, $process]));
+    }
+
+    /**
+     * Returns URL of a module file.
+     *
+     * In frontend it returns public URL,
+     * In backend it returns admin URL (or public with $frontend=true)
+     *
+     * @param   string  $resource   The resource file
+     * @param   bool    $frontend   Force to get frontend (public) URL even in backend
+     *
+     * @return  string
+     */
+    public static function fileURL(string $resource, bool $frontend = false): string
+    {
+        if (!empty($resource)) {
+            // cope with root folder URL (ie dcKEditor)
+            $resource = '/' . $resource;
+        }
+        if (defined('DC_CONTEXT_ADMIN') && DC_CONTEXT_ADMIN && !$frontend) {
+            return is_null(dcCore::app()->adminurl) ? '' : urldecode(dcCore::app()->adminurl->get('load.plugin.file', ['pf' => self::id() . $resource]));
+        }
+
+        return is_null(dcCore::app()->blog) ? '' : urldecode(dcCore::app()->blog->getQmarkURL() . 'pf=' . self::id() . $resource);
+    }
+
+    /**
+     * Return a HTML CSS resource load (usually in HTML head).
+     *
+     * Resource MUST be in 'css' module subfolder.
+     *
+     * @param   string          $resource   The resource
+     * @param   string          $media      The media
+     * @param   null|string     $version    The version
+     *
+     * @return  string
+     */
+    public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
+    {
+        return dcUtils::cssLoad(self::fileURL('css/' . $resource), $media, $version);
+    }
+
+    /**
+     * Return a HTML JS resource load (usually in HTML head).
+     *
+     * Resource MUST be in 'js' module subfolder.
+     *
+     * @param   string          $resource   The resource
+     * @param   null|string     $version    The version
+     * @param   bool            $module     Load source as JS module
+     *
+     * @return  string
+     */
+    public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
+    {
+        return dcUtils::jsLoad(self::fileURL('js/' . $resource), $version, $module);
     }
 
     /**

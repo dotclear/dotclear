@@ -34,9 +34,9 @@ class BackendBehaviors
             return '';
         }
 
-        $config_js = 'plugin.php?p=' . My::id() . '&config=1';
+        $config_js = ['config' => '1'];
         if (!empty($context)) {
-            $config_js .= '&context=' . $context;
+            $config_js['context'] = $context;
         }
 
         $alt_tags = new ArrayObject($tags);
@@ -49,11 +49,11 @@ class BackendBehaviors
             'ckeditor_tags_context' => [$context => (array) $alt_tags],
             'admin_base_url'        => DC_ADMIN_URL,
             'base_url'              => dcCore::app()->blog->host,
-            'dcckeditor_plugin_url' => DC_ADMIN_URL . 'index.php?pf=' . My::id(),
+            'dcckeditor_plugin_url' => DC_ADMIN_URL . My::fileURL(''),
             'user_language'         => dcCore::app()->auth->getInfo('user_lang'),
         ]) .
         dcPage::jsJson('ck_editor_var', [
-            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . 'index.php?pf=' . My::id() . '/js/ckeditor/',
+            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . My::fileURL('js/ckeditor/'),
         ]) .
         dcPage::jsJson('ck_editor_msg', [
             'img_select_title'     => __('Media chooser'),
@@ -64,10 +64,10 @@ class BackendBehaviors
             'img_title'            => __('External image'),
             'url_cannot_be_empty'  => __('URL field cannot be empty.'),
         ]) .
-        dcPage::jsModuleLoad(My::id() . '/js/_post_editor.js') .
-        dcPage::jsModuleLoad(My::id() . '/js/ckeditor/ckeditor.js') .
-        dcPage::jsModuleLoad(My::id() . '/js/ckeditor/adapters/jquery.js') .
-        dcPage::jsLoad($config_js);
+        My::jsLoad('_post_editor.js') .
+        My::jsLoad('ckeditor/ckeditor.js') .
+        My::jsLoad('ckeditor/adapters/jquery.js') .
+        dcPage::jsLoad(My::manageURL($config_js, '&'));
     }
 
     /**
@@ -83,7 +83,7 @@ class BackendBehaviors
             return '';
         }
 
-        return dcPage::jsModuleLoad(My::id() . '/js/popup_media.js');
+        return My::jsLoad('popup_media.js');
     }
 
     /**
@@ -99,7 +99,7 @@ class BackendBehaviors
             return '';
         }
 
-        return dcPage::jsModuleLoad(My::id() . '/js/popup_link.js');
+        return My::jsLoad('popup_link.js');
     }
 
     /**
@@ -115,7 +115,7 @@ class BackendBehaviors
             return '';
         }
 
-        return dcPage::jsModuleLoad(My::id() . '/js/popup_posts.js');
+        return My::jsLoad('popup_posts.js');
     }
 
     /**

@@ -16,7 +16,6 @@ use Dotclear\Database\Cursor;
 use dcAuth;
 use dcBlog;
 use dcCore;
-use dcPage;
 use Dotclear\Database\MetaRecord;
 use initAntispam;
 
@@ -132,7 +131,7 @@ class Antispam extends initAntispam
      */
     public static function dashboardHeaders(): string
     {
-        return dcPage::jsModuleLoad('antispam/js/dashboard.js');
+        return My::jsLoad('dashboard.js');
     }
 
     /**

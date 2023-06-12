@@ -13,9 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use Exception;
-use adminThemesList;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use form;
 
@@ -32,7 +30,7 @@ class BackendBehaviors
     {
         if (dcCore::app()->auth->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
-            if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') 
+            if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path')
                 || !dcCore::app()->themes->getDefine($id)->distributed
             ) {
                 return '<p><a href="' . My::manageUrl() . '" class="button">' . __('Edit theme files') . '</a></p>';
@@ -117,7 +115,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
 </textarea>';
         echo
         dcPage::jsJson('theme_editor_current', ['theme' => $current_theme]) .
-        dcPage::jsModuleLoad(My::id() . '/js/theme.js');
+        My::jsLoad('theme.js');
         echo '</div>';
         echo '</div>';
     }

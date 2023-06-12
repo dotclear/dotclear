@@ -17,7 +17,6 @@ use dcAdmin;
 use dcCore;
 use dcFavorites;
 use dcNsProcess;
-use dcPage;
 
 class Backend extends dcNsProcess
 {
@@ -35,7 +34,7 @@ class Backend extends dcNsProcess
         My::addBackendMenuItem(dcAdmin::MENU_BLOG, [], '');
 
         dcCore::app()->addBehaviors([
-            'adminPostHeaders'     => fn () => dcPage::jsModuleLoad(My::id() . '/js/post.js'),
+            'adminPostHeaders'     => fn () => My::jsLoad('post.js'),
             'adminPostFormItems'   => [BackendBehaviors::class, 'pingsFormItems'],
             'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],
             'adminAfterPostUpdate' => [BackendBehaviors::class, 'doPings'],

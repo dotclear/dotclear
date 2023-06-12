@@ -134,8 +134,8 @@ class Manage extends dcNsProcess
                 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
         $head .= dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
-            dcPage::jsModuleLoad(My::id() . '/js/antispam.js') .
-            dcPage::cssModuleLoad(My::id() . '/css/style.css');
+            My::jsLoad('antispam.js') .
+            My::cssLoad('style.css');
 
         dcPage::openModule($title, $head);
 
