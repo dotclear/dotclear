@@ -9,16 +9,6 @@
 
 use Dotclear\Helper\Html\Html;
 
-if (!empty($_GET['pf'])) {
-    require __DIR__ . '/../inc/load_plugin_file.php';
-    exit;
-}
-
-if (!empty($_GET['vf'])) {
-    require __DIR__ . '/../inc/load_var_file.php';
-    exit;
-}
-
 require __DIR__ . '/../inc/admin/prepend.php';
 
 class adminIndex

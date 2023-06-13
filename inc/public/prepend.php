@@ -9,18 +9,6 @@
 define('DC_CONTEXT_PUBLIC', true);
 define('DC_PUBLIC_CONTEXT', true); // For dyslexic devs ;-)
 
-if (!empty($_GET['pf'])) {
-    // A plugin file (resource) is requested
-    require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'load_plugin_file.php';
-    exit;
-}
-
-if (!empty($_GET['vf'])) {
-    // A var file (resource) is requested
-    require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'load_var_file.php';
-    exit;
-}
-
 if (!isset($_SERVER['PATH_INFO'])) {
     $_SERVER['PATH_INFO'] = '';
 }
