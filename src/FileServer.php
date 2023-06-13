@@ -162,12 +162,8 @@ class FileServer
 
         unset($_GET['pf'], $_GET['vf']);
 
-        if (!defined('DC_PLUGINS_ROOT')) {
+        if (!defined('DC_ROOT') || !defined('DC_PLUGINS_ROOT') || !defined('DC_VAR')) {
             self::p404();
-        }
-
-        if (!defined('DC_VAR')) {
-            define('DC_VAR', __DIR__ . '/var');
         }
 
         if (!in_array($this->extension, self::DEFAULT_EXTENSIONS)) {
