@@ -8,6 +8,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\FileServer;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Date;
@@ -356,6 +357,9 @@ if (!is_dir(DC_VAR)) {
         exit;
     }
 }
+
+// Check and serve plugins and var files. (from ?pf= and ?vf= URI)
+FileServer::check();
 
 // REST server watchdog file (used to enable/disable REST services during last phase of Dotclear upgrade)
 if (!defined('DC_UPGRADE')) {
