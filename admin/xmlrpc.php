@@ -15,7 +15,8 @@ class adminXMLRPCpage
 {
     public static function init()
     {
-        if (isset($_SERVER['PATH_INFO'])) {
+        $blog_id = '';
+        if (!empty($_SERVER['PATH_INFO'])) {
             $blog_id = trim((string) $_SERVER['PATH_INFO']);
             $blog_id = preg_replace('#^/#', '', $blog_id);
         } elseif (!empty($_GET['b'])) {
