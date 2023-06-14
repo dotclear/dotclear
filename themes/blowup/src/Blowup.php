@@ -96,9 +96,7 @@ class Blowup
 
     public static function themeURL()
     {
-        return preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url) ?
-            Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme) :
-            Http::concatURL(dcCore::app()->blog->url, \dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme);
+        return My::fileURL('');
     }
 
     public static function cssPath()

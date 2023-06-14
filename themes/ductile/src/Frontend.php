@@ -175,7 +175,7 @@ class Frontend extends dcNsProcess
 
     public static function ductileLogoSrcHelper(): string
     {
-        $img_url = dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/logo.png';
+        $img_url = My::fileURL('img/logo.png');
 
         $s = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_style');
         if ($s === null) {
@@ -194,7 +194,7 @@ class Frontend extends dcNsProcess
                 $img_url = $s['logo_src'];
             } else {
                 // relative URL (base = img folder of ductile theme)
-                $img_url = dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/' . $s['logo_src'];
+                $img_url = My::fileURL('img/' . $s['logo_src']);
             }
         }
 
@@ -218,7 +218,7 @@ class Frontend extends dcNsProcess
     {
         $res     = '';
         $default = false;
-        $img_url = dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/';
+        $img_url = My::fileURL('img/');
 
         $s = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_stickers');
 
@@ -278,14 +278,9 @@ class Frontend extends dcNsProcess
         '<style type="text/css">' . "\n" .
         '/* ' . __('Additionnal style directives') . ' */' . "\n" .
         self::ductileStyleHelper() .
-            "</style>\n";
-
-        echo
-        '<script src="' .
-        dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme .
-            '/ductile.js"></script>' . "\n";
-
-        echo self::ductileWebfontHelper();
+            "</style>\n" .
+        My::jsLoad('/ductile.js') .
+        self::ductileWebfontHelper();
     }
 
     public static function ductileWebfontHelper()

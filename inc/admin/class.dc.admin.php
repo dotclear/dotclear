@@ -41,6 +41,10 @@ class dcAdmin
         if (!defined('DC_CONTEXT_ADMIN')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
+
+        // HTTP/1.1
+        header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
+        header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
     }
 
     /**

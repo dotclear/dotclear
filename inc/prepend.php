@@ -155,6 +155,10 @@ define('CLI_MODE', PHP_SAPI == 'cli');
     }
 })();
 
+if (!isset($_SERVER['PATH_INFO'])) {
+    $_SERVER['PATH_INFO'] = '';
+}
+
 if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {

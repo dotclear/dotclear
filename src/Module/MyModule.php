@@ -215,8 +215,7 @@ abstract class MyModule
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if (!empty($resource)) {
-            // cope with root folder URL (ie dcKEditor)
+        if (!empty($resource) && substr($resource, 0, 1) !== '/') {
             $resource = '/' . $resource;
         }
         if (defined('DC_CONTEXT_ADMIN') && DC_CONTEXT_ADMIN && !$frontend) {
@@ -242,7 +241,7 @@ abstract class MyModule
     {
         $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
 
-        return dcUtils::cssLoad(self::fileURL($base . $resource), $media, $version);
+        return dcUtils::cssLoad(static::fileURL($base . $resource), $media, $version);
     }
 
     /**
@@ -261,7 +260,7 @@ abstract class MyModule
     {
         $base = substr($resource, 0, 1) === '/' ? '' : 'js/';
 
-        return dcUtils::jsLoad(self::fileURL($base . $resource), $version, $module);
+        return dcUtils::jsLoad(static::fileURL($base . $resource), $version, $module);
     }
 
     /**
