@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
@@ -71,7 +72,7 @@ class dcAdmin
                     Http::redirect(dcCore::app()->adminurl->get('admin.auth', $params));
                 }
             } catch (Exception $e) {
-                __error(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), 20);
+                new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
             }
 
             # Check nonce from POST requests
