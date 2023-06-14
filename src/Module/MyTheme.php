@@ -19,6 +19,7 @@ namespace Dotclear\Module;
 use dcCore;
 use dcModuleDefine;
 use dcThemes;
+use Dotclear\Helper\Network\Http;
 
 /**
  * Theme module helper.
@@ -56,5 +57,32 @@ abstract class MyTheme extends MyModule
         }
 
         return null;
+    }
+
+    /**
+     * Returns URL of a theme file.
+     *
+     * Always returns frontend (public) URL
+     *
+     * @param   string  $resource   The resource file
+     * @param   bool    $frontend   (not used for themes)
+     *
+     * @return  string
+     */
+    public static function fileURL(string $resource, bool $frontend = false): string
+    {
+        if (!empty($resource) && substr($resource, 0, 1) !== '/') {
+            $resource = '/' . $resource;
+        }
+
+        if (is_null(dcCore::app()->blog)) {
+            return '';
+        }
+
+        $base = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
+            Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . self::id()) : 
+            Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . self::id());
+
+        return  $base . $resource;
     }
 }

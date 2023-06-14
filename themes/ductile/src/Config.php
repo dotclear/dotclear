@@ -417,7 +417,7 @@ class Config extends dcNsProcess
                 'class'   => 'position',
             ]) .
             form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>' .
-            '<td>' . form::hidden(['sticker_image[]'], $v['image']) . '<img src="' . dcCore::app()->admin->img_url . $v['image'] . '" alt="' . $v['image'] . '" /> ' . '</td>' .
+            '<td>' . form::hidden(['sticker_image[]'], $v['image']) . '<img src="' . My::fileURL('img/' . $v['image']) . '" alt="' . $v['image'] . '" /> ' . '</td>' .
             '<td scope="row">' . form::field(['sticker_label[]', 'dsl-' . $i], 20, 255, $v['label']) . '</td>' .
             '<td>' . form::field(['sticker_url[]', 'dsu-' . $i], 40, 255, $v['url']) . '</td>' .
             '</tr>';
