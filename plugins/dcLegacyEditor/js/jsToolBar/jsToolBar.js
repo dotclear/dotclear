@@ -247,7 +247,7 @@ class jsButton {
     if (this.shortkey) {
       if (this.shortkey_name) button.title += ` (CTRL+${this.shortkey_name})`;
       this.scope.textarea.addEventListener('keydown', (event) => {
-        if (event.code === this.shortkey && event.ctrlKey) {
+        if (event.code === this.shortkey && event.ctrlKey && !event.altKey && !event.metaKey) {
           // Fire click
           button.click();
           event.preventDefault();
