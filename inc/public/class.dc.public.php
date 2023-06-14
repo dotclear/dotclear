@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
@@ -96,19 +97,19 @@ class dcPublic
                         }
                     }
                 })();
-                __error(__('Database problem'), DC_DEBUG ?
+                new Fault(__('Database problem'), DC_DEBUG ?
             __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-            __('Something went wrong while trying to read the database.'), 620);
+            __('Something went wrong while trying to read the database.'), Fault::DATABASE_ISSUE);
             }
         }
 
         if (dcCore::app()->blog->id == null) {
-            __error(__('Blog is not defined.'), __('Did you change your Blog ID?'), 630);
+            new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
         }
 
         if ((int) dcCore::app()->blog->status !== dcBlog::BLOG_ONLINE) {
             dcCore::app()->unsetBlog();
-            __error(__('Blog is offline.'), __('This blog is offline. Please try again later.'), 670);
+            new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
 
         // Load some class extents and set some public behaviors (was in public prepend before)
@@ -154,7 +155,7 @@ class dcPublic
         try {
             dcCore::app()->tpl = new dcTemplate(DC_TPL_CACHE, 'dcCore::app()->tpl');
         } catch (Exception $e) {
-            __error(__('Can\'t create template files.'), $e->getMessage(), 640);
+            new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }
 
         # Loading locales
@@ -206,9 +207,9 @@ class dcPublic
 
         # If theme doesn't exist, stop everything
         if (!dcCore::app()->themes->moduleExists($this->theme)) {
-            __error(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
+            new Fault(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
             'path in your blog configuration. Please check theme_path value in ' .
-            'about:config module or reinstall default theme. (' . dcCore::app()->public->theme . ')'), 650);
+            'about:config module or reinstall default theme. (' . dcCore::app()->public->theme . ')'), Fault::THEME_ISSUE);
         }
 
         # Loading _public.php file for selected theme
@@ -271,7 +272,7 @@ class dcPublic
             # --BEHAVIOR-- publicAfterDocument --
             dcCore::app()->callBehavior('publicAfterDocumentV2');
         } catch (Exception $e) {
-            __error($e->getMessage(), __('Something went wrong while loading template file for your blog.'), 660);
+            new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
         }
     }
 

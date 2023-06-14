@@ -8,6 +8,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Fault;
 use Dotclear\FileServer;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Crypt;
@@ -318,9 +319,9 @@ if (!defined('DC_CRYPT_ALGO')) {
     // Check length of cryptographic algorithm result and exit if less than 40 characters long
     if (strlen(Crypt::hmac(DC_MASTER_KEY, DC_VENDOR_NAME, DC_CRYPT_ALGO)) < 40) {
         if (!defined('DC_CONTEXT_ADMIN')) {
-            __error('Server error', 'Site temporarily unavailable');
+            new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
         } else {
-            __error('Dotclear error', DC_CRYPT_ALGO . ' cryptographic algorithm configured is not strong enough, please change it.');
+            new Fault('Dotclear error', DC_CRYPT_ALGO . ' cryptographic algorithm configured is not strong enough, please change it.', Fault::SETUP_ISSUE);
         }
         exit;
     }
@@ -336,9 +337,9 @@ if (!is_dir(DC_TPL_CACHE)) {
     if (!is_dir(DC_TPL_CACHE)) {
         // Admin must create it
         if (!defined('DC_CONTEXT_ADMIN')) {
-            __error('Server error', 'Site temporarily unavailable');
+            new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
         } else {
-            __error('Dotclear error', DC_TPL_CACHE . ' directory does not exist. Please create it.');
+            new Fault('Dotclear error', DC_TPL_CACHE . ' directory does not exist. Please create it.', Fault::SETUP_ISSUE);
         }
         exit;
     }
@@ -354,9 +355,9 @@ if (!is_dir(DC_VAR)) {
     if (!is_dir(DC_VAR)) {
         // Admin must create it
         if (!defined('DC_CONTEXT_ADMIN')) {
-            __error('Server error', 'Site temporarily unavailable');
+            new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
         } else {
-            __error('Dotclear error', DC_VAR . ' directory does not exist. Please create it.');
+            new Fault('Dotclear error', DC_VAR . ' directory does not exist. Please create it.', Fault::SETUP_ISSUE);
         }
         exit;
     }
@@ -380,7 +381,7 @@ try {
      *
      * @deprecated since 2.23, use dcCore::app() instead
      */
-    $core = new dcCore(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPREFIX, DC_DBPERSIST);
+    $core = new dcCore(DC_DBDRIVER, '.'.DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPREFIX, DC_DBPERSIST);
 } catch (Exception $e) {
     // Loading locales for detected language
     (function () {
@@ -395,14 +396,14 @@ try {
         }
     })();
     if (!defined('DC_CONTEXT_ADMIN')) {
-        __error(
+        new Fault(
             __('Site temporarily unavailable'),
             __('<p>We apologize for this temporary unavailability.<br />' .
                 'Thank you for your understanding.</p>'),
-            20
+            Fault::DATABASE_ISSUE
         );
     } else {
-        __error(
+        new Fault(
             __('Unable to connect to database'),
             $e->getCode() == 0 ?
             sprintf(
@@ -422,7 +423,7 @@ try {
                 (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')
             ) :
             '',
-            20
+            Fault::DATABASE_ISSUE
         );
     }
 }
@@ -495,7 +496,7 @@ register_shutdown_function(function () {
 });
 
 /**
- * Local error handler
+ * @deprecated since 2.27 Use new Dotclear\Fault();
  *
  * @param      string  $summary  The summary
  * @param      string  $message  The message
@@ -503,22 +504,5 @@ register_shutdown_function(function () {
  */
 function __error(string $summary, string $message, int $code = 0)
 {
-    # Error codes
-    # 10 : no config file
-    # 20 : database issue
-    # 30 : blog is not defined
-    # 40 : template files creation
-    # 50 : no default theme
-    # 60 : template processing error
-    # 70 : blog is offline
-
-    if (CLI_MODE) {
-        trigger_error($summary, E_USER_ERROR);
-    }
-    if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
-        include DC_ERRORFILE;
-    } else {
-        require implode(DIRECTORY_SEPARATOR, [__DIR__, 'core_error.php']);
-    }
-    exit;
+    new Fault($summary, $message, $code);
 }
