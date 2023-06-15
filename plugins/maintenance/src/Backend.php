@@ -35,6 +35,7 @@ class Backend extends dcNsProcess
         dcCore::app()->addBehaviors([
             'dcMaintenanceInit'                => [BackendBehaviors::class, 'dcMaintenanceInit'],
             'adminDashboardFavoritesV2'        => [BackendBehaviors::class, 'adminDashboardFavorites'],
+            'adminDashboardHeaders'            => [BackendBehaviors::class, 'adminDashboardHeaders'],
             'adminDashboardContentsV2'         => [BackendBehaviors::class, 'adminDashboardItems'],
             'adminDashboardOptionsFormV2'      => [BackendBehaviors::class, 'adminDashboardOptionsForm'],
             'adminAfterDashboardOptionsUpdate' => [BackendBehaviors::class, 'adminAfterDashboardOptionsUpdate'],
@@ -43,6 +44,7 @@ class Backend extends dcNsProcess
 
         // Rest method
         dcCore::app()->rest->addFunction('dcMaintenanceStep', [Rest::class, 'step']);
+        dcCore::app()->rest->addFunction('dcMaintenanceTaskExpired', [Rest::class, 'countExpired']);
 
         return true;
     }

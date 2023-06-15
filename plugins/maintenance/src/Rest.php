@@ -67,4 +67,22 @@ class Rest
 
         return $rsp;
     }
+
+    public static function countExpired(): array
+    {
+        // Check expired tasks
+        $maintenance = new Maintenance();
+        $count       = 0;
+        foreach ($maintenance->getTasks() as $t) {
+            if ($t->expired() !== false) {
+                $count++;
+            }
+        }
+
+        return [
+            'ret' => true,
+            'msg' => ($count ? sprintf(__('One task to execute', '%s tasks to execute', $count), $count) : ''),
+            'nb'  => $count,
+        ];
+    }
 }

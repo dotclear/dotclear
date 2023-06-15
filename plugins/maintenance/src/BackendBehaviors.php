@@ -18,6 +18,7 @@ use ArrayObject;
 use dcAdminHelper;
 use dcCore;
 use dcFavorites;
+use dcPage;
 use Dotclear\Helper\Date;
 use form;
 
@@ -120,6 +121,12 @@ class BackendBehaviors
 
         $icon['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
         $icon['large-icon'] = [My::fileURL('icon-update.svg'), My::fileURL('icon-dark-update.svg')];
+    }
+
+    public static function adminDashboardHeaders()
+    {
+        return
+        dcPage::jsModuleLoad(My::id() . '/js/dashboard.js');
     }
 
     /**
