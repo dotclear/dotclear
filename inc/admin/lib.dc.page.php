@@ -1475,7 +1475,7 @@ class dcPage
     }
 
     /**
-     * @deprecated since 2.27 use My::cssLoad()
+     * @deprecated since 2.27 use My::jsLoad()
      *
      * @param      string       $src         The source
      * @param      null|string  $version     The version
