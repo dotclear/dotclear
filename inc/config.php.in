@@ -95,7 +95,7 @@ define('DC_CRYPT_ALGO', 'sha512');
 //$_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
 
 // If you have mail problems, uncomment following lines and adapt it to your hosting configuration
-// For more information about this setting, please refer to http://doc.dotclear.net/2.0/admin/install/custom-sendmail
+// For more information about this setting, please refer to https://dotclear.org/documentation/2.0/admin/install/custom-sendmail
 //function _mail($to, $subject, $message, $headers)
 //{
 //    MailSocket::$smtp_relay = 'my.smtp.relay.org';
