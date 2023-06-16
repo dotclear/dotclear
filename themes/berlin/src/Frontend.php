@@ -29,8 +29,6 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        My::l10n('main');
-
         dcCore::app()->addBehavior('publicHeadContent', function () {
             echo
             dcUtils::jsJson('dotclear_berlin', [

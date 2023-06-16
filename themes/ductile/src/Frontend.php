@@ -16,7 +16,6 @@ use dcCore;
 use dcNsProcess;
 use dcThemeConfig;
 use Dotclear\Helper\File\Files;
-use Dotclear\Helper\L10n;
 
 class Frontend extends dcNsProcess
 {
@@ -30,9 +29,6 @@ class Frontend extends dcNsProcess
         if (!static::$init) {
             return false;
         }
-
-        # load locales
-        My::l10n('main');
 
         # Behaviors
         dcCore::app()->addBehaviors([
