@@ -2468,4 +2468,29 @@ class adminThemesList extends adminModulesList
             }
         }
     }
+
+    /**
+     * Get path of module configuration file.
+     *
+     * @note Required previously set file info
+     *
+     * @return mixed    Full path of config file or null
+     */
+    public function includeConfiguration()
+    {
+        if (empty($this->config_class) && !$this->config_file) {
+            return;
+        }
+        $this->setRedir($this->getURL() . '#themes');
+
+        ob_start();
+
+        if (!empty($this->config_class) && $this->config_class::init() && $this->config_class::process()) {
+            $this->config_class::render();
+
+            return null;
+        }
+
+        return $this->config_file;
+    }
 }
