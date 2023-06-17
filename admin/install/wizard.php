@@ -29,14 +29,14 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 // Prepare namespaced src
 // ----------------------
 
-// 1. Load Application boostrap file
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'App.php']);
+// 1. Load Autoloader file
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Autoloader.php']);
 
-// 2. Instanciante the Application (singleton)
+// 2. Add root folder for namespaced and autoloaded classes and do some init
+Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
+
+// 3. Instanciante the Application (singleton)
 new App();
-
-// 3. Add root folder for namespaced and autoloaded classes and do some init
-App::autoload()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
 App::init();
 
 // 4. Force CB bootstrap

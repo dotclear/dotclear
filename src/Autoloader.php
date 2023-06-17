@@ -57,6 +57,11 @@ class Autoloader
     private int $request_count = 0;
 
     /**
+     * Instance singleton
+     */
+    private static ?self $instance = null;
+
+    /**
      * Register loader with SPL autoloader stack.
      *
      * @param string $root_prefix   Common ns prefix
@@ -65,6 +70,12 @@ class Autoloader
      */
     public function __construct(string $root_prefix = '', string $root_base_dir = '', bool $prepend = false)
     {
+        if (self::$instance) {
+            throw new Exception('Autoloader can not be loaded twice.', 500);
+        }
+
+        self::$instance = $this;
+
         if (!empty($root_prefix)) {
             $this->root_prefix = $this->normalizePrefix($root_prefix);
         }
@@ -74,6 +85,21 @@ class Autoloader
 
         // @phpstan-ignore-next-line (Failed to see array as callable but works great)
         spl_autoload_register([$this, 'loadClass'], true, $prepend);
+    }
+
+    /**
+     * Get Autoloader singleton instance
+     *
+     * @return     self
+     */
+    public static function me(): self
+    {
+        if (!self::$instance) {
+            // Init singleton
+            new self('', '', true);
+        }
+
+        return self::$instance;
     }
 
     /**

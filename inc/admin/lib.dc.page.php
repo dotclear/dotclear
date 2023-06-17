@@ -720,8 +720,8 @@ class dcPage
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .
-            '<p>Autoloader requests: ' . App::autoload()->getRequestsCount() .
-            ' | Autoloader loads: ' . App::autoload()->getLoadsCount() . '</p>' .
+            '<p>Autoloader requests: ' . Autoloader::me()->getRequestsCount() .
+            ' | Autoloader loads: ' . Autoloader::me()->getLoadsCount() . '</p>' .
             '</div></div>';
 
         return $res;

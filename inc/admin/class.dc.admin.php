@@ -49,9 +49,24 @@ class dcAdmin
     }
 
     /**
+     * Instanciate this as a singleton
+     *
+     * @return     self
+     */
+    public static function bootstrap(): self
+    {
+        if (!dcCore::app()->admin) {
+            // Init singleton
+            dcCore::app()->admin = new self();
+        }
+
+        return dcCore::app()->admin;
+    }
+
+    /**
      * Initializes the context.
      */
-    public function init()
+    public function init(): bool
     {
         // New adminurl instance
         // May be moved to property of dcCore::app()->admin in a near future
@@ -362,6 +377,8 @@ class dcAdmin
             # Admin behaviors
             dcCore::app()->addBehavior('adminPopupPosts', [dcAdminBlogPref::class, 'adminPopupPosts']);
         }
+
+        return true;
     }
 
     /**

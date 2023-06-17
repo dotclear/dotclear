@@ -11,7 +11,6 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -181,7 +180,7 @@ class dcModules
     public function getDefines(array $search = [], bool $to_array = false): array
     {
         // only compare some types of values
-        $to_string = function ($value): ?string { return is_bool($value) || is_int($value) || is_string($value) ? (string) $value : null; };
+        $to_string = fn ($value): ?string => is_bool($value) || is_int($value) || is_string($value) ? (string) $value : null;
 
         $list = [];
         foreach ($this->defines as $module) {
@@ -235,12 +234,12 @@ class dcModules
     public function checkDependencies(): void
     {
         // Grab current Dotclear and PHP version
-        $special  = [
+        $special = [
             'core' => preg_replace('/\-dev.*$/', '', DC_VERSION),
             'php'  => phpversion(),
         ];
 
-        $modules = $this->getDefines();
+        $modules    = $this->getDefines();
         $optionnals = [];
 
         foreach ($modules as $module) {
@@ -253,23 +252,23 @@ class dcModules
                     // optionnal minimum dependancy
                     $optionnal = false;
                     if (substr($dep[0], -1) == '?') {
-                        $dep[0] = substr($dep[0], 0, -1);
+                        $dep[0]                                = substr($dep[0], 0, -1);
                         $optionnals[$module->getId()][$dep[0]] = true;
                     }
-                    // search required module 
+                    // search required module
                     $found = $this->getDefine($dep[0]);
                     // grab missing dependencies
                     if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
                         // module not present, nor php or dotclear, nor optionnal
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is not installed'), $dep[0]));
-                    } elseif ((count($dep) > 1) && version_compare((isset($special[$dep[0]]) ? $special[$dep[0]] : $found->version), $dep[1]) == -1) {
+                    } elseif ((count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
                         // module present, but version missing
                         if ($dep[0] == 'php') {
                             $dep[0] = 'PHP';
-                            $dep_v = $special['php'];
+                            $dep_v  = $special['php'];
                         } elseif ($dep[0] == 'core') {
                             $dep[0] = 'Dotclear';
-                            $dep_v = $special['core'];
+                            $dep_v  = $special['core'];
                         } else {
                             $dep_v = $found->version;
                         }
@@ -450,7 +449,7 @@ class dcModules
 
                 // Module namespace
                 $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? dcModuleDefine::DEFAULT_TYPE), $this->id]);
-                App::autoload()->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
+                Autoloader::me()->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
 
                 $module_disabled = file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
                 $module_enabled  = !$module_disabled && !$this->safe_mode;
@@ -485,7 +484,7 @@ class dcModules
             $class = $module->namespace . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
             if (!empty($module->namespace) && class_exists($class)) {
                 $ret = $class::init() ? $class::process() : '';
-            // by file name
+                // by file name
             } elseif (file_exists($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
                 $ret = $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND);
             }
