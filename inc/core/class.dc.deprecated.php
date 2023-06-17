@@ -37,7 +37,7 @@ class dcDeprecated extends Deprecated
      *
      * @return  MetaRecord    The logs.
      */
-    public static function get(mixed $limit, bool $count_only = false): MetaRecord
+    public static function get($limit, bool $count_only = false): MetaRecord
     {
         return dcCore::app()->log->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
     }
