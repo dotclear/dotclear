@@ -9,6 +9,7 @@
 
 namespace Dotclear\Admin;
 
+use dcAuth;
 use dcCore;
 use dcNsProcess;
 use dcPage;

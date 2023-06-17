@@ -9,16 +9,18 @@
 
 namespace Dotclear\Admin;
 
+use adminModulesList;
 use ArrayObject;
+use dcAdminCombos;
 use dcAdminHelper;
 use dcAuth;
 use dcBlog;
 use dcCore;
 use dcNsProcess;
 use dcPage;
-use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Exception;
+use form;
 
 class Index extends dcNsProcess
 {
