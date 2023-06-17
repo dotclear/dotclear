@@ -7,7 +7,6 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Helper\Clearbricks;
@@ -35,11 +34,7 @@ require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Autoload
 // 2. Add root folder for namespaced and autoloaded classes and do some init
 Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
 
-// 3. Instanciante the Application (singleton)
-new App();
-App::init();
-
-// 4. Force CB bootstrap
+// 3. Force CB bootstrap
 new Clearbricks();
 
 // Loading locales for detected language
