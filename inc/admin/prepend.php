@@ -14,4 +14,6 @@ define('DC_ADMIN_CONTEXT', true); // For dyslexic devs ;-)
 
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'prepend.php']);
 
-App::context(dcAdmin::class);
+if (App::context(dcAdmin::class) && defined('APP_PROCESS')) {
+    App::process('Dotclear\\Admin\\' . APP_PROCESS);
+}
