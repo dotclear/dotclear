@@ -24,13 +24,13 @@ réduit au minimum, permettant de couvrir les besoins les plus courants
   <li><strong>Listes</strong>&nbsp;: lignes débutant par <code>*</code> pour des
   listes à puce ou <code>#</code> pour des listes numérotées. Vous pouvez faire
   des listes imbriquées en mélangeant les codes de liste. Par exemple&nbsp;:
-<pre>
-<code>*</code> item 1
+  <pre>
+    <code>*</code> item 1
 <code>**</code> item 1.1
 <code>*</code> item 2
 <code>*#</code> item 2.1
 ...
-</pre>
+  </pre>
   </li>
   <li><strong>Listes de définition</strong>&nbsp;: ligne débutant par <code>=</code> pour le terme à définir et par <code>:</code> pour la définition du terme.
   <pre>
@@ -50,24 +50,25 @@ réduit au minimum, permettant de couvrir les besoins les plus courants
 <ul>
   <li><strong>Emphase</strong>&nbsp;: deux apostrophes <code>''texte''</code></li>
   <li><strong>Forte emphase</strong>&nbsp;: deux soulignés <code>__texte__</code></li>
-  <li><strong>Surligné</strong>&nbsp;: deux guillemets doubles <code>""texte""</code></li>
-  <li><strong>Retour forcé à la ligne</strong>&nbsp;: <code>%%%</code></li>
-  <li><strong>Insertion</strong>&nbsp;: deux plus <code>++texte++</code></li>
-  <li><strong>Suppression</strong>&nbsp;: deux moins <code>--texte--</code></li>
-  <li><strong>Lien</strong>&nbsp;: <code>[url]</code>, <code>[nom|url]</code>,
+  <li><strong>Surligné :</strong> Deux guillemets <code>""texte""</code></li>
+  <li><strong>Nouvelle ligne :</strong> <code>%%%</code></li>
+  <li><strong>Insertion :</strong> Deux plus <code>++texte++</code></li>
+  <li><strong>Suppression :</strong> Deux moins <code>--text--</code></li>
+  <li><strong>Lien :</strong> <code>[url]</code> <code>[nom|url]</code>,
     <code>[nom|url|langue]</code> ou <code>[nom|url|langue|titre]</code></li>
-  <li><strong>Image</strong>&nbsp;:
+  <li><strong>Image :</strong>
     <code>((url|texte alternatif))</code>,
     <code>((url|texte alternatif|position))</code> ou
-    <code>((url|texte alternatif|position|description longue))</code>.
-    <br />La position peut prendre les valeurs L ou G (gauche), R ou D (droite) ou C (centré).</li>
-  <li><strong>Ancre</strong>&nbsp;: <code>~ancre~</code></li>
-  <li><strong>Acronyme</strong>&nbsp;: <code>??acronyme|titre??</code></li>
-  <li><strong>Citation en ligne</strong>&nbsp;: <code>{{citation}}</code>,
-    <code>{{citation|langue}}</code> ou <code>{{citation|langue|url}}</code></li>
-  <li><strong>Code</strong>&nbsp;: <code>@@code ici@@</code></li>
-  <li><strong>Note de bas de page</strong>&nbsp;: <code>$$Corps de la note$$</code></li>
-  <li><strong>Exposant</strong>&nbsp;: <code>^exposant^</code></li>
+    <code>((url|texte alternatif|position|longue description))</code>.
+    <br />La position peut être L (gauche), R (droite) ou C (centré).</li>
+  <li><strong>Ancrage :</strong> <code>~anchor~</code></li>
+  <li><strong>Acronyme :</strong> <code>??acronyme|titre ??</code></li>
+  <li><strong>HTML en ligne :</strong> Deux guillemets <code>``Code HTML``</code></li>
+  <li><strong>Citation en ligne :</strong> <code>{{quote}}</code>,
+    <code>{{quote|language}}</code> ou <code>{{quote|language|url}}</code></li>
+  <li><strong>Code :</strong> <code>@@code@@</code></li>
+  <li><strong>Notes de bas de page :</strong> <code>$footnote$$</code></li>
+  <li><strong>Exposant</strong>&nbsp;: <code>^ exposant ^</code></li>
   <li><strong>Indice</strong>&nbsp;: <code>,,indice,,</code></li>
 </ul>
 </dd>
@@ -81,20 +82,11 @@ de formatage, ajoutez le caractère <code>\</code> avant celui-ci. Par exemple&n
 <dt>Insérer du code HTML</dt>
 <dd>Vous pouvez ponctuellement avoir besoin d'insérer du code HTML dans votre
 texte au format wiki.
-<ul>
-  <li>Pour insérer du code sous forme de bloc (<code>div</code>, <code>p</code>, etc.) utilisez le code suivant&nbsp;:
-    <pre>
-    <code>///html
-    &lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
-    ///</code>
-    </pre>
-  </li>
-  <li>Et pour insérer du code HTML en ligne (<code>span</code>, etc.) utilisez deux apostrophes inversées comme dans le code suivant&nbsp;:
-    <pre>
-      <code>``&lt;span style="color:blue"&gt;mon texte en bleu&lt;/span&gt;``</code>
-    </pre>
-  </li>
-</ul>
+<pre>
+///html
+&lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
+///
+</pre>
 </dd>
 </dl>
 
