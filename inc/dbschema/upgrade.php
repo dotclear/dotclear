@@ -1349,6 +1349,19 @@ class dcUpgrade
             );
         }
 
+        if (version_compare($version, '2.27', '<')) {
+            // A bit of housecleaning for no longer needed folders
+            self::houseCleaning(
+                // Files
+                [
+                    'plugins/pages/icon-dark-np.svg',
+                ],
+                // Folders
+                [
+                ]
+            );
+        }
+
         dcCore::app()->setVersion('core', DC_VERSION);
         dcCore::app()->blogDefaults();
 

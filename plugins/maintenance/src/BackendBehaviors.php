@@ -120,7 +120,7 @@ class BackendBehaviors
         }
 
         $icon['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
-        $icon['large-icon'] = [My::fileURL('icon-update.svg'), My::fileURL('icon-dark-update.svg')];
+        $icon['large-icon'] = My::icons('update');
     }
 
     public static function adminDashboardHeaders()
