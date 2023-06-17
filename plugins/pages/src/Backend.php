@@ -75,8 +75,8 @@ class Backend extends dcNsProcess
                 $favs->register('newpage', [
                     'title'       => __('New page'),
                     'url'         => My::manageUrl(['act' => 'page']),
-                    'small-icon'  => My::icons(),
-                    'large-icon'  => My::icons(),
+                    'small-icon'  => My::icons('np'),
+                    'large-icon'  => My::icons('np'),
                     'permissions' => dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,

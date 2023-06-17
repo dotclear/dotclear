@@ -58,18 +58,34 @@ abstract class MyPlugin extends MyModule
     /**
      * Get modules icon URLs.
      *
+     * Will use SVG format is exist, else PNG
+     *
+     * @param   string    $suffix   Optionnal suffix (will be prefixed by - if any)
+     *
      * @return  array<int,string>   The module icons URLs
      */
-    public static function icons(): array
+    public static function icons(string $suffix = ''): array
     {
+        $check = fn (string $base, string $name) => (file_exists($base . DIRECTORY_SEPARATOR . $name . '.svg') ?
+            static::fileURL($name . '.svg') :
+            (file_exists($base . DIRECTORY_SEPARATOR . $name . '.png') ?
+                static::fileURL($name . '.png') :
+                false));
+
         $icons = [];
         if (defined('DC_CONTEXT_ADMIN')) {
-            if (file_exists(static::path() . DIRECTORY_SEPARATOR . 'icon.svg')) {
-                $icons[] = static::fileURL('icon.svg');
+            // Light mode version
+            if ($icon = $check(static::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''))) {
+                $icons[] = $icon;
             }
-            if (file_exists(static::path() . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
-                $icons[] = static::fileURL('icon-dark.svg');
+            // Dark mode version
+            if ($icon = $check(static::path(), 'icon-dark' . ($suffix !== '' ? '-' . $suffix : ''))) {
+                $icons[] = $icon;
             }
+        }
+        if (!count($icons) && $suffix) {
+            // Suffixed icons not found, try without
+            return static::icons();
         }
 
         return $icons;
