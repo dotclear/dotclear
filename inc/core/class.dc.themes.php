@@ -157,7 +157,7 @@ class dcThemes extends dcModules
                             if (preg_match('/^namespace\s*' . preg_quote($prefix) . '([^;].*);$/m', $buf, $matches)) {
                                 $pos     = strpos($buf, $matches[0]);
                                 $rel_dir = substr($new_dir, strlen($root));
-                                $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
+                                $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', $rel_dir));
                                 $buf     = substr($buf, 0, $pos) .
                                     'namespace ' . $prefix . $ns . ';' .
                                     substr($buf, $pos + strlen($matches[0]));
