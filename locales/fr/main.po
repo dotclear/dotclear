@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-15 19:32+0200\n"
-"PO-Revision-Date: 2023-06-17 18:36\n"
+"PO-Revision-Date: 2023-06-18 06:36\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -3696,7 +3696,7 @@ msgstr "(aucune)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "%d billet a été déplacé dans la catégorie \"%s\"."
+msgstr[0] "%d billet a été déplacé dans la catégorie \"%s\""
 msgstr[1] "%d billets ont été déplacés dans la catégorie \"%s\"."
 
 #: inc/admin/actions/class.dcactionposts.php:405
@@ -3761,7 +3761,7 @@ msgstr "Erreur de base de données"
 
 #: inc/admin/class.dc.admin.php:70
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Il semble de la table Session n'existe pas dans votre base de données. Dotclear est-il bien installé correctement?"
+msgstr "Il semble de la table Session n'existe pas dans votre base de données. Dotclear est-il bien installé correctement ?"
 
 #: inc/admin/class.dc.admin.php:220
 msgid "System settings"
@@ -4659,7 +4659,7 @@ msgstr[1] "Ces thèmes ont été activés."
 
 #: inc/admin/lib.moduleslist.php:2244
 msgid "Some themes have not been deactivated."
-msgstr "Certains thèmes n'ont pas pu être desactivés."
+msgstr "Certains thèmes n'ont pas pu être désactivés."
 
 #: inc/admin/lib.moduleslist.php:2247
 msgid "Theme has been successfully deactivated."
