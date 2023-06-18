@@ -144,6 +144,11 @@ class FileServer
             self::p403();
         }
 
+        // $_GET['process'] : App process, but don't care of value
+        if (isset($_GET['process'])) {
+            unset($_GET['process']);
+        }
+
         // $_GET['v'] : version in url to bypass cache in case of dotclear upgrade or in dev mode
         // but don't care of value
         if (isset($_GET['v'])) {
