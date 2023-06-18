@@ -71,7 +71,7 @@ class dcAdmin
         // New adminurl instance
         // May be moved to property of dcCore::app()->admin in a near future
         dcCore::app()->adminurl = new dcAdminURL();
-        dcCore::app()->adminurl->register('admin.auth', 'auth.php');
+        dcCore::app()->adminurl->register('admin.auth', 'index.php', ['process' => 'Auth']);
 
         if (dcCore::app()->auth->sessionExists()) {
             # If we have a session we launch it now
@@ -167,13 +167,13 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.comments', 'comments.php');
         dcCore::app()->adminurl->register('admin.comment', 'comment.php');
         dcCore::app()->adminurl->register('admin.help', 'help.php');
-        dcCore::app()->adminurl->register('admin.home', 'index.php');
+        dcCore::app()->adminurl->register('admin.home', 'index.php', ['process' => 'Index']);
         dcCore::app()->adminurl->register('admin.langs', 'langs.php');
         dcCore::app()->adminurl->register('admin.media', 'media.php');
         dcCore::app()->adminurl->register('admin.media.item', 'media_item.php');
         dcCore::app()->adminurl->register('admin.plugins', 'plugins.php');
         dcCore::app()->adminurl->register('admin.plugin', 'plugin.php');
-        dcCore::app()->adminurl->register('admin.search', 'search.php');
+        dcCore::app()->adminurl->register('admin.search', 'index.php', ['process' => 'Search']);
         dcCore::app()->adminurl->register('admin.user.preferences', 'preferences.php');
         dcCore::app()->adminurl->register('admin.user', 'user.php');
         dcCore::app()->adminurl->register('admin.user.actions', 'users_actions.php');

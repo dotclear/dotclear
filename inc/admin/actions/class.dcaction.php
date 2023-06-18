@@ -298,7 +298,7 @@ abstract class dcActions
             $redirect_args[$this->field_entries] = array_keys($this->entries);
         }
 
-        return $this->uri . '?' . http_build_query($redirect_args) . $this->redir_anchor;
+        return $this->uri . (strpos($this->uri, '?') !== false ? '&' : '?') . http_build_query($redirect_args) . $this->redir_anchor;
     }
 
     /**
