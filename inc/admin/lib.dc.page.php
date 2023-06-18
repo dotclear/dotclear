@@ -1326,7 +1326,7 @@ class dcPage
      */
     public static function getVF(string $file): string
     {
-        return dcCore::app()->adminurl->get('load.var.file', ['vf' => $file]);
+        return dcCore::app()->adminurl->get('load.var.file', ['vf' => $file], '&');
     }
 
     /**
