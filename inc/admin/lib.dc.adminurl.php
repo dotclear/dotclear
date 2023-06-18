@@ -33,13 +33,18 @@ class dcAdminURL
      * Registers a new url
      *
      * @param  string $name   the url name
-     * @param  string $url    url value
+     * @param  string $class  class name (without namespace) or url value
      * @param  array  $params query string params (optional)
      */
-    public function register(string $name, string $url, array $params = [])
+    public function register(string $name, string $class, array $params = [])
     {
+        // by class name
+        if (strpos($class, '.php') === false) {
+            $params = array_merge(['process' => $class], $params);
+            $class = 'index.php';
+        }
         $this->urls[$name] = [
-            'url' => $url,
+            'url' =>  $class,
             'qs'  => $params,
         ];
     }
