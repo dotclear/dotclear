@@ -10,9 +10,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
+use adminCommentList;
 use adminPostList;
 use adminUserPref;
 use dcAuth;
+use dcCommentsActions;
 use dcCore;
 use dcPage;
 use dcPostsActions;
@@ -31,7 +33,7 @@ class Search
     /**
      * Initializes the page.
      */
-    public static function init()
+    public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
@@ -55,12 +57,14 @@ class Search
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
         dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
         dcCore::app()->admin->qtype_combo = $qtype_combo;
+
+        return true;
     }
 
     /**
      * Processes the request(s).
      */
-    public static function process()
+    public static function process(): bool
     {
         dcCore::app()->admin->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
         dcCore::app()->admin->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
@@ -74,6 +78,8 @@ class Search
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             dcCore::app()->admin->nb = (int) $_GET['nb'];
         }
+
+        return true;
     }
 
     /**

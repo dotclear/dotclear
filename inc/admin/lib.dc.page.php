@@ -437,6 +437,7 @@ class dcPage
 
         '<form id="search-menu" action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
+        '<input type="hidden" name="process" value="Search" />' .
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
