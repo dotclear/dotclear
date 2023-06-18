@@ -14,6 +14,14 @@ use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 
+if (isset($_SERVER['DC_RC_PATH'])) {
+    $rc_path = $_SERVER['DC_RC_PATH'];
+} elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
+    $rc_path = $_SERVER['REDIRECT_DC_RC_PATH'];
+} else {
+    $rc_path = __DIR__ . '/../../inc/config.php';
+}
+
 require __DIR__ . '/../../inc/prepend.php';
 require __DIR__ . '/check.php';
 
