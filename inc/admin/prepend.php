@@ -24,6 +24,6 @@ if (App::context(dcAdmin::class)) {
         $process = APP_PROCESS;
     }
     if (!empty($process)) {
-        App::process('Dotclear\\Admin\\' . $process);
+        App::process('Dotclear\\Backend\\' . $process);
     }
 }
