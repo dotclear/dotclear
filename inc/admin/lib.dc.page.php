@@ -184,7 +184,7 @@ class dcPage
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . 'csp_report.php';
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.csp_report');
                 $report_only    = (dcCore::app()->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
@@ -1314,7 +1314,7 @@ class dcPage
      */
     public static function getPF(string $file): string
     {
-        return dcCore::app()->adminurl->get('load.plugin.file', ['pf' => $file]);
+        return dcCore::app()->adminurl->get('load.plugin.file', ['pf' => $file], '&');
     }
 
     /**
@@ -1326,7 +1326,7 @@ class dcPage
      */
     public static function getVF(string $file): string
     {
-        return dcCore::app()->adminurl->get('load.var.file', ['vf' => $file]);
+        return dcCore::app()->adminurl->get('load.var.file', ['vf' => $file], '&');
     }
 
     /**

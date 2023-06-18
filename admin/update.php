@@ -83,7 +83,7 @@ class adminUpdate
             Http::redirect('index.php');
         }
 
-        dcCore::app()->admin->setPageURL('update.php');
+        dcCore::app()->admin->setPageURL(dcCore::app()->adminurl->get('admin.update'));
 
         dcCore::app()->admin->step = $_GET['step'] ?? '';
         dcCore::app()->admin->step = in_array(dcCore::app()->admin->step, ['check', 'download', 'backup', 'unzip']) ? dcCore::app()->admin->step : '';

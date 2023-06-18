@@ -31,7 +31,8 @@ class Prepend extends dcNsProcess
         dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', [FrontendUrl::class, 'pages']);
         dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', [FrontendUrl::class, 'pagespreview']);
 
-        dcCore::app()->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', dcCore::app()->url->getURLFor('pages', '%s'), 'Pages');
+        $admin_url = defined('DC_CONTEXT_ADMIN') ? urldecode(dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')) : '';
+        dcCore::app()->setPostType('page', $admin_url, dcCore::app()->url->getURLFor('pages', '%s'), 'Pages');
 
         return true;
     }

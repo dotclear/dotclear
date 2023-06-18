@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use dcAdminCombos;
 use dcBlog;
+use dcCommentsActions;
 use dcCore;
 use dcMedia;
 use dcNsProcess;
@@ -196,6 +197,20 @@ class ManagePage extends dcNsProcess
                     dcCore::app()->error->add($e->getMessage());
                 }
             }
+        }
+
+        dcCore::app()->admin->comments_actions_page = new dcCommentsActions(
+            dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages']),
+            [
+                'act'           => 'page',
+                'id'            => dcCore::app()->admin->post_id,
+                'action_anchor' => 'comments',
+                'section'       => 'comments',
+            ]
+        );
+
+        if (dcCore::app()->admin->comments_actions_page->process()) {
+            return true;
         }
 
         if (!empty($_POST) && dcCore::app()->admin->can_edit_page) {
@@ -742,24 +757,7 @@ class ManagePage extends dcNsProcess
             $trackbacks = dcCore::app()->blog->getComments(array_merge($params, ['comment_trackback' => 1]));
 
             # Actions combo box
-            $combo_action = [];
-            if (dcCore::app()->admin->can_edit_page && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_PUBLISH,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)) {
-                $combo_action[__('Publish')]         = 'publish';
-                $combo_action[__('Unpublish')]       = 'unpublish';
-                $combo_action[__('Mark as pending')] = 'pending';
-                $combo_action[__('Mark as junk')]    = 'junk';
-            }
-
-            if (dcCore::app()->admin->can_edit_page && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_DELETE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)) {
-                $combo_action[__('Delete')] = 'delete';
-            }
-
+            $combo_action = dcCore::app()->admin->comments_actions_page->getCombo();
             $has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 
             echo
@@ -770,7 +768,7 @@ class ManagePage extends dcNsProcess
 
             if ($has_action) {
                 echo
-                '<form action="comments_actions.php" method="post">';
+                '<form action="' . dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages']) . '" method="post">';
             }
 
             echo
@@ -798,6 +796,11 @@ class ManagePage extends dcNsProcess
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', $combo_action) .
                 form::hidden('redir', Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;co=1') .
+                form::hidden(['section'], 'comments') .
+                form::hidden(['p'], 'pages') .
+                form::hidden(['act'], 'page') .
+                form::hidden(['id'], dcCore::app()->admin->post_id) .
+                form::hidden(['co'], '1') .
                 dcCore::app()->formNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .

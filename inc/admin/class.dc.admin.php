@@ -165,9 +165,12 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.users', 'users.php');
         dcCore::app()->adminurl->register('admin.help', 'help.php');
         dcCore::app()->adminurl->register('admin.update', 'update.php');
+        dcCore::app()->adminurl->register('admin.csp_report', 'csp_report.php');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
+
+        dcCore::app()->setPostType('post', urldecode(dcCore::app()->adminurl->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
         if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
             # Loading resources and help files
