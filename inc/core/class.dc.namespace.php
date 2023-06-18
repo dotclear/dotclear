@@ -427,6 +427,15 @@ class dcNamespace
         $this->settings[$new_name] = $this->settings[$old_name];
         unset($this->settings[$old_name]);
 
+        if (isset($this->global_settings[$old_name])) {
+            $this->global_settings[$new_name] = $this->global_settings[$old_name];
+            unset($this->global_settings[$old_name]);
+        }
+        if (isset($this->local_settings[$old_name])) {
+            $this->local_settings[$new_name] = $this->local_settings[$old_name];
+            unset($this->local_settings[$old_name]);
+        }
+
         // Rename the setting in the database
         $sql = new UpdateStatement();
         $sql
