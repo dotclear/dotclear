@@ -1314,7 +1314,7 @@ class dcPage
      */
     public static function getPF(string $file): string
     {
-        return dcCore::app()->adminurl->get('load.plugin.file', ['pf' => $file]);
+        return dcCore::app()->adminurl->get('load.plugin.file', ['pf' => $file], '&');
     }
 
     /**
