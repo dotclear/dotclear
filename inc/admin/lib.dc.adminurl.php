@@ -41,7 +41,7 @@ class dcAdminURL
         // by class name
         if (strpos($class, '.php') === false) {
             $params = array_merge(['process' => $class], $params);
-            $class = DC_ADMIN_URL;
+            $class = 'index.php';
         }
         $this->urls[$name] = [
             'url' =>  $class,
@@ -91,7 +91,7 @@ class dcAdminURL
         $qs  = array_merge($url['qs'], $params);
         $url = $url['url'];
         if (!empty($qs)) {
-            $url .= '?' . http_build_query($qs, '', $separator);
+            $url .= (strpos($url, '?') === false ? '?' : $separator) . http_build_query($qs, '', $separator);
         }
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
