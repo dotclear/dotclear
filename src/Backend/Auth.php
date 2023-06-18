@@ -7,7 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
-namespace Dotclear\Admin;
+namespace Dotclear\Backend;
 
 use dcAuth;
 use dcCore;
