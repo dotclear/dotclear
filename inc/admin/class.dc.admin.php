@@ -162,13 +162,13 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.blog.del', 'BlogDel');
         dcCore::app()->adminurl->register('admin.blog', 'Blog');
         dcCore::app()->adminurl->register('admin.blogs', 'Blogs');
-        dcCore::app()->adminurl->register('admin.categories', 'categories.php');
+        dcCore::app()->adminurl->register('admin.categories', 'Categories');
         dcCore::app()->adminurl->register('admin.category', 'category.php');
-        dcCore::app()->adminurl->register('admin.comments', 'comments.php');
-        dcCore::app()->adminurl->register('admin.comment', 'comment.php');
+        dcCore::app()->adminurl->register('admin.comments', 'Comments');
+        dcCore::app()->adminurl->register('admin.comment', 'Comment');
         dcCore::app()->adminurl->register('admin.help', 'help.php');
         dcCore::app()->adminurl->register('admin.home', 'Index');
-        dcCore::app()->adminurl->register('admin.langs', 'langs.php');
+        dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.media', 'media.php');
         dcCore::app()->adminurl->register('admin.media.item', 'media_item.php');
         dcCore::app()->adminurl->register('admin.plugins', 'plugins.php');
@@ -178,9 +178,9 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.user', 'user.php');
         dcCore::app()->adminurl->register('admin.user.actions', 'users_actions.php');
         dcCore::app()->adminurl->register('admin.users', 'users.php');
-        dcCore::app()->adminurl->register('admin.help', 'help.php');
+        dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.update', 'update.php');
-        dcCore::app()->adminurl->register('admin.csp_report', 'csp_report.php');
+        dcCore::app()->adminurl->register('admin.csp_report', 'CspReport');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
