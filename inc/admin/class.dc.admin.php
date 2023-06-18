@@ -157,11 +157,11 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.popup_posts', 'popup_posts.php');
         dcCore::app()->adminurl->register('admin.post', 'post.php');
         dcCore::app()->adminurl->register('admin.post.media', 'post_media.php');
-        dcCore::app()->adminurl->register('admin.blog.theme', 'blog_theme.php');
+        dcCore::app()->adminurl->register('admin.blog.theme', 'BlogTheme');
         dcCore::app()->adminurl->register('admin.blog.pref', 'BlogPref');
-        dcCore::app()->adminurl->register('admin.blog.del', 'blog_del.php');
+        dcCore::app()->adminurl->register('admin.blog.del', 'BlogDel');
         dcCore::app()->adminurl->register('admin.blog', 'Blog');
-        dcCore::app()->adminurl->register('admin.blogs', 'blogs.php');
+        dcCore::app()->adminurl->register('admin.blogs', 'Blogs');
         dcCore::app()->adminurl->register('admin.categories', 'categories.php');
         dcCore::app()->adminurl->register('admin.category', 'category.php');
         dcCore::app()->adminurl->register('admin.comments', 'comments.php');
