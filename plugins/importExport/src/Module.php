@@ -86,7 +86,7 @@ abstract class Module
         }
 
         $this->id  = get_class($this);
-        $this->url = sprintf('plugin.php?p=importExport&type=%s&module=%s', $this->type, $this->id);
+        $this->url = sprintf(urldecode(dcCore::app()->adminurl->get('admin.plugin', ['p' => 'importExport', 'type' => '%s', 'module' => '%s'], '&')), $this->type, $this->id);
     }
 
     /**

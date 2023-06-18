@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
+use dcCore;
+
 class ExportFlatMaintenanceTask extends ModuleExportFlat
 {
     /**
@@ -23,6 +25,6 @@ class ExportFlatMaintenanceTask extends ModuleExportFlat
      */
     public function setURL(string $id): void
     {
-        $this->url = sprintf('plugin.php?p=maintenance&task=%s', $id);
+        $this->url = sprintf(ulrdecode(dcCore::app()->adminurl->get('admin.plugin', ['p' => 'maintenance', 'id' => '%s'], '&')), $id);
     }
 }

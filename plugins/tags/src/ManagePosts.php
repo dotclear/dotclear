@@ -65,7 +65,7 @@ class ManagePosts extends dcNsProcess
         }
 
         dcCore::app()->admin->posts_actions_page = new BackendActions(
-            'plugin.php',
+            dcCore::app()->adminurl->get('admin.plugin'),
             ['p' => My::id(), 'm' => 'tag_posts', 'tag' => dcCore::app()->admin->tag]
         );
 

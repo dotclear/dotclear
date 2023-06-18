@@ -184,7 +184,7 @@ class dcPage
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . 'csp_report.php';
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.csp_report');
                 $report_only    = (dcCore::app()->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }

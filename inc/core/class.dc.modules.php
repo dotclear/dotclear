@@ -500,7 +500,7 @@ class dcModules
             $this->loadModuleL10N($module->getId(), $lang, 'main');
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
-                dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), 'plugin.php', ['p' => $module->getId()]);
+                dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin', ['p' => $module->getId()]));
             }
         }
 

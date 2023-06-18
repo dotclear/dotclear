@@ -251,7 +251,7 @@ class BackendBehaviors
             $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
-                'meta_url'            => 'plugin.php?p=' . My::id() . '&m=tag_posts&amp;tag=',
+                'meta_url'            => dcCore::app()->adminurl->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
                 'list_type'           => $type,
                 'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
                 'text_add_meta'       => __('Add a tag to this entry'),
@@ -392,7 +392,7 @@ class BackendBehaviors
         $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [
-            'meta_url'            => 'plugin.php?p=' . My::id() . '&m=tag_posts&amp;tag=',
+            'meta_url'            => dcCore::app()->adminurl->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
             'list_type'           => $type,
             'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
             'text_add_meta'       => __('Add a tag to this entry'),

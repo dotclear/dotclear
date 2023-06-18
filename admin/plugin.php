@@ -39,7 +39,7 @@ class adminPlugin
         }
 
         $res = '';
-        dcCore::app()->admin->setPageURL('plugin.php?p=' . $plugin);
+        dcCore::app()->admin->setPageURL(dcCore::app()->adminurl->get('admin.plugin.' . $plugin));
 
         // by class name
         $class = dcCore::app()->plugins->loadNsClass($plugin, dcModules::MODULE_CLASS_MANAGE);
