@@ -97,7 +97,7 @@ class CspReport extends dcNsProcess
                                     foreach ($list as $value) {
                                         if (isset($value['hash']) && $value['hash'] == $hash) {
                                             // Already stored, ignore
-                                            return;
+                                            return true;
                                         }
                                     }
                                 }
@@ -108,7 +108,7 @@ class CspReport extends dcNsProcess
                     // Add report to the file
                     if (!($fp = @fopen(DC_CSP_LOGFILE, 'a'))) {
                         // Unable to open file, ignore
-                        return;
+                        return false;
                     }
 
                     // Prettify the JSON-formatted data
@@ -119,7 +119,7 @@ class CspReport extends dcNsProcess
                     // beeing decoded with json_decoded(<content>,true);
                     fprintf($fp, ($contents != '' ? ',' : '') . '%s', $output);
                 } catch (Exception $e) {
-                    return;
+                    return false;
                 }
             }
         }

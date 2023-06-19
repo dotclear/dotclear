@@ -41,10 +41,10 @@ class dcAdminURL
         // by class name
         if (strpos($class, '.php') === false) {
             $params = array_merge(['process' => $class], $params);
-            $class = 'index.php';
+            $class  = 'index.php';
         }
         $this->urls[$name] = [
-            'url' =>  $class,
+            'url' => $class,
             'qs'  => $params,
         ];
     }
