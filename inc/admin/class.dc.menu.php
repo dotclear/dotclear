@@ -139,7 +139,7 @@ class dcMenu
     protected function itemDef(string $title, string $url, $img, $active, ?string $id = null, ?string $class = null): string
     {
         return
-        '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="' . $id . '"' : '') . '>' .
+        '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="menu-item-' . $id . '"' : '') . '>' .
         '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? 'id="menu-process-' . $id . '"' : '') . '>' . dcAdminHelper::adminIcon($img) . $title . '</a>' .
         '</li>' . "\n";
     }

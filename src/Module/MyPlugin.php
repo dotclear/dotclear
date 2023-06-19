@@ -38,9 +38,10 @@ abstract class MyPlugin extends MyModule
      *
      * @param   string                  $menu   The menu (from dcAdmin constant)
      * @param   array<string,string>    $params The URL params
-     * @param   string                  $scheme the URL end scheme
+     * @param   string                  $scheme The URL end scheme
+     * @param   string                  $id     The id (if not provided a standard one will be set), will be prefixed by 'plugin-'
      */
-    public static function addBackendMenuItem(string $menu = dcAdmin::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$'): void
+    public static function addBackendMenuItem(string $menu = dcAdmin::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
         if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->adminurl) || !(dcCore::app()->menu[$menu] instanceof dcMenu)) {
             return;
@@ -51,7 +52,8 @@ abstract class MyPlugin extends MyModule
             dcCore::app()->adminurl->get('admin.plugin.' . static::id(), $params),
             static::icons(),
             preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.' . static::id())) . $scheme . '/', $_SERVER['REQUEST_URI']),
-            static::checkContext(static::MENU)
+            static::checkContext(static::MENU),
+            'plugin-' . ($id ?? static::id())
         );
     }
 
