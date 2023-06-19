@@ -15,7 +15,7 @@ dotclear.dbCommentsCount = () => {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbCommentsCount_Counter) {
         // First pass or counter changed
-        const icon = $('#dashboard-main #icons p a[href="comments.php"]');
+        const icon = $('#dashboard-main #icons p #icon-process-comments-fav');
         if (icon.length) {
           // Update count if exists
           const nb_label = icon.children('span.db-icon-title');
@@ -43,7 +43,7 @@ dotclear.dbPostsCount = () => {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbPostsCount_Counter) {
         // First pass or counter changed
-        const icon = $('#dashboard-main #icons p a[href="posts.php"]');
+        const icon = $('#dashboard-main #icons p #icon-process-posts-fav');
         if (icon.length) {
           // Update count if exists
           const nb_label = icon.children('span.db-icon-title');
@@ -199,12 +199,12 @@ $(() => {
   });
 
   // check if store update available, if db has icon
-  if ($('#dashboard-main #icons p a[href="plugins.php"]').length) {
-    const plugins_db_icon = $('#dashboard-main #icons p a[href="plugins.php"]').parent();
+  if ($('#dashboard-main #icons p #icon-process-plugins-fav').length) {
+    const plugins_db_icon = $('#dashboard-main #icons p #icon-process-plugins-fav').parent();
     dotclear.dbStoreUpdate('plugins', plugins_db_icon);
   }
-  if ($('#dashboard-main #icons p a[href="blog_theme.php"]').length) {
-    const themes_db_icon = $('#dashboard-main #icons p a[href="blog_theme.php"]').parent();
+  if ($('#dashboard-main #icons p #icon-process-blog_theme-fav').length) {
+    const themes_db_icon = $('#dashboard-main #icons p #icon-process-blog_theme-fav').parent();
     dotclear.dbStoreUpdate('themes', themes_db_icon);
   }
 
@@ -233,7 +233,7 @@ $(() => {
 
   // run counters' update on some dashboard icons
   // Comments (including everything)
-  if ($('#dashboard-main #icons p a[href="comments.php"]').length) {
+  if ($('#dashboard-main #icons p #icon-process-comments-fav').length) {
     // Icon exists on dashboard
     // First pass
     dotclear.dbCommentsCount();
@@ -241,7 +241,7 @@ $(() => {
     dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000);
   }
   // Posts
-  if ($('#dashboard-main #icons p a[href="posts.php"]').length) {
+  if ($('#dashboard-main #icons p #icon-process-posts-fav').length) {
     // Icon exists on dashboard
     // First pass
     dotclear.dbPostsCount();
