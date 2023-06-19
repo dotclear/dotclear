@@ -171,8 +171,8 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.media', 'Media');
         dcCore::app()->adminurl->register('admin.media.item', 'MediaItem');
-        dcCore::app()->adminurl->register('admin.plugins', 'plugins.php');
-        dcCore::app()->adminurl->register('admin.plugin', 'plugin.php');
+        dcCore::app()->adminurl->register('admin.plugins', 'Plugins');
+        dcCore::app()->adminurl->register('admin.plugin', 'Plugin');
         dcCore::app()->adminurl->register('admin.search', 'Search');
         dcCore::app()->adminurl->register('admin.user.preferences', 'preferences.php');
         dcCore::app()->adminurl->register('admin.user', 'user.php');
