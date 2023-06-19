@@ -11,7 +11,7 @@ dotclear.dcMaintenanceTaskExpired = () => {
           if (response?.payload.ret) {
             const nb_expired = response.payload.nb;
             if (nb_expired !== undefined && nb_expired != dotclear.dcMaintenanceTaskExpired_Count) {
-              dotclear.badge($('#dashboard-main #icons p a[href="plugin.php?p=maintenance"]'), {
+              dotclear.badge($('#dashboard-main #icons p #icon-process-maintenance-fav'), {
                 id: 'dcmte',
                 remove: nb_expired == 0,
                 value: nb_expired,
