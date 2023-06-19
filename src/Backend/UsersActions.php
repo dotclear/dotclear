@@ -1,5 +1,7 @@
 <?php
 /**
+ * @todo Move to dcActions
+ *
  * @package Dotclear
  * @subpackage Backend
  *

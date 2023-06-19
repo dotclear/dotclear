@@ -1,5 +1,7 @@
 <?php
 /**
+ * @deprecated since 2.27 Use dcCore()->adminurl
+ *
  * @package Dotclear
  * @subpackage Backend
  *

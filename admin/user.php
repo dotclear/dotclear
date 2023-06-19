@@ -1,5 +1,7 @@
 <?php
 /**
+ * @deprecated since 2.27 Use name "admin.user" on dcCore::app()->adminurl methods
+ *
  * @package Dotclear
  * @subpackage Backend
  *
