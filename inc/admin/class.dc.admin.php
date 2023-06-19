@@ -174,10 +174,10 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.plugins', 'Plugins');
         dcCore::app()->adminurl->register('admin.plugin', 'Plugin');
         dcCore::app()->adminurl->register('admin.search', 'Search');
-        dcCore::app()->adminurl->register('admin.user.preferences', 'preferences.php');
-        dcCore::app()->adminurl->register('admin.user', 'user.php');
-        dcCore::app()->adminurl->register('admin.user.actions', 'users_actions.php');
-        dcCore::app()->adminurl->register('admin.users', 'users.php');
+        dcCore::app()->adminurl->register('admin.user.preferences', 'UserPreferences');
+        dcCore::app()->adminurl->register('admin.user', 'User');
+        dcCore::app()->adminurl->register('admin.user.actions', 'UsersActions');
+        dcCore::app()->adminurl->register('admin.users', 'Users');
         dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.update', 'update.php');
         dcCore::app()->adminurl->register('admin.csp_report', 'CspReport');
