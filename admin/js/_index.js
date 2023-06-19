@@ -1,7 +1,7 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-dotclear.dbCommentsCount = () => {
+dotclear.dbCommentsCount = (icon) => {
   const params = {
     f: 'getCommentsCount',
     xd_check: dotclear.nonce,
@@ -15,13 +15,9 @@ dotclear.dbCommentsCount = () => {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbCommentsCount_Counter) {
         // First pass or counter changed
-        const icon = $('#dashboard-main #icons p #icon-process-comments-fav');
-        if (icon.length) {
-          // Update count if exists
-          const nb_label = icon.children('span.db-icon-title');
-          if (nb_label.length) {
-            nb_label.text(nb);
-          }
+        const nb_label = icon.children('span.db-icon-title');
+        if (nb_label.length) {
+          nb_label.text(nb);
         }
         // Store current counter
         dotclear.dbCommentsCount_Counter = nb;
@@ -29,7 +25,7 @@ dotclear.dbCommentsCount = () => {
     }
   });
 };
-dotclear.dbPostsCount = () => {
+dotclear.dbPostsCount = (icon) => {
   const params = {
     f: 'getPostsCount',
     xd_check: dotclear.nonce,
@@ -43,13 +39,9 @@ dotclear.dbPostsCount = () => {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbPostsCount_Counter) {
         // First pass or counter changed
-        const icon = $('#dashboard-main #icons p #icon-process-posts-fav');
-        if (icon.length) {
-          // Update count if exists
-          const nb_label = icon.children('span.db-icon-title');
-          if (nb_label.length) {
-            nb_label.text(nb);
-          }
+        const nb_label = icon.children('span.db-icon-title');
+        if (nb_label.length) {
+          nb_label.text(nb);
         }
         // Store current counter
         dotclear.dbPostsCount_Counter = nb;
@@ -233,20 +225,22 @@ $(() => {
 
   // run counters' update on some dashboard icons
   // Comments (including everything)
-  if ($('#dashboard-main #icons p #icon-process-comments-fav').length) {
+  const icon_comments = $('#dashboard-main #icons p #icon-process-comments-fav');
+  if (icon_comments.length) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbCommentsCount();
+    dotclear.dbCommentsCount(icon_comments);
     // Then fired every 60 seconds (1 minute)
-    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000);
+    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000, icon_comments);
   }
   // Posts
-  if ($('#dashboard-main #icons p #icon-process-posts-fav').length) {
+  const icon_posts = $('#dashboard-main #icons p #icon-process-posts-fav');
+  if (icon_posts.length) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbPostsCount();
+    dotclear.dbPostsCount(icon_posts);
     // Then fired every 600 seconds (10 minutes)
-    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000);
+    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000, icon_posts);
   }
 
   if (!dotclear.data.noDragDrop) {
