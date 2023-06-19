@@ -546,17 +546,19 @@ namespace Dotclear {
             // If a process is provided, call it in 3 steps: init, process, render.
             if (!empty($process)) {
                 // recreate a fake dcNsProcess
-                if (class_exists($process) && $process::init() !== false) {
-                    if (method_exists($process, 'process')
-                        && $process::process() !== false
-                        && method_exists($process, 'render')
-                    ) {
-                        $process::render();
+                if (class_exists($process)) {
+                    if ($process::init() !== false) {
+                        if (method_exists($process, 'process')
+                            && $process::process() !== false
+                            && method_exists($process, 'render')
+                        ) {
+                            $process::render();
+                        }
                     }
                 } else {
                     new Fault(
                         __('No process found'),
-                        sprintf('Unable to find or initialize class %s', $process),
+                        sprintf('Unable to find class %s', $process),
                         Fault::UNDEFINED_ISSUE
                     );
                 }

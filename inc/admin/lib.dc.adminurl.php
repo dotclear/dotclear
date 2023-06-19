@@ -33,13 +33,18 @@ class dcAdminURL
      * Registers a new url
      *
      * @param  string $name   the url name
-     * @param  string $url    url value
+     * @param  string $class  class name (without namespace) or url value
      * @param  array  $params query string params (optional)
      */
-    public function register(string $name, string $url, array $params = [])
+    public function register(string $name, string $class, array $params = [])
     {
+        // by class name
+        if (strpos($class, '.php') === false) {
+            $params = array_merge(['process' => $class], $params);
+            $class = 'index.php';
+        }
         $this->urls[$name] = [
-            'url' => $url,
+            'url' =>  $class,
             'qs'  => $params,
         ];
     }
@@ -86,7 +91,7 @@ class dcAdminURL
         $qs  = array_merge($url['qs'], $params);
         $url = $url['url'];
         if (!empty($qs)) {
-            $url .= '?' . http_build_query($qs, '', $separator);
+            $url .= (strpos($url, '?') === false ? '?' : $separator) . http_build_query($qs, '', $separator);
         }
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.

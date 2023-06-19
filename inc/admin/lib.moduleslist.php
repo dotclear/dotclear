@@ -116,12 +116,6 @@ class adminModulesList
      */
     protected $page_url = '';
     /**
-     * Page query string
-     *
-     * @var        string
-     */
-    protected $page_qs = '?';
-    /**
      * Page tab
      *
      * @var        string
@@ -287,7 +281,6 @@ class adminModulesList
      */
     public function setURL(string $url): adminModulesList
     {
-        $this->page_qs  = strpos($url, '?') ? '&amp;' : '?';
         $this->page_url = $url;
 
         return $this;
@@ -304,7 +297,7 @@ class adminModulesList
     public function getURL($queries = '', bool $with_tab = true): string
     {
         return $this->page_url .
-            (!empty($queries) ? $this->page_qs : '') .
+            (!empty($queries) ? strpos($this->page_url, '?') ? '&amp;' : '?' : '') .
             (is_array($queries) ? http_build_query($queries) : $queries) .
             ($with_tab && !empty($this->page_tab) ? '#' . $this->page_tab : '');
     }

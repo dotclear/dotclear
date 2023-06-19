@@ -71,7 +71,7 @@ class dcAdmin
         // New adminurl instance
         // May be moved to property of dcCore::app()->admin in a near future
         dcCore::app()->adminurl = new dcAdminURL();
-        dcCore::app()->adminurl->register('admin.auth', 'index.php', ['process' => 'Auth']);
+        dcCore::app()->adminurl->register('admin.auth', 'Auth');
 
         if (dcCore::app()->auth->sessionExists()) {
             # If we have a session we launch it now
@@ -157,30 +157,30 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.popup_posts', 'popup_posts.php');
         dcCore::app()->adminurl->register('admin.post', 'post.php');
         dcCore::app()->adminurl->register('admin.post.media', 'post_media.php');
-        dcCore::app()->adminurl->register('admin.blog.theme', 'blog_theme.php');
-        dcCore::app()->adminurl->register('admin.blog.pref', 'blog_pref.php');
-        dcCore::app()->adminurl->register('admin.blog.del', 'blog_del.php');
-        dcCore::app()->adminurl->register('admin.blog', 'blog.php');
-        dcCore::app()->adminurl->register('admin.blogs', 'blogs.php');
-        dcCore::app()->adminurl->register('admin.categories', 'categories.php');
+        dcCore::app()->adminurl->register('admin.blog.theme', 'BlogTheme');
+        dcCore::app()->adminurl->register('admin.blog.pref', 'BlogPref');
+        dcCore::app()->adminurl->register('admin.blog.del', 'BlogDel');
+        dcCore::app()->adminurl->register('admin.blog', 'Blog');
+        dcCore::app()->adminurl->register('admin.blogs', 'Blogs');
+        dcCore::app()->adminurl->register('admin.categories', 'Categories');
         dcCore::app()->adminurl->register('admin.category', 'category.php');
-        dcCore::app()->adminurl->register('admin.comments', 'comments.php');
-        dcCore::app()->adminurl->register('admin.comment', 'comment.php');
+        dcCore::app()->adminurl->register('admin.comments', 'Comments');
+        dcCore::app()->adminurl->register('admin.comment', 'Comment');
         dcCore::app()->adminurl->register('admin.help', 'help.php');
-        dcCore::app()->adminurl->register('admin.home', 'index.php', ['process' => 'Index']);
-        dcCore::app()->adminurl->register('admin.langs', 'langs.php');
+        dcCore::app()->adminurl->register('admin.home', 'Index');
+        dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.media', 'media.php');
         dcCore::app()->adminurl->register('admin.media.item', 'media_item.php');
         dcCore::app()->adminurl->register('admin.plugins', 'plugins.php');
         dcCore::app()->adminurl->register('admin.plugin', 'plugin.php');
-        dcCore::app()->adminurl->register('admin.search', 'index.php', ['process' => 'Search']);
+        dcCore::app()->adminurl->register('admin.search', 'Search');
         dcCore::app()->adminurl->register('admin.user.preferences', 'preferences.php');
         dcCore::app()->adminurl->register('admin.user', 'user.php');
         dcCore::app()->adminurl->register('admin.user.actions', 'users_actions.php');
         dcCore::app()->adminurl->register('admin.users', 'users.php');
-        dcCore::app()->adminurl->register('admin.help', 'help.php');
+        dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.update', 'update.php');
-        dcCore::app()->adminurl->register('admin.csp_report', 'csp_report.php');
+        dcCore::app()->adminurl->register('admin.csp_report', 'CspReport');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);

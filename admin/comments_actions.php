@@ -1,5 +1,7 @@
 <?php
 /**
+ * @deprecated since 2.27 Use dcCommentsActions
+ *
  * @package Dotclear
  * @subpackage Backend
  *
