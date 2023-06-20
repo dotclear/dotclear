@@ -167,7 +167,7 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.comments', 'Comments');
         dcCore::app()->adminurl->register('admin.comment', 'Comment');
         dcCore::app()->adminurl->register('admin.help', 'help.php');
-        dcCore::app()->adminurl->register('admin.home', 'Index');
+        dcCore::app()->adminurl->register('admin.home', 'Home');
         dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.media', 'Media');
         dcCore::app()->adminurl->register('admin.media.item', 'MediaItem');
