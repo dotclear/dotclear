@@ -1,5 +1,7 @@
 <?php
 /**
+ * @since 2.27 Before as admin/auth.php
+ *
  * @package Dotclear
  * @subpackage Backend
  *

@@ -1,5 +1,7 @@
 <?php
 /**
+ * @since 2.27 Before as admin/users_actions.php
+ *
  * @todo Move to dcActions
  *
  * @package Dotclear
