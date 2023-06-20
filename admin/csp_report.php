@@ -1,6 +1,7 @@
 <?php
 /**
- * @deprecated since 2.27 Use name "admin.csp_report" on dcCore::app()->adminurl methods
+ * @deprecated since 2.27 Use name "admin.csp.report" on dcCore::app()->adminurl methods
+ *
  * @package Dotclear
  * @subpackage Backend
  *

@@ -1,5 +1,7 @@
 <?php
 /**
+ * @deprecated since 2.24 Use dcPostsActions
+ * 
  * @package Dotclear
  * @subpackage Backend
  *

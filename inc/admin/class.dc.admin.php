@@ -153,20 +153,21 @@ class dcAdmin
             }
         }
 
-        dcCore::app()->adminurl->register('admin.posts', 'posts.php');
-        dcCore::app()->adminurl->register('admin.popup_posts', 'popup_posts.php');
-        dcCore::app()->adminurl->register('admin.post', 'post.php');
-        dcCore::app()->adminurl->register('admin.post.media', 'post_media.php');
+        dcCore::app()->adminurl->register('admin.posts', 'Posts');
+        dcCore::app()->adminurl->register('admin.popup_posts', 'PostsPopup'); //use admin.posts.popup
+        dcCore::app()->adminurl->register('admin.posts.popup', 'PostsPopup');
+        dcCore::app()->adminurl->register('admin.post', 'Post');
+        dcCore::app()->adminurl->register('admin.post.media', 'PostMedia');
         dcCore::app()->adminurl->register('admin.blog.theme', 'BlogTheme');
         dcCore::app()->adminurl->register('admin.blog.pref', 'BlogPref');
         dcCore::app()->adminurl->register('admin.blog.del', 'BlogDel');
         dcCore::app()->adminurl->register('admin.blog', 'Blog');
         dcCore::app()->adminurl->register('admin.blogs', 'Blogs');
         dcCore::app()->adminurl->register('admin.categories', 'Categories');
-        dcCore::app()->adminurl->register('admin.category', 'category.php');
+        dcCore::app()->adminurl->register('admin.category', 'Category');
         dcCore::app()->adminurl->register('admin.comments', 'Comments');
         dcCore::app()->adminurl->register('admin.comment', 'Comment');
-        dcCore::app()->adminurl->register('admin.help', 'help.php');
+        dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.home', 'Home');
         dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.media', 'Media');
@@ -179,12 +180,13 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.user.actions', 'UsersActions');
         dcCore::app()->adminurl->register('admin.users', 'Users');
         dcCore::app()->adminurl->register('admin.help', 'Help');
-        dcCore::app()->adminurl->register('admin.update', 'update.php');
-        dcCore::app()->adminurl->register('admin.csp_report', 'CspReport');
+        dcCore::app()->adminurl->register('admin.update', 'Update');
+        dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
 
+        // (re)set post type with real backend URL (as admin URL handler is known yet)
         dcCore::app()->setPostType('post', urldecode(dcCore::app()->adminurl->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
         if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
