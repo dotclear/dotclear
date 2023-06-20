@@ -549,8 +549,7 @@ namespace Dotclear {
                 // recreate a fake dcNsProcess
                 if (class_exists($process)) {
                     if ($process::init() !== false) {
-                        if (method_exists($process, 'process')
-                            && $process::process() !== false
+                        if ((method_exists($process, 'process') && $process::process() !== false || !method_exists($process, 'process'))
                             && method_exists($process, 'render')
                         ) {
                             $process::render();
