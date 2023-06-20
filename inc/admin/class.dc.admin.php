@@ -115,7 +115,7 @@ class dcAdmin
 
                 dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
 
-                if (strstr($redir, 'media.php') !== false) {
+                if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || strstr($redir, 'media.php') !== false) {
                     // Remove current media dir from media manager URL
                     $redir = preg_replace('/d=(.*?)(&|$)/', '', $redir);
                 }
