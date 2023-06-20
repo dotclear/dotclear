@@ -51,7 +51,7 @@ abstract class MyPlugin extends MyModule
             static::name(),
             dcCore::app()->adminurl->get('admin.plugin.' . static::id(), $params),
             static::icons(),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.' . static::id())) . $scheme . '/', $_SERVER['REQUEST_URI']),
+            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.' . static::id(), [] , '&')) . $scheme . '/', $_SERVER['REQUEST_URI']),
             static::checkContext(static::MENU),
             'plugin-' . ($id ?? static::id())
         );
