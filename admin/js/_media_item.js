@@ -20,7 +20,7 @@ $(() => {
 
     $(a).on('click', () => {
       $.get(
-        'services.php',
+        'index.php?process=Rest',
         {
           f: 'getZipMediaContent',
           id: mediaId,

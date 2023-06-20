@@ -183,6 +183,7 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.update', 'Update');
         dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
+        dcCore::app()->adminurl->register('admin.rest', 'Rest');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
