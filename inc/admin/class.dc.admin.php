@@ -185,8 +185,9 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
         dcCore::app()->adminurl->register('admin.rest', 'Rest');
 
-        dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
-        dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
+        // we don't care of admin process for FileServer
+        dcCore::app()->adminurl->register('load.plugin.file', 'index.php', ['pf' => 'dummy.css']);
+        dcCore::app()->adminurl->register('load.var.file', 'index.php', ['vf' => 'dummy.json']);
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
         dcCore::app()->setPostType('post', urldecode(dcCore::app()->adminurl->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
