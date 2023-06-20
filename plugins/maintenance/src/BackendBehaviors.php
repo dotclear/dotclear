@@ -125,8 +125,7 @@ class BackendBehaviors
 
     public static function adminDashboardHeaders()
     {
-        return
-        dcPage::jsModuleLoad(My::id() . '/js/dashboard.js');
+        return My::jsLoad('dashboard.js');
     }
 
     /**
