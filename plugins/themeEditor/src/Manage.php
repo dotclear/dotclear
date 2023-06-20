@@ -20,7 +20,6 @@ use dcNsProcess;
 use dcPage;
 use dcThemes;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use form;
 
 class Manage extends dcNsProcess
@@ -118,7 +117,9 @@ class Manage extends dcNsProcess
                     dcCore::app()->admin->file['f']     // @phpstan-ignore-line
                 );
                 dcPage::addSuccessNotice(__('The file has been reset.'));
-                Http::redirect(dcCore::app()->admin->getPageURL() . '&' . dcCore::app()->admin->file['type'] . '=' . dcCore::app()->admin->file['f']);
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                    dcCore::app()->admin->file['type'] => dcCore::app()->admin->file['f'],
+                ]);
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

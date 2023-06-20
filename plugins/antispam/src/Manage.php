@@ -17,7 +17,6 @@ use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
@@ -65,7 +64,7 @@ class Manage extends dcNsProcess
                 Antispam::delAllSpam($ts);
 
                 dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             }
 
             // Update filters
@@ -109,7 +108,7 @@ class Manage extends dcNsProcess
                 Antispam::$filters->saveFilterOpts($filters_opt);
 
                 dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

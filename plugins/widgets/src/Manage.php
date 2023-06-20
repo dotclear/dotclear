@@ -16,7 +16,6 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 use stdClass;
@@ -111,7 +110,7 @@ class Manage extends dcNsProcess
                     dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
                     dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                     dcCore::app()->blog->triggerBlog();
-                    Http::redirect(dcCore::app()->admin->getPageURL());
+                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -197,7 +196,7 @@ class Manage extends dcNsProcess
                 dcCore::app()->blog->triggerBlog();
 
                 dcPage::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -209,7 +208,7 @@ class Manage extends dcNsProcess
                 dcCore::app()->blog->triggerBlog();
 
                 dcPage::addSuccessNotice(__('Sidebars have been resetting.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
