@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcAdminCombos;
+use dcBlog;
 use dcCore;
 use dcNsProcess;
 use dcPage;

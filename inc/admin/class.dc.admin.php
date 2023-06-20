@@ -153,17 +153,18 @@ class dcAdmin
             }
         }
 
-        dcCore::app()->adminurl->register('admin.posts', 'posts.php');
-        dcCore::app()->adminurl->register('admin.popup_posts', 'popup_posts.php');
-        dcCore::app()->adminurl->register('admin.post', 'post.php');
-        dcCore::app()->adminurl->register('admin.post.media', 'post_media.php');
+        dcCore::app()->adminurl->register('admin.posts', 'Posts');
+        dcCore::app()->adminurl->register('admin.popup_posts', 'PostsPopup'); //use admin.posts.popup
+        dcCore::app()->adminurl->register('admin.posts.popup', 'PostsPopup');
+        dcCore::app()->adminurl->register('admin.post', 'Post');
+        dcCore::app()->adminurl->register('admin.post.media', 'PostMedia');
         dcCore::app()->adminurl->register('admin.blog.theme', 'BlogTheme');
         dcCore::app()->adminurl->register('admin.blog.pref', 'BlogPref');
         dcCore::app()->adminurl->register('admin.blog.del', 'BlogDel');
         dcCore::app()->adminurl->register('admin.blog', 'Blog');
         dcCore::app()->adminurl->register('admin.blogs', 'Blogs');
         dcCore::app()->adminurl->register('admin.categories', 'Categories');
-        dcCore::app()->adminurl->register('admin.category', 'category.php');
+        dcCore::app()->adminurl->register('admin.category', 'Category');
         dcCore::app()->adminurl->register('admin.comments', 'Comments');
         dcCore::app()->adminurl->register('admin.comment', 'Comment');
         dcCore::app()->adminurl->register('admin.help', 'help.php');
@@ -180,7 +181,7 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.users', 'Users');
         dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.update', 'update.php');
-        dcCore::app()->adminurl->register('admin.csp_report', 'CspReport');
+        dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
