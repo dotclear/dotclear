@@ -549,11 +549,19 @@ namespace Dotclear {
             if (!empty($process)) {
                 // recreate a fake dcNsProcess
                 if (class_exists($process)) {
-                    if ($process::init() !== false) {
-                        if ((method_exists($process, 'process') && $process::process() !== false || !method_exists($process, 'process'))
-                            && method_exists($process, 'render')
-                        ) {
-                            $process::render();
+                    try {
+                        if ($process::init() !== false) {
+                            if ((method_exists($process, 'process') && $process::process() !== false || !method_exists($process, 'process'))
+                                && method_exists($process, 'render')
+                            ) {
+                                $process::render();
+                            }
+                        }
+                    } catch (Exception $e) {
+                        if (defined('DC_DEBUG') && DC_DEBUG === true) {
+                            throw $e;
+                        } else {
+                            new Fault(__('Process failed'), $e->getMessage(), $e->getCode());
                         }
                     }
                 } else {
