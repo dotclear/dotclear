@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use adminModulesList;
-use dcAuth;
 use dcCore;
 use dcModuleDefine;
 use dcNsProcess;
@@ -87,7 +86,8 @@ class Plugins extends dcNsProcess
         // -- Page header --
         dcPage::open(
             __('Plugins management'),
-            (empty($_GET['nocache']) && empty($_GET['showupdate']) ?
+            (
+                empty($_GET['nocache']) && empty($_GET['showupdate']) ?
                 dcPage::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
             dcPage::jsLoad('js/_plugins.js') .

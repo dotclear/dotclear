@@ -61,7 +61,7 @@ class Plugin extends dcNsProcess
                 $class::render();
                 $res = (string) ob_get_contents();
                 ob_end_clean();
-            // by file name
+                // by file name
             } elseif (dcCore::app()->plugins->moduleExists($plugin)) {
                 $p_file = dcCore::app()->plugins->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE;
                 if (file_exists($p_file)) {

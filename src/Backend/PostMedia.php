@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
+use dcMedia;
 use dcNsProcess;
 use dcPage;
 use dcPostMedia;

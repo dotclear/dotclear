@@ -130,14 +130,14 @@ class Update extends dcNsProcess
                     if (!@unlink(DC_BACKUP_PATH . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
-                    dcCore::app()->adminurl->redirect('admin.update' ,['tab' => 'files']);
+                    dcCore::app()->adminurl->redirect('admin.update', ['tab' => 'files']);
                 }
 
                 if (!empty($_POST['b_revert'])) {
                     $zip = new Unzip(DC_BACKUP_PATH . '/' . $b_file);
                     $zip->unzipAll(DC_BACKUP_PATH . '/');
                     @unlink(DC_BACKUP_PATH . '/' . $b_file);
-                    dcCore::app()->adminurl->redirect('admin.update' ,['tab' => 'files']);
+                    dcCore::app()->adminurl->redirect('admin.update', ['tab' => 'files']);
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -152,7 +152,7 @@ class Update extends dcNsProcess
                 switch (dcCore::app()->admin->step) {
                     case 'check':
                         dcCore::app()->admin->updater->checkIntegrity(DC_ROOT . '/inc/digests', DC_ROOT);
-                        dcCore::app()->adminurl->redirect('admin.update' ,['step' => 'download']);
+                        dcCore::app()->adminurl->redirect('admin.update', ['step' => 'download']);
 
                         break;
                     case 'download':
@@ -160,7 +160,7 @@ class Update extends dcNsProcess
                         if (!dcCore::app()->admin->updater->checkDownload(dcCore::app()->admin->zip_file)) {
                             throw new Exception(
                                 sprintf(
-                                    __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'), 
+                                    __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
                                     'href="' . dcCore::app()->adminurl->get('admin.update', ['step' => 'download']) . '"'
                                 ) .
                                 ' ' .
@@ -168,7 +168,7 @@ class Update extends dcNsProcess
                                     '<a href="https://dotclear.org/download">update manually</a>.')
                             );
                         }
-                        dcCore::app()->adminurl->redirect('admin.update' ,['step' => 'backup']);
+                        dcCore::app()->adminurl->redirect('admin.update', ['step' => 'backup']);
 
                         break;
                     case 'backup':
@@ -179,7 +179,7 @@ class Update extends dcNsProcess
                             DC_ROOT . '/inc/digests',
                             DC_BACKUP_PATH . '/backup-' . DC_VERSION . '.zip'
                         );
-                        dcCore::app()->adminurl->redirect('admin.update' ,['step' => 'unzip']);
+                        dcCore::app()->adminurl->redirect('admin.update', ['step' => 'unzip']);
 
                         break;
                     case 'unzip':
