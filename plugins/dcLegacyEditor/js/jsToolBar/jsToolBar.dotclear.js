@@ -5,7 +5,7 @@
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.link.data = {};
 jsToolBar.prototype.elements.link.fncall = {};
-jsToolBar.prototype.elements.link.open_url = 'popup_link.php?plugin_id=dcLegacyEditor';
+jsToolBar.prototype.elements.link.open_url = 'index.php?process=LinkPopup&plugin_id=dcLegacyEditor';
 
 jsToolBar.prototype.elements.link.popup = function (args = '') {
   window.the_toolbar = this;
@@ -171,7 +171,7 @@ jsToolBar.prototype.elements.img_select = {
   shortkey_name: 'M',
   fn: {},
   fncall: {},
-  open_url: 'media.php?popup=1&plugin_id=dcLegacyEditor',
+  open_url: 'index.php?process=Media&popup=1&plugin_id=dcLegacyEditor',
   data: {},
   popup() {
     window.the_toolbar = this;

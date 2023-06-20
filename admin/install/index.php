@@ -425,10 +425,11 @@ if ($can_install && $step == 0) {
     '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(Http::getHost() . $admin_url) . '</strong></li>' .
     '</ul>' .
 
-    '<form action="../auth.php" method="post">' .
+    '<form action="../index.php" method="post">' .
     '<p><input type="submit" value="' . __('Manage your blog now') . '" />' .
     form::hidden(['user_id'], Html::escapeHTML($u_login)) .
     form::hidden(['user_pwd'], Html::escapeHTML($u_pwd)) .
+    form::hidden(['process'], 'Auth') .
         '</p>' .
         '</form>';
 } elseif (!$can_install) {
