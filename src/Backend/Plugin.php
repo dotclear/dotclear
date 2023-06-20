@@ -20,9 +20,6 @@ use dcPage;
 
 class Plugin extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -30,12 +27,9 @@ class Plugin extends dcNsProcess
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         $p_file = '';

@@ -27,9 +27,6 @@ use form;
 
 class User extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -91,12 +88,9 @@ class User extends dcNsProcess
             }
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (isset($_POST['user_name'])) {
@@ -218,9 +212,6 @@ class User extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

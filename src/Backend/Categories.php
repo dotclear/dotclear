@@ -22,21 +22,15 @@ use form;
 
 class Categories extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_CATEGORIES,
         ]));
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!empty($_POST['delete'])) {
@@ -123,9 +117,6 @@ class Categories extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         $rs = dcCore::app()->blog->getCategories();

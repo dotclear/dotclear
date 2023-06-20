@@ -26,9 +26,6 @@ use form;
 
 class Auth extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
@@ -105,12 +102,9 @@ class Auth extends dcNsProcess
             dcCore::app()->enableRestServer(true);
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         $headers = [];
@@ -298,9 +292,6 @@ class Auth extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         header('Content-Type: text/html; charset=UTF-8');

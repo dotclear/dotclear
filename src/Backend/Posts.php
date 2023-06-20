@@ -23,11 +23,6 @@ use form;
 
 class Posts extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     If we should return after init
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -39,7 +34,7 @@ class Posts extends dcNsProcess
         // -------
         dcCore::app()->admin->posts_actions_page = new dcPostsActions(dcCore::app()->adminurl->get('admin.posts'));
         if (dcCore::app()->admin->posts_actions_page->process()) {
-            return false;
+            return (static::$init = false);
         }
 
         // Filters
@@ -78,12 +73,9 @@ class Posts extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

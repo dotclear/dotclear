@@ -22,9 +22,6 @@ use form;
 
 class LinkPopup extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -47,12 +44,9 @@ class LinkPopup extends dcNsProcess
         $rs                              = dcCore::app()->blog->getLangs(['order' => 'asc']);
         dcCore::app()->admin->lang_combo = dcAdminCombos::getLangsCombo($rs, true);
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         # --BEHAVIOR-- adminPopupLink -- string

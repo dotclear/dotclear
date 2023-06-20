@@ -22,11 +22,6 @@ use Exception;
 
 class Plugins extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     True if we should return
-     */
     public static function init(): bool
     {
         // -- Page helper --
@@ -49,7 +44,7 @@ class Plugins extends dcNsProcess
             // -- Display module configuration page --
             self::renderConfig();
             // Stop reading code here, rendering will be done before returning (see below)
-            return false;
+            return (static::$init = false);
         }
 
         dcPage::checkSuper();
@@ -61,12 +56,9 @@ class Plugins extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         // -- Plugin install --
@@ -78,9 +70,6 @@ class Plugins extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         // -- Page header --

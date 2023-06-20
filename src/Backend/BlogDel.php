@@ -29,9 +29,6 @@ use Exception;
 
 class BlogDel extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -58,12 +55,9 @@ class BlogDel extends dcNsProcess
             }
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!dcCore::app()->error->flag() && dcCore::app()->admin->blog_id && !empty($_POST['del'])) {
@@ -85,9 +79,6 @@ class BlogDel extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

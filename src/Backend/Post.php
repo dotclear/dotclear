@@ -33,11 +33,6 @@ use form;
 
 class Post extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     True if we should return
-     */
     public static function init(): bool
     {
         $params = [];
@@ -234,15 +229,12 @@ class Post extends dcNsProcess
         );
 
         if (dcCore::app()->admin->comments_actions_page->process()) {
-            return false;
+            return (static::$init = false);
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!empty($_POST['ping'])) {
@@ -473,9 +465,6 @@ class Post extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcCore::app()->admin->default_tab = 'edit-entry';

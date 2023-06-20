@@ -24,9 +24,6 @@ use Exception;
 
 class CspReport extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         // Specify admin CSP log file if necessary
@@ -37,12 +34,9 @@ class CspReport extends dcNsProcess
         // Dareboost wants it? Not a problem.
         header('X-Content-Type-Options: "nosniff"');
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         // Get the raw POST data

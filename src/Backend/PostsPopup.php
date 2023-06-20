@@ -23,9 +23,6 @@ use form;
 
 class PostsPopup extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -73,12 +70,9 @@ class PostsPopup extends dcNsProcess
             dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::openPopup(

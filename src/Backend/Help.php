@@ -19,9 +19,6 @@ use Dotclear\Helper\Html\Html;
 
 class Help extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -29,12 +26,9 @@ class Help extends dcNsProcess
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         /**

@@ -32,9 +32,6 @@ class Search
     protected static $list    = null;
     protected static $actions = null;
 
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -60,12 +57,9 @@ class Search
         dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
         dcCore::app()->admin->qtype_combo = $qtype_combo;
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         dcCore::app()->admin->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
@@ -84,9 +78,6 @@ class Search
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render()
     {
         $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
