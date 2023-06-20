@@ -82,7 +82,7 @@ class dcPublic
      */
     public static function bootstrap(): self
     {
-        if (!dcCore::app()->public) {
+        if (!(dcCore::app()->public instanceof self)) {
             // Init singleton
             dcCore::app()->public = new self();
         }

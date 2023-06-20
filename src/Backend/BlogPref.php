@@ -37,7 +37,7 @@ class BlogPref extends dcNsProcess
         /**
          * Alias for dcCore::app()->admin
          *
-         * @var dcAdmin
+         * @var \dcAdmin
          */
         $da = dcCore::app()->admin;
 
@@ -229,7 +229,7 @@ class BlogPref extends dcNsProcess
         /**
          * Alias for dcCore::app()->admin
          *
-         * @var dcAdmin
+         * @var \dcAdmin
          */
         $da = dcCore::app()->admin;
 
@@ -406,7 +406,7 @@ class BlogPref extends dcNsProcess
         /**
          * Alias for dcCore::app()->admin
          *
-         * @var dcAdmin
+         * @var \dcAdmin
          */
         $da = dcCore::app()->admin;
 

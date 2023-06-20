@@ -55,7 +55,7 @@ class dcAdmin
      */
     public static function bootstrap(): self
     {
-        if (!dcCore::app()->admin) {
+        if (!(dcCore::app()->admin instanceof self)) {
             // Init singleton
             dcCore::app()->admin = new self();
         }
