@@ -167,7 +167,7 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.category', 'Category');
         dcCore::app()->adminurl->register('admin.comments', 'Comments');
         dcCore::app()->adminurl->register('admin.comment', 'Comment');
-        dcCore::app()->adminurl->register('admin.help', 'help.php');
+        dcCore::app()->adminurl->register('admin.help', 'Help');
         dcCore::app()->adminurl->register('admin.home', 'Home');
         dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.media', 'Media');
@@ -180,12 +180,13 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.user.actions', 'UsersActions');
         dcCore::app()->adminurl->register('admin.users', 'Users');
         dcCore::app()->adminurl->register('admin.help', 'Help');
-        dcCore::app()->adminurl->register('admin.update', 'update.php');
+        dcCore::app()->adminurl->register('admin.update', 'Update');
         dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
 
         dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
         dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
 
+        // (re)set post type with real backend URL (as admin URL handler is known yet)
         dcCore::app()->setPostType('post', urldecode(dcCore::app()->adminurl->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
         if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
