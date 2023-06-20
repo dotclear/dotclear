@@ -91,13 +91,8 @@ class dcAdmin
             }
 
             # Check nonce from POST requests
-            if (!empty($_POST)) {
-                if (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check'])) {
-                    Http::head(412);
-                    header('Content-Type: text/plain');
-                    echo 'Precondition Failed';
-                    exit;
-                }
+            if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check']))) {
+                new Fault('Precondition Failed', __('Precondition Failed'), 412);
             }
 
             if (!empty($_REQUEST['switchblog']) && dcCore::app()->auth->getPermissions($_REQUEST['switchblog']) !== false) {
