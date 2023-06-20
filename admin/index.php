@@ -10,6 +10,6 @@
  * @copyright GPL-2.0-only
  */
 // if no process found in _REQUEST, use admin.home
-define('APP_PROCESS', 'Index');
+define('APP_PROCESS', 'Home');
 
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'inc', 'admin', 'prepend.php']);

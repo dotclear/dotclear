@@ -1,5 +1,7 @@
 <?php
 /**
+ * @since 2.27 Before as admin/index.php
+ *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -23,7 +25,7 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Index extends dcNsProcess
+class Home extends dcNsProcess
 {
     /**
      * Initializes the page.

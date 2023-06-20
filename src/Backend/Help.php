@@ -1,5 +1,7 @@
 <?php
 /**
+ * @since 2.27 Before as admin/help.php
+ *
  * @package Dotclear
  * @subpackage Backend
  *
