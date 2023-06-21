@@ -19,7 +19,7 @@ class metaEditor {
     this.submit_button = null;
     this.post_id = false;
 
-    this.service_uri = 'index.php?process=Rest';
+    this.service_uri = dotclear.servicesUri;
   }
 
   displayMeta(type, post_id, input_id = 'post_meta_input') {

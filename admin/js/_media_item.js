@@ -20,7 +20,7 @@ $(() => {
 
     $(a).on('click', () => {
       $.get(
-        'index.php?process=Rest',
+        dotclear.servicesUri,
         {
           f: 'getZipMediaContent',
           id: mediaId,

@@ -60,7 +60,7 @@ $(() => {
       order: $('#order').val(),
       nb: $('#nb').val(),
     };
-    $.post('index.php?process=Rest', param)
+    $.post(dotclear.servicesUri, param)
       .done((data) => {
         const rsp = $(data).children('rsp')[0];
         if (rsp) {

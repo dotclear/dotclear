@@ -6,7 +6,7 @@ dotclear.dbSpamsCount = (icon_spam) => {
     f: 'getSpamsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('index.php?process=Rest', params, (data) => {
+  $.get(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));

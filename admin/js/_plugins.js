@@ -8,19 +8,23 @@ dotclear.dbStoreUpdate = (store, url) => {
       xd_check: dotclear.nonce,
       store,
     };
-    $.post('index.php?process=Rest', params, (data) => {
+    $.post(dotclear.servicesUri, params, (data) => {
       if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('new') == 1) {
         if ($('rsp>update', data).attr('check') == 1) {
           const nb = Number($('rsp>update', data).attr('nb'));
           if (nb) {
             $('#force-checking').replaceWith(
-              '<p class="info"><a href="' + url + '" title="' + $('rsp>update', data).attr('ret') + '">' + $('rsp>update', data).attr('ret') + '</a></p>'
+              '<p class="info"><a href="' +
+                url +
+                '" title="' +
+                $('rsp>update', data).attr('ret') +
+                '">' +
+                $('rsp>update', data).attr('ret') +
+                '</a></p>',
             );
           }
         } else {
-          $('#force-checking p').prepend(
-            '<span class="info">' + $('rsp>update', data).attr('ret') + '</span> '
-          );
+          $('#force-checking p').prepend('<span class="info">' + $('rsp>update', data).attr('ret') + '</span> ');
         }
       }
     });
