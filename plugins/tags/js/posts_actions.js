@@ -12,7 +12,7 @@ $(() => {
   const target = $('#tags_list');
   const mEdit = new metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
 
-  mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
+  mEdit.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
 
   mEdit.meta_dialog = $('<input type="text" />');
   mEdit.meta_dialog.attr('title', mEdit.text_add_meta.replace(/%s/, mEdit.meta_type));

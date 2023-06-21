@@ -201,7 +201,7 @@ final class dcCore
      *
      * @var Autoloader
      *
-     * @deprecated since 2.26, use App::autoload() instead
+     * @deprecated since 2.27, use Autoloader::me() instead
      */
     public $autoload;
 
@@ -362,7 +362,7 @@ final class dcCore
         }
 
         // Deprecated since 2.26
-        $this->autoload = App::autoload();
+        $this->autoload = Autoloader::me();
 
         $this->con = AbstractHandler::init($driver, $host, $db, $user, $password, $persist);
 

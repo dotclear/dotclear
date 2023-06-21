@@ -1,5 +1,72 @@
+<?php
+/**
+ * @package Dotclear
+ * @subpackage Backend
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Backend;
+
+use dcAuth;
+use dcCore;
+use dcNsProcess;
+use dcPage;
+use dcUtils;
+
+class HelpCharte extends dcNsProcess
+{
+    /**
+     * Initializes the page.
+     */
+    public static function init(): bool
+    {
+        dcPage::check(
+            dcCore::app()->auth->makePermissions([
+                dcAuth::PERMISSION_USAGE,
+                dcAuth::PERMISSION_CONTENT_ADMIN,
+            ])
+        );
+
+        dcCore::app()->admin->data_theme = dcCore::app()->auth->user_prefs->interface->theme;
+        dcCore::app()->admin->js         = [
+            'htmlFontSize' => dcCore::app()->auth->user_prefs->interface->htmlfontsize,
+            'debug'        => !!DC_DEBUG,
+        ];
+
+        return (static::$init = true);
+    }
+
+    /**
+     * Gets the theme.
+     *
+     * @return     string  The theme.
+     */
+    public static function getTheme(): string
+    {
+        return dcCore::app()->admin->data_theme ?? '';
+    }
+
+    /**
+     * Gets the JS variables.
+     *
+     * @return     array  The js.
+     */
+    public static function getJS(): array
+    {
+        return dcCore::app()->admin->js ?? [];
+    }
+
+    /**
+     * Renders the page.
+     */
+    public static function render(): void
+    {
+?>
 <!DOCTYPE html>
-<html lang="fr" data-theme="<?php echo adminChartePage::getTheme(); ?>">
+<html lang="fr" data-theme="<?php echo self::getTheme(); ?>">
 <!-- included by ../_charte.php -->
 <head>
   <meta charset="UTF-8" />
@@ -11,7 +78,7 @@
 <?php
     echo
     dcPage::cssLoad('style/default.css') . // Set some JSON data
-    dcUtils::jsJson('dotclear_init', adminChartePage::getJS());
+    dcUtils::jsJson('dotclear_init', self::getJS());
 ?>
   <script src="js/jquery/jquery.js"></script>
   <script src="js/jquery/jquery-ui.custom.js"></script>
@@ -579,3 +646,6 @@
 </body>
 
 </html>
+<?php
+    }
+}

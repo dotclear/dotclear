@@ -710,7 +710,7 @@ jsToolBar.prototype.elements.preview = {
         wiki: buffer,
       };
       const promise = $.ajax({
-        url: 'services.php',
+        url: dotclear.servicesUri,
         method: 'POST',
         data: params,
         dataType: 'xml',

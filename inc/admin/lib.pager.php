@@ -1209,6 +1209,7 @@ class adminMediaList extends adminGenericListV2
         } else {
             // Item
             $params = new ArrayObject(array_merge($filters->values(), ['id' => $file->media_id]));
+            unset($params['process']); // move to media item
 
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
             dcCore::app()->callBehavior('adminMediaURLParams', $params);

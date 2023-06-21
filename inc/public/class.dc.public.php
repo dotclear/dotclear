@@ -76,9 +76,24 @@ class dcPublic
     }
 
     /**
+     * Instanciate this as a singleton
+     *
+     * @return     self
+     */
+    public static function bootstrap(): self
+    {
+        if (!(dcCore::app()->public instanceof self)) {
+            // Init singleton
+            dcCore::app()->public = new self();
+        }
+
+        return dcCore::app()->public;
+    }
+
+    /**
      * Initializes the context.
      */
-    public function init()
+    public function init(): bool
     {
         // Loading blog
         if (defined('DC_BLOG_ID')) {
@@ -274,6 +289,8 @@ class dcPublic
         } catch (Exception $e) {
             new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
         }
+
+        return true;
     }
 
     /**

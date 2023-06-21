@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\dcCKEditor;
 use dcCore;
 use dcNsProcess;
 use dcPage;
-use Dotclear\Helper\Network\Http;
 use Exception;
 
 class Manage extends dcNsProcess
@@ -132,7 +131,7 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('The configuration has been updated.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

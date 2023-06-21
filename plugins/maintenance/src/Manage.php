@@ -75,7 +75,7 @@ class Manage extends dcNsProcess
                     dcCore::app()->admin->maintenance->setLog(dcCore::app()->admin->task->id());
 
                     dcPage::addSuccessNotice(dcCore::app()->admin->task->success());
-                    Http::redirect(dcCore::app()->admin->getPageURL() . '&task=' . dcCore::app()->admin->task->id() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
+                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['task' => dcCore::app()->admin->task->id(), 'tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -116,7 +116,7 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
-                Http::redirect(dcCore::app()->admin->getPageURL() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -141,7 +141,7 @@ class Manage extends dcNsProcess
                     dcPage::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
-                Http::redirect(dcCore::app()->admin->getPageURL() . '&tab=' . dcCore::app()->admin->tab . '#' . dcCore::app()->admin->tab);
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

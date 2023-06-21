@@ -21,7 +21,7 @@ dotclear.getEntryContent = (postId, callback, options) => {
       // Cut content after length chars (-1 to not cut)
       length: -1,
     },
-    options
+    options,
   );
 
   // Check callback fn()
@@ -30,7 +30,7 @@ dotclear.getEntryContent = (postId, callback, options) => {
   }
 
   // Get entry content
-  $.get('services.php', {
+  $.get(dotclear.servicesUri, {
     f: 'getPostById',
     id: postId,
     post_type: opt.type,
@@ -107,7 +107,7 @@ dotclear.getCommentContent = (commentId, callback, options) => {
       // Cut content after length chars (-1 to not cut)
       length: -1,
     },
-    options
+    options,
   );
 
   // Check callback fn()
@@ -116,7 +116,7 @@ dotclear.getCommentContent = (commentId, callback, options) => {
   }
 
   // Get comment content
-  $.get('services.php', {
+  $.get(dotclear.servicesUri, {
     f: 'getCommentById',
     id: commentId,
     xd_check: dotclear.nonce,

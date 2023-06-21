@@ -303,14 +303,14 @@ class dcFavorites
      */
     public function appendMenu($menu)
     {
-        foreach ($this->user_favorites as $favorite_menu) {
+        foreach ($this->user_favorites as $favorite_id => $favorite_menu) {
             $menu[dcAdmin::MENU_FAVORITES]->addItem(
                 $favorite_menu['title'],
                 $favorite_menu['url'],
                 $favorite_menu['small-icon'],
                 $favorite_menu['active'],
                 true,
-                $favorite_menu['id'],
+                $favorite_id . '-fav',
                 $favorite_menu['class'],
                 true
             );

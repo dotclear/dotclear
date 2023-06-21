@@ -88,7 +88,7 @@ class BackendBehaviors
      */
     public static function adminDashboardFavoritesActive($request, $params): bool
     {
-        return $request == 'plugin.php' && isset($params['p']) && $params['p'] == My::id();
+        return isset($params['p']) && $params['p'] == My::id();
     }
 
     /**

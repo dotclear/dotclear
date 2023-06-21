@@ -33,6 +33,8 @@ class Backend extends dcNsProcess
 
         dcCore::app()->auth->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
 
+        My::addBackendMenuItem(dcAdmin::MENU_BLOG);
+
         dcCore::app()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {
                 $cols['pages'] = [My::name(), [
@@ -70,7 +72,7 @@ class Backend extends dcNsProcess
                             $icon['title'] = sprintf($str_pages, $page_count);
                         }
                     },
-                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == My::id() && !(isset($params['act']) && $params['act'] == 'page'),
+                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && !(isset($params['act']) && $params['act'] == 'page'),
                 ]);
                 $favs->register('newpage', [
                     'title'       => __('New page'),
@@ -81,21 +83,13 @@ class Backend extends dcNsProcess
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
-                    'active_cb' => fn (string $request, array $params): bool => ($request == 'plugin.php') && isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
+                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
                 ]);
             },
             'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions.js'),
             'initWidgets'              => [Widgets::class, 'initWidgets'],
             'initDefaultWidgets'       => [Widgets::class, 'initDefaultWidgets'],
         ]);
-
-        dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
-            My::name(),
-            My::manageUrl(),
-            My::icons(),
-            preg_match('/plugin.php(.*)$/', $_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p'] == 'pages',
-            My::checkContext(My::MENU)
-        );
 
         return true;
     }

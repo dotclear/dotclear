@@ -184,7 +184,7 @@ class dcPage
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.csp_report');
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.csp.report');
                 $report_only    = (dcCore::app()->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
@@ -227,6 +227,7 @@ class dcPage
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
+        $js['servicesUri']    = dcCore::app()->adminurl->get('admin.rest');
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
@@ -437,6 +438,7 @@ class dcPage
 
         '<form id="search-menu" action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
+        '<input type="hidden" name="process" value="Search" />' .
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
@@ -532,6 +534,7 @@ class dcPage
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
+        $js['servicesUri']    = dcCore::app()->adminurl->get('admin.rest');
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
@@ -720,8 +723,8 @@ class dcPage
         }
 
         $res .= '<p>Global vars: ' . $global_vars . '</p>' .
-            '<p>Autoloader requests: ' . App::autoload()->getRequestsCount() .
-            ' | Autoloader loads: ' . App::autoload()->getLoadsCount() . '</p>' .
+            '<p>Autoloader requests: ' . Autoloader::me()->getRequestsCount() .
+            ' | Autoloader loads: ' . Autoloader::me()->getLoadsCount() . '</p>' .
             '</div></div>';
 
         return $res;

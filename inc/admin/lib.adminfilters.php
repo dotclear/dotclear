@@ -56,6 +56,8 @@ class adminGenericFilterV2
     {
         $this->type = $type;
 
+        $this->add('process', $_REQUEST['process'] ?? '');
+
         $this->parseOptions();
     }
 
@@ -406,6 +408,7 @@ class adminGenericFilterV2
         '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
 
         $extra .
+        (empty($this->value('process')) ? '' : form::hidden('process', $this->value('process'))) .
 
         '<br class="clear" /></p>' . //Opera sucks
         '</form>';

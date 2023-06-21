@@ -18,7 +18,6 @@ use dcNamespace;
 use dcPage;
 use dcNsProcess;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use form;
 
 class Manage extends dcNsProcess
@@ -48,12 +47,10 @@ class Manage extends dcNsProcess
 
         // Local navigation
         if (!empty($_POST['gs_nav'])) {
-            Http::redirect(dcCore::app()->admin->getPageURL() . $_POST['gs_nav']);
-            exit;
+            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['gs_nav']);
         }
         if (!empty($_POST['ls_nav'])) {
-            Http::redirect(dcCore::app()->admin->getPageURL() . $_POST['ls_nav']);
-            exit;
+            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['ls_nav']);
         }
 
         // Local settings update
@@ -70,7 +67,7 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('Configuration successfully updated'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -90,7 +87,9 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('Configuration successfully updated'));
-                Http::redirect(dcCore::app()->admin->getPageURL() . '&part=global');
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                    'part' => 'global',
+                ]);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
