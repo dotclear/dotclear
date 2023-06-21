@@ -163,6 +163,7 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.comments', 'Comments');
         dcCore::app()->adminurl->register('admin.comment', 'Comment');
         dcCore::app()->adminurl->register('admin.help', 'Help');
+        dcCore::app()->adminurl->register('admin.help.charte', 'HelpCharte');
         dcCore::app()->adminurl->register('admin.home', 'Home');
         dcCore::app()->adminurl->register('admin.langs', 'Langs');
         dcCore::app()->adminurl->register('admin.link.popup', 'LinkPopup');

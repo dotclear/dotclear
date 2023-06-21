@@ -516,18 +516,10 @@ namespace Dotclear {
             // If a context is provided, call bootstrap method, if exists, then init method if exist.
             if (!empty($context)) {
                 if (class_exists($context)) {
-                    if (method_exists($context, 'bootstrap')) {
-                        // Use bootstrap method
-                        $instance = $context::bootstrap();
-                    } else {
-                        // No bootstrap, instanciate context
-                        $instance = new $context();
-                    }
-                    if ($instance && method_exists($context, 'init')) {
-                        return (bool) $instance->init();
-                    }
+                    // Use bootstrap method else instanciate context
+                    $instance = method_exists($context, 'bootstrap') ? $context::bootstrap() : new $context();
 
-                    return true;
+                    return $instance && method_exists($context, 'init') ? (bool) $instance->init() : true;
                 }
                 new Fault(
                     __('No process found'),
