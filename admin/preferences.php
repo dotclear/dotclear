@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated since 2.27 Use dcCore()->adminurl
+ * @deprecated since 2.27 Use name "admin.user.preferences" on dcCore::app()->adminurl methods
  *
  * @package Dotclear
  * @subpackage Backend
