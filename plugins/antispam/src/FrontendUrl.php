@@ -63,7 +63,7 @@ class FrontendUrl extends dcUrlHandlers
         if ($type == 'spam') {
             $title .= __('Spam');
             $params['comment_status'] = dcBlog::COMMENT_JUNK;
-            $end_url                  = '?status=' . (string) dcBlog::COMMENT_PUBLISHED;
+            $end_url                  = '&status=' . (string) dcBlog::COMMENT_PUBLISHED;
         } else {
             $title .= __('Ham');
             $params['sql'] = ' AND comment_status IN (' . (string) dcBlog::COMMENT_PUBLISHED . ',' . (string) dcBlog::COMMENT_PENDING . ') ';
@@ -76,7 +76,7 @@ class FrontendUrl extends dcUrlHandlers
         'xmlns:content="http://purl.org/rss/1.0/modules/content/">' . "\n" .
         '<channel>' . "\n" .
         '<title>' . Html::escapeHTML($title) . '</title>' . "\n" .
-        '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'comments.php' . $end_url : 'about:blank') . '</link>' . "\n" .
+        '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'index.php?process=Comments' . $end_url : 'about:blank') . '</link>' . "\n" .
         '<description></description>' . "\n";
 
         $rs       = dcCore::app()->blog->getComments($params);
@@ -85,7 +85,7 @@ class FrontendUrl extends dcUrlHandlers
 
         while ($rs->fetch() && ($nbitems < $maxitems)) {
             $nbitems++;
-            $uri    = DC_ADMIN_URL ? DC_ADMIN_URL . 'comment.php?id=' . $rs->comment_id : 'about:blank';
+            $uri    = DC_ADMIN_URL ? DC_ADMIN_URL . 'index.php?process=Comment&id=' . $rs->comment_id : 'about:blank';
             $author = $rs->comment_author;
             $title  = $rs->post_title . ' - ' . $author;
             if ($type == 'spam') {

@@ -291,7 +291,7 @@ class ManagePage extends dcNsProcess
                 # --BEHAVIOR-- adminBeforePageDelete -- int
                 dcCore::app()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -758,7 +758,7 @@ class ManagePage extends dcNsProcess
 
             # Actions combo box
             $combo_action = dcCore::app()->admin->comments_actions_page->getCombo();
-            $has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
+            $has_action   = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 
             echo
             '<div id="comments" class="multi-part" title="' . __('Comments') . '">';

@@ -17,7 +17,7 @@ $(() => {
         meta_field.val($('#post_tags').val());
       }
       mEdit = new metaEditor(tags_edit, meta_field, 'tag', dotclear.getData('editor_tags_options'));
-      mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
+      mEdit.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
       mEdit.displayMeta('tag', post_id, 'post_meta_tag_input');
 
       // mEdit object reference for toolBar

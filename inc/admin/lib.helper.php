@@ -80,8 +80,9 @@ class dcAdminHelper
      * @param      mixed   $perm      The permission(s)
      * @param      bool    $pinned    Is pinned at begining
      * @param      bool    $strict    Strict URL scheme or allow query string parameters
+     * @param      string  $id        The menu item id
      */
-    public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false)
+    public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null)
     {
         $url     = dcCore::app()->adminurl->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(\?.*)?') . '$@';
@@ -91,7 +92,7 @@ class dcAdminHelper
             $icon,
             preg_match($pattern, (string) $_SERVER['REQUEST_URI']),
             $perm,
-            null,
+            $id,
             null,
             $pinned
         );

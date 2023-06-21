@@ -1,12 +1,12 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.dbSpamsCount = () => {
+dotclear.dbSpamsCount = (icon_spam) => {
   const params = {
     f: 'getSpamsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, (data) => {
+  $.get(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -14,8 +14,9 @@ dotclear.dbSpamsCount = () => {
     } else {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbSpamsCount_Counter) {
+        const url = `${icon_spam.attr('href')}&status=-2`;
         // First pass or counter changed
-        let icon = $('#dashboard-main #icons p a[href="comments.php?status=-2"]');
+        const icon = $(`#dashboard-main #icons p a[href="${url}"]`);
         if (icon.length) {
           // Update count if exists
           const nb_label = icon.children('span.db-icon-title-spam');
@@ -24,11 +25,8 @@ dotclear.dbSpamsCount = () => {
           }
         } else if (nb != '') {
           // Add full element (link + counter)
-          icon = $('#dashboard-main #icons p a[href="comments.php"]');
-          if (icon.length) {
-            const xml = ` <a href="comments.php?status=-2"><span class="db-icon-title-spam">${nb}</span></a>`;
-            icon.after(xml);
-          }
+          const xml = ` <a href="${url}"><span class="db-icon-title-spam">${nb}</span></a>`;
+          icon_spam.after(xml);
         }
         // Store current counter
         dotclear.dbSpamsCount_Counter = nb;
@@ -40,12 +38,12 @@ dotclear.dbSpamsCount = () => {
 $(() => {
   // run counters' update on some dashboard icons
   // Spam comments
-  const icon_spam = $('#dashboard-main #icons p a[href="comments.php"]');
+  const icon_spam = $('#dashboard-main #icons p #icon-process-comments-fav');
   if (icon_spam.length) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbSpamsCount();
+    dotclear.dbSpamsCount(icon_spam);
     // Then fired every 60 seconds (1 minute)
-    dotclear.dbSpamsCount_Timer = setInterval(dotclear.dbSpamsCount, 60 * 1000);
+    dotclear.dbSpamsCount_Timer = setInterval(dotclear.dbSpamsCount, 60 * 1000, icon_spam);
   }
 });

@@ -16,7 +16,6 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
@@ -59,7 +58,7 @@ class Manage extends dcNsProcess
                 dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
                 dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

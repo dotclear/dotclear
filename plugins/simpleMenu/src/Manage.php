@@ -18,7 +18,6 @@ use dcCore;
 use dcNsProcess;
 use dcPage;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
@@ -179,7 +178,7 @@ class Manage extends dcNsProcess
 
                 // All done successfully, return to menu items list
                 dcPage::addSuccessNotice(__('Configuration successfully updated.'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -335,7 +334,7 @@ class Manage extends dcNsProcess
 
                                 // All done successfully, return to menu items list
                                 dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
-                                Http::redirect(dcCore::app()->admin->getPageURL());
+                                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                             } else {
                                 dcCore::app()->admin->step              = self::STEP_ATTRIBUTES;
                                 dcCore::app()->admin->item_select_label = dcCore::app()->admin->item_label;
@@ -373,7 +372,7 @@ class Manage extends dcNsProcess
 
                             // All done successfully, return to menu items list
                             dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
-                            Http::redirect(dcCore::app()->admin->getPageURL());
+                            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                         } else {
                             throw new Exception(__('No menu items selected.'));
                         }
@@ -438,7 +437,7 @@ class Manage extends dcNsProcess
 
                         // All done successfully, return to menu items list
                         dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
-                        Http::redirect(dcCore::app()->admin->getPageURL());
+                        dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
                     }

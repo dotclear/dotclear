@@ -18,7 +18,6 @@ use dcPage;
 use dcNsProcess;
 use dcWorkspace;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use form;
 
 class Manage extends dcNsProcess
@@ -47,11 +46,11 @@ class Manage extends dcNsProcess
 
         // Local navigation
         if (!empty($_POST['gp_nav'])) {
-            Http::redirect(dcCore::app()->admin->getPageURL() . $_POST['gp_nav']);
+            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['gp_nav']);
             exit;
         }
         if (!empty($_POST['lp_nav'])) {
-            Http::redirect(dcCore::app()->admin->getPageURL() . $_POST['lp_nav']);
+            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['lp_nav']);
             exit;
         }
 
@@ -68,7 +67,7 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('Preferences successfully updated'));
-                Http::redirect(dcCore::app()->admin->getPageURL());
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -87,7 +86,9 @@ class Manage extends dcNsProcess
                 }
 
                 dcPage::addSuccessNotice(__('Preferences successfully updated'));
-                Http::redirect(dcCore::app()->admin->getPageURL() . '&part=global');
+                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                    'part' => 'global',
+                ]);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

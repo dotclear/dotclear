@@ -108,7 +108,7 @@ abstract class dcActions
 
         $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
         if ($uri_parts !== false) {
-            $this->in_plugin = (strpos($uri_parts[0], 'plugin.php') !== false);
+            $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || strpos($uri_parts[0], 'plugin.php') !== false;
         }
     }
 

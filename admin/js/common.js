@@ -140,7 +140,7 @@ $.fn.toggleWithLegend = function (target, s) {
     $(ctarget).on('click', (e) => {
       if (p.user_pref && set_user_pref) {
         $.post(
-          'services.php',
+          dotclear.servicesUri,
           {
             f: 'setSectionFold',
             section: p.user_pref,
@@ -650,6 +650,7 @@ dotclear.passwordHelpers = () => {
 };
 
 // REST services helper
+dotclear.servicesUri = dotclear.data.servicesUri || 'index.php?process=Rest';
 dotclear.services = (
   fn, // REST method
   onSuccess = (_data) => {
@@ -661,11 +662,14 @@ dotclear.services = (
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
 ) => {
-  const service = new URL('services.php', window.location.origin + window.location.pathname);
+  const service = new URL(dotclear.servicesUri, window.location.origin + window.location.pathname);
   dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
   const init = { method: get ? 'GET' : 'POST' };
   if (get) {
-    service.search = new URLSearchParams(params).toString();
+    const data = new URLSearchParams(service.search);
+    // Warning: cope only with single level object (key → value)
+    Object.keys(params).forEach((key) => data.append(key, params[key]));
+    service.search = data.toString();
   } else {
     const data = new FormData();
     // Warning: cope only with single level object (key → value)

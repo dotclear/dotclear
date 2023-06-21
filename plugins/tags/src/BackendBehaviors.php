@@ -49,6 +49,7 @@ class BackendBehaviors
             dcPage::jsJson('legacy_editor_tags', [
                 'tag' => [
                     'title' => __('Tag'),
+                    'icon'  => My::fileURL('/img/tag-add.svg'),
                     'url'   => $tag_url,
                 ],
             ]) .

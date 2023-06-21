@@ -1,12 +1,12 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-dotclear.dbCommentsCount = () => {
+dotclear.dbCommentsCount = (icon) => {
   const params = {
     f: 'getCommentsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, (data) => {
+  $.get(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -15,13 +15,9 @@ dotclear.dbCommentsCount = () => {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbCommentsCount_Counter) {
         // First pass or counter changed
-        const icon = $('#dashboard-main #icons p a[href="comments.php"]');
-        if (icon.length) {
-          // Update count if exists
-          const nb_label = icon.children('span.db-icon-title');
-          if (nb_label.length) {
-            nb_label.text(nb);
-          }
+        const nb_label = icon.children('span.db-icon-title');
+        if (nb_label.length) {
+          nb_label.text(nb);
         }
         // Store current counter
         dotclear.dbCommentsCount_Counter = nb;
@@ -29,12 +25,12 @@ dotclear.dbCommentsCount = () => {
     }
   });
 };
-dotclear.dbPostsCount = () => {
+dotclear.dbPostsCount = (icon) => {
   const params = {
     f: 'getPostsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, (data) => {
+  $.get(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -43,13 +39,9 @@ dotclear.dbPostsCount = () => {
       const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbPostsCount_Counter) {
         // First pass or counter changed
-        const icon = $('#dashboard-main #icons p a[href="posts.php"]');
-        if (icon.length) {
-          // Update count if exists
-          const nb_label = icon.children('span.db-icon-title');
-          if (nb_label.length) {
-            nb_label.text(nb);
-          }
+        const nb_label = icon.children('span.db-icon-title');
+        if (nb_label.length) {
+          nb_label.text(nb);
         }
         // Store current counter
         dotclear.dbPostsCount_Counter = nb;
@@ -63,7 +55,7 @@ dotclear.dbStoreUpdate = (store, icon) => {
     xd_check: dotclear.nonce,
     store,
   };
-  $.post('services.php', params, (data) => {
+  $.post(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
       // Something has to be displayed
       const xml = $('rsp>update', data).attr('ret');
@@ -115,7 +107,7 @@ $(() => {
 
     $('p.qinfo', f).remove();
 
-    $.post('services.php', params, (data) => {
+    $.post(dotclear.servicesUri, params, (data) => {
       let msg;
       if ($('rsp[status=failed]', data).length > 0) {
         msg = `<p class="error"><strong>${dotclear.msg.error}</strong> ${$('rsp', data).text()}</p>`;
@@ -188,7 +180,7 @@ $(() => {
     f: 'checkCoreUpdate',
     xd_check: dotclear.nonce,
   };
-  $.post('services.php', params, (data) => {
+  $.post(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
       // Something has to be displayed
       const xml = $('rsp>update', data).attr('ret');
@@ -199,12 +191,12 @@ $(() => {
   });
 
   // check if store update available, if db has icon
-  if ($('#dashboard-main #icons p a[href="plugins.php"]').length) {
-    const plugins_db_icon = $('#dashboard-main #icons p a[href="plugins.php"]').parent();
+  if ($('#dashboard-main #icons p #icon-process-plugins-fav').length) {
+    const plugins_db_icon = $('#dashboard-main #icons p #icon-process-plugins-fav').parent();
     dotclear.dbStoreUpdate('plugins', plugins_db_icon);
   }
-  if ($('#dashboard-main #icons p a[href="blog_theme.php"]').length) {
-    const themes_db_icon = $('#dashboard-main #icons p a[href="blog_theme.php"]').parent();
+  if ($('#dashboard-main #icons p #icon-process-blog_theme-fav').length) {
+    const themes_db_icon = $('#dashboard-main #icons p #icon-process-blog_theme-fav').parent();
     dotclear.dbStoreUpdate('themes', themes_db_icon);
   }
 
@@ -213,7 +205,7 @@ $(() => {
     f: 'checkNewsUpdate',
     xd_check: dotclear.nonce,
   };
-  $.post('services.php', params, (data) => {
+  $.post(dotclear.servicesUri, params, (data) => {
     if ($('rsp[status=failed]', data).length === 0 && $('rsp>news', data).attr('check') == 1) {
       // Something has to be displayed
       const xml = $('rsp>news', data).attr('ret');
@@ -233,20 +225,22 @@ $(() => {
 
   // run counters' update on some dashboard icons
   // Comments (including everything)
-  if ($('#dashboard-main #icons p a[href="comments.php"]').length) {
+  const icon_comments = $('#dashboard-main #icons p #icon-process-comments-fav');
+  if (icon_comments.length) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbCommentsCount();
+    dotclear.dbCommentsCount(icon_comments);
     // Then fired every 60 seconds (1 minute)
-    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000);
+    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000, icon_comments);
   }
   // Posts
-  if ($('#dashboard-main #icons p a[href="posts.php"]').length) {
+  const icon_posts = $('#dashboard-main #icons p #icon-process-posts-fav');
+  if (icon_posts.length) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbPostsCount();
+    dotclear.dbPostsCount(icon_posts);
     // Then fired every 600 seconds (10 minutes)
-    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000);
+    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000, icon_posts);
   }
 
   if (!dotclear.data.noDragDrop) {
@@ -260,7 +254,7 @@ $(() => {
         id,
         list,
       };
-      $.post('services.php', params, () => {});
+      $.post(dotclear.servicesUri, params, () => {});
     };
     const init_positions = (sel, id) => {
       $(sel).sortable({
