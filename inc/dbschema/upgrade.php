@@ -1356,6 +1356,8 @@ class dcUpgrade
                 [
                     'plugins/pages/icon-dark-np.svg',
                     'admin/tpl/_charte.php',
+                    'admin/comments_actions.php',
+                    'admin/posts_actions.php',
                     'admin/xmlrpc.php',
                 ],
                 // Folders
