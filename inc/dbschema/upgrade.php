@@ -1355,9 +1355,11 @@ class dcUpgrade
                 // Files
                 [
                     'plugins/pages/icon-dark-np.svg',
+                    'admin/tpl/_charte.php',
                 ],
                 // Folders
                 [
+                    'admin/tpl',
                 ]
             );
         }
