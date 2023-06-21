@@ -25,9 +25,6 @@ use form;
 
 class Comment extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -57,12 +54,9 @@ class Comment extends dcNsProcess
         // Status combo
         dcCore::app()->admin->status_combo = dcAdminCombos::getCommentStatusesCombo();
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         $params = [];
@@ -212,9 +206,6 @@ class Comment extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         $breadcrumb = [

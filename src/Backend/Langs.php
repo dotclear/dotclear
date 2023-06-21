@@ -31,9 +31,6 @@ class Langs extends dcNsProcess
     private const LANG_INSTALLED = 1;
     private const LANG_UPDATED   = 2;
 
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -59,12 +56,9 @@ class Langs extends dcNsProcess
             // Ignore exceptions
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         /**
@@ -205,9 +199,6 @@ class Langs extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

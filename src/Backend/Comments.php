@@ -25,11 +25,6 @@ use form;
 
 class Comments extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return bool     True if we should return
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -89,7 +84,7 @@ class Comments extends dcNsProcess
         dcCore::app()->admin->comments_actions_page = new dcCommentsActions(dcCore::app()->adminurl->get('admin.comments'));
 
         if (dcCore::app()->admin->comments_actions_page->process()) {
-            return false;
+            return (static::$init = false);
         }
 
         // List
@@ -105,12 +100,9 @@ class Comments extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

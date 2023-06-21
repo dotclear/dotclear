@@ -32,9 +32,6 @@ use Exception;
 
 class Blog extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -44,12 +41,9 @@ class Blog extends dcNsProcess
         dcCore::app()->admin->blog_name = '';
         dcCore::app()->admin->blog_desc = '';
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!isset($_POST['id']) && (isset($_POST['create']))) {
@@ -90,9 +84,6 @@ class Blog extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         if (!empty($_REQUEST['id'])) {

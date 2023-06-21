@@ -27,9 +27,6 @@ use Exception;
 
 class PostMedia extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -45,12 +42,9 @@ class PostMedia extends dcNsProcess
             exit;
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         $rs = dcCore::app()->blog->getPosts(['post_id' => dcCore::app()->admin->post_id, 'post_type' => '']);

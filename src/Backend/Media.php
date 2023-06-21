@@ -28,9 +28,6 @@ use form;
 
 class Media extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -40,12 +37,9 @@ class Media extends dcNsProcess
 
         dcCore::app()->admin->page = new adminMediaPage();
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         # Zip download
@@ -246,9 +240,6 @@ class Media extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         // Recent media folders

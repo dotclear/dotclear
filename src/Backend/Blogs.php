@@ -32,11 +32,6 @@ use Exception;
 
 class Blogs extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return     bool  False if we must return immediatly
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -85,12 +80,9 @@ class Blogs extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

@@ -661,8 +661,8 @@ dotclear.services = (
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
 ) => {
-  const service = new URL('index.php?process=Rest', window.location.origin + window.location.pathname);
-  dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
+  const service = new URL('index.php', window.location.origin + window.location.pathname);
+  dotclear.mergeDeep(params, { process: 'Rest', f: fn, xd_check: dotclear.nonce });
   const init = { method: get ? 'GET' : 'POST' };
   if (get) {
     service.search = new URLSearchParams(params).toString();

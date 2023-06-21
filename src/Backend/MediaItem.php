@@ -30,9 +30,6 @@ use SimpleXMLElement;
 
 class MediaItem extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -143,12 +140,9 @@ class MediaItem extends dcNsProcess
         }
         dcCore::app()->admin->dirs_combo = $dirs_combo;
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (dcCore::app()->admin->file && !empty($_FILES['upfile']) && dcCore::app()->admin->file->editable && dcCore::app()->admin->is_media_writable) {
@@ -322,9 +316,6 @@ class MediaItem extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         // Display helpers

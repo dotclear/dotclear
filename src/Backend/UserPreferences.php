@@ -28,9 +28,6 @@ use form;
 
 class UserPreferences extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -170,12 +167,9 @@ class UserPreferences extends dcNsProcess
         // All filters
         dcCore::app()->admin->auto_filter = dcCore::app()->auth->user_prefs->interface->auto_filter;
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (isset($_POST['user_name'])) {
@@ -484,9 +478,6 @@ class UserPreferences extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

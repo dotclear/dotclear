@@ -27,9 +27,6 @@ use form;
 
 class Home extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         if (!defined('DC_CONTEXT_ADMIN')) {
@@ -54,12 +51,9 @@ class Home extends dcNsProcess
             exit;
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!empty($_GET['logout'])) {
@@ -80,9 +74,6 @@ class Home extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         // Check dashboard module prefs

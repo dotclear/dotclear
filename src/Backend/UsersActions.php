@@ -25,9 +25,6 @@ use form;
 
 class UsersActions extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -52,12 +49,9 @@ class UsersActions extends dcNsProcess
         }
         dcCore::app()->admin->blogs = $blogs;
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         dcCore::app()->admin->action = null;
@@ -142,9 +136,6 @@ class UsersActions extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {

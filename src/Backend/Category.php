@@ -31,9 +31,6 @@ use Exception;
 
 class Category extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -109,12 +106,9 @@ class Category extends dcNsProcess
             dcCore::app()->admin->cat_siblings = $stack;
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (dcCore::app()->admin->cat_id && isset($_POST['cat_parent'])) {
@@ -196,9 +190,6 @@ class Category extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         $title = dcCore::app()->admin->cat_id ? Html::escapeHTML(dcCore::app()->admin->cat_title) : __('New category');

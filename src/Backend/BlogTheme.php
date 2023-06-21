@@ -30,11 +30,6 @@ use Exception;
 
 class BlogTheme extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     *
-     * @return     bool  True if we must return immediatly
-     */
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
@@ -97,7 +92,7 @@ class BlogTheme extends dcNsProcess
             dcPage::close();
 
             // Stop reading code here
-            return false;
+            return (static::$init = false);
         }
 
         // Execute actions
@@ -107,12 +102,9 @@ class BlogTheme extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!empty($_GET['shot'])) {
@@ -140,9 +132,6 @@ class BlogTheme extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         // Page header

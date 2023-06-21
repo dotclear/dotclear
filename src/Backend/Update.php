@@ -25,9 +25,6 @@ use form;
 
 class Update extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -113,12 +110,9 @@ class Update extends dcNsProcess
         }
         dcCore::app()->admin->archives = $archives;
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         # Revert or delete backup file
@@ -224,9 +218,6 @@ class Update extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         $safe_mode = false;

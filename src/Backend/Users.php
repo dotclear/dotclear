@@ -23,9 +23,6 @@ use form;
 
 class Users extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         dcPage::checkSuper();
@@ -86,12 +83,9 @@ class Users extends dcNsProcess
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         dcPage::open(

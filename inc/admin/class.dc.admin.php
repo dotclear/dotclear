@@ -91,13 +91,8 @@ class dcAdmin
             }
 
             # Check nonce from POST requests
-            if (!empty($_POST)) {
-                if (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check'])) {
-                    Http::head(412);
-                    header('Content-Type: text/plain');
-                    echo 'Precondition Failed';
-                    exit;
-                }
+            if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check']))) {
+                new Fault('Precondition Failed', __('Precondition Failed'), 412);
             }
 
             if (!empty($_REQUEST['switchblog']) && dcCore::app()->auth->getPermissions($_REQUEST['switchblog']) !== false) {
@@ -185,8 +180,9 @@ class dcAdmin
         dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
         dcCore::app()->adminurl->register('admin.rest', 'Rest');
 
-        dcCore::app()->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
-        dcCore::app()->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
+        // we don't care of admin process for FileServer
+        dcCore::app()->adminurl->register('load.plugin.file', 'index.php', ['pf' => 'dummy.css']);
+        dcCore::app()->adminurl->register('load.var.file', 'index.php', ['vf' => 'dummy.json']);
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
         dcCore::app()->setPostType('post', urldecode(dcCore::app()->adminurl->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');

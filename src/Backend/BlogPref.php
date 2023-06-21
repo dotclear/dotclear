@@ -29,9 +29,6 @@ use form;
 
 class BlogPref extends dcNsProcess
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         /**
@@ -218,12 +215,9 @@ class BlogPref extends dcNsProcess
             __('Two years')    => 63_072_000,
         ];
 
-        return true;
+        return (static::$init = true);
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         /**
@@ -398,9 +392,6 @@ class BlogPref extends dcNsProcess
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         /**
