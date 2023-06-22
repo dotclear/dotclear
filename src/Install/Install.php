@@ -8,10 +8,13 @@
  */
 namespace Dotclear\Install;
 
+use dcAuth;
 use dcBlog;
 use dcCore;
+use dcFavorites;
 use dcNsProcess;
 use dcPage;
+use dcSettings;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\Html\Html;
@@ -40,6 +43,7 @@ class Install extends dcNsProcess
     private static $u_name      = '';
     private static $u_login     = '';
     private static $u_pwd       = '';
+    private static $u_pwd2      = '';
 
     public static function init(): bool
     {
@@ -70,11 +74,15 @@ class Install extends dcNsProcess
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
 
-        return true;
+        return (static::$init = true);
     }
 
     public static function process(): bool
     {
+        if (!static::$init) {
+            new Fault('Not found', '', 404);
+        }
+
         if (self::$can_install && !empty($_POST)) {
             self::$u_email     = !empty($_POST['u_email']) ? $_POST['u_email'] : null;
             self::$u_firstname = !empty($_POST['u_firstname']) ? $_POST['u_firstname'] : null;
@@ -295,6 +303,10 @@ class Install extends dcNsProcess
 
     public static function render(): void
     {
+        if (!static::$init) {
+            new Fault('Not found', '', 404);
+        }
+
         header('Content-Type: text/html; charset=UTF-8');
 
         // Prevents Clickjacking as far as possible
@@ -459,6 +471,5 @@ class Install extends dcNsProcess
 </body>
 </html>
 <?php
-        return true;
     }
 }
