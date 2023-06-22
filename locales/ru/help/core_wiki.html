@@ -1,0 +1,94 @@
+<html>
+<head>
+  <title>Синтаксическая ссылка на вики</title>
+</head>
+
+<body>
+
+<h4>Синтаксическая ссылка на вики</h4>
+
+<p>Вики-синтаксис - это способ улучшить текст с минимальным набором тегов
+для удовлетворения основных потребностей (заголовков, Пункты, кавычки,
+списки. .).</p>
+
+<dl>
+<dt>Блокировать элементы</dt>
+<dd>
+<ul>
+  <li>Оставьте пустую строку между двумя похожими блоками.</li>
+  <li><strong>Абзац:</strong> Свободный текст, заканчивающийся пустой строкой, если
+  другой абзац следует за ним.</li>
+  <li><strong>Название:</strong> <code>!!! название</code>, <code>!! название</code>
+  или <code>! название</code>, позволяющее использовать три различных уровня заголовка
+.</li>
+  <li><strong>Горизонтальная линия:</strong> <code>----</code></li>
+  <li><strong>Списки:</strong> Начать каждую строку с
+  <code>*</code> или <code>#</code> для ненумерованных или нумерованных списков соответственно.
+  Имбрикация списка выполняется методом смешивания маркеров списка:
+  <pre>
+    <code>*</code> Пункт 1
+    <code>**</code> пункт 1.1
+    <code>*</code> пункт 2
+    <code>*#</code> пункт 2.1
+...
+  </pre>
+  </li>
+  <li><strong>Списки определений:</strong> Начать каждую строку с <code>=</code> для определения термина и с <code>:</code> для определения терма.
+  <pre>
+  <code>=</code> термин
+  <code>:</code> описание термина
+  </pre>
+  </li>
+  <li><strong>Предформатированный текст:</strong> Каждая строка должна начинаться с пробела.</li>
+  <li><strong>Блок кавычки:</strong> Каждая строка должна начинаться с <code>&gt;</code>.</li>
+  <li><strong>Боковой блок:</strong> Каждая строка должна начинаться с <code>)</code>.</li>
+</ul>
+</dd>
+
+<dt>Форматирование тегов</dt>
+<dd>
+<ul>
+  <li><strong>Внимание:</strong> Два цитаты <code>''текст''</code></li>
+  <li><strong>Сильное подчеркивание:</strong> Два подчеркивания <code>__text__</code></li>
+  <li><strong>Выделиться:</strong> Два двойных кавычки <code>""text""</code></li>
+  <li><strong>Новая строка:</strong> <code>%%%</code></li>
+  <li><strong>Вставка:</strong> Два плюса <code>++text++</code></li>
+  <li><strong>Удаление:</strong> Два минуты <code>--text--</code></li>
+  <li><strong>Ссылка:</strong> <code>[url]</code>, <code>[name|url]</code>,
+    <code>[name|url|language]</code> или <code>[name|url|language|title]</code></li>
+  <li><strong>Изображение:</strong>
+    <code>(url|альтернативный текст))</code>,
+    <code>(url|альтернативный текст|позиция))</code> или
+    <code>((url|альтернативный текст|позиция|длинное описание))</code>.
+    <br />Позиция может быть L (слева), R (справа) или C (по центру).</li>
+  <li><strong>Якорь:</strong> <code>~anchor~</code></li>
+  <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
+  <li><strong>Встроенный HTML:</strong> Два backquotes <code>``HTML code``</code></li>
+  <li><strong>Цитата:</strong> <code>{{quote}}</code>,
+    <code>{{quote|language}}</code> или <code>{{quote|language|url}}</code></li>
+  <li><strong>Код:</strong> <code>@@code@@</code></li>
+  <li><strong>Примечания:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+  <li><strong>Подскрипт</strong>&nbsp;: <code>,подписок,</code></li>
+</ul>
+</dd>
+
+<dt>Неформатированный текст</dt>
+<dd>Если вы не хотите, чтобы один символ форматирования интерпретировался как таковый, добавьте
+<code>\</code> непосредственно перед этим. Например:
+<code>\[Текст в скобках без ссылки\]</code>
+</dd>
+
+<dt>HTML-код</dt>
+<dd>Даже если вы выбрали Wiki синтаксис, вам иногда потребуется более
+мощное форматирование, то есть HTML-синтаксис. Выполните следующие действия:
+<pre>
+///html
+&lt;p style="color:red"&gt;мой текст красным&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+</body>
+</html>

@@ -4,92 +4,155 @@
 </head>
 
 <body>
-
-<h3>Szczegóły bloga</h3>
+<h4>Szczegóły bloga</h4>
 <dl>
   <dt>ID bloga</dt>
   <dd>Unikalny identyfikator bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
-  
+
   <dt>Nazwa bloga</dt>
   <dd>Nazwa bloga, wymagane.</dd>
-  
+
   <dt>URL bloga</dt>
   <dd>Kompletny adres URL bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
-  
+
   <dt>Stan bloga</dt>
+  <dd>Określa sposób odczytu URL. PATH_INFO jest zalecany, należy użyć QUERY_STRING jeśli PATH_INFO nie działa. Używając trybu PATH_INFO, adres URL bloga musi kończyć się znakiem "/" i używać QUERY_STRING, musi kończyć się znakiem "?".</dd>
+
+  <dt>Opis bloga</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: blog otwarty dla odwiedzających.</li>
-      <li><strong>offline</strong>: blog zamknięty dla odwiedzających, ale otwarty dla autorów.</li>
-      <li><strong>usunięty</strong>: blog zamknięty zarówno dla odwiedzających jak i autorów.</li>
+      <li><strong>Online:</strong> Blog otwarty dla odwiedzających.</li>
+      <li><strong>Offline:</strong> Blog zamknięty dla odwiedzających, ale otwarty dla pisarzy.</li>
+      <li><strong>Removed:</strong> Blog zamknięty zarówno dla odwiedzających, jak i pisarzy, otwarty tylko dla super administratorów.</li>
     </ul>
   </dd>
-  
+
   <dt>Opis bloga</dt>
-  <dd>Tutaj możesz wpisać dowolny opis dla swojego bloga. To jest zwykły tekst, bez formatowania.</dd>
+  <dd>Tutaj możesz umieścić dowolny opis dla swojego bloga. To prosty tekst, bez formatowania.</dd>
 </dl>
 
-<h3>Konfiguracja bloga</h3>
+<h4>Konfiguracja bloga</h4>
 <dl>
-  <dt>Blog editor's name</dt>
+  <dt>Nazwa edytora bloga</dt>
   <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-  
+
   <dt>Informacja o prawach autorskich</dt>
   <dd>Informacja o prawach autorskich dla tego bloga.</dd>
-  
+
   <dt>Domyślny język</dt>
   <dd>Język interfejsu bloga. Wybrany język może być już dostępny i wtedy
   interfejs będzie przetłumaczony lub też tłumaczenie nie istnieje i wtedy używany
   będzie język angielski.</dd>
-  
+
   <dt>Strefa czasowa</dt>
   <dd>Definiuje strefę czasową, która będzie używana dla komentarzy i trackbacków.</dd>
-  
+
   <dt>Format daty</dt>
   <dd>Format daty dla wpisów na blogu.
   <a href="#date_format">Opis formatowania</a>.</dd>
-  
+
   <dt>Format czasu</dt>
   <dd>Format czasu dla wpisów na blogu.
   <a href="#date_format">Opis formatowania</a>.</dd>
-  
+
   <dt>Wyświetlaj ... wpisów na stronę</dt>
   <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-  
-  <dt>Pozostaw możliwość komentowania przez ... dni</dt>
-  <dd>The number of days during wich comments and trackbacks will be open 
-  after the post publication. When empty, the comments will be kept open
-  indefinitly.</dd>
-  
-  <dt>Wyświetlaj emotikony we wpisach i komentarzach</dt>
-  <dd>Wyświetla sekwencje znaków takie jak :-) lub ;-) jako obrazy.</dd>
-  
-  <dt>Akceptuj komentarze</dt>
-  <dd>Domyślnie akceptuje komentarze na tym blogu. Gdy wybrane, nadpisuje ustawienia
-  dla poszczególnych wpisów.</dd>
-  
-  <dt>Akceptuj trackbacki</dt>
-  <dd>Domyślnie akceptuje trackbacki na tym blogu. Gdy wybrane, nadpisuje ustawienia
-  dla poszczególnych wpisów.</dd>
-  
-  <dt>Moderuj komentarze i trackbacki</dt>
-  <dd>Gdy ta opcja jest wybrana, komentarze i tackbacki będą publikowane dopiero
-  po zaakceptowaniu ich przez właściciela jednego z autorów bloga.</dd>
-  
-  <dt>Dodaj atrybut rel="nofollow" do linków w komentarzach i trackbackach.</dt>
-  <dd>Adds an attribut on the links in comments and trackbacks, instructing the
-  search bots not to follow those links. This antispam features has yet to
-  prove its value.</dd>
-  
-  <dt>Formatowanie wiki dla komentarzy</dt>
-  <dd>Pozwala na korzystanie z komentarzach z podstawowego formatowania wiki.</dd>
 </dl>
 
-<h3>Format reference</h3>
+<h4>Komentarze i ślady</h4>
+<dl>
+  <dt>Akceptuj komentarze</dt>
+  <dd>Globalnie akceptuje komentarze na blogu. Trwa pierwszeństwo przed ustawieniem jednego wpisu.</dd>
+
+  <dt>Moderacja komentarzy</dt>
+  <dd>Z tą opcją komentarze będą publikowane dopiero po uzyskaniu zgody wydawcy.</dd>
+
+  <dt>Pozostaw komentarze otwarte przez X dni</dt>
+  <dd>Liczba dni podczas komentarzy będzie otwarta po publikacji wpisu. Gdy puste, komentarze zostaną otwarte bezterminowo.</dd>
+
+  <dt>Składnia Wiki dla komentarzy</dt>
+  <dd>Pozwala na użycie podzbioru składni wiki w komentarzach.</dd>
+
+  <dt>Akceptuj ścieżki</dt>
+  <dd>Globalnie akceptuje trackbacks na blogu. Trwa pierwszeństwo przed ustawieniem jednego wpisu.</dd>
+
+  <dt>Umiarkowane trackbacky</dt>
+  <dd>Z tą opcją trackbacks zostanie opublikowany dopiero po wyrażeniu zgody przez edytora.</dd>
+
+  <dt>Pozostaw śledzenie otwarte przez X dni</dt>
+  <dd>Liczba dni podczas wich trackbacks będzie otwarta po publikacji postu. Jeśli puste, trackbacks będzie nieograniczony.</dd>
+
+  <dt>Dodaj relację "nofollow" do komentarzy i linków trackbacks</dt>
+  <dd>Dodaje atrybut na linkach w komentarzach i trackbackach, instruując boty wyszukiwania, aby ich nie obserwować. Te funkcje antyspamowe nie dowiodły jeszcze swojej wartości.</dd>
+</dl>
+
+<h4>Prezentacja bloga</h4>
+<dl>
+  <dt>Format daty</dt>
+  <dd>Określa format daty wpisów na blogu. Więcej informacji znajduje się w sekcji "Formatuj odniesienie". Możesz użyć listy rozwijanej, aby szybko wybrać wcześniej istniejący wzór.</dd>
+
+  <dt>Format czasu</dt>
+  <dd>Określa format czasu dla wpisów na blogu. Więcej informacji znajduje się w sekcji "Formatuj odniesienie". Możesz użyć listy rozwijanej, aby szybko wybrać wcześniej istniejący wzór.</dd>
+
+  <dt>Wyświetlaj emotikony przy wpisach i komentarzach</dt>
+  <dd>Zamienia kilka ciągów takich jak :-) lub ;-) w obrazy.</dd>
+
+  <dt>Wyświetl X wpisów na stronie</dt>
+  <dd>Wyświetli X wpisów na stronie głównej bloga oraz w różnych kategoriach.</dd>
+
+  <dt>Wyświetl X wpisów na kanał</dt>
+  <dd>Wyświetli X wpisów na blogu.</dd>
+
+  <dt>Wyświetl X komentarzy na kanał</dt>
+  <dd>Wyświetli X komentarzy w komentarzach bloga.</dd>
+
+  <dt>Przycinaj kanały</dt>
+  <dd>Ta opcja zapewni jedynie abstrakcję z wpisów na blogu w kanałach.</dd>
+
+  <dt>Dołącz podkategorie na stronie kategorii i wpis kategorii</dt>
+  <dd>Gdy ta opcja jest aktywna, posty w podkategoriach będą wyświetlane zarówno na stronach kategorii nadrzędnych, jak i w ich kanałach.</dd>
+</dl>
+
+<h4>Media i obrazy</h4>
+<dl>
+  <dt>Wygenerowane rozmiary obrazów (w pikselach)</dt>
+  <dd>Po dodaniu obrazu w menedżerze multimediów automatycznie generuje się inne rozmiary. Tutaj możesz zdefiniować wymiar najdłuższego rozmiaru (szerokość lub wysokość) każdego typu generowanych obrazów. Jeśli pozostawisz jedno pole puste, menedżer mediów nie utworzy odpowiednich miniatur.</dd>
+
+  <dt>Domyślne atrybuty wstawiania obrazu</dt>
+  <dd>Wybrane ustawienia zostaną zastosowane do wszystkich nowych obrazów dodanych do menedżera mediów.</dd>
+
+  <dt>Wstawiony tytuł obrazu</dt>
+  <dd>Wybierz format tagów "tytuł" stosowanych do zdjęć, w oparciu o informacje pobrane z metadanych obrazów.</dd>
+
+  <dt>Użyj oryginalnej daty mediów, jeśli to możliwe</dt>
+  <dd>Gdy ta opcja jest aktywowana, jeśli metadane obrazu zawierają datę, zostanie użyta. Jeśli nie, data przesłania zostanie użyta.</dd>
+
+  <dt>Rozmiar wstawionego obrazu</dt>
+  <dd>Określa domyślny rozmiar używany podczas dodawania obrazu do wpisu na blogu.</dd>
+
+  <dt>Wyrównanie obrazu</dt>
+  <dd>Określa domyślne wyrównanie używane podczas dodawania obrazu do wpisu na blogu.</dd>
+
+  <dt>Wstaw link do oryginalnego obrazu</dt>
+  <dd>Gdy ta opcja jest aktywna, zdjęcia wstawione na blogu będą klikalne i wskazują na oryginalny obraz.</dd>
+
+</dl>
+
+<h4>Polityka robotów wyszukiwarek</h4>
 <p>Niektóre pola mogą być skonfigurowane tak, aby dostosować format daty i czasu
 do twoich potrzeb. Tutaj znajduje się opis formatowania:</p>
+
+<h4>Antyspam</h4>
+<p>Możesz ustawić liczbę dni, po których chcesz automatycznie usunąć komentarze śmieci. Pozostaw to pole puste (lub wpisz 0), aby wyłączyć tę funkcję.</p>
+
+<h4>Użytkownicy</h4>
+<p>Wyświetla listę użytkowników tego bloga oraz ich uprawnień.</p>
+
+<h3>Szczegóły bloga</h3>
+<p>Niektóre pola można skonfigurować do formatowania daty i czasu do Twoich potrzeb.
+Oto odniesienie:</p>
 
 <ul>
   <li><strong>%a</strong>: skrócony dzień tygodnia (lokalny).</li>
@@ -137,7 +200,7 @@ do twoich potrzeb. Tutaj znajduje się opis formatowania:</p>
   <li><strong>%y</strong>: rok, dwie cyfry (od 00 do 99)</li>
   <li><strong>%Y</strong>: rok, cztery cyfry</li>
   <li><strong>%Z ou %z</strong>: strefa czasowa, nazwa lub skrót</li>
-  <li><strong>%%</strong>: znak "%"</li>
+  <li>: znak "%"</li>
 </ul>
 
 </body>

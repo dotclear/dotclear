@@ -1,20 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
-"PO-Revision-Date: 2016-07-18 15:54+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"PO-Revision-Date: 2023-06-22 16:34\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
 msgstr "%d 个附件"
@@ -26,20 +27,21 @@ msgid "%d trackbacks"
 msgstr "%d 个 trackback"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s 反应"
 
-#, fuzzy
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr "内容"
+msgstr "获取内容"
 
 msgid "Add a comment"
 msgstr "添加一个评论"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "添加ping"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "额外的风格指令"
 
 msgid "All keywords"
 msgstr "所有关键字"
@@ -53,24 +55,29 @@ msgstr "附件"
 msgid "Best of me"
 msgstr "我最好的文章"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "博客信息"
 
-#, fuzzy
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr "菜单"
+msgstr "博客菜单"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "作者"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "按类别划分"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "按日期"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "按标签"
 
 msgid "Categories"
 msgstr "分类目录"
@@ -82,17 +89,20 @@ msgid "Comments"
 msgstr "评论"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "评论可以使用简单的维基语法进行格式化。"
 
 msgid "Comments feed"
 msgstr "评论 feed"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "继续阅读"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "文件不存在"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "邮件地址"
 
@@ -102,21 +112,25 @@ msgstr "邮件地址无效"
 msgid "Entries feed"
 msgstr "文章 feed"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "探索档案"
 
-#, fuzzy
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr "菜单"
+msgstr "额外菜单"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
-msgstr ""
+msgstr "来自"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
-msgstr ""
+msgstr "从日"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
-msgstr ""
+msgstr "转到主页"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML 代码以文本显示，网站地址会被自动转化。"
@@ -125,7 +139,7 @@ msgid "Home"
 msgstr "主页"
 
 msgid "In"
-msgstr ""
+msgstr "在"
 
 msgid "Languages"
 msgstr "语言"
@@ -133,63 +147,70 @@ msgstr "语言"
 msgid "Links"
 msgstr "链接"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "姓名或昵称"
 
-#, fuzzy
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
-msgstr "下一篇文章"
+msgstr "下一条："
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "于"
 
 msgid "Page top"
-msgstr ""
+msgstr "页首"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
-msgstr ""
+msgstr "分页"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "需要密码"
 
 msgid "Password:"
 msgstr "密码："
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "永久链接"
 
 msgid "Powered by %s"
-msgstr "Powered by %s"
+msgstr "由 %s。"
 
-#, fuzzy
 msgid "Preview"
 msgstr "预览"
 
-#, fuzzy
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
-msgstr "前一篇文章"
+msgstr "上一条："
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS feed 是一个免费的博客摘要。它提供内容（文章或者评论）或者内容的摘要，以及到完整版本的链接和其他元标记。最新发表的条目可以使用您喜欢的 RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">聚合器</a> 来阅读。"
 
+#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "读取"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "在这个博客上记住我"
 
 msgid "Required field"
-msgstr ""
+msgstr "必添字段"
 
 msgid "Search"
 msgstr "搜索"
 
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "仅需复制下列 URL 到您的聚合器："
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "子分类目录"
 
@@ -199,57 +220,73 @@ msgstr "订阅"
 msgid "Subscribe to"
 msgstr "订阅到"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "建议："
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "您寻找的文件不存在。"
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "最近的帖子列表可供选择"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "他／她们讨论同一个话题"
 
 msgid "This blog's comments Atom feed"
 msgstr "此博客评论的 Atom feed"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "此分类目录评论的 Atom feed"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "此分类目录文章的 Atom feed"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "这篇文章的评论 Atom feed"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "这篇文章的评论 feed"
 
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "内容"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "菜单"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "搜索"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
-msgstr "Trackback URL"
+msgstr "回溯网址"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "你试过的网址有错别字，或者该网页已被删除或移动。"
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "使用搜索表格"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "网站"
 
 msgid "What is an RSS feed?"
 msgstr "什么是 RSS feed？"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "您必须提供密码以进入这一区域。"
 
@@ -262,12 +299,15 @@ msgstr "您必须提供有效的邮件地址。"
 msgid "You must provide an author name"
 msgstr "您必须提供作者姓名"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "您的评论"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "您的评论已发布。"
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "您的评论已提交并将被复审以发布。"
 
@@ -280,35 +320,38 @@ msgstr "您搜索 <em>%1$s</em> 返回 <strong>%2$s</strong> 个结果。"
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "您搜索 <em>%1$s</em> 没有匹配结果。"
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "作者"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "这里"
 
 msgid "in"
-msgstr ""
+msgstr "在"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "下一篇文章"
 
 msgid "no attachments"
 msgstr "没有附件"
 
-#, fuzzy
 msgid "no comments"
 msgstr "没有评论"
 
 msgid "no reactions"
-msgstr ""
+msgstr "无反应"
 
 msgid "no trackbacks"
 msgstr "没有 trackback"
 
-#, fuzzy
+#: __html_tpl_dummy.php:69
 msgid "of"
-msgstr "of"
+msgstr "的"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "于"
 
@@ -318,38 +361,36 @@ msgstr "一个附件"
 msgid "one comment"
 msgstr "一个评论"
 
-#, fuzzy
 msgid "one reaction"
-msgstr "继续阅读"
+msgstr "一个反应"
 
 msgid "one trackback"
 msgstr "一个 trackback"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "可选的"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "页面"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "预览"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "前一篇文章"
 
 msgid "reactions"
-msgstr ""
+msgstr "反应"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "发送"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "日"
 
-#, fuzzy
-#~ msgid "Hide password"
-#~ msgstr "密码："
-
-#, fuzzy
-#~ msgid "Show password"
-#~ msgstr "密码："

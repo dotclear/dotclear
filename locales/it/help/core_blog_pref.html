@@ -1,97 +1,158 @@
 <html>
 <head>
-  <title>Blog settings</title>
+  <title>Impostazioni blog</title>
 </head>
 
 <body>
-
-<h3>Blog details</h3>
+<h4>Dettagli del blog</h4>
 <dl>
-  <dt>Blog ID</dt>
-  <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-  
-  <dt>Blog name</dt>
+  <dt>Id Blog</dt>
+  <dd>ID univoco del blog. Obbligatorio, può essere modificato solo da un super amministratore.</dd>
+
+  <dt>Nome del blog</dt>
   <dd>Name of the blog, mandatory.</dd>
-  
-  <dt>Blog URL</dt>
+
+  <dt>Url Del Blog</dt>
   <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-  
+
   <dt>Blog status</dt>
+  <dd>Definisce il modo in cui viene letto l'URL. Si raccomanda di usare PATH_INFO, se PATH_INFO non funziona. Utilizzando la modalità PATH_INFO, l'URL del blog deve terminare con un "/" e usando QUERY_STRING, deve terminare con un "?".</dd>
+
+  <dt>Blog description</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: blog open to visitors</li>
-      <li><strong>offline</strong>: blog closed to visitors
-      but open to writers.</li>
-      <li><strong>removed</strong>: blog closed to both visitors and writers.</li>
+      <li><strong>Online:</strong> Blog aperto ai visitatori.</li>
+      <li><strong>Offline:</strong> Blog chiuso ai visitatori ma aperto agli scrittori.</li>
+      <li><strong>Rimosso:</strong> Blog chiuso sia ai visitatori che agli scrittori, aperto solo ai super amministratori.</li>
     </ul>
   </dd>
-  
-  <dt>Blog description</dt>
-  <dd>Here you can put any description you want for your blog. This is a
-  simple text, without formatting.</dd>
+
+  <dt>Descrizione del blog</dt>
+  <dd>Qui puoi inserire qualsiasi descrizione che vuoi per il tuo blog. Questo è un testo semplice, senza alcuna formattazione.</dd>
 </dl>
 
-<h3>Blog configuration</h3>
+<h4>Configurazione blog</h4>
 <dl>
-  <dt>Blog editor's name</dt>
+  <dt>Nome dell'editor del blog</dt>
   <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-  
+
   <dt>Copyright notice</dt>
   <dd>Note about the reproduction rights for the blog.</dd>
-  
+
   <dt>Default language</dt>
   <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-  
+
   <dt>Blog timezone</dt>
   <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-  
+
   <dt>Date formats</dt>
   <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Time format</dt>
   <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Display .. entries per page</dt>
   <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-  
-  <dt>Leave comments open for .. days</dt>
-  <dd>The number of days during wich comments and trackbacks will be open 
-  after the post publication. When empty, the comments will be kept open
-  indefinitly.</dd>
-  
-  <dt>Display smilies on entries and comments </dt>
-  <dd>Display sequences of characters as :-) or ;-) as images.</dd>
-  
-  <dt>Accept comments</dt>
-  <dd>Globally accepts comments on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Accept trackbacks</dt>
-  <dd>Globally accepts trackbacks on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Moderate comments and trackbacks</dt>
-  <dd>With such an option, comments and trackbacks will be published after
-  editor agreement.</dd>
-  
-  <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-  <dd>Adds an attribut on the links in comments and trackbacks, instructing the
-  search bots not to follow those links. This antispam features has yet to
-  prove its value.</dd>
-  
-  <dt>Wiki syntax for comments </dt>
-  <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
 </dl>
 
-<h3>Format reference</h3>
+<h4>Commenti e trackback</h4>
+<dl>
+  <dt>Accetta commenti</dt>
+  <dd>Globalmente accetta commenti sul blog. Prende la precedenza rispetto all'impostazione per post.</dd>
+
+  <dt>Commenti moderati</dt>
+  <dd>Con questa opzione, i commenti saranno pubblicati solo dopo l'accordo del redattore.</dd>
+
+  <dt>Lascia i commenti aperti per X giorni</dt>
+  <dd>Il numero di giorni durante i commenti wich sarà aperto dopo la pubblicazione del post. Quando vuoto, i commenti saranno mantenuti aperti a tempo indeterminato.</dd>
+
+  <dt>Sintassi Wiki per commenti</dt>
+  <dd>Consente di utilizzare un sottoinsieme della sintassi wiki nei commenti.</dd>
+
+  <dt>Accetta trackback</dt>
+  <dd>Globalmente accetta trackback sul blog. Prende la precedenza sull'impostazione per post.</dd>
+
+  <dt>Trackback moderati</dt>
+  <dd>Con questa opzione, i trackback saranno pubblicati solo dopo l'accordo dell'editor.</dd>
+
+  <dt>Lascia i trackback aperti per X giorni</dt>
+  <dd>Il numero di giorni durante i trackback wich sarà aperto dopo la pubblicazione del post. Quando vuoto, i trackback saranno mantenuti aperti a tempo indeterminato.</dd>
+
+  <dt>Aggiungi una relazione "nofollow" sui commenti e i link dei trackback</dt>
+  <dd>Aggiunge un attributo ai link nei commenti e nelle tracce, istruendo i bot di ricerca di non seguirli. Questo antispam caratteristiche deve ancora dimostrare il suo valore.</dd>
+</dl>
+
+<h4>Presentazione del blog</h4>
+<dl>
+  <dt>Formato data</dt>
+  <dd>Definisce il formato della data per i post del blog. Vedere la sezione "Formato di riferimento" qui sotto per maggiori informazioni. È possibile utilizzare l'elenco a discesa per selezionare rapidamente un modello preesistente.</dd>
+
+  <dt>Formato orario</dt>
+  <dd>Definisce il formato orario per i post del blog. Vedere la sezione "Formato riferimento" qui sotto per maggiori informazioni. È possibile utilizzare l'elenco a discesa per selezionare rapidamente un modello preesistente.</dd>
+
+  <dt>Visualizza le faccine su voci e commenti</dt>
+  <dd>Trasforma alcune stringhe come :-) o ;-) in immagini.</dd>
+
+  <dt>Visualizza X voci per pagina</dt>
+  <dd>Verranno visualizzate X voci sulla pagina principale del blog così come nelle diverse categorie.</dd>
+
+  <dt>Visualizza X voci per feed</dt>
+  <dd>Verranno visualizzate X voci nei feed del blog.</dd>
+
+  <dt>Mostra commenti X per feed</dt>
+  <dd>Verrà visualizzato X commenti nel blog commenti feed.</dd>
+
+  <dt>Tronca le fonti</dt>
+  <dd>Questa opzione fornirà solo un astratto dai post del blog nei feed.</dd>
+
+  <dt>Includi sottocategorie nella pagina della categoria e nel feed dei post della categoria</dt>
+  <dd>Quando questa opzione è attivata, i post nelle sottocategorie verranno visualizzati nelle pagine delle categorie genitore e nei loro feed.</dd>
+</dl>
+
+<h4>Media e immagini</h4>
+<dl>
+  <dt>Dimensione immagine generata (in pixel)</dt>
+  <dd>Quando si aggiunge un'immagine nel media manager, vengono generate automaticamente altre dimensioni. Qui puoi definire la dimensione della dimensione più lunga (larghezza o heigth) di ogni tipo di immagini generate. Se si lascia un campo vuoto, il media manager non creerà la miniatura corrispondente.</dd>
+
+  <dt>Attributi predefiniti per l'inserimento dell'immagine</dt>
+  <dd>Le impostazioni selezionate si applicheranno a tutte le nuove immagini aggiunte al media manager.</dd>
+
+  <dt>Inserito titolo immagine</dt>
+  <dd>Seleziona il formato dei tag "title" applicati alle tue immagini, in base alle informazioni ricavate dai metadati delle immagini.</dd>
+
+  <dt>Usa la data originale dei media se possibile</dt>
+  <dd>Quando questa opzione è attivata, se i metadati dell'immagine contengono una data, verrà usata. In caso contrario, verrà utilizzata la data di caricamento.</dd>
+
+  <dt>Dimensione dell'immagine inserita</dt>
+  <dd>Definisce la dimensione predefinita usata per inserire un'immagine in un post del blog.</dd>
+
+  <dt>Allineamento immagine</dt>
+  <dd>Definisce l'allineamento predefinito usato quando si inserisce un'immagine in un post del blog.</dd>
+
+  <dt>Inserisci un collegamento all'immagine originale</dt>
+  <dd>Quando questa opzione è attivata, le immagini inserite in un post del blog saranno cliccabili e puntano all'immagine di dimensioni originali.</dd>
+
+</dl>
+
+<h4>Politica robot motori di ricerca</h4>
 <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
+
+<h4>Antispam</h4>
+<p>È possibile impostare il numero di giorni dopo i quali si desidera che i commenti spazzatura vengano automaticamente eliminati. Lasciare vuoto quel campo (o mettere 0) per disattivare questa funzione.</p>
+
+<h4>Utenti</h4>
+<p>Elenca gli utenti di questo blog e le loro autorizzazioni.</p>
+
+<h3>Blog details</h3>
+<p>Alcuni campi possono essere configurati per formattare la data e l'ora alle tue esigenze.
+Ecco un riferimento:</p>
 
 <ul>
   <li><strong>%a</strong>: abreviated week day (local).</li>
@@ -141,7 +202,7 @@ Here is a reference:</p>
   <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
   <li><strong>%Y</strong>: the year, four digits</li>
   <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li><strong>%%</strong>: a litteral `%' character</li>
+  <li>: a litteral `%' character</li>
 </ul>
 
 </body>

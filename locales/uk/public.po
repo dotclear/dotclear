@@ -1,338 +1,396 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"PO-Revision-Date: 2023-06-22 16:34\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: uk\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
-msgstr ""
+msgstr "%d вкладення"
 
 msgid "%d comments"
-msgstr ""
+msgstr "%d коментарі"
 
 msgid "%d trackbacks"
-msgstr ""
+msgstr "%d зворотний зв'язок"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s реакції"
 
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr ""
+msgstr "Доступ до контенту"
 
 msgid "Add a comment"
-msgstr ""
+msgstr "Додати коментар"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "Додати пінг"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Додаткові директиви стилів"
 
 msgid "All keywords"
-msgstr ""
+msgstr "Всі ключові слова"
 
 msgid "Archives"
-msgstr ""
+msgstr "Архіви"
 
 msgid "Attachments"
-msgstr ""
+msgstr "Вкладення"
 
 msgid "Best of me"
-msgstr ""
+msgstr "Найкраще, що в мене є."
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "Інформація про блог"
 
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr ""
+msgstr "Меню блогу"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
-msgstr ""
+msgstr "By"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "За категоріями"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "За датою"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "За тегом"
 
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Comments"
-msgstr ""
+msgstr "Коментарі"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Коментарі можна форматувати за допомогою простого синтаксису вікі."
 
 msgid "Comments feed"
-msgstr ""
+msgstr "Стрічка коментарів"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
-msgstr ""
+msgstr "Продовжувати читання"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
-msgstr ""
+msgstr "Документ не знайдено"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
-msgstr ""
+msgstr "Адреса електронної пошти"
 
 msgid "Email address is not valid"
-msgstr ""
+msgstr "Адреса електронної пошти не є дійсною"
 
 msgid "Entries feed"
-msgstr ""
+msgstr "Стрічка заявок"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "Дослідити архіви"
 
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr ""
+msgstr "Додаткове меню"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
-msgstr ""
+msgstr "Від"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
-msgstr ""
+msgstr "FromDay"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
-msgstr ""
+msgstr "Перейти на головну сторінку"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr ""
+msgstr "HTML-код відображається як текст, а веб-адреси автоматично конвертуються."
 
 msgid "Home"
-msgstr ""
+msgstr "Головна"
 
 msgid "In"
-msgstr ""
+msgstr "У"
 
 msgid "Languages"
-msgstr ""
+msgstr "Мови"
 
 msgid "Links"
-msgstr ""
+msgstr "Посилання"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
-msgstr ""
+msgstr "Ім'я або псевдонім"
 
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
-msgstr ""
+msgstr "Наступний запис:"
 
+#: __html_tpl_dummy.php:30
 msgid "On"
-msgstr ""
+msgstr "На"
 
 msgid "Page top"
-msgstr ""
+msgstr "Початок сторінки"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
-msgstr ""
+msgstr "Пагінація"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
-msgstr ""
+msgstr "Потрібен пароль"
 
 msgid "Password:"
-msgstr ""
+msgstr "Пароль:"
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
-msgstr ""
+msgstr "Перманентне посилання"
 
 msgid "Powered by %s"
-msgstr ""
+msgstr "За матеріалами %s"
 
 msgid "Preview"
-msgstr ""
+msgstr "Попередній перегляд"
 
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
-msgstr ""
+msgstr "Попередній запис:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr ""
+msgstr "RSS-стрічка - це безкоштовне резюме блогу. Вона надає вміст (дописи або коментарі) або резюме вмісту разом з посиланнями на повні версії та іншими метаданими. Останні опубліковані матеріали можна прочитати за допомогою вашого улюбленого агрегатора RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">або</a>."
 
+#: __html_tpl_dummy.php:39
 msgid "Read"
-msgstr ""
+msgstr "Прочитайте"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
-msgstr ""
+msgstr "Не забувайте мене на цьому блозі"
 
 msgid "Required field"
-msgstr ""
+msgstr "Обов'язкове поле"
 
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 msgid "Send"
-msgstr ""
+msgstr "Надіслати"
 
 msgid "Simply copy the following URL into your aggregator:"
-msgstr ""
+msgstr "Просто скопіюйте наступну URL-адресу у свій агрегатор:"
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
-msgstr ""
+msgstr "Підкатегорії"
 
 msgid "Subscribe"
-msgstr ""
+msgstr "Підписатися"
 
 msgid "Subscribe to"
-msgstr ""
+msgstr "Підпишіться на"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "Пропозиції:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
-msgstr ""
+msgstr "Документ, який ви шукаєте, не існує."
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "Список останніх публікацій доступний"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
-msgstr ""
+msgstr "Вони написали на ту саму тему"
 
 msgid "This blog's comments Atom feed"
-msgstr ""
+msgstr "Коментарі до цього блогу Атомна стрічка"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
-msgstr ""
+msgstr "Коментарі цієї категорії Атомна стрічка"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
-msgstr ""
+msgstr "Записи цієї категорії Атомне живлення"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
-msgstr ""
+msgstr "Коментарі до цього допису в стрічці Atom"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
-msgstr ""
+msgstr "Стрічка коментарів до цього допису"
 
+#: __html_tpl_dummy.php:54
 msgid "To content"
-msgstr ""
+msgstr "До змісту"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
-msgstr ""
+msgstr "До меню"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
-msgstr ""
+msgstr "Для пошуку"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
-msgstr ""
+msgstr "URL-адреса зворотного зв'язку"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "URL-адреса, яку ви намагалися ввести, містить помилки, або сторінка була видалена чи переміщена."
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "Використовуйте форму пошуку"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
-msgstr ""
+msgstr "Веб-сайт"
 
 msgid "What is an RSS feed?"
-msgstr ""
+msgstr "Що таке RSS-стрічка?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
-msgstr ""
+msgstr "Для доступу до цієї області необхідно ввести пароль."
 
 msgid "You must provide a comment"
-msgstr ""
+msgstr "Ви повинні надати коментар"
 
 msgid "You must provide a valid email address."
-msgstr ""
+msgstr "Ви повинні вказати дійсну адресу електронної пошти."
 
 msgid "You must provide an author name"
-msgstr ""
+msgstr "Ви повинні вказати ім'я автора"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
-msgstr ""
+msgstr "Ваш коментар"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
-msgstr ""
+msgstr "Ваш коментар було опубліковано."
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr ""
+msgstr "Ваш коментар було надіслано і буде розглянуто для публікації."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr ""
+msgstr "За вашим запитом <em>%1$s</em> знайдено <strong>%2$s</strong> результат."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr ""
+msgstr "За вашим запитом <em>%1$s</em> знайдено <strong>%2$s</strong> результатів."
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr ""
+msgstr "За вашим запитом <em>%1$s</em> не знайдено жодного результату."
 
+#: __html_tpl_dummy.php:66
 msgid "by"
-msgstr ""
+msgstr "до"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "тут."
 
 msgid "in"
-msgstr ""
+msgstr "в"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
-msgstr ""
+msgstr "наступні записи"
 
 msgid "no attachments"
-msgstr ""
+msgstr "без вкладень"
 
 msgid "no comments"
-msgstr ""
+msgstr "без коментарів"
 
 msgid "no reactions"
-msgstr ""
+msgstr "ніяких реакцій"
 
 msgid "no trackbacks"
-msgstr ""
+msgstr "немає зворотного зв'язку"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
-msgstr ""
+msgstr "з"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
-msgstr ""
+msgstr "на"
 
 msgid "one attachment"
-msgstr ""
+msgstr "одне вкладення"
 
 msgid "one comment"
-msgstr ""
+msgstr "один коментар"
 
 msgid "one reaction"
-msgstr ""
+msgstr "одна реакція"
 
 msgid "one trackback"
-msgstr ""
+msgstr "один трекбек"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
-msgstr ""
+msgstr "необов'язковий"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
-msgstr ""
+msgstr "сторінка"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
-msgstr ""
+msgstr "попередній перегляд"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
-msgstr ""
+msgstr "попередні записи"
 
 msgid "reactions"
-msgstr ""
+msgstr "реакції"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
-msgstr ""
+msgstr "відправити"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "сьогодні"
+

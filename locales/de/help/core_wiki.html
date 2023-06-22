@@ -5,7 +5,7 @@
 
 <body>
 
-<h3>Wiki Syntax Referenz</h3>
+<h4>Wiki-Syntax-Referenz</h4>
 
 <p>Die Wiki Syntax ist ein Weg, mit minimalen Tags Deinen Text zu bearbeiten. 
 Du ben&ouml;ntigst nur die Grundvoraussetzungen wie Titel, Absatz, Zitat und Liste...</p>
@@ -22,16 +22,23 @@ Du ben&ouml;ntigst nur die Grundvoraussetzungen wie Titel, Absatz, Zitat und Lis
   <li><strong>Liste</strong>: Beginne jede Zeile mit
   <code>*</code> oder <code>#</code> f&uuml;r nummerierte und unnummerierte Listen.
   Listenzuordnung ist bereits gemacht mit folgenden Verwendungen:
-<pre>
-* item 1
+  <pre>
+    <code>*</code> * item 1
 ** item 1.1
 * item 2
 *# item 2.1
 ...
-</pre>
+  </pre>
   </li>
-  <li><strong>Vormatierter Text</strong>: Jede Zeile muss mit einem Leerzeichen beginnen.</li>
+  <li><strong>Definitionslisten:</strong> Beginnen Sie jede Zeile mit <code>=</code> für den zu definierenden Begriff und mit <code>:</code> für die Definition des Begriffs.
+  <pre>
+  <code>=</code> term
+  <code>:</code> Beschreibung des Begriffs
+  </pre>
+  </li>
   <li><strong>Zitat</strong>: Jede Zeile muss mit einem Semikolon beginnen (<code>&gt;</code>).</li>
+  <li><strong>Blocksatz:</strong> Jede Zeile muss mit einem <code>&gt;</code>beginnen.</li>
+  <li><strong>Seitenblock:</strong> Jede Zeile muss mit einem <code>)</code>beginnen.</li>
 </ul>
 </dd>
 
@@ -40,8 +47,8 @@ Du ben&ouml;ntigst nur die Grundvoraussetzungen wie Titel, Absatz, Zitat und Lis
 <ul>
   <li><strong>Betonung</strong>: zwei Anf&uuml;hrungszeichen <code>''text''</code></li>
   <li><strong>Starke Betonung</strong>: zwei Unterstriche <code>__text__</code></li>
-  <li><strong>Neue Zeile</strong>: <code>%%%</code></li>
-  <li><strong>Einschub</strong>: zwei Pluszeichen <code>++text++</code></li>
+  <li><strong>Neue Zeile</strong>:</li>
+  <li><strong>Einschub</strong>: zwei Pluszeichen <code>++text++</code> <code>%%%</code></li>
   <li><strong>L&ouml;schung</strong>: zwei Minuszeichen <code>--text--</code></li>
   <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> oder <code>[name|url|language|title]</code></li>
@@ -57,6 +64,9 @@ Du ben&ouml;ntigst nur die Grundvoraussetzungen wie Titel, Absatz, Zitat und Lis
     <code>{{quote|language}}</code> oder <code>{{quote|language|url}}</code></li>
   <li><strong>Code</strong>: <code>@@code@@</code></li>
   <li><strong>Fussnote</strong>: <code>$$footnote$$</code></li>
+  <li><strong>Fußnoten:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Hochgestellt</strong>&nbsp;: <code>^hochgestellt^</code></li>
+  <li><strong>Tiefgestellt</strong>&nbsp;: <code>,,tiefgestellt,,</code></li>
 </ul>
 </dd>
 
@@ -76,7 +86,6 @@ mitunter ausdrucksreichere M&ouml;glichkeiten, die Dir die HTML Syntax bietet. G
 </pre>
 </dd>
 </dl>
-
 
 </body>
 </html>
