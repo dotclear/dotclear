@@ -4,94 +4,152 @@
 </head>
 
 <body>
-
-<h3>Blogdetails</h3>
+<h4>Blog-Details</h4>
 <dl>
-  <dt>Blog ID</dt>
+  <dt>Blog-ID</dt>
   <dd>Einmalvergebene ID Deines Blogs. Diese kann nur in der Funktion des Super 
     Adminstrators vergeben werden..</dd>
-  
+
   <dt>Blogname</dt>
   <dd>Name des Blogs, erforderlich.</dd>
-  
-  <dt>Blog URL</dt>
+
+  <dt>Blog-URL</dt>
   <dd>Vollst&auml;ndige Blog URL. Erforderlich und kann nur in der Funktion des 
     Super Adminstrators vergeben werden..</dd>
-  
+
   <dt>Blogstatus</dt>
+  <dd>Bestimmt die Art und Weise, wie die URL gelesen wird. PATH_INFO wird empfohlen, QUERY_STRING muss verwendet werden, wenn PATH_INFO nicht funktioniert. Im Modus PATH_INFO muss die Blog-URL mit einem "/" enden, im Modus QUERY_STRING muss sie mit einem "?" enden.</dd>
+
+  <dt>Blogbeschreibung</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: Blog f&uuml;r alle Besucher ge&ouml;ffnet</li>
-      <li><strong>offline</strong>: Blog f&uuml;r  Besucher geschlossen, jedoch offen f&uuml;r Besucher mit Schreibrechten
-      </li>
-      <li><strong>Entfernt</strong>: Blog geschlossen f&uuml;r Besucher und Besucher mit Schreibrechten.</li>
+      <li><strong>Online:</strong> Blog offen für Besucher.</li>
+      <li><strong>Offline:</strong> Blog geschlossen für Besucher, aber offen für Autoren.</li>
+      <li><strong>Entfernt:</strong> Blog für Besucher und Autoren geschlossen, nur noch für Super-Administratoren zugänglich.</li>
     </ul>
   </dd>
-  
-  <dt>Blogbeschreibung</dt>
-  <dd>Hier kannst Du eine Beschreibung Deines Blogs einf&uuml;gen. Verwende einfachen Text ohne Formatierung.</dd>
+
+  <dt>Blog-Beschreibung</dt>
+  <dd>Hier können Sie eine beliebige Beschreibung für Ihr Blog eingeben. Dies ist ein einfacher Text ohne jegliche Formatierung.</dd>
 </dl>
 
-<h3>Blogkonfiguration</h3>
+<h4>Blog-Konfiguration</h4>
 <dl>
   <dt>Name des Eigent&uuml;mer des Blogs</dt>
   <dd>Name der Person, die f&uuml;r das Blog verantwortlich ist. Es k&ouml;nnte auch der Eigent&uuml;mer oder Herausgeber sein, sofern dieser existiert.</dd>
-  
+
   <dt>Copyright Hinweis</dt>
   <dd>Hinweis &uuml;ber die Urheberrechte des Blogs.</dd>
-  
+
   <dt>Standardsprache</dt>
-  <dd>Sprache des Bloginterfaces. Entweder der vorhandenen Landessprache oder, wenn diese nicht verf&uuml;gbar ist, wird Englisch als Standard eingesetzt.
-  </dd>
-  
+  <dd>Sprache des Bloginterfaces. Entweder der vorhandenen Landessprache oder, wenn diese nicht verf&uuml;gbar ist, wird Englisch als Standard eingesetzt.</dd>
+
   <dt>Blogzeitzone</dt>
-  <dd>Definiert die Zeitzone des Blogs und wird f&uuml;r Kommentare und Trackbacks verwendet.
-  </dd>
-  
+  <dd>Definiert die Zeitzone des Blogs und wird f&uuml;r Kommentare und Trackbacks verwendet.</dd>
+
   <dt>Datumsformate</dt>
-  <dd>Das Datumsformat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.
-  </dd>
-  
+  <dd>Das Datumsformat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
+
   <dt>Zeitformat</dt>
-  <dd>Das Zeitormat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.
-  </dd>
-  
-  <dt>Anzeige .. Eintr&auml;ge pro Seite </dt>
+  <dd>Das Zeitormat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
+
+  <dt>Anzeige .. Eintr&auml;ge pro Seite</dt>
   <dd>Diese Nummer wird die Begrenzung der Eintr&auml;ge auf der Homepage, der Startseite, der ersten Seite
   jeder Kategorie und des RSS Feeds sein.</dd>
-  
-  <dt>Kommentare offen lassen f&uuml;r .. Tage</dt>
-  <dd>Die Anzahl der Tage zwischen der Ver&ouml;ffentlichung der Kommentare und Trackbacks nach der Ver&ouml;ffentlichung des Beitrages.
-  Bleibt das Feld frei, alle Kommentare sind offen.</dd>
-  
-  <dt>Anzeige von Smilies in Eintr&auml;gen und Kommentare </dt>
-  <dd>Anzeigeausschnitte von Abk&uuml;rzungen wie :-) oder ;-) als Icons.</dd>
-  
-  <dt>Kommentare akzeptieren</dt>
-  <dd>Globale Einstellung f&uuml;r das Akzeptieren von Kommentare im Blog. Du kannst auch die Priorit&auml;t f&uuml;r jeden einzelnen
-  Eintrag im Blogeintrag selbst setzen.</dd>
-  
-  <dt>Trackbacks akzeptieren</dt>
-  <dd>Globale Einstellung f&uuml;r das Akzptieren von Trackbacks im Blog. Du kannst auch die Priorit&auml;t f&uuml;r jeden einzelnen
-  Eintrag im Blogeintrag selbst setzen.
-  </dd>
-  
-  <dt>Kommentare und Trackbacks moderieren</dt>
-  <dd>Diese Kommentare und Trackbacks werden nur mit Einwilligung des Blogeigent&uuml;mers ver&ouml;ffentlicht.</dd>
-  
-  <dt>Hinzuf&uuml;gen der "nofollow" Anweisung auf Kommentare und Trackbacklinks</dt>
-  <dd>F&uuml;gt ein Attribut dem Kommentar und Trackbacklink bei, das Suchbots nicht erlaubt, diese Links zu verfolgen. 
-  Dieser Antispam-Filter hat seine Wirksamkeit.
-   </dd>
-  
-  <dt>Wiki syntax f&uuml;r Kommentare </dt>
-  <dd>Erlaubt das Verwenden der wiki syntax in Kommentaren.
-  </dd>
 </dl>
 
-<h3>Formatreferenzen</h3>
+<h4>Kommentare und Trackbacks</h4>
+<dl>
+  <dt>Kommentare akzeptieren</dt>
+  <dd>Lässt Kommentare im Blog global zu. Hat Vorrang vor der Einstellung pro Beitrag.</dd>
+
+  <dt>Mäßige Kommentare</dt>
+  <dd>Mit dieser Option werden die Kommentare nur nach Zustimmung des Herausgebers veröffentlicht.</dd>
+
+  <dt>Kommentare für X Tage offen lassen</dt>
+  <dd>Die Anzahl der Tage, an denen die Kommentare nach der Veröffentlichung des Beitrags offen bleiben. Wenn leer, werden die Kommentare auf unbestimmte Zeit offen gehalten.</dd>
+
+  <dt>Wiki-Syntax für Kommentare</dt>
+  <dd>Erlaubt die Verwendung einer Teilmenge der Wiki-Syntax in Kommentaren.</dd>
+
+  <dt>Trackbacks akzeptieren</dt>
+  <dd>Akzeptiert global Trackbacks im Blog. Hat Vorrang vor der Einstellung pro Beitrag.</dd>
+
+  <dt>Moderate Trackbacks</dt>
+  <dd>Mit dieser Option werden Trackbacks nur nach Zustimmung der Redaktion veröffentlicht.</dd>
+
+  <dt>Trackbacks für X Tage offen lassen</dt>
+  <dd>Die Anzahl der Tage, in denen Trackbacks nach der Veröffentlichung eines Beitrags offen bleiben. Wenn leer, werden die Trackbacks auf unbestimmte Zeit offen gehalten.</dd>
+
+  <dt>Hinzufügen der "nofollow"-Relation bei Kommentaren und Trackback-Links</dt>
+  <dd>Fügt den Links in Kommentaren und Trackbacks ein Attribut hinzu, das die Suchbots anweist, ihnen nicht zu folgen. Diese Antispam-Funktion muss ihren Wert noch unter Beweis stellen.</dd>
+</dl>
+
+<h4>Blog-Präsentation</h4>
+<dl>
+  <dt>Datumsformat</dt>
+  <dd>Legt das Datumsformat für die Blogeinträge fest. Weitere Informationen finden Sie im Abschnitt "Formatreferenz" weiter unten. Sie können die Dropdown-Liste verwenden, um schnell ein bereits vorhandenes Muster auszuwählen.</dd>
+
+  <dt>Zeitformat</dt>
+  <dd>Legt das Zeitformat für die Blogeinträge fest. Weitere Informationen finden Sie im Abschnitt "Formatreferenz" weiter unten. Sie können die Dropdown-Liste verwenden, um schnell ein bereits vorhandenes Muster auszuwählen.</dd>
+
+  <dt>Smilies in Einträgen und Kommentaren anzeigen</dt>
+  <dd>Verwandelt einige Zeichenfolgen wie :-) oder ;-) in Bilder.</dd>
+
+  <dt>X Einträge pro Seite anzeigen</dt>
+  <dd>Zeigt X Einträge sowohl auf der Blog-Hauptseite als auch in den verschiedenen Kategorien an.</dd>
+
+  <dt>X Einträge pro Feed anzeigen</dt>
+  <dd>Zeigt X Einträge in den Blog-Feeds an.</dd>
+
+  <dt>X Kommentare pro Feed anzeigen</dt>
+  <dd>Zeigt X Kommentare in den Blog-Kommentar-Feeds an.</dd>
+
+  <dt>Feeds abkürzen</dt>
+  <dd>Mit dieser Option wird nur ein Auszug aus den Blogbeiträgen in den Feeds angezeigt.</dd>
+
+  <dt>Unterkategorien in die Kategorieseite und den Feed für Kategoriebeiträge einbeziehen</dt>
+  <dd>Wenn diese Option aktiviert ist, werden Beiträge in Unterkategorien sowohl auf den Seiten der übergeordneten Kategorien als auch in deren Feeds angezeigt.</dd>
+</dl>
+
+<h4>Medien und Bilder</h4>
+<dl>
+  <dt>Erstellte Bildgrößen (in Pixel)</dt>
+  <dd>Wenn Sie ein Bild im Medienmanager hinzufügen, werden automatisch andere Größen erzeugt. Hier können Sie die Dimension der längsten Größe (Breite oder Höhe) für jede Art von generierten Bildern festlegen. Wenn Sie ein Feld leer lassen, wird der Medienmanager die entsprechende Miniatur nicht erstellen.</dd>
+
+  <dt>Standardattribute zum Einfügen von Bildern</dt>
+  <dd>Die gewählten Einstellungen werden auf alle neuen Bilder angewendet, die dem Medienmanager hinzugefügt werden.</dd>
+
+  <dt>Eingefügter Bildtitel</dt>
+  <dd>Wählen Sie das Format der "Titel"-Tags für Ihre Bilder auf der Grundlage von Informationen aus den Metadaten der Bilder.</dd>
+
+  <dt>Verwenden Sie nach Möglichkeit das Datum des Originaldatenträgers.</dt>
+  <dd>Wenn diese Option aktiviert ist, wird das Datum verwendet, wenn die Metadaten des Bildes ein Datum enthalten. Ist dies nicht der Fall, wird das Hochladedatum verwendet.</dd>
+
+  <dt>Größe des eingefügten Bildes</dt>
+  <dd>Legt die Standardgröße fest, die beim Einfügen eines Bildes in einen Blogeintrag verwendet wird.</dd>
+
+  <dt>Bildausrichtung</dt>
+  <dd>Legt die Standardausrichtung fest, die beim Einfügen eines Bildes in einen Blogeintrag verwendet wird.</dd>
+
+  <dt>Einen Link zum Originalbild einfügen</dt>
+  <dd>Wenn diese Option aktiviert ist, können die in einen Blogbeitrag eingefügten Bilder angeklickt werden und verweisen auf das Bild in Originalgröße.</dd>
+
+</dl>
+
+<h4>Robots-Richtlinie für Suchmaschinen</h4>
 <p>Einige Felder k&ouml;nnen in Verh&auml;ltnis zu Datum und Zeit gesetzt werden.
 Hier ist die Referenz:</p>
+
+<h4>Antispam</h4>
+<p>Sie können die Anzahl der Tage festlegen, nach denen die unerwünschten Kommentare automatisch gelöscht werden sollen. Lassen Sie das Feld leer (oder geben Sie 0 ein), um diese Funktion zu deaktivieren.</p>
+
+<h4>Benutzer</h4>
+<p>Listet die Benutzer dieses Blogs sowie deren Berechtigungen auf.</p>
+
+<h3>Blogdetails</h3>
+<p>Einige Felder können so konfiguriert werden, dass das Datum und die Uhrzeit nach Ihren Wünschen formatiert werden.
+Hier ist eine Referenz:</p>
 
 <ul>
   <li><strong>%a</strong>: gek&uuml;rzter Wochentag (lokal)</li>
@@ -114,7 +172,7 @@ Hier ist die Referenz:</p>
   <li><strong>%I</strong>: digitale Uhrzeit, 12H Modus
   (von 01 bis 12)</li>
   <li><strong>%j</strong>: Tag eines Jahres, digital (von 001 bis 366)</li>
-  <li><strong>%m</strong>: Monat, digital (von 1 bis� 12)</li>
+  <li><strong>%m</strong>: Monat, digital (von 1 bis  12)</li>
   <li><strong>%M</strong>: Minute, digital</li>
   <li><strong>%n</strong>: Zeilentrennung Character</li>
   <li><strong>%p</strong>: entweder `am' oder `pm', bezogen zur absoluten Zeit
@@ -138,7 +196,7 @@ Hier ist die Referenz:</p>
   <li><strong>%y</strong>: Jahr, 2stellig (von 00 bis 99)</li>
   <li><strong>%Y</strong>: tJahr, 4stellig</li>
   <li><strong>%Z ou %z</strong>: Zeitzone, Name oder Kurzzeichen</li>
-  <li><strong>%%</strong>: ein Charakter in Worten `%' </li>
+  <li>: ein Charakter in Worten `%'</li>
 </ul>
 
 </body>
