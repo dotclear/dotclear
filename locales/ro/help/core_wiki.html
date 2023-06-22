@@ -1,21 +1,21 @@
 <html>
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Referință de sintaxă Wiki</title>
 </head>
 
 <body>
 
-<h3>Wiki syntax reference</h3>
+<h4>Referință de sintaxă Wiki</h4>
 
 <p>The wiki syntax is a way to enhance your text with a minimal set
 of tags, studied to cover the basic needs (titles, paragraphs, quotes,
 lists...)</p>
 
 <dl>
-<dt>Block elements</dt>
+<dt>Blocare elemente</dt>
 <dd>
 <ul>
-  <li>Leave an empty line between two similar blocks.</li>
+  <li>Lăsați o linie goală între două blocuri similare.</li>
   <li><strong>Paragraph</strong>: free text, ended by an empty line if
   another paragraph is to follow.</li>
   <li><strong>Title</strong>: <code>!!! title</code>, <code>!! title</code>
@@ -25,26 +25,33 @@ lists...)</p>
   <li><strong>Lists</strong>: Start each line with
   <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively.
   List imbrication is done by mixing list markers this way:
-<pre>
-* item 1
+  <pre>
+    <code>*</code> * item 1
 ** item 1.1
 * item 2
 *# item 2.1
 ...
-</pre>
+  </pre>
   </li>
-  <li><strong>Preformatted text</strong>: each line must start with a space.</li>
+  <li><strong>Lista de definiții:</strong> Începe fiecare linie cu <code>=</code> pentru ca termenul să definească și cu <code>:</code> pentru definiția termenului.
+  <pre>
+  <code>=</code> termenul
+  <code>:</code> descrierea termenului
+  </pre>
+  </li>
   <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
+  <li><strong>Ofertă bloc:</strong> Fiecare linie trebuie să înceapă cu <code>&gt;</code>.</li>
+  <li><strong>Bloc lateral:</strong> Fiecare linie trebuie să înceapă cu <code>)</code>.</li>
 </ul>
 </dd>
 
-<dt>Formatting tags</dt>
+<dt>Formatare tag-uri</dt>
 <dd>
 <ul>
   <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
   <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
-  <li><strong>New line</strong>: <code>%%%</code></li>
-  <li><strong>Insertion</strong>: two plusses <code>++text++</code></li>
+  <li><strong>New line</strong>:</li>
+  <li><strong>Insertion</strong>: two plusses <code>++text++</code> <code>%%%</code></li>
   <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
   <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
@@ -60,10 +67,13 @@ lists...)</p>
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
   <li><strong>Code</strong>: <code>@@code@@</code></li>
   <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
+  <li><strong>Note de subsol:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+  <li><strong>Abonament</strong>&nbsp;: <code>,,abonament,,</code></li>
 </ul>
 </dd>
 
-<dt>Unformatted text</dt>
+<dt>Text neformatat</dt>
 <dd>If you don't want one formatting character to be interpreted as such, add a
 <code>\</code> just before it. This way:
 <code>\[text in brackets without being a link\]</code>
@@ -73,13 +83,12 @@ lists...)</p>
 <dd>Even if you chose the wiki syntax, you may sometimes need a more
 powerful formatting, i.e. HTML syntax. Do it the following way:
 <pre>
-///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
-///
+//html
+&lt;p style="color:red"&gt;textul meu cu roșu&lt;/p&gt;
+////
 </pre>
 </dd>
 </dl>
-
 
 </body>
 </html>
