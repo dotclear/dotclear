@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -16,6 +16,2271 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
+
+#, fuzzy, php-format
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "La versió PHP és %s (7.4 o més recent és necessaria)"
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "El mòdul de serie Multibyte (mbstring) no està disponible."
+
+msgid "Iconv module is not available."
+msgstr "El mòdul iconv no està disponible."
+
+msgid "Output control functions are not available."
+msgstr "Les funcions de control de sortides no estan disponibles."
+
+msgid "SimpleXML module is not available."
+msgstr "El mòdul SimpleXML no està disponible."
+
+msgid "DOM XML module is not available."
+msgstr "El mòdul DOM XML no està disponible."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "El motor PCRE no suporta sèries UTF-8."
+
+msgid "SPL module is not available."
+msgstr "El mòdul SPL no està disponible."
+
+#, php-format
+msgid "MySQL version is %s (4.1 or earlier needed)."
+msgstr "La versió de MySQL és %s (4.1 més actual és necessària)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "El motor MySQL InnoDB no està disponible."
+
+#, php-format
+msgid "PostgreSQL version is %s (8.0 or earlier needed)."
+msgstr "La versió de PostgreSQL és %s (8.0 o més recent és necessària)."
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Si us plau, introdueixi una clau mestra (DC_MASTER_KEY) en l'arxiu de configuració."
+
+#, fuzzy
+msgid "Dotclear is already installed."
+msgstr "DotClear esta instal·lat."
+
+#, fuzzy
+msgid "Dotclear cannot be installed."
+msgstr "DotClear no es pot instal·lar."
+
+msgid "No user ID given"
+msgstr "No s'ha especificat cap ID d'usuari"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "L'identificador de l'usuari ha de contenir com a mínim 2 caràcters els quals han de ser lletres, números o símbols."
+
+msgid "Invalid email address"
+msgstr "Adreça de correu electrònica incorrecte"
+
+msgid "No password given"
+msgstr "No s'ha especificat cap contrasenya"
+
+msgid "Passwords don't match"
+msgstr "La contrasenya no es correspon"
+
+msgid "Password must contain at least 6 characters."
+msgstr "La contraseny aha de contenir com a mínim 6 caracters."
+
+msgid "My first blog"
+msgstr "El meu primer blog"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr ""
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr ""
+
+msgid "Dotclear Team"
+msgstr ""
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Instal·lació de Dotclear"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Reinicialització de contrasenya"
+
+msgid "weak"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Instal·lació de Dotclear"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "El directori cache %s no es pot gravar."
+
+msgid "Errors:"
+msgstr "Errors:"
+
+#, fuzzy
+msgid "Configuration file has been successfully created."
+msgstr "El fitxer de configuració s'ha creat amb èxit."
+
+msgid "User information"
+msgstr "Informació de l'usuari"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Si us plau, faciliti la informació següent, necessària per a crear el primer usuari."
+
+#, fuzzy
+msgid "First Name:"
+msgstr "Nom"
+
+#, fuzzy
+msgid "Last Name:"
+msgstr "Última actualització"
+
+msgid "Email:"
+msgstr "Correu electrònic:"
+
+#, fuzzy
+msgid "Username and password"
+msgstr "Identificador o contrasenya incorrectes"
+
+msgid "Required field"
+msgstr "Camp obligatori"
+
+msgid "Username:"
+msgstr "Identificador:"
+
+#, fuzzy
+msgid "Username"
+msgstr "Identificador:"
+
+msgid "New password:"
+msgstr "Nova contrasenya:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Contrasenya:"
+
+msgid "Confirm password:"
+msgstr "Confirmar la contrasenya :"
+
+msgid "Save"
+msgstr "Desar"
+
+msgid "Following plugins have been installed:"
+msgstr ""
+
+msgid "Following plugins have not been installed:"
+msgstr ""
+
+msgid "All done!"
+msgstr "Finalitzat!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr ""
+
+msgid "Your account"
+msgstr ""
+
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#, fuzzy
+msgid "Your blog"
+msgstr "Cap Blog"
+
+#, fuzzy
+msgid "Blog address:"
+msgstr "Adreça IP :"
+
+#, fuzzy
+msgid "Administration interface:"
+msgstr "administrador"
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "El directori cache %s no es pot gravar."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Impossible gravar res en aquest directori."
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "L'adreça de correu elect`ronic no és vàlida."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "El fitxer %s no existeix."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "No es pot escriure en el fitxer %s."
+
+msgid "Dotclear installation wizard"
+msgstr "Assistent d'instal·lació de Dotclear"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "Annex"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "Sistema d'informació"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Si us plau, faciliti la informació següent necessària per a crear l'arxiu de configuració."
+
+msgid "Database type:"
+msgstr "Tipus de base de dades:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "Nom del servidor de la base de dades:"
+
+msgid "Database Name:"
+msgstr "Nom de la base de dades:"
+
+msgid "Database User Name:"
+msgstr "Nom de l'usuari de la base de dades:"
+
+msgid "Database Password:"
+msgstr "Contrasenya de la base de dades:"
+
+msgid "Database Tables Prefix:"
+msgstr "Prefix de les taules de la base de dades:"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "Contingut:"
+
+msgid "Title"
+msgstr "Títol"
+
+msgid "Posts"
+msgstr ""
+
+msgid "Blogs"
+msgstr "Blogs"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "Sense comentaris"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "Blogs"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "Nom del blog"
+
+msgid "Blog name"
+msgstr "Nom del blog"
+
+msgid "Status"
+msgstr "Estat"
+
+#, fuzzy
+msgid "Set online"
+msgstr "en línia"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "fora de línia"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "suprimit"
+
+msgid "Delete"
+msgstr "Suprimir"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "no seleccionat"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "L'entrada s'ha actualitzat amb èxit."
+
+msgid "Password verification failed"
+msgstr "La verificació de la contrasenya ha fallat"
+
+#, fuzzy
+msgid "The current blog cannot be deleted."
+msgstr "El directori no es pot suprimir."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "El blog s'ha suprimit amb èxit."
+msgstr[1] "El blog s'ha suprimit amb èxit."
+
+msgid "Comments"
+msgstr "Comentaris"
+
+#, fuzzy
+msgid "Back to comments list"
+msgstr "Sense comentaris"
+
+#, fuzzy
+msgid "Comments actions"
+msgstr "Autor del comentari:"
+
+msgid "Author"
+msgstr "Autor"
+
+#, fuzzy
+msgid "Publish"
+msgstr "publicat"
+
+#, fuzzy
+msgid "Unpublish"
+msgstr "no publicat"
+
+#, fuzzy
+msgid "Mark as pending"
+msgstr "marcar com a pendent"
+
+#, fuzzy
+msgid "Mark as junk"
+msgstr "marca com a no desitjat"
+
+msgid "Blocklist IP"
+msgstr ""
+
+msgid "Blocklist IP (global)"
+msgstr ""
+
+msgid "IP address"
+msgstr "Adreça IP"
+
+#, fuzzy
+msgid "No comment selected"
+msgstr "Sense comentaris"
+
+#, fuzzy
+msgid "Selected comments have been successfully updated."
+msgstr "L'entrada s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "Selected comments have been successfully deleted."
+msgstr "El blog s'ha suprimit amb èxit."
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blocklisted."
+msgstr "L'entrada s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "Back to entries list"
+msgstr "Categories"
+
+msgid "Posts actions"
+msgstr "Acció en les entrades seleccionades:"
+
+#, fuzzy
+msgid "Schedule"
+msgstr "Programa"
+
+msgid "Mark"
+msgstr ""
+
+#, fuzzy
+msgid "Mark as selected"
+msgstr "seleccionat"
+
+#, fuzzy
+msgid "Mark as unselected"
+msgstr "seleccionat"
+
+#, fuzzy
+msgid "Change"
+msgstr "Canviar el fitxer"
+
+#, fuzzy
+msgid "Change category"
+msgstr "canviar categoria"
+
+#, fuzzy
+msgid "Change language"
+msgstr "Canviar el fitxer"
+
+#, fuzzy
+msgid "Change author"
+msgstr "canviar l'autor"
+
+#, fuzzy
+msgid "No entry selected"
+msgstr "no seleccionat"
+
+msgid "Published entries cannot be set to scheduled"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated to status : \"%s\""
+msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "L'entrada s'ha actualitzat amb èxit."
+msgstr[1] "L'entrada s'ha actualitzat amb èxit."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully marked as selected"
+msgid_plural "%d entries have been successfully marked as selected"
+msgstr[0] "L'entrada s'ha creat amb èxit."
+msgstr[1] "L'entrada s'ha creat amb èxit."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully marked as unselected"
+msgid_plural "%d entries have been successfully marked as unselected"
+msgstr[0] "L'entrada s'ha creat amb èxit."
+msgstr[1] "L'entrada s'ha creat amb èxit."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully deleted"
+msgid_plural "%d entries have been successfully deleted"
+msgstr[0] "L'entrada s'ha actualitzat amb èxit."
+msgstr[1] "L'entrada s'ha actualitzat amb èxit."
+
+msgid "(No cat)"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully moved to category \"%s\""
+msgid_plural "%d entries have been successfully moved to category \"%s\""
+msgstr[0] "L'entrada s'ha actualitzat amb èxit."
+msgstr[1] "L'entrada s'ha actualitzat amb èxit."
+
+msgid "Change category for this selection"
+msgstr "Canviar la categoria per les entrades"
+
+msgid "Category:"
+msgstr "Categoria:"
+
+#, fuzzy
+msgid "Create a new category for the post(s)"
+msgstr "Canviar la categoria per les entrades"
+
+msgid "Title:"
+msgstr "Títol:"
+
+msgid "Parent:"
+msgstr ""
+
+msgid "This user does not exist"
+msgstr "Aquest usuari no existeix"
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully set to user \"%s\""
+msgid_plural "%d entries have been successfully set to user \"%s\""
+msgstr[0] "L'entrada s'ha creat amb èxit."
+msgstr[1] "L'entrada s'ha creat amb èxit."
+
+msgid "Change author for this selection"
+msgstr "Canviar l'autor per les entrades"
+
+msgid "New author (author ID):"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully set to language \"%s\""
+msgid_plural "%d entries have been successfully set to language \"%s\""
+msgstr[0] "L'entrada s'ha actualitzat amb èxit."
+msgstr[1] "L'entrada s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "Change language for this selection"
+msgstr "Canviar l'autor per les entrades"
+
+msgid "Available"
+msgstr ""
+
+msgid "Most used"
+msgstr ""
+
+#, fuzzy
+msgid "Entry language:"
+msgstr "Idioma de l'entrada:"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Tipus de base de dades:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+msgid "Precondition Failed"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "Paràmetres dels temes"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Plugins"
+msgstr "Extensions"
+
+#, fuzzy
+msgid "Blog appearance"
+msgstr "Nom del blog"
+
+msgid "Blog settings"
+msgstr "Paràmetres del blog"
+
+msgid "Media manager"
+msgstr "Gestor de media"
+
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Search"
+msgstr ""
+
+msgid "New post"
+msgstr "Nova entrada"
+
+#, fuzzy
+msgid "My preferences"
+msgstr "preferències de l'usuari"
+
+msgid "Update"
+msgstr ""
+
+#, fuzzy
+msgid "Languages"
+msgstr "Idioma?"
+
+msgid "Plugins management"
+msgstr "Gestió de les extensions"
+
+msgid "Users"
+msgstr "Usuaris"
+
+msgid "My favorites"
+msgstr ""
+
+msgid "Global help"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Editar el blog %s"
+msgstr[1] "Editar el blog %s"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d comentari"
+msgstr[1] "%d comentari"
+
+msgid "Descending"
+msgstr "Descendent"
+
+msgid "Ascending"
+msgstr "Ascendent"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Selected"
+msgstr "Seleccionat"
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "Nombre d'entrades"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "Cap resposta"
+
+msgid "Entry title"
+msgstr "Títol de l'entrada"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "Títol de l'entrada"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "filtre"
+
+msgid "Last update"
+msgstr "Última actualització"
+
+msgid "Blog ID"
+msgstr "Identificador del blog"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "Última actualització"
+
+#, fuzzy
+msgid "First Name"
+msgstr "Nom"
+
+msgid "Display name"
+msgstr "Pseudònim"
+
+msgid "Number of entries"
+msgstr "Nombre d'entrades"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "Filtres"
+
+#, fuzzy
+msgid "Display options"
+msgstr "Documentació"
+
+msgid "Order by:"
+msgstr "Ordenar per:"
+
+msgid "Sort:"
+msgstr "Classe:"
+
+#, fuzzy
+msgid "Show"
+msgstr "Mostra'l."
+
+#, fuzzy
+msgid "Save current options"
+msgstr "invertir la selecció"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+msgid "Author:"
+msgstr "Autor :"
+
+msgid "Status:"
+msgstr "Estat :"
+
+#, fuzzy
+msgid "Format:"
+msgstr "Format de la data:"
+
+#, fuzzy
+msgid "With password"
+msgstr "Contrasenya de l'entrada:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "La seva contrasenya"
+
+msgid "Selected:"
+msgstr "Seleccionat:"
+
+#, fuzzy
+msgid "Not selected"
+msgstr "no seleccionat"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "Annexos"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "%d annexos"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "%d annexos"
+
+msgid "Month:"
+msgstr "Mes:"
+
+msgid "Lang:"
+msgstr "Idioma:"
+
+#, fuzzy
+msgid "Comments:"
+msgstr "Comentaris"
+
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "tancar"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Respostes"
+
+msgid "Web site:"
+msgstr "Lloc Web :"
+
+msgid "Type:"
+msgstr "Tipus:"
+
+#, fuzzy
+msgid "Comment"
+msgstr "Comentari :"
+
+#, fuzzy
+msgid "Trackback"
+msgstr "Respostes"
+
+msgid "IP address:"
+msgstr "Adreça IP :"
+
+#, fuzzy
+msgid "Media type:"
+msgstr "Tipus de fitxer:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "Search:"
+msgstr "Cercar:"
+
+msgid "Trackbacks"
+msgstr "Respostes"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Ususaris per pàgina"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "Entrades per pàgina"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "Comentaris per pàgina"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "Blogs per pàgina"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "Entrades per pàgina"
+
+#, fuzzy
+msgid "results per page"
+msgstr "Entrades per pàgina"
+
+msgid "Error:"
+msgstr ""
+
+msgid "%H:%M:%S"
+msgstr ""
+
+msgid "Blog:"
+msgstr "Blog:"
+
+msgid "Change blog"
+msgstr "Canviar de blog"
+
+msgid "Blogs:"
+msgstr "Blogs:"
+
+msgid "ok"
+msgstr "ok"
+
+#, fuzzy
+msgid "Go to the content"
+msgstr "L'entrada no te contingut."
+
+msgid "Go to the menu"
+msgstr ""
+
+msgid "Go to help"
+msgstr ""
+
+#, fuzzy
+msgid "My dashboard"
+msgstr "Quadre de comandament"
+
+msgid "Go to site"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Logout %s"
+msgstr "Desconnexió"
+
+msgid "Hide main menu"
+msgstr ""
+
+msgid "Show main menu"
+msgstr ""
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+#, php-format
+msgid "Thank you for using %s."
+msgstr ""
+
+#, fuzzy
+msgid "Page top"
+msgstr "Pàgina(es)"
+
+#, fuzzy
+msgid "Go to dashboard"
+msgstr "Quadre de comandament"
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+#, fuzzy
+msgid "uncover"
+msgstr "Recuperar"
+
+msgid "hide"
+msgstr ""
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+#, fuzzy
+msgid "Select:"
+msgstr "Seleccionat:"
+
+#, fuzzy
+msgid "No selection"
+msgstr "invertir la selecció"
+
+#, fuzzy
+msgid "Select all"
+msgstr "Seleccionar tot"
+
+msgid "Invert selection"
+msgstr "invertir la selecció"
+
+msgid "Entry has been successfully created."
+msgstr "L'entrada s'ha creat amb èxit."
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "%d entrada"
+
+msgid "view entry"
+msgstr "Veure l'entrada"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Està segur que vol suprimir els comentari seleccionats?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy
+msgid "Users with posts cannot be deleted."
+msgstr "El directori no es pot suprimir."
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Està segur que vol suprimir els usuaris seleccionats?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Està segur que vol suprimir els usuaris seleccionats?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+#, fuzzy
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Està segur que vol suprimir les categories seleccionades?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Està segur que vol suprimir  %s?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Està segur que vol suprimir  %s?"
+
+#, fuzzy
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Està segur que vol suprimir aquest annex?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Està segur que vol suprimir les extensions seleccionades?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "Està segur que vol suprimir les extensions seleccionades?"
+
+#, fuzzy
+msgid "Use this theme"
+msgstr "Suprimir l'annex"
+
+#, fuzzy
+msgid "Remove this theme"
+msgstr "Suprimir l'annex"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected themes?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+#, fuzzy
+msgid "Are you sure you want to delete this backup?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Està segur que vol suprimir aquest annex?"
+
+#, fuzzy
+msgid "Zip file content"
+msgstr "L'entrada no te contingut."
+
+msgid "HTML markup validator"
+msgstr ""
+
+msgid "HTML content is valid."
+msgstr ""
+
+msgid "There are HTML markup errors."
+msgstr ""
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+#, fuzzy
+msgid "Details"
+msgstr "Detalls del blog"
+
+msgid "Support"
+msgstr ""
+
+msgid "Help:"
+msgstr ""
+
+#, fuzzy
+msgid "Section:"
+msgstr "Descripció:"
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Usuaris en aquest blog"
+
+#, fuzzy
+msgid "Show password"
+msgstr "Nova contrasenya:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nova contrasenya:"
+
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr "No ha guardat els canvis."
+
+msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
+msgstr ""
+
+msgid "Temporarily activate enhanced uploader"
+msgstr ""
+
+msgid "Temporarily disable enhanced uploader"
+msgstr ""
+
+msgid "Limit exceeded."
+msgstr ""
+
+msgid "File size exceeds allowed limit."
+msgstr ""
+
+#, fuzzy
+msgid "Canceled."
+msgstr "Anul·lar"
+
+#, fuzzy
+msgid "HTTP Error:"
+msgstr "Errors:"
+
+msgid "Choose file"
+msgstr ""
+
+msgid "Choose files"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Anul·lar"
+
+msgid "Clean"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+#, fuzzy
+msgid "File successfully uploaded."
+msgstr "Els fitxers s'han actualitzat amb èxit."
+
+#, fuzzy
+msgid "No file in queue."
+msgstr "Cap fitxer."
+
+#, fuzzy
+msgid "1 file in queue."
+msgstr "Cap fitxer."
+
+#, fuzzy, php-format
+msgid "%d files in queue."
+msgstr "Cap fitxer."
+
+msgid "Queue error:"
+msgstr ""
+
+msgid "Cancel filters and display options"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "Extensió no trobada"
+msgstr[1] "Extensió no trobada"
+
+msgid "other"
+msgstr ""
+
+#, fuzzy
+msgid "Search in repository:"
+msgstr "%d entrades"
+
+msgid "Reset search"
+msgstr ""
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr ""
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "current selection"
+msgstr "invertir la selecció"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "no results"
+msgstr ""
+
+msgid "Browse index:"
+msgstr ""
+
+#, fuzzy
+msgid "Plugins list"
+msgstr "Extensions"
+
+msgid "Score"
+msgstr ""
+
+msgid "Version"
+msgstr "Versió"
+
+#, fuzzy
+msgid "Current version"
+msgstr "definir els permisos"
+
+#, fuzzy
+msgid "Repository"
+msgstr "Descripció:"
+
+msgid "Action"
+msgstr ""
+
+#, php-format
+msgid " (%s)"
+msgstr ""
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "%d entrades"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "%d entrades"
+
+msgid "Plugin from official distribution"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Gestió de les extensions"
+
+msgid "update locked"
+msgstr ""
+
+msgid "No plugins matched your search."
+msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "Temes del blog"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "Paràmetres del blog"
+
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Gestió de les extensions"
+
+#, fuzzy
+msgid "Activate"
+msgstr "Privat"
+
+msgid "Deactivate"
+msgstr ""
+
+msgid "Clone"
+msgstr ""
+
+#, fuzzy
+msgid "Install"
+msgstr "Instal·lació de Dotclear"
+
+#, fuzzy
+msgid "Activate selected plugins"
+msgstr "Suprimir les extensions seleccionades"
+
+#, fuzzy
+msgid "Activate all plugins from this list"
+msgstr "Suprimir les extensions seleccionades"
+
+#, fuzzy
+msgid "Deactivate selected plugins"
+msgstr "Suprimir les extensions seleccionades"
+
+#, fuzzy
+msgid "Deactivate all plugins from this list"
+msgstr "Suprimir les extensions seleccionades"
+
+#, fuzzy
+msgid "Update selected plugins"
+msgstr "Suprimir les extensions seleccionades"
+
+msgid "Update all plugins from this list"
+msgstr ""
+
+msgid "No such plugin."
+msgstr "Cap extensió d'aquest tipus."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "No té permisos per suprimir aquesta extensió."
+
+#, fuzzy
+msgid "Some plugins have not been delete."
+msgstr "DotClear esta instal·lat."
+
+#, fuzzy
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Les extensions s'han suprimit amb èxit."
+msgstr[1] "Les extensions s'han suprimit amb èxit."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Les extensions s'han suprimit amb èxit."
+msgstr[1] "Les extensions s'han suprimit amb èxit."
+
+#, fuzzy
+msgid "Some plugins have not been deactivated."
+msgstr "DotClear esta instal·lat."
+
+#, fuzzy
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Les extensions s'han suprimit amb èxit."
+msgstr[1] "Les extensions s'han suprimit amb èxit."
+
+#, fuzzy
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Les extensions s'han suprimit amb èxit."
+msgstr[1] "Les extensions s'han suprimit amb èxit."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr ""
+
+msgid "Unable to move uploaded file."
+msgstr "Impossible moure el fitxer carregat."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Les extensions s'han suprimit amb èxit."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "El fitxer s'ha adjuntat amb èxit."
+
+msgid "Upload a zip file"
+msgstr ""
+
+msgid "Zip file path:"
+msgstr ""
+
+msgid "Your password:"
+msgstr "La seva contrasenya:"
+
+msgid "Download a zip file"
+msgstr ""
+
+#, fuzzy
+msgid "Zip file URL:"
+msgstr "Fitxer URL:"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+msgid "Download"
+msgstr ""
+
+msgid "Unknown plugin ID"
+msgstr ""
+
+#, fuzzy
+msgid "This plugin has no configuration file."
+msgstr "DC_ADMIN_URL no està definida, hauria d'editar el seu fitxer de configuració."
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "definir els permisos"
+
+#, fuzzy, php-format
+msgid "Configure \"%s\""
+msgstr "Temes del blog"
+
+msgid "Back"
+msgstr ""
+
+#, php-format
+msgid "Score: %s"
+msgstr ""
+
+#, php-format
+msgid "%s screenshot."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr "per %s"
+
+#, fuzzy, php-format
+msgid "version %s"
+msgstr "Versió"
+
+#, fuzzy, php-format
+msgid "(current version %s)"
+msgstr "Versió"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr ""
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr ""
+
+#, fuzzy
+msgid "View stylesheet"
+msgstr "Veure el lloc"
+
+#, fuzzy
+msgid "Configure theme"
+msgstr "Temes del blog"
+
+msgid "No themes matched your search."
+msgstr ""
+
+#, fuzzy
+msgid "Use this one"
+msgstr "Usuaris en aquest blog"
+
+#, fuzzy
+msgid "Update selected themes"
+msgstr "Suprimir les categories seleccionades"
+
+msgid "Update all themes from this list"
+msgstr ""
+
+#, fuzzy
+msgid "No such theme."
+msgstr "Blog inexistent."
+
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
+msgstr "El tema s'ha canviat amb èxit."
+
+#, fuzzy
+msgid "Theme has been successfully activated."
+msgid_plural "Themes have been successuflly activated."
+msgstr[0] "El tema s'ha canviat amb èxit."
+msgstr[1] "El tema s'ha canviat amb èxit."
+
+msgid "Some themes have not been deactivated."
+msgstr ""
+
+#, fuzzy
+msgid "Theme has been successfully deactivated."
+msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "El tema s'ha canviat amb èxit."
+msgstr[1] "El tema s'ha canviat amb èxit."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "El tema s'ha canviat amb èxit."
+msgstr[1] "El tema s'ha canviat amb èxit."
+
+#, fuzzy
+msgid "You don't have permissions to delete this theme."
+msgstr "No té permisos per suprimir aquesta extensió."
+
+msgid "Some themes have not been delete."
+msgstr ""
+
+msgid "Theme has been successfully deleted."
+msgid_plural "Themes have been successuflly deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Theme has been successfully installed."
+msgid_plural "Themes have been successfully installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Theme has been successfully updated."
+msgid_plural "Themes have been successfully updated."
+msgstr[0] "L'usuari s'ha actualitzat amb èxit."
+msgstr[1] "L'usuari s'ha actualitzat amb èxit."
+
+#, php-format
+msgid "Following themes updates are locked: %s"
+msgstr ""
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "L'usuari s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "El tema s'ha canviat amb èxit."
+
+#, fuzzy
+msgid "First page"
+msgstr "Nom"
+
+#, fuzzy
+msgid "Previous page"
+msgstr "entrada prèvia"
+
+msgid "Next page"
+msgstr ""
+
+#, fuzzy
+msgid "Last page"
+msgstr "Última actualització"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr ""
+
+#, php-format
+msgid "Direct access page %s"
+msgstr ""
+
+msgid "&#171; prev."
+msgstr ""
+
+msgid "next &#187;"
+msgstr ""
+
+#, fuzzy
+msgid "No entry matches the filter"
+msgstr "L'entrada no te títol."
+
+msgid "No entry"
+msgstr "Cap entrada"
+
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "L'entrada no te títol."
+
+#, fuzzy, php-format
+msgid "List of entries (%s)"
+msgstr "Categories"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Legend: "
+msgstr ""
+
+#, fuzzy
+msgid "Published"
+msgstr "publicat"
+
+#, fuzzy
+msgid "Unpublished"
+msgstr "no publicat"
+
+#, fuzzy
+msgid "Scheduled"
+msgstr "Programa"
+
+#, fuzzy
+msgid "Pending"
+msgstr "pendent"
+
+#, fuzzy
+msgid "Protected"
+msgstr "protegit"
+
+#, fuzzy
+msgid "Attachments"
+msgstr "Annexos"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d annex"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d annexos"
+
+#, fuzzy
+msgid "Entries list"
+msgstr "Categories"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr ""
+
+msgid "No comments"
+msgstr "Sense comentaris"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Acceptar les respostes"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Type"
+msgstr "Tipus"
+
+#, fuzzy
+msgid "Entry"
+msgstr "Entrades"
+
+msgid "Junk"
+msgstr ""
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr ""
+
+msgid "comment"
+msgstr "comentari"
+
+msgid "trackback"
+msgstr "resposta"
+
+#, fuzzy
+msgid "Type and author"
+msgstr "canviar l'autor"
+
+msgid "Edit"
+msgstr ""
+
+msgid "No blog matches the filter"
+msgstr ""
+
+msgid "No blog"
+msgstr "Cap Blog"
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "Entrades per pàgina"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "Blogs"
+
+msgid "online"
+msgstr "en línia"
+
+msgid "offline"
+msgstr "fora de línia"
+
+msgid "removed"
+msgstr "suprimit"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "Editar el blog %s"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "Paràmetres del blog"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Passar al blog %s"
+
+msgid "No user matches the filter"
+msgstr ""
+
+msgid "No user"
+msgstr "Cap usuari"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr ""
+
+#, fuzzy
+msgid "Users list"
+msgstr "Usuaris"
+
+msgid "admin"
+msgstr ""
+
+#, fuzzy
+msgid "superadmin"
+msgstr "Super administrador"
+
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "L'entrada no te títol."
+
+msgid "No file."
+msgstr "Cap fitxer."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "L'entrada no te títol."
+msgstr[1] "L'entrada no te títol."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Suprimir aquest blog"
+
+msgid "Attach this file to entry"
+msgstr "Adjuntar aquest fitxer a l'entrada"
+
+msgid "Insert this file into entry"
+msgstr "Inserir aquest fitxer en l'entrada"
+
+#, fuzzy
+msgid "delete"
+msgstr "Suprimir"
+
+#, fuzzy
+msgid "private media"
+msgstr "Privat"
+
+msgid "open"
+msgstr "Obrir"
+
+#, php-format
+msgid "(%s)"
+msgstr ""
+
+#, php-format
+msgid "ratio %.1f"
+msgstr ""
+
+#, fuzzy
+msgid "The 'public' directory does not exist."
+msgstr "Aquesta entrada no existeix."
+
+#, fuzzy, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr "El directori no es pot suprimir."
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to create images."
+msgstr "Impossible crear el directori."
+
+#, fuzzy
+msgid "Invalid file type."
+msgstr "Adreça de correu electrònica incorrecte"
+
+#, fuzzy
+msgid "An error occurred while writing the file."
+msgstr "Ha succeït un error mentre s'intentava gravar l'arxiu."
+
+#, php-format
+msgid "Uploaded image is not %s pixels wide."
+msgstr ""
+
+#, fuzzy
+msgid "small"
+msgstr "Correu electrònic:"
+
+#, fuzzy
+msgid "thumbnail"
+msgstr "Detalls de la imatge"
+
+msgid "square"
+msgstr ""
+
+#, fuzzy
+msgid "Pages"
+msgstr "Pàgina(es)"
+
+msgid "administrator"
+msgstr "administrador"
+
+msgid "manage all entries and comments"
+msgstr "gestionar totes les entrades i comentaris"
+
+msgid "manage their own entries and comments"
+msgstr "gestionar les seves pròpies entrades i comentaris"
+
+msgid "publish entries and comments"
+msgstr "publicar entrades i comentaris"
+
+msgid "delete entries and comments"
+msgstr "suprimir entrades i comentaris"
+
+msgid "manage categories"
+msgstr "gestionar les categories"
+
+msgid "manage all media items"
+msgstr "gestionar tots els elements media"
+
+msgid "manage their own media items"
+msgstr "gestionar els seus propis elements media"
+
+msgid "That user does not exist in the database."
+msgstr "Aquest usuari no existeix en la base de dades."
+
+msgid "That key does not exist in the database."
+msgstr "Aquesta clau no existeix en la base de dades."
+
+msgid "You are not allowed to add categories"
+msgstr "Vostè no està autoritzat per afegir categories."
+
+msgid "You are not allowed to update categories"
+msgstr "Vostè no està autoritzat per actualitzar categories."
+
+msgid "You are not allowed to delete categories"
+msgstr "Vostè no està autoritzat per suprimir categories."
+
+msgid "This category is not empty."
+msgstr "Aquesta categoria no està buida."
+
+#, fuzzy
+msgid "You are not allowed to reset categories order"
+msgstr "Vostè no està autoritzat per suprimir categories."
+
+#, fuzzy
+msgid "Empty category URL"
+msgstr "Editar l'entrada"
+
+msgid "You must provide a category title"
+msgstr "Ha de proporcionar un títol a la categoria."
+
+msgid "You must provide a category URL"
+msgstr "Ha de proporcionar una URL a la categoria."
+
+msgid "You are not allowed to create an entry"
+msgstr "Vostè no està autoritzat per crear una entrada."
+
+msgid "You are not allowed to update entries"
+msgstr "Vostè no està autoritzat per actualitzar entrades."
+
+msgid "No such entry ID"
+msgstr "Cap entrada amb aquest ID"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Vostè no està autoritzat per editar aquesta entrada."
+
+msgid "You are not allowed to change this entry status"
+msgstr "Vostè no està autoritzat per canviar l'estatus d'aquesta entrada."
+
+msgid "You are not allowed to change this entry category"
+msgstr "Vostè no està autoritzat per canviar la categoria d'aquesta entrada."
+
+#, fuzzy
+msgid "You are not allowed to change entries category"
+msgstr "Vostè no està autoritzat per canviar la categoria d'aquesta entrada."
+
+msgid "You are not allowed to delete entries"
+msgstr "Vostè no està autoritzat per suprimir entrades."
+
+msgid "No entry title"
+msgstr "L'entrada no te títol."
+
+msgid "No entry content"
+msgstr "L'entrada no te contingut."
+
+#, fuzzy
+msgid "Notes"
+msgstr "Notes:"
+
+#, fuzzy
+msgid "Note"
+msgstr "Notes:"
+
+#, fuzzy
+msgid "Empty entry URL"
+msgstr "Editar l'entrada"
+
+msgid "You are not allowed to update comments"
+msgstr "Vostè no està autoritzat per actualitzar comentaris."
+
+msgid "No such comment ID"
+msgstr "Cap comentari amb aquest ID"
+
+msgid "You are not allowed to update this comment"
+msgstr "Vostè no està autoritzat per sactualitzar aquest comentari"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Vostè no està autoritzat per canviar l'estatus d'aquest comentari"
+
+msgid "You are not allowed to delete comments"
+msgstr "Vostè no està autoritzat per suprimir comentaris"
+
+msgid "You must provide a comment"
+msgstr "Ha de proporcionar un comentari"
+
+msgid "You must provide an author name"
+msgstr "Ha de proporcionar un nom d'autor"
+
+msgid "Email address is not valid."
+msgstr "L'adreça de correu elect`ronic no és vàlida."
+
+msgid "You are not an administrator"
+msgstr "Vostè no és nu administrador"
+
+msgid "Invalid user language code"
+msgstr ""
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "L'identificador del blog ha de contenir com a mínim 2 caràcters els quals han de ser lletres, números o símbols."
+
+msgid "No blog name"
+msgstr "Cap nom de blog"
+
+msgid "No blog URL"
+msgstr "Cap URL de blog"
+
+#, fuzzy
+msgid "No log message"
+msgstr "Cap nom de blog"
+
+#, fuzzy
+msgid "unknown"
+msgstr "ara"
+
+msgid "No blog defined."
+msgstr "Cap blog definit."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+msgid "You are not a super administrator."
+msgstr "Vostè no és un super administrador."
+
+msgid "Permission denied."
+msgstr "Permís denegat."
+
+msgid "You are not the file owner."
+msgstr "Vostè no és el propietari del fitxer."
+
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "L'arxiu no es gravable."
+
+msgid "New file already exists."
+msgstr "El nou fitxer ja existeix."
+
+msgid "File does not exist in the database."
+msgstr "El fitxer no existeix en la base de dades."
+
+#, fuzzy, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "El directori de destinació no és gravable."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+msgid "The following extensions have been disabled :"
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "Cannot deactivate plugin."
+msgstr ""
+
+msgid "No such module."
+msgstr ""
+
+msgid "Cannot remove module files"
+msgstr ""
+
+msgid "Cannot activate plugin."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Adreça de correu electrònica incorrecte"
+
+msgid "Unable to retrieve settings:"
+msgstr "Impossible obtenir els paràmetres:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s no es un identificador de paràmetre vàlid"
+
+msgid "No namespace specified"
+msgstr "Cap espai de nom especificat"
+
+#, fuzzy
+msgid "No notice message"
+msgstr "Cap nom de blog"
+
+#, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "Impossible obtenir els paràmetres:"
+
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Adreça de correu electrònica incorrecte"
+
+#, fuzzy
+msgid "Unable to retrieve namespaces:"
+msgstr "Impossible obtenir els paràmetres:"
+
+#, fuzzy, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Adreça de correu electrònica incorrecte"
+
+#, fuzzy
+msgid "Wrong data feed"
+msgstr "Registres truncats"
+
+#, fuzzy
+msgid "An error occurred while downloading the file."
+msgstr "Ha succeït un error mentre s'estava descarregant el fitxer."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "Impossible obrir l'arxiu."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "El directori de destinació no és gravable."
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "Un ping %s ja ha estat realitzat"
+
+msgid "Unable to ping URL"
+msgstr "No es pot realitzar el trackback"
+
+msgid "Bad server response code"
+msgstr ""
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s no és pas un ping URL"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, error de ping :"
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+msgid "LOL!"
+msgstr ""
+
+#, fuzzy
+msgid "Digests file not found."
+msgstr "Extensió no trobada"
+
+#, fuzzy
+msgid "No file to download"
+msgstr "No s'ha carregat cap fitxer."
+
+#, fuzzy
+msgid "Root directory is not writable."
+msgstr "El directori cache %s no es pot gravar."
+
+#, fuzzy
+msgid "An error occurred while downloading archive."
+msgstr "Ha succeït un error mentre s'estava descarregant el fitxer."
+
+#, fuzzy
+msgid "Archive not found."
+msgstr "Extensió no trobada"
+
+#, fuzzy
+msgid "Unable to read current digests file."
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr ""
+
+msgid "Incomplete archive."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to read digests file."
+msgstr "Impossible re-nombrar l'arxiu."
+
+msgid "Invalid digests file."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "Impossible obtenir els paràmetres:"
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s no es un identificador de paràmetre vàlid"
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "Cap espai de nom especificat"
+
+msgid "Something went wrong with auto upgrade:"
+msgstr "Quelcom ha anat malament amb l'auto actualització:"
+
+msgid "Site temporarily unavailable"
+msgstr ""
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to connect to database"
+msgstr "Impossible connectar amb la base de dades, comprovi els seus paràmetres."
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr ""
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr ""
+
+#, fuzzy
+msgid "No process found"
+msgstr "L'entrada no te contingut."
+
+msgid "Process failed"
+msgstr ""
 
 #, fuzzy
 msgid "Dotclear has been upgraded."
@@ -30,9 +2295,6 @@ msgstr "Algú ha demanat restaurar la contrasenya per al lloc i l'identificador 
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Per tal de restaurar la seva contrasenya visiti l'adreça següent, altrament ignori aquest correu i no passarà res."
 
-msgid "Username:"
-msgstr "Identificador:"
-
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "El correu electrònic s'ha enviat amb èxit a %s."
@@ -40,14 +2302,8 @@ msgstr "El correu electrònic s'ha enviat amb èxit a %s."
 msgid "Your new password"
 msgstr "La seva nova contrasenya"
 
-msgid "Password:"
-msgstr "Contrasenya:"
-
 msgid "Your new password is in your mailbox."
 msgstr "La seva nova contrasenya és en el seu correu electrònic."
-
-msgid "Passwords don't match"
-msgstr "La contrasenya no es correspon"
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -64,37 +2320,17 @@ msgid "Safe Mode can only be used for super administrators."
 msgstr "Vostè no és un super administrador."
 
 #, fuzzy
-msgid "Insufficient permissions"
-msgstr "definir els permisos"
-
-#, fuzzy
 msgid "Administration session expired"
 msgstr "administrador"
 
 msgid "Wrong username or password"
 msgstr "Identificador o contrasenya incorrectes"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Reinicialització de contrasenya"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr ""
-
-msgid "strong"
-msgstr ""
-
 msgid "Back to login screen"
 msgstr "Retorn a la pantalla de connexió"
 
 msgid "Request a new password"
 msgstr "Es requereix una nova contrasenya"
-
-msgid "Email:"
-msgstr "Correu electrònic:"
 
 msgid "recover"
 msgstr "Recuperar"
@@ -105,12 +2341,6 @@ msgstr "Descripció"
 
 msgid "Change your password"
 msgstr "Canviar la seva contrasenya"
-
-msgid "New password:"
-msgstr "Nova contrasenya:"
-
-msgid "Confirm password:"
-msgstr "Confirmar la contrasenya :"
 
 #, fuzzy
 msgid "change"
@@ -157,23 +2387,11 @@ msgstr "Blog nou"
 msgid "System"
 msgstr "Sistema"
 
-msgid "Blogs"
-msgstr "Blogs"
-
-msgid "Blog ID"
-msgstr "Identificador del blog"
-
 msgid "Blog ID:"
 msgstr "Identificador del blog :"
 
-msgid "Required field"
-msgstr "Camp obligatori"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Com a mínim 2 caràcters han de ser lletres, números o símbols."
-
-msgid "Blog name"
-msgstr "Nom del blog"
 
 msgid "Blog name:"
 msgstr "Nom del blog :"
@@ -191,14 +2409,8 @@ msgstr "Descripció del blog :"
 msgid "Create"
 msgstr ""
 
-msgid "Cancel"
-msgstr "Anul·lar"
-
 msgid "No such blog ID"
 msgstr "Identificador de blog desconegut"
-
-msgid "Password verification failed"
-msgstr "La verificació de la contrasenya ha fallat"
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully deleted"
@@ -216,9 +2428,6 @@ msgstr "Està a punt de suprimir el blog %s. Se suprimiran totes les entrades, c
 
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Si us plau, introdueixi la seva contrasenya per tal de confirmar la supressió del blog."
-
-msgid "Your password:"
-msgstr "La seva contrasenya:"
 
 msgid "Delete this blog"
 msgstr "Suprimir aquest blog"
@@ -259,9 +2468,6 @@ msgstr ""
 
 msgid "(none)"
 msgstr ""
-
-msgid "Title"
-msgstr "Títol"
 
 #, fuzzy
 msgid "Title, Date"
@@ -327,9 +2533,6 @@ msgstr ""
 
 msgid "Blog has been successfully updated."
 msgstr "El blog s'ha actualitzat amb èxit."
-
-msgid "Blog settings"
-msgstr "Paràmetres del blog"
 
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
@@ -584,18 +2787,8 @@ msgstr ""
 msgid "Plugins parameters"
 msgstr "Paràmetres"
 
-msgid "Save"
-msgstr "Desar"
-
-#, fuzzy
-msgid "The current blog cannot be deleted."
-msgstr "El directori no es pot suprimir."
-
 msgid "Only superadmin can delete a blog."
 msgstr ""
-
-msgid "Users"
-msgstr "Usuaris"
 
 msgid "Users on this blog"
 msgstr "Usuaris en aquest blog"
@@ -631,10 +2824,6 @@ msgstr "Usuaris en aquest blog"
 
 msgid "Change permissions"
 msgstr "Canviar permisos"
-
-#, fuzzy
-msgid "Blog appearance"
-msgstr "Nom del blog"
 
 msgid "Theme configuration"
 msgstr "Configuració del tema"
@@ -716,9 +2905,6 @@ msgstr "Descripció:"
 msgid "Selected blogs action:"
 msgstr "Acció d'usuaris seleccionada:"
 
-msgid "ok"
-msgstr "ok"
-
 #, fuzzy
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "Si us plau, introdueixi la seva contrasenya per tal de confirmar la supressió del blog."
@@ -746,9 +2932,6 @@ msgstr "Les categories s'han suprimit amb èxit."
 #, fuzzy
 msgid "Categories order has been successfully reset."
 msgstr "Les categories s'han reordenat amb èxit."
-
-msgid "Categories"
-msgstr "Categories"
 
 #, fuzzy
 msgid "The category has been successfully removed."
@@ -782,9 +2965,6 @@ msgstr "URL:"
 #, fuzzy
 msgid "Move entries to"
 msgstr "Cap categoria."
-
-msgid "OK"
-msgstr ""
 
 #, fuzzy
 msgid "Delete category"
@@ -826,12 +3006,6 @@ msgstr "Més informació"
 msgid "Name:"
 msgstr "Cognom:"
 
-msgid "Name"
-msgstr "Nom"
-
-msgid "Parent:"
-msgstr ""
-
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Atenció: si introdueix la URL manualment podria ocasionar conflictes amb una altra categoria."
 
@@ -872,9 +3046,6 @@ msgstr ""
 msgid "Comment has been successfully created."
 msgstr "L'entrada s'ha creat amb èxit."
 
-msgid "No comments"
-msgstr "Sense comentaris"
-
 #, fuzzy
 msgid "Comment has been successfully updated."
 msgstr "L'entrada s'ha actualitzat amb èxit."
@@ -910,9 +3081,6 @@ msgstr ""
 msgid "Information collected"
 msgstr "no seleccionat"
 
-msgid "IP address:"
-msgstr "Adreça IP :"
-
 msgid "Date:"
 msgstr "Data :"
 
@@ -920,31 +3088,8 @@ msgstr "Data :"
 msgid "Comment submitted"
 msgstr "Comentaris"
 
-msgid "Author:"
-msgstr "Autor :"
-
-msgid "Author"
-msgstr "Autor"
-
-msgid "Web site:"
-msgstr "Lloc Web :"
-
-msgid "Status:"
-msgstr "Estat :"
-
 msgid "Comment:"
 msgstr "Comentari :"
-
-msgid "Delete"
-msgstr "Suprimir"
-
-#, fuzzy
-msgid "Selected comments have been successfully updated."
-msgstr "L'entrada s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "Selected comments have been successfully deleted."
-msgstr "El blog s'ha suprimit amb èxit."
 
 #, fuzzy
 msgid "Spam comments have been successfully deleted."
@@ -969,9 +3114,6 @@ msgstr "Suprimir un blog"
 
 msgid "Selected comments action:"
 msgstr "Acció de comentaris seleccionada :"
-
-msgid "Global help"
-msgstr ""
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1008,21 +3150,6 @@ msgstr ""
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
-
-msgid "Error:"
-msgstr ""
-
-msgid "Following plugins have been installed:"
-msgstr ""
-
-msgid "Following plugins have not been installed:"
-msgstr ""
-
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
@@ -1030,21 +3157,12 @@ msgstr ""
 msgid "Quick post"
 msgstr "1 entrada"
 
-msgid "New post"
-msgstr "Nova entrada"
-
-msgid "Title:"
-msgstr "Títol:"
-
 msgid "Content:"
 msgstr "Contingut:"
 
 #, fuzzy
 msgid "Content"
 msgstr "Contingut:"
-
-msgid "Category:"
-msgstr "Categoria:"
 
 #, fuzzy
 msgid "Add a new category"
@@ -1056,253 +3174,6 @@ msgstr ""
 #, fuzzy
 msgid "Save and publish"
 msgstr "no publicat"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "La versió PHP és %s (7.4 o més recent és necessaria)"
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "El mòdul de serie Multibyte (mbstring) no està disponible."
-
-msgid "Iconv module is not available."
-msgstr "El mòdul iconv no està disponible."
-
-msgid "Output control functions are not available."
-msgstr "Les funcions de control de sortides no estan disponibles."
-
-msgid "SimpleXML module is not available."
-msgstr "El mòdul SimpleXML no està disponible."
-
-msgid "DOM XML module is not available."
-msgstr "El mòdul DOM XML no està disponible."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "El motor PCRE no suporta sèries UTF-8."
-
-msgid "SPL module is not available."
-msgstr "El mòdul SPL no està disponible."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "La versió de MySQL és %s (4.1 més actual és necessària)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "El motor MySQL InnoDB no està disponible."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "La versió de PostgreSQL és %s (8.0 o més recent és necessària)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "Si us plau, introdueixi una clau mestra (DC_MASTER_KEY) en l'arxiu de configuració."
-
-#, fuzzy
-msgid "Dotclear is already installed."
-msgstr "DotClear esta instal·lat."
-
-#, fuzzy
-msgid "Dotclear cannot be installed."
-msgstr "DotClear no es pot instal·lar."
-
-msgid "No user ID given"
-msgstr "No s'ha especificat cap ID d'usuari"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "L'identificador de l'usuari ha de contenir com a mínim 2 caràcters els quals han de ser lletres, números o símbols."
-
-msgid "Invalid email address"
-msgstr "Adreça de correu electrònica incorrecte"
-
-msgid "No password given"
-msgstr "No s'ha especificat cap contrasenya"
-
-msgid "Password must contain at least 6 characters."
-msgstr "La contraseny aha de contenir com a mínim 6 caracters."
-
-msgid "My first blog"
-msgstr "El meu primer blog"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr ""
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr ""
-
-msgid "Dotclear Team"
-msgstr ""
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Instal·lació de Dotclear"
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "Instal·lació de Dotclear"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "El directori cache %s no es pot gravar."
-
-msgid "Errors:"
-msgstr "Errors:"
-
-#, fuzzy
-msgid "Configuration file has been successfully created."
-msgstr "El fitxer de configuració s'ha creat amb èxit."
-
-msgid "User information"
-msgstr "Informació de l'usuari"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "Si us plau, faciliti la informació següent, necessària per a crear el primer usuari."
-
-#, fuzzy
-msgid "First Name:"
-msgstr "Nom"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "Última actualització"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "Identificador o contrasenya incorrectes"
-
-#, fuzzy
-msgid "Username"
-msgstr "Identificador:"
-
-#, fuzzy
-msgid "Password"
-msgstr "Contrasenya:"
-
-msgid "All done!"
-msgstr "Finalitzat!"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr ""
-
-msgid "Your account"
-msgstr ""
-
-#, fuzzy
-msgid "Your blog"
-msgstr "Cap Blog"
-
-#, fuzzy
-msgid "Blog address:"
-msgstr "Adreça IP :"
-
-#, fuzzy
-msgid "Administration interface:"
-msgstr "administrador"
-
-msgid "Manage your blog now"
-msgstr ""
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "El directori cache %s no es pot gravar."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Impossible gravar res en aquest directori."
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "L'adreça de correu elect`ronic no és vàlida."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "El fitxer %s no existeix."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "No es pot escriure en el fitxer %s."
-
-msgid "Dotclear installation wizard"
-msgstr "Assistent d'instal·lació de Dotclear"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "Annex"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "Sistema d'informació"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "Si us plau, faciliti la informació següent necessària per a crear l'arxiu de configuració."
-
-msgid "Database type:"
-msgstr "Tipus de base de dades:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "Nom del servidor de la base de dades:"
-
-msgid "Database Name:"
-msgstr "Nom de la base de dades:"
-
-msgid "Database User Name:"
-msgstr "Nom de l'usuari de la base de dades:"
-
-msgid "Database Password:"
-msgstr "Contrasenya de la base de dades:"
-
-msgid "Database Tables Prefix:"
-msgstr "Prefix de les taules de la base de dades:"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "Contingut:"
 
 msgid "Invalid language zip file."
 msgstr ""
@@ -1339,9 +3210,6 @@ msgstr "El blog s'ha actualitzat amb èxit."
 msgid "Language has been successfully installed."
 msgstr "El fitxer s'ha adjuntat amb èxit."
 
-msgid "Unable to move uploaded file."
-msgstr "Impossible moure el fitxer carregat."
-
 #, fuzzy
 msgid "Languages management"
 msgstr "Gestió de les extensions"
@@ -1363,9 +3231,6 @@ msgstr ""
 #, fuzzy
 msgid "Language"
 msgstr "Idioma?"
-
-msgid "Action"
-msgstr ""
 
 msgid "Install or upgrade languages"
 msgstr ""
@@ -1390,9 +3255,6 @@ msgstr "Idioma?"
 msgid "Install language"
 msgstr "Llengua per defecte :"
 
-msgid "Upload a zip file"
-msgstr ""
-
 msgid "You can install languages by uploading zip files."
 msgstr ""
 
@@ -1403,6 +3265,22 @@ msgstr "Canviar el fitxer"
 #, fuzzy
 msgid "Upload language"
 msgstr "Idioma de l'usuari:"
+
+msgid "Add a link"
+msgstr "Afegir un enllaç"
+
+msgid "Link URL:"
+msgstr "Enllaç URL :"
+
+#, fuzzy
+msgid "Link title:"
+msgstr "Títol del Fitxer :"
+
+msgid "Link language:"
+msgstr "Idioma de l'enllaç :"
+
+msgid "Insert"
+msgstr ""
 
 #, fuzzy
 msgid "Not a valid directory"
@@ -1463,10 +3341,6 @@ msgid "Select a file by clicking on %s"
 msgstr "Esculli un fitxer per a ser inserit a l'entrada fent clic a %s."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Suprimir aquest blog"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Suprimir les extensions seleccionades"
 
@@ -1485,9 +3359,6 @@ msgstr "afegir altres fitxers"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Esculli un fitxer per adjuntar a l'entrada %s un cop es faci click a %s."
-
-msgid "Attach this file to entry"
-msgstr "Adjuntar aquest fitxer a l'entrada"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1508,9 +3379,6 @@ msgstr "Suprimir les extensions seleccionades"
 #, php-format
 msgid "In %s:"
 msgstr ""
-
-msgid "Media manager"
-msgstr "Gestor de media"
 
 #, fuzzy
 msgid "Create new directory"
@@ -1540,12 +3408,6 @@ msgstr "Adjuntar fitxers"
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Si us plau, vagi amb compte a l'hora de publicar media de la seva propietat que no estigui protegida per copyright."
 
-msgid "Choose file"
-msgstr ""
-
-msgid "Choose files"
-msgstr ""
-
 msgid "Maximum file size allowed:"
 msgstr ""
 
@@ -1555,10 +3417,6 @@ msgstr "Privat"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-#, fuzzy
-msgid "My preferences"
-msgstr "preferències de l'usuari"
-
 msgid "Refresh"
 msgstr ""
 
@@ -1566,21 +3424,9 @@ msgstr ""
 msgid "Clear all"
 msgstr "Instal·lació de Dotclear"
 
-msgid "Upload"
-msgstr ""
-
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "Extensió no trobada"
-msgstr[1] "Extensió no trobada"
-
-msgid "Search:"
-msgstr "Cercar:"
 
 msgid "Not a valid file"
 msgstr "Fitxer invàlid"
@@ -1628,9 +3474,6 @@ msgstr ""
 msgid "Title: "
 msgstr "Títol:"
 
-msgid "Legend: "
-msgstr ""
-
 msgid "Image alignment"
 msgstr "Alineació de la imatge:"
 
@@ -1668,9 +3511,6 @@ msgid "Video disposition"
 msgstr ""
 
 msgid "Media item will be inserted as a link."
-msgstr ""
-
-msgid "Insert"
 msgstr ""
 
 msgid "Make current settings as default"
@@ -1809,9 +3649,6 @@ msgstr "Esculli un fitxer:"
 msgid "Maximum size %s"
 msgstr "Mida màxima %s"
 
-msgid "Send"
-msgstr ""
-
 #, fuzzy
 msgid "Delete this media"
 msgstr "Suprimir aquest blog"
@@ -1824,9 +3661,6 @@ msgstr "Extensió no trobada"
 
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "L'extensió que ha indicat no existeix o no té una pàgina d'administració."
-
-msgid "Plugins management"
-msgstr "Gestió de les extensions"
 
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
@@ -1882,43 +3716,6 @@ msgstr ""
 msgid "Plugin configuration"
 msgstr "Configuració del blog"
 
-msgid "Add a link"
-msgstr "Afegir un enllaç"
-
-msgid "Link URL:"
-msgstr "Enllaç URL :"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
-
-#, fuzzy
-msgid "Link title:"
-msgstr "Títol del Fitxer :"
-
-msgid "Link language:"
-msgstr "Idioma de l'enllaç :"
-
-msgid "Add a link to an entry"
-msgstr ""
-
-#, fuzzy
-msgid "Entry type:"
-msgstr "Títol de l'entrada"
-
-msgid "Ok"
-msgstr ""
-
-msgid "Search entry:"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-#, fuzzy
-msgid "cancel"
-msgstr "Anul·lar"
-
 #, fuzzy
 msgid "Edit post"
 msgstr "Editar el blog %s"
@@ -1944,30 +3741,8 @@ msgstr ""
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Els permisos s¡han actualitzat amb èxit."
 
-msgid "Entry has been successfully created."
-msgstr "L'entrada s'ha creat amb èxit."
-
-#, fuzzy
-msgid "Published"
-msgstr "publicat"
-
-#, fuzzy
-msgid "Unpublished"
-msgstr "no publicat"
-
-#, fuzzy
-msgid "Scheduled"
-msgstr "Programa"
-
-#, fuzzy
-msgid "Pending"
-msgstr "pendent"
-
 #, php-format
 msgid "&ldquo;%s&rdquo;"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 msgid "Entry has been successfully updated."
@@ -1984,9 +3759,6 @@ msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
-
-msgid "Status"
-msgstr "Estat"
 
 #, fuzzy
 msgid "Entry status"
@@ -2011,9 +3783,6 @@ msgstr ""
 
 msgid "Selected entry"
 msgstr "Entrada seleccionada:"
-
-msgid "Category"
-msgstr "Categoria"
 
 msgid "Options"
 msgstr ""
@@ -2058,18 +3827,8 @@ msgstr "no publicat"
 msgid "Preview"
 msgstr "vista prèvia"
 
-msgid "Comments"
-msgstr "Comentaris"
-
 msgid "Add a comment"
 msgstr "Afegir un comentari"
-
-#, fuzzy
-msgid "Comment"
-msgstr "Comentari :"
-
-msgid "Trackbacks"
-msgstr "Respostes"
 
 #, fuzzy
 msgid "Trackbacks received"
@@ -2097,18 +3856,6 @@ msgstr "Descobriment automàtic de les ping URLs"
 
 msgid "Previously sent pings"
 msgstr "Pings ja enviats"
-
-msgid "Date"
-msgstr "Data"
-
-msgid "IP address"
-msgstr "Adreça IP"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
 
 #, fuzzy
 msgid "select this comment"
@@ -2144,365 +3891,22 @@ msgstr "La categoria s'ha actualitzat amb èxit."
 msgid "Selected entries action:"
 msgstr "Acció en les entrades seleccionades:"
 
-#, fuzzy
-msgid "Light"
-msgstr "Dreta"
-
-msgid "Dark"
-msgstr ""
-
-msgid "Automatic"
+msgid "Add a link to an entry"
 msgstr ""
 
 #, fuzzy
-msgid "Smallest"
-msgstr "Correu electrònic:"
+msgid "Entry type:"
+msgstr "Títol de l'entrada"
 
-#, fuzzy
-msgid "Smaller"
-msgstr "Correu electrònic:"
-
-msgid "Larger"
+msgid "Ok"
 msgstr ""
 
-msgid "Largest"
-msgstr ""
-
-msgid "Blog description (in blog parameters)"
+msgid "Search entry:"
 msgstr ""
 
 #, fuzzy
-msgid "Category description"
-msgstr "Categoria"
-
-msgid "Descending"
-msgstr "Descendent"
-
-msgid "Ascending"
-msgstr "Ascendent"
-
-msgid "If you want to change your email or password you must provide your current password."
-msgstr ""
-
-msgid "Personal information has been successfully updated."
-msgstr "La informació personal s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "Personal options has been successfully updated."
-msgstr "La informació personal s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "Dashboard options has been successfully updated."
-msgstr "La informació personal s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "No favorite selected"
-msgstr "no seleccionat"
-
-#, fuzzy
-msgid "Favorites have been successfully added."
-msgstr "Els fitxers s'han actualitzat amb èxit."
-
-#, fuzzy
-msgid "Favorites have been successfully removed."
-msgstr "El fitxer s'ha suprimit amb èxit."
-
-#, fuzzy
-msgid "Favorites have been successfully updated."
-msgstr "Els fitxers s'han actualitzat amb èxit."
-
-#, fuzzy
-msgid "Default favorites have been successfully updated."
-msgstr "La categoria s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "Dashboard items order have been successfully reset."
-msgstr "Les categories s'han reordenat amb èxit."
-
-msgid "My profile"
-msgstr ""
-
-msgid "Display name:"
-msgstr "Pseudònim:"
-
-msgid "Alternate emails (comma separated list):"
-msgstr ""
-
-msgid "Invalid emails will be automatically removed from list."
-msgstr ""
-
-msgid "Alternate URLs (comma separated list):"
-msgstr ""
-
-msgid "Invalid URLs will be automatically removed from list."
-msgstr ""
-
-msgid "Language for my interface:"
-msgstr ""
-
-#, fuzzy
-msgid "My timezone:"
-msgstr "Zona horaria del blog:"
-
-#, fuzzy
-msgid "Change my password"
-msgstr "Canviar la seva contrasenya"
-
-#, fuzzy
-msgid "Confirm new password:"
-msgstr "Confirmar la contrasenya :"
-
-#, fuzzy
-msgid "Your current password:"
-msgstr "La seva contrasenya:"
-
-msgid "If you have changed your email or password you must provide your current password to save these modifications."
-msgstr ""
-
-msgid "Update my profile"
-msgstr ""
-
-msgid "My options"
-msgstr ""
-
-#, fuzzy
-msgid "Interface"
-msgstr "Interfície XML/RPC"
-
-#, fuzzy
-msgid "Theme:"
-msgstr "Temes"
-
-msgid "Activate enhanced uploader in media manager"
-msgstr ""
-
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr ""
-
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr ""
-
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr ""
-
-msgid "Hide all secondary information and notes"
-msgstr ""
-
-msgid "Hide help button"
-msgstr ""
-
-msgid "Show asynchronous requests indicator"
-msgstr ""
-
-#, fuzzy
-msgid "Font size:"
-msgstr "Mida del fitxer:"
-
-msgid "Use operating system font"
-msgstr ""
-
-msgid "Number of recent folders proposed in media manager:"
-msgstr ""
-
-msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
-
-msgid "Do not use standard favicon"
-msgstr ""
-
-msgid "This will be applied for all users"
-msgstr ""
-
-msgid "Disable Ad-blocker check"
-msgstr ""
-
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr ""
-
-msgid "Optional columns displayed in lists"
-msgstr ""
-
-msgid "Options for lists"
-msgstr ""
-
-#, fuzzy
-msgid "Apply filters on the fly"
-msgstr "Adjuntar fitxers"
-
-msgid "Order by:"
-msgstr "Ordenar per:"
-
-msgid "Sort:"
-msgstr "Classe:"
-
-#, fuzzy
-msgid "Show"
-msgstr "Mostra'l."
-
-#, fuzzy
-msgid "Edition"
-msgstr "Editar comentari"
-
-#, fuzzy, php-format
-msgid "Preferred editor for %s:"
-msgstr "Format d'edició preferit:"
-
-#, fuzzy
-msgid "Choose an editor"
-msgstr "Esculli un Blog"
-
-msgid "Preferred format:"
-msgstr "Format d'edició preferit:"
-
-msgid "Default entry status:"
-msgstr "Estatus de l'entrada per defecte:"
-
-msgid "Entry edit field height:"
-msgstr "Mida del camp d'edició d'entrades:"
-
-msgid "Enable WYSIWYG mode"
-msgstr "Activar la modalitat WYSIWYG"
-
-msgid "Display editor's toolbar at bottom of textarea (if possible)"
-msgstr ""
-
-msgid "Use HTML editor for:"
-msgstr ""
-
-msgid "Other options"
-msgstr ""
-
-msgid "Save my options"
-msgstr ""
-
-#, fuzzy
-msgid "My dashboard"
-msgstr "Quadre de comandament"
-
-msgid "My favorites"
-msgstr ""
-
-#, php-format
-msgid "position of %s"
-msgstr ""
-
-#, fuzzy
-msgid "Save order"
-msgstr "Desar ordre"
-
-#, fuzzy
-msgid "Delete selected favorites"
-msgstr "Suprimir les categories seleccionades"
-
-#, fuzzy
-msgid "Are you sure you want to remove selected favorites?"
-msgstr "Està segur que vol suprimir aquest element?"
-
-msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
-msgstr ""
-
-msgid "Define as default favorites"
-msgstr ""
-
-msgid "Currently no personal favorites."
-msgstr ""
-
-#, fuzzy
-msgid "Other available favorites"
-msgstr "Mides disponibles:"
-
-msgid "(default favorite)"
-msgstr ""
-
-msgid "Add to my favorites"
-msgstr ""
-
-msgid "Menu"
-msgstr ""
-
-msgid "Display favorites at the top of the menu"
-msgstr ""
-
-#, fuzzy
-msgid "Dashboard icons"
-msgstr "Quadre de comandament"
-
-#, fuzzy
-msgid "Display dashboard icons"
-msgstr "Quadre de comandament"
-
-#, fuzzy
-msgid "Dashboard modules"
-msgstr "Quadre de comandament"
-
-#, fuzzy
-msgid "Display documentation links"
-msgstr "Documentació"
-
-#, fuzzy
-msgid "Display Dotclear news"
-msgstr "Pseudònim"
-
-msgid "Display quick entry form"
-msgstr ""
-
-#, fuzzy
-msgid "Do not display Dotclear updates"
-msgstr "Pseudònim"
-
-msgid "Save my dashboard options"
-msgstr ""
-
-#, fuzzy
-msgid "Dashboard items order"
-msgstr "Quadre de comandament"
-
-msgid "Reset dashboard items order"
-msgstr ""
-
-msgid "Search options"
-msgstr ""
-
-msgid "Query:"
-msgstr ""
-
-msgid "In:"
-msgstr ""
-
-msgid "No results found"
-msgstr ""
-
-#, fuzzy
-msgid "Search in entries"
-msgstr "%d entrades"
-
-#, fuzzy
-msgid "Search in comments"
-msgstr "%d comentaris"
-
-#, fuzzy, php-format
-msgid "one entry found"
-msgid_plural "%d entries found"
-msgstr[0] "L'entrada no te contingut."
-msgstr[1] "L'entrada no te contingut."
-
-#, fuzzy, php-format
-msgid "one comment found"
-msgid_plural "%d comments found"
-msgstr[0] "L'entrada no te contingut."
-msgstr[1] "L'entrada no te contingut."
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "Editar el blog %s"
-msgstr[1] "Editar el blog %s"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d comentari"
-msgstr[1] "%d comentari"
+msgid "cancel"
+msgstr "Anul·lar"
 
 #, fuzzy
 msgid "Dotclear news not available"
@@ -2556,6 +3960,38 @@ msgstr[1] "El mòdul iconv no està disponible."
 #, fuzzy
 msgid "List options saved"
 msgstr "Documentació"
+
+msgid "Search options"
+msgstr ""
+
+msgid "Query:"
+msgstr ""
+
+msgid "In:"
+msgstr ""
+
+msgid "No results found"
+msgstr ""
+
+#, fuzzy
+msgid "Search in entries"
+msgstr "%d entrades"
+
+#, fuzzy
+msgid "Search in comments"
+msgstr "%d comentaris"
+
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "L'entrada no te contingut."
+msgstr[1] "L'entrada no te contingut."
+
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "L'entrada no te contingut."
+msgstr[1] "L'entrada no te contingut."
 
 #, fuzzy
 msgid "Dotclear update"
@@ -2688,12 +4124,44 @@ msgstr "Si canvia el seu identificador, s'haurà d'identificar novament."
 msgid "Password change required to connect"
 msgstr ""
 
+msgid "Display name:"
+msgstr "Pseudònim:"
+
 msgid "Mandatory for password recovering procedure."
 msgstr ""
+
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
+#, fuzzy
+msgid "Interface"
+msgstr "Interfície XML/RPC"
 
 #, fuzzy
 msgid "Timezone:"
 msgstr "Zona horaria del blog:"
+
+#, fuzzy
+msgid "Edition"
+msgstr "Editar comentari"
+
+msgid "Preferred format:"
+msgstr "Format d'edició preferit:"
+
+msgid "Default entry status:"
+msgstr "Estatus de l'entrada per defecte:"
+
+msgid "Entry edit field height:"
+msgstr "Mida del camp d'edició d'entrades:"
 
 msgid "Save and create another"
 msgstr ""
@@ -2707,9 +4175,6 @@ msgstr "Afegir nous permisos"
 #, fuzzy
 msgid "No permissions so far."
 msgstr "Cap permís."
-
-msgid "Blog:"
-msgstr "Blog:"
 
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
@@ -2725,6 +4190,267 @@ msgstr "Llistat de blogs"
 #, fuzzy
 msgid "List of comments"
 msgstr "Sense comentaris"
+
+#, fuzzy
+msgid "Light"
+msgstr "Dreta"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
+msgid "Smallest"
+msgstr "Correu electrònic:"
+
+#, fuzzy
+msgid "Smaller"
+msgstr "Correu electrònic:"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Largest"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "Categoria"
+
+msgid "If you want to change your email or password you must provide your current password."
+msgstr ""
+
+msgid "Personal information has been successfully updated."
+msgstr "La informació personal s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "La informació personal s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "Dashboard options has been successfully updated."
+msgstr "La informació personal s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "no seleccionat"
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "Els fitxers s'han actualitzat amb èxit."
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "El fitxer s'ha suprimit amb èxit."
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "Els fitxers s'han actualitzat amb èxit."
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "La categoria s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "Les categories s'han reordenat amb èxit."
+
+msgid "My profile"
+msgstr ""
+
+msgid "Language for my interface:"
+msgstr ""
+
+#, fuzzy
+msgid "My timezone:"
+msgstr "Zona horaria del blog:"
+
+#, fuzzy
+msgid "Change my password"
+msgstr "Canviar la seva contrasenya"
+
+#, fuzzy
+msgid "Confirm new password:"
+msgstr "Confirmar la contrasenya :"
+
+#, fuzzy
+msgid "Your current password:"
+msgstr "La seva contrasenya:"
+
+msgid "If you have changed your email or password you must provide your current password to save these modifications."
+msgstr ""
+
+msgid "Update my profile"
+msgstr ""
+
+msgid "My options"
+msgstr ""
+
+#, fuzzy
+msgid "Theme:"
+msgstr "Temes"
+
+msgid "Activate enhanced uploader in media manager"
+msgstr ""
+
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "Mida del fitxer:"
+
+msgid "Use operating system font"
+msgstr ""
+
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr ""
+
+msgid "Optional columns displayed in lists"
+msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "Adjuntar fitxers"
+
+#, fuzzy, php-format
+msgid "Preferred editor for %s:"
+msgstr "Format d'edició preferit:"
+
+#, fuzzy
+msgid "Choose an editor"
+msgstr "Esculli un Blog"
+
+msgid "Enable WYSIWYG mode"
+msgstr "Activar la modalitat WYSIWYG"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use HTML editor for:"
+msgstr ""
+
+msgid "Other options"
+msgstr ""
+
+msgid "Save my options"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "Desar ordre"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "Suprimir les categories seleccionades"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Està segur que vol suprimir aquest element?"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+#, fuzzy
+msgid "Other available favorites"
+msgstr "Mides disponibles:"
+
+msgid "(default favorite)"
+msgstr ""
+
+msgid "Add to my favorites"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Display favorites at the top of the menu"
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard icons"
+msgstr "Quadre de comandament"
+
+#, fuzzy
+msgid "Display dashboard icons"
+msgstr "Quadre de comandament"
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "Quadre de comandament"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "Documentació"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "Pseudònim"
+
+msgid "Display quick entry form"
+msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Pseudònim"
+
+msgid "Save my dashboard options"
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "Quadre de comandament"
+
+msgid "Reset dashboard items order"
+msgstr ""
 
 msgid "Set permissions"
 msgstr "definir els permisos"
@@ -2755,9 +4481,6 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Esculli un o més blogs en els quals vulgui atribuir permisos als usuaris %s."
 
-msgid "No blog"
-msgstr "Cap Blog"
-
 msgid "Entries"
 msgstr "Entrades"
 
@@ -2772,1740 +4495,6 @@ msgstr "Està a punt de canviar els permisos en els següents blogs pels usuaris
 #, fuzzy
 msgid "Validate permissions"
 msgstr "definir els permisos"
-
-#, fuzzy
-msgid "Back to blogs list"
-msgstr "Sense comentaris"
-
-#, fuzzy
-msgid "Blogs actions"
-msgstr "Blogs"
-
-#, fuzzy
-msgid "Blog id"
-msgstr "Nom del blog"
-
-#, fuzzy
-msgid "Set online"
-msgstr "en línia"
-
-#, fuzzy
-msgid "Set offline"
-msgstr "fora de línia"
-
-#, fuzzy
-msgid "Set as removed"
-msgstr "suprimit"
-
-#, fuzzy
-msgid "No blog selected"
-msgstr "no seleccionat"
-
-#, fuzzy
-msgid "Selected blogs have been successfully updated."
-msgstr "L'entrada s'ha actualitzat amb èxit."
-
-#, fuzzy, php-format
-msgid "%d blog has been successfully deleted"
-msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "El blog s'ha suprimit amb èxit."
-msgstr[1] "El blog s'ha suprimit amb èxit."
-
-#, fuzzy
-msgid "Back to comments list"
-msgstr "Sense comentaris"
-
-#, fuzzy
-msgid "Comments actions"
-msgstr "Autor del comentari:"
-
-#, fuzzy
-msgid "Publish"
-msgstr "publicat"
-
-#, fuzzy
-msgid "Unpublish"
-msgstr "no publicat"
-
-#, fuzzy
-msgid "Mark as pending"
-msgstr "marcar com a pendent"
-
-#, fuzzy
-msgid "Mark as junk"
-msgstr "marca com a no desitjat"
-
-msgid "Blocklist IP"
-msgstr ""
-
-msgid "Blocklist IP (global)"
-msgstr ""
-
-#, fuzzy
-msgid "No comment selected"
-msgstr "Sense comentaris"
-
-#, fuzzy
-msgid "IP addresses for selected comments have been blocklisted."
-msgstr "L'entrada s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "Back to entries list"
-msgstr "Categories"
-
-msgid "Posts actions"
-msgstr "Acció en les entrades seleccionades:"
-
-#, fuzzy
-msgid "Schedule"
-msgstr "Programa"
-
-msgid "Mark"
-msgstr ""
-
-#, fuzzy
-msgid "Mark as selected"
-msgstr "seleccionat"
-
-#, fuzzy
-msgid "Mark as unselected"
-msgstr "seleccionat"
-
-#, fuzzy
-msgid "Change"
-msgstr "Canviar el fitxer"
-
-#, fuzzy
-msgid "Change category"
-msgstr "canviar categoria"
-
-#, fuzzy
-msgid "Change language"
-msgstr "Canviar el fitxer"
-
-#, fuzzy
-msgid "Change author"
-msgstr "canviar l'autor"
-
-#, fuzzy
-msgid "No entry selected"
-msgstr "no seleccionat"
-
-msgid "Published entries cannot be set to scheduled"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully updated to status : \"%s\""
-msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] "L'entrada s'ha actualitzat amb èxit."
-msgstr[1] "L'entrada s'ha actualitzat amb èxit."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully marked as selected"
-msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] "L'entrada s'ha creat amb èxit."
-msgstr[1] "L'entrada s'ha creat amb èxit."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully marked as unselected"
-msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] "L'entrada s'ha creat amb èxit."
-msgstr[1] "L'entrada s'ha creat amb èxit."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully deleted"
-msgid_plural "%d entries have been successfully deleted"
-msgstr[0] "L'entrada s'ha actualitzat amb èxit."
-msgstr[1] "L'entrada s'ha actualitzat amb èxit."
-
-msgid "(No cat)"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully moved to category \"%s\""
-msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "L'entrada s'ha actualitzat amb èxit."
-msgstr[1] "L'entrada s'ha actualitzat amb èxit."
-
-msgid "Change category for this selection"
-msgstr "Canviar la categoria per les entrades"
-
-#, fuzzy
-msgid "Create a new category for the post(s)"
-msgstr "Canviar la categoria per les entrades"
-
-msgid "This user does not exist"
-msgstr "Aquest usuari no existeix"
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully set to user \"%s\""
-msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "L'entrada s'ha creat amb èxit."
-msgstr[1] "L'entrada s'ha creat amb èxit."
-
-msgid "Change author for this selection"
-msgstr "Canviar l'autor per les entrades"
-
-msgid "New author (author ID):"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully set to language \"%s\""
-msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] "L'entrada s'ha actualitzat amb èxit."
-msgstr[1] "L'entrada s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "Change language for this selection"
-msgstr "Canviar l'autor per les entrades"
-
-msgid "Available"
-msgstr ""
-
-msgid "Most used"
-msgstr ""
-
-#, fuzzy
-msgid "Entry language:"
-msgstr "Idioma de l'entrada:"
-
-#, fuzzy
-msgid "Database error"
-msgstr "Tipus de base de dades:"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "Paràmetres dels temes"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Extensions"
-
-msgid "Update"
-msgstr ""
-
-#, fuzzy
-msgid "Languages"
-msgstr "Idioma?"
-
-msgid "Selected"
-msgstr "Seleccionat"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "Nombre d'entrades"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "Cap resposta"
-
-msgid "Entry title"
-msgstr "Títol de l'entrada"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "Títol de l'entrada"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "filtre"
-
-msgid "Last update"
-msgstr "Última actualització"
-
-#, fuzzy
-msgid "Last Name"
-msgstr "Última actualització"
-
-#, fuzzy
-msgid "First Name"
-msgstr "Nom"
-
-msgid "Display name"
-msgstr "Pseudònim"
-
-msgid "Number of entries"
-msgstr "Nombre d'entrades"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "Filtres"
-
-#, fuzzy
-msgid "Display options"
-msgstr "Documentació"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "invertir la selecció"
-
-msgid "Apply filters and display options"
-msgstr ""
-
-#, fuzzy
-msgid "Format:"
-msgstr "Format de la data:"
-
-#, fuzzy
-msgid "With password"
-msgstr "Contrasenya de l'entrada:"
-
-#, fuzzy
-msgid "Without password"
-msgstr "La seva contrasenya"
-
-msgid "Selected:"
-msgstr "Seleccionat:"
-
-#, fuzzy
-msgid "Not selected"
-msgstr "no seleccionat"
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "Annexos"
-
-#, fuzzy
-msgid "With attachments"
-msgstr "%d annexos"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "%d annexos"
-
-msgid "Month:"
-msgstr "Mes:"
-
-msgid "Lang:"
-msgstr "Idioma:"
-
-#, fuzzy
-msgid "Comments:"
-msgstr "Comentaris"
-
-msgid "Opened"
-msgstr ""
-
-#, fuzzy
-msgid "Closed"
-msgstr "tancar"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "Respostes"
-
-msgid "Type:"
-msgstr "Tipus:"
-
-#, fuzzy
-msgid "Trackback"
-msgstr "Respostes"
-
-#, fuzzy
-msgid "Media type:"
-msgstr "Tipus de fitxer:"
-
-msgid "image"
-msgstr ""
-
-msgid "text"
-msgstr ""
-
-msgid "audio"
-msgstr ""
-
-msgid "video"
-msgstr ""
-
-#, fuzzy
-msgid "users per page"
-msgstr "Ususaris per pàgina"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "Entrades per pàgina"
-
-#, fuzzy
-msgid "comments per page"
-msgstr "Comentaris per pàgina"
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "Blogs per pàgina"
-
-msgid "Size"
-msgstr ""
-
-#, fuzzy
-msgid "media per page"
-msgstr "Entrades per pàgina"
-
-#, fuzzy
-msgid "results per page"
-msgstr "Entrades per pàgina"
-
-msgid "%H:%M:%S"
-msgstr ""
-
-msgid "Change blog"
-msgstr "Canviar de blog"
-
-msgid "Blogs:"
-msgstr "Blogs:"
-
-#, fuzzy
-msgid "Go to the content"
-msgstr "L'entrada no te contingut."
-
-msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to help"
-msgstr ""
-
-msgid "Go to site"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Logout %s"
-msgstr "Desconnexió"
-
-msgid "Hide main menu"
-msgstr ""
-
-msgid "Show main menu"
-msgstr ""
-
-msgid "Safe mode"
-msgstr ""
-
-msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
-msgstr ""
-
-#, php-format
-msgid "Thank you for using %s."
-msgstr ""
-
-#, fuzzy
-msgid "Page top"
-msgstr "Pàgina(es)"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "Quadre de comandament"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-#, fuzzy
-msgid "uncover"
-msgstr "Recuperar"
-
-msgid "hide"
-msgstr ""
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "Seleccionat:"
-
-#, fuzzy
-msgid "No selection"
-msgstr "invertir la selecció"
-
-#, fuzzy
-msgid "Select all"
-msgstr "Seleccionar tot"
-
-msgid "Invert selection"
-msgstr "invertir la selecció"
-
-#, fuzzy
-msgid "Edit entry"
-msgstr "%d entrada"
-
-msgid "view entry"
-msgstr "Veure l'entrada"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "Està segur que vol suprimir aquesta entrada?"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Està segur que vol suprimir els comentari seleccionats?"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-msgid "Users with posts cannot be deleted."
-msgstr "El directori no es pot suprimir."
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Està segur que vol suprimir els usuaris seleccionats?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Està segur que vol suprimir els usuaris seleccionats?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy
-msgid "Are you sure you want to reorder all categories?"
-msgstr "Està segur que vol suprimir les categories seleccionades?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Està segur que vol suprimir  %s?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Està segur que vol suprimir  %s?"
-
-#, fuzzy
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Està segur que vol suprimir aquest annex?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Està segur que vol suprimir les extensions seleccionades?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "Està segur que vol suprimir les extensions seleccionades?"
-
-#, fuzzy
-msgid "Use this theme"
-msgstr "Suprimir l'annex"
-
-#, fuzzy
-msgid "Remove this theme"
-msgstr "Suprimir l'annex"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "Està segur que vol suprimir aquest annex?"
-
-#, fuzzy
-msgid "Zip file content"
-msgstr "L'entrada no te contingut."
-
-msgid "HTML markup validator"
-msgstr ""
-
-msgid "HTML content is valid."
-msgstr ""
-
-msgid "There are HTML markup errors."
-msgstr ""
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-#, fuzzy
-msgid "Details"
-msgstr "Detalls del blog"
-
-msgid "Support"
-msgstr ""
-
-msgid "Help:"
-msgstr ""
-
-#, fuzzy
-msgid "Section:"
-msgstr "Descripció:"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "Usuaris en aquest blog"
-
-#, fuzzy
-msgid "Show password"
-msgstr "Nova contrasenya:"
-
-#, fuzzy
-msgid "Hide password"
-msgstr "Nova contrasenya:"
-
-msgid "Reset to now"
-msgstr ""
-
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
-msgstr ""
-
-msgid "You have unsaved changes."
-msgstr "No ha guardat els canvis."
-
-msgid "Temporarily activate enhanced uploader"
-msgstr ""
-
-msgid "Temporarily disable enhanced uploader"
-msgstr ""
-
-msgid "Limit exceeded."
-msgstr ""
-
-msgid "File size exceeds allowed limit."
-msgstr ""
-
-#, fuzzy
-msgid "Canceled."
-msgstr "Anul·lar"
-
-#, fuzzy
-msgid "HTTP Error:"
-msgstr "Errors:"
-
-msgid "Clean"
-msgstr ""
-
-#, fuzzy
-msgid "File successfully uploaded."
-msgstr "Els fitxers s'han actualitzat amb èxit."
-
-#, fuzzy
-msgid "No file in queue."
-msgstr "Cap fitxer."
-
-#, fuzzy
-msgid "1 file in queue."
-msgstr "Cap fitxer."
-
-#, fuzzy, php-format
-msgid "%d files in queue."
-msgstr "Cap fitxer."
-
-msgid "Queue error:"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
-msgid "other"
-msgstr ""
-
-#, fuzzy
-msgid "Search in repository:"
-msgstr "%d entrades"
-
-msgid "Reset search"
-msgstr ""
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr ""
-
-#, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy
-msgid "current selection"
-msgstr "invertir la selecció"
-
-#, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "no results"
-msgstr ""
-
-msgid "Browse index:"
-msgstr ""
-
-#, fuzzy
-msgid "Plugins list"
-msgstr "Extensions"
-
-msgid "Score"
-msgstr ""
-
-msgid "Version"
-msgstr "Versió"
-
-#, fuzzy
-msgid "Current version"
-msgstr "definir els permisos"
-
-#, fuzzy
-msgid "Repository"
-msgstr "Descripció:"
-
-#, php-format
-msgid " (%s)"
-msgstr ""
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr ""
-
-#, fuzzy
-msgid "Official repository"
-msgstr "%d entrades"
-
-#, fuzzy
-msgid "Third-party repository"
-msgstr "%d entrades"
-
-msgid "Plugin from official distribution"
-msgstr ""
-
-#, fuzzy
-msgid "Plugin in development"
-msgstr "Gestió de les extensions"
-
-msgid "No plugins matched your search."
-msgstr ""
-
-#, fuzzy
-msgid "Configure plugin"
-msgstr "Temes del blog"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr ""
-
-msgid "Plugin settings (in user preferences)"
-msgstr ""
-
-#, fuzzy
-msgid "Plugin settings"
-msgstr "Paràmetres del blog"
-
-#, fuzzy
-msgid "Plugin main page"
-msgstr "Gestió de les extensions"
-
-#, fuzzy
-msgid "Activate"
-msgstr "Privat"
-
-msgid "Deactivate"
-msgstr ""
-
-msgid "Clone"
-msgstr ""
-
-#, fuzzy
-msgid "Install"
-msgstr "Instal·lació de Dotclear"
-
-#, fuzzy
-msgid "Activate selected plugins"
-msgstr "Suprimir les extensions seleccionades"
-
-#, fuzzy
-msgid "Activate all plugins from this list"
-msgstr "Suprimir les extensions seleccionades"
-
-#, fuzzy
-msgid "Deactivate selected plugins"
-msgstr "Suprimir les extensions seleccionades"
-
-#, fuzzy
-msgid "Deactivate all plugins from this list"
-msgstr "Suprimir les extensions seleccionades"
-
-#, fuzzy
-msgid "Update selected plugins"
-msgstr "Suprimir les extensions seleccionades"
-
-msgid "Update all plugins from this list"
-msgstr ""
-
-msgid "No such plugin."
-msgstr "Cap extensió d'aquest tipus."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "No té permisos per suprimir aquesta extensió."
-
-#, fuzzy
-msgid "Some plugins have not been delete."
-msgstr "DotClear esta instal·lat."
-
-#, fuzzy
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Les extensions s'han suprimit amb èxit."
-msgstr[1] "Les extensions s'han suprimit amb èxit."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Les extensions s'han suprimit amb èxit."
-msgstr[1] "Les extensions s'han suprimit amb èxit."
-
-#, fuzzy
-msgid "Some plugins have not been deactivated."
-msgstr "DotClear esta instal·lat."
-
-#, fuzzy
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Les extensions s'han suprimit amb èxit."
-msgstr[1] "Les extensions s'han suprimit amb èxit."
-
-#, fuzzy
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Les extensions s'han suprimit amb èxit."
-msgstr[1] "Les extensions s'han suprimit amb èxit."
-
-#, fuzzy
-msgid "The plugin has been successfully updated."
-msgstr "Les extensions s'han suprimit amb èxit."
-
-#, fuzzy
-msgid "The plugin has been successfully installed."
-msgstr "El fitxer s'ha adjuntat amb èxit."
-
-msgid "Zip file path:"
-msgstr ""
-
-msgid "Download a zip file"
-msgstr ""
-
-#, fuzzy
-msgid "Zip file URL:"
-msgstr "Fitxer URL:"
-
-msgid "Download"
-msgstr ""
-
-msgid "Unknown plugin ID"
-msgstr ""
-
-#, fuzzy
-msgid "This plugin has no configuration file."
-msgstr "DC_ADMIN_URL no està definida, hauria d'editar el seu fitxer de configuració."
-
-#, fuzzy, php-format
-msgid "Configure \"%s\""
-msgstr "Temes del blog"
-
-msgid "Back"
-msgstr ""
-
-#, php-format
-msgid "Score: %s"
-msgstr ""
-
-#, php-format
-msgid "%s screenshot."
-msgstr ""
-
-#, php-format
-msgid "by %s"
-msgstr "per %s"
-
-#, fuzzy, php-format
-msgid "version %s"
-msgstr "Versió"
-
-#, fuzzy, php-format
-msgid "(current version %s)"
-msgstr "Versió"
-
-#, php-format
-msgid "(built on \"%s\")"
-msgstr ""
-
-#, php-format
-msgid "(requires \"%s\")"
-msgstr ""
-
-#, fuzzy
-msgid "View stylesheet"
-msgstr "Veure el lloc"
-
-#, fuzzy
-msgid "Configure theme"
-msgstr "Temes del blog"
-
-msgid "No themes matched your search."
-msgstr ""
-
-#, fuzzy
-msgid "Use this one"
-msgstr "Usuaris en aquest blog"
-
-#, fuzzy
-msgid "Update selected themes"
-msgstr "Suprimir les categories seleccionades"
-
-msgid "Update all themes from this list"
-msgstr ""
-
-#, fuzzy
-msgid "No such theme."
-msgstr "Blog inexistent."
-
-#, fuzzy, php-format
-msgid "Theme %s has been successfully selected."
-msgstr "El tema s'ha canviat amb èxit."
-
-#, fuzzy
-msgid "Theme has been successfully activated."
-msgid_plural "Themes have been successuflly activated."
-msgstr[0] "El tema s'ha canviat amb èxit."
-msgstr[1] "El tema s'ha canviat amb èxit."
-
-msgid "Some themes have not been deactivated."
-msgstr ""
-
-#, fuzzy
-msgid "Theme has been successfully deactivated."
-msgid_plural "Themes have been successuflly deactivated."
-msgstr[0] "El tema s'ha canviat amb èxit."
-msgstr[1] "El tema s'ha canviat amb èxit."
-
-#, fuzzy
-msgid "Theme has been successfully cloned."
-msgid_plural "Themes have been successuflly cloned."
-msgstr[0] "El tema s'ha canviat amb èxit."
-msgstr[1] "El tema s'ha canviat amb èxit."
-
-#, fuzzy
-msgid "You don't have permissions to delete this theme."
-msgstr "No té permisos per suprimir aquesta extensió."
-
-msgid "Some themes have not been delete."
-msgstr ""
-
-msgid "Theme has been successfully deleted."
-msgid_plural "Themes have been successuflly deleted."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successfully installed."
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy
-msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successfully updated."
-msgstr[0] "L'usuari s'ha actualitzat amb èxit."
-msgstr[1] "L'usuari s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "The theme has been successfully updated."
-msgstr "L'usuari s'ha actualitzat amb èxit."
-
-#, fuzzy
-msgid "The theme has been successfully installed."
-msgstr "El tema s'ha canviat amb èxit."
-
-#, fuzzy
-msgid "First page"
-msgstr "Nom"
-
-#, fuzzy
-msgid "Previous page"
-msgstr "entrada prèvia"
-
-msgid "Next page"
-msgstr ""
-
-#, fuzzy
-msgid "Last page"
-msgstr "Última actualització"
-
-#, php-format
-msgid "Page %s / %s"
-msgstr ""
-
-#, php-format
-msgid "Direct access page %s"
-msgstr ""
-
-msgid "&#171; prev."
-msgstr ""
-
-msgid "next &#187;"
-msgstr ""
-
-#, fuzzy
-msgid "No entry matches the filter"
-msgstr "L'entrada no te títol."
-
-msgid "No entry"
-msgstr "Cap entrada"
-
-#, fuzzy, php-format
-msgid "List of %s entries matching the filter."
-msgstr "L'entrada no te títol."
-
-#, fuzzy, php-format
-msgid "List of entries (%s)"
-msgstr "Categories"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy
-msgid "Protected"
-msgstr "protegit"
-
-#, fuzzy
-msgid "Attachments"
-msgstr "Annexos"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d annex"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d annexos"
-
-#, fuzzy
-msgid "Entries list"
-msgstr "Categories"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr ""
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Acceptar les respostes"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Type"
-msgstr "Tipus"
-
-#, fuzzy
-msgid "Entry"
-msgstr "Entrades"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr ""
-
-msgid "comment"
-msgstr "comentari"
-
-msgid "trackback"
-msgstr "resposta"
-
-#, fuzzy
-msgid "Type and author"
-msgstr "canviar l'autor"
-
-msgid "No blog matches the filter"
-msgstr ""
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "Entrades per pàgina"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy
-msgid "Blogs list"
-msgstr "Blogs"
-
-msgid "online"
-msgstr "en línia"
-
-msgid "offline"
-msgstr "fora de línia"
-
-msgid "removed"
-msgstr "suprimit"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "Editar el blog %s"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "Paràmetres del blog"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Passar al blog %s"
-
-msgid "No user matches the filter"
-msgstr ""
-
-msgid "No user"
-msgstr "Cap usuari"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr ""
-
-#, fuzzy
-msgid "Users list"
-msgstr "Usuaris"
-
-msgid "admin"
-msgstr ""
-
-#, fuzzy
-msgid "superadmin"
-msgstr "Super administrador"
-
-#, fuzzy
-msgid "No file matches the filter"
-msgstr "L'entrada no te títol."
-
-msgid "No file."
-msgstr "Cap fitxer."
-
-#, fuzzy, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "L'entrada no te títol."
-msgstr[1] "L'entrada no te títol."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr "Inserir aquest fitxer en l'entrada"
-
-#, fuzzy
-msgid "delete"
-msgstr "Suprimir"
-
-#, fuzzy
-msgid "private media"
-msgstr "Privat"
-
-msgid "open"
-msgstr "Obrir"
-
-#, php-format
-msgid "(%s)"
-msgstr ""
-
-#, php-format
-msgid "ratio %.1f"
-msgstr ""
-
-#, fuzzy
-msgid "The 'public' directory does not exist."
-msgstr "Aquesta entrada no existeix."
-
-#, fuzzy, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "El directori no es pot suprimir."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
-
-#, fuzzy
-msgid "Unable to create images."
-msgstr "Impossible crear el directori."
-
-#, fuzzy
-msgid "Invalid file type."
-msgstr "Adreça de correu electrònica incorrecte"
-
-#, fuzzy
-msgid "An error occurred while writing the file."
-msgstr "Ha succeït un error mentre s'intentava gravar l'arxiu."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr ""
-
-#, fuzzy
-msgid "small"
-msgstr "Correu electrònic:"
-
-#, fuzzy
-msgid "thumbnail"
-msgstr "Detalls de la imatge"
-
-msgid "square"
-msgstr ""
-
-#, fuzzy
-msgid "Pages"
-msgstr "Pàgina(es)"
-
-msgid "administrator"
-msgstr "administrador"
-
-msgid "manage all entries and comments"
-msgstr "gestionar totes les entrades i comentaris"
-
-msgid "manage their own entries and comments"
-msgstr "gestionar les seves pròpies entrades i comentaris"
-
-msgid "publish entries and comments"
-msgstr "publicar entrades i comentaris"
-
-msgid "delete entries and comments"
-msgstr "suprimir entrades i comentaris"
-
-msgid "manage categories"
-msgstr "gestionar les categories"
-
-msgid "manage all media items"
-msgstr "gestionar tots els elements media"
-
-msgid "manage their own media items"
-msgstr "gestionar els seus propis elements media"
-
-msgid "That user does not exist in the database."
-msgstr "Aquest usuari no existeix en la base de dades."
-
-msgid "That key does not exist in the database."
-msgstr "Aquesta clau no existeix en la base de dades."
-
-msgid "You are not allowed to add categories"
-msgstr "Vostè no està autoritzat per afegir categories."
-
-msgid "You are not allowed to update categories"
-msgstr "Vostè no està autoritzat per actualitzar categories."
-
-msgid "You are not allowed to delete categories"
-msgstr "Vostè no està autoritzat per suprimir categories."
-
-msgid "This category is not empty."
-msgstr "Aquesta categoria no està buida."
-
-#, fuzzy
-msgid "You are not allowed to reset categories order"
-msgstr "Vostè no està autoritzat per suprimir categories."
-
-#, fuzzy
-msgid "Empty category URL"
-msgstr "Editar l'entrada"
-
-msgid "You must provide a category title"
-msgstr "Ha de proporcionar un títol a la categoria."
-
-msgid "You must provide a category URL"
-msgstr "Ha de proporcionar una URL a la categoria."
-
-msgid "You are not allowed to create an entry"
-msgstr "Vostè no està autoritzat per crear una entrada."
-
-msgid "You are not allowed to update entries"
-msgstr "Vostè no està autoritzat per actualitzar entrades."
-
-msgid "No such entry ID"
-msgstr "Cap entrada amb aquest ID"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Vostè no està autoritzat per editar aquesta entrada."
-
-msgid "You are not allowed to change this entry status"
-msgstr "Vostè no està autoritzat per canviar l'estatus d'aquesta entrada."
-
-msgid "You are not allowed to change this entry category"
-msgstr "Vostè no està autoritzat per canviar la categoria d'aquesta entrada."
-
-#, fuzzy
-msgid "You are not allowed to change entries category"
-msgstr "Vostè no està autoritzat per canviar la categoria d'aquesta entrada."
-
-msgid "You are not allowed to delete entries"
-msgstr "Vostè no està autoritzat per suprimir entrades."
-
-msgid "No entry title"
-msgstr "L'entrada no te títol."
-
-msgid "No entry content"
-msgstr "L'entrada no te contingut."
-
-#, fuzzy
-msgid "Notes"
-msgstr "Notes:"
-
-#, fuzzy
-msgid "Note"
-msgstr "Notes:"
-
-#, fuzzy
-msgid "Empty entry URL"
-msgstr "Editar l'entrada"
-
-msgid "You are not allowed to update comments"
-msgstr "Vostè no està autoritzat per actualitzar comentaris."
-
-msgid "No such comment ID"
-msgstr "Cap comentari amb aquest ID"
-
-msgid "You are not allowed to update this comment"
-msgstr "Vostè no està autoritzat per sactualitzar aquest comentari"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Vostè no està autoritzat per canviar l'estatus d'aquest comentari"
-
-msgid "You are not allowed to delete comments"
-msgstr "Vostè no està autoritzat per suprimir comentaris"
-
-msgid "You must provide a comment"
-msgstr "Ha de proporcionar un comentari"
-
-msgid "You must provide an author name"
-msgstr "Ha de proporcionar un nom d'autor"
-
-msgid "Email address is not valid."
-msgstr "L'adreça de correu elect`ronic no és vàlida."
-
-msgid "You are not an administrator"
-msgstr "Vostè no és nu administrador"
-
-msgid "Invalid user language code"
-msgstr ""
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "L'identificador del blog ha de contenir com a mínim 2 caràcters els quals han de ser lletres, números o símbols."
-
-msgid "No blog name"
-msgstr "Cap nom de blog"
-
-msgid "No blog URL"
-msgstr "Cap URL de blog"
-
-#, fuzzy
-msgid "No log message"
-msgstr "Cap nom de blog"
-
-#, fuzzy
-msgid "unknown"
-msgstr "ara"
-
-msgid "No blog defined."
-msgstr "Cap blog definit."
-
-msgid "You are not a super administrator."
-msgstr "Vostè no és un super administrador."
-
-msgid "Permission denied."
-msgstr "Permís denegat."
-
-msgid "You are not the file owner."
-msgstr "Vostè no és el propietari del fitxer."
-
-#, fuzzy
-msgid "This file is not allowed."
-msgstr "L'arxiu no es gravable."
-
-msgid "New file already exists."
-msgstr "El nou fitxer ja existeix."
-
-msgid "File does not exist in the database."
-msgstr "El fitxer no existeix en la base de dades."
-
-#, fuzzy, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "El directori de destinació no és gravable."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr ""
-
-#, php-format
-msgid "Requires Dotclear version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr ""
-
-msgid "The following extensions have been disabled :"
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
-
-msgid "Empty module zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr ""
-
-msgid "An error occurred during module deletion."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Unable to read new %s file"
-msgstr "Impossible re-nombrar l'arxiu."
-
-msgid "Cannot deactivate plugin."
-msgstr ""
-
-msgid "No such module."
-msgstr ""
-
-msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot activate plugin."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Adreça de correu electrònica incorrecte"
-
-msgid "Unable to retrieve settings:"
-msgstr "Impossible obtenir els paràmetres:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s no es un identificador de paràmetre vàlid"
-
-msgid "No namespace specified"
-msgstr "Cap espai de nom especificat"
-
-#, fuzzy
-msgid "No notice message"
-msgstr "Cap nom de blog"
-
-#, fuzzy
-msgid "Unable to retrieve workspaces:"
-msgstr "Impossible obtenir els paràmetres:"
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Adreça de correu electrònica incorrecte"
-
-#, fuzzy
-msgid "Unable to retrieve namespaces:"
-msgstr "Impossible obtenir els paràmetres:"
-
-#, fuzzy, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Adreça de correu electrònica incorrecte"
-
-#, fuzzy
-msgid "Wrong data feed"
-msgstr "Registres truncats"
-
-#, fuzzy
-msgid "An error occurred while downloading the file."
-msgstr "Ha succeït un error mentre s'estava descarregant el fitxer."
-
-msgid "Themes folder unreachable"
-msgstr ""
-
-msgid "Themes folder unreadable"
-msgstr ""
-
-#, php-format
-msgid " (copy #%s)"
-msgstr ""
-
-msgid " (copy)"
-msgstr ""
-
-#, fuzzy
-msgid "Unable to modify _define.php"
-msgstr "Impossible obrir l'arxiu."
-
-#, fuzzy
-msgid "Destination folder already exist"
-msgstr "El directori de destinació no és gravable."
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "Un ping %s ja ha estat realitzat"
-
-msgid "Unable to ping URL"
-msgstr "No es pot realitzar el trackback"
-
-msgid "Bad server response code"
-msgstr ""
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s no és pas un ping URL"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, error de ping :"
-
-msgid "Don't repeat yourself, please."
-msgstr ""
-
-msgid "Where's your title?"
-msgstr ""
-
-msgid "Sorry, an internal problem has occured."
-msgstr ""
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
-
-msgid "Sorry but you can not ping this type of content."
-msgstr ""
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
-
-#, fuzzy
-msgid "Digests file not found."
-msgstr "Extensió no trobada"
-
-#, fuzzy
-msgid "No file to download"
-msgstr "No s'ha carregat cap fitxer."
-
-#, fuzzy
-msgid "Root directory is not writable."
-msgstr "El directori cache %s no es pot gravar."
-
-#, fuzzy
-msgid "An error occurred while downloading archive."
-msgstr "Ha succeït un error mentre s'estava descarregant el fitxer."
-
-#, fuzzy
-msgid "Archive not found."
-msgstr "Extensió no trobada"
-
-#, fuzzy
-msgid "Unable to read current digests file."
-msgstr "Impossible re-nombrar l'arxiu."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr ""
-
-msgid "Incomplete archive."
-msgstr ""
-
-#, fuzzy
-msgid "Unable to read digests file."
-msgstr "Impossible re-nombrar l'arxiu."
-
-msgid "Invalid digests file."
-msgstr ""
-
-#, fuzzy
-msgid "Unable to retrieve prefs:"
-msgstr "Impossible obtenir els paràmetres:"
-
-#, fuzzy, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s no es un identificador de paràmetre vàlid"
-
-#, fuzzy
-msgid "No workspace specified"
-msgstr "Cap espai de nom especificat"
-
-msgid "Something went wrong with auto upgrade:"
-msgstr "Quelcom ha anat malament amb l'auto actualització:"
-
-#, fuzzy, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "El fitxer no existeix en la base de dades."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-#, fuzzy
-msgid "Unable to write destination file."
-msgstr "Impossible re-nombrar l'arxiu."
-
-#, fuzzy
-msgid "Unable to write in target directory, permission denied."
-msgstr "Impossible crear el directori."
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-#, fuzzy
-msgid "File does not exist"
-msgstr "El fitxer %s no existeix."
-
-#, fuzzy
-msgid "Cannot read file"
-msgstr "No es pot escriure en el fitxer %s."
-
-#, fuzzy
-msgid "Directory does not exist"
-msgstr "El directori %s no existeix."
-
-#, fuzzy
-msgid "Cannot read directory"
-msgstr "Impossible gravar res en aquest directori."
-
-msgid "Site temporarily unavailable"
-msgstr ""
-
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr ""
-
-#, fuzzy
-msgid "Unable to connect to database"
-msgstr "Impossible connectar amb la base de dades, comprovi els seus paràmetres."
-
-#, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
-
-msgid "The following error was encountered while trying to read the database:"
-msgstr ""
 
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
@@ -4591,6 +4580,32 @@ msgstr ""
 msgid "%s is not a directory."
 msgstr "%s no és un directori."
 
+#, fuzzy
+msgid "Can't get file path"
+msgstr "Canviar el fitxer"
+
+#, fuzzy
+msgid "Can't lock a directory"
+msgstr "Impossible gravar res en aquest directori."
+
+msgid "Can't call php function named flock"
+msgstr ""
+
+#, fuzzy
+msgid "Can't create file"
+msgstr "No es pot escriure en el fitxer %s."
+
+#, fuzzy
+msgid "Can't open file"
+msgstr "No es pot escriure en el fitxer %s."
+
+#, fuzzy
+msgid "Can't lock file"
+msgstr "No es pot escriure en el fitxer %s."
+
+msgid "File cannot be removed."
+msgstr "El fitxer no es pot suprimir."
+
 msgid "Not enough memory to open image."
 msgstr ""
 
@@ -4621,9 +4636,6 @@ msgstr "El directori de destinació no és gravable."
 msgid "Unable to rename file."
 msgstr "Impossible re-nombrar l'arxiu."
 
-msgid "File cannot be removed."
-msgstr "El fitxer no es pot suprimir."
-
 msgid "Directory is not in jail."
 msgstr "El directori no està disponible."
 
@@ -4631,8 +4643,39 @@ msgid "Directory cannot be removed."
 msgstr "El directori no es pot suprimir."
 
 #, fuzzy, php-format
-msgid "Archive %s is closed."
-msgstr "Extensió no trobada"
+msgid "File %s is not compressed in the zip."
+msgstr "El fitxer no existeix en la base de dades."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "Impossible re-nombrar l'arxiu."
+
+#, fuzzy
+msgid "Unable to write in target directory, permission denied."
+msgstr "Impossible crear el directori."
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "El fitxer %s no existeix."
+
+#, fuzzy
+msgid "Cannot read file"
+msgstr "No es pot escriure en el fitxer %s."
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "El directori %s no existeix."
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "Impossible gravar res en aquest directori."
 
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
@@ -4644,6 +4687,10 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Archive %s is closed."
+#~ msgstr "Extensió no trobada"
 
 #, fuzzy
 #~ msgid "Failed to read data feed"

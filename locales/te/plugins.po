@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -125,10 +125,10 @@ msgstr "బ్లాగ్మిత్రులు"
 msgid "Tags cloud"
 msgstr "చేర్చాల్సిన ట్యాగులు:"
 
-msgid "Configuration successfully updated"
+msgid "about:config"
 msgstr ""
 
-msgid "about:config"
+msgid "Configuration successfully updated"
 msgstr ""
 
 #, php-format
@@ -179,6 +179,9 @@ msgid "API key not verified"
 msgstr ""
 
 msgid "Get your own API key"
+msgstr ""
+
+msgid "Akismet"
 msgstr ""
 
 msgid "This comment is a spam:"
@@ -400,6 +403,10 @@ msgstr ""
 msgid "Unknown filter."
 msgstr ""
 
+#, fuzzy
+msgid "attachments"
+msgstr "ఇటీవలి వ్యాఖ్యలు"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -414,11 +421,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
 
-msgid "manage blogroll"
-msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
-
 msgid "Blogroll"
 msgstr "బ్లాగ్మిత్రులు"
+
+msgid "manage blogroll"
+msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
 
 msgid "You must provide a link title"
 msgstr ""
@@ -630,6 +637,9 @@ msgstr ""
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -656,9 +666,6 @@ msgid "URL field cannot be empty."
 msgstr ""
 
 msgid "The configuration has been updated."
-msgstr ""
-
-msgid "dcCKEditor"
 msgstr ""
 
 msgid "Note(s)"
@@ -735,6 +742,9 @@ msgid "Disables the built-in spell checker if the browser provides one"
 msgstr ""
 
 msgid "Save configuration"
+msgstr ""
+
+msgid "dcLegacyEditor"
 msgstr ""
 
 msgid "Dotclear wiki"
@@ -823,16 +833,16 @@ msgstr "భాష"
 msgid "Remove text formating"
 msgstr "ట్యాగులను తొలగించండి"
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+msgid "Import / Export"
 msgstr ""
 
 msgid "Database export"
@@ -1845,6 +1855,10 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
+#, fuzzy
+msgid "themeEditor"
+msgstr "అలంకార కూర్పరి"
+
 msgid "Edit theme files"
 msgstr ""
 
@@ -1854,7 +1868,22 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+msgid "The theme update has been unocked."
+msgstr ""
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1937,12 +1966,12 @@ msgstr ""
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
+msgid "user:preferences"
+msgstr ""
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
-
-msgid "user:preferences"
-msgstr ""
 
 msgid "User preferences"
 msgstr ""
@@ -1950,8 +1979,8 @@ msgstr ""
 msgid "Global preferences"
 msgstr ""
 
-msgid "Presentation widgets"
-msgstr "ప్రదర్శనా విడ్జెట్లు"
+msgid "Widgets"
+msgstr "విడ్జెట్లు"
 
 msgid "Widget's textareas"
 msgstr ""
@@ -1976,9 +2005,6 @@ msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr ""
-
-msgid "Widgets"
-msgstr "విడ్జెట్లు"
 
 msgid "Available widgets"
 msgstr "అందుబాటులో ఉన్న విడ్జెట్లు"
@@ -2160,6 +2186,9 @@ msgstr ""
 
 msgid "Offline"
 msgstr ""
+
+#~ msgid "Presentation widgets"
+#~ msgstr "ప్రదర్శనా విడ్జెట్లు"
 
 #~ msgid "General"
 #~ msgstr "సాధారణ"

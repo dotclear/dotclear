@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -131,11 +131,11 @@ msgstr "博客链接"
 msgid "Tags cloud"
 msgstr "要添加的标签："
 
-msgid "Configuration successfully updated"
-msgstr "成功更新配置"
-
 msgid "about:config"
 msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr "成功更新配置"
 
 #, fuzzy, php-format
 msgid "Settings for %s"
@@ -186,6 +186,10 @@ msgstr "API key 验证失败"
 
 msgid "Get your own API key"
 msgstr "获取您自己的 API key"
+
+#, fuzzy
+msgid "Akismet"
+msgstr "Akismet API key："
 
 msgid "This comment is a spam:"
 msgstr "这个评论是垃圾评论："
@@ -412,6 +416,10 @@ msgstr "被 %1$s (%2$s) 过滤"
 msgid "Unknown filter."
 msgstr "未知的过滤。"
 
+#, fuzzy
+msgid "attachments"
+msgstr "最新评论"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -426,11 +434,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "向此页面添加文件"
 
-msgid "manage blogroll"
-msgstr "管理博客链接"
-
 msgid "Blogroll"
 msgstr "博客链接"
+
+msgid "manage blogroll"
+msgstr "管理博客链接"
 
 msgid "You must provide a link title"
 msgstr "您必须提供一个链接标题"
@@ -643,6 +651,9 @@ msgstr "上传一个备份文件"
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -672,9 +683,6 @@ msgstr ""
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "成功更新主题配置。"
-
-msgid "dcCKEditor"
-msgstr ""
 
 msgid "Note(s)"
 msgstr ""
@@ -755,6 +763,9 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s 配置"
+
+msgid "dcLegacyEditor"
+msgstr ""
 
 #, fuzzy
 msgid "Dotclear wiki"
@@ -849,16 +860,17 @@ msgstr "语言"
 msgid "Remove text formating"
 msgstr "移除标签"
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "检查文章链接的 trackback 源"
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
 msgstr "导入／导出"
 
 #, fuzzy
@@ -1897,6 +1909,10 @@ msgid "Link to all tags:"
 msgstr ""
 
 #, fuzzy
+msgid "themeEditor"
+msgstr "主题编辑器"
+
+#, fuzzy
 msgid "Edit theme files"
 msgstr "编辑文件 %s"
 
@@ -1906,7 +1922,23 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "成功更新主题配置。"
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1991,12 +2023,12 @@ msgid "Unable to delete file %s. Please check your theme files and folders permi
 msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
 
 #, fuzzy
-msgid "Preferences successfully updated"
-msgstr "成功更新页面。"
-
-#, fuzzy
 msgid "user:preferences"
 msgstr "全局设置"
+
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "成功更新页面。"
 
 #, fuzzy
 msgid "User preferences"
@@ -2006,8 +2038,8 @@ msgstr "全局设置"
 msgid "Global preferences"
 msgstr "全局设置"
 
-msgid "Presentation widgets"
-msgstr "展示小工具"
+msgid "Widgets"
+msgstr "小工具"
 
 #, fuzzy
 msgid "Widget's textareas"
@@ -2034,9 +2066,6 @@ msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr "您确定要重置侧边栏吗？"
-
-msgid "Widgets"
-msgstr "小工具"
 
 msgid "Available widgets"
 msgstr "可用的小工具"
@@ -2223,6 +2252,9 @@ msgstr "CSS 文件"
 
 msgid "Offline"
 msgstr ""
+
+#~ msgid "Presentation widgets"
+#~ msgstr "展示小工具"
 
 #~ msgid "default"
 #~ msgstr "默认"

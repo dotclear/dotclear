@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -126,11 +126,11 @@ msgstr "Blogroll"
 msgid "Tags cloud"
 msgstr ""
 
-msgid "Configuration successfully updated"
-msgstr "Configurație actualizată cu succes"
-
 msgid "about:config"
 msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr "Configurație actualizată cu succes"
 
 #, php-format
 msgid "Settings for %s"
@@ -180,6 +180,10 @@ msgstr "Cheia API nu a fost verificată"
 
 msgid "Get your own API key"
 msgstr "Obțineți-vă propia cheie API"
+
+#, fuzzy
+msgid "Akismet"
+msgstr "Cheie API de Akismet"
 
 msgid "This comment is a spam:"
 msgstr "Acest comentariu este spam:"
@@ -404,6 +408,9 @@ msgstr "Filtrat de %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "Filtru necunoscut"
 
+msgid "attachments"
+msgstr ""
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -417,11 +424,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr ""
 
-msgid "manage blogroll"
-msgstr "administrare blogroll"
-
 msgid "Blogroll"
 msgstr "Blogroll"
+
+msgid "manage blogroll"
+msgstr "administrare blogroll"
 
 msgid "You must provide a link title"
 msgstr "Trebuie să inserezi un titlu al legăturii"
@@ -633,6 +640,9 @@ msgstr ""
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -661,9 +671,6 @@ msgstr ""
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "Configurația șablonului a fost actualizată."
-
-msgid "dcCKEditor"
-msgstr ""
 
 msgid "Note(s)"
 msgstr ""
@@ -740,6 +747,9 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "configuratia %s"
+
+msgid "dcLegacyEditor"
+msgstr ""
 
 msgid "Dotclear wiki"
 msgstr ""
@@ -826,16 +836,16 @@ msgstr "Limbă"
 msgid "Remove text formating"
 msgstr ""
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+msgid "Import / Export"
 msgstr ""
 
 msgid "Database export"
@@ -1835,6 +1845,9 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
+msgid "themeEditor"
+msgstr ""
+
 msgid "Edit theme files"
 msgstr ""
 
@@ -1844,7 +1857,23 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "Configurația șablonului a fost actualizată."
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1926,12 +1955,12 @@ msgid "Unable to delete file %s. Please check your theme files and folders permi
 msgstr ""
 
 #, fuzzy
-msgid "Preferences successfully updated"
-msgstr "Configurație actualizată cu succes"
-
-#, fuzzy
 msgid "user:preferences"
 msgstr "setări globale"
+
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Configurație actualizată cu succes"
 
 #, fuzzy
 msgid "User preferences"
@@ -1941,7 +1970,7 @@ msgstr "setări globale"
 msgid "Global preferences"
 msgstr "setări globale"
 
-msgid "Presentation widgets"
+msgid "Widgets"
 msgstr ""
 
 msgid "Widget's textareas"
@@ -1967,9 +1996,6 @@ msgid "Sidebars have been resetting."
 msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
-msgstr ""
-
-msgid "Widgets"
 msgstr ""
 
 msgid "Available widgets"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -120,11 +120,11 @@ msgstr ""
 msgid "Tags cloud"
 msgstr ""
 
-msgid "Configuration successfully updated"
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
-
 msgid "about:config"
 msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 #, php-format
 msgid "Settings for %s"
@@ -173,6 +173,9 @@ msgid "API key not verified"
 msgstr ""
 
 msgid "Get your own API key"
+msgstr ""
+
+msgid "Akismet"
 msgstr ""
 
 msgid "This comment is a spam:"
@@ -397,6 +400,9 @@ msgstr ""
 msgid "Unknown filter."
 msgstr ""
 
+msgid "attachments"
+msgstr ""
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -410,10 +416,10 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr ""
 
-msgid "manage blogroll"
+msgid "Blogroll"
 msgstr ""
 
-msgid "Blogroll"
+msgid "manage blogroll"
 msgstr ""
 
 msgid "You must provide a link title"
@@ -625,6 +631,9 @@ msgstr ""
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -653,9 +662,6 @@ msgstr ""
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
-
-msgid "dcCKEditor"
-msgstr ""
 
 msgid "Note(s)"
 msgstr ""
@@ -728,6 +734,9 @@ msgid "Disables the built-in spell checker if the browser provides one"
 msgstr ""
 
 msgid "Save configuration"
+msgstr ""
+
+msgid "dcLegacyEditor"
 msgstr ""
 
 msgid "Dotclear wiki"
@@ -814,16 +823,16 @@ msgstr ""
 msgid "Remove text formating"
 msgstr ""
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+msgid "Import / Export"
 msgstr ""
 
 msgid "Database export"
@@ -1807,6 +1816,9 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
+msgid "themeEditor"
+msgstr ""
+
 msgid "Edit theme files"
 msgstr ""
 
@@ -1816,7 +1828,23 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1896,12 +1924,12 @@ msgstr ""
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
+msgid "user:preferences"
+msgstr ""
+
 #, fuzzy
 msgid "Preferences successfully updated"
 msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
-
-msgid "user:preferences"
-msgstr ""
 
 msgid "User preferences"
 msgstr ""
@@ -1909,7 +1937,7 @@ msgstr ""
 msgid "Global preferences"
 msgstr ""
 
-msgid "Presentation widgets"
+msgid "Widgets"
 msgstr ""
 
 msgid "Widget's textareas"
@@ -1934,9 +1962,6 @@ msgid "Sidebars have been resetting."
 msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
-msgstr ""
-
-msgid "Widgets"
 msgstr ""
 
 msgid "Available widgets"

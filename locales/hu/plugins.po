@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -131,11 +131,11 @@ msgstr "Blogroll"
 msgid "Tags cloud"
 msgstr "Hozzáadandó címkék:"
 
-msgid "Configuration successfully updated"
-msgstr "A konfigurációt sikeresen frissítettem."
-
 msgid "about:config"
 msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr "A konfigurációt sikeresen frissítettem."
 
 #, php-format
 msgid "Settings for %s"
@@ -186,6 +186,10 @@ msgstr "API kulcsot nem lehet érvényesíteni"
 
 msgid "Get your own API key"
 msgstr "Szerezd meg a saját API kulcsodat"
+
+#, fuzzy
+msgid "Akismet"
+msgstr "Akismet API kulcs:"
 
 msgid "This comment is a spam:"
 msgstr "Ez a megjegyzés egy spam."
@@ -411,6 +415,10 @@ msgstr "%1$s szűrte (%2$s)"
 msgid "Unknown filter."
 msgstr "Ismeretlen szűrő."
 
+#, fuzzy
+msgid "attachments"
+msgstr "Utolsó hozzászólások"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -425,11 +433,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Fájlok hozzáadása a laphoz"
 
-msgid "manage blogroll"
-msgstr "blogroll kezelése"
-
 msgid "Blogroll"
 msgstr "Blogroll"
+
+msgid "manage blogroll"
+msgstr "blogroll kezelése"
 
 msgid "You must provide a link title"
 msgstr "Kötelező címet adnod"
@@ -642,6 +650,9 @@ msgstr "Biztonsági mentés feltöltése"
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -671,9 +682,6 @@ msgstr ""
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "A témabeállítás sikeresen frissült."
-
-msgid "dcCKEditor"
-msgstr ""
 
 msgid "Note(s)"
 msgstr ""
@@ -754,6 +762,9 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s beállítás"
+
+msgid "dcLegacyEditor"
+msgstr ""
 
 #, fuzzy
 msgid "Dotclear wiki"
@@ -848,16 +859,17 @@ msgstr "Nyelv"
 msgid "Remove text formating"
 msgstr "címke eltávolítása"
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Trackback forrás ellenőrzése"
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
 msgstr "Emport/Export"
 
 #, fuzzy
@@ -1908,6 +1920,9 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
+msgid "themeEditor"
+msgstr ""
+
 msgid "Edit theme files"
 msgstr ""
 
@@ -1917,7 +1932,23 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "A témabeállítás sikeresen frissült."
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1999,12 +2030,12 @@ msgid "Unable to delete file %s. Please check your theme files and folders permi
 msgstr ""
 
 #, fuzzy
-msgid "Preferences successfully updated"
-msgstr "Az oldalt sikeresen frissítettem."
-
-#, fuzzy
 msgid "user:preferences"
 msgstr "általános beállítások"
+
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Az oldalt sikeresen frissítettem."
 
 #, fuzzy
 msgid "User preferences"
@@ -2014,8 +2045,8 @@ msgstr "általános beállítások"
 msgid "Global preferences"
 msgstr "általános beállítások"
 
-msgid "Presentation widgets"
-msgstr "Bemutató kütyük"
+msgid "Widgets"
+msgstr "Kütyük"
 
 #, fuzzy
 msgid "Widget's textareas"
@@ -2042,9 +2073,6 @@ msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Biztosan vissza akarod állítani az oldalsó sávot?"
-
-msgid "Widgets"
-msgstr "Kütyük"
 
 msgid "Available widgets"
 msgstr "Elérhető kütyük"
@@ -2231,6 +2259,9 @@ msgstr ""
 
 msgid "Offline"
 msgstr ""
+
+#~ msgid "Presentation widgets"
+#~ msgstr "Bemutató kütyük"
 
 #~ msgid "default"
 #~ msgstr "alapértelmezett"

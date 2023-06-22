@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -132,11 +132,11 @@ msgstr "Blogroll"
 msgid "Tags cloud"
 msgstr "Tagi do dodania:"
 
-msgid "Configuration successfully updated"
-msgstr "Konfiguracja pomyślnie zaktualizowana"
-
 msgid "about:config"
 msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr "Konfiguracja pomyślnie zaktualizowana"
 
 #, fuzzy, php-format
 msgid "Settings for %s"
@@ -187,6 +187,10 @@ msgstr "Klucz API niezweryfikowany"
 
 msgid "Get your own API key"
 msgstr "Zdobądź swój własny klucz API"
+
+#, fuzzy
+msgid "Akismet"
+msgstr "Klucz API Akismet:"
 
 msgid "This comment is a spam:"
 msgstr "Ten komentarz jest spamem:"
@@ -411,6 +415,10 @@ msgstr "Przefiltrowane przez %1$s·(%2$s)"
 msgid "Unknown filter."
 msgstr "Nieznany filtr."
 
+#, fuzzy
+msgid "attachments"
+msgstr "Ostatnie komentarze"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -425,11 +433,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Dodaj pliki do strony"
 
-msgid "manage blogroll"
-msgstr "zarządzaj polecanymi odnośnikami"
-
 msgid "Blogroll"
 msgstr "Blogroll"
+
+msgid "manage blogroll"
+msgstr "zarządzaj polecanymi odnośnikami"
 
 msgid "You must provide a link title"
 msgstr "Musisz podać tytuł odnośnika"
@@ -641,6 +649,9 @@ msgstr "Wyślij plik z kopią zapasową"
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -671,9 +682,6 @@ msgstr ""
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "Konfiguracja motywu została pomyślnie zaktualizowana."
-
-msgid "dcCKEditor"
-msgstr ""
 
 msgid "Note(s)"
 msgstr ""
@@ -755,6 +763,9 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "Konfiguracja %s"
+
+msgid "dcLegacyEditor"
+msgstr ""
 
 #, fuzzy
 msgid "Dotclear wiki"
@@ -850,16 +861,17 @@ msgstr "Język:"
 msgid "Remove text formating"
 msgstr "Usuń tagi"
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Sprawdza zródło odnośnika w poście"
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
 msgstr "Import/Eksport"
 
 #, fuzzy
@@ -1905,6 +1917,10 @@ msgid "Link to all tags:"
 msgstr "Odnośnik do wszystkich tagów:"
 
 #, fuzzy
+msgid "themeEditor"
+msgstr "Edytor motywów"
+
+#, fuzzy
 msgid "Edit theme files"
 msgstr "Edycja pliku %s"
 
@@ -1914,7 +1930,23 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "Konfiguracja motywu została pomyślnie zaktualizowana."
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1998,12 +2030,12 @@ msgstr "Nie można pisać do pliku %s. Sprawdź uprawnienia dla plików i katalo
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nie można pisać do pliku %s. Sprawdź uprawnienia dla plików i katalogów motywu."
 
-msgid "Preferences successfully updated"
-msgstr "Ustawienia zostały zaktualizowane"
-
 #, fuzzy
 msgid "user:preferences"
 msgstr "ustawienia użytkownika"
+
+msgid "Preferences successfully updated"
+msgstr "Ustawienia zostały zaktualizowane"
 
 #, fuzzy
 msgid "User preferences"
@@ -2013,8 +2045,8 @@ msgstr "ustawienia użytkownika"
 msgid "Global preferences"
 msgstr "ustawienia globalne"
 
-msgid "Presentation widgets"
-msgstr "Widgety prezentacji"
+msgid "Widgets"
+msgstr "Widgety"
 
 #, fuzzy
 msgid "Widget's textareas"
@@ -2041,9 +2073,6 @@ msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Jesteś pewien, że chcesz zresetować paski boczne?"
-
-msgid "Widgets"
-msgstr "Widgety"
 
 msgid "Available widgets"
 msgstr "Dostępne widgety"
@@ -2230,6 +2259,9 @@ msgstr "Pliki CSS"
 
 msgid "Offline"
 msgstr ""
+
+#~ msgid "Presentation widgets"
+#~ msgstr "Widgety prezentacji"
 
 #~ msgid "default"
 #~ msgstr "domyślny"
