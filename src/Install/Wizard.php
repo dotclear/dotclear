@@ -9,6 +9,7 @@
 namespace Dotclear\Install;
 
 use dcNsProcess;
+use Dotclear\Fault;
 use Dotclear\Core\Process;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\AbstractSchema;
@@ -35,6 +36,9 @@ class Wizard extends dcNsProcess
 
     public static function init(): bool
     {
+        if (!defined('DC_RC_PATH')) {
+            new Fault('Not found', '', 404);
+        }
 
         // Loading locales for detected language
         $dlang = Http::getAcceptLanguage();
@@ -57,6 +61,10 @@ class Wizard extends dcNsProcess
 
     public static function process(): bool
     {
+        if (!defined('DC_RC_PATH')) {
+            new Fault('Not found', '', 404);
+        }
+
         self::$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
         self::$DBHOST        = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : '';
         self::$DBNAME        = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
@@ -86,8 +94,7 @@ class Wizard extends dcNsProcess
                 }
 
                 # Checks system capabilites
-                require __DIR__ . '/check.php';
-                if (!Utils::check($con, $_e)) {
+                if (!Utils::Check($con, $_e)) {
                     $can_install = false;
 
                     throw new Exception('<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>');
@@ -120,7 +127,7 @@ class Wizard extends dcNsProcess
                 self::writeConfigValue('DC_DBDRIVER', self::$DBDRIVER, $full_conf);
                 self::writeConfigValue('DC_DBHOST', self::$DBHOST, $full_conf);
                 self::writeConfigValue('DC_DBUSER', self::$DBUSER, $full_conf);
-                self::writeConfigValue('DC_DBPASSWORD', self::self::self::$DBPASSWORD, $full_conf);
+                self::writeConfigValue('DC_DBPASSWORD', self::$DBPASSWORD, $full_conf);
                 self::writeConfigValue('DC_DBNAME', self::$DBNAME, $full_conf);
                 self::writeConfigValue('DC_DBPREFIX', self::$DBPREFIX, $full_conf);
 
@@ -147,7 +154,7 @@ class Wizard extends dcNsProcess
                 $con->close();
                 Http::redirect('index.php?wiz=1');
             } catch (Exception $e) {
-                $err = $e->getMessage();
+                self::$err = $e->getMessage();
             }
         }
 
@@ -156,6 +163,10 @@ class Wizard extends dcNsProcess
 
     public static function render(): void
     {
+        if (!defined('DC_RC_PATH')) {
+            new Fault('Not found', '', 404);
+        }
+
         header('Content-Type: text/html; charset=UTF-8');
 
         // Prevents Clickjacking as far as possible
@@ -201,7 +212,7 @@ echo
 
 '<p>' . __('Please provide the following information needed to create your configuration file.') . '</p>' .
 
-'<form action="wizard.php" method="post">' .
+'<form action="index.php" method="post">' .
 '<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
 form::combo(
     'DBDRIVER',
