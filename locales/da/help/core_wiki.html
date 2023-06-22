@@ -1,21 +1,21 @@
 <html>
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Wiki syntaks reference</title>
 </head>
 
 <body>
 
-<h3>Wiki syntax reference</h3>
+<h4>Wiki syntaks reference</h4>
 
 <p>The wiki syntax is a way to enhance your text with a minimal set
 of tags, studied to cover the basic needs (titles, paragraphs, quotes,
 lists...)</p>
 
 <dl>
-<dt>Block elements</dt>
+<dt>Blokér elementer</dt>
 <dd>
 <ul>
-  <li>Leave an empty line between two similar blocks.</li>
+  <li>Efterlad en tom linje mellem to lignende blokke.</li>
   <li><strong>Paragraph</strong>: free text, ended by an empty line if
   another paragraph is to follow.</li>
   <li><strong>Title</strong>: <code>!!! title</code>, <code>!! title</code>
@@ -25,26 +25,33 @@ lists...)</p>
   <li><strong>Lists</strong>: Start each line with
   <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively.
   List imbrication is done by mixing list markers this way:
-<pre>
-* item 1
+  <pre>
+    <code>*</code> * item 1
 ** item 1.1
 * item 2
 *# item 2.1
 ...
-</pre>
+  </pre>
   </li>
-  <li><strong>Preformatted text</strong>: each line must start with a space.</li>
+  <li><strong>Definition lister:</strong> Start hver linje med <code>=</code> for udtrykket for at definere og med <code>:</code> for definitionen af udtrykket.
+  <pre>
+  <code>=</code> term
+  <code>:</code> beskrivelse af udtrykket
+  </pre>
+  </li>
   <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
+  <li><strong>Blokér citat:</strong> Hver linje skal starte med en <code>&gt;</code>.</li>
+  <li><strong>Side block:</strong> Hver linje skal starte med en <code>)</code>.</li>
 </ul>
 </dd>
 
-<dt>Formatting tags</dt>
+<dt>Formaterer tags</dt>
 <dd>
 <ul>
   <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
   <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
-  <li><strong>New line</strong>: <code>%%%</code></li>
-  <li><strong>Insertion</strong>: two plusses <code>++text++</code></li>
+  <li><strong>New line</strong>:</li>
+  <li><strong>Insertion</strong>: two plusses <code>++text++</code> <code>%%%</code></li>
   <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
   <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
@@ -60,10 +67,13 @@ lists...)</p>
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
   <li><strong>Code</strong>: <code>@@code@@</code></li>
   <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
+  <li><strong>Fodnoter:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+  <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
 </ul>
 </dd>
 
-<dt>Unformatted text</dt>
+<dt>Uformateret tekst</dt>
 <dd>If you don't want one formatting character to be interpreted as such, add a
 <code>\</code> just before it. This way:
 <code>\[text in brackets without being a link\]</code>
@@ -74,12 +84,11 @@ lists...)</p>
 powerful formatting, i.e. HTML syntax. Do it the following way:
 <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;min tekst med rød&lt;/p&gt;
 ///
 </pre>
 </dd>
 </dl>
-
 
 </body>
 </html>
