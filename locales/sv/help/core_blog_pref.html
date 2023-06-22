@@ -1,97 +1,158 @@
 <html>
 <head>
-  <title>Blog settings</title>
+  <title>Inställningar för blogg</title>
 </head>
 
 <body>
-
-<h3>Blog details</h3>
+<h4>Bloggdetaljer</h4>
 <dl>
-  <dt>Blog ID</dt>
-  <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-  
-  <dt>Blog name</dt>
+  <dt>Blogg ID</dt>
+  <dd>Unikt ID för bloggen. Obligatoriskt kan endast ändras av en superadministratör.</dd>
+
+  <dt>Bloggens namn</dt>
   <dd>Name of the blog, mandatory.</dd>
-  
-  <dt>Blog URL</dt>
+
+  <dt>Webbadress för blogg</dt>
   <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-  
+
   <dt>Blog status</dt>
+  <dd>Definierar hur webbadressen läser. PATH_INFO rekommenderas, QUERY_STRING måste användas om PATH_INFO inte fungerar. Använda PATH_INFO läge, blogg-URL måste avslutas med en "/" och använda QUERY_STRING, det måste sluta med en "?".</dd>
+
+  <dt>Blog description</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: blog open to visitors</li>
-      <li><strong>offline</strong>: blog closed to visitors
-      but open to writers.</li>
-      <li><strong>removed</strong>: blog closed to both visitors and writers.</li>
+      <li><strong>Online:</strong> Blogg öppen för besökare.</li>
+      <li><strong>Offline:</strong> Blogg stängd för besökare men öppen för författare.</li>
+      <li><strong>Borttagen:</strong> Blogg stängd för både besökare och författare, öppen endast för superadministratörer.</li>
     </ul>
   </dd>
-  
-  <dt>Blog description</dt>
-  <dd>Here you can put any description you want for your blog. This is a
-  simple text, without formatting.</dd>
+
+  <dt>Blogg beskrivning</dt>
+  <dd>Här kan du sätta någon beskrivning du vill ha för din blogg. Detta är en enkel text, utan någon formatering.</dd>
 </dl>
 
-<h3>Blog configuration</h3>
+<h4>Blogg konfiguration</h4>
 <dl>
-  <dt>Blog editor's name</dt>
+  <dt>Bloggredaktörens namn</dt>
   <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-  
+
   <dt>Copyright notice</dt>
   <dd>Note about the reproduction rights for the blog.</dd>
-  
+
   <dt>Default language</dt>
   <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-  
+
   <dt>Blog timezone</dt>
   <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-  
+
   <dt>Date formats</dt>
   <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Time format</dt>
   <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Display .. entries per page</dt>
   <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-  
-  <dt>Leave comments open during .. days</dt>
-  <dd>The number of days during wich comments and trackbacks will be open 
-  after the post publication. When empty, the comments will be kept open
-  indefinitly.</dd>
-  
-  <dt>Display smilies on entries and comments </dt>
-  <dd>Display sequences of characters as :-) or ;-) as images.</dd>
-  
-  <dt>Accept comments</dt>
-  <dd>Globally accepts comments on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Accept trackbacks</dt>
-  <dd>Globally accepts trackbacks on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Moderate comments and trackbacks</dt>
-  <dd>With such an option, comments and trackbacks will be published after
-  editor agreement.</dd>
-  
-  <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-  <dd>Adds an attribut on the links in comments and trackbacks, instructing the
-  search bots not to follow those links. This antispam features has yet to
-  prove its value.</dd>
-  
-  <dt>Wiki syntax for comments </dt>
-  <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
 </dl>
 
-<h3>Format reference</h3>
+<h4>Kommentarer och trackbacks</h4>
+<dl>
+  <dt>Acceptera kommentarer</dt>
+  <dd>Globalt accepterar kommentarer på bloggen. Tar företräde över per inlägg inställning.</dd>
+
+  <dt>Moderera kommentarer</dt>
+  <dd>Med detta alternativ kommer kommentarer att publiceras först efter redaktörens samtycke.</dd>
+
+  <dt>Lämna kommentarer öppna för X dagar</dt>
+  <dd>Antalet dagar under vilka kommentarer kommer att vara öppet efter publiceringen. När den är tom, kommer kommentarerna att hållas öppna på obestämd tid.</dd>
+
+  <dt>Wiki-syntax för kommentarer</dt>
+  <dd>Tillåter en delmängd av wiki-syntaxen att användas i kommentarer.</dd>
+
+  <dt>Godkänn trackbacks</dt>
+  <dd>Globalt accepterar trackbacks på bloggen. Tar företräde över per inlägg inställning.</dd>
+
+  <dt>Måttlig trackbacks</dt>
+  <dd>Med detta alternativ kommer trackbacks att publiceras först efter redaktörens samtycke.</dd>
+
+  <dt>Lämna trackbacks öppna i X dagar</dt>
+  <dd>Antalet dagar under vilka trackbacks kommer att vara öppet efter publiceringen. När den är tom, kommer trackbacks att hållas öppet på obestämd tid.</dd>
+
+  <dt>Lägg till "nofollow" relation på kommentarer och trackbacks länkar</dt>
+  <dd>Lägger till ett attribut på länkar i kommentarer och trackbacks, instruerar sökrobotarna att inte följa dem. Denna antispam-funktion har ännu inte visat sitt värde.</dd>
+</dl>
+
+<h4>Blogg presentation</h4>
+<dl>
+  <dt>Datumformat</dt>
+  <dd>Definierar datumformatet för blogginläggen. Se avsnittet "Format reference" nedan för mer information. Du kan använda rullgardinsmenyn för att snabbt välja ett redan existerande mönster.</dd>
+
+  <dt>Tidsformat</dt>
+  <dd>Definierar tidsformatet för blogginläggen. Se avsnittet "Format reference" nedan för mer information. Du kan använda rullgardinsmenyn för att snabbt välja ett redan existerande mönster.</dd>
+
+  <dt>Visa smilies på poster och kommentarer</dt>
+  <dd>Förvandlar några strängar som :-) eller ;-) till bilder.</dd>
+
+  <dt>Visa X-poster per sida</dt>
+  <dd>Kommer att visa X poster på bloggen huvudsidan samt i de olika kategorierna.</dd>
+
+  <dt>Visa X-poster per flöde</dt>
+  <dd>Visar X-poster i bloggflödena.</dd>
+
+  <dt>Visa X kommentarer per flöde</dt>
+  <dd>Kommer att visa X kommentarer i bloggen kommentarer flöden.</dd>
+
+  <dt>Trunkera flöden</dt>
+  <dd>Detta alternativ kommer bara att ge ett abstract från blogginlägg i flödena.</dd>
+
+  <dt>Inkludera underkategorier i kategori sida och kategori inlägg flöde</dt>
+  <dd>När det här alternativet är aktiverat kommer inlägg i underkategorier att visas i överordnade kategorier sidor samt i deras flöden.</dd>
+</dl>
+
+<h4>Media och bilder</h4>
+<dl>
+  <dt>Genererade bildstorlekar (i pixlar)</dt>
+  <dd>När du lägger till en bild i mediehanteraren, genereras andra storlekar automatiskt. Här kan du definiera dimensionen av den längsta storleken (bredd eller höjd) av varje typ av genererade bilder. Om du lämnar ett fält tomt, kommer mediehanteraren inte att skapa motsvarande miniatyr.</dd>
+
+  <dt>Standard bildinfogningsattribut</dt>
+  <dd>De valda inställningarna kommer att tillämpas på alla nya bilder som lagts till i mediehanteraren.</dd>
+
+  <dt>Infogad bildens titel</dt>
+  <dd>Välj formatet på de "title"-taggar som används på dina bilder, baserat på information hämtad från bilder metadata.</dd>
+
+  <dt>Använd det ursprungliga mediedatumet om möjligt</dt>
+  <dd>När det här alternativet är aktiverat, om bildmetadata innehåller ett datum, kommer det att användas. Om inte, kommer uppladdningsdatumet att användas.</dd>
+
+  <dt>Storlek på infogad bild</dt>
+  <dd>Definierar standardstorleken som används när en bild sätts i ett blogginlägg.</dd>
+
+  <dt>Bild justering</dt>
+  <dd>Definierar standardjustering som används när en bild sätts i ett blogginlägg.</dd>
+
+  <dt>Infoga en länk till den ursprungliga bilden</dt>
+  <dd>När det här alternativet är aktiverat, kommer bilderna inlagda i ett blogginlägg att vara klickbara och peka på den ursprungliga storleken bild.</dd>
+
+</dl>
+
+<h4>Sökmotorer robotar policy</h4>
 <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
+
+<h4>Stimulera</h4>
+<p>Du kan ställa in antalet dagar efter vilket du vill att skräpkommentarer ska tas bort automatiskt. Lämna fältet tomt (eller sätt 0) för att inaktivera den här funktionen.</p>
+
+<h4>Användare</h4>
+<p>Listar denna bloggs användare samt deras behörigheter.</p>
+
+<h3>Blog details</h3>
+<p>Vissa fält kan konfigureras för att formatera datum och tid för dina behov.
+Här är en referens:</p>
 
 <ul>
   <li><strong>%a</strong>: abreviated week day (local).</li>
@@ -141,7 +202,7 @@ Here is a reference:</p>
   <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
   <li><strong>%Y</strong>: the year, four digits</li>
   <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li><strong>%%</strong>: a litteral `%' character</li>
+  <li>: a litteral `%' character</li>
 </ul>
 
 </body>
