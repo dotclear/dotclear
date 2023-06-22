@@ -184,7 +184,7 @@ namespace Dotclear {
                 } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
                         Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
                 }
-                // stop App init here on fisrt step of install
+                // stop App init here on install wizard
                 return;
             }
 
