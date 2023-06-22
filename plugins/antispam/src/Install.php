@@ -19,8 +19,6 @@ use initAntispam;
 
 class Install extends dcNsProcess
 {
-    private static ?string $module = null;
-
     public static function init(): bool
     {
         return (static::$init = My::checkContext(My::INSTALL));
@@ -56,7 +54,7 @@ class Install extends dcNsProcess
         (new Structure(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
 
         // Creating default wordslist
-        if (dcCore::app()->getVersion(self::$module) === null) {
+        if (dcCore::app()->getVersion(My::id()) === null) {
             (new Filters\Words())->defaultWordsList();
         }
 
