@@ -3,78 +3,92 @@
   <title>Referência da sintaxe wiki</title>
 </head>
 
-<body>	
-<h3>Referência da sintaxe wiki</h3>
+<body>
 
-<p>A sintaxe wiki é uma forma de melhorar o seu texto com um conjunto mínimo de comandos (os "tags"),<br />estudado para cobrir as necessidades básicas como: títulos, parágrafos, citações,
-listas etc.</ p>
+<h4>Referência de sintaxe Wiki</h4>
 
-<dl>	
-<h5><dt>Elementos em Bloco</dt></h5>
+<p>A sintaxe Wiki é uma maneira de melhorar seu texto com um conjunto mínimo
+de tags estudadas para cobrir as necessidades básicas (títulos, parágrafos, aspas,
+listas. .).</p>
+
+<dl>
+<dt>Elementos de bloco</dt>
 <dd>
 <ul>
-         <li> Deixar uma linha em branco entre cada bloco do mesmo tipo.</li>
-         <li> <strong>Parágrafo</strong>: texto livre, termine por uma linha em branco se for seguido por um segundo parágrafo.</li>
-         <li> <strong>Título</strong>: <code>!!! título</code>, <code>!! título</code> ou <code>! título</code>, o que permite usar três níveis (tamanho) para os títulos.</li>
-         <li> <strong>Linha horizontal</strong>: <code>----</code></li>
-         <li> <strong>Lista</strong>: Comece cada linha com <code>*</code> ou <code>#</code> para listas não numeradas ou numeradas respectivamente. <br />
-         Imbricação de listas é feito através da mistura de marcadores, desta maneira:
-<pre>
-* item 1
-** item 1.1
-* item 2
-*# item 2.1
-etc.
-</pre>       
-</li>
-		  <li><strong>Texto pré formatado</strong>: cada linha deve começar com um espaço.</li>
-		  <li><strong>Bloco de citação</strong>: cada linha deve começar com (<code>&gt;</code>).</li>
+  <li>Deixe uma linha vazia entre dois blocos similares.</li>
+  <li><strong>Parágrafo:</strong> Texto gratuito, terminado por uma linha vazia se
+  outro parágrafo for seguido.</li>
+  <li><strong>Título:</strong> <code>!!! título</code>, <code>!! título</code>
+  ou <code>! Título</code>, permitindo que você use três níveis diferentes de cabeçalho
+.</li>
+  <li><strong>Linha horizontal:</strong> <code>----</code></li>
+  <li><strong>Lista:</strong> Comece cada linha com
+  <code>*</code> ou <code>#</code> para listas numeradas ou numeradas, respectivamente.
+  A imagem da lista é feita misturando os marcadores desta forma:
+  <pre>
+    <code>*</code> item 1
+    <code>**</code> item 1.1
+    <code>*</code> item 2
+    <code>*#</code> item 2.1
+...
+  </pre>
+  </li>
+  <li><strong>Listas de definição:</strong> Comece cada linha com <code>=</code> para o termo a definir e com <code>:</code> para a definição do termo.
+  <pre>
+  <code>=</code> termo
+  <code>:</code> descrição do termo
+  </pre>
+  </li>
+  <li><strong>Texto pré-formatado:</strong> Cada linha precisa começar com um espaço.</li>
+  <li><strong>Taxa de bloco:</strong> Cada linha deve começar com um <code>&gt;</code>.</li>
+  <li><strong>Bloco lateral:</strong> Cada linha deve começar com um <code>)</code>.</li>
 </ul>
 </dd>
 
-<h5><dt>Código de formatação</dt></h5>
+<dt>Tags de formatação</dt>
 <dd>
 <ul>
-  <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
-  <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
-  <li><strong>New line</strong>: <code>%%%</code></li>
-  <li><strong>Insertion</strong>: two plusses <code>++text++</code></li>
-  <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
-  <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
-    <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-  <li><strong>Image</strong>:
-    <code>((url|alternative text))</code>,
-    <code>((url|alternative text|position))</code> or
-    <code>((url|alternative text|position|long description))</code>.
-    <br />The position can be either L or G (left), R or D (right) or C (centered).</li>
-  <li><strong>Anchor</strong>: <code>~anchor~</code></li>
-  <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
-  <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
-  <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-  <li><strong>Code</strong>: <code>@@code@@</code></li>
-  <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
+  <li><strong>Emphasis:</strong> Duas citações <code>''texto''</code></li>
+  <li><strong>Forte ênfase:</strong> Dois sublinhados <code>__text__</code></li>
+  <li><strong>Realçado:</strong> Duas aspas duplas <code>""texto""</code></li>
+  <li><strong>Nova linha:</strong> <code>%%%</code></li>
+  <li><strong>Inserção:</strong> Dois mais <code>+text++</code></li>
+  <li><strong>Deleção:</strong> Dois minutos <code>--text--</code></li>
+  <li><strong>Link:</strong> <code>[url]</code>, <code>[name³url]</code>,
+    <code>[name├url£language]</code> ou <code>[name├url³language]</code></li>
+  <li><strong>Imagem:</strong>
+    <code>((url texto alternativo))</code>,
+    <code>((url├texto alternativo))</code> ou
+    <code>((url➲ alternativa de posicionamento/longa))</code>.
+    <br />A posição pode ser L (esquerda), R (direita) ou C (centrado).</li>
+  <li><strong>Âncora:</strong> <code>~anchor~</code></li>
+  <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
+  <li><strong>HTML embutido:</strong> Duas aspas anteriores <code>``HTML code``</code></li>
+  <li><strong>Citação embutida:</strong> <code>{{quote}}</code>,
+    <code>{{quote|language}}</code> ou <code>{{quote|language|url}}</code></li>
+  <li><strong>Código:</strong> <code>@@code@@</code></li>
+  <li><strong>Notas de rodapés:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Sobrescrito</strong>&nbsp;: <code>^superscript^</code></li>
+  <li><strong>Subscript</strong>&nbsp;: <code>,,,subscript,,</code></li>
 </ul>
 </dd>
 
-<h5><dt>Texto Não formatado</dt></h5>
-
-Para impedir que um código de formatação seja interpretado como tal, adicionar um <code>\</code> logo antes dele.
-<br />desta maneira: <code>\[este texto não é um link\]</code>
+<dt>Texto não formatado</dt>
+<dd>Se você não quer que um caractere de formatação seja interpretado como tal, adicione um
+<code>\</code> pouco antes dele. Por exemplo:
+<code>\[Texto entre colchetes sem ser um link\]</code>
 </dd>
 
-<br /><h5><dt>Código HTML</dt></h5>
-
-<dd>Mesmo que você escolheu a sintaxe wiki, por vezes, pode necessitar de commando de formatação mais poderosa, ou seja, a sintaxe HTML. Fá-lo da seguinte maneira:
-
+<dt>Código HTML</dt>
+<dd>Mesmo se você escolheu a sintaxe Wiki, algumas vezes você pode precisar de uma formatação mais
+poderosa, ou seja, sintaxe HTML. Faça-o da seguinte maneira:
 <pre>
 ///html
-&lt;p style="color:red"&gt;o meu texto em vermelho&lt;/p&gt;
+&lt;p style="color:red"&gt;meu texto em vermelho&lt;/p&gt;
 ///
 </pre>
 </dd>
 </dl>
-
 
 </body>
 </html>
