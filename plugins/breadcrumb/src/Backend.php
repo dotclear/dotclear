@@ -19,7 +19,7 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
-        // dead but useful code, in order to have translations
+        // Dead but useful code (for l10n)
         __('Breadcrumb') . __('Breadcrumb for Dotclear');
 
         return (static::$init = My::checkContext(My::BACKEND));

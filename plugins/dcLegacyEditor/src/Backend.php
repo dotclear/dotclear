@@ -21,6 +21,9 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
+        // Dead but useful code (for l10n)
+        __('dcLegacyEditor') . __('dotclear legacy editor');
+
         return (static::$init = My::checkContext(My::BACKEND));
     }
 

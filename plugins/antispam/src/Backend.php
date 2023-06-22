@@ -23,6 +23,9 @@ class Backend extends dcNsProcess
     {
         static::$init = My::checkContext(My::BACKEND);
 
+        // Dead but useful code (for l10n)
+        __('Antispam') . __('Generic antispam plugin for Dotclear');
+
         if (!defined('DC_ANTISPAM_CONF_SUPER')) {
             define('DC_ANTISPAM_CONF_SUPER', false);
         }
