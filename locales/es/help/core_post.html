@@ -4,8 +4,7 @@
 </head>
 
 <body>
-
-<h3>Redacción de la entrada</h3>
+<h4>Editar una entrada</h4>
 
 <dl>
   <dt>Título de la entrada</dt>
@@ -26,44 +25,42 @@
   Nunca se muestra en el blog.</dd>
   
   <dt>Categoría</dt>
-  <dd>La categoría de su entrada. Para crear una nueva categoría,
-  visite la sección «categorías». Puede no asignar su entrada a ninguna
-  categoría dejando la línea en blanco.</dd>
-  
-  <dt>Estado de la entrada</dt>
-  <dd>Permite elegir el estado de la entrada tras la grabación:
+  <dd>Le permite elegir el estado de su entrada:
     <ul>
-    <li><strong>en espera</strong>: pendiente de publicación.</li>
-    <li><strong>planificado</strong>: la entrada se publicará en la fecha y hora indicadas
-    en el campo <em>Publicado el</em>.</li>
-    <li><strong>no publicado</strong>: entrada no publicada.</li>
-    <li><strong>publicado</strong>: entrada publicada.</li>
+      <li><strong>Pendiente:</strong> El estado de publicación aún no se ha decidido.</li>
+      <li><strong>Programado:</strong> El puesto se pondrá en línea en la fecha y hora establecidas en el campo <strong>Publicado en</strong> .</li>
+      <li><strong>No publicado:</strong> El puesto está desconectado.</li>
+      <li><strong>Publicado:</strong> El puesto está en línea.</li>
     </ul>
   </dd>
   
+  <dt>Estado de la entrada</dt>
+  <dd>Aquí puede cambiar la fecha y hora de publicación de la entrada. Si el estado de la entrada en
+  es <strong>Scheduled</strong>, estará en línea en la fecha y hora indicadas.</dd>
+
   <dt>Publicado el</dt>
   <dd>Permite modificar la fecha y hora de publicación de la entrada.
   Si ha elegido el estado <em>planificado</em> se publicará en la fecha y hora
   definidos en este campo.</dd>
-  
+
   <dt>Formato del texto</dt>
   <dd>Permite elegir la sintaxis de la entrada. La de wiki es una sintaxis
   simplificada y se convertirá en HTML válido; salvo que domine perfectamente
   el HTML se aconseja esta elección. Consulte la referencia de la sintaxis wiki
   para más información.</dd>
-  
+
   <dt>Aceptar comentarios</dt>
   <dd>Marque o desmarque la casilla según desee permitir o prohibir los
   comentarios sobre esta entrada en concreto. La opción para autorizar
   o no de forma general los comentarios se encuentra en el menú
   Preferencias del blog.</dd>
-  
+
   <dt>Aceptar retroenlaces</dt>
   <dd>Un retroenlace permite apuntar a una entrada en los comentarios de otro blog.
   Marque o desmarque esta casilla según desee permitir o prohibir los retroenlaces
   a esta entrada. La opción para autorizar o no de forma general los retroenlaces
   se encuentra en el menú Preferencias del blog.</dd>
-  
+
   <dt>Entrada seleccionada</dt>
   <dd>Las entradas marcadas como seleccionadas aparecerán en el menú de su blog,
   bajo el título «Destacados».</dd>
@@ -73,25 +70,34 @@
   Una entrada protegida por contraseña no será visible en ninguna parte del blog,
   sólo podrán llegar hasta ella aquéllos a los que les dé el URL de entrada
   (vea el enlace <em>ver la entrada</em>) y la contraseña.</dd>
-  
+
   <dt>Nombre base</dt>
   <dd>Este campo permite elegir un URL para una entrada diferente al predeterminado
   tras haber pulsado sobre el pequeño candado situado a su dercha. Si intenta
   utilizar un URL ya existente, éste se verá incrementado con una cifra.</dd>
-  
+
   <dt>Idioma de la entrada</dt>
   <dd>Código de idioma de su entrada. Por omisión, se trata del código de su idioma.
   Puede cambirlo por el código de otro idioma, por ejemplo «en», «ca». Este código
   es libre, se usará al mostrar las entradas.</dd>
-  
+
   <dt>Adjuntos</dt>
   <dd>Los adjuntos son los elementos multimedia anexos a la entrada.
   El enlace de agregar un adjunto permite elegir un fichero a añadir
   a la entrada. Recuerde guardar su entrada antes de pulsar este enlace.
   Consulte la ayuda del gestor de elementos multimedia para más detalles.</dd>
+  
+  <dt>Contraseña</dt>
+  <dd>Puedes introducir una contraseña para tu entrada. Una entrada protegida por contraseña
+  no se mostrará en tu blog, sólo será accesible para aquellos a los que
+  des la URL de la entrada (ver el enlace <strong>ver entrada</strong> ) y la contraseña.</dd>
+
+  <dt>Nombre base</dt>
+  <dd>Puede desproteger este campo haciendo clic en el pequeño candado a su derecha y elegir otra URL para su entrada. Si la URL que intenta utilizar ya está siendo utilizada por otra entrada, se le añadirá un número.</dd>  
+  
 </dl>
 
-<h3>Comentarios</h3>
+<h4>Comentarios</h4>
 <dl>
   <dt>Lista de comentarios</dt>
   <dd>En la solapa <em>Comentarios</em> puede leer y cambiar el estado
@@ -104,27 +110,25 @@
   también escribir su comentario en HTML, sin limitaciones. Debe rellenar
   los campos de la misma manera que al modificar un comentario.</dd>
 </dl>
-
-<h3>Retroenlaces</h3>
-<p>Para crear un retroenlace pulse en enlace <em>Crear retroenlaces</em>.
-Si no ve este enlace, compruebe que su entrada esté en estado <em>publicado</em>.</p>
-
+  
+<h4>Añadir un comentario</h4>
 <dl>
   <dt>URL a las que hacer ping</dt>
   <dd>Indique aquíe el o los URL de los retroenlaces que haya encontrado en las
   entradas a las que desee hacer ping.</dd>
-  
-  
+
   <dt>Enviar el extracto</dt>
   <dd>Por omisión, este campo son las primeras frases de su estrada. Esto es lo que
   se enviará al blog al que haga el retroenlace con un enlace a su entrada completa.
   Puede modificar el contenido del extracto editando este campo.</dd>
-  
-  
+
   <dt>Descubrimiento automático de URL a las que hacer ping</dt>
   <dd>Si su entrada incluye enlaces a entradas concretas y si la plataforma del
   blog destinatario está configurada para permitirlo, esta función descubrirá
   automáticamente los URL específicos de envío de retroenlaces.</dd>
+
+  <dt>Comentario</dt>
+  <dd>Contenido del comentario. Este campo utiliza sintaxis HTML.</dd>
 </dl>
 
 </body>
