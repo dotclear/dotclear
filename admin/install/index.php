@@ -23,4 +23,4 @@ Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__
 App::init();
 
 // 4. Process installation
-App::process(is_file(DC_RC_PATH) ? Install::class : Wizard::class);
+App::process(defined('DC_RC_PATH') && is_file(DC_RC_PATH) ? Install::class : Wizard::class);
