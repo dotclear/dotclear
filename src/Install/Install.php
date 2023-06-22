@@ -23,73 +23,85 @@ use form;
 
 class Install extends dcNsProcess
 {
+    private static $can_install = true;
+    private static $err         = '';
+    private static $step        = 0;
+    private static $dlang       = 'en';
+    private static $root_url    = '';
+    private static $admin_url   = '';
+    private static $mail_sent   = false;
+    private static $plugins_install = [
+        'success' => [],
+        'failure' => []
+    ];
+
+    private static $u_email     = '';
+    private static $u_firstname = '';
+    private static $u_name      = '';
+    private static $u_login     = '';
+    private static $u_pwd       = '';
+
     public static function init(): bool
     {
-        $can_install = true;
-        $err         = '';
-
         # Loading locales for detected language
-        $dlang = Http::getAcceptLanguage();
-        if ($dlang != 'en') {
-            L10n::init($dlang);
-            L10n::set(DC_L10N_ROOT . '/' . $dlang . '/date');
-            L10n::set(DC_L10N_ROOT . '/' . $dlang . '/main');
-            L10n::set(DC_L10N_ROOT . '/' . $dlang . '/plugins');
+        self::$dlang = Http::getAcceptLanguage();
+        if (self::$dlang != 'en') {
+            L10n::init(self::$dlang);
+            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/date');
+            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/main');
+            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/plugins');
         }
 
         if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {
-            $can_install = false;
-            $err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
+            self::$can_install = false;
+            self::$err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
         }
 
         # Check if dotclear is already installed
         $schema = AbstractSchema::init(dcCore::app()->con);
         if (in_array(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, $schema->getTables())) {
-            $can_install = false;
-            $err         = '<p>' . __('Dotclear is already installed.') . '</p>';
+            self::$can_install = false;
+            self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
         }
 
         # Check system capabilites
         if (!Utils::check(dcCore::app()->con, $_e)) {
-            $can_install = false;
-            $err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
+            self::$can_install = false;
+            self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
 
-        # Get information and perform install
-        $u_email = $u_firstname = $u_name = $u_login = $u_pwd = '';
+        return true;
+    }
 
-        $root_url  = '';
-        $admin_url = '';
-
-        $mail_sent = false;
-
-        if ($can_install && !empty($_POST)) {
-            $u_email     = !empty($_POST['u_email']) ? $_POST['u_email'] : null;
-            $u_firstname = !empty($_POST['u_firstname']) ? $_POST['u_firstname'] : null;
-            $u_name      = !empty($_POST['u_name']) ? $_POST['u_name'] : null;
-            $u_login     = !empty($_POST['u_login']) ? $_POST['u_login'] : null;
-            $u_pwd       = !empty($_POST['u_pwd']) ? $_POST['u_pwd'] : null;
-            $u_pwd2      = !empty($_POST['u_pwd2']) ? $_POST['u_pwd2'] : null;
+    public static function process(): bool
+    {
+        if (self::$can_install && !empty($_POST)) {
+            self::$u_email     = !empty($_POST['u_email']) ? $_POST['u_email'] : null;
+            self::$u_firstname = !empty($_POST['u_firstname']) ? $_POST['u_firstname'] : null;
+            self::$u_name      = !empty($_POST['u_name']) ? $_POST['u_name'] : null;
+            self::$u_login     = !empty($_POST['u_login']) ? $_POST['u_login'] : null;
+            self::$u_pwd       = !empty($_POST['u_pwd']) ? $_POST['u_pwd'] : null;
+            self::$u_pwd2      = !empty($_POST['u_pwd2']) ? $_POST['u_pwd2'] : null;
 
             try {
                 # Check user information
-                if (empty($u_login)) {
+                if (empty(self::$u_login)) {
                     throw new Exception(__('No user ID given'));
                 }
-                if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', $u_login)) {
+                if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', self::$u_login)) {
                     throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
                 }
-                if ($u_email && !Text::isEmail($u_email)) {
+                if (self::$u_email && !Text::isEmail(self::$u_email)) {
                     throw new Exception(__('Invalid email address'));
                 }
 
-                if (empty($u_pwd)) {
+                if (empty(self::$u_pwd)) {
                     throw new Exception(__('No password given'));
                 }
-                if ($u_pwd != $u_pwd2) {
+                if (self::$u_pwd != self::$u_pwd2) {
                     throw new Exception(__("Passwords don't match"));
                 }
-                if (strlen($u_pwd) < 6) {
+                if (strlen(self::$u_pwd) < 6) {
                     throw new Exception(__('Password must contain at least 6 characters.'));
                 }
 
@@ -119,28 +131,28 @@ class Install extends dcNsProcess
 
                 # Create user
                 $cur                 = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
-                $cur->user_id        = $u_login;
+                $cur->user_id        = self::$u_login;
                 $cur->user_super     = 1;
-                $cur->user_pwd       = dcCore::app()->auth->crypt($u_pwd);
-                $cur->user_name      = (string) $u_name;
-                $cur->user_firstname = (string) $u_firstname;
-                $cur->user_email     = (string) $u_email;
-                $cur->user_lang      = $dlang;
+                $cur->user_pwd       = dcCore::app()->auth->crypt(self::$u_pwd);
+                $cur->user_name      = (string) self::$u_name;
+                $cur->user_firstname = (string) self::$u_firstname;
+                $cur->user_email     = (string) self::$u_email;
+                $cur->user_lang      = self::$dlang;
                 $cur->user_tz        = $default_tz;
                 $cur->user_creadt    = date('Y-m-d H:i:s');
                 $cur->user_upddt     = date('Y-m-d H:i:s');
                 $cur->user_options   = serialize(dcCore::app()->userDefaults());
                 $cur->insert();
 
-                dcCore::app()->auth->checkUser($u_login);
+                dcCore::app()->auth->checkUser(self::$u_login);
 
-                $admin_url = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
-                $root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
+                self::$admin_url = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
+                self::$root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
 
                 # Create blog
                 $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
                 $cur->blog_id   = 'default';
-                $cur->blog_url  = Http::getHost() . $root_url . '/index.php?';
+                $cur->blog_url  = Http::getHost() . self::$root_url . '/index.php?';
                 $cur->blog_name = __('My first blog');
                 dcCore::app()->addBlog($cur);
 
@@ -149,9 +161,9 @@ class Install extends dcNsProcess
 
                 $blog_settings = new dcSettings('default');
                 $blog_settings->system->put('blog_timezone', $default_tz);
-                $blog_settings->system->put('lang', $dlang);
-                $blog_settings->system->put('public_url', $root_url . '/public');
-                $blog_settings->system->put('themes_url', $root_url . '/themes');
+                $blog_settings->system->put('lang', self::$dlang);
+                $blog_settings->system->put('public_url', self::$root_url . '/public');
+                $blog_settings->system->put('themes_url', self::$root_url . '/themes');
 
                 # date and time formats
                 $formatDate   = __('%A, %B %e %Y');
@@ -227,9 +239,9 @@ class Install extends dcNsProcess
                 dcCore::app()->setBlog('default');
 
                 $cur               = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
-                $cur->user_id      = $u_login;
+                $cur->user_id      = self::$u_login;
                 $cur->post_format  = 'xhtml';
-                $cur->post_lang    = $dlang;
+                $cur->post_lang    = self::$dlang;
                 $cur->post_title   = __('Welcome to Dotclear!');
                 $cur->post_content = '<p>' . __('This is your first entry. When you\'re ready ' .
                     'to blog, log in to edit or delete it.') . '</p>';
@@ -253,7 +265,7 @@ class Install extends dcNsProcess
                 #  Plugins initialization
                 define('DC_CONTEXT_ADMIN', true);
                 dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
-                $plugins_install = dcCore::app()->plugins->installModules();
+                self::$plugins_install = dcCore::app()->plugins->installModules();
 
                 # Add dashboard module options
                 dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
@@ -272,15 +284,17 @@ class Install extends dcNsProcess
                 $init_favs          = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
                 dcCore::app()->favs->setFavoriteIDs($init_favs, true);
 
-                $step = 1;
+                self::$step = 1;
             } catch (Exception $e) {
-                $err = $e->getMessage();
+                self::$err = $e->getMessage();
             }
         }
 
-        if (!isset($step)) {
-            $step = 0;
-        }
+        return true;
+    }
+
+    public static function render(): void
+    {
         header('Content-Type: text/html; charset=UTF-8');
 
         // Prevents Clickjacking as far as possible
@@ -325,15 +339,15 @@ class Install extends dcNsProcess
             echo '<div class="error" role="alert"><p>' . sprintf(__('Cache directory %s is not writable.'), DC_TPL_CACHE) . '</p></div>';
         }
 
-        if ($can_install && !empty($err)) {
-            echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . $err . '</div>';
+        if (self::$can_install && !empty(self::$err)) {
+            echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
         }
 
         if (!empty($_GET['wiz'])) {
             echo '<p class="success" role="alert">' . __('Configuration file has been successfully created.') . '</p>';
         }
 
-        if ($can_install && $step == 0) {
+        if (self::$can_install && self::$step == 0) {
             echo
             '<h2>' . __('User information') . '</h2>' .
 
@@ -343,20 +357,20 @@ class Install extends dcNsProcess
             '<fieldset><legend>' . __('User information') . '</legend>' .
             '<p><label for="u_firstname">' . __('First Name:') . '</label> ' .
             form::field('u_firstname', 30, 255, [
-                'default'      => Html::escapeHTML($u_firstname),
+                'default'      => Html::escapeHTML(self::$u_firstname),
                 'autocomplete' => 'given-name',
             ]) .
             '</p>' .
             '<p><label for="u_name">' . __('Last Name:') . '</label> ' .
             form::field('u_name', 30, 255, [
-                'default'      => Html::escapeHTML($u_name),
+                'default'      => Html::escapeHTML(self::$u_name),
                 'autocomplete' => 'family-name',
             ]) .
             '</p>' .
             '<p><label for="u_email">' . __('Email:') . '</label> ' .
             form::email('u_email', [
                 'size'         => 30,
-                'default'      => Html::escapeHTML($u_email),
+                'default'      => Html::escapeHTML(self::$u_email),
                 'autocomplete' => 'email',
             ]) .
             '</p>' .
@@ -365,7 +379,7 @@ class Install extends dcNsProcess
             '<fieldset><legend>' . __('Username and password') . '</legend>' .
             '<p><label for="u_login" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Username:') . ' ' .
             form::field('u_login', 30, 32, [
-                'default'      => Html::escapeHTML($u_login),
+                'default'      => Html::escapeHTML(self::$u_login),
                 'extra_html'   => 'required placeholder="' . __('Username') . '"',
                 'autocomplete' => 'username',
             ]) .
@@ -388,19 +402,19 @@ class Install extends dcNsProcess
 
             '<p><input type="submit" value="' . __('Save') . '" /></p>' .
                 '</form>';
-        } elseif ($can_install && $step == 1) {
+        } elseif (self::$can_install && self::$step == 1) {
             # Plugins install messages
             $plugins_install_result = '';
-            if (!empty($plugins_install['success'])) {
+            if (!empty(self::$plugins_install['success'])) {
                 $plugins_install_result .= '<div class="static-msg">' . __('Following plugins have been installed:') . '<ul>';
-                foreach ($plugins_install['success'] as $k => $v) {
+                foreach (self::$plugins_install['success'] as $k => $v) {
                     $plugins_install_result .= '<li>' . $k . '</li>';
                 }
                 $plugins_install_result .= '</ul></div>';
             }
-            if (!empty($plugins_install['failure'])) {
+            if (!empty(self::$plugins_install['failure'])) {
                 $plugins_install_result .= '<div class="error">' . __('Following plugins have not been installed:') . '<ul>';
-                foreach ($plugins_install['failure'] as $k => $v) {
+                foreach (self::$plugins_install['failure'] as $k => $v) {
                     $plugins_install_result .= '<li>' . $k . ' (' . $v . ')</li>';
                 }
                 $plugins_install_result .= '</ul></div>';
@@ -415,26 +429,26 @@ class Install extends dcNsProcess
 
             '<h3>' . __('Your account') . '</h3>' .
             '<ul>' .
-            '<li>' . __('Username:') . ' <strong>' . Html::escapeHTML($u_login) . '</strong></li>' .
-            '<li>' . __('Password:') . ' <strong id="password">' . Html::escapeHTML($u_pwd) . '</strong></li>' .
+            '<li>' . __('Username:') . ' <strong>' . Html::escapeHTML(self::$u_login) . '</strong></li>' .
+            '<li>' . __('Password:') . ' <strong id="password">' . Html::escapeHTML(self::$u_pwd) . '</strong></li>' .
             '</ul>' .
 
             '<h3>' . __('Your blog') . '</h3>' .
             '<ul>' .
-            '<li>' . __('Blog address:') . ' <strong>' . Html::escapeHTML(Http::getHost() . $root_url) . '/index.php?</strong></li>' .
-            '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(Http::getHost() . $admin_url) . '</strong></li>' .
+            '<li>' . __('Blog address:') . ' <strong>' . Html::escapeHTML(Http::getHost() . self::$root_url) . '/index.php?</strong></li>' .
+            '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(Http::getHost() . self::$admin_url) . '</strong></li>' .
             '</ul>' .
 
             '<form action="../index.php" method="post">' .
             '<p><input type="submit" value="' . __('Manage your blog now') . '" />' .
-            form::hidden(['user_id'], Html::escapeHTML($u_login)) .
-            form::hidden(['user_pwd'], Html::escapeHTML($u_pwd)) .
+            form::hidden(['user_id'], Html::escapeHTML(self::$u_login)) .
+            form::hidden(['user_pwd'], Html::escapeHTML(self::$u_pwd)) .
             form::hidden(['process'], 'Auth') .
                 '</p>' .
                 '</form>';
-        } elseif (!$can_install) {
+        } elseif (!self::$can_install) {
             echo '<h2>' . __('Installation can not be completed') . '</h2>' .
-            '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . $err . '</div>' .
+            '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>' .
             '<p>' . __('For the said reasons, Dotclear can not be installed. ' .
                 'Please refer to <a href="https://dotclear.org/documentation/2.0/admin/install">' .
                 'the documentation</a> to learn how to correct the problem.') . '</p>';
