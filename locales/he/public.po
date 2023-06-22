@@ -1,0 +1,338 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%d attachments"
+msgstr ""
+
+msgid "%d comments"
+msgstr ""
+
+msgid "%d trackbacks"
+msgstr ""
+
+msgid "%s reactions"
+msgstr ""
+
+msgid "Access to content"
+msgstr ""
+
+msgid "Add a comment"
+msgstr ""
+
+msgid "Add ping"
+msgstr ""
+
+msgid "Additionnal style directives"
+msgstr ""
+
+msgid "All keywords"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "Best of me"
+msgstr ""
+
+msgid "Blog info"
+msgstr ""
+
+msgid "Blog menu"
+msgstr ""
+
+msgid "By"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr ""
+
+msgid "Continue reading"
+msgstr ""
+
+msgid "Document not found"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Email address is not valid"
+msgstr ""
+
+msgid "Entries feed"
+msgstr ""
+
+msgid "Explore archives"
+msgstr ""
+
+msgid "Extra menu"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Links"
+msgstr ""
+
+msgid "Name or nickname"
+msgstr ""
+
+msgid "Next entry:"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "Pagination"
+msgstr ""
+
+msgid "Password needed"
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+msgid "Permalink"
+msgstr ""
+
+msgid "Powered by %s"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Previous entry:"
+msgstr ""
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Remember me on this blog"
+msgstr ""
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr ""
+
+msgid "Subcategories"
+msgstr ""
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Subscribe to"
+msgstr ""
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr ""
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr ""
+
+msgid "This blog's comments Atom feed"
+msgstr ""
+
+msgid "This category's comments Atom feed"
+msgstr ""
+
+msgid "This category's entries Atom feed"
+msgstr ""
+
+msgid "This post's comments Atom feed"
+msgstr ""
+
+msgid "This post's comments feed"
+msgstr ""
+
+msgid "To content"
+msgstr ""
+
+msgid "To menu"
+msgstr ""
+
+msgid "To search"
+msgstr ""
+
+msgid "Trackback URL"
+msgstr ""
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+msgid "Use search form"
+msgstr ""
+
+msgid "Website"
+msgstr ""
+
+msgid "What is an RSS feed?"
+msgstr ""
+
+msgid "You must give a password to access this area."
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide a valid email address."
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "Your comment"
+msgstr ""
+
+msgid "Your comment has been published."
+msgstr ""
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+msgid "by"
+msgstr ""
+
+msgid "here"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "next entries"
+msgstr ""
+
+msgid "no attachments"
+msgstr ""
+
+msgid "no comments"
+msgstr ""
+
+msgid "no reactions"
+msgstr ""
+
+msgid "no trackbacks"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "one attachment"
+msgstr ""
+
+msgid "one comment"
+msgstr ""
+
+msgid "one reaction"
+msgstr ""
+
+msgid "one trackback"
+msgstr ""
+
+msgid "optional"
+msgstr ""
+
+msgid "page"
+msgstr ""
+
+msgid "preview"
+msgstr ""
+
+msgid "previous entries"
+msgstr ""
+
+msgid "reactions"
+msgstr ""
+
+msgid "send"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
