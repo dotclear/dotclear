@@ -1,22 +1,21 @@
-# Romanian translation for dotclear
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the dotclear package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dotclear\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
-"PO-Revision-Date: 2016-07-18 15:51+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: Romanian <ro@li.org>\n"
-"Language: ro\n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"PO-Revision-Date: 2023-06-22 16:34\n"
+"Last-Translator: \n"
+"Language-Team: Romanian\n"
+"Language: ro_RO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-27 15:39+0000\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100>0 && n%100<20)) ? 1 : 2);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: ro\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
 msgstr "%d atașamente"
@@ -28,20 +27,21 @@ msgid "%d trackbacks"
 msgstr "%d trackback-uri"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s reacții"
 
-#, fuzzy
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr "Mergi la conținut"
+msgstr "Accesul la conținut"
 
 msgid "Add a comment"
 msgstr "Adaugă un comentariu"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "Adaugă ping-ul"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Alte directive de tip adiţional"
 
 msgid "All keywords"
 msgstr "Toate cuvintele-cheie"
@@ -55,24 +55,29 @@ msgstr "Atașamente"
 msgid "Best of me"
 msgstr "Cel mai bun din mine"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "Informații blog"
 
-#, fuzzy
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr "Mergi la meniu"
+msgstr "Meniu blog"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "De"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "După categorie"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "După dată"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "După etichetă"
 
 msgid "Categories"
 msgstr "Categorii"
@@ -84,17 +89,20 @@ msgid "Comments"
 msgstr "Comentarii"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Comentariile pot fi formatate folosind o sintaxă wiki simplă."
 
 msgid "Comments feed"
 msgstr "Abonament de comentarii"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Citește în continuare"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "Documentul nu a fost găsit"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "Adresă de contact"
 
@@ -104,21 +112,25 @@ msgstr "Adresa de contact nu este valabilă"
 msgid "Entries feed"
 msgstr "Abonament de postări"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "Explorează arhive"
 
-#, fuzzy
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr "Mergi la meniu"
+msgstr "Extra menu"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
-msgstr ""
+msgstr "De la"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
-msgstr ""
+msgstr "Zile"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
-msgstr ""
+msgstr "Du-te la pagina principală"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "Codul html este afișat ca text iar adresele web sunt procesate automat."
@@ -127,7 +139,7 @@ msgid "Home"
 msgstr "Pagină de pornire"
 
 msgid "In"
-msgstr ""
+msgstr "În"
 
 msgid "Languages"
 msgstr "Limbi"
@@ -135,63 +147,70 @@ msgstr "Limbi"
 msgid "Links"
 msgstr "Legături"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "Nume sau poreclă"
 
-#, fuzzy
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
-msgstr "următoarele postări"
+msgstr "Următoarea intrare:"
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "Activat"
 
 msgid "Page top"
-msgstr ""
+msgstr "Pagina de sus"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
-msgstr ""
+msgstr "Paginare"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Parola este necesară"
 
 msgid "Password:"
 msgstr "Parolă:"
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "Permalink"
 
 msgid "Powered by %s"
 msgstr "Creat de %s"
 
-#, fuzzy
 msgid "Preview"
-msgstr "previzualizare"
+msgstr "Previzualizare"
 
-#, fuzzy
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
-msgstr "postări anterioare"
+msgstr "Intrare anterioară:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Abonamentul RSS este un sumar de blog gratuit. Oferă conținut (fie postări sau comentarii) sau un sumar de conținut, împreună cu legături web către versiunea completă a conținutului respectiv, și alte metadate. Ultimele conținuturi publicate pot fi citite de către <a href=\"http://en.wikipedia.org/wiki/Aggregator\">abonatorul</a> dvs favorit."
 
+#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "Citeşte"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Ține-mă minte pe acest blog."
 
 msgid "Required field"
-msgstr ""
+msgstr "Câmp obligatoriu"
 
 msgid "Search"
 msgstr "Căutare"
 
 msgid "Send"
-msgstr ""
+msgstr "Trimite"
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Pur și simplu copiați următoarea legătură web în abonatorul dvs"
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "Subcategorii"
 
@@ -201,57 +220,73 @@ msgstr "Abonare"
 msgid "Subscribe to"
 msgstr "Abonează-te la"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "Sugestii:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "Documentul pe care îl căutați nu există"
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "Lista postărilor recente este disponibilă"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "Și ei au postat pe același subiect"
 
 msgid "This blog's comments Atom feed"
 msgstr "Abonamentul Atom al acestui blog"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "Abonamentul Atom al comentarilor din această categorie"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "Abonamentul Atom al postărilor din această categorie"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "Abonamentul Atom de comentarii al acestei postări"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Abonamentul comentarilor postării acesteia"
 
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Mergi la conținut"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Mergi la meniu"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Mergi la căutare"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
-msgstr "Trackback URL"
+msgstr "URL Trackback"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "URL-ul pe care l-ați încercat are typos, sau pagina a fost ștearsă sau mutată."
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "Folosește formularul de căutare"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Sit web"
 
 msgid "What is an RSS feed?"
 msgstr "Ce este un abonament RSS?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Trebuie să inserați o parolă pentru a accesa această zonă."
 
@@ -264,12 +299,15 @@ msgstr "Trebuie să furnizați o adresă email validă."
 msgid "You must provide an author name"
 msgstr "Trebuie să specifici un nume de autor"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "Comentariul dvs"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "Comentariul dvs a fost publicat."
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Comentariul dvs a fost trimis și va fi revizuit înainte de publicare."
 
@@ -282,34 +320,38 @@ msgstr "Căutate dvs după <em>%1$s</em> are următoarele <strong>%2$s</strong> 
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Căutarea dvs după <em>%1$s</em> nu are rezultate."
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "de"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "aici"
 
 msgid "in"
-msgstr ""
+msgstr "în"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "următoarele postări"
 
 msgid "no attachments"
 msgstr "niciun atașament"
 
-#, fuzzy
 msgid "no comments"
-msgstr "niciun comentariu"
+msgstr "fără comentarii"
 
 msgid "no reactions"
-msgstr ""
+msgstr "fără reacţii"
 
 msgid "no trackbacks"
 msgstr "fără trackback"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "de"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "activat"
 
@@ -319,38 +361,36 @@ msgstr "un atașament"
 msgid "one comment"
 msgstr "un comentariu"
 
-#, fuzzy
 msgid "one reaction"
-msgstr "Citește în continuare"
+msgstr "o reacţie"
 
 msgid "one trackback"
 msgstr "un trackback"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "opțional"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "pagină"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "previzualizare"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "postări anterioare"
 
 msgid "reactions"
-msgstr ""
+msgstr "reacţii"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "trimite"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "până la"
 
-#, fuzzy
-#~ msgid "Hide password"
-#~ msgstr "Parolă:"
-
-#, fuzzy
-#~ msgid "Show password"
-#~ msgstr "Parolă:"
