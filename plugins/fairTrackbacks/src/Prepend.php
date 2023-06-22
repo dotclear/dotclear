@@ -19,6 +19,9 @@ class Prepend extends dcNsProcess
 {
     public static function init(): bool
     {
+        // Dead but useful code (for l10n)
+        __('Fair Trackbacks') . __('Trackback validity check');
+
         if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
             define('DC_FAIRTRACKBACKS_FORCE', false);
         }

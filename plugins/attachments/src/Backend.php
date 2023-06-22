@@ -19,6 +19,9 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
+        // Dead but useful code (for l10n)
+        __('attachments') . __('Manage post attachments');
+
         return (static::$init = My::checkContext(My::BACKEND));
     }
 

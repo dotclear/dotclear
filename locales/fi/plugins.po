@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2020-12-27 20:20\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -119,11 +119,11 @@ msgstr "Blogroll-linkkiluettelo"
 msgid "Tags cloud"
 msgstr "Avainsanapilvi"
 
-msgid "Configuration successfully updated"
-msgstr "Asetukset päivitetty"
-
 msgid "about:config"
 msgstr "about:config"
+
+msgid "Configuration successfully updated"
+msgstr "Asetukset päivitetty"
 
 #, php-format
 msgid "Settings for %s"
@@ -171,6 +171,10 @@ msgstr "API-avain ei varmennettu"
 
 msgid "Get your own API key"
 msgstr "Hanki oma API-avain"
+
+#, fuzzy
+msgid "Akismet"
+msgstr "Akismetin API-avain:"
 
 msgid "This comment is a spam:"
 msgstr "Tämä kommentti on spämmi:"
@@ -390,6 +394,10 @@ msgstr "Suodattimena %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "Tuntematon suodatin"
 
+#, fuzzy
+msgid "attachments"
+msgstr "Ei liitetiedostoa."
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Liitteitä (%d)"
@@ -403,11 +411,11 @@ msgstr "Ei liitetiedostoa."
 msgid "Add files to this entry"
 msgstr "Lisää tiedostoja tähän blogimerkintään"
 
-msgid "manage blogroll"
-msgstr "Hallinnoi blogrollia"
-
 msgid "Blogroll"
 msgstr "Blogroll-linkkiluettelo"
+
+msgid "manage blogroll"
+msgstr "Hallinnoi blogrollia"
 
 msgid "You must provide a link title"
 msgstr "Anna linkin otsikko"
@@ -618,6 +626,9 @@ msgstr "Varmistustiedostoa ei saatu purettua."
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr "dcCKEditor"
+
 msgid "HTML"
 msgstr ""
 
@@ -644,9 +655,6 @@ msgstr "URL-kenttä ei voi olla tyhjä"
 
 msgid "The configuration has been updated."
 msgstr "Asetukset on päivitetty."
-
-msgid "dcCKEditor"
-msgstr "dcCKEditor"
 
 msgid "Note(s)"
 msgstr "Huomautukset"
@@ -719,6 +727,9 @@ msgstr "Poista sisäänrakennettu oikeinkirjoituksentarkistaja käytöstä (mik�
 
 msgid "Save configuration"
 msgstr "Tallenna asetukset"
+
+msgid "dcLegacyEditor"
+msgstr "Perinteinen Dotclear-editori"
 
 #, fuzzy
 msgid "Dotclear wiki"
@@ -806,16 +817,17 @@ msgstr "Kieli?"
 msgid "Remove text formating"
 msgstr "Poista tekstinmuotoilu"
 
-msgid "dcLegacyEditor"
-msgstr "Perinteinen Dotclear-editori"
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Ota dcLegacyEditor-liitännäinen käyttöön"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Tarkistaa, onko takaisinviittauksen lähdekoodissa linkki blogimerkintään"
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
 msgstr "Tuonti/Vienti"
 
 msgid "Database export"
@@ -1781,6 +1793,10 @@ msgstr "Vanhin merkintä"
 msgid "Link to all tags:"
 msgstr "Linkki kaikkiin avainsanoihin:"
 
+#, fuzzy
+msgid "themeEditor"
+msgstr "Teemanmuokkaus"
+
 msgid "Edit theme files"
 msgstr "Muokkaa teematiedostoja"
 
@@ -1790,8 +1806,25 @@ msgstr "Teemojen muokkausohjelman syntaksiväritys"
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "Asetukset on päivitetty."
+
 msgid "The file has been reset."
 msgstr "Tiedosto on palautettu alkuarvoihin."
+
+#, fuzzy
+msgid "Unlock update"
+msgstr "Sitaattilohko"
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
+msgstr ""
 
 msgid "Saving document..."
 msgstr "Asiakirjan tallennus käynnissä…"
@@ -1871,11 +1904,11 @@ msgstr "Tiedostoa %s ei saatu kirjoitettua. Tarkista teematiedostojesi ja -kansi
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Tiedostoa %s ei saatu poistettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
 
-msgid "Preferences successfully updated"
-msgstr "Käyttäjän asetukset päivitetty"
-
 msgid "user:preferences"
 msgstr "user:preferences"
+
+msgid "Preferences successfully updated"
+msgstr "Käyttäjän asetukset päivitetty"
 
 msgid "User preferences"
 msgstr "Käyttäjän asetukset"
@@ -1883,8 +1916,8 @@ msgstr "Käyttäjän asetukset"
 msgid "Global preferences"
 msgstr "Yleiset asetukset "
 
-msgid "Presentation widgets"
-msgstr "Esitysvimpaimet"
+msgid "Widgets"
+msgstr "Vimpaimet"
 
 msgid "Widget's textareas"
 msgstr "Tekstialuevimpaimet"
@@ -1909,9 +1942,6 @@ msgstr "Käyttöpaneelit on palautettu alkuarvoihin."
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Oletko varma, että haluat palauttaa käyttöpaneelit alkuarvoihinsa?"
-
-msgid "Widgets"
-msgstr "Vimpaimet"
 
 msgid "Available widgets"
 msgstr "Tarjolla olevat vimpaimet"
@@ -2088,6 +2118,9 @@ msgstr "Lisä-CSS-luokka ympäröivää laatikkoa varten:"
 
 msgid "Offline"
 msgstr "Ei verkossa"
+
+#~ msgid "Presentation widgets"
+#~ msgstr "Esitysvimpaimet"
 
 #~ msgid "Configure your Blowup Theme"
 #~ msgstr "Blowup-teeman asetukset"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -130,11 +130,11 @@ msgstr "Odkazy"
 msgid "Tags cloud"
 msgstr "Štítky k přidání:"
 
-msgid "Configuration successfully updated"
-msgstr "Konfigurace byla úspěšně aktualizována"
-
 msgid "about:config"
 msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr "Konfigurace byla úspěšně aktualizována"
 
 #, fuzzy, php-format
 msgid "Settings for %s"
@@ -185,6 +185,10 @@ msgstr "API klíč nebyl ověřen"
 
 msgid "Get your own API key"
 msgstr "Získat vlastní API klíč"
+
+#, fuzzy
+msgid "Akismet"
+msgstr "Akismet API klíč:"
 
 msgid "This comment is a spam:"
 msgstr "Tento komentář je spam:"
@@ -410,6 +414,10 @@ msgstr "Filtrováno dle %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "Neznámý filtr"
 
+#, fuzzy
+msgid "attachments"
+msgstr "Poslední komentáře"
+
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -424,11 +432,11 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr "Přidat soubory do této stránky"
 
-msgid "manage blogroll"
-msgstr "spravovat odkazy"
-
 msgid "Blogroll"
 msgstr "Odkazy"
+
+msgid "manage blogroll"
+msgstr "spravovat odkazy"
 
 msgid "You must provide a link title"
 msgstr "Musíte vložit název odkazu"
@@ -641,6 +649,9 @@ msgstr "Nahrát záložní soubor"
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -671,9 +682,6 @@ msgstr ""
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "Konfigurace vzhledu byla úspěšně upravena."
-
-msgid "dcCKEditor"
-msgstr ""
 
 msgid "Note(s)"
 msgstr ""
@@ -755,6 +763,9 @@ msgstr ""
 #, fuzzy
 msgid "Save configuration"
 msgstr "%s - konfigurace"
+
+msgid "dcLegacyEditor"
+msgstr ""
 
 #, fuzzy
 msgid "Dotclear wiki"
@@ -850,16 +861,17 @@ msgstr "Jazyk"
 msgid "Remove text formating"
 msgstr "Odstranit štítek"
 
-msgid "dcLegacyEditor"
-msgstr ""
-
 msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Zkontroluj zdroj trackbacku, jestli je tam odkaz na článek"
 
-msgid "Import/Export"
+msgid "Fair Trackbacks"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
 msgstr "Import / Export"
 
 #, fuzzy
@@ -1904,6 +1916,10 @@ msgid "Link to all tags:"
 msgstr "Odkaz na všechny štítky:"
 
 #, fuzzy
+msgid "themeEditor"
+msgstr "Editor vzhledu"
+
+#, fuzzy
 msgid "Edit theme files"
 msgstr "Edituji soubor %s"
 
@@ -1913,7 +1929,23 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
+msgid "The theme update has been locked."
+msgstr ""
+
+#, fuzzy
+msgid "The theme update has been unocked."
+msgstr "Konfigurace vzhledu byla úspěšně upravena."
+
 msgid "The file has been reset."
+msgstr ""
+
+msgid "Unlock update"
+msgstr ""
+
+msgid "Lock update"
+msgstr ""
+
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr ""
 
 msgid "Saving document..."
@@ -1998,12 +2030,12 @@ msgid "Unable to delete file %s. Please check your theme files and folders permi
 msgstr "Nelze zapisovat do souboru %s. Prosím, zkontrolujte práva k souborům a adresáři vzhledu."
 
 #, fuzzy
-msgid "Preferences successfully updated"
-msgstr "Stránka byla úspěšně upravena."
-
-#, fuzzy
 msgid "user:preferences"
 msgstr "globální nastavení"
+
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Stránka byla úspěšně upravena."
 
 #, fuzzy
 msgid "User preferences"
@@ -2013,7 +2045,7 @@ msgstr "globální nastavení"
 msgid "Global preferences"
 msgstr "globální nastavení"
 
-msgid "Presentation widgets"
+msgid "Widgets"
 msgstr "Widgety"
 
 #, fuzzy
@@ -2041,9 +2073,6 @@ msgstr ""
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Jste si jisti, že chcete resetovat panely?"
-
-msgid "Widgets"
-msgstr "Widgety"
 
 msgid "Available widgets"
 msgstr "Dostupné widgety"
@@ -2230,6 +2259,9 @@ msgstr "CSS soubory"
 
 msgid "Offline"
 msgstr ""
+
+#~ msgid "Presentation widgets"
+#~ msgstr "Widgety"
 
 #~ msgid "default"
 #~ msgstr "výchozí"

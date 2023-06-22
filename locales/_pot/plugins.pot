@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,55 +21,62 @@ msgstr ""
 msgid "Cope with old core classes (< 2.26)"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:7
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:27
 msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:8
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
 msgid "Akismet interface for Dotclear"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Trackback validity check"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:23
 msgid "Manage post attachments"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:11
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:26
 msgid "Serve entries as simple web pages"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "Manage every blog configuration directive"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:25
 msgid "dotclear legacy editor"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:23
 msgid "Theme Editor"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:25
 msgid "Import and Export your blog"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:17
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:23
 msgid "Manage every user preference directive"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:18
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:23
 msgid "dotclear CKEditor integration"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:23
 msgid "Maintain your installation"
 msgstr ""
 
@@ -77,19 +84,19 @@ msgstr ""
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:21
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:26
 msgid "Manage your blogroll"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:22
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:23
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
 msgstr ""
 
@@ -153,12 +160,12 @@ msgstr ""
 msgid "Tags cloud"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:71 plugins/aboutConfig/src/Manage.php:91
-msgid "Configuration successfully updated"
+#: plugins/aboutConfig/src/Backend.php:23
+msgid "about:config"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:121
-msgid "about:config"
+#: plugins/aboutConfig/src/Manage.php:69 plugins/aboutConfig/src/Manage.php:89
+msgid "Configuration successfully updated"
 msgstr ""
 
 #: plugins/aboutConfig/src/Manage.php:125
@@ -172,30 +179,30 @@ msgstr ""
 msgid "Global settings"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:149
+#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:151
 msgid "Setting ID"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:158 plugins/userPref/src/Manage.php:150
+#: plugins/aboutConfig/src/Manage.php:158 plugins/userPref/src/Manage.php:152
 msgid "Value"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:160 plugins/antispam/src/Manage.php:224
-#: plugins/blogroll/src/Manage.php:259 plugins/blogroll/src/Manage.php:402
-#: plugins/simpleMenu/src/Manage.php:230 plugins/simpleMenu/src/Manage.php:698
-#: plugins/userPref/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:160 plugins/antispam/src/Manage.php:215
+#: plugins/blogroll/src/Manage.php:255 plugins/blogroll/src/Manage.php:398
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:688
+#: plugins/userPref/src/Manage.php:154
 msgid "Description"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:202 plugins/userPref/src/Manage.php:194
+#: plugins/aboutConfig/src/Manage.php:204 plugins/userPref/src/Manage.php:198
 msgid "Goto:"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:239
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:244
 msgid "no"
 msgstr ""
 
-#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:239
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:244
 msgid "yes"
 msgstr ""
 
@@ -228,33 +235,36 @@ msgstr ""
 msgid "Get your own API key"
 msgstr ""
 
-#: plugins/antispam/src/Antispam.php:104
+#: plugins/akismet/src/Prepend.php:25
+msgid "Akismet"
+msgstr ""
+
+#: plugins/antispam/src/Antispam.php:103
 msgid "This comment is a spam:"
 msgstr ""
 
-#: plugins/antispam/src/Antispam.php:119 plugins/antispam/src/Rest.php:32
+#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:32
 #, php-format
 msgid "(including %d spam comment)"
 msgstr ""
 
-#: plugins/antispam/src/Antispam.php:119 plugins/antispam/src/Rest.php:32
+#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:32
 #, php-format
 msgid "(including %d spam comments)"
 msgstr ""
 
-#: plugins/antispam/src/Backend.php:45 plugins/antispam/src/Backend.php:62
-#: plugins/antispam/src/Manage.php:49
+#: plugins/antispam/src/Backend.php:27
 msgid "Antispam"
 msgstr ""
 
 #: plugins/antispam/src/BackendBehaviors.php:41
-#: plugins/antispam/src/Manage.php:200
+#: plugins/antispam/src/Manage.php:191
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr ""
 
 #: plugins/antispam/src/BackendBehaviors.php:42
-#: plugins/antispam/src/Manage.php:201
+#: plugins/antispam/src/Manage.php:192
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr ""
@@ -318,7 +328,7 @@ msgstr ""
 #: plugins/antispam/src/Filters/Ip.php:198
 #: plugins/antispam/src/Filters/IpV6.php:197
 #: plugins/antispam/src/Filters/Words.php:186
-#: plugins/widgets/src/Manage.php:300
+#: plugins/widgets/src/Manage.php:291
 msgid "Add"
 msgstr ""
 
@@ -441,96 +451,100 @@ msgstr ""
 msgid "Ham"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:58
+#: plugins/antispam/src/Manage.php:48
 msgid "Filter does not exist."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:62
+#: plugins/antispam/src/Manage.php:52
 msgid "Filter has no user interface."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:119 plugins/antispam/src/Manage.php:212
+#: plugins/antispam/src/Manage.php:110 plugins/antispam/src/Manage.php:203
 msgid "Filters configuration has been successfully saved."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:136
+#: plugins/antispam/src/Manage.php:127
 #, php-format
 msgid "%s configuration"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:156
+#: plugins/antispam/src/Manage.php:147
 #, php-format
 msgid "%s filter configuration"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:160
+#: plugins/antispam/src/Manage.php:151
 msgid "Back to filters list"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:184
+#: plugins/antispam/src/Manage.php:175
 msgid "Information"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:186
+#: plugins/antispam/src/Manage.php:177
 msgid "Junk comments:"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:188
+#: plugins/antispam/src/Manage.php:179
 msgid "Published comments:"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:218
+#: plugins/antispam/src/Manage.php:209
 msgid "Available spam filters"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:220
-#: plugins/pages/src/BackendDefaultActions.php:66
+#: plugins/antispam/src/Manage.php:211
+#: plugins/pages/src/BackendDefaultActions.php:65
 msgid "Order"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:221 plugins/antispam/src/Manage.php:252
+#: plugins/antispam/src/Manage.php:212 plugins/antispam/src/Manage.php:243
 msgid "Active"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:222 plugins/antispam/src/Manage.php:260
+#: plugins/antispam/src/Manage.php:213 plugins/antispam/src/Manage.php:251
 msgid "Auto Del."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:223
+#: plugins/antispam/src/Manage.php:214
 msgid "Filter name"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:233 plugins/antispam/src/Manage.php:234
+#: plugins/antispam/src/Manage.php:224 plugins/antispam/src/Manage.php:225
 msgid "Filter configuration"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:244 plugins/blogroll/src/Manage.php:276
+#: plugins/antispam/src/Manage.php:235 plugins/blogroll/src/Manage.php:272
 msgid "position"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:290
+#: plugins/antispam/src/Manage.php:281
 msgid "Syndication"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:292
+#: plugins/antispam/src/Manage.php:283
 msgid "Junk comments RSS feed"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:293
+#: plugins/antispam/src/Manage.php:284
 msgid "Published comments RSS feed"
 msgstr ""
 
-#: plugins/antispam/src/SpamFilter.php:111
+#: plugins/antispam/src/SpamFilter.php:110
 msgid "No description"
 msgstr ""
 
-#: plugins/antispam/src/SpamFilter.php:164
+#: plugins/antispam/src/SpamFilter.php:163
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr ""
 
 #: plugins/antispam/src/SpamFilters.php:152
 msgid "Unknown filter."
+msgstr ""
+
+#: plugins/attachments/src/Backend.php:23
+msgid "attachments"
 msgstr ""
 
 #: plugins/attachments/src/BackendBehaviors.php:51
@@ -550,15 +564,12 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr ""
 
-#: plugins/blogroll/src/Backend.php:38
-msgid "manage blogroll"
+#: plugins/blogroll/src/Backend.php:26
+msgid "Blogroll"
 msgstr ""
 
-#: plugins/blogroll/src/Backend.php:43 plugins/blogroll/src/Backend.php:60
-#: plugins/blogroll/src/Manage.php:238 plugins/blogroll/src/Manage.php:244
-#: plugins/blogroll/src/Manage.php:249 plugins/blogroll/src/ManageEdit.php:132
-#: plugins/blogroll/src/ManageEdit.php:138 plugins/blogroll/src/Widgets.php:40
-msgid "Blogroll"
+#: plugins/blogroll/src/Backend.php:37
+msgid "manage blogroll"
 msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:140 plugins/blogroll/src/Blogroll.php:178
@@ -569,208 +580,208 @@ msgstr ""
 msgid "You must provide a link URL"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:89 plugins/blogroll/src/Manage.php:397
+#: plugins/blogroll/src/Manage.php:85 plugins/blogroll/src/Manage.php:393
 msgid "Nothing to import"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:112
+#: plugins/blogroll/src/Manage.php:108
 msgid "links have been successfully imported."
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:119
+#: plugins/blogroll/src/Manage.php:115
 msgid "Import operation cancelled."
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:134
+#: plugins/blogroll/src/Manage.php:130
 msgid "Link has been successfully created."
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:149
+#: plugins/blogroll/src/Manage.php:145
 msgid "category has been successfully created."
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:171
+#: plugins/blogroll/src/Manage.php:167
 msgid "Items have been successfully removed."
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:201
+#: plugins/blogroll/src/Manage.php:197
 msgid "Items order has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:261
+#: plugins/blogroll/src/Manage.php:257
 msgid "Lang"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:283
+#: plugins/blogroll/src/Manage.php:279
 msgid "select this link"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:317
+#: plugins/blogroll/src/Manage.php:313
 msgid "Are you sure you want to delete selected links?"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:317
+#: plugins/blogroll/src/Manage.php:313
 msgid "Delete selected links"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:322
+#: plugins/blogroll/src/Manage.php:318
 msgid "The link list is empty."
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:330
+#: plugins/blogroll/src/Manage.php:326
 msgid "Add a new link"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:360
+#: plugins/blogroll/src/Manage.php:356
 msgid "Add a category"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:377 plugins/blogroll/src/Manage.php:382
-#: plugins/blogroll/src/Manage.php:394
+#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
+#: plugins/blogroll/src/Manage.php:390
 msgid "Import links"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:383
+#: plugins/blogroll/src/Manage.php:379
 msgid "OPML or XBEL File:"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:387 plugins/blogroll/src/Manage.php:431
-#: plugins/importExport/src/Manage.php:112
+#: plugins/blogroll/src/Manage.php:383 plugins/blogroll/src/Manage.php:427
+#: plugins/importExport/src/Manage.php:111
 #: plugins/importExport/src/ModuleImportFeed.php:231
 #: plugins/importExport/src/ModuleImportFlat.php:222
 #: plugins/importExport/src/ModuleImportFlat.php:260
 msgid "Import"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:50
+#: plugins/blogroll/src/ManageEdit.php:46
 msgid "No such link or title"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:102
+#: plugins/blogroll/src/ManageEdit.php:98
 msgid "Link has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:116
+#: plugins/blogroll/src/ManageEdit.php:115
 msgid "Category has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:142
+#: plugins/blogroll/src/ManageEdit.php:144
 msgid "Return to blogroll"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:148
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Edit category"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:166
+#: plugins/blogroll/src/ManageEdit.php:168
 msgid "Edit link"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:202
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "XFN information"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:203
+#: plugins/blogroll/src/ManageEdit.php:205
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:209
+#: plugins/blogroll/src/ManageEdit.php:211
 msgid "_xfn_Me"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:212
+#: plugins/blogroll/src/ManageEdit.php:214
 msgid "_xfn_Another link for myself"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:216
+#: plugins/blogroll/src/ManageEdit.php:218
 msgid "_xfn_Friendship"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:222
+#: plugins/blogroll/src/ManageEdit.php:224
 msgid "_xfn_Contact"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:227
+#: plugins/blogroll/src/ManageEdit.php:229
 msgid "_xfn_Acquaintance"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:232
+#: plugins/blogroll/src/ManageEdit.php:234
 msgid "_xfn_Friend"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:238
+#: plugins/blogroll/src/ManageEdit.php:240
 msgid "_xfn_Physical"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:244
+#: plugins/blogroll/src/ManageEdit.php:246
 msgid "_xfn_Met"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:249
+#: plugins/blogroll/src/ManageEdit.php:251
 msgid "_xfn_Professional"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:255
+#: plugins/blogroll/src/ManageEdit.php:257
 msgid "_xfn_Co-worker"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:260
+#: plugins/blogroll/src/ManageEdit.php:262
 msgid "_xfn_Colleague"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:265
+#: plugins/blogroll/src/ManageEdit.php:267
 msgid "_xfn_Geographical"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:271
+#: plugins/blogroll/src/ManageEdit.php:273
 msgid "_xfn_Co-resident"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:276
+#: plugins/blogroll/src/ManageEdit.php:278
 msgid "_xfn_Neighbor"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:282
+#: plugins/blogroll/src/ManageEdit.php:284
 msgid "_xfn_Family"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:288
+#: plugins/blogroll/src/ManageEdit.php:290
 msgid "_xfn_Child"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:293
+#: plugins/blogroll/src/ManageEdit.php:295
 msgid "_xfn_Parent"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:298
+#: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Sibling"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:303
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "_xfn_Spouse"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:308
+#: plugins/blogroll/src/ManageEdit.php:310
 msgid "_xfn_Kin"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:314
+#: plugins/blogroll/src/ManageEdit.php:316
 msgid "_xfn_Romantic"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:320
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Muse"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:325
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Crush"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Date"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:335
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Sweetheart"
 msgstr ""
 
@@ -792,7 +803,6 @@ msgid "Links"
 msgstr ""
 
 #: plugins/breadcrumb/src/Backend.php:23
-#: plugins/breadcrumb/src/BackendBehaviors.php:28
 msgid "Breadcrumb"
 msgstr ""
 
@@ -808,48 +818,48 @@ msgstr ""
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:68
-#: plugins/breadcrumb/src/FrontendTemplate.php:73
-#: plugins/breadcrumb/src/FrontendTemplate.php:80
-#: plugins/breadcrumb/src/FrontendTemplate.php:84
-#: plugins/breadcrumb/src/FrontendTemplate.php:95
-#: plugins/breadcrumb/src/FrontendTemplate.php:110
-#: plugins/breadcrumb/src/FrontendTemplate.php:126
-#: plugins/breadcrumb/src/FrontendTemplate.php:143
-#: plugins/breadcrumb/src/FrontendTemplate.php:151
-#: plugins/breadcrumb/src/FrontendTemplate.php:165
-#: plugins/breadcrumb/src/FrontendTemplate.php:172
-#: plugins/breadcrumb/src/FrontendTemplate.php:179
-#: plugins/breadcrumb/src/FrontendTemplate.php:192
-#: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/simpleMenu/src/Manage.php:123 plugins/simpleMenu/src/Manage.php:234
+#: plugins/breadcrumb/src/FrontendTemplate.php:69
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:85
+#: plugins/breadcrumb/src/FrontendTemplate.php:96
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:113 plugins/simpleMenu/src/Manage.php:224
 #: plugins/widgets/src/Widgets.php:230
 msgid "Home"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:104
-#: plugins/breadcrumb/src/FrontendTemplate.php:119
-#: plugins/breadcrumb/src/FrontendTemplate.php:185
-#: plugins/breadcrumb/src/FrontendTemplate.php:197
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:154
-#: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/simpleMenu/src/Manage.php:261 plugins/widgets/src/Widgets.php:247
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:251 plugins/widgets/src/Widgets.php:247
 msgid "Archives"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:173
-#: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/simpleMenu/src/Manage.php:112 plugins/simpleMenu/src/Manage.php:281
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:102 plugins/simpleMenu/src/Manage.php:271
 #: plugins/tags/src/Widgets.php:53
 msgid "All tags"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
 msgstr ""
 
@@ -869,55 +879,55 @@ msgstr ""
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr ""
 
-#: plugins/dcCKEditor/src/Backend.php:49
-#: plugins/dcLegacyEditor/src/Backend.php:54
-msgid "HTML"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:69
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
-msgid "Media chooser"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:70
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
-msgid "m"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:71
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
-msgid "Link to an entry"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:72
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
-msgid "Link"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:73
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
-msgid "l"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:74
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
-msgid "External image"
-msgstr ""
-
-#: plugins/dcCKEditor/src/BackendBehaviors.php:75
-msgid "URL field cannot be empty."
-msgstr ""
-
-#: plugins/dcCKEditor/src/Manage.php:136
-#: plugins/dcLegacyEditor/src/Manage.php:51
-msgid "The configuration has been updated."
-msgstr ""
-
-#: plugins/dcCKEditor/src/Manage.php:152 plugins/dcCKEditor/tpl/index.php:5
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:5
 msgid "dcCKEditor"
 msgstr ""
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:243
+#: plugins/dcCKEditor/src/Backend.php:38
+#: plugins/dcLegacyEditor/src/Backend.php:44
+msgid "HTML"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
+msgid "Media chooser"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+msgid "m"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
+msgid "Link to an entry"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+msgid "Link"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+msgid "l"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+msgid "External image"
+msgstr ""
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
+msgid "URL field cannot be empty."
+msgstr ""
+
+#: plugins/dcCKEditor/src/Manage.php:133
+#: plugins/dcLegacyEditor/src/Manage.php:42
+msgid "The configuration has been updated."
+msgstr ""
+
+#: plugins/dcCKEditor/src/ManagePostConfig.php:244
 msgid "Note(s)"
 msgstr ""
 
@@ -1010,126 +1020,126 @@ msgid "Disables the built-in spell checker if the browser provides one"
 msgstr ""
 
 #: plugins/dcCKEditor/tpl/index.php:126 plugins/dcLegacyEditor/tpl/index.php:19
-#: plugins/simpleMenu/src/Manage.php:661
+#: plugins/simpleMenu/src/Manage.php:651
 msgid "Save configuration"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/Backend.php:57
+#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/tpl/index.php:1
+msgid "dcLegacyEditor"
+msgstr ""
+
+#: plugins/dcLegacyEditor/src/Backend.php:47
 msgid "Dotclear wiki"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:82
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:86
 msgid "visual"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:83
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
 msgid "source"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:84
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:88
 msgid "You can use the following shortcuts to format your text."
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
 msgid "Block format"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:89
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
 msgid "-- none --"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:90
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
 msgid "-- block format --"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
 msgid "Paragraph"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:92
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
 msgid "Level 1 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
 msgid "Level 2 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:98
 msgid "Level 3 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:99
 msgid "Level 4 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
 msgid "Level 5 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
 msgid "Level 6 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "Strong emphasis"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "Emphasis"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:102
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "Inserted"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:103
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
 msgid "Deleted"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
 msgid "Inline quote"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Code"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "Line break"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "Blockquote"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Preformated text"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:110
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Unordered list"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Ordered list"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "URL?"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "Language?"
 msgstr ""
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Remove text formating"
-msgstr ""
-
-#: plugins/dcLegacyEditor/src/Manage.php:66
-#: plugins/dcLegacyEditor/tpl/index.php:1
-msgid "dcLegacyEditor"
 msgstr ""
 
 #: plugins/dcLegacyEditor/tpl/index.php:11
@@ -1140,10 +1150,12 @@ msgstr ""
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
-#: plugins/importExport/src/Backend.php:39
-#: plugins/importExport/src/Backend.php:51
-#: plugins/importExport/src/Manage.php:77
-msgid "Import/Export"
+#: plugins/fairTrackbacks/src/Prepend.php:23
+msgid "Fair Trackbacks"
+msgstr ""
+
+#: plugins/importExport/src/Backend.php:25
+msgid "Import / Export"
 msgstr ""
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:34
@@ -1157,8 +1169,8 @@ msgstr ""
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:93
-#: plugins/importExport/src/ModuleExportFlat.php:232
-#: plugins/importExport/src/ModuleExportFlat.php:256
+#: plugins/importExport/src/ModuleExportFlat.php:231
+#: plugins/importExport/src/ModuleExportFlat.php:255
 msgid "Compress file"
 msgstr ""
 
@@ -1197,31 +1209,25 @@ msgstr ""
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:82
+#: plugins/importExport/src/Manage.php:81
 #: plugins/maintenance/src/Manage.php:177
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:115
-#: plugins/importExport/src/ModuleExportFlat.php:238
-#: plugins/importExport/src/ModuleExportFlat.php:259
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleExportFlat.php:237
+#: plugins/importExport/src/ModuleExportFlat.php:258
 msgid "Export"
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:117
+#: plugins/importExport/src/Manage.php:116
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:119
-#: plugins/maintenance/src/Backend.php:38
-#: plugins/maintenance/src/BackendBehaviors.php:72
-#: plugins/maintenance/src/BackendBehaviors.php:168
-#: plugins/maintenance/src/BackendBehaviors.php:186
-#: plugins/maintenance/src/Manage.php:182
-#: plugins/maintenance/src/Manage.php:190
-#: plugins/maintenance/src/Manage.php:207
-#: plugins/maintenance/src/Manage.php:242
+#: plugins/importExport/src/Manage.php:118
+#: plugins/maintenance/src/Backend.php:23
+#: plugins/maintenance/src/BackendBehaviors.php:170
 msgid "Maintenance"
 msgstr ""
 
@@ -1241,42 +1247,42 @@ msgstr ""
 msgid "visit your dashboard"
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:39
+#: plugins/importExport/src/ModuleExportFlat.php:38
 msgid "Flat file export"
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:40
+#: plugins/importExport/src/ModuleExportFlat.php:39
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:170
+#: plugins/importExport/src/ModuleExportFlat.php:169
 msgid "Export file not found."
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:211
+#: plugins/importExport/src/ModuleExportFlat.php:208
 msgid "Failed to compress export file."
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:223
+#: plugins/importExport/src/ModuleExportFlat.php:222
 #: plugins/importExport/src/ModuleImportFlat.php:202
 msgid "Single blog"
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:224
+#: plugins/importExport/src/ModuleExportFlat.php:223
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:236
+#: plugins/importExport/src/ModuleExportFlat.php:235
 msgid "You may also want to download your media directory as a zip file"
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:247
+#: plugins/importExport/src/ModuleExportFlat.php:246
 #: plugins/importExport/src/ModuleImportFlat.php:229
 msgid "Multiple blogs"
 msgstr ""
 
-#: plugins/importExport/src/ModuleExportFlat.php:248
+#: plugins/importExport/src/ModuleExportFlat.php:247
 msgid "This will create an export of all the content of your database."
 msgstr ""
 
@@ -1525,96 +1531,97 @@ msgstr ""
 msgid "WordPress tables not found"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:38
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Servicing"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:38
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to maintain the performance of your blogs."
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:39
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Backup"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:39
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Tools to back up your content."
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:40
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Development"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:40
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:42
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Optimize"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:43
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Count and index"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:44
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Purge"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:45
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "Other"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:46
+#: plugins/maintenance/src/BackendBehaviors.php:43
 msgid "Current blog"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:47
+#: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "All blogs"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:46
 msgid "Maintain translations"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:46
 msgid "Translations"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:125
+#: plugins/maintenance/src/BackendBehaviors.php:122
+#: plugins/maintenance/src/Rest.php:84
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:151
+#: plugins/maintenance/src/BackendBehaviors.php:153
 #: plugins/maintenance/src/Manage.php:269
 msgid "This task has never been executed."
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:154
+#: plugins/maintenance/src/BackendBehaviors.php:156
 #: plugins/maintenance/src/Manage.php:274
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:169
+#: plugins/maintenance/src/BackendBehaviors.php:171
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:171
+#: plugins/maintenance/src/BackendBehaviors.php:173
 msgid "Manage tasks"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:190
+#: plugins/maintenance/src/BackendBehaviors.php:192
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
 
-#: plugins/maintenance/src/BackendBehaviors.php:194
+#: plugins/maintenance/src/BackendBehaviors.php:196
 msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
@@ -1909,7 +1916,7 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#: plugins/pages/src/Backend.php:39
+#: plugins/pages/src/Backend.php:37
 msgid "manage pages"
 msgstr ""
 
@@ -1923,8 +1930,8 @@ msgstr ""
 msgid "%d pages"
 msgstr ""
 
-#: plugins/pages/src/Backend.php:81 plugins/pages/src/Manage.php:134
-#: plugins/pages/src/ManagePage.php:78 plugins/pages/src/ManagePage.php:642
+#: plugins/pages/src/Backend.php:81 plugins/pages/src/Manage.php:127
+#: plugins/pages/src/ManagePage.php:77 plugins/pages/src/ManagePage.php:658
 msgid "New page"
 msgstr ""
 
@@ -1932,12 +1939,12 @@ msgstr ""
 msgid "Pages actions"
 msgstr ""
 
-#: plugins/pages/src/BackendActions.php:73
+#: plugins/pages/src/BackendActions.php:74
 msgid "Back to pages list"
 msgstr ""
 
-#: plugins/pages/src/BackendDefaultActions.php:109
-#: plugins/pages/src/Manage.php:131
+#: plugins/pages/src/BackendDefaultActions.php:108
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully reordered."
 msgstr ""
 
@@ -1945,116 +1952,116 @@ msgstr ""
 msgid "No page"
 msgstr ""
 
-#: plugins/pages/src/BackendList.php:93 plugins/pages/src/BackendList.php:146
+#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
 msgid "Hidden"
 msgstr ""
 
-#: plugins/pages/src/BackendList.php:175
+#: plugins/pages/src/BackendList.php:176
 msgid "Select this page"
 msgstr ""
 
-#: plugins/pages/src/Frontend.php:37
+#: plugins/pages/src/Frontend.php:35
 msgid "Published on"
 msgstr ""
 
-#: plugins/pages/src/Frontend.php:38
+#: plugins/pages/src/Frontend.php:36
 msgid "This page's comments feed"
 msgstr ""
 
-#: plugins/pages/src/FrontendUrl.php:158
+#: plugins/pages/src/FrontendUrl.php:159
 msgid "You must provide a valid email address."
 msgstr ""
 
-#: plugins/pages/src/Install.php:51
+#: plugins/pages/src/Install.php:48
 msgid "My first page"
 msgstr ""
 
-#: plugins/pages/src/Install.php:52
+#: plugins/pages/src/Install.php:49
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
-#: plugins/pages/src/Manage.php:113
+#: plugins/pages/src/Manage.php:106
 msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
-#: plugins/pages/src/Manage.php:127
+#: plugins/pages/src/Manage.php:120
 msgid "Selected pages have been successfully updated."
 msgstr ""
 
-#: plugins/pages/src/Manage.php:129
+#: plugins/pages/src/Manage.php:122
 msgid "Selected pages have been successfully deleted."
 msgstr ""
 
-#: plugins/pages/src/Manage.php:148
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages action:"
 msgstr ""
 
-#: plugins/pages/src/Manage.php:157
+#: plugins/pages/src/Manage.php:150
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr ""
 
-#: plugins/pages/src/Manage.php:159
+#: plugins/pages/src/Manage.php:152
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr ""
 
-#: plugins/pages/src/Manage.php:160
+#: plugins/pages/src/Manage.php:153
 msgid "Save pages order"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:135
+#: plugins/pages/src/ManagePage.php:134
 msgid "This page does not exist."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:156 plugins/pages/src/ManagePage.php:642
-#: plugins/pages/src/ManagePage.php:647
+#: plugins/pages/src/ManagePage.php:155 plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:663
 msgid "Edit page"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:412
+#: plugins/pages/src/ManagePage.php:428
 msgid "Are you sure you want to delete this page?"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:458
+#: plugins/pages/src/ManagePage.php:474
 msgid "Page has been successfully updated."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:460
+#: plugins/pages/src/ManagePage.php:476
 msgid "Page has been successfully created."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:473
+#: plugins/pages/src/ManagePage.php:489
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:478
+#: plugins/pages/src/ManagePage.php:494
 msgid "Go to this page on the site"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:520
+#: plugins/pages/src/ManagePage.php:536
 msgid "Page status"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:549
 msgid "Page language"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:546 plugins/pages/src/Widgets.php:37
+#: plugins/pages/src/ManagePage.php:562 plugins/pages/src/Widgets.php:37
 msgid "Page position"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:573
+#: plugins/pages/src/ManagePage.php:589
 msgid "Hide in widget Pages"
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:583
+#: plugins/pages/src/ManagePage.php:599
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:598
+#: plugins/pages/src/ManagePage.php:614
 msgid "Introduction to the page."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:943
+#: plugins/pages/src/ManagePage.php:947
 msgid "Select this comment"
 msgstr ""
 
@@ -2066,45 +2073,44 @@ msgstr ""
 msgid "Publication date"
 msgstr ""
 
-#: plugins/pings/src/Backend.php:38 plugins/pings/src/Backend.php:53
-#: plugins/pings/src/BackendBehaviors.php:50 plugins/pings/src/Manage.php:81
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:50
 msgid "Pings"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:66
+#: plugins/pings/src/Manage.php:60
 msgid "Settings have been successfully updated."
 msgstr ""
 
-#: plugins/pings/src/Manage.php:87
+#: plugins/pings/src/Manage.php:81
 msgid "Pings configuration"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:93
+#: plugins/pings/src/Manage.php:87
 msgid "Activate pings extension"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:98 plugins/pings/src/Manage.php:120
+#: plugins/pings/src/Manage.php:92 plugins/pings/src/Manage.php:114
 msgid "Service name:"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:100 plugins/pings/src/Manage.php:122
+#: plugins/pings/src/Manage.php:94 plugins/pings/src/Manage.php:116
 msgid "Service URI:"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:111
+#: plugins/pings/src/Manage.php:105
 msgid "Error"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:128
+#: plugins/pings/src/Manage.php:122
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr ""
 
-#: plugins/pings/src/Manage.php:135
+#: plugins/pings/src/Manage.php:129
 msgid "Test ping services"
 msgstr ""
 
-#: plugins/simpleMenu/src/Backend.php:42 plugins/simpleMenu/src/Backend.php:55
-#: plugins/simpleMenu/src/Manage.php:55 plugins/simpleMenu/src/Widgets.php:27
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:45
+#: plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
 msgstr ""
 
@@ -2116,191 +2122,184 @@ msgstr ""
 msgid "active page"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:78
+#: plugins/simpleMenu/src/Manage.php:68
 msgid "All months"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:136
+#: plugins/simpleMenu/src/Manage.php:126
 msgid "Archive"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:139
+#: plugins/simpleMenu/src/Manage.php:129
 msgid "Page"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:142 plugins/tags/src/Backend.php:39
-#: plugins/tags/src/BackendBehaviors.php:105
-#: plugins/tags/src/BackendBehaviors.php:165
-#: plugins/tags/src/BackendBehaviors.php:198
-#: plugins/tags/src/BackendBehaviors.php:207
-#: plugins/tags/src/BackendBehaviors.php:434 plugins/tags/src/Manage.php:64
-#: plugins/tags/src/Manage.php:72 plugins/tags/src/ManagePosts.php:131
-#: plugins/tags/src/ManagePosts.php:145 plugins/tags/src/Widgets.php:28
+#: plugins/simpleMenu/src/Manage.php:132 plugins/tags/src/Backend.php:24
 msgid "Tags"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:149
+#: plugins/simpleMenu/src/Manage.php:139
 msgid "User defined"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:190
+#: plugins/simpleMenu/src/Manage.php:180
 msgid "Configuration successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:229 plugins/simpleMenu/src/Manage.php:619
-#: plugins/simpleMenu/src/Manage.php:697
+#: plugins/simpleMenu/src/Manage.php:219 plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:687
 msgid "Label"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:235
+#: plugins/simpleMenu/src/Manage.php:225
 msgid "Home page"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:235 plugins/simpleMenu/src/Manage.php:240
+#: plugins/simpleMenu/src/Manage.php:225 plugins/simpleMenu/src/Manage.php:230
 #: plugins/widgets/src/Widgets.php:234 plugins/widgets/src/Widgets.php:241
 msgid "Recent posts"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:247
+#: plugins/simpleMenu/src/Manage.php:237
 #, php-format
 msgid "Switch to %s language"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:254
+#: plugins/simpleMenu/src/Manage.php:244
 msgid "Recent Posts from this category"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:256
 #, php-format
 msgid "Posts from %s"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:286
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:346
+#: plugins/simpleMenu/src/Manage.php:336
 msgid "Menu item has been successfully added."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:351
+#: plugins/simpleMenu/src/Manage.php:341
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:384
+#: plugins/simpleMenu/src/Manage.php:374
 msgid "Menu items have been successfully removed."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:387
+#: plugins/simpleMenu/src/Manage.php:377
 msgid "No menu items selected."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:399
+#: plugins/simpleMenu/src/Manage.php:389
 msgid "Label is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:404
+#: plugins/simpleMenu/src/Manage.php:394
 msgid "URL is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:449
+#: plugins/simpleMenu/src/Manage.php:439
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:487
+#: plugins/simpleMenu/src/Manage.php:477
 msgid "Step #1"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:492 plugins/simpleMenu/src/Manage.php:500
+#: plugins/simpleMenu/src/Manage.php:482 plugins/simpleMenu/src/Manage.php:490
 msgid "Step #2"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:498
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Step #3"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:510
+#: plugins/simpleMenu/src/Manage.php:500
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:538
+#: plugins/simpleMenu/src/Manage.php:528
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:539
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:542 plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:532 plugins/simpleMenu/src/Manage.php:591
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:559
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:566
+#: plugins/simpleMenu/src/Manage.php:556
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:573
+#: plugins/simpleMenu/src/Manage.php:563
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:580
+#: plugins/simpleMenu/src/Manage.php:570
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:587
+#: plugins/simpleMenu/src/Manage.php:577
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:616
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:623
+#: plugins/simpleMenu/src/Manage.php:613
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:634
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:643 plugins/simpleMenu/src/Manage.php:700
+#: plugins/simpleMenu/src/Manage.php:633 plugins/simpleMenu/src/Manage.php:690
 msgid "Open URL on a new tab"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:645
+#: plugins/simpleMenu/src/Manage.php:635
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:659
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:672
+#: plugins/simpleMenu/src/Manage.php:662
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:686
+#: plugins/simpleMenu/src/Manage.php:676
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:769
+#: plugins/simpleMenu/src/Manage.php:759
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:771
+#: plugins/simpleMenu/src/Manage.php:761
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:772
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:779
+#: plugins/simpleMenu/src/Manage.php:769
 msgid "No menu items so far."
 msgstr ""
 
@@ -2324,9 +2323,9 @@ msgstr ""
 msgid "Not displayed nor used"
 msgstr ""
 
-#: plugins/tags/src/BackendBehaviors.php:52
+#: plugins/tags/src/BackendBehaviors.php:51
 #: plugins/tags/src/BackendBehaviors.php:62
-#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:146
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
 msgstr ""
 
@@ -2434,32 +2433,32 @@ msgstr ""
 msgid "No tags on this blog."
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:87
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:103
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:135
+#: plugins/tags/src/ManagePosts.php:138
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:150
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:158
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:171
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr ""
 
-#: plugins/tags/src/ManagePosts.php:182
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
 msgstr ""
@@ -2488,87 +2487,111 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
-#: plugins/themeEditor/src/BackendBehaviors.php:38
-#: plugins/themeEditor/src/Manage.php:146
-#: plugins/themeEditor/src/Manage.php:153
+#: plugins/themeEditor/src/Backend.php:23
+msgid "themeEditor"
+msgstr ""
+
+#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:181
 msgid "Edit theme files"
 msgstr ""
 
-#: plugins/themeEditor/src/BackendBehaviors.php:78
+#: plugins/themeEditor/src/BackendBehaviors.php:76
 msgid "Syntax highlighting"
 msgstr ""
 
-#: plugins/themeEditor/src/BackendBehaviors.php:83
+#: plugins/themeEditor/src/BackendBehaviors.php:81
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:110
+#: plugins/themeEditor/src/Manage.php:88
+msgid "The theme update has been locked."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:96
+msgid "The theme update has been unocked."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:119
 msgid "The file has been reset."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:134
+#: plugins/themeEditor/src/Manage.php:145
+msgid "Unlock update"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:146
+msgid "Lock update"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:150
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Saving document..."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:135
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Document saved"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:136
+#: plugins/themeEditor/src/Manage.php:164
 msgid "An error occurred:"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:137
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Are you sure you want to reset this file?"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:157
+#: plugins/themeEditor/src/Manage.php:187
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:198
 msgid "Please select a file to edit."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:172
+#: plugins/themeEditor/src/Manage.php:203
 msgid "File editor"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Editing file %s"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Reset"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:189
+#: plugins/themeEditor/src/Manage.php:220
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:217
+#: plugins/themeEditor/src/Manage.php:247
 msgid "Templates files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:220
+#: plugins/themeEditor/src/Manage.php:250
 msgid "CSS files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:223
+#: plugins/themeEditor/src/Manage.php:253
 msgid "JavaScript files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:256
 msgid "Locales files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:229
+#: plugins/themeEditor/src/Manage.php:259
 msgid "PHP files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:268
 msgid "You can't edit a distributed theme."
 msgstr ""
 
@@ -2609,155 +2632,151 @@ msgstr ""
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
+#: plugins/userPref/src/Backend.php:23
+msgid "user:preferences"
+msgstr ""
+
 #: plugins/userPref/src/Manage.php:69 plugins/userPref/src/Manage.php:88
 msgid "Preferences successfully updated"
 msgstr ""
 
-#: plugins/userPref/src/Manage.php:114
-msgid "user:preferences"
-msgstr ""
-
-#: plugins/userPref/src/Manage.php:118 plugins/userPref/src/Manage.php:119
+#: plugins/userPref/src/Manage.php:120 plugins/userPref/src/Manage.php:121
 msgid "User preferences"
 msgstr ""
 
-#: plugins/userPref/src/Manage.php:126 plugins/userPref/src/Manage.php:127
+#: plugins/userPref/src/Manage.php:128 plugins/userPref/src/Manage.php:129
 msgid "Global preferences"
 msgstr ""
 
-#: plugins/widgets/src/Backend.php:43 plugins/widgets/src/Backend.php:55
-msgid "Presentation widgets"
-msgstr ""
-
-#: plugins/widgets/src/Backend.php:50
-msgid "Widget's textareas"
-msgstr ""
-
-#: plugins/widgets/src/Install.php:38
-msgid "Unable to initialize default widgets."
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:65
-msgid "navigation"
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:66
-msgid "extra"
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:67
-msgid "custom"
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:208
-msgid "Sidebars and their widgets have been saved."
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:220
-msgid "Sidebars have been resetting."
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:251
-msgid "Are you sure you want to reset sidebars?"
-msgstr ""
-
-#: plugins/widgets/src/Manage.php:270 plugins/widgets/src/Manage.php:276
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:283
+#: plugins/widgets/src/Backend.php:47
+msgid "Widget's textareas"
+msgstr ""
+
+#: plugins/widgets/src/Install.php:35
+msgid "Unable to initialize default widgets."
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:55
+msgid "navigation"
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:56
+msgid "extra"
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:57
+msgid "custom"
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:198
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:210
+msgid "Sidebars have been resetting."
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:241
+msgid "Are you sure you want to reset sidebars?"
+msgstr ""
+
+#: plugins/widgets/src/Manage.php:274
 msgid "Available widgets"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:284
+#: plugins/widgets/src/Manage.php:275
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:294 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:285 plugins/widgets/src/Manage.php:403
 msgid "order"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:298
+#: plugins/widgets/src/Manage.php:289
 msgid "Append to:"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:309
+#: plugins/widgets/src/Manage.php:300
 msgid "Add widgets to sidebars"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:316
+#: plugins/widgets/src/Manage.php:307
 msgid "Navigation sidebar"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:312
 msgid "Extra sidebar"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:326
+#: plugins/widgets/src/Manage.php:317
 msgid "Custom sidebar"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:331
+#: plugins/widgets/src/Manage.php:322
 msgid "Update sidebars"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:333
+#: plugins/widgets/src/Manage.php:324
 msgid "Reset sidebars"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:341
+#: plugins/widgets/src/Manage.php:332
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:347
+#: plugins/widgets/src/Manage.php:338
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:353
+#: plugins/widgets/src/Manage.php:344
 msgid "boolean"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:353 plugins/widgets/src/Manage.php:358
+#: plugins/widgets/src/Manage.php:344 plugins/widgets/src/Manage.php:349
 msgid "possible values:"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:357
+#: plugins/widgets/src/Manage.php:348
 msgid "empty string"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:358
+#: plugins/widgets/src/Manage.php:349
 msgid "listitem"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:364
+#: plugins/widgets/src/Manage.php:355
 msgid "string"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:370
+#: plugins/widgets/src/Manage.php:361
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:395
+#: plugins/widgets/src/Manage.php:386
 msgid "No widget as far."
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+#: plugins/widgets/src/Manage.php:393 plugins/widgets/src/Manage.php:408
 msgid "Up the widget"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:394 plugins/widgets/src/Manage.php:409
 msgid "Down the widget"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:410
 msgid "Remove the widget"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:410
 msgid "Remove widget"
 msgstr ""
 
-#: plugins/widgets/src/Manage.php:431
+#: plugins/widgets/src/Manage.php:422
 msgid "Drag widgets here to remove."
 msgstr ""
 
@@ -2867,34 +2886,34 @@ msgstr ""
 msgid "Comments feed"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:478
+#: plugins/widgets/src/WidgetsElement.php:479
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:489
+#: plugins/widgets/src/WidgetsElement.php:490
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:490
+#: plugins/widgets/src/WidgetsElement.php:491
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:491
+#: plugins/widgets/src/WidgetsElement.php:492
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:499
+#: plugins/widgets/src/WidgetsElement.php:500
 msgid "Display on:"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:535
+#: plugins/widgets/src/WidgetsElement.php:536
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "CSS class:"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Offline"
 msgstr ""

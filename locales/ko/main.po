@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 19:32+0200\n"
+"POT-Creation-Date: 2023-06-22 14:36+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -17,6 +17,2226 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.8\n"
+
+#, fuzzy, php-format
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "PHP 버전은 %s 입니다 (7.4 또는 이후 버전 요구됨.)"
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "다중바이트 문자열 모듈(mbstring)을 사용할 수 없습니다."
+
+msgid "Iconv module is not available."
+msgstr "Iconv모듈을 사용할 수 없습니다."
+
+msgid "Output control functions are not available."
+msgstr "출력 통제 기능들(Output control functions)을 사용할 수 없습니다."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML모듈을 사용할 수 없습니다."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML 모듈을 사용할 수 없습니다."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE 정규식 엔진은 UTF-8 문자열을 지원하지 않습니다."
+
+msgid "SPL module is not available."
+msgstr "SPL 모듈을 사용할 수 없습니다."
+
+#, php-format
+msgid "MySQL version is %s (4.1 or earlier needed)."
+msgstr "MySQL 버전 %s (4.1 또는 이후 버전 필요)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB engine을 사용할 수 없습니다."
+
+#, php-format
+msgid "PostgreSQL version is %s (8.0 or earlier needed)."
+msgstr "PostgreSQL 버전 %s (8.0 또는 이후 버전 필요)."
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "블로그 설정파일에서 매스터키(DC_MASTER_KEY)를 지정해야합니다."
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear가 이미 설치되어 있습니다."
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear 설치가 불가능합니다."
+
+msgid "No user ID given"
+msgstr "존재하지 않는 사용자이름입니다."
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "사용자이름은 적어도 2자 이상의 알파벳문자, 수자 또는 기호를 포함해야합니다."
+
+msgid "Invalid email address"
+msgstr "바르지않은 이메일 주소"
+
+msgid "No password given"
+msgstr "존재하지 않는 비밀번호입니다."
+
+msgid "Passwords don't match"
+msgstr "비밀번호가 일치하지 않습니다."
+
+msgid "Password must contain at least 6 characters."
+msgstr "비밀번호는 적어도 6 글자 이상이어야 합니다."
+
+msgid "My first blog"
+msgstr "내 첫 블로그"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Dotclear에 오신 걸 환영합니다 !"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "당신의 첫 글꼭지입니다. 블로그를 사용할 준비가 되셨다면, 로그인하여 이 글을 편집하시거나 삭제하십시요."
+
+msgid "Dotclear Team"
+msgstr "Dotclear 팀"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>이것은 댓글입니다.</p>\n"
+"<p>로그인후 블로그에서 댓글들을 보이도록 하시면, 이 글을 편집하거나 삭제할 수 있습니다.</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear 설치"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "비밀번호 수정"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "중간 크키 :"
+
+msgid "strong"
+msgstr ""
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Dotclear 설치"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
+
+msgid "Errors:"
+msgstr "오류 :"
+
+msgid "Configuration file has been successfully created."
+msgstr "블로그 설정파일이 성공적으로 생성되었습니다."
+
+msgid "User information"
+msgstr "사용자 정보"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "최초 사용자를 생성하기 위해서는 다음의 정보들이 필요합니다."
+
+#, fuzzy
+msgid "First Name:"
+msgstr "이름 (Firstname):"
+
+#, fuzzy
+msgid "Last Name:"
+msgstr "최근 갱신"
+
+msgid "Email:"
+msgstr "이메일:"
+
+#, fuzzy
+msgid "Username and password"
+msgstr "잘못된 사용자이름 또는 비밀번호"
+
+msgid "Required field"
+msgstr "필수 사항"
+
+msgid "Username:"
+msgstr "사용자이름:"
+
+#, fuzzy
+msgid "Username"
+msgstr "사용자이름:"
+
+msgid "New password:"
+msgstr "새 비밀번호 :"
+
+#, fuzzy
+msgid "Password"
+msgstr "비밀번호:"
+
+msgid "Confirm password:"
+msgstr "비밀번호 확인 :"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Following plugins have been installed:"
+msgstr "다음 플러그인들이 설치되어있습니다 :"
+
+msgid "Following plugins have not been installed:"
+msgstr "다음 플러그인들은 설치되지 않았습니다 :"
+
+msgid "All done!"
+msgstr "완료되었습니다 !"
+
+#, fuzzy
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "Dotclear가 성공적으로 설치되었습니다. 다음 정보들을 잘 보관해두시기 바랍니다."
+
+msgid "Your account"
+msgstr "당신의 계정"
+
+msgid "Password:"
+msgstr "비밀번호:"
+
+msgid "Your blog"
+msgstr "당신의 블로그"
+
+msgid "Blog address:"
+msgstr "블로그 주소 :"
+
+msgid "Administration interface:"
+msgstr "관리자 화면 :"
+
+msgid "Manage your blog now"
+msgstr "블로그 관리"
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "이 폴더에 쓰기를 할 수 없습니다."
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "이메일 주소가 바르지 않습니다."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s 파일이 존재하지 않습니다."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "%s 파일을 쓸 수 없습니다.."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear 설치도우미"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "작업"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "시스템 정보"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "당신의 설정파일 생성을 위해 다음 사항들을 적어주세요."
+
+msgid "Database type:"
+msgstr "데이터베이스 종류 :"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "데이터베이스 호스트 이름 :"
+
+msgid "Database Name:"
+msgstr "데이터베이스 이름 :"
+
+msgid "Database User Name:"
+msgstr "데이터베이스 사용자이름 :"
+
+msgid "Database Password:"
+msgstr "데이터베이스 비밀번호 :"
+
+msgid "Database Tables Prefix:"
+msgstr "데이터베이스 테이블이름 머리씨 :"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "내용 :"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "Posts"
+msgstr ""
+
+msgid "Blogs"
+msgstr "블로그"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "댓글이 없습니다."
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "블로그"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "블로그 이름"
+
+msgid "Blog name"
+msgstr "블로그 이름"
+
+msgid "Status"
+msgstr "공개상태"
+
+#, fuzzy
+msgid "Set online"
+msgstr "공개"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "비공개"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "폐쇄"
+
+msgid "Delete"
+msgstr "삭제"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "선택 안됨"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "댓글이 성공적으로 갱신되었습니다."
+
+msgid "Password verification failed"
+msgstr "비밀번호 확인에 실패했습니다."
+
+#, fuzzy
+msgid "The current blog cannot be deleted."
+msgstr "이 폴더는 지울 수 없습니다."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "블로그가 성공적으로 삭제되었습니다."
+
+msgid "Comments"
+msgstr "댓글"
+
+#, fuzzy
+msgid "Back to comments list"
+msgstr "댓글이 없습니다."
+
+#, fuzzy
+msgid "Comments actions"
+msgstr "댓글 글쓴이 :"
+
+msgid "Author"
+msgstr "글쓴이"
+
+#, fuzzy
+msgid "Publish"
+msgstr "공개"
+
+#, fuzzy
+msgid "Unpublish"
+msgstr "비공개"
+
+#, fuzzy
+msgid "Mark as pending"
+msgstr "미지정으로 표시"
+
+#, fuzzy
+msgid "Mark as junk"
+msgstr "스팸으로 표시"
+
+msgid "Blocklist IP"
+msgstr ""
+
+msgid "Blocklist IP (global)"
+msgstr ""
+
+msgid "IP address"
+msgstr "IP 주소"
+
+#, fuzzy
+msgid "No comment selected"
+msgstr "댓글이 없습니다."
+
+#, fuzzy
+msgid "Selected comments have been successfully updated."
+msgstr "댓글이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Selected comments have been successfully deleted."
+msgstr "테마가 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blocklisted."
+msgstr "댓글이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Back to entries list"
+msgstr "분류 목록"
+
+#, fuzzy
+msgid "Posts actions"
+msgstr "선택된 글꼭지들에 대한 작업 :"
+
+#, fuzzy
+msgid "Schedule"
+msgstr "예약"
+
+msgid "Mark"
+msgstr ""
+
+#, fuzzy
+msgid "Mark as selected"
+msgstr "선택됨으로 지정"
+
+#, fuzzy
+msgid "Mark as unselected"
+msgstr "선택 안됨으로 지정"
+
+#, fuzzy
+msgid "Change"
+msgstr "파일 변경"
+
+#, fuzzy
+msgid "Change category"
+msgstr "분류 변경"
+
+#, fuzzy
+msgid "Change language"
+msgstr "파일 변경"
+
+#, fuzzy
+msgid "Change author"
+msgstr "글쓴이 변경"
+
+#, fuzzy
+msgid "No entry selected"
+msgstr "선택 안됨"
+
+msgid "Published entries cannot be set to scheduled"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated to status : \"%s\""
+msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully marked as selected"
+msgid_plural "%d entries have been successfully marked as selected"
+msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully marked as unselected"
+msgid_plural "%d entries have been successfully marked as unselected"
+msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully deleted"
+msgid_plural "%d entries have been successfully deleted"
+msgstr[0] "테마가 성공적으로 삭제되었습니다."
+
+msgid "(No cat)"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully moved to category \"%s\""
+msgid_plural "%d entries have been successfully moved to category \"%s\""
+msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
+
+msgid "Change category for this selection"
+msgstr "글꼭지들의 분류 변경"
+
+msgid "Category:"
+msgstr "분류 :"
+
+#, fuzzy
+msgid "Create a new category for the post(s)"
+msgstr "글꼭지들의 분류 변경"
+
+msgid "Title:"
+msgstr "제목 :"
+
+msgid "Parent:"
+msgstr "상위분류 :"
+
+msgid "This user does not exist"
+msgstr "이 사용자는 존재하지 않습니다."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully set to user \"%s\""
+msgid_plural "%d entries have been successfully set to user \"%s\""
+msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
+
+msgid "Change author for this selection"
+msgstr "글꼭지들의 글쓴이 변경"
+
+msgid "New author (author ID):"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully set to language \"%s\""
+msgid_plural "%d entries have been successfully set to language \"%s\""
+msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Change language for this selection"
+msgstr "글꼭지들의 글쓴이 변경"
+
+msgid "Available"
+msgstr "사용가능"
+
+msgid "Most used"
+msgstr "많이 사용"
+
+#, fuzzy
+msgid "Entry language:"
+msgstr "글꼭지 언어 :"
+
+#, fuzzy
+msgid "Database error"
+msgstr "데이터베이스 종류 :"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+msgid "Precondition Failed"
+msgstr ""
+
+#, fuzzy
+msgid "System settings"
+msgstr "블로그 설정"
+
+msgid "Blog"
+msgstr "블로그"
+
+msgid "Plugins"
+msgstr "플러그인"
+
+msgid "Blog appearance"
+msgstr "모양과 테마"
+
+msgid "Blog settings"
+msgstr "블로그 설정"
+
+msgid "Media manager"
+msgstr "미디어"
+
+msgid "Categories"
+msgstr "분류"
+
+msgid "Search"
+msgstr "찾기"
+
+msgid "New post"
+msgstr "새 글꼭지"
+
+#, fuzzy
+msgid "My preferences"
+msgstr "사용자 선택사항"
+
+msgid "Update"
+msgstr "DotClear 갱신"
+
+msgid "Languages"
+msgstr "언어"
+
+msgid "Plugins management"
+msgstr "플러그인 관리"
+
+msgid "Users"
+msgstr "사용자"
+
+msgid "My favorites"
+msgstr ""
+
+msgid "Global help"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s 블로그 설정 수정"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "댓글 %d 개"
+
+msgid "Descending"
+msgstr "내림순"
+
+msgid "Ascending"
+msgstr "오름순"
+
+msgid "Date"
+msgstr "날짜"
+
+msgid "Category"
+msgstr "분류"
+
+msgid "Selected"
+msgstr "선택됨"
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "글꼭지수"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "글걸이 없음"
+
+msgid "Entry title"
+msgstr "글꼭지 제목"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "글꼭지 제목"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "필터실행"
+
+msgid "Last update"
+msgstr "최근 갱신"
+
+msgid "Blog ID"
+msgstr "블로그 아이디"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "최근 갱신"
+
+#, fuzzy
+msgid "First Name"
+msgstr "이름"
+
+msgid "Display name"
+msgstr "필명"
+
+msgid "Number of entries"
+msgstr "글꼭지수"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "필터"
+
+#, fuzzy
+msgid "Display options"
+msgstr "찾을 내용 지정"
+
+msgid "Order by:"
+msgstr "정렬항 :"
+
+msgid "Sort:"
+msgstr "정렬방식 :"
+
+#, fuzzy
+msgid "Show"
+msgstr "보이기."
+
+#, fuzzy
+msgid "Save current options"
+msgstr "찾을 내용 지정"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+msgid "Author:"
+msgstr "글쓴이 :"
+
+msgid "Status:"
+msgstr "공개상태 :"
+
+#, fuzzy
+msgid "Format:"
+msgstr "날짜 형식:"
+
+#, fuzzy
+msgid "With password"
+msgstr "글꼭지 비밀번호 :"
+
+#, fuzzy
+msgid "Without password"
+msgstr "비밀번호 :"
+
+msgid "Selected:"
+msgstr "선택됨 :"
+
+#, fuzzy
+msgid "Not selected"
+msgstr "선택 안됨"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "첨부파일"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "첨부파일 %d 개"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "첨부파일 %d 개"
+
+msgid "Month:"
+msgstr "월 :"
+
+msgid "Lang:"
+msgstr "언어 :"
+
+#, fuzzy
+msgid "Comments:"
+msgstr "댓글"
+
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "닫기"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "글걸이"
+
+msgid "Web site:"
+msgstr "웹사이트 :"
+
+msgid "Type:"
+msgstr "종류 :"
+
+#, fuzzy
+msgid "Comment"
+msgstr "댓글 :"
+
+#, fuzzy
+msgid "Trackback"
+msgstr "글걸이"
+
+msgid "IP address:"
+msgstr "IP 주소 :"
+
+#, fuzzy
+msgid "Media type:"
+msgstr "파일 종류 :"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "Search:"
+msgstr "찾기 :"
+
+msgid "Trackbacks"
+msgstr "글걸이"
+
+#, fuzzy
+msgid "users per page"
+msgstr "페이지당 사용자수"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "페이지당 글꼭지수"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "페이지당 댓글 수"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "페이지당 블로그수"
+
+msgid "Name"
+msgstr "성"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "페이지당 글꼭지수"
+
+#, fuzzy
+msgid "results per page"
+msgstr "페이지당 글꼭지수"
+
+msgid "Error:"
+msgstr "오류 :"
+
+msgid "%H:%M:%S"
+msgstr ""
+
+msgid "Blog:"
+msgstr "블로그 :"
+
+msgid "Change blog"
+msgstr "블로그 변경"
+
+msgid "Blogs:"
+msgstr "블로그 :"
+
+msgid "ok"
+msgstr "실행"
+
+#, fuzzy
+msgid "Go to the content"
+msgstr "글꼭지 내용이 없습니다."
+
+msgid "Go to the menu"
+msgstr ""
+
+msgid "Go to help"
+msgstr ""
+
+#, fuzzy
+msgid "My dashboard"
+msgstr "관리마당"
+
+msgid "Go to site"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Logout %s"
+msgstr "로그 아웃"
+
+msgid "Hide main menu"
+msgstr ""
+
+msgid "Show main menu"
+msgstr ""
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+#, php-format
+msgid "Thank you for using %s."
+msgstr "%s를 이용해주셔서 고맙습니다."
+
+#, fuzzy
+msgid "Page top"
+msgstr "페이지"
+
+#, fuzzy
+msgid "Go to dashboard"
+msgstr "관리마당"
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+msgid "uncover"
+msgstr "드러내기"
+
+msgid "hide"
+msgstr "감추기"
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+#, fuzzy
+msgid "Select:"
+msgstr "선택됨 :"
+
+#, fuzzy
+msgid "No selection"
+msgstr "선택 없음"
+
+#, fuzzy
+msgid "Select all"
+msgstr "모두 선택하기"
+
+msgid "Invert selection"
+msgstr "선택사항 뒤집기"
+
+msgid "Entry has been successfully created."
+msgstr "글꼭지가 성공적으로 생성되었습니다."
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "글꼭지 %d 개"
+
+msgid "view entry"
+msgstr "글꼭지 보기"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "이 글꼭지를 삭제하시려는 게 확실합니까 ?"
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "\"%s\" 테마를 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "선택된 댓글들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "이 댓글을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
+msgid "Users with posts cannot be deleted."
+msgstr "이 폴더는 지울 수 없습니다."
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "선택된 사용자들을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "선택된 사용자들을 삭제하시려는 게 확실합니까 ?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
+msgid "Are you sure you want to reorder all categories?"
+msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "\"%s\" 미디어 파일을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "\"%s\" 미디어 파일을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "압축파일을 현재 폴더에 푸시려는 게 확실합니까 ?"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "\"%s\" 첨부파일을 삭제하시려는 게 확실합니까 ?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "\"%s\" 언어를 삭제하시려는 게 확실합니까 ?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "\"%s\" 플러그인을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "\"%s\" 플러그인을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Use this theme"
+msgstr "이 테마를 사용"
+
+#, fuzzy
+msgid "Remove this theme"
+msgstr "이 테마를 지움"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "\"%s\" 테마를 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected themes?"
+msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
+msgid "Are you sure you want to delete this backup?"
+msgstr "이 댓글을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
+msgid "Are you sure you want to revert to this backup?"
+msgstr "이 첨부파일을 정말 제거합니까?"
+
+msgid "Zip file content"
+msgstr "Zip 파일 내용보기"
+
+msgid "HTML markup validator"
+msgstr "HTML 오류점검"
+
+msgid "HTML content is valid."
+msgstr "HTML 오류가 발견되지 않았습니다."
+
+msgid "There are HTML markup errors."
+msgstr "HTML 오류가 있습니다."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+msgid "Details"
+msgstr "상세정보"
+
+msgid "Support"
+msgstr ""
+
+#, fuzzy
+msgid "Help:"
+msgstr "도움말"
+
+#, fuzzy
+msgid "Section:"
+msgstr "작업"
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "이 테마를 사용"
+
+#, fuzzy
+msgid "Show password"
+msgstr "새 비밀번호 :"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "새 비밀번호 :"
+
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr "변경하신 내용을 저장하지 않았습니다."
+
+msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
+msgstr ""
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "복수파일 동시전송 모드로 전환"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "기본 모드로 전환"
+
+msgid "Limit exceeded."
+msgstr "한계 초과됨."
+
+msgid "File size exceeds allowed limit."
+msgstr "파일 크기가 허용 한계를 넘습니다."
+
+msgid "Canceled."
+msgstr "취소됨."
+
+msgid "HTTP Error:"
+msgstr "HTTP 오류 :"
+
+msgid "Choose file"
+msgstr "파일 선택"
+
+msgid "Choose files"
+msgstr "파일 선택"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Clean"
+msgstr "목록 비우기"
+
+msgid "Upload"
+msgstr "올리기"
+
+msgid "Send"
+msgstr ""
+
+msgid "File successfully uploaded."
+msgstr "파일 올리기 성공."
+
+msgid "No file in queue."
+msgstr "올릴 준비가 된 파일이 없습니다."
+
+msgid "1 file in queue."
+msgstr "1 파일 올릴 준비됨."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "%d 파일 올릴 준비됨."
+
+msgid "Queue error:"
+msgstr "준비중 오류 :"
+
+msgid "Cancel filters and display options"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "찾은 글꼭지수: %d"
+
+msgid "other"
+msgstr ""
+
+#, fuzzy
+msgid "Search in repository:"
+msgstr "글꼭지 찾기 :"
+
+msgid "Reset search"
+msgstr ""
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr ""
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] ""
+
+#, fuzzy
+msgid "current selection"
+msgstr "선택 없음"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] ""
+
+msgid "no results"
+msgstr ""
+
+msgid "Browse index:"
+msgstr ""
+
+#, fuzzy
+msgid "Plugins list"
+msgstr "플러그인"
+
+msgid "Score"
+msgstr ""
+
+msgid "Version"
+msgstr "버전"
+
+#, fuzzy
+msgid "Current version"
+msgstr "권한 설정"
+
+#, fuzzy
+msgid "Repository"
+msgstr "MP3 배치방식"
+
+msgid "Action"
+msgstr "작업"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "글꼭지 찾기 :"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "글꼭지 찾기 :"
+
+msgid "Plugin from official distribution"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "플러그인 관리"
+
+#, fuzzy
+msgid "update locked"
+msgstr "Dotclear 갱신"
+
+msgid "No plugins matched your search."
+msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "테마"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "블로그 설정"
+
+#, fuzzy
+msgid "Plugin main page"
+msgstr "플러그인 관리"
+
+msgid "Activate"
+msgstr "작동켜기"
+
+msgid "Deactivate"
+msgstr "작동끄기"
+
+msgid "Clone"
+msgstr ""
+
+#, fuzzy
+msgid "Install"
+msgstr "Dotclear 설치"
+
+#, fuzzy
+msgid "Activate selected plugins"
+msgstr "작동중인 플러그인"
+
+#, fuzzy
+msgid "Activate all plugins from this list"
+msgstr "작동중인 플러그인"
+
+#, fuzzy
+msgid "Deactivate selected plugins"
+msgstr "작동꺼진 플러그인"
+
+#, fuzzy
+msgid "Deactivate all plugins from this list"
+msgstr "작동꺼진 플러그인"
+
+#, fuzzy
+msgid "Update selected plugins"
+msgstr "작동꺼진 플러그인"
+
+msgid "Update all plugins from this list"
+msgstr ""
+
+msgid "No such plugin."
+msgstr "존재하지 않는 플러그인입니다."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "이 플러그인을 삭제할 권한이 없습니다."
+
+#, fuzzy
+msgid "Some plugins have not been delete."
+msgstr "다음 플러그인들은 설치되지 않았습니다 :"
+
+#, fuzzy
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "플러그인이 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "플러그인이 성공적으로 설치되었습니다."
+
+#, fuzzy
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "플러그인이 성공적으로 설치되었습니다."
+
+#, fuzzy
+msgid "Some plugins have not been deactivated."
+msgstr "다음 플러그인들은 설치되지 않았습니다 :"
+
+#, fuzzy
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "플러그인이 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "플러그인이 성공적으로 갱신되었습니다."
+
+#, fuzzy, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "다음 플러그인들이 설치되어있습니다 :"
+
+msgid "Unable to move uploaded file."
+msgstr "올려진 파일을 옮길 수 없습니다."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "플러그인이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "플러그인이 성공적으로 설치되었습니다."
+
+msgid "Upload a zip file"
+msgstr "테마 zip 파일 올리기"
+
+#, fuzzy
+msgid "Zip file path:"
+msgstr "Zip 파일 내용보기"
+
+msgid "Your password:"
+msgstr "당신의 비밀번호:"
+
+msgid "Download a zip file"
+msgstr "(블로그에) 테마 zip 파일 내려받기"
+
+#, fuzzy
+msgid "Zip file URL:"
+msgstr "테마 zip 파일 URL :"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL :"
+
+#, fuzzy
+msgid "Download"
+msgstr "테마 내려받기"
+
+#, fuzzy
+msgid "Unknown plugin ID"
+msgstr "플러그인 올리기"
+
+#, fuzzy
+msgid "This plugin has no configuration file."
+msgstr "DC_ADMIN_URL이 정해지지 않았습니다. 블로그 설정파일을 수정하셔야 합니다."
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "권한 설정"
+
+#, fuzzy, php-format
+msgid "Configure \"%s\""
+msgstr "테마"
+
+msgid "Back"
+msgstr ""
+
+#, php-format
+msgid "Score: %s"
+msgstr ""
+
+#, php-format
+msgid "%s screenshot."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr "%s 작성"
+
+#, php-format
+msgid "version %s"
+msgstr "버전 %s"
+
+#, fuzzy, php-format
+msgid "(current version %s)"
+msgstr "버전 %s"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr "(\"%s\"에 기반함)"
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr "(\"%s\"이 필요함)"
+
+#, fuzzy
+msgid "View stylesheet"
+msgstr "스타일쉬트"
+
+#, fuzzy
+msgid "Configure theme"
+msgstr "테마"
+
+msgid "No themes matched your search."
+msgstr ""
+
+#, fuzzy
+msgid "Use this one"
+msgstr "이 테마를 사용"
+
+#, fuzzy
+msgid "Update selected themes"
+msgstr "선택된 테마 사용"
+
+msgid "Update all themes from this list"
+msgstr ""
+
+#, fuzzy
+msgid "No such theme."
+msgstr "존재하지 않는 모듈입니다."
+
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
+msgstr "테마가 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Theme has been successfully activated."
+msgid_plural "Themes have been successuflly activated."
+msgstr[0] "테마가 성공적으로 변경되었습니다."
+
+msgid "Some themes have not been deactivated."
+msgstr ""
+
+#, fuzzy
+msgid "Theme has been successfully deactivated."
+msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "테마가 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "테마가 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "You don't have permissions to delete this theme."
+msgstr "이 플러그인을 삭제할 권한이 없습니다."
+
+msgid "Some themes have not been delete."
+msgstr ""
+
+#, fuzzy
+msgid "Theme has been successfully deleted."
+msgid_plural "Themes have been successuflly deleted."
+msgstr[0] "테마가 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Theme has been successfully installed."
+msgid_plural "Themes have been successfully installed."
+msgstr[0] "테마가 성공적으로 설치되었습니다."
+
+#, fuzzy
+msgid "Theme has been successfully updated."
+msgid_plural "Themes have been successfully updated."
+msgstr[0] "테마가 성공적으로 갱신되었습니다."
+
+#, php-format
+msgid "Following themes updates are locked: %s"
+msgstr ""
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "테마가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "테마가 성공적으로 설치되었습니다."
+
+#, fuzzy
+msgid "First page"
+msgstr "이름"
+
+#, fuzzy
+msgid "Previous page"
+msgstr "앞 글꼭지"
+
+msgid "Next page"
+msgstr ""
+
+#, fuzzy
+msgid "Last page"
+msgstr "최근 갱신"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr ""
+
+#, php-format
+msgid "Direct access page %s"
+msgstr ""
+
+#, fuzzy
+msgid "&#171; prev."
+msgstr "&#171;앞으로."
+
+#, fuzzy
+msgid "next &#187;"
+msgstr "뒤로.&#187;"
+
+#, fuzzy
+msgid "No entry matches the filter"
+msgstr "글꼭지 제목이 없습니다."
+
+msgid "No entry"
+msgstr "글꼭지 없음"
+
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "글꼭지 제목이 없습니다."
+
+#, fuzzy, php-format
+msgid "List of entries (%s)"
+msgstr "분류 목록"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+
+msgid "Legend: "
+msgstr ""
+
+#, fuzzy
+msgid "Published"
+msgstr "공개"
+
+#, fuzzy
+msgid "Unpublished"
+msgstr "비공개"
+
+#, fuzzy
+msgid "Scheduled"
+msgstr "예약"
+
+#, fuzzy
+msgid "Pending"
+msgstr "미지정"
+
+#, fuzzy
+msgid "Protected"
+msgstr "보호됨"
+
+#, fuzzy
+msgid "Attachments"
+msgstr "첨부파일"
+
+#, php-format
+msgid "%d attachment"
+msgstr "첨부파일 %d 개"
+
+#, php-format
+msgid "%d attachments"
+msgstr "첨부파일 %d 개"
+
+#, fuzzy
+msgid "Entries list"
+msgstr "분류 목록"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr ""
+
+msgid "No comments"
+msgstr "댓글이 없습니다."
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "댓글과 글걸이"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ""
+
+msgid "Type"
+msgstr "종류"
+
+#, fuzzy
+msgid "Entry"
+msgstr "글꼭지"
+
+msgid "Junk"
+msgstr ""
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr ""
+
+msgid "comment"
+msgstr "댓글"
+
+msgid "trackback"
+msgstr "글걸이"
+
+#, fuzzy
+msgid "Type and author"
+msgstr "글쓴이 변경"
+
+msgid "Edit"
+msgstr ""
+
+msgid "No blog matches the filter"
+msgstr ""
+
+msgid "No blog"
+msgstr "블로그가 없습니다."
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "페이지당 글꼭지수"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "블로그"
+
+msgid "online"
+msgstr "공개"
+
+msgid "offline"
+msgstr "비공개"
+
+msgid "removed"
+msgstr "폐쇄"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "%s 블로그 설정 수정"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "블로그 설정"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "%s 블로그로 전환"
+
+msgid "No user matches the filter"
+msgstr ""
+
+msgid "No user"
+msgstr "사용자 없음"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr ""
+
+#, fuzzy
+msgid "Users list"
+msgstr "사용자"
+
+msgid "admin"
+msgstr ""
+
+#, fuzzy
+msgid "superadmin"
+msgstr "최상위 관리자 (Super administrator)"
+
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "글꼭지 제목이 없습니다."
+
+msgid "No file."
+msgstr "파일이 없습니다."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "글꼭지 제목이 없습니다."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+#, fuzzy
+msgid "Select this file"
+msgstr "이 블로그를 삭제하기"
+
+msgid "Attach this file to entry"
+msgstr "글꼭지에 이 파일을 첨부"
+
+msgid "Insert this file into entry"
+msgstr "이 파일을 글꼭지에 삽입하기"
+
+#, fuzzy
+msgid "delete"
+msgstr "삭제"
+
+#, fuzzy
+msgid "private media"
+msgstr "미디어 관리화면에서 감춤 (주의! URL알면 접근 가능)"
+
+msgid "open"
+msgstr "열기"
+
+#, php-format
+msgid "(%s)"
+msgstr ""
+
+#, php-format
+msgid "ratio %.1f"
+msgstr ""
+
+#, fuzzy
+msgid "The 'public' directory does not exist."
+msgstr "이 글꼭지는 존재하지 않습니다."
+
+#, fuzzy, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr "이 폴더는 지울 수 없습니다."
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to create images."
+msgstr "해당 폴더를 만들 수 없습니다."
+
+#, fuzzy
+msgid "Invalid file type."
+msgstr "컨트롤파일(digests)이 비정상적입니다."
+
+msgid "An error occurred while writing the file."
+msgstr "파일 쓰기 도중 오류가 발생했습니다."
+
+#, fuzzy, php-format
+msgid "Uploaded image is not %s pixels wide."
+msgstr "생성된 이미지 크기 (픽셀단위)"
+
+#, fuzzy
+msgid "small"
+msgstr "작은 크기 :"
+
+#, fuzzy
+msgid "thumbnail"
+msgstr "꼬맹이사진 :"
+
+msgid "square"
+msgstr ""
+
+#, fuzzy
+msgid "Pages"
+msgstr "페이지"
+
+msgid "administrator"
+msgstr "블로그관리자"
+
+msgid "manage all entries and comments"
+msgstr "모든 글꼭지와 댓글을 관리할 수 있음"
+
+msgid "manage their own entries and comments"
+msgstr "자신들의 글꼭지와 댓글을 관리할 수 있음"
+
+msgid "publish entries and comments"
+msgstr "글꼭지와 댓글을 공개할 수 있음"
+
+msgid "delete entries and comments"
+msgstr "글꼭지와 댓글을 삭제할 수 있음"
+
+msgid "manage categories"
+msgstr "분류를 관리할 수 있음"
+
+msgid "manage all media items"
+msgstr "모든 미디어를 관리할 수 있음"
+
+msgid "manage their own media items"
+msgstr "자신들의 미디어를 관리할 수 있음"
+
+msgid "That user does not exist in the database."
+msgstr "이 사용자는 데이터베이스에 없습니다."
+
+msgid "That key does not exist in the database."
+msgstr "이 키는 데이터베이스에 없습니다."
+
+msgid "You are not allowed to add categories"
+msgstr "분류 만들기 권한이 없습니다."
+
+msgid "You are not allowed to update categories"
+msgstr "분류 갱신 권한이 없습니다."
+
+msgid "You are not allowed to delete categories"
+msgstr "분류 삭제 권한이 없습니다."
+
+msgid "This category is not empty."
+msgstr "이 분류는 비어있지 않습니다."
+
+#, fuzzy
+msgid "You are not allowed to reset categories order"
+msgstr "분류 삭제 권한이 없습니다."
+
+#, fuzzy
+msgid "Empty category URL"
+msgstr "글꼭지 URL이 비었습니다."
+
+msgid "You must provide a category title"
+msgstr "분류 제목을 지정해 주어야합니다."
+
+msgid "You must provide a category URL"
+msgstr "분류 URL을 지정해 주어야합니다."
+
+msgid "You are not allowed to create an entry"
+msgstr "글꼭지를 만들 권한이 없습니다."
+
+msgid "You are not allowed to update entries"
+msgstr "글꼭지를 편집할 권한이 없습니다."
+
+msgid "No such entry ID"
+msgstr "존재하지 않는 글꼭지 ID입니다."
+
+msgid "You are not allowed to edit this entry"
+msgstr "이 글꼭지를 편집할 권한이 없습니다."
+
+msgid "You are not allowed to change this entry status"
+msgstr "이 글꼭지의 공개상태를 변경할 권한이 없습니다."
+
+msgid "You are not allowed to change this entry category"
+msgstr "이 글꼭지의 분류를 변경할 권한이 없습니다."
+
+#, fuzzy
+msgid "You are not allowed to change entries category"
+msgstr "이 글꼭지의 분류를 변경할 권한이 없습니다."
+
+msgid "You are not allowed to delete entries"
+msgstr "글꼭지들을 삭제할 권한이 없습니다."
+
+msgid "No entry title"
+msgstr "글꼭지 제목이 없습니다."
+
+msgid "No entry content"
+msgstr "글꼭지 내용이 없습니다."
+
+#, fuzzy
+msgid "Notes"
+msgstr "비공개 노트 :"
+
+#, fuzzy
+msgid "Note"
+msgstr "비공개 노트 :"
+
+msgid "Empty entry URL"
+msgstr "글꼭지 URL이 비었습니다."
+
+msgid "You are not allowed to update comments"
+msgstr "댓글들을 갱신할 권한이 없습니다."
+
+msgid "No such comment ID"
+msgstr "존재하지 않는 댓글 ID입니다."
+
+msgid "You are not allowed to update this comment"
+msgstr "이 댓글을 갱신할 권한이 없습니다."
+
+msgid "You are not allowed to change this comment's status"
+msgstr "이 댓글의 공개상태를 변경할 권한이 없습니다."
+
+msgid "You are not allowed to delete comments"
+msgstr "댓글들을 삭제할 권한이 없습니다."
+
+msgid "You must provide a comment"
+msgstr "댓글을 먼저 지정하셔야합니다."
+
+msgid "You must provide an author name"
+msgstr "글쓴이 이름을 쓰셔야합니다."
+
+msgid "Email address is not valid."
+msgstr "이메일 주소가 바르지 않습니다."
+
+msgid "You are not an administrator"
+msgstr "블로그관리자가 아닙니다."
+
+msgid "Invalid user language code"
+msgstr "사용자 언어코드가 바르지 않습니다."
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "블로그 ID는 최소 2자이상의 문자,수자 또는 기호를 포함해야합니다."
+
+msgid "No blog name"
+msgstr "블로그 이름이 없습니다."
+
+msgid "No blog URL"
+msgstr "블로그 URL이 없습니다."
+
+#, fuzzy
+msgid "No log message"
+msgstr "블로그 이름이 없습니다."
+
+#, fuzzy
+msgid "unknown"
+msgstr "지금"
+
+msgid "No blog defined."
+msgstr "정의된 블로그가 없습니다."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+msgid "You are not a super administrator."
+msgstr "블로그 최상위관리자가 아닙니다."
+
+msgid "Permission denied."
+msgstr "권한이 없습니다."
+
+msgid "You are not the file owner."
+msgstr "당신은 파일 주인이 아닙니다."
+
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "이 파일은 올리기 금지된 파일입니다."
+
+msgid "New file already exists."
+msgstr "새 파일이 이미 있습니다."
+
+msgid "File does not exist in the database."
+msgstr "파일이 데이터베이스에 없습니다."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "다음 플러그인들이 설치되어있습니다 :"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr "빈 모듈 zip 파일입니다."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "이 Zip파일은 정상적인 Dotclear 모듈파일이 아닙니다."
+
+#, fuzzy, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "\"%s\"를 갱신할 수 없습니다. (동일 버전)."
+
+msgid "An error occurred during module deletion."
+msgstr "모듈 삭제중 오류가 발생했습니다."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "\"%s\"를 갱신할 수 없습니다. (동일 버전)."
+
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
+
+msgid "Cannot deactivate plugin."
+msgstr "플러그인의 작동을 멈출 수 없습니다."
+
+msgid "No such module."
+msgstr "존재하지 않는 모듈입니다."
+
+msgid "Cannot remove module files"
+msgstr "모듈파일을 지울 수 없습니다."
+
+msgid "Cannot activate plugin."
+msgstr "플러그인을 작동시킬 수 없습니다."
+
+#, fuzzy, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "바르지 않은 영역이름 : %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "설정값을 읽어볼 수 없게함 :"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s는 바르지않은 설정 ID입니다."
+
+msgid "No namespace specified"
+msgstr "정해진 영역이름이 없습니다"
+
+#, fuzzy
+msgid "No notice message"
+msgstr "블로그 이름이 없습니다."
+
+#, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "설정값을 읽어볼 수 없게함 :"
+
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "바르지 않은 영역이름 : %s"
+
+#, fuzzy
+msgid "Unable to retrieve namespaces:"
+msgstr "설정값을 읽어볼 수 없게함 :"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "바르지 않은 영역이름 : %s"
+
+#, fuzzy
+msgid "Wrong data feed"
+msgstr "글꼭지 타래소식에 글꼭지 일부만 보냄"
+
+msgid "An error occurred while downloading the file."
+msgstr "파일 내려받기 중 에러 발생."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "파일을 열 수 없습니다."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s에 글걸이는 이미 이루어진 상태입니다."
+
+msgid "Unable to ping URL"
+msgstr "글걸기를 할 수 없습니다.(URL 오류 ?)"
+
+msgid "Bad server response code"
+msgstr ""
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s 는 글걸기용 URL이 아닙니다."
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, 글걸기 오류 :"
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+msgid "LOL!"
+msgstr ""
+
+msgid "Digests file not found."
+msgstr "컨트롤파일(digests)을 찾을 수 없습니다."
+
+msgid "No file to download"
+msgstr "내려받을 파일이 없습니다."
+
+msgid "Root directory is not writable."
+msgstr "최상위폴더가 쓰기금지 상태입니다."
+
+msgid "An error occurred while downloading archive."
+msgstr "갱신파일을 내려받는 중 오류가 발생했습니다."
+
+msgid "Archive not found."
+msgstr "갱신파일을 찾을 수 없습니다."
+
+msgid "Unable to read current digests file."
+msgstr "현재 버전에서 사용중인 컨트롤파일(digests)을 읽을 수 없습니다."
+
+#, fuzzy
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "내려받은 파일이 정상적인 갱신파일이 아닌 것 같습니다."
+
+msgid "Incomplete archive."
+msgstr "불완전한 파일입니다."
+
+msgid "Unable to read digests file."
+msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
+
+msgid "Invalid digests file."
+msgstr "컨트롤파일(digests)이 비정상적입니다."
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "설정값을 읽어볼 수 없게함 :"
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s는 바르지않은 설정 ID입니다."
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "정해진 영역이름이 없습니다"
+
+msgid "Something went wrong with auto upgrade:"
+msgstr "자동 갱신 중 오류가 발생했습니다 :"
+
+msgid "Site temporarily unavailable"
+msgstr ""
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr ""
+
+msgid "Unable to connect to database"
+msgstr ""
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr ""
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr ""
+
+#, fuzzy
+msgid "No process found"
+msgstr "찾은 글꼭지수: %d"
+
+msgid "Process failed"
+msgstr ""
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear가 갱신되었습니다."
@@ -30,9 +2250,6 @@ msgstr "다음 사이트에 대한 사용자이름과 비밀번호를 바꾸어�
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "비밀번호를 바꾸시려면 다음 주소를 방문하십시요. 원하지 않으시면 그냥 이 이메일을 무시하시면 됩니다."
 
-msgid "Username:"
-msgstr "사용자이름:"
-
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "%s로 이메일이 성공적으로 발송되었습니다."
@@ -40,14 +2257,8 @@ msgstr "%s로 이메일이 성공적으로 발송되었습니다."
 msgid "Your new password"
 msgstr "당신의 새 비밀번호"
 
-msgid "Password:"
-msgstr "비밀번호:"
-
 msgid "Your new password is in your mailbox."
 msgstr "새 비밀번호가 메일수신함에 도착했습니다."
-
-msgid "Passwords don't match"
-msgstr "비밀번호가 일치하지 않습니다."
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -65,38 +2276,17 @@ msgid "Safe Mode can only be used for super administrators."
 msgstr "블로그 최상위관리자가 아닙니다."
 
 #, fuzzy
-msgid "Insufficient permissions"
-msgstr "권한 설정"
-
-#, fuzzy
 msgid "Administration session expired"
 msgstr "관리자 화면 :"
 
 msgid "Wrong username or password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
 
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "비밀번호 수정"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "중간 크키 :"
-
-msgid "strong"
-msgstr ""
-
 msgid "Back to login screen"
 msgstr "로그인 화면으로 돌아가기"
 
 msgid "Request a new password"
 msgstr "새 비밀번호 요청"
-
-msgid "Email:"
-msgstr "이메일:"
 
 msgid "recover"
 msgstr "되살리기"
@@ -107,12 +2297,6 @@ msgstr "찾을 내용 지정"
 
 msgid "Change your password"
 msgstr "비밀번호 변경"
-
-msgid "New password:"
-msgstr "새 비밀번호 :"
-
-msgid "Confirm password:"
-msgstr "비밀번호 확인 :"
 
 #, fuzzy
 msgid "change"
@@ -159,23 +2343,11 @@ msgstr "새 블로그"
 msgid "System"
 msgstr "시스템관리"
 
-msgid "Blogs"
-msgstr "블로그"
-
-msgid "Blog ID"
-msgstr "블로그 아이디"
-
 msgid "Blog ID:"
 msgstr "블로그 아이디:"
 
-msgid "Required field"
-msgstr "필수 사항"
-
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "최소 2자 이상의 글자, 숫자 또는 기호들의 조합."
-
-msgid "Blog name"
-msgstr "블로그 이름"
 
 msgid "Blog name:"
 msgstr "블로그 이름"
@@ -193,14 +2365,8 @@ msgstr "블로그 간략 소개:"
 msgid "Create"
 msgstr ""
 
-msgid "Cancel"
-msgstr "취소"
-
 msgid "No such blog ID"
 msgstr "존재하지 않는 블로그 아이디입니다."
-
-msgid "Password verification failed"
-msgstr "비밀번호 확인에 실패했습니다."
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully deleted"
@@ -218,9 +2384,6 @@ msgstr "지금 %s 블로그를 삭제하시려 합니다. 블로그를 삭제하
 
 msgid "Please give your password to confirm the blog deletion."
 msgstr "블로그 삭제를 확정하려면 비밀번호를 입력하세요."
-
-msgid "Your password:"
-msgstr "당신의 비밀번호:"
 
 msgid "Delete this blog"
 msgstr "이 블로그를 삭제하기"
@@ -261,9 +2424,6 @@ msgstr ""
 
 msgid "(none)"
 msgstr ""
-
-msgid "Title"
-msgstr "제목"
 
 msgid "Title, Date"
 msgstr "제목, 날짜"
@@ -330,9 +2490,6 @@ msgstr "잘못된 언어 코드"
 
 msgid "Blog has been successfully updated."
 msgstr "블로그가 성공적으로 갱신되었습니다."
-
-msgid "Blog settings"
-msgstr "블로그 설정"
 
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
@@ -590,18 +2747,8 @@ msgstr ""
 msgid "Plugins parameters"
 msgstr "설정사항"
 
-msgid "Save"
-msgstr "저장"
-
-#, fuzzy
-msgid "The current blog cannot be deleted."
-msgstr "이 폴더는 지울 수 없습니다."
-
 msgid "Only superadmin can delete a blog."
 msgstr ""
-
-msgid "Users"
-msgstr "사용자"
 
 msgid "Users on this blog"
 msgstr "이 블로그의 사용자들"
@@ -637,9 +2784,6 @@ msgstr "이 블로그의 사용자들"
 
 msgid "Change permissions"
 msgstr "권한 변경"
-
-msgid "Blog appearance"
-msgstr "모양과 테마"
 
 msgid "Theme configuration"
 msgstr "테마 설정"
@@ -724,9 +2868,6 @@ msgstr "작업"
 msgid "Selected blogs action:"
 msgstr "선택된 사용자들에 대한 작업 :"
 
-msgid "ok"
-msgstr "실행"
-
 #, fuzzy
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "블로그 삭제를 확정하려면 비밀번호를 입력하세요."
@@ -752,9 +2893,6 @@ msgstr "분류 정렬초기화 완료."
 #, fuzzy
 msgid "Categories order has been successfully reset."
 msgstr "분류 정렬초기화 완료."
-
-msgid "Categories"
-msgstr "분류"
 
 #, fuzzy
 msgid "The category has been successfully removed."
@@ -787,9 +2925,6 @@ msgstr "URL :"
 #, fuzzy
 msgid "Move entries to"
 msgstr "이 분류를 이동"
-
-msgid "OK"
-msgstr ""
 
 #, fuzzy
 msgid "Delete category"
@@ -830,12 +2965,6 @@ msgstr "분류 상세 정보"
 msgid "Name:"
 msgstr "이름 :"
 
-msgid "Name"
-msgstr "성"
-
-msgid "Parent:"
-msgstr "상위분류 :"
-
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "경고 : 분류URL을 직접 작성하면, 다른 분류와 혼선이 생길 수도 있습니다."
 
@@ -869,9 +2998,6 @@ msgstr "존재하지 않는 글꼭지입니다."
 
 msgid "Comment has been successfully created."
 msgstr "댓글이 성공적으로 생성되었습니다."
-
-msgid "No comments"
-msgstr "댓글이 없습니다."
 
 msgid "Comment has been successfully updated."
 msgstr "댓글이 성공적으로 갱신되었습니다."
@@ -913,9 +3039,6 @@ msgstr "이메일 보내기"
 msgid "Information collected"
 msgstr "선택 안됨"
 
-msgid "IP address:"
-msgstr "IP 주소 :"
-
 msgid "Date:"
 msgstr "날짜 :"
 
@@ -923,31 +3046,8 @@ msgstr "날짜 :"
 msgid "Comment submitted"
 msgstr "댓글"
 
-msgid "Author:"
-msgstr "글쓴이 :"
-
-msgid "Author"
-msgstr "글쓴이"
-
-msgid "Web site:"
-msgstr "웹사이트 :"
-
-msgid "Status:"
-msgstr "공개상태 :"
-
 msgid "Comment:"
 msgstr "댓글 :"
-
-msgid "Delete"
-msgstr "삭제"
-
-#, fuzzy
-msgid "Selected comments have been successfully updated."
-msgstr "댓글이 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Selected comments have been successfully deleted."
-msgstr "테마가 성공적으로 삭제되었습니다."
 
 #, fuzzy
 msgid "Spam comments have been successfully deleted."
@@ -972,9 +3072,6 @@ msgstr "블로그 삭제"
 
 msgid "Selected comments action:"
 msgstr "선택된 댓글에 대한 작업 :"
-
-msgid "Global help"
-msgstr ""
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1011,32 +3108,11 @@ msgstr ""
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
-
-msgid "Error:"
-msgstr "오류 :"
-
-msgid "Following plugins have been installed:"
-msgstr "다음 플러그인들이 설치되어있습니다 :"
-
-msgid "Following plugins have not been installed:"
-msgstr "다음 플러그인들은 설치되지 않았습니다 :"
-
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
 msgid "Quick post"
 msgstr "글꼭지 바로 만들기"
-
-msgid "New post"
-msgstr "새 글꼭지"
-
-msgid "Title:"
-msgstr "제목 :"
 
 msgid "Content:"
 msgstr "내용 :"
@@ -1044,9 +3120,6 @@ msgstr "내용 :"
 #, fuzzy
 msgid "Content"
 msgstr "내용 :"
-
-msgid "Category:"
-msgstr "분류 :"
 
 msgid "Add a new category"
 msgstr "새 분류 만들기"
@@ -1057,250 +3130,6 @@ msgstr ""
 #, fuzzy
 msgid "Save and publish"
 msgstr "저장하고 공개하기"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP 버전은 %s 입니다 (7.4 또는 이후 버전 요구됨.)"
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "다중바이트 문자열 모듈(mbstring)을 사용할 수 없습니다."
-
-msgid "Iconv module is not available."
-msgstr "Iconv모듈을 사용할 수 없습니다."
-
-msgid "Output control functions are not available."
-msgstr "출력 통제 기능들(Output control functions)을 사용할 수 없습니다."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML모듈을 사용할 수 없습니다."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML 모듈을 사용할 수 없습니다."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE 정규식 엔진은 UTF-8 문자열을 지원하지 않습니다."
-
-msgid "SPL module is not available."
-msgstr "SPL 모듈을 사용할 수 없습니다."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL 버전 %s (4.1 또는 이후 버전 필요)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB engine을 사용할 수 없습니다."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL 버전 %s (8.0 또는 이후 버전 필요)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "블로그 설정파일에서 매스터키(DC_MASTER_KEY)를 지정해야합니다."
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear가 이미 설치되어 있습니다."
-
-msgid "Dotclear cannot be installed."
-msgstr "Dotclear 설치가 불가능합니다."
-
-msgid "No user ID given"
-msgstr "존재하지 않는 사용자이름입니다."
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "사용자이름은 적어도 2자 이상의 알파벳문자, 수자 또는 기호를 포함해야합니다."
-
-msgid "Invalid email address"
-msgstr "바르지않은 이메일 주소"
-
-msgid "No password given"
-msgstr "존재하지 않는 비밀번호입니다."
-
-msgid "Password must contain at least 6 characters."
-msgstr "비밀번호는 적어도 6 글자 이상이어야 합니다."
-
-msgid "My first blog"
-msgstr "내 첫 블로그"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "Dotclear에 오신 걸 환영합니다 !"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "당신의 첫 글꼭지입니다. 블로그를 사용할 준비가 되셨다면, 로그인하여 이 글을 편집하시거나 삭제하십시요."
-
-msgid "Dotclear Team"
-msgstr "Dotclear 팀"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>이것은 댓글입니다.</p>\n"
-"<p>로그인후 블로그에서 댓글들을 보이도록 하시면, 이 글을 편집하거나 삭제할 수 있습니다.</p>"
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Dotclear 설치"
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "Dotclear 설치"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
-
-msgid "Errors:"
-msgstr "오류 :"
-
-msgid "Configuration file has been successfully created."
-msgstr "블로그 설정파일이 성공적으로 생성되었습니다."
-
-msgid "User information"
-msgstr "사용자 정보"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "최초 사용자를 생성하기 위해서는 다음의 정보들이 필요합니다."
-
-#, fuzzy
-msgid "First Name:"
-msgstr "이름 (Firstname):"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "최근 갱신"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "잘못된 사용자이름 또는 비밀번호"
-
-#, fuzzy
-msgid "Username"
-msgstr "사용자이름:"
-
-#, fuzzy
-msgid "Password"
-msgstr "비밀번호:"
-
-msgid "All done!"
-msgstr "완료되었습니다 !"
-
-#, fuzzy
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "Dotclear가 성공적으로 설치되었습니다. 다음 정보들을 잘 보관해두시기 바랍니다."
-
-msgid "Your account"
-msgstr "당신의 계정"
-
-msgid "Your blog"
-msgstr "당신의 블로그"
-
-msgid "Blog address:"
-msgstr "블로그 주소 :"
-
-msgid "Administration interface:"
-msgstr "관리자 화면 :"
-
-msgid "Manage your blog now"
-msgstr "블로그 관리"
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "이 폴더에 쓰기를 할 수 없습니다."
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "이메일 주소가 바르지 않습니다."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "%s 파일이 존재하지 않습니다."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "%s 파일을 쓸 수 없습니다.."
-
-msgid "Dotclear installation wizard"
-msgstr "Dotclear 설치도우미"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "작업"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "시스템 정보"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "당신의 설정파일 생성을 위해 다음 사항들을 적어주세요."
-
-msgid "Database type:"
-msgstr "데이터베이스 종류 :"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "데이터베이스 호스트 이름 :"
-
-msgid "Database Name:"
-msgstr "데이터베이스 이름 :"
-
-msgid "Database User Name:"
-msgstr "데이터베이스 사용자이름 :"
-
-msgid "Database Password:"
-msgstr "데이터베이스 비밀번호 :"
-
-msgid "Database Tables Prefix:"
-msgstr "데이터베이스 테이블이름 머리씨 :"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "내용 :"
 
 msgid "Invalid language zip file."
 msgstr "잘못된 언어 zip 파일입니다."
@@ -1332,9 +3161,6 @@ msgstr "해당 언어가 성공적으로 갱신되었습니다."
 msgid "Language has been successfully installed."
 msgstr "해당 언어가 성공적으로 설치되었습니다."
 
-msgid "Unable to move uploaded file."
-msgstr "올려진 파일을 옮길 수 없습니다."
-
 msgid "Languages management"
 msgstr "언어 관리"
 
@@ -1353,9 +3179,6 @@ msgstr "설치된 다른 언어가 없습니다."
 
 msgid "Language"
 msgstr "언어"
-
-msgid "Action"
-msgstr "작업"
 
 msgid "Install or upgrade languages"
 msgstr "언어의 설치 또는 갱신"
@@ -1377,9 +3200,6 @@ msgstr "언어 :"
 msgid "Install language"
 msgstr "추가언어 설치"
 
-msgid "Upload a zip file"
-msgstr "테마 zip 파일 올리기"
-
 msgid "You can install languages by uploading zip files."
 msgstr "해당 zip 파일을 올림으로써 언어를 설치할 수 있습니다."
 
@@ -1388,6 +3208,22 @@ msgstr "언어 zip 파일 :"
 
 msgid "Upload language"
 msgstr "언어 올리기"
+
+msgid "Add a link"
+msgstr "링크 추가"
+
+msgid "Link URL:"
+msgstr "링크 URL :"
+
+#, fuzzy
+msgid "Link title:"
+msgstr "파일 제목 :"
+
+msgid "Link language:"
+msgstr "링크 언어 :"
+
+msgid "Insert"
+msgstr "삽입"
 
 #, fuzzy
 msgid "Not a valid directory"
@@ -1447,10 +3283,6 @@ msgid "Select a file by clicking on %s"
 msgstr "글꼭지에 삽입할 파일은 %s을 눌러 선택해주세요."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "이 블로그를 삭제하기"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "선택된 파일로 되돌리기"
 
@@ -1469,9 +3301,6 @@ msgstr "테마 zip 파일 올리기"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%s 글꼭지에 첨부할 파일은 %s을 눌러 선택해주세요."
-
-msgid "Attach this file to entry"
-msgstr "글꼭지에 이 파일을 첨부"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1492,9 +3321,6 @@ msgstr "선택된 파일로 되돌리기"
 #, php-format
 msgid "In %s:"
 msgstr ""
-
-msgid "Media manager"
-msgstr "미디어"
 
 #, fuzzy
 msgid "Create new directory"
@@ -1524,12 +3350,6 @@ msgstr "파일 추가하기"
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "미디어를 외부로 공개할 때, 당신이 소유권을 가진 미디어나 복사금지되지 않은 미디어만 해당되도록 주의하세요."
 
-msgid "Choose file"
-msgstr "파일 선택"
-
-msgid "Choose files"
-msgstr "파일 선택"
-
 msgid "Maximum file size allowed:"
 msgstr "허용된 최대 파일 크기 :"
 
@@ -1539,10 +3359,6 @@ msgstr "미디어 관리화면에서 감춤 (주의! URL알면 접근 가능)"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-#, fuzzy
-msgid "My preferences"
-msgstr "사용자 선택사항"
-
 msgid "Refresh"
 msgstr ""
 
@@ -1550,20 +3366,9 @@ msgstr ""
 msgid "Clear all"
 msgstr "Dotclear 설치"
 
-msgid "Upload"
-msgstr "올리기"
-
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "찾은 글꼭지수: %d"
-
-msgid "Search:"
-msgstr "찾기 :"
 
 msgid "Not a valid file"
 msgstr "바르지않은 파일"
@@ -1610,9 +3415,6 @@ msgstr ""
 msgid "Title: "
 msgstr "제목 :"
 
-msgid "Legend: "
-msgstr ""
-
 msgid "Image alignment"
 msgstr "이미지 배치방식"
 
@@ -1649,9 +3451,6 @@ msgstr "비디오 배치방식"
 
 msgid "Media item will be inserted as a link."
 msgstr "미디어 아이템은 링크로서 삽입됩니다."
-
-msgid "Insert"
-msgstr "삽입"
 
 msgid "Make current settings as default"
 msgstr ""
@@ -1788,9 +3587,6 @@ msgstr "파일을 선택하세요 :"
 msgid "Maximum size %s"
 msgstr "최대크기 %s"
 
-msgid "Send"
-msgstr ""
-
 #, fuzzy
 msgid "Delete this media"
 msgstr "이 블로그를 삭제하기"
@@ -1803,9 +3599,6 @@ msgstr "플러그인을 찾지 못했습니다."
 
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "해당 플러그인이 존재하지 않거나, 관리화면이 없는 플러그인입니다."
-
-msgid "Plugins management"
-msgstr "플러그인 관리"
 
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
@@ -1860,43 +3653,6 @@ msgstr "이 기능을 켜려면, 플러그인 폴더에 쓰기접근을 허용�
 msgid "Plugin configuration"
 msgstr "블로그 설정:"
 
-msgid "Add a link"
-msgstr "링크 추가"
-
-msgid "Link URL:"
-msgstr "링크 URL :"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL :"
-
-#, fuzzy
-msgid "Link title:"
-msgstr "파일 제목 :"
-
-msgid "Link language:"
-msgstr "링크 언어 :"
-
-msgid "Add a link to an entry"
-msgstr "글꼭지에 링크 추가"
-
-#, fuzzy
-msgid "Entry type:"
-msgstr "글꼭지 제목"
-
-msgid "Ok"
-msgstr ""
-
-msgid "Search entry:"
-msgstr "글꼭지 찾기 :"
-
-msgid "Search"
-msgstr "찾기"
-
-#, fuzzy
-msgid "cancel"
-msgstr "취소"
-
 #, fuzzy
 msgid "Edit post"
 msgstr "%s 블로그 설정 수정"
@@ -1923,30 +3679,8 @@ msgstr "잘못된 언어 코드"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "권한 규정들이 성공적으로 갱신되었습니다."
 
-msgid "Entry has been successfully created."
-msgstr "글꼭지가 성공적으로 생성되었습니다."
-
-#, fuzzy
-msgid "Published"
-msgstr "공개"
-
-#, fuzzy
-msgid "Unpublished"
-msgstr "비공개"
-
-#, fuzzy
-msgid "Scheduled"
-msgstr "예약"
-
-#, fuzzy
-msgid "Pending"
-msgstr "미지정"
-
 #, php-format
 msgid "&ldquo;%s&rdquo;"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 msgid "Entry has been successfully updated."
@@ -1964,9 +3698,6 @@ msgstr "HTML로의 변환을 확정하려면 글꼭지를 저장하는 일을 �
 
 msgid "Go to this entry on the site"
 msgstr ""
-
-msgid "Status"
-msgstr "공개상태"
 
 #, fuzzy
 msgid "Entry status"
@@ -1991,9 +3722,6 @@ msgstr ""
 
 msgid "Selected entry"
 msgstr "선택된 글꼭지"
-
-msgid "Category"
-msgstr "분류"
 
 #, fuzzy
 msgid "Options"
@@ -2039,18 +3767,8 @@ msgstr "비공개"
 msgid "Preview"
 msgstr "글꼭지 미리보기"
 
-msgid "Comments"
-msgstr "댓글"
-
 msgid "Add a comment"
 msgstr "댓글 추가"
-
-#, fuzzy
-msgid "Comment"
-msgstr "댓글 :"
-
-msgid "Trackbacks"
-msgstr "글걸이"
 
 #, fuzzy
 msgid "Trackbacks received"
@@ -2078,18 +3796,6 @@ msgstr "글걸기주소 자동 추출"
 
 msgid "Previously sent pings"
 msgstr "이전에 전송된 글걸이"
-
-msgid "Date"
-msgstr "날짜"
-
-msgid "IP address"
-msgstr "IP 주소"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
 
 #, fuzzy
 msgid "select this comment"
@@ -2125,369 +3831,22 @@ msgstr "꼬맹이사진들이 성공적으로 갱신되었습니다."
 msgid "Selected entries action:"
 msgstr "선택된 글꼭지들에 대한 작업 :"
 
-#, fuzzy
-msgid "Light"
-msgstr "오른쪽"
+msgid "Add a link to an entry"
+msgstr "글꼭지에 링크 추가"
 
-msgid "Dark"
+#, fuzzy
+msgid "Entry type:"
+msgstr "글꼭지 제목"
+
+msgid "Ok"
 msgstr ""
 
-msgid "Automatic"
-msgstr ""
+msgid "Search entry:"
+msgstr "글꼭지 찾기 :"
 
 #, fuzzy
-msgid "Smallest"
-msgstr "작은 크기 :"
-
-#, fuzzy
-msgid "Smaller"
-msgstr "작은 크기 :"
-
-msgid "Larger"
-msgstr ""
-
-msgid "Largest"
-msgstr ""
-
-msgid "Blog description (in blog parameters)"
-msgstr ""
-
-#, fuzzy
-msgid "Category description"
-msgstr "동위 분류"
-
-msgid "Descending"
-msgstr "내림순"
-
-msgid "Ascending"
-msgstr "오름순"
-
-msgid "If you want to change your email or password you must provide your current password."
-msgstr "이메일주소나 비밀번호를 바꾸려면, 본인의 비밀번호 확인이 필요합니다."
-
-msgid "Personal information has been successfully updated."
-msgstr "개인 정보가 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Personal options has been successfully updated."
-msgstr "개인 정보가 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Dashboard options has been successfully updated."
-msgstr "개인 정보가 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "No favorite selected"
-msgstr "선택 안됨"
-
-#, fuzzy
-msgid "Favorites have been successfully added."
-msgstr "파일들이 성공적으로 올려졌습니다."
-
-#, fuzzy
-msgid "Favorites have been successfully removed."
-msgstr "파일이 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Favorites have been successfully updated."
-msgstr "파일이 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Default favorites have been successfully updated."
-msgstr "꼬맹이사진들이 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Dashboard items order have been successfully reset."
-msgstr "분류 정렬초기화 완료."
-
-msgid "My profile"
-msgstr ""
-
-msgid "Display name:"
-msgstr "필명 :"
-
-msgid "Alternate emails (comma separated list):"
-msgstr ""
-
-msgid "Invalid emails will be automatically removed from list."
-msgstr ""
-
-msgid "Alternate URLs (comma separated list):"
-msgstr ""
-
-msgid "Invalid URLs will be automatically removed from list."
-msgstr ""
-
-msgid "Language for my interface:"
-msgstr ""
-
-#, fuzzy
-msgid "My timezone:"
-msgstr "블로그 시간대:"
-
-#, fuzzy
-msgid "Change my password"
-msgstr "비밀번호 변경"
-
-#, fuzzy
-msgid "Confirm new password:"
-msgstr "비밀번호 확인 :"
-
-#, fuzzy
-msgid "Your current password:"
-msgstr "당신의 비밀번호:"
-
-#, fuzzy
-msgid "If you have changed your email or password you must provide your current password to save these modifications."
-msgstr "이메일주소나 비밀번호를 바꾸려면, 본인의 비밀번호 확인이 필요합니다."
-
-#, fuzzy
-msgid "Update my profile"
-msgstr "이전 버전 백업파일"
-
-#, fuzzy
-msgid "My options"
-msgstr "찾을 내용 지정"
-
-#, fuzzy
-msgid "Interface"
-msgstr "XML/RPC 인터페이스"
-
-#, fuzzy
-msgid "Theme:"
-msgstr "테마"
-
-#, fuzzy
-msgid "Activate enhanced uploader in media manager"
-msgstr "복수파일 동시전송 모드로 전환"
-
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr ""
-
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr ""
-
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr ""
-
-msgid "Hide all secondary information and notes"
-msgstr ""
-
-msgid "Hide help button"
-msgstr ""
-
-msgid "Show asynchronous requests indicator"
-msgstr ""
-
-#, fuzzy
-msgid "Font size:"
-msgstr "파일 크기 :"
-
-msgid "Use operating system font"
-msgstr ""
-
-msgid "Number of recent folders proposed in media manager:"
-msgstr ""
-
-msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
-
-msgid "Do not use standard favicon"
-msgstr ""
-
-msgid "This will be applied for all users"
-msgstr ""
-
-msgid "Disable Ad-blocker check"
-msgstr ""
-
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr ""
-
-msgid "Optional columns displayed in lists"
-msgstr ""
-
-msgid "Options for lists"
-msgstr ""
-
-#, fuzzy
-msgid "Apply filters on the fly"
-msgstr "파일 추가하기"
-
-msgid "Order by:"
-msgstr "정렬항 :"
-
-msgid "Sort:"
-msgstr "정렬방식 :"
-
-#, fuzzy
-msgid "Show"
-msgstr "보이기."
-
-#, fuzzy
-msgid "Edition"
-msgstr "댓글 편집"
-
-#, fuzzy, php-format
-msgid "Preferred editor for %s:"
-msgstr "선호하는 편집방식 :"
-
-#, fuzzy
-msgid "Choose an editor"
-msgstr "블로그 선택"
-
-msgid "Preferred format:"
-msgstr "선호하는 편집방식 :"
-
-msgid "Default entry status:"
-msgstr "글꼭지 공개상태 기본값 :"
-
-msgid "Entry edit field height:"
-msgstr "글꼭지 편집칸 높이 :"
-
-msgid "Enable WYSIWYG mode"
-msgstr "위지윅모드 사용가능"
-
-msgid "Display editor's toolbar at bottom of textarea (if possible)"
-msgstr ""
-
-msgid "Use HTML editor for:"
-msgstr ""
-
-#, fuzzy
-msgid "Other options"
-msgstr "찾을 내용 지정"
-
-#, fuzzy
-msgid "Save my options"
-msgstr "찾을 내용 지정"
-
-#, fuzzy
-msgid "My dashboard"
-msgstr "관리마당"
-
-msgid "My favorites"
-msgstr ""
-
-#, php-format
-msgid "position of %s"
-msgstr ""
-
-#, fuzzy
-msgid "Save order"
-msgstr "정렬 초기화"
-
-#, fuzzy
-msgid "Delete selected favorites"
-msgstr "선택된 파일 지우기"
-
-#, fuzzy
-msgid "Are you sure you want to remove selected favorites?"
-msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
-
-msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
-msgstr ""
-
-msgid "Define as default favorites"
-msgstr ""
-
-msgid "Currently no personal favorites."
-msgstr ""
-
-#, fuzzy
-msgid "Other available favorites"
-msgstr "사용가능한 크기 :"
-
-msgid "(default favorite)"
-msgstr ""
-
-msgid "Add to my favorites"
-msgstr ""
-
-msgid "Menu"
-msgstr ""
-
-msgid "Display favorites at the top of the menu"
-msgstr ""
-
-#, fuzzy
-msgid "Dashboard icons"
-msgstr "관리마당"
-
-#, fuzzy
-msgid "Display dashboard icons"
-msgstr "관리마당"
-
-#, fuzzy
-msgid "Dashboard modules"
-msgstr "관리마당"
-
-#, fuzzy
-msgid "Display documentation links"
-msgstr "문서자료"
-
-#, fuzzy
-msgid "Display Dotclear news"
-msgstr "Dotclear 갱신"
-
-msgid "Display quick entry form"
-msgstr ""
-
-#, fuzzy
-msgid "Do not display Dotclear updates"
-msgstr "Dotclear 갱신"
-
-#, fuzzy
-msgid "Save my dashboard options"
-msgstr "찾을 내용 지정"
-
-#, fuzzy
-msgid "Dashboard items order"
-msgstr "관리마당"
-
-msgid "Reset dashboard items order"
-msgstr ""
-
-msgid "Search options"
-msgstr "찾을 내용 지정"
-
-msgid "Query:"
-msgstr "열쇳말 :"
-
-msgid "In:"
-msgstr ""
-
-#, fuzzy
-msgid "No results found"
-msgstr "찾은 글꼭지수: %d"
-
-#, fuzzy
-msgid "Search in entries"
-msgstr "글꼭지에서 찾기"
-
-#, fuzzy
-msgid "Search in comments"
-msgstr "댓글에서 찾기"
-
-#, fuzzy, php-format
-msgid "one entry found"
-msgid_plural "%d entries found"
-msgstr[0] "찾은 글꼭지수: %d"
-
-#, fuzzy, php-format
-msgid "one comment found"
-msgid_plural "%d comments found"
-msgstr[0] "찾은 댓글수: %d"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%s 블로그 설정 수정"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "댓글 %d 개"
+msgid "cancel"
+msgstr "취소"
 
 #, fuzzy
 msgid "Dotclear news not available"
@@ -2540,6 +3899,37 @@ msgstr[0] "Iconv모듈을 사용할 수 없습니다."
 #, fuzzy
 msgid "List options saved"
 msgstr "찾을 내용 지정"
+
+msgid "Search options"
+msgstr "찾을 내용 지정"
+
+msgid "Query:"
+msgstr "열쇳말 :"
+
+msgid "In:"
+msgstr ""
+
+#, fuzzy
+msgid "No results found"
+msgstr "찾은 글꼭지수: %d"
+
+#, fuzzy
+msgid "Search in entries"
+msgstr "글꼭지에서 찾기"
+
+#, fuzzy
+msgid "Search in comments"
+msgstr "댓글에서 찾기"
+
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "찾은 글꼭지수: %d"
+
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "찾은 댓글수: %d"
 
 msgid "Dotclear update"
 msgstr "Dotclear 갱신"
@@ -2670,12 +4060,44 @@ msgstr "당신의 사용자이름을 바꾸시면, 다시 로그인하셔야합�
 msgid "Password change required to connect"
 msgstr ""
 
+msgid "Display name:"
+msgstr "필명 :"
+
 msgid "Mandatory for password recovering procedure."
 msgstr ""
+
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
+#, fuzzy
+msgid "Interface"
+msgstr "XML/RPC 인터페이스"
 
 #, fuzzy
 msgid "Timezone:"
 msgstr "블로그 시간대:"
+
+#, fuzzy
+msgid "Edition"
+msgstr "댓글 편집"
+
+msgid "Preferred format:"
+msgstr "선호하는 편집방식 :"
+
+msgid "Default entry status:"
+msgstr "글꼭지 공개상태 기본값 :"
+
+msgid "Entry edit field height:"
+msgstr "글꼭지 편집칸 높이 :"
 
 msgid "Save and create another"
 msgstr ""
@@ -2689,9 +4111,6 @@ msgstr "새 권한 추가"
 #, fuzzy
 msgid "No permissions so far."
 msgstr "권한 없음."
-
-msgid "Blog:"
-msgstr "블로그 :"
 
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
@@ -2707,6 +4126,274 @@ msgstr "블로그 목록"
 #, fuzzy
 msgid "List of comments"
 msgstr "댓글이 없습니다."
+
+#, fuzzy
+msgid "Light"
+msgstr "오른쪽"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
+msgid "Smallest"
+msgstr "작은 크기 :"
+
+#, fuzzy
+msgid "Smaller"
+msgstr "작은 크기 :"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Largest"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "동위 분류"
+
+msgid "If you want to change your email or password you must provide your current password."
+msgstr "이메일주소나 비밀번호를 바꾸려면, 본인의 비밀번호 확인이 필요합니다."
+
+msgid "Personal information has been successfully updated."
+msgstr "개인 정보가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "개인 정보가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Dashboard options has been successfully updated."
+msgstr "개인 정보가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "선택 안됨"
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "파일들이 성공적으로 올려졌습니다."
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "파일이 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "파일이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "꼬맹이사진들이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "분류 정렬초기화 완료."
+
+msgid "My profile"
+msgstr ""
+
+msgid "Language for my interface:"
+msgstr ""
+
+#, fuzzy
+msgid "My timezone:"
+msgstr "블로그 시간대:"
+
+#, fuzzy
+msgid "Change my password"
+msgstr "비밀번호 변경"
+
+#, fuzzy
+msgid "Confirm new password:"
+msgstr "비밀번호 확인 :"
+
+#, fuzzy
+msgid "Your current password:"
+msgstr "당신의 비밀번호:"
+
+#, fuzzy
+msgid "If you have changed your email or password you must provide your current password to save these modifications."
+msgstr "이메일주소나 비밀번호를 바꾸려면, 본인의 비밀번호 확인이 필요합니다."
+
+#, fuzzy
+msgid "Update my profile"
+msgstr "이전 버전 백업파일"
+
+#, fuzzy
+msgid "My options"
+msgstr "찾을 내용 지정"
+
+#, fuzzy
+msgid "Theme:"
+msgstr "테마"
+
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "복수파일 동시전송 모드로 전환"
+
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "파일 크기 :"
+
+msgid "Use operating system font"
+msgstr ""
+
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr ""
+
+msgid "Optional columns displayed in lists"
+msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "파일 추가하기"
+
+#, fuzzy, php-format
+msgid "Preferred editor for %s:"
+msgstr "선호하는 편집방식 :"
+
+#, fuzzy
+msgid "Choose an editor"
+msgstr "블로그 선택"
+
+msgid "Enable WYSIWYG mode"
+msgstr "위지윅모드 사용가능"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use HTML editor for:"
+msgstr ""
+
+#, fuzzy
+msgid "Other options"
+msgstr "찾을 내용 지정"
+
+#, fuzzy
+msgid "Save my options"
+msgstr "찾을 내용 지정"
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "정렬 초기화"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "선택된 파일 지우기"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+#, fuzzy
+msgid "Other available favorites"
+msgstr "사용가능한 크기 :"
+
+msgid "(default favorite)"
+msgstr ""
+
+msgid "Add to my favorites"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Display favorites at the top of the menu"
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard icons"
+msgstr "관리마당"
+
+#, fuzzy
+msgid "Display dashboard icons"
+msgstr "관리마당"
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "관리마당"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "문서자료"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "Dotclear 갱신"
+
+msgid "Display quick entry form"
+msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Dotclear 갱신"
+
+#, fuzzy
+msgid "Save my dashboard options"
+msgstr "찾을 내용 지정"
+
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "관리마당"
+
+msgid "Reset dashboard items order"
+msgstr ""
 
 msgid "Set permissions"
 msgstr "권한 설정"
@@ -2737,9 +4424,6 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "사용자 %s가 권한을 가지게될 블로그들을 선택해주세요."
 
-msgid "No blog"
-msgstr "블로그가 없습니다."
-
 msgid "Entries"
 msgstr "글꼭지"
 
@@ -2754,1695 +4438,6 @@ msgstr "지금 %s 사용자(들)의 다음 블로그(들)에 대한 권한들을
 #, fuzzy
 msgid "Validate permissions"
 msgstr "권한 설정"
-
-#, fuzzy
-msgid "Back to blogs list"
-msgstr "댓글이 없습니다."
-
-#, fuzzy
-msgid "Blogs actions"
-msgstr "블로그"
-
-#, fuzzy
-msgid "Blog id"
-msgstr "블로그 이름"
-
-#, fuzzy
-msgid "Set online"
-msgstr "공개"
-
-#, fuzzy
-msgid "Set offline"
-msgstr "비공개"
-
-#, fuzzy
-msgid "Set as removed"
-msgstr "폐쇄"
-
-#, fuzzy
-msgid "No blog selected"
-msgstr "선택 안됨"
-
-#, fuzzy
-msgid "Selected blogs have been successfully updated."
-msgstr "댓글이 성공적으로 갱신되었습니다."
-
-#, fuzzy, php-format
-msgid "%d blog has been successfully deleted"
-msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "블로그가 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Back to comments list"
-msgstr "댓글이 없습니다."
-
-#, fuzzy
-msgid "Comments actions"
-msgstr "댓글 글쓴이 :"
-
-#, fuzzy
-msgid "Publish"
-msgstr "공개"
-
-#, fuzzy
-msgid "Unpublish"
-msgstr "비공개"
-
-#, fuzzy
-msgid "Mark as pending"
-msgstr "미지정으로 표시"
-
-#, fuzzy
-msgid "Mark as junk"
-msgstr "스팸으로 표시"
-
-msgid "Blocklist IP"
-msgstr ""
-
-msgid "Blocklist IP (global)"
-msgstr ""
-
-#, fuzzy
-msgid "No comment selected"
-msgstr "댓글이 없습니다."
-
-#, fuzzy
-msgid "IP addresses for selected comments have been blocklisted."
-msgstr "댓글이 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Back to entries list"
-msgstr "분류 목록"
-
-#, fuzzy
-msgid "Posts actions"
-msgstr "선택된 글꼭지들에 대한 작업 :"
-
-#, fuzzy
-msgid "Schedule"
-msgstr "예약"
-
-msgid "Mark"
-msgstr ""
-
-#, fuzzy
-msgid "Mark as selected"
-msgstr "선택됨으로 지정"
-
-#, fuzzy
-msgid "Mark as unselected"
-msgstr "선택 안됨으로 지정"
-
-#, fuzzy
-msgid "Change"
-msgstr "파일 변경"
-
-#, fuzzy
-msgid "Change category"
-msgstr "분류 변경"
-
-#, fuzzy
-msgid "Change language"
-msgstr "파일 변경"
-
-#, fuzzy
-msgid "Change author"
-msgstr "글쓴이 변경"
-
-#, fuzzy
-msgid "No entry selected"
-msgstr "선택 안됨"
-
-msgid "Published entries cannot be set to scheduled"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully updated to status : \"%s\""
-msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully marked as selected"
-msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully marked as unselected"
-msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully deleted"
-msgid_plural "%d entries have been successfully deleted"
-msgstr[0] "테마가 성공적으로 삭제되었습니다."
-
-msgid "(No cat)"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully moved to category \"%s\""
-msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
-
-msgid "Change category for this selection"
-msgstr "글꼭지들의 분류 변경"
-
-#, fuzzy
-msgid "Create a new category for the post(s)"
-msgstr "글꼭지들의 분류 변경"
-
-msgid "This user does not exist"
-msgstr "이 사용자는 존재하지 않습니다."
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully set to user \"%s\""
-msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
-
-msgid "Change author for this selection"
-msgstr "글꼭지들의 글쓴이 변경"
-
-msgid "New author (author ID):"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%d entry has been successfully set to language \"%s\""
-msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "Change language for this selection"
-msgstr "글꼭지들의 글쓴이 변경"
-
-msgid "Available"
-msgstr "사용가능"
-
-msgid "Most used"
-msgstr "많이 사용"
-
-#, fuzzy
-msgid "Entry language:"
-msgstr "글꼭지 언어 :"
-
-#, fuzzy
-msgid "Database error"
-msgstr "데이터베이스 종류 :"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-#, fuzzy
-msgid "System settings"
-msgstr "블로그 설정"
-
-msgid "Blog"
-msgstr "블로그"
-
-msgid "Plugins"
-msgstr "플러그인"
-
-msgid "Update"
-msgstr "DotClear 갱신"
-
-msgid "Languages"
-msgstr "언어"
-
-msgid "Selected"
-msgstr "선택됨"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "글꼭지수"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "글걸이 없음"
-
-msgid "Entry title"
-msgstr "글꼭지 제목"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "글꼭지 제목"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "필터실행"
-
-msgid "Last update"
-msgstr "최근 갱신"
-
-#, fuzzy
-msgid "Last Name"
-msgstr "최근 갱신"
-
-#, fuzzy
-msgid "First Name"
-msgstr "이름"
-
-msgid "Display name"
-msgstr "필명"
-
-msgid "Number of entries"
-msgstr "글꼭지수"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "필터"
-
-#, fuzzy
-msgid "Display options"
-msgstr "찾을 내용 지정"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "찾을 내용 지정"
-
-msgid "Apply filters and display options"
-msgstr ""
-
-#, fuzzy
-msgid "Format:"
-msgstr "날짜 형식:"
-
-#, fuzzy
-msgid "With password"
-msgstr "글꼭지 비밀번호 :"
-
-#, fuzzy
-msgid "Without password"
-msgstr "비밀번호 :"
-
-msgid "Selected:"
-msgstr "선택됨 :"
-
-#, fuzzy
-msgid "Not selected"
-msgstr "선택 안됨"
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "첨부파일"
-
-#, fuzzy
-msgid "With attachments"
-msgstr "첨부파일 %d 개"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "첨부파일 %d 개"
-
-msgid "Month:"
-msgstr "월 :"
-
-msgid "Lang:"
-msgstr "언어 :"
-
-#, fuzzy
-msgid "Comments:"
-msgstr "댓글"
-
-msgid "Opened"
-msgstr ""
-
-#, fuzzy
-msgid "Closed"
-msgstr "닫기"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "글걸이"
-
-msgid "Type:"
-msgstr "종류 :"
-
-#, fuzzy
-msgid "Trackback"
-msgstr "글걸이"
-
-#, fuzzy
-msgid "Media type:"
-msgstr "파일 종류 :"
-
-msgid "image"
-msgstr ""
-
-msgid "text"
-msgstr ""
-
-msgid "audio"
-msgstr ""
-
-msgid "video"
-msgstr ""
-
-#, fuzzy
-msgid "users per page"
-msgstr "페이지당 사용자수"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "페이지당 글꼭지수"
-
-#, fuzzy
-msgid "comments per page"
-msgstr "페이지당 댓글 수"
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "페이지당 블로그수"
-
-msgid "Size"
-msgstr ""
-
-#, fuzzy
-msgid "media per page"
-msgstr "페이지당 글꼭지수"
-
-#, fuzzy
-msgid "results per page"
-msgstr "페이지당 글꼭지수"
-
-msgid "%H:%M:%S"
-msgstr ""
-
-msgid "Change blog"
-msgstr "블로그 변경"
-
-msgid "Blogs:"
-msgstr "블로그 :"
-
-#, fuzzy
-msgid "Go to the content"
-msgstr "글꼭지 내용이 없습니다."
-
-msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to help"
-msgstr ""
-
-msgid "Go to site"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Logout %s"
-msgstr "로그 아웃"
-
-msgid "Hide main menu"
-msgstr ""
-
-msgid "Show main menu"
-msgstr ""
-
-msgid "Safe mode"
-msgstr ""
-
-msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
-msgstr ""
-
-#, php-format
-msgid "Thank you for using %s."
-msgstr "%s를 이용해주셔서 고맙습니다."
-
-#, fuzzy
-msgid "Page top"
-msgstr "페이지"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "관리마당"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr "드러내기"
-
-msgid "hide"
-msgstr "감추기"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "선택됨 :"
-
-#, fuzzy
-msgid "No selection"
-msgstr "선택 없음"
-
-#, fuzzy
-msgid "Select all"
-msgstr "모두 선택하기"
-
-msgid "Invert selection"
-msgstr "선택사항 뒤집기"
-
-#, fuzzy
-msgid "Edit entry"
-msgstr "글꼭지 %d 개"
-
-msgid "view entry"
-msgstr "글꼭지 보기"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "이 글꼭지를 삭제하시려는 게 확실합니까 ?"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "\"%s\" 테마를 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "선택된 댓글들을 삭제하시려는 게 확실합니까 ?"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "이 댓글을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
-msgid "Users with posts cannot be deleted."
-msgstr "이 폴더는 지울 수 없습니다."
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "선택된 사용자들을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "선택된 사용자들을 삭제하시려는 게 확실합니까 ?"
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
-msgid "Are you sure you want to reorder all categories?"
-msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "\"%s\" 미디어 파일을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "\"%s\" 미디어 파일을 삭제하시려는 게 확실합니까 ?"
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "압축파일을 현재 폴더에 푸시려는 게 확실합니까 ?"
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "\"%s\" 첨부파일을 삭제하시려는 게 확실합니까 ?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "\"%s\" 언어를 삭제하시려는 게 확실합니까 ?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "\"%s\" 플러그인을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "\"%s\" 플러그인을 삭제하시려는 게 확실합니까 ?"
-
-msgid "Use this theme"
-msgstr "이 테마를 사용"
-
-#, fuzzy
-msgid "Remove this theme"
-msgstr "이 테마를 지움"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "\"%s\" 테마를 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "선택된 글꼭지들을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "이 댓글을 삭제하시려는 게 확실합니까 ?"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "이 첨부파일을 정말 제거합니까?"
-
-msgid "Zip file content"
-msgstr "Zip 파일 내용보기"
-
-msgid "HTML markup validator"
-msgstr "HTML 오류점검"
-
-msgid "HTML content is valid."
-msgstr "HTML 오류가 발견되지 않았습니다."
-
-msgid "There are HTML markup errors."
-msgstr "HTML 오류가 있습니다."
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "상세정보"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "도움말"
-
-#, fuzzy
-msgid "Section:"
-msgstr "작업"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "이 테마를 사용"
-
-#, fuzzy
-msgid "Show password"
-msgstr "새 비밀번호 :"
-
-#, fuzzy
-msgid "Hide password"
-msgstr "새 비밀번호 :"
-
-msgid "Reset to now"
-msgstr ""
-
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
-msgstr ""
-
-msgid "You have unsaved changes."
-msgstr "변경하신 내용을 저장하지 않았습니다."
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "복수파일 동시전송 모드로 전환"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "기본 모드로 전환"
-
-msgid "Limit exceeded."
-msgstr "한계 초과됨."
-
-msgid "File size exceeds allowed limit."
-msgstr "파일 크기가 허용 한계를 넘습니다."
-
-msgid "Canceled."
-msgstr "취소됨."
-
-msgid "HTTP Error:"
-msgstr "HTTP 오류 :"
-
-msgid "Clean"
-msgstr "목록 비우기"
-
-msgid "File successfully uploaded."
-msgstr "파일 올리기 성공."
-
-msgid "No file in queue."
-msgstr "올릴 준비가 된 파일이 없습니다."
-
-msgid "1 file in queue."
-msgstr "1 파일 올릴 준비됨."
-
-#, php-format
-msgid "%d files in queue."
-msgstr "%d 파일 올릴 준비됨."
-
-msgid "Queue error:"
-msgstr "준비중 오류 :"
-
-msgid "Cancel filters and display options"
-msgstr ""
-
-msgid "other"
-msgstr ""
-
-#, fuzzy
-msgid "Search in repository:"
-msgstr "글꼭지 찾기 :"
-
-msgid "Reset search"
-msgstr ""
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr ""
-
-#, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] ""
-
-#, fuzzy
-msgid "current selection"
-msgstr "선택 없음"
-
-#, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] ""
-
-msgid "no results"
-msgstr ""
-
-msgid "Browse index:"
-msgstr ""
-
-#, fuzzy
-msgid "Plugins list"
-msgstr "플러그인"
-
-msgid "Score"
-msgstr ""
-
-msgid "Version"
-msgstr "버전"
-
-#, fuzzy
-msgid "Current version"
-msgstr "권한 설정"
-
-#, fuzzy
-msgid "Repository"
-msgstr "MP3 배치방식"
-
-#, php-format
-msgid " (%s)"
-msgstr ""
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr ""
-
-#, fuzzy
-msgid "Official repository"
-msgstr "글꼭지 찾기 :"
-
-#, fuzzy
-msgid "Third-party repository"
-msgstr "글꼭지 찾기 :"
-
-msgid "Plugin from official distribution"
-msgstr ""
-
-#, fuzzy
-msgid "Plugin in development"
-msgstr "플러그인 관리"
-
-msgid "No plugins matched your search."
-msgstr ""
-
-#, fuzzy
-msgid "Configure plugin"
-msgstr "테마"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr ""
-
-msgid "Plugin settings (in user preferences)"
-msgstr ""
-
-#, fuzzy
-msgid "Plugin settings"
-msgstr "블로그 설정"
-
-#, fuzzy
-msgid "Plugin main page"
-msgstr "플러그인 관리"
-
-msgid "Activate"
-msgstr "작동켜기"
-
-msgid "Deactivate"
-msgstr "작동끄기"
-
-msgid "Clone"
-msgstr ""
-
-#, fuzzy
-msgid "Install"
-msgstr "Dotclear 설치"
-
-#, fuzzy
-msgid "Activate selected plugins"
-msgstr "작동중인 플러그인"
-
-#, fuzzy
-msgid "Activate all plugins from this list"
-msgstr "작동중인 플러그인"
-
-#, fuzzy
-msgid "Deactivate selected plugins"
-msgstr "작동꺼진 플러그인"
-
-#, fuzzy
-msgid "Deactivate all plugins from this list"
-msgstr "작동꺼진 플러그인"
-
-#, fuzzy
-msgid "Update selected plugins"
-msgstr "작동꺼진 플러그인"
-
-msgid "Update all plugins from this list"
-msgstr ""
-
-msgid "No such plugin."
-msgstr "존재하지 않는 플러그인입니다."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "이 플러그인을 삭제할 권한이 없습니다."
-
-#, fuzzy
-msgid "Some plugins have not been delete."
-msgstr "다음 플러그인들은 설치되지 않았습니다 :"
-
-#, fuzzy
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "플러그인이 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "플러그인이 성공적으로 설치되었습니다."
-
-#, fuzzy
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "플러그인이 성공적으로 설치되었습니다."
-
-#, fuzzy
-msgid "Some plugins have not been deactivated."
-msgstr "다음 플러그인들은 설치되지 않았습니다 :"
-
-#, fuzzy
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "플러그인이 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "플러그인이 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "The plugin has been successfully updated."
-msgstr "플러그인이 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "The plugin has been successfully installed."
-msgstr "플러그인이 성공적으로 설치되었습니다."
-
-#, fuzzy
-msgid "Zip file path:"
-msgstr "Zip 파일 내용보기"
-
-msgid "Download a zip file"
-msgstr "(블로그에) 테마 zip 파일 내려받기"
-
-#, fuzzy
-msgid "Zip file URL:"
-msgstr "테마 zip 파일 URL :"
-
-#, fuzzy
-msgid "Download"
-msgstr "테마 내려받기"
-
-#, fuzzy
-msgid "Unknown plugin ID"
-msgstr "플러그인 올리기"
-
-#, fuzzy
-msgid "This plugin has no configuration file."
-msgstr "DC_ADMIN_URL이 정해지지 않았습니다. 블로그 설정파일을 수정하셔야 합니다."
-
-#, fuzzy, php-format
-msgid "Configure \"%s\""
-msgstr "테마"
-
-msgid "Back"
-msgstr ""
-
-#, php-format
-msgid "Score: %s"
-msgstr ""
-
-#, php-format
-msgid "%s screenshot."
-msgstr ""
-
-#, php-format
-msgid "by %s"
-msgstr "%s 작성"
-
-#, php-format
-msgid "version %s"
-msgstr "버전 %s"
-
-#, fuzzy, php-format
-msgid "(current version %s)"
-msgstr "버전 %s"
-
-#, php-format
-msgid "(built on \"%s\")"
-msgstr "(\"%s\"에 기반함)"
-
-#, php-format
-msgid "(requires \"%s\")"
-msgstr "(\"%s\"이 필요함)"
-
-#, fuzzy
-msgid "View stylesheet"
-msgstr "스타일쉬트"
-
-#, fuzzy
-msgid "Configure theme"
-msgstr "테마"
-
-msgid "No themes matched your search."
-msgstr ""
-
-#, fuzzy
-msgid "Use this one"
-msgstr "이 테마를 사용"
-
-#, fuzzy
-msgid "Update selected themes"
-msgstr "선택된 테마 사용"
-
-msgid "Update all themes from this list"
-msgstr ""
-
-#, fuzzy
-msgid "No such theme."
-msgstr "존재하지 않는 모듈입니다."
-
-#, fuzzy, php-format
-msgid "Theme %s has been successfully selected."
-msgstr "테마가 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Theme has been successfully activated."
-msgid_plural "Themes have been successuflly activated."
-msgstr[0] "테마가 성공적으로 변경되었습니다."
-
-msgid "Some themes have not been deactivated."
-msgstr ""
-
-#, fuzzy
-msgid "Theme has been successfully deactivated."
-msgid_plural "Themes have been successuflly deactivated."
-msgstr[0] "테마가 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Theme has been successfully cloned."
-msgid_plural "Themes have been successuflly cloned."
-msgstr[0] "테마가 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "You don't have permissions to delete this theme."
-msgstr "이 플러그인을 삭제할 권한이 없습니다."
-
-msgid "Some themes have not been delete."
-msgstr ""
-
-#, fuzzy
-msgid "Theme has been successfully deleted."
-msgid_plural "Themes have been successuflly deleted."
-msgstr[0] "테마가 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successfully installed."
-msgstr[0] "테마가 성공적으로 설치되었습니다."
-
-#, fuzzy
-msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successfully updated."
-msgstr[0] "테마가 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "The theme has been successfully updated."
-msgstr "테마가 성공적으로 갱신되었습니다."
-
-#, fuzzy
-msgid "The theme has been successfully installed."
-msgstr "테마가 성공적으로 설치되었습니다."
-
-#, fuzzy
-msgid "First page"
-msgstr "이름"
-
-#, fuzzy
-msgid "Previous page"
-msgstr "앞 글꼭지"
-
-msgid "Next page"
-msgstr ""
-
-#, fuzzy
-msgid "Last page"
-msgstr "최근 갱신"
-
-#, php-format
-msgid "Page %s / %s"
-msgstr ""
-
-#, php-format
-msgid "Direct access page %s"
-msgstr ""
-
-#, fuzzy
-msgid "&#171; prev."
-msgstr "&#171;앞으로."
-
-#, fuzzy
-msgid "next &#187;"
-msgstr "뒤로.&#187;"
-
-#, fuzzy
-msgid "No entry matches the filter"
-msgstr "글꼭지 제목이 없습니다."
-
-msgid "No entry"
-msgstr "글꼭지 없음"
-
-#, fuzzy, php-format
-msgid "List of %s entries matching the filter."
-msgstr "글꼭지 제목이 없습니다."
-
-#, fuzzy, php-format
-msgid "List of entries (%s)"
-msgstr "분류 목록"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ""
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ""
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ""
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ""
-
-#, fuzzy
-msgid "Protected"
-msgstr "보호됨"
-
-#, fuzzy
-msgid "Attachments"
-msgstr "첨부파일"
-
-#, php-format
-msgid "%d attachment"
-msgstr "첨부파일 %d 개"
-
-#, php-format
-msgid "%d attachments"
-msgstr "첨부파일 %d 개"
-
-#, fuzzy
-msgid "Entries list"
-msgstr "분류 목록"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr ""
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] ""
-
-#, fuzzy, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "댓글과 글걸이"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ""
-
-msgid "Type"
-msgstr "종류"
-
-#, fuzzy
-msgid "Entry"
-msgstr "글꼭지"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr ""
-
-msgid "comment"
-msgstr "댓글"
-
-msgid "trackback"
-msgstr "글걸이"
-
-#, fuzzy
-msgid "Type and author"
-msgstr "글쓴이 변경"
-
-msgid "No blog matches the filter"
-msgstr ""
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "페이지당 글꼭지수"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-
-#, fuzzy
-msgid "Blogs list"
-msgstr "블로그"
-
-msgid "online"
-msgstr "공개"
-
-msgid "offline"
-msgstr "비공개"
-
-msgid "removed"
-msgstr "폐쇄"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "%s 블로그 설정 수정"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "블로그 설정"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "%s 블로그로 전환"
-
-msgid "No user matches the filter"
-msgstr ""
-
-msgid "No user"
-msgstr "사용자 없음"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr ""
-
-#, fuzzy
-msgid "Users list"
-msgstr "사용자"
-
-msgid "admin"
-msgstr ""
-
-#, fuzzy
-msgid "superadmin"
-msgstr "최상위 관리자 (Super administrator)"
-
-#, fuzzy
-msgid "No file matches the filter"
-msgstr "글꼭지 제목이 없습니다."
-
-msgid "No file."
-msgstr "파일이 없습니다."
-
-#, fuzzy, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "글꼭지 제목이 없습니다."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr "이 파일을 글꼭지에 삽입하기"
-
-#, fuzzy
-msgid "delete"
-msgstr "삭제"
-
-#, fuzzy
-msgid "private media"
-msgstr "미디어 관리화면에서 감춤 (주의! URL알면 접근 가능)"
-
-msgid "open"
-msgstr "열기"
-
-#, php-format
-msgid "(%s)"
-msgstr ""
-
-#, php-format
-msgid "ratio %.1f"
-msgstr ""
-
-#, fuzzy
-msgid "The 'public' directory does not exist."
-msgstr "이 글꼭지는 존재하지 않습니다."
-
-#, fuzzy, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "이 폴더는 지울 수 없습니다."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
-
-#, fuzzy
-msgid "Unable to create images."
-msgstr "해당 폴더를 만들 수 없습니다."
-
-#, fuzzy
-msgid "Invalid file type."
-msgstr "컨트롤파일(digests)이 비정상적입니다."
-
-msgid "An error occurred while writing the file."
-msgstr "파일 쓰기 도중 오류가 발생했습니다."
-
-#, fuzzy, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "생성된 이미지 크기 (픽셀단위)"
-
-#, fuzzy
-msgid "small"
-msgstr "작은 크기 :"
-
-#, fuzzy
-msgid "thumbnail"
-msgstr "꼬맹이사진 :"
-
-msgid "square"
-msgstr ""
-
-#, fuzzy
-msgid "Pages"
-msgstr "페이지"
-
-msgid "administrator"
-msgstr "블로그관리자"
-
-msgid "manage all entries and comments"
-msgstr "모든 글꼭지와 댓글을 관리할 수 있음"
-
-msgid "manage their own entries and comments"
-msgstr "자신들의 글꼭지와 댓글을 관리할 수 있음"
-
-msgid "publish entries and comments"
-msgstr "글꼭지와 댓글을 공개할 수 있음"
-
-msgid "delete entries and comments"
-msgstr "글꼭지와 댓글을 삭제할 수 있음"
-
-msgid "manage categories"
-msgstr "분류를 관리할 수 있음"
-
-msgid "manage all media items"
-msgstr "모든 미디어를 관리할 수 있음"
-
-msgid "manage their own media items"
-msgstr "자신들의 미디어를 관리할 수 있음"
-
-msgid "That user does not exist in the database."
-msgstr "이 사용자는 데이터베이스에 없습니다."
-
-msgid "That key does not exist in the database."
-msgstr "이 키는 데이터베이스에 없습니다."
-
-msgid "You are not allowed to add categories"
-msgstr "분류 만들기 권한이 없습니다."
-
-msgid "You are not allowed to update categories"
-msgstr "분류 갱신 권한이 없습니다."
-
-msgid "You are not allowed to delete categories"
-msgstr "분류 삭제 권한이 없습니다."
-
-msgid "This category is not empty."
-msgstr "이 분류는 비어있지 않습니다."
-
-#, fuzzy
-msgid "You are not allowed to reset categories order"
-msgstr "분류 삭제 권한이 없습니다."
-
-#, fuzzy
-msgid "Empty category URL"
-msgstr "글꼭지 URL이 비었습니다."
-
-msgid "You must provide a category title"
-msgstr "분류 제목을 지정해 주어야합니다."
-
-msgid "You must provide a category URL"
-msgstr "분류 URL을 지정해 주어야합니다."
-
-msgid "You are not allowed to create an entry"
-msgstr "글꼭지를 만들 권한이 없습니다."
-
-msgid "You are not allowed to update entries"
-msgstr "글꼭지를 편집할 권한이 없습니다."
-
-msgid "No such entry ID"
-msgstr "존재하지 않는 글꼭지 ID입니다."
-
-msgid "You are not allowed to edit this entry"
-msgstr "이 글꼭지를 편집할 권한이 없습니다."
-
-msgid "You are not allowed to change this entry status"
-msgstr "이 글꼭지의 공개상태를 변경할 권한이 없습니다."
-
-msgid "You are not allowed to change this entry category"
-msgstr "이 글꼭지의 분류를 변경할 권한이 없습니다."
-
-#, fuzzy
-msgid "You are not allowed to change entries category"
-msgstr "이 글꼭지의 분류를 변경할 권한이 없습니다."
-
-msgid "You are not allowed to delete entries"
-msgstr "글꼭지들을 삭제할 권한이 없습니다."
-
-msgid "No entry title"
-msgstr "글꼭지 제목이 없습니다."
-
-msgid "No entry content"
-msgstr "글꼭지 내용이 없습니다."
-
-#, fuzzy
-msgid "Notes"
-msgstr "비공개 노트 :"
-
-#, fuzzy
-msgid "Note"
-msgstr "비공개 노트 :"
-
-msgid "Empty entry URL"
-msgstr "글꼭지 URL이 비었습니다."
-
-msgid "You are not allowed to update comments"
-msgstr "댓글들을 갱신할 권한이 없습니다."
-
-msgid "No such comment ID"
-msgstr "존재하지 않는 댓글 ID입니다."
-
-msgid "You are not allowed to update this comment"
-msgstr "이 댓글을 갱신할 권한이 없습니다."
-
-msgid "You are not allowed to change this comment's status"
-msgstr "이 댓글의 공개상태를 변경할 권한이 없습니다."
-
-msgid "You are not allowed to delete comments"
-msgstr "댓글들을 삭제할 권한이 없습니다."
-
-msgid "You must provide a comment"
-msgstr "댓글을 먼저 지정하셔야합니다."
-
-msgid "You must provide an author name"
-msgstr "글쓴이 이름을 쓰셔야합니다."
-
-msgid "Email address is not valid."
-msgstr "이메일 주소가 바르지 않습니다."
-
-msgid "You are not an administrator"
-msgstr "블로그관리자가 아닙니다."
-
-msgid "Invalid user language code"
-msgstr "사용자 언어코드가 바르지 않습니다."
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "블로그 ID는 최소 2자이상의 문자,수자 또는 기호를 포함해야합니다."
-
-msgid "No blog name"
-msgstr "블로그 이름이 없습니다."
-
-msgid "No blog URL"
-msgstr "블로그 URL이 없습니다."
-
-#, fuzzy
-msgid "No log message"
-msgstr "블로그 이름이 없습니다."
-
-#, fuzzy
-msgid "unknown"
-msgstr "지금"
-
-msgid "No blog defined."
-msgstr "정의된 블로그가 없습니다."
-
-msgid "You are not a super administrator."
-msgstr "블로그 최상위관리자가 아닙니다."
-
-msgid "Permission denied."
-msgstr "권한이 없습니다."
-
-msgid "You are not the file owner."
-msgstr "당신은 파일 주인이 아닙니다."
-
-#, fuzzy
-msgid "This file is not allowed."
-msgstr "이 파일은 올리기 금지된 파일입니다."
-
-msgid "New file already exists."
-msgstr "새 파일이 이미 있습니다."
-
-msgid "File does not exist in the database."
-msgstr "파일이 데이터베이스에 없습니다."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr ""
-
-#, php-format
-msgid "Requires Dotclear version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr ""
-
-#, fuzzy
-msgid "The following extensions have been disabled :"
-msgstr "다음 플러그인들이 설치되어있습니다 :"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
-
-msgid "Empty module zip file."
-msgstr "빈 모듈 zip 파일입니다."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "이 Zip파일은 정상적인 Dotclear 모듈파일이 아닙니다."
-
-msgid "An error occurred during module deletion."
-msgstr "모듈 삭제중 오류가 발생했습니다."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "\"%s\"를 갱신할 수 없습니다. (동일 버전)."
-
-#, fuzzy, php-format
-msgid "Unable to read new %s file"
-msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
-
-msgid "Cannot deactivate plugin."
-msgstr "플러그인의 작동을 멈출 수 없습니다."
-
-msgid "No such module."
-msgstr "존재하지 않는 모듈입니다."
-
-msgid "Cannot remove module files"
-msgstr "모듈파일을 지울 수 없습니다."
-
-msgid "Cannot activate plugin."
-msgstr "플러그인을 작동시킬 수 없습니다."
-
-#, fuzzy, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "바르지 않은 영역이름 : %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "설정값을 읽어볼 수 없게함 :"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s는 바르지않은 설정 ID입니다."
-
-msgid "No namespace specified"
-msgstr "정해진 영역이름이 없습니다"
-
-#, fuzzy
-msgid "No notice message"
-msgstr "블로그 이름이 없습니다."
-
-#, fuzzy
-msgid "Unable to retrieve workspaces:"
-msgstr "설정값을 읽어볼 수 없게함 :"
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "바르지 않은 영역이름 : %s"
-
-#, fuzzy
-msgid "Unable to retrieve namespaces:"
-msgstr "설정값을 읽어볼 수 없게함 :"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "바르지 않은 영역이름 : %s"
-
-#, fuzzy
-msgid "Wrong data feed"
-msgstr "글꼭지 타래소식에 글꼭지 일부만 보냄"
-
-msgid "An error occurred while downloading the file."
-msgstr "파일 내려받기 중 에러 발생."
-
-msgid "Themes folder unreachable"
-msgstr ""
-
-msgid "Themes folder unreadable"
-msgstr ""
-
-#, php-format
-msgid " (copy #%s)"
-msgstr ""
-
-msgid " (copy)"
-msgstr ""
-
-#, fuzzy
-msgid "Unable to modify _define.php"
-msgstr "파일을 열 수 없습니다."
-
-#, fuzzy
-msgid "Destination folder already exist"
-msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s에 글걸이는 이미 이루어진 상태입니다."
-
-msgid "Unable to ping URL"
-msgstr "글걸기를 할 수 없습니다.(URL 오류 ?)"
-
-msgid "Bad server response code"
-msgstr ""
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s 는 글걸기용 URL이 아닙니다."
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, 글걸기 오류 :"
-
-msgid "Don't repeat yourself, please."
-msgstr ""
-
-msgid "Where's your title?"
-msgstr ""
-
-msgid "Sorry, an internal problem has occured."
-msgstr ""
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
-
-msgid "Sorry but you can not ping this type of content."
-msgstr ""
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
-
-msgid "Digests file not found."
-msgstr "컨트롤파일(digests)을 찾을 수 없습니다."
-
-msgid "No file to download"
-msgstr "내려받을 파일이 없습니다."
-
-msgid "Root directory is not writable."
-msgstr "최상위폴더가 쓰기금지 상태입니다."
-
-msgid "An error occurred while downloading archive."
-msgstr "갱신파일을 내려받는 중 오류가 발생했습니다."
-
-msgid "Archive not found."
-msgstr "갱신파일을 찾을 수 없습니다."
-
-msgid "Unable to read current digests file."
-msgstr "현재 버전에서 사용중인 컨트롤파일(digests)을 읽을 수 없습니다."
-
-#, fuzzy
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "내려받은 파일이 정상적인 갱신파일이 아닌 것 같습니다."
-
-msgid "Incomplete archive."
-msgstr "불완전한 파일입니다."
-
-msgid "Unable to read digests file."
-msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
-
-msgid "Invalid digests file."
-msgstr "컨트롤파일(digests)이 비정상적입니다."
-
-#, fuzzy
-msgid "Unable to retrieve prefs:"
-msgstr "설정값을 읽어볼 수 없게함 :"
-
-#, fuzzy, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s는 바르지않은 설정 ID입니다."
-
-#, fuzzy
-msgid "No workspace specified"
-msgstr "정해진 영역이름이 없습니다"
-
-msgid "Something went wrong with auto upgrade:"
-msgstr "자동 갱신 중 오류가 발생했습니다 :"
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "%s 파일은 zip파일이 아닙니다. (또는 zip파일 안에 있지 않습니다.)"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "%s 폴더의 압축풀기를 시도합니다."
-
-msgid "Unable to write destination file."
-msgstr "목표한 파일을 쓰기(저장)할 수 없습니다."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "목표한 폴더가 쓰기금지 상태입니다."
-
-msgid "Not enough memory to open file."
-msgstr "파일을 쓰기에 메모리가 부족합니다."
-
-msgid "File does not exist"
-msgstr "파일이 존재하지 않습니다."
-
-msgid "Cannot read file"
-msgstr "파일을 읽을 수 없습니다."
-
-#, fuzzy
-msgid "Directory does not exist"
-msgstr "\"%s\" 폴더가 없습니다."
-
-msgid "Cannot read directory"
-msgstr "폴더를 읽을 수 없습니다."
-
-msgid "Site temporarily unavailable"
-msgstr ""
-
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr ""
-
-msgid "Unable to connect to database"
-msgstr ""
-
-#, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
-
-msgid "The following error was encountered while trying to read the database:"
-msgstr ""
 
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
@@ -4528,6 +4523,32 @@ msgstr ""
 msgid "%s is not a directory."
 msgstr "%s는 폴더가 아닙니다."
 
+#, fuzzy
+msgid "Can't get file path"
+msgstr "파일 변경"
+
+#, fuzzy
+msgid "Can't lock a directory"
+msgstr "폴더를 읽을 수 없습니다."
+
+msgid "Can't call php function named flock"
+msgstr ""
+
+#, fuzzy
+msgid "Can't create file"
+msgstr "파일을 읽을 수 없습니다."
+
+#, fuzzy
+msgid "Can't open file"
+msgstr "파일을 읽을 수 없습니다."
+
+#, fuzzy
+msgid "Can't lock file"
+msgstr "파일을 읽을 수 없습니다."
+
+msgid "File cannot be removed."
+msgstr "이 파일은 지울 수 없습니다."
+
 msgid "Not enough memory to open image."
 msgstr "이미지를 열기에 메모리가 충분하지 않습니다."
 
@@ -4556,9 +4577,6 @@ msgstr "목표 폴더가 쓰기 금지상태입니다."
 msgid "Unable to rename file."
 msgstr "파일 이름을 바꿀 수 없습니다."
 
-msgid "File cannot be removed."
-msgstr "이 파일은 지울 수 없습니다."
-
 # décidément ! mais que veut dire "jail" ? -- réponse de baramme : Jail est un système pour fabriquer une zone protégée sur FreeBSD système. Notamment, un accès à l'intérieur de Jail est (doit être) complètement isolé de son extérieur.
 msgid "Directory is not in jail."
 msgstr "해당 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
@@ -4566,9 +4584,35 @@ msgstr "해당 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
 msgid "Directory cannot be removed."
 msgstr "이 폴더는 지울 수 없습니다."
 
-#, fuzzy, php-format
-msgid "Archive %s is closed."
-msgstr "갱신파일을 찾을 수 없습니다."
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "%s 파일은 zip파일이 아닙니다. (또는 zip파일 안에 있지 않습니다.)"
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "%s 폴더의 압축풀기를 시도합니다."
+
+msgid "Unable to write destination file."
+msgstr "목표한 파일을 쓰기(저장)할 수 없습니다."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "목표한 폴더가 쓰기금지 상태입니다."
+
+msgid "Not enough memory to open file."
+msgstr "파일을 쓰기에 메모리가 부족합니다."
+
+msgid "File does not exist"
+msgstr "파일이 존재하지 않습니다."
+
+msgid "Cannot read file"
+msgstr "파일을 읽을 수 없습니다."
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "\"%s\" 폴더가 없습니다."
+
+msgid "Cannot read directory"
+msgstr "폴더를 읽을 수 없습니다."
 
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
@@ -4580,6 +4624,10 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Archive %s is closed."
+#~ msgstr "갱신파일을 찾을 수 없습니다."
 
 #, fuzzy
 #~ msgid "Failed to read data feed"

@@ -18,13 +18,14 @@ use adminUserPref;
 use dcAuth;
 use dcCommentsActions;
 use dcCore;
+use dcNsProcess;
 use dcPage;
 use dcPostsActions;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Search
+class Search extends dcNsProcess
 {
     // Local properties (used by behavior callbacks)
 
@@ -78,7 +79,7 @@ class Search
         return true;
     }
 
-    public static function render()
+    public static function render(): void
     {
         $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
 

@@ -22,6 +22,9 @@ class Backend extends dcNsProcess
 {
     public static function init(): bool
     {
+        // Dead but useful code (for l10n)
+        __('Pages') . __('Serve entries as simple web pages');
+
         return (static::$init = My::checkContext(My::BACKEND));
     }
 

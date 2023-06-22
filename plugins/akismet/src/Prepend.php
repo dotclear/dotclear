@@ -21,6 +21,9 @@ class Prepend extends dcNsProcess
     {
         static::$init = defined('DC_RC_PATH');
 
+        // Dead but useful code (for l10n)
+        __('Akismet') . __('Akismet interface for Dotclear');
+
         return static::$init;
     }
 
