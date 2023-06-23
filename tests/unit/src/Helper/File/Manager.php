@@ -204,7 +204,7 @@ class Manager extends atoum
             ->string($manager->getPwd())
             ->isEqualTo($this->root . DIRECTORY_SEPARATOR . 'sub')
             ->integer(count($manager->dir['dirs']))
-            ->isEqualTo(2)
+            ->isEqualTo(1)
             ->integer(count($manager->dir['files']))
             ->isEqualTo(1)
         ;
@@ -222,7 +222,6 @@ class Manager extends atoum
             ->array($dirs)
             ->isEqualTo([
                 'FileManager',
-                'subsub',
             ])
             ->array($files)
             ->isEqualTo([
@@ -293,7 +292,6 @@ class Manager extends atoum
                 'FileManager',
                 'private',
                 'sub',
-                'subsub',
             ])
         ;
     }
