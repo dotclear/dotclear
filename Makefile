@@ -73,7 +73,7 @@ config: clean config-stamp
 	find $(DC)/inc/js -name '*.js' ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
 
 	## Debug off
-	perl -pi -e "s|^//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/inc/prepend.php $(DC)/inc/prepend.php
+	perl -pi -e "s|^//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/src/App.php $(DC)/inc/App.php
 
 	## Remove scm files and folders from DC and CB
 	find ./$(DIST)/ -type d -name '.git' | xargs -r rm -rf
@@ -92,11 +92,11 @@ dist: config dist-tgz dist-zip dist-l10n
 
 dist-tgz:
 	[ -f config-stamp ]
-	cd $(DIST) && tar cfz dotclear-$$(grep DC_VERSION dotclear/inc/prepend.php | cut -d"'" -f4).tar.gz ./dotclear
+	cd $(DIST) && tar cfz dotclear-$$(grep DC_VERSION dotclear/src/App.php | cut -d"'" -f4).tar.gz ./dotclear
 
 dist-zip:
 	[ -f config-stamp ]
-	cd $(DIST) && zip -r9 dotclear-$$(grep DC_VERSION dotclear/inc/prepend.php | cut -d"'" -f4).zip ./dotclear
+	cd $(DIST) && zip -r9 dotclear-$$(grep DC_VERSION dotclear/src/App.php | cut -d"'" -f4).zip ./dotclear
 
 dist-l10n:
 	[ -f config-stamp ]
@@ -111,7 +111,7 @@ dist-l10n:
 	./build-tools/make-l10n.php ./$(DIST)/l10n/
 
 	cd ./$(DIST)/l10n && for i in *; do \
-		zip -r9 "$$i-$$(grep DC_VERSION ../dotclear/inc/prepend.php | cut -d"'" -f4).zip" "$$i"; \
+		zip -r9 "$$i-$$(grep DC_VERSION ../dotclear/src/App.php | cut -d"'" -f4).zip" "$$i"; \
 		rm -rf "$$i"; \
 	done
 
