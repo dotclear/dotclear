@@ -96,7 +96,7 @@ dist-tgz:
 
 dist-zip:
 	[ -f config-stamp ]
-	cd $(DIST) && zip -r9 dotclear-$$(grep release_version dotclear/release-dist.json | cut -d'"' -f4).zip ./dotclear
+	cd $(DIST) && zip -r9 dotclear-$$(grep release_version dotclear/release.json | cut -d'"' -f4).zip ./dotclear
 
 dist-l10n:
 	[ -f config-stamp ]
@@ -111,7 +111,7 @@ dist-l10n:
 	./build-tools/make-l10n.php ./$(DIST)/l10n/
 
 	cd ./$(DIST)/l10n && for i in *; do \
-		zip -r9 "$$i-$$(grep release_version ../dotclear/release-dist.json | cut -d'"' -f4).zip" "$$i"; \
+		zip -r9 "$$i-$$(grep release_version ../dotclear/release.json | cut -d'"' -f4).zip" "$$i"; \
 		rm -rf "$$i"; \
 	done
 
