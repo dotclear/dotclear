@@ -1,6 +1,6 @@
 {
 	"about": "Dotclear default release configuration",
-	"note": "This file only support string and simple array as values, see src/App::config()",
+	"note": "All values from this file will be cast to string, see src/App::release()",
 
 	"release_version": "2.27-dev",
 	"release_name": "So far so good",
