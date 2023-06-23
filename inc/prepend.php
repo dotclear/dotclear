@@ -19,5 +19,4 @@ require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'Autoloader.php
 Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
 
 // 3. Instanciate the Application (singleton)
-new App();
 App::init();
