@@ -1,0 +1,51 @@
+{
+	"about": "Dotclear default release configuration",
+	"note": "This file only support string and simple array as values, see src/App::config()",
+
+	"release_version": "2.27-dev",
+	"release_name": "So far so good",
+    "release_update_url": "https://download.dotclear.org/versions.xml",
+    "release_update_canal": "stable",
+
+    "l10n_update_url": "https://services.dotclear.net/dc2.l10n/?version=%s",
+
+	"php_min": "8.1",
+	"mysql_min": "4.1",
+	"pgsql_min": "8.0",
+
+	"next_php": "8.1",
+
+	"default_theme": "berlin",
+	"default_tplset": "mustek",
+	"default_jquery": "3.6.0",
+
+	"distributed_plugins": [
+        "aboutConfig",
+        "akismet",
+        "antispam",
+        "attachments",
+        "blogroll",
+        "breadcrumb",
+        "dcCKEditor",
+        "dcLegacyEditor",
+        "dcProxyV1",
+        "dcProxyV2",
+        "fairTrackbacks",
+        "importExport",
+        "maintenance",
+        "pages",
+        "pings",
+        "simpleMenu",
+        "tags",
+        "themeEditor",
+        "userPref",
+        "widgets"
+    ],
+	"distributed_themes": [
+        "berlin",
+        "blowup",
+        "blueSilence",
+        "customCSS",
+        "ductile"
+    ]
+}
