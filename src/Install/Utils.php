@@ -11,12 +11,16 @@ namespace Dotclear\Install;
 
 class Utils
 {
+    public const PHP_MIN   = '7.4';
+    public const MYSQL_MIN = '4.1';
+    public const PGSQL_MIN = '8.0';
+
     public static function check($con, &$err)
     {
         $err = [];
 
-        if (version_compare(phpversion(), '7.4', '<')) {
-            $err[] = sprintf(__('PHP version is %s (7.4 or earlier needed).'), phpversion());
+        if (version_compare(phpversion(), self::PHP_MIN, '<')) {
+            $err[] = sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::PHP_MIN);
         }
 
         if (!function_exists('mb_detect_encoding')) {
@@ -49,8 +53,8 @@ class Utils
         }
 
         if ($con->syntax() == 'mysql') {
-            if (version_compare($con->version(), '4.1', '<')) {
-                $err[] = sprintf(__('MySQL version is %s (4.1 or earlier needed).'), $con->version());
+            if (version_compare($con->version(), self::MYSQL_MIN, '<')) {
+                $err[] = sprintf(__('MySQL version is %s (%s or earlier needed).'), $con->version(), self::MYSQL_MIN);
             } else {
                 $rs     = $con->select('SHOW ENGINES');
                 $innodb = false;
@@ -67,8 +71,8 @@ class Utils
                 }
             }
         } elseif ($con->driver() == 'pgsql') {
-            if (version_compare($con->version(), '8.0', '<')) {
-                $err[] = sprintf(__('PostgreSQL version is %s (8.0 or earlier needed).'), $con->version());
+            if (version_compare($con->version(), self::PGSQL_MIN, '<')) {
+                $err[] = sprintf(__('PostgreSQL version is %s (%s or earlier needed).'), $con->version(), self::PGSQL_MIN);
             }
         }
 
