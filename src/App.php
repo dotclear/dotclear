@@ -177,18 +177,16 @@ namespace Dotclear {
                 define('DC_RC_PATH', implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'config.php']));
             }
 
-            (function () {
-                if (!is_file(DC_RC_PATH)) {
-                    if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
-                        $path = implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'wizard.php']);
-                    } else {
-                        $path = (strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false ?
-                            implode(DIRECTORY_SEPARATOR, ['install', 'wizard.php']) :
-                            'wizard.php';
-                    }
-                    Http::redirect($path);
+            // no config file and not in install process
+            if (!is_file(DC_RC_PATH)) {
+                if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
+                } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
+                        Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
                 }
-            })();
+                // stop App init here on install wizard
+                return;
+            }
 
             // path::real() may be used in inc/config.php
             if (!class_exists('path')) {
