@@ -17,7 +17,6 @@ namespace Dotclear {
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
     use Dotclear\Helper\File\Files;
-    use Dotclear\Helper\File\Path;
     use Dotclear\Helper\L10n;
     use Dotclear\Helper\Network\Http;
     use Exception;
@@ -182,7 +181,7 @@ namespace Dotclear {
                 if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
                     Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
                 } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
-                        Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
                 }
                 // stop App init here on install wizard
                 return;
@@ -546,9 +545,8 @@ namespace Dotclear {
                     } catch (Exception $e) {
                         if (defined('DC_DEBUG') && DC_DEBUG === true) {
                             throw $e;
-                        } else {
-                            new Fault(__('Process failed'), $e->getMessage(), $e->getCode());
                         }
+                        new Fault(__('Process failed'), $e->getMessage(), $e->getCode());
                     }
                 } else {
                     new Fault(

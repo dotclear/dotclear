@@ -11,7 +11,6 @@ namespace Dotclear\Install;
 
 class Utils
 {
-
     public static function check($con, &$err)
     {
         $err = [];

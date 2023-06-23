@@ -6,14 +6,13 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Install;
 
 use dcNsProcess;
 use Dotclear\Fault;
-use Dotclear\Core\Process;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\AbstractSchema;
-use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -172,7 +171,7 @@ class Wizard extends dcNsProcess
         // Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-?>
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,65 +188,65 @@ class Wizard extends dcNsProcess
 <body id="dotclear-admin" class="install">
 <div id="content">
 <?php
-echo
-'<h1>' . __('Dotclear installation wizard') . '</h1>' .
-    '<div id="main">';
+        echo
+        '<h1>' . __('Dotclear installation wizard') . '</h1>' .
+            '<div id="main">';
 
-if (!empty(self::$err)) {
-    echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
-} else {
-    echo '<h2>' . __('Welcome') . '</h2>' .
-    '<p>' . __('To complete your Dotclear installation and start writing on your blog, ' .
-        'we just need to know how to access your database and who you are. ' .
-        'Just fill this two steps wizard with this information and we will be done.') . '</p>' .
-    '<p class="message"><strong>' . __('Attention:') . '</strong> ' .
-    __('this wizard may not function on every host. If it does not work for you, ' .
-        'please refer to <a href="https://dotclear.org/documentation/2.0/admin/install">' .
-        'the documentation</a> to learn how to create the <strong>config.php</strong> ' .
-        'file manually.') . '</p>';
-}
+        if (!empty(self::$err)) {
+            echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
+        } else {
+            echo '<h2>' . __('Welcome') . '</h2>' .
+            '<p>' . __('To complete your Dotclear installation and start writing on your blog, ' .
+                'we just need to know how to access your database and who you are. ' .
+                'Just fill this two steps wizard with this information and we will be done.') . '</p>' .
+            '<p class="message"><strong>' . __('Attention:') . '</strong> ' .
+            __('this wizard may not function on every host. If it does not work for you, ' .
+                'please refer to <a href="https://dotclear.org/documentation/2.0/admin/install">' .
+                'the documentation</a> to learn how to create the <strong>config.php</strong> ' .
+                'file manually.') . '</p>';
+        }
 
-echo
-'<h2>' . __('System information') . '</h2>' .
+        echo
+        '<h2>' . __('System information') . '</h2>' .
 
-'<p>' . __('Please provide the following information needed to create your configuration file.') . '</p>' .
+        '<p>' . __('Please provide the following information needed to create your configuration file.') . '</p>' .
 
-'<form action="index.php" method="post">' .
-'<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
-form::combo(
-    'DBDRIVER',
-    [
-        __('MySQLi')              => 'mysqli',
-        __('MySQLi (full UTF-8)') => 'mysqlimb4',
-        __('PostgreSQL')          => 'pgsql',
-        __('SQLite')              => 'sqlite', ],
-    ['default' => self::$DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']
-) . '</p>' .
-'<p><label for="DBHOST">' . __('Database Host Name:') . '</label> ' .
-form::field('DBHOST', 30, 255, Html::escapeHTML(self::$DBHOST)) . '</p>' .
-'<p><label for="DBNAME">' . __('Database Name:') . '</label> ' .
-form::field('DBNAME', 30, 255, Html::escapeHTML(self::$DBNAME)) . '</p>' .
-'<p><label for="DBUSER">' . __('Database User Name:') . '</label> ' .
-form::field('DBUSER', 30, 255, Html::escapeHTML(self::$DBUSER)) . '</p>' .
-'<p><label for="DBPASSWORD">' . __('Database Password:') . '</label> ' .
-form::password('DBPASSWORD', 30, 255) . '</p>' .
-'<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
-form::field('DBPREFIX', 30, 255, [
-    'default'    => Html::escapeHTML(self::$DBPREFIX),
-    'extra_html' => 'required placeholder="' . __('Prefix') . '"',
-]) .
-'</p>' .
-'<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
-form::email('ADMINMAILFROM', [
-    'size'         => 30,
-    'default'      => Html::escapeHTML(self::$ADMINMAILFROM),
-    'autocomplete' => 'email',
-]) .
-'</p>' .
+        '<form action="index.php" method="post">' .
+        '<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
+        form::combo(
+            'DBDRIVER',
+            [
+                __('MySQLi')              => 'mysqli',
+                __('MySQLi (full UTF-8)') => 'mysqlimb4',
+                __('PostgreSQL')          => 'pgsql',
+                __('SQLite')              => 'sqlite', ],
+            ['default' => self::$DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']
+        ) . '</p>' .
+        '<p><label for="DBHOST">' . __('Database Host Name:') . '</label> ' .
+        form::field('DBHOST', 30, 255, Html::escapeHTML(self::$DBHOST)) . '</p>' .
+        '<p><label for="DBNAME">' . __('Database Name:') . '</label> ' .
+        form::field('DBNAME', 30, 255, Html::escapeHTML(self::$DBNAME)) . '</p>' .
+        '<p><label for="DBUSER">' . __('Database User Name:') . '</label> ' .
+        form::field('DBUSER', 30, 255, Html::escapeHTML(self::$DBUSER)) . '</p>' .
+        '<p><label for="DBPASSWORD">' . __('Database Password:') . '</label> ' .
+        form::password('DBPASSWORD', 30, 255) . '</p>' .
+        '<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
+        form::field('DBPREFIX', 30, 255, [
+            'default'    => Html::escapeHTML(self::$DBPREFIX),
+            'extra_html' => 'required placeholder="' . __('Prefix') . '"',
+        ]) .
+        '</p>' .
+        '<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
+        form::email('ADMINMAILFROM', [
+            'size'         => 30,
+            'default'      => Html::escapeHTML(self::$ADMINMAILFROM),
+            'autocomplete' => 'email',
+        ]) .
+        '</p>' .
 
-'<p><input type="submit" value="' . __('Continue') . '" /></p>' .
-    '</form>';
-?>
+        '<p><input type="submit" value="' . __('Continue') . '" /></p>' .
+            '</form>';
+        ?>
 </div>
 </div>
 </body>

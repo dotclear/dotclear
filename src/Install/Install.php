@@ -6,8 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace Dotclear\Install;
 
+use DateTimeZone;
 use dcAuth;
 use dcBlog;
 use dcCore;
@@ -17,6 +19,7 @@ use dcPage;
 use dcSettings;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
+use Dotclear\Fault;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -26,16 +29,15 @@ use form;
 
 class Install extends dcNsProcess
 {
-    private static $can_install = true;
-    private static $err         = '';
-    private static $step        = 0;
-    private static $dlang       = 'en';
-    private static $root_url    = '';
-    private static $admin_url   = '';
-    private static $mail_sent   = false;
+    private static $can_install     = true;
+    private static $err             = '';
+    private static $step            = 0;
+    private static $dlang           = 'en';
+    private static $root_url        = '';
+    private static $admin_url       = '';
     private static $plugins_install = [
         'success' => [],
-        'failure' => []
+        'failure' => [],
     ];
 
     private static $u_email     = '';
