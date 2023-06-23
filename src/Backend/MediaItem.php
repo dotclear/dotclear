@@ -491,8 +491,8 @@ class MediaItem extends dcNsProcess
                 $media_title = $getImageTitle(
                     dcCore::app()->admin->file,
                     dcCore::app()->blog->settings->system->media_img_title_pattern,
-                    dcCore::app()->blog->settings->system->media_img_use_dto_first,
-                    dcCore::app()->blog->settings->system->media_img_no_date_alone
+                    (bool) dcCore::app()->blog->settings->system->media_img_use_dto_first,
+                    (bool) dcCore::app()->blog->settings->system->media_img_no_date_alone
                 );
                 if ($media_title == dcCore::app()->admin->file->basename || Files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
                     $media_title = '';
@@ -559,8 +559,8 @@ class MediaItem extends dcNsProcess
                 $media_title = $getImageTitle(
                     dcCore::app()->admin->file,
                     dcCore::app()->blog->settings->system->media_img_title_pattern,
-                    dcCore::app()->blog->settings->system->media_img_use_dto_first,
-                    dcCore::app()->blog->settings->system->media_img_no_date_alone
+                    (bool) dcCore::app()->blog->settings->system->media_img_use_dto_first,
+                    (bool) dcCore::app()->blog->settings->system->media_img_no_date_alone
                 );
                 if ($media_title == dcCore::app()->admin->file->basename || Files::tidyFileName($media_title) == dcCore::app()->admin->file->basename) {
                     $media_title = '';
