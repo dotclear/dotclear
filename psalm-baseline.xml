@@ -98,12 +98,6 @@
       <code><![CDATA[$size !== '']]></code>
     </RedundantCondition>
   </file>
-  <file src="inc/admin/prepend.php">
-    <UndefinedConstant>
-      <code>APP_PROCESS</code>
-      <code>APP_PROCESS</code>
-    </UndefinedConstant>
-  </file>
   <file src="inc/core/class.dc.auth.php">
     <InvalidArrayOffset>
       <code>$_COOKIE[DC_SESSION_NAME]</code>

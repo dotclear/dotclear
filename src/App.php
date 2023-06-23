@@ -9,8 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear {
     use Autoloader;
+    use dcAdmin;
     use dcCore;
     use dcNsProcess;
+    use dcPublic;
     use dcUrlHandlers;
     use dcUtils;
     use Dotclear\Helper\Clearbricks;
@@ -31,6 +33,57 @@ namespace Dotclear {
 
         /** @var    array<string,mixed>     Dotclear default release config */
         private static $release = [];
+
+        /**
+         * App boostrap.
+         *
+         * Load application with their context and process, if any.
+         *
+         * Use:
+         * require_once path/to/App.php
+         * Dotclear\App::bootstrap(Context, Process);
+         *
+         * @param   string  $context    The optionnal app context (Backend or Frontend)
+         * @param   string  $process    The optionnal app context default process
+         */
+        public static function bootstrap(string $context = '', string $process = ''): void
+        {
+            // Start tick
+            define('DC_START_TIME', microtime(true));
+
+            // Define app context
+            if ($context == 'Backend') {
+                define('DC_CONTEXT_ADMIN', true);
+            } elseif ($context == 'Frontend') {
+                define('DC_CONTEXT_PUBLIC', true);
+            }
+
+            // Load Autoloader file
+            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'Autoloader.php']);
+
+            // Add root folder for namespaced and autoloaded classes
+            Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+
+            // Instanciate the Application (singleton)
+            self::init();
+
+            // Load app context
+            if ($context == 'Backend') {
+                // load backend (admin) context
+                if (self::context(dcAdmin::class)) {
+                    // try to load backend (admin) process, the _REQUEST process as priority on method process.
+                    if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
+                        $process = $_REQUEST['process'];
+                    }
+                    if (!empty($process)) {
+                        self::process('Dotclear\\Backend\\' . $process);
+                    }
+                }
+            } elseif ($context == 'Frontend') {
+                // load frontent (public) context
+                self::context(dcPublic::class);
+            }
+        }
 
         /**
          * Initializes the object.

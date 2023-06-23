@@ -285,7 +285,7 @@ class dcFavorites
 
     /**
      * Adds favorites section title to sidebar menu
-     * shall not be called outside admin/prepend.php...
+     * shall not be called outside dcAdmin...
      *
      * @param array|ArrayObject  $menu   admin menu
      */
@@ -297,7 +297,7 @@ class dcFavorites
 
     /**
      * Adds favorites items title to sidebar menu
-     * shall not be called outside admin/prepend.php...
+     * shall not be called outside dcAdmin...
      *
      * @param array|ArrayObject  $menu   admin menu
      */

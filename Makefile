@@ -27,7 +27,7 @@ config: clean config-stamp
 	## Remove config file if any
 	rm -f ./$(DC)/inc/config.php
 
-	## Copy built-in themes (same list that DC_DISTRIB_THEMES constant in inc/prepend.php)
+	## Copy built-in themes (same list that "distributed_themes" from release.json)
 	cp -pRf \
 	./themes/berlin \
 	./themes/blowup \
@@ -36,7 +36,7 @@ config: clean config-stamp
 	./themes/ductile \
 	./$(DC)/themes/
 
-	## Copy built-in plugins (same list that DC_DISTRIB_PLUGINS constant in inc/prepend.php)
+	## Copy built-in plugins (same list that "distributed_plugins" from release.json)
 	cp -pRf \
 	./plugins/aboutConfig \
 	./plugins/akismet \

@@ -1361,6 +1361,8 @@ class dcUpgrade
                     'admin/xmlrpc.php',
                     'admin/install/wizard.php',
                     'admin/install/check.php',
+                    'inc/admin/prepend.php',
+                    'inc/prepend.php'
                 ],
                 // Folders
                 [
