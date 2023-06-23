@@ -346,6 +346,7 @@ class BlogPref extends dcNsProcess
                 $da->blog_settings->system->put('note_title_tag', $_POST['note_title_tag']);
                 $da->blog_settings->system->put('nb_post_for_home', $nb_post_for_home);
                 $da->blog_settings->system->put('nb_post_per_page', $nb_post_per_page);
+                $da->blog_settings->system->put('no_public_css', !empty($_POST['no_public_css']));
                 $da->blog_settings->system->put('use_smilies', !empty($_POST['use_smilies']));
                 $da->blog_settings->system->put('no_search', !empty($_POST['no_search']));
                 $da->blog_settings->system->put('inc_subcats', !empty($_POST['inc_subcats']));
@@ -599,6 +600,10 @@ class BlogPref extends dcNsProcess
             form::combo('time_format_select', $da->time_formats_combo, ['extra_html' => 'title="' . __('Pattern of time') . '"']) .
             '</p>' .
             '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . Date::str(Html::escapeHTML($da->blog_settings->system->time_format)) . '</p>' .
+
+            '<p><label for="no_public_css" class="classic">' .
+            form::checkbox('no_public_css', '1', $da->blog_settings->system->no_public_css) .
+            __('Don\'t load standard stylesheet (used for media alignement)') . '</label></p>' .
 
             '<p><label for="use_smilies" class="classic">' .
             form::checkbox('use_smilies', '1', $da->blog_settings->system->use_smilies) .

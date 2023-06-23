@@ -332,9 +332,9 @@ class WikiToHtml
 
         $this->setOpt('acronyms_file', __DIR__ . '/acronyms.txt');
 
-        $this->setOpt('img_style_left', 'float:left; margin: 0 1em 1em 0;');
-        $this->setOpt('img_style_center', 'display:block; margin:0 auto;');
-        $this->setOpt('img_style_right', 'float:right; margin: 0 0 1em 1em;');
+        $this->setOpt('img_style_left', 'style="float:left; margin: 0 1em 1em 0;"');
+        $this->setOpt('img_style_center', 'style="display:block; margin:0 auto;"');
+        $this->setOpt('img_style_right', 'style="float:right; margin: 0 0 1em 1em;"');
 
         $this->acro_table = $this->__getAcronyms();
         $this->foot_notes = [];
@@ -1389,7 +1389,7 @@ class WikiToHtml
                 $style = $this->getOpt('img_style_center');
             }
             if ($style != '') {
-                $align_attr = ' style="' . $style . '"';
+                $align_attr = ' ' . $style;
             }
         }
 

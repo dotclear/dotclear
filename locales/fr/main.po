@@ -3407,6 +3407,9 @@ msgstr "Format des heures :"
 msgid "Pattern of time"
 msgstr "Modèle d'heure"
 
+msgid "Don't load standard stylesheet (used for media alignement)"
+msgstr "Désactiver le chargement de la feuille de style standard (utilisée pour l'alignement des médias)"
+
 #: src/Backend/BlogPref.php:605
 msgid "Display smilies on entries and comments"
 msgstr "Afficher des émoticônes dans les billets, pages et commentaires"

@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, dotclear */
 'use strict';
 
 $(() => {
@@ -12,13 +12,15 @@ $(() => {
       return;
     }
 
+    const styles = dotclear.getData('ck_editor_media');
+
     const editor_name = window.opener.$.getEditorName();
     const editor = window.opener.CKEDITOR.instances[editor_name];
     const type = insert_form.elements.type.value;
     const media_align_grid = {
-      left: 'float: left; margin: 0 1em 1em 0;',
-      right: 'float: right; margin: 0 0 1em 1em;',
-      center: 'margin: 0 auto; display: table;',
+      left: styles.left,
+      right: styles.right,
+      center: styles.center,
     };
 
     if (type == 'image') {
@@ -40,7 +42,7 @@ $(() => {
         // Build template
         if (align != '' && align != 'none') {
           // Set alignment
-          style = ' style="{figureStyle}"';
+          style = ' class="{figureStyle}"';
         }
         if (media_legend == 'legend') {
           // With a legend
@@ -91,6 +93,9 @@ $(() => {
 
         // Insert element
         const figure = window.opener.CKEDITOR.dom.element.createFromHtml(block.output(params), editor.document);
+        if (align != '' && align != 'none') {
+          figure.addClass(media_align_grid[align]);
+        }
         editor.insertElement(figure);
       }
     } else if (type == 'mp3') {
@@ -104,9 +109,13 @@ $(() => {
       const align_audio = $('input[name="alignment"]:checked', insert_form).val();
 
       if (align_audio != undefined && align_audio != 'none') {
-        player_audio = `<div style="${media_align_grid[align_audio]}">${player_audio}</div>`;
+        player_audio = `<div class="${media_align_grid[align_audio]}">${player_audio}</div>`;
       }
-      editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_audio));
+      const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_audio);
+      if (align != '' && align != 'none') {
+        element.addClass(media_align_grid[align]);
+      }
+      editor.insertElement(element);
     } else if (type == 'flv') {
       // Video media
       const oplayer = $(`<div>${$('#public_player').val()}</div>`);
@@ -134,9 +143,13 @@ $(() => {
       let player_video = oplayer.html();
 
       if (align_video != undefined && align_video != 'none') {
-        player_video = `<div style="${media_align_grid[align_video]}">${player_video}</div>`;
+        player_video = `<div class="${media_align_grid[align_video]}">${player_video}</div>`;
       }
-      editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_video));
+      const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_video);
+      if (align != '' && align != 'none') {
+        element.addClass(media_align_grid[align]);
+      }
+      editor.insertElement(element);
     } else {
       // Unknown media type
       const url = window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());

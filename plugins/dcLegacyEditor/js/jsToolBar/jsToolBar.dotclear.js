@@ -231,6 +231,7 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
     return;
   }
 
+  const that = this;
   this.encloseSelection('', '', (str) => {
     const alt = str ? str : d.title;
     let res = `<img src="${d.src}" alt="${alt
@@ -240,11 +241,11 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
       .replace('"', '&quot;')}"`;
 
     if (d.alignment == 'left') {
-      res += ' style="float: left; margin: 0 1em 1em 0;"';
+      res += ' class="' + that.style.left + '"';
     } else if (d.alignment == 'right') {
-      res += ' style="float: right; margin: 0 0 1em 1em;"';
+      res += ' class="' + that.style.right + '"';
     } else if (d.alignment == 'center') {
-      res += ' style="margin: 0 auto; display: block;"';
+      res += ' class="' + that.style.center + '"';
     }
 
     if (d.description) {
@@ -292,35 +293,11 @@ jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function () {
   const block = d.description ? fig : img;
 
   if (d.alignment == 'left') {
-    if (block.style.styleFloat == undefined) {
-      block.style.cssFloat = 'left';
-    } else {
-      block.style.styleFloat = 'left';
-    }
-    block.style.marginTop = 0;
-    block.style.marginRight = '1em';
-    block.style.marginBottom = '1em';
-    block.style.marginLeft = 0;
+    block.classList.add(this.style.left);
   } else if (d.alignment == 'right') {
-    if (block.style.styleFloat == undefined) {
-      block.style.cssFloat = 'right';
-    } else {
-      block.style.styleFloat = 'right';
-    }
-    block.style.marginTop = 0;
-    block.style.marginRight = 0;
-    block.style.marginBottom = '1em';
-    block.style.marginLeft = '1em';
+    block.classList.add(this.style.right);
   } else if (d.alignment == 'center') {
-    if (d.description) {
-      block.style.textAlign = 'center';
-    } else {
-      block.style.marginTop = 0;
-      block.style.marginRight = 'auto';
-      block.style.marginBottom = 0;
-      block.style.marginLeft = 'auto';
-      block.style.display = 'block';
-    }
+    block.classList.add(this.style.center);
   }
 
   img.src = d.src;

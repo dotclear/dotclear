@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, dotclear */
 'use strict';
 
 $(() => {
@@ -22,9 +22,9 @@ $(() => {
     const tb = window.opener.the_toolbar;
     const type = insert_form.elements.type.value;
     const media_align_grid = {
-      left: 'float: left; margin: 0 1em 1em 0;',
-      right: 'float: right; margin: 0 0 1em 1em;',
-      center: 'text-align: center;',
+      left: tb.style.left,
+      right: tb.style.rigth,
+      center: tb.style.center,
     };
     let align;
     let player;
@@ -60,7 +60,7 @@ $(() => {
       }
 
       if (align != undefined && align != 'none') {
-        player = `<div style="${media_align_grid[align]}">${player}</div>`;
+        player = `<div class="${media_align_grid[align]}">${player}</div>`;
       }
 
       tb.elements.mp3_insert.data.player = player.replace(/>/g, '>\n');
@@ -92,7 +92,7 @@ $(() => {
       player = oplayer.html();
 
       if (align != undefined && align != 'none') {
-        player = `<div style="${media_align_grid[align]}">${player}</div>`;
+        player = `<div class="${media_align_grid[align]}">${player}</div>`;
       }
 
       tb.elements.flv_insert.data.player = player.replace(/>/g, '>\n');

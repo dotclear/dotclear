@@ -83,7 +83,13 @@ class BackendBehaviors
             return '';
         }
 
-        return My::jsLoad('popup_media.js');
+        return
+        dcPage::jsJson('ck_editor_media', [
+            'left'   => 'media-left',
+            'center' => 'media-center',
+            'right'  => 'media-right',
+        ]) .
+        My::jsLoad('popup_media.js');
     }
 
     /**

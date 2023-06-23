@@ -136,6 +136,11 @@ class BackendBehaviors
                 'preview'      => ['title' => __('Preview')],
             ],
             'toolbar_bottom' => (bool) isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('toolbar_bottom'),
+            'style'          => [
+                'left'   => 'media-left',
+                'center' => 'media-center',
+                'right'  => 'media-right',
+            ],
         ];
 
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)

@@ -271,6 +271,8 @@ $notes_title = sprintf('"%s"', __('Note(s)'));
       e.editor.document.$.querySelector('body').style.setProperty('font-size', 'calc(var(--html-font-size) * 1.4)');
     }
 
+    e.editor.document.appendStyleSheet('index.php?pf=dcCKeditor/css/media.css');
+
     if ($('label[for="post_excerpt"] button').attr('aria-label') == dotclear.img_minus_alt) {
       $('#cke_post_excerpt').removeClass('hide');
     } else {
@@ -285,6 +287,7 @@ $notes_title = sprintf('"%s"', __('Note(s)'));
     if (ta !== undefined && ta.lang && e.editor.config.contentsLanguage !== ta.lang) {
       e.editor.config.contentsLanguage = ta.lang;
     }
+
   });
 
   // @TODO: find a better way to retrieve active editor

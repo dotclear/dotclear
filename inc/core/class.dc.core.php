@@ -12,7 +12,6 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
@@ -1946,7 +1945,9 @@ final class dcCore
             'first_title_level'   => 3,
             'note_prefix'         => 'wiki-footnote',
             'note_str'            => '<div class="footnotes"><h4>Notes</h4>%s</div>',
-            'img_style_center'    => 'display:table; margin:0 auto;',
+            'img_style_left'      => 'class="media-left"',
+            'img_style_center'    => 'class="media-center"',
+            'img_style_right'     => 'class="media-right"',
         ]);
 
         $this->wiki->registerFunction('url:post', [$this, 'wikiPostLink']);
@@ -2179,6 +2180,8 @@ final class dcCore
                     'Number of days to keep trackbacks open (0 means no ttl)', ],
                 ['url_scan', 'string', 'query_string',
                     'URL handle mode (path_info or query_string)', ],
+                ['no_public_css', 'boolean', false,
+                    'Don\'t use generic public.css stylesheet', ],
                 ['use_smilies', 'boolean', false,
                     'Show smilies on entries and comments', ],
                 ['no_search', 'boolean', false,

@@ -5286,6 +5286,24 @@ body.wysiwygDoc {
   font-size: 100%;
 }
 
+/* Media alignement */
+.media-center {
+  display: table;
+  margin: 0 auto;
+}
+
+.media-left {
+  float: inline-start;
+  margin-inline-end: 1em;
+  margin-block-end: 1em;
+}
+
+.media-right {
+  float: inline-end;
+  margin-inline-start: 1em;
+  margin-block-end: 1em;
+}
+
 /** --------------------------------------------------
   3rd parties
 --------------------------------------------------- */

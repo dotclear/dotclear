@@ -29,6 +29,9 @@ class rsExtendPublic
      */
     public static function publicHeadContent()
     {
+        if (!dcCore::app()->blog->settings->system->no_public_css) {
+            echo dcUtils::cssLoad(dcCore::app()->blog->getQmarkURL() . 'pf=public.css');
+        }
         if (dcCore::app()->blog->settings->system->use_smilies) {
             echo dcUtils::cssLoad(dcCore::app()->blog->getQmarkURL() . 'pf=smilies.css');
         }
