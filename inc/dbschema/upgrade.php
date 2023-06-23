@@ -1359,6 +1359,8 @@ class dcUpgrade
                     'admin/comments_actions.php',
                     'admin/posts_actions.php',
                     'admin/xmlrpc.php',
+                    'admin/install/wizard.php',
+                    'admin/install/check.php',
                 ],
                 // Folders
                 [
