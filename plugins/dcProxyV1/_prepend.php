@@ -185,6 +185,7 @@ dcProxyV1::classAliases([
 
 
     'adminUserPref'   => 'Dotclear\Core\Backend\UserPref',
+    'dcAdmin'         => 'Dotclear\Core\Backend\Utility',
     'dcAdminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
     'dcAdminCombos'   => 'Dotclear\Core\Backend\Combos',
     'dcAdminHelper'   => 'Dotclear\Core\Backend\Helper',
@@ -192,7 +193,7 @@ dcProxyV1::classAliases([
     'dcAdminURL'      => 'Dotclear\Core\Backend\Url',
     'dcFavorites'     => 'Dotclear\Core\Backend\Favorites',
     'dcMenu'          => 'Dotclear\Core\Backend\Menu',
-    'dcAdmin'         => 'Dotclear\Core\Backend\Utility',
+    'dcThemeConfig'   => 'Dotclear\Core\Backend\ThemeConfig',
 
     // Core public ----------------
 
