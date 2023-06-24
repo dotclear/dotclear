@@ -240,6 +240,12 @@ parameters:
     - message: '#Call to an undefined method object::getId\(\).#'
       path: */*/inc/core/class.dc.modules.php
 
+    # 2.27+
+
+    # Dotclear\Core\Backend\Utility object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Utility::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

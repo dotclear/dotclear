@@ -21,7 +21,7 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class ManagePosts extends sProcess
+class ManagePosts extends Process
 {
     public static function init(): bool
     {
