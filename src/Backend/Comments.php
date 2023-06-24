@@ -15,8 +15,8 @@ namespace Dotclear\Backend;
 use adminCommentFilter;
 use adminCommentList;
 use dcBlog;
-use dcCommentsActions;
 use dcCore;
+use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -81,7 +81,7 @@ class Comments extends Process
             dcCore::app()->admin->default_action = 'delete';
         }
 
-        dcCore::app()->admin->comments_actions_page = new dcCommentsActions(dcCore::app()->adminurl->get('admin.comments'));
+        dcCore::app()->admin->comments_actions_page = new ActionsComments(dcCore::app()->adminurl->get('admin.comments'));
 
         if (dcCore::app()->admin->comments_actions_page->process()) {
             return (static::$init = false);

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
 
-class BackendActions extends dcPostsActions
+class BackendActions extends ActionsPosts
 {
     protected $use_render = true;
 }

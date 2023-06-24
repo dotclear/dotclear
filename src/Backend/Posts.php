@@ -14,7 +14,7 @@ namespace Dotclear\Backend;
 use adminPostFilter;
 use adminPostList;
 use dcCore;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -32,7 +32,7 @@ class Posts extends Process
 
         // Actions
         // -------
-        dcCore::app()->admin->posts_actions_page = new dcPostsActions(dcCore::app()->adminurl->get('admin.posts'));
+        dcCore::app()->admin->posts_actions_page = new ActionsPosts(dcCore::app()->adminurl->get('admin.posts'));
         if (dcCore::app()->admin->posts_actions_page->process()) {
             return (static::$init = false);
         }
@@ -80,7 +80,7 @@ class Posts extends Process
     {
         Page::open(
             __('Posts'),
-            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(),
+            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(dcCore::app()->adminurl->get('admin.posts')),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',

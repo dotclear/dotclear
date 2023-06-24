@@ -1380,6 +1380,7 @@ class dcUpgrade
                 // Folders
                 [
                     'admin/tpl',
+                    'inc/admin/actions',
                 ]
             );
         }

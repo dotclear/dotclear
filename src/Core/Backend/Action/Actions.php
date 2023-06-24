@@ -3,18 +3,25 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * dcActions -- handler for action page on selected entries
+ * Handler for action page on selected entries
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend\Action;
+
+use ArrayObject;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Network\Http;
+use Exception;
+use form;
+use formSelectOption;
 
-abstract class dcActions
+abstract class Actions
 {
     /**
      * @var string form submit uri
@@ -131,9 +138,9 @@ abstract class dcActions
      *                                    Can be bound to multiple values, if the same callback is to be called
      * @param callable|array    $callback the callback for the action.
      *
-     * @return dcActions the actions page itself, enabling to chain addAction().
+     * @return Actions the actions page itself, enabling to chain addAction().
      */
-    public function addAction(array $actions, $callback): dcActions
+    public function addAction(array $actions, $callback): Actions
     {
         foreach ($actions as $group => $options) {
             // Check each case of combo definition

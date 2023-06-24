@@ -2,7 +2,7 @@
 /**
  * @since 2.27 Before as admin/users_actions.php
  *
- * @todo Move to dcActions
+ * @todo Move to backend Actions
  *
  * @package Dotclear
  * @subpackage Backend

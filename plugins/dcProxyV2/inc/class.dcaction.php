@@ -9,7 +9,13 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-abstract class dcActionsPage extends dcActions
+
+use Dotclear\Core\Backend\Action\Actions;
+use Dotclear\Core\Backend\Action\ActionsBlogs;
+use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Action\ActionsPosts;
+
+abstract class dcActionsPage extends Actions
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
@@ -17,7 +23,7 @@ abstract class dcActionsPage extends dcActions
     }
 }
 
-class dcPostsActionsPage extends dcPostsActions
+class dcPostsActionsPage extends ActionsPosts
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
@@ -25,7 +31,7 @@ class dcPostsActionsPage extends dcPostsActions
     }
 }
 
-class dcCommentsActionsPage extends dcCommentsActions
+class dcCommentsActionsPage extends ActionsComments
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {
@@ -33,7 +39,7 @@ class dcCommentsActionsPage extends dcCommentsActions
     }
 }
 
-class dcBlogsActionsPage extends dcBlogsActions
+class dcBlogsActionsPage extends ActionsBlogs
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
     {

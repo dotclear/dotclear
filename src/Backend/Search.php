@@ -14,9 +14,9 @@ namespace Dotclear\Backend;
 
 use adminCommentList;
 use adminPostList;
-use dcCommentsActions;
 use dcCore;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
@@ -164,7 +164,7 @@ class Search extends Process
         try {
             self::$count   = (int) dcCore::app()->blog->getPosts($params, true)->f(0);
             self::$list    = new adminPostList(dcCore::app()->blog->getPosts($params), self::$count);
-            self::$actions = new dcPostsActions(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$actions = new ActionsPosts(dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
@@ -219,7 +219,7 @@ class Search extends Process
         try {
             self::$count   = dcCore::app()->blog->getComments($params, true)->f(0);
             self::$list    = new adminCommentList(dcCore::app()->blog->getComments($params), self::$count);
-            self::$actions = new dcCommentsActions(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$actions = new ActionsComments(dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }

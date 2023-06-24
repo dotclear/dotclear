@@ -14,9 +14,9 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcBlog;
-use dcCommentsActions;
 use dcCore;
 use dcMedia;
+use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -199,7 +199,7 @@ class ManagePage extends Process
             }
         }
 
-        dcCore::app()->admin->comments_actions_page = new dcCommentsActions(
+        dcCore::app()->admin->comments_actions_page = new ActionsComments(
             dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages']),
             [
                 'act'           => 'page',

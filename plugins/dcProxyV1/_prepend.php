@@ -183,18 +183,22 @@ dcProxyV1::classAliases([
 
     // Core admin -----------------
 
-    'adminMediaPage'  => 'Dotclear\Core\Backend\mediaPage',
-    'adminUserPref'   => 'Dotclear\Core\Backend\UserPref',
-    'dcAdmin'         => 'Dotclear\Core\Backend\Utility',
-    'dcAdminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
-    'dcAdminCombos'   => 'Dotclear\Core\Backend\Combos',
-    'dcAdminHelper'   => 'Dotclear\Core\Backend\Helper',
-    'dcAdminNotices'  => 'Dotclear\Core\Backend\Notices',
-    'dcAdminURL'      => 'Dotclear\Core\Backend\Url',
-    'dcFavorites'     => 'Dotclear\Core\Backend\Favorites',
-    'dcMenu'          => 'Dotclear\Core\Backend\Menu',
-    'dcPage'          => 'Dotclear\Core\Backend\Page',
-    'dcThemeConfig'   => 'Dotclear\Core\Backend\ThemeConfig',
+    'adminMediaPage'    => 'Dotclear\Core\Backend\MediaPage',
+    'adminUserPref'     => 'Dotclear\Core\Backend\UserPref',
+    'dcActions'         => 'Dotclear\Core\Backend\Action\Actions',
+    'dcAdmin'           => 'Dotclear\Core\Backend\Utility',
+    'dcAdminBlogPref'   => 'Dotclear\Core\Backend\BlogPref',
+    'dcAdminCombos'     => 'Dotclear\Core\Backend\Combos',
+    'dcAdminHelper'     => 'Dotclear\Core\Backend\Helper',
+    'dcAdminNotices'    => 'Dotclear\Core\Backend\Notices',
+    'dcAdminURL'        => 'Dotclear\Core\Backend\Url',
+    'dcBlogsActions'    => 'Dotclear\Core\Backend\Action\ActionsBlogs',
+    'dcCommentsActions' => 'Dotclear\Core\Backend\Action\ActionsComments',
+    'dcPostsActions'    => 'Dotclear\Core\Backend\Action\ActionsPosts',
+    'dcFavorites'       => 'Dotclear\Core\Backend\Favorites',
+    'dcMenu'            => 'Dotclear\Core\Backend\Menu',
+    'dcPage'            => 'Dotclear\Core\Backend\Page',
+    'dcThemeConfig'     => 'Dotclear\Core\Backend\ThemeConfig',
 
     // Core public ----------------
 

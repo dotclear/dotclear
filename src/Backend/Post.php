@@ -16,10 +16,10 @@ use ArrayObject;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcCommentsActions;
 use dcCore;
 use dcMedia;
 use dcTrackback;
+use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -219,7 +219,7 @@ class Post extends Process
             $anchor = 'comments';
         }
 
-        dcCore::app()->admin->comments_actions_page = new dcCommentsActions(
+        dcCore::app()->admin->comments_actions_page = new ActionsComments(
             dcCore::app()->adminurl->get('admin.post'),
             [
                 'id'            => dcCore::app()->admin->post_id,

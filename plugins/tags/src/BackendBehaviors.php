@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\tags;
 use ArrayObject;
 use dcCore;
 use dcMeta;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Database\Cursor;
@@ -190,9 +190,9 @@ class BackendBehaviors
     /**
      * Add tags actions
      *
-     * @param      dcPostsActions       $ap     The current action instance
+     * @param      ActionsPosts       $ap     The current action instance
      */
-    public static function adminPostsActions(dcPostsActions $ap): void
+    public static function adminPostsActions(ActionsPosts $ap): void
     {
         $ap->addAction(
             [My::name() => [__('Add tags') => 'tags']],
@@ -213,10 +213,10 @@ class BackendBehaviors
     /**
      * Add tags to an entry
      *
-     * @param      dcPostsActions       $ap     The current action instance
+     * @param      ActionsPosts       $ap     The current action instance
      * @param      ArrayObject          $post   The post
      */
-    public static function adminAddTags(dcPostsActions $ap, ArrayObject $post): void
+    public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
         if (!empty($post['new_tags'])) {
             $meta  = dcCore::app()->meta;
@@ -300,10 +300,10 @@ class BackendBehaviors
     /**
      * Remove tags from an entry
      *
-     * @param      dcPostsActions       $ap     The current action instance
+     * @param      ActionsPosts       $ap     The current action instance
      * @param      ArrayObject          $post   The post
      */
-    public static function adminRemoveTags(dcPostsActions $ap, ArrayObject $post): void
+    public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
         if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_DELETE,

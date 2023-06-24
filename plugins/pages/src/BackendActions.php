@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcCore;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-class BackendActions extends dcPostsActions
+class BackendActions extends ActionsPosts
 {
     protected $use_render = true;
 
@@ -89,7 +89,7 @@ class BackendActions extends dcPostsActions
     {
         // We could have added a behavior here, but we want default action to be setup first
         BackendDefaultActions::adminPagesActionsPage($this);
-        # --BEHAVIOR-- adminPagesActions -- dcActions
+        # --BEHAVIOR-- adminPagesActions -- Actions
         dcCore::app()->callBehavior('adminPagesActions', $this);
     }
 

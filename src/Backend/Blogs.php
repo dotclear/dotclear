@@ -15,8 +15,8 @@ namespace Dotclear\Backend;
 use adminBlogFilter;
 use adminBlogList;
 use ArrayObject;
-use dcBlogsActions;
 use dcCore;
+use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -43,7 +43,7 @@ class Blogs extends Process
         -------------------------------------------------------- */
         dcCore::app()->admin->blogs_actions_page = null;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->blogs_actions_page = new dcBlogsActions(dcCore::app()->adminurl->get('admin.blogs'));
+            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->adminurl->get('admin.blogs'));
             if (dcCore::app()->admin->blogs_actions_page->process()) {
                 return false;
             }
