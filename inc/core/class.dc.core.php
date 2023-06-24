@@ -207,16 +207,16 @@ final class dcCore
     // Admin context
 
     /**
-     * dcAdmin instance
+     * Backend Utility instance
      *
-     * @var dcAdmin
+     * @var Dotclear\Core\Backend\Utility
      */
     public $admin;
 
     /**
      * dcAdminURL instance
      *
-     * May be transfered as property of dcAdmin instance in future
+     * May be transfered as property of backend Utility instance in future
      *
      * @var dcAdminURL|null
      */
@@ -225,7 +225,7 @@ final class dcCore
     /**
      * dcFavorites instance
      *
-     * May be transfered as property of dcAdmin instance in future
+     * May be transfered as property of backend Utility instance in future
      *
      * @var dcFavorites
      */
@@ -234,7 +234,7 @@ final class dcCore
     /**
      * Array of several dcMenu instance
      *
-     * May be transfered as property of dcAdmin instance in future
+     * May be transfered as property of bakcend Utility instance in future
      *
      * @var ArrayObject
      */
@@ -243,7 +243,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * May be transfered as property of dcAdmin instance in future
+     * May be transfered as property of backend Utility instance in future
      *
      * @var array
      */
@@ -252,16 +252,16 @@ final class dcCore
     // Public context
 
     /**
-     * dcPublic instance
+     * Fonrtend Utility instance
      *
-     * @var dcPublic
+     * @var Dotclear\Core\Frontend\Utility
      */
     public $public;
 
     /**
      * dcTemplate instance
      *
-     * May be transfered as property of dcPublic instance in future
+     * May be transfered as property of frontend Utility instance in future
      *
      * @var dcTemplate
      */
@@ -270,7 +270,7 @@ final class dcCore
     /**
      * context instance
      *
-     * May be transfered as property of dcPublic instance in future
+     * May be transfered as property of frontend Utility instance in future
      *
      * @var context|null
      */
@@ -279,7 +279,7 @@ final class dcCore
     /**
      * HTTP Cache stack
      *
-     * May be transfered as property of dcPublic instance in future
+     * May be transfered as property of frontend Utility instance in future
      *
      * @var array
      */
@@ -291,7 +291,7 @@ final class dcCore
     /**
      * Array of antispam filters (names)
      *
-     * May be transfered as property of dcPublic instance in future
+     * May be transfered as property of frontend Utility instance in future
      *
      * @var array|null
      */

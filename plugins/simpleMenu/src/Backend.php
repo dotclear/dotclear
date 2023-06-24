@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\simpleMenu;
 
-use dcAdmin;
 use dcCore;
 use dcFavorites;
+use Dotclear\Core\Backend\Utility;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -48,7 +48,7 @@ class Backend extends Process
             'initWidgets' => [Widgets::class, 'initWidgets'],
         ]);
 
-        My::addBackendMenuItem(dcAdmin::MENU_BLOG);
+        My::addBackendMenuItem(Utility::MENU_BLOG);
 
         return true;
     }

@@ -8,17 +8,31 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Frontend;
+
+use context;
+use dcBlog;
+use dcCore;
+use dcMedia;
+use dcNotices;
+use dcTemplate;
+use dcThemes;
+use dcUrlHandlers;
+use dcUtils;
+use dcTraitDynamicProperties;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Exception;
+use rsExtendPublic;
 
-class dcPublic
+class Utility
 {
     use dcTraitDynamicProperties;
 
-    // Constants
-
+    /** @var    string  The default templates folder name */
     public const TPL_ROOT = 'default-templates';
 
     /**
@@ -215,7 +229,7 @@ class dcPublic
         }
 
         $this->parent_theme = dcCore::app()->themes->moduleInfo($this->theme, 'parent');
-        if ($this->parent_theme && !dcCore::app()->themes->moduleExists($this->parent_theme)) {
+        if (is_string($this->parent_theme) && !empty($this->parent_theme) && !dcCore::app()->themes->moduleExists($this->parent_theme)) {
             $this->theme        = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
             $this->parent_theme = null;
         }
@@ -231,7 +245,7 @@ class dcPublic
         dcCore::app()->themes->loadNsFile($this->theme, 'public');
 
         # Loading translations for selected theme
-        if ($this->parent_theme) {
+        if (is_string($this->parent_theme) && !empty($this->parent_theme)) {
             dcCore::app()->themes->loadModuleL10N($this->parent_theme, dcCore::app()->lang, 'main');
         }
         dcCore::app()->themes->loadModuleL10N($this->theme, dcCore::app()->lang, 'main');
@@ -264,10 +278,11 @@ class dcPublic
             $tpl_path[] = dcCore::app()->blog->themes_path . '/' . $this->parent_theme . '/tpl';
         }
         $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
-        if (!empty($tplset) && is_dir(__DIR__ . DIRECTORY_SEPARATOR . self::TPL_ROOT . DIRECTORY_SEPARATOR . $tplset)) {
+        $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
+        if (!empty($tplset) && is_dir($dir)) {
             dcCore::app()->tpl->setPath(
                 $tpl_path,
-                __DIR__ . DIRECTORY_SEPARATOR . self::TPL_ROOT . DIRECTORY_SEPARATOR . $tplset,
+                $dir,
                 dcCore::app()->tpl->getPath()
             );
         } else {

@@ -66,7 +66,6 @@ $__autoload = [
     'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'dbschema', 'upgrade.php']),
 
     // Admin
-    'dcAdmin'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.admin.php']),
     'dcMenu'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.menu.php']),
     'dcFavorites'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.favorites.php']),
     'dcPage'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.dc.page.php']),
@@ -101,7 +100,6 @@ $__autoload = [
     'dcActions'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcaction.php']),
 
     // Public
-    'dcPublic'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'class.dc.public.php']),
     'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'class.dc.template.php']),
     'context'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'lib.tpl.context.php']),
     'dcUrlHandlers'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'lib.urlhandlers.php']),

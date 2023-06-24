@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\themeEditor;
 use Exception;
 use dcCore;
 use dcModuleDefine;
-use dcPublic;
+use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -106,7 +106,7 @@ class ThemeEditor
     public function __construct()
     {
         $this->user_theme   = Path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
-        $this->tplset_theme = DC_ROOT . '/inc/public/' . dcPublic::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
+        $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
         if (null !== dcCore::app()->themes) {
             $parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'parent');
@@ -116,7 +116,7 @@ class ThemeEditor
             }
             $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
             if ($tplset) {
-                $this->tplset_theme = DC_ROOT . '/inc/public/' . dcPublic::TPL_ROOT . '/' . $tplset;
+                $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
                 $this->tplset_name  = $tplset;
             }
         }
@@ -450,14 +450,14 @@ class ThemeEditor
 
         $this->tpl = array_merge($this->tpl, $this->getFilesInDir($this->user_theme . '/tpl'));
 
-        # Then we look in dcPublic::TPL_ROOT plugins directory
+        # Then we look in Utility::TPL_ROOT plugins directory
         foreach (dcCore::app()->plugins->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
-            // Looking in dcPublic::TPL_ROOT directory
-            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT), $this->tpl);
-            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT), $this->tpl_model);
-            // Looking in dcPublic::TPL_ROOT/tplset directory
-            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT . '/' . $this->tplset_name), $this->tpl);
-            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . dcPublic::TPL_ROOT . '/' . $this->tplset_name), $this->tpl_model);
+            // Looking in Utility::TPL_ROOT directory
+            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl);
+            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl_model);
+            // Looking in Utility::TPL_ROOT/tplset directory
+            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), $this->tpl);
+            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), $this->tpl_model);
         }
 
         uksort($this->tpl, [$this, 'sortFilesHelper']);

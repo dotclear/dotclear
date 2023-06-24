@@ -8,6 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Core\Backend\Utility;
+
 class dcFavorites
 {
     /**
@@ -285,26 +288,26 @@ class dcFavorites
 
     /**
      * Adds favorites section title to sidebar menu
-     * shall not be called outside dcAdmin...
+     * shall not be called outside backend Utility...
      *
      * @param array|ArrayObject  $menu   admin menu
      */
     public function appendMenuTitle($menu)
     {
-        $menu[dcAdmin::MENU_FAVORITES]        = new dcMenu('favorites-menu', 'My favorites');
-        $menu[dcAdmin::MENU_FAVORITES]->title = __('My favorites');
+        $menu[Utility::MENU_FAVORITES]        = new dcMenu('favorites-menu', 'My favorites');
+        $menu[Utility::MENU_FAVORITES]->title = __('My favorites');
     }
 
     /**
      * Adds favorites items title to sidebar menu
-     * shall not be called outside dcAdmin...
+     * shall not be called outside backend Utility...
      *
      * @param array|ArrayObject  $menu   admin menu
      */
     public function appendMenu($menu)
     {
         foreach ($this->user_favorites as $favorite_id => $favorite_menu) {
-            $menu[dcAdmin::MENU_FAVORITES]->addItem(
+            $menu[Utility::MENU_FAVORITES]->addItem(
                 $favorite_menu['title'],
                 $favorite_menu['url'],
                 $favorite_menu['small-icon'],
