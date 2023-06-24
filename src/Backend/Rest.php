@@ -74,7 +74,7 @@ class Rest extends dcNsProcess
     public static function getPostsCount()
     {
         $count = dcCore::app()->blog->getPosts([], true)->f(0);
-        $str   = sprintf(__('%d post', '%d posts', $count), $count);
+        $str   = sprintf(__('%d post', '%d posts', (int) $count), $count);
 
         $rsp      = new XmlTag('count');
         $rsp->ret = $str;
@@ -88,7 +88,7 @@ class Rest extends dcNsProcess
     public static function getCommentsCount()
     {
         $count = dcCore::app()->blog->getComments([], true)->f(0);
-        $str   = sprintf(__('%d comment', '%d comments', $count), $count);
+        $str   = sprintf(__('%d comment', '%d comments', (int) $count), $count);
 
         $rsp      = new XmlTag('count');
         $rsp->ret = $str;
