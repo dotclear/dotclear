@@ -8,16 +8,26 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use dcCore;
+use adminMediaList;
+use adminMediaFilter;
+use dcMedia;
+use dcThemes;
+use dcPage;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
+use Exception;
 
 /**
  * @brief class for admin media page
  */
 #[\AllowDynamicProperties]
-class adminMediaPage extends adminMediaFilter
+class MediaPage extends adminMediaFilter
 {
     /** @var boolean Page has a valid query */
     protected $media_has_query = false;

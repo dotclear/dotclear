@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use adminMediaList;
-use adminMediaPage;
 use dcAdminFilter;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
@@ -35,7 +35,7 @@ class Media extends Process
             dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
         ]));
 
-        dcCore::app()->admin->page = new adminMediaPage();
+        dcCore::app()->admin->page = new MediaPage();
 
         return (static::$init = true);
     }

@@ -183,7 +183,7 @@ dcProxyV1::classAliases([
 
     // Core admin -----------------
 
-
+    'adminMediaPage'  => 'Dotclear\Core\Backend\mediaPage',
     'adminUserPref'   => 'Dotclear\Core\Backend\UserPref',
     'dcAdmin'         => 'Dotclear\Core\Backend\Utility',
     'dcAdminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
