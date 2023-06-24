@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcAuth;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
@@ -110,7 +110,7 @@ class UserPreferences extends Process
         dcCore::app()->admin->user_options      = $user_options;
         dcCore::app()->admin->format_by_editors = $format_by_editors;
         dcCore::app()->admin->available_formats = $available_formats;
-        dcCore::app()->admin->status_combo      = dcAdminCombos::getPostStatusescombo();
+        dcCore::app()->admin->status_combo      = Combos::getPostStatusescombo();
 
         // Themes
         dcCore::app()->admin->theme_combo = [
@@ -133,7 +133,7 @@ class UserPreferences extends Process
         }
 
         // Language codes
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getAdminLangsCombo();
+        dcCore::app()->admin->lang_combo = Combos::getAdminLangsCombo();
 
         // Get 3rd parts HTML editor flags
         $rte = [

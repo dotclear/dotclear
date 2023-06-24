@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use dcAdminCombos;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -156,7 +156,7 @@ class Categories extends Process
             dcPage::success(__('Entries have been successfully moved to the category you choose.'));
         }
 
-        $categories_combo = dcAdminCombos::getCategoriesCombo($rs);
+        $categories_combo = Combos::getCategoriesCombo($rs);
 
         echo
         '<p class="top-add"><a class="button add" href="' . dcCore::app()->adminurl->get('admin.category') . '">' . __('New category') . '</a></p>';

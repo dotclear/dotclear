@@ -166,7 +166,9 @@ class Url
         $qs  = array_merge($url['qs'], $params);
         $str = '';
         foreach ($qs as $field => $value) {
-            $str .= (new Hidden([$field], $value))->render();
+            if (strval($value) !== false) {
+                $str .= (new Hidden([$field], (string) $value))->render();
+            }
         }
 
         return $str;

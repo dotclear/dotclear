@@ -80,7 +80,7 @@ class Blogroll extends initBlogroll
      */
     public function getLangs(array $params = []): MetaRecord
     {
-        // Use post_lang as an alias of link_lang to be able to use the dcAdminCombos::getLangsCombo() function
+        // Use post_lang as an alias of link_lang to be able to use the backend Combos::getLangsCombo() function
         $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
         'FROM ' . $this->table . ' ' .
         "WHERE blog_id = '" . $this->blog->con->escape($this->blog->id) . "' " .

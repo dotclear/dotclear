@@ -1366,6 +1366,7 @@ class dcUpgrade
                     'inc/admin/class.dc.blog_pref.php',
                     'inc/admin/class.dc.favorites.php',
                     'inc/admin/class.dc.menu.php',
+                    'inc/admin/lib.admincombos.php',
                     'inc/admin/lib.adminuserpref.php',
                     'inc/admin/lib.dc.adminurl.php',
                     'inc/admin/lib.dc.notices.php',

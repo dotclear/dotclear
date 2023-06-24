@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use dcAdminCombos;
 use dcCore;
 use dcPage;
 use dcThemes;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -42,7 +42,7 @@ class LinkPopup extends Process
 
         // Languages combo
         $rs                              = dcCore::app()->blog->getLangs(['order' => 'asc']);
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getLangsCombo($rs, true);
+        dcCore::app()->admin->lang_combo = Combos::getLangsCombo($rs, true);
 
         return (static::$init = true);
     }

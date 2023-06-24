@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
@@ -465,7 +466,7 @@ class dcDefaultPostActions
             );
             # categories list
             # Getting categories
-            $categories_combo = dcAdminCombos::getCategoriesCombo(
+            $categories_combo = Combos::getCategoriesCombo(
                 dcCore::app()->blog->getCategories()
             );
             echo

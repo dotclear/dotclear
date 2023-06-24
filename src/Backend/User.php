@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcAuth;
 use dcBlog;
 use dcCore;
 use dcPage;
 use dcPrefs;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -51,12 +51,12 @@ class User extends Process
         dcCore::app()->admin->user_profile_urls  = '';
 
         # Formaters combo
-        dcCore::app()->admin->formaters_combo = dcAdminCombos::getFormatersCombo();
+        dcCore::app()->admin->formaters_combo = Combos::getFormatersCombo();
 
-        dcCore::app()->admin->status_combo = dcAdminCombos::getPostStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         # Language codes
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getAdminLangsCombo();
+        dcCore::app()->admin->lang_combo = Combos::getAdminLangsCombo();
 
         # Get user if we have an ID
         if (!empty($_REQUEST['id'])) {

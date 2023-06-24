@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
@@ -98,10 +99,10 @@ class adminGenericFilterV2
         }
         if (!empty($options[3])) {
             $this->filters['order'] = new dcAdminFilter('order', $this->userOptions('order'));
-            $this->filters['order']->options(dcAdminCombos::getOrderCombo());
+            $this->filters['order']->options(Combos::getOrderCombo());
 
             if (!empty($_GET['order'])
-                && in_array($_GET['order'], dcAdminCombos::getOrderCombo(), true)
+                && in_array($_GET['order'], Combos::getOrderCombo(), true)
                 && $_GET['order'] != $this->userOptions('order')
             ) {
                 $this->show(true);
@@ -471,7 +472,7 @@ class adminPostFilter extends adminGenericFilterV2
             return null;
         }
 
-        $combo = dcAdminCombos::getUsersCombo($users);
+        $combo = Combos::getUsersCombo($users);
         dcUtils::lexicalKeySort($combo, dcUtils::ADMIN_LOCALE);
 
         return (new dcAdminFilter('user_id'))
@@ -530,7 +531,7 @@ class adminPostFilter extends adminGenericFilterV2
             ->title(__('Status:'))
             ->options(array_merge(
                 ['-' => ''],
-                dcAdminCombos::getPostStatusesCombo()
+                Combos::getPostStatusesCombo()
             ))
             ->prime(true);
     }
@@ -632,7 +633,7 @@ class adminPostFilter extends adminGenericFilterV2
             ->title(__('Month:'))
             ->options(array_merge(
                 ['-' => ''],
-                dcAdminCombos::getDatesCombo($dates)
+                Combos::getDatesCombo($dates)
             ));
     }
 
@@ -659,7 +660,7 @@ class adminPostFilter extends adminGenericFilterV2
             ->title(__('Lang:'))
             ->options(array_merge(
                 ['-' => ''],
-                dcAdminCombos::getLangsCombo($langs, false)
+                Combos::getLangsCombo($langs, false)
             ));
     }
 
@@ -756,7 +757,7 @@ class adminCommentFilter extends adminGenericFilterV2
             ->title(__('Status:'))
             ->options(array_merge(
                 ['-' => ''],
-                dcAdminCombos::getCommentStatusesCombo()
+                Combos::getCommentStatusesCombo()
             ))
             ->prime(true);
     }
@@ -829,7 +830,7 @@ class adminBlogFilter extends adminGenericFilterV2
             ->title(__('Status:'))
             ->options(array_merge(
                 ['-' => ''],
-                dcAdminCombos::getBlogStatusesCombo()
+                Combos::getBlogStatusesCombo()
             ))
             ->prime(true);
     }

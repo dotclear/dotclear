@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -50,7 +50,7 @@ class Manage extends Process
         # Liste des catégories
         $categories_label                      = [];
         $rs                                    = dcCore::app()->blog->getCategories(['post_type' => 'post']);
-        dcCore::app()->admin->categories_combo = dcAdminCombos::getCategoriesCombo($rs, false, true);
+        dcCore::app()->admin->categories_combo = Combos::getCategoriesCombo($rs, false, true);
         $rs->moveStart();
         while ($rs->fetch()) {
             $categories_label[$rs->cat_url] = Html::escapeHTML($rs->cat_title);
@@ -58,7 +58,7 @@ class Manage extends Process
         dcCore::app()->admin->categories_label = $categories_label;
 
         # Liste des langues utilisées
-        dcCore::app()->admin->langs_combo = dcAdminCombos::getLangscombo(
+        dcCore::app()->admin->langs_combo = Combos::getLangscombo(
             dcCore::app()->blog->getLangs(['order' => 'asc'])
         );
 
@@ -66,7 +66,7 @@ class Manage extends Process
         $rs                                = dcCore::app()->blog->getDates(['type' => 'month']);
         dcCore::app()->admin->months_combo = array_merge(
             [__('All months') => '-'],
-            dcAdminCombos::getDatesCombo($rs)
+            Combos::getDatesCombo($rs)
         );
 
         dcCore::app()->admin->first_year = dcCore::app()->admin->last_year = 0;

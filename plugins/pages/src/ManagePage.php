@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcBlog;
 use dcCommentsActions;
 use dcCore;
 use dcMedia;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -100,7 +100,7 @@ class ManagePage extends Process
         }
 
         // Status combo
-        dcCore::app()->admin->status_combo = dcAdminCombos::getPostStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formaters combo
         $core_formaters    = dcCore::app()->getFormaters();
@@ -113,7 +113,7 @@ class ManagePage extends Process
         dcCore::app()->admin->available_formats = $available_formats;
 
         // Languages combo
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getLangsCombo(
+        dcCore::app()->admin->lang_combo = Combos::getLangsCombo(
             dcCore::app()->blog->getLangs(['order' => 'asc']),
             true
         );

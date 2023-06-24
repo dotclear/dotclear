@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use dcAdminCombos;
 use dcBlog;
 use dcCore;
 use dcMedia;
 use dcPage;
 use dcSettings;
 use dcUtils;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -96,10 +96,10 @@ class BlogPref extends Process
         }
 
         // Language codes
-        $da->lang_combo = dcAdminCombos::getAdminLangsCombo();
+        $da->lang_combo = Combos::getAdminLangsCombo();
 
         // Status combo
-        $da->status_combo = dcAdminCombos::getBlogStatusescombo();
+        $da->status_combo = Combos::getBlogStatusescombo();
 
         // Date format combo
         $da->now = time();

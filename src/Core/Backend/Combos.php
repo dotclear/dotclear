@@ -11,14 +11,19 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use dcCore;
+use dcUtils;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
-class dcAdminCombos
+class Combos
 {
     /**
      * Returns an hierarchical categories combo from a category record

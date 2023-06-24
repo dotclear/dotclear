@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use dcAdminCombos;
 use dcBlog;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -52,7 +52,7 @@ class Comment extends Process
         dcCore::app()->admin->comment_editor = dcCore::app()->auth->getOption('editor');
 
         // Status combo
-        dcCore::app()->admin->status_combo = dcAdminCombos::getCommentStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getCommentStatusesCombo();
 
         return (static::$init = true);
     }

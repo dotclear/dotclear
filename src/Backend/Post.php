@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcAuth;
 use dcBlog;
 use dcCategories;
@@ -22,6 +21,7 @@ use dcCore;
 use dcMedia;
 use dcPage;
 use dcTrackback;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -97,11 +97,11 @@ class Post extends Process
         }
 
         # Getting categories
-        dcCore::app()->admin->categories_combo = dcAdminCombos::getCategoriesCombo(
+        dcCore::app()->admin->categories_combo = Combos::getCategoriesCombo(
             dcCore::app()->blog->getCategories()
         );
 
-        dcCore::app()->admin->status_combo = dcAdminCombos::getPostStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formats combo
         $core_formaters    = dcCore::app()->getFormaters();
@@ -114,7 +114,7 @@ class Post extends Process
         dcCore::app()->admin->available_formats = $available_formats;
 
         // Languages combo
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getLangsCombo(
+        dcCore::app()->admin->lang_combo = Combos::getLangsCombo(
             dcCore::app()->blog->getLangs(['order' => 'asc']),
             true
         );
@@ -458,7 +458,7 @@ class Post extends Process
         }
 
         // Getting categories (a new category may have been created during process)
-        dcCore::app()->admin->categories_combo = dcAdminCombos::getCategoriesCombo(
+        dcCore::app()->admin->categories_combo = Combos::getCategoriesCombo(
             dcCore::app()->blog->getCategories()
         );
 

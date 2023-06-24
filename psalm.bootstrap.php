@@ -75,7 +75,6 @@ $__autoload = [
     'adminUserList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
     'adminMediaList'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
     'dcPager'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'dcAdminCombos'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.admincombos.php']),
     'dcAdminFilter'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
     'dcAdminFilters'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
     'adminGenericFilterV2' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),      // V2

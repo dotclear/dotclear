@@ -183,8 +183,10 @@ dcProxyV1::classAliases([
 
     // Core admin -----------------
 
+
     'adminUserPref'   => 'Dotclear\Core\Backend\UserPref',
     'dcAdminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
+    'dcAdminCombos'   => 'Dotclear\Core\Backend\Combos',
     'dcAdminHelper'   => 'Dotclear\Core\Backend\Helper',
     'dcAdminNotices'  => 'Dotclear\Core\Backend\Notices',
     'dcAdminURL'      => 'Dotclear\Core\Backend\Url',

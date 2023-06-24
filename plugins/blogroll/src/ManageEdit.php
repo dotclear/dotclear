@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use dcAdminCombos;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -129,7 +129,7 @@ class ManageEdit extends Process
     {
         # Languages combo
         $links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
-        $lang_combo = dcAdminCombos::getLangsCombo($links, true);
+        $lang_combo = Combos::getLangsCombo($links, true);
 
         dcPage::openModule(My::name());
 

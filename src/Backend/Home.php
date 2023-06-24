@@ -14,10 +14,10 @@ namespace Dotclear\Backend;
 
 use adminModulesList;
 use ArrayObject;
-use dcAdminCombos;
 use dcBlog;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -392,7 +392,7 @@ class Home extends Process
             // Quick entry
 
             // Get categories
-            $categories_combo = dcAdminCombos::getCategoriesCombo(
+            $categories_combo = Combos::getCategoriesCombo(
                 dcCore::app()->blog->getCategories([])
             );
 
