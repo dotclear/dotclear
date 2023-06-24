@@ -17,8 +17,8 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use dcCore;
-use dcMenu;
 use dcModuleDefine;
+use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Utility;
 
 /**
@@ -43,7 +43,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function addBackendMenuItem(string $menu = Utility::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->adminurl) || !(dcCore::app()->menu[$menu] instanceof dcMenu)) {
+        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->adminurl) || !(dcCore::app()->menu[$menu] instanceof Menu)) {
             return;
         }
 

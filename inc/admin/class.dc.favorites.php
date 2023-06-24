@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Utility;
 
 class dcFavorites
@@ -294,7 +295,7 @@ class dcFavorites
      */
     public function appendMenuTitle($menu)
     {
-        $menu[Utility::MENU_FAVORITES]        = new dcMenu('favorites-menu', 'My favorites');
+        $menu[Utility::MENU_FAVORITES]        = new Menu('favorites-menu', 'My favorites');
         $menu[Utility::MENU_FAVORITES]->title = __('My favorites');
     }
 

@@ -6,7 +6,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcMenu
+declare(strict_types=1);
+
+namespace Dotclear\Core\Backend;
+
+use dcAdminHelper;
+use dcUtils;
+
+class Menu
 {
     /**
      * Menu id
@@ -16,14 +23,14 @@ class dcMenu
     /**
      * List of items pinned at top of menu
      *
-     * @var array
+     * @var array<int,string>
      */
     protected $pinned = [];
 
     /**
      * List of unpinned items
      *
-     * @var array
+     * @var array<string,string>
      */
     protected $items = [];
 
@@ -58,7 +65,7 @@ class dcMenu
      * @param      null|string  $class   The class
      * @param      bool         $pinned  The pinned flag
      */
-    public function addItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false)
+    public function addItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
             $item = $this->itemDef($title, $url, $img, $active, $id, $class);
@@ -82,7 +89,7 @@ class dcMenu
      * @param      null|string  $class   The class
      * @param      bool         $pinned  The pinned flag
      */
-    public function prependItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false)
+    public function prependItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
             $item = $this->itemDef($title, $url, $img, $active, $id, $class);

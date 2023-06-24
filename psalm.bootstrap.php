@@ -66,7 +66,6 @@ $__autoload = [
     'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'dbschema', 'upgrade.php']),
 
     // Admin
-    'dcMenu'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.menu.php']),
     'dcFavorites'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.favorites.php']),
     'dcPage'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.dc.page.php']),
     'adminGenericListV2'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),             // V2

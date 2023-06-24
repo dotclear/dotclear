@@ -232,7 +232,7 @@ final class dcCore
     public $favs;
 
     /**
-     * Array of several dcMenu instance
+     * Array of several backend Menu instance
      *
      * May be transfered as property of bakcend Utility instance in future
      *

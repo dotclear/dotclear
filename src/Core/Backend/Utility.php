@@ -18,9 +18,9 @@ use dcAdminHelper;
 use dcAdminURL;
 use dcCore;
 use dcFavorites;
-use dcMenu;
 use dcNotices;
 use dcTraitDynamicProperties;
+use Dotclear\Core\Backend\Menu;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -240,9 +240,9 @@ class Utility
             if (!$user_ui_nofavmenu) {
                 dcCore::app()->favs->appendMenuTitle(dcCore::app()->menu);
             }
-            dcCore::app()->menu[self::MENU_BLOG]    = new dcMenu('blog-menu', 'Blog');
-            dcCore::app()->menu[self::MENU_SYSTEM]  = new dcMenu('system-menu', 'System');
-            dcCore::app()->menu[self::MENU_PLUGINS] = new dcMenu('plugins-menu', 'Plugins');
+            dcCore::app()->menu[self::MENU_BLOG]    = new Menu('blog-menu', 'Blog');
+            dcCore::app()->menu[self::MENU_SYSTEM]  = new Menu('system-menu', 'System');
+            dcCore::app()->menu[self::MENU_PLUGINS] = new Menu('plugins-menu', 'Plugins');
 
             # Loading plugins
             dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
