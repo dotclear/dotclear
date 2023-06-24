@@ -157,6 +157,18 @@ class dcDefaultPostActions
                 [self::class, 'doChangePostStatus']
             );
         }
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
+            $ap->addAction(
+                [__('First publication') => [
+                    __('Never published')   => 'never',
+                    __('Already published') => 'already',
+                ]],
+                [self::class, 'doChangePostFirstPub']
+            );
+        }
         $ap->addAction(
             [__('Mark') => [
                 __('Mark as selected')   => 'selected',
@@ -261,6 +273,46 @@ class dcDefaultPostActions
                 ),
                 count($ids),
                 dcCore::app()->blog->getPostStatus($status)
+            )
+        );
+        $ap->redirect(true);
+    }
+
+    /**
+     * Does a change post status.
+     *
+     * @param      dcPostsActions  $ap
+     *
+     * @throws     Exception             (description)
+     */
+    public static function doChangePostFirstPub(dcPostsActions $ap)
+    {
+        switch ($ap->getAction()) {
+            case 'never':
+                $status = 0;
+
+                break;
+            case 'already':
+                $status = 1;
+        }
+
+        $ids = $ap->getIDs();
+        if (empty($ids)) {
+            throw new Exception(__('No entry selected'));
+        }
+
+        // Set first publication flag of entries
+        dcCore::app()->blog->updPostsFirstPub($ids, $status);
+
+        dcPage::addSuccessNotice(
+            sprintf(
+                __(
+                    '%d entry has been successfully updated as: "%s"',
+                    '%d entries have been successfully updated as: "%s"',
+                    count($ids)
+                ),
+                count($ids),
+                $status ? __('Already published') : __('Never published')
             )
         );
         $ap->redirect(true);

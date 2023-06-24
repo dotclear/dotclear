@@ -1764,6 +1764,49 @@ class dcBlog
     }
 
     /**
+     * Updates posts first publication flag.
+     *
+     * @param      mixed       $ids     The identifiers
+     * @param      int         $status  The flag
+     *
+     * @throws     Exception
+     */
+    public function updPostsFirstPub($ids, int $status): void
+    {
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_PUBLISH,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->id)) {
+            throw new Exception(__('You are not allowed to change this entry status'));
+        }
+
+        $posts_ids = dcUtils::cleanIds($ids);
+        $status    = (int) $status;
+
+        $sql = new UpdateStatement();
+        $sql
+            ->where('blog_id = ' . $sql->quote($this->id))
+            ->and('post_id' . $sql->in($posts_ids));
+
+        #If user can only publish, we need to check the post's owner
+        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->id)) {
+            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+        }
+
+        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+
+        $cur->post_firstpub = $status;
+        $cur->post_upddt    = date('Y-m-d H:i:s');
+
+        $sql->update($cur);
+        $this->triggerBlog();
+
+        $this->firstPublicationEntries($posts_ids);
+    }
+
+    /**
      * Updates post selection.
      *
      * @param      int      $id        The identifier

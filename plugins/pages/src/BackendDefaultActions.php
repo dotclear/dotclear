@@ -43,6 +43,18 @@ class BackendDefaultActions
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            dcCore::app()->auth::PERMISSION_PUBLISH,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        ]), dcCore::app()->blog->id)) {
+            $ap->addAction(
+                [__('First publication') => [
+                    __('Never published')   => 'never',
+                    __('Already published') => 'already',
+                ]],
+                [dcDefaultPostActions::class, 'doChangePostFirstPub']
+            );
+        }
+        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
