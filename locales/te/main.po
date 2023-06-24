@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -16,293 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr ""
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr ""
-
-msgid "Iconv module is not available."
-msgstr ""
-
-msgid "Output control functions are not available."
-msgstr ""
-
-msgid "SimpleXML module is not available."
-msgstr ""
-
-msgid "DOM XML module is not available."
-msgstr ""
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr ""
-
-msgid "SPL module is not available."
-msgstr ""
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr ""
-
-msgid "MySQL InnoDB engine is not available."
-msgstr ""
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr ""
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr ""
-
-msgid "Dotclear is already installed."
-msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
-
-msgid "Dotclear cannot be installed."
-msgstr "డాట్‌క్లియర్‌ని స్థాపించలేం."
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Invalid email address"
-msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
-
-msgid "No password given"
-msgstr "సంకేతపదం ఇవ్వలేదు."
-
-msgid "Passwords don't match"
-msgstr "సంకేతపదాలు సరిపోలలేదు"
-
-msgid "Password must contain at least 6 characters."
-msgstr "సంకేతపదం కనీసం 6 అక్షరాల పొడవుండాలి."
-
-msgid "My first blog"
-msgstr "నా మొదటి బ్లాగు"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "డాట్‌క్లియర్‌కి స్వాగతం!"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "ఇది మీ మొదటి టపా. మీరు బ్లాగడానికి సిద్ధంకాగానే, లోనికి ప్రవేశించి దీన్ని మార్చుకోండి లేదా తొలగించండి."
-
-msgid "Dotclear Team"
-msgstr "డాట్‌క్లియర్ జట్టు"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>ఇది ఒక వ్యాఖ్య.</p>\n"
-"<p>దీన్ని తొలగించడానికి, లోనికి ప్రవేశింటి మీ బ్లాగు యొక్క వ్యాఖ్యలు చూడండి. అక్కడ దీన్ని తొలగించవచ్చు లేదా మార్చవచ్చు.</p>"
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "డాట్‌క్లియర్ స్థాపన"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "సంకేతపదం:"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "మధ్యమ:"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "డాట్‌క్లియర్ స్థాపన"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr ""
-
-msgid "Errors:"
-msgstr "పొరపాట్లు:"
-
-msgid "Configuration file has been successfully created."
-msgstr ""
-
-msgid "User information"
-msgstr "వాడుకరి సమాచారం"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr ""
-
-#, fuzzy
-msgid "First Name:"
-msgstr "మొదటి పేరు:"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "చివరి తాజాకరణ"
-
-msgid "Email:"
-msgstr "ఈమెయిల్:"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
-
-msgid "Required field"
-msgstr "తప్పనిసరి"
-
-msgid "Username:"
-msgstr "వాడుకరిపేరు:"
-
-#, fuzzy
-msgid "Username"
-msgstr "వాడుకరిపేరు:"
-
-msgid "New password:"
-msgstr "కొత్త సంకేతపదం:"
-
-#, fuzzy
-msgid "Password"
-msgstr "సంకేతపదం:"
-
-msgid "Confirm password:"
-msgstr "సంకేతపదాన్ని నిర్ధారించండి:"
-
-msgid "Save"
-msgstr "భద్రపరచు"
-
-msgid "Following plugins have been installed:"
-msgstr ""
-
-msgid "Following plugins have not been installed:"
-msgstr ""
-
-msgid "All done!"
-msgstr "అంతా పూర్తయ్యింది!"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr ""
-
-msgid "Your account"
-msgstr "మీ ఖాతా"
-
-msgid "Password:"
-msgstr "సంకేతపదం:"
-
-msgid "Your blog"
-msgstr "మీ బ్లాగు"
-
-msgid "Blog address:"
-msgstr "బ్లాగు చిరునామా:"
-
-msgid "Administration interface:"
-msgstr "నిర్వహణ అంతరవర్తి:"
-
-msgid "Manage your blog now"
-msgstr "ఇప్పుడే మీ బ్లాగుని నిర్వహించండి"
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "ఫైలుని వ్రాయలేం."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "కొత్త వాడుకరిని సృష్టించండి"
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "ఈమెయిలు చిరునామా సరైనది కాదు."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "%s అనే ఫైలు లేనే లేదు."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr ""
-
-msgid "Dotclear installation wizard"
-msgstr ""
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "చర్య"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "వ్యవస్థ సమాచారం"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr ""
-
-msgid "Database type:"
-msgstr "డాటాబేసు రకం:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr ""
-
-msgid "Database Name:"
-msgstr "డాటాబేసు పేరు:"
-
-msgid "Database User Name:"
-msgstr ""
-
-msgid "Database Password:"
-msgstr "డాటాబేసు సంకేతపదం:"
-
-msgid "Database Tables Prefix:"
-msgstr ""
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "విషయం:"
 
 msgid "Title"
 msgstr "శీర్షిక"
@@ -432,6 +145,18 @@ msgstr "ఎంచుకున్న వాటిపై చర్య:"
 msgid "Schedule"
 msgstr ""
 
+#, fuzzy
+msgid "First publication"
+msgstr "తప్పుడు భాషా సంకేతం"
+
+#, fuzzy
+msgid "Never published"
+msgstr "ప్రచురితం"
+
+#, fuzzy
+msgid "Already published"
+msgstr "ప్రచురితం"
+
 msgid "Mark"
 msgstr ""
 
@@ -467,6 +192,12 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "విజయవంతంగా టపాని తాజాకరించాం."
+msgstr[1] "విజయవంతంగా టపాని తాజాకరించాం."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "విజయవంతంగా టపాని తాజాకరించాం."
 msgstr[1] "విజయవంతంగా టపాని తాజాకరించాం."
 
@@ -511,6 +242,9 @@ msgstr "శీర్షిక:"
 
 msgid "Parent:"
 msgstr ""
+
+msgid "Save"
+msgstr "భద్రపరచు"
 
 msgid "This user does not exist"
 msgstr "ఈ వాడుకరి లేనే లేరు"
@@ -663,6 +397,10 @@ msgid "Blog ID"
 msgstr "బ్లాగు ఐడీ"
 
 #, fuzzy
+msgid "Username"
+msgstr "వాడుకరిపేరు:"
+
+#, fuzzy
 msgid "Last Name"
 msgstr "చివరి తాజాకరణ"
 
@@ -713,6 +451,9 @@ msgstr "స్థితి:"
 msgid "Format:"
 msgstr "తేదీ ఆకృతి:"
 
+msgid "Password:"
+msgstr "సంకేతపదం:"
+
 #, fuzzy
 msgid "With password"
 msgstr "టపా సంకేతపదం:"
@@ -760,6 +501,9 @@ msgstr "మూయి"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "ట్రాకుబ్యాకులు"
+
+msgid "Email:"
+msgstr "ఈమెయిల్:"
 
 msgid "Web site:"
 msgstr "వెబ్ సైటు:"
@@ -832,6 +576,9 @@ msgstr "టపాలు (ఒక పేజీకి)"
 
 msgid "Error:"
 msgstr "పొరపాటు:"
+
+msgid "Errors:"
+msgstr "పొరపాట్లు:"
 
 msgid "%H:%M:%S"
 msgstr ""
@@ -1374,11 +1121,18 @@ msgstr "అలంకారాన్ని విజయవంతంగా స్�
 msgid "Upload a zip file"
 msgstr ""
 
+msgid "Required field"
+msgstr "తప్పనిసరి"
+
 msgid "Zip file path:"
 msgstr ""
 
 msgid "Your password:"
 msgstr "మీ సంకేతపదం:"
+
+#, fuzzy
+msgid "Password"
+msgstr "సంకేతపదం:"
 
 msgid "Download a zip file"
 msgstr ""
@@ -1823,6 +1577,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
 #, fuzzy
+msgid "medium"
+msgstr "మధ్యమ:"
+
+#, fuzzy
 msgid "small"
 msgstr "చిన్న:"
 
@@ -1962,6 +1720,18 @@ msgstr "ఈమెయిలు చిరునామా సరైనది కా
 
 msgid "You are not an administrator"
 msgstr "మీరు నిర్వాహకులు కాదు"
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "No password given"
+msgstr "సంకేతపదం ఇవ్వలేదు."
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Password must contain at least 6 characters."
+msgstr "సంకేతపదం కనీసం 6 అక్షరాల పొడవుండాలి."
 
 msgid "Invalid user language code"
 msgstr ""
@@ -2268,6 +2038,9 @@ msgstr ""
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
 
+msgid "Username:"
+msgstr "వాడుకరిపేరు:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "%sకి ఈ-మెయిలు విజయవంతంగా పంపించాం."
@@ -2277,6 +2050,9 @@ msgstr "మీ కొత్త సంకేతపదం"
 
 msgid "Your new password is in your mailbox."
 msgstr "మీ కొత్త సంకేతపదాన్ని మీ ఈమెయిలుకి పంపించాం."
+
+msgid "Passwords don't match"
+msgstr "సంకేతపదాలు సరిపోలలేదు"
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -2298,6 +2074,16 @@ msgstr "నిర్వహణ అంతరవర్తి:"
 msgid "Wrong username or password"
 msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "సంకేతపదం:"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "తిరిగి ప్రవేశపు తెరకి"
 
@@ -2313,6 +2099,12 @@ msgstr "అన్వేషణ ఎంపికలు"
 
 msgid "Change your password"
 msgstr "మీ సంకేతపదాన్ని మార్చండి"
+
+msgid "New password:"
+msgstr "కొత్త సంకేతపదం:"
+
+msgid "Confirm password:"
+msgstr "సంకేతపదాన్ని నిర్ధారించండి:"
 
 #, fuzzy
 msgid "change"
@@ -2595,6 +2387,9 @@ msgid "Time format:"
 msgstr "సమయపు ఆకృతి:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3116,6 +2911,12 @@ msgid "The cache directory does not exist or is not writable. You must create th
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr ""
+
+msgid "Following plugins have not been installed:"
 msgstr ""
 
 msgid "Errors have occured with following plugins:"
@@ -4069,6 +3870,14 @@ msgstr "మీ ప్రవేశనామం మార్చితే, మీ�
 msgid "Password change required to connect"
 msgstr ""
 
+#, fuzzy
+msgid "Last Name:"
+msgstr "చివరి తాజాకరణ"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "మొదటి పేరు:"
+
 msgid "Display name:"
 msgstr "చూపించే పేరు:"
 
@@ -4639,6 +4448,214 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr ""
+
+msgid "Dotclear is already installed."
+msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
+
+msgid "Dotclear cannot be installed."
+msgstr "డాట్‌క్లియర్‌ని స్థాపించలేం."
+
+msgid "Invalid email address"
+msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
+
+msgid "My first blog"
+msgstr "నా మొదటి బ్లాగు"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "డాట్‌క్లియర్‌కి స్వాగతం!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "ఇది మీ మొదటి టపా. మీరు బ్లాగడానికి సిద్ధంకాగానే, లోనికి ప్రవేశించి దీన్ని మార్చుకోండి లేదా తొలగించండి."
+
+msgid "Dotclear Team"
+msgstr "డాట్‌క్లియర్ జట్టు"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>ఇది ఒక వ్యాఖ్య.</p>\n"
+"<p>దీన్ని తొలగించడానికి, లోనికి ప్రవేశింటి మీ బ్లాగు యొక్క వ్యాఖ్యలు చూడండి. అక్కడ దీన్ని తొలగించవచ్చు లేదా మార్చవచ్చు.</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "డాట్‌క్లియర్ స్థాపన"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "డాట్‌క్లియర్ స్థాపన"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr ""
+
+msgid "Configuration file has been successfully created."
+msgstr ""
+
+msgid "User information"
+msgstr "వాడుకరి సమాచారం"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr ""
+
+#, fuzzy
+msgid "Username and password"
+msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
+
+msgid "All done!"
+msgstr "అంతా పూర్తయ్యింది!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr ""
+
+msgid "Your account"
+msgstr "మీ ఖాతా"
+
+msgid "Your blog"
+msgstr "మీ బ్లాగు"
+
+msgid "Blog address:"
+msgstr "బ్లాగు చిరునామా:"
+
+msgid "Administration interface:"
+msgstr "నిర్వహణ అంతరవర్తి:"
+
+msgid "Manage your blog now"
+msgstr "ఇప్పుడే మీ బ్లాగుని నిర్వహించండి"
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
+msgstr ""
+
+#, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr ""
+
+msgid "MySQL InnoDB engine is not available."
+msgstr ""
+
+#, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "ఫైలుని వ్రాయలేం."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "కొత్త వాడుకరిని సృష్టించండి"
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "ఈమెయిలు చిరునామా సరైనది కాదు."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s అనే ఫైలు లేనే లేదు."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr ""
+
+msgid "Dotclear installation wizard"
+msgstr ""
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "చర్య"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "వ్యవస్థ సమాచారం"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr ""
+
+msgid "Database type:"
+msgstr "డాటాబేసు రకం:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr ""
+
+msgid "Database Name:"
+msgstr "డాటాబేసు పేరు:"
+
+msgid "Database User Name:"
+msgstr ""
+
+msgid "Database Password:"
+msgstr "డాటాబేసు సంకేతపదం:"
+
+msgid "Database Tables Prefix:"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "విషయం:"
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

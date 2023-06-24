@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -16,287 +16,6 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP versija %s (reikalinga 7.4 arba ankstesnė)."
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Nėra Multibyte string modulio (mbstring)."
-
-msgid "Iconv module is not available."
-msgstr "Nėra Iconv modulio."
-
-msgid "Output control functions are not available."
-msgstr "Nėra Output control funkcijų."
-
-msgid "SimpleXML module is not available."
-msgstr "Nėra SimpleXML modulio."
-
-msgid "DOM XML module is not available."
-msgstr "Nėra DOM XML modulio."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE valdiklis nepalaiko UTF-8 stringų."
-
-msgid "SPL module is not available."
-msgstr "Nėra SPL modulio."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL verija %s (reikalinga 4.1 arba ankstesnė)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "Nėra MySQL InnoDB engine."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL versija %s (reikalinga 8.0 arba ankstesnė)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "Nustatykite master key (DC_MASTER_KEY) konfigūraciniame faile."
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear jau yra instaliuota."
-
-msgid "Dotclear cannot be installed."
-msgstr "Dotclear negali būti instaliuota."
-
-msgid "No user ID given"
-msgstr "Nepateiktas dalyvio ID"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Dalyvio ID turi būti skaičių ir simbolių kombinaciją iš mažiausiai 2 ženklų."
-
-msgid "Invalid email address"
-msgstr "Netinkamas el. pašto adresas"
-
-msgid "No password given"
-msgstr "Nėra slaptažodžio"
-
-msgid "Passwords don't match"
-msgstr "Slaptažodžiai nesutampa"
-
-msgid "Password must contain at least 6 characters."
-msgstr "Slaptažodį turi sudaryti mažiausiai 6 ženklai."
-
-msgid "My first blog"
-msgstr "Mano pirmasis blogas"
-
-msgid "%A, %B %e %Y"
-msgstr "%A, %B %e %Y"
-
-msgid "Welcome to Dotclear!"
-msgstr "Jus sveikina Dotclear!"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "Tai pirmas jūsų blogo įrašas. Prsijunkite norėdami ištrinti arba redaguoti šį įrašą."
-
-msgid "Dotclear Team"
-msgstr "Dotclear komanda"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>Čia yra komentaras.</p>\n"
-"<p>Prisijunkite tam, kad peržiūrėti ir trinti blogo komentarus.</p>"
-
-msgid "Dotclear Install"
-msgstr "Dotclear instaliacija"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Naujo slaptažodžio nustatymas"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr "Vidutinis:"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr "rodyti"
-
-msgid "Dotclear installation"
-msgstr "Dotclear instaliacija"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "Cache direktorija %s neturi rašymo nustatymų."
-
-msgid "Errors:"
-msgstr "Klaidos:"
-
-msgid "Configuration file has been successfully created."
-msgstr "Konfigūracinis failas sėkmingai sukurtas."
-
-msgid "User information"
-msgstr "Dalyvio informacija"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "Pateikite informaciją reikalingą sukurti pimam dalyviui."
-
-msgid "First Name:"
-msgstr "Vardas:"
-
-msgid "Last Name:"
-msgstr "Pavardė:"
-
-msgid "Email:"
-msgstr "El. paštas:"
-
-msgid "Username and password"
-msgstr "Prisijungimo vardas ir slaptažodis"
-
-msgid "Required field"
-msgstr "Būtinas laukelis"
-
-msgid "Username:"
-msgstr "Prisijungimo vardas:"
-
-msgid "Username"
-msgstr "Prisijungimo vvardas"
-
-msgid "New password:"
-msgstr "Naujas slaptažodis:"
-
-#, fuzzy
-msgid "Password"
-msgstr "Slaptažodis:"
-
-msgid "Confirm password:"
-msgstr "Patvirtinkite slaptažodį:"
-
-msgid "Save"
-msgstr "Išsaugoti"
-
-msgid "Following plugins have been installed:"
-msgstr "Buvo instaliuoti šie plugin'ai:"
-
-msgid "Following plugins have not been installed:"
-msgstr "Šie plugin'ai nebuvo instaliuoti:"
-
-msgid "All done!"
-msgstr "Štai ir viskas!"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "Dotclear sėkmingai instaliuota. Čia pateikiama šiek tiek naudingos informacijos, kurią verta išsaugoti."
-
-msgid "Your account"
-msgstr "Jūsų paskyra"
-
-msgid "Password:"
-msgstr "Slaptažodis:"
-
-msgid "Your blog"
-msgstr "Jūsų blogas"
-
-msgid "Blog address:"
-msgstr "Blogo adresas:"
-
-msgid "Administration interface:"
-msgstr "Administravimo sąsaja:"
-
-msgid "Manage your blog now"
-msgstr "Tvarkykite savo blogą dabar"
-
-msgid "Installation can not be completed"
-msgstr "Instaliacija negali būti baigta"
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "Cache direktorija %s neturi rašymo nustatymų."
-
-#, fuzzy
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Negalima įrašyti į šią direktoriją."
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "El. pašto adresas negalioja"
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "Failas %s neegzistuoja."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "Negalima įrašyti failo %s."
-
-msgid "Dotclear installation wizard"
-msgstr "Dotclaer instaliavimas"
-
-msgid "Welcome"
-msgstr "Sveiki"
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr "Mums reikia žinoti kaip naudotis jūsų duomenų baze ir kas jūs esate tam, kad galėtume baigti Dotclear instaliaciją ir pradėtume rašyti blogą. Jums tereiks pateikti sekančią informaciją."
-
-msgid "Attention:"
-msgstr "Dėmesio:"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "šis diegimas gali neveikti kaikuriuose hostuose. Jeigu diegimas neveikia prašome peržiūrėti <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, kaip rankiniu būdu sukurti <strong>config.php</strong> failą."
-
-msgid "System information"
-msgstr "Sistemos informacija"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "Pateikite informaciją reikalingą tam, kad sukrti konfigūracinį failą."
-
-msgid "Database type:"
-msgstr "Database type:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "Database Host Name:"
-
-msgid "Database Name:"
-msgstr "Database Name:"
-
-msgid "Database User Name:"
-msgstr "Database User Name:"
-
-msgid "Database Password:"
-msgstr "Datenbank Passwort:"
-
-msgid "Database Tables Prefix:"
-msgstr "Datenbank Tabellen Präfix:"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "Turinys:"
 
 msgid "Title"
 msgstr "Antraštė"
@@ -425,6 +144,18 @@ msgstr "Pasirinktų įrašų veiksmas:"
 msgid "Schedule"
 msgstr "Tvarkaraštis"
 
+#, fuzzy
+msgid "First publication"
+msgstr "Netinkamas kalbos kodas"
+
+#, fuzzy
+msgid "Never published"
+msgstr "publikuojamas"
+
+#, fuzzy
+msgid "Already published"
+msgstr "publikuojamas"
+
 msgid "Mark"
 msgstr "Žymėti"
 
@@ -457,6 +188,13 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "Įrašas sėkmingai atnaujintas"
+msgstr[1] "Įrašas sėkmingai atnaujintas"
+msgstr[2] ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "Įrašas sėkmingai atnaujintas"
 msgstr[1] "Įrašas sėkmingai atnaujintas"
 msgstr[2] ""
@@ -507,6 +245,9 @@ msgstr "Antraštė:"
 
 msgid "Parent:"
 msgstr "Pozicija:"
+
+msgid "Save"
+msgstr "Išsaugoti"
 
 msgid "This user does not exist"
 msgstr "Šis dalyvis neegzistuoja"
@@ -661,6 +402,9 @@ msgstr "Paskutinis atnaujinimas"
 msgid "Blog ID"
 msgstr "Blogo ID"
 
+msgid "Username"
+msgstr "Prisijungimo vvardas"
+
 msgid "Last Name"
 msgstr "Pavardė"
 
@@ -710,6 +454,9 @@ msgstr "Statusas:"
 msgid "Format:"
 msgstr "Datos formatas:"
 
+msgid "Password:"
+msgstr "Slaptažodis:"
+
 #, fuzzy
 msgid "With password"
 msgstr "Įrašo slaptažodis:"
@@ -757,6 +504,9 @@ msgstr "uždaryti"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "Trackback'ai"
+
+msgid "Email:"
+msgstr "El. paštas:"
 
 msgid "Web site:"
 msgstr "Asmeninis tinklapis:"
@@ -829,6 +579,9 @@ msgstr "Įrašų viename puslapyje"
 
 msgid "Error:"
 msgstr "Klaida:"
+
+msgid "Errors:"
+msgstr "Klaidos:"
 
 msgid "%H:%M:%S"
 msgstr ""
@@ -1378,12 +1131,19 @@ msgstr "Plugin'as sėkmingai instaliuotas."
 msgid "Upload a zip file"
 msgstr "Įkelti zip failą"
 
+msgid "Required field"
+msgstr "Būtinas laukelis"
+
 #, fuzzy
 msgid "Zip file path:"
 msgstr "Zip failo turinys"
 
 msgid "Your password:"
 msgstr "Jūsų slaptažodis:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Slaptažodis:"
 
 msgid "Download a zip file"
 msgstr "Atsisiųsti zip failą"
@@ -1843,6 +1603,9 @@ msgstr "Įrašant failą įvyko klaida."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Sukurtų paveikslėlių dydis (pikseliais)"
 
+msgid "medium"
+msgstr "Vidutinis:"
+
 msgid "small"
 msgstr "Mažas:"
 
@@ -1980,6 +1743,18 @@ msgstr "El. pašto adresas negalioja"
 
 msgid "You are not an administrator"
 msgstr "Jūs nesate administratorius"
+
+msgid "No user ID given"
+msgstr "Nepateiktas dalyvio ID"
+
+msgid "No password given"
+msgstr "Nėra slaptažodžio"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Dalyvio ID turi būti skaičių ir simbolių kombinaciją iš mažiausiai 2 ženklų."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Slaptažodį turi sudaryti mažiausiai 6 ženklai."
 
 msgid "Invalid user language code"
 msgstr "Negaliojantis dalyvio kalbos kodas"
@@ -2283,6 +2058,9 @@ msgstr "Dalyvis paprašė nustatyti naują slaptažodį šiame puslapyje ir toki
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Paspauskite atsiųstą nuoroda tam, kad iš naujo nustatyti slaptažodį. Jei neketinote keisti slaptažodžio, nespauskite ir senasis išliks."
 
+msgid "Username:"
+msgstr "Prisijungimo vardas:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "El. laiškas sėkmingai išsiųstas į %s."
@@ -2292,6 +2070,9 @@ msgstr "Jūsų naujas slaptažodis."
 
 msgid "Your new password is in your mailbox."
 msgstr "Naujas slaptažodis yra jūsų elektroniniame pašte."
+
+msgid "Passwords don't match"
+msgstr "Slaptažodžiai nesutampa"
 
 msgid "You didn't change your password."
 msgstr "Jūs nepakeitėte savo slaptažodžio."
@@ -2313,6 +2094,16 @@ msgstr "Administravimo sąsaja:"
 msgid "Wrong username or password"
 msgstr "Klaidingas prisijungimo vardas ir slaptažodis"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Naujo slaptažodžio nustatymas"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "Atgal į prisijungimo puslapį"
 
@@ -2328,6 +2119,12 @@ msgstr "Paieškos nustatymai"
 
 msgid "Change your password"
 msgstr "Slaptawodžio keitimas"
+
+msgid "New password:"
+msgstr "Naujas slaptažodis:"
+
+msgid "Confirm password:"
+msgstr "Patvirtinkite slaptažodį:"
 
 msgid "change"
 msgstr "keisti"
@@ -2611,6 +2408,9 @@ msgid "Time format:"
 msgstr "Laiko formatas:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3139,6 +2939,12 @@ msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "Buvo instaliuoti šie plugin'ai:"
+
+msgid "Following plugins have not been installed:"
+msgstr "Šie plugin'ai nebuvo instaliuoti:"
 
 msgid "Errors have occured with following plugins:"
 msgstr ""
@@ -4098,6 +3904,12 @@ msgstr "Pakeitęs savo prisijungimo vardą turėsite iš naujo prisijungti."
 msgid "Password change required to connect"
 msgstr "Prisijungimui reikalingas slaptažodžio pakeitimas."
 
+msgid "Last Name:"
+msgstr "Pavardė:"
+
+msgid "First Name:"
+msgstr "Vardas:"
+
 msgid "Display name:"
 msgstr "Rodyti vardą:"
 
@@ -4659,6 +4471,216 @@ msgstr ""
 #, fuzzy
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Nustatykite master key (DC_MASTER_KEY) konfigūraciniame faile."
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear jau yra instaliuota."
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear negali būti instaliuota."
+
+msgid "Invalid email address"
+msgstr "Netinkamas el. pašto adresas"
+
+msgid "My first blog"
+msgstr "Mano pirmasis blogas"
+
+msgid "%A, %B %e %Y"
+msgstr "%A, %B %e %Y"
+
+msgid "Welcome to Dotclear!"
+msgstr "Jus sveikina Dotclear!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "Tai pirmas jūsų blogo įrašas. Prsijunkite norėdami ištrinti arba redaguoti šį įrašą."
+
+msgid "Dotclear Team"
+msgstr "Dotclear komanda"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>Čia yra komentaras.</p>\n"
+"<p>Prisijunkite tam, kad peržiūrėti ir trinti blogo komentarus.</p>"
+
+msgid "Dotclear Install"
+msgstr "Dotclear instaliacija"
+
+msgid "show"
+msgstr "rodyti"
+
+msgid "Dotclear installation"
+msgstr "Dotclear instaliacija"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "Cache direktorija %s neturi rašymo nustatymų."
+
+msgid "Configuration file has been successfully created."
+msgstr "Konfigūracinis failas sėkmingai sukurtas."
+
+msgid "User information"
+msgstr "Dalyvio informacija"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Pateikite informaciją reikalingą sukurti pimam dalyviui."
+
+msgid "Username and password"
+msgstr "Prisijungimo vardas ir slaptažodis"
+
+msgid "All done!"
+msgstr "Štai ir viskas!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "Dotclear sėkmingai instaliuota. Čia pateikiama šiek tiek naudingos informacijos, kurią verta išsaugoti."
+
+msgid "Your account"
+msgstr "Jūsų paskyra"
+
+msgid "Your blog"
+msgstr "Jūsų blogas"
+
+msgid "Blog address:"
+msgstr "Blogo adresas:"
+
+msgid "Administration interface:"
+msgstr "Administravimo sąsaja:"
+
+msgid "Manage your blog now"
+msgstr "Tvarkykite savo blogą dabar"
+
+msgid "Installation can not be completed"
+msgstr "Instaliacija negali būti baigta"
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Nėra Multibyte string modulio (mbstring)."
+
+msgid "Iconv module is not available."
+msgstr "Nėra Iconv modulio."
+
+msgid "Output control functions are not available."
+msgstr "Nėra Output control funkcijų."
+
+msgid "SimpleXML module is not available."
+msgstr "Nėra SimpleXML modulio."
+
+msgid "DOM XML module is not available."
+msgstr "Nėra DOM XML modulio."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE valdiklis nepalaiko UTF-8 stringų."
+
+msgid "SPL module is not available."
+msgstr "Nėra SPL modulio."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL verija %s (reikalinga 4.1 arba ankstesnė)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "Nėra MySQL InnoDB engine."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL versija %s (reikalinga 8.0 arba ankstesnė)."
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "Cache direktorija %s neturi rašymo nustatymų."
+
+#, fuzzy
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Negalima įrašyti į šią direktoriją."
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "El. pašto adresas negalioja"
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "Failas %s neegzistuoja."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "Negalima įrašyti failo %s."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclaer instaliavimas"
+
+msgid "Welcome"
+msgstr "Sveiki"
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr "Mums reikia žinoti kaip naudotis jūsų duomenų baze ir kas jūs esate tam, kad galėtume baigti Dotclear instaliaciją ir pradėtume rašyti blogą. Jums tereiks pateikti sekančią informaciją."
+
+msgid "Attention:"
+msgstr "Dėmesio:"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "šis diegimas gali neveikti kaikuriuose hostuose. Jeigu diegimas neveikia prašome peržiūrėti <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, kaip rankiniu būdu sukurti <strong>config.php</strong> failą."
+
+msgid "System information"
+msgstr "Sistemos informacija"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Pateikite informaciją reikalingą tam, kad sukrti konfigūracinį failą."
+
+msgid "Database type:"
+msgstr "Database type:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "Database Host Name:"
+
+msgid "Database Name:"
+msgstr "Database Name:"
+
+msgid "Database User Name:"
+msgstr "Database User Name:"
+
+msgid "Database Password:"
+msgstr "Datenbank Passwort:"
+
+msgid "Database Tables Prefix:"
+msgstr "Datenbank Tabellen Präfix:"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "Turinys:"
+
+#, fuzzy, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP versija %s (reikalinga 7.4 arba ankstesnė)."
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

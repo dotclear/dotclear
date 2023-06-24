@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -16,296 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "La versió PHP és %s (7.4 o més recent és necessaria)"
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "El mòdul de serie Multibyte (mbstring) no està disponible."
-
-msgid "Iconv module is not available."
-msgstr "El mòdul iconv no està disponible."
-
-msgid "Output control functions are not available."
-msgstr "Les funcions de control de sortides no estan disponibles."
-
-msgid "SimpleXML module is not available."
-msgstr "El mòdul SimpleXML no està disponible."
-
-msgid "DOM XML module is not available."
-msgstr "El mòdul DOM XML no està disponible."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "El motor PCRE no suporta sèries UTF-8."
-
-msgid "SPL module is not available."
-msgstr "El mòdul SPL no està disponible."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "La versió de MySQL és %s (4.1 més actual és necessària)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "El motor MySQL InnoDB no està disponible."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "La versió de PostgreSQL és %s (8.0 o més recent és necessària)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "Si us plau, introdueixi una clau mestra (DC_MASTER_KEY) en l'arxiu de configuració."
-
-#, fuzzy
-msgid "Dotclear is already installed."
-msgstr "DotClear esta instal·lat."
-
-#, fuzzy
-msgid "Dotclear cannot be installed."
-msgstr "DotClear no es pot instal·lar."
-
-msgid "No user ID given"
-msgstr "No s'ha especificat cap ID d'usuari"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "L'identificador de l'usuari ha de contenir com a mínim 2 caràcters els quals han de ser lletres, números o símbols."
-
-msgid "Invalid email address"
-msgstr "Adreça de correu electrònica incorrecte"
-
-msgid "No password given"
-msgstr "No s'ha especificat cap contrasenya"
-
-msgid "Passwords don't match"
-msgstr "La contrasenya no es correspon"
-
-msgid "Password must contain at least 6 characters."
-msgstr "La contraseny aha de contenir com a mínim 6 caracters."
-
-msgid "My first blog"
-msgstr "El meu primer blog"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr ""
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr ""
-
-msgid "Dotclear Team"
-msgstr ""
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Instal·lació de Dotclear"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Reinicialització de contrasenya"
-
-msgid "weak"
-msgstr ""
-
-msgid "medium"
-msgstr ""
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "Instal·lació de Dotclear"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "El directori cache %s no es pot gravar."
-
-msgid "Errors:"
-msgstr "Errors:"
-
-#, fuzzy
-msgid "Configuration file has been successfully created."
-msgstr "El fitxer de configuració s'ha creat amb èxit."
-
-msgid "User information"
-msgstr "Informació de l'usuari"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "Si us plau, faciliti la informació següent, necessària per a crear el primer usuari."
-
-#, fuzzy
-msgid "First Name:"
-msgstr "Nom"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "Última actualització"
-
-msgid "Email:"
-msgstr "Correu electrònic:"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "Identificador o contrasenya incorrectes"
-
-msgid "Required field"
-msgstr "Camp obligatori"
-
-msgid "Username:"
-msgstr "Identificador:"
-
-#, fuzzy
-msgid "Username"
-msgstr "Identificador:"
-
-msgid "New password:"
-msgstr "Nova contrasenya:"
-
-#, fuzzy
-msgid "Password"
-msgstr "Contrasenya:"
-
-msgid "Confirm password:"
-msgstr "Confirmar la contrasenya :"
-
-msgid "Save"
-msgstr "Desar"
-
-msgid "Following plugins have been installed:"
-msgstr ""
-
-msgid "Following plugins have not been installed:"
-msgstr ""
-
-msgid "All done!"
-msgstr "Finalitzat!"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr ""
-
-msgid "Your account"
-msgstr ""
-
-msgid "Password:"
-msgstr "Contrasenya:"
-
-#, fuzzy
-msgid "Your blog"
-msgstr "Cap Blog"
-
-#, fuzzy
-msgid "Blog address:"
-msgstr "Adreça IP :"
-
-#, fuzzy
-msgid "Administration interface:"
-msgstr "administrador"
-
-msgid "Manage your blog now"
-msgstr ""
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "El directori cache %s no es pot gravar."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Impossible gravar res en aquest directori."
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "L'adreça de correu elect`ronic no és vàlida."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "El fitxer %s no existeix."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "No es pot escriure en el fitxer %s."
-
-msgid "Dotclear installation wizard"
-msgstr "Assistent d'instal·lació de Dotclear"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "Annex"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "Sistema d'informació"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "Si us plau, faciliti la informació següent necessària per a crear l'arxiu de configuració."
-
-msgid "Database type:"
-msgstr "Tipus de base de dades:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "Nom del servidor de la base de dades:"
-
-msgid "Database Name:"
-msgstr "Nom de la base de dades:"
-
-msgid "Database User Name:"
-msgstr "Nom de l'usuari de la base de dades:"
-
-msgid "Database Password:"
-msgstr "Contrasenya de la base de dades:"
-
-msgid "Database Tables Prefix:"
-msgstr "Prefix de les taules de la base de dades:"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "Contingut:"
 
 msgid "Title"
 msgstr "Títol"
@@ -436,6 +146,17 @@ msgstr "Acció en les entrades seleccionades:"
 msgid "Schedule"
 msgstr "Programa"
 
+msgid "First publication"
+msgstr ""
+
+#, fuzzy
+msgid "Never published"
+msgstr "publicat"
+
+#, fuzzy
+msgid "Already published"
+msgstr "publicat"
+
 msgid "Mark"
 msgstr ""
 
@@ -473,6 +194,12 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "L'entrada s'ha actualitzat amb èxit."
+msgstr[1] "L'entrada s'ha actualitzat amb èxit."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "L'entrada s'ha actualitzat amb èxit."
 msgstr[1] "L'entrada s'ha actualitzat amb èxit."
 
@@ -518,6 +245,9 @@ msgstr "Títol:"
 
 msgid "Parent:"
 msgstr ""
+
+msgid "Save"
+msgstr "Desar"
 
 msgid "This user does not exist"
 msgstr "Aquest usuari no existeix"
@@ -672,6 +402,10 @@ msgid "Blog ID"
 msgstr "Identificador del blog"
 
 #, fuzzy
+msgid "Username"
+msgstr "Identificador:"
+
+#, fuzzy
 msgid "Last Name"
 msgstr "Última actualització"
 
@@ -722,6 +456,9 @@ msgstr "Estat :"
 msgid "Format:"
 msgstr "Format de la data:"
 
+msgid "Password:"
+msgstr "Contrasenya:"
+
 #, fuzzy
 msgid "With password"
 msgstr "Contrasenya de l'entrada:"
@@ -769,6 +506,9 @@ msgstr "tancar"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "Respostes"
+
+msgid "Email:"
+msgstr "Correu electrònic:"
 
 msgid "Web site:"
 msgstr "Lloc Web :"
@@ -841,6 +581,9 @@ msgstr "Entrades per pàgina"
 
 msgid "Error:"
 msgstr ""
+
+msgid "Errors:"
+msgstr "Errors:"
 
 msgid "%H:%M:%S"
 msgstr ""
@@ -1393,11 +1136,18 @@ msgstr "El fitxer s'ha adjuntat amb èxit."
 msgid "Upload a zip file"
 msgstr ""
 
+msgid "Required field"
+msgstr "Camp obligatori"
+
 msgid "Zip file path:"
 msgstr ""
 
 msgid "Your password:"
 msgstr "La seva contrasenya:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Contrasenya:"
 
 msgid "Download a zip file"
 msgstr ""
@@ -1840,6 +1590,9 @@ msgstr "Ha succeït un error mentre s'intentava gravar l'arxiu."
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
+msgid "medium"
+msgstr ""
+
 #, fuzzy
 msgid "small"
 msgstr "Correu electrònic:"
@@ -1980,6 +1733,18 @@ msgstr "L'adreça de correu elect`ronic no és vàlida."
 
 msgid "You are not an administrator"
 msgstr "Vostè no és nu administrador"
+
+msgid "No user ID given"
+msgstr "No s'ha especificat cap ID d'usuari"
+
+msgid "No password given"
+msgstr "No s'ha especificat cap contrasenya"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "L'identificador de l'usuari ha de contenir com a mínim 2 caràcters els quals han de ser lletres, números o símbols."
+
+msgid "Password must contain at least 6 characters."
+msgstr "La contraseny aha de contenir com a mínim 6 caracters."
 
 msgid "Invalid user language code"
 msgstr ""
@@ -2295,6 +2060,9 @@ msgstr "Algú ha demanat restaurar la contrasenya per al lloc i l'identificador 
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Per tal de restaurar la seva contrasenya visiti l'adreça següent, altrament ignori aquest correu i no passarà res."
 
+msgid "Username:"
+msgstr "Identificador:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "El correu electrònic s'ha enviat amb èxit a %s."
@@ -2304,6 +2072,9 @@ msgstr "La seva nova contrasenya"
 
 msgid "Your new password is in your mailbox."
 msgstr "La seva nova contrasenya és en el seu correu electrònic."
+
+msgid "Passwords don't match"
+msgstr "La contrasenya no es correspon"
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -2326,6 +2097,16 @@ msgstr "administrador"
 msgid "Wrong username or password"
 msgstr "Identificador o contrasenya incorrectes"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Reinicialització de contrasenya"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "Retorn a la pantalla de connexió"
 
@@ -2341,6 +2122,12 @@ msgstr "Descripció"
 
 msgid "Change your password"
 msgstr "Canviar la seva contrasenya"
+
+msgid "New password:"
+msgstr "Nova contrasenya:"
+
+msgid "Confirm password:"
+msgstr "Confirmar la contrasenya :"
 
 #, fuzzy
 msgid "change"
@@ -2626,6 +2413,9 @@ msgid "Time format:"
 msgstr "Format de les hores:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3148,6 +2938,12 @@ msgid "The cache directory does not exist or is not writable. You must create th
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr ""
+
+msgid "Following plugins have not been installed:"
 msgstr ""
 
 msgid "Errors have occured with following plugins:"
@@ -4124,6 +3920,14 @@ msgstr "Si canvia el seu identificador, s'haurà d'identificar novament."
 msgid "Password change required to connect"
 msgstr ""
 
+#, fuzzy
+msgid "Last Name:"
+msgstr "Última actualització"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "Nom"
+
 msgid "Display name:"
 msgstr "Pseudònim:"
 
@@ -4687,6 +4491,222 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Si us plau, introdueixi una clau mestra (DC_MASTER_KEY) en l'arxiu de configuració."
+
+#, fuzzy
+msgid "Dotclear is already installed."
+msgstr "DotClear esta instal·lat."
+
+#, fuzzy
+msgid "Dotclear cannot be installed."
+msgstr "DotClear no es pot instal·lar."
+
+msgid "Invalid email address"
+msgstr "Adreça de correu electrònica incorrecte"
+
+msgid "My first blog"
+msgstr "El meu primer blog"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr ""
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr ""
+
+msgid "Dotclear Team"
+msgstr ""
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Instal·lació de Dotclear"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Instal·lació de Dotclear"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "El directori cache %s no es pot gravar."
+
+#, fuzzy
+msgid "Configuration file has been successfully created."
+msgstr "El fitxer de configuració s'ha creat amb èxit."
+
+msgid "User information"
+msgstr "Informació de l'usuari"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Si us plau, faciliti la informació següent, necessària per a crear el primer usuari."
+
+#, fuzzy
+msgid "Username and password"
+msgstr "Identificador o contrasenya incorrectes"
+
+msgid "All done!"
+msgstr "Finalitzat!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr ""
+
+msgid "Your account"
+msgstr ""
+
+#, fuzzy
+msgid "Your blog"
+msgstr "Cap Blog"
+
+#, fuzzy
+msgid "Blog address:"
+msgstr "Adreça IP :"
+
+#, fuzzy
+msgid "Administration interface:"
+msgstr "administrador"
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "El mòdul de serie Multibyte (mbstring) no està disponible."
+
+msgid "Iconv module is not available."
+msgstr "El mòdul iconv no està disponible."
+
+msgid "Output control functions are not available."
+msgstr "Les funcions de control de sortides no estan disponibles."
+
+msgid "SimpleXML module is not available."
+msgstr "El mòdul SimpleXML no està disponible."
+
+msgid "DOM XML module is not available."
+msgstr "El mòdul DOM XML no està disponible."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "El motor PCRE no suporta sèries UTF-8."
+
+msgid "SPL module is not available."
+msgstr "El mòdul SPL no està disponible."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "La versió de MySQL és %s (4.1 més actual és necessària)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "El motor MySQL InnoDB no està disponible."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "La versió de PostgreSQL és %s (8.0 o més recent és necessària)."
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "El directori cache %s no es pot gravar."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Impossible gravar res en aquest directori."
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "L'adreça de correu elect`ronic no és vàlida."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "El fitxer %s no existeix."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "No es pot escriure en el fitxer %s."
+
+msgid "Dotclear installation wizard"
+msgstr "Assistent d'instal·lació de Dotclear"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "Annex"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "Sistema d'informació"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Si us plau, faciliti la informació següent necessària per a crear l'arxiu de configuració."
+
+msgid "Database type:"
+msgstr "Tipus de base de dades:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "Nom del servidor de la base de dades:"
+
+msgid "Database Name:"
+msgstr "Nom de la base de dades:"
+
+msgid "Database User Name:"
+msgstr "Nom de l'usuari de la base de dades:"
+
+msgid "Database Password:"
+msgstr "Contrasenya de la base de dades:"
+
+msgid "Database Tables Prefix:"
+msgstr "Prefix de les taules de la base de dades:"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "Contingut:"
+
+#, fuzzy, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "La versió PHP és %s (7.4 o més recent és necessaria)"
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

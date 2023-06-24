@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -16,283 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr ""
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr ""
-
-msgid "Iconv module is not available."
-msgstr ""
-
-msgid "Output control functions are not available."
-msgstr ""
-
-msgid "SimpleXML module is not available."
-msgstr ""
-
-msgid "DOM XML module is not available."
-msgstr ""
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr ""
-
-msgid "SPL module is not available."
-msgstr ""
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr ""
-
-msgid "MySQL InnoDB engine is not available."
-msgstr ""
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr ""
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr ""
-
-msgid "Dotclear is already installed."
-msgstr ""
-
-msgid "Dotclear cannot be installed."
-msgstr ""
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Invalid email address"
-msgstr ""
-
-msgid "No password given"
-msgstr ""
-
-msgid "Passwords don't match"
-msgstr "Wachtwoorden komen niet overeen"
-
-msgid "Password must contain at least 6 characters."
-msgstr ""
-
-msgid "My first blog"
-msgstr ""
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr ""
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr ""
-
-msgid "Dotclear Team"
-msgstr ""
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-
-msgid "Dotclear Install"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Wachtwoord gewijzigd"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Medium:"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr ""
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr ""
-
-msgid "Errors:"
-msgstr ""
-
-msgid "Configuration file has been successfully created."
-msgstr ""
-
-msgid "User information"
-msgstr ""
-
-msgid "Please provide the following information needed to create the first user."
-msgstr ""
-
-msgid "First Name:"
-msgstr ""
-
-msgid "Last Name:"
-msgstr ""
-
-msgid "Email:"
-msgstr "Email:"
-
-msgid "Username and password"
-msgstr ""
-
-msgid "Required field"
-msgstr "Verplicht veld"
-
-msgid "Username:"
-msgstr "Gebruikersnaam:"
-
-msgid "Username"
-msgstr ""
-
-msgid "New password:"
-msgstr "Nieuw wachtwoord:"
-
-#, fuzzy
-msgid "Password"
-msgstr "Wachtwoord:"
-
-msgid "Confirm password:"
-msgstr "Bevestig wachtwoord:"
-
-msgid "Save"
-msgstr "opslaan"
-
-msgid "Following plugins have been installed:"
-msgstr ""
-
-msgid "Following plugins have not been installed:"
-msgstr ""
-
-msgid "All done!"
-msgstr ""
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr ""
-
-msgid "Your account"
-msgstr ""
-
-msgid "Password:"
-msgstr "Wachtwoord:"
-
-msgid "Your blog"
-msgstr ""
-
-msgid "Blog address:"
-msgstr ""
-
-msgid "Administration interface:"
-msgstr ""
-
-msgid "Manage your blog now"
-msgstr ""
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr ""
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr ""
-
-msgid "Master email is not valid."
-msgstr ""
-
-#, php-format
-msgid "File %s does not exist."
-msgstr ""
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr ""
-
-msgid "Dotclear installation wizard"
-msgstr ""
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-msgid "Attention:"
-msgstr ""
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr ""
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr ""
-
-msgid "Database type:"
-msgstr ""
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr ""
-
-msgid "Database Name:"
-msgstr ""
-
-msgid "Database User Name:"
-msgstr ""
-
-msgid "Database Password:"
-msgstr ""
-
-msgid "Database Tables Prefix:"
-msgstr ""
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-msgid "Continue"
-msgstr ""
 
 msgid "Title"
 msgstr "Titel"
@@ -412,6 +135,16 @@ msgstr ""
 msgid "Schedule"
 msgstr ""
 
+#, fuzzy
+msgid "First publication"
+msgstr "Verkeerde taal code"
+
+msgid "Never published"
+msgstr ""
+
+msgid "Already published"
+msgstr ""
+
 msgid "Mark"
 msgstr ""
 
@@ -443,6 +176,12 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "Blog succesvol geupdate."
+msgstr[1] "Blog succesvol geupdate."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "Blog succesvol geupdate."
 msgstr[1] "Blog succesvol geupdate."
 
@@ -487,6 +226,9 @@ msgstr ""
 
 msgid "Parent:"
 msgstr ""
+
+msgid "Save"
+msgstr "opslaan"
 
 msgid "This user does not exist"
 msgstr ""
@@ -634,6 +376,9 @@ msgstr ""
 msgid "Blog ID"
 msgstr ""
 
+msgid "Username"
+msgstr ""
+
 msgid "Last Name"
 msgstr ""
 
@@ -681,6 +426,9 @@ msgstr ""
 msgid "Format:"
 msgstr "Datum formaat:"
 
+msgid "Password:"
+msgstr "Wachtwoord:"
+
 #, fuzzy
 msgid "With password"
 msgstr "Nieuw wachtwoord:"
@@ -724,6 +472,9 @@ msgstr ""
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "Accepteer trackbacks"
+
+msgid "Email:"
+msgstr "Email:"
 
 msgid "Web site:"
 msgstr ""
@@ -793,6 +544,9 @@ msgid "results per page"
 msgstr "Geef %s posts weer per pagina"
 
 msgid "Error:"
+msgstr ""
+
+msgid "Errors:"
 msgstr ""
 
 msgid "%H:%M:%S"
@@ -1312,11 +1066,18 @@ msgstr "Thema succesvol geinstalleerd."
 msgid "Upload a zip file"
 msgstr "Upload een zip file"
 
+msgid "Required field"
+msgstr "Verplicht veld"
+
 msgid "Zip file path:"
 msgstr ""
 
 msgid "Your password:"
 msgstr "Je wachtwoord:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Wachtwoord:"
 
 msgid "Download a zip file"
 msgstr ""
@@ -1741,6 +1502,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr "Gegenereede afbeeldinggrootte in pixels"
 
 #, fuzzy
+msgid "medium"
+msgstr "Medium:"
+
+#, fuzzy
 msgid "small"
 msgstr "Klein:"
 
@@ -1872,6 +1637,18 @@ msgid "Email address is not valid."
 msgstr ""
 
 msgid "You are not an administrator"
+msgstr ""
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "No password given"
+msgstr ""
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Password must contain at least 6 characters."
 msgstr ""
 
 msgid "Invalid user language code"
@@ -2168,6 +1945,9 @@ msgstr "Iemand heeft een wijziging van het wachtwoord voor de volgende site en g
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Om je wachtwoord te wijzigen, ga naar het volgende adres, als je wachtwoord niet wil wijzigen, vergeet deze email."
 
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "De e-mail is succesvol verzonden naar %s."
@@ -2177,6 +1957,9 @@ msgstr "Je nieuwe wachtwoord"
 
 msgid "Your new password is in your mailbox."
 msgstr "Je nieuwe wachtwoord staat in je mailbox"
+
+msgid "Passwords don't match"
+msgstr "Wachtwoorden komen niet overeen"
 
 msgid "You didn't change your password."
 msgstr "Je hebt je wachtwoord niet gewijzigd. "
@@ -2196,6 +1979,16 @@ msgstr ""
 msgid "Wrong username or password"
 msgstr "Verkeerde gebruikersnaam of wachtwoord"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Wachtwoord gewijzigd"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "Terug naar het login scherm"
 
@@ -2210,6 +2003,12 @@ msgstr ""
 
 msgid "Change your password"
 msgstr "Verander je wachtwoord"
+
+msgid "New password:"
+msgstr "Nieuw wachtwoord:"
+
+msgid "Confirm password:"
+msgstr "Bevestig wachtwoord:"
 
 msgid "change"
 msgstr "verander"
@@ -2491,6 +2290,9 @@ msgid "Time format:"
 msgstr "Tijd formaat: "
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -2990,6 +2792,12 @@ msgid "The cache directory does not exist or is not writable. You must create th
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr ""
+
+msgid "Following plugins have not been installed:"
 msgstr ""
 
 msgid "Errors have occured with following plugins:"
@@ -3901,6 +3709,12 @@ msgstr ""
 msgid "Password change required to connect"
 msgstr ""
 
+msgid "Last Name:"
+msgstr ""
+
+msgid "First Name:"
+msgstr ""
+
 msgid "Display name:"
 msgstr ""
 
@@ -4444,6 +4258,207 @@ msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr ""
+
+msgid "Dotclear is already installed."
+msgstr ""
+
+msgid "Dotclear cannot be installed."
+msgstr ""
+
+msgid "Invalid email address"
+msgstr ""
+
+msgid "My first blog"
+msgstr ""
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr ""
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr ""
+
+msgid "Dotclear Team"
+msgstr ""
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+
+msgid "Dotclear Install"
+msgstr ""
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr ""
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr ""
+
+msgid "Configuration file has been successfully created."
+msgstr ""
+
+msgid "User information"
+msgstr ""
+
+msgid "Please provide the following information needed to create the first user."
+msgstr ""
+
+msgid "Username and password"
+msgstr ""
+
+msgid "All done!"
+msgstr ""
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr ""
+
+msgid "Your account"
+msgstr ""
+
+msgid "Your blog"
+msgstr ""
+
+msgid "Blog address:"
+msgstr ""
+
+msgid "Administration interface:"
+msgstr ""
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
+msgstr ""
+
+#, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr ""
+
+msgid "MySQL InnoDB engine is not available."
+msgstr ""
+
+#, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr ""
+
+#, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr ""
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr ""
+
+msgid "Master email is not valid."
+msgstr ""
+
+#, php-format
+msgid "File %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr ""
+
+msgid "Dotclear installation wizard"
+msgstr ""
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+msgid "Attention:"
+msgstr ""
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr ""
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr ""
+
+msgid "Database type:"
+msgstr ""
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr ""
+
+msgid "Database Name:"
+msgstr ""
+
+msgid "Database User Name:"
+msgstr ""
+
+msgid "Database Password:"
+msgstr ""
+
+msgid "Database Tables Prefix:"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+msgid "Continue"
 msgstr ""
 
 #, fuzzy, php-format

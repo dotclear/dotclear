@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2023-06-22 16:34\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
@@ -17,5857 +17,4277 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: admin/install/check.php:18
-#, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP-versionen är %s (7.4 eller tidigare behövs)."
-
-#: admin/install/check.php:22
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Multibyte strängmodul (mbstring) är inte tillgänglig."
-
-#: admin/install/check.php:26
-msgid "Iconv module is not available."
-msgstr "Iconv modul är inte tillgänglig."
-
-#: admin/install/check.php:30
-msgid "Output control functions are not available."
-msgstr "Det finns inga funktioner för utmatningskontroll."
-
-#: admin/install/check.php:34
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML-modulen är inte tillgänglig."
-
-#: admin/install/check.php:38
-msgid "DOM XML module is not available."
-msgstr "DOM XML-modul är inte tillgänglig."
-
-#: admin/install/check.php:43
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE-motorn stöder inte UTF-8-strängar."
-
-#: admin/install/check.php:47
-msgid "SPL module is not available."
-msgstr "SPL-modulen är inte tillgänglig."
-
-#: admin/install/check.php:52
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL-versionen är %s (4,1 eller tidigare behövs)."
-
-#: admin/install/check.php:65
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB motor är inte tillgänglig."
-
-#: admin/install/check.php:70
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL-versionen är %s (8.0 eller tidigare behövs)."
-
-#: admin/install/index.php:34
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "Ange en huvudnyckel (DC_MASTER_KEY) i konfigurationsfilen."
-
-#: admin/install/index.php:41 admin/install/wizard.php:99
-msgid "Dotclear is already installed."
-msgstr "Dotclear är redan installerat."
-
-#: admin/install/index.php:47 admin/install/wizard.php:93
-msgid "Dotclear cannot be installed."
-msgstr "Dotclear kan inte installeras."
-
-#: admin/install/index.php:69 inc/core/class.dc.core.php:1210
-msgid "No user ID given"
-msgstr "Inget användar-ID angivet"
-
-#: admin/install/index.php:72 inc/core/class.dc.core.php:1499
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Användar-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
-
-#: admin/install/index.php:75
-msgid "Invalid email address"
-msgstr "Ogiltig e-postadress"
-
-#: admin/install/index.php:79 inc/core/class.dc.core.php:1214
-msgid "No password given"
-msgstr "Inget lösenord angivet"
-
-#: admin/install/index.php:82 src/Backend/Auth.php:186 src/Backend/User.php:127
-#: src/Backend/UserPreferences.php:203
-msgid "Passwords don't match"
-msgstr "Lösenorden matchar inte"
-
-#: admin/install/index.php:85 inc/core/class.dc.core.php:1510
-#: src/Backend/User.php:284
-msgid "Password must contain at least 6 characters."
-msgstr "Lösenordet måste innehålla minst 6 tecken."
-
-#: admin/install/index.php:136
-msgid "My first blog"
-msgstr "Min första blogg"
-
-#: admin/install/index.php:149
-msgid "%A, %B %e %Y"
-msgstr "%A, %B %e %Y"
-
-#: admin/install/index.php:225
-msgid "Welcome to Dotclear!"
-msgstr "Välkommen till Dotclear!"
-
-#: admin/install/index.php:226
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "Detta är din första post. När du är redo att blogga, logga in för att redigera eller ta bort den."
-
-#: admin/install/index.php:238
-msgid "Dotclear Team"
-msgstr "Dotclear Team"
-
-#: admin/install/index.php:241
-msgid "<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr "<p>Detta är en kommentar.</p>\n"
-"<p>För att ta bort den, logga in och visa dina bloggkommentarer. Då kan du ta bort eller redigera den.</p>"
-
-#: admin/install/index.php:291
-msgid "Dotclear Install"
-msgstr "Dotclear Installera"
-
-#: admin/install/index.php:299 admin/install/index.php:300
-#: admin/install/index.php:301 src/Backend/Auth.php:325
-#: src/Backend/Auth.php:326 src/Backend/Auth.php:327 src/Backend/User.php:221
-#: src/Backend/User.php:222 src/Backend/User.php:223
-#: src/Backend/UserPreferences.php:489 src/Backend/UserPreferences.php:490
-#: src/Backend/UserPreferences.php:491
-#, php-format
-msgid "Password strength: %s"
-msgstr "Lösenordsstyrka: %s"
-
-#: admin/install/index.php:299 src/Backend/Auth.php:325
-#: src/Backend/User.php:221 src/Backend/UserPreferences.php:489
-msgid "weak"
-msgstr "svag"
-
-#: admin/install/index.php:300 inc/core/_fake_l10n.php:6
-#: src/Backend/Auth.php:326 src/Backend/User.php:222
-#: src/Backend/UserPreferences.php:490
-msgid "medium"
-msgstr "medium"
-
-#: admin/install/index.php:301 src/Backend/Auth.php:327
-#: src/Backend/User.php:223 src/Backend/UserPreferences.php:491
-msgid "strong"
-msgstr "stark"
-
-#: admin/install/index.php:305
-msgid "show"
-msgstr "visa"
-
-#: admin/install/index.php:313
-msgid "Dotclear installation"
-msgstr "Dotclear installation"
-
-#: admin/install/index.php:317
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "Cache-katalogen %s är inte skrivbar."
-
-#: admin/install/index.php:321 admin/install/index.php:429
-#: admin/install/wizard.php:187 inc/admin/lib.dc.notices.php:64
-msgid "Errors:"
-msgstr "Fel:"
-
-#: admin/install/index.php:325
-msgid "Configuration file has been successfully created."
-msgstr "Konfigurationsfilen har skapats."
-
-#: admin/install/index.php:330 admin/install/index.php:335
-msgid "User information"
-msgstr "Användarinformation"
-
-#: admin/install/index.php:332
-msgid "Please provide the following information needed to create the first user."
-msgstr "Ange följande information som behövs för att skapa den första användaren."
-
-#: admin/install/index.php:336 src/Backend/User.php:327
-#: src/Backend/UserPreferences.php:522
-msgid "First Name:"
-msgstr "Förnamn:"
-
-#: admin/install/index.php:342 src/Backend/User.php:320
-#: src/Backend/UserPreferences.php:515
-msgid "Last Name:"
-msgstr "Efternamn:"
-
-#: admin/install/index.php:348 inc/admin/lib.adminfilters.php:709
-#: inc/admin/lib.dc.page.php:944 src/Backend/Auth.php:373
-#: src/Backend/BlogPref.php:966 src/Backend/Comment.php:272
-#: src/Backend/Post.php:915 src/Backend/User.php:341
-#: src/Backend/UserPreferences.php:536
-msgid "Email:"
-msgstr "Email:"
-
-#: admin/install/index.php:357
-msgid "Username and password"
-msgstr "Användarnamn och lösenord"
-
-#: admin/install/index.php:358 admin/install/index.php:366
-#: admin/install/index.php:373 admin/install/wizard.php:206
-#: admin/install/wizard.php:224 inc/admin/lib.moduleslist.php:1594
-#: inc/admin/lib.moduleslist.php:1596 inc/admin/lib.moduleslist.php:1614
-#: inc/admin/lib.moduleslist.php:1619 src/Backend/Blog.php:123
-#: src/Backend/Blog.php:144 src/Backend/Blog.php:160
-#: src/Backend/BlogPref.php:462 src/Backend/BlogPref.php:778
-#: src/Backend/BlogPref.php:783 src/Backend/Category.php:231
-#: src/Backend/Comment.php:265 src/Backend/Home.php:404
-#: src/Backend/Home.php:411 src/Backend/Langs.php:304 src/Backend/Langs.php:325
-#: src/Backend/Langs.php:327 src/Backend/LinkPopup.php:59
-#: src/Backend/Post.php:730 src/Backend/Post.php:752 src/Backend/Post.php:908
-#: src/Backend/Post.php:923 src/Backend/User.php:253 src/Backend/User.php:272
-#: src/Backend/User.php:287 src/Backend/User.php:407
-#: src/Backend/UsersActions.php:329
-msgid "Required field"
-msgstr "Obligatoriskt fält"
-
-#: admin/install/index.php:358 admin/install/index.php:410
-#: src/Backend/Auth.php:121 src/Backend/Auth.php:138 src/Backend/Auth.php:361
-#: src/Backend/Auth.php:443
-msgid "Username:"
-msgstr "Användarnamn:"
-
-#: admin/install/index.php:361 inc/admin/lib.admincombos.php:302
-#: inc/admin/lib.pager.php:1003
-msgid "Username"
-msgstr "Användarnamn"
-
-#: admin/install/index.php:366 src/Backend/Auth.php:396
-#: src/Backend/User.php:273 src/Backend/UserPreferences.php:574
-msgid "New password:"
-msgstr "Nytt lösenord:"
-
-#: admin/install/index.php:369 admin/install/index.php:375
-#: inc/admin/lib.moduleslist.php:1602 inc/admin/lib.moduleslist.php:1625
-#: src/Backend/Langs.php:310 src/Backend/Langs.php:333 src/Backend/Post.php:713
-#: src/Backend/User.php:280 src/Backend/User.php:293 src/Backend/User.php:413
-#: src/Backend/UsersActions.php:335
-msgid "Password"
-msgstr "Lösenord"
-
-#: admin/install/index.php:373 src/Backend/Auth.php:407
-#: src/Backend/User.php:287
-msgid "Confirm password:"
-msgstr "Bekräfta lösenord:"
-
-#: admin/install/index.php:381 inc/admin/actions/class.dcactionposts.php:440
-#: inc/admin/actions/class.dcactionposts.php:522
-#: inc/admin/actions/class.dcactionposts.php:594
-#: inc/admin/lib.moduleslist.php:1770 src/Backend/BlogPref.php:897
-#: src/Backend/Category.php:273 src/Backend/Category.php:305
-#: src/Backend/Category.php:339 src/Backend/Comment.php:306
-#: src/Backend/Home.php:429 src/Backend/MediaItem.php:1051
-#: src/Backend/Post.php:800 src/Backend/Post.php:936 src/Backend/User.php:417
-#: src/Backend/UsersActions.php:339
-msgid "Save"
-msgstr "Spara"
-
-#: admin/install/index.php:387 src/Backend/Home.php:261
-#: src/Backend/Plugins.php:98
-msgid "Following plugins have been installed:"
-msgstr "Följande plugins har installerats:"
-
-#: admin/install/index.php:394 src/Backend/Home.php:272
-#: src/Backend/Plugins.php:111
-msgid "Following plugins have not been installed:"
-msgstr "Följande plugins har inte installerats:"
-
-#: admin/install/index.php:402
-msgid "All done!"
-msgstr "Allt klart!"
-
-#: admin/install/index.php:406
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "Dotclear har installerats. Här är användbar information du bör behålla."
-
-#: admin/install/index.php:408
-msgid "Your account"
-msgstr "Ditt konto"
-
-#: admin/install/index.php:411 inc/admin/lib.adminfilters.php:567
-#: src/Backend/Auth.php:138 src/Backend/Auth.php:454 src/Backend/User.php:273
-msgid "Password:"
-msgstr "Lösenord:"
-
-#: admin/install/index.php:414
-msgid "Your blog"
-msgstr "Din blogg"
-
-#: admin/install/index.php:416
-msgid "Blog address:"
-msgstr "Bloggadress:"
-
-#: admin/install/index.php:417
-msgid "Administration interface:"
-msgstr "Administrationsgränssnitt:"
-
-#: admin/install/index.php:421
-msgid "Manage your blog now"
-msgstr "Hantera din blogg nu"
-
-#: admin/install/index.php:428
-msgid "Installation can not be completed"
-msgstr "Installationen kan inte slutföras"
-
-#: admin/install/index.php:430
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Av de nämnda skälen kan Dotclear inte installeras. Se <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig att rätta till problemet."
-
-#: admin/install/wizard.php:52
-#, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "Sökväg <strong>%s</strong> är inte skrivbar."
-
-#: admin/install/wizard.php:53
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dotclear installationsguiden kunde inte skapa konfigurationsfil åt dig. Du måste ändra mappen till höger eller skapa konfigurationen <strong>.</strong> fil manuellt, se <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig hur du gör detta."
-
-#: admin/install/wizard.php:76
-#, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Kan inte skriva \"%s\" katalog."
-
-#: admin/install/wizard.php:103
-msgid "Master email is not valid."
-msgstr "Huvudmailen är inte giltig."
-
-#: admin/install/wizard.php:109
-#, php-format
-msgid "File %s does not exist."
-msgstr "Filen %s finns inte."
-
-#: admin/install/wizard.php:114 admin/install/wizard.php:135
-#, php-format
-msgid "Cannot write %s file."
-msgstr "Kan inte skriva %s fil."
-
-#: admin/install/wizard.php:175 admin/install/wizard.php:183
-msgid "Dotclear installation wizard"
-msgstr "Dotclear installationsguide"
-
-#: admin/install/wizard.php:189
-msgid "Welcome"
-msgstr "Välkommen"
-
-#: admin/install/wizard.php:190
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr "För att slutföra din Dotclear installation och börja skriva på din blogg behöver vi bara veta hur du får tillgång till din databas och vem du är. Fyll bara dessa två steg guiden med denna information så kommer vi att göra."
-
-#: admin/install/wizard.php:193
-msgid "Attention:"
-msgstr "Observera:"
-
-#: admin/install/wizard.php:194
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "trollkarlen kanske inte fungerar på varje värd. Om det inte fungerar för dig, hänvisas till <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig hur du skapar <strong>-konfigurationen. HK</strong> fil manuellt."
-
-#: admin/install/wizard.php:201
-msgid "System information"
-msgstr "Systeminformation"
-
-#: admin/install/wizard.php:203
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "Ange följande information som behövs för att skapa din konfigurationsfil."
-
-#: admin/install/wizard.php:206
-msgid "Database type:"
-msgstr "Typ av databas:"
-
-#: admin/install/wizard.php:210
-msgid "MySQLi"
-msgstr "MySQLi"
-
-#: admin/install/wizard.php:211
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (full UTF-8)"
-
-#: admin/install/wizard.php:212
-msgid "PostgreSQL"
-msgstr "PostgreSQL"
-
-#: admin/install/wizard.php:213
-msgid "SQLite"
-msgstr "SQLite"
-
-#: admin/install/wizard.php:214
-msgid "Driver"
-msgstr "Förare"
-
-#: admin/install/wizard.php:216
-msgid "Database Host Name:"
-msgstr "Databasens värdnamn:"
-
-#: admin/install/wizard.php:218
-msgid "Database Name:"
-msgstr "Databasens namn:"
-
-#: admin/install/wizard.php:220
-msgid "Database User Name:"
-msgstr "Databasens användarnamn:"
-
-#: admin/install/wizard.php:222
-msgid "Database Password:"
-msgstr "Databasens lösenord:"
-
-#: admin/install/wizard.php:224
-msgid "Database Tables Prefix:"
-msgstr "Prefix för databastabeller:"
-
-#: admin/install/wizard.php:227
-msgid "Prefix"
-msgstr "Prefix"
-
-#: admin/install/wizard.php:230
-msgid "Master Email: (used as sender for password recovery)"
-msgstr "Master Email: (används som avsändare för lösenordsåterställning)"
-
-#: admin/install/wizard.php:238
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: inc/admin/actions/class.dcaction.php:101
-#: inc/admin/actions/class.dcactioncomments.php:113
-#: inc/admin/lib.admincombos.php:252 inc/admin/lib.pager.php:283
-#: inc/admin/lib.pager.php:466 src/Backend/BlogPref.php:151
-#: src/Backend/BlogPref.php:186 src/Backend/Home.php:407
-#: src/Backend/MediaItem.php:603 src/Backend/Post.php:734
 msgid "Title"
 msgstr "Titel"
 
-#: inc/admin/actions/class.dcaction.php:102
-#: inc/admin/actions/class.dcactionposts.php:53
-#: inc/admin/actions/class.dcactionposts.php:60
-#: inc/admin/class.dc.admin.php:325 inc/admin/class.dc.favorites.php:420
-#: inc/admin/lib.adminuserpref.php:37 inc/admin/lib.adminuserpref.php:112
-#: inc/core/_fake_l10n.php:13 src/Backend/Post.php:549 src/Backend/Post.php:562
-#: src/Backend/Posts.php:82 src/Backend/Posts.php:87
 msgid "Posts"
 msgstr "Inlägg"
 
-#: inc/admin/actions/class.dcactionblogs.php:28
-#: inc/admin/actions/class.dcactionblogs.php:54
-#: inc/admin/actions/class.dcactionblogs.php:61
-#: inc/admin/actions/class.dcactionblogs.php:94
-#: inc/admin/class.dc.admin.php:402 inc/admin/class.dc.favorites.php:482
-#: inc/admin/lib.adminuserpref.php:126 src/Backend/Blog.php:99
-#: src/Backend/BlogDel.php:90 src/Backend/BlogPref.php:416
 msgid "Blogs"
 msgstr "Bloggar"
 
-#: inc/admin/actions/class.dcactionblogs.php:67
 msgid "Back to blogs list"
 msgstr "Tillbaka till blogglistan"
 
-#: inc/admin/actions/class.dcactionblogs.php:95
 msgid "Blogs actions"
 msgstr "Bloggar åtgärder"
 
-#: inc/admin/actions/class.dcactionblogs.php:127 inc/admin/lib.pager.php:857
 msgid "Blog id"
 msgstr "Blogg ID"
 
-#: inc/admin/actions/class.dcactionblogs.php:127
-#: inc/admin/lib.admincombos.php:287 inc/admin/lib.pager.php:858
-#: src/Backend/Blog.php:139 src/Backend/BlogPref.php:469
-#: src/Backend/UsersActions.php:225
 msgid "Blog name"
 msgstr "Bloggens namn"
 
-#: inc/admin/actions/class.dcactionblogs.php:168
-#: inc/admin/actions/class.dcactioncomments.php:174
-#: inc/admin/actions/class.dcactionposts.php:151
-#: inc/admin/lib.admincombos.php:255 inc/admin/lib.admincombos.php:273
-#: inc/admin/lib.admincombos.php:289 inc/admin/lib.pager.php:291
-#: inc/admin/lib.pager.php:469 inc/admin/lib.pager.php:671
-#: inc/admin/lib.pager.php:862 src/Backend/Post.php:638
-#: src/Backend/Post.php:1084 src/Backend/UsersActions.php:228
 msgid "Status"
 msgstr "Status"
 
-#: inc/admin/actions/class.dcactionblogs.php:169
 msgid "Set online"
 msgstr "Ställ in online"
 
-#: inc/admin/actions/class.dcactionblogs.php:170
 msgid "Set offline"
 msgstr "Ställ in offline"
 
-#: inc/admin/actions/class.dcactionblogs.php:171
 msgid "Set as removed"
 msgstr "Ange som borttagen"
 
-#: inc/admin/actions/class.dcactionblogs.php:176
-#: inc/admin/actions/class.dcactionblogs.php:177
-#: inc/admin/actions/class.dcactioncomments.php:189
-#: inc/admin/actions/class.dcactioncomments.php:190
-#: inc/admin/actions/class.dcactionposts.php:193
-#: inc/admin/actions/class.dcactionposts.php:194
-#: inc/admin/lib.moduleslist.php:1208 inc/admin/lib.pager.php:1269
-#: src/Backend/Comment.php:310 src/Backend/Langs.php:270
-#: src/Backend/Post.php:822 src/Backend/Users.php:33
 msgid "Delete"
 msgstr "Radera"
 
-#: inc/admin/actions/class.dcactionblogs.php:197
-#: inc/admin/actions/class.dcactionblogs.php:247
 msgid "No blog selected"
 msgstr "Ingen blogg vald"
 
-#: inc/admin/actions/class.dcactionblogs.php:228
 msgid "Selected blogs have been successfully updated."
 msgstr "Valda bloggar har uppdaterats."
 
-#: inc/admin/actions/class.dcactionblogs.php:251
-#: inc/admin/lib.moduleslist.php:1543 inc/admin/lib.moduleslist.php:2428
-#: src/Backend/BlogDel.php:66 src/Backend/Langs.php:129
-#: src/Backend/Langs.php:170 src/Backend/User.php:101
-#: src/Backend/UsersActions.php:108
 msgid "Password verification failed"
 msgstr "Lösenordsverifiering misslyckades"
 
-#: inc/admin/actions/class.dcactionblogs.php:257 src/Backend/BlogPref.php:912
 msgid "The current blog cannot be deleted."
 msgstr "Den aktuella bloggen kan inte tas bort."
 
-#: inc/admin/actions/class.dcactionblogs.php:274
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
 msgstr[0] "%d blogg har tagits bort"
 msgstr[1] "%d bloggar har tagits bort"
 
-#: inc/admin/actions/class.dcactioncomments.php:31
-#: inc/admin/actions/class.dcactioncomments.php:57
-#: inc/admin/actions/class.dcactioncomments.php:64
-#: inc/admin/actions/class.dcactioncomments.php:97
-#: inc/admin/class.dc.admin.php:312 inc/admin/class.dc.favorites.php:430
-#: inc/admin/lib.adminuserpref.php:41 inc/admin/lib.adminuserpref.php:119
-#: inc/admin/lib.pager.php:287 inc/admin/lib.pager.php:288
-#: src/Backend/Post.php:868 src/Backend/Post.php:877
 msgid "Comments"
 msgstr "Kommentarer"
 
-#: inc/admin/actions/class.dcactioncomments.php:70
 msgid "Back to comments list"
 msgstr "Tillbaka till kommentarslistan"
 
-#: inc/admin/actions/class.dcactioncomments.php:98
 msgid "Comments actions"
 msgstr "Kommentarer åtgärder"
 
-#: inc/admin/actions/class.dcactioncomments.php:113
-#: inc/admin/lib.admincombos.php:254 inc/admin/lib.admincombos.php:272
-#: inc/admin/lib.adminuserpref.php:40 inc/admin/lib.pager.php:286
-#: inc/admin/lib.pager.php:468 inc/admin/lib.pager.php:669
-#: src/Backend/Comment.php:268 src/Backend/Post.php:911
-#: src/Backend/Post.php:1081
 msgid "Author"
 msgstr "Författare"
 
-#: inc/admin/actions/class.dcactioncomments.php:175
-#: inc/admin/actions/class.dcactionposts.php:152
 msgid "Publish"
 msgstr "Publicera"
 
-#: inc/admin/actions/class.dcactioncomments.php:176
-#: inc/admin/actions/class.dcactionposts.php:153
 msgid "Unpublish"
 msgstr "Avpublicera"
 
-#: inc/admin/actions/class.dcactioncomments.php:177
-#: inc/admin/actions/class.dcactionposts.php:155
 msgid "Mark as pending"
 msgstr "Markera som väntande"
 
-#: inc/admin/actions/class.dcactioncomments.php:178
 msgid "Mark as junk"
 msgstr "Markera som skräp"
 
-#: inc/admin/actions/class.dcactioncomments.php:205
 msgid "Blocklist IP"
 msgstr "Blocklista IP"
 
-#: inc/admin/actions/class.dcactioncomments.php:207
 msgid "Blocklist IP (global)"
 msgstr "Blocklista IP (global)"
 
-#: inc/admin/actions/class.dcactioncomments.php:211 src/Backend/Post.php:1083
 msgid "IP address"
 msgstr "IP-adress"
 
-#: inc/admin/actions/class.dcactioncomments.php:228
-#: inc/admin/actions/class.dcactioncomments.php:267
-#: inc/admin/actions/class.dcactioncomments.php:295
 msgid "No comment selected"
 msgstr "Ingen kommentar vald"
 
-#: inc/admin/actions/class.dcactioncomments.php:252
-#: src/Backend/Comments.php:119
 msgid "Selected comments have been successfully updated."
 msgstr "Valda kommentarer har uppdaterats."
 
-#: inc/admin/actions/class.dcactioncomments.php:280
-#: src/Backend/Comments.php:121
 msgid "Selected comments have been successfully deleted."
 msgstr "Valda kommentarer har tagits bort."
 
-#: inc/admin/actions/class.dcactioncomments.php:329
 msgid "IP addresses for selected comments have been blocklisted."
 msgstr "IP-adresser för valda kommentarer har blockerats."
 
-#: inc/admin/actions/class.dcactionposts.php:66
 msgid "Back to entries list"
 msgstr "Tillbaka till listan över poster"
 
-#: inc/admin/actions/class.dcactionposts.php:94
 msgid "Posts actions"
 msgstr "Inlägg åtgärder"
 
-#: inc/admin/actions/class.dcactionposts.php:154
 msgid "Schedule"
 msgstr "Schema"
 
-#: inc/admin/actions/class.dcactionposts.php:161
+#, fuzzy
+msgid "First publication"
+msgstr "Ogiltigt publiceringsdatum"
+
+#, fuzzy
+msgid "Never published"
+msgstr "publicerad"
+
+#, fuzzy
+msgid "Already published"
+msgstr "publicerad"
+
 msgid "Mark"
 msgstr "Markera"
 
-#: inc/admin/actions/class.dcactionposts.php:162
 msgid "Mark as selected"
 msgstr "Markera som vald"
 
-#: inc/admin/actions/class.dcactionposts.php:163
 msgid "Mark as unselected"
 msgstr "Markera som omarkerad"
 
-#: inc/admin/actions/class.dcactionposts.php:168
-#: inc/admin/actions/class.dcactionposts.php:174
-#: inc/admin/actions/class.dcactionposts.php:183
 msgid "Change"
 msgstr "Ändra"
 
-#: inc/admin/actions/class.dcactionposts.php:169
 msgid "Change category"
 msgstr "Ändra kategori"
 
-#: inc/admin/actions/class.dcactionposts.php:175
 msgid "Change language"
 msgstr "Ändra språk"
 
-#: inc/admin/actions/class.dcactionposts.php:184
 msgid "Change author"
 msgstr "Ändra författare"
 
-#: inc/admin/actions/class.dcactionposts.php:230
-#: inc/admin/actions/class.dcactionposts.php:280
-#: inc/admin/actions/class.dcactionposts.php:322
-#: inc/admin/actions/class.dcactionposts.php:361
-#: inc/admin/actions/class.dcactionposts.php:462
-#: inc/admin/actions/class.dcactionposts.php:540
 msgid "No entry selected"
 msgstr "Ingen post vald"
 
-#: inc/admin/actions/class.dcactionposts.php:249
 msgid "Published entries cannot be set to scheduled"
 msgstr "Publicerade poster kan inte ställas in som schemalagda"
 
-#: inc/admin/actions/class.dcactionposts.php:258
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "%d post har uppdaterats till status : \"%s\""
 msgstr[1] "%d poster har uppdaterats till status : \"%s\""
 
-#: inc/admin/actions/class.dcactionposts.php:289
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
+msgstr[0] "%d post har uppdaterats till status : \"%s\""
+msgstr[1] "%d poster har uppdaterats till status : \"%s\""
+
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "%d post har markerats som vald"
 msgstr[1] "%d poster har markerats som valda"
 
-#: inc/admin/actions/class.dcactionposts.php:300
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "%d post har markerats som omarkerad"
 msgstr[1] "%d poster har markerats som omarkerade"
 
-#: inc/admin/actions/class.dcactionposts.php:337
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d post har tagits bort"
 msgstr[1] "%d poster har tagits bort"
 
-#: inc/admin/actions/class.dcactionposts.php:384
-#: inc/admin/lib.admincombos.php:36 inc/admin/lib.adminfilters.php:506
-#: inc/admin/lib.pager.php:358
 msgid "(No cat)"
 msgstr "(Ingen katt)"
 
-#: inc/admin/actions/class.dcactionposts.php:391
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "%d post har flyttats till kategorin \"%s\""
 msgstr[1] "%d poster har flyttats till kategorin \"%s\""
 
-#: inc/admin/actions/class.dcactionposts.php:407
 msgid "Change category for this selection"
 msgstr "Ändra kategori för detta val"
 
-#: inc/admin/actions/class.dcactionposts.php:419
-#: inc/admin/lib.adminfilters.php:517 src/Backend/Home.php:414
-#: src/Backend/Post.php:674
 msgid "Category:"
 msgstr "Kategori:"
 
-#: inc/admin/actions/class.dcactionposts.php:427
 msgid "Create a new category for the post(s)"
 msgstr "Skapa en ny kategori för inlägg(en)"
 
-#: inc/admin/actions/class.dcactionposts.php:428 src/Backend/Home.php:404
-#: src/Backend/Home.php:421 src/Backend/Media.php:518 src/Backend/Post.php:682
-#: src/Backend/Post.php:730
 msgid "Title:"
 msgstr "Titel:"
 
-#: inc/admin/actions/class.dcactionposts.php:430 src/Backend/Category.php:241
-#: src/Backend/Category.php:295 src/Backend/Home.php:423
-#: src/Backend/Post.php:684
 msgid "Parent:"
 msgstr "Förälder:"
 
-#: inc/admin/actions/class.dcactionposts.php:465
+msgid "Save"
+msgstr "Spara"
+
 msgid "This user does not exist"
 msgstr "Den här användaren finns inte"
 
-#: inc/admin/actions/class.dcactionposts.php:474
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "%d post har ändrats till användare \"%s\""
 msgstr[1] "%d poster har satts till användaren \"%s\""
 
-#: inc/admin/actions/class.dcactionposts.php:507
 msgid "Change author for this selection"
 msgstr "Ändra författare för detta val"
 
-#: inc/admin/actions/class.dcactionposts.php:516
 msgid "New author (author ID):"
 msgstr "Ny författare (författar-ID):"
 
-#: inc/admin/actions/class.dcactionposts.php:550
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "%d post har blivit inställd till språk \"%s\""
 msgstr[1] "%d poster har blivit inställda till språk \"%s\""
 
-#: inc/admin/actions/class.dcactionposts.php:565
 msgid "Change language for this selection"
 msgstr "Ändra språk för detta val"
 
-#: inc/admin/actions/class.dcactionposts.php:573
-#: inc/admin/actions/class.dcactionposts.php:577
-#: inc/admin/lib.admincombos.php:125 inc/admin/lib.admincombos.php:129
 msgid "Available"
 msgstr "Tillgänglig"
 
-#: inc/admin/actions/class.dcactionposts.php:573
-#: inc/admin/actions/class.dcactionposts.php:576
-#: inc/admin/actions/class.dcactionposts.php:579
-#: inc/admin/lib.admincombos.php:125 inc/admin/lib.admincombos.php:128
-#: inc/admin/lib.admincombos.php:131
 msgid "Most used"
 msgstr "Mest använda"
 
-#: inc/admin/actions/class.dcactionposts.php:588
 msgid "Entry language:"
 msgstr "Postspråk:"
 
-#: inc/admin/class.dc.admin.php:90
 msgid "Database error"
 msgstr "Databas fel"
 
-#: inc/admin/class.dc.admin.php:90
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Det verkar inte finnas någon sessionstabell i din databas. Är Dotclear helt installerat?"
 
-#: inc/admin/class.dc.admin.php:95
 msgid "Precondition Failed"
 msgstr "Förutsättningen misslyckades"
 
-#: inc/admin/class.dc.admin.php:244
 msgid "System settings"
 msgstr "Systeminställningar"
 
-#: inc/admin/class.dc.admin.php:245
 msgid "Blog"
 msgstr "Blogg"
 
-#: inc/admin/class.dc.admin.php:246
 msgid "Plugins"
 msgstr "Tillägg"
 
-#: inc/admin/class.dc.admin.php:250 inc/admin/class.dc.favorites.php:474
-#: src/Backend/BlogTheme.php:72 src/Backend/BlogTheme.php:81
-#: src/Backend/BlogTheme.php:152
 msgid "Blog appearance"
 msgstr "Blogg utseende"
 
-#: inc/admin/class.dc.admin.php:262 inc/admin/class.dc.favorites.php:466
-#: src/Backend/BlogPref.php:409 src/Backend/BlogPref.php:417
-#: src/Backend/BlogPref.php:430
 msgid "Blog settings"
 msgstr "Inställningar för blogg"
 
-#: inc/admin/class.dc.admin.php:274 inc/admin/class.dc.favorites.php:457
-#: inc/admin/lib.adminuserpref.php:134 inc/admin/lib.mediapage.php:331
-#: inc/admin/lib.mediapage.php:333 inc/admin/lib.mediapage.php:383
-#: src/Backend/Media.php:440 src/Backend/Media.php:479
-#: src/Backend/MediaItem.php:433 src/Backend/MediaItem.php:439
 msgid "Media manager"
 msgstr "Media Manager"
 
-#: inc/admin/class.dc.admin.php:287 inc/admin/class.dc.favorites.php:449
-#: src/Backend/Categories.php:139 src/Backend/Categories.php:144
-#: src/Backend/Category.php:199
 msgid "Categories"
 msgstr "Kategorier"
 
-#: inc/admin/class.dc.admin.php:299 inc/admin/class.dc.favorites.php:440
-#: inc/admin/lib.adminuserpref.php:145 src/Backend/PostsPopup.php:98
-#: src/Backend/Search.php:95 src/Backend/Search.php:100
-#: src/Backend/Search.php:112
 msgid "Search"
 msgstr "Sök"
 
-#: inc/admin/class.dc.admin.php:338 inc/admin/class.dc.favorites.php:410
-#: src/Backend/Home.php:403 src/Backend/Post.php:73 src/Backend/Post.php:783
-#: src/Backend/Posts.php:98
 msgid "New post"
 msgstr "Nytt inlägg"
 
-#: inc/admin/class.dc.admin.php:352 inc/admin/class.dc.favorites.php:405
-#: inc/admin/lib.dc.page.php:275 src/Backend/Media.php:525
-#: src/Backend/UserPreferences.php:38
 msgid "My preferences"
 msgstr "Mina inställningar"
 
-#: inc/admin/class.dc.admin.php:362 inc/admin/lib.moduleslist.php:1232
 msgid "Update"
 msgstr "Uppdatera"
 
-#: inc/admin/class.dc.admin.php:372 inc/admin/class.dc.favorites.php:501
 msgid "Languages"
 msgstr "Språk"
 
-#: inc/admin/class.dc.admin.php:382 inc/admin/class.dc.favorites.php:496
-#: src/Backend/Plugins.php:77 src/Backend/Plugins.php:90
-#: src/Backend/Plugins.php:294 src/Backend/Plugins.php:301
 msgid "Plugins management"
 msgstr "Hantering av plugins"
 
-#: inc/admin/class.dc.admin.php:392 inc/admin/class.dc.favorites.php:491
-#: inc/admin/lib.adminuserpref.php:102 src/Backend/BlogPref.php:927
-#: src/Backend/User.php:232 src/Backend/Users.php:92 src/Backend/Users.php:97
-#: src/Backend/UsersActions.php:145 src/Backend/UsersActions.php:153
-#: src/Backend/UsersActions.php:160
 msgid "Users"
 msgstr "Användare"
 
-#: inc/admin/class.dc.favorites.php:295 src/Backend/UserPreferences.php:803
 msgid "My favorites"
 msgstr "Mina favoriter"
 
-#: inc/admin/class.dc.favorites.php:506 inc/admin/lib.dc.page.php:429
-#: src/Backend/Help.php:109 src/Backend/Help.php:116 src/Backend/Help.php:122
 msgid "Global help"
 msgstr "Global hjälp"
 
-#: inc/admin/class.dc.favorites.php:521 src/Backend/Rest.php:77
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d inlägg"
 msgstr[1] "%d inlägg"
 
-#: inc/admin/class.dc.favorites.php:548 src/Backend/Rest.php:91
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d kommentar"
 msgstr[1] "%d kommentarer"
 
-#: inc/admin/lib.admincombos.php:243 src/Backend/UserPreferences.php:164
 msgid "Descending"
 msgstr "Fallande"
 
-#: inc/admin/lib.admincombos.php:244 src/Backend/UserPreferences.php:165
 msgid "Ascending"
 msgstr "Stigande"
 
-#: inc/admin/lib.admincombos.php:251 inc/admin/lib.admincombos.php:269
-#: inc/admin/lib.adminuserpref.php:38 inc/admin/lib.adminuserpref.php:137
-#: inc/admin/lib.pager.php:284 inc/admin/lib.pager.php:467
-#: inc/admin/lib.pager.php:670 inc/admin/lib.pager.php:1153
-#: src/Backend/Post.php:1082
 msgid "Date"
 msgstr "Datum"
 
-#: inc/admin/lib.admincombos.php:253 inc/admin/lib.adminuserpref.php:39
-#: inc/admin/lib.pager.php:285 src/Backend/Post.php:673
 msgid "Category"
 msgstr "Kategori"
 
-#: inc/admin/lib.admincombos.php:256 inc/admin/lib.adminfilters.php:586
-#: inc/admin/lib.pager.php:324 inc/admin/lib.pager.php:394
-#: inc/admin/lib.pager.php:540
 msgid "Selected"
 msgstr "Vald"
 
-#: inc/admin/lib.admincombos.php:257
 msgid "Number of comments"
 msgstr "Antal kommentarer"
 
-#: inc/admin/lib.admincombos.php:258
 msgid "Number of trackbacks"
 msgstr "Antal trackbacks"
 
-#: inc/admin/lib.admincombos.php:270
 msgid "Entry title"
 msgstr "Postens titel"
 
-#: inc/admin/lib.admincombos.php:271
 msgid "Entry date"
 msgstr "Inläggets datum"
 
-#: inc/admin/lib.admincombos.php:274 inc/admin/lib.pager.php:675
 msgid "IP"
 msgstr "IP"
 
-#: inc/admin/lib.admincombos.php:275 inc/admin/lib.pager.php:677
 msgid "Spam filter"
 msgstr "Filtrera skräppost"
 
-#: inc/admin/lib.admincombos.php:286 inc/admin/lib.pager.php:861
 msgid "Last update"
 msgstr "Senast uppdaterad"
 
-#: inc/admin/lib.admincombos.php:288 src/Backend/Blog.php:120
-#: src/Backend/BlogPref.php:779 src/Backend/UsersActions.php:224
 msgid "Blog ID"
 msgstr "Blogg ID"
 
-#: inc/admin/lib.admincombos.php:303 inc/admin/lib.pager.php:1005
+msgid "Username"
+msgstr "Användarnamn"
+
 msgid "Last Name"
 msgstr "Efternamn"
 
-#: inc/admin/lib.admincombos.php:304 inc/admin/lib.pager.php:1004
 msgid "First Name"
 msgstr "Förnamn"
 
-#: inc/admin/lib.admincombos.php:305 inc/admin/lib.pager.php:1006
 msgid "Display name"
 msgstr "Visa namn"
 
-#: inc/admin/lib.admincombos.php:306
 msgid "Number of entries"
 msgstr "Antal poster"
 
-#: inc/admin/lib.adminfilters.php:326 inc/admin/lib.dc.page.php:1176
 msgid "Show filters and display options"
 msgstr "Visa filter och visningsalternativ"
 
-#: inc/admin/lib.adminfilters.php:344
 msgid "Filters"
 msgstr "Filter"
 
-#: inc/admin/lib.adminfilters.php:354
 msgid "Display options"
 msgstr "Visa alternativ"
 
-#: inc/admin/lib.adminfilters.php:357 src/Backend/UserPreferences.php:716
 msgid "Order by:"
 msgstr "Ordna efter:"
 
-#: inc/admin/lib.adminfilters.php:370 src/Backend/UserPreferences.php:721
 msgid "Sort:"
 msgstr "Sortera:"
 
-#: inc/admin/lib.adminfilters.php:392 src/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "Visa"
 
-#: inc/admin/lib.adminfilters.php:400
 msgid "Save current options"
 msgstr "Spara aktuella alternativ"
 
-#: inc/admin/lib.adminfilters.php:408
 msgid "Apply filters and display options"
 msgstr "Tillämpa filter och visningsalternativ"
 
-#: inc/admin/lib.adminfilters.php:478 inc/admin/lib.adminfilters.php:729
-#: inc/admin/lib.dc.page.php:985 inc/admin/lib.moduleslist.php:984
-#: src/Backend/Comment.php:265
 msgid "Author:"
 msgstr "Författare:"
 
-#: inc/admin/lib.adminfilters.php:529 inc/admin/lib.adminfilters.php:755
-#: inc/admin/lib.adminfilters.php:828 src/Backend/Comment.php:281
 msgid "Status:"
 msgstr "Status:"
 
-#: inc/admin/lib.adminfilters.php:552
 msgid "Format:"
 msgstr "Format:"
 
-#: inc/admin/lib.adminfilters.php:570
+msgid "Password:"
+msgstr "Lösenord:"
+
 msgid "With password"
 msgstr "Med lösenord"
 
-#: inc/admin/lib.adminfilters.php:571
 msgid "Without password"
 msgstr "Utan lösenord"
 
-#: inc/admin/lib.adminfilters.php:583
 msgid "Selected:"
 msgstr "Valda:"
 
-#: inc/admin/lib.adminfilters.php:587
 msgid "Not selected"
 msgstr "Inte vald"
 
-#: inc/admin/lib.adminfilters.php:599
 msgid "Attachments:"
 msgstr "Bilagor:"
 
-#: inc/admin/lib.adminfilters.php:602
 msgid "With attachments"
 msgstr "Med bilagor"
 
-#: inc/admin/lib.adminfilters.php:603
 msgid "Without attachments"
 msgstr "Utan bilagor"
 
-#: inc/admin/lib.adminfilters.php:631
 msgid "Month:"
 msgstr "Månad:"
 
-#: inc/admin/lib.adminfilters.php:658
 msgid "Lang:"
 msgstr "Lang:"
 
-#: inc/admin/lib.adminfilters.php:672
 msgid "Comments:"
 msgstr "Kommentarer:"
 
-#: inc/admin/lib.adminfilters.php:675 inc/admin/lib.adminfilters.php:690
 msgid "Opened"
 msgstr "Öppnad"
 
-#: inc/admin/lib.adminfilters.php:676 inc/admin/lib.adminfilters.php:691
 msgid "Closed"
 msgstr "Stängd"
 
-#: inc/admin/lib.adminfilters.php:687
 msgid "Trackbacks:"
 msgstr "Trackbacks:"
 
-#: inc/admin/lib.adminfilters.php:710 inc/admin/lib.dc.page.php:943
-#: src/Backend/Comment.php:277 src/Backend/Post.php:919
+msgid "Email:"
+msgstr "Email:"
+
 msgid "Web site:"
 msgstr "Web site:"
 
-#: inc/admin/lib.adminfilters.php:739
 msgid "Type:"
 msgstr "Typ:"
 
-#: inc/admin/lib.adminfilters.php:742 src/Backend/Post.php:929
 msgid "Comment"
 msgstr "Kommentar"
 
-#: inc/admin/lib.adminfilters.php:743
 msgid "Trackback"
 msgstr "Spårning"
 
-#: inc/admin/lib.adminfilters.php:777 inc/admin/lib.dc.page.php:945
-#: src/Backend/Comment.php:255
 msgid "IP address:"
 msgstr "IP-adress:"
 
-#: inc/admin/lib.adminfilters.php:947
 msgid "Media type:"
 msgstr "Typ av media:"
 
-#: inc/admin/lib.adminfilters.php:951
 msgid "image"
 msgstr "bild"
 
-#: inc/admin/lib.adminfilters.php:952
 msgid "text"
 msgstr "text"
 
-#: inc/admin/lib.adminfilters.php:953
 msgid "audio"
 msgstr "ljud"
 
-#: inc/admin/lib.adminfilters.php:954
 msgid "video"
 msgstr "video"
 
-#: inc/admin/lib.adminfilters.php:1310 inc/admin/lib.dc.page.php:440
-#: inc/admin/lib.mediapage.php:370
 msgid "Search:"
 msgstr "Sök:"
 
-#: inc/admin/lib.adminuserpref.php:42 inc/admin/lib.pager.php:289
-#: inc/admin/lib.pager.php:290 src/Backend/Post.php:959
 msgid "Trackbacks"
 msgstr "Trackbacks"
 
-#: inc/admin/lib.adminuserpref.php:106
 msgid "users per page"
 msgstr "användare per sida"
 
-#: inc/admin/lib.adminuserpref.php:116
 msgid "entries per page"
 msgstr "poster per sida"
 
-#: inc/admin/lib.adminuserpref.php:123
 msgid "comments per page"
 msgstr "kommentarer per sida"
 
-#: inc/admin/lib.adminuserpref.php:130
 msgid "blogs per page"
 msgstr "bloggar per sida"
 
-#: inc/admin/lib.adminuserpref.php:136 inc/admin/lib.moduleslist.php:766
-#: inc/admin/lib.pager.php:1152 src/Backend/Category.php:234
 msgid "Name"
 msgstr "Namn"
 
-#: inc/admin/lib.adminuserpref.php:138 inc/admin/lib.pager.php:1154
 msgid "Size"
 msgstr "Storlek"
 
-#: inc/admin/lib.adminuserpref.php:142
 msgid "media per page"
 msgstr "media per sida"
 
-#: inc/admin/lib.adminuserpref.php:149
 msgid "results per page"
 msgstr "resultat per sida"
 
-#: inc/admin/lib.dc.notices.php:64 inc/admin/lib.dc.page.php:946
-#: inc/admin/lib.dc.page.php:1123 src/Backend/Home.php:254
 msgid "Error:"
 msgstr "Fel:"
 
-#: inc/admin/lib.dc.notices.php:220 inc/admin/lib.dc.notices.php:253
+msgid "Errors:"
+msgstr "Fel:"
+
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: inc/admin/lib.dc.page.php:104 src/Backend/User.php:453
 msgid "Blog:"
 msgstr "Blogg:"
 
-#: inc/admin/lib.dc.page.php:108
 msgid "Change blog"
 msgstr "Ändra blogg"
 
-#: inc/admin/lib.dc.page.php:117
 msgid "Blogs:"
 msgstr "Bloggar:"
 
-#: inc/admin/lib.dc.page.php:120 inc/admin/lib.pager.php:149
-#: src/Backend/Blogs.php:142 src/Backend/Comments.php:178
-#: src/Backend/Post.php:895 src/Backend/Post.php:987 src/Backend/Posts.php:116
-#: src/Backend/Search.php:199 src/Backend/Search.php:254
-#: src/Backend/Users.php:129
 msgid "ok"
 msgstr "Ok"
 
-#: inc/admin/lib.dc.page.php:260
 msgid "Go to the content"
 msgstr "Gå till innehållet"
 
-#: inc/admin/lib.dc.page.php:261
 msgid "Go to the menu"
 msgstr "Gå till menyn"
 
-#: inc/admin/lib.dc.page.php:262
 msgid "Go to help"
 msgstr "Gå till hjälp"
 
-#: inc/admin/lib.dc.page.php:265 src/Backend/UserPreferences.php:798
-#: src/Backend/UserPreferences.php:799
 msgid "My dashboard"
 msgstr "Min instrumentpanel"
 
-#: inc/admin/lib.dc.page.php:270 inc/admin/lib.dc.page.php:271
 msgid "Go to site"
 msgstr "Gå till sajten"
 
-#: inc/admin/lib.dc.page.php:276
 #, php-format
 msgid "Logout %s"
 msgstr "Logga ut %s"
 
-#: inc/admin/lib.dc.page.php:284
 msgid "Hide main menu"
 msgstr "Dölj huvudmenyn"
 
-#: inc/admin/lib.dc.page.php:285
 msgid "Show main menu"
 msgstr "Visa huvudmeny"
 
-#: inc/admin/lib.dc.page.php:296
 msgid "Safe mode"
 msgstr "Säkert läge"
 
-#: inc/admin/lib.dc.page.php:297
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Du är i felsäkert läge. Alla plugins har tillfälligt inaktiverats. Påminn om att logga ut och logga in igen normalt för att få tillbaka alla funktioner"
 
-#: inc/admin/lib.dc.page.php:442 inc/admin/lib.moduleslist.php:388
-#: src/Backend/Categories.php:202
 msgid "OK"
 msgstr "Ok"
 
-#: inc/admin/lib.dc.page.php:449
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Tack för att du använder %s."
 
-#: inc/admin/lib.dc.page.php:462 inc/admin/lib.dc.page.php:586
 msgid "Page top"
 msgstr "Sidans topp"
 
-#: inc/admin/lib.dc.page.php:628 inc/admin/lib.dc.page.php:629
 msgid "Go to dashboard"
 msgstr "Gå till instrumentpanelen"
 
-#: inc/admin/lib.dc.page.php:789
 msgid "Help about this page"
 msgstr "Hjälp om denna sida"
 
-#: inc/admin/lib.dc.page.php:794
 #, php-format
 msgid "See also %s"
 msgstr "Se även %s"
 
-#: inc/admin/lib.dc.page.php:794
 msgid "the global help"
 msgstr "den globala hjälpen"
 
-#: inc/admin/lib.dc.page.php:928
 msgid "uncover"
 msgstr "avtäcka"
 
-#: inc/admin/lib.dc.page.php:932
 msgid "hide"
 msgstr "dölj"
 
-#: inc/admin/lib.dc.page.php:936
 msgid "Need help?"
 msgstr "Behöver du hjälp?"
 
-#: inc/admin/lib.dc.page.php:937
 msgid "new window"
 msgstr "nytt fönster"
 
-#: inc/admin/lib.dc.page.php:938
 msgid "Hide"
 msgstr "Dölj"
 
-#: inc/admin/lib.dc.page.php:939
 msgid "Select:"
 msgstr "Välj:"
 
-#: inc/admin/lib.dc.page.php:940
 msgid "No selection"
 msgstr "Inget val"
 
-#: inc/admin/lib.dc.page.php:941
 msgid "Select all"
 msgstr "Markera alla"
 
-#: inc/admin/lib.dc.page.php:942
 msgid "Invert selection"
 msgstr "Invertera markering"
 
-#: inc/admin/lib.dc.page.php:947 src/Backend/Post.php:449
-#: src/Backend/Post.php:576
 msgid "Entry has been successfully created."
 msgstr "Inlägget har skapats."
 
-#: inc/admin/lib.dc.page.php:948
 msgid "Edit entry"
 msgstr "Redigera post"
 
-#: inc/admin/lib.dc.page.php:949
 msgid "view entry"
 msgstr "visa post"
 
-#: inc/admin/lib.dc.page.php:950
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Är du säker på att du vill ta bort markerade poster (%s)?"
 
-#: inc/admin/lib.dc.page.php:951
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Är du säker på att du vill ta bort valda medier (%d)?"
 
-#: inc/admin/lib.dc.page.php:952
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Är du säker på att du vill ta bort valda kategorier (%s)?"
 
-#: inc/admin/lib.dc.page.php:953
 msgid "Are you sure you want to delete this entry?"
 msgstr "Är du säker på att du vill ta bort denna post?"
 
-#: inc/admin/lib.dc.page.php:954
 msgid "Click here to unlock the field"
 msgstr "Klicka här för att låsa upp fältet"
 
-#: inc/admin/lib.dc.page.php:955
 msgid "Are you sure you want to delete all spams?"
 msgstr "Är du säker på att du vill ta bort alla skräppost?"
 
-#: inc/admin/lib.dc.page.php:956
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Är du säker på att du vill ta bort markerade kommentarer (%s)?"
 
-#: inc/admin/lib.dc.page.php:957
 msgid "Are you sure you want to delete this comment?"
 msgstr "Är du säker på att du vill ta bort denna kommentar?"
 
-#: inc/admin/lib.dc.page.php:958
 msgid "Users with posts cannot be deleted."
 msgstr "Användare med inlägg kan inte tas bort."
 
-#: inc/admin/lib.dc.page.php:959
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Är du säker på att du vill ta bort valda användare (%s)?"
 
-#: inc/admin/lib.dc.page.php:960
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Är du säker på att du vill ta bort valda bloggar (%s)?"
 
-#: inc/admin/lib.dc.page.php:961
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Är du säker på att du vill ta bort kategorin \"%s\"?"
 
-#: inc/admin/lib.dc.page.php:962
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Är du säker på att du vill ordna om alla kategorier?"
 
-#: inc/admin/lib.dc.page.php:963
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Är du säker på att du vill ta bort media \"%s\"?"
 
-#: inc/admin/lib.dc.page.php:964
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Är du säker på att du vill ta bort katalogen \"%s\"?"
 
-#: inc/admin/lib.dc.page.php:965
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Är du säker på att du vill extrahera arkiv i aktuell katalog?"
 
-#: inc/admin/lib.dc.page.php:966
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Är du säker på att du vill ta bort bilagan\"%s\"?"
 
-#: inc/admin/lib.dc.page.php:967
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Är du säker på att du vill ta bort \"%s\" språk?"
 
-#: inc/admin/lib.dc.page.php:968
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Är du säker på att du vill ta bort \"%s\" plugin?"
 
-#: inc/admin/lib.dc.page.php:969
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Är du säker på att du vill ta bort valda plugins?"
 
-#: inc/admin/lib.dc.page.php:970
 msgid "Use this theme"
 msgstr "Använd detta tema"
 
-#: inc/admin/lib.dc.page.php:971
 msgid "Remove this theme"
 msgstr "Ta bort detta tema"
 
-#: inc/admin/lib.dc.page.php:972
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Är du säker på att du vill ta bort \"%s\" tema?"
 
-#: inc/admin/lib.dc.page.php:973
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Är du säker på att du vill ta bort markerade teman?"
 
-#: inc/admin/lib.dc.page.php:974
 msgid "Are you sure you want to delete this backup?"
 msgstr "Är du säker på att du vill ta bort denna säkerhetskopia?"
 
-#: inc/admin/lib.dc.page.php:975
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Är du säker på att du vill återgå till denna säkerhetskopia?"
 
-#: inc/admin/lib.dc.page.php:976
 msgid "Zip file content"
 msgstr "Innehåll i zip-filen"
 
-#: inc/admin/lib.dc.page.php:977
 msgid "HTML markup validator"
 msgstr "HTML markup validator"
 
-#: inc/admin/lib.dc.page.php:978
 msgid "HTML content is valid."
 msgstr "HTML-innehållet är giltigt."
 
-#: inc/admin/lib.dc.page.php:979
 msgid "There are HTML markup errors."
 msgstr "Det finns HTML-markeringsfel."
 
-#: inc/admin/lib.dc.page.php:980
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Uppmärksamhet: en granskning av ett innehåll som ännu inte är registrerat."
 
-#: inc/admin/lib.dc.page.php:981
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Du har osparade ändringar. Byt postformat kommer att förlora dessa ändringar. Fortsätt ändå?"
 
-#: inc/admin/lib.dc.page.php:982
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Varning: Ändring av postformat konverterar inte befintligt innehåll. Du måste själv tillämpa nytt format. Fortsätt ändå?"
 
-#: inc/admin/lib.dc.page.php:983
 msgid "Loading enhanced uploader, please wait."
 msgstr "Laddar förbättrad uppladdare, var god vänta."
 
-#: inc/admin/lib.dc.page.php:986 inc/admin/lib.moduleslist.php:786
-#: inc/admin/lib.moduleslist.php:989 inc/admin/lib.moduleslist.php:1929
-#: inc/admin/lib.moduleslist.php:1988
 msgid "Details"
 msgstr "Detaljer"
 
-#: inc/admin/lib.dc.page.php:987 inc/admin/lib.moduleslist.php:993
-#: inc/admin/lib.moduleslist.php:1992
 msgid "Support"
 msgstr "Stöd"
 
-#: inc/admin/lib.dc.page.php:988
 msgid "Help:"
 msgstr "Hjälp:"
 
-#: inc/admin/lib.dc.page.php:989 inc/admin/lib.moduleslist.php:1030
 msgid "Section:"
 msgstr "Sektion:"
 
-#: inc/admin/lib.dc.page.php:990 inc/admin/lib.moduleslist.php:1035
 msgid "Tags:"
 msgstr "Taggar:"
 
-#: inc/admin/lib.dc.page.php:992
 msgid "Hide this notice"
 msgstr "Dölj detta meddelande"
 
-#: inc/admin/lib.dc.page.php:994
 msgid "Show password"
 msgstr "Visa lösenord"
 
-#: inc/admin/lib.dc.page.php:995
 msgid "Hide password"
 msgstr "Dölj lösenord"
 
-#: inc/admin/lib.dc.page.php:997
 msgid "Reset to now"
 msgstr "Återställ till nu"
 
-#: inc/admin/lib.dc.page.php:999
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "En annonsblockerare har upptäckts på den här Dotclear instrumentpanelen (Ghostery, Adblock plus, uBlock ursprung, …) och det kan störa vissa funktioner. I detta fall bör du inaktivera den. Observera att denna detektion kan inaktiveras i dina inställningar."
 
-#: inc/admin/lib.dc.page.php:1053
 msgid "You have unsaved changes."
 msgstr "Du har osparade ändringar."
 
-#: inc/admin/lib.dc.page.php:1054
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "din batteriladdning verkar låg (%d%) och du har osparade ändringar, du bör spara dem."
 
-#: inc/admin/lib.dc.page.php:1114
 msgid "Temporarily activate enhanced uploader"
 msgstr "Aktivera tillfälligt förbättrad uppladdare"
 
-#: inc/admin/lib.dc.page.php:1115
 msgid "Temporarily disable enhanced uploader"
 msgstr "Inaktivera tillfälligt förbättrad uppladdare"
 
-#: inc/admin/lib.dc.page.php:1119
 msgid "Limit exceeded."
 msgstr "Gränsen överskrids."
 
-#: inc/admin/lib.dc.page.php:1120
 msgid "File size exceeds allowed limit."
 msgstr "Filstorleken överskrider tillåten gräns."
 
-#: inc/admin/lib.dc.page.php:1121
 msgid "Canceled."
 msgstr "Avbruten."
 
-#: inc/admin/lib.dc.page.php:1122
 msgid "HTTP Error:"
 msgstr "HTTP fel:"
 
-#: inc/admin/lib.dc.page.php:1124 src/Backend/Media.php:512
 msgid "Choose file"
 msgstr "Välj fil"
 
-#: inc/admin/lib.dc.page.php:1125 src/Backend/Media.php:513
 msgid "Choose files"
 msgstr "Välj filer"
 
-#: inc/admin/lib.dc.page.php:1126 src/Backend/Blog.php:190
-#: src/Backend/BlogDel.php:134 src/Backend/BlogPref.php:898
-#: src/Backend/Category.php:274 src/Backend/Comment.php:307
-#: src/Backend/LinkPopup.php:73 src/Backend/Media.php:229
-#: src/Backend/Media.php:568 src/Backend/MediaItem.php:530
-#: src/Backend/MediaItem.php:730 src/Backend/MediaItem.php:1092
-#: src/Backend/Post.php:816 src/Backend/Post.php:819
-#: src/Backend/PostMedia.php:112 src/Backend/Search.php:113
-#: src/Backend/User.php:420 src/Backend/UserPreferences.php:609
-#: src/Backend/UserPreferences.php:792 src/Backend/UserPreferences.php:971
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: inc/admin/lib.dc.page.php:1127
 msgid "Clean"
 msgstr "Rensa"
 
-#: inc/admin/lib.dc.page.php:1128 inc/admin/lib.moduleslist.php:1606
-#: src/Backend/Media.php:531
 msgid "Upload"
 msgstr "Ladda upp"
 
-#: inc/admin/lib.dc.page.php:1129 src/Backend/MediaItem.php:1063
 msgid "Send"
 msgstr "Skicka"
 
-#: inc/admin/lib.dc.page.php:1130
 msgid "File successfully uploaded."
 msgstr "Filen har laddats upp."
 
-#: inc/admin/lib.dc.page.php:1131
 msgid "No file in queue."
 msgstr "Ingen fil i kön."
 
-#: inc/admin/lib.dc.page.php:1132
 msgid "1 file in queue."
 msgstr "1 fil i kön."
 
-#: inc/admin/lib.dc.page.php:1133
 #, php-format
 msgid "%d files in queue."
 msgstr "%d filer i kön."
 
-#: inc/admin/lib.dc.page.php:1134
 msgid "Queue error:"
 msgstr "Kö fel:"
 
-#: inc/admin/lib.dc.page.php:1177
 msgid "Cancel filters and display options"
 msgstr "Avbryt filter och visa alternativ"
 
-#: inc/admin/lib.mediapage.php:370
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
 msgstr[0] "%s fil hittades"
 msgstr[1] "%s filer hittades"
 
-#: inc/admin/lib.moduleslist.php:182
 msgid "other"
 msgstr "Annat"
 
-#: inc/admin/lib.moduleslist.php:386
 msgid "Search in repository:"
 msgstr "Sök i utvecklingskatalog:"
 
-#: inc/admin/lib.moduleslist.php:392
 msgid "Reset search"
 msgstr "Återställ sökning"
 
-#: inc/admin/lib.moduleslist.php:398
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr "Sökning är tillåten på flera villkor längre än 2 tecken, termer måste separeras med mellanslag."
 
-#: inc/admin/lib.moduleslist.php:405
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] "Hittade %d resultat för sökning \"%s\":"
 msgstr[1] "Hittade %d resultat för sökning \"%s\":"
 
-#: inc/admin/lib.moduleslist.php:477
 msgid "current selection"
 msgstr "aktuellt val"
 
-#: inc/admin/lib.moduleslist.php:481
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d resultat"
 msgstr[1] "%d resultat"
 
-#: inc/admin/lib.moduleslist.php:486
 msgid "no results"
 msgstr "inga resultat"
 
-#: inc/admin/lib.moduleslist.php:490
 msgid "Browse index:"
 msgstr "Bläddra index:"
 
-#: inc/admin/lib.moduleslist.php:755
 msgid "Plugins list"
 msgstr "Lista över plugins"
 
-#: inc/admin/lib.moduleslist.php:771
 msgid "Score"
 msgstr "Poäng"
 
-#: inc/admin/lib.moduleslist.php:776
 msgid "Version"
 msgstr "Version"
 
-#: inc/admin/lib.moduleslist.php:781
 msgid "Current version"
 msgstr "Nuvarande version"
 
-#: inc/admin/lib.moduleslist.php:791
 msgid "Repository"
 msgstr "Utveckling"
 
-#: inc/admin/lib.moduleslist.php:801 src/Backend/Langs.php:252
 msgid "Action"
 msgstr "Åtgärd"
 
-#: inc/admin/lib.moduleslist.php:877 inc/admin/lib.moduleslist.php:881
-#: inc/admin/lib.moduleslist.php:886
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: inc/admin/lib.moduleslist.php:918
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr "Modulen kan inte inaktiveras eller tas bort eftersom följande moduler också är aktiverade: %s"
 
-#: inc/admin/lib.moduleslist.php:924
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Modulen kan inte aktiveras på grund av följande skäl:"
 
-#: inc/admin/lib.moduleslist.php:941 inc/admin/lib.moduleslist.php:1975
 msgid "Official repository"
 msgstr "Officiell utvecklingskatalog"
 
-#: inc/admin/lib.moduleslist.php:941 inc/admin/lib.moduleslist.php:1025
-#: inc/admin/lib.moduleslist.php:1975
 msgid "Third-party repository"
 msgstr "Tredjeparts utvecklingskatalog"
 
-#: inc/admin/lib.moduleslist.php:949 inc/admin/lib.moduleslist.php:950
 msgid "Plugin from official distribution"
 msgstr "Plugin från officiell distribution"
 
-#: inc/admin/lib.moduleslist.php:953 inc/admin/lib.moduleslist.php:954
 msgid "Plugin in development"
 msgstr "Plugin i utveckling"
 
-#: inc/admin/lib.moduleslist.php:997 inc/admin/lib.moduleslist.php:1979
 msgid "update locked"
 msgstr "uppdatering låst"
 
-#: inc/admin/lib.moduleslist.php:1053
 msgid "No plugins matched your search."
 msgstr "Inga plugins matchade din sökning."
 
-#: inc/admin/lib.moduleslist.php:1103
 msgid "Configure plugin"
 msgstr "Konfigurera plugin"
 
-#: inc/admin/lib.moduleslist.php:1115
 msgid "Plugin settings (in blog parameters)"
 msgstr "Plugin-inställningar (i bloggparametrar)"
 
-#: inc/admin/lib.moduleslist.php:1126
 msgid "Plugin settings (in user preferences)"
 msgstr "Inställningar för tillägg (i användarinställningar)"
 
-#: inc/admin/lib.moduleslist.php:1135 inc/admin/lib.moduleslist.php:1146
 msgid "Plugin settings"
 msgstr "Inställningar för tillägg"
 
-#: inc/admin/lib.moduleslist.php:1157
 msgid "Plugin main page"
 msgstr "Huvudsida för plugin"
 
-#: inc/admin/lib.moduleslist.php:1191
 msgid "Activate"
 msgstr "Aktivera"
 
-#: inc/admin/lib.moduleslist.php:1199
 msgid "Deactivate"
 msgstr "Inaktivera"
 
-#: inc/admin/lib.moduleslist.php:1216
 msgid "Clone"
 msgstr "Klona"
 
-#: inc/admin/lib.moduleslist.php:1224
 msgid "Install"
 msgstr "Installera"
 
-#: inc/admin/lib.moduleslist.php:1274
 msgid "Activate selected plugins"
 msgstr "Aktivera valda plugins"
 
-#: inc/admin/lib.moduleslist.php:1275
 msgid "Activate all plugins from this list"
 msgstr "Aktivera alla plugins från denna lista"
 
-#: inc/admin/lib.moduleslist.php:1286
 msgid "Deactivate selected plugins"
 msgstr "Inaktivera valda plugins"
 
-#: inc/admin/lib.moduleslist.php:1287
 msgid "Deactivate all plugins from this list"
 msgstr "Inaktivera alla plugins från denna lista"
 
-#: inc/admin/lib.moduleslist.php:1298
 msgid "Update selected plugins"
 msgstr "Uppdatera valda plugins"
 
-#: inc/admin/lib.moduleslist.php:1299
 msgid "Update all plugins from this list"
 msgstr "Uppdatera alla plugins från denna lista"
 
-#: inc/admin/lib.moduleslist.php:1350 inc/admin/lib.moduleslist.php:1404
-#: inc/admin/lib.moduleslist.php:1435 inc/admin/lib.moduleslist.php:1473
-#: inc/admin/lib.moduleslist.php:1534
 msgid "No such plugin."
 msgstr "Ingen sådan plugin."
 
-#: inc/admin/lib.moduleslist.php:1370
 msgid "You don't have permissions to delete this plugin."
 msgstr "Du har inte behörighet att ta bort denna plugin."
 
-#: inc/admin/lib.moduleslist.php:1372
 msgid "Some plugins have not been delete."
 msgstr "Vissa plugins har inte tagits bort."
 
-#: inc/admin/lib.moduleslist.php:1375
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Plugin togs framgångsrikt bort."
 msgstr[1] "Tillägg har tagits bort."
 
-#: inc/admin/lib.moduleslist.php:1408
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Plugin installerades framgångsrikt"
 msgstr[1] "Plugins har installerats framgångsrikt."
 
-#: inc/admin/lib.moduleslist.php:1439
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Plugin har aktiverats framgångsrikt."
 msgstr[1] "Plugins har aktiverats framgångsrikt."
 
-#: inc/admin/lib.moduleslist.php:1477
 msgid "Some plugins have not been deactivated."
 msgstr "Vissa plugins har inte inaktiverats."
 
-#: inc/admin/lib.moduleslist.php:1480
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin avaktiverades framgångsrikt"
 msgstr[1] "Plugin har avaktiverats med lyckade resultat."
 
-#: inc/admin/lib.moduleslist.php:1527
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin uppdaterades framgångsrikt."
 msgstr[1] "Tillägg har uppdaterats framgångsrikt."
 
-#: inc/admin/lib.moduleslist.php:1531
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Följande tilläggsuppdateringar är låsta: %s"
 
-#: inc/admin/lib.moduleslist.php:1551 inc/admin/lib.moduleslist.php:2436
-#: src/Backend/Langs.php:176
 msgid "Unable to move uploaded file."
 msgstr "Det går inte att flytta uppladdad fil."
 
-#: inc/admin/lib.moduleslist.php:1569
 msgid "The plugin has been successfully updated."
 msgstr "Tillägget har uppdaterats."
 
-#: inc/admin/lib.moduleslist.php:1570
 msgid "The plugin has been successfully installed."
 msgstr "Tillägget har installerats."
 
-#: inc/admin/lib.moduleslist.php:1593 src/Backend/Langs.php:323
 msgid "Upload a zip file"
 msgstr "Ladda upp en zip-fil"
 
-#: inc/admin/lib.moduleslist.php:1594
+msgid "Required field"
+msgstr "Obligatoriskt fält"
+
 msgid "Zip file path:"
 msgstr "Sökväg till zip-fil:"
 
-#: inc/admin/lib.moduleslist.php:1596 inc/admin/lib.moduleslist.php:1619
-#: src/Backend/BlogDel.php:122 src/Backend/Langs.php:304
-#: src/Backend/Langs.php:327 src/Backend/User.php:407
-#: src/Backend/UsersActions.php:329
 msgid "Your password:"
 msgstr "Ditt lösenord:"
 
-#: inc/admin/lib.moduleslist.php:1613
+msgid "Password"
+msgstr "Lösenord"
+
 msgid "Download a zip file"
 msgstr "Ladda ner en zip-fil"
 
-#: inc/admin/lib.moduleslist.php:1614
 msgid "Zip file URL:"
 msgstr "URL för zip-fil:"
 
-#: inc/admin/lib.moduleslist.php:1616 inc/admin/lib.pager.php:859
-#: src/Backend/LinkPopup.php:62 src/Backend/UsersActions.php:226
 msgid "URL"
 msgstr "URL"
 
-#: inc/admin/lib.moduleslist.php:1629
 msgid "Download"
 msgstr "Hämta"
 
-#: inc/admin/lib.moduleslist.php:1670
 msgid "Unknown plugin ID"
 msgstr "Okänt plugin-ID"
 
-#: inc/admin/lib.moduleslist.php:1681
 msgid "This plugin has no configuration file."
 msgstr "Denna plugin har ingen konfigurationsfil."
 
-#: inc/admin/lib.moduleslist.php:1689 src/Backend/Auth.php:275
 msgid "Insufficient permissions"
 msgstr "Otillräckliga behörigheter"
 
-#: inc/admin/lib.moduleslist.php:1762
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Konfigurera \"%s\""
 
-#: inc/admin/lib.moduleslist.php:1763
 msgid "Back"
 msgstr "Tillbaka"
 
-#: inc/admin/lib.moduleslist.php:1908
 #, php-format
 msgid "Score: %s"
 msgstr "Poäng: %s"
 
-#: inc/admin/lib.moduleslist.php:1926
 #, php-format
 msgid "%s screenshot."
 msgstr "%s skärmdump."
 
-#: inc/admin/lib.moduleslist.php:1955
 #, php-format
 msgid "by %s"
 msgstr "av %s"
 
-#: inc/admin/lib.moduleslist.php:1959
 #, php-format
 msgid "version %s"
 msgstr "version %s"
 
-#: inc/admin/lib.moduleslist.php:1963
 #, php-format
 msgid "(current version %s)"
 msgstr "(nuvarande version %s)"
 
-#: inc/admin/lib.moduleslist.php:1968
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(byggd på \"%s\")"
 
-#: inc/admin/lib.moduleslist.php:1970
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(kräver \"%s\")"
 
-#: inc/admin/lib.moduleslist.php:2009
 msgid "View stylesheet"
 msgstr "Visa stilmall"
 
-#: inc/admin/lib.moduleslist.php:2024
 msgid "Configure theme"
 msgstr "Konfigurera tema"
 
-#: inc/admin/lib.moduleslist.php:2054
 msgid "No themes matched your search."
 msgstr "Inga teman motsvarade din sökning."
 
-#: inc/admin/lib.moduleslist.php:2094
 msgid "Use this one"
 msgstr "Använd den här"
 
-#: inc/admin/lib.moduleslist.php:2139
 msgid "Update selected themes"
 msgstr "Uppdatera valda teman"
 
-#: inc/admin/lib.moduleslist.php:2140
 msgid "Update all themes from this list"
 msgstr "Uppdatera alla teman från denna lista"
 
-#: inc/admin/lib.moduleslist.php:2183 inc/admin/lib.moduleslist.php:2221
-#: inc/admin/lib.moduleslist.php:2259 inc/admin/lib.moduleslist.php:2294
-#: inc/admin/lib.moduleslist.php:2335 inc/admin/lib.moduleslist.php:2369
-#: inc/admin/lib.moduleslist.php:2419
 msgid "No such theme."
 msgstr "Inget sådant tema."
 
-#: inc/admin/lib.moduleslist.php:2189
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Temat %s har valts framgångsrikt."
 
-#: inc/admin/lib.moduleslist.php:2225
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Temat har aktiverats."
 msgstr[1] "Teman har aktiverats framgångsrikt."
 
-#: inc/admin/lib.moduleslist.php:2263
 msgid "Some themes have not been deactivated."
 msgstr "Vissa teman har inte inaktiverats."
 
-#: inc/admin/lib.moduleslist.php:2266
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Temat har inaktiverats."
 msgstr[1] "Teman har avaktiverats framgångsrikt."
 
-#: inc/admin/lib.moduleslist.php:2298
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Temat har klonats framgångsrikt."
 msgstr[1] "Teman har lyckats."
 
-#: inc/admin/lib.moduleslist.php:2333
 msgid "You don't have permissions to delete this theme."
 msgstr "Du har inte behörighet att ta bort detta tema."
 
-#: inc/admin/lib.moduleslist.php:2337
 msgid "Some themes have not been delete."
 msgstr "Vissa teman har inte tagits bort."
 
-#: inc/admin/lib.moduleslist.php:2340
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Temat har tagits bort."
 msgstr[1] "Teman har tagits bort."
 
-#: inc/admin/lib.moduleslist.php:2373
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Temat har installerats."
 msgstr[1] "Teman har installerats."
 
-#: inc/admin/lib.moduleslist.php:2412
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Temat har uppdaterats."
 msgstr[1] "Teman har uppdaterats."
 
-#: inc/admin/lib.moduleslist.php:2416
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Följande teman uppdateringar är låsta: %s"
 
-#: inc/admin/lib.moduleslist.php:2454
 msgid "The theme has been successfully updated."
 msgstr "Temat har uppdaterats."
 
-#: inc/admin/lib.moduleslist.php:2455
 msgid "The theme has been successfully installed."
 msgstr "Temat har installerats."
 
-#: inc/admin/lib.pager.php:113
 msgid "First page"
 msgstr "Första sidan"
 
-#: inc/admin/lib.pager.php:121
 msgid "Previous page"
 msgstr "Föregående sida"
 
-#: inc/admin/lib.pager.php:129
 msgid "Next page"
 msgstr "Nästa sida"
 
-#: inc/admin/lib.pager.php:137
 msgid "Last page"
 msgstr "Sista sidan"
 
-#: inc/admin/lib.pager.php:141
 #, php-format
 msgid "Page %s / %s"
 msgstr "Sida %s / %s"
 
-#: inc/admin/lib.pager.php:146
 #, php-format
 msgid "Direct access page %s"
 msgstr "Direkt åtkomstsida %s"
 
-#: inc/admin/lib.pager.php:201
 msgid "&#171; prev."
 msgstr "&#171; föreg."
 
-#: inc/admin/lib.pager.php:202
 msgid "next &#187;"
 msgstr "nästa &#187;"
 
-#: inc/admin/lib.pager.php:231
 msgid "No entry matches the filter"
 msgstr "Ingen post matchar filtret"
 
-#: inc/admin/lib.pager.php:233 inc/admin/lib.pager.php:458
 msgid "No entry"
 msgstr "Ingen post"
 
-#: inc/admin/lib.pager.php:247
 #, php-format
 msgid "List of %s entries matching the filter."
 msgstr "Lista över %s poster som matchar filtret."
 
-#: inc/admin/lib.pager.php:254
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Lista över poster (%s)"
 
-#: inc/admin/lib.pager.php:257 inc/admin/lib.pager.php:642
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
 msgid_plural ", <a href=\"%s\">published</a> (%s)"
 msgstr[0] ", <a href=\"%s\">publicerade</a> (1)"
 msgstr[1] ", <a href=\"%s\">publicerade</a> (%s)"
 
-#: inc/admin/lib.pager.php:263 inc/admin/lib.pager.php:654
 #, php-format
 msgid ", <a href=\"%s\">pending</a> (1)"
 msgid_plural ", <a href=\"%s\">pending</a> (%s)"
 msgstr[0] ", <a href=\"%s\">pending</a> (1)"
 msgstr[1] ", <a href=\"%s\">väntande</a> (%s)"
 
-#: inc/admin/lib.pager.php:269
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ", <a href=\"%s\">programmerade</a> (1)"
 msgstr[1] ", <a href=\"%s\">programmerade</a> (%s)"
 
-#: inc/admin/lib.pager.php:275 inc/admin/lib.pager.php:660
 #, php-format
 msgid ", <a href=\"%s\">unpublished</a> (1)"
 msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
 msgstr[0] ", <a href=\"%s\">opublicerade</a> (1)"
 msgstr[1] ", <a href=\"%s\">opublicerade</a> (%s)"
 
-#: inc/admin/lib.pager.php:318 inc/admin/lib.pager.php:704
-#: inc/admin/lib.pager.php:897 inc/admin/lib.pager.php:1032
-#: src/Backend/MediaItem.php:614
 msgid "Legend: "
 msgstr "Förklaring: "
 
-#: inc/admin/lib.pager.php:319 inc/admin/lib.pager.php:366
-#: inc/admin/lib.pager.php:512 inc/admin/lib.pager.php:705
-#: inc/admin/lib.pager.php:741 inc/core/class.dc.blog.php:228
-#: inc/core/class.dc.blog.php:233 src/Backend/Post.php:485
-#: src/Backend/Post.php:1103
 msgid "Published"
 msgstr "Publicerad"
 
-#: inc/admin/lib.pager.php:320 inc/admin/lib.pager.php:371
-#: inc/admin/lib.pager.php:517 inc/admin/lib.pager.php:706
-#: inc/admin/lib.pager.php:746 inc/core/class.dc.blog.php:227
-#: inc/core/class.dc.blog.php:232 src/Backend/Post.php:489
-#: src/Backend/Post.php:1108
 msgid "Unpublished"
 msgstr "Opublicerad"
 
-#: inc/admin/lib.pager.php:321 inc/admin/lib.pager.php:376
-#: inc/admin/lib.pager.php:522 inc/core/class.dc.blog.php:226
-#: src/Backend/Post.php:493
 msgid "Scheduled"
 msgstr "Schemalagda"
 
-#: inc/admin/lib.pager.php:322 inc/admin/lib.pager.php:381
-#: inc/admin/lib.pager.php:527 inc/admin/lib.pager.php:707
-#: inc/admin/lib.pager.php:751 inc/core/class.dc.blog.php:225
-#: inc/core/class.dc.blog.php:231 src/Backend/Post.php:497
-#: src/Backend/Post.php:1113
 msgid "Pending"
 msgstr "Väntande"
 
-#: inc/admin/lib.pager.php:323 inc/admin/lib.pager.php:389
-#: inc/admin/lib.pager.php:535
 msgid "Protected"
 msgstr "Skyddad"
 
-#: inc/admin/lib.pager.php:325
 msgid "Attachments"
 msgstr "Bilagor"
 
-#: inc/admin/lib.pager.php:400 inc/admin/lib.pager.php:546
 #, php-format
 msgid "%d attachment"
 msgstr "%d bilaga"
 
-#: inc/admin/lib.pager.php:400 inc/admin/lib.pager.php:546
 #, php-format
 msgid "%d attachments"
 msgstr "%d bilagor"
 
-#: inc/admin/lib.pager.php:463
 msgid "Entries list"
 msgstr "Poster lista"
 
-#: inc/admin/lib.pager.php:597
 msgid "No comments or trackbacks matches the filter"
 msgstr "Inga kommentarer eller trackbacks matchar filtret"
 
-#: inc/admin/lib.pager.php:599 src/Backend/Comment.php:129
-#: src/Backend/Post.php:882
 msgid "No comments"
 msgstr "Inga kommentarer"
 
-#: inc/admin/lib.pager.php:628
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Kommentera eller trackback som matchar filtret."
 msgstr[1] "Lista över %s kommentarer eller trackbacks som matchar filtret."
 
-#: inc/admin/lib.pager.php:639
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Lista över kommentarer och trackbacks (%s)"
 
-#: inc/admin/lib.pager.php:648
 #, php-format
 msgid ", <a href=\"%s\">spam</a> (1)"
 msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ", <a href=\"%s\">spam</a> (1)"
 msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
 
-#: inc/admin/lib.pager.php:668
 msgid "Type"
 msgstr "Typ"
 
-#: inc/admin/lib.pager.php:679
 msgid "Entry"
 msgstr "Inlägg"
 
-#: inc/admin/lib.pager.php:708 inc/admin/lib.pager.php:756
-#: inc/core/class.dc.blog.php:230 src/Backend/Post.php:1118
 msgid "Junk"
 msgstr "Skräp"
 
-#: inc/admin/lib.pager.php:767
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Redigera %1$s från %2$s"
 
-#: inc/admin/lib.pager.php:768 inc/admin/lib.pager.php:782
 msgid "comment"
 msgstr "kommentar"
 
-#: inc/admin/lib.pager.php:768 inc/admin/lib.pager.php:782
 msgid "trackback"
 msgstr "trackback"
 
-#: inc/admin/lib.pager.php:779
 msgid "Type and author"
 msgstr "Skriv och författare"
 
-#: inc/admin/lib.pager.php:781 src/Backend/Post.php:1085
-#: src/Backend/Post.php:1150
 msgid "Edit"
 msgstr "Redigera"
 
-#: inc/admin/lib.pager.php:840
 msgid "No blog matches the filter"
 msgstr "Ingen blogg matchar filtret"
 
-#: inc/admin/lib.pager.php:842 src/Backend/UsersActions.php:218
 msgid "No blog"
 msgstr "Ingen blogg"
 
-#: inc/admin/lib.pager.php:860 inc/admin/lib.pager.php:1007
 msgid "Entries (all types)"
 msgstr "Poster (alla typer)"
 
-#: inc/admin/lib.pager.php:873
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] "%d blogg matchar filtret."
 msgstr[1] "%d bloggar matchar filtret."
 
-#: inc/admin/lib.pager.php:876
 msgid "Blogs list"
 msgstr "Bloggar lista"
 
-#: inc/admin/lib.pager.php:898 inc/core/class.dc.core.php:493
 msgid "online"
 msgstr "online"
 
-#: inc/admin/lib.pager.php:899 inc/core/class.dc.core.php:494
 msgid "offline"
 msgstr "offline"
 
-#: inc/admin/lib.pager.php:900 inc/core/class.dc.core.php:495
 msgid "removed"
 msgstr "borttagen"
 
-#: inc/admin/lib.pager.php:928
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Redigera blogginställningar för %s"
 
-#: inc/admin/lib.pager.php:929
 msgid "Edit blog settings"
 msgstr "Redigera blogginställningar"
 
-#: inc/admin/lib.pager.php:934
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Växla till blogg %s"
 
-#: inc/admin/lib.pager.php:986
 msgid "No user matches the filter"
 msgstr "Ingen användare matchar filtret"
 
-#: inc/admin/lib.pager.php:988
 msgid "No user"
 msgstr "Ingen användare"
 
-#: inc/admin/lib.pager.php:997
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "Lista över %s användare matchar filtret."
 
-#: inc/admin/lib.pager.php:999
 msgid "Users list"
 msgstr "Lista över användare"
 
-#: inc/admin/lib.pager.php:1033 inc/admin/lib.pager.php:1056
 msgid "admin"
 msgstr "administratör"
 
-#: inc/admin/lib.pager.php:1034 inc/admin/lib.pager.php:1059
 msgid "superadmin"
 msgstr "superadministratör"
 
-#: inc/admin/lib.pager.php:1108
 msgid "No file matches the filter"
 msgstr "Ingen fil matchar filtret"
 
-#: inc/admin/lib.pager.php:1110
 msgid "No file."
 msgstr "Ingen fil."
 
-#: inc/admin/lib.pager.php:1129
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] "%d fil matchar filtret."
 msgstr[1] "%d filer matchar filtret."
 
-#: inc/admin/lib.pager.php:1132
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
 msgstr "Nb av objekt: %d → %d mappar + %d fil(er)"
 
-#: inc/admin/lib.pager.php:1133
 #, php-format
 msgid "Nb of items: %d"
 msgstr "Nb av objekt: %d"
 
-#: inc/admin/lib.pager.php:1233 inc/admin/lib.pager.php:1234
-#: src/Backend/Media.php:341
 msgid "Select this file"
 msgstr "Välj denna fil"
 
-#: inc/admin/lib.pager.php:1243 inc/admin/lib.pager.php:1249
-#: src/Backend/Media.php:357 src/Backend/Media.php:370
 msgid "Attach this file to entry"
 msgstr "Bifoga denna fil till post"
 
-#: inc/admin/lib.pager.php:1254 inc/admin/lib.pager.php:1255
 msgid "Insert this file into entry"
 msgstr "Infoga denna fil i post"
 
-#: inc/admin/lib.pager.php:1269
 msgid "delete"
 msgstr "radera"
 
-#: inc/admin/lib.pager.php:1283 inc/admin/lib.pager.php:1307
 msgid "private media"
 msgstr "privat media"
 
-#: inc/admin/lib.pager.php:1290 inc/admin/lib.pager.php:1315
 msgid "open"
 msgstr "öppen"
 
-#: inc/admin/lib.themeconfig.php:133
 #, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: inc/admin/lib.themeconfig.php:133
 #, php-format
 msgid "ratio %.1f"
 msgstr "förhållande %.1f"
 
-#: inc/admin/lib.themeconfig.php:261 inc/admin/lib.themeconfig.php:409
 msgid "The 'public' directory does not exist."
 msgstr "Katalogen \"offentlig\" finns inte."
 
-#: inc/admin/lib.themeconfig.php:268 inc/admin/lib.themeconfig.php:280
-#: inc/admin/lib.themeconfig.php:416 inc/admin/lib.themeconfig.php:428
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr "Katalogen '%s' kan inte ändras."
 
-#: inc/admin/lib.themeconfig.php:402
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr "Åtminstone en av följande funktioner är inte tillgänglig: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-#: inc/admin/lib.themeconfig.php:448
 msgid "Unable to create images."
 msgstr "Det gick inte att skapa bilder."
 
-#: inc/admin/lib.themeconfig.php:455
 msgid "Invalid file type."
 msgstr "Ogiltig filtyp."
 
-#: inc/admin/lib.themeconfig.php:461 src/Helper/File/Manager.php:361
-#: src/Helper/File/Manager.php:401
 msgid "An error occurred while writing the file."
 msgstr "Ett fel inträffade när filen skulle skrivas."
 
-#: inc/admin/lib.themeconfig.php:467
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Den uppladdade bilden är inte %s pixlar bred."
 
-#: inc/core/_fake_l10n.php:7
+msgid "medium"
+msgstr "medium"
+
 msgid "small"
 msgstr "liten"
 
-#: inc/core/_fake_l10n.php:8
 msgid "thumbnail"
 msgstr "thumbnail"
 
-#: inc/core/_fake_l10n.php:9
 msgid "square"
 msgstr "kvadrat"
 
-#: inc/core/_fake_l10n.php:14
 msgid "Pages"
 msgstr "Sidor"
 
-#: inc/core/class.dc.auth.php:167
 msgid "administrator"
 msgstr "administratör"
 
-#: inc/core/class.dc.auth.php:168
 msgid "manage all entries and comments"
 msgstr "hantera alla poster och kommentarer"
 
-#: inc/core/class.dc.auth.php:169
 msgid "manage their own entries and comments"
 msgstr "hantera sina egna inlägg och kommentarer"
 
-#: inc/core/class.dc.auth.php:170
 msgid "publish entries and comments"
 msgstr "publicera poster och kommentarer"
 
-#: inc/core/class.dc.auth.php:171
 msgid "delete entries and comments"
 msgstr "ta bort poster och kommentarer"
 
-#: inc/core/class.dc.auth.php:172
 msgid "manage categories"
 msgstr "hantera kategorier"
 
-#: inc/core/class.dc.auth.php:173
 msgid "manage all media items"
 msgstr "hantera alla medieobjekt"
 
-#: inc/core/class.dc.auth.php:174
 msgid "manage their own media items"
 msgstr "hantera sina egna medieobjekt"
 
-#: inc/core/class.dc.auth.php:761
 msgid "That user does not exist in the database."
 msgstr "Den användaren finns inte i databasen."
 
-#: inc/core/class.dc.auth.php:799
 msgid "That key does not exist in the database."
 msgstr "Den nyckeln finns inte i databasen."
 
-#: inc/core/class.dc.blog.php:739
 msgid "You are not allowed to add categories"
 msgstr "Du har inte behörighet att lägga till kategorier"
 
-#: inc/core/class.dc.blog.php:795
 msgid "You are not allowed to update categories"
 msgstr "Du har inte behörighet att uppdatera kategorier"
 
-#: inc/core/class.dc.blog.php:879
 msgid "You are not allowed to delete categories"
 msgstr "Du får inte ta bort kategorier"
 
-#: inc/core/class.dc.blog.php:892
 msgid "This category is not empty."
 msgstr "Denna kategori är inte tom."
 
-#: inc/core/class.dc.blog.php:907
 msgid "You are not allowed to reset categories order"
 msgstr "Du har inte tillåtelse att återställa kategoriordningen"
 
-#: inc/core/class.dc.blog.php:978
 msgid "Empty category URL"
 msgstr "Tom kategori-URL"
 
-#: inc/core/class.dc.blog.php:995
 msgid "You must provide a category title"
 msgstr "Du måste ange en kategorititel"
 
-#: inc/core/class.dc.blog.php:1005
 msgid "You must provide a category URL"
 msgstr "Du måste ange en kategori-URL"
 
-#: inc/core/class.dc.blog.php:1588
 msgid "You are not allowed to create an entry"
 msgstr "Du har inte behörighet att skapa en post"
 
-#: inc/core/class.dc.blog.php:1656
 msgid "You are not allowed to update entries"
 msgstr "Du har inte behörighet att uppdatera poster"
 
-#: inc/core/class.dc.blog.php:1662 inc/core/class.dc.blog.php:1933
 msgid "No such entry ID"
 msgstr "Inget sådant post-ID"
 
-#: inc/core/class.dc.blog.php:1695
 msgid "You are not allowed to edit this entry"
 msgstr "Du har inte behörighet att redigera denna post"
 
-#: inc/core/class.dc.blog.php:1737 inc/core/class.dc.meta.php:177
-#: inc/core/class.dc.meta.php:194
 msgid "You are not allowed to change this entry status"
 msgstr "Du har inte behörighet att ändra denna poststatus"
 
-#: inc/core/class.dc.blog.php:1791 inc/core/class.dc.blog.php:1843
 msgid "You are not allowed to change this entry category"
 msgstr "Du har inte behörighet att ändra denna postkategori"
 
-#: inc/core/class.dc.blog.php:1884
 msgid "You are not allowed to change entries category"
 msgstr "Du har inte behörighet att ändra postkategori"
 
-#: inc/core/class.dc.blog.php:1927
 msgid "You are not allowed to delete entries"
 msgstr "Du har inte behörighet att ta bort poster"
 
-#: inc/core/class.dc.blog.php:2173
 msgid "No entry title"
 msgstr "Ingen post titel"
 
-#: inc/core/class.dc.blog.php:2177 inc/core/class.dc.blog.php:2193
 msgid "No entry content"
 msgstr "Inget postinnehåll"
 
-#: inc/core/class.dc.blog.php:2278
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: inc/core/class.dc.blog.php:2280
 msgid "Note"
 msgstr "Anteckning"
 
-#: inc/core/class.dc.blog.php:2387
 msgid "Empty entry URL"
 msgstr "Tom post-URL"
 
-#: inc/core/class.dc.blog.php:2680
 msgid "You are not allowed to update comments"
 msgstr "Du har inte behörighet att uppdatera kommentarer"
 
-#: inc/core/class.dc.blog.php:2686 inc/core/class.dc.blog.php:2692
-#: inc/core/class.dc.blog.php:2814
 msgid "No such comment ID"
 msgstr "Inget sådant kommentars-ID"
 
-#: inc/core/class.dc.blog.php:2700
 msgid "You are not allowed to update this comment"
 msgstr "Du har inte behörighet att uppdatera denna kommentar"
 
-#: inc/core/class.dc.blog.php:2755
 msgid "You are not allowed to change this comment's status"
 msgstr "Du har inte behörighet att ändra denna kommentarens status"
 
-#: inc/core/class.dc.blog.php:2808 inc/core/class.dc.blog.php:2865
 msgid "You are not allowed to delete comments"
 msgstr "Du har inte behörighet att ta bort kommentarer"
 
-#: inc/core/class.dc.blog.php:2900
 msgid "You must provide a comment"
 msgstr "Du måste ange en kommentar"
 
-#: inc/core/class.dc.blog.php:2904
 msgid "You must provide an author name"
 msgstr "Du måste ange ett författarnamn"
 
-#: inc/core/class.dc.blog.php:2908
 msgid "Email address is not valid."
 msgstr "E-postadressen är inte giltig."
 
-#: inc/core/class.dc.core.php:1206 inc/core/class.dc.core.php:1246
-#: inc/core/class.dc.core.php:1290 inc/core/class.dc.core.php:1397
-#: inc/core/class.dc.core.php:1425 inc/core/class.dc.core.php:1734
-#: inc/core/class.dc.core.php:1796
 msgid "You are not an administrator"
 msgstr "Du är inte administratör"
 
-#: inc/core/class.dc.core.php:1516
+msgid "No user ID given"
+msgstr "Inget användar-ID angivet"
+
+msgid "No password given"
+msgstr "Inget lösenord angivet"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Användar-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Lösenordet måste innehålla minst 6 tecken."
+
 msgid "Invalid user language code"
 msgstr "Ogiltig språkkod"
 
-#: inc/core/class.dc.core.php:1772
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Blogg-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
 
-#: inc/core/class.dc.core.php:1776
 msgid "No blog name"
 msgstr "Inget bloggnamn"
 
-#: inc/core/class.dc.core.php:1780
 msgid "No blog URL"
 msgstr "Ingen blogg-URL"
 
-#: inc/core/class.dc.log.php:196
 msgid "No log message"
 msgstr "Inget loggmeddelande"
 
-#: inc/core/class.dc.log.php:261
 msgid "unknown"
 msgstr "okänd"
 
-#: inc/core/class.dc.media.php:159
 msgid "No blog defined."
 msgstr "Ingen blogg angiven."
 
-#: inc/core/class.dc.media.php:174 src/Backend/Home.php:243
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Det finns ingen skrivbar katalog /public/ på den plats som anges i about:config \"public_path\". Du måste skapa denna katalog med tillräckliga rättigheter (eller ändra denna inställning)."
 
-#: inc/core/class.dc.media.php:177 src/Backend/Home.php:247
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Det finns ingen skrivbar rotkatalog för mediehanteraren. Du bör kontakta administratören."
 
-#: inc/core/class.dc.media.php:875 inc/core/class.dc.media.php:912
 msgid "You are not a super administrator."
 msgstr "Du är inte en superadministratör."
 
-#: inc/core/class.dc.media.php:1027 inc/core/class.dc.media.php:1121
-#: inc/core/class.dc.media.php:1198 inc/core/class.dc.media.php:1224
-#: inc/core/class.dc.media.php:1249
 msgid "Permission denied."
 msgstr "Åtkomst nekad."
 
-#: inc/core/class.dc.media.php:1134
 msgid "You are not the file owner."
 msgstr "Du är inte filägaren."
 
-#: inc/core/class.dc.media.php:1149
 msgid "This file is not allowed."
 msgstr "Denna fil är inte tillåten."
 
-#: inc/core/class.dc.media.php:1153
 msgid "New file already exists."
 msgstr "Ny fil finns redan."
 
-#: inc/core/class.dc.media.php:1269
 msgid "File does not exist in the database."
 msgstr "Filen finns inte i databasen."
 
-#: inc/core/class.dc.media.php:1333
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Destinationskatalog %s finns redan."
 
-#: inc/core/class.dc.modules.php:263
 #, php-format
 msgid "Requires %s module which is not installed"
 msgstr "Kräver %s modul som inte är installerad"
 
-#: inc/core/class.dc.modules.php:276
 #, php-format
 msgid "Requires %s version %s, but version %s is installed"
 msgstr "Kräver %s version %smen version %s är installerad"
 
-#: inc/core/class.dc.modules.php:283
 #, php-format
 msgid "Requires %s module which is disabled"
 msgstr "Kräver %s modul som är inaktiverad"
 
-#: inc/core/class.dc.modules.php:338
 msgid "The following extensions have been disabled :"
 msgstr "Följande tillägg har inaktiverats :"
 
-#: inc/core/class.dc.modules.php:606
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr "Modulen \"%s\" har typ \"%s\" som inte matchar obligatorisk modultyp \"%s\"."
 
-#: inc/core/class.dc.modules.php:635
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
 msgstr "Modul \"%s\" installeras två gånger i \"%s\" och \"%s\"."
 
-#: inc/core/class.dc.modules.php:689
 msgid "Empty module zip file."
 msgstr "Tom modul zip-fil."
 
-#: inc/core/class.dc.modules.php:696
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "zip-filen verkar inte vara en giltig Dotclear modul."
 
-#: inc/core/class.dc.modules.php:772
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Det går inte att uppgradera \"%s\". (uppdateringen låst)"
 
-#: inc/core/class.dc.modules.php:776
 msgid "An error occurred during module deletion."
 msgstr "Ett fel inträffade under modulborttagning."
 
-#: inc/core/class.dc.modules.php:784
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Det går inte att uppgradera \"%s\". (äldre eller samma version)"
 
-#: inc/core/class.dc.modules.php:790
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Det går inte att läsa ny %s fil"
 
-#: inc/core/class.dc.modules.php:800 inc/core/class.dc.modules.php:921
-#: inc/core/class.dc.modules.php:925
 msgid "Cannot deactivate plugin."
 msgstr "Kan inte inaktivera plugin."
 
-#: inc/core/class.dc.modules.php:897 inc/core/class.dc.modules.php:917
-#: inc/core/class.dc.modules.php:941
 msgid "No such module."
 msgstr "Ingen sådan modul."
 
-#: inc/core/class.dc.modules.php:901
 msgid "Cannot remove module files"
 msgstr "Kan inte ta bort modulfiler"
 
-#: inc/core/class.dc.modules.php:945 inc/core/class.dc.modules.php:949
 msgid "Cannot activate plugin."
 msgstr "Kan inte aktivera plugin."
 
-#: inc/core/class.dc.namespace.php:123
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Ogiltig inställning dcNamespace: %s"
 
-#: inc/core/class.dc.namespace.php:162
 msgid "Unable to retrieve settings:"
 msgstr "Det gick inte att hämta inställningar:"
 
-#: inc/core/class.dc.namespace.php:315 inc/core/class.dc.namespace.php:423
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s är inte ett giltigt inställnings-id"
 
-#: inc/core/class.dc.namespace.php:415 inc/core/class.dc.namespace.php:462
-#: inc/core/class.dc.namespace.php:493 inc/core/class.dc.namespace.php:520
 msgid "No namespace specified"
 msgstr "Ingen namnrymd angiven"
 
-#: inc/core/class.dc.notices.php:178
 msgid "No notice message"
 msgstr "Inget meddelande"
 
-#: inc/core/class.dc.prefs.php:68
 msgid "Unable to retrieve workspaces:"
 msgstr "Det gick inte att hämta arbetsytor:"
 
-#: inc/core/class.dc.prefs.php:157 inc/core/class.dc.workspace.php:123
 #, php-format
 msgid "Invalid dcWorkspace: %s"
 msgstr "Ogiltig dcWorkspace: %s"
 
-#: inc/core/class.dc.settings.php:92
 msgid "Unable to retrieve namespaces:"
 msgstr "Det gick inte att hämta namnrymder:"
 
-#: inc/core/class.dc.settings.php:144
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Ogiltig namnrymd: %s"
 
-#: inc/core/class.dc.store.parser.php:55
 msgid "Wrong data feed"
 msgstr "Fel dataflöde"
 
-#: inc/core/class.dc.store.php:365 inc/core/class.dc.store.php:368
 msgid "An error occurred while downloading the file."
 msgstr "Ett fel inträffade när filen skulle hämtas."
 
-#: inc/core/class.dc.themes.php:96
 msgid "Themes folder unreachable"
 msgstr "Temamappen kan inte nås"
 
-#: inc/core/class.dc.themes.php:100
 msgid "Themes folder unreadable"
 msgstr "Temamapp oläsbar"
 
-#: inc/core/class.dc.themes.php:108
 #, php-format
 msgid " (copy #%s)"
 msgstr " (kopiera #%s)"
 
-#: inc/core/class.dc.themes.php:108
 msgid " (copy)"
 msgstr " (kopiera)"
 
-#: inc/core/class.dc.themes.php:145
 msgid "Unable to modify _define.php"
 msgstr "Det gick inte att ändra _define.php"
 
-#: inc/core/class.dc.themes.php:177
 msgid "Destination folder already exist"
 msgstr "Målmappen finns redan"
 
-#: inc/core/class.dc.trackback.php:92
 #, php-format
 msgid "%s has still been pinged"
 msgstr "%s har fortfarande pingats"
 
-#: inc/core/class.dc.trackback.php:115 inc/core/class.dc.trackback.php:140
-#: inc/core/class.dc.trackback.php:164
 msgid "Unable to ping URL"
 msgstr "Det går inte att pinga URL"
 
-#: inc/core/class.dc.trackback.php:120
 msgid "Bad server response code"
 msgstr "Felaktig svarskod för servern"
 
-#: inc/core/class.dc.trackback.php:148
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s är inte en ping-URL"
 
-#: inc/core/class.dc.trackback.php:169
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, ping fel:"
 
-#: inc/core/class.dc.trackback.php:319
 msgid "Don't repeat yourself, please."
 msgstr "Upprepa inte dig själv, tack."
 
-#: inc/core/class.dc.trackback.php:326 inc/core/class.dc.trackback.php:404
 msgid "Where's your title?"
 msgstr "Var är din titel?"
 
-#: inc/core/class.dc.trackback.php:361
 msgid "Sorry, an internal problem has occured."
 msgstr "Tyvärr, ett internt problem har uppstått."
 
-#: inc/core/class.dc.trackback.php:364
 msgid "Thanks, mate. It was a pleasure."
 msgstr "Tack, kompis. Det var ett nöje."
 
-#: inc/core/class.dc.trackback.php:584
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Någon chans att du ping en av mina innehåll? Nej? Verkligen?"
 
-#: inc/core/class.dc.trackback.php:603
 msgid "Sorry but you can not ping this type of content."
 msgstr "Ledsen men du kan inte pinga denna typ av innehåll."
 
-#: inc/core/class.dc.trackback.php:615
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
 msgstr "Hoppsan. Kinda \"kunde inte hittas\". Kontrollera mål-URL två gånger."
 
-#: inc/core/class.dc.trackback.php:620
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr "Tyvärr, dude. Denna artikel accepterar inte pingback för tillfället."
 
-#: inc/core/class.dc.trackback.php:647
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr "Din käll-URL ser inte ut som en innehållstyp som stöds. Förlåt. Hej då!"
 
-#: inc/core/class.dc.trackback.php:885
 msgid "No valid source URL provided? Try again!"
 msgstr "Ingen giltig käll-URL angiven? Försök igen!"
 
-#: inc/core/class.dc.trackback.php:889
 msgid "No valid target URL provided? Try again!"
 msgstr "Ingen giltig mål-URL angiven? Försök igen!"
 
-#: inc/core/class.dc.trackback.php:893
 msgid "LOL!"
 msgstr "LOL!"
 
-#: inc/core/class.dc.update.php:321
 msgid "Digests file not found."
 msgstr "Kan inte hitta en summeringsfil."
 
-#: inc/core/class.dc.update.php:358
 msgid "No file to download"
 msgstr "Ingen fil att ladda ner"
 
-#: inc/core/class.dc.update.php:362 inc/core/class.dc.update.php:445
 msgid "Root directory is not writable."
 msgstr "Rotkatalogen är inte skrivbar."
 
-#: inc/core/class.dc.update.php:400
 msgid "An error occurred while downloading archive."
 msgstr "Ett fel uppstod när du laddade ner arkivet."
 
-#: inc/core/class.dc.update.php:434 inc/core/class.dc.update.php:520
 msgid "Archive not found."
 msgstr "Arkiv hittades inte."
 
-#: inc/core/class.dc.update.php:440 inc/core/class.dc.update.php:526
 msgid "Unable to read current digests file."
 msgstr "Det går inte att läsa aktuell digest-fil."
 
-#: inc/core/class.dc.update.php:463 inc/core/class.dc.update.php:534
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "Den nedladdade filen verkar inte vara ett giltigt arkiv."
 
-#: inc/core/class.dc.update.php:557
 msgid "Incomplete archive."
 msgstr "Ofullständigt arkiv."
 
-#: inc/core/class.dc.update.php:661
 msgid "Unable to read digests file."
 msgstr "Det går inte att läsa digests fil."
 
-#: inc/core/class.dc.update.php:685
 msgid "Invalid digests file."
 msgstr "Ogiltig digest-fil."
 
-#: inc/core/class.dc.workspace.php:133
 msgid "Unable to retrieve prefs:"
 msgstr "Kunde inte hämta prefs:"
 
-#: inc/core/class.dc.workspace.php:321 inc/core/class.dc.workspace.php:429
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s är inte ett giltigt pref id"
 
-#: inc/core/class.dc.workspace.php:421 inc/core/class.dc.workspace.php:464
-#: inc/core/class.dc.workspace.php:503 inc/core/class.dc.workspace.php:540
 msgid "No workspace specified"
 msgstr "Ingen arbetsyta angiven"
 
-#: inc/dbschema/upgrade.php:66
 msgid "Something went wrong with auto upgrade:"
 msgstr "Något gick fel med automatisk uppgradering:"
 
-#: src/App.php:407
 msgid "Site temporarily unavailable"
 msgstr "Webbplatsen är tillfälligt otillgänglig"
 
-#: src/App.php:408
 msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
 msgstr "<p>Vi ber om ursäkt för denna tillfälliga otillgänglighet.<br />Tack för din förståelse.</p>"
 
-#: src/App.php:414
 msgid "Unable to connect to database"
 msgstr "Det går inte att ansluta till databasen"
 
-#: src/App.php:417
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr "<p>Detta innebär antingen att användarnamnet och lösenordsinformationen i din <strong>konfiguration. HK</strong> filen är felaktig eller så kan vi inte kontakta databasservern på \"<em>%s</em>\". Detta kan betyda att din värds databasserver är nere.</p> <ul><li>Är du säker på att du har rätt användarnamn och lösenord?</li><li>Är du säker på att du har skrivit rätt värdnamn?</li><li>Är du säker på att databasservern körs?</li></ul><p>Om du är osäker på vad dessa termer innebär bör du förmodligen kontakta din värd. Om du fortfarande behöver hjälp kan du alltid besöka <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 
-#: src/App.php:428
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Följande fel uppstod när databasen skulle läsas:"
 
-#: src/App.php:525 src/App.php:557
 msgid "No process found"
 msgstr "Ingen process hittades"
 
-#: src/App.php:552
 msgid "Process failed"
 msgstr "Processen misslyckades"
 
-#: src/Backend/Auth.php:73
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear har uppgraderats."
 
-#: src/Backend/Auth.php:120
 msgid "Password reset"
 msgstr "Återställ lösenord"
 
-#: src/Backend/Auth.php:121
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Någon har begärt att återställa lösenordet för följande webbplats och användarnamn."
 
-#: src/Backend/Auth.php:121
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "För att återställa ditt lösenord besök följande adress, annars bara ignorera detta e-postmeddelande och ingenting kommer att hända."
 
-#: src/Backend/Auth.php:127
+msgid "Username:"
+msgstr "Användarnamn:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "E-postmeddelandet har skickats till %s."
 
-#: src/Backend/Auth.php:137
 msgid "Your new password"
 msgstr "Ditt nya lösenord"
 
-#: src/Backend/Auth.php:143
 msgid "Your new password is in your mailbox."
 msgstr "Ditt nya lösenord finns i din brevlåda."
 
-#: src/Backend/Auth.php:190
+msgid "Passwords don't match"
+msgstr "Lösenorden matchar inte"
+
 msgid "You didn't change your password."
 msgstr "Du ändrade inte ditt lösenord."
 
-#: src/Backend/Auth.php:240
 msgid "You have to change your password before you can login."
 msgstr "Du måste ändra ditt lösenord innan du kan logga in."
 
-#: src/Backend/Auth.php:242
 msgid "In order to login, you have to change your password now."
 msgstr "För att logga in måste du ändra ditt lösenord nu."
 
-#: src/Backend/Auth.php:248
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Felsäkert läge kan endast användas för superadministratörer."
 
-#: src/Backend/Auth.php:279
 msgid "Administration session expired"
 msgstr "Administrationssessionen har gått ut"
 
-#: src/Backend/Auth.php:279
 msgid "Wrong username or password"
 msgstr "Fel användarnamn eller lösenord"
 
-#: src/Backend/Auth.php:355 src/Backend/Auth.php:389
+#, php-format
+msgid "Password strength: %s"
+msgstr "Lösenordsstyrka: %s"
+
+msgid "weak"
+msgstr "svag"
+
+msgid "strong"
+msgstr "stark"
+
 msgid "Back to login screen"
 msgstr "Tillbaka till inloggningsskärmen"
 
-#: src/Backend/Auth.php:360
 msgid "Request a new password"
 msgstr "Begär ett nytt lösenord"
 
-#: src/Backend/Auth.php:383
 msgid "recover"
 msgstr "återställ"
 
-#: src/Backend/Auth.php:388 src/Backend/Auth.php:486
 msgid "Other option"
 msgstr "Annat alternativ"
 
-#: src/Backend/Auth.php:395
 msgid "Change your password"
 msgstr "Ändra ditt lösenord"
 
-#: src/Backend/Auth.php:416
+msgid "New password:"
+msgstr "Nytt lösenord:"
+
+msgid "Confirm password:"
+msgstr "Bekräfta lösenord:"
+
 msgid "change"
 msgstr "ändra"
 
-#: src/Backend/Auth.php:432
 msgid "Safe mode login"
 msgstr "Säkert läge inloggning"
 
-#: src/Backend/Auth.php:434
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Detta läge låter dig logga in utan att aktivera någon av dina plugins. Detta kan vara användbart för att lösa kompatibilitetsproblem"
 
-#: src/Backend/Auth.php:435
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Uppdatera, inaktivera eller ta bort någon plugin som misstänks orsaka problem, sedan logga ut och logga in normalt."
 
-#: src/Backend/Auth.php:464
 msgid "Remember my ID on this device"
 msgstr "Kom ihåg mitt ID på den här enheten"
 
-#: src/Backend/Auth.php:465
 msgid "log in"
 msgstr "logga in"
 
-#: src/Backend/Auth.php:480
 msgid "You must accept cookies in order to use the private area."
 msgstr "Du måste acceptera cookies för att kunna använda det privata området."
 
-#: src/Backend/Auth.php:487
 msgid "Get back to normal authentication"
 msgstr "Få tillbaka till normal autentisering"
 
-#: src/Backend/Auth.php:490
 msgid "Connection issue?"
 msgstr "Problem med anslutning?"
 
-#: src/Backend/Auth.php:493
 msgid "I forgot my password"
 msgstr "Jag har glömt mitt lösenord"
 
-#: src/Backend/Auth.php:496
 msgid "I want to log in in safe mode"
 msgstr "Jag vill logga in i felsäkert läge"
 
-#: src/Backend/Blog.php:77
 #, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blogg \"%s\" har skapats"
 
-#: src/Backend/Blog.php:94 src/Backend/Blog.php:100
 msgid "New blog"
 msgstr "Ny blogg"
 
-#: src/Backend/Blog.php:98 src/Backend/BlogDel.php:89
-#: src/Backend/BlogPref.php:415 src/Backend/Blogs.php:93
-#: src/Backend/Langs.php:209 src/Backend/Plugin.php:127
-#: src/Backend/Plugins.php:89 src/Backend/Update.php:42
-#: src/Backend/Update.php:61 src/Backend/Update.php:242
-#: src/Backend/User.php:231 src/Backend/Users.php:96
-#: src/Backend/UsersActions.php:144 src/Backend/UsersActions.php:152
 msgid "System"
 msgstr "System"
 
-#: src/Backend/Blog.php:123 src/Backend/BlogPref.php:778
 msgid "Blog ID:"
 msgstr "Blogg-ID:"
 
-#: src/Backend/Blog.php:131 src/Backend/BlogPref.php:780
-#: src/Backend/User.php:260
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Minst 2 tecken med bokstäver, siffror eller symboler."
 
-#: src/Backend/Blog.php:144 src/Backend/BlogPref.php:462
 msgid "Blog name:"
 msgstr "Bloggnamn:"
 
-#: src/Backend/Blog.php:157 src/Backend/BlogPref.php:788
 msgid "Blog URL"
 msgstr "Webbadress för blogg"
 
-#: src/Backend/Blog.php:160 src/Backend/BlogPref.php:783
 msgid "Blog URL:"
 msgstr "Blogg-URL:"
 
-#: src/Backend/Blog.php:177 src/Backend/BlogPref.php:472
 msgid "Blog description:"
 msgstr "Bloggbeskrivning:"
 
-#: src/Backend/Blog.php:188 src/Backend/Media.php:456
 msgid "Create"
 msgstr "Skapa"
 
-#: src/Backend/BlogDel.php:50
 msgid "No such blog ID"
 msgstr "Inget sådant blogg-ID"
 
-#: src/Backend/BlogDel.php:70
 #, php-format
 msgid "Blog \"%s\" successfully deleted"
 msgstr "Bloggen \"%s\" har tagits bort"
 
-#: src/Backend/BlogDel.php:85 src/Backend/BlogDel.php:91
 msgid "Delete a blog"
 msgstr "Ta bort en blogg"
 
-#: src/Backend/BlogDel.php:97
 msgid "Warning"
 msgstr "Varning"
 
-#: src/Backend/BlogDel.php:98
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
 msgstr "Du håller på att ta bort bloggen %s. Varje inlägg, kommentar och kategori kommer att raderas."
 
-#: src/Backend/BlogDel.php:107
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Vänligen ange ditt lösenord för att bekräfta att bloggen raderas."
 
-#: src/Backend/BlogDel.php:131 src/Backend/BlogPref.php:906
 msgid "Delete this blog"
 msgstr "Ta bort denna blogg"
 
-#: src/Backend/BlogPref.php:76
 msgid "No given blog id."
 msgstr "Ingen given blogg-id."
 
-#: src/Backend/BlogPref.php:81
 msgid "No such blog."
 msgstr "Ingen sådan blogg."
 
-#: src/Backend/BlogPref.php:130
 msgid "year/month/day/title"
 msgstr "år/månad/dag/titel"
 
-#: src/Backend/BlogPref.php:131
 msgid "year/month/title"
 msgstr "år/månad/titel"
 
-#: src/Backend/BlogPref.php:132
 msgid "year/title"
 msgstr "år/titel"
 
-#: src/Backend/BlogPref.php:133
 msgid "title"
 msgstr "titel"
 
-#: src/Backend/BlogPref.php:134
 msgid "post id/title"
 msgstr "Post id/titel"
 
-#: src/Backend/BlogPref.php:135
 msgid "post id"
 msgstr "inlägg id"
 
-#: src/Backend/BlogPref.php:143
 msgid "H4"
 msgstr "H4"
 
-#: src/Backend/BlogPref.php:144
 msgid "H3"
 msgstr "H3"
 
-#: src/Backend/BlogPref.php:145
 msgid "P"
 msgstr "P"
 
-#: src/Backend/BlogPref.php:150 src/Backend/BlogPref.php:967
-#: src/Backend/Category.php:243 src/Backend/MediaItem.php:612
-#: src/Backend/MediaItem.php:614
 msgid "(none)"
 msgstr "(ingen)"
 
-#: src/Backend/BlogPref.php:152
 msgid "Title, Date"
 msgstr "Titel, datum"
 
-#: src/Backend/BlogPref.php:153
 msgid "Title, Country, Date"
 msgstr "Titel, Land, Datum"
 
-#: src/Backend/BlogPref.php:154
 msgid "Title, City, Country, Date"
 msgstr "Titel, stad, land, datum"
 
-#: src/Backend/BlogPref.php:166 src/Backend/MediaItem.php:517
-#: src/Backend/MediaItem.php:585 src/Backend/MediaItem.php:821
 msgid "original"
 msgstr "original"
 
-#: src/Backend/BlogPref.php:177 src/Backend/BlogPref.php:187
-#: src/Backend/MediaItem.php:609 src/Backend/MediaItem.php:621
-#: src/Backend/MediaItem.php:656 src/Backend/MediaItem.php:698
 msgid "None"
 msgstr "Ingen"
 
-#: src/Backend/BlogPref.php:178 src/Backend/MediaItem.php:622
-#: src/Backend/MediaItem.php:657 src/Backend/MediaItem.php:699
 msgid "Left"
 msgstr "Vänster"
 
-#: src/Backend/BlogPref.php:179 src/Backend/MediaItem.php:623
-#: src/Backend/MediaItem.php:658 src/Backend/MediaItem.php:700
 msgid "Right"
 msgstr "Höger"
 
-#: src/Backend/BlogPref.php:180 src/Backend/MediaItem.php:624
-#: src/Backend/MediaItem.php:659 src/Backend/MediaItem.php:701
 msgid "Center"
 msgstr "Centrera"
 
-#: src/Backend/BlogPref.php:185 src/Backend/MediaItem.php:597
 msgid "Legend and title"
 msgstr "Legend och titel"
 
-#: src/Backend/BlogPref.php:192
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Jag skulle vilja att sökmotorer och arkiv indexerar och arkiverar min bloggs innehåll."
 
-#: src/Backend/BlogPref.php:193
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "Jag skulle vilja att sökmotorer och arkiv indexeras men inte arkivera min bloggs innehåll."
 
-#: src/Backend/BlogPref.php:194
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Jag vill förhindra att sökmotorer och arkiverare indexerar eller arkiverar min bloggs innehåll."
 
-#: src/Backend/BlogPref.php:199 src/Backend/UserPreferences.php:126
 msgid "Default"
 msgstr "Standard"
 
-#: src/Backend/BlogPref.php:211
 msgid "Never"
 msgstr "Aldrig"
 
-#: src/Backend/BlogPref.php:212
 msgid "Three months"
 msgstr "Tre månader"
 
-#: src/Backend/BlogPref.php:213
 msgid "Six months"
 msgstr "Sex månader"
 
-#: src/Backend/BlogPref.php:214
 msgid "One year"
 msgstr "Ett år"
 
-#: src/Backend/BlogPref.php:215
 msgid "Two years"
 msgstr "Två år"
 
-#: src/Backend/BlogPref.php:297
 msgid "This blog ID is already used."
 msgstr "Detta blogg-ID används redan."
 
-#: src/Backend/BlogPref.php:305
 msgid "Invalid language code"
 msgstr "Ogiltig språkkod"
 
-#: src/Backend/BlogPref.php:384 src/Backend/BlogPref.php:453
 msgid "Blog has been successfully updated."
 msgstr "Bloggen har uppdaterats."
 
-#: src/Backend/BlogPref.php:432
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Varning: förutom speciella konfigurationer, är det i allmänhet klokt att ha en avslutande \"/\" i din blogg URL i PATH_INFO läge."
 
-#: src/Backend/BlogPref.php:433
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Varning: förutom speciella konfigurationer, är det i allmänhet klokt att ha en avslutande \"?\" i din blogg URL i QUERY_STRING läge."
 
-#: src/Backend/BlogPref.php:449
 msgid "Blog has been successfully created."
 msgstr "Bloggen har skapats."
 
-#: src/Backend/BlogPref.php:457
 msgid "Parameters"
 msgstr "Parametrar"
 
-#: src/Backend/BlogPref.php:458 src/Backend/Media.php:563
 msgid "Blog parameters"
 msgstr "Blogg parametrar"
 
-#: src/Backend/BlogPref.php:460 src/Backend/BlogPref.php:776
 msgid "Blog details"
 msgstr "Bloggdetaljer"
 
-#: src/Backend/BlogPref.php:485
 msgid "Blog status:"
 msgstr "Bloggstatus:"
 
-#: src/Backend/BlogPref.php:501 src/Backend/BlogPref.php:839
 msgid "Blog configuration"
 msgstr "Blogg konfiguration"
 
-#: src/Backend/BlogPref.php:502
 msgid "Blog editor name:"
 msgstr "Bloggredaktörens namn:"
 
-#: src/Backend/BlogPref.php:505
 msgid "Default language:"
 msgstr "Standardspråk:"
 
-#: src/Backend/BlogPref.php:508
 msgid "Blog timezone:"
 msgstr "Tidszon för blogg:"
 
-#: src/Backend/BlogPref.php:511
 msgid "Copyright notice:"
 msgstr "Meddelande om upphovsrätt:"
 
-#: src/Backend/BlogPref.php:524 src/Backend/Comments.php:109
-#: src/Backend/Comments.php:114
 msgid "Comments and trackbacks"
 msgstr "Kommentarer och trackbacks"
 
-#: src/Backend/BlogPref.php:530 src/Backend/Post.php:699
 msgid "Accept comments"
 msgstr "Acceptera kommentarer"
 
-#: src/Backend/BlogPref.php:533
 msgid "Moderate comments"
 msgstr "Moderera kommentarer"
 
-#: src/Backend/BlogPref.php:535
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "Lämna kommentarer öppna i %s dagar"
 
-#: src/Backend/BlogPref.php:546 src/Backend/BlogPref.php:574
 msgid "No limit: leave blank."
 msgstr "Ingen gräns: lämna tomt."
 
-#: src/Backend/BlogPref.php:549
 msgid "Wiki syntax for comments"
 msgstr "Wiki-syntax för kommentarer"
 
-#: src/Backend/BlogPref.php:552
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Förhandsgranskning av kommentar innan inlämning är inte obligatoriskt"
 
-#: src/Backend/BlogPref.php:558 src/Backend/Post.php:707
 msgid "Accept trackbacks"
 msgstr "Godkänn trackbacks"
 
-#: src/Backend/BlogPref.php:561
 msgid "Moderate trackbacks"
 msgstr "Måttlig trackbacks"
 
-#: src/Backend/BlogPref.php:563
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "Lämna trackbacks öppna i %s dagar"
 
-#: src/Backend/BlogPref.php:577
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Lägg till \"nofollow\" relation på kommentarer och trackbacks länkar"
 
-#: src/Backend/BlogPref.php:581
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Inaktivera alla kommentarer och trackbacks på bloggen efter en tid utan nya inlägg:"
 
-#: src/Backend/BlogPref.php:588
 msgid "Blog presentation"
 msgstr "Blogg presentation"
 
-#: src/Backend/BlogPref.php:591
 msgid "Date format:"
 msgstr "Datumformat:"
 
-#: src/Backend/BlogPref.php:593
 msgid "Pattern of date"
 msgstr "Mönster av datum"
 
-#: src/Backend/BlogPref.php:595 src/Backend/BlogPref.php:601
-#: src/Backend/BlogPref.php:844
 msgid "Sample:"
 msgstr "Prov:"
 
-#: src/Backend/BlogPref.php:597
 msgid "Time format:"
 msgstr "Tid format:"
 
-#: src/Backend/BlogPref.php:599
 msgid "Pattern of time"
 msgstr "Tidens mönster"
 
-#: src/Backend/BlogPref.php:605
+msgid "Don't load standard stylesheet (used for media alignement)"
+msgstr ""
+
 msgid "Display smilies on entries and comments"
 msgstr "Visa smilies på poster och kommentarer"
 
-#: src/Backend/BlogPref.php:609
 msgid "Disable internal search system"
 msgstr "Inaktivera internt söksystem"
 
-#: src/Backend/BlogPref.php:616
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "Visa %s poster på första sidan"
 
-#: src/Backend/BlogPref.php:628
 #, php-format
 msgid "Display %s entries per page"
 msgstr "Visa %s poster per sida"
 
-#: src/Backend/BlogPref.php:640
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "Visa %s poster per flöde"
 
-#: src/Backend/BlogPref.php:652
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "Visa %s kommentarer per flöde"
 
-#: src/Backend/BlogPref.php:665
 msgid "Truncate feeds"
 msgstr "Trunkera flöden"
 
-#: src/Backend/BlogPref.php:669
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Inkludera underkategorier i kategori sida och kategori inlägg flöde"
 
-#: src/Backend/BlogPref.php:678
 msgid "Display an entry as static home page"
 msgstr "Visa en post som statisk startsida"
 
-#: src/Backend/BlogPref.php:680
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "Post-URL (dess innehåll kommer att användas för den statiska hemsidan):"
 
-#: src/Backend/BlogPref.php:682
 msgid "Choose an entry"
 msgstr "Välj en post"
 
-#: src/Backend/BlogPref.php:684
 msgid "Leave empty to use the default presentation."
 msgstr "Lämna tomt för att använda standardpresentationen."
 
-#: src/Backend/BlogPref.php:688
 msgid "Media and images"
 msgstr "Media och bilder"
 
-#: src/Backend/BlogPref.php:690
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Observera att om du ändrar aktuella inställningar nedan, kommer de nu att gälla för alla nya bilder i mediehanteraren."
 
-#: src/Backend/BlogPref.php:691
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Var försiktig om du delar den med andra bloggar i din installation."
 
-#: src/Backend/BlogPref.php:692
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Ställ in -1 för att använda standardstorleken, sätt 0 för att ignorera denna miniatyrstorlek (endast bilder)."
 
-#: src/Backend/BlogPref.php:696
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Genererade bildstorlekar (max dimensioner i pixlar)"
 
-#: src/Backend/BlogPref.php:697
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
-#: src/Backend/BlogPref.php:705
 msgid "Small"
 msgstr "Liten"
 
-#: src/Backend/BlogPref.php:713
 msgid "Medium"
 msgstr "Medel"
 
-#: src/Backend/BlogPref.php:721
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Standardstorlek för den infogade videon (i pixlar)"
 
-#: src/Backend/BlogPref.php:722
 msgid "Width"
 msgstr "Width"
 
-#: src/Backend/BlogPref.php:730
 msgid "Height"
 msgstr "Höjd"
 
-#: src/Backend/BlogPref.php:740
 msgid "Default image insertion attributes"
 msgstr "Standard bildinfogningsattribut"
 
-#: src/Backend/BlogPref.php:741
 msgid "Inserted image title"
 msgstr "Infogad bildens titel"
 
-#: src/Backend/BlogPref.php:745
 msgid "Use original media date if possible"
 msgstr "Använd det ursprungliga mediedatumet om möjligt"
 
-#: src/Backend/BlogPref.php:748
 msgid "Do not display date if alone in title"
 msgstr "Visa inte datum om den är ensam i titeln"
 
-#: src/Backend/BlogPref.php:749
 msgid "It is retrieved from the picture's metadata."
 msgstr "Den hämtas från bildens metadata."
 
-#: src/Backend/BlogPref.php:751
 msgid "Size of inserted image:"
 msgstr "Storlek på infogad bild:"
 
-#: src/Backend/BlogPref.php:758
 msgid "Image alignment:"
 msgstr "Bild justering:"
 
-#: src/Backend/BlogPref.php:763
 msgid "Insert a link to the original image"
 msgstr "Infoga en länk till den ursprungliga bilden"
 
-#: src/Backend/BlogPref.php:764
 msgid "Image legend and title:"
 msgstr "Bildlegend och titel:"
 
-#: src/Backend/BlogPref.php:773
 msgid "Advanced parameters"
 msgstr "Avancerade parametrar"
 
-#: src/Backend/BlogPref.php:781
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Observera att ändring av ditt blogg-ID kan kräva ändringar i din publika index.php-fil."
 
-#: src/Backend/BlogPref.php:792
 msgid "URL scan method:"
 msgstr "URL skanningsmetod:"
 
-#: src/Backend/BlogPref.php:815
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "Webbadressen till bloggen eller URL-skanningsmetoden kanske inte är väl inställd (<code>%s</code> returnera en <strong>%s</strong> status)."
 
-#: src/Backend/BlogPref.php:826
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "Webbadressen till bloggen eller URL-skanningsmetoden kanske inte är väl inställd (<code>%s</code> returnerar inte ett ATOM-flöde)."
 
-#: src/Backend/BlogPref.php:841
 msgid "New post URL format:"
 msgstr "Nytt inlägg URL-format:"
 
-#: src/Backend/BlogPref.php:844
 msgid "Dotclear"
 msgstr "Prickrensa"
 
-#: src/Backend/BlogPref.php:847
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "HTML-tagg för titeln på anteckningarna på bloggen:"
 
-#: src/Backend/BlogPref.php:854
 msgid "Search engines robots policy"
 msgstr "Sökmotorer robotar policy"
 
-#: src/Backend/BlogPref.php:867
 msgid "jQuery javascript library"
 msgstr "jQuery javascript library"
 
-#: src/Backend/BlogPref.php:870
 msgid "Load the jQuery library"
 msgstr "Ladda jQuery biblioteket"
 
-#: src/Backend/BlogPref.php:872
 msgid "jQuery version to be loaded for this blog:"
 msgstr "jQuery version som ska laddas för den här bloggen:"
 
-#: src/Backend/BlogPref.php:878
 msgid "Blog security"
 msgstr "Blogg säkerhet"
 
-#: src/Backend/BlogPref.php:882
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Skydda bloggen från Clickjacking (se <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
-#: src/Backend/BlogPref.php:890
 msgid "Plugins parameters"
 msgstr "Insticksprogram parametrar"
 
-#: src/Backend/BlogPref.php:914
 msgid "Only superadmin can delete a blog."
 msgstr "Endast superadministratör kan ta bort en blogg."
 
-#: src/Backend/BlogPref.php:928
 msgid "Users on this blog"
 msgstr "Användare på den här bloggen"
 
-#: src/Backend/BlogPref.php:931
 msgid "No users"
 msgstr "Inga användare"
 
-#: src/Backend/BlogPref.php:972
 msgid "Publications on this blog:"
 msgstr "Publikationer på denna blogg:"
 
-#: src/Backend/BlogPref.php:979
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Backend/BlogPref.php:984
 msgid "Permissions:"
 msgstr "Behörigheter:"
 
-#: src/Backend/BlogPref.php:987 src/Backend/User.php:317
 msgid "Super administrator"
 msgstr "Super administratör"
 
-#: src/Backend/BlogPref.php:988
 msgid "All rights on all blogs."
 msgstr "Alla rättigheter på alla bloggar."
 
-#: src/Backend/BlogPref.php:994 src/Backend/UsersActions.php:320
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (orefererad behörighet)"
 
-#: src/Backend/BlogPref.php:998
 msgid "All rights on this blog."
 msgstr "Alla rättigheter på denna blogg."
 
-#: src/Backend/BlogPref.php:1009 src/Backend/User.php:467
 msgid "Change permissions"
 msgstr "Ändra behörigheter"
 
-#: src/Backend/BlogTheme.php:83
 msgid "Theme configuration"
 msgstr "Tema konfiguration"
 
-#: src/Backend/BlogTheme.php:139
 msgid "Themes management"
 msgstr "Hantering av teman"
 
-#: src/Backend/BlogTheme.php:160
 msgid "Manual checking of themes update done successfully."
 msgstr "Manuell kontroll av teman uppdateringen har utförts."
 
-#: src/Backend/BlogTheme.php:171
 msgid "Force checking update of themes"
 msgstr "Tvinga uppdatering av teman"
 
-#: src/Backend/BlogTheme.php:180 src/Backend/BlogTheme.php:181
 msgid "Update themes"
 msgstr "Uppdatera teman"
 
-#: src/Backend/BlogTheme.php:183
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] "Det finns ett tema att uppdatera från utvecklingskatalogen."
 msgstr[1] "Det finns %s teman att uppdatera från utvecklingskatalogen."
 
-#: src/Backend/BlogTheme.php:200 src/Backend/BlogTheme.php:286
-#: src/Backend/Plugins.php:158 src/Backend/Plugins.php:245
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Besök %s utvecklingskatalog, resurscentret för Dotclear."
 
-#: src/Backend/BlogTheme.php:214 src/Backend/BlogTheme.php:216
 msgid "Installed themes"
 msgstr "Installerade teman"
 
-#: src/Backend/BlogTheme.php:216
 msgid "Activated themes"
 msgstr "Aktiverade teman"
 
-#: src/Backend/BlogTheme.php:217 src/Backend/Plugins.php:178
 msgid "(in normal mode)"
 msgstr "(i normalt läge)"
 
-#: src/Backend/BlogTheme.php:219
 msgid "You can configure and manage installed themes from this list."
 msgstr "Du kan konfigurera och hantera installerade teman från den här listan."
 
-#: src/Backend/BlogTheme.php:240 src/Backend/BlogTheme.php:241
 msgid "Deactivated themes"
 msgstr "Avaktiverade teman"
 
-#: src/Backend/BlogTheme.php:242
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Inaktiverade teman är installerade men inte användbara. Du kan aktivera dem härifrån."
 
-#: src/Backend/BlogTheme.php:266
 msgid "Add themes"
 msgstr "Lägg till teman"
 
-#: src/Backend/BlogTheme.php:267
 msgid "Add themes from repository"
 msgstr "Lägg till teman från utvecklingskatalogen"
 
-#: src/Backend/BlogTheme.php:295 src/Backend/Plugins.php:255
 msgid "Install or upgrade manually"
 msgstr "Installera eller uppgradera manuellt"
 
-#: src/Backend/BlogTheme.php:296
 msgid "Add themes from a package"
 msgstr "Lägg till teman från ett paket"
 
-#: src/Backend/BlogTheme.php:297
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Du kan installera teman genom att ladda upp eller ladda ner zip-filer."
 
-#: src/Backend/BlogTheme.php:311
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Vissa funktioner är inaktiverade, vänligen ge skrivrättigheter till din temakatalog för att aktivera dem."
 
-#: src/Backend/Blogs.php:89 src/Backend/Blogs.php:94
 msgid "List of blogs"
 msgstr "Lista över bloggar"
 
-#: src/Backend/Blogs.php:108
 msgid "Create a new blog"
 msgstr "Skapa en ny blogg"
 
-#: src/Backend/Blogs.php:131 src/Backend/Comments.php:175
-#: src/Backend/UsersActions.php:154
 msgid "Actions"
 msgstr "Åtgärder"
 
-#: src/Backend/Blogs.php:134
 msgid "Selected blogs action:"
 msgstr "Valda bloggar åtgärd:"
 
-#: src/Backend/Blogs.php:152
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "Vänligen ange ditt lösenord för att bekräfta att blogg(er) raderas:"
 
-#: src/Backend/Categories.php:45
 msgid "This category does not exist."
 msgstr "Denna kategori finns inte."
 
-#: src/Backend/Categories.php:55
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "Kategorin \"%s\" har tagits bort."
 
-#: src/Backend/Categories.php:76
 msgid "Category where to move entries does not exist"
 msgstr "Kategori där du vill flytta poster finns inte"
 
-#: src/Backend/Categories.php:85
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr "Posterna har flyttats till kategorin \"%s\""
 
-#: src/Backend/Categories.php:102 src/Backend/Categories.php:153
 msgid "Categories have been successfully reordered."
 msgstr "Kategorier har beställts om."
 
-#: src/Backend/Categories.php:110
 msgid "Categories order has been successfully reset."
 msgstr "Ordern för kategorier har återställts."
 
-#: src/Backend/Categories.php:150
 msgid "The category has been successfully removed."
 msgstr "Kategorin har tagits bort."
 
-#: src/Backend/Categories.php:156
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "Poster har flyttats till den kategori du väljer."
 
-#: src/Backend/Categories.php:162 src/Backend/Category.php:195
 msgid "New category"
 msgstr "Ny kategori"
 
-#: src/Backend/Categories.php:167
 msgid "No category so far."
 msgstr "Ingen kategori hittills."
 
-#: src/Backend/Categories.php:189
 #, php-format
 msgid "%d entries"
 msgstr "%d poster"
 
-#: src/Backend/Categories.php:189
 #, php-format
 msgid "%d entry"
 msgstr "%d post"
 
-#: src/Backend/Categories.php:189
 msgid "total:"
 msgstr "totalt:"
 
-#: src/Backend/Categories.php:190 src/Backend/Category.php:254
-#: src/Backend/User.php:357 src/Backend/UserPreferences.php:550
 msgid "URL:"
 msgstr "URL:"
 
-#: src/Backend/Categories.php:197
 msgid "Move entries to"
 msgstr "Flytta poster till"
 
-#: src/Backend/Categories.php:211
 msgid "Delete category"
 msgstr "Ta bort kategori"
 
-#: src/Backend/Categories.php:229
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr "Flytta objekt genom att dra och släppa om du vill ordna kategorierna och klicka sedan på knappen ”Spara kategorier”."
 
-#: src/Backend/Categories.php:234
 msgid "Save categories order"
 msgstr "Spara kategoriordning"
 
-#: src/Backend/Categories.php:241
 msgid "Reorder all categories on the top level"
 msgstr "Ordna om alla kategorier på toppnivå"
 
-#: src/Backend/Category.php:79
 msgid "Top level"
 msgstr "Högsta nivå"
 
-#: src/Backend/Category.php:120 src/Backend/Category.php:132
 msgid "The category has been successfully moved"
 msgstr "Kategorin har flyttats"
 
-#: src/Backend/Category.php:165
 msgid "The category has been successfully updated."
 msgstr "Kategorin har uppdaterats."
 
-#: src/Backend/Category.php:180
 #, php-format
 msgid "The category \"%s\" has been successfully created."
 msgstr "Kategorin \"%s\" har skapats."
 
-#: src/Backend/Category.php:225
 msgid "Category has been successfully updated."
 msgstr "Kategorin har uppdaterats."
 
-#: src/Backend/Category.php:230
 msgid "Category information"
 msgstr "Kategori information"
 
-#: src/Backend/Category.php:231 src/Backend/Post.php:908
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/Backend/Category.php:258
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Varning: Om du anger webbadressen manuellt, kan det strida mot en annan kategori."
 
-#: src/Backend/Category.php:261
 msgid "Description:"
 msgstr "Beskrivning:"
 
-#: src/Backend/Category.php:282
 msgid "Move this category"
 msgstr "Flytta denna kategori"
 
-#: src/Backend/Category.php:293
 msgid "Category parent"
 msgstr "Kategori överordnad"
 
-#: src/Backend/Category.php:322
 msgid "Category sibling"
 msgstr "Kategori syskon"
 
-#: src/Backend/Category.php:324
 msgid "Move current category"
 msgstr "Flytta nuvarande kategori"
 
-#: src/Backend/Category.php:329
 msgid "before"
 msgstr "före"
 
-#: src/Backend/Category.php:330
 msgid "after"
 msgstr "efter"
 
-#: src/Backend/Category.php:332
 msgid "position: "
 msgstr "position: "
 
-#: src/Backend/Comment.php:70
 msgid "Entry does not exist."
 msgstr "Inlägget finns inte."
 
-#: src/Backend/Comment.php:89 src/Backend/Post.php:584
 msgid "Comment has been successfully created."
 msgstr "Kommentaren har skapats."
 
-#: src/Backend/Comment.php:178 src/Backend/Comment.php:238
 msgid "Comment has been successfully updated."
 msgstr "Kommentaren har uppdaterats."
 
-#: src/Backend/Comment.php:194
 msgid "Comment has been successfully deleted."
 msgstr "Kommentaren har tagits bort."
 
-#: src/Backend/Comment.php:202
 msgid "You can't edit this comment."
 msgstr "Du kan inte redigera denna kommentar."
 
-#: src/Backend/Comment.php:223 src/Backend/Comment.php:226
 msgid "Edit comment"
 msgstr "Redigera kommentar"
 
-#: src/Backend/Comment.php:244
 #, php-format
 msgid "Your comment on my blog %s"
 msgstr "Din kommentar på min blogg %s"
 
-#: src/Backend/Comment.php:245
 #, php-format
-msgid "Hi!\n\n"
+msgid ""
+"Hi!\n"
+"\n"
 "You wrote a comment on:\n"
-"%s\n\n\n"
-msgstr "Hej!\n\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+"Hej!\n"
+"\n"
 "Du skrev en kommentar på:\n"
-"%s\n\n\n"
+"%s\n"
+"\n"
+"\n"
 
-#: src/Backend/Comment.php:245
 msgid "Send an e-mail"
 msgstr "Skicka ett e-postmeddelande"
 
-#: src/Backend/Comment.php:251
 msgid "Information collected"
 msgstr "Insamlad information"
 
-#: src/Backend/Comment.php:260
 msgid "Date:"
 msgstr "Datum:"
 
-#: src/Backend/Comment.php:264
 msgid "Comment submitted"
 msgstr "Kommentar inskickad"
 
-#: src/Backend/Comment.php:292 src/Backend/Post.php:924
 msgid "Comment:"
 msgstr "Kommentar:"
 
-#: src/Backend/Comments.php:126
 msgid "Spam comments have been successfully deleted."
 msgstr "Skräppostkommentarer har tagits bort."
 
-#: src/Backend/Comments.php:137
 msgid "You have one spam comment."
 msgstr "Du har en spam-kommentar."
 
-#: src/Backend/Comments.php:138
 msgid "Show it."
 msgstr "Visa den."
 
-#: src/Backend/Comments.php:140
 #, php-format
 msgid "You have %s spam comments."
 msgstr "Du har %s spam kommentarer."
 
-#: src/Backend/Comments.php:141
 msgid "Show them."
 msgstr "Visa dem."
 
-#: src/Backend/Comments.php:148
 msgid "Delete all spams"
 msgstr "Ta bort alla spammar"
 
-#: src/Backend/Comments.php:171 src/Backend/Post.php:890
-#: src/Backend/Search.php:252
 msgid "Selected comments action:"
 msgstr "Valda kommentarer:"
 
-#: src/Backend/Home.php:120
 msgid "Documentation and support"
 msgstr "Dokumentation och support"
 
-#: src/Backend/Home.php:165
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Dashboard områdets dra och släpp är inaktiverat"
 
-#: src/Backend/Home.php:166
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Dashboard area dra och släpp är aktiverat"
 
-#: src/Backend/Home.php:179 src/Backend/Home.php:192
 msgid "Dashboard"
 msgstr "Instrumentpanel"
 
-#: src/Backend/Home.php:200
 msgid "Make this blog my default blog"
 msgstr "Gör den här bloggen till min standardblogg"
 
-#: src/Backend/Home.php:205
 msgid "This blog is offline"
 msgstr "Den här bloggen är offline"
 
-#: src/Backend/Home.php:208
 msgid "This blog is removed"
 msgstr "Den här bloggen har tagits bort"
 
-#: src/Backend/Home.php:214 src/Backend/Home.php:222
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s är inte definierad, du bör redigera din konfigurationsfil."
 
-#: src/Backend/Home.php:215 src/Backend/Home.php:223
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Se <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentation</a> för mer information."
 
-#: src/Backend/Home.php:232
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Cache-katalogen finns inte eller är inte skrivbar. Du måste skapa denna katalog med tillräckliga rättigheter och påverka den här platsen till \"DC_TPL_CACHE\" i ink/config.php-filen."
 
-#: src/Backend/Home.php:236
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Cache-katalogen finns inte eller är inte skrivbar. Du bör kontakta din administratör."
 
-#: src/Backend/Home.php:286
+msgid "Following plugins have been installed:"
+msgstr "Följande plugins har installerats:"
+
+msgid "Following plugins have not been installed:"
+msgstr "Följande plugins har inte installerats:"
+
 msgid "Errors have occured with following plugins:"
 msgstr "Fel har uppstått med följande pluginer:"
 
-#: src/Backend/Home.php:401
 msgid "Quick post"
 msgstr "Snabb inlägg"
 
-#: src/Backend/Home.php:411 src/Backend/Post.php:752
 msgid "Content:"
 msgstr "Innehåll:"
 
-#: src/Backend/Home.php:412 src/Backend/Post.php:759
 msgid "Content"
 msgstr "Innehåll"
 
-#: src/Backend/Home.php:420 src/Backend/Post.php:681
 msgid "Add a new category"
 msgstr "Lägg till en ny kategori"
 
-#: src/Backend/Home.php:426
 msgid "This category will be created when you will save your post."
 msgstr "Denna kategori kommer att skapas när du sparar ditt inlägg."
 
-#: src/Backend/Home.php:433
 msgid "Save and publish"
 msgstr "Spara och publicera"
 
-#: src/Backend/Langs.php:79
 msgid "Invalid language zip file."
 msgstr "Ogiltig zip-fil för språket."
 
-#: src/Backend/Langs.php:83
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "zip-filen verkar inte vara ett giltigt Dotclear språkpaket."
 
-#: src/Backend/Langs.php:92
 msgid "An error occurred during language upgrade."
 msgstr "Ett fel inträffade under språkuppgraderingen."
 
-#: src/Backend/Langs.php:107
 msgid "No such installed language"
 msgstr "Inget sådant installerat språk"
 
-#: src/Backend/Langs.php:111
 msgid "You can't remove English language."
 msgstr "Du kan inte ta bort engelska språket."
 
-#: src/Backend/Langs.php:115
 msgid "Permissions to delete language denied."
 msgstr "Behörigheter att ta bort språk nekas."
 
-#: src/Backend/Langs.php:118 src/Backend/Langs.php:216
 msgid "Language has been successfully deleted."
 msgstr "Språket har tagits bort."
 
-#: src/Backend/Langs.php:135
 msgid "Invalid language file URL."
 msgstr "Ogiltig språkfil URL."
 
-#: src/Backend/Langs.php:156 src/Backend/Langs.php:189
-#: src/Backend/Langs.php:220
 msgid "Language has been successfully upgraded"
 msgstr "Språket har uppgraderats"
 
-#: src/Backend/Langs.php:158 src/Backend/Langs.php:191
-#: src/Backend/Langs.php:220
 msgid "Language has been successfully installed."
 msgstr "Språket har installerats."
 
-#: src/Backend/Langs.php:205 src/Backend/Langs.php:210
 msgid "Languages management"
 msgstr "Hantering av språk"
 
-#: src/Backend/Langs.php:224
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Här kan du installera, uppgradera eller ta bort språk för din Dotclear installation."
 
-#: src/Backend/Langs.php:226
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Du kan ändra ditt användarspråk i dina <a href=\"%1$s\">inställningar</a> eller ändra din bloggs huvudspråk i dina <a href=\"%2$s\">blogginställningar</a>."
 
-#: src/Backend/Langs.php:232
 msgid "Installed languages"
 msgstr "Installerade språk"
 
-#: src/Backend/Langs.php:246
 msgid "No additional language is installed."
 msgstr "Inget ytterligare språk är installerat."
 
-#: src/Backend/Langs.php:251
 msgid "Language"
 msgstr "Språk"
 
-#: src/Backend/Langs.php:282
 msgid "Install or upgrade languages"
 msgstr "Installera eller uppgradera språk"
 
-#: src/Backend/Langs.php:285
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Du kan installera eller ta bort ett språk genom att lägga till eller ta bort relevant katalog i mappen %s."
 
-#: src/Backend/Langs.php:299
 msgid "Available languages"
 msgstr "Tillgängliga språk"
 
-#: src/Backend/Langs.php:300
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "Du kan ladda ner och installera ytterligare ett språk direkt från Dotclear.net. Föreslagna språk baseras på din version: %s."
 
-#: src/Backend/Langs.php:302 src/Backend/User.php:377
 msgid "Language:"
 msgstr "Språk:"
 
-#: src/Backend/Langs.php:313
 msgid "Install language"
 msgstr "Installera språk"
 
-#: src/Backend/Langs.php:324
 msgid "You can install languages by uploading zip files."
 msgstr "Du kan installera språk genom att ladda upp zip-filer."
 
-#: src/Backend/Langs.php:325
 msgid "Language zip file:"
 msgstr "Språk zip-fil:"
 
-#: src/Backend/Langs.php:336
 msgid "Upload language"
 msgstr "Ladda upp språk"
 
-#: src/Backend/LinkPopup.php:53 src/Backend/LinkPopup.php:55
 msgid "Add a link"
 msgstr "Lägg till en länk"
 
-#: src/Backend/LinkPopup.php:59
 msgid "Link URL:"
 msgstr "Länk URL:"
 
-#: src/Backend/LinkPopup.php:65
 msgid "Link title:"
 msgstr "Länk titel:"
 
-#: src/Backend/LinkPopup.php:67
 msgid "Link language:"
 msgstr "Länkspråk:"
 
-#: src/Backend/LinkPopup.php:74 src/Backend/MediaItem.php:729
 msgid "Insert"
 msgstr "Insert"
 
-#: src/Backend/Media.php:66
 msgid "Not a valid directory"
 msgstr "Inte en giltig katalog"
 
-#: src/Backend/Media.php:87
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "Katalog eller fil \"%s\" finns redan."
 
-#: src/Backend/Media.php:94
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Katalog \"%s\" har skapats"
 
-#: src/Backend/Media.php:148
 msgid "Files have been successfully uploaded."
 msgstr "Filer har laddats upp."
 
-#: src/Backend/Media.php:164
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "Radera ett media framgångsrikt."
 msgstr[1] "Radera %d media framgångsrikt."
 
-#: src/Backend/Media.php:184
 msgid "Directory has been successfully removed."
 msgstr "Katalogen har tagits bort."
 
-#: src/Backend/Media.php:188
 msgid "File has been successfully removed."
 msgstr "Filen har tagits bort."
 
-#: src/Backend/Media.php:209
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "Katalogen \"%s\" har slutförts."
 
-#: src/Backend/Media.php:221 src/Backend/PostMedia.php:98
 msgid "confirm removal"
 msgstr "bekräfta borttagning"
 
-#: src/Backend/Media.php:226
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Är du säker du vill ta bort %s?"
 
-#: src/Backend/Media.php:230 src/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "Ja"
 
-#: src/Backend/Media.php:268
 msgid "Remove this folder from your favorites"
 msgstr "Ta bort denna mapp från dina favoriter"
 
-#: src/Backend/Media.php:291
 msgid "Add this folder to your favorites"
 msgstr "Lägg till denna mapp till dina favoriter"
 
-#: src/Backend/Media.php:297
 msgid "Goto recent folder:"
 msgstr "Gå till ny mapp:"
 
-#: src/Backend/Media.php:327
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Du har inte tillräcklig behörighet för att skriva till den här mappen."
 
-#: src/Backend/Media.php:341
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Välj en fil genom att klicka på %s"
 
-#: src/Backend/Media.php:344 src/Backend/Media.php:410
 msgid "Choose selected medias"
 msgstr "Välj valda medier"
 
-#: src/Backend/Media.php:344
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Välj filer och klicka på <strong>%s</strong> knappen"
 
-#: src/Backend/Media.php:348 src/Backend/Media.php:361
-#: src/Backend/Media.php:374 src/Backend/MediaItem.php:745
 msgid "or"
 msgstr "eller"
 
-#: src/Backend/Media.php:348 src/Backend/Media.php:361
-#: src/Backend/Media.php:374
 msgid "upload a new file"
 msgstr "ladda upp en ny fil"
 
-#: src/Backend/Media.php:355
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Välj en fil att bifoga till post %s genom att klicka på %s"
 
-#: src/Backend/Media.php:369
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Välj en fil att infoga i posten genom att klicka på %s"
 
-#: src/Backend/Media.php:387 src/Backend/Media.php:388
 msgid "Grid display mode"
 msgstr "Rutnät visningsläge"
 
-#: src/Backend/Media.php:390 src/Backend/Media.php:391
 msgid "List display mode"
 msgstr "Visa visningsläge"
 
-#: src/Backend/Media.php:413
 msgid "Remove selected medias"
 msgstr "Ta bort valda medier"
 
-#: src/Backend/Media.php:440
 #, php-format
 msgid "In %s:"
 msgstr "I %s:"
 
-#: src/Backend/Media.php:452
 msgid "Create new directory"
 msgstr "Skapa ny katalog"
 
-#: src/Backend/Media.php:454
 msgid "Directory Name:"
 msgstr "Katalogens namn:"
 
-#: src/Backend/Media.php:467
 msgid "Build missing thumbnails in directory"
 msgstr "Bygg saknade miniatyrer i katalogen"
 
-#: src/Backend/Media.php:469
 msgid "Build"
 msgstr "Bygg"
 
-#: src/Backend/Media.php:479
 #, php-format
 msgid "Backup content of %s"
 msgstr "Säkerhetskopiera innehåll av %s"
 
-#: src/Backend/Media.php:483
 msgid "Download zip file"
 msgstr "Ladda ner zip-fil"
 
-#: src/Backend/Media.php:503
 msgid "Add files"
 msgstr "Lägg till filer"
 
-#: src/Backend/Media.php:504
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Var noga med att publicera media som du äger och som inte skyddas av upphovsrätten."
 
-#: src/Backend/Media.php:516
 msgid "Maximum file size allowed:"
 msgstr "Maximal filstorlek tillåten:"
 
-#: src/Backend/Media.php:519 src/Backend/MediaItem.php:1048
 msgid "Private"
 msgstr "Privat"
 
-#: src/Backend/Media.php:524
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "För att skicka flera filer samtidigt, kan du aktivera den förbättrade uppladdaren i"
 
-#: src/Backend/Media.php:529
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: src/Backend/Media.php:530
 msgid "Clear all"
 msgstr "Rensa alla"
 
-#: src/Backend/Media.php:562
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Aktuella inställningar för media och bilder definieras i %s"
 
-#: src/Backend/MediaItem.php:116
 msgid "Not a valid file"
 msgstr "Inte en giltig fil"
 
-#: src/Backend/MediaItem.php:155 src/Backend/MediaItem.php:210
-#: src/Backend/MediaItem.php:460
 msgid "File has been successfully updated."
 msgstr "Filen har uppdaterats."
 
-#: src/Backend/MediaItem.php:227 src/Backend/MediaItem.php:463
 msgid "Thumbnails have been successfully updated."
 msgstr "Miniatyrer har uppdaterats."
 
-#: src/Backend/MediaItem.php:244
 msgid "Zip file has been successfully extracted."
 msgstr "Zip-filen har extraherats framgångsrikt."
 
-#: src/Backend/MediaItem.php:274 src/Backend/MediaItem.php:466
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Standardinställningarna för media har uppdaterats."
 
-#: src/Backend/MediaItem.php:300
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Inställningarna för media har registrerats för den här mappen."
 
-#: src/Backend/MediaItem.php:311
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Inställningarna för media har tagits bort för den här mappen."
 
-#: src/Backend/MediaItem.php:485 src/Backend/MediaItem.php:486
 msgid "Select media item"
 msgstr "Välj medieobjekt"
 
-#: src/Backend/MediaItem.php:502 src/Backend/MediaItem.php:571
 msgid "Image size:"
 msgstr "Bildstorlek:"
 
-#: src/Backend/MediaItem.php:529
 msgid "Select"
 msgstr "Välj"
 
-#: src/Backend/MediaItem.php:553 src/Backend/MediaItem.php:554
 msgid "Insert media item"
 msgstr "Infoga medieobjekt"
 
-#: src/Backend/MediaItem.php:590
 msgid "Image legend and title"
 msgstr "Bildlegend och titel"
 
-#: src/Backend/MediaItem.php:612
 msgid "Title: "
 msgstr "Titel: "
 
-#: src/Backend/MediaItem.php:619
 msgid "Image alignment"
 msgstr "Bild justering"
 
-#: src/Backend/MediaItem.php:639
 msgid "Image insertion"
 msgstr "Bild insättning"
 
-#: src/Backend/MediaItem.php:642
 msgid "As a single image"
 msgstr "Som en enda bild"
 
-#: src/Backend/MediaItem.php:644
 msgid "As a link to the original image"
 msgstr "Som en länk till den ursprungliga bilden"
 
-#: src/Backend/MediaItem.php:652
 msgid "MP3 disposition"
 msgstr "MP3 disposition"
 
-#: src/Backend/MediaItem.php:653
 msgid "Please note that you cannot insert mp3 files with visual editor."
 msgstr "Observera att du inte kan infoga mp3-filer med visuell redigerare."
 
-#: src/Backend/MediaItem.php:681
 msgid "Please note that you cannot insert video files with visual editor."
 msgstr "Observera att du inte kan infoga videofiler med visuell redigerare."
 
-#: src/Backend/MediaItem.php:685
 msgid "Video size"
 msgstr "Video storlek"
 
-#: src/Backend/MediaItem.php:686
 msgid "Width:"
 msgstr "Bredd:"
 
-#: src/Backend/MediaItem.php:688
 msgid "Height:"
 msgstr "Höjd:"
 
-#: src/Backend/MediaItem.php:695
 msgid "Video disposition"
 msgstr "Video disposition"
 
-#: src/Backend/MediaItem.php:724
 msgid "Media item will be inserted as a link."
 msgstr "Medieobjektet kommer att infogas som en länk."
 
-#: src/Backend/MediaItem.php:744
 msgid "Make current settings as default"
 msgstr "Gör aktuella inställningar som standard"
 
-#: src/Backend/MediaItem.php:745
 msgid "For the blog"
 msgstr "För bloggen"
 
-#: src/Backend/MediaItem.php:746
 msgid "For this folder only"
 msgstr "Endast för denna mapp"
 
-#: src/Backend/MediaItem.php:755
 msgid "Settings exist for this folder:"
 msgstr "Det finns inställningar för denna mapp:"
 
-#: src/Backend/MediaItem.php:756
 msgid "Remove them"
 msgstr "Ta bort dem"
 
-#: src/Backend/MediaItem.php:775 src/Backend/MediaItem.php:778
-#: src/Backend/MediaItem.php:863
 msgid "Media details"
 msgstr "Media detaljer"
 
-#: src/Backend/MediaItem.php:810
 msgid "Available sizes:"
 msgstr "Tillgängliga storlekar:"
 
-#: src/Backend/MediaItem.php:839
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Backend/MediaItem.php:843 src/Backend/MediaItem.php:871
 msgid "Image width:"
 msgstr "Bildbredd:"
 
-#: src/Backend/MediaItem.php:844 src/Backend/MediaItem.php:872
 msgid "Image height:"
 msgstr "Bildens höjd:"
 
-#: src/Backend/MediaItem.php:847 src/Backend/MediaItem.php:876
 msgid "File size:"
 msgstr "Filstorlek:"
 
-#: src/Backend/MediaItem.php:848 src/Backend/MediaItem.php:877
 msgid "File URL:"
 msgstr "Filens URL:"
 
-#: src/Backend/MediaItem.php:865
 msgid "File owner:"
 msgstr "Filens ägare:"
 
-#: src/Backend/MediaItem.php:866
 msgid "File type:"
 msgstr "Typ av fil:"
 
-#: src/Backend/MediaItem.php:883
 msgid "Show entries containing this media"
 msgstr "Visa poster som innehåller detta media"
 
-#: src/Backend/MediaItem.php:886
 msgid "Entries containing this media"
 msgstr "Poster som innehåller detta media"
 
-#: src/Backend/MediaItem.php:916
 msgid "No entry seems contain this media."
 msgstr "Ingen post verkar innehålla detta media."
 
-#: src/Backend/MediaItem.php:925
 msgid "published"
 msgstr "publicerad"
 
-#: src/Backend/MediaItem.php:929
 msgid "unpublished"
 msgstr "opublicerad"
 
-#: src/Backend/MediaItem.php:933
 msgid "scheduled"
 msgstr "schemalagd"
 
-#: src/Backend/MediaItem.php:937
 msgid "pending"
 msgstr "väntande"
 
-#: src/Backend/MediaItem.php:954
 msgid "Image details"
 msgstr "Bild detaljer"
 
-#: src/Backend/MediaItem.php:969
 msgid "No detail"
 msgstr "Ingen detalj"
 
-#: src/Backend/MediaItem.php:976
 msgid "Updates and modifications"
 msgstr "Uppdateringar och ändringar"
 
-#: src/Backend/MediaItem.php:982 src/Backend/MediaItem.php:984
 msgid "Update thumbnails"
 msgstr "Uppdatera miniatyrer"
 
-#: src/Backend/MediaItem.php:983
 msgid "This will create or update thumbnails for this image."
 msgstr "Detta kommer att skapa eller uppdatera miniatyrer för denna bild."
 
-#: src/Backend/MediaItem.php:992 src/Backend/MediaItem.php:1000
 msgid "Extract in a new directory"
 msgstr "Extrahera i en ny katalog"
 
-#: src/Backend/MediaItem.php:993 src/Backend/MediaItem.php:1002
 msgid "Extract in current directory"
 msgstr "Extrahera i aktuell katalog"
 
-#: src/Backend/MediaItem.php:998
 msgid "Extract archive"
 msgstr "Extrahera arkiv"
 
-#: src/Backend/MediaItem.php:1001
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Detta kommer att extrahera arkiv i en ny katalog som inte borde finnas ännu."
 
-#: src/Backend/MediaItem.php:1003
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Detta kommer att extrahera arkiv i nuvarande katalog och skriva över befintliga filer eller kataloger."
 
-#: src/Backend/MediaItem.php:1005
 msgid "Extract mode:"
 msgstr "Extraheringsläge:"
 
-#: src/Backend/MediaItem.php:1007
 msgid "Extract"
 msgstr "Extrahera"
 
-#: src/Backend/MediaItem.php:1015
 msgid "Change media properties"
 msgstr "Ändra medieegenskaper"
 
-#: src/Backend/MediaItem.php:1016
 msgid "File name:"
 msgstr "Filens namn:"
 
-#: src/Backend/MediaItem.php:1018
 msgid "File title:"
 msgstr "Filens titel:"
 
-#: src/Backend/MediaItem.php:1031
 msgid "File description:"
 msgstr "Fil beskrivning:"
 
-#: src/Backend/MediaItem.php:1041
 msgid "File date:"
 msgstr "Datum för fil:"
 
-#: src/Backend/MediaItem.php:1049
 msgid "New directory:"
 msgstr "Ny katalog:"
 
-#: src/Backend/MediaItem.php:1057
 msgid "Change file"
 msgstr "Ändra fil"
 
-#: src/Backend/MediaItem.php:1059
 msgid "Choose a file:"
 msgstr "Välj en fil:"
 
-#: src/Backend/MediaItem.php:1060
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maximal storlek %s"
 
-#: src/Backend/MediaItem.php:1071
 msgid "Delete this media"
 msgstr "Ta bort detta media"
 
-#: src/Backend/Plugin.php:73
 msgid "No content found on this plugin."
 msgstr "Inget innehåll hittades på denna plugin."
 
-#: src/Backend/Plugin.php:123 src/Backend/Plugin.php:128
 msgid "Plugin not found"
 msgstr "Plugin hittades inte"
 
-#: src/Backend/Plugin.php:132
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Den plugin du har nått finns inte eller har ingen admin-sida."
 
-#: src/Backend/Plugins.php:125
 msgid "Manual checking of plugins update done successfully."
 msgstr "Manuell kontroll av plugins uppdatering har utförts."
 
-#: src/Backend/Plugins.php:131
 msgid "Force checking update of plugins"
 msgstr "Tvinga kontroll uppdatering av plugins"
 
-#: src/Backend/Plugins.php:138 src/Backend/Plugins.php:139
 msgid "Update plugins"
 msgstr "Uppdatera plugins"
 
-#: src/Backend/Plugins.php:141
 #, php-format
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] "Det finns en plugin för att uppdatera från utvecklingskatalogen."
 msgstr[1] "Det finns %s plugins att uppdatera från utvecklingskatalogen."
 
-#: src/Backend/Plugins.php:168 src/Backend/Plugins.php:177
 msgid "Installed plugins"
 msgstr "Installerade plugins"
 
-#: src/Backend/Plugins.php:177
 msgid "Activated plugins"
 msgstr "Aktiverade plugins"
 
-#: src/Backend/Plugins.php:180
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Du kan konfigurera och hantera installerade plugins från denna lista."
 
-#: src/Backend/Plugins.php:199
 msgid "Deactivated plugins"
 msgstr "Inaktiverade plugins"
 
-#: src/Backend/Plugins.php:200
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Inaktiverade plugins är installerade men inte användbara. Du kan aktivera dem härifrån."
 
-#: src/Backend/Plugins.php:225
 msgid "Add plugins"
 msgstr "Lägg till plugins"
 
-#: src/Backend/Plugins.php:226
 msgid "Add plugins from repository"
 msgstr "Lägg till plugins från utvecklingskatalogen"
 
-#: src/Backend/Plugins.php:256
 msgid "Add plugins from a package"
 msgstr "Lägg till plugins från ett paket"
 
-#: src/Backend/Plugins.php:257
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Du kan installera plugins genom att ladda upp eller ladda ner zip-filer."
 
-#: src/Backend/Plugins.php:271
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Vissa funktioner är inaktiverade, vänligen ge skrivåtkomst till din plugins katalog för att aktivera dem."
 
-#: src/Backend/Plugins.php:302
 msgid "Plugin configuration"
 msgstr "Plugin konfiguration"
 
-#: src/Backend/Post.php:134 src/Backend/Post.php:783 src/Backend/Post.php:788
 msgid "Edit post"
 msgstr "Redigera inlägg"
 
-#: src/Backend/Post.php:141
 msgid "This entry does not exist."
 msgstr "Denna post finns inte."
 
-#: src/Backend/Post.php:173
 msgid "Next entry"
 msgstr "Nästa inlägg"
 
-#: src/Backend/Post.php:188
 msgid "Previous entry"
 msgstr "Föregående post"
 
-#: src/Backend/Post.php:275 src/Backend/Post.php:587
 msgid "All pings sent."
 msgstr "Alla pings skickade."
 
-#: src/Backend/Post.php:305
 msgid "Invalid publication date"
 msgstr "Ogiltigt publiceringsdatum"
 
-#: src/Backend/Post.php:429
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Inlägget \"%s\" har uppdaterats"
 
-#: src/Backend/Post.php:503
 #, php-format
 msgid "&ldquo;%s&rdquo;"
 msgstr "&ldquo;%s&rdquo;"
 
-#: src/Backend/Post.php:574
 msgid "Entry has been successfully updated."
 msgstr "Inlägget har uppdaterats."
 
-#: src/Backend/Post.php:578
 msgid "File has been successfully attached."
 msgstr "Filen har bifogats."
 
-#: src/Backend/Post.php:580 src/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "Bilagan har tagits bort."
 
-#: src/Backend/Post.php:596
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Glöm inte att validera din XHTML konvertering genom att spara ditt inlägg."
 
-#: src/Backend/Post.php:601
 msgid "Go to this entry on the site"
 msgstr "Gå till denna post på sajten"
 
-#: src/Backend/Post.php:640
 msgid "Entry status"
 msgstr "Postens status"
 
-#: src/Backend/Post.php:647
 msgid "Publication date and hour"
 msgstr "Publiceringsdatum och timme"
 
-#: src/Backend/Post.php:653
 msgid "Entry language"
 msgstr "Postens språk"
 
-#: src/Backend/Post.php:657
 msgid "Text formatting"
 msgstr "Textformatering"
 
-#: src/Backend/Post.php:663
 msgid "Convert to HTML"
 msgstr "Konvertera till HTML"
 
-#: src/Backend/Post.php:667
 msgid "Filing"
 msgstr "Filering"
 
-#: src/Backend/Post.php:671
 msgid "Selected entry"
 msgstr "Vald post"
 
-#: src/Backend/Post.php:693 src/Backend/User.php:375
 msgid "Options"
 msgstr "Alternativ"
 
-#: src/Backend/Post.php:696
 msgid "Comments and trackbacks list"
 msgstr "Lista med kommentarer och trackbacks"
 
-#: src/Backend/Post.php:702
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr "Varning: Kommentarer är inte mer accepterade för denna post."
 
-#: src/Backend/Post.php:704
 msgid "Comments are not accepted on this blog so far."
 msgstr "Kommentarer accepteras inte på den här bloggen hittills."
 
-#: src/Backend/Post.php:710
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "Varning: Trackbacks är inte mer accepterat för denna post."
 
-#: src/Backend/Post.php:711
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Trackbacks accepteras inte på den här bloggen hittills."
 
-#: src/Backend/Post.php:717
 msgid "Edit basename"
 msgstr "Redigera basnamn"
 
-#: src/Backend/Post.php:721
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Varning: Om du anger webbadressen manuellt, kan det strida mot en annan post."
 
-#: src/Backend/Post.php:738
 msgid "Excerpt:"
 msgstr "Utdrag:"
 
-#: src/Backend/Post.php:739
 msgid "Introduction to the post."
 msgstr "Introduktion till inlägget."
 
-#: src/Backend/Post.php:764
 msgid "Personal notes:"
 msgstr "Personliga anteckningar:"
 
-#: src/Backend/Post.php:765
 msgid "Unpublished notes."
 msgstr "Opublicerade anteckningar."
 
-#: src/Backend/Post.php:815
 msgid "Preview"
 msgstr "Förhandsgranska"
 
-#: src/Backend/Post.php:869 src/Backend/Post.php:904
 msgid "Add a comment"
 msgstr "Lägg till en kommentar"
 
-#: src/Backend/Post.php:968
 msgid "Trackbacks received"
 msgstr "Trackbacks mottagna"
 
-#: src/Backend/Post.php:974
 msgid "No trackback"
 msgstr "Ingen trackback"
 
-#: src/Backend/Post.php:982
 msgid "Selected trackbacks action:"
 msgstr "Valda trackbacks åtgärd:"
 
-#: src/Backend/Post.php:999 src/Backend/Post.php:1010
 msgid "Ping blogs"
 msgstr "Pinga bloggar"
 
-#: src/Backend/Post.php:1001
 msgid "URLs to ping:"
 msgstr "Webbadresser att ping:"
 
-#: src/Backend/Post.php:1005
 msgid "Excerpt to send:"
 msgstr "Utdrag att skicka:"
 
-#: src/Backend/Post.php:1011
 msgid "Auto discover ping URLs"
 msgstr "Upptäcka automatiskt ping webbadresser"
 
-#: src/Backend/Post.php:1019
 msgid "Previously sent pings"
 msgstr "Tidigare skickade pingar"
 
-#: src/Backend/Post.php:1135
 msgid "select this comment"
 msgstr "välj denna kommentar"
 
-#: src/Backend/Post.php:1135
 msgid "select this trackback"
 msgstr "välj denna trackback"
 
-#: src/Backend/Post.php:1150
 msgid "Edit this comment"
 msgstr "Redigera denna kommentar"
 
-#: src/Backend/PostMedia.php:75
 msgid "This attachment does not exist"
 msgstr "Denna bilaga finns inte"
 
-#: src/Backend/PostMedia.php:96
 msgid "Remove attachment"
 msgstr "Ta bort bilaga"
 
-#: src/Backend/PostMedia.php:98
 msgid "Attachment"
 msgstr "Bilaga"
 
-#: src/Backend/PostMedia.php:107
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Är du säker på att du vill ta bort denna bilaga?"
 
-#: src/Backend/Posts.php:92
 msgid "Selected entries have been successfully updated."
 msgstr "Valda poster har uppdaterats."
 
-#: src/Backend/Posts.php:94
 msgid "Selected entries have been successfully deleted."
 msgstr "Valda poster har tagits bort."
 
-#: src/Backend/Posts.php:114 src/Backend/Search.php:197
 msgid "Selected entries action:"
 msgstr "Åtgärd för valda poster:"
 
-#: src/Backend/PostsPopup.php:79 src/Backend/PostsPopup.php:86
 msgid "Add a link to an entry"
 msgstr "Lägg till en länk till en post"
 
-#: src/Backend/PostsPopup.php:90
 msgid "Entry type:"
 msgstr "Typ av post:"
 
-#: src/Backend/PostsPopup.php:91
 msgid "Ok"
 msgstr "OK"
 
-#: src/Backend/PostsPopup.php:97
 msgid "Search entry:"
 msgstr "Sök post:"
 
-#: src/Backend/PostsPopup.php:119
 msgid "cancel"
 msgstr "avbryt"
 
-#: src/Backend/Rest.php:105
 msgid "Dotclear news not available"
 msgstr "Dotclear nyheter är inte tillgängliga"
 
-#: src/Backend/Rest.php:118
 msgid "Dotclear news"
 msgstr "Dotclear nyheter"
 
-#: src/Backend/Rest.php:126
 msgid "%d %B %Y:"
 msgstr "%d %B %Y:"
 
-#: src/Backend/Rest.php:151
 msgid "Dotclear update not available"
 msgstr "Dotclear uppdateringen är inte tillgänglig"
 
-#: src/Backend/Rest.php:161
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclear %s är tillgänglig!"
 
-#: src/Backend/Rest.php:162
 msgid "Upgrade now"
 msgstr "Uppgradera nu"
 
-#: src/Backend/Rest.php:163
 msgid "Remind me later"
 msgstr "Påminn mig senare"
 
-#: src/Backend/Rest.php:165 src/Backend/Update.php:277
-#: src/Backend/Update.php:278
 msgid "Information about this version"
 msgstr "Information om den här versionen"
 
-#: src/Backend/Rest.php:166 src/Backend/Update.php:286
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "Denna uppdatering kan potentiellt kräva vissa försiktighetsåtgärder, du bör noggrant läsa den information som är associerad med denna utgåva (se ovan)."
 
-#: src/Backend/Rest.php:171
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "En ny version av Dotclear är tillgänglig men behöver PHP-version ≥ %s, din är för närvarande %s"
 
-#: src/Backend/Rest.php:183 src/Backend/Update.php:261
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Nästa versioner av Dotclear stöder inte PHP-version < %s, din nuvarande %s"
 
-#: src/Backend/Rest.php:206
 msgid "No updates are available"
 msgstr "Inga uppdateringar är tillgängliga"
 
-#: src/Backend/Rest.php:239
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "En uppdatering är tillgänglig"
 msgstr[1] "%s uppdateringar är tillgängliga."
 
-#: src/Backend/Rest.php:722
 msgid "List options saved"
 msgstr "Listalternativ sparade"
 
-#: src/Backend/Search.php:107
 msgid "Search options"
 msgstr "Sök alternativ"
 
-#: src/Backend/Search.php:108
 msgid "Query:"
 msgstr "Fråga:"
 
-#: src/Backend/Search.php:110
 msgid "In:"
 msgstr "I:"
 
-#: src/Backend/Search.php:127
 msgid "No results found"
 msgstr "Inga resultat hittades"
 
-#: src/Backend/Search.php:139
 msgid "Search in entries"
 msgstr "Sök i poster"
 
-#: src/Backend/Search.php:140
 msgid "Search in comments"
 msgstr "Sök i kommentarer"
 
-#: src/Backend/Search.php:184
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "en post hittad"
 msgstr[1] "%d poster hittade"
 
-#: src/Backend/Search.php:239
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "en kommentar hittad"
 msgstr[1] "%d kommentarer hittade"
 
-#: src/Backend/Update.php:38 src/Backend/Update.php:43
-#: src/Backend/Update.php:57 src/Backend/Update.php:62
-#: src/Backend/Update.php:235 src/Backend/Update.php:243
-#: src/Backend/Update.php:254
 msgid "Dotclear update"
 msgstr "Dotclear uppdatering"
 
-#: src/Backend/Update.php:48 src/Backend/Update.php:67
 msgid "Precheck update error"
 msgstr "Precheck uppdateringsfel"
 
-#: src/Backend/Update.php:49
 msgid "Backup directory does not exist"
 msgstr "Säkerhetskopian finns inte"
 
-#: src/Backend/Update.php:68
 msgid "Access denied"
 msgstr "Åtkomst nekad"
 
-#: src/Backend/Update.php:125
 #, php-format
 msgid "Unable to delete file %s"
 msgstr "Det går inte att ta bort filen %s"
 
-#: src/Backend/Update.php:157
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "Det nedladdade Dotclear arkivet verkar vara skadat. Försök <a %s>ladda ner det</a> igen."
 
-#: src/Backend/Update.php:161
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Om problemet kvarstår, försök att <a href=\"https://dotclear.org/download\">uppdatera manuellt</a>."
 
-#: src/Backend/Update.php:197
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Följande filer för din Dotclear installation har ändrats så vi kommer inte att försöka uppdatera din installation. Försök att <a href=\"https://dotclear.org/download\">uppdatera manuellt</a>."
 
-#: src/Backend/Update.php:200
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Följande filer för din Dotclear installation är inte läsbara. Vänligen åtgärda detta eller försök att göra en säkerhetskopia som heter %s manuellt."
 
-#: src/Backend/Update.php:204
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Följande filer för din Dotclear installation kan inte skrivas. Vänligen åtgärda detta eller försök att <a href=\"https://dotclear.org/download\">uppdatera manuellt</a>."
 
-#: src/Backend/Update.php:249
 msgid "Manual checking of update done successfully."
 msgstr "Manuell kontroll av uppdateringen har utförts."
 
-#: src/Backend/Update.php:269
 msgid "No newer Dotclear version available."
 msgstr "Ingen nyare Dotclear version tillgänglig."
 
-#: src/Backend/Update.php:272
 msgid "Force checking update Dotclear"
 msgstr "Tvinga kontroll uppdatering Dotclear"
 
-#: src/Backend/Update.php:276
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s är tillgänglig."
 
-#: src/Backend/Update.php:282
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP-versionen är %s (%s eller tidigare behövs)."
 
-#: src/Backend/Update.php:289
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "För att uppgradera din Dotclear installation klickar du bara på följande knapp. En säkerhetskopieringsfil för din nuvarande installation kommer att skapas i din rotkatalog."
 
-#: src/Backend/Update.php:292
 msgid "Update Dotclear"
 msgstr "Uppdatera Dotclear"
 
-#: src/Backend/Update.php:302
 msgid "Manage backup files"
 msgstr "Hantera säkerhetskopierade filer"
 
-#: src/Backend/Update.php:305
 msgid "Update backup files"
 msgstr "Uppdatera säkerhetskopierade filer"
 
-#: src/Backend/Update.php:306
 msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
 msgstr "Följande filer är säkerhetskopior av tidigare uppdateringar. Du kan återställa din tidigare installation eller ta bort avhandlingsfiler."
 
-#: src/Backend/Update.php:317
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
 msgstr "Observera att återgå till din Dotclear version kan ha några oönskade biverkningar. Överväg att återgå endast om du upplever starka problem med denna nya version."
 
-#: src/Backend/Update.php:318
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
 msgstr "Du bör inte återgå till version före den senaste (%s)."
 
-#: src/Backend/Update.php:319
 msgid "Delete selected file"
 msgstr "Ta bort vald fil"
 
-#: src/Backend/Update.php:320
 msgid "Revert to selected file"
 msgstr "Återgå till vald fil"
 
-#: src/Backend/Update.php:330
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "Grattis, du är ett klick bort från slutet av uppdateringen."
 
-#: src/Backend/Update.php:331
 msgid "Finish the update."
 msgstr "Slutför uppdateringen."
 
-#: src/Backend/User.php:34 src/Backend/Users.php:110
 msgid "New user"
 msgstr "Ny användare"
 
-#: src/Backend/User.php:169 src/Backend/User.php:239
-#: src/Backend/UsersActions.php:130
 msgid "User has been successfully updated."
 msgstr "Användaren har uppdaterats."
 
-#: src/Backend/User.php:175
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr "Användaren \"%s\" finns redan."
 
-#: src/Backend/User.php:199 src/Backend/User.php:243
 msgid "User has been successfully created."
 msgstr "Användaren har skapats."
 
-#: src/Backend/User.php:200
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "Användaren har ingen behörighet, han kommer inte att kunna logga in än. Se nedan för att lägga till några."
 
-#: src/Backend/User.php:251
 msgid "User profile"
 msgstr "Användarprofil"
 
-#: src/Backend/User.php:253
 msgid "User ID:"
 msgstr "Användar-ID:"
 
-#: src/Backend/User.php:256
 msgid "Login"
 msgstr "Inloggning"
 
-#: src/Backend/User.php:264
 msgid "Warning:"
 msgstr "Varning:"
 
-#: src/Backend/User.php:265
 msgid "If you change your username, you will have to log in again."
 msgstr "Om du ändrar ditt användarnamn måste du logga in igen."
 
-#: src/Backend/User.php:302
 msgid "Password change required to connect"
 msgstr "Lösenordsändring krävs för att ansluta"
 
-#: src/Backend/User.php:334 src/Backend/UserPreferences.php:529
+msgid "Last Name:"
+msgstr "Efternamn:"
+
+msgid "First Name:"
+msgstr "Förnamn:"
+
 msgid "Display name:"
 msgstr "Visa namn:"
 
-#: src/Backend/User.php:348
 msgid "Mandatory for password recovering procedure."
 msgstr "Obligatoriskt för att återställa lösenordet."
 
-#: src/Backend/User.php:350 src/Backend/UserPreferences.php:543
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternativa e-postmeddelanden (kommaseparerad lista):"
 
-#: src/Backend/User.php:355 src/Backend/UserPreferences.php:548
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Ogiltiga e-postmeddelanden kommer automatiskt tas bort från listan."
 
-#: src/Backend/User.php:365 src/Backend/UserPreferences.php:558
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternativa URL:er (kommaseparerad lista):"
 
-#: src/Backend/User.php:370 src/Backend/UserPreferences.php:563
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Ogiltiga URL:er kommer automatiskt tas bort från listan."
 
-#: src/Backend/User.php:376 src/Backend/UserPreferences.php:622
 msgid "Interface"
 msgstr "Gränsgränssnitt"
 
-#: src/Backend/User.php:381
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Backend/User.php:385 src/Backend/UserPreferences.php:738
 msgid "Edition"
 msgstr "Upplaga"
 
-#: src/Backend/User.php:386 src/Backend/UserPreferences.php:752
 msgid "Preferred format:"
 msgstr "Föredraget format:"
 
-#: src/Backend/User.php:390 src/Backend/UserPreferences.php:755
 msgid "Default entry status:"
 msgstr "Standard poststatus:"
 
-#: src/Backend/User.php:394 src/Backend/UserPreferences.php:758
 msgid "Entry edit field height:"
 msgstr "Ändra fälthöjd i posten:"
 
-#: src/Backend/User.php:418
 msgid "Save and create another"
 msgstr "Spara och skapa en annan"
 
-#: src/Backend/User.php:429 src/Backend/UsersActions.php:146
 msgid "Permissions"
 msgstr "Behörigheter"
 
-#: src/Backend/User.php:434
 msgid "Add new permissions"
 msgstr "Lägg till nya behörigheter"
 
-#: src/Backend/User.php:447
 msgid "No permissions so far."
 msgstr "Inga behörigheter hittills."
 
-#: src/Backend/User.php:480
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s är superadministratör (alla rättigheter på alla bloggar)."
 
-#: src/Backend/User.php:488
 msgid "Direct links"
 msgstr "Direktlänkar"
 
-#: src/Backend/User.php:492
 msgid "List of posts"
 msgstr "Lista över inlägg"
 
-#: src/Backend/User.php:502
 msgid "List of comments"
 msgstr "Lista över kommentarer"
 
-#: src/Backend/UserPreferences.php:117
 msgid "Light"
 msgstr "Ljus"
 
-#: src/Backend/UserPreferences.php:118
 msgid "Dark"
 msgstr "Mörk"
 
-#: src/Backend/UserPreferences.php:119
 msgid "Automatic"
 msgstr "Automatisk"
 
-#: src/Backend/UserPreferences.php:124
 msgid "Smallest"
 msgstr "Minsta"
 
-#: src/Backend/UserPreferences.php:125
 msgid "Smaller"
 msgstr "Mindre"
 
-#: src/Backend/UserPreferences.php:127
 msgid "Larger"
 msgstr "Större"
 
-#: src/Backend/UserPreferences.php:128
 msgid "Largest"
 msgstr "Största"
 
-#: src/Backend/UserPreferences.php:140
 msgid "Blog description (in blog parameters)"
 msgstr "Blogg beskrivning (i bloggparametrar)"
 
-#: src/Backend/UserPreferences.php:141
 msgid "Category description"
 msgstr "Kategori beskrivning"
 
-#: src/Backend/UserPreferences.php:182 src/Backend/UserPreferences.php:199
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Om du vill ändra din e-postadress eller ditt lösenord måste du ange ditt nuvarande lösenord."
 
-#: src/Backend/UserPreferences.php:230
 msgid "Personal information has been successfully updated."
 msgstr "Personlig information har uppdaterats."
 
-#: src/Backend/UserPreferences.php:341
 msgid "Personal options has been successfully updated."
 msgstr "Personliga alternativ har uppdaterats."
 
-#: src/Backend/UserPreferences.php:368
 msgid "Dashboard options has been successfully updated."
 msgstr "Instrumentpanelens alternativ har uppdaterats."
 
-#: src/Backend/UserPreferences.php:380 src/Backend/UserPreferences.php:404
 msgid "No favorite selected"
 msgstr "Ingen favorit vald"
 
-#: src/Backend/UserPreferences.php:391
 msgid "Favorites have been successfully added."
 msgstr "Favoriter har lagts till."
 
-#: src/Backend/UserPreferences.php:417
 msgid "Favorites have been successfully removed."
 msgstr "Favoriter har tagits bort."
 
-#: src/Backend/UserPreferences.php:447
 msgid "Favorites have been successfully updated."
 msgstr "Favoriter har uppdaterats."
 
-#: src/Backend/UserPreferences.php:459
 msgid "Default favorites have been successfully updated."
 msgstr "Standardfavoriter har uppdaterats."
 
-#: src/Backend/UserPreferences.php:473
 msgid "Dashboard items order have been successfully reset."
 msgstr "Ordning för översiktsposter har återställts."
 
-#: src/Backend/UserPreferences.php:510 src/Backend/UserPreferences.php:512
 msgid "My profile"
 msgstr "Min profil"
 
-#: src/Backend/UserPreferences.php:565
 msgid "Language for my interface:"
 msgstr "Språk för mitt gränssnitt:"
 
-#: src/Backend/UserPreferences.php:568
 msgid "My timezone:"
 msgstr "Min tidszon:"
 
-#: src/Backend/UserPreferences.php:573
 msgid "Change my password"
 msgstr "Ändra mitt lösenord"
 
-#: src/Backend/UserPreferences.php:583
 msgid "Confirm new password:"
 msgstr "Bekräfta nytt lösenord:"
 
-#: src/Backend/UserPreferences.php:591
 msgid "Your current password:"
 msgstr "Ditt nuvarande lösenord:"
 
-#: src/Backend/UserPreferences.php:602
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Om du har ändrat din e-post eller lösenord måste du ange ditt nuvarande lösenord för att spara dessa ändringar."
 
-#: src/Backend/UserPreferences.php:608
 msgid "Update my profile"
 msgstr "Uppdatera min profil"
 
-#: src/Backend/UserPreferences.php:616 src/Backend/UserPreferences.php:619
 msgid "My options"
 msgstr "Mina alternativ"
 
-#: src/Backend/UserPreferences.php:624
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Backend/UserPreferences.php:629
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktivera förbättrad uppladdning i mediehanteraren"
 
-#: src/Backend/UserPreferences.php:633
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Förhandsgranska posten som redigeras i ett tomt fönster eller flik (beroende på webbläsarens inställningar)."
 
-#: src/Backend/UserPreferences.php:637
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Inaktivera javascript powered dra och släpp för att beställa objekt"
 
-#: src/Backend/UserPreferences.php:638
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Om markerad, kommer numeriska fält att tillåta att ange elementens beställningsnummer."
 
-#: src/Backend/UserPreferences.php:642
 msgid "Hide all secondary information and notes"
 msgstr "Dölj all sekundär information och anteckningar"
 
-#: src/Backend/UserPreferences.php:646
 msgid "Hide help button"
 msgstr "Dölj hjälpknappen"
 
-#: src/Backend/UserPreferences.php:650
 msgid "Show asynchronous requests indicator"
 msgstr "Visa indikator för asynkron förfrågningar"
 
-#: src/Backend/UserPreferences.php:652
 msgid "Font size:"
 msgstr "Teckenstorlek:"
 
-#: src/Backend/UserPreferences.php:657
 msgid "Use operating system font"
 msgstr "Använd operativsystemets typsnitt"
 
-#: src/Backend/UserPreferences.php:659
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Antal nya mappar som föreslagits i mediehanterare:"
 
-#: src/Backend/UserPreferences.php:661
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Lämna tomt för att ignorera, visas endast om Javascript är aktiverat i din webbläsare."
 
-#: src/Backend/UserPreferences.php:667
 msgid "Do not use standard favicon"
 msgstr "Använd inte standard favicon"
 
-#: src/Backend/UserPreferences.php:668
 msgid "This will be applied for all users"
 msgstr "Detta kommer att tillämpas för alla användare"
 
-#: src/Backend/UserPreferences.php:675
 msgid "Disable Ad-blocker check"
 msgstr "Inaktivera annonsblockeringskontroll"
 
-#: src/Backend/UserPreferences.php:676
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Vissa reklamblockerare (Ghostery, Adblock plus, uBloc ursprung, …) kan störa vissa funktioner som att infoga länk eller media i poster med CKEditor; i detta fall bör du inaktivera det för denna Dotclear installation (endast backend). Observera att Dotclear inte lägga till annonser ot trackers i backend."
 
-#: src/Backend/UserPreferences.php:681
 msgid "Optional columns displayed in lists"
 msgstr "Valfria kolumner som visas i listor"
 
-#: src/Backend/UserPreferences.php:700
 msgid "Options for lists"
 msgstr "Alternativ för listor"
 
-#: src/Backend/UserPreferences.php:703
 msgid "Apply filters on the fly"
 msgstr "Tillämpa filter i farten"
 
-#: src/Backend/UserPreferences.php:743
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Föredragen redigerare för %s:"
 
-#: src/Backend/UserPreferences.php:746
 msgid "Choose an editor"
 msgstr "Välj en redigerare"
 
-#: src/Backend/UserPreferences.php:763
 msgid "Enable WYSIWYG mode"
 msgstr "Aktivera WYSIWYG-läge"
 
-#: src/Backend/UserPreferences.php:767
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Visa redigerarens verktygsfält längst ner i textområdet (om möjligt)"
 
-#: src/Backend/UserPreferences.php:773
 msgid "Use HTML editor for:"
 msgstr "Använd HTML-redigerare för:"
 
-#: src/Backend/UserPreferences.php:783
 msgid "Other options"
 msgstr "Andra alternativ"
 
-#: src/Backend/UserPreferences.php:791
 msgid "Save my options"
 msgstr "Spara mina alternativ"
 
-#: src/Backend/UserPreferences.php:829
 #, php-format
 msgid "position of %s"
 msgstr "position %s"
 
-#: src/Backend/UserPreferences.php:846
 msgid "Save order"
 msgstr "Spara beställning"
 
-#: src/Backend/UserPreferences.php:849
 msgid "Delete selected favorites"
 msgstr "Ta bort valda favoriter"
 
-#: src/Backend/UserPreferences.php:851
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Är du säker på att du vill ta bort valda favoriter?"
 
-#: src/Backend/UserPreferences.php:856
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Om du är en superadministratör kan du definiera denna uppsättning favoriter som ska användas som standard på alla bloggar för denna installation."
 
-#: src/Backend/UserPreferences.php:857
 msgid "Define as default favorites"
 msgstr "Definiera som standardfavoriter"
 
-#: src/Backend/UserPreferences.php:864
 msgid "Currently no personal favorites."
 msgstr "För närvarande inga personliga favoriter."
 
-#: src/Backend/UserPreferences.php:878
 msgid "Other available favorites"
 msgstr "Andra tillgängliga favoriter"
 
-#: src/Backend/UserPreferences.php:906
 msgid "(default favorite)"
 msgstr "(standard favorit)"
 
-#: src/Backend/UserPreferences.php:917
 msgid "Add to my favorites"
 msgstr "Lägg till i mina favoriter"
 
-#: src/Backend/UserPreferences.php:926
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Backend/UserPreferences.php:929
 msgid "Display favorites at the top of the menu"
 msgstr "Visa favoriter högst upp på menyn"
 
-#: src/Backend/UserPreferences.php:932
 msgid "Dashboard icons"
 msgstr "Instrumentpanel ikoner"
 
-#: src/Backend/UserPreferences.php:935
 msgid "Display dashboard icons"
 msgstr "Visa ikoner för instrumentpanelen"
 
-#: src/Backend/UserPreferences.php:939
 msgid "Dashboard modules"
 msgstr "Dashboard moduler"
 
-#: src/Backend/UserPreferences.php:943
 msgid "Display documentation links"
 msgstr "Visa dokumentationslänkar"
 
-#: src/Backend/UserPreferences.php:947
 msgid "Display Dotclear news"
 msgstr "Visa Dotclear nyheter"
 
-#: src/Backend/UserPreferences.php:951
 msgid "Display quick entry form"
 msgstr "Visa snabbformulär"
 
-#: src/Backend/UserPreferences.php:957
 msgid "Do not display Dotclear updates"
 msgstr "Visa inte Dotclear uppdateringar"
 
-#: src/Backend/UserPreferences.php:970
 msgid "Save my dashboard options"
 msgstr "Spara mina alternativ för instrumentpanelen"
 
-#: src/Backend/UserPreferences.php:977
 msgid "Dashboard items order"
 msgstr "Ordning för översiktsposter"
 
-#: src/Backend/UserPreferences.php:980
 msgid "Reset dashboard items order"
 msgstr "Återställ ordning på kontrollpanelens objekt"
 
-#: src/Backend/Users.php:32 src/Backend/UsersActions.php:259
 msgid "Set permissions"
 msgstr "Ställ in behörigheter"
 
-#: src/Backend/Users.php:104
 msgid "User has been successfully removed."
 msgstr "Användaren har tagits bort."
 
-#: src/Backend/Users.php:107
 msgid "The permissions have been successfully updated."
 msgstr "Behörigheterna har uppdaterats."
 
-#: src/Backend/Users.php:126
 msgid "Selected users action:"
 msgstr "Åtgärd för utvalda användare:"
 
-#: src/Backend/UsersActions.php:76
 msgid "No blog or user given."
 msgstr "Ingen blogg eller användare angiven."
 
-#: src/Backend/UsersActions.php:87
 msgid "You cannot delete yourself."
 msgstr "Du kan inte ta bort dig själv."
 
-#: src/Backend/UsersActions.php:99
 msgid "User has been successfully deleted."
 msgstr "Användaren har tagits bort."
 
-#: src/Backend/UsersActions.php:188
 msgid "Back to user profile"
 msgstr "Tillbaka till användarprofil"
 
-#: src/Backend/UsersActions.php:213
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Välj en eller flera bloggar som du vill ge användare %s behörighet."
 
-#: src/Backend/UsersActions.php:227
 msgid "Entries"
 msgstr "Poster"
 
-#: src/Backend/UsersActions.php:243
 msgid "select"
 msgstr "välj"
 
-#: src/Backend/UsersActions.php:280
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Du håller på att ändra behörigheter på följande bloggar för användare %s."
 
-#: src/Backend/UsersActions.php:328
 msgid "Validate permissions"
 msgstr "Validera behörigheter"
 
-#: src/Database/Statement/DeleteStatement.php:34
 msgid "SQL DELETE requires a FROM source"
 msgstr "SQL DELETE kräver en FROM-källa"
 
-#: src/Database/Statement/DropStatement.php:34
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr "SQL DROP TABLE kräver en FROM-källa"
 
-#: src/Database/Statement/InsertStatement.php:129
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT kräver en INTO-källa"
 
-#: src/Database/Statement/JoinStatement.php:93
 msgid "SQL JOIN requires a FROM source"
 msgstr "SQL JOIN kräver en FROM-källa"
 
-#: src/Database/Statement/SelectStatement.php:242
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT kräver en FROM-källa"
 
-#: src/Database/Statement/TruncateStatement.php:34
 msgid "SQL TRUNCATE TABLE requires a FROM source"
 msgstr "SQL TRUNCATE TABLE kräver en FROM-källa"
 
-#: src/Database/Statement/UpdateStatement.php:195
 msgid "SQL UPDATE requires a FROM source"
 msgstr "SQL UPDATE kräver en FROM-källa"
 
-#: src/Helper/Diff/Diff.php:247
 msgid "Bad range"
 msgstr "Bad range"
 
-#: src/Helper/Diff/Diff.php:251 src/Helper/Diff/Diff.php:322
 msgid "Invalid range"
 msgstr "Invalid range"
 
-#: src/Helper/Diff/Diff.php:259 src/Helper/Diff/Diff.php:329
 msgid "Invalid line number"
 msgstr "Ogiltigt radnummer"
 
-#: src/Helper/Diff/Diff.php:263 src/Helper/Diff/Diff.php:297
-#: src/Helper/Diff/Diff.php:333 src/Helper/Diff/Diff.php:367
 msgid "Chunk is out of range"
 msgstr "Chunk är utanför giltigt intervall"
 
-#: src/Helper/Diff/Diff.php:272
 msgid "Bad context"
 msgstr "Felaktig kontext"
 
-#: src/Helper/Diff/Diff.php:286
 msgid "Bad context (in deletion)"
 msgstr "Dålig kontext (i radering)"
 
-#: src/Helper/Diff/Diff.php:292 src/Helper/Diff/Diff.php:362
 msgid "Invalid diff format"
 msgstr "Ogiltigt diff-format"
 
-#: src/Helper/File/Files.php:180 src/Helper/File/Files.php:535
 msgid "Unable to open directory."
 msgstr "Det går inte att öppna katalogen."
 
-#: src/Helper/File/Files.php:356
 msgid "Unable to create directory."
 msgstr "Kunde inte skapa katalog."
 
-#: src/Helper/File/Files.php:399
 msgid "File is not writable."
 msgstr "Filen är inte skrivbar."
 
-#: src/Helper/File/Files.php:405
 msgid "Unable to open file."
 msgstr "Kunde inte öppna filen."
 
-#: src/Helper/File/Files.php:477
 msgid "Not an uploaded file."
 msgstr "Inte en uppladdad fil."
 
-#: src/Helper/File/Files.php:485
 msgid "The uploaded file exceeds the maximum file size allowed."
 msgstr "Den uppladdade filen överskrider den tillåtna maximala filstorleken."
 
-#: src/Helper/File/Files.php:487
 msgid "The uploaded file was only partially uploaded."
 msgstr "Den uppladdade filen laddades bara delvis upp."
 
-#: src/Helper/File/Files.php:489
 msgid "No file was uploaded."
 msgstr "Ingen fil laddades upp."
 
-#: src/Helper/File/Files.php:491
 msgid "Missing a temporary folder."
 msgstr "Saknar en temporär mapp."
 
-#: src/Helper/File/Files.php:493
 msgid "Failed to write file to disk."
 msgstr "Det gick inte att skriva filen till disken."
 
-#: src/Helper/File/Files.php:495
 msgid "A PHP extension stopped the file upload."
 msgstr "Ett PHP-tillägg stoppade filuppladdningen."
 
-#: src/Helper/File/Files.php:528
 #, php-format
 msgid "%s is not a directory."
 msgstr "%s är inte en katalog."
 
-#: src/Helper/File/Files.php:581
 msgid "Can't get file path"
 msgstr "Kan inte hämta sökväg"
 
-#: src/Helper/File/Files.php:588
 msgid "Can't lock a directory"
 msgstr "Kan inte låsa en katalog"
 
-#: src/Helper/File/Files.php:600
 msgid "Can't call php function named flock"
 msgstr "Kan inte anropa php-funktionen som heter flock"
 
-#: src/Helper/File/Files.php:614
 msgid "Can't create file"
 msgstr "Kan inte skapa fil"
 
-#: src/Helper/File/Files.php:624
 msgid "Can't open file"
 msgstr "Kan inte öppna fil"
 
-#: src/Helper/File/Files.php:632
 msgid "Can't lock file"
 msgstr "Kan inte låsa fil"
 
-#: src/Helper/File/Files.php:654 src/Helper/File/Manager.php:492
-#: src/Helper/File/Manager.php:496
 msgid "File cannot be removed."
 msgstr "Filen kan inte tas bort."
 
-#: src/Helper/File/Image/ImageTools.php:177
 msgid "Not enough memory to open image."
 msgstr "Inte tillräckligt med minne för att öppna bilden."
 
-#: src/Helper/File/Manager.php:345 src/Helper/File/Manager.php:388
 msgid "Uploading this file is not allowed."
 msgstr "Det är inte tillåtet att ladda upp denna fil."
 
-#: src/Helper/File/Manager.php:349 src/Helper/File/Manager.php:392
 msgid "Destination directory is not in jail."
 msgstr "Destinationskatalogen är inte i fängelse."
 
-#: src/Helper/File/Manager.php:353
 msgid "File already exists."
 msgstr "Filen finns redan."
 
-#: src/Helper/File/Manager.php:357 src/Helper/File/Manager.php:396
 msgid "Cannot write in this directory."
 msgstr "Kan inte skriva i denna katalog."
 
-#: src/Helper/File/Manager.php:437
 msgid "Source file does not exist."
 msgstr "Källfilen finns inte."
 
-#: src/Helper/File/Manager.php:443 src/Helper/File/Manager.php:446
-#: src/Helper/File/Manager.php:488
 msgid "File is not in jail."
 msgstr "Filen är inte i fängelse."
 
-#: src/Helper/File/Manager.php:450
 msgid "Destination directory is not writable."
 msgstr "Destinationskatalogen är inte skrivbar."
 
-#: src/Helper/File/Manager.php:454
 msgid "Unable to rename file."
 msgstr "Det går inte att byta namn på fil."
 
-#: src/Helper/File/Manager.php:512
 msgid "Directory is not in jail."
 msgstr "Katalogen är inte i fängelse."
 
-#: src/Helper/File/Manager.php:516 src/Helper/File/Manager.php:520
 msgid "Directory cannot be removed."
 msgstr "Katalogen kan inte tas bort."
 
-#: src/Helper/File/Zip/Unzip.php:89
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Filen %s komprimeras inte i zipet."
 
-#: src/Helper/File/Zip/Unzip.php:97
 #, php-format
 msgid "Trying to unzip a folder name %s"
 msgstr "Försöker att packa upp ett mappnamn %s"
 
-#: src/Helper/File/Zip/Unzip.php:231
 msgid "Unable to write destination file."
 msgstr "Det går inte att skriva målfilen."
 
-#: src/Helper/File/Zip/Unzip.php:244
 msgid "Unable to write in target directory, permission denied."
 msgstr "Det går inte att skriva i målkatalogen, behörighet nekad."
 
-#: src/Helper/File/Zip/Unzip.php:536 src/Helper/File/Zip/Zip.php:349
 msgid "Not enough memory to open file."
 msgstr "Inte tillräckligt med minne för att öppna filen."
 
-#: src/Helper/File/Zip/Zip.php:75
 msgid "File does not exist"
 msgstr "Filen finns inte"
 
-#: src/Helper/File/Zip/Zip.php:78
 msgid "Cannot read file"
 msgstr "Kan inte läsa fil"
 
-#: src/Helper/File/Zip/Zip.php:125
 msgid "Directory does not exist"
 msgstr "Katalogen finns inte"
 
-#: src/Helper/File/Zip/Zip.php:128
 msgid "Cannot read directory"
 msgstr "Kan inte läsa katalog"
 
-#: src/Helper/Html/Template/Template.php:572
-#: src/Helper/Html/Template/Template.php:621
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "Hittade inte avslutande tagg för block <tpl:%s>. Innehållet har ignorerats."
 
-#: src/Helper/Html/Template/Template.php:579
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Oväntad avslutande tagg </tpl:%s> hittad."
 
-#: src/Helper/Html/Template/Template.php:629
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "VARNING: följande fel har hittats vid tolkning av mallfil :"
 
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Ange en huvudnyckel (DC_MASTER_KEY) i konfigurationsfilen."
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear är redan installerat."
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear kan inte installeras."
+
+msgid "Invalid email address"
+msgstr "Ogiltig e-postadress"
+
+msgid "My first blog"
+msgstr "Min första blogg"
+
+msgid "%A, %B %e %Y"
+msgstr "%A, %B %e %Y"
+
+msgid "Welcome to Dotclear!"
+msgstr "Välkommen till Dotclear!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "Detta är din första post. När du är redo att blogga, logga in för att redigera eller ta bort den."
+
+msgid "Dotclear Team"
+msgstr "Dotclear Team"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>Detta är en kommentar.</p>\n"
+"<p>För att ta bort den, logga in och visa dina bloggkommentarer. Då kan du ta bort eller redigera den.</p>"
+
+msgid "Dotclear Install"
+msgstr "Dotclear Installera"
+
+msgid "show"
+msgstr "visa"
+
+msgid "Dotclear installation"
+msgstr "Dotclear installation"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "Cache-katalogen %s är inte skrivbar."
+
+msgid "Configuration file has been successfully created."
+msgstr "Konfigurationsfilen har skapats."
+
+msgid "User information"
+msgstr "Användarinformation"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Ange följande information som behövs för att skapa den första användaren."
+
+msgid "Username and password"
+msgstr "Användarnamn och lösenord"
+
+msgid "All done!"
+msgstr "Allt klart!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "Dotclear har installerats. Här är användbar information du bör behålla."
+
+msgid "Your account"
+msgstr "Ditt konto"
+
+msgid "Your blog"
+msgstr "Din blogg"
+
+msgid "Blog address:"
+msgstr "Bloggadress:"
+
+msgid "Administration interface:"
+msgstr "Administrationsgränssnitt:"
+
+msgid "Manage your blog now"
+msgstr "Hantera din blogg nu"
+
+msgid "Installation can not be completed"
+msgstr "Installationen kan inte slutföras"
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr "Av de nämnda skälen kan Dotclear inte installeras. Se <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig att rätta till problemet."
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Multibyte strängmodul (mbstring) är inte tillgänglig."
+
+msgid "Iconv module is not available."
+msgstr "Iconv modul är inte tillgänglig."
+
+msgid "Output control functions are not available."
+msgstr "Det finns inga funktioner för utmatningskontroll."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML-modulen är inte tillgänglig."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML-modul är inte tillgänglig."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE-motorn stöder inte UTF-8-strängar."
+
+msgid "SPL module is not available."
+msgstr "SPL-modulen är inte tillgänglig."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL-versionen är %s (4,1 eller tidigare behövs)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB motor är inte tillgänglig."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL-versionen är %s (8.0 eller tidigare behövs)."
+
+#, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "Sökväg <strong>%s</strong> är inte skrivbar."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr "Dotclear installationsguiden kunde inte skapa konfigurationsfil åt dig. Du måste ändra mappen till höger eller skapa konfigurationen <strong>.</strong> fil manuellt, se <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig hur du gör detta."
+
+#, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Kan inte skriva \"%s\" katalog."
+
+msgid "Master email is not valid."
+msgstr "Huvudmailen är inte giltig."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "Filen %s finns inte."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "Kan inte skriva %s fil."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear installationsguide"
+
+msgid "Welcome"
+msgstr "Välkommen"
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr "För att slutföra din Dotclear installation och börja skriva på din blogg behöver vi bara veta hur du får tillgång till din databas och vem du är. Fyll bara dessa två steg guiden med denna information så kommer vi att göra."
+
+msgid "Attention:"
+msgstr "Observera:"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "trollkarlen kanske inte fungerar på varje värd. Om det inte fungerar för dig, hänvisas till <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig hur du skapar <strong>-konfigurationen. HK</strong> fil manuellt."
+
+msgid "System information"
+msgstr "Systeminformation"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Ange följande information som behövs för att skapa din konfigurationsfil."
+
+msgid "Database type:"
+msgstr "Typ av databas:"
+
+msgid "MySQLi"
+msgstr "MySQLi"
+
+msgid "MySQLi (full UTF-8)"
+msgstr "MySQLi (full UTF-8)"
+
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+msgid "SQLite"
+msgstr "SQLite"
+
+msgid "Driver"
+msgstr "Förare"
+
+msgid "Database Host Name:"
+msgstr "Databasens värdnamn:"
+
+msgid "Database Name:"
+msgstr "Databasens namn:"
+
+msgid "Database User Name:"
+msgstr "Databasens användarnamn:"
+
+msgid "Database Password:"
+msgstr "Databasens lösenord:"
+
+msgid "Database Tables Prefix:"
+msgstr "Prefix för databastabeller:"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr "Master Email: (används som avsändare för lösenordsåterställning)"
+
+msgid "Continue"
+msgstr "Fortsätt"
+
+#, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP-versionen är %s (7.4 eller tidigare behövs)."

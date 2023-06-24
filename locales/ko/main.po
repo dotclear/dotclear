@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -17,294 +17,6 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP 버전은 %s 입니다 (7.4 또는 이후 버전 요구됨.)"
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "다중바이트 문자열 모듈(mbstring)을 사용할 수 없습니다."
-
-msgid "Iconv module is not available."
-msgstr "Iconv모듈을 사용할 수 없습니다."
-
-msgid "Output control functions are not available."
-msgstr "출력 통제 기능들(Output control functions)을 사용할 수 없습니다."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML모듈을 사용할 수 없습니다."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML 모듈을 사용할 수 없습니다."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE 정규식 엔진은 UTF-8 문자열을 지원하지 않습니다."
-
-msgid "SPL module is not available."
-msgstr "SPL 모듈을 사용할 수 없습니다."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL 버전 %s (4.1 또는 이후 버전 필요)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB engine을 사용할 수 없습니다."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL 버전 %s (8.0 또는 이후 버전 필요)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "블로그 설정파일에서 매스터키(DC_MASTER_KEY)를 지정해야합니다."
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear가 이미 설치되어 있습니다."
-
-msgid "Dotclear cannot be installed."
-msgstr "Dotclear 설치가 불가능합니다."
-
-msgid "No user ID given"
-msgstr "존재하지 않는 사용자이름입니다."
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "사용자이름은 적어도 2자 이상의 알파벳문자, 수자 또는 기호를 포함해야합니다."
-
-msgid "Invalid email address"
-msgstr "바르지않은 이메일 주소"
-
-msgid "No password given"
-msgstr "존재하지 않는 비밀번호입니다."
-
-msgid "Passwords don't match"
-msgstr "비밀번호가 일치하지 않습니다."
-
-msgid "Password must contain at least 6 characters."
-msgstr "비밀번호는 적어도 6 글자 이상이어야 합니다."
-
-msgid "My first blog"
-msgstr "내 첫 블로그"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "Dotclear에 오신 걸 환영합니다 !"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "당신의 첫 글꼭지입니다. 블로그를 사용할 준비가 되셨다면, 로그인하여 이 글을 편집하시거나 삭제하십시요."
-
-msgid "Dotclear Team"
-msgstr "Dotclear 팀"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>이것은 댓글입니다.</p>\n"
-"<p>로그인후 블로그에서 댓글들을 보이도록 하시면, 이 글을 편집하거나 삭제할 수 있습니다.</p>"
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Dotclear 설치"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "비밀번호 수정"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "중간 크키 :"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "Dotclear 설치"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
-
-msgid "Errors:"
-msgstr "오류 :"
-
-msgid "Configuration file has been successfully created."
-msgstr "블로그 설정파일이 성공적으로 생성되었습니다."
-
-msgid "User information"
-msgstr "사용자 정보"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "최초 사용자를 생성하기 위해서는 다음의 정보들이 필요합니다."
-
-#, fuzzy
-msgid "First Name:"
-msgstr "이름 (Firstname):"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "최근 갱신"
-
-msgid "Email:"
-msgstr "이메일:"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "잘못된 사용자이름 또는 비밀번호"
-
-msgid "Required field"
-msgstr "필수 사항"
-
-msgid "Username:"
-msgstr "사용자이름:"
-
-#, fuzzy
-msgid "Username"
-msgstr "사용자이름:"
-
-msgid "New password:"
-msgstr "새 비밀번호 :"
-
-#, fuzzy
-msgid "Password"
-msgstr "비밀번호:"
-
-msgid "Confirm password:"
-msgstr "비밀번호 확인 :"
-
-msgid "Save"
-msgstr "저장"
-
-msgid "Following plugins have been installed:"
-msgstr "다음 플러그인들이 설치되어있습니다 :"
-
-msgid "Following plugins have not been installed:"
-msgstr "다음 플러그인들은 설치되지 않았습니다 :"
-
-msgid "All done!"
-msgstr "완료되었습니다 !"
-
-#, fuzzy
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "Dotclear가 성공적으로 설치되었습니다. 다음 정보들을 잘 보관해두시기 바랍니다."
-
-msgid "Your account"
-msgstr "당신의 계정"
-
-msgid "Password:"
-msgstr "비밀번호:"
-
-msgid "Your blog"
-msgstr "당신의 블로그"
-
-msgid "Blog address:"
-msgstr "블로그 주소 :"
-
-msgid "Administration interface:"
-msgstr "관리자 화면 :"
-
-msgid "Manage your blog now"
-msgstr "블로그 관리"
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "이 폴더에 쓰기를 할 수 없습니다."
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "이메일 주소가 바르지 않습니다."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "%s 파일이 존재하지 않습니다."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "%s 파일을 쓸 수 없습니다.."
-
-msgid "Dotclear installation wizard"
-msgstr "Dotclear 설치도우미"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "작업"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "시스템 정보"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "당신의 설정파일 생성을 위해 다음 사항들을 적어주세요."
-
-msgid "Database type:"
-msgstr "데이터베이스 종류 :"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "데이터베이스 호스트 이름 :"
-
-msgid "Database Name:"
-msgstr "데이터베이스 이름 :"
-
-msgid "Database User Name:"
-msgstr "데이터베이스 사용자이름 :"
-
-msgid "Database Password:"
-msgstr "데이터베이스 비밀번호 :"
-
-msgid "Database Tables Prefix:"
-msgstr "데이터베이스 테이블이름 머리씨 :"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "내용 :"
 
 msgid "Title"
 msgstr "제목"
@@ -435,6 +147,18 @@ msgstr "선택된 글꼭지들에 대한 작업 :"
 msgid "Schedule"
 msgstr "예약"
 
+#, fuzzy
+msgid "First publication"
+msgstr "잘못된 언어 코드"
+
+#, fuzzy
+msgid "Never published"
+msgstr "공개"
+
+#, fuzzy
+msgid "Already published"
+msgstr "공개"
+
 msgid "Mark"
 msgstr ""
 
@@ -475,6 +199,11 @@ msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
 
 #, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
+msgstr[0] "글꼭지가 성공적으로 갱신되었습니다."
+
+#, fuzzy, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "글꼭지가 성공적으로 생성되었습니다."
@@ -512,6 +241,9 @@ msgstr "제목 :"
 
 msgid "Parent:"
 msgstr "상위분류 :"
+
+msgid "Save"
+msgstr "저장"
 
 msgid "This user does not exist"
 msgstr "이 사용자는 존재하지 않습니다."
@@ -660,6 +392,10 @@ msgid "Blog ID"
 msgstr "블로그 아이디"
 
 #, fuzzy
+msgid "Username"
+msgstr "사용자이름:"
+
+#, fuzzy
 msgid "Last Name"
 msgstr "최근 갱신"
 
@@ -710,6 +446,9 @@ msgstr "공개상태 :"
 msgid "Format:"
 msgstr "날짜 형식:"
 
+msgid "Password:"
+msgstr "비밀번호:"
+
 #, fuzzy
 msgid "With password"
 msgstr "글꼭지 비밀번호 :"
@@ -757,6 +496,9 @@ msgstr "닫기"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "글걸이"
+
+msgid "Email:"
+msgstr "이메일:"
 
 msgid "Web site:"
 msgstr "웹사이트 :"
@@ -828,6 +570,9 @@ msgid "results per page"
 msgstr "페이지당 글꼭지수"
 
 msgid "Error:"
+msgstr "오류 :"
+
+msgid "Errors:"
 msgstr "오류 :"
 
 msgid "%H:%M:%S"
@@ -1365,12 +1110,19 @@ msgstr "플러그인이 성공적으로 설치되었습니다."
 msgid "Upload a zip file"
 msgstr "테마 zip 파일 올리기"
 
+msgid "Required field"
+msgstr "필수 사항"
+
 #, fuzzy
 msgid "Zip file path:"
 msgstr "Zip 파일 내용보기"
 
 msgid "Your password:"
 msgstr "당신의 비밀번호:"
+
+#, fuzzy
+msgid "Password"
+msgstr "비밀번호:"
 
 msgid "Download a zip file"
 msgstr "(블로그에) 테마 zip 파일 내려받기"
@@ -1805,6 +1557,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr "생성된 이미지 크기 (픽셀단위)"
 
 #, fuzzy
+msgid "medium"
+msgstr "중간 크키 :"
+
+#, fuzzy
 msgid "small"
 msgstr "작은 크기 :"
 
@@ -1943,6 +1699,18 @@ msgstr "이메일 주소가 바르지 않습니다."
 
 msgid "You are not an administrator"
 msgstr "블로그관리자가 아닙니다."
+
+msgid "No user ID given"
+msgstr "존재하지 않는 사용자이름입니다."
+
+msgid "No password given"
+msgstr "존재하지 않는 비밀번호입니다."
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "사용자이름은 적어도 2자 이상의 알파벳문자, 수자 또는 기호를 포함해야합니다."
+
+msgid "Password must contain at least 6 characters."
+msgstr "비밀번호는 적어도 6 글자 이상이어야 합니다."
 
 msgid "Invalid user language code"
 msgstr "사용자 언어코드가 바르지 않습니다."
@@ -2250,6 +2018,9 @@ msgstr "다음 사이트에 대한 사용자이름과 비밀번호를 바꾸어�
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "비밀번호를 바꾸시려면 다음 주소를 방문하십시요. 원하지 않으시면 그냥 이 이메일을 무시하시면 됩니다."
 
+msgid "Username:"
+msgstr "사용자이름:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "%s로 이메일이 성공적으로 발송되었습니다."
@@ -2259,6 +2030,9 @@ msgstr "당신의 새 비밀번호"
 
 msgid "Your new password is in your mailbox."
 msgstr "새 비밀번호가 메일수신함에 도착했습니다."
+
+msgid "Passwords don't match"
+msgstr "비밀번호가 일치하지 않습니다."
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -2282,6 +2056,16 @@ msgstr "관리자 화면 :"
 msgid "Wrong username or password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "비밀번호 수정"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "로그인 화면으로 돌아가기"
 
@@ -2297,6 +2081,12 @@ msgstr "찾을 내용 지정"
 
 msgid "Change your password"
 msgstr "비밀번호 변경"
+
+msgid "New password:"
+msgstr "새 비밀번호 :"
+
+msgid "Confirm password:"
+msgstr "비밀번호 확인 :"
 
 #, fuzzy
 msgid "change"
@@ -2582,6 +2372,9 @@ msgid "Time format:"
 msgstr "시간 형식:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3107,6 +2900,12 @@ msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "다음 플러그인들이 설치되어있습니다 :"
+
+msgid "Following plugins have not been installed:"
+msgstr "다음 플러그인들은 설치되지 않았습니다 :"
 
 msgid "Errors have occured with following plugins:"
 msgstr ""
@@ -4060,6 +3859,14 @@ msgstr "당신의 사용자이름을 바꾸시면, 다시 로그인하셔야합�
 msgid "Password change required to connect"
 msgstr ""
 
+#, fuzzy
+msgid "Last Name:"
+msgstr "최근 갱신"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "이름 (Firstname):"
+
 msgid "Display name:"
 msgstr "필명 :"
 
@@ -4624,6 +4431,219 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "블로그 설정파일에서 매스터키(DC_MASTER_KEY)를 지정해야합니다."
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear가 이미 설치되어 있습니다."
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear 설치가 불가능합니다."
+
+msgid "Invalid email address"
+msgstr "바르지않은 이메일 주소"
+
+msgid "My first blog"
+msgstr "내 첫 블로그"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Dotclear에 오신 걸 환영합니다 !"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "당신의 첫 글꼭지입니다. 블로그를 사용할 준비가 되셨다면, 로그인하여 이 글을 편집하시거나 삭제하십시요."
+
+msgid "Dotclear Team"
+msgstr "Dotclear 팀"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>이것은 댓글입니다.</p>\n"
+"<p>로그인후 블로그에서 댓글들을 보이도록 하시면, 이 글을 편집하거나 삭제할 수 있습니다.</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear 설치"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Dotclear 설치"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
+
+msgid "Configuration file has been successfully created."
+msgstr "블로그 설정파일이 성공적으로 생성되었습니다."
+
+msgid "User information"
+msgstr "사용자 정보"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "최초 사용자를 생성하기 위해서는 다음의 정보들이 필요합니다."
+
+#, fuzzy
+msgid "Username and password"
+msgstr "잘못된 사용자이름 또는 비밀번호"
+
+msgid "All done!"
+msgstr "완료되었습니다 !"
+
+#, fuzzy
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "Dotclear가 성공적으로 설치되었습니다. 다음 정보들을 잘 보관해두시기 바랍니다."
+
+msgid "Your account"
+msgstr "당신의 계정"
+
+msgid "Your blog"
+msgstr "당신의 블로그"
+
+msgid "Blog address:"
+msgstr "블로그 주소 :"
+
+msgid "Administration interface:"
+msgstr "관리자 화면 :"
+
+msgid "Manage your blog now"
+msgstr "블로그 관리"
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "다중바이트 문자열 모듈(mbstring)을 사용할 수 없습니다."
+
+msgid "Iconv module is not available."
+msgstr "Iconv모듈을 사용할 수 없습니다."
+
+msgid "Output control functions are not available."
+msgstr "출력 통제 기능들(Output control functions)을 사용할 수 없습니다."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML모듈을 사용할 수 없습니다."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML 모듈을 사용할 수 없습니다."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE 정규식 엔진은 UTF-8 문자열을 지원하지 않습니다."
+
+msgid "SPL module is not available."
+msgstr "SPL 모듈을 사용할 수 없습니다."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL 버전 %s (4.1 또는 이후 버전 필요)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB engine을 사용할 수 없습니다."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL 버전 %s (8.0 또는 이후 버전 필요)."
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "이 폴더에 쓰기를 할 수 없습니다."
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "이메일 주소가 바르지 않습니다."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s 파일이 존재하지 않습니다."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "%s 파일을 쓸 수 없습니다.."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear 설치도우미"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "작업"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "시스템 정보"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "당신의 설정파일 생성을 위해 다음 사항들을 적어주세요."
+
+msgid "Database type:"
+msgstr "데이터베이스 종류 :"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "데이터베이스 호스트 이름 :"
+
+msgid "Database Name:"
+msgstr "데이터베이스 이름 :"
+
+msgid "Database User Name:"
+msgstr "데이터베이스 사용자이름 :"
+
+msgid "Database Password:"
+msgstr "데이터베이스 비밀번호 :"
+
+msgid "Database Tables Prefix:"
+msgstr "데이터베이스 테이블이름 머리씨 :"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "내용 :"
+
+#, fuzzy, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP 버전은 %s 입니다 (7.4 또는 이후 버전 요구됨.)"
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

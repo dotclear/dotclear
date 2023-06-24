@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -19,293 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP のバージョンが %s です。（7.4 以上が必須です）"
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "マルチバイト文字列モジュール（mbstring）が利用可能ではありません。"
-
-msgid "Iconv module is not available."
-msgstr "Iconv モジュールが利用可能ではありません。"
-
-msgid "Output control functions are not available."
-msgstr "出力制御（output control）関数が利用可能ではありません。"
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML モジュールが利用可能ではありません。"
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML モジュールが利用可能ではありません。"
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE エンジンが UTF-8 文字列をサポートしません。"
-
-msgid "SPL module is not available."
-msgstr "SPL (Standard PHP Library) モジュールが利用可能ではありません。"
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL のバージョンが %s です。（4.1 以上が必須です）"
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB エンジンが利用可能ではありません。"
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL のバージョンが %s です。（8.0 以上が必須です）"
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "マスターキー（DC_MASTER_KEY）を環境設定ファイルに設定してください。"
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear はすでにインストールされています。"
-
-msgid "Dotclear cannot be installed."
-msgstr "Dotclear をインストールできません。"
-
-msgid "No user ID given"
-msgstr "ユーザIDが入力されていません"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "ユーザIDは文字・数字・記号を使用した、少なくとも2文字が必要です。"
-
-msgid "Invalid email address"
-msgstr "無効なメールアドレスです"
-
-msgid "No password given"
-msgstr "パスワードが入力されていません"
-
-msgid "Passwords don't match"
-msgstr "パスワードが一致しません"
-
-msgid "Password must contain at least 6 characters."
-msgstr "パスワードには最低でも6文字が必要です。"
-
-msgid "My first blog"
-msgstr "初めてのブログ"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "Dotclear へようこそ！"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "これはあなたの最初のエントリです。 ブログの準備が整ったら、ログインして編集や削除を行ってください。"
-
-msgid "Dotclear Team"
-msgstr "Dotclear チーム"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>これはコメントです。</p>\n"
-"<p>これを削除するには、ログインしてブログのコメントを表示してください。 その後、削除や編集することができます。</p>"
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Dotclear のインストール"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "パスワードのリセット"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "ミディアム："
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "Dotclear のインストール"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "キャッシュディレクトリ %s が書き込み可能ではありません。"
-
-msgid "Errors:"
-msgstr "エラー："
-
-msgid "Configuration file has been successfully created."
-msgstr "環境設定ファイルは正常に作成されました。"
-
-msgid "User information"
-msgstr "ユーザ情報"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "最初のユーザを作成するために必要な、以下の情報を提供してください。"
-
-#, fuzzy
-msgid "First Name:"
-msgstr "ファーストネーム："
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "最終更新"
-
-msgid "Email:"
-msgstr "メール："
-
-#, fuzzy
-msgid "Username and password"
-msgstr "ユーザ名またはパスワードが間違っています"
-
-msgid "Required field"
-msgstr "必須フィールド"
-
-msgid "Username:"
-msgstr "ユーザ名："
-
-#, fuzzy
-msgid "Username"
-msgstr "ユーザ名："
-
-msgid "New password:"
-msgstr "新しいパスワード："
-
-#, fuzzy
-msgid "Password"
-msgstr "パスワード："
-
-msgid "Confirm password:"
-msgstr "パスワードの再入力："
-
-msgid "Save"
-msgstr "保存"
-
-msgid "Following plugins have been installed:"
-msgstr "以下のプラグインがインストールされました："
-
-msgid "Following plugins have not been installed:"
-msgstr "以下のプラグインはインストールされませんでした："
-
-msgid "All done!"
-msgstr "すべて完了しました！"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "Dotclear は正常にインストールされました。 以下は手元に保管しておくべき有用な情報です。"
-
-msgid "Your account"
-msgstr "あなたのアカウント"
-
-msgid "Password:"
-msgstr "パスワード："
-
-msgid "Your blog"
-msgstr "あなたのブログ"
-
-msgid "Blog address:"
-msgstr "ブログアドレス："
-
-msgid "Administration interface:"
-msgstr "管理インターフェイス："
-
-msgid "Manage your blog now"
-msgstr "ただちにブログを管理"
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "キャッシュディレクトリ %s が書き込み可能ではありません。"
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "このディレクトリへの書き込みができません。"
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "メールアドレスが有効ではありません。"
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "ファイル %s が存在しません。"
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "%s ファイルに書き込めません。"
-
-msgid "Dotclear installation wizard"
-msgstr "Dotclear インストールウィザード"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "操作"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "システム情報"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "環境設定ファイルの作成に必要な、以下の情報を提供してください。"
-
-msgid "Database type:"
-msgstr "データベースのタイプ："
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "データベースのホスト名："
-
-msgid "Database Name:"
-msgstr "データベース名："
-
-msgid "Database User Name:"
-msgstr "データベースのユーザ名："
-
-msgid "Database Password:"
-msgstr "データベースのパスワード："
-
-msgid "Database Tables Prefix:"
-msgstr "データベーステーブルのプレフィックス："
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "内容："
 
 msgid "Title"
 msgstr "タイトル"
@@ -436,6 +149,18 @@ msgstr "選択されたエントリに実行："
 msgid "Schedule"
 msgstr "掲載予約"
 
+#, fuzzy
+msgid "First publication"
+msgstr "無効な言語コードです"
+
+#, fuzzy
+msgid "Never published"
+msgstr "掲載"
+
+#, fuzzy
+msgid "Already published"
+msgstr "掲載"
+
 msgid "Mark"
 msgstr ""
 
@@ -476,6 +201,11 @@ msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "エントリは正常に更新されました。"
 
 #, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
+msgstr[0] "エントリは正常に更新されました。"
+
+#, fuzzy, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "エントリは正常に作成されました。"
@@ -513,6 +243,9 @@ msgstr "タイトル："
 
 msgid "Parent:"
 msgstr "親："
+
+msgid "Save"
+msgstr "保存"
 
 msgid "This user does not exist"
 msgstr "このユーザは存在しません"
@@ -661,6 +394,10 @@ msgid "Blog ID"
 msgstr "ブログID"
 
 #, fuzzy
+msgid "Username"
+msgstr "ユーザ名："
+
+#, fuzzy
 msgid "Last Name"
 msgstr "最終更新"
 
@@ -711,6 +448,9 @@ msgstr "状態："
 msgid "Format:"
 msgstr "日付の書式："
 
+msgid "Password:"
+msgstr "パスワード："
+
 #, fuzzy
 msgid "With password"
 msgstr "エントリのパスワード："
@@ -758,6 +498,9 @@ msgstr "閉じる"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "トラックバック"
+
+msgid "Email:"
+msgstr "メール："
 
 msgid "Web site:"
 msgstr "ウェブサイト："
@@ -829,6 +572,9 @@ msgid "results per page"
 msgstr "エントリ / ページ"
 
 msgid "Error:"
+msgstr "エラー："
+
+msgid "Errors:"
 msgstr "エラー："
 
 msgid "%H:%M:%S"
@@ -1366,12 +1112,19 @@ msgstr "プラグインは正常にインストールされました。"
 msgid "Upload a zip file"
 msgstr "zipファイルのアップロード"
 
+msgid "Required field"
+msgstr "必須フィールド"
+
 #, fuzzy
 msgid "Zip file path:"
 msgstr "zipファイルの内容"
 
 msgid "Your password:"
 msgstr "あなたのパスワード："
+
+#, fuzzy
+msgid "Password"
+msgstr "パスワード："
 
 msgid "Download a zip file"
 msgstr "zipファイルのダウンロード"
@@ -1806,6 +1559,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr "生成される画像サイズ（ピクセル単位）"
 
 #, fuzzy
+msgid "medium"
+msgstr "ミディアム："
+
+#, fuzzy
 msgid "small"
 msgstr "スモール："
 
@@ -1944,6 +1701,18 @@ msgstr "メールアドレスが有効ではありません。"
 
 msgid "You are not an administrator"
 msgstr "あなたは管理者ではありません"
+
+msgid "No user ID given"
+msgstr "ユーザIDが入力されていません"
+
+msgid "No password given"
+msgstr "パスワードが入力されていません"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "ユーザIDは文字・数字・記号を使用した、少なくとも2文字が必要です。"
+
+msgid "Password must contain at least 6 characters."
+msgstr "パスワードには最低でも6文字が必要です。"
 
 msgid "Invalid user language code"
 msgstr "無効なユーザの言語コードです"
@@ -2253,6 +2022,9 @@ msgstr ""
 "パスワードをリセットするには、以下のアドレスへアクセスしてください。\n"
 "そうでない場合は、このメールを無視してください。"
 
+msgid "Username:"
+msgstr "ユーザ名："
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "%s へのメールは正常に送信されました。"
@@ -2262,6 +2034,9 @@ msgstr "新しいパスワード"
 
 msgid "Your new password is in your mailbox."
 msgstr "新しいパスワードは、あなたのメールボックスに届けられました。"
+
+msgid "Passwords don't match"
+msgstr "パスワードが一致しません"
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -2285,6 +2060,16 @@ msgstr "管理インターフェイス："
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "パスワードのリセット"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "ログイン画面に戻る"
 
@@ -2300,6 +2085,12 @@ msgstr "検索オプション"
 
 msgid "Change your password"
 msgstr "パスワードの変更"
+
+msgid "New password:"
+msgstr "新しいパスワード："
+
+msgid "Confirm password:"
+msgstr "パスワードの再入力："
 
 #, fuzzy
 msgid "change"
@@ -2585,6 +2376,9 @@ msgid "Time format:"
 msgstr "時刻の書式："
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3110,6 +2904,12 @@ msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "以下のプラグインがインストールされました："
+
+msgid "Following plugins have not been installed:"
+msgstr "以下のプラグインはインストールされませんでした："
 
 msgid "Errors have occured with following plugins:"
 msgstr ""
@@ -4063,6 +3863,14 @@ msgstr "ログイン情報を変更した場合、再ログインの必要があ
 msgid "Password change required to connect"
 msgstr ""
 
+#, fuzzy
+msgid "Last Name:"
+msgstr "最終更新"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "ファーストネーム："
+
 msgid "Display name:"
 msgstr "表示名："
 
@@ -4626,6 +4434,218 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "マスターキー（DC_MASTER_KEY）を環境設定ファイルに設定してください。"
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear はすでにインストールされています。"
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear をインストールできません。"
+
+msgid "Invalid email address"
+msgstr "無効なメールアドレスです"
+
+msgid "My first blog"
+msgstr "初めてのブログ"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Dotclear へようこそ！"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "これはあなたの最初のエントリです。 ブログの準備が整ったら、ログインして編集や削除を行ってください。"
+
+msgid "Dotclear Team"
+msgstr "Dotclear チーム"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>これはコメントです。</p>\n"
+"<p>これを削除するには、ログインしてブログのコメントを表示してください。 その後、削除や編集することができます。</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear のインストール"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Dotclear のインストール"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "キャッシュディレクトリ %s が書き込み可能ではありません。"
+
+msgid "Configuration file has been successfully created."
+msgstr "環境設定ファイルは正常に作成されました。"
+
+msgid "User information"
+msgstr "ユーザ情報"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "最初のユーザを作成するために必要な、以下の情報を提供してください。"
+
+#, fuzzy
+msgid "Username and password"
+msgstr "ユーザ名またはパスワードが間違っています"
+
+msgid "All done!"
+msgstr "すべて完了しました！"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "Dotclear は正常にインストールされました。 以下は手元に保管しておくべき有用な情報です。"
+
+msgid "Your account"
+msgstr "あなたのアカウント"
+
+msgid "Your blog"
+msgstr "あなたのブログ"
+
+msgid "Blog address:"
+msgstr "ブログアドレス："
+
+msgid "Administration interface:"
+msgstr "管理インターフェイス："
+
+msgid "Manage your blog now"
+msgstr "ただちにブログを管理"
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "マルチバイト文字列モジュール（mbstring）が利用可能ではありません。"
+
+msgid "Iconv module is not available."
+msgstr "Iconv モジュールが利用可能ではありません。"
+
+msgid "Output control functions are not available."
+msgstr "出力制御（output control）関数が利用可能ではありません。"
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML モジュールが利用可能ではありません。"
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML モジュールが利用可能ではありません。"
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE エンジンが UTF-8 文字列をサポートしません。"
+
+msgid "SPL module is not available."
+msgstr "SPL (Standard PHP Library) モジュールが利用可能ではありません。"
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL のバージョンが %s です。（4.1 以上が必須です）"
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB エンジンが利用可能ではありません。"
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL のバージョンが %s です。（8.0 以上が必須です）"
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "キャッシュディレクトリ %s が書き込み可能ではありません。"
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "このディレクトリへの書き込みができません。"
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "メールアドレスが有効ではありません。"
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "ファイル %s が存在しません。"
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "%s ファイルに書き込めません。"
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear インストールウィザード"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "操作"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "システム情報"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "環境設定ファイルの作成に必要な、以下の情報を提供してください。"
+
+msgid "Database type:"
+msgstr "データベースのタイプ："
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "データベースのホスト名："
+
+msgid "Database Name:"
+msgstr "データベース名："
+
+msgid "Database User Name:"
+msgstr "データベースのユーザ名："
+
+msgid "Database Password:"
+msgstr "データベースのパスワード："
+
+msgid "Database Tables Prefix:"
+msgstr "データベーステーブルのプレフィックス："
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "内容："
+
+#, fuzzy, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP のバージョンが %s です。（7.4 以上が必須です）"
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

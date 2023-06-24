@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2023-06-22 16:46\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
@@ -29,14 +29,12 @@ msgstr "%d تتبع"
 msgid "%s reactions"
 msgstr "%s ردود فعل"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "الوصول إلى المحتوى"
 
 msgid "Add a comment"
 msgstr "إضافة تعليق"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "إضافة بينغ"
 
@@ -55,27 +53,21 @@ msgstr "المرفقات"
 msgid "Best of me"
 msgstr "أفضل من لي"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "معلومات المدونة"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "قائمة المدونة"
 
-#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "بواسطة"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "حسب الفئة"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "حسب التاريخ"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "حسب العلامة"
 
@@ -94,15 +86,12 @@ msgstr "يمكن تنسيق التعليقات باستخدام صيغة ويك�
 msgid "Comments feed"
 msgstr "تغذية التعليقات"
 
-#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "متابعة القراءة"
 
-#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "لم يتم العثور على المستند"
 
-#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "عنوان البريد الإلكتروني"
 
@@ -112,23 +101,18 @@ msgstr "عنوان البريد الإلكتروني غير صالح"
 msgid "Entries feed"
 msgstr "إدخال تغذية"
 
-#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "استكشاف الأرشيف"
 
-#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Extra menu"
 
-#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "من"
 
-#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "يوم"
 
-#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "الذهاب إلى الصفحة الرئيسية"
 
@@ -147,33 +131,27 @@ msgstr "اللغات"
 msgid "Links"
 msgstr "الروابط"
 
-#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "الاسم أو الاسم المستعار"
 
-#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "الإدخال التالي:"
 
-#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "تشغيل"
 
 msgid "Page top"
 msgstr "أعلى الصفحة"
 
-#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "ترقيم الصفحات"
 
-#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "كلمة المرور مطلوبة"
 
 msgid "Password:"
 msgstr "كلمة المرور:"
 
-#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "رابط دائم"
 
@@ -183,18 +161,15 @@ msgstr "مدعوم من قبل %s"
 msgid "Preview"
 msgstr "معاينة"
 
-#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "الإدخال السابق:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "تغذية RSS هي ملخص مدونة مجاني. وهو يقدم المحتوى (إما منشورات أو تعليقات) أو ملخصات المحتوى، إلى جانب وصلات إلى الإصدارات الكاملة، وغيرها من البيانات الفوقية. بعد ذلك يمكن قراءة آخر العناصر المنشورة بواسطة مجمع <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS المفضل الخاص بك</a>."
 
-#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "قراءة"
 
-#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "تذكرني على هذه المدونة"
 
@@ -210,7 +185,6 @@ msgstr "إرسال"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "ببساطة نسخ عنوان URL التالي إلى المجمّع الخاص بك:"
 
-#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "الفئات الفرعية"
 
@@ -220,73 +194,57 @@ msgstr "اشترك"
 msgid "Subscribe to"
 msgstr "اشترك في"
 
-#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "الاقتراحات:"
 
-#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "المستند الذي تبحث عنه غير موجود."
 
-#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "قائمة المشاركات الحديثة متاحة"
 
-#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "وقد نشرت في نفس الموضوع"
 
 msgid "This blog's comments Atom feed"
 msgstr "تعليقات هذه المدونة تغذية Atom"
 
-#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "تعليقات هذه الفئة تغذية Atom"
 
-#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "إدخالات هذه الفئة تغذية Atom"
 
-#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "تعليقات هذا المنشور تغذية Atom"
 
-#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "تغذية تعليقات هذه المشاركة"
 
-#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "إلى المحتوى"
 
-#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "إلى القائمة"
 
-#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "للبحث"
 
-#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "رابط التتبع"
 
-#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "عنوان URL الذي حاولت أن يحتوي على طابعة، أو تم حذف الصفحة أو نقلها."
 
-#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "استخدام نموذج البحث"
 
-#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "الموقع"
 
 msgid "What is an RSS feed?"
 msgstr "ما هي تغذية RSS ؟"
 
-#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "يجب عليك إعطاء كلمة مرور للوصول إلى هذه المنطقة."
 
@@ -299,15 +257,12 @@ msgstr "يجب عليك توفير عنوان بريد إلكتروني صالح
 msgid "You must provide an author name"
 msgstr "يجب عليك تقديم اسم المؤلف"
 
-#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "تعليقك"
 
-#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "تم نشر تعليقك."
 
-#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "تم تقديم تعليقك وسيتم مراجعته للنشر."
 
@@ -320,18 +275,15 @@ msgstr "بحثك عن <em>%1$s</em> عاد <strong>%2$s</strong> نتائج."
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "لم يعد بحثك عن <em>%1$s</em> أي نتيجة."
 
-#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "بواسطة"
 
-#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "هنا"
 
 msgid "in"
 msgstr "في"
 
-#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "المواد التالية"
 
@@ -347,11 +299,9 @@ msgstr "لا ردود فعل"
 msgid "no trackbacks"
 msgstr "لا يوجد تتبع"
 
-#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "من"
 
-#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "في"
 
@@ -367,30 +317,23 @@ msgstr "رد فعل واحد"
 msgid "one trackback"
 msgstr "مسار واحد"
 
-#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "اختياري"
 
-#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "الصفحة"
 
-#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "معاينة"
 
-#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "المواد السابقة"
 
 msgid "reactions"
 msgstr "ردود"
 
-#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "إرسال"
 
-#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "يوم"
-

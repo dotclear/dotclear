@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2023-06-22 16:34\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
@@ -29,14 +29,12 @@ msgstr "%d trackbacks"
 msgid "%s reactions"
 msgstr "%s reaktioner"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "Åtkomst till innehåll"
 
 msgid "Add a comment"
 msgstr "Lägg till en kommentar"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "Lägg till ping"
 
@@ -55,27 +53,21 @@ msgstr "Bilagor"
 msgid "Best of me"
 msgstr "Det bästa av mig"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "Blogginformation"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "Blogg meny"
 
-#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "Av"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "Efter kategori"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "Efter datum"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "Efter tagg"
 
@@ -94,15 +86,12 @@ msgstr "Kommentarer kan formateras med en enkel wiki-syntax."
 msgid "Comments feed"
 msgstr "Kommentar flöde"
 
-#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Fortsätt läsa"
 
-#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "Dokumentet hittades inte"
 
-#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "E-postadress"
 
@@ -112,23 +101,18 @@ msgstr "E-postadressen är inte giltig"
 msgid "Entries feed"
 msgstr "Inlägg flöde"
 
-#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "Utforska arkiv"
 
-#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Extra menu"
 
-#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "Från"
 
-#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "Fråndag"
 
-#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "Gå till hemsida"
 
@@ -147,33 +131,27 @@ msgstr "Språk"
 msgid "Links"
 msgstr "Länkar"
 
-#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "Namn eller smeknamn"
 
-#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "Nästa post:"
 
-#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "På"
 
 msgid "Page top"
 msgstr "Sidans topp"
 
-#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "Sidnumrering"
 
-#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Lösenord behövs"
 
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "Permalänk"
 
@@ -183,18 +161,15 @@ msgstr "Drivs av %s"
 msgid "Preview"
 msgstr "Förhandsgranska"
 
-#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "Föregående post:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS-flöde är en gratis bloggsammanfattning. Det ger innehåll (antingen inlägg eller kommentarer) eller sammanfattningar av innehåll, tillsammans med länkar till fullständiga versioner och andra metadata. De senaste publicerade objekten kan sedan läsas av din favorit RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 
-#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "Läsa"
 
-#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Kom ihåg mig på den här bloggen"
 
@@ -210,7 +185,6 @@ msgstr "Skicka"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Kopiera helt enkelt följande URL till din aggregator:"
 
-#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "Underkategorier"
 
@@ -220,73 +194,57 @@ msgstr "Prenumerera"
 msgid "Subscribe to"
 msgstr "Prenumerera på"
 
-#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "Förslag:"
 
-#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "Dokumentet du letar efter finns inte."
 
-#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "Listan över senaste inlägg är tillgänglig"
 
-#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "De postade på samma ämne"
 
 msgid "This blog's comments Atom feed"
 msgstr "Denna bloggs kommentarer Atom feed"
 
-#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "Denna kategori kommentarer Atom feed"
 
-#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "Denna kategoris poster Atom feed"
 
-#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "Detta inlägg kommentarer Atom feed"
 
-#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Detta inläggs kommentarsflöde"
 
-#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Till innehåll"
 
-#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Till meny"
 
-#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Att söka"
 
-#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "Trackback URL"
 
-#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "URL du har provat har skrivfel, eller så har sidan tagits bort eller flyttats."
 
-#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "Använd sökformulär"
 
-#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Webbplats"
 
 msgid "What is an RSS feed?"
 msgstr "Vad är ett RSS-flöde?"
 
-#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Du måste ange ett lösenord för att komma åt detta område."
 
@@ -299,15 +257,12 @@ msgstr "Du måste ange en giltig e-postadress."
 msgid "You must provide an author name"
 msgstr "Du måste ange ett författarnamn"
 
-#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "Din kommentar"
 
-#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "Din kommentar har publicerats."
 
-#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Din kommentar har skickats in och kommer att granskas för publicering."
 
@@ -320,18 +275,15 @@ msgstr "Din sökning på <em>%1$s</em> gav <strong>%2$s</strong> resultat."
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Din sökning på <em>%1$s</em> gav inget resultat."
 
-#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "av"
 
-#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "här"
 
 msgid "in"
 msgstr "i"
 
-#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "Nästa inlägg"
 
@@ -347,11 +299,9 @@ msgstr "inga reaktioner"
 msgid "no trackbacks"
 msgstr "inga trackbacks"
 
-#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "av"
 
-#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "på"
 
@@ -367,30 +317,23 @@ msgstr "en reaktion"
 msgid "one trackback"
 msgstr "en trackback"
 
-#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "valfri"
 
-#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "sida"
 
-#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "förhandsgranska"
 
-#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "tidigare poster"
 
 msgid "reactions"
 msgstr "reaktioner"
 
-#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "skicka"
 
-#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "toDay"
-

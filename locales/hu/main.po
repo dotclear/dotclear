@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -17,296 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP verzió %s (7.4 vagy korábbi kell)."
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Multibyte string modul (mbstring) nem elérhető."
-
-msgid "Iconv module is not available."
-msgstr "Iconv modul nem elérhető."
-
-msgid "Output control functions are not available."
-msgstr "Kimeneti konrolfunkciók nem elérhetőek."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML modul nem elérhető."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML modul nem elérhető."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PRCE motor nem támogatja az UTF-8 szövegeket."
-
-msgid "SPL module is not available."
-msgstr "SPL modul nem elérhető."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL verzió %s (4.1 vagy korábbi szükséges)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB motor nem elérhető."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL verió %s (8.0 vagy korábbi kell)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "Állíts be mesterkulcsot (DC_MASTER_KEY) a konfigurációs fájlodban."
-
-msgid "Dotclear is already installed."
-msgstr "A DotClear már telepítve van."
-
-msgid "Dotclear cannot be installed."
-msgstr "A DotClear-t nem lehet telepíteni."
-
-msgid "No user ID given"
-msgstr "Nem adtál meg felhasználói nevet"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "A felhasználónévnek legalább 2 karakter hosszúnak kell lennie! Tartalmazhat betűt, számokat vagy szimbólumokat."
-
-msgid "Invalid email address"
-msgstr "Helytelen e-mail cím"
-
-msgid "No password given"
-msgstr "Nincs jelszó"
-
-msgid "Passwords don't match"
-msgstr "A jelszavak nem egyeznek"
-
-msgid "Password must contain at least 6 characters."
-msgstr "A jelszónak legalább 6 karakter hosszúnak kell lennie."
-
-msgid "My first blog"
-msgstr "Az első blogom"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "Üdvözlet a DorClearnél!"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "Ez az első bejegyzésed. Mikor kész vagy arra, hogy blogolhass, egyszerűen jelentkezz be, hogy ezt megváltoztasd vagy töröld!"
-
-msgid "Dotclear Team"
-msgstr "DotClear csapat"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>Bármily különös, ez egy megjegyzés.</p>\n"
-"<p>Ahhoz, hogy törölhesd, jelentkezz be és nézd meg a blog hozzászólásait. Aztán törölheted vagy átírhatod őket!</p>"
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "DotClear telepítés"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "A jelszót helyreállítottam."
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Közepes:"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "DotClear telepítés"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "%s cache mappa nem írható."
-
-msgid "Errors:"
-msgstr "Hibák:"
-
-#, fuzzy
-msgid "Configuration file has been successfully created."
-msgstr "A kategória adatai frissítve."
-
-msgid "User information"
-msgstr "Felhasználói adatok"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "Kérlek, add meg a következő információkat, melyek szükségesek az első felhasználó létrehozásához."
-
-#, fuzzy
-msgid "First Name:"
-msgstr "Vezetéknév::"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "Legutóbbi frisítés"
-
-msgid "Email:"
-msgstr "E-mail:"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "Hibás felhasználónév vagy jelszó"
-
-msgid "Required field"
-msgstr "Kötelező kitölteni"
-
-msgid "Username:"
-msgstr "Felhasználónév:"
-
-#, fuzzy
-msgid "Username"
-msgstr "Felhasználónév:"
-
-msgid "New password:"
-msgstr "Új jelszó:"
-
-#, fuzzy
-msgid "Password"
-msgstr "Jelszó:"
-
-msgid "Confirm password:"
-msgstr "Jelszó megerősítése:"
-
-#, fuzzy
-msgid "Save"
-msgstr "mentés"
-
-msgid "Following plugins have been installed:"
-msgstr "A következő kiegészítőket telepítettem ::"
-
-msgid "Following plugins have not been installed:"
-msgstr "A következő kiegészítőket NEM telepítettem ::"
-
-msgid "All done!"
-msgstr "Minden rendben!"
-
-#, fuzzy
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "A DotClear-t siekresen feltelepítetted. Íme néhány hasznos információ, mellyel a blogot karban tarthatod."
-
-msgid "Your account"
-msgstr "A fiókod"
-
-msgid "Password:"
-msgstr "Jelszó:"
-
-msgid "Your blog"
-msgstr "A blogod"
-
-msgid "Blog address:"
-msgstr "Blogod címe::"
-
-msgid "Administration interface:"
-msgstr "Adminisztrációs felület::"
-
-msgid "Manage your blog now"
-msgstr "Kezeld a blogodat MOST"
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "%s cache mappa nem írható."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Nem tudok a mappába írni."
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "Az e-mail cím nem érvényes."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "A %s nem létezik."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "Nem tudok hozzáférni a %s -hez."
-
-msgid "Dotclear installation wizard"
-msgstr "DotClear telepítő tündér"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "Feladat"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "Rendszerinformációk"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "Kérlek, add meg a következő információkat, amelyek szükségesek a konfigurációs fájl elkészítésében."
-
-msgid "Database type:"
-msgstr "Adatbázis típusa:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "Adatbázis host neve:"
-
-msgid "Database Name:"
-msgstr "Adatbázisnév:"
-
-msgid "Database User Name:"
-msgstr "Adatbázis felhasználói neve:"
-
-msgid "Database Password:"
-msgstr "Adatbázis jelszava:"
-
-msgid "Database Tables Prefix:"
-msgstr "Adatbázis tábláinak prefixuma:"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "Tartalom:"
 
 msgid "Title"
 msgstr "Cím"
@@ -438,6 +148,18 @@ msgstr "Teendő a kijelöltekkel:"
 msgid "Schedule"
 msgstr "időzítés"
 
+#, fuzzy
+msgid "First publication"
+msgstr "Hibás nyelvkód"
+
+#, fuzzy
+msgid "Never published"
+msgstr "publikált"
+
+#, fuzzy
+msgid "Already published"
+msgstr "publikált"
+
 msgid "Mark"
 msgstr ""
 
@@ -475,6 +197,12 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "A bejegyzést frissítettem."
+msgstr[1] "A bejegyzést frissítettem."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "A bejegyzést frissítettem."
 msgstr[1] "A bejegyzést frissítettem."
 
@@ -522,6 +250,10 @@ msgstr "Cím::"
 #, fuzzy
 msgid "Parent:"
 msgstr "Bejegyzés keresése:"
+
+#, fuzzy
+msgid "Save"
+msgstr "mentés"
 
 msgid "This user does not exist"
 msgstr ""
@@ -675,6 +407,10 @@ msgid "Blog ID"
 msgstr "Blog ID"
 
 #, fuzzy
+msgid "Username"
+msgstr "Felhasználónév:"
+
+#, fuzzy
 msgid "Last Name"
 msgstr "Legutóbbi frisítés"
 
@@ -725,6 +461,9 @@ msgstr "Állapot:"
 msgid "Format:"
 msgstr "Dátumforma:"
 
+msgid "Password:"
+msgstr "Jelszó:"
+
 #, fuzzy
 msgid "With password"
 msgstr "Jelszó:"
@@ -772,6 +511,9 @@ msgstr "bezár"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "Trackbackek"
+
+msgid "Email:"
+msgstr "E-mail:"
 
 msgid "Web site:"
 msgstr "Honlap:"
@@ -844,6 +586,9 @@ msgstr "Bejegyzések oldalanként"
 
 msgid "Error:"
 msgstr "Hiba:"
+
+msgid "Errors:"
+msgstr "Hibák:"
 
 msgid "%H:%M:%S"
 msgstr ""
@@ -1388,11 +1133,18 @@ msgstr "A kategóriát sikeresen feltelepítettem."
 msgid "Upload a zip file"
 msgstr "Zip fájl feltöltése"
 
+msgid "Required field"
+msgstr "Kötelező kitölteni"
+
 #, fuzzy
 msgid "Zip file path:"
 msgstr "Zip fájl tartalma"
 
 msgid "Your password:"
+msgstr "Jelszó:"
+
+#, fuzzy
+msgid "Password"
 msgstr "Jelszó:"
 
 msgid "Download a zip file"
@@ -1842,6 +1594,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr "Elkészített képméretek (pixelben)"
 
 #, fuzzy
+msgid "medium"
+msgstr "Közepes:"
+
+#, fuzzy
 msgid "small"
 msgstr "Kicsi:"
 
@@ -1980,6 +1736,18 @@ msgstr "Az e-mail cím nem érvényes."
 
 msgid "You are not an administrator"
 msgstr "Nem vagy adminisztrátor"
+
+msgid "No user ID given"
+msgstr "Nem adtál meg felhasználói nevet"
+
+msgid "No password given"
+msgstr "Nincs jelszó"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "A felhasználónévnek legalább 2 karakter hosszúnak kell lennie! Tartalmazhat betűt, számokat vagy szimbólumokat."
+
+msgid "Password must contain at least 6 characters."
+msgstr "A jelszónak legalább 6 karakter hosszúnak kell lennie."
 
 msgid "Invalid user language code"
 msgstr "Érvénytelen nyelvi kód"
@@ -2293,6 +2061,9 @@ msgstr "Valaki az alábbi oldalon kérte az alábbi felhasználó jelszavának h
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Jelszóváltoztatáshoz kattints ide (vagy ha nem kértél jelszócserét, úgy vedd figyelmen kívül a levelet)"
 
+msgid "Username:"
+msgstr "Felhasználónév:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "Az e-mailt elküldtük az alábbi címre: %s."
@@ -2302,6 +2073,9 @@ msgstr "Az új jelszavad"
 
 msgid "Your new password is in your mailbox."
 msgstr "Az új jelszavad a postaládádban pihen."
+
+msgid "Passwords don't match"
+msgstr "A jelszavak nem egyeznek"
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -2325,6 +2099,16 @@ msgstr "Adminisztrációs felület::"
 msgid "Wrong username or password"
 msgstr "Hibás felhasználónév vagy jelszó"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "A jelszót helyreállítottam."
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "Vissza a bejelentkező képernyőre"
 
@@ -2340,6 +2124,12 @@ msgstr "Keresési feltételek"
 
 msgid "Change your password"
 msgstr "Jelszó lecserélése"
+
+msgid "New password:"
+msgstr "Új jelszó:"
+
+msgid "Confirm password:"
+msgstr "Jelszó megerősítése:"
 
 #, fuzzy
 msgid "change"
@@ -2625,6 +2415,9 @@ msgid "Time format:"
 msgstr "Időforma:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3159,6 +2952,12 @@ msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "A következő kiegészítőket telepítettem ::"
+
+msgid "Following plugins have not been installed:"
+msgstr "A következő kiegészítőket NEM telepítettem ::"
 
 msgid "Errors have occured with following plugins:"
 msgstr ""
@@ -4127,6 +3926,14 @@ msgstr "Ha megváltoztatod a loginodat, ismét be kell jelentkezned."
 msgid "Password change required to connect"
 msgstr ""
 
+#, fuzzy
+msgid "Last Name:"
+msgstr "Legutóbbi frisítés"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "Vezetéknév::"
+
 msgid "Display name:"
 msgstr "Név:"
 
@@ -4690,6 +4497,220 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Állíts be mesterkulcsot (DC_MASTER_KEY) a konfigurációs fájlodban."
+
+msgid "Dotclear is already installed."
+msgstr "A DotClear már telepítve van."
+
+msgid "Dotclear cannot be installed."
+msgstr "A DotClear-t nem lehet telepíteni."
+
+msgid "Invalid email address"
+msgstr "Helytelen e-mail cím"
+
+msgid "My first blog"
+msgstr "Az első blogom"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Üdvözlet a DorClearnél!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "Ez az első bejegyzésed. Mikor kész vagy arra, hogy blogolhass, egyszerűen jelentkezz be, hogy ezt megváltoztasd vagy töröld!"
+
+msgid "Dotclear Team"
+msgstr "DotClear csapat"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>Bármily különös, ez egy megjegyzés.</p>\n"
+"<p>Ahhoz, hogy törölhesd, jelentkezz be és nézd meg a blog hozzászólásait. Aztán törölheted vagy átírhatod őket!</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "DotClear telepítés"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "DotClear telepítés"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "%s cache mappa nem írható."
+
+#, fuzzy
+msgid "Configuration file has been successfully created."
+msgstr "A kategória adatai frissítve."
+
+msgid "User information"
+msgstr "Felhasználói adatok"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Kérlek, add meg a következő információkat, melyek szükségesek az első felhasználó létrehozásához."
+
+#, fuzzy
+msgid "Username and password"
+msgstr "Hibás felhasználónév vagy jelszó"
+
+msgid "All done!"
+msgstr "Minden rendben!"
+
+#, fuzzy
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "A DotClear-t siekresen feltelepítetted. Íme néhány hasznos információ, mellyel a blogot karban tarthatod."
+
+msgid "Your account"
+msgstr "A fiókod"
+
+msgid "Your blog"
+msgstr "A blogod"
+
+msgid "Blog address:"
+msgstr "Blogod címe::"
+
+msgid "Administration interface:"
+msgstr "Adminisztrációs felület::"
+
+msgid "Manage your blog now"
+msgstr "Kezeld a blogodat MOST"
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Multibyte string modul (mbstring) nem elérhető."
+
+msgid "Iconv module is not available."
+msgstr "Iconv modul nem elérhető."
+
+msgid "Output control functions are not available."
+msgstr "Kimeneti konrolfunkciók nem elérhetőek."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML modul nem elérhető."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML modul nem elérhető."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PRCE motor nem támogatja az UTF-8 szövegeket."
+
+msgid "SPL module is not available."
+msgstr "SPL modul nem elérhető."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL verzió %s (4.1 vagy korábbi szükséges)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB motor nem elérhető."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL verió %s (8.0 vagy korábbi kell)."
+
+#, fuzzy, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "%s cache mappa nem írható."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Nem tudok a mappába írni."
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "Az e-mail cím nem érvényes."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "A %s nem létezik."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "Nem tudok hozzáférni a %s -hez."
+
+msgid "Dotclear installation wizard"
+msgstr "DotClear telepítő tündér"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "Feladat"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "Rendszerinformációk"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Kérlek, add meg a következő információkat, amelyek szükségesek a konfigurációs fájl elkészítésében."
+
+msgid "Database type:"
+msgstr "Adatbázis típusa:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "Adatbázis host neve:"
+
+msgid "Database Name:"
+msgstr "Adatbázisnév:"
+
+msgid "Database User Name:"
+msgstr "Adatbázis felhasználói neve:"
+
+msgid "Database Password:"
+msgstr "Adatbázis jelszava:"
+
+msgid "Database Tables Prefix:"
+msgstr "Adatbázis tábláinak prefixuma:"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "Tartalom:"
+
+#, fuzzy, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP verzió %s (7.4 vagy korábbi kell)."
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

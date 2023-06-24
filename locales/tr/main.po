@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -16,287 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr ""
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr ""
-
-msgid "Iconv module is not available."
-msgstr ""
-
-msgid "Output control functions are not available."
-msgstr ""
-
-msgid "SimpleXML module is not available."
-msgstr ""
-
-msgid "DOM XML module is not available."
-msgstr ""
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr ""
-
-msgid "SPL module is not available."
-msgstr ""
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr ""
-
-msgid "MySQL InnoDB engine is not available."
-msgstr ""
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr ""
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr ""
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear evvelce kurulmuş."
-
-msgid "Dotclear cannot be installed."
-msgstr ""
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Invalid email address"
-msgstr "Geçersiz eposta adresi "
-
-msgid "No password given"
-msgstr "Parola girilmedi"
-
-msgid "Passwords don't match"
-msgstr "Parolalar eşleşmiyor"
-
-msgid "Password must contain at least 6 characters."
-msgstr ""
-
-msgid "My first blog"
-msgstr "İlk bloğum"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "Dotclear'a hoşgeldiniz!"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr ""
-
-msgid "Dotclear Team"
-msgstr "Dotclear Ekibi"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Dotclear kurulumu"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Parola sıfırla"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Orta:"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr ""
-
-msgid "Dotclear installation"
-msgstr "Dotclear kurulumu"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr ""
-
-msgid "Errors:"
-msgstr ""
-
-msgid "Configuration file has been successfully created."
-msgstr ""
-
-msgid "User information"
-msgstr "Kullanıcı bilgisi"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr ""
-
-msgid "First Name:"
-msgstr "İlk isim:"
-
-msgid "Last Name:"
-msgstr "Soy İsim:"
-
-msgid "Email:"
-msgstr "Eposta:"
-
-msgid "Username and password"
-msgstr "Kullanıcı adı ve parola"
-
-msgid "Required field"
-msgstr "Gerekli alan"
-
-msgid "Username:"
-msgstr "Kullanıcı adı:"
-
-msgid "Username"
-msgstr "Kullanıcı adı:"
-
-msgid "New password:"
-msgstr "Yeni parola:"
-
-#, fuzzy
-msgid "Password"
-msgstr "Parola:"
-
-msgid "Confirm password:"
-msgstr "Parolayı onayla:"
-
-msgid "Save"
-msgstr "Kaydet"
-
-msgid "Following plugins have been installed:"
-msgstr "Aşağıdaki eklentiler kuruldu:"
-
-msgid "Following plugins have not been installed:"
-msgstr ""
-
-msgid "All done!"
-msgstr "Hepsi bitti!"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr ""
-
-msgid "Your account"
-msgstr "Hesabınız"
-
-msgid "Password:"
-msgstr "Parola:"
-
-msgid "Your blog"
-msgstr "Blogunuz"
-
-msgid "Blog address:"
-msgstr "Blog adresi"
-
-msgid "Administration interface:"
-msgstr "Admin arayüzü:"
-
-msgid "Manage your blog now"
-msgstr ""
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr ""
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Dizin okunamadı"
-
-#, fuzzy
-msgid "Master email is not valid."
-msgstr "Eposta adresi geçersiz"
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "%s dosyası mevcut değil."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "%s dosyası yazılamadı."
-
-msgid "Dotclear installation wizard"
-msgstr "Dotclear kurulum sihirbazı"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "Eylem"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "Sistem bilgisi"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr ""
-
-msgid "Database type:"
-msgstr "Veritabanı tipi:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "Veritabanı Sunucu Adı:"
-
-msgid "Database Name:"
-msgstr "Veritabanı İsmi:"
-
-msgid "Database User Name:"
-msgstr "Veritabanı Kullanıcı İsmi:"
-
-msgid "Database Password:"
-msgstr "Veritabanı parolası:"
-
-msgid "Database Tables Prefix:"
-msgstr "Veritabanı tabloları öneki:"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "İçerik:"
 
 msgid "Title"
 msgstr "Başlık"
@@ -428,6 +147,18 @@ msgstr "Seçilmiş yazılara yap:"
 msgid "Schedule"
 msgstr "plan"
 
+#, fuzzy
+msgid "First publication"
+msgstr "Geçersiz dil kodu"
+
+#, fuzzy
+msgid "Never published"
+msgstr "yayınlandı"
+
+#, fuzzy
+msgid "Already published"
+msgstr "yayınlandı"
+
 msgid "Mark"
 msgstr ""
 
@@ -465,6 +196,12 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "Yazı güncellemini başarılı."
+msgstr[1] "Yazı güncellemini başarılı."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "Yazı güncellemini başarılı."
 msgstr[1] "Yazı güncellemini başarılı."
 
@@ -510,6 +247,9 @@ msgstr "Başlık:"
 
 msgid "Parent:"
 msgstr "Ana:"
+
+msgid "Save"
+msgstr "Kaydet"
 
 msgid "This user does not exist"
 msgstr "Bu kullanıcı mevcut değil"
@@ -661,6 +401,9 @@ msgstr "Son güncelleme"
 msgid "Blog ID"
 msgstr "Blog ID"
 
+msgid "Username"
+msgstr "Kullanıcı adı:"
+
 msgid "Last Name"
 msgstr "Soy İsim"
 
@@ -709,6 +452,9 @@ msgstr "Durum:"
 msgid "Format:"
 msgstr "Tarih biçimi:"
 
+msgid "Password:"
+msgstr "Parola:"
+
 #, fuzzy
 msgid "With password"
 msgstr "Yazı parolası:"
@@ -756,6 +502,9 @@ msgstr "kapat"
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "Gerizlemeler"
+
+msgid "Email:"
+msgstr "Eposta:"
 
 msgid "Web site:"
 msgstr "Web sayfası"
@@ -828,6 +577,9 @@ msgstr "Sayfa başına yazı"
 
 msgid "Error:"
 msgstr "Hata:"
+
+msgid "Errors:"
+msgstr ""
 
 msgid "%H:%M:%S"
 msgstr ""
@@ -1376,12 +1128,19 @@ msgstr "Eklenti kurulumu başarılı."
 msgid "Upload a zip file"
 msgstr "Zip dosyası"
 
+msgid "Required field"
+msgstr "Gerekli alan"
+
 #, fuzzy
 msgid "Zip file path:"
 msgstr "ZIP dosyası içeriği"
 
 msgid "Your password:"
 msgstr "Parolanız"
+
+#, fuzzy
+msgid "Password"
+msgstr "Parola:"
 
 msgid "Download a zip file"
 msgstr "ZIP dosyası indir"
@@ -1827,6 +1586,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
 #, fuzzy
+msgid "medium"
+msgstr "Orta:"
+
+#, fuzzy
 msgid "small"
 msgstr "Küçük:"
 
@@ -1965,6 +1728,18 @@ msgstr "Eposta adresi geçersiz"
 
 msgid "You are not an administrator"
 msgstr "Admin değilsiniz"
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "No password given"
+msgstr "Parola girilmedi"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Password must contain at least 6 characters."
+msgstr ""
 
 msgid "Invalid user language code"
 msgstr "Geçersiz kullanucı dili kodu."
@@ -2270,6 +2045,9 @@ msgstr ""
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
 
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr ""
@@ -2279,6 +2057,9 @@ msgstr "Yeni parolanız"
 
 msgid "Your new password is in your mailbox."
 msgstr ""
+
+msgid "Passwords don't match"
+msgstr "Parolalar eşleşmiyor"
 
 #, fuzzy
 msgid "You didn't change your password."
@@ -2301,6 +2082,16 @@ msgstr "Admin arayüzü:"
 msgid "Wrong username or password"
 msgstr "Hatalı kullanıcı adı ya da parola"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Parola sıfırla"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "Giriş ekranına dön"
 
@@ -2316,6 +2107,12 @@ msgstr "Arama seçenekleri"
 
 msgid "Change your password"
 msgstr "Parolanızı değiştirin"
+
+msgid "New password:"
+msgstr "Yeni parola:"
+
+msgid "Confirm password:"
+msgstr "Parolayı onayla:"
 
 #, fuzzy
 msgid "change"
@@ -2600,6 +2397,9 @@ msgid "Time format:"
 msgstr "Zaman biçimi:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3115,6 +2915,12 @@ msgid "The cache directory does not exist or is not writable. You must create th
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "Aşağıdaki eklentiler kuruldu:"
+
+msgid "Following plugins have not been installed:"
 msgstr ""
 
 msgid "Errors have occured with following plugins:"
@@ -4066,6 +3872,12 @@ msgstr ""
 msgid "Password change required to connect"
 msgstr ""
 
+msgid "Last Name:"
+msgstr "Soy İsim:"
+
+msgid "First Name:"
+msgstr "İlk isim:"
+
 msgid "Display name:"
 msgstr "Gösterim ismi:"
 
@@ -4632,6 +4444,211 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr ""
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear evvelce kurulmuş."
+
+msgid "Dotclear cannot be installed."
+msgstr ""
+
+msgid "Invalid email address"
+msgstr "Geçersiz eposta adresi "
+
+msgid "My first blog"
+msgstr "İlk bloğum"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Dotclear'a hoşgeldiniz!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr ""
+
+msgid "Dotclear Team"
+msgstr "Dotclear Ekibi"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear kurulumu"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Dotclear kurulumu"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr ""
+
+msgid "Configuration file has been successfully created."
+msgstr ""
+
+msgid "User information"
+msgstr "Kullanıcı bilgisi"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr ""
+
+msgid "Username and password"
+msgstr "Kullanıcı adı ve parola"
+
+msgid "All done!"
+msgstr "Hepsi bitti!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr ""
+
+msgid "Your account"
+msgstr "Hesabınız"
+
+msgid "Your blog"
+msgstr "Blogunuz"
+
+msgid "Blog address:"
+msgstr "Blog adresi"
+
+msgid "Administration interface:"
+msgstr "Admin arayüzü:"
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
+msgstr ""
+
+#, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr ""
+
+msgid "MySQL InnoDB engine is not available."
+msgstr ""
+
+#, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr ""
+
+#, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr ""
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Dizin okunamadı"
+
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "Eposta adresi geçersiz"
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s dosyası mevcut değil."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "%s dosyası yazılamadı."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear kurulum sihirbazı"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "Eylem"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "Sistem bilgisi"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr ""
+
+msgid "Database type:"
+msgstr "Veritabanı tipi:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "Veritabanı Sunucu Adı:"
+
+msgid "Database Name:"
+msgstr "Veritabanı İsmi:"
+
+msgid "Database User Name:"
+msgstr "Veritabanı Kullanıcı İsmi:"
+
+msgid "Database Password:"
+msgstr "Veritabanı parolası:"
+
+msgid "Database Tables Prefix:"
+msgstr "Veritabanı tabloları öneki:"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "İçerik:"
 
 #, fuzzy, php-format
 #~ msgid "Archive %s is closed."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -16,283 +16,6 @@ msgstr ""
 "X-Crowdin-Language: fi\n"
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
-
-#, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP-versio on %s (tarvitaan 7.4 tai uudempi)."
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Monitavumerkkijonomoduulia (mbstring) ei löydy."
-
-msgid "Iconv module is not available."
-msgstr "Iconv-moduulia ei löydy."
-
-msgid "Output control functions are not available."
-msgstr "PHP-tulostuksenhallintafunktioita ei löydy."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML-moduulia ei löydy."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML -moduulia ei löydy."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE-moottori ei hyväksy UTF-8-merkkijonoja."
-
-msgid "SPL module is not available."
-msgstr "SPL-moduulia ei löydy."
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr "MySQL-versio on %s (tarvitaan 4.1 tai uudempi)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB-tallennusmoottoria ei löydy."
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr "PostgreSQL-versio on %s (vaaditaan 8.0 tai uudempi)."
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "Aseta pääavain (DC_MASTER_KEY) asetustiedostossa."
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear on jo asennettu."
-
-msgid "Dotclear cannot be installed."
-msgstr "Dotclearia ei voi asentaa."
-
-msgid "No user ID given"
-msgstr "Ei käyttäjän tunnistetta"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Käyttäjän tunnisteen tulee sisältää ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
-
-msgid "Invalid email address"
-msgstr "Virheellinen sähköpostiosoite"
-
-msgid "No password given"
-msgstr "Salasanaa ei ole annettu"
-
-msgid "Passwords don't match"
-msgstr "Salasanat eivät täsmää"
-
-msgid "Password must contain at least 6 characters."
-msgstr "Salasanan tulee käsittää ainakin 6 merkkiä."
-
-msgid "My first blog"
-msgstr "Ensimmäinen blogini"
-
-msgid "%A, %B %e %Y"
-msgstr "%A %e %B %Y"
-
-msgid "Welcome to Dotclear!"
-msgstr "Tervetuloa käyttämään Dotclearia!"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "Tämä on ensimmäinen blogimerkintäsi. Kun olet valmis aloittamaan bloggauksen, kirjaudu sisään ja muokkaa tai poista se."
-
-msgid "Dotclear Team"
-msgstr "Dotclear-tiimi"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>Tämä on esimerkkikommentti.</p>\n"
-"<p>Voit poistaa tämän ja muokata tätä kirjautumalla sisään ja selaamalla blogisi kommentteja.</p>"
-
-msgid "Dotclear Install"
-msgstr "Dotclearin asennus"
-
-#, php-format
-msgid "Password strength: %s"
-msgstr "Salasanan vahvuus: %s"
-
-msgid "weak"
-msgstr "heikko"
-
-msgid "medium"
-msgstr "keskikoko"
-
-msgid "strong"
-msgstr "vahva"
-
-msgid "show"
-msgstr "näytä"
-
-msgid "Dotclear installation"
-msgstr "Dotclearin asennus"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr "Välimuistihakemistoon %s ei voi kirjoittaa."
-
-msgid "Errors:"
-msgstr "Virheet:"
-
-msgid "Configuration file has been successfully created."
-msgstr "Asetustiedosto on luotu."
-
-msgid "User information"
-msgstr "Käyttäjän tiedot"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "Anna seuraavat tiedot ensimmäisen käyttäjän luomiseksi."
-
-msgid "First Name:"
-msgstr "Etunimi:"
-
-msgid "Last Name:"
-msgstr "Sukunimi:"
-
-msgid "Email:"
-msgstr "Sähköposti:"
-
-msgid "Username and password"
-msgstr "Käyttäjätunnus ja salasana"
-
-msgid "Required field"
-msgstr "Vaadittu kenttä"
-
-msgid "Username:"
-msgstr "Käyttäjä:"
-
-msgid "Username"
-msgstr "Käyttäjänimi"
-
-msgid "New password:"
-msgstr "Uusi salasana:"
-
-msgid "Password"
-msgstr "Salasana"
-
-msgid "Confirm password:"
-msgstr "Vahvista salasana:"
-
-msgid "Save"
-msgstr "Tallenna"
-
-msgid "Following plugins have been installed:"
-msgstr "Seuraavat liitännäiset on asennettu:"
-
-msgid "Following plugins have not been installed:"
-msgstr "Seuraavia liitännäisiä ei ole asennettu:"
-
-msgid "All done!"
-msgstr "Valmista!"
-
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "Dotclear on asennettu. Talleta seuraavat tiedot varmaan paikkaan."
-
-msgid "Your account"
-msgstr "Tilisi"
-
-msgid "Password:"
-msgstr "Salasana:"
-
-msgid "Your blog"
-msgstr "Blogisi"
-
-msgid "Blog address:"
-msgstr "Blogin verkko-osoite:"
-
-msgid "Administration interface:"
-msgstr "Käyttöliittymä:"
-
-msgid "Manage your blog now"
-msgstr "Hallinnoi blogiasi nyt"
-
-msgid "Installation can not be completed"
-msgstr "Asennusta ei voi saada päätökseen"
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Yllämainituista syistä Dotclearia ei saatu asennettua. Katso <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka ongelma ratkaistaan."
-
-#, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr "Polkuun <strong>%s</strong> ei voida kirjoittaa."
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dotclear-asennusvelho ei kyennyt luomaan asetustiedostoa puolestasi. Muuta hakemiston käyttöoikeuksia tai luo <strong>config.php</strong> itse, katso toimintaohjeita <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>."
-
-#, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
-msgid "Master email is not valid."
-msgstr "Sähköpostiosoite ei kelpaa."
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "Tiedostoa %s ei ole."
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr "Tiedostoa %s ei saatu luotua."
-
-msgid "Dotclear installation wizard"
-msgstr "Dotclear-asennusvelho"
-
-msgid "Welcome"
-msgstr "Tervetuloa"
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr "Dotclearin asennuksen loppuunsaattamiseksi tarvitaan enää tieto siitä, miten tietokantaasi pääsee käsiksi ja kuka olet. Kun olet täyttänyt nämä tiedot tässä kaksivaiheisessa asennusvelhossa, asennus on valmis."
-
-msgid "Attention:"
-msgstr "Tärkeä huomautus:"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "Tämä asennusvelho ei ehkä toimi kaikissa verkkopalvelimissa. Jos et onnistu asentamaan näin, lue <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka voit itse luoda <strong>config.php</strong>-tiedoston."
-
-msgid "System information"
-msgstr "Järjestelmän tiedot"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "Anna seuraavat asetustiedoston luomiseksi tarvittavat tiedot."
-
-msgid "Database type:"
-msgstr "Tietokannan tyyppi:"
-
-msgid "MySQLi"
-msgstr "MySQLi"
-
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (täysi UTF-8)"
-
-msgid "PostgreSQL"
-msgstr "PostgreSQL"
-
-msgid "SQLite"
-msgstr "MySQLi"
-
-msgid "Driver"
-msgstr "Ajuri"
-
-msgid "Database Host Name:"
-msgstr "Tietokantapalvelimen nimi:"
-
-msgid "Database Name:"
-msgstr "Tietokannan nimi:"
-
-msgid "Database User Name:"
-msgstr "Tietokannan käyttäjänimi:"
-
-msgid "Database Password:"
-msgstr "Tietokannan salasana:"
-
-msgid "Database Tables Prefix:"
-msgstr "Tietokantataulujen etuliite:"
-
-msgid "Prefix"
-msgstr "Etuliite"
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr "Mastersähköposti: (käytetään lähettäjänä salasanan palautuksessa)"
-
-msgid "Continue"
-msgstr "Jatka"
 
 msgid "Title"
 msgstr "Otsikko"
@@ -402,6 +125,18 @@ msgstr "Toimet merkintöjen suhteen"
 msgid "Schedule"
 msgstr "Ajasta"
 
+#, fuzzy
+msgid "First publication"
+msgstr "Virheellinen julkaisupäiväys"
+
+#, fuzzy
+msgid "Never published"
+msgstr "julkaistu"
+
+#, fuzzy
+msgid "Already published"
+msgstr "julkaistu"
+
 msgid "Mark"
 msgstr "Merkitse"
 
@@ -432,6 +167,12 @@ msgstr ""
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "%d merkintä on päivitetty tilaan \"%s\"."
+msgstr[1] "%d merkintää on päivitetty tilaan \"%s\"."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "%d merkintä on päivitetty tilaan \"%s\"."
 msgstr[1] "%d merkintää on päivitetty tilaan \"%s\"."
 
@@ -476,6 +217,9 @@ msgstr "Otsikko:"
 
 msgid "Parent:"
 msgstr "Emo:"
+
+msgid "Save"
+msgstr "Tallenna"
 
 msgid "This user does not exist"
 msgstr "Kyseistä käyttäjää ei ole"
@@ -618,6 +362,9 @@ msgstr "Viimeisin päivitys"
 msgid "Blog ID"
 msgstr "Blogin tunniste"
 
+msgid "Username"
+msgstr "Käyttäjänimi"
+
 msgid "Last Name"
 msgstr "Sukunimi"
 
@@ -663,6 +410,9 @@ msgstr "Tila:"
 msgid "Format:"
 msgstr "Muoto:"
 
+msgid "Password:"
+msgstr "Salasana:"
+
 msgid "With password"
 msgstr "Salasanan kera"
 
@@ -701,6 +451,9 @@ msgstr "Kiinni"
 
 msgid "Trackbacks:"
 msgstr "Takaisinviittaukset"
+
+msgid "Email:"
+msgstr "Sähköposti:"
 
 msgid "Web site:"
 msgstr "Sivusto:"
@@ -767,6 +520,9 @@ msgstr "merkintää sivua kohti"
 
 msgid "Error:"
 msgstr "Virhe:"
+
+msgid "Errors:"
+msgstr "Virheet:"
 
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
@@ -1276,11 +1032,17 @@ msgstr "Tämä liitännäinen on asennettu."
 msgid "Upload a zip file"
 msgstr "Lataa zip-tiedosto palvelimelle"
 
+msgid "Required field"
+msgstr "Vaadittu kenttä"
+
 msgid "Zip file path:"
 msgstr "Zip-tiedoston polku:"
 
 msgid "Your password:"
 msgstr "Salasanasi:"
+
+msgid "Password"
+msgstr "Salasana"
 
 msgid "Download a zip file"
 msgstr "Lataa zip-tiedosto"
@@ -1686,6 +1448,9 @@ msgstr "Virhe tiedostoa kirjoitettaessa."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
 
+msgid "medium"
+msgstr "keskikoko"
+
 msgid "small"
 msgstr "pieni"
 
@@ -1817,6 +1582,18 @@ msgstr "Sähköpostiosoite ei kelpaa."
 
 msgid "You are not an administrator"
 msgstr "Et ole järjestelmänvalvoja"
+
+msgid "No user ID given"
+msgstr "Ei käyttäjän tunnistetta"
+
+msgid "No password given"
+msgstr "Salasanaa ei ole annettu"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Käyttäjän tunnisteen tulee sisältää ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Salasanan tulee käsittää ainakin 6 merkkiä."
 
 msgid "Invalid user language code"
 msgstr "Käyttäjän kielikoodi ei kelpaa"
@@ -2112,6 +1889,9 @@ msgstr "On pyydetty, että salasana nollattaisiin seuraavan sivuston ja käyttä
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Jos haluat vaihtaa salasanasi käy seuraavassa osoitteessa, muutoin jättämällä tämän sähköpostiviestin huomioitta mitään ei tapahdu."
 
+msgid "Username:"
+msgstr "Käyttäjä:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "Sähköpostin lähettäminen osoitteeseen %s onnistui."
@@ -2121,6 +1901,9 @@ msgstr "Uusi salasanasi"
 
 msgid "Your new password is in your mailbox."
 msgstr "Uusi salasanasi on lähetetty sähköpostitse."
+
+msgid "Passwords don't match"
+msgstr "Salasanat eivät täsmää"
 
 msgid "You didn't change your password."
 msgstr "Et vaihtanut salasanaasi."
@@ -2140,6 +1923,16 @@ msgstr "Käyttöliittymä:"
 msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
 
+#, php-format
+msgid "Password strength: %s"
+msgstr "Salasanan vahvuus: %s"
+
+msgid "weak"
+msgstr "heikko"
+
+msgid "strong"
+msgstr "vahva"
+
 msgid "Back to login screen"
 msgstr "Takaisin kirjautumisruutuun"
 
@@ -2155,6 +1948,12 @@ msgstr "Muut asetukset"
 
 msgid "Change your password"
 msgstr "Vaihda salasanasi"
+
+msgid "New password:"
+msgstr "Uusi salasana:"
+
+msgid "Confirm password:"
+msgstr "Vahvista salasana:"
 
 msgid "change"
 msgstr "muuta"
@@ -2434,6 +2233,9 @@ msgstr "Ajan esitysmuoto:"
 
 msgid "Pattern of time"
 msgstr "Aikakaava"
+
+msgid "Don't load standard stylesheet (used for media alignement)"
+msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "Käytä hymiöitä blogimerkinnöissä ja kommenteissa"
@@ -2912,6 +2714,12 @@ msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Luo tämä h
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Ota yhteys järjestelmänvalvojaasi."
+
+msgid "Following plugins have been installed:"
+msgstr "Seuraavat liitännäiset on asennettu:"
+
+msgid "Following plugins have not been installed:"
+msgstr "Seuraavia liitännäisiä ei ole asennettu:"
 
 msgid "Errors have occured with following plugins:"
 msgstr "Seuraavat liitännäiset ovat aiheuttaneet virheitä:"
@@ -3800,6 +3608,12 @@ msgstr "Jos muutat käyttäjänimeäsi, joudut kirjautumaan uudelleen sisään."
 msgid "Password change required to connect"
 msgstr "Salasana on vaihdettava ensi kertaa kirjauduttaessa"
 
+msgid "Last Name:"
+msgstr "Sukunimi:"
+
+msgid "First Name:"
+msgstr "Etunimi:"
+
 msgid "Display name:"
 msgstr "Näytettävä nimi:"
 
@@ -4340,6 +4154,213 @@ msgstr ""
 #, fuzzy
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Aseta pääavain (DC_MASTER_KEY) asetustiedostossa."
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear on jo asennettu."
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclearia ei voi asentaa."
+
+msgid "Invalid email address"
+msgstr "Virheellinen sähköpostiosoite"
+
+msgid "My first blog"
+msgstr "Ensimmäinen blogini"
+
+msgid "%A, %B %e %Y"
+msgstr "%A %e %B %Y"
+
+msgid "Welcome to Dotclear!"
+msgstr "Tervetuloa käyttämään Dotclearia!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "Tämä on ensimmäinen blogimerkintäsi. Kun olet valmis aloittamaan bloggauksen, kirjaudu sisään ja muokkaa tai poista se."
+
+msgid "Dotclear Team"
+msgstr "Dotclear-tiimi"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>Tämä on esimerkkikommentti.</p>\n"
+"<p>Voit poistaa tämän ja muokata tätä kirjautumalla sisään ja selaamalla blogisi kommentteja.</p>"
+
+msgid "Dotclear Install"
+msgstr "Dotclearin asennus"
+
+msgid "show"
+msgstr "näytä"
+
+msgid "Dotclear installation"
+msgstr "Dotclearin asennus"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "Välimuistihakemistoon %s ei voi kirjoittaa."
+
+msgid "Configuration file has been successfully created."
+msgstr "Asetustiedosto on luotu."
+
+msgid "User information"
+msgstr "Käyttäjän tiedot"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Anna seuraavat tiedot ensimmäisen käyttäjän luomiseksi."
+
+msgid "Username and password"
+msgstr "Käyttäjätunnus ja salasana"
+
+msgid "All done!"
+msgstr "Valmista!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "Dotclear on asennettu. Talleta seuraavat tiedot varmaan paikkaan."
+
+msgid "Your account"
+msgstr "Tilisi"
+
+msgid "Your blog"
+msgstr "Blogisi"
+
+msgid "Blog address:"
+msgstr "Blogin verkko-osoite:"
+
+msgid "Administration interface:"
+msgstr "Käyttöliittymä:"
+
+msgid "Manage your blog now"
+msgstr "Hallinnoi blogiasi nyt"
+
+msgid "Installation can not be completed"
+msgstr "Asennusta ei voi saada päätökseen"
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr "Yllämainituista syistä Dotclearia ei saatu asennettua. Katso <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka ongelma ratkaistaan."
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Monitavumerkkijonomoduulia (mbstring) ei löydy."
+
+msgid "Iconv module is not available."
+msgstr "Iconv-moduulia ei löydy."
+
+msgid "Output control functions are not available."
+msgstr "PHP-tulostuksenhallintafunktioita ei löydy."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML-moduulia ei löydy."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML -moduulia ei löydy."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE-moottori ei hyväksy UTF-8-merkkijonoja."
+
+msgid "SPL module is not available."
+msgstr "SPL-moduulia ei löydy."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL-versio on %s (tarvitaan 4.1 tai uudempi)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB-tallennusmoottoria ei löydy."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL-versio on %s (vaaditaan 8.0 tai uudempi)."
+
+#, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr "Polkuun <strong>%s</strong> ei voida kirjoittaa."
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr "Dotclear-asennusvelho ei kyennyt luomaan asetustiedostoa puolestasi. Muuta hakemiston käyttöoikeuksia tai luo <strong>config.php</strong> itse, katso toimintaohjeita <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>."
+
+#, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+msgid "Master email is not valid."
+msgstr "Sähköpostiosoite ei kelpaa."
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "Tiedostoa %s ei ole."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "Tiedostoa %s ei saatu luotua."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear-asennusvelho"
+
+msgid "Welcome"
+msgstr "Tervetuloa"
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr "Dotclearin asennuksen loppuunsaattamiseksi tarvitaan enää tieto siitä, miten tietokantaasi pääsee käsiksi ja kuka olet. Kun olet täyttänyt nämä tiedot tässä kaksivaiheisessa asennusvelhossa, asennus on valmis."
+
+msgid "Attention:"
+msgstr "Tärkeä huomautus:"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "Tämä asennusvelho ei ehkä toimi kaikissa verkkopalvelimissa. Jos et onnistu asentamaan näin, lue <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka voit itse luoda <strong>config.php</strong>-tiedoston."
+
+msgid "System information"
+msgstr "Järjestelmän tiedot"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Anna seuraavat asetustiedoston luomiseksi tarvittavat tiedot."
+
+msgid "Database type:"
+msgstr "Tietokannan tyyppi:"
+
+msgid "MySQLi"
+msgstr "MySQLi"
+
+msgid "MySQLi (full UTF-8)"
+msgstr "MySQLi (täysi UTF-8)"
+
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+msgid "SQLite"
+msgstr "MySQLi"
+
+msgid "Driver"
+msgstr "Ajuri"
+
+msgid "Database Host Name:"
+msgstr "Tietokantapalvelimen nimi:"
+
+msgid "Database Name:"
+msgstr "Tietokannan nimi:"
+
+msgid "Database User Name:"
+msgstr "Tietokannan käyttäjänimi:"
+
+msgid "Database Password:"
+msgstr "Tietokannan salasana:"
+
+msgid "Database Tables Prefix:"
+msgstr "Tietokantataulujen etuliite:"
+
+msgid "Prefix"
+msgstr "Etuliite"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr "Mastersähköposti: (käytetään lähettäjänä salasanan palautuksessa)"
+
+msgid "Continue"
+msgstr "Jatka"
+
+#, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP-versio on %s (tarvitaan 7.4 tai uudempi)."
 
 #, php-format
 #~ msgid "Requires Dotclear version %s, but version %s is installed"

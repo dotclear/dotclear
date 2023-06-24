@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:36+0200\n"
+"POT-Creation-Date: 2023-06-24 12:14+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -16,293 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-#, fuzzy, php-format
-msgid "PHP version is %s (7.4 or earlier needed)."
-msgstr "PHP সংস্করণ আছে %s (7.4 অথবা পূর্বের লাগবে)."
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr ""
-
-msgid "Iconv module is not available."
-msgstr ""
-
-msgid "Output control functions are not available."
-msgstr ""
-
-msgid "SimpleXML module is not available."
-msgstr ""
-
-msgid "DOM XML module is not available."
-msgstr ""
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr ""
-
-msgid "SPL module is not available."
-msgstr ""
-
-#, php-format
-msgid "MySQL version is %s (4.1 or earlier needed)."
-msgstr ""
-
-msgid "MySQL InnoDB engine is not available."
-msgstr ""
-
-#, php-format
-msgid "PostgreSQL version is %s (8.0 or earlier needed)."
-msgstr ""
-
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr ""
-
-msgid "Dotclear is already installed."
-msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
-
-msgid "Dotclear cannot be installed."
-msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
-
-msgid "No user ID given"
-msgstr "কোনো ইউজার আইডি দেয়া হয় নি"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "ইউজার আইডিতে কমপক্ষে ২টি অক্ষর থাকতে হবে, যাতে বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
-
-msgid "Invalid email address"
-msgstr "অবৈধ ইমেইল এড্রেস"
-
-msgid "No password given"
-msgstr "কোনো পাসওয়ার্ড দেয়া হয় নি"
-
-msgid "Passwords don't match"
-msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
-
-msgid "Password must contain at least 6 characters."
-msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
-
-msgid "My first blog"
-msgstr "আমার প্রথম ব্লগ"
-
-msgid "%A, %B %e %Y"
-msgstr ""
-
-msgid "Welcome to Dotclear!"
-msgstr "ডটক্লিয়ারে স্বাগতম!"
-
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
-
-msgid "Dotclear Team"
-msgstr "ডটক্লিয়ার টিম"
-
-msgid ""
-"<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>এটি একটি মন্তব্য।</p>\n"
-"<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
-
-#, fuzzy
-msgid "Dotclear Install"
-msgstr "Dotclear ইন্সটলেশন"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "পাসওয়ার্ড রিসেট"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "মাঝারি:"
-
-msgid "strong"
-msgstr ""
-
-msgid "show"
-msgstr "দেখাও"
-
-msgid "Dotclear installation"
-msgstr "Dotclear ইন্সটলেশন"
-
-#, php-format
-msgid "Cache directory %s is not writable."
-msgstr ""
-
-msgid "Errors:"
-msgstr ""
-
-msgid "Configuration file has been successfully created."
-msgstr "কনফিগারেশন ফাইল সফলভাবে তৈরি হয়েছে।"
-
-msgid "User information"
-msgstr "ইউজারের তথ্য"
-
-msgid "Please provide the following information needed to create the first user."
-msgstr "অনুগ্রহ করে প্রথম ইউজার তৈরির জন্য নিচের তথ্য প্রদান করুন।"
-
-#, fuzzy
-msgid "First Name:"
-msgstr "প্রথম নাম:"
-
-#, fuzzy
-msgid "Last Name:"
-msgstr "সর্বশেষ আপডেট"
-
-msgid "Email:"
-msgstr "ইমেইল:"
-
-#, fuzzy
-msgid "Username and password"
-msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
-
-msgid "Required field"
-msgstr "প্রয়োজনীয় ঘর"
-
-msgid "Username:"
-msgstr "ইউজারনেম:"
-
-#, fuzzy
-msgid "Username"
-msgstr "ইউজারনেম:"
-
-msgid "New password:"
-msgstr "নতুন পাসওয়ার্ড:"
-
-#, fuzzy
-msgid "Password"
-msgstr "পাসওয়ার্ড:"
-
-msgid "Confirm password:"
-msgstr "আবার পাসওয়ার্ড:"
-
-msgid "Save"
-msgstr "সংরক্ষণ করুন"
-
-msgid "Following plugins have been installed:"
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
-
-msgid "Following plugins have not been installed:"
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
-
-msgid "All done!"
-msgstr "কাজ শেষ!"
-
-#, fuzzy
-msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "ডটক্লিয়ার সফলভাবে ইন্সটল করা হয়েছে। এখানে কিছু তথ্য আছে যেগুলো সংরক্ষণ করে রাখা উচিত হবে।"
-
-msgid "Your account"
-msgstr "আপনার এ্যাকাউন্ট"
-
-msgid "Password:"
-msgstr "পাসওয়ার্ড:"
-
-msgid "Your blog"
-msgstr "আপনার ব্লগ"
-
-msgid "Blog address:"
-msgstr "ব্লগ এড্রেস:"
-
-msgid "Administration interface:"
-msgstr ""
-
-msgid "Manage your blog now"
-msgstr ""
-
-msgid "Installation can not be completed"
-msgstr ""
-
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-#, php-format
-msgid "Path <strong>%s</strong> is not writable."
-msgstr ""
-
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "নতুন ডিরেক্টরি"
-
-msgid "Master email is not valid."
-msgstr ""
-
-#, php-format
-msgid "File %s does not exist."
-msgstr "%s ফাইলটি নেই।"
-
-#, php-format
-msgid "Cannot write %s file."
-msgstr ""
-
-msgid "Dotclear installation wizard"
-msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
-
-#, fuzzy
-msgid "Attention:"
-msgstr "সংযুক্ত ফাইল"
-
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
-
-msgid "System information"
-msgstr "সিস্টেমের তথ্য"
-
-msgid "Please provide the following information needed to create your configuration file."
-msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
-
-msgid "Database type:"
-msgstr "ডাটাবেজের ধরণ:"
-
-msgid "MySQLi"
-msgstr ""
-
-msgid "MySQLi (full UTF-8)"
-msgstr ""
-
-msgid "PostgreSQL"
-msgstr ""
-
-msgid "SQLite"
-msgstr ""
-
-msgid "Driver"
-msgstr ""
-
-msgid "Database Host Name:"
-msgstr "ডাটাবেজের হোস্টের নাম:"
-
-msgid "Database Name:"
-msgstr "ডাটাবেজের নাম:"
-
-msgid "Database User Name:"
-msgstr "ডাটাবেজের ইউজারনেম:"
-
-msgid "Database Password:"
-msgstr "ডাটাবেজ পাসওয়ার্ড:"
-
-msgid "Database Tables Prefix:"
-msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
-
-#, fuzzy
-msgid "Continue"
-msgstr "কন্টেন্ট:"
 
 msgid "Title"
 msgstr "টাইটেল"
@@ -428,6 +141,18 @@ msgstr "এন্ট্রি"
 msgid "Schedule"
 msgstr ""
 
+#, fuzzy
+msgid "First publication"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+msgid "Never published"
+msgstr "প্রকাশিত"
+
+#, fuzzy
+msgid "Already published"
+msgstr "প্রকাশিত"
+
 msgid "Mark"
 msgstr "চিহ্নিত করুন"
 
@@ -462,6 +187,12 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr[1] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated as: \"%s\""
+msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 msgstr[1] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
@@ -506,6 +237,9 @@ msgstr "টাইটেল:"
 
 msgid "Parent:"
 msgstr ""
+
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
 
 msgid "This user does not exist"
 msgstr "এধরণের কোনো ইউজার নেই"
@@ -656,6 +390,10 @@ msgid "Blog ID"
 msgstr "ব্লগ আইডি"
 
 #, fuzzy
+msgid "Username"
+msgstr "ইউজারনেম:"
+
+#, fuzzy
 msgid "Last Name"
 msgstr "সর্বশেষ আপডেট"
 
@@ -706,6 +444,9 @@ msgstr "অবস্থা:"
 msgid "Format:"
 msgstr "তারিখের ফরম্যাট:"
 
+msgid "Password:"
+msgstr "পাসওয়ার্ড:"
+
 #, fuzzy
 msgid "With password"
 msgstr "নতুন পাসওয়ার্ড:"
@@ -752,6 +493,9 @@ msgstr ""
 #, fuzzy
 msgid "Trackbacks:"
 msgstr "ট্র্যাকব্যাক"
+
+msgid "Email:"
+msgstr "ইমেইল:"
 
 msgid "Web site:"
 msgstr "ওয়েব সাইট:"
@@ -823,6 +567,9 @@ msgid "results per page"
 msgstr "প্রতি পেজে এন্ট্রি"
 
 msgid "Error:"
+msgstr ""
+
+msgid "Errors:"
 msgstr ""
 
 msgid "%H:%M:%S"
@@ -1374,11 +1121,18 @@ msgstr "থিমটি সফলভাবে ইন্সটল করা হ�
 msgid "Upload a zip file"
 msgstr "Zip ফাইল আপলোড করুন"
 
+msgid "Required field"
+msgstr "প্রয়োজনীয় ঘর"
+
 msgid "Zip file path:"
 msgstr ""
 
 msgid "Your password:"
 msgstr "আপনার পাসওয়ার্ড:"
+
+#, fuzzy
+msgid "Password"
+msgstr "পাসওয়ার্ড:"
 
 msgid "Download a zip file"
 msgstr "Zip ফাইল ডাউনলোড"
@@ -1820,6 +1574,10 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
 #, fuzzy
+msgid "medium"
+msgstr "মাঝারি:"
+
+#, fuzzy
 msgid "small"
 msgstr "ছোট:"
 
@@ -1954,6 +1712,18 @@ msgstr ""
 
 msgid "You are not an administrator"
 msgstr ""
+
+msgid "No user ID given"
+msgstr "কোনো ইউজার আইডি দেয়া হয় নি"
+
+msgid "No password given"
+msgstr "কোনো পাসওয়ার্ড দেয়া হয় নি"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "ইউজার আইডিতে কমপক্ষে ২টি অক্ষর থাকতে হবে, যাতে বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
+
+msgid "Password must contain at least 6 characters."
+msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
 
 msgid "Invalid user language code"
 msgstr ""
@@ -2253,6 +2023,9 @@ msgstr ""
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
 
+msgid "Username:"
+msgstr "ইউজারনেম:"
+
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr ""
@@ -2262,6 +2035,9 @@ msgstr "আপনার নতুন পাসওয়ার্ড"
 
 msgid "Your new password is in your mailbox."
 msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
+
+msgid "Passwords don't match"
+msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
 
 msgid "You didn't change your password."
 msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
@@ -2283,6 +2059,16 @@ msgstr ""
 msgid "Wrong username or password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "পাসওয়ার্ড রিসেট"
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "লগইন পাতায় ফিরে যাও"
 
@@ -2298,6 +2084,12 @@ msgstr "সার্চ অপশন"
 
 msgid "Change your password"
 msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
+
+msgid "New password:"
+msgstr "নতুন পাসওয়ার্ড:"
+
+msgid "Confirm password:"
+msgstr "আবার পাসওয়ার্ড:"
 
 msgid "change"
 msgstr "পরিবর্তন করুন"
@@ -2580,6 +2372,9 @@ msgid "Time format:"
 msgstr "সময়ের ফরম্যাট:"
 
 msgid "Pattern of time"
+msgstr ""
+
+msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
@@ -3091,6 +2886,12 @@ msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+
+msgid "Following plugins have not been installed:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
 msgid "Errors have occured with following plugins:"
 msgstr ""
@@ -4036,6 +3837,14 @@ msgstr ""
 msgid "Password change required to connect"
 msgstr ""
 
+#, fuzzy
+msgid "Last Name:"
+msgstr "সর্বশেষ আপডেট"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "প্রথম নাম:"
+
 msgid "Display name:"
 msgstr ""
 
@@ -4608,6 +4417,218 @@ msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr ""
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
+
+msgid "Invalid email address"
+msgstr "অবৈধ ইমেইল এড্রেস"
+
+msgid "My first blog"
+msgstr "আমার প্রথম ব্লগ"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "ডটক্লিয়ারে স্বাগতম!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
+
+msgid "Dotclear Team"
+msgstr "ডটক্লিয়ার টিম"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>এটি একটি মন্তব্য।</p>\n"
+"<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear ইন্সটলেশন"
+
+msgid "show"
+msgstr "দেখাও"
+
+msgid "Dotclear installation"
+msgstr "Dotclear ইন্সটলেশন"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr ""
+
+msgid "Configuration file has been successfully created."
+msgstr "কনফিগারেশন ফাইল সফলভাবে তৈরি হয়েছে।"
+
+msgid "User information"
+msgstr "ইউজারের তথ্য"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "অনুগ্রহ করে প্রথম ইউজার তৈরির জন্য নিচের তথ্য প্রদান করুন।"
+
+#, fuzzy
+msgid "Username and password"
+msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+
+msgid "All done!"
+msgstr "কাজ শেষ!"
+
+#, fuzzy
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "ডটক্লিয়ার সফলভাবে ইন্সটল করা হয়েছে। এখানে কিছু তথ্য আছে যেগুলো সংরক্ষণ করে রাখা উচিত হবে।"
+
+msgid "Your account"
+msgstr "আপনার এ্যাকাউন্ট"
+
+msgid "Your blog"
+msgstr "আপনার ব্লগ"
+
+msgid "Blog address:"
+msgstr "ব্লগ এড্রেস:"
+
+msgid "Administration interface:"
+msgstr ""
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "PHP সংস্করণ আছে %s (5.0 অথবা পূর্বের লাগবে)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PHP সংস্করণ আছে %s (5.0 অথবা পূর্বের লাগবে)."
+
+#, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr ""
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "নতুন ডিরেক্টরি"
+
+msgid "Master email is not valid."
+msgstr ""
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s ফাইলটি নেই।"
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr ""
+
+msgid "Dotclear installation wizard"
+msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "সংযুক্ত ফাইল"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "সিস্টেমের তথ্য"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
+
+msgid "Database type:"
+msgstr "ডাটাবেজের ধরণ:"
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
+msgstr ""
+
+msgid "Database Host Name:"
+msgstr "ডাটাবেজের হোস্টের নাম:"
+
+msgid "Database Name:"
+msgstr "ডাটাবেজের নাম:"
+
+msgid "Database User Name:"
+msgstr "ডাটাবেজের ইউজারনেম:"
+
+msgid "Database Password:"
+msgstr "ডাটাবেজ পাসওয়ার্ড:"
+
+msgid "Database Tables Prefix:"
+msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "কন্টেন্ট:"
+
+#, fuzzy, php-format
+#~ msgid "PHP version is %s (7.4 or earlier needed)."
+#~ msgstr "PHP সংস্করণ আছে %s (7.4 অথবা পূর্বের লাগবে)."
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."
