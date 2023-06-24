@@ -86,7 +86,7 @@ abstract class AbstractHandler implements InterfaceHandler
         // Your new class *should* inherits Dotclear\Database\AbstractHandler class.
         $class = defined('DC_DBHANDLER_CLASS') ? \DC_DBHANDLER_CLASS : $class;
 
-        if (!class_exists($class) || !is_subclass_of($class, __CLASS__)) {
+        if (!is_subclass_of($class, __CLASS__)) {
             trigger_error(sprintf('Database connection class %s does not exist or does not inherit %s', $class, __CLASS__));
 
             exit(1);

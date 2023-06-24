@@ -51,7 +51,7 @@ abstract class AbstractSchema implements InterfaceSchema
         // Your new class *should* inherits Dotclear\Database\Schema\AbstractSchema class.
         $class = defined('DC_DBSCHEMA_CLASS') ? \DC_DBSCHEMA_CLASS : $class;
 
-        if (!class_exists($class) || !is_subclass_of($class, __CLASS__)) {
+        if (!is_subclass_of($class, __CLASS__)) {
             trigger_error('Database schema class ' . $class . ' does not exist or does not inherit ' . __CLASS__);
 
             exit(1);
