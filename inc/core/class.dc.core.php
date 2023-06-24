@@ -1134,11 +1134,11 @@ final class dcCore
 
         if (!empty($params['q'])) {
             $q = $sql->escape(str_replace('*', '%', strtolower($params['q'])));
-            $sql->andGroup([
-                $sql->or($sql->like('LOWER(U.user_id)', $q)),
-                $sql->or($sql->like('LOWER(user_name)', $q)),
-                $sql->or($sql->like('LOWER(user_firstname)', $q)),
-            ]);
+            $sql->and($sql->orGroup([
+                $sql->like('LOWER(U.user_id)', $q),
+                $sql->like('LOWER(user_name)', $q),
+                $sql->like('LOWER(user_firstname)', $q),
+            ]));
         }
 
         if (!empty($params['user_id'])) {

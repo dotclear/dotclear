@@ -17,6 +17,10 @@ use dcCore;
 use dcModuleDefine;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -126,12 +130,18 @@ class Plugins extends dcNsProcess
             }
 
             echo
-            '<form id="force-checking" action="' . dcCore::app()->admin->list->getURL('', false) . '" method="get">' .
-            '<p>' .
-            '<input type="hidden" name="nocache" value="1" />' .
-            '<input type="hidden" name="process" value="Plugins" />' .
-            '<input type="submit" value="' . __('Force checking update of plugins') . '" /></p>' .
-            '</form>';
+            (new Form('force-checking'))
+                ->action(dcCore::app()->admin->list->getURL('', false))
+                ->method('get')
+                ->fields([
+                    (new Para())
+                    ->items([
+                        (new Hidden('nocache', '1')),
+                        (new Hidden('process', 'Plugins')),
+                        (new Submit('force-checking-update', __('Force checking update of plugins'))),
+                    ]),
+                ])
+                ->render();
 
             // Updated modules from repo
             $defines = dcCore::app()->admin->list->store->getDefines(true);
