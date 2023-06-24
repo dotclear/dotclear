@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
-use dcAdminURL;
 use dcCore;
 use dcNotices;
 use dcTraitDynamicProperties;
@@ -79,7 +78,7 @@ class Utility
     {
         // New adminurl instance
         // May be moved to property of dcCore::app()->admin in a near future
-        dcCore::app()->adminurl = new dcAdminURL();
+        dcCore::app()->adminurl = new Url();
         dcCore::app()->adminurl->register('admin.auth', 'Auth');
 
         if (dcCore::app()->auth->sessionExists()) {
