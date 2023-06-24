@@ -16,10 +16,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcAdmin;
 use dcCore;
 use dcMenu;
 use dcModuleDefine;
+use Dotclear\Core\Backend\Utility;
 
 /**
  * Plugin module helper.
@@ -36,12 +36,12 @@ abstract class MyPlugin extends MyModule
     /**
      * Register backend sidebar menu item.
      *
-     * @param   string                  $menu   The menu (from dcAdmin constant)
+     * @param   string                  $menu   The menu (from Utility constant)
      * @param   array<string,string>    $params The URL params
      * @param   string                  $scheme The URL end scheme
      * @param   string                  $id     The id (if not provided a standard one will be set), will be prefixed by 'plugin-'
      */
-    public static function addBackendMenuItem(string $menu = dcAdmin::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
+    public static function addBackendMenuItem(string $menu = Utility::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
         if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->adminurl) || !(dcCore::app()->menu[$menu] instanceof dcMenu)) {
             return;

@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use dcAdmin;
 use dcCore;
+use Dotclear\Core\Backend\Utility;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\WikiToHtml;
 
@@ -33,7 +33,7 @@ class Backend extends Process
             return false;
         }
 
-        My::addBackendMenuItem(dcAdmin::MENU_PLUGINS, [], '');
+        My::addBackendMenuItem(Utility::MENU_PLUGINS, [], '');
 
         if (dcCore::app()->blog->settings->dclegacyeditor->active) {
             if (!(dcCore::app()->wiki instanceof WikiToHtml)) {

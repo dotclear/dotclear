@@ -8,12 +8,25 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use ArrayObject;
+use dcAdminBlogPref;
+use dcAdminHelper;
+use dcAdminURL;
+use dcCore;
+use dcFavorites;
+use dcMenu;
+use dcNotices;
+use dcTraitDynamicProperties;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Exception;
 
-class dcAdmin
+class Utility
 {
     use dcTraitDynamicProperties;
 
@@ -104,15 +117,15 @@ class dcAdmin
                 } else {
                     # Removing switchblog from URL
                     $redir = (string) $_SERVER['REQUEST_URI'];
-                    $redir = preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
-                    $redir = preg_replace('/\?$/', '', $redir);
+                    $redir = (string) preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
+                    $redir = (string) preg_replace('/\?$/', '', $redir);
                 }
 
                 dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
 
                 if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || strstr($redir, 'media.php') !== false) {
                     // Remove current media dir from media manager URL
-                    $redir = preg_replace('/d=(.*?)(&|$)/', '', $redir);
+                    $redir = (string) preg_replace('/d=(.*?)(&|$)/', '', $redir);
                 }
 
                 Http::redirect($redir);
@@ -227,9 +240,9 @@ class dcAdmin
             if (!$user_ui_nofavmenu) {
                 dcCore::app()->favs->appendMenuTitle(dcCore::app()->menu);
             }
-            dcCore::app()->menu[dcAdmin::MENU_BLOG]    = new dcMenu('blog-menu', 'Blog');
-            dcCore::app()->menu[dcAdmin::MENU_SYSTEM]  = new dcMenu('system-menu', 'System');
-            dcCore::app()->menu[dcAdmin::MENU_PLUGINS] = new dcMenu('plugins-menu', 'Plugins');
+            dcCore::app()->menu[self::MENU_BLOG]    = new dcMenu('blog-menu', 'Blog');
+            dcCore::app()->menu[self::MENU_SYSTEM]  = new dcMenu('system-menu', 'System');
+            dcCore::app()->menu[self::MENU_PLUGINS] = new dcMenu('plugins-menu', 'Plugins');
 
             # Loading plugins
             dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
@@ -241,106 +254,106 @@ class dcAdmin
 
             # Set menu titles
 
-            dcCore::app()->menu[dcAdmin::MENU_SYSTEM]->title  = __('System settings');   // @phpstan-ignore-line
-            dcCore::app()->menu[dcAdmin::MENU_BLOG]->title    = __('Blog');              // @phpstan-ignore-line
-            dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->title = __('Plugins');           // @phpstan-ignore-line
+            dcCore::app()->menu[self::MENU_SYSTEM]->title  = __('System settings');   // @phpstan-ignore-line
+            dcCore::app()->menu[self::MENU_BLOG]->title    = __('Blog');              // @phpstan-ignore-line
+            dcCore::app()->menu[self::MENU_PLUGINS]->title = __('Plugins');           // @phpstan-ignore-line
 
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Blog appearance'),
                 'admin.blog.theme',
                 ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_ADMIN,
+                    dcCore::app()->auth::PERMISSION_ADMIN,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'BlogTheme'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Blog settings'),
                 'admin.blog.pref',
                 ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_ADMIN,
+                    dcCore::app()->auth::PERMISSION_ADMIN,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'BlogPref'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Media manager'),
                 'admin.media',
                 ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_MEDIA,
-                    dcAuth::PERMISSION_MEDIA_ADMIN,
+                    dcCore::app()->auth::PERMISSION_MEDIA,
+                    dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'Media'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Categories'),
                 'admin.categories',
                 ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_CATEGORIES,
+                    dcCore::app()->auth::PERMISSION_CATEGORIES,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'Categories'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Search'),
                 'admin.search',
                 ['images/menu/search.svg','images/menu/search-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'Search'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Comments'),
                 'admin.comments',
                 ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'Comments'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('Posts'),
                 'admin.posts',
                 ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]), dcCore::app()->blog->id),
                 false,
                 false,
                 'Posts'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_BLOG,
+                self::MENU_BLOG,
                 __('New post'),
                 'admin.post',
                 ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]), dcCore::app()->blog->id),
                 true,
                 true,
@@ -348,7 +361,7 @@ class dcAdmin
             );
 
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_SYSTEM,
+                self::MENU_SYSTEM,
                 __('My preferences'),
                 'admin.user.preferences',
                 ['images/menu/user-pref.svg', 'images/menu/user-pref.svg'],
@@ -358,7 +371,7 @@ class dcAdmin
                 'UserPref'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_SYSTEM,
+                self::MENU_SYSTEM,
                 __('Update'),
                 'admin.update',
                 ['images/menu/update.svg', 'images/menu/update-dark.svg'],
@@ -368,7 +381,7 @@ class dcAdmin
                 'Update'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_SYSTEM,
+                self::MENU_SYSTEM,
                 __('Languages'),
                 'admin.langs',
                 ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
@@ -378,7 +391,7 @@ class dcAdmin
                 'Langs'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_SYSTEM,
+                self::MENU_SYSTEM,
                 __('Plugins management'),
                 'admin.plugins',
                 ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
@@ -388,7 +401,7 @@ class dcAdmin
                 'Plugins'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_SYSTEM,
+                self::MENU_SYSTEM,
                 __('Users'),
                 'admin.users',
                 'images/menu/users.svg',
@@ -398,14 +411,14 @@ class dcAdmin
                 'Users'
             );
             dcAdminHelper::addMenuItem(
-                dcAdmin::MENU_SYSTEM,
+                self::MENU_SYSTEM,
                 __('Blogs'),
                 'admin.blogs',
                 ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(
                     dcCore::app()->auth->makePermissions([
-                        dcAuth::PERMISSION_USAGE,
-                        dcAuth::PERMISSION_CONTENT_ADMIN,
+                        dcCore::app()->auth::PERMISSION_USAGE,
+                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                     ]),
                     dcCore::app()->blog->id
                 ) && dcCore::app()->auth->getBlogCount() > 1,

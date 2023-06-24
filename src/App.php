@@ -9,9 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear {
     use Autoloader;
-    use dcAdmin;
     use dcCore;
-    use dcPublic;
     use dcUrlHandlers;
     use dcUtils;
     use Dotclear\Core\Process;
@@ -37,24 +35,24 @@ namespace Dotclear {
         /**
          * App boostrap.
          *
-         * Load application with their context and process, if any.
+         * Load application with their utility and process, if any.
          *
          * Use:
          * require_once path/to/App.php
-         * Dotclear\App::bootstrap(Context, Process);
+         * Dotclear\App::bootstrap(Utility, Process);
          *
-         * @param   string  $context    The optionnal app context (Backend or Frontend)
-         * @param   string  $process    The optionnal app context default process
+         * @param   string  $utility    The optionnal app utility (Backend or Frontend)
+         * @param   string  $process    The optionnal app utility default process
          */
-        public static function bootstrap(string $context = '', string $process = ''): void
+        public static function bootstrap(string $utility = '', string $process = ''): void
         {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
-            // Define app context
-            if ($context == 'Backend') {
+            // Define app utility
+            if ($utility == 'Backend') {
                 define('DC_CONTEXT_ADMIN', true);
-            } elseif ($context == 'Frontend') {
+            } elseif ($utility == 'Frontend') {
                 define('DC_CONTEXT_PUBLIC', true);
             }
 
@@ -67,21 +65,15 @@ namespace Dotclear {
             // Instanciate the Application (singleton)
             self::init();
 
-            // Load app context
-            if ($context == 'Backend') {
-                // load backend (admin) context
-                if (self::context(dcAdmin::class)) {
-                    // try to load backend (admin) process, the _REQUEST process as priority on method process.
-                    if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
-                        $process = $_REQUEST['process'];
-                    }
-                    if (!empty($process)) {
-                        self::process('Dotclear\\Backend\\' . $process);
-                    }
+            // Load app utility if any (Limit to Backend, Frontend, none)
+            if (in_array($utility, ['Backend', 'Frontend']) && self::utility('Dotclear\\Core\\' . $utility . '\\Utility')) {
+                // Try to load utility process, the _REQUEST process as priority on method process.
+                if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
+                    $process = $_REQUEST['process'];
                 }
-            } elseif ($context == 'Frontend') {
-                // load frontent (public) context
-                self::context(dcPublic::class);
+                if (!empty($process)) {
+                    self::process('Dotclear\\' . $utility . '\\' . $process);
+                }
             }
         }
 
@@ -151,7 +143,6 @@ namespace Dotclear {
                 'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'dbschema', 'upgrade.php']),
 
                 // Admin
-                'dcAdmin'              => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'class.dc.admin.php']),
                 'dcMenu'               => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'class.dc.menu.php']),
                 'dcFavorites'          => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'class.dc.favorites.php']),
                 'dcPage'               => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.dc.page.php']),
@@ -187,7 +178,6 @@ namespace Dotclear {
                 'dcActions'            => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'actions', 'class.dcaction.php']),
 
                 // Public
-                'dcPublic'           => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'class.dc.public.php']),
                 'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'class.dc.template.php']),
                 'context'            => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'lib.tpl.context.php']),
                 'dcUrlHandlers'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'lib.urlhandlers.php']),
@@ -486,7 +476,7 @@ namespace Dotclear {
             dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
             dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
 
-            // set post type for frontend instance with harcoded backend URL (but should not be required in backend before dcAdmin instanciated)
+            // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
             dcCore::app()->setPostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
             # Store upload_max_filesize in bytes
@@ -525,25 +515,25 @@ namespace Dotclear {
         }
 
         /**
-         * Instanciate the given context
+         * Instanciate the given utility.
          *
-         * @param      string  $context  The context
+         * @param      string  $utility  The utility
          *
-         * @return     bool    Result of $context::init() if exist else true
+         * @return     bool    Result of $utility::init() if exist else true
          */
-        public static function context(string $context = ''): bool
+        public static function utility(string $utility = ''): bool
         {
-            // If a context is provided, call bootstrap method, if exists, then init method if exist.
-            if (!empty($context)) {
-                if (class_exists($context)) {
-                    // Use bootstrap method else instanciate context
-                    $instance = method_exists($context, 'bootstrap') ? $context::bootstrap() : new $context();
+            // If an utility is provided, call bootstrap method, if exists, then init method if exist.
+            if (!empty($utility)) {
+                if (class_exists($utility)) {
+                    // Use bootstrap method else instanciate utility
+                    $instance = method_exists($utility, 'bootstrap') ? $utility::bootstrap() : new $utility();
 
-                    return $instance && method_exists($context, 'init') ? (bool) $instance->init() : true;
+                    return $instance && method_exists($utility, 'init') ? (bool) $instance->init() : true;
                 }
                 new Fault(
                     __('No process found'),
-                    sprintf('Unable to find or initialize class %s', $context),
+                    sprintf('Unable to find or initialize class %s', $utility),
                     Fault::UNDEFINED_ISSUE
                 );
             }

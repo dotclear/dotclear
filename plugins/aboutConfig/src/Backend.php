@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\aboutConfig;
 
-use dcAdmin;
+use Dotclear\Core\Backend\Utility;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -28,7 +28,7 @@ class Backend extends Process
     public static function process(): bool
     {
         if (static::$init) {
-            My::addBackendMenuItem(dcAdmin::MENU_SYSTEM);
+            My::addBackendMenuItem(Utility::MENU_SYSTEM);
         }
 
         return static::$init;
