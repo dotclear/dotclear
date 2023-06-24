@@ -118,7 +118,7 @@ class dcPublic
             }
         }
 
-        if (dcCore::app()->blog->id == null) {
+        if (is_null(dcCore::app()->blog) || dcCore::app()->blog->id == null) {
             new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
         }
 

@@ -446,7 +446,7 @@ class dcPage
             echo dcCore::app()->menu[$k]->draw();
         }
 
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: So far so good)');
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');
 
         # --BEHAVIOR-- adminPageFooter --
         $textAlt = dcCore::app()->callBehavior('adminPageFooterV2', $text);

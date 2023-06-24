@@ -9,8 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear {
     use Autoloader;
+    use dcAdmin;
     use dcCore;
     use dcNsProcess;
+    use dcPublic;
     use dcUrlHandlers;
     use dcUtils;
     use Dotclear\Helper\Clearbricks;
@@ -26,20 +28,83 @@ namespace Dotclear {
      */
     final class App
     {
+        /** @var    string  Dotclear default release config file name */
+        public const RELEASE_FILE = 'release.json';
+
+        /** @var    array<string,mixed>     Dotclear default release config */
+        private static $release = [];
+
+        /**
+         * App boostrap.
+         *
+         * Load application with their context and process, if any.
+         *
+         * Use:
+         * require_once path/to/App.php
+         * Dotclear\App::bootstrap(Context, Process);
+         *
+         * @param   string  $context    The optionnal app context (Backend or Frontend)
+         * @param   string  $process    The optionnal app context default process
+         */
+        public static function bootstrap(string $context = '', string $process = ''): void
+        {
+            // Start tick
+            define('DC_START_TIME', microtime(true));
+
+            // Define app context
+            if ($context == 'Backend') {
+                define('DC_CONTEXT_ADMIN', true);
+            } elseif ($context == 'Frontend') {
+                define('DC_CONTEXT_PUBLIC', true);
+            }
+
+            // Load Autoloader file
+            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'Autoloader.php']);
+
+            // Add root folder for namespaced and autoloaded classes
+            Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+
+            // Instanciate the Application (singleton)
+            self::init();
+
+            // Load app context
+            if ($context == 'Backend') {
+                // load backend (admin) context
+                if (self::context(dcAdmin::class)) {
+                    // try to load backend (admin) process, the _REQUEST process as priority on method process.
+                    if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
+                        $process = $_REQUEST['process'];
+                    }
+                    if (!empty($process)) {
+                        self::process('Dotclear\\Backend\\' . $process);
+                    }
+                }
+            } elseif ($context == 'Frontend') {
+                // load frontent (public) context
+                self::context(dcPublic::class);
+            }
+        }
+
         /**
          * Initializes the object.
          */
         public static function init(): void
         {
-            // Constants
-            define('DC_VERSION', '2.27-dev');
-            define('DC_ROOT', dirname(__DIR__));
+            # CLI_MODE, boolean constant that tell if we are in CLI mode
+            define('CLI_MODE', PHP_SAPI == 'cli');
+
+            mb_internal_encoding('UTF-8');
 
             // We may need l10n __() function
             L10n::bootstrap();
 
             // We set default timezone to avoid warning
             Date::setTZ('UTC');
+
+            // DC constants
+            define('DC_VERSION', self::release('release_version'));
+            define('DC_NAME', self::release('release_name'));
+            define('DC_ROOT', dirname(__DIR__));
 
             // Load core classes (old way)
             Clearbricks::lib()->autoload([
@@ -132,14 +197,6 @@ namespace Dotclear {
                 'rsExtCommentPublic' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'rs.extension.php']),
             ]);
 
-            mb_internal_encoding('UTF-8');
-
-            # Setting timezone
-            Date::setTZ('UTC');
-
-            # CLI_MODE, boolean constant that tell if we are in CLI mode
-            define('CLI_MODE', PHP_SAPI == 'cli');
-
             # Disallow every special wrapper
             (function () {
                 if (function_exists('stream_wrapper_unregister')) {
@@ -211,52 +268,19 @@ namespace Dotclear {
             // Other constants
             define('DC_DIGESTS', dcUtils::path([DC_ROOT, 'inc', 'digests']));
             define('DC_L10N_ROOT', dcUtils::path([DC_ROOT, 'locales']));
-            define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
+            define('DC_L10N_UPDATE_URL', self::release('l10n_update_url'));
 
             // Update Makefile if the following list is modified
-            define('DC_DISTRIB_PLUGINS', implode(
-                ',',
-                [
-                    'aboutConfig',
-                    'akismet',
-                    'antispam',
-                    'attachments',
-                    'blogroll',
-                    'breadcrumb',
-                    'dcCKEditor',
-                    'dcLegacyEditor',
-                    'dcProxyV1',
-                    'dcProxyV2',
-                    'fairTrackbacks',
-                    'importExport',
-                    'maintenance',
-                    'pages',
-                    'pings',
-                    'simpleMenu',
-                    'tags',
-                    'themeEditor',
-                    'userPref',
-                    'widgets',
-                ]
-            ));
+            define('DC_DISTRIB_PLUGINS', self::release('distributed_plugins'));
             // Update Makefile if the following list is modified
-            define('DC_DISTRIB_THEMES', implode(
-                ',',
-                [
-                    'berlin',
-                    'blowup',
-                    'blueSilence',
-                    'customCSS',
-                    'ductile',
-                ]
-            ));
+            define('DC_DISTRIB_THEMES', self::release('distributed_themes'));
 
-            define('DC_DEFAULT_THEME', 'berlin');
-            define('DC_DEFAULT_TPLSET', 'mustek');
-            define('DC_DEFAULT_JQUERY', '3.6.0');
+            define('DC_DEFAULT_THEME', self::release('default_theme'));
+            define('DC_DEFAULT_TPLSET', self::release('default_tplset'));
+            define('DC_DEFAULT_JQUERY', self::release('default_jquery'));
 
             if (!defined('DC_NEXT_REQUIRED_PHP')) {
-                define('DC_NEXT_REQUIRED_PHP', '8.1');
+                define('DC_NEXT_REQUIRED_PHP', self::release('next_php'));
             }
 
             if (!defined('DC_VENDOR_NAME')) {
@@ -286,11 +310,11 @@ namespace Dotclear {
             }
 
             if (!defined('DC_UPDATE_URL')) {
-                define('DC_UPDATE_URL', 'https://download.dotclear.org/versions.xml');
+                define('DC_UPDATE_URL', self::release('release_update_url'));
             }
 
             if (!defined('DC_UPDATE_VERSION')) {
-                define('DC_UPDATE_VERSION', 'stable');
+                define('DC_UPDATE_VERSION', self::release('release_update_canal'));
             }
 
             if (!defined('DC_NOT_UPDATE')) {
@@ -468,8 +492,8 @@ namespace Dotclear {
 
             # Store upload_max_filesize in bytes
             (function () {
-                $u_max_size = Files::str2bytes(ini_get('upload_max_filesize'));
-                $p_max_size = Files::str2bytes(ini_get('post_max_size'));
+                $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
+                $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
                 if ($p_max_size < $u_max_size) {
                     $u_max_size = $p_max_size;
                 }
@@ -569,6 +593,39 @@ namespace Dotclear {
         {
             return Autoloader::me();
         }
+
+        /**
+         * Read Dotclear release config.
+         *
+         * This method always returns string, 
+         * casting int, bool, array, to string.
+         *
+         * @param   string  $key The release key
+         *
+         * @return  string  The release value
+         */
+        public static function release(string $key): string
+        {
+            if (empty(self::$release)) {
+                $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+                if (!is_file($file) || !is_readable($file)) {
+                    new Fault('Not found', 'Dotclear release file was not found', Fault::SETUP_ISSUE);
+                }
+ 
+                $release = json_decode((string) file_get_contents($file), true);
+                if (!is_array($release)) {
+                    new Fault('Not found', 'Dotclear release file is not readabled', Fault::SETUP_ISSUE);
+                } else {
+                    self::$release = $release;
+                }
+            }
+
+            if (!array_key_exists($key, self::$release)){
+                new Fault('Not found', sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
+            }
+
+            return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
+        }
     }
 }
 
@@ -582,7 +639,7 @@ namespace {
      * @param      string  $message  The message
      * @param      int     $code     The code
      */
-    function __error(string $summary, string $message, int $code = 0)
+    function __error(string $summary, string $message, int $code = 0): void
     {
         new Fault($summary, $message, $code);
     }

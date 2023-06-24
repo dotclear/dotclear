@@ -11,7 +11,7 @@ config: clean config-stamp
 	mkdir -p ./$(DC)
 
 	## Copy needed folders and files
-	cp -pRf ./admin ./inc ./src ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README.md ./CONTRIBUTING.md ./$(DC)/
+	cp -pRf ./admin ./inc ./src ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README.md ./CONTRIBUTING.md ./release.json ./$(DC)/
 
 	## Locales directory
 	mkdir -p ./$(DC)/locales
@@ -27,7 +27,7 @@ config: clean config-stamp
 	## Remove config file if any
 	rm -f ./$(DC)/inc/config.php
 
-	## Copy built-in themes (same list that DC_DISTRIB_THEMES constant in inc/prepend.php)
+	## Copy built-in themes (same list that "distributed_themes" from release.json)
 	cp -pRf \
 	./themes/berlin \
 	./themes/blowup \
@@ -36,7 +36,7 @@ config: clean config-stamp
 	./themes/ductile \
 	./$(DC)/themes/
 
-	## Copy built-in plugins (same list that DC_DISTRIB_PLUGINS constant in inc/prepend.php)
+	## Copy built-in plugins (same list that "distributed_plugins" from release.json)
 	cp -pRf \
 	./plugins/aboutConfig \
 	./plugins/akismet \
@@ -92,11 +92,11 @@ dist: config dist-tgz dist-zip dist-l10n
 
 dist-tgz:
 	[ -f config-stamp ]
-	cd $(DIST) && tar cfz dotclear-$$(grep DC_VERSION dotclear/src/App.php | cut -d"'" -f4).tar.gz ./dotclear
+	cd $(DIST) && tar cfz dotclear-$$(grep release_version dotclear/release.json | cut -d'"' -f4).tar.gz ./dotclear
 
 dist-zip:
 	[ -f config-stamp ]
-	cd $(DIST) && zip -r9 dotclear-$$(grep DC_VERSION dotclear/src/App.php | cut -d"'" -f4).zip ./dotclear
+	cd $(DIST) && zip -r9 dotclear-$$(grep release_version dotclear/release.json | cut -d'"' -f4).zip ./dotclear
 
 dist-l10n:
 	[ -f config-stamp ]
@@ -111,7 +111,7 @@ dist-l10n:
 	./build-tools/make-l10n.php ./$(DIST)/l10n/
 
 	cd ./$(DIST)/l10n && for i in *; do \
-		zip -r9 "$$i-$$(grep DC_VERSION ../dotclear/src/App.php | cut -d"'" -f4).zip" "$$i"; \
+		zip -r9 "$$i-$$(grep release_version ../dotclear/release.json | cut -d'"' -f4).zip" "$$i"; \
 		rm -rf "$$i"; \
 	done
 

@@ -29,7 +29,9 @@ try {
     $_SERVER['DC_RC_PATH'] = $dc_conf;
     unset($dc_conf);
 
-    require __DIR__ . '/../prepend.php';
+    require __DIR__ . '/../../src/App.php';
+
+    Dotclear\App::boostrap();
 
     echo "Starting upgrade process\n";
     dcCore::app()->con->begin();

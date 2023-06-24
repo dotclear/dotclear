@@ -14,4 +14,6 @@ if (isset($_SERVER['DC_BLOG_ID'])) {
     define('DC_BLOG_ID', 'default');
 }
 
-require __DIR__ . '/inc/public/prepend.php';
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'App.php']);
+
+Dotclear\App::bootstrap('Frontend');

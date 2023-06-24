@@ -1,17 +1,15 @@
 <?php
 /**
+ * @deprecated since 2.27 Use Dotclear\App::boostrap('Frontend');
+ *
+ * Keep this file for backward compatibility with existing blogs index.php
+ *
  * @package Dotclear
  * @subpackage Public
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'App.php']);
 
-use Dotclear\App;
-
-define('DC_CONTEXT_PUBLIC', true);
-define('DC_PUBLIC_CONTEXT', true); // For dyslexic devs ;-)
-
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'prepend.php';
-
-App::context(dcPublic::class);
+Dotclear\App::bootstrap('Frontend');

@@ -8,6 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-define('APP_PROCESS', 'Auth');
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'inc', 'admin', 'prepend.php']);
+Dotclear\App::bootstrap('Backend', 'Auth');
