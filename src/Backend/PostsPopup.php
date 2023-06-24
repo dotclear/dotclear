@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 
 use adminPostMiniList;
 use dcCore;
-use dcPage;
 use dcThemes;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -25,7 +25,7 @@ class PostsPopup extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -75,10 +75,10 @@ class PostsPopup extends Process
 
     public static function render(): void
     {
-        dcPage::openPopup(
+        Page::openPopup(
             __('Add a link to an entry'),
-            dcPage::jsLoad('js/_posts_list.js') .
-            dcPage::jsLoad('js/_popup_posts.js') .
+            Page::jsLoad('js/_posts_list.js') .
+            Page::jsLoad('js/_popup_posts.js') .
             dcCore::app()->callBehavior('adminPopupPosts', dcCore::app()->admin->plugin_id)
         );
 
@@ -118,6 +118,6 @@ class PostsPopup extends Process
 
         echo '<p><button type="button" id="link-insert-cancel">' . __('cancel') . '</button></p>';
 
-        dcPage::closePopup();
+        Page::closePopup();
     }
 }

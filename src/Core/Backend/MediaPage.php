@@ -17,7 +17,6 @@ use adminMediaList;
 use adminMediaFilter;
 use dcMedia;
 use dcThemes;
-use dcPage;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
@@ -338,9 +337,9 @@ class MediaPage extends adminMediaFilter
     public function openPage(string $breadcrumb, string $header = ''): void
     {
         if ($this->popup) {
-            dcPage::openPopup(__('Media manager'), $header, $breadcrumb);
+            Page::openPopup(__('Media manager'), $header, $breadcrumb);
         } else {
-            dcPage::open(__('Media manager'), $header, $breadcrumb);
+            Page::open(__('Media manager'), $header, $breadcrumb);
         }
     }
 
@@ -350,10 +349,10 @@ class MediaPage extends adminMediaFilter
     public function closePage(): void
     {
         if ($this->popup) {
-            dcPage::closePopup();
+            Page::closePopup();
         } else {
-            dcPage::helpBlock('core_media');
-            dcPage::close();
+            Page::helpBlock('core_media');
+            Page::close();
         }
     }
 
@@ -397,6 +396,6 @@ class MediaPage extends adminMediaFilter
             'home_link' => !$this->popup,
         ];
 
-        return dcPage::breadcrumb(array_merge($elements, $element), array_merge($options, $option));
+        return Page::breadcrumb(array_merge($elements, $element), array_merge($options, $option));
     }
 }

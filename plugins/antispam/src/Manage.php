@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -63,7 +63,7 @@ class Manage extends Process
 
                 Antispam::delAllSpam($ts);
 
-                dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
+                Page::addSuccessNotice(__('Spam comments have been successfully deleted.'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             }
 
@@ -107,7 +107,7 @@ class Manage extends Process
 
                 Antispam::$filters->saveFilterOpts($filters_opt);
 
-                dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
+                Page::addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             }
         } catch (Exception $e) {
@@ -127,43 +127,43 @@ class Manage extends Process
             sprintf(__('%s configuration'), dcCore::app()->admin->filter->name) . ' - ' :
             '' . dcCore::app()->admin->page_name);
 
-        $head = dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
+        $head = Page::jsPageTabs(dcCore::app()->admin->default_tab);
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
-        $head .= dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
+        $head .= Page::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
             My::jsLoad('antispam.js') .
             My::cssLoad('style.css');
 
-        dcPage::openModule($title, $head);
+        Page::openModule($title, $head);
 
         if (dcCore::app()->admin->filter_gui !== false) {
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins')                                                              => '',
                     dcCore::app()->admin->page_name                                            => dcCore::app()->admin->getPageURL(),
                     sprintf(__('%s filter configuration'), dcCore::app()->admin->filter->name) => '',
                 ]
             ) .
-            dcPage::notices() .
+            Page::notices() .
             '<p><a href="' . dcCore::app()->admin->getPageURL() . '" class="back">' . __('Back to filters list') . '</a></p>' .
 
             dcCore::app()->admin->filter_gui;
 
             if (dcCore::app()->admin->filter->help) {
-                dcPage::helpBlock(dcCore::app()->admin->filter->help);
+                Page::helpBlock(dcCore::app()->admin->filter->help);
             }
         } else {
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins')                   => '',
                     dcCore::app()->admin->page_name => '',
                 ]
             ) .
-            dcPage::notices();
+            Page::notices();
 
             # Information
             $spam_count      = Antispam::countSpam();
@@ -200,7 +200,7 @@ class Manage extends Process
             '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post" id="filters-list-form">';
 
             if (!empty($_GET['upd'])) {
-                dcPage::success(__('Filters configuration has been successfully saved.'));
+                Page::success(__('Filters configuration has been successfully saved.'));
             }
 
             echo
@@ -285,9 +285,9 @@ class Manage extends Process
                 '</ul>';
             }
 
-            dcPage::helpBlock('antispam', 'antispam-filters');
+            Page::helpBlock('antispam', 'antispam-filters');
         }
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

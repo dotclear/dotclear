@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use ArrayObject;
-use dcPage;
 use dcCore;
+use Dotclear\Core\Backend\Page;
 
 class BackendBehaviors
 {
@@ -44,7 +44,7 @@ class BackendBehaviors
         dcCore::app()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, 'xhtml');
 
         return
-        dcPage::jsJson('ck_editor_ctx', [
+        Page::jsJson('ck_editor_ctx', [
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => (array) $alt_tags],
             'admin_base_url'        => DC_ADMIN_URL,
@@ -52,10 +52,10 @@ class BackendBehaviors
             'dcckeditor_plugin_url' => DC_ADMIN_URL . My::fileURL(''),
             'user_language'         => dcCore::app()->auth->getInfo('user_lang'),
         ]) .
-        dcPage::jsJson('ck_editor_var', [
+        Page::jsJson('ck_editor_var', [
             'CKEDITOR_BASEPATH' => DC_ADMIN_URL . My::fileURL('js/ckeditor/'),
         ]) .
-        dcPage::jsJson('ck_editor_msg', [
+        Page::jsJson('ck_editor_msg', [
             'img_select_title'     => __('Media chooser'),
             'img_select_accesskey' => __('m'),
             'post_link_title'      => __('Link to an entry'),
@@ -67,7 +67,7 @@ class BackendBehaviors
         My::jsLoad('_post_editor.js') .
         My::jsLoad('ckeditor/ckeditor.js') .
         My::jsLoad('ckeditor/adapters/jquery.js') .
-        dcPage::jsLoad(My::manageURL($config_js, '&'));
+        Page::jsLoad(My::manageURL($config_js, '&'));
     }
 
     /**
@@ -84,7 +84,7 @@ class BackendBehaviors
         }
 
         return
-        dcPage::jsJson('ck_editor_media', [
+        Page::jsJson('ck_editor_media', [
             'left'   => 'media-left',
             'center' => 'media-center',
             'right'  => 'media-right',

@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -74,7 +74,7 @@ class Manage extends Process
                 if (true === dcCore::app()->admin->code) {
                     dcCore::app()->admin->maintenance->setLog(dcCore::app()->admin->task->id());
 
-                    dcPage::addSuccessNotice(dcCore::app()->admin->task->success());
+                    Page::addSuccessNotice(dcCore::app()->admin->task->success());
                     dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['task' => dcCore::app()->admin->task->id(), 'tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
                 }
             } catch (Exception $e) {
@@ -115,7 +115,7 @@ class Manage extends Process
                     );
                 }
 
-                dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
+                Page::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -133,12 +133,12 @@ class Manage extends Process
                 dcCore::app()->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
                 dcCore::app()->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
 
-                dcPage::addSuccessNotice(__('System settings have been saved.'));
+                Page::addSuccessNotice(__('System settings have been saved.'));
 
                 if (!empty($_POST['system_csp_reset'])) {
                     dcCore::app()->blog->settings->system->dropEvery('csp_admin_on');
                     dcCore::app()->blog->settings->system->dropEvery('csp_admin_report_only');
-                    dcPage::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
+                    Page::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
@@ -171,20 +171,20 @@ class Manage extends Process
 
         // Display page
 
-        $head = dcPage::jsPageTabs(dcCore::app()->admin->tab) .
+        $head = Page::jsPageTabs(dcCore::app()->admin->tab) .
             My::jsLoad('settings.js');
         if (dcCore::app()->admin->task && dcCore::app()->admin->task->ajax()) {
-            $head .= dcPage::jsJson('maintenance', ['wait' => __('Please wait...')]) .
+            $head .= Page::jsJson('maintenance', ['wait' => __('Please wait...')]) .
                 My::jsLoad('dc.maintenance.js');
         }
         $head .= dcCore::app()->admin->maintenance->getHeaders();
 
-        dcPage::openModule(My::name(), $head);
+        Page::openModule(My::name(), $head);
 
         // Check if there is something to display according to user permissions
         if (empty(dcCore::app()->admin->tasks)) {
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins') => '',
                     My::name()    => '',
@@ -192,7 +192,7 @@ class Manage extends Process
             ) .
             '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>';
 
-            dcPage::closeModule();
+            Page::closeModule();
 
             return;
         }
@@ -201,14 +201,14 @@ class Manage extends Process
             // Page title
 
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins')                                                                 => '',
                     '<a href="' . dcCore::app()->admin->getPageURL() . '">' . My::name() . '</a>' => '',
                     Html::escapeHTML(dcCore::app()->admin->task->name())                          => '',
                 ]
             ) .
-            dcPage::notices();
+            Page::notices();
 
             // content
             if (substr($res, 0, 1) != '<') {
@@ -236,13 +236,13 @@ class Manage extends Process
             // Page title
 
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins') => '',
                     My::name()    => '',
                 ]
             ) .
-            dcPage::notices();
+            Page::notices();
 
             // Simple task (with only a button to start it)
 
@@ -425,8 +425,8 @@ class Manage extends Process
             }
         }
 
-        dcPage::helpBlock('maintenance', 'maintenancetasks');
+        Page::helpBlock('maintenance', 'maintenancetasks');
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

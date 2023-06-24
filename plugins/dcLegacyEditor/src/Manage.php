@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Exception;
 
@@ -39,7 +39,7 @@ class Manage extends Process
                 dcCore::app()->admin->editor_std_active = (empty($_POST['dclegacyeditor_active'])) ? false : true;
                 dcCore::app()->blog->settings->dclegacyeditor->put('active', dcCore::app()->admin->editor_std_active, 'boolean');
 
-                dcPage::addSuccessNotice(__('The configuration has been updated.'));
+                Page::addSuccessNotice(__('The configuration has been updated.'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -54,10 +54,10 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        dcPage::openModule(My::name());
+        Page::openModule(My::name());
 
         require My::path() . '/tpl/index.php';
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 
 use dcCategories;
 use dcCore;
-use dcPage;
 use dcSettings;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -33,7 +33,7 @@ class Category extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_CATEGORIES,
         ]));
 
@@ -117,7 +117,7 @@ class Category extends Process
             if (dcCore::app()->admin->cat_parent != $new_parent) {
                 try {
                     dcCore::app()->blog->setCategoryParent(dcCore::app()->admin->cat_id, $new_parent);
-                    dcPage::addSuccessNotice(__('The category has been successfully moved'));
+                    Page::addSuccessNotice(__('The category has been successfully moved'));
                     dcCore::app()->adminurl->redirect('admin.categories');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
@@ -129,7 +129,7 @@ class Category extends Process
             // Changing sibling
             try {
                 dcCore::app()->blog->setCategoryPosition(dcCore::app()->admin->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
-                dcPage::addSuccessNotice(__('The category has been successfully moved'));
+                Page::addSuccessNotice(__('The category has been successfully moved'));
                 dcCore::app()->adminurl->redirect('admin.categories');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -162,7 +162,7 @@ class Category extends Process
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
-                    dcPage::addSuccessNotice(__('The category has been successfully updated.'));
+                    Page::addSuccessNotice(__('The category has been successfully updated.'));
 
                     dcCore::app()->adminurl->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
@@ -176,7 +176,7 @@ class Category extends Process
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
-                    dcPage::addSuccessNotice(sprintf(
+                    Page::addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
@@ -212,17 +212,17 @@ class Category extends Process
             $rte_flag = $rte_flags['cat_descr'];
         }
 
-        dcPage::open(
+        Page::open(
             $title,
-            dcPage::jsConfirmClose('category-form') .
-            dcPage::jsLoad('js/_category.js') .
+            Page::jsConfirmClose('category-form') .
+            Page::jsLoad('js/_category.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? dcCore::app()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
-            dcPage::breadcrumb($elements)
+            Page::breadcrumb($elements)
         );
 
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Category has been successfully updated.'));
+            Page::success(__('Category has been successfully updated.'));
         }
 
         echo
@@ -348,7 +348,7 @@ class Category extends Process
             echo '</div>';
         }
 
-        dcPage::helpBlock('core_category');
-        dcPage::close();
+        Page::helpBlock('core_category');
+        Page::close();
     }
 }

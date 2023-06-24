@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -24,7 +24,7 @@ class Categories extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_CATEGORIES,
         ]));
 
@@ -42,7 +42,7 @@ class Categories extends Process
             // Check if category to delete exists
             $rs = dcCore::app()->blog->getCategory((int) $cat_id);
             if ($rs->isEmpty()) {
-                dcPage::addErrorNotice(__('This category does not exist.'));
+                Page::addErrorNotice(__('This category does not exist.'));
                 dcCore::app()->adminurl->redirect('admin.categories');
             } else {
                 $name = $rs->cat_title;
@@ -51,7 +51,7 @@ class Categories extends Process
             try {
                 // Delete category
                 dcCore::app()->blog->delCategory($cat_id);
-                dcPage::addSuccessNotice(sprintf(
+                Page::addSuccessNotice(sprintf(
                     __('The category "%s" has been successfully deleted.'),
                     Html::escapeHTML($name)
                 ));
@@ -81,7 +81,7 @@ class Categories extends Process
                 if ($mov_cat != $cat_id) {
                     dcCore::app()->blog->changePostsCategory($cat_id, $mov_cat);
                 }
-                dcPage::addSuccessNotice(sprintf(
+                Page::addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
                 ));
@@ -99,7 +99,7 @@ class Categories extends Process
                     dcCore::app()->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
                 }
             }
-            dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
+            Page::addSuccessNotice(__('Categories have been successfully reordered.'));
             dcCore::app()->adminurl->redirect('admin.categories');
         }
 
@@ -107,7 +107,7 @@ class Categories extends Process
             // Reset order
             try {
                 dcCore::app()->blog->resetCategoriesOrder();
-                dcPage::addSuccessNotice(__('Categories order has been successfully reset.'));
+                Page::addSuccessNotice(__('Categories order has been successfully reset.'));
                 dcCore::app()->adminurl->redirect('admin.categories');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -128,17 +128,17 @@ class Categories extends Process
                 dcCore::app()->auth::PERMISSION_CATEGORIES,
             ]), dcCore::app()->blog->id)
             && $rs->count() > 1) {
-            $starting_script .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
-            $starting_script .= dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
-            $starting_script .= dcPage::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
+            $starting_script .= Page::jsLoad('js/jquery/jquery-ui.custom.js');
+            $starting_script .= Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $starting_script .= Page::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
         }
-        $starting_script .= dcPage::jsConfirmClose('form-categories');
-        $starting_script .= dcPage::jsLoad('js/_categories.js');
+        $starting_script .= Page::jsConfirmClose('form-categories');
+        $starting_script .= Page::jsLoad('js/_categories.js');
 
-        dcPage::open(
+        Page::open(
             __('Categories'),
             $starting_script,
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Categories')                            => '',
@@ -147,13 +147,13 @@ class Categories extends Process
         );
 
         if (!empty($_GET['del'])) {
-            dcPage::success(__('The category has been successfully removed.'));
+            Page::success(__('The category has been successfully removed.'));
         }
         if (!empty($_GET['reord'])) {
-            dcPage::success(__('Categories have been successfully reordered.'));
+            Page::success(__('Categories have been successfully reordered.'));
         }
         if (!empty($_GET['move'])) {
-            dcPage::success(__('Entries have been successfully moved to the category you choose.'));
+            Page::success(__('Entries have been successfully moved to the category you choose.'));
         }
 
         $categories_combo = Combos::getCategoriesCombo($rs);
@@ -246,7 +246,7 @@ class Categories extends Process
 
         echo '</div>';
 
-        dcPage::helpBlock('core_categories');
-        dcPage::close();
+        Page::helpBlock('core_categories');
+        Page::close();
     }
 }

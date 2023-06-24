@@ -13,8 +13,8 @@ use DateTimeZone;
 use dcAuth;
 use dcBlog;
 use dcCore;
-use dcPage;
 use dcSettings;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 use Dotclear\Database\AbstractSchema;
@@ -330,16 +330,16 @@ class Install extends Process
 
           <?php
           echo
-            dcPage::jsLoad('../js/prepend.js') .
-            dcPage::jsJson('pwstrength', [
+            Page::jsLoad('../js/prepend.js') .
+            Page::jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            dcPage::jsLoad('../js/pwstrength.js') .
-            dcPage::jsLoad('../js/jquery/jquery.js') .
-            dcPage::jsJson('install_show', __('show')) .
-            dcPage::jsLoad('../js/_install.js'); ?>
+            Page::jsLoad('../js/pwstrength.js') .
+            Page::jsLoad('../js/jquery/jquery.js') .
+            Page::jsJson('install_show', __('show')) .
+            Page::jsLoad('../js/_install.js'); ?>
 </head>
 
 <body id="dotclear-admin" class="install">

@@ -16,9 +16,9 @@ use adminModulesList;
 use ArrayObject;
 use dcBlog;
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -41,7 +41,7 @@ class Home extends Process
             }
         }
 
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -150,7 +150,7 @@ class Home extends Process
                     $admin_post_behavior = dcCore::app()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
-            $quickentry = dcPage::jsJson('dotclear_quickentry', [
+            $quickentry = Page::jsJson('dotclear_quickentry', [
                 'post_published' => dcBlog::POST_PUBLISHED,
                 'post_pending'   => dcBlog::POST_PENDING,
             ]);
@@ -164,7 +164,7 @@ class Home extends Process
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
             ];
-            $dragndrop_head = dcPage::jsJson('dotclear_dragndrop', $dragndrop_msg);
+            $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
             $dragndrop      = '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
                 '<label for="dragndrop">' .
                 '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
@@ -174,19 +174,19 @@ class Home extends Process
                 '</label>';
         }
 
-        dcPage::open(
+        Page::open(
             __('Dashboard'),
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             $quickentry .
-            dcPage::jsLoad('js/_index.js') .
+            Page::jsLoad('js/_index.js') .
             $dragndrop_head .
             $admin_post_behavior .
-            dcPage::jsAdsBlockCheck() .
+            Page::jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminDashboardHeaders --
             dcCore::app()->callBehavior('adminDashboardHeaders'),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Dashboard') . ' : ' . Html::escapeHTML(dcCore::app()->blog->name) => '',
                 ],
@@ -449,7 +449,7 @@ class Home extends Process
 
         echo $dragndrop . '<div id="dashboard-main">' . $dashboardMain . '</div>';
 
-        dcPage::helpBlock('core_dashboard');
-        dcPage::close();
+        Page::helpBlock('core_dashboard');
+        Page::close();
     }
 }

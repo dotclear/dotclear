@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 use adminPostFilter;
 use adminPostList;
 use dcCore;
-use dcPage;
 use dcPostsActions;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -25,7 +25,7 @@ class Posts extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -78,10 +78,10 @@ class Posts extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Posts'),
-            dcPage::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(),
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Posts')                                 => '',
@@ -89,9 +89,9 @@ class Posts extends Process
             )
         );
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Selected entries have been successfully updated.'));
+            Page::success(__('Selected entries have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            dcPage::success(__('Selected entries have been successfully deleted.'));
+            Page::success(__('Selected entries have been successfully deleted.'));
         }
         if (!dcCore::app()->error->flag()) {
             echo
@@ -122,7 +122,7 @@ class Posts extends Process
             );
         }
 
-        dcPage::helpBlock('core_posts');
-        dcPage::close();
+        Page::helpBlock('core_posts');
+        Page::close();
     }
 }

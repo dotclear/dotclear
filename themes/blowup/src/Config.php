@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -223,7 +223,7 @@ class Config extends Process
 
                 dcCore::app()->admin->blowup_user = $blowup_user;
 
-                dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
+                Page::addSuccessNotice(__('Theme configuration has been successfully updated.'));
                 Http::redirect(dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -473,7 +473,7 @@ class Config extends Process
         '</p>' .
         '</form>';
 
-        dcPage::helpBlock('blowupConfig');
+        Page::helpBlock('blowupConfig');
 
         // Legacy mode
         if (!dcCore::app()->admin->standalone_config) {

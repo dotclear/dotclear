@@ -1370,6 +1370,7 @@ class dcUpgrade
                     'inc/admin/lib.adminuserpref.php',
                     'inc/admin/lib.dc.adminurl.php',
                     'inc/admin/lib.dc.notices.php',
+                    'inc/admin/lib.dc.page.php',
                     'inc/admin/lib.helper.php',
                     'inc/admin/lib.mediapage.php',
                     'inc/admin/lib.themeconfig.php',

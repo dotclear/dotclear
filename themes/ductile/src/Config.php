@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -338,7 +338,7 @@ class Config extends Process
                 // Template cache reset
                 dcCore::app()->emptyTemplatesCache();
 
-                dcPage::message(__('Theme configuration upgraded.'), true, true);
+                Page::message(__('Theme configuration upgraded.'), true, true);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -648,7 +648,7 @@ class Config extends Process
 
         '</div>'; // Close tab
 
-        dcPage::helpBlock('ductile');
+        Page::helpBlock('ductile');
 
         // Legacy mode
         if (!dcCore::app()->admin->standalone_config) {

@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 
 use dcCore;
 use dcMedia;
-use dcPage;
 use dcPostMedia;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -29,7 +29,7 @@ class PostMedia extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -86,14 +86,14 @@ class PostMedia extends Process
                 $pm = new dcPostMedia();
                 $pm->removePostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
 
-                dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));
+                Page::addSuccessNotice(__('Attachment has been successfully removed.'));
                 Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
             } elseif (isset($_POST['post_id'])) {
                 Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
             }
 
             if (!empty($_GET['remove'])) {
-                dcPage::open(__('Remove attachment'));
+                Page::open(__('Remove attachment'));
 
                 echo '<h2>' . __('Attachment') . ' &rsaquo; <span class="page-title">' . __('confirm removal') . '</span></h2>';
 
@@ -118,7 +118,7 @@ class PostMedia extends Process
                 ])
                 ->render();
 
-                dcPage::close();
+                Page::close();
                 exit;
             }
         }

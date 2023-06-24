@@ -16,7 +16,6 @@ namespace Dotclear\Plugin\maintenance;
 
 use ArrayObject;
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Date;

@@ -143,7 +143,6 @@ namespace Dotclear {
                 'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'dbschema', 'upgrade.php']),
 
                 // Admin
-                'dcPage'               => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.dc.page.php']),
                 'adminGenericListV2'   => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.pager.php']),             // V2
                 'adminPostList'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.pager.php']),
                 'adminPostMiniList'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.pager.php']),

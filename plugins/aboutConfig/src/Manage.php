@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\aboutConfig;
 use Exception;
 use dcCore;
 use dcNamespace;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -66,7 +66,7 @@ class Manage extends Process
                     dcCore::app()->blog->triggerBlog();
                 }
 
-                dcPage::addSuccessNotice(__('Configuration successfully updated'));
+                Page::addSuccessNotice(__('Configuration successfully updated'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -86,7 +86,7 @@ class Manage extends Process
                     dcCore::app()->blog->triggerBlog();
                 }
 
-                dcPage::addSuccessNotice(__('Configuration successfully updated'));
+                Page::addSuccessNotice(__('Configuration successfully updated'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
                     'part' => 'global',
                 ]);
@@ -107,21 +107,21 @@ class Manage extends Process
             return;
         }
 
-        dcPage::openModule(
+        Page::openModule(
             My::name(),
-            dcPage::jsPageTabs(dcCore::app()->admin->part) .
+            Page::jsPageTabs(dcCore::app()->admin->part) .
             My::jsLoad('index.js')
         );
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 __('System')                                => '',
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => '',
             ]
         ) .
-        dcPage::notices() .
+        Page::notices() .
         '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '">' .
         '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '</h3>';
 
@@ -138,9 +138,9 @@ class Manage extends Process
         echo
         '</div>';
 
-        dcPage::helpBlock(My::id());
+        Page::helpBlock(My::id());
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     /**

@@ -15,10 +15,10 @@ namespace Dotclear\Backend;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use dcPage;
 use dcSettings;
 use dcUtils;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -48,7 +48,7 @@ class BlogPref extends Process
          */
         $da->standalone = !(isset($da->edit_blog_mode) && $da->edit_blog_mode);
         if ($da->standalone) {
-            dcPage::check(dcCore::app()->auth->makePermissions([
+            Page::check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_ADMIN,
             ]));
 
@@ -62,7 +62,7 @@ class BlogPref extends Process
             $da->action = dcCore::app()->adminurl->get('admin.blog.pref');
             $da->redir  = dcCore::app()->adminurl->get('admin.blog.pref');
         } else {
-            dcPage::checkSuper();
+            Page::checkSuper();
 
             $da->blog_id       = false;
             $da->blog_status   = dcBlog::BLOG_OFFLINE;
@@ -382,7 +382,7 @@ class BlogPref extends Process
                 if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
                     $da->blog_settings->system->put('url_scan', $_POST['url_scan']);
                 }
-                dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
+                Page::addSuccessNotice(__('Blog has been successfully updated.'));
 
                 Http::redirect(sprintf($da->redir, $da->blog_id));
             } catch (Exception $e) {
@@ -404,14 +404,14 @@ class BlogPref extends Process
 
         // Display
         if ($da->standalone) {
-            $breadcrumb = dcPage::breadcrumb(
+            $breadcrumb = Page::breadcrumb(
                 [
                     Html::escapeHTML($da->blog_name) => '',
                     __('Blog settings')              => '',
                 ]
             );
         } else {
-            $breadcrumb = dcPage::breadcrumb(
+            $breadcrumb = Page::breadcrumb(
                 [
                     __('System')                                                   => '',
                     __('Blogs')                                                    => dcCore::app()->adminurl->get('admin.blogs'),
@@ -427,31 +427,31 @@ class BlogPref extends Process
             $rte_flag = $rte_flags['blog_descr'];
         }
 
-        dcPage::open(
+        Page::open(
             __('Blog settings'),
-            dcPage::jsJson('blog_pref', [
+            Page::jsJson('blog_pref', [
                 'warning_path_info'    => __('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'),
                 'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'),
             ]) .
-            dcPage::jsConfirmClose('blog-form') .
+            Page::jsConfirmClose('blog-form') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? dcCore::app()->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
-            dcPage::jsLoad('js/_blog_pref.js') .
+            Page::jsLoad('js/_blog_pref.js') .
 
             # --BEHAVIOR-- adminBlogPreferencesHeaders --
             dcCore::app()->callBehavior('adminBlogPreferencesHeaders') .
 
-            dcPage::jsPageTabs(),
+            Page::jsPageTabs(),
             $breadcrumb
         );
 
         if ($da->blog_id) {
             if (!empty($_GET['add'])) {
-                dcPage::success(__('Blog has been successfully created.'));
+                Page::success(__('Blog has been successfully created.'));
             }
 
             if (!empty($_GET['upd'])) {
-                dcPage::success(__('Blog has been successfully updated.'));
+                Page::success(__('Blog has been successfully updated.'));
             }
 
             echo
@@ -1032,7 +1032,7 @@ class BlogPref extends Process
             echo '</div>';
         }
 
-        dcPage::helpBlock('core_blog_pref');
-        dcPage::close();
+        Page::helpBlock('core_blog_pref');
+        Page::close();
     }
 }

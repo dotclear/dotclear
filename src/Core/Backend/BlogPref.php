@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
-use dcPage;
 
 class BlogPref
 {
@@ -29,9 +28,9 @@ class BlogPref
         }
 
         return
-        dcPage::jsJson('admin.blog_pref', [
+        Page::jsJson('admin.blog_pref', [
             'base_url' => dcCore::app()->blog->url,
         ]) .
-        dcPage::jsLoad('js/_blog_pref_popup_posts.js');
+        Page::jsLoad('js/_blog_pref_popup_posts.js');
     }
 }

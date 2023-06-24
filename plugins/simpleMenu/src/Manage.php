@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -177,7 +177,7 @@ class Manage extends Process
                 dcCore::app()->blog->triggerBlog();
 
                 // All done successfully, return to menu items list
-                dcPage::addSuccessNotice(__('Configuration successfully updated.'));
+                Page::addSuccessNotice(__('Configuration successfully updated.'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -333,12 +333,12 @@ class Manage extends Process
                                 dcCore::app()->blog->triggerBlog();
 
                                 // All done successfully, return to menu items list
-                                dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
+                                Page::addSuccessNotice(__('Menu item has been successfully added.'));
                                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                             } else {
                                 dcCore::app()->admin->step              = self::STEP_ATTRIBUTES;
                                 dcCore::app()->admin->item_select_label = dcCore::app()->admin->item_label;
-                                dcPage::addErrorNotice(__('Label and URL of menu item are mandatory.'));
+                                Page::addErrorNotice(__('Label and URL of menu item are mandatory.'));
                             }
                         } catch (Exception $e) {
                             dcCore::app()->error->add($e->getMessage());
@@ -371,7 +371,7 @@ class Manage extends Process
                             dcCore::app()->blog->triggerBlog();
 
                             // All done successfully, return to menu items list
-                            dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
+                            Page::addSuccessNotice(__('Menu items have been successfully removed.'));
                             dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                         } else {
                             throw new Exception(__('No menu items selected.'));
@@ -436,7 +436,7 @@ class Manage extends Process
                         dcCore::app()->blog->triggerBlog();
 
                         // All done successfully, return to menu items list
-                        dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+                        Page::addSuccessNotice(__('Menu items have been successfully updated.'));
                         dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
@@ -462,13 +462,13 @@ class Manage extends Process
 
         $head = '';
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('simplemenu.js');
         }
-        $head .= dcPage::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
+        $head .= Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
-        dcPage::openModule(dcCore::app()->admin->page_title, $head);
+        Page::openModule(dcCore::app()->admin->page_title, $head);
 
         $step_label = '';
         if (dcCore::app()->admin->step) {
@@ -493,7 +493,7 @@ class Manage extends Process
                     break;
             }
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     dcCore::app()->admin->page_title            => dcCore::app()->admin->getPageURL(),
@@ -504,16 +504,16 @@ class Manage extends Process
                     'hl_pos' => -2,
                 ]
             ) .
-            dcPage::notices();
+            Page::notices();
         } else {
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     dcCore::app()->admin->page_title            => '',
                 ]
             ) .
-            dcPage::notices();
+            Page::notices();
         }
 
         if (dcCore::app()->admin->step !== self::STEP_LIST) {
@@ -769,8 +769,8 @@ class Manage extends Process
             '<p>' . __('No menu items so far.') . '</p>';
         }
 
-        dcPage::helpBlock('simpleMenu');
+        Page::helpBlock('simpleMenu');
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

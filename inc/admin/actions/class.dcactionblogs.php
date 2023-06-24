@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 
 class dcBlogsActions extends dcActions
@@ -50,16 +51,16 @@ class dcBlogsActions extends dcActions
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
-            dcPage::openModule(
+            Page::openModule(
                 __('Blogs'),
-                dcPage::jsLoad('js/_blogs_actions.js') .
+                Page::jsLoad('js/_blogs_actions.js') .
                 $head
             );
             echo $breadcrumb;
         } else {
-            dcPage::open(
+            Page::open(
                 __('Blogs'),
-                dcPage::jsLoad('js/_blogs_actions.js') .
+                Page::jsLoad('js/_blogs_actions.js') .
                 $head,
                 $breadcrumb
             );
@@ -73,9 +74,9 @@ class dcBlogsActions extends dcActions
     public function endPage()
     {
         if ($this->in_plugin) {
-            dcPage::closeModule();
+            Page::closeModule();
         } else {
-            dcPage::close();
+            Page::close();
         }
     }
 
@@ -88,7 +89,7 @@ class dcBlogsActions extends dcActions
     {
         dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Blogs')                                 => dcCore::app()->adminurl->get('admin.blogs'),
@@ -225,7 +226,7 @@ class dcDefaultBlogActions
             dcCore::app()->removeUsersDefaultBlogs($ids);
         }
 
-        dcPage::addSuccessNotice(__('Selected blogs have been successfully updated.'));
+        Page::addSuccessNotice(__('Selected blogs have been successfully updated.'));
         $ap->redirect(true);
     }
 
@@ -254,7 +255,7 @@ class dcDefaultBlogActions
         $checked_ids = [];
         foreach ($ids as $id) {
             if ($id === dcCore::app()->blog->id) {
-                dcPage::addWarningNotice(__('The current blog cannot be deleted.'));
+                Page::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $checked_ids[] = $id;
             }
@@ -268,7 +269,7 @@ class dcDefaultBlogActions
                 dcCore::app()->delBlog($id);
             }
 
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d blog has been successfully deleted',

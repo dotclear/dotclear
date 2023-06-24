@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -31,7 +31,7 @@ class BlogDel extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         dcCore::app()->admin->blog_id   = '';
         dcCore::app()->admin->blog_name = '';
@@ -67,7 +67,7 @@ class BlogDel extends Process
             } else {
                 try {
                     dcCore::app()->delBlog(dcCore::app()->admin->blog_id);
-                    dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
+                    Page::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
 
                     dcCore::app()->adminurl->redirect('admin.blogs');
                 } catch (Exception $e) {
@@ -81,10 +81,10 @@ class BlogDel extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Delete a blog'),
             '',
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('System')        => '',
                     __('Blogs')         => dcCore::app()->adminurl->get('admin.blogs'),
@@ -137,6 +137,6 @@ class BlogDel extends Process
             ])->render();
         }
 
-        dcPage::close();
+        Page::close();
     }
 }

@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\tags;
 use adminPostList;
 use dcCore;
 use dcMeta;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -82,7 +82,7 @@ class ManagePosts extends Process
 
             try {
                 if (dcCore::app()->meta->updateMeta(dcCore::app()->admin->tag, $new_id, 'tag')) {
-                    dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
+                    Page::addSuccessNotice(__('Tag has been successfully renamed'));
                     dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
                         'm'   => 'tag_posts',
                         'tag' => $new_id,
@@ -101,7 +101,7 @@ class ManagePosts extends Process
 
             try {
                 dcCore::app()->meta->delMeta(dcCore::app()->admin->tag, 'tag');
-                dcPage::addSuccessNotice(__('Tag has been successfully removed'));
+                Page::addSuccessNotice(__('Tag has been successfully removed'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
                     'm' => 'tags',
                 ]);
@@ -130,26 +130,26 @@ class ManagePosts extends Process
 
         $this_url = dcCore::app()->admin->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(dcCore::app()->admin->tag);
 
-        dcPage::openModule(
+        Page::openModule(
             My::name(),
             My::cssLoad('style.css') .
-            dcPage::jsLoad('js/_posts_list.js') .
-            dcPage::jsJson('posts_tags_msg', [
+            Page::jsLoad('js/_posts_list.js') .
+            Page::jsJson('posts_tags_msg', [
                 'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(dcCore::app()->admin->tag)),
             ]) .
             My::jsLoad('posts.js') .
-            dcPage::jsConfirmClose('tag_rename')
+            Page::jsConfirmClose('tag_rename')
         );
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name)                                      => '',
                 My::name()                                                                       => dcCore::app()->admin->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(dcCore::app()->admin->tag) . '&rdquo;' => '',
             ]
         ) .
-        dcPage::notices() .
+        Page::notices() .
         '<p><a class="back" href="' . dcCore::app()->admin->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
         if (!dcCore::app()->error->flag()) {
@@ -202,8 +202,8 @@ class ManagePosts extends Process
                 '</form>'
             );
         }
-        dcPage::helpBlock('tag_posts');
+        Page::helpBlock('tag_posts');
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -45,7 +45,7 @@ class Prepend extends Process
 
         dcCore::app()->addBehavior('adminPageHTMLHead', function () {
             echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" .
-            dcPage::jsJson('blowup', [
+            Page::jsJson('blowup', [
                 'blowup_public_url' => Blowup::imagesURL(),
                 'blowup_theme_url'  => Blowup::themeURL(),
                 'msg'               => [
@@ -54,7 +54,7 @@ class Prepend extends Process
                     'predefined_style_title' => __('Choose a predefined style'),
                 ],
             ]) .
-            dcPage::jsLoad(Blowup::themeURL() . '/js/config.js');
+            Page::jsLoad(Blowup::themeURL() . '/js/config.js');
         });
 
         return true;

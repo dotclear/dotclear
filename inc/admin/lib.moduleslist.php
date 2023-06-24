@@ -14,6 +14,7 @@
  */
 
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -848,17 +849,17 @@ class adminModulesList
                 $default_icon = false;
 
                 if (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon.svg')) {
-                    $icon = dcPage::getPF($id . '/icon.svg');
+                    $icon = Page::getPF($id . '/icon.svg');
                 } elseif (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon.png')) {
-                    $icon = dcPage::getPF($id . '/icon.png');
+                    $icon = Page::getPF($id . '/icon.png');
                 } else {
                     $icon         = 'images/module.svg';
                     $default_icon = true;
                 }
                 if (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
-                    $icon = [$icon, dcPage::getPF($id . '/icon-dark.svg')];
+                    $icon = [$icon, Page::getPF($id . '/icon-dark.svg')];
                 } elseif (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon-dark.png')) {
-                    $icon = [$icon, dcPage::getPF($id . '/icon-dark.png')];
+                    $icon = [$icon, Page::getPF($id . '/icon-dark.png')];
                 } elseif ($default_icon) {
                     $icon = [$icon, 'images/module-dark.svg'];
                 }
@@ -1323,7 +1324,7 @@ class adminModulesList
     /**
      * Execute POST action.
      *
-     * Set a notice on success through dcPage::addSuccessNotice
+     * Set a notice on success through Page::addSuccessNotice
      *
      * @throws    Exception    Module not find or command failed
      */
@@ -1370,9 +1371,9 @@ class adminModulesList
             if (!$count && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
             } elseif ($failed) {
-                dcPage::addWarningNotice(__('Some plugins have not been delete.'));
+                Page::addWarningNotice(__('Some plugins have not been delete.'));
             } else {
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
@@ -1405,7 +1406,7 @@ class adminModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
             Http::redirect($this->getURL());
@@ -1436,7 +1437,7 @@ class adminModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 __('Plugin has been successfully activated.', 'Plugins have been successuflly activated.', $count)
             );
             Http::redirect($this->getURL());
@@ -1475,9 +1476,9 @@ class adminModulesList
             }
 
             if ($failed) {
-                dcPage::addWarningNotice(__('Some plugins have not been deactivated.'));
+                Page::addWarningNotice(__('Some plugins have not been deactivated.'));
             } else {
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
@@ -1524,11 +1525,11 @@ class adminModulesList
             $tab = $count == count($defines) ? '#plugins' : '#update';   // @phpstan-ignore-line
 
             if ($count) {
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
             } elseif (!empty($locked)) {
-                dcPage::addWarningNotice(
+                Page::addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
             } else {
@@ -1565,7 +1566,7 @@ class adminModulesList
             # --BEHAVIOR-- moduleAfterAdd --
             dcCore::app()->callBehavior('pluginAfterAdd', null);
 
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 $ret_code === dcModules::PACKAGE_UPDATED ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
@@ -2187,7 +2188,7 @@ class adminThemesList extends adminModulesList
                 dcCore::app()->blog->settings->system->put('theme', $define->getId());
                 dcCore::app()->blog->triggerBlog();
 
-                dcPage::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
+                Page::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
                 Http::redirect($this->getURL() . '#themes');
             }
         } else {
@@ -2222,7 +2223,7 @@ class adminThemesList extends adminModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     __('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -2261,9 +2262,9 @@ class adminThemesList extends adminModulesList
                 }
 
                 if ($failed) {
-                    dcPage::addWarningNotice(__('Some themes have not been deactivated.'));
+                    Page::addWarningNotice(__('Some themes have not been deactivated.'));
                 } else {
-                    dcPage::addSuccessNotice(
+                    Page::addSuccessNotice(
                         __('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
                     );
                 }
@@ -2295,7 +2296,7 @@ class adminThemesList extends adminModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -2335,9 +2336,9 @@ class adminThemesList extends adminModulesList
                 } elseif (!$count) {
                     throw new Exception(__('No such theme.'));
                 } elseif ($failed) {
-                    dcPage::addWarningNotice(__('Some themes have not been delete.'));
+                    Page::addWarningNotice(__('Some themes have not been delete.'));
                 } else {
-                    dcPage::addSuccessNotice(
+                    Page::addSuccessNotice(
                         __('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
                     );
                 }
@@ -2370,7 +2371,7 @@ class adminThemesList extends adminModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     __('Theme has been successfully installed.', 'Themes have been successfully installed.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -2409,11 +2410,11 @@ class adminThemesList extends adminModulesList
                 $tab = $count == count($defines) ? '#themes' : '#update';   // @phpstan-ignore-line
 
                 if ($count) {
-                    dcPage::addSuccessNotice(
+                    Page::addSuccessNotice(
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                     );
                 } elseif (!empty($locked)) {
-                    dcPage::addWarningNotice(
+                    Page::addWarningNotice(
                         sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
                     );
                 } else {
@@ -2450,7 +2451,7 @@ class adminThemesList extends adminModulesList
                 # --BEHAVIOR-- themeAfterAdd --
                 dcCore::app()->callBehavior('themeAfterAdd', null);
 
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     $ret_code == dcModules::PACKAGE_UPDATED ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')

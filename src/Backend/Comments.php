@@ -17,7 +17,7 @@ use adminCommentList;
 use dcBlog;
 use dcCommentsActions;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -27,7 +27,7 @@ class Comments extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -105,10 +105,10 @@ class Comments extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Comments and trackbacks'),
-            dcPage::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(dcCore::app()->adminurl->get('admin.comments')),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(dcCore::app()->adminurl->get('admin.comments')),
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Comments and trackbacks')               => '',
@@ -116,14 +116,14 @@ class Comments extends Process
             )
         );
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Selected comments have been successfully updated.'));
+            Page::success(__('Selected comments have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            dcPage::success(__('Selected comments have been successfully deleted.'));
+            Page::success(__('Selected comments have been successfully deleted.'));
         }
 
         if (!dcCore::app()->error->flag()) {
             if (isset($_SESSION['comments_del_spam'])) {
-                dcPage::message(__('Spam comments have been successfully deleted.'));
+                Page::message(__('Spam comments have been successfully deleted.'));
                 unset($_SESSION['comments_del_spam']);
             }
 
@@ -188,7 +188,7 @@ class Comments extends Process
             );
         }
 
-        dcPage::helpBlock('core_comments');
-        dcPage::close();
+        Page::helpBlock('core_comments');
+        Page::close();
     }
 }

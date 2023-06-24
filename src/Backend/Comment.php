@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 
 use dcBlog;
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -27,7 +27,7 @@ class Comment extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -86,7 +86,7 @@ class Comment extends Process
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
                 dcCore::app()->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
 
-                dcPage::addSuccessNotice(__('Comment has been successfully created.'));
+                Page::addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -175,7 +175,7 @@ class Comment extends Process
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
-                    dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
+                    Page::addSuccessNotice(__('Comment has been successfully updated.'));
                     dcCore::app()->adminurl->redirect('admin.comment', ['id' => dcCore::app()->admin->comment_id]);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
@@ -191,7 +191,7 @@ class Comment extends Process
 
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
-                    dcPage::addSuccessNotice(__('Comment has been successfully deleted.'));
+                    Page::addSuccessNotice(__('Comment has been successfully deleted.'));
                     Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id) . '&co=1');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
@@ -222,20 +222,20 @@ class Comment extends Process
         }
         $breadcrumb[__('Edit comment')] = '';
 
-        dcPage::open(
+        Page::open(
             __('Edit comment'),
-            dcPage::jsConfirmClose('comment-form') .
-            dcPage::jsLoad('js/_comment.js') .
+            Page::jsConfirmClose('comment-form') .
+            Page::jsLoad('js/_comment.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
             dcCore::app()->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders --
             dcCore::app()->callBehavior('adminCommentHeaders'),
-            dcPage::breadcrumb($breadcrumb)
+            Page::breadcrumb($breadcrumb)
         );
 
         if (dcCore::app()->admin->comment_id) {
             if (!empty($_GET['upd'])) {
-                dcPage::success(__('Comment has been successfully updated.'));
+                Page::success(__('Comment has been successfully updated.'));
             }
 
             $comment_mailto = '';
@@ -314,7 +314,7 @@ class Comment extends Process
             '</form>';
         }
 
-        dcPage::helpBlock('core_comments');
-        dcPage::close();
+        Page::helpBlock('core_comments');
+        Page::close();
     }
 }

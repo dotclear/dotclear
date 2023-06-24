@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Html\Form\Input;
@@ -304,9 +305,9 @@ class adminGenericFilterV2
      */
     public function js(string $reset_url = ''): string
     {
-        $var = empty($reset_url) ? '' : dcPage::jsJson('filter_reset_url', $reset_url);
+        $var = empty($reset_url) ? '' : Page::jsJson('filter_reset_url', $reset_url);
 
-        return $var . dcPage::jsFilterControl($this->show());
+        return $var . Page::jsFilterControl($this->show());
     }
 
     /**

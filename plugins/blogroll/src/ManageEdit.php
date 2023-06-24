@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use dcCore;
-use dcPage;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -95,7 +95,7 @@ class ManageEdit extends Process
 
             try {
                 dcCore::app()->admin->blogroll->updateLink(dcCore::app()->admin->id, dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang, trim((string) dcCore::app()->admin->link_xfn));
-                dcPage::addSuccessNotice(__('Link has been successfully updated'));
+                Page::addSuccessNotice(__('Link has been successfully updated'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
                     'edit' => 1,
                     'id'   => dcCore::app()->admin->id,
@@ -112,7 +112,7 @@ class ManageEdit extends Process
 
             try {
                 dcCore::app()->admin->blogroll->updateCategory(dcCore::app()->admin->id, dcCore::app()->admin->link_desc);
-                dcPage::addSuccessNotice(__('Category has been successfully updated'));
+                Page::addSuccessNotice(__('Category has been successfully updated'));
                 dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
                     'edit' => 1,
                     'id'   => dcCore::app()->admin->id,
@@ -131,16 +131,16 @@ class ManageEdit extends Process
         $links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
         $lang_combo = Combos::getLangsCombo($links, true);
 
-        dcPage::openModule(My::name());
+        Page::openModule(My::name());
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => dcCore::app()->admin->getPageURL(),
             ]
         ) .
-        dcPage::notices() .
+        Page::notices() .
         '<p><a class="back" href="' . dcCore::app()->admin->getPageURL() . '">' . __('Return to blogroll') . '</a></p>';
 
         if (isset(dcCore::app()->admin->rs)) {
@@ -349,6 +349,6 @@ class ManageEdit extends Process
             }
         }
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

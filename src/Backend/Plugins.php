@@ -15,7 +15,7 @@ namespace Dotclear\Backend;
 use adminModulesList;
 use dcCore;
 use dcModuleDefine;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -51,7 +51,7 @@ class Plugins extends Process
             return (static::$init = false);
         }
 
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         # -- Execute actions --
         try {
@@ -77,18 +77,18 @@ class Plugins extends Process
     public static function render(): void
     {
         // -- Page header --
-        dcPage::open(
+        Page::open(
             __('Plugins management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                dcPage::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
-            dcPage::jsLoad('js/_plugins.js') .
-            dcPage::jsPageTabs() .
+            Page::jsLoad('js/_plugins.js') .
+            Page::jsPageTabs() .
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
             dcCore::app()->callBehavior('pluginsToolsHeadersV2', false),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('System')             => '',
                     __('Plugins management') => '',
@@ -126,7 +126,7 @@ class Plugins extends Process
         // -- Display modules lists --
         if (dcCore::app()->auth->isSuperAdmin()) {
             if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
-                dcPage::success(__('Manual checking of plugins update done successfully.'));
+                Page::success(__('Manual checking of plugins update done successfully.'));
             }
 
             echo
@@ -283,8 +283,8 @@ class Plugins extends Process
             '<p class="warning">' . __('Some functions are disabled, please give write access to your plugins directory to enable them.') . '</p>';
         }
 
-        dcPage::helpBlock('core_plugins');
-        dcPage::close();
+        Page::helpBlock('core_plugins');
+        Page::close();
     }
 
     /**
@@ -302,12 +302,12 @@ class Plugins extends Process
         dcCore::app()->admin->list->getConfiguration();
 
         // Display page
-        dcPage::open(
+        Page::open(
             __('Plugins management'),
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
             dcCore::app()->callBehavior('pluginsToolsHeadersV2', true),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name)                          => '',
                     __('Plugins management')                                             => dcCore::app()->admin->list->getURL('', false),
@@ -319,7 +319,7 @@ class Plugins extends Process
         // Display previously gathered content
         dcCore::app()->admin->list->displayConfiguration();
 
-        dcPage::helpBlock('core_plugins_conf');
-        dcPage::close();
+        Page::helpBlock('core_plugins_conf');
+        Page::close();
     }
 }

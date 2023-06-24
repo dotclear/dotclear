@@ -15,9 +15,9 @@ namespace Dotclear\Backend;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use dcPage;
 use dcPostMedia;
 use dcThemes;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -32,7 +32,7 @@ class MediaItem extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_MEDIA,
             dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
         ]));
@@ -91,13 +91,13 @@ class MediaItem extends Process
         }
 
         if (dcCore::app()->admin->popup) {
-            dcCore::app()->admin->open_function  = [dcPage::class, 'openPopup'];
-            dcCore::app()->admin->close_function = [dcPage::class, 'closePopup'];
+            dcCore::app()->admin->open_function  = [Page::class, 'openPopup'];
+            dcCore::app()->admin->close_function = [Page::class, 'closePopup'];
         } else {
-            dcCore::app()->admin->open_function  = [dcPage::class, 'open'];
+            dcCore::app()->admin->open_function  = [Page::class, 'open'];
             dcCore::app()->admin->close_function = function () {
-                dcPage::helpBlock('core_media');
-                dcPage::close();
+                Page::helpBlock('core_media');
+                Page::close();
             };
         }
 
@@ -152,7 +152,7 @@ class MediaItem extends Process
                 Files::uploadStatus($_FILES['upfile']);
                 dcCore::app()->media->uploadFile($_FILES['upfile']['tmp_name'], dcCore::app()->admin->file->basename, true, null, false);
 
-                dcPage::addSuccessNotice(__('File has been successfully updated.'));
+                Page::addSuccessNotice(__('File has been successfully updated.'));
                 dcCore::app()->adminurl->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -207,7 +207,7 @@ class MediaItem extends Process
             try {
                 dcCore::app()->media->updateFile(dcCore::app()->admin->file, $newFile);
 
-                dcPage::addSuccessNotice(__('File has been successfully updated.'));
+                Page::addSuccessNotice(__('File has been successfully updated.'));
                 dcCore::app()->admin->page_url_params = array_merge(
                     dcCore::app()->admin->page_url_params,
                     ['tab' => 'media-details-tab']
@@ -224,7 +224,7 @@ class MediaItem extends Process
             try {
                 dcCore::app()->media->mediaFireRecreateEvent(dcCore::app()->admin->file);
 
-                dcPage::addSuccessNotice(__('Thumbnails have been successfully updated.'));
+                Page::addSuccessNotice(__('Thumbnails have been successfully updated.'));
                 dcCore::app()->admin->page_url_params = array_merge(
                     dcCore::app()->admin->page_url_params,
                     ['tab' => 'media-details-tab']
@@ -241,7 +241,7 @@ class MediaItem extends Process
             try {
                 $unzip_dir = dcCore::app()->media->inflateZipFile(dcCore::app()->admin->file, $_POST['inflate_mode'] == 'new');
 
-                dcPage::addSuccessNotice(__('Zip file has been successfully extracted.'));
+                Page::addSuccessNotice(__('Zip file has been successfully extracted.'));
                 dcCore::app()->admin->media_page_url_params = array_merge(
                     dcCore::app()->admin->media_page_url_params,
                     ['d' => $unzip_dir]
@@ -271,7 +271,7 @@ class MediaItem extends Process
                 dcCore::app()->blog->settings->system->put('media_img_default_legend', $_POST['pref_legend']);
             }
 
-            dcPage::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
+            Page::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
             dcCore::app()->adminurl->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
         }
 
@@ -297,7 +297,7 @@ class MediaItem extends Process
 
             $local = dcCore::app()->media->root . '/' . dirname(dcCore::app()->admin->file->relname) . '/' . '.mediadef.json';
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
-                dcPage::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
+                Page::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
             dcCore::app()->adminurl->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
         }
@@ -308,7 +308,7 @@ class MediaItem extends Process
             $local      = dcCore::app()->media->root . '/' . dirname(dcCore::app()->admin->file->relname) . '/' . '.mediadef';
             $local_json = $local . '.json';
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
-                dcPage::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
+                Page::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
             }
             dcCore::app()->adminurl->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
         }
@@ -416,7 +416,7 @@ class MediaItem extends Process
 
         // Display page
 
-        $starting_scripts = dcPage::jsModal() . dcPage::jsLoad('js/_media_item.js');
+        $starting_scripts = Page::jsModal() . Page::jsLoad('js/_media_item.js');
         if (dcCore::app()->admin->popup && dcCore::app()->admin->plugin_id !== '') {
             # --BEHAVIOR-- adminPopupMedia -- string
             $starting_scripts .= dcCore::app()->callBehavior('adminPopupMedia', dcCore::app()->admin->plugin_id);
@@ -432,8 +432,8 @@ class MediaItem extends Process
             dcCore::app()->admin->open_function,
             __('Media manager'),
             $starting_scripts .
-            (dcCore::app()->admin->popup ? dcPage::jsPageTabs(dcCore::app()->admin->tab) : ''),
-            dcPage::breadcrumb(
+            (dcCore::app()->admin->popup ? Page::jsPageTabs(dcCore::app()->admin->tab) : ''),
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Media manager')                         => $home_url,
@@ -448,7 +448,7 @@ class MediaItem extends Process
 
         if (dcCore::app()->admin->popup) {
             // Display notices
-            echo dcPage::notices();
+            echo Page::notices();
         }
 
         if (dcCore::app()->admin->file === null) {
@@ -457,13 +457,13 @@ class MediaItem extends Process
         }
 
         if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
-            dcPage::success(__('File has been successfully updated.'));
+            Page::success(__('File has been successfully updated.'));
         }
         if (!empty($_GET['thumbupd'])) {
-            dcPage::success(__('Thumbnails have been successfully updated.'));
+            Page::success(__('Thumbnails have been successfully updated.'));
         }
         if (!empty($_GET['blogprefupd'])) {
-            dcPage::success(__('Default media insertion settings have been successfully updated.'));
+            Page::success(__('Default media insertion settings have been successfully updated.'));
         }
 
         // Get major file type (first part of mime type)
@@ -650,7 +650,7 @@ class MediaItem extends Process
                 echo
                 '<div class="two-boxes">' .
                 '<h3>' . __('MP3 disposition') . '</h3>';
-                dcPage::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
+                Page::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
 
                 $i_align = [
                     'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
@@ -678,7 +678,7 @@ class MediaItem extends Process
             } elseif (dcCore::app()->admin->file_type[0] == 'video') {
                 $media_type = 'flv';
 
-                dcPage::message(__('Please note that you cannot insert video files with visual editor.'), false);
+                Page::message(__('Please note that you cannot insert video files with visual editor.'), false);
 
                 echo
                 '<div class="two-boxes">' .

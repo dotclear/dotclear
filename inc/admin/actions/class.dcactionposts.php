@@ -8,6 +8,7 @@
  */
 
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
@@ -50,16 +51,16 @@ class dcPostsActions extends dcActions
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
-            dcPage::openModule(
+            Page::openModule(
                 __('Posts'),
-                dcPage::jsLoad('js/_posts_actions.js') .
+                Page::jsLoad('js/_posts_actions.js') .
                 $head
             );
             echo $breadcrumb;
         } else {
-            dcPage::open(
+            Page::open(
                 __('Posts'),
-                dcPage::jsLoad('js/_posts_actions.js') .
+                Page::jsLoad('js/_posts_actions.js') .
                 $head,
                 $breadcrumb
             );
@@ -73,9 +74,9 @@ class dcPostsActions extends dcActions
     public function endPage()
     {
         if ($this->in_plugin) {
-            dcPage::closeModule();
+            Page::closeModule();
         } else {
-            dcPage::close();
+            Page::close();
         }
     }
 
@@ -88,7 +89,7 @@ class dcPostsActions extends dcActions
     {
         dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     $this->getCallerTitle()                     => $this->getRedirection(true),
@@ -265,7 +266,7 @@ class dcDefaultPostActions
         // Set status of remaining entries
         dcCore::app()->blog->updPostsStatus($ids, $status);
 
-        dcPage::addSuccessNotice(
+        Page::addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully updated to status : "%s"',
@@ -307,7 +308,7 @@ class dcDefaultPostActions
             // Set first publication flag of entries
             dcCore::app()->blog->updPostsFirstPub($ids, $status);
 
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully updated as: "%s"',
@@ -339,7 +340,7 @@ class dcDefaultPostActions
         $action = $ap->getAction();
         dcCore::app()->blog->updPostsSelected($ids, $action === 'selected');
         if ($action == 'selected') {
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as selected',
@@ -350,7 +351,7 @@ class dcDefaultPostActions
                 )
             );
         } else {
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as unselected',
@@ -387,7 +388,7 @@ class dcDefaultPostActions
         dcCore::app()->callBehavior('adminBeforePostsDelete', $ids);
 
         dcCore::app()->blog->delPosts($ids);
-        dcPage::addSuccessNotice(
+        Page::addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully deleted',
@@ -441,7 +442,7 @@ class dcDefaultPostActions
             if ($new_cat_id) {
                 $title = dcCore::app()->blog->getCategory($new_cat_id)->cat_title;
             }
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully moved to category "%s"',
@@ -456,7 +457,7 @@ class dcDefaultPostActions
             $ap->redirect(true);
         } else {
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
@@ -524,7 +525,7 @@ class dcDefaultPostActions
             $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->user_id = $new_user_id;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($ids));
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to user "%s"',
@@ -556,14 +557,14 @@ class dcDefaultPostActions
                 }
             }
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change author for this selection')      => '', ]
                 ),
-                dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-                dcPage::jsJson('users_list', $usersList)
+                Page::jsLoad('js/jquery/jquery.autocomplete.js') .
+                Page::jsJson('users_list', $usersList)
             );
 
             echo
@@ -600,7 +601,7 @@ class dcDefaultPostActions
             $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->post_lang = $new_lang;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($post_ids));
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to language "%s"',
@@ -614,7 +615,7 @@ class dcDefaultPostActions
             $ap->redirect(true);
         } else {
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),

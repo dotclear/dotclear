@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcPage;
 use dcUpdate;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -27,17 +27,17 @@ class Update extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         if (!defined('DC_BACKUP_PATH')) {
             define('DC_BACKUP_PATH', DC_ROOT);
         } else {
             // Check backup path existence
             if (!is_dir(DC_BACKUP_PATH)) {
-                dcPage::open(
+                Page::open(
                     __('Dotclear update'),
                     '',
-                    dcPage::breadcrumb(
+                    Page::breadcrumb(
                         [
                             __('System')          => '',
                             __('Dotclear update') => '',
@@ -47,16 +47,16 @@ class Update extends Process
                 echo
                 '<h3>' . __('Precheck update error') . '</h3>' .
                 '<p>' . __('Backup directory does not exist') . '</p>';
-                dcPage::close();
+                Page::close();
                 exit;
             }
         }
 
         if (!is_readable(DC_DIGESTS)) {
-            dcPage::open(
+            Page::open(
                 __('Dotclear update'),
                 '',
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         __('System')          => '',
                         __('Dotclear update') => '',
@@ -66,7 +66,7 @@ class Update extends Process
             echo
             '<h3>' . __('Precheck update error') . '</h3>' .
             '<p>' . __('Access denied') . '</p>';
-            dcPage::close();
+            Page::close();
             exit;
         }
 
@@ -231,13 +231,13 @@ class Update extends Process
             dcCore::app()->killAdminSession();
         }
 
-        dcPage::open(
+        Page::open(
             __('Dotclear update'),
             (!dcCore::app()->admin->step ?
-                dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
-                dcPage::jsLoad('js/_update.js')
+                Page::jsPageTabs(dcCore::app()->admin->default_tab) .
+                Page::jsLoad('js/_update.js')
                 : ''),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('System')          => '',
                     __('Dotclear update') => '',
@@ -246,7 +246,7 @@ class Update extends Process
         );
 
         if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
-            dcPage::success(__('Manual checking of update done successfully.'));
+            Page::success(__('Manual checking of update done successfully.'));
         }
 
         if (!dcCore::app()->admin->step) {
@@ -332,7 +332,7 @@ class Update extends Process
             '</p>';
         }
 
-        dcPage::helpBlock('core_update');
-        dcPage::close();
+        Page::helpBlock('core_update');
+        Page::close();
     }
 }

@@ -17,8 +17,8 @@ use dcBlog;
 use dcCommentsActions;
 use dcCore;
 use dcMedia;
-use dcPage;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -44,7 +44,7 @@ class ManagePage extends Process
         }
 
         $params = [];
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -422,17 +422,17 @@ class ManagePage extends Process
             }
         }
 
-        dcPage::openModule(
+        Page::openModule(
             dcCore::app()->admin->page_title . ' - ' . My::name(),
-            dcPage::jsModal() .
-            dcPage::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
-            dcPage::jsLoad('js/_post.js') .
+            Page::jsModal() .
+            Page::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
+            Page::jsLoad('js/_post.js') .
             My::jsLoad('page.js') .
             $admin_post_behavior .
-            dcPage::jsConfirmClose('entry-form', 'comment-form') .
+            Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --
             dcCore::app()->callBehavior('adminPageHeaders') .
-            dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
+            Page::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink
         );
 
@@ -462,7 +462,7 @@ class ManagePage extends Process
         } else {
             $edit_entry_title = dcCore::app()->admin->page_title;
         }
-        echo dcPage::breadcrumb(
+        echo Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => dcCore::app()->admin->getPageURL(),
@@ -471,13 +471,13 @@ class ManagePage extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Page has been successfully updated.'));
+            Page::success(__('Page has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            dcPage::success(__('Page has been successfully created.'));
+            Page::success(__('Page has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            dcPage::success(__('File has been successfully attached.'));
+            Page::success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            dcPage::success(__('Attachment has been successfully removed.'));
+            Page::success(__('Attachment has been successfully removed.'));
         }
 
         # HTML conversion
@@ -486,7 +486,7 @@ class ManagePage extends Process
             dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
             dcCore::app()->admin->post_format  = 'xhtml';
 
-            dcPage::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
+            Page::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
@@ -521,7 +521,7 @@ class ManagePage extends Process
 
         # Exit if we cannot view page
         if (!dcCore::app()->admin->can_view_page) {
-            dcPage::closeModule();
+            Page::closeModule();
 
             return;
         }
@@ -853,9 +853,9 @@ class ManagePage extends Process
             '</div>'; #comments
         }
 
-        dcPage::helpBlock('page', 'core_wiki');
+        Page::helpBlock('page', 'core_wiki');
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     # Controls comments or trakbacks capabilities

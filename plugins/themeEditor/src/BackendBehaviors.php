@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\themeEditor;
 
 use Exception;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use form;
 
 class BackendBehaviors
@@ -65,7 +65,7 @@ class BackendBehaviors
         // Add fieldset for plugin options
         $current_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme ?? 'default';
 
-        $themes_list  = dcPage::getCodeMirrorThemes();
+        $themes_list  = Page::getCodeMirrorThemes();
         $themes_combo = [__('Default') => ''];
         foreach ($themes_list as $theme) {
             $themes_combo[$theme] = $theme;
@@ -96,9 +96,9 @@ class BackendBehaviors
         }
         echo '</div>';
         echo '<div class="col">';
-        echo dcPage::jsLoadCodeMirror('', false, ['javascript']);
+        echo Page::jsLoadCodeMirror('', false, ['javascript']);
         if ($current_theme !== 'default') {
-            echo dcPage::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
+            echo Page::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
         }
         // Display sample Javascript code
         echo '
@@ -114,7 +114,7 @@ const fahrenheit = (celsius * 1.8) + 32
 console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenheit.`);
 </textarea>';
         echo
-        dcPage::jsJson('theme_editor_current', ['theme' => $current_theme]) .
+        Page::jsJson('theme_editor_current', ['theme' => $current_theme]) .
         My::jsLoad('theme.js');
         echo '</div>';
         echo '</div>';

@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use ArrayObject;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\L10n;
 
 class BackendBehaviors
@@ -47,7 +47,7 @@ class BackendBehaviors
 
         return
         self::jsToolBar() .
-        dcPage::jsJson('legacy_editor_ctx', $js) .
+        Page::jsJson('legacy_editor_ctx', $js) .
         My::jsLoad('_post_editor.js');
     }
 
@@ -172,7 +172,7 @@ class BackendBehaviors
             $js['elements']['img_select']['disabled'] = true;
         }
 
-        $res = dcPage::jsJson('legacy_editor', $js) .
+        $res = Page::jsJson('legacy_editor', $js) .
         My::cssLoad('jsToolBar/jsToolBar.css') .
         My::jsLoad('jsToolBar/jsToolBar.js');
 

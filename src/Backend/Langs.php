@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -33,7 +33,7 @@ class Langs extends Process
 
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         dcCore::app()->admin->is_writable = is_dir(DC_L10N_ROOT) && is_writable(DC_L10N_ROOT);
         dcCore::app()->admin->iso_codes   = L10n::getISOCodes();
@@ -115,7 +115,7 @@ class Langs extends Process
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
-                dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
+                Page::addSuccessNotice(__('Language has been successfully deleted.'));
                 dcCore::app()->adminurl->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -153,9 +153,9 @@ class Langs extends Process
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    dcPage::addSuccessNotice(__('Language has been successfully upgraded'));
+                    Page::addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    dcPage::addSuccessNotice(__('Language has been successfully installed.'));
+                    Page::addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 dcCore::app()->adminurl->redirect('admin.langs');
             } catch (Exception $e) {
@@ -186,9 +186,9 @@ class Langs extends Process
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    dcPage::addSuccessNotice(__('Language has been successfully upgraded'));
+                    Page::addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    dcPage::addSuccessNotice(__('Language has been successfully installed.'));
+                    Page::addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 dcCore::app()->adminurl->redirect('admin.langs');
             } catch (Exception $e) {
@@ -201,10 +201,10 @@ class Langs extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Languages management'),
-            dcPage::jsLoad('js/_langs.js'),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_langs.js'),
+            Page::breadcrumb(
                 [
                     __('System')               => '',
                     __('Languages management') => '',
@@ -213,11 +213,11 @@ class Langs extends Process
         );
 
         if (!empty($_GET['removed'])) {
-            dcPage::success(__('Language has been successfully deleted.'));
+            Page::success(__('Language has been successfully deleted.'));
         }
 
         if (!empty($_GET['added'])) {
-            dcPage::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+            Page::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
         }
 
         echo
@@ -338,7 +338,7 @@ class Langs extends Process
             '</p>' .
             '</form>';
         }
-        dcPage::helpBlock('core_langs');
-        dcPage::close();
+        Page::helpBlock('core_langs');
+        Page::close();
     }
 }

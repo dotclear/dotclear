@@ -16,7 +16,7 @@ namespace Dotclear\Backend;
 
 use dcBlog;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -27,7 +27,7 @@ class UsersActions extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         $users = [];
         if (!empty($_POST['users']) && is_array($_POST['users'])) {
@@ -96,7 +96,7 @@ class UsersActions extends Process
                     }
                 }
                 if (!dcCore::app()->error->flag()) {
-                    dcPage::addSuccessNotice(__('User has been successfully deleted.'));
+                    Page::addSuccessNotice(__('User has been successfully deleted.'));
                     Http::redirect(dcCore::app()->admin->redir);
                 }
             }
@@ -127,7 +127,7 @@ class UsersActions extends Process
                     dcCore::app()->error->add($e->getMessage());
                 }
                 if (!dcCore::app()->error->flag()) {
-                    dcPage::addSuccessNotice(__('User has been successfully updated.'));
+                    Page::addSuccessNotice(__('User has been successfully updated.'));
                     Http::redirect(dcCore::app()->admin->redir);
                 }
             }
@@ -139,7 +139,7 @@ class UsersActions extends Process
     public static function render(): void
     {
         if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {
-            $breadcrumb = dcPage::breadcrumb(
+            $breadcrumb = Page::breadcrumb(
                 [
                     __('System')      => '',
                     __('Users')       => dcCore::app()->adminurl->get('admin.users'),
@@ -147,7 +147,7 @@ class UsersActions extends Process
                 ]
             );
         } else {
-            $breadcrumb = dcPage::breadcrumb(
+            $breadcrumb = Page::breadcrumb(
                 [
                     __('System')  => '',
                     __('Users')   => dcCore::app()->adminurl->get('admin.users'),
@@ -156,16 +156,16 @@ class UsersActions extends Process
             );
         }
 
-        dcPage::open(
+        Page::open(
             __('Users'),
-            dcPage::jsLoad('js/_users_actions.js') .
+            Page::jsLoad('js/_users_actions.js') .
             # --BEHAVIOR-- adminUsersActionsHeaders --
             dcCore::app()->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
         );
 
         if (!isset(dcCore::app()->admin->action)) {
-            dcPage::close();
+            Page::close();
             exit;
         }
 
@@ -344,7 +344,7 @@ class UsersActions extends Process
             '</form>';
         }
 
-        dcPage::helpBlock('core_users');
-        dcPage::close();
+        Page::helpBlock('core_users');
+        Page::close();
     }
 }

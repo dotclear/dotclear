@@ -17,7 +17,7 @@ use adminBlogList;
 use ArrayObject;
 use dcBlogsActions;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -34,7 +34,7 @@ class Blogs extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -85,10 +85,10 @@ class Blogs extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('List of blogs'),
-            dcPage::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->adminurl->get('admin.blogs')),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->adminurl->get('admin.blogs')),
+            Page::breadcrumb(
                 [
                     __('System')        => '',
                     __('List of blogs') => '',
@@ -167,7 +167,7 @@ class Blogs extends Process
             );
         }
 
-        dcPage::helpBlock('core_blogs');
-        dcPage::close();
+        Page::helpBlock('core_blogs');
+        Page::close();
     }
 }

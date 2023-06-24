@@ -16,8 +16,8 @@ use adminCommentList;
 use adminPostList;
 use dcCommentsActions;
 use dcCore;
-use dcPage;
 use dcPostsActions;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -34,7 +34,7 @@ class Search extends Process
 
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -90,10 +90,10 @@ class Search extends Process
             dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
         }
 
-        dcPage::open(
+        Page::open(
             __('Search'),
             $starting_scripts,
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Search')                                => '',
@@ -126,8 +126,8 @@ class Search extends Process
             echo $res ?: '<p>' . __('No results found') . '</p>';
         }
 
-        dcPage::helpBlock('core_search');
-        dcPage::close();
+        Page::helpBlock('core_search');
+        Page::close();
     }
 
     /**
@@ -142,9 +142,9 @@ class Search extends Process
     public static function pageHead(array $args)
     {
         if ($args['qtype'] == 'p') {
-            return dcPage::jsLoad('js/_posts_list.js');
+            return Page::jsLoad('js/_posts_list.js');
         } elseif ($args['qtype'] == 'c') {
-            return dcPage::jsLoad('js/_comments.js');
+            return Page::jsLoad('js/_comments.js');
         }
     }
 

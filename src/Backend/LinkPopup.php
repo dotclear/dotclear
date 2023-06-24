@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcPage;
 use dcThemes;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -24,7 +24,7 @@ class LinkPopup extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -50,7 +50,7 @@ class LinkPopup extends Process
     public static function render(): void
     {
         # --BEHAVIOR-- adminPopupLink -- string
-        dcPage::openPopup(__('Add a link'), dcPage::jsLoad('js/_popup_link.js') . dcCore::app()->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
+        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . dcCore::app()->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
 
         echo '<h2 class="page-title">' . __('Add a link') . '</h2>';
 
@@ -73,6 +73,6 @@ class LinkPopup extends Process
         '<p><button type="button" class="reset" id="link-insert-cancel">' . __('Cancel') . '</button> - ' .
         '<button type="button" id="link-insert-ok"><strong>' . __('Insert') . '</strong></button></p>' . "\n";
 
-        dcPage::closePopup();
+        Page::closePopup();
     }
 }

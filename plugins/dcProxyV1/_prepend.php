@@ -193,6 +193,7 @@ dcProxyV1::classAliases([
     'dcAdminURL'      => 'Dotclear\Core\Backend\Url',
     'dcFavorites'     => 'Dotclear\Core\Backend\Favorites',
     'dcMenu'          => 'Dotclear\Core\Backend\Menu',
+    'dcPage'          => 'Dotclear\Core\Backend\Page',
     'dcThemeConfig'   => 'Dotclear\Core\Backend\ThemeConfig',
 
     // Core public ----------------

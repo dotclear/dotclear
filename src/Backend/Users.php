@@ -16,7 +16,7 @@ use ArrayObject;
 use adminUserFilter;
 use adminUserList;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -31,7 +31,7 @@ class Users extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         // Actions
         $combo_action = [
@@ -93,10 +93,10 @@ class Users extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Users'),
-            dcPage::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->adminurl->get('admin.users')),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->adminurl->get('admin.users')),
+            Page::breadcrumb(
                 [
                     __('System') => '',
                     __('Users')  => '',
@@ -106,10 +106,10 @@ class Users extends Process
 
         if (!dcCore::app()->error->flag()) {
             if (!empty($_GET['del'])) {
-                dcPage::message(__('User has been successfully removed.'));
+                Page::message(__('User has been successfully removed.'));
             }
             if (!empty($_GET['upd'])) {
-                dcPage::message(__('The permissions have been successfully updated.'));
+                Page::message(__('The permissions have been successfully updated.'));
             }
 
             echo '<p class="top-add"><strong><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
@@ -156,7 +156,7 @@ class Users extends Process
                 dcCore::app()->admin->user_filter->show()
             );
         }
-        dcPage::helpBlock('core_users');
-        dcPage::close();
+        Page::helpBlock('core_users');
+        Page::close();
     }
 }

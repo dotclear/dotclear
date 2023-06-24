@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
@@ -53,16 +54,16 @@ class dcCommentsActions extends dcActions
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
-            dcPage::openModule(
+            Page::openModule(
                 __('Comments'),
-                dcPage::jsLoad('js/_comments_actions.js') .
+                Page::jsLoad('js/_comments_actions.js') .
                 $head
             );
             echo $breadcrumb;
         } else {
-            dcPage::open(
+            Page::open(
                 __('Comments'),
-                dcPage::jsLoad('js/_comments_actions.js') .
+                Page::jsLoad('js/_comments_actions.js') .
                 $head,
                 $breadcrumb
             );
@@ -76,9 +77,9 @@ class dcCommentsActions extends dcActions
     public function endPage()
     {
         if ($this->in_plugin) {
-            dcPage::closeModule();
+            Page::closeModule();
         } else {
-            dcPage::close();
+            Page::close();
         }
     }
 
@@ -91,7 +92,7 @@ class dcCommentsActions extends dcActions
     {
         dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Comments')                              => dcCore::app()->adminurl->get('admin.comments'),
@@ -249,7 +250,7 @@ class dcDefaultCommentActions
 
         dcCore::app()->blog->updCommentsStatus($ids, $status);
 
-        dcPage::addSuccessNotice(__('Selected comments have been successfully updated.'));
+        Page::addSuccessNotice(__('Selected comments have been successfully updated.'));
         $ap->redirect(true);
     }
 
@@ -277,7 +278,7 @@ class dcDefaultCommentActions
 
         dcCore::app()->blog->delComments($ids);
 
-        dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
+        Page::addSuccessNotice(__('Selected comments have been successfully deleted.'));
         $ap->redirect(false);
     }
 
@@ -326,7 +327,7 @@ class dcDefaultCommentActions
             }
 
             if ($count) {
-                dcPage::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
+                Page::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
             }
         }
         $ap->redirect(true);
