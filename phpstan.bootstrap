@@ -33,6 +33,7 @@ define('DC_L10N_ROOT', '');
 define('DC_L10N_UPDATE_URL', '');
 define('DC_MASTER_KEY', 'PASSWORD');
 define('DC_MAX_UPLOAD_SIZE', 42);
+define('DC_NAME', 'So far so good');
 define('DC_NEXT_REQUIRED_PHP', '8.1');
 define('DC_NOT_UPDATE', false);
 define('DC_PLUGINS_ROOT', '');

@@ -72,6 +72,7 @@ parameters:
     - DC_MASTER_KEY
     - DC_MAX_UPLOAD_SIZE
     - DC_NEXT_REQUIRED_PHP
+    - DC_NAME
     - DC_NOT_UPDATE
     - DC_PLUGINS_ROOT
     - DC_QUERY_TIMEOUT

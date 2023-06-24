@@ -7,7 +7,6 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;

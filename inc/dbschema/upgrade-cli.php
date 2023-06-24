@@ -31,7 +31,7 @@ try {
 
     require __DIR__ . '/../../src/App.php';
 
-    Dotclear\App::boostrap();
+    Dotclear\App::bootstrap();
 
     echo "Starting upgrade process\n";
     dcCore::app()->con->begin();

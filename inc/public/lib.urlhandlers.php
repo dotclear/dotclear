@@ -834,7 +834,7 @@ class dcUrlHandlers extends UrlHandler
     /**
      * Rick Roll script kiddies which try the administrative page wordpress URLs on the blog :-)
      *
-     * https://example.com/wp-admin and https://example.com/wp-login 
+     * https://example.com/wp-admin and https://example.com/wp-login
      *
      * @param      null|string  $args   The arguments
      * @return never

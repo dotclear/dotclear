@@ -597,7 +597,7 @@ namespace Dotclear {
         /**
          * Read Dotclear release config.
          *
-         * This method always returns string, 
+         * This method always returns string,
          * casting int, bool, array, to string.
          *
          * @param   string  $key The release key
@@ -611,16 +611,16 @@ namespace Dotclear {
                 if (!is_file($file) || !is_readable($file)) {
                     new Fault('Not found', 'Dotclear release file was not found', Fault::SETUP_ISSUE);
                 }
- 
+
                 $release = json_decode((string) file_get_contents($file), true);
                 if (!is_array($release)) {
-                    new Fault('Not found', 'Dotclear release file is not readabled', Fault::SETUP_ISSUE);
+                    new Fault('Not found', 'Dotclear release file is not readable', Fault::SETUP_ISSUE);
                 } else {
                     self::$release = $release;
                 }
             }
 
-            if (!array_key_exists($key, self::$release)){
+            if (!array_key_exists($key, self::$release)) {
                 new Fault('Not found', sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
             }
 
