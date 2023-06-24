@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-24 12:14+0200\n"
-"PO-Revision-Date: 2023-06-22 16:34\n"
+"PO-Revision-Date: 2023-06-24 18:26\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -17,2091 +17,2904 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
+#: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Klara av gamla core-klasser (< 2.26)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:27
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Generisk antispam-plugin för Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
 msgid "Akismet interface for Dotclear"
 msgstr "Akismet gränssnitt för Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Trackback validity check"
 msgstr "Trackback giltighetskontroll"
 
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:23
 msgid "Manage post attachments"
 msgstr "Hantera bifogade filer"
 
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:26
 msgid "Serve entries as simple web pages"
 msgstr "Servera poster som enkla webbsidor"
 
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "Manage every blog configuration directive"
 msgstr "Hantera varje bloggkonfigurationsdirektiv"
 
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:25
 msgid "dotclear legacy editor"
 msgstr "dotclear äldre redigerare"
 
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:23
 msgid "Theme Editor"
 msgstr "Tema redigerare"
 
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
 msgstr "Enkel meny för Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:25
 msgid "Import and Export your blog"
 msgstr "Importera och exportera din blogg"
 
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:23
 msgid "Manage every user preference directive"
 msgstr "Hantera alla användarpreferensdirektiv"
 
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:23
 msgid "dotclear CKEditor integration"
 msgstr "dotclear CKEditor integration"
 
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:23
 msgid "Maintain your installation"
 msgstr "Behåll din installation"
 
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb for Dotclear"
 msgstr "Länkstig för Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:26
 msgid "Manage your blogroll"
 msgstr "Hantera din bloggrulle"
 
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
 msgstr "Ping tjänster"
 
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
 msgstr "Taggar för inlägg"
 
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
 msgstr "Widgets för din blogg sidofält"
 
+#: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Klara av funktion/metodavtryck V1 (< 2.24, 2.25)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
 msgstr "Siddel för sökmotor"
 
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
 msgstr "Lista över navigeringslänkar"
 
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
 msgstr "Lista över valda poster"
 
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
 msgstr "Lista över tillgängliga språk"
 
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:84
 msgid "List of categories"
 msgstr "Lista över kategorier"
 
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "Feed prenumerationslänkar (RSS eller Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "Lista över senaste poster från flödet (RSS eller Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
 msgstr "Enkel text"
 
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
 msgstr "Lista över senaste inlägg publicerade"
 
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
 msgstr "Lista över senaste publicerade kommentarer"
 
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
 msgstr "Lista över publicerade sidor"
 
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
 msgstr "Lista över enkla menyalternativ"
 
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
 msgstr "Bloggrullelista"
 
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
 msgstr "Taggar moln"
 
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "about:config"
 msgstr "om:config"
 
+#: plugins/aboutConfig/src/Manage.php:69 plugins/aboutConfig/src/Manage.php:89
 msgid "Configuration successfully updated"
 msgstr "Konfigurationen har uppdaterats"
 
+#: plugins/aboutConfig/src/Manage.php:125
+#: plugins/aboutConfig/src/Manage.php:126
 #, php-format
 msgid "Settings for %s"
 msgstr "Inställningar för %s"
 
+#: plugins/aboutConfig/src/Manage.php:133
+#: plugins/aboutConfig/src/Manage.php:134
 msgid "Global settings"
 msgstr "Globala inställningar"
 
+#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:151
 msgid "Setting ID"
 msgstr "Inställnings-ID"
 
+#: plugins/aboutConfig/src/Manage.php:158 plugins/userPref/src/Manage.php:152
 msgid "Value"
 msgstr "Värde"
 
+#: plugins/aboutConfig/src/Manage.php:160 plugins/antispam/src/Manage.php:215
+#: plugins/blogroll/src/Manage.php:255 plugins/blogroll/src/Manage.php:398
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:688
+#: plugins/userPref/src/Manage.php:154
 msgid "Description"
 msgstr "Beskrivning"
 
+#: plugins/aboutConfig/src/Manage.php:204 plugins/userPref/src/Manage.php:198
 msgid "Goto:"
 msgstr "Goto:"
 
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:244
 msgid "no"
 msgstr "nej"
 
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:244
 msgid "yes"
 msgstr "ja"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:78
 msgid "Akismet spam filter"
 msgstr "Akismet skräppostfilter"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:91
 #, php-format
 msgid "Filtered by %s."
 msgstr "Filtrerad av %s."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
 msgid "Filter configuration have been successfully saved."
 msgstr "Filterkonfigurationen har sparats framgångsrikt."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:226
 msgid "Akismet API key:"
 msgstr "Akismet API key:"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key verified"
 msgstr "API-nyckel verifierad"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:233
 msgid "API key not verified"
 msgstr "API-nyckel har inte verifierats"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:239
 msgid "Get your own API key"
 msgstr "Skaffa din egen API-nyckel"
 
+#: plugins/akismet/src/Prepend.php:25
 msgid "Akismet"
 msgstr "Akismet"
 
+#: plugins/antispam/src/Antispam.php:103
 msgid "This comment is a spam:"
 msgstr "Denna kommentar är ett skräppost:"
 
+#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:32
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(inklusive %d spamkommentar)"
 
+#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:32
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(inklusive %d spamkommentarer)"
 
+#: plugins/antispam/src/Backend.php:27
 msgid "Antispam"
 msgstr "Stimulera"
 
+#: plugins/antispam/src/BackendBehaviors.php:41
+#: plugins/antispam/src/Manage.php:191
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Alla spamkommentarer äldre än %s dag(ar) kommer att raderas automatiskt."
 
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:192
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Du kan ändra denna varaktighet i %s"
 
+#: plugins/antispam/src/BackendBehaviors.php:57
 msgid "Delete junk comments older than"
 msgstr "Ta bort skräpkommentarer äldre än"
 
+#: plugins/antispam/src/BackendBehaviors.php:63
 msgid "days"
 msgstr "dagar"
 
+#: plugins/antispam/src/BackendBehaviors.php:65
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
 msgstr "Sätt -1 till inaktiverad den här funktionen ; Lämna tomt för att använda standard 7 dagars fördröjning."
 
+#: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set spam filters."
 msgstr "Ange skräppostfilter."
 
+#: plugins/antispam/src/Filters/Ip.php:74
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP-blockeringslista / Allowlist Filter"
 
+#: plugins/antispam/src/Filters/Ip.php:87
+#: plugins/antispam/src/Filters/IpV6.php:87
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Filtrerad av %1$s med regel %2$s."
 
+#: plugins/antispam/src/Filters/Ip.php:147
+#: plugins/antispam/src/Filters/IpV6.php:147
 msgid "IP address has been successfully added."
 msgstr "IP-adressen har lagts till."
 
+#: plugins/antispam/src/Filters/Ip.php:158
+#: plugins/antispam/src/Filters/IpV6.php:158
 msgid "IP addresses have been successfully removed."
 msgstr "IP-adresser har tagits bort."
 
+#: plugins/antispam/src/Filters/Ip.php:168
+#: plugins/antispam/src/Filters/IpV6.php:167
 msgid "Blocklist"
 msgstr "Blocklista"
 
+#: plugins/antispam/src/Filters/Ip.php:169
+#: plugins/antispam/src/Filters/IpV6.php:168
 msgid "Allowlist"
 msgstr "Tillåtlista"
 
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:188
 msgid "Add an IP address: "
 msgstr "Lägg till en IP-adress: "
 
+#: plugins/antispam/src/Filters/Ip.php:193
+#: plugins/antispam/src/Filters/IpV6.php:192
 msgid "Global IP (used for all blogs)"
 msgstr "Global IP (används för alla bloggar)"
 
+#: plugins/antispam/src/Filters/Ip.php:198
+#: plugins/antispam/src/Filters/IpV6.php:197
+#: plugins/antispam/src/Filters/Words.php:186
+#: plugins/widgets/src/Manage.php:291
 msgid "Add"
 msgstr "Lägg till"
 
+#: plugins/antispam/src/Filters/Ip.php:204
+#: plugins/antispam/src/Filters/IpV6.php:203
 msgid "No IP address in list."
 msgstr "Ingen IP-adress i listan."
 
+#: plugins/antispam/src/Filters/Ip.php:207
+#: plugins/antispam/src/Filters/IpV6.php:206
 msgid "IP list"
 msgstr "IP-lista"
 
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:235
 msgid "Local IPs (used only for this blog)"
 msgstr "Lokala IP-adresser (används endast för denna blogg)"
 
+#: plugins/antispam/src/Filters/Ip.php:243
+#: plugins/antispam/src/Filters/IpV6.php:241
 msgid "Global IPs (used for all blogs)"
 msgstr "Globala IP-adresser (används för alla bloggar)"
 
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Kontrollerar avsändarens IP-adress mot DNSSL-servrar"
 
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:70
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtrerad av %1$s med server %2$s."
 
+#: plugins/antispam/src/Filters/IpLookup.php:145
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "Listan över DNSBL-servrar har uppdaterats."
 
+#: plugins/antispam/src/Filters/IpLookup.php:156
 msgid "IP Lookup servers"
 msgstr "IP Lookup servrar"
 
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "Add here a coma separated list of servers."
 msgstr "Lägg till här en coma-separerad lista över servrar."
 
+#: plugins/antispam/src/Filters/IpV6.php:74
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "IP v6 Blocklista / Allowlist Filter"
 
+#: plugins/antispam/src/Filters/LinksLookup.php:57
 msgid "Checks links in comments against surbl.org"
 msgstr "Kontrollerar länkar i kommentarer mot surbl.org"
 
+#: plugins/antispam/src/Filters/Words.php:74
 msgid "Words Blocklist"
 msgstr "Blocklista för ord"
 
+#: plugins/antispam/src/Filters/Words.php:87
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Filtrerad av %1$s med ord %2$s."
 
+#: plugins/antispam/src/Filters/Words.php:143
 msgid "Words have been successfully added."
 msgstr "Ord har lagts till."
 
+#: plugins/antispam/src/Filters/Words.php:156
 msgid "Word has been successfully added."
 msgstr "Ordet har lagts till."
 
+#: plugins/antispam/src/Filters/Words.php:167
 msgid "Words have been successfully removed."
 msgstr "Ord har tagits bort."
 
+#: plugins/antispam/src/Filters/Words.php:177
 msgid "Add a word "
 msgstr "Lägg till ett ord "
 
+#: plugins/antispam/src/Filters/Words.php:181
 msgid "Global word (used for all blogs)"
 msgstr "Globalt ord (används för alla bloggar)"
 
+#: plugins/antispam/src/Filters/Words.php:191
 msgid "No word in list."
 msgstr "Inget ord i listan."
 
+#: plugins/antispam/src/Filters/Words.php:194
 msgid "List of bad words"
 msgstr "Lista över dåliga ord"
 
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
 msgstr "Lokala ord (används endast för denna blogg)"
 
+#: plugins/antispam/src/Filters/Words.php:229
 msgid "Global words (used for all blogs)"
 msgstr "Globala ord (används för alla bloggar)"
 
+#: plugins/antispam/src/Filters/Words.php:240
 msgid "Delete selected words"
 msgstr "Ta bort valda ord"
 
+#: plugins/antispam/src/Filters/Words.php:246
 msgid "Create default wordlist"
 msgstr "Skapa standardordlista"
 
+#: plugins/antispam/src/Filters/Words.php:292
 msgid "This word exists"
 msgstr "Det här ordet finns"
 
+#: plugins/antispam/src/FrontendUrl.php:60
 msgid "Spam moderation"
 msgstr "Moderering av skräppost"
 
+#: plugins/antispam/src/FrontendUrl.php:64
 msgid "Spam"
 msgstr "Spam"
 
+#: plugins/antispam/src/FrontendUrl.php:68
 msgid "Ham"
 msgstr "Ham"
 
+#: plugins/antispam/src/Manage.php:48
 msgid "Filter does not exist."
 msgstr "Filtret finns inte."
 
+#: plugins/antispam/src/Manage.php:52
 msgid "Filter has no user interface."
 msgstr "Filtret har inget användargränssnitt."
 
+#: plugins/antispam/src/Manage.php:110 plugins/antispam/src/Manage.php:203
 msgid "Filters configuration has been successfully saved."
 msgstr "Filterkonfigurationen har sparats framgångsrikt."
 
+#: plugins/antispam/src/Manage.php:127
 #, php-format
 msgid "%s configuration"
 msgstr "%s konfiguration"
 
+#: plugins/antispam/src/Manage.php:147
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s filterkonfiguration"
 
+#: plugins/antispam/src/Manage.php:151
 msgid "Back to filters list"
 msgstr "Tillbaka till filterlistan"
 
+#: plugins/antispam/src/Manage.php:175
 msgid "Information"
 msgstr "Information"
 
+#: plugins/antispam/src/Manage.php:177
 msgid "Junk comments:"
 msgstr "Skräp kommentarer:"
 
+#: plugins/antispam/src/Manage.php:179
 msgid "Published comments:"
 msgstr "Publicerade kommentarer:"
 
+#: plugins/antispam/src/Manage.php:209
 msgid "Available spam filters"
 msgstr "Tillgängliga spamfilter"
 
+#: plugins/antispam/src/Manage.php:211
+#: plugins/pages/src/BackendDefaultActions.php:77
 msgid "Order"
 msgstr "Beställning"
 
+#: plugins/antispam/src/Manage.php:212 plugins/antispam/src/Manage.php:243
 msgid "Active"
 msgstr "Aktiv"
 
+#: plugins/antispam/src/Manage.php:213 plugins/antispam/src/Manage.php:251
 msgid "Auto Del."
 msgstr "Auto Del."
 
+#: plugins/antispam/src/Manage.php:214
 msgid "Filter name"
 msgstr "Filtrera namn"
 
+#: plugins/antispam/src/Manage.php:224 plugins/antispam/src/Manage.php:225
 msgid "Filter configuration"
 msgstr "Filtrera konfiguration"
 
+#: plugins/antispam/src/Manage.php:235 plugins/blogroll/src/Manage.php:272
 msgid "position"
 msgstr "position"
 
+#: plugins/antispam/src/Manage.php:281
 msgid "Syndication"
 msgstr "Syndikation"
 
+#: plugins/antispam/src/Manage.php:283
 msgid "Junk comments RSS feed"
 msgstr "Skräp kommentarer RSS-flöde"
 
+#: plugins/antispam/src/Manage.php:284
 msgid "Published comments RSS feed"
 msgstr "Publicerade kommentarer RSS-flöde"
 
+#: plugins/antispam/src/SpamFilter.php:110
 msgid "No description"
 msgstr "Ingen beskrivning"
 
+#: plugins/antispam/src/SpamFilter.php:163
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtrerad av %1$s (%2$s)"
 
+#: plugins/antispam/src/SpamFilters.php:152
 msgid "Unknown filter."
 msgstr "Okänt filter."
 
+#: plugins/attachments/src/Backend.php:23
 msgid "attachments"
 msgstr "bilagor"
 
+#: plugins/attachments/src/BackendBehaviors.php:51
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Bilagor (%d)"
 
+#: plugins/attachments/src/BackendBehaviors.php:75
 msgid "remove"
 msgstr "ta bort"
 
+#: plugins/attachments/src/BackendBehaviors.php:83
 msgid "No attachment."
 msgstr "Ingen bilaga."
 
+#: plugins/attachments/src/BackendBehaviors.php:86
 msgid "Add files to this entry"
 msgstr "Lägg till filer till denna post"
 
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Bloggroll"
 
+#: plugins/blogroll/src/Backend.php:37
 msgid "manage blogroll"
 msgstr "hantera bloggrulle"
 
+#: plugins/blogroll/src/Blogroll.php:140 plugins/blogroll/src/Blogroll.php:178
 msgid "You must provide a link title"
 msgstr "Du måste ange en länktitel"
 
+#: plugins/blogroll/src/Blogroll.php:144 plugins/blogroll/src/Blogroll.php:182
 msgid "You must provide a link URL"
 msgstr "Du måste ange en länk-URL"
 
+#: plugins/blogroll/src/Manage.php:85 plugins/blogroll/src/Manage.php:393
 msgid "Nothing to import"
 msgstr "Inget att importera"
 
+#: plugins/blogroll/src/Manage.php:108
 msgid "links have been successfully imported."
 msgstr "länkar har importerats."
 
+#: plugins/blogroll/src/Manage.php:115
 msgid "Import operation cancelled."
 msgstr "Importera åtgärd avbruten."
 
+#: plugins/blogroll/src/Manage.php:130
 msgid "Link has been successfully created."
 msgstr "Länk har skapats."
 
+#: plugins/blogroll/src/Manage.php:145
 msgid "category has been successfully created."
 msgstr "kategorin har skapats."
 
+#: plugins/blogroll/src/Manage.php:167
 msgid "Items have been successfully removed."
 msgstr "Objekt har tagits bort."
 
+#: plugins/blogroll/src/Manage.php:197
 msgid "Items order has been successfully updated"
 msgstr "Beställningen av artiklar har uppdaterats"
 
+#: plugins/blogroll/src/Manage.php:257
 msgid "Lang"
 msgstr "Lang"
 
+#: plugins/blogroll/src/Manage.php:279
 msgid "select this link"
 msgstr "välj denna länk"
 
+#: plugins/blogroll/src/Manage.php:313
 msgid "Are you sure you want to delete selected links?"
 msgstr "Är du säker på att du vill ta bort markerade länkar?"
 
+#: plugins/blogroll/src/Manage.php:313
 msgid "Delete selected links"
 msgstr "Ta bort markerade länkar"
 
+#: plugins/blogroll/src/Manage.php:318
 msgid "The link list is empty."
 msgstr "Länklistan är tom."
 
+#: plugins/blogroll/src/Manage.php:326
 msgid "Add a new link"
 msgstr "Lägg till en ny länk"
 
+#: plugins/blogroll/src/Manage.php:356
 msgid "Add a category"
 msgstr "Lägg till en kategori"
 
+#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
+#: plugins/blogroll/src/Manage.php:390
 msgid "Import links"
 msgstr "Importera länkar"
 
+#: plugins/blogroll/src/Manage.php:379
 msgid "OPML or XBEL File:"
 msgstr "OPML eller XBEL fil:"
 
+#: plugins/blogroll/src/Manage.php:383 plugins/blogroll/src/Manage.php:427
+#: plugins/importExport/src/Manage.php:111
+#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFlat.php:222
+#: plugins/importExport/src/ModuleImportFlat.php:260
 msgid "Import"
 msgstr "Importera"
 
+#: plugins/blogroll/src/ManageEdit.php:46
 msgid "No such link or title"
 msgstr "Ingen sådan länk eller titel"
 
+#: plugins/blogroll/src/ManageEdit.php:98
 msgid "Link has been successfully updated"
 msgstr "Länk har uppdaterats"
 
+#: plugins/blogroll/src/ManageEdit.php:115
 msgid "Category has been successfully updated"
 msgstr "Kategorin har uppdaterats"
 
+#: plugins/blogroll/src/ManageEdit.php:144
 msgid "Return to blogroll"
 msgstr "Återgå till bloggrulle"
 
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Edit category"
 msgstr "Redigera kategori"
 
+#: plugins/blogroll/src/ManageEdit.php:168
 msgid "Edit link"
 msgstr "Redigera länk"
 
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "XFN information"
 msgstr "XFN information"
 
+#: plugins/blogroll/src/ManageEdit.php:205
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Mer information om <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> webbplats"
 
+#: plugins/blogroll/src/ManageEdit.php:211
 msgid "_xfn_Me"
 msgstr "Mig"
 
+#: plugins/blogroll/src/ManageEdit.php:214
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_En annan länk för mig"
 
+#: plugins/blogroll/src/ManageEdit.php:218
 msgid "_xfn_Friendship"
 msgstr "Vänskap"
 
+#: plugins/blogroll/src/ManageEdit.php:224
 msgid "_xfn_Contact"
 msgstr "Kontakt"
 
+#: plugins/blogroll/src/ManageEdit.php:229
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Ackreditering"
 
+#: plugins/blogroll/src/ManageEdit.php:234
 msgid "_xfn_Friend"
 msgstr "Vän"
 
+#: plugins/blogroll/src/ManageEdit.php:240
 msgid "_xfn_Physical"
 msgstr "Fysiskt"
 
+#: plugins/blogroll/src/ManageEdit.php:246
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
+#: plugins/blogroll/src/ManageEdit.php:251
 msgid "_xfn_Professional"
 msgstr "_xfn_Professional"
 
+#: plugins/blogroll/src/ManageEdit.php:257
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Medarbetare"
 
+#: plugins/blogroll/src/ManageEdit.php:262
 msgid "_xfn_Colleague"
 msgstr "Kollegan"
 
+#: plugins/blogroll/src/ManageEdit.php:267
 msgid "_xfn_Geographical"
 msgstr "Geografisk"
 
+#: plugins/blogroll/src/ManageEdit.php:273
 msgid "_xfn_Co-resident"
 msgstr "Med-boende"
 
+#: plugins/blogroll/src/ManageEdit.php:278
 msgid "_xfn_Neighbor"
 msgstr "Närhet"
 
+#: plugins/blogroll/src/ManageEdit.php:284
 msgid "_xfn_Family"
 msgstr "Familjen"
 
+#: plugins/blogroll/src/ManageEdit.php:290
 msgid "_xfn_Child"
 msgstr "Underordnad"
 
+#: plugins/blogroll/src/ManageEdit.php:295
 msgid "_xfn_Parent"
 msgstr "Överordnad"
 
+#: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Sibling"
 msgstr "Syskon"
 
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "_xfn_Spouse"
 msgstr "Make/maka"
 
+#: plugins/blogroll/src/ManageEdit.php:310
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
+#: plugins/blogroll/src/ManageEdit.php:316
 msgid "_xfn_Romantic"
 msgstr "Romantisk"
 
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Muse"
 msgstr "_xfn_Mina"
 
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Crush"
 msgstr "Krossa"
 
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Date"
 msgstr "Datum"
 
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Söt"
 
+#: plugins/blogroll/src/UtilsImport.php:37
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Du måste ange en XBEL eller OPML fil."
 
+#: plugins/blogroll/src/UtilsImport.php:48
+#: plugins/blogroll/src/UtilsImport.php:83
 msgid "File is not in XML format."
 msgstr "Filen är inte i XML-format."
 
+#: plugins/blogroll/src/Widgets.php:32
 msgid "All categories"
 msgstr "Alla kategorier"
 
+#: plugins/blogroll/src/Widgets.php:41
 msgid "Links"
 msgstr "Länkar"
 
+#: plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb"
 msgstr "Länkstig"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:31
 msgid "Enable breadcrumb for this blog"
 msgstr "Aktivera breadcrumb för den här bloggen"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
 msgstr "{{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} taggen bör vara närvarande (eller infogad om inte) i mallen."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:34
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Inkapsla inte brödsmulan i en &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tagg."
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:69
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:85
+#: plugins/breadcrumb/src/FrontendTemplate.php:96
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:113 plugins/simpleMenu/src/Manage.php:224
+#: plugins/widgets/src/Widgets.php:230
 msgid "Home"
 msgstr "Hem"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
 msgstr "sida %d"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:251 plugins/widgets/src/Widgets.php:247
 msgid "Archives"
 msgstr "Arkiv"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:102 plugins/simpleMenu/src/Manage.php:271
+#: plugins/tags/src/Widgets.php:53
 msgid "All tags"
 msgstr "Alla taggar"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
 msgstr "404"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Generate fake l10n"
 msgstr "Generera falska l10n"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "fake l10n file generated."
 msgstr "falsk l10n fil genererad."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "Failed to generate fake l10n file."
 msgstr "Det gick inte att generera falska l10n fil."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Generera en php-fil som innehåller strängar att översätta som inte göras med kärnverktyg."
 
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:5
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:38
+#: plugins/dcLegacyEditor/src/Backend.php:44
 msgid "HTML"
 msgstr "HTML"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Media chooser"
 msgstr "Väljare för media"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "m"
 msgstr "m"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Link to an entry"
 msgstr "Länk till en post"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Link"
 msgstr "Länk"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "l"
 msgstr "l"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "External image"
 msgstr "Extern bild"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
 msgstr "URL-fältet får inte vara tomt."
 
+#: plugins/dcCKEditor/src/Manage.php:133
+#: plugins/dcLegacyEditor/src/Manage.php:42
 msgid "The configuration has been updated."
 msgstr "Konfigurationen har uppdaterats."
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:244
 msgid "Note(s)"
 msgstr "Anteckningar"
 
+#: plugins/dcCKEditor/tpl/index.php:8 plugins/dcLegacyEditor/tpl/index.php:4
 msgid "Settings"
 msgstr "Inställningar"
 
+#: plugins/dcCKEditor/tpl/index.php:13 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
 msgstr "Plugin aktivering"
 
+#: plugins/dcCKEditor/tpl/index.php:18
 msgid "Enable dcCKEditor plugin"
 msgstr "Aktivera insticksmodul dcCKEditor"
 
+#: plugins/dcCKEditor/tpl/index.php:30
 msgid "Add alignment buttons"
 msgstr "Lägg till justeringsknappar"
 
+#: plugins/dcCKEditor/tpl/index.php:36
 msgid "Add lists buttons"
 msgstr "Lägg till listor-knappar"
 
+#: plugins/dcCKEditor/tpl/index.php:42
 msgid "Add text color button"
 msgstr "Lägg till textfärg knapp"
 
+#: plugins/dcCKEditor/tpl/index.php:48
 msgid "Add background text color button"
 msgstr "Lägg till bakgrundsfärgsknapp"
 
+#: plugins/dcCKEditor/tpl/index.php:53
 msgid "Custom colors list:"
 msgstr "Anpassad färglista:"
 
+#: plugins/dcCKEditor/tpl/index.php:58
 msgid "Add colors without # separated by a comma."
 msgstr "Lägg till färger utan # separerade med kommatecken."
 
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Leave empty to use the default palette:"
 msgstr "Lämna tomt för att använda standardpaletten:"
 
+#: plugins/dcCKEditor/tpl/index.php:61
 msgid "Example of custom color list:"
 msgstr "Exempel på anpassad färglista:"
 
+#: plugins/dcCKEditor/tpl/index.php:66
 msgid "Colors per row in palette:"
 msgstr "Färger per rad i palett:"
 
+#: plugins/dcCKEditor/tpl/index.php:71
 msgid "Valid range: 4 to 16"
 msgstr "Giltigt intervall: 4 till 16"
 
+#: plugins/dcCKEditor/tpl/index.php:76
 msgid "Add collapse button"
 msgstr "Lägg till komprimera knapp"
 
+#: plugins/dcCKEditor/tpl/index.php:82
 msgid "Add format selection"
 msgstr "Lägg till formatval"
 
+#: plugins/dcCKEditor/tpl/index.php:87
 msgid "Custom formats"
 msgstr "Anpassade format"
 
+#: plugins/dcCKEditor/tpl/index.php:92
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Standardformat är p;h1;h2;h3;h4;h5;h6;pre;adress"
 
+#: plugins/dcCKEditor/tpl/index.php:97
 msgid "Add table button"
 msgstr "Lägg till tabellknapp"
 
+#: plugins/dcCKEditor/tpl/index.php:103
 msgid "Add clipboard buttons"
 msgstr "Lägg till urklipp knappar"
 
+#: plugins/dcCKEditor/tpl/index.php:107
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopiera, klistra in, klistra in text, klistra in från Word"
 
+#: plugins/dcCKEditor/tpl/index.php:112
 msgid "Add undo/redo buttons"
 msgstr "Lägg till ångra/om-knappar"
 
+#: plugins/dcCKEditor/tpl/index.php:118
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Inaktiverar den inbyggda stavningskontrollen om webbläsaren tillhandahåller en"
 
+#: plugins/dcCKEditor/tpl/index.php:126 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/simpleMenu/src/Manage.php:651
 msgid "Save configuration"
 msgstr "Spara konfiguration"
 
+#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/tpl/index.php:1
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
+#: plugins/dcLegacyEditor/src/Backend.php:47
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:86
 msgid "visual"
 msgstr "visuell"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
 msgid "source"
 msgstr "källa"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:88
 msgid "You can use the following shortcuts to format your text."
 msgstr "Du kan använda följande genvägar för att formatera din text."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
 msgid "Block format"
 msgstr "Blockera format"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
 msgid "-- none --"
 msgstr "-- ingen --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
 msgid "-- block format --"
 msgstr "-- blockformat --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
 msgid "Paragraph"
 msgstr "Punkt"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
 msgid "Level 1 header"
 msgstr "Nivå 1 sidhuvud"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
 msgid "Level 2 header"
 msgstr "Nivå 2 sidhuvud"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:98
 msgid "Level 3 header"
 msgstr "Nivå 3 sidhuvud"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:99
 msgid "Level 4 header"
 msgstr "Nivå 4 sidhuvud"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
 msgid "Level 5 header"
 msgstr "Nivå 5 sidhuvud"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
 msgid "Level 6 header"
 msgstr "Nivå 6 sidhuvud"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "Strong emphasis"
 msgstr "Stark tonvikt"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "Emphasis"
 msgstr "Tonvikt"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "Inserted"
 msgstr "Infogad"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
 msgid "Deleted"
 msgstr "Borttagen"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
 msgid "Inline quote"
 msgstr "Infogad offert"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Code"
 msgstr "Kod"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "Line break"
 msgstr "Radbrytning"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "Blockquote"
 msgstr "Blockcitat"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Preformated text"
 msgstr "Förformaterad text"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Unordered list"
 msgstr "Osorterad lista"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Ordered list"
 msgstr "Sorterad lista"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "URL?"
 msgstr "URL?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "Language?"
 msgstr "Språk?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Remove text formating"
 msgstr "Ta bort textformatering"
 
+#: plugins/dcLegacyEditor/tpl/index.php:11
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Aktivera pluginen dcLegacyEditor"
 
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:62
 msgid "Checks trackback source for a link to the post"
 msgstr "Kontrollerar trackback-källa för en länk till inlägget"
 
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Fair Trackbacks"
 msgstr "Rättvis Trackbacks"
 
+#: plugins/importExport/src/Backend.php:25
 msgid "Import / Export"
 msgstr "Importera / Exportera"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:34
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:32
 msgid "Database export"
 msgstr "Exportera databas"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
 msgid "Download database of current blog"
 msgstr "Ladda ner databasen för aktuell blogg"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:93
+#: plugins/importExport/src/ModuleExportFlat.php:231
+#: plugins/importExport/src/ModuleExportFlat.php:255
 msgid "Compress file"
 msgstr "Komprimera fil"
 
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Download database of all blogs"
 msgstr "Ladda ner databasen över alla bloggar"
 
+#: plugins/importExport/src/FlatBackup.php:37
 msgid "No file to read."
 msgstr "Ingen fil att läsa."
 
+#: plugins/importExport/src/FlatExport.php:35
 msgid "Unable to create output file."
 msgstr "Det går inte att skapa utdatafilen."
 
+#: plugins/importExport/src/FlatImportV2.php:84
 msgid "File is not a DotClear backup."
 msgstr "Filen är inte en DotClear backup."
 
+#: plugins/importExport/src/FlatImportV2.php:137
 msgid "File is not a single blog export."
 msgstr "Filen är inte en enda blogg export."
 
+#: plugins/importExport/src/FlatImportV2.php:272
+#: plugins/importExport/src/FlatImportV2.php:368
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Fel uppstod på rad %s"
 
+#: plugins/importExport/src/FlatImportV2.php:281
 msgid "File is not a full export."
 msgstr "Filen är inte en fullständig export."
 
+#: plugins/importExport/src/FlatImportV2.php:782
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID för \"%3$s\" matchar inte på posten \"%1$s\" på rad %2$s i backupfilen."
 
+#: plugins/importExport/src/Manage.php:81
+#: plugins/maintenance/src/Manage.php:177
 msgid "Please wait..."
 msgstr "Vänligen vänta..."
 
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleExportFlat.php:237
+#: plugins/importExport/src/ModuleExportFlat.php:258
 msgid "Export"
 msgstr "Exportera"
 
+#: plugins/importExport/src/Manage.php:116
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Exportera funktioner finns på sidan %s."
 
+#: plugins/importExport/src/Manage.php:118
+#: plugins/maintenance/src/Backend.php:23
+#: plugins/maintenance/src/BackendBehaviors.php:170
 msgid "Maintenance"
 msgstr "Underhåll"
 
+#: plugins/importExport/src/Module.php:160
 msgid "Congratulation!"
 msgstr "Grattis!"
 
+#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "Din blogg har importerats. Välkommen till Dotclear 2!"
 
+#: plugins/importExport/src/Module.php:165
 msgid "Why don't you blog this now?"
 msgstr "Varför bloggar ni inte detta nu?"
 
+#: plugins/importExport/src/Module.php:170
 msgid "visit your dashboard"
 msgstr "besök din instrumentpanel"
 
+#: plugins/importExport/src/ModuleExportFlat.php:38
 msgid "Flat file export"
 msgstr "Platt fil export"
 
+#: plugins/importExport/src/ModuleExportFlat.php:39
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Exporterar en blogg eller en komplett Dotclear installation till en platt fil."
 
+#: plugins/importExport/src/ModuleExportFlat.php:169
 msgid "Export file not found."
 msgstr "Exportfilen hittades inte."
 
+#: plugins/importExport/src/ModuleExportFlat.php:208
 msgid "Failed to compress export file."
 msgstr "Kunde inte komprimera exportfilen."
 
+#: plugins/importExport/src/ModuleExportFlat.php:222
+#: plugins/importExport/src/ModuleImportFlat.php:202
 msgid "Single blog"
 msgstr "En blogg"
 
+#: plugins/importExport/src/ModuleExportFlat.php:223
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Detta kommer att skapa en export av din nuvarande blogg: %s"
 
+#: plugins/importExport/src/ModuleExportFlat.php:235
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Du kanske också vill ladda ner din mediakatalog som en zip-fil"
 
+#: plugins/importExport/src/ModuleExportFlat.php:246
+#: plugins/importExport/src/ModuleImportFlat.php:229
 msgid "Multiple blogs"
 msgstr "Flera bloggar"
 
+#: plugins/importExport/src/ModuleExportFlat.php:247
 msgid "This will create an export of all the content of your database."
 msgstr "Detta kommer att skapa en export av allt innehåll i din databas."
 
+#: plugins/importExport/src/ModuleImportDc1.php:64
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 import"
 
+#: plugins/importExport/src/ModuleImportDc1.php:65
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importera en Dotclear 1.2 installation till din nuvarande blogg."
 
+#: plugins/importExport/src/ModuleImportDc1.php:194
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importera innehållet i en Dotclear 1.2:s blogg i den aktuella bloggen: %s."
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Observera att denna process kommer att tömma dina kategorier, bloggrulle, inlägg och kommentarer på den aktuella bloggen."
 
+#: plugins/importExport/src/ModuleImportDc1.php:201
+#: plugins/importExport/src/ModuleImportWp.php:224
 msgid "General information"
 msgstr "Allmän information"
 
+#: plugins/importExport/src/ModuleImportDc1.php:201
+#: plugins/importExport/src/ModuleImportWp.php:224
 msgid "Import my blog now"
 msgstr "Importera min blogg nu"
 
+#: plugins/importExport/src/ModuleImportDc1.php:202
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Vi behöver först lite information om din gamla Dotclear 1.2 installation."
 
+#: plugins/importExport/src/ModuleImportDc1.php:203
 msgid "Database driver:"
 msgstr "Databasens drivrutin:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:215
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "Entries import options"
 msgstr "Importera poster"
 
+#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportWp.php:262
 msgid "Number of entries to import at once:"
 msgstr "Antal poster att importera på en gång:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:223
+#: plugins/importExport/src/ModuleImportWp.php:279
 msgid "Importing users"
 msgstr "Importerar användare"
 
+#: plugins/importExport/src/ModuleImportDc1.php:230
+#: plugins/importExport/src/ModuleImportWp.php:286
 msgid "Importing categories"
 msgstr "Importerar kategorier"
 
+#: plugins/importExport/src/ModuleImportDc1.php:237
+#: plugins/importExport/src/ModuleImportWp.php:293
 msgid "Importing blogroll"
 msgstr "Importerar bloggrulle"
 
+#: plugins/importExport/src/ModuleImportDc1.php:244
+#: plugins/importExport/src/ModuleImportWp.php:300
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importerar poster från %d till %d / %d"
 
+#: plugins/importExport/src/ModuleImportDc1.php:258
 msgid "Please read carefully"
 msgstr "Läs noga"
 
+#: plugins/importExport/src/ModuleImportDc1.php:260
+#: plugins/importExport/src/ModuleImportWp.php:314
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Varje nyimporterad användare har fått ett slumpmässigt lösenord och måste be om en ny genom att följa länken \"Jag har glömt mitt lösenord\" på inloggningssidan (deras registrerade e-postadress måste vara giltig.)"
 
+#: plugins/importExport/src/ModuleImportDc1.php:265
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Observera att Dotclear 2 har en ny URL-layout. Du kan undvika trasiga länkar genom att installera <a href=\"%s\">DC1 omdirigera</a> plugin och aktivera den i din blogg konfiguration."
 
+#: plugins/importExport/src/ModuleImportDc1.php:289
+#: plugins/importExport/src/ModuleImportWp.php:335
 msgid "next step"
 msgstr "nästa steg"
 
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:345
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Beroende på storleken på din blogg, kan det ta några minuter."
 
+#: plugins/importExport/src/ModuleImportDc1.php:327
 msgid "Dotclear tables not found"
 msgstr "Dotclear tabeller hittades inte"
 
+#: plugins/importExport/src/ModuleImportFeed.php:117
 msgid "RSS or Atom feed import"
 msgstr "Import av RSS eller Atom-flöde"
 
+#: plugins/importExport/src/ModuleImportFeed.php:118
 msgid "Add a feed content to the blog."
 msgstr "Lägg till ett flödesinnehåll i bloggen."
 
+#: plugins/importExport/src/ModuleImportFeed.php:145
+#: plugins/importExport/src/ModuleImportFeed.php:151
+#: plugins/importExport/src/ModuleImportFeed.php:160
+#: plugins/importExport/src/ModuleImportFeed.php:165
+#: plugins/importExport/src/ModuleImportFeed.php:171
+#: plugins/importExport/src/ModuleImportFeed.php:178
 msgid "Cannot retrieve feed URL."
 msgstr "Kan inte hämta flödes-URL."
 
+#: plugins/importExport/src/ModuleImportFeed.php:181
 msgid "No items in feed."
 msgstr "Inga objekt i flödet."
 
+#: plugins/importExport/src/ModuleImportFeed.php:218
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Content successfully imported."
 msgstr "Innehållet har importerats."
 
+#: plugins/importExport/src/ModuleImportFeed.php:223
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Lägg till ett flödesinnehåll till den aktuella bloggen: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFeed.php:225
+#: plugins/widgets/src/Widgets.php:106
 msgid "Feed URL:"
 msgstr "Webbadress för flöde:"
 
+#: plugins/importExport/src/ModuleImportFlat.php:40
 msgid "Flat file import"
 msgstr "Platt fil import"
 
+#: plugins/importExport/src/ModuleImportFlat.php:41
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importerar en blogg eller en fullständig Dotclear installation från platta filen."
 
+#: plugins/importExport/src/ModuleImportFlat.php:181
 msgid "Single blog successfully imported."
 msgstr "En blogg har importerats."
 
+#: plugins/importExport/src/ModuleImportFlat.php:197
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Är du säker på att du vill importera en fullständig säkerhetskopia?"
 
+#: plugins/importExport/src/ModuleImportFlat.php:203
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Detta kommer att importera en enda blogg backup som nytt innehåll i den aktuella bloggen: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFlat.php:205
+#: plugins/importExport/src/ModuleImportFlat.php:232
 msgid "Upload a backup file"
 msgstr "Ladda upp en säkerhetskopieringsfil"
 
+#: plugins/importExport/src/ModuleImportFlat.php:206
+#: plugins/importExport/src/ModuleImportFlat.php:233
 #, php-format
 msgid "maximum size %s"
 msgstr "maximal storlek %s"
 
+#: plugins/importExport/src/ModuleImportFlat.php:212
+#: plugins/importExport/src/ModuleImportFlat.php:239
 msgid "or pick up a local file in your public directory"
 msgstr "eller hämta en lokal fil i din offentliga katalog"
 
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "This will reset all the content of your database, except users."
 msgstr "Detta kommer att återställa allt innehåll i din databas, utom användare."
 
+#: plugins/importExport/src/ModuleImportFlat.php:351
 msgid "Another file with same name exists."
 msgstr "En annan fil med samma namn finns."
 
+#: plugins/importExport/src/ModuleImportFlat.php:359
 msgid "Failed to extract backup file."
 msgstr "Det gick inte att packa upp säkerhetskopian."
 
+#: plugins/importExport/src/ModuleImportFlat.php:371
 msgid "No backup in compressed file."
 msgstr "Ingen säkerhetskopia i komprimerad fil."
 
+#: plugins/importExport/src/ModuleImportWp.php:85
 msgid "WordPress import"
 msgstr "Importera WordPress"
 
+#: plugins/importExport/src/ModuleImportWp.php:86
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importera en WordPress installation till din nuvarande blogg."
 
+#: plugins/importExport/src/ModuleImportWp.php:217
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Detta kommer att importera din WordPress innehåll som nytt innehåll i den aktuella bloggen: %s."
 
+#: plugins/importExport/src/ModuleImportWp.php:225
 msgid "We first need some information about your old WordPress installation."
 msgstr "Vi behöver först lite information om din gamla WordPress installation."
 
+#: plugins/importExport/src/ModuleImportWp.php:241
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress och Dotclear hantering av kategorier är helt annorlunda. Du kan tilldela flera kategorier till ett enda inlägg i WordPress. I Dotclear världen ser vi det mer som \"En kategori, flera taggar. Därför kan Dotclear endast importera en kategori per inlägg och kommer att välja den lägsta numrerade. Om du vill behålla ett spår av varje kategori kan du importera dem som taggar, med ett valfritt prefix."
 
+#: plugins/importExport/src/ModuleImportWp.php:246
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Å andra sidan, i WordPress, ett inlägg kan inte okategoriseras, och en standardinstallation har en första kategori märkt <i>\"Okategoriserad\"</i>. f du inte ändra den kategorin, kan du bara ignorera det när du importerar din blogg, som Dotclear kan du faktiskt hålla dina inlägg okategoriserade."
 
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Ignore the first category:"
 msgstr "Ignorera den första kategorin:"
 
+#: plugins/importExport/src/ModuleImportWp.php:257
 msgid "Import lowest numbered category on posts:"
 msgstr "Importera lägsta numrerade kategori på inlägg:"
 
+#: plugins/importExport/src/ModuleImportWp.php:259
 msgid "Import all categories as tags:"
 msgstr "Importera alla kategorier som taggar:"
 
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "Prefix such tags with:"
 msgstr "Prefix sådana taggar med:"
 
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Content filters"
 msgstr "Filter för innehåll"
 
+#: plugins/importExport/src/ModuleImportWp.php:269
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Du kanske vill bearbeta ditt inlägg och/eller kommentera innehåll med följande filter."
 
+#: plugins/importExport/src/ModuleImportWp.php:270
 msgid "Post content formatter:"
 msgstr "Post innehållsformat:"
 
+#: plugins/importExport/src/ModuleImportWp.php:272
 msgid "Comment content formatter:"
 msgstr "Kommentar innehållsformat:"
 
+#: plugins/importExport/src/ModuleImportWp.php:374
 msgid "WordPress tables not found"
 msgstr "WordPress-tabeller hittades inte"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Servicing"
 msgstr "Service"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to maintain the performance of your blogs."
 msgstr "Verktyg för att upprätthålla prestandan på dina bloggar."
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Backup"
 msgstr "Säkerhetskopiera"
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Tools to back up your content."
 msgstr "Verktyg för att säkerhetskopiera ditt innehåll."
 
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Development"
 msgstr "Utveckling"
 
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "Verktyg för att hjälpa till i utvecklingen av plugins, teman och kärna."
 
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Optimize"
 msgstr "Optimera"
 
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Count and index"
 msgstr "Räkna och index"
 
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Purge"
 msgstr "Purge"
 
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "Other"
 msgstr "Annat"
 
+#: plugins/maintenance/src/BackendBehaviors.php:43
 msgid "Current blog"
 msgstr "Aktuell blogg"
 
+#: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "All blogs"
 msgstr "Alla bloggar"
 
+#: plugins/maintenance/src/BackendBehaviors.php:46
 msgid "Maintain translations"
 msgstr "Behåll översättningar"
 
+#: plugins/maintenance/src/BackendBehaviors.php:46
 msgid "Translations"
 msgstr "Översättningar"
 
+#: plugins/maintenance/src/BackendBehaviors.php:122
+#: plugins/maintenance/src/Rest.php:84
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "En uppgift att utföra"
 msgstr[1] "%s uppgifter att utföra"
 
+#: plugins/maintenance/src/BackendBehaviors.php:153
+#: plugins/maintenance/src/Manage.php:269
 msgid "This task has never been executed."
 msgstr "Denna uppgift har aldrig utförts."
 
+#: plugins/maintenance/src/BackendBehaviors.php:156
+#: plugins/maintenance/src/Manage.php:274
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Senaste körning av denna uppgift var den %s."
 
+#: plugins/maintenance/src/BackendBehaviors.php:171
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Det finns en uppgift att utföra."
 msgstr[1] "Det finns %s uppgifter att köra."
 
+#: plugins/maintenance/src/BackendBehaviors.php:173
 msgid "Manage tasks"
 msgstr "Hantera uppgifter"
 
+#: plugins/maintenance/src/BackendBehaviors.php:192
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Visa förfallna uppgifter räknare på underhåll instrumentpanelen ikonen"
 
+#: plugins/maintenance/src/BackendBehaviors.php:196
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Visa listan över förfallna uppgifter på instrumentpanelens objekt"
 
+#: plugins/maintenance/src/MaintenanceTask.php:161
 msgid "Failed to execute task."
 msgstr "Det gick inte att köra uppgiften."
 
+#: plugins/maintenance/src/MaintenanceTask.php:164
 msgid "Task successfully executed."
 msgstr "Uppgiften har utförts."
 
+#: plugins/maintenance/src/Manage.php:118
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Insticksprogrammet för underhåll har konfigurerats."
 
+#: plugins/maintenance/src/Manage.php:136
 msgid "System settings have been saved."
 msgstr "Systeminställningar sparades framgångsrikt."
 
+#: plugins/maintenance/src/Manage.php:141
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Alla bloggens Content-Security-Policy inställningar har återställts till standard."
 
+#: plugins/maintenance/src/Manage.php:166
 msgid "Every week"
 msgstr "Varje vecka"
 
+#: plugins/maintenance/src/Manage.php:167
 msgid "Every two weeks"
 msgstr "Varannan vecka"
 
+#: plugins/maintenance/src/Manage.php:168
 msgid "Every month"
 msgstr "Varje månad"
 
+#: plugins/maintenance/src/Manage.php:169
 msgid "Every two months"
 msgstr "Varannan månad"
 
+#: plugins/maintenance/src/Manage.php:193
 msgid "You have not sufficient permissions to view this page."
 msgstr "Du har inte tillräcklig behörighet för att se denna sida."
 
+#: plugins/maintenance/src/Manage.php:270
+#: plugins/maintenance/src/Manage.php:278
 msgid "You should execute it now."
 msgstr "Du bör köra det nu."
 
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:322
 msgid "Execute task"
 msgstr "Utför uppgift"
 
+#: plugins/maintenance/src/Manage.php:304
 msgid "This may take a very long time."
 msgstr "Detta kan ta mycket lång tid."
 
+#: plugins/maintenance/src/Manage.php:334
+#: plugins/maintenance/src/Manage.php:335
 msgid "Alert settings"
 msgstr "Inställningar för varning"
 
+#: plugins/maintenance/src/Manage.php:339
 msgid "Activation"
 msgstr "Aktivering"
 
+#: plugins/maintenance/src/Manage.php:342
 msgid "Display alert messages on late tasks"
 msgstr "Visa varningsmeddelanden på sena uppgifter"
 
+#: plugins/maintenance/src/Manage.php:345
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Du kan placera en lista över sena uppgifter på din %s."
 
+#: plugins/maintenance/src/Manage.php:351
 msgid "Frequency"
 msgstr "Frekvens"
 
+#: plugins/maintenance/src/Manage.php:354
 msgid "Use one recall time for all tasks"
 msgstr "Använd en återställningstid för alla uppgifter"
 
+#: plugins/maintenance/src/Manage.php:356
 msgid "Recall time for all tasks:"
 msgstr "Minns tid för alla uppgifter:"
 
+#: plugins/maintenance/src/Manage.php:362
 msgid "Use one recall time per task"
 msgstr "Använd en återställningstid per uppgift"
 
+#: plugins/maintenance/src/Manage.php:393
 msgid "Content-Security-Policy"
 msgstr "Säkerhetspolicy för innehåll"
 
+#: plugins/maintenance/src/Manage.php:398
 msgid "Enable Content-Security-Policy system"
 msgstr "Aktivera Content-Security-policy-system"
 
+#: plugins/maintenance/src/Manage.php:401
 msgid "Enable Content-Security-Policy report only"
 msgstr "Aktivera endast Content-Security-Policy rapport"
 
+#: plugins/maintenance/src/Manage.php:407
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Aktivera Content-Security-policy-system som standard"
 
+#: plugins/maintenance/src/Manage.php:410
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Aktivera endast Content-Security-Policy rapport som standard"
 
+#: plugins/maintenance/src/Manage.php:413
 msgid "Also apply these settings to all blogs"
 msgstr "Använd även dessa inställningar på alla bloggar"
 
+#: plugins/maintenance/src/Task/CSP.php:34
 msgid "Delete the Content-Security-Policy report file"
 msgstr "Ta bort filen för rapporten Content-Security-Policy"
 
+#: plugins/maintenance/src/Task/CSP.php:35
 msgid "Content-Security-Policy report file has been deleted."
 msgstr "Filen Content-Security-Policy har tagits bort."
 
+#: plugins/maintenance/src/Task/CSP.php:36
 msgid "Failed to delete the Content-Security-Policy report file."
 msgstr "Det gick inte att ta bort filen Content-Security-Policy-rapport."
 
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Remove the Content-Security-Policy report file."
 msgstr "Ta bort filen Content-Security-Policy-rapport."
 
+#: plugins/maintenance/src/Task/Cache.php:35
 msgid "Empty templates cache directory"
 msgstr "Töm cachemapp för mallar"
 
+#: plugins/maintenance/src/Task/Cache.php:36
 msgid "Templates cache directory emptied."
 msgstr "Mall cache-katalog tömd."
 
+#: plugins/maintenance/src/Task/Cache.php:37
 msgid "Failed to empty templates cache directory."
 msgstr "Det gick inte att tömma mallens cache-katalog."
 
+#: plugins/maintenance/src/Task/Cache.php:39
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Det kan vara användbart att tömma denna cache när du ändrar ett temas .html- eller .css-filer (eller när du uppdaterar ett tema eller en plugin). Obs: med vissa hosters, mallar cache kan inte tömmas med denna plugin. Du kan då behöva ta bort katalogen <strong>%s</strong> direkt på servern med din FTP-programvara."
 
+#: plugins/maintenance/src/Task/CountComments.php:34
 msgid "Count again comments and trackbacks"
 msgstr "Räkna igen kommentarer och trackbacks"
 
+#: plugins/maintenance/src/Task/CountComments.php:35
 msgid "Comments and trackback counted."
 msgstr "Kommentarer och trackback räknas."
 
+#: plugins/maintenance/src/Task/CountComments.php:36
 msgid "Failed to count comments and trackbacks."
 msgstr "Det gick inte att räkna kommentarer och trackbacks."
 
+#: plugins/maintenance/src/Task/CountComments.php:38
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Räkna igen kommentarer och trackbacks gör det möjligt att kontrollera deras exakta siffror. Denna åtgärd kan vara användbar när du importerar från en annan bloggplattform (eller när du migrerar från dotclear 1 till dotclear 2)."
 
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
 msgid "Search engine index"
 msgstr "Sökmotorns index"
 
+#: plugins/maintenance/src/Task/IndexComments.php:58
 msgid "Index all comments for search engine"
 msgstr "Indexera alla kommentarer för sökmotorn"
 
+#: plugins/maintenance/src/Task/IndexComments.php:59
+#: plugins/maintenance/src/Task/IndexPosts.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Next"
 msgstr "Nästa"
 
+#: plugins/maintenance/src/Task/IndexComments.php:60
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Indexerar kommentar %d till %d."
 
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Comments index done."
 msgstr "Indexet för kommentarer gjort."
 
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Failed to index comments."
 msgstr "Det gick inte att indexera kommentarer."
 
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexera alla kommentarer och trackbacks i sökmotor index. Denna åtgärd är nödvändig, efter att ha importerat innehåll i din blogg, att använda intern sökmotor, på offentliga och privata sidor."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 msgid "Index all entries for search engine"
 msgstr "Indexera alla poster för sökmotorn"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Indexerar post %d till %d."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Entries index done."
 msgstr "Inlägg index klart."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Failed to index entries."
 msgstr "Det gick inte att indexera poster."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexera alla poster i sökmotorns index. Denna åtgärd är nödvändig, efter att ha importerat innehåll i din blogg, att använda intern sökmotor, på offentliga och privata sidor."
 
+#: plugins/maintenance/src/Task/Logs.php:42
 msgid "Delete all logs"
 msgstr "Ta bort alla loggar"
 
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Logs deleted."
 msgstr "Loggar borttagna."
 
+#: plugins/maintenance/src/Task/Logs.php:44
 msgid "Failed to delete logs."
 msgstr "Det gick inte att ta bort loggar."
 
+#: plugins/maintenance/src/Task/Logs.php:46
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Loggar spela in all aktivitet och anslutning till din blogghistorik. Om du inte behöver hålla denna historia, överväga att ta bort dessa loggar från tid till annan."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 msgid "Entries metadata"
 msgstr "Poster metadata"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Synchronize entries metadata"
 msgstr "Synkronisera poster metadata"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 #, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Synkronisera post %d till %d."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Entries metadata synchronize done."
 msgstr "Inlägg metadata synkroniseras gjort."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Failed to synchronize entries metadata."
 msgstr "Det gick inte att synkronisera poster metadata."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Synkronisera alla poster metadata kan vara användbart efter att ha importerat innehåll i din blogg eller göra fel drift på databastabeller."
 
+#: plugins/maintenance/src/Task/Vacuum.php:35
 msgid "Optimise database"
 msgstr "Optimera databasen"
 
+#: plugins/maintenance/src/Task/Vacuum.php:36
 msgid "optimize tables"
 msgstr "optimera tabeller"
 
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimization successful."
 msgstr "Optimering lyckades."
 
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "Failed to optimize tables."
 msgstr "Det gick inte att optimera tabeller."
 
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Efter många ta bort eller uppdatera operationer på Dotclears databas blir det fragmenterat. Optimering gör det möjligt att defragmentera den. Det har ingen förekomst av din datas integritet. Det rekommenderas att optimera innan någon blogg export."
 
+#: plugins/maintenance/src/Task/ZipMedia.php:57
 msgid "Download media folder of current blog"
 msgstr "Ladda ner mediamappen för aktuell blogg"
 
+#: plugins/maintenance/src/Task/ZipMedia.php:59
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "Det kan vara användbart att säkerhetskopiera din mediamapp. Denna komprimera allt innehåll i mediamappen till en enda zip-fil. Obs: med vissa hosters, mediamappen kan inte komprimeras med denna plugin om den är för stor."
 
+#: plugins/maintenance/src/Task/ZipTheme.php:57
 msgid "Download active theme of current blog"
 msgstr "Ladda ner aktivt tema för aktuell blogg"
 
+#: plugins/maintenance/src/Task/ZipTheme.php:59
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Det kan vara användbart att säkerhetskopiera det aktiva temat innan någon ändring eller uppdatering. Denna komprimera temamappen till en enda zip-fil."
 
+#: plugins/pages/src/Backend.php:37
 msgid "manage pages"
 msgstr "hantera sidor"
 
+#: plugins/pages/src/Backend.php:74
 #, php-format
 msgid "%d page"
 msgstr "%d sida"
 
+#: plugins/pages/src/Backend.php:74
 #, php-format
 msgid "%d pages"
 msgstr "%d sidor"
 
+#: plugins/pages/src/Backend.php:81 plugins/pages/src/Manage.php:127
+#: plugins/pages/src/ManagePage.php:77 plugins/pages/src/ManagePage.php:658
 msgid "New page"
 msgstr "Ny sida"
 
+#: plugins/pages/src/BackendActions.php:52
 msgid "Pages actions"
 msgstr "Sidor åtgärder"
 
+#: plugins/pages/src/BackendActions.php:74
 msgid "Back to pages list"
 msgstr "Tillbaka till sidlistan"
 
+#: plugins/pages/src/BackendDefaultActions.php:120
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully reordered."
 msgstr "Valda sidor har beställts om."
 
+#: plugins/pages/src/BackendList.php:36
 msgid "No page"
 msgstr "Ingen sida"
 
+#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
 msgid "Hidden"
 msgstr "Hidden"
 
+#: plugins/pages/src/BackendList.php:176
 msgid "Select this page"
 msgstr "Välj denna sida"
 
+#: plugins/pages/src/Frontend.php:35
 msgid "Published on"
 msgstr "Publicerad den"
 
+#: plugins/pages/src/Frontend.php:36
 msgid "This page's comments feed"
 msgstr "Denna sidas kommentarsflöde"
 
+#: plugins/pages/src/FrontendUrl.php:159
 msgid "You must provide a valid email address."
 msgstr "Du måste ange en giltig e-postadress."
 
+#: plugins/pages/src/Install.php:48
 msgid "My first page"
 msgstr "Min första sida"
 
+#: plugins/pages/src/Install.php:49
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Detta är din första sida. När du är redo att blogga, logga in för att redigera eller ta bort den."
 
+#: plugins/pages/src/Manage.php:106
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Är du säker på att du vill ta bort markerade sidor?"
 
+#: plugins/pages/src/Manage.php:120
 msgid "Selected pages have been successfully updated."
 msgstr "Valda sidor har uppdaterats."
 
+#: plugins/pages/src/Manage.php:122
 msgid "Selected pages have been successfully deleted."
 msgstr "Valda sidor har tagits bort."
 
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages action:"
 msgstr "Åtgärd för utvalda sidor:"
 
+#: plugins/pages/src/Manage.php:150
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "För att ordna om sidorordningen, ändra nummer i början av raden, klicka sedan på knappen \"Spara sidor\"."
 
+#: plugins/pages/src/Manage.php:152
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "För att ordna om ordningen, flytta objekt genom att dra och släppa och klicka sedan på knappen \"Spara sidor\"."
 
+#: plugins/pages/src/Manage.php:153
 msgid "Save pages order"
 msgstr "Spara sidsortering"
 
+#: plugins/pages/src/ManagePage.php:134
 msgid "This page does not exist."
 msgstr "Denna sida finns inte."
 
+#: plugins/pages/src/ManagePage.php:155 plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:663
 msgid "Edit page"
 msgstr "Redigera sida"
 
+#: plugins/pages/src/ManagePage.php:428
 msgid "Are you sure you want to delete this page?"
 msgstr "Är du säker på att du vill ta bort denna sida?"
 
+#: plugins/pages/src/ManagePage.php:474
 msgid "Page has been successfully updated."
 msgstr "Sidan har uppdaterats."
 
+#: plugins/pages/src/ManagePage.php:476
 msgid "Page has been successfully created."
 msgstr "Sidan har skapats"
 
+#: plugins/pages/src/ManagePage.php:489
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Glöm inte att validera din HTML-konvertering genom att spara ditt inlägg."
 
+#: plugins/pages/src/ManagePage.php:494
 msgid "Go to this page on the site"
 msgstr "Gå till denna sida på sajten"
 
+#: plugins/pages/src/ManagePage.php:536
 msgid "Page status"
 msgstr "Sidans status"
 
+#: plugins/pages/src/ManagePage.php:549
 msgid "Page language"
 msgstr "Sidans språk"
 
+#: plugins/pages/src/ManagePage.php:562 plugins/pages/src/Widgets.php:37
 msgid "Page position"
 msgstr "Sidans position"
 
+#: plugins/pages/src/ManagePage.php:589
 msgid "Hide in widget Pages"
 msgstr "Dölj i widget-sidor"
 
+#: plugins/pages/src/ManagePage.php:599
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Varning: Om du anger webbadressen manuellt, kan det strida mot en annan sida."
 
+#: plugins/pages/src/ManagePage.php:614
 msgid "Introduction to the page."
 msgstr "Introduktion till sidan."
 
+#: plugins/pages/src/ManagePage.php:947
 msgid "Select this comment"
 msgstr "Välj denna kommentar"
 
+#: plugins/pages/src/Widgets.php:36
 msgid "Page title"
 msgstr "Sidans titel"
 
+#: plugins/pages/src/Widgets.php:38
 msgid "Publication date"
 msgstr "Publiceringsdatum"
 
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:50
 msgid "Pings"
 msgstr "Pings"
 
+#: plugins/pings/src/Manage.php:60
 msgid "Settings have been successfully updated."
 msgstr "Inställningarna har uppdaterats."
 
+#: plugins/pings/src/Manage.php:81
 msgid "Pings configuration"
 msgstr "Konfiguration av Pings"
 
+#: plugins/pings/src/Manage.php:87
 msgid "Activate pings extension"
 msgstr "Aktivera pings-tillägg"
 
+#: plugins/pings/src/Manage.php:92 plugins/pings/src/Manage.php:114
 msgid "Service name:"
 msgstr "Tjänstens namn:"
 
+#: plugins/pings/src/Manage.php:94 plugins/pings/src/Manage.php:116
 msgid "Service URI:"
 msgstr "Service URI:"
 
+#: plugins/pings/src/Manage.php:105
 msgid "Error"
 msgstr "Fel"
 
+#: plugins/pings/src/Manage.php:122
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Auto pingar alla tjänster på första publiceringen av post (endast nuvarande blogg)"
 
+#: plugins/pings/src/Manage.php:129
 msgid "Test ping services"
 msgstr "Testa ping tjänster"
 
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:45
+#: plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
 msgstr "Enkel meny"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "Active page"
 msgstr "Aktiv sida"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "active page"
 msgstr "aktiv sida"
 
+#: plugins/simpleMenu/src/Manage.php:68
 msgid "All months"
 msgstr "Alla månader"
 
+#: plugins/simpleMenu/src/Manage.php:126
 msgid "Archive"
 msgstr "Arkivera"
 
+#: plugins/simpleMenu/src/Manage.php:129
 msgid "Page"
 msgstr "Sida"
 
+#: plugins/simpleMenu/src/Manage.php:132 plugins/tags/src/Backend.php:24
 msgid "Tags"
 msgstr "Taggar"
 
+#: plugins/simpleMenu/src/Manage.php:139
 msgid "User defined"
 msgstr "Användare definierad"
 
+#: plugins/simpleMenu/src/Manage.php:180
 msgid "Configuration successfully updated."
 msgstr "Konfigurationen har uppdaterats."
 
+#: plugins/simpleMenu/src/Manage.php:219 plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:687
 msgid "Label"
 msgstr "Etikett"
 
+#: plugins/simpleMenu/src/Manage.php:225
 msgid "Home page"
 msgstr "Startsida"
 
+#: plugins/simpleMenu/src/Manage.php:225 plugins/simpleMenu/src/Manage.php:230
+#: plugins/widgets/src/Widgets.php:234 plugins/widgets/src/Widgets.php:241
 msgid "Recent posts"
 msgstr "Senaste inläggen"
 
+#: plugins/simpleMenu/src/Manage.php:237
 #, php-format
 msgid "Switch to %s language"
 msgstr "Växla till %s språk"
 
+#: plugins/simpleMenu/src/Manage.php:244
 msgid "Recent Posts from this category"
 msgstr "Senaste inlägg från denna kategori"
 
+#: plugins/simpleMenu/src/Manage.php:256
 #, php-format
 msgid "Posts from %s"
 msgstr "Inlägg från %s"
 
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Senaste inläggen för %s tagg"
 
+#: plugins/simpleMenu/src/Manage.php:336
 msgid "Menu item has been successfully added."
 msgstr "Menyobjektet har lagts till."
 
+#: plugins/simpleMenu/src/Manage.php:341
 msgid "Label and URL of menu item are mandatory."
 msgstr "Etikett och URL för menyobjektet är obligatoriska."
 
+#: plugins/simpleMenu/src/Manage.php:374
 msgid "Menu items have been successfully removed."
 msgstr "Menyobjekt har tagits bort."
 
+#: plugins/simpleMenu/src/Manage.php:377
 msgid "No menu items selected."
 msgstr "Inga menyobjekt valda."
 
+#: plugins/simpleMenu/src/Manage.php:389
 msgid "Label is mandatory."
 msgstr "Etiketten är obligatorisk."
 
+#: plugins/simpleMenu/src/Manage.php:394
 msgid "URL is mandatory."
 msgstr "URL är obligatoriskt."
 
+#: plugins/simpleMenu/src/Manage.php:439
 msgid "Menu items have been successfully updated."
 msgstr "Menyobjekt har uppdaterats."
 
+#: plugins/simpleMenu/src/Manage.php:477
 msgid "Step #1"
 msgstr "Steg #1"
 
+#: plugins/simpleMenu/src/Manage.php:482 plugins/simpleMenu/src/Manage.php:490
 msgid "Step #2"
 msgstr "Steg #2"
 
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Step #3"
 msgstr "Steg #3"
 
+#: plugins/simpleMenu/src/Manage.php:500
 msgid "Add item"
 msgstr "Lägg till objekt"
 
+#: plugins/simpleMenu/src/Manage.php:528
 msgid "Select type"
 msgstr "Välj typ"
 
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Type of item menu:"
 msgstr "Typ av artikelmeny:"
 
+#: plugins/simpleMenu/src/Manage.php:532 plugins/simpleMenu/src/Manage.php:591
 msgid "Continue..."
 msgstr "Fortsätt..."
 
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
 msgstr "Välj språk:"
 
+#: plugins/simpleMenu/src/Manage.php:556
 msgid "Select category:"
 msgstr "Välj kategori:"
 
+#: plugins/simpleMenu/src/Manage.php:563
 msgid "Select month (if necessary):"
 msgstr "Välj månad (om nödvändigt):"
 
+#: plugins/simpleMenu/src/Manage.php:570
 msgid "Select page:"
 msgstr "Välj sida:"
 
+#: plugins/simpleMenu/src/Manage.php:577
 msgid "Select tag (if necessary):"
 msgstr "Välj tagg (om nödvändigt):"
 
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Label of item menu:"
 msgstr "Etikett för artikelmenyn:"
 
+#: plugins/simpleMenu/src/Manage.php:613
 msgid "Description of item menu:"
 msgstr "Beskrivning av artikelmenyn:"
 
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "URL of item menu:"
 msgstr "URL till artikelmenyn:"
 
+#: plugins/simpleMenu/src/Manage.php:633 plugins/simpleMenu/src/Manage.php:690
 msgid "Open URL on a new tab"
 msgstr "Öppna URL på en ny flik"
 
+#: plugins/simpleMenu/src/Manage.php:635
 msgid "Add this item"
 msgstr "Lägg till detta objekt"
 
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Enable simple menu for this blog"
 msgstr "Aktivera enkel meny för den här bloggen"
 
+#: plugins/simpleMenu/src/Manage.php:662
 msgid "Add an item"
 msgstr "Lägg till ett objekt"
 
+#: plugins/simpleMenu/src/Manage.php:676
 msgid "Menu items list"
 msgstr "Lista över menyobjekt"
 
+#: plugins/simpleMenu/src/Manage.php:759
 msgid "Update menu"
 msgstr "Uppdatera meny"
 
+#: plugins/simpleMenu/src/Manage.php:761
 msgid "Delete selected menu items"
 msgstr "Ta bort valda menyobjekt"
 
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Är du säker på att du vill ta bort markerade menyobjekt?"
 
+#: plugins/simpleMenu/src/Manage.php:769
 msgid "No menu items so far."
 msgstr "Inga menyalternativ hittills."
 
+#: plugins/simpleMenu/src/Widgets.php:31
 msgid "Item description"
 msgstr "Objekt beskrivning"
 
+#: plugins/simpleMenu/src/Widgets.php:35
 msgid "Displayed in link"
 msgstr "Visas i länk"
 
+#: plugins/simpleMenu/src/Widgets.php:36
 msgid "Used as link title"
 msgstr "Används som länktitel"
 
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link and used as title"
 msgstr "Visas i länk och används som titel"
 
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Not displayed nor used"
 msgstr "Visas inte eller används"
 
+#: plugins/tags/src/BackendBehaviors.php:51
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
 msgstr "Tagg"
 
+#: plugins/tags/src/BackendBehaviors.php:198
 msgid "Add tags"
 msgstr "Lägg till taggar"
 
+#: plugins/tags/src/BackendBehaviors.php:207
 msgid "Remove tags"
 msgstr "Ta bort taggar"
 
+#: plugins/tags/src/BackendBehaviors.php:243
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Taggen har lagts till i valda poster"
 msgstr[1] "Taggar har lagts till i valda poster"
 
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Are you sure you want to remove this tag?"
 msgstr "Är du säker på att du vill ta bort denna tagg?"
 
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:399
 msgid "Add a tag to this entry"
 msgstr "Lägg till en tagg till denna post"
 
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Choose from list"
 msgstr "Välj från listan"
 
+#: plugins/tags/src/BackendBehaviors.php:260
+#: plugins/tags/src/BackendBehaviors.php:401
 msgid "all"
 msgstr "alla"
 
+#: plugins/tags/src/BackendBehaviors.php:261
+#: plugins/tags/src/BackendBehaviors.php:402
 msgid "Enter tags separated by comma"
 msgstr "Ange taggar separerade med kommatecken"
 
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:406
 msgid "used in %e - frequency %p%"
 msgstr "används i %e - frekvens %p%"
 
+#: plugins/tags/src/BackendBehaviors.php:266
+#: plugins/tags/src/BackendBehaviors.php:407 plugins/tags/src/Manage.php:94
 msgid "entry"
 msgstr "post"
 
+#: plugins/tags/src/BackendBehaviors.php:267
+#: plugins/tags/src/BackendBehaviors.php:408 plugins/tags/src/Manage.php:94
 msgid "entries"
 msgstr "poster"
 
+#: plugins/tags/src/BackendBehaviors.php:275
 msgid "Add tags to this selection"
 msgstr "Lägg till taggar till detta val"
 
+#: plugins/tags/src/BackendBehaviors.php:288
 msgid "Tags to add:"
 msgstr "Taggar att lägga till:"
 
+#: plugins/tags/src/BackendBehaviors.php:322
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Taggen har tagits bort från valda poster"
 msgstr[1] "Taggar har tagits bort från valda poster"
 
+#: plugins/tags/src/BackendBehaviors.php:346
 msgid "No tags for selected entries"
 msgstr "Inga taggar för valda poster"
 
+#: plugins/tags/src/BackendBehaviors.php:353
 msgid "Remove selected tags from this selection"
 msgstr "Ta bort valda taggar från detta val"
 
+#: plugins/tags/src/BackendBehaviors.php:362
 msgid "Following tags have been found in selected entries:"
 msgstr "Följande taggar har hittats i valda poster:"
 
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Short"
 msgstr "Kort"
 
+#: plugins/tags/src/BackendBehaviors.php:428
 msgid "Extended"
 msgstr "Utökad"
 
+#: plugins/tags/src/BackendBehaviors.php:435
 msgid "Tags list format:"
 msgstr "Tagglistans format:"
 
+#: plugins/tags/src/FrontendBehaviors.php:28
 msgid "This tag's comments Atom feed"
 msgstr "Denna taggs kommentarer Atom feed"
 
+#: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's entries Atom feed"
 msgstr "Den här taggens poster Atom feed"
 
+#: plugins/tags/src/Manage.php:113
 msgid "No tags on this blog."
 msgstr "Inga taggar på denna blogg."
 
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
 msgstr "Taggen har bytt namn"
 
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
 msgstr "Taggen har tagits bort"
 
+#: plugins/tags/src/ManagePosts.php:138
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Är du säker på att du vill ta bort taggen: “%s”?"
 
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
 msgstr "Tillbaka till tagglistan"
 
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
 msgstr "Döp om"
 
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr "Ta bort denna tagg"
 
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
 msgstr "Lista över poster med taggen ”%s”"
 
+#: plugins/tags/src/Widgets.php:30
 msgid "Limit (empty means no limit):"
 msgstr "Gräns (tom betyder ingen gräns):"
 
+#: plugins/tags/src/Widgets.php:37
 msgid "Tag name"
 msgstr "Taggens namn"
 
+#: plugins/tags/src/Widgets.php:38
 msgid "Entries count"
 msgstr "Antal poster"
 
+#: plugins/tags/src/Widgets.php:39
 msgid "Newest entry"
 msgstr "Nyaste post"
 
+#: plugins/tags/src/Widgets.php:40
 msgid "Oldest entry"
 msgstr "Äldsta posten"
 
+#: plugins/tags/src/Widgets.php:53
 msgid "Link to all tags:"
 msgstr "Länk till alla taggar:"
 
+#: plugins/themeEditor/src/Backend.php:23
 msgid "themeEditor"
 msgstr "themeEditor"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:181
 msgid "Edit theme files"
 msgstr "Redigera temafiler"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:76
 msgid "Syntax highlighting"
 msgstr "Syntax markerar"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:81
 msgid "Syntax highlighting in theme editor"
 msgstr "Syntaxmarkering i tema-editorn"
 
+#: plugins/themeEditor/src/Manage.php:88
 msgid "The theme update has been locked."
 msgstr "Temat uppdateringen har låsts."
 
+#: plugins/themeEditor/src/Manage.php:96
 msgid "The theme update has been unocked."
 msgstr "Temat uppdateringen har tagits bort."
 
+#: plugins/themeEditor/src/Manage.php:119
 msgid "The file has been reset."
 msgstr "Filen har återställts."
 
+#: plugins/themeEditor/src/Manage.php:145
 msgid "Unlock update"
 msgstr "Lås upp uppdatering"
 
+#: plugins/themeEditor/src/Manage.php:146
 msgid "Lock update"
 msgstr "Lås uppdatering"
 
+#: plugins/themeEditor/src/Manage.php:150
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr "Lås uppdatering av temat hindrar inte att ändra sina filer, bara för att uppdatera det globalt."
 
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Saving document..."
 msgstr "Sparar dokument..."
 
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Document saved"
 msgstr "Dokument sparat"
 
+#: plugins/themeEditor/src/Manage.php:164
 msgid "An error occurred:"
 msgstr "Ett fel uppstod:"
 
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Are you sure you want to reset this file?"
 msgstr "Är du säker på att du vill återställa filen?"
 
+#: plugins/themeEditor/src/Manage.php:187
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Ditt nuvarande tema på den här bloggen är \"%s\"."
 
+#: plugins/themeEditor/src/Manage.php:198
 msgid "Please select a file to edit."
 msgstr "Välj en fil att redigera."
 
+#: plugins/themeEditor/src/Manage.php:203
 msgid "File editor"
 msgstr "Filredigerare"
 
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Editing file %s"
 msgstr "Redigerar fil %s"
 
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Reset"
 msgstr "Reset"
 
+#: plugins/themeEditor/src/Manage.php:220
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Den här filen är inte skrivbar. Kontrollera dina temafiler rättigheter."
 
+#: plugins/themeEditor/src/Manage.php:247
 msgid "Templates files"
 msgstr "Mallar filer"
 
+#: plugins/themeEditor/src/Manage.php:250
 msgid "CSS files"
 msgstr "CSS files"
 
+#: plugins/themeEditor/src/Manage.php:253
 msgid "JavaScript files"
 msgstr "JavaScript-filer"
 
+#: plugins/themeEditor/src/Manage.php:256
 msgid "Locales files"
 msgstr "Språkfiler filer"
 
+#: plugins/themeEditor/src/Manage.php:259
 msgid "PHP files"
 msgstr "PHP-filer"
 
+#: plugins/themeEditor/src/Manage.php:268
 msgid "You can't edit a distributed theme."
 msgstr "Du kan inte redigera ett distribuerat tema."
 
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "Ingen fil"
 
+#: plugins/themeEditor/src/ThemeEditor.php:164
 msgid "From theme:"
 msgstr "Från tema:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:166
 msgid "From parent:"
 msgstr "Från föräldrar:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:171
 msgid "From template set:"
 msgstr "Från mall set:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:206
+#: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:320
 msgid "File does not exist."
 msgstr "Filen finns inte."
 
+#: plugins/themeEditor/src/ThemeEditor.php:211
 #, php-format
 msgid "File %s is not readable"
 msgstr "Filen %s är inte läsbar"
 
+#: plugins/themeEditor/src/ThemeEditor.php:268
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att skriva filen %s. Kontrollera dina temafiler och mappar."
 
+#: plugins/themeEditor/src/ThemeEditor.php:333
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Det går inte att ta bort filen %s. Kontrollera dina temafiler och mappar."
 
+#: plugins/userPref/src/Backend.php:23
 msgid "user:preferences"
 msgstr "användare: inställningar"
 
+#: plugins/userPref/src/Manage.php:69 plugins/userPref/src/Manage.php:88
 msgid "Preferences successfully updated"
 msgstr "Inställningar har uppdaterats"
 
+#: plugins/userPref/src/Manage.php:120 plugins/userPref/src/Manage.php:121
 msgid "User preferences"
 msgstr "Användarens inställningar"
 
+#: plugins/userPref/src/Manage.php:128 plugins/userPref/src/Manage.php:129
 msgid "Global preferences"
 msgstr "Globala inställningar"
 
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
 msgstr "Widgetar"
 
+#: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
 msgstr "Widgetens textområden"
 
+#: plugins/widgets/src/Install.php:35
 msgid "Unable to initialize default widgets."
 msgstr "Det går inte att initiera standardwidgets."
 
+#: plugins/widgets/src/Manage.php:55
 msgid "navigation"
 msgstr "navigation"
 
+#: plugins/widgets/src/Manage.php:56
 msgid "extra"
 msgstr "extra"
 
+#: plugins/widgets/src/Manage.php:57
 msgid "custom"
 msgstr "anpassad"
 
+#: plugins/widgets/src/Manage.php:198
 msgid "Sidebars and their widgets have been saved."
 msgstr "Sidofält och deras widgetar har sparats."
 
+#: plugins/widgets/src/Manage.php:210
 msgid "Sidebars have been resetting."
 msgstr "Sidofält har återställts."
 
+#: plugins/widgets/src/Manage.php:241
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Är du säker på att du vill återställa sidofält?"
 
+#: plugins/widgets/src/Manage.php:274
 msgid "Available widgets"
 msgstr "Tillgängliga widgetar"
 
+#: plugins/widgets/src/Manage.php:275
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Dra widgetar från denna lista till en av sidofälten, för att lägga till."
 
+#: plugins/widgets/src/Manage.php:285 plugins/widgets/src/Manage.php:403
 msgid "order"
 msgstr "beställning"
 
+#: plugins/widgets/src/Manage.php:289
 msgid "Append to:"
 msgstr "Lägg till till:"
 
+#: plugins/widgets/src/Manage.php:300
 msgid "Add widgets to sidebars"
 msgstr "Lägg till widgetar på sidofält"
 
+#: plugins/widgets/src/Manage.php:307
 msgid "Navigation sidebar"
 msgstr "Navigation sidebar"
 
+#: plugins/widgets/src/Manage.php:312
 msgid "Extra sidebar"
 msgstr "Extra sidebar"
 
+#: plugins/widgets/src/Manage.php:317
 msgid "Custom sidebar"
 msgstr "Anpassad sidofält"
 
+#: plugins/widgets/src/Manage.php:322
 msgid "Update sidebars"
 msgstr "Uppdatera sidofält"
 
+#: plugins/widgets/src/Manage.php:324
 msgid "Reset sidebars"
 msgstr "Återställ sidofält"
 
+#: plugins/widgets/src/Manage.php:332
 msgid "Widget ID:"
 msgstr "Widget ID:"
 
+#: plugins/widgets/src/Manage.php:338
 msgid "No setting for this widget"
 msgstr "Ingen inställning för denna widget"
 
+#: plugins/widgets/src/Manage.php:344
 msgid "boolean"
 msgstr "boolean"
 
+#: plugins/widgets/src/Manage.php:344 plugins/widgets/src/Manage.php:349
 msgid "possible values:"
 msgstr "möjliga värden:"
 
+#: plugins/widgets/src/Manage.php:348
 msgid "empty string"
 msgstr "tom sträng"
 
+#: plugins/widgets/src/Manage.php:349
 msgid "listitem"
 msgstr "listitem"
 
+#: plugins/widgets/src/Manage.php:355
 msgid "string"
 msgstr "sträng"
 
+#: plugins/widgets/src/Manage.php:361
 msgid "Setting name:"
 msgstr "Inställningens namn:"
 
+#: plugins/widgets/src/Manage.php:386
 msgid "No widget as far."
 msgstr "Ingen widget så långt."
 
+#: plugins/widgets/src/Manage.php:393 plugins/widgets/src/Manage.php:408
 msgid "Up the widget"
 msgstr "Upp widgeten"
 
+#: plugins/widgets/src/Manage.php:394 plugins/widgets/src/Manage.php:409
 msgid "Down the widget"
 msgstr "Ner widgeten"
 
+#: plugins/widgets/src/Manage.php:410
 msgid "Remove the widget"
 msgstr "Ta bort widgeten"
 
+#: plugins/widgets/src/Manage.php:410
 msgid "Remove widget"
 msgstr "Ta bort widget"
 
+#: plugins/widgets/src/Manage.php:422
 msgid "Drag widgets here to remove."
 msgstr "Dra widgetar hit för att ta bort."
 
+#: plugins/widgets/src/Widgets.php:50
 msgid "Search engine"
 msgstr "Sökmotor"
 
+#: plugins/widgets/src/Widgets.php:52
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Platshållare (endast HTML5, valfritt):"
 
+#: plugins/widgets/src/Widgets.php:59
 msgid "Navigation links"
 msgstr "Navigeringslänkar"
 
+#: plugins/widgets/src/Widgets.php:67
 msgid "Selected entries"
 msgstr "Valda poster"
 
+#: plugins/widgets/src/Widgets.php:68
 msgid "Best of me"
 msgstr "Det bästa av mig"
 
+#: plugins/widgets/src/Widgets.php:76
 msgid "Blog languages"
 msgstr "Bloggspråk"
 
+#: plugins/widgets/src/Widgets.php:86
 msgid "With entries counts"
 msgstr "Med poster räknas"
 
+#: plugins/widgets/src/Widgets.php:87
 msgid "Include sub cats in count"
 msgstr "Inkludera underkatter i antal"
 
+#: plugins/widgets/src/Widgets.php:88
 msgid "Include empty categories"
 msgstr "Inkludera tomma kategorier"
 
+#: plugins/widgets/src/Widgets.php:95
 msgid "Subscribe links"
 msgstr "Prenumerera länkar"
 
+#: plugins/widgets/src/Widgets.php:96
 msgid "Subscribe"
 msgstr "Prenumerera"
 
+#: plugins/widgets/src/Widgets.php:97
 msgid "Feeds type:"
 msgstr "Typ av flöden:"
 
+#: plugins/widgets/src/Widgets.php:104
 msgid "Feed reader"
 msgstr "Läsare för flöde"
 
+#: plugins/widgets/src/Widgets.php:105
 msgid "Somewhere else"
 msgstr "Någonstans annat"
 
+#: plugins/widgets/src/Widgets.php:107 plugins/widgets/src/Widgets.php:135
 msgid "Entries limit:"
 msgstr "Gräns för inlägg:"
 
+#: plugins/widgets/src/Widgets.php:114
 msgid "Text"
 msgstr "Text"
 
+#: plugins/widgets/src/Widgets.php:116
 msgid "Text:"
 msgstr "Text:"
 
+#: plugins/widgets/src/Widgets.php:123
 msgid "Uncategorized"
 msgstr "Okategoriserad"
 
+#: plugins/widgets/src/Widgets.php:127 plugins/widgets/src/Widgets.php:129
 msgid "Last entries"
 msgstr "Senaste inläggen"
 
+#: plugins/widgets/src/Widgets.php:132
 msgid "Tag:"
 msgstr "Tag:"
 
+#: plugins/widgets/src/Widgets.php:143 plugins/widgets/src/Widgets.php:144
 msgid "Last comments"
 msgstr "Senaste kommentarer"
 
+#: plugins/widgets/src/Widgets.php:145
 msgid "Comments limit:"
 msgstr "Gräns för kommentarer:"
 
+#: plugins/widgets/src/Widgets.php:424
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Den här bloggens poster %s feed"
 
+#: plugins/widgets/src/Widgets.php:425
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Denna bloggs kommentarer %s feed"
 
+#: plugins/widgets/src/Widgets.php:433
 msgid "Entries feed"
 msgstr "Inlägg flöde"
 
+#: plugins/widgets/src/Widgets.php:439
 msgid "Comments feed"
 msgstr "Kommentar flöde"
 
+#: plugins/widgets/src/WidgetsElement.php:479
 msgid "Title (optional)"
 msgstr "Titel (valfritt)"
 
+#: plugins/widgets/src/WidgetsElement.php:490
 msgid "All pages"
 msgstr "Alla sidor"
 
+#: plugins/widgets/src/WidgetsElement.php:491
 msgid "Home page only"
 msgstr "Endast startsidan"
 
+#: plugins/widgets/src/WidgetsElement.php:492
 msgid "Except on home page"
 msgstr "Utom på hemsidan"
 
+#: plugins/widgets/src/WidgetsElement.php:500
 msgid "Display on:"
 msgstr "Visning på:"
 
+#: plugins/widgets/src/WidgetsElement.php:536
 msgid "Content only"
 msgstr "Endast innehåll"
 
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "CSS class:"
 msgstr "CSS klass:"
 
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Offline"
 msgstr "Offline"
+
