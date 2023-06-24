@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 
-class Frontend extends dcNsProcess
+class Frontend extends Process
 {
     public static function init(): bool
     {

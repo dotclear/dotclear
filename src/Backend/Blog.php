@@ -14,10 +14,10 @@ namespace Dotclear\Backend;
 
 use dcBlog;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcSettings;
 use Dotclear\App;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -30,7 +30,7 @@ use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-class Blog extends dcNsProcess
+class Blog extends Process
 {
     public static function init(): bool
     {

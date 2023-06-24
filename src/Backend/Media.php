@@ -16,8 +16,8 @@ use adminMediaList;
 use adminMediaPage;
 use dcAdminFilter;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -26,7 +26,7 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Media extends dcNsProcess
+class Media extends Process
 {
     public static function init(): bool
     {

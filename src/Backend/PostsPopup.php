@@ -14,14 +14,14 @@ namespace Dotclear\Backend;
 
 use adminPostMiniList;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcThemes;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class PostsPopup extends dcNsProcess
+class PostsPopup extends Process
 {
     public static function init(): bool
     {

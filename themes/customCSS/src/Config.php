@@ -11,16 +11,16 @@
 
 namespace Dotclear\Theme\customCSS;
 
-use Exception;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Exception;
 use form;
 
-class Config extends dcNsProcess
+class Config extends Process
 {
     public static function init(): bool
     {

@@ -11,10 +11,10 @@ namespace Dotclear {
     use Autoloader;
     use dcAdmin;
     use dcCore;
-    use dcNsProcess;
     use dcPublic;
     use dcUrlHandlers;
     use dcUtils;
+    use Dotclear\Core\Process;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
@@ -121,7 +121,6 @@ namespace Dotclear {
                 'dcMeta'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.meta.php']),
                 'dcMedia'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.media.php']),
                 'dcPostMedia'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.postmedia.php']),
-                'dcNsProcess'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.ns.process.php']),
                 'dcModuleDefine' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.module.define.php']),
                 'dcModules'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.modules.php']),
                 'dcPlugins'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.plugins.php']),
@@ -561,7 +560,7 @@ namespace Dotclear {
         {
             // If a process is provided, call it in 3 steps: init, process, render.
             if (!empty($process)) {
-                if (is_subclass_of($process, dcNsProcess::class, true)) {
+                if (is_subclass_of($process, Process::class, true)) {
                     try {
                         if ($process::init() !== false && $process::process() !== false) {
                             $process::render();

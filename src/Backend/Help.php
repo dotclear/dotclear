@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
-class Help extends dcNsProcess
+class Help extends Process
 {
     public static function init(): bool
     {

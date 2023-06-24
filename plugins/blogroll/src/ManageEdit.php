@@ -16,11 +16,11 @@ use Exception;
 use dcAdminCombos;
 use dcCore;
 use dcPage;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
 
-class ManageEdit extends dcNsProcess
+class ManageEdit extends Process
 {
     public static function init(): bool
     {

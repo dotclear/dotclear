@@ -12,11 +12,11 @@ namespace Dotclear\Backend;
 
 use dcAuth;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcUtils;
+use Dotclear\Core\Process;
 
-class HelpCharte extends dcNsProcess
+class HelpCharte extends Process
 {
     /**
      * Initializes the page.

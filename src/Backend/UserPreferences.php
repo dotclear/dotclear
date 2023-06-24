@@ -18,15 +18,15 @@ use dcAdminCombos;
 use dcAdminHelper;
 use dcAuth;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use Exception;
 use form;
 
-class UserPreferences extends dcNsProcess
+class UserPreferences extends Process
 {
     public static function init(): bool
     {

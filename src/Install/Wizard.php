@@ -9,8 +9,8 @@
 
 namespace Dotclear\Install;
 
-use dcNsProcess;
 use Dotclear\Fault;
+use Dotclear\Core\Process;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Helper\File\Files;
@@ -22,7 +22,7 @@ use Dotclear\Helper\Text;
 use Exception;
 use form;
 
-class Wizard extends dcNsProcess
+class Wizard extends Process
 {
     private static $err           = '';
     private static $DBDRIVER      = 'mysqli';

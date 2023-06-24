@@ -14,13 +14,13 @@ namespace Dotclear\Backend;
 
 use dcAdminCombos;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Categories extends dcNsProcess
+class Categories extends Process
 {
     public static function init(): bool
     {

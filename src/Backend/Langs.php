@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
@@ -24,7 +24,7 @@ use Dotclear\Helper\Network\HttpClient;
 use Exception;
 use form;
 
-class Langs extends dcNsProcess
+class Langs extends Process
 {
     // Local constants
 

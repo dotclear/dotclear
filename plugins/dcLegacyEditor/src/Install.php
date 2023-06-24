@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 
-class Install extends dcNsProcess
+class Install extends Process
 {
     public static function init(): bool
     {

@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 
 use dcAdminNotices;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -27,7 +27,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-class BlogDel extends dcNsProcess
+class BlogDel extends Process
 {
     public static function init(): bool
     {

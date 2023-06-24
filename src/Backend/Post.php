@@ -20,9 +20,9 @@ use dcCategories;
 use dcCommentsActions;
 use dcCore;
 use dcMedia;
-use dcNsProcess;
 use dcPage;
 use dcTrackback;
+use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -31,7 +31,7 @@ use Dotclear\Helper\Text;
 use Exception;
 use form;
 
-class Post extends dcNsProcess
+class Post extends Process
 {
     public static function init(): bool
     {

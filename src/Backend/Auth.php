@@ -14,9 +14,9 @@ namespace Dotclear\Backend;
 
 use dcAuth;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcUpgrade;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -24,7 +24,7 @@ use Dotclear\Helper\Network\Mail\Mail;
 use Exception;
 use form;
 
-class Auth extends dcNsProcess
+class Auth extends Process
 {
     public static function init(): bool
     {

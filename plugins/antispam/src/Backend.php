@@ -15,9 +15,9 @@ namespace Dotclear\Plugin\antispam;
 use ArrayObject;
 use dcCore;
 use dcFavorites;
-use dcNsProcess;
+use Dotclear\Core\Process;
 
-class Backend extends dcNsProcess
+class Backend extends Process
 {
     public static function init(): bool
     {

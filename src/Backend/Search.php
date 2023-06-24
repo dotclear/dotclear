@@ -18,14 +18,14 @@ use adminUserPref;
 use dcAuth;
 use dcCommentsActions;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcPostsActions;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Search extends dcNsProcess
+class Search extends Process
 {
     // Local properties (used by behavior callbacks)
 

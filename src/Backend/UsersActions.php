@@ -16,14 +16,14 @@ namespace Dotclear\Backend;
 
 use dcBlog;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
-class UsersActions extends dcNsProcess
+class UsersActions extends Process
 {
     public static function init(): bool
     {

@@ -15,11 +15,11 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Exception;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
-class Manage extends dcNsProcess
+class Manage extends Process
 {
     public static function init(): bool
     {

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Exception;
@@ -22,7 +22,7 @@ use Exception;
 // Note: this script requires PHP ≥ 5.4.
 // Inspired from https://mathiasbynens.be/notes/csp-reports
 
-class CspReport extends dcNsProcess
+class CspReport extends Process
 {
     public static function init(): bool
     {

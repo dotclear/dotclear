@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simpleMenu;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
-class Install extends dcNsProcess
+class Install extends Process
 {
     public static function init(): bool
     {

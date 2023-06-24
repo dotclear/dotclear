@@ -15,10 +15,10 @@ namespace Dotclear\Backend;
 use adminModulesList;
 use dcCore;
 use dcModules;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 
-class Plugin extends dcNsProcess
+class Plugin extends Process
 {
     public static function init(): bool
     {

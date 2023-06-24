@@ -21,10 +21,10 @@ use dcCategories;
 use dcCore;
 use dcMedia;
 use dcModuleDefine;
-use dcNsProcess;
 use dcStore;
 use dcThemes;
 use dcUpdate;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlValidator;
@@ -33,7 +33,7 @@ use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Text;
 use Exception;
 
-class Rest extends dcNsProcess
+class Rest extends Process
 {
     public static function init(): bool
     {

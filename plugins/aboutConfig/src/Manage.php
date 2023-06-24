@@ -16,11 +16,11 @@ use Exception;
 use dcCore;
 use dcNamespace;
 use dcPage;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
 
-class Manage extends dcNsProcess
+class Manage extends Process
 {
     /**
      * Initializes the page.

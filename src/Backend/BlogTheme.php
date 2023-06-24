@@ -15,9 +15,9 @@ namespace Dotclear\Backend;
 use adminThemesList;
 use dcCore;
 use dcModuleDefine;
-use dcNsProcess;
 use dcPage;
 use dcThemes;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Form;
@@ -28,7 +28,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
-class BlogTheme extends dcNsProcess
+class BlogTheme extends Process
 {
     public static function init(): bool
     {

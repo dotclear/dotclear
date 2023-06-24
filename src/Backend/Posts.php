@@ -14,14 +14,14 @@ namespace Dotclear\Backend;
 use adminPostFilter;
 use adminPostList;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcPostsActions;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Posts extends dcNsProcess
+class Posts extends Process
 {
     public static function init(): bool
     {

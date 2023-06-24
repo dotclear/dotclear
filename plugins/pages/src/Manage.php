@@ -14,13 +14,13 @@ namespace Dotclear\Plugin\pages;
 
 use adminUserPref;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Manage extends dcNsProcess
+class Manage extends Process
 {
     public static function init(): bool
     {

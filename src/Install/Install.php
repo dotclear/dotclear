@@ -14,12 +14,12 @@ use dcAuth;
 use dcBlog;
 use dcCore;
 use dcFavorites;
-use dcNsProcess;
 use dcPage;
 use dcSettings;
+use Dotclear\Fault;
+use Dotclear\Core\Process;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
-use Dotclear\Fault;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -27,7 +27,7 @@ use Dotclear\Helper\Text;
 use Exception;
 use form;
 
-class Install extends dcNsProcess
+class Install extends Process
 {
     private static $can_install     = true;
     private static $err             = '';

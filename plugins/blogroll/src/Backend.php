@@ -15,10 +15,10 @@ namespace Dotclear\Plugin\blogroll;
 use dcAdmin;
 use dcCore;
 use dcFavorites;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use initBlogroll;
 
-class Backend extends dcNsProcess
+class Backend extends Process
 {
     public static function init(): bool
     {
