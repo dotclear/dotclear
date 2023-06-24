@@ -287,6 +287,7 @@ class dcDefaultPostActions
      */
     public static function doChangePostFirstPub(dcPostsActions $ap)
     {
+        $status = null;
         switch ($ap->getAction()) {
             case 'never':
                 $status = 0;
@@ -296,25 +297,27 @@ class dcDefaultPostActions
                 $status = 1;
         }
 
-        $ids = $ap->getIDs();
-        if (empty($ids)) {
-            throw new Exception(__('No entry selected'));
+        if (!is_null($status)) {
+            $ids = $ap->getIDs();
+            if (empty($ids)) {
+                throw new Exception(__('No entry selected'));
+            }
+
+            // Set first publication flag of entries
+            dcCore::app()->blog->updPostsFirstPub($ids, $status);
+
+            dcPage::addSuccessNotice(
+                sprintf(
+                    __(
+                        '%d entry has been successfully updated as: "%s"',
+                        '%d entries have been successfully updated as: "%s"',
+                        count($ids)
+                    ),
+                    count($ids),
+                    $status ? __('Already published') : __('Never published')
+                )
+            );
         }
-
-        // Set first publication flag of entries
-        dcCore::app()->blog->updPostsFirstPub($ids, $status);
-
-        dcPage::addSuccessNotice(
-            sprintf(
-                __(
-                    '%d entry has been successfully updated as: "%s"',
-                    '%d entries have been successfully updated as: "%s"',
-                    count($ids)
-                ),
-                count($ids),
-                $status ? __('Already published') : __('Never published')
-            )
-        );
         $ap->redirect(true);
     }
 
