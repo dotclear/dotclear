@@ -127,7 +127,9 @@ class Plugins extends dcNsProcess
 
             echo
             '<form id="force-checking" action="' . dcCore::app()->admin->list->getURL('', false) . '" method="get">' .
-            '<p><input type="hidden" name="nocache" value="1" />' .
+            '<p>' .
+            '<input type="hidden" name="nocache" value="1" />' .
+            '<input type="hidden" name="process" value="Plugins" />' .
             '<input type="submit" value="' . __('Force checking update of plugins') . '" /></p>' .
             '</form>';
 

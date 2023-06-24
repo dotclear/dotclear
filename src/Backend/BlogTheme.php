@@ -168,6 +168,7 @@ class BlogTheme extends dcNsProcess
                     (new Para())
                     ->items([
                         (new Hidden('nocache', '1')),
+                        (new Hidden('process', 'BlogTheme')),
                         (new Submit('force-checking-update', __('Force checking update of themes'))),
                     ]),
                 ])
