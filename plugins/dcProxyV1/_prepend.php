@@ -180,6 +180,7 @@ dcProxyV1::classAliases([
 
     'dcRecord'    => 'Dotclear\Database\MetaRecord',
     'dcNsProcess' => 'Dotclear\Core\Process',
+    'dcFavorites' => 'Dotclear\Core\Backend\Favorites',
     'dcMenu'      => 'Dotclear\Core\Backend\Menu',
     'dcAdmin'     => 'Dotclear\Core\Backend\Utility',
     'dcPublic'    => 'Dotclear\Core\Frontend\Utility',

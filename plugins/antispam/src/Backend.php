@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
 use dcCore;
-use dcFavorites;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -45,7 +45,7 @@ class Backend extends Process
             'coreAfterCommentUpdate'    => [Antispam::class, 'trainFilters'],
             'adminAfterCommentDesc'     => [Antispam::class, 'statusMessage'],
             'adminDashboardHeaders'     => [Antispam::class, 'dashboardHeaders'],
-            'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(
                     My::id(),
                     [

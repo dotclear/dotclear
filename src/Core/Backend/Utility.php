@@ -17,10 +17,8 @@ use dcAdminBlogPref;
 use dcAdminHelper;
 use dcAdminURL;
 use dcCore;
-use dcFavorites;
 use dcNotices;
 use dcTraitDynamicProperties;
-use Dotclear\Core\Backend\Menu;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -223,7 +221,7 @@ class Utility
             $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
             dcCore::app()->notices = new dcNotices();
-            dcCore::app()->favs    = new dcFavorites();
+            dcCore::app()->favs    = new Favorites();
             # [] : Title, URL, small icon, large icon, permissions, id, class
             # NB : '*' in permissions means any, null means super admin only
 

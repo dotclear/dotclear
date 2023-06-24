@@ -13,13 +13,13 @@ use DateTimeZone;
 use dcAuth;
 use dcBlog;
 use dcCore;
-use dcFavorites;
 use dcPage;
 use dcSettings;
-use Dotclear\Fault;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
+use Dotclear\Fault;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -290,7 +290,7 @@ class Install extends Process
                 dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', false, true);
 
                 # Add default favorites
-                dcCore::app()->favs = new dcFavorites();
+                dcCore::app()->favs = new Favorites();
                 $init_favs          = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
                 dcCore::app()->favs->setFavoriteIDs($init_favs, true);
 

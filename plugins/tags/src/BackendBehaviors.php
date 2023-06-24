@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use Dotclear\Database\Cursor;
 use dcCore;
-use dcFavorites;
 use dcMeta;
 use dcPage;
 use dcPostsActions;
+use Dotclear\Core\Backend\Favorites;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
@@ -97,9 +97,9 @@ class BackendBehaviors
     /**
      * Add tags as dashboard favorites
      *
-     * @param      dcFavorites  $favs   The favs
+     * @param      Favorites  $favs   The favs
      */
-    public static function dashboardFavorites(dcFavorites $favs): void
+    public static function dashboardFavorites(Favorites $favs): void
     {
         $favs->register(My::id(), [
             'title'       => My::name(),

@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcCore;
-use dcFavorites;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Utility;
 use Dotclear\Core\Process;
 
@@ -56,7 +56,7 @@ class Backend extends Process
                     [__('entries per page'), 30],
                 ];
             },
-            'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),

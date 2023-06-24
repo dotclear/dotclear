@@ -17,8 +17,8 @@ namespace Dotclear\Plugin\maintenance;
 use ArrayObject;
 use dcAdminHelper;
 use dcCore;
-use dcFavorites;
 use dcPage;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Helper\Date;
 use form;
 
@@ -61,9 +61,9 @@ class BackendBehaviors
     /**
      * Favorites
      *
-     * @param      dcFavorites   $favs   favs
+     * @param      Favorites   $favs   favs
      */
-    public static function adminDashboardFavorites(dcFavorites $favs): void
+    public static function adminDashboardFavorites(Favorites $favs): void
     {
         $favs->register(My::id(), [
             'title'       => My::name(),

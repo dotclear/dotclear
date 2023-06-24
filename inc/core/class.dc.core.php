@@ -223,11 +223,11 @@ final class dcCore
     public $adminurl;
 
     /**
-     * dcFavorites instance
+     * Bakcend Favorites instance
      *
      * May be transfered as property of backend Utility instance in future
      *
-     * @var dcFavorites
+     * @var \Dotclear\Core\Backend\Favorites
      */
     public $favs;
 
