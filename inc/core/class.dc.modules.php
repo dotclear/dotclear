@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -1201,7 +1202,7 @@ class dcModules
 
         // unknown class
         $class = $module->namespace . Autoloader::NS_SEP . ucfirst($ns);
-        if (!class_exists($class) || !is_subclass_of($class, 'dcNsProcess', true)) {
+        if (!is_subclass_of($class, Process::class)) {
             return '';
         }
 

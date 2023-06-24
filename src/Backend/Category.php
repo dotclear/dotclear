@@ -14,9 +14,9 @@ namespace Dotclear\Backend;
 
 use dcCategories;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcSettings;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -29,7 +29,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-class Category extends dcNsProcess
+class Category extends Process
 {
     public static function init(): bool
     {

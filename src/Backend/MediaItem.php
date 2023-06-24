@@ -15,10 +15,10 @@ namespace Dotclear\Backend;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use dcNsProcess;
 use dcPage;
 use dcPostMedia;
 use dcThemes;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
@@ -28,7 +28,7 @@ use Exception;
 use form;
 use SimpleXMLElement;
 
-class MediaItem extends dcNsProcess
+class MediaItem extends Process
 {
     public static function init(): bool
     {

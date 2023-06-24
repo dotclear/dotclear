@@ -36,7 +36,6 @@ $__autoload = [
     'dcMeta'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.meta.php']),
     'dcMedia'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.media.php']),
     'dcPostMedia'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.postmedia.php']),
-    'dcNsProcess'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.ns.process.php']),
     'dcModuleDefine' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.module.define.php']),
     'dcModules'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.modules.php']),
     'dcPlugins'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.plugins.php']),

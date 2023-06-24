@@ -15,12 +15,12 @@ namespace Dotclear\Plugin\userPref;
 use Exception;
 use dcCore;
 use dcPage;
-use dcNsProcess;
 use dcWorkspace;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
 
-class Manage extends dcNsProcess
+class Manage extends Process
 {
     /**
      * Initializes the page.

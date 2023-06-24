@@ -15,8 +15,8 @@ namespace Dotclear\Backend;
 use adminModulesList;
 use dcCore;
 use dcModuleDefine;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
@@ -24,7 +24,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-class Plugins extends dcNsProcess
+class Plugins extends Process
 {
     public static function init(): bool
     {

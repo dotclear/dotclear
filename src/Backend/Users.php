@@ -16,8 +16,8 @@ use ArrayObject;
 use adminUserFilter;
 use adminUserList;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -27,7 +27,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Exception;
 
-class Users extends dcNsProcess
+class Users extends Process
 {
     public static function init(): bool
     {

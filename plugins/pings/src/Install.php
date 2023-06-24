@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 
-class Install extends dcNsProcess
+class Install extends Process
 {
     private static array $default_pings_uris = [
         'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',

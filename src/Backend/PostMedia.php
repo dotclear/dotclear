@@ -14,9 +14,9 @@ namespace Dotclear\Backend;
 
 use dcCore;
 use dcMedia;
-use dcNsProcess;
 use dcPage;
 use dcPostMedia;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
@@ -25,7 +25,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
-class PostMedia extends dcNsProcess
+class PostMedia extends Process
 {
     public static function init(): bool
     {

@@ -15,13 +15,13 @@ namespace Dotclear\Plugin\tags;
 use adminPostList;
 use dcCore;
 use dcMeta;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class ManagePosts extends dcNsProcess
+class ManagePosts extends sProcess
 {
     public static function init(): bool
     {

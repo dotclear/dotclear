@@ -13,11 +13,11 @@ namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
 use dcCore;
-use dcNsProcess;
 use dcThemeConfig;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 
-class Frontend extends dcNsProcess
+class Frontend extends Process
 {
     public static function init(): bool
     {

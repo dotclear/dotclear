@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcUpdate;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
@@ -23,7 +23,7 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
-class Update extends dcNsProcess
+class Update extends Process
 {
     public static function init(): bool
     {

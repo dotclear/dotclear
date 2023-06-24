@@ -16,10 +16,10 @@ use dcAdminCombos;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use dcNsProcess;
 use dcPage;
 use dcSettings;
 use dcUtils;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -27,7 +27,7 @@ use Dotclear\Helper\Network\HttpClient;
 use Exception;
 use form;
 
-class BlogPref extends dcNsProcess
+class BlogPref extends Process
 {
     public static function init(): bool
     {

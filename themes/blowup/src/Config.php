@@ -12,16 +12,16 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcThemeConfig;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
-class Config extends dcNsProcess
+class Config extends Process
 {
     public static function init(): bool
     {

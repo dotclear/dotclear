@@ -16,13 +16,13 @@ use ArrayObject;
 use Exception;
 use adminThemesList;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcThemes;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
 
-class Manage extends dcNsProcess
+class Manage extends Process
 {
     public static function init(): bool
     {

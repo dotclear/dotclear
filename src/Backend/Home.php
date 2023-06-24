@@ -19,13 +19,13 @@ use dcAdminHelper;
 use dcAuth;
 use dcBlog;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-class Home extends dcNsProcess
+class Home extends Process
 {
     public static function init(): bool
     {

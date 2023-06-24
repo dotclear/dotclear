@@ -15,15 +15,15 @@ namespace Dotclear\Backend;
 use dcAdminCombos;
 use dcBlog;
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
-class Comment extends dcNsProcess
+class Comment extends Process
 {
     public static function init(): bool
     {

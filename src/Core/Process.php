@@ -11,7 +11,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-abstract class dcNsProcess
+declare(strict_types=1);
+
+namespace Dotclear\Core;
+
+abstract class Process
 {
     /**
      * Class is initialized and ok to be used.

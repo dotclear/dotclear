@@ -18,15 +18,15 @@ use dcBlog;
 use dcCommentsActions;
 use dcCore;
 use dcMedia;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
-class ManagePage extends dcNsProcess
+class ManagePage extends Process
 {
     public static function init(): bool
     {

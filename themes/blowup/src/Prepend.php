@@ -12,10 +12,10 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
-use dcNsProcess;
 use dcPage;
+use Dotclear\Core\Process;
 
-class Prepend extends dcNsProcess
+class Prepend extends Process
 {
     public static function init(): bool
     {

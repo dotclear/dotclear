@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\importExport;
 
 use dcCore;
 use dcFavorites;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Dotclear\Plugin\maintenance\Maintenance;
 
-class Backend extends dcNsProcess
+class Backend extends Process
 {
     public static function init(): bool
     {

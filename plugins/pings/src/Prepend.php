@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\pings;
 
 use dcBlog;
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Exception;
 
-class Prepend extends dcNsProcess
+class Prepend extends Process
 {
     public static function init(): bool
     {

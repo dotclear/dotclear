@@ -14,13 +14,13 @@ namespace Dotclear\Backend;
 
 use dcAdminCombos;
 use dcCore;
-use dcNsProcess;
 use dcPage;
 use dcThemes;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
 
-class LinkPopup extends dcNsProcess
+class LinkPopup extends Process
 {
     public static function init(): bool
     {

@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
 use initBlogroll;
 
-class Install extends dcNsProcess
+class Install extends Process
 {
     public static function init(): bool
     {
