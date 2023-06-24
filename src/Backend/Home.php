@@ -12,12 +12,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminModulesList;
 use ArrayObject;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -259,7 +259,7 @@ class Home extends Process
             echo
             '<div class="success">' . __('Following plugins have been installed:') . '<ul>';
             foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
-                $info = implode(' - ', adminModulesList::getSettingsUrls($k, true));
+                $info = implode(' - ', ModulesList::getSettingsUrls($k, true));
                 echo
                 '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
             }

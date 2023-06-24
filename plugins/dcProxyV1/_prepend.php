@@ -184,6 +184,8 @@ dcProxyV1::classAliases([
     // Core admin -----------------
 
     'adminMediaPage'    => 'Dotclear\Core\Backend\MediaPage',
+    'adminModulesList'  => 'Dotclear\Core\Backend\ModulesList',
+    'adminThemesList'   => 'Dotclear\Core\Backend\ThemesList',
     'adminUserPref'     => 'Dotclear\Core\Backend\UserPref',
     'dcActions'         => 'Dotclear\Core\Backend\Action\Actions',
     'dcAdmin'           => 'Dotclear\Core\Backend\Utility',

@@ -1361,26 +1361,13 @@ class dcUpgrade
                     'admin/xmlrpc.php',
                     'admin/install/wizard.php',
                     'admin/install/check.php',
-                    'inc/admin/prepend.php',
-                    'inc/admin/class.dc.admin.php',
-                    'inc/admin/class.dc.blog_pref.php',
-                    'inc/admin/class.dc.favorites.php',
-                    'inc/admin/class.dc.menu.php',
-                    'inc/admin/lib.admincombos.php',
-                    'inc/admin/lib.adminuserpref.php',
-                    'inc/admin/lib.dc.adminurl.php',
-                    'inc/admin/lib.dc.notices.php',
-                    'inc/admin/lib.dc.page.php',
-                    'inc/admin/lib.helper.php',
-                    'inc/admin/lib.mediapage.php',
-                    'inc/admin/lib.themeconfig.php',
                     'inc/public/class.dc.public.php',
                     'inc/prepend.php',
                 ],
                 // Folders
                 [
                     'admin/tpl',
-                    'inc/admin/actions',
+                    'inc/admin',
                 ]
             );
         }

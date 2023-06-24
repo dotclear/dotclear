@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\themeEditor;
 
 use ArrayObject;
 use Exception;
-use adminThemesList;
 use dcCore;
 use dcThemes;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -51,7 +51,7 @@ class Manage extends Process
         dcCore::app()->admin->user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 
         # Loading themes // deprecated since 2.26
-        adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (!is_a(dcCore::app()->themes, 'dcThemes')) {
             dcCore::app()->themes = new dcThemes();

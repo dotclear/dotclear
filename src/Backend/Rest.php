@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminModulesList;
 use dcAntispam;
 use dcAuth;
 use dcBlog;
@@ -23,6 +22,7 @@ use dcModuleDefine;
 use dcStore;
 use dcThemes;
 use dcUpdate;
+use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -758,7 +758,7 @@ class Rest extends Process
             throw new Exception('Unknown module ID');
         }
 
-        adminModulesList::fillSanitizeModule($define);
+        ModulesList::fillSanitizeModule($define);
 
         $rsp     = new XmlTag('module');
         $rsp->id = $id;

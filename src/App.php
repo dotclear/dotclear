@@ -159,8 +159,6 @@ namespace Dotclear {
                 'adminUserFilter'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
                 'adminBlogFilter'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
                 'adminMediaFilter'     => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'adminModulesList'     => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.moduleslist.php']),
-                'adminThemesList'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.moduleslist.php']),
 
                 // Public
                 'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'class.dc.template.php']),

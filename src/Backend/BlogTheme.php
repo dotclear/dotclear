@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminThemesList;
 use dcCore;
 use dcModuleDefine;
 use dcThemes;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -41,14 +41,14 @@ class BlogTheme extends Process
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 
         // Page helper
-        dcCore::app()->admin->list = new adminThemesList(
+        dcCore::app()->admin->list = new ThemesList(
             dcCore::app()->themes,
             dcCore::app()->blog->themes_path,
             dcCore::app()->blog->settings->system->store_theme_url,
             !empty($_GET['nocache']) ? true : null
         );
         // deprecated since 2.26
-        adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (dcCore::app()->themes->disableDepModules(dcCore::app()->adminurl->get('admin.blog.theme', []))) {
             // A redirection occured, so we should never go further here

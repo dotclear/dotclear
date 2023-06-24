@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminModulesList;
 use dcCore;
 use dcModuleDefine;
+use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
@@ -29,16 +29,16 @@ class Plugins extends Process
     public static function init(): bool
     {
         // -- Page helper --
-        dcCore::app()->admin->list = new adminModulesList(
+        dcCore::app()->admin->list = new ModulesList(
             dcCore::app()->plugins,
             DC_PLUGINS_ROOT,
             dcCore::app()->blog->settings->system->store_plugin_url,
             !empty($_GET['nocache']) ? true : null
         );
 
-        adminModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
+        ModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
         // deprecated since 2.26
-        adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
+        ModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
         if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.plugins', []))) {
             exit;

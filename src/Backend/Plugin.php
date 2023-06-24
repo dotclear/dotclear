@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminModulesList;
 use dcCore;
 use dcModules;
+use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
@@ -111,7 +111,7 @@ class Plugin extends Process
             echo $p_content;
             if (!$popup) {
                 // Add direct links to plugin settings if any
-                $settings = adminModulesList::getSettingsUrls((string) $plugin, true, false);
+                $settings = ModulesList::getSettingsUrls((string) $plugin, true, false);
                 if (!empty($settings)) {
                     echo '<hr class="clear"/><p class="right modules">' . implode(' - ', $settings) . '</p>';
                 }
