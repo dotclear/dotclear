@@ -18,8 +18,14 @@ use adminUserList;
 use dcCore;
 use dcNsProcess;
 use dcPage;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Exception;
-use form;
 
 class Users extends dcNsProcess
 {
@@ -40,7 +46,6 @@ class Users extends dcNsProcess
 
         // Filters
         dcCore::app()->admin->user_filter = new adminUserFilter();
-        dcCore::app()->admin->user_filter->add('process', 'UsersActions');
 
         // get list params
         $params = dcCore::app()->admin->user_filter->params();
@@ -90,7 +95,7 @@ class Users extends dcNsProcess
     {
         dcPage::open(
             __('Users'),
-            dcPage::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(),
+            dcPage::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->adminurl->get('admin.users')),
             dcPage::breadcrumb(
                 [
                     __('System') => '',
@@ -109,29 +114,45 @@ class Users extends dcNsProcess
 
             echo '<p class="top-add"><strong><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
 
-            dcCore::app()->admin->user_filter->display('admin.user.actions');
+            dcCore::app()->admin->user_filter->display('admin.users');
+
+            // form process is different from filter process
+            dcCore::app()->admin->user_filter->add('process', 'UsersActions');
 
             // Show users
             dcCore::app()->admin->user_list->display(
                 dcCore::app()->admin->user_filter->page,
                 dcCore::app()->admin->user_filter->nb,
-                '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" id="form-users">' .
 
-                '%s' .
-
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' .
-                __('Selected users action:') . ' ' .
-                form::combo('action', dcCore::app()->admin->combo_action) .
-                '</label> ' .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
-                dcCore::app()->adminurl->getHiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)) .
-                dcCore::app()->formNonce() .
-                '</p>' .
-                '</div>' .
-                '</form>',
+                (new Form('form-users'))
+                    ->action(dcCore::app()->adminurl->get('admin.user.actions'))
+                    ->method('post')
+                    ->fields([
+                        new Text('', '%s'),
+                        (new Div())
+                            ->class('two-cols')
+                             ->items([
+                                (new Para())->class(['col checkboxes-helpers']),
+                                (new Para())->class(['col right'])->items([
+                                    (new Select('action'))
+                                        ->class('online')
+                                        ->title(__('Actions'))
+                                        ->label(
+                                            (new Label(
+                                                __('Selected users action:'),
+                                                Label::OUTSIDE_LABEL_BEFORE
+                                            ))
+                                            ->class('classic')
+                                        )
+                                        ->items(dcCore::app()->admin->combo_action),
+                                    dcCore::app()->formNonce(false),
+                                    (new Submit('do-action'))
+                                        ->value(__('ok')),
+                                    ...dcCore::app()->adminurl->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
+                                ]),
+                            ]),
+                    ])
+                    ->render(),
                 dcCore::app()->admin->user_filter->show()
             );
         }
