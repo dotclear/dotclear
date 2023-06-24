@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use adminModulesList;
-use adminUserPref;
 use dcAntispam;
 use dcAuth;
 use dcBlog;
@@ -24,6 +23,7 @@ use dcModuleDefine;
 use dcStore;
 use dcThemes;
 use dcUpdate;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -693,7 +693,7 @@ class Rest extends Process
             throw new Exception('No list name');
         }
 
-        $sorts = adminUserPref::getUserFilters();
+        $sorts = UserPref::getUserFilters();
 
         if (!isset($sorts[$post['id']])) {
             throw new Exception('List name invalid');

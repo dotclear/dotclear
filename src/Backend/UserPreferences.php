@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use adminUserPref;
 use dcAdminCombos;
 use dcAuth;
 use dcCore;
 use dcPage;
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -155,10 +155,10 @@ class UserPreferences extends Process
         dcCore::app()->admin->rte = $rte;
 
         // Get default colums (admin lists)
-        dcCore::app()->admin->cols = adminUserPref::getUserColumns();
+        dcCore::app()->admin->cols = UserPref::getUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        dcCore::app()->admin->sorts = adminUserPref::getUserFilters();
+        dcCore::app()->admin->sorts = UserPref::getUserFilters();
 
         dcCore::app()->admin->order_combo = [
             __('Descending') => 'desc',

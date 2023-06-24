@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use adminUserPref;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -46,7 +46,7 @@ class Manage extends Process
         ];
 
         dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        dcCore::app()->admin->nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
+        dcCore::app()->admin->nb_per_page = UserPref::getUserFilters('pages', 'nb');
 
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             dcCore::app()->admin->nb_per_page = (int) $_GET['nb'];

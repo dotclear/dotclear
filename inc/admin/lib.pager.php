@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -210,7 +211,7 @@ class adminGenericListV2
      */
     public function userColumns(string $type, $cols)
     {
-        $cols = adminUserPref::getUserColumns($type, $cols);
+        $cols = UserPref::getUserColumns($type, $cols);
     }
 }
 

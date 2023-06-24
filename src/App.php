@@ -167,7 +167,6 @@ namespace Dotclear {
                 'dcThemeConfig'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.themeconfig.php']),
                 'dcAdminURL'           => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.dc.adminurl.php']),
                 'dcAdminNotices'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.dc.notices.php']),
-                'adminUserPref'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminuserpref.php']),
                 'dcPostsActions'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'actions', 'class.dcactionposts.php']),
                 'dcCommentsActions'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'actions', 'class.dcactioncomments.php']),
                 'dcBlogsActions'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'actions', 'class.dcactionblogs.php']),

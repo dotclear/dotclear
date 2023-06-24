@@ -14,12 +14,11 @@ namespace Dotclear\Backend;
 
 use adminCommentList;
 use adminPostList;
-use adminUserPref;
-use dcAuth;
 use dcCommentsActions;
 use dcCore;
 use dcPage;
 use dcPostsActions;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -36,8 +35,8 @@ class Search extends Process
     public static function init(): bool
     {
         dcPage::check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         dcCore::app()->addBehaviors([
@@ -71,7 +70,7 @@ class Search extends Process
         }
 
         dcCore::app()->admin->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        dcCore::app()->admin->nb   = adminUserPref::getUserFilters('search', 'nb');
+        dcCore::app()->admin->nb   = UserPref::getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             dcCore::app()->admin->nb = (int) $_GET['nb'];
         }

@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
@@ -70,7 +71,7 @@ class adminGenericFilterV2
      */
     public function userOptions(?string $option = null)
     {
-        return adminUserPref::getUserFilters($this->type, $option);
+        return UserPref::getUserFilters($this->type, $option);
     }
 
     /**
@@ -78,7 +79,7 @@ class adminGenericFilterV2
      */
     protected function parseOptions()
     {
-        $options = adminUserPref::getUserFilters($this->type);
+        $options = UserPref::getUserFilters($this->type);
         if (!empty($options)) {
             $this->has_user_pref = true;
         }

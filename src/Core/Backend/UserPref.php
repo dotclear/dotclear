@@ -11,7 +11,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class adminUserPref
+declare(strict_types=1);
+
+namespace Dotclear\Core\Backend;
+
+use ArrayObject;
+use dcCore;
+use dcAdminCombos;
+
+class UserPref
 {
     /**
      * Columns preferences
