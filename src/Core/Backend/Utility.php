@@ -13,8 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
-use dcAdminBlogPref;
-use dcAdminHelper;
 use dcAdminURL;
 use dcCore;
 use dcNotices;
@@ -143,7 +141,7 @@ class Utility
             }
 
             # Loading locales
-            dcAdminHelper::loadLocales();
+            Helper::loadLocales();
             /*
              * @var        string
              *
@@ -256,7 +254,7 @@ class Utility
             dcCore::app()->menu[self::MENU_BLOG]->title    = __('Blog');              // @phpstan-ignore-line
             dcCore::app()->menu[self::MENU_PLUGINS]->title = __('Plugins');           // @phpstan-ignore-line
 
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Blog appearance'),
                 'admin.blog.theme',
@@ -268,7 +266,7 @@ class Utility
                 false,
                 'BlogTheme'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Blog settings'),
                 'admin.blog.pref',
@@ -280,7 +278,7 @@ class Utility
                 false,
                 'BlogPref'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Media manager'),
                 'admin.media',
@@ -293,7 +291,7 @@ class Utility
                 false,
                 'Media'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Categories'),
                 'admin.categories',
@@ -305,7 +303,7 @@ class Utility
                 false,
                 'Categories'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Search'),
                 'admin.search',
@@ -318,7 +316,7 @@ class Utility
                 false,
                 'Search'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Comments'),
                 'admin.comments',
@@ -331,7 +329,7 @@ class Utility
                 false,
                 'Comments'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('Posts'),
                 'admin.posts',
@@ -344,7 +342,7 @@ class Utility
                 false,
                 'Posts'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_BLOG,
                 __('New post'),
                 'admin.post',
@@ -358,7 +356,7 @@ class Utility
                 'NewPost'
             );
 
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_SYSTEM,
                 __('My preferences'),
                 'admin.user.preferences',
@@ -368,7 +366,7 @@ class Utility
                 false,
                 'UserPref'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_SYSTEM,
                 __('Update'),
                 'admin.update',
@@ -378,7 +376,7 @@ class Utility
                 false,
                 'Update'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_SYSTEM,
                 __('Languages'),
                 'admin.langs',
@@ -388,7 +386,7 @@ class Utility
                 false,
                 'Langs'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_SYSTEM,
                 __('Plugins management'),
                 'admin.plugins',
@@ -398,7 +396,7 @@ class Utility
                 false,
                 'Plugins'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_SYSTEM,
                 __('Users'),
                 'admin.users',
@@ -408,7 +406,7 @@ class Utility
                 false,
                 'Users'
             );
-            dcAdminHelper::addMenuItem(
+            Helper::addMenuItem(
                 self::MENU_SYSTEM,
                 __('Blogs'),
                 'admin.blogs',
@@ -433,7 +431,7 @@ class Utility
             }
 
             # Admin behaviors
-            dcCore::app()->addBehavior('adminPopupPosts', [dcAdminBlogPref::class, 'adminPopupPosts']);
+            dcCore::app()->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
         }
 
         return true;

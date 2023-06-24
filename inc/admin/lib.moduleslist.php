@@ -13,6 +13,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -864,7 +865,7 @@ class adminModulesList
 
                 echo
                 '<td class="module-icon nowrap">' .
-                dcAdminHelper::adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)) .
+                Helper::adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)) .
                 '</td>';
             }
 

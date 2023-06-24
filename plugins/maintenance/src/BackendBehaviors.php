@@ -15,10 +15,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use ArrayObject;
-use dcAdminHelper;
 use dcCore;
 use dcPage;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Date;
 use form;
 
@@ -166,7 +166,7 @@ class BackendBehaviors
 
         $items[] = new ArrayObject([
             '<div id="maintenance-expired" class="box small"><h3>' .
-            dcAdminHelper::adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' .
+            Helper::adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' .
             __('Maintenance') . '</h3>' .
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .

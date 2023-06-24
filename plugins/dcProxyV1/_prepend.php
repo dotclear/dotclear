@@ -183,10 +183,11 @@ dcProxyV1::classAliases([
 
     // Core admin -----------------
 
-    'adminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
-    'dcFavorites'   => 'Dotclear\Core\Backend\Favorites',
-    'dcMenu'        => 'Dotclear\Core\Backend\Menu',
-    'dcAdmin'       => 'Dotclear\Core\Backend\Utility',
+    'dcAdminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
+    'dcAdminHelper'   => 'Dotclear\Core\Backend\Helper',
+    'dcFavorites'     => 'Dotclear\Core\Backend\Favorites',
+    'dcMenu'          => 'Dotclear\Core\Backend\Menu',
+    'dcAdmin'         => 'Dotclear\Core\Backend\Utility',
 
     // Core public ----------------
 

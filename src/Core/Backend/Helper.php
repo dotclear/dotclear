@@ -6,10 +6,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use dcCore;
+use dcUtils;
 use Dotclear\Helper\L10n;
 
-class dcAdminHelper
+class Helper
 {
     /**
      * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)

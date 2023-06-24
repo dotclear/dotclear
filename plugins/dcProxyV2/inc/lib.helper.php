@@ -7,14 +7,16 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Helper;
+
 /**
  * Load locales
  *
- * @deprecated     since 2.21  use dcAdminHelper::loadLocales()
+ * @deprecated     since 2.21  use \Dotclear\Core\Backend\Helper::loadLocales()
  */
 function dc_load_locales()
 {
-    dcAdminHelper::loadLocales();
+    Helper::loadLocales();
 }
 
 /**
@@ -39,13 +41,13 @@ function dc_admin_icon_url(string $img): string
  * @param string    $alt        alt attribute
  * @param string    $title      title attribute
  *
- * @deprecated  since 2.21  use dcAdminHelper::adminIcon()
+ * @deprecated  since 2.21  use \Dotclear\Core\Backend\Helper::adminIcon()
  *
  * @return string
  */
 function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
 {
-    return dcAdminHelper::adminIcon($img, $fallback, $alt, $title, $class);
+    return Helper::adminIcon($img, $fallback, $alt, $title, $class);
 }
 
 /**
@@ -59,9 +61,9 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
  * @param      bool    $pinned    The pinned
  * @param      bool    $strict    The strict
  *
- * @deprecated  since 2.21  use dcAdminHelper::addMenuItem()
+ * @deprecated  since 2.21  use \Dotclear\Core\Backend\Helper::addMenuItem()
  */
 function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false)
 {
-    dcAdminHelper::addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
+    Helper::addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
 }

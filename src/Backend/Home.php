@@ -15,11 +15,10 @@ namespace Dotclear\Backend;
 use adminModulesList;
 use ArrayObject;
 use dcAdminCombos;
-use dcAdminHelper;
-use dcAuth;
 use dcBlog;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -43,8 +42,8 @@ class Home extends Process
         }
 
         dcPage::check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.home', []))) {
@@ -141,8 +140,8 @@ class Home extends Process
         $admin_post_behavior = '';
         if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_USAGE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 $post_format = dcCore::app()->auth->getOption('post_format');
                 $post_editor = dcCore::app()->auth->getOption('editor');
@@ -379,7 +378,7 @@ class Home extends Process
 
             $dashboardIcons = '<div id="icons">';
             foreach ($__dashboard_icons as $k => $i) {
-                $dashboardIcons .= '<p><a href="' . $i[1] . '" id="icon-process-' . $k . '-fav">' . dcAdminHelper::adminIcon($i[2]) .
+                $dashboardIcons .= '<p><a href="' . $i[1] . '" id="icon-process-' . $k . '-fav">' . Helper::adminIcon($i[2]) .
             '<br /><span class="db-icon-title">' . $i[0] . '</span></a></p>';
             }
             $dashboardIcons .= '</div>';
@@ -387,8 +386,8 @@ class Home extends Process
         }
 
         if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             // Quick entry
 
@@ -414,7 +413,7 @@ class Home extends Process
                 '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
                 form::combo('cat_id', $categories_combo) . '</p>' .
                 (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_CATEGORIES,
+                    dcCore::app()->auth::PERMISSION_CATEGORIES,
                 ]), dcCore::app()->blog->id)
                     ? '<div>' .
                     '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
@@ -428,7 +427,7 @@ class Home extends Process
                     : '') .
                 '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
                 (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_PUBLISH,
+                    dcCore::app()->auth::PERMISSION_PUBLISH,
                 ]), dcCore::app()->blog->id)
                     ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
                     : '') .

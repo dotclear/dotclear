@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcAdminHelper;
 use dcUtils;
 
 class Menu
@@ -147,7 +146,7 @@ class Menu
     {
         return
         '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="menu-item-' . $id . '"' : '') . '>' .
-        '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? 'id="menu-process-' . $id . '"' : '') . '>' . dcAdminHelper::adminIcon($img) . $title . '</a>' .
+        '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? 'id="menu-process-' . $id . '"' : '') . '>' . Helper::adminIcon($img) . $title . '</a>' .
         '</li>' . "\n";
     }
 }

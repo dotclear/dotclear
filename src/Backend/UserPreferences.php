@@ -15,10 +15,10 @@ namespace Dotclear\Backend;
 use ArrayObject;
 use adminUserPref;
 use dcAdminCombos;
-use dcAdminHelper;
 use dcAuth;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -814,8 +814,8 @@ class UserPreferences extends Process
 
                 $count++;
 
-                $icon = dcAdminHelper::adminIcon($fav['small-icon']);
-                $zoom = dcAdminHelper::adminIcon($fav['large-icon'], false);
+                $icon = Helper::adminIcon($fav['small-icon']);
+                $zoom = Helper::adminIcon($fav['large-icon'], false);
                 if ($zoom !== '') {
                     $icon .= ' <span class="zoom">' . $zoom . '</span>';
                 }
@@ -894,8 +894,8 @@ class UserPreferences extends Process
             }
 
             $count++;
-            $icon = dcAdminHelper::adminIcon($fav['small-icon']);
-            $zoom = dcAdminHelper::adminIcon($fav['large-icon'], false);
+            $icon = Helper::adminIcon($fav['small-icon']);
+            $zoom = Helper::adminIcon($fav['large-icon'], false);
             if ($zoom !== '') {
                 $icon .= ' <span class="zoom">' . $zoom . '</span>';
             }
