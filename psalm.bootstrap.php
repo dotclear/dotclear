@@ -87,7 +87,6 @@ $__autoload = [
     'adminModulesList'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.moduleslist.php']),
     'adminThemesList'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.moduleslist.php']),
     'dcThemeConfig'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.themeconfig.php']),
-    'dcAdminNotices'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.dc.notices.php']),
     'dcPostsActions'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcactionposts.php']),
     'dcCommentsActions'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcactioncomments.php']),
     'dcBlogsActions'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcactionblogs.php']),

@@ -186,6 +186,7 @@ dcProxyV1::classAliases([
     'adminUserPref'   => 'Dotclear\Core\Backend\UserPref',
     'dcAdminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
     'dcAdminHelper'   => 'Dotclear\Core\Backend\Helper',
+    'dcAdminNotices'  => 'Dotclear\Core\Backend\Notices',
     'dcAdminURL'      => 'Dotclear\Core\Backend\Url',
     'dcFavorites'     => 'Dotclear\Core\Backend\Favorites',
     'dcMenu'          => 'Dotclear\Core\Backend\Menu',

@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -298,7 +299,7 @@ class dcPage
         }
 
         // Display notices and errors
-        echo dcAdminNotices::getNotices();
+        echo Notices::getNotices();
     }
 
     /**
@@ -308,7 +309,7 @@ class dcPage
      */
     public static function notices(): string
     {
-        return dcAdminNotices::getNotices();
+        return Notices::getNotices();
     }
 
     /**
@@ -319,7 +320,7 @@ class dcPage
      */
     public static function addMessageNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_MESSAGE, $message, $options);
+        Notices::addNotice(Notices::NOTICE_MESSAGE, $message, $options);
     }
 
     /**
@@ -330,7 +331,7 @@ class dcPage
      */
     public static function addSuccessNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_SUCCESS, $message, $options);
+        Notices::addNotice(Notices::NOTICE_SUCCESS, $message, $options);
     }
 
     /**
@@ -341,7 +342,7 @@ class dcPage
      */
     public static function addWarningNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_WARNING, $message, $options);
+        Notices::addNotice(Notices::NOTICE_WARNING, $message, $options);
     }
 
     /**
@@ -352,7 +353,7 @@ class dcPage
      */
     public static function addErrorNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_ERROR, $message, $options);
+        Notices::addNotice(Notices::NOTICE_ERROR, $message, $options);
     }
 
     /**
@@ -368,7 +369,7 @@ class dcPage
      */
     public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
     {
-        return dcAdminNotices::message($msg, $timestamp, $div, $echo, $class);
+        return Notices::message($msg, $timestamp, $div, $echo, $class);
     }
 
     /**
@@ -383,7 +384,7 @@ class dcPage
      */
     public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return dcAdminNotices::success($msg, $timestamp, $div, $echo);
+        return Notices::success($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -398,7 +399,7 @@ class dcPage
      */
     public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return dcAdminNotices::warning($msg, $timestamp, $div, $echo);
+        return Notices::warning($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -413,7 +414,7 @@ class dcPage
      */
     public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return dcAdminNotices::error($msg, $timestamp, $div, $echo);
+        return Notices::error($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -569,7 +570,7 @@ class dcPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo dcAdminNotices::getNotices();
+        echo Notices::getNotices();
     }
 
     /**

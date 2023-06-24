@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use dcAdminNotices;
 use dcCore;
 use dcPage;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -98,7 +98,7 @@ class BlogDel extends Process
                 __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
                 '<strong>' . dcCore::app()->admin->blog_id . ' (' . dcCore::app()->admin->blog_name . ')</strong>'
             );
-            dcAdminNotices::warning($msg, false, true);
+            Notices::warning($msg, false, true);
 
             echo
             // Legend

@@ -1368,6 +1368,7 @@ class dcUpgrade
                     'inc/admin/class.dc.menu.php',
                     'inc/admin/lib.adminuserpref.php',
                     'inc/admin/lib.dc.adminurl.php',
+                    'inc/admin/lib.dc.notices.php',
                     'inc/admin/lib.helper.php',
                     'inc/public/class.dc.public.php',
                     'inc/prepend.php',
