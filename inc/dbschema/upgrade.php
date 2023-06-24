@@ -1363,6 +1363,7 @@ class dcUpgrade
                     'admin/install/check.php',
                     'inc/admin/prepend.php',
                     'inc/admin/class.dc.admin.php',
+                    'inc/admin/class.dc.blog_pref.php',
                     'inc/admin/class.dc.favorites.php',
                     'inc/admin/class.dc.menu.php',
                     'inc/public/class.dc.public.php',

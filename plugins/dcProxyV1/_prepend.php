@@ -180,8 +180,15 @@ dcProxyV1::classAliases([
 
     'dcRecord'    => 'Dotclear\Database\MetaRecord',
     'dcNsProcess' => 'Dotclear\Core\Process',
-    'dcFavorites' => 'Dotclear\Core\Backend\Favorites',
-    'dcMenu'      => 'Dotclear\Core\Backend\Menu',
-    'dcAdmin'     => 'Dotclear\Core\Backend\Utility',
+
+    // Core admin -----------------
+
+    'adminBlogPref' => 'Dotclear\Core\Backend\BlogPref',
+    'dcFavorites'   => 'Dotclear\Core\Backend\Favorites',
+    'dcMenu'        => 'Dotclear\Core\Backend\Menu',
+    'dcAdmin'       => 'Dotclear\Core\Backend\Utility',
+
+    // Core public ----------------
+
     'dcPublic'    => 'Dotclear\Core\Frontend\Utility',
 ]);
