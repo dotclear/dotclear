@@ -63,7 +63,7 @@ class BackendBehaviors
         ' ' . __('days') .
         '</label></p>' .
         '<p class="form-note">' . __('Set -1 to disabled this feature ; Leave empty to use default 7 days delay.') . '</p>' .
-        '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.antispam') . '">' . __('Set spam filters.') . '</a></p>' .
+        '<p><a href="' . My::manageUrl() . '">' . __('Set spam filters.') . '</a></p>' .
         '</div>';
     }
 

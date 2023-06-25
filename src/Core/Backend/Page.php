@@ -68,7 +68,7 @@ class Page
         if (session_id()) {
             dcCore::app()->session->destroy();
         }
-        Http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+        dcCore::app()->adminurl->redirect('admin.auth');
     }
 
     /**
@@ -91,7 +91,7 @@ class Page
             if (session_id()) {
                 dcCore::app()->session->destroy();
             }
-            Http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+            dcCore::app()->adminurl->redirect('admin.auth');
         }
     }
 

@@ -224,7 +224,7 @@ class Config extends Process
                 dcCore::app()->admin->blowup_user = $blowup_user;
 
                 Page::addSuccessNotice(__('Theme configuration has been successfully updated.'));
-                Http::redirect(dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']));
+                dcCore::app()->adminurl->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
