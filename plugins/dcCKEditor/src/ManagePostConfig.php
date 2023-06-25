@@ -271,7 +271,7 @@ $notes_title = sprintf('"%s"', __('Note(s)'));
       e.editor.document.$.querySelector('body').style.setProperty('font-size', 'calc(var(--html-font-size) * 1.4)');
     }
 
-    e.editor.document.appendStyleSheet('index.php?pf=dcCKeditor/css/media.css');
+    e.editor.document.appendStyleSheet('index.php?pf=dcCKEditor/css/media.css');
 
     if ($('label[for="post_excerpt"] button').attr('aria-label') == dotclear.img_minus_alt) {
       $('#cke_post_excerpt').removeClass('hide');
