@@ -2,6 +2,7 @@
 'use strict';
 
 dotclear.dbSpamsCount = (icon_spam) => {
+  if (dotclear.servicesOff) return;
   const params = {
     f: 'getSpamsCount',
     xd_check: dotclear.nonce,

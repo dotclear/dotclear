@@ -2,6 +2,7 @@
 'use strict';
 
 dotclear.dbStoreUpdate = (store, url) => {
+  if (dotclear.servicesOff) return;
   if (url.length) {
     const params = {
       f: 'checkStoreUpdate',

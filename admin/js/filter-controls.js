@@ -51,6 +51,7 @@ $(() => {
   });
 
   $('#filter-options-save').on('click', () => {
+    if (dotclear.servicesOff) return;
     // Save list options (via services)
     const param = {
       f: 'setListsOptions',

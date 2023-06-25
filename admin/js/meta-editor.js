@@ -20,6 +20,7 @@ class metaEditor {
     this.post_id = false;
 
     this.service_uri = dotclear.servicesUri;
+    this.service_off = dotclear.servicesOff;
   }
 
   displayMeta(type, post_id, input_id = 'post_meta_input') {
@@ -60,6 +61,7 @@ class metaEditor {
   }
 
   displayMetaList() {
+    if (this.service_off) return;
     let li;
     if (this.meta_list == undefined) {
       this.meta_list = $('<ul class="metaList"></ul>');
@@ -135,6 +137,7 @@ class metaEditor {
   }
 
   showMetaList(list_type, target) {
+    if (this.service_off) return;
     const params = {
       f: 'getMeta',
       metaType: this.meta_type,
@@ -206,6 +209,7 @@ class metaEditor {
   }
 
   addMeta(str) {
+    if (this.service_off) return;
     str = this.splitMetaValues(str).join(',');
     if (!this.post_id) {
       str = this.splitMetaValues(`${this.meta_field.val()},${str}`);
@@ -234,6 +238,7 @@ class metaEditor {
   }
 
   removeMeta(meta_id) {
+    if (this.service_off) return;
     if (!this.post_id) {
       const meta = this.splitMetaValues(this.meta_field.val());
       const i = meta.indexOf(meta_id);
