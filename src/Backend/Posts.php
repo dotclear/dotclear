@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminPostFilter;
 use adminPostList;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsPosts;
+use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -39,7 +39,7 @@ class Posts extends Process
 
         // Filters
         // -------
-        dcCore::app()->admin->post_filter = new adminPostFilter();
+        dcCore::app()->admin->post_filter = new FilterPosts();
 
         // get list params
         $params = dcCore::app()->admin->post_filter->params();

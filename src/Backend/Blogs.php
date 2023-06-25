@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminBlogFilter;
 use adminBlogList;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
+use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -51,7 +51,7 @@ class Blogs extends Process
 
         /* Filters
         -------------------------------------------------------- */
-        dcCore::app()->admin->blog_filter = new adminBlogFilter();
+        dcCore::app()->admin->blog_filter = new FilterBlogs();
 
         // get list params
         $params = dcCore::app()->admin->blog_filter->params();

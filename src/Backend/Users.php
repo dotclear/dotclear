@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use adminUserFilter;
 use adminUserList;
 use dcCore;
+use Dotclear\Core\Backend\Filter\FilterUsers;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -45,7 +45,7 @@ class Users extends Process
         dcCore::app()->admin->combo_action = $combo_action;
 
         // Filters
-        dcCore::app()->admin->user_filter = new adminUserFilter();
+        dcCore::app()->admin->user_filter = new FilterUsers();
 
         // get list params
         $params = dcCore::app()->admin->user_filter->params();

@@ -151,14 +151,6 @@ namespace Dotclear {
                 'adminUserList'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.pager.php']),
                 'adminMediaList'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.pager.php']),
                 'dcPager'              => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.pager.php']),
-                'dcAdminFilter'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'dcAdminFilters'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'adminGenericFilterV2' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),      // V2
-                'adminPostFilter'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'adminCommentFilter'   => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'adminUserFilter'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'adminBlogFilter'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
-                'adminMediaFilter'     => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'admin', 'lib.adminfilters.php']),
 
                 // Public
                 'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'class.dc.template.php']),

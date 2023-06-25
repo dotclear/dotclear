@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use adminMediaList;
-use dcAdminFilter;
 use dcCore;
+use Dotclear\Core\Backend\Filter\Filter;
 use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -382,7 +382,7 @@ class Media extends Process
         $media_list = new adminMediaList($rs, $rs->count());
 
         // add file mode into the filter box
-        dcCore::app()->admin->page->add((new dcAdminFilter('file_mode'))->value(dcCore::app()->admin->page->file_mode)->html(
+        dcCore::app()->admin->page->add((new Filter('file_mode'))->value(dcCore::app()->admin->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
             '<a href="' . dcCore::app()->adminurl->get('admin.media', array_merge(dcCore::app()->admin->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
             '<img src="images/grid-' . (dcCore::app()->admin->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '" />' .

@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -1095,12 +1096,12 @@ class adminMediaList extends adminGenericListV2
     /**
      * Display a media list
      *
-     * @param      adminMediaFilter  $filters        The filters
+     * @param      FilterMedia       $filters        The filters
      * @param      string            $enclose_block  The enclose block
      * @param      bool              $query          The query
      * @param      string            $page_adminurl  The page adminurl
      */
-    public function display(adminMediaFilter $filters, string $enclose_block = '', $query = false, $page_adminurl = 'admin.media')
+    public function display(FilterMedia $filters, string $enclose_block = '', $query = false, $page_adminurl = 'admin.media')
     {
         $nb_items   = $this->rs_count - ($filters->d ? 1 : 0);
         $nb_folders = $filters->d ? -1 : 0;
@@ -1177,7 +1178,7 @@ class adminMediaList extends adminGenericListV2
     /**
      * Display a media item
      *
-     * @param      adminMediaFilter  $filters        The filters
+     * @param      FilterMedia       $filters        The filters
      * @param      File|array        $file           The media file
      * @param      int               $index          Current index in page
      * @param      bool              $query          The query
@@ -1185,7 +1186,7 @@ class adminMediaList extends adminGenericListV2
      *
      * @return     string            ( description_of_the_return_value )
      */
-    public static function mediaLine(adminMediaFilter $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
+    public static function mediaLine(FilterMedia $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {
         if (is_array($file)) {
             // Convert array to object->properties (will then pretend to be like a File object)

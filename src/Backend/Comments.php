@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminCommentFilter;
 use adminCommentList;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -46,7 +46,7 @@ class Comments extends Process
 
         // Filters
 
-        dcCore::app()->admin->comment_filter = new adminCommentFilter();
+        dcCore::app()->admin->comment_filter = new FilterComments();
 
         // get list params
         $params = dcCore::app()->admin->comment_filter->params();

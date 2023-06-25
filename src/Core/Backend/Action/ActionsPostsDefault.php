@@ -302,7 +302,7 @@ class ActionsPostsDefault
             if (empty($ids)) {
                 throw new Exception(__('No entry selected'));
             }
-            $new_cat_id = $post['new_cat_id'];
+            $new_cat_id = (int) $post['new_cat_id'];
             if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CATEGORIES,
             ]), dcCore::app()->blog->id)) {
@@ -316,7 +316,7 @@ class ActionsPostsDefault
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                $new_cat_id = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
+                $new_cat_id = (int) dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);

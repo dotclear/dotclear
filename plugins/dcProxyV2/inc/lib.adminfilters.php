@@ -10,7 +10,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class adminGenericFilter extends adminGenericFilterV2
+use Dotclear\Core\Backend\Filter\Filters;
+
+class adminGenericFilter extends Filters
 {
     public function __construct(dcCore $core, string $type) // @phpstan-ignore-line
     {
