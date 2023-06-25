@@ -92,7 +92,7 @@ class Utility
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    Http::redirect(dcCore::app()->adminurl->get('admin.auth', $params));
+                    dcCore::app()->adminurl->redirect('admin.auth', $params);
                 }
             } catch (Exception $e) {
                 new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
@@ -152,7 +152,7 @@ class Utility
                 dcCore::app()->setBlog($_SESSION['sess_blog_id']);
             } else {
                 dcCore::app()->session->destroy();
-                Http::redirect(dcCore::app()->adminurl->get('admin.auth'));
+                dcCore::app()->adminurl->redirect('admin.auth');
             }
         }
 
