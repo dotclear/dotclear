@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminCommentList;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
+use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -95,7 +95,7 @@ class Comments extends Process
             $comments = dcCore::app()->blog->getComments($params);
             $counter  = dcCore::app()->blog->getComments($params, true);
 
-            dcCore::app()->admin->comment_list = new adminCommentList($comments, $counter->f(0));
+            dcCore::app()->admin->comment_list = new ListingComments($comments, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }

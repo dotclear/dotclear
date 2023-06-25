@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use adminPostList;
 use dcCore;
 use dcMeta;
+use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -58,7 +58,7 @@ class ManagePosts extends Process
         try {
             dcCore::app()->admin->posts     = dcCore::app()->meta->getPostsByMeta($params);
             $counter                        = dcCore::app()->meta->getPostsByMeta($params, true);
-            dcCore::app()->admin->post_list = new adminPostList(dcCore::app()->admin->posts, $counter->f(0));
+            dcCore::app()->admin->post_list = new ListingPosts(dcCore::app()->admin->posts, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }

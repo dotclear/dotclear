@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminBlogList;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
+use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -75,7 +75,7 @@ class Blogs extends Process
                 $rsStatic = $rsStatic->toExtStatic();
                 $rsStatic->lexicalSort((dcCore::app()->admin->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), dcCore::app()->admin->blog_filter->order);
             }
-            dcCore::app()->admin->blog_list = new adminBlogList($rs, $counter->f(0));
+            dcCore::app()->admin->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }

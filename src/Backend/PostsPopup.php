@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminPostMiniList;
 use dcCore;
 use dcThemes;
+use Dotclear\Core\Backend\Listing\ListingPostsMini:
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -105,7 +105,7 @@ class PostsPopup extends Process
         try {
             $posts     = dcCore::app()->blog->getPosts(dcCore::app()->admin->params);
             $counter   = dcCore::app()->blog->getPosts(dcCore::app()->admin->params, true);
-            $post_list = new adminPostMiniList($posts, $counter->f(0));
+            $post_list = new ListingPostsMini($posts, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }

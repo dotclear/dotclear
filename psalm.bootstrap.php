@@ -65,16 +65,6 @@ $__autoload = [
     // Upgrade
     'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'dbschema', 'upgrade.php']),
 
-    // Admin
-    'adminGenericListV2'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),             // V2
-    'adminPostList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminPostMiniList'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminCommentList'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminBlogList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminUserList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminMediaList'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'dcPager'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-
     // Public
     'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'class.dc.template.php']),
     'context'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'lib.tpl.context.php']),

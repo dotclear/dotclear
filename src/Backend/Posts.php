@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminPostList;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Filter\FilterPosts;
+use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -68,7 +68,7 @@ class Posts extends Process
             $posts   = dcCore::app()->blog->getPosts($params);
             $counter = dcCore::app()->blog->getPosts($params, true);
 
-            dcCore::app()->admin->post_list = new adminPostList($posts, $counter->f(0));
+            dcCore::app()->admin->post_list = new ListingPosts($posts, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }

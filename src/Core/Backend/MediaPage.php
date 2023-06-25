@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
-use adminMediaList;
 use dcMedia;
 use dcThemes;
 use Dotclear\Core\Backend\Filter\FilterMedia;
+use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
@@ -180,7 +180,7 @@ class MediaPage extends FilterMedia
      */
     public function mediaLine(string $file_id): string
     {
-        return adminMediaList::mediaLine($this, dcCore::app()->media->getFile((int) $file_id), 1, $this->media_has_query);
+        return ListingMedia::mediaLine($this, dcCore::app()->media->getFile((int) $file_id), 1, $this->media_has_query);
     }
 
     /**

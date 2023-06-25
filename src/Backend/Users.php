@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use adminUserList;
 use dcCore;
 use Dotclear\Core\Backend\Filter\FilterUsers;
+use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -83,7 +83,7 @@ class Users extends Process
                 $rsStatic = $rsStatic->toExtStatic();
                 $rsStatic->lexicalSort(dcCore::app()->admin->user_filter->sortby, dcCore::app()->admin->user_filter->order);
             }
-            dcCore::app()->admin->user_list = new adminUserList($rsStatic, $counter->f(0));
+            dcCore::app()->admin->user_list = new ListingUsers($rsStatic, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }

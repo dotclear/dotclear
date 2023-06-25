@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminMediaList;
 use dcCore;
 use Dotclear\Core\Backend\Filter\Filter;
+use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -379,7 +379,7 @@ class Media extends Process
         }
 
         $rs         = dcCore::app()->admin->page->getDirsRecord();
-        $media_list = new adminMediaList($rs, $rs->count());
+        $media_list = new ListingMedia($rs, $rs->count());
 
         // add file mode into the filter box
         dcCore::app()->admin->page->add((new Filter('file_mode'))->value(dcCore::app()->admin->page->file_mode)->html(
