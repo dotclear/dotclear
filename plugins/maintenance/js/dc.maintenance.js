@@ -13,6 +13,7 @@ $(() => {
     dcMaintenanceStep(this, code);
 
     function dcMaintenanceStep(box, code) {
+      if (dotclear.servicesOff) return;
       const params = {
         f: 'dcMaintenanceStep',
         xd_check: dotclear.nonce,

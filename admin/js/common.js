@@ -138,6 +138,7 @@ $.fn.toggleWithLegend = function (target, s) {
       $(ctarget).find('label').css('cursor', 'pointer');
     }
     $(ctarget).on('click', (e) => {
+      if (dotclear.servicesOff) return;
       if (p.user_pref && set_user_pref) {
         $.post(
           dotclear.servicesUri,
@@ -650,6 +651,7 @@ dotclear.passwordHelpers = () => {
 };
 
 // REST services helper
+dotclear.servicesOff = dotclear.data.servicesOff || false;
 dotclear.servicesUri = dotclear.data.servicesUri || 'index.php?process=Rest';
 dotclear.services = (
   fn, // REST method
@@ -662,17 +664,21 @@ dotclear.services = (
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
 ) => {
+  if (dotclear.servicesOff) return;
   const service = new URL(dotclear.servicesUri, window.location.origin + window.location.pathname);
   dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
   const init = { method: get ? 'GET' : 'POST' };
+  // Cope with parameters
+  // --------------------
+  // Warning: cope only with single level object (key → value)
+  // Use JSON.stringify to push complex object in Javascript
+  // Use json_decode(, [true]) to decode complex object in PHP (use true as 2nd param if key-array)
   if (get) {
     const data = new URLSearchParams(service.search);
-    // Warning: cope only with single level object (key → value)
     Object.keys(params).forEach((key) => data.append(key, params[key]));
     service.search = data.toString();
   } else {
     const data = new FormData();
-    // Warning: cope only with single level object (key → value)
     Object.keys(params).forEach((key) => data.append(key, params[key]));
     init.body = data;
   }

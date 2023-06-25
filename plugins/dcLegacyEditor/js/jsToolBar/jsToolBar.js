@@ -702,6 +702,7 @@ jsToolBar.prototype.elements.preview = {
   },
   fn: {
     wiki() {
+      if (dotclear.servicesOff) return;
       let msg = '';
       const buffer = this.textarea.value;
       const params = {

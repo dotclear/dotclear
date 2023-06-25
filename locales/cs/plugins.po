@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-24 12:14+0200\n"
-"PO-Revision-Date: 2023-06-22 16:34\n"
+"PO-Revision-Date: 2023-06-24 18:26\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -17,1111 +17,1578 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
+#: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Řádek se starými třídami jádra (< 2.26)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:27
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Obecný antispumový plugin pro Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
 msgid "Akismet interface for Dotclear"
 msgstr "Rozhraní Akismet pro Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Trackback validity check"
 msgstr "Kontrola platnosti Trackback"
 
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:23
 msgid "Manage post attachments"
 msgstr "Správa příloh příspěvků"
 
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:26
 msgid "Serve entries as simple web pages"
 msgstr "Serve záznamy jako jednoduché webové stránky"
 
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "Manage every blog configuration directive"
 msgstr "Spravovat každou konfigurační direktivu blogu"
 
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:25
 msgid "dotclear legacy editor"
 msgstr "editor odkazů"
 
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:23
 msgid "Theme Editor"
 msgstr "Editor vzhledu"
 
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
 msgstr "Jednoduché menu pro Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:25
 msgid "Import and Export your blog"
 msgstr "Importovat a exportovat váš blog"
 
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:23
 msgid "Manage every user preference directive"
 msgstr "Spravovat direktivy všech uživatelských preferencí"
 
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:23
 msgid "dotclear CKEditor integration"
 msgstr "integrace CKEditoru dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:23
 msgid "Maintain your installation"
 msgstr "Udržujte vaši instalaci"
 
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb for Dotclear"
 msgstr "drobečková navigace pro Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:26
 msgid "Manage your blogroll"
 msgstr "Spravujte svůj blogroll"
 
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
 msgstr "Ping"
 
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
 msgstr "Štítky pro příspěvky"
 
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
 msgstr "Widgety pro vaše postranní panely"
 
+#: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Řádek s funkcí/metodou stopy V1 (< 2.24, 2.25)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
 msgstr "Formulář vyhledávače"
 
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
 msgstr "Seznam odkazů navigace"
 
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
 msgstr "Seznam vybraných položek"
 
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
 msgstr "Seznam dostupných jazyků"
 
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:84
 msgid "List of categories"
 msgstr "Seznam kategorií"
 
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "Odkazy na předplatné kanálu (RSS nebo Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "Seznam posledních položek krmiva (RSS nebo Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
 msgstr "Jednoduchý text"
 
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
 msgstr "Seznam posledních publikovaných záznamů"
 
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
 msgstr "Seznam posledních zveřejněných komentářů"
 
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
 msgstr "Seznam publikovaných stránek"
 
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
 msgstr "Seznam jednoduchých položek nabídky"
 
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
 msgstr "Blogroll seznam"
 
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
 msgstr "Tagy cloud"
 
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "about:config"
 msgstr "about:config"
 
+#: plugins/aboutConfig/src/Manage.php:69 plugins/aboutConfig/src/Manage.php:89
 msgid "Configuration successfully updated"
 msgstr "Konfigurace byla úspěšně aktualizována"
 
+#: plugins/aboutConfig/src/Manage.php:125
+#: plugins/aboutConfig/src/Manage.php:126
 #, php-format
 msgid "Settings for %s"
 msgstr "Nastavení pro %s"
 
+#: plugins/aboutConfig/src/Manage.php:133
+#: plugins/aboutConfig/src/Manage.php:134
 msgid "Global settings"
 msgstr "Globální nastavení"
 
+#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:151
 msgid "Setting ID"
 msgstr "Nastavuji ID"
 
+#: plugins/aboutConfig/src/Manage.php:158 plugins/userPref/src/Manage.php:152
 msgid "Value"
 msgstr "Hodnota"
 
+#: plugins/aboutConfig/src/Manage.php:160 plugins/antispam/src/Manage.php:215
+#: plugins/blogroll/src/Manage.php:255 plugins/blogroll/src/Manage.php:398
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:688
+#: plugins/userPref/src/Manage.php:154
 msgid "Description"
 msgstr "Popis"
 
+#: plugins/aboutConfig/src/Manage.php:204 plugins/userPref/src/Manage.php:198
 msgid "Goto:"
 msgstr "Goto:"
 
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:244
 msgid "no"
 msgstr "ne"
 
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:244
 msgid "yes"
 msgstr "Ano"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:78
 msgid "Akismet spam filter"
 msgstr "Akismet spamový filtr"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:91
 #, php-format
 msgid "Filtered by %s."
 msgstr "Filtrováno dle %s"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
 msgid "Filter configuration have been successfully saved."
 msgstr "Konfigurace filtru byla úspěšně uložena."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:226
 msgid "Akismet API key:"
 msgstr "Akismet API klíč:"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key verified"
 msgstr "API klíč byl ověřen"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:233
 msgid "API key not verified"
 msgstr "API klíč nebyl ověřen"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:239
 msgid "Get your own API key"
 msgstr "Získat vlastní API klíč"
 
+#: plugins/akismet/src/Prepend.php:25
 msgid "Akismet"
 msgstr "Akismet"
 
+#: plugins/antispam/src/Antispam.php:103
 msgid "This comment is a spam:"
 msgstr "Tento komentář je spam:"
 
+#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:32
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(obsahuje %d spamový komentář)"
 
+#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:32
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(obsahuje %d spamových komentářů)"
 
+#: plugins/antispam/src/Backend.php:27
 msgid "Antispam"
 msgstr "Antispam"
 
+#: plugins/antispam/src/BackendBehaviors.php:41
+#: plugins/antispam/src/Manage.php:191
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Všechny spam komentáře starší než %s dnů(y) budou automaticky smazány."
 
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:192
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Můžete upravit dobu trvání v %s"
 
+#: plugins/antispam/src/BackendBehaviors.php:57
 msgid "Delete junk comments older than"
 msgstr "Vymazat podezřelé komentáře starší než"
 
+#: plugins/antispam/src/BackendBehaviors.php:63
 msgid "days"
 msgstr "dnů(y)"
 
+#: plugins/antispam/src/BackendBehaviors.php:65
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
 msgstr "Nastavte -1 pro vypnutí této funkce. Ponechte prázdné, pokud chcete použít výchozí 7 dní zpoždění."
 
+#: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set spam filters."
 msgstr "Nastavit filtry spamu."
 
+#: plugins/antispam/src/Filters/Ip.php:74
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP blocklist / allowlist filtr"
 
+#: plugins/antispam/src/Filters/Ip.php:87
+#: plugins/antispam/src/Filters/IpV6.php:87
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Filtrováno dle %1$s s pravidlem %2$s."
 
+#: plugins/antispam/src/Filters/Ip.php:147
+#: plugins/antispam/src/Filters/IpV6.php:147
 msgid "IP address has been successfully added."
 msgstr "IP adresa byla úspěšně přidána."
 
+#: plugins/antispam/src/Filters/Ip.php:158
+#: plugins/antispam/src/Filters/IpV6.php:158
 msgid "IP addresses have been successfully removed."
 msgstr "IP adresa byla úspěšně odstraněna."
 
+#: plugins/antispam/src/Filters/Ip.php:168
+#: plugins/antispam/src/Filters/IpV6.php:167
 msgid "Blocklist"
 msgstr "Seznam blokací"
 
+#: plugins/antispam/src/Filters/Ip.php:169
+#: plugins/antispam/src/Filters/IpV6.php:168
 msgid "Allowlist"
 msgstr "Seznam povolení"
 
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:188
 msgid "Add an IP address: "
 msgstr "Přidat IP adresu: "
 
+#: plugins/antispam/src/Filters/Ip.php:193
+#: plugins/antispam/src/Filters/IpV6.php:192
 msgid "Global IP (used for all blogs)"
 msgstr "Globální IP (použitá pro všechny blogy)"
 
+#: plugins/antispam/src/Filters/Ip.php:198
+#: plugins/antispam/src/Filters/IpV6.php:197
+#: plugins/antispam/src/Filters/Words.php:186
+#: plugins/widgets/src/Manage.php:291
 msgid "Add"
 msgstr "Přidat"
 
+#: plugins/antispam/src/Filters/Ip.php:204
+#: plugins/antispam/src/Filters/IpV6.php:203
 msgid "No IP address in list."
 msgstr "Žádná IP adresa v seznamu."
 
+#: plugins/antispam/src/Filters/Ip.php:207
+#: plugins/antispam/src/Filters/IpV6.php:206
 msgid "IP list"
 msgstr "Seznam IP adres"
 
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:235
 msgid "Local IPs (used only for this blog)"
 msgstr "Lokální IP (používá se pouze pro tento blog)"
 
+#: plugins/antispam/src/Filters/Ip.php:243
+#: plugins/antispam/src/Filters/IpV6.php:241
 msgid "Global IPs (used for all blogs)"
 msgstr "Globální IP adresy (používané pro všechny blogy)"
 
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Kontrolovat uživatelovu IP adresu pomocí DNSBL serverů"
 
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:70
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtrováno dle %1$s se serverem %2$s."
 
+#: plugins/antispam/src/Filters/IpLookup.php:145
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "Seznam DNSBL serverů byl úspěšně aktualizován."
 
+#: plugins/antispam/src/Filters/IpLookup.php:156
 msgid "IP Lookup servers"
 msgstr "IP lookup servery"
 
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "Add here a coma separated list of servers."
 msgstr "Zde vložte seznam serverů oddělených čárkou."
 
+#: plugins/antispam/src/Filters/IpV6.php:74
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "Seznam blokací IP v6 / Filtr povolených seznamů"
 
+#: plugins/antispam/src/Filters/LinksLookup.php:57
 msgid "Checks links in comments against surbl.org"
 msgstr "Zkontrolovat odkazy v komentářích pomocí surbl.org"
 
+#: plugins/antispam/src/Filters/Words.php:74
 msgid "Words Blocklist"
 msgstr "Slovní blocklist"
 
+#: plugins/antispam/src/Filters/Words.php:87
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Filtrováno dle %1$s se slovem %2$s"
 
+#: plugins/antispam/src/Filters/Words.php:143
 msgid "Words have been successfully added."
 msgstr "Slova byla úspěšně přidána."
 
+#: plugins/antispam/src/Filters/Words.php:156
 msgid "Word has been successfully added."
 msgstr "Slovo bylo úspěšně přidáno."
 
+#: plugins/antispam/src/Filters/Words.php:167
 msgid "Words have been successfully removed."
 msgstr "Slova byla úspěšně odstraněna."
 
+#: plugins/antispam/src/Filters/Words.php:177
 msgid "Add a word "
 msgstr "Přidat slovo "
 
+#: plugins/antispam/src/Filters/Words.php:181
 msgid "Global word (used for all blogs)"
 msgstr "Globální slovo (použito pro všechny blogy)"
 
+#: plugins/antispam/src/Filters/Words.php:191
 msgid "No word in list."
 msgstr "Žádné slovo v seznamu."
 
+#: plugins/antispam/src/Filters/Words.php:194
 msgid "List of bad words"
 msgstr "Seznam špatných slov"
 
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
 msgstr "Místní slova (použitá pouze pro tento blog)"
 
+#: plugins/antispam/src/Filters/Words.php:229
 msgid "Global words (used for all blogs)"
 msgstr "Globální slova (použitá pro všechny blogy)"
 
+#: plugins/antispam/src/Filters/Words.php:240
 msgid "Delete selected words"
 msgstr "Vymazat vybraná slova"
 
+#: plugins/antispam/src/Filters/Words.php:246
 msgid "Create default wordlist"
 msgstr "Vytvořit výchozí seznam slov"
 
+#: plugins/antispam/src/Filters/Words.php:292
 msgid "This word exists"
 msgstr "Toto slovo již existuje"
 
+#: plugins/antispam/src/FrontendUrl.php:60
 msgid "Spam moderation"
 msgstr "Moderování spamu"
 
+#: plugins/antispam/src/FrontendUrl.php:64
 msgid "Spam"
 msgstr "Nevyžádaná pošta"
 
+#: plugins/antispam/src/FrontendUrl.php:68
 msgid "Ham"
 msgstr "Šunka"
 
+#: plugins/antispam/src/Manage.php:48
 msgid "Filter does not exist."
 msgstr "Filtr neexistuje."
 
+#: plugins/antispam/src/Manage.php:52
 msgid "Filter has no user interface."
 msgstr "Filtr nemá uživatelské rozhraní."
 
+#: plugins/antispam/src/Manage.php:110 plugins/antispam/src/Manage.php:203
 msgid "Filters configuration has been successfully saved."
 msgstr "Nastavení filtrů bylo úspěšně uloženo."
 
+#: plugins/antispam/src/Manage.php:127
 #, php-format
 msgid "%s configuration"
 msgstr "%s - konfigurace"
 
+#: plugins/antispam/src/Manage.php:147
 #, php-format
 msgid "%s filter configuration"
 msgstr "Konfigurace filtru %s"
 
+#: plugins/antispam/src/Manage.php:151
 msgid "Back to filters list"
 msgstr "Zpět na seznam filtrů"
 
+#: plugins/antispam/src/Manage.php:175
 msgid "Information"
 msgstr "Informace"
 
+#: plugins/antispam/src/Manage.php:177
 msgid "Junk comments:"
 msgstr "Podezřelé komentáře:"
 
+#: plugins/antispam/src/Manage.php:179
 msgid "Published comments:"
 msgstr "Publikované komentáře:"
 
+#: plugins/antispam/src/Manage.php:209
 msgid "Available spam filters"
 msgstr "Dostupné spam filtry"
 
+#: plugins/antispam/src/Manage.php:211
+#: plugins/pages/src/BackendDefaultActions.php:77
 msgid "Order"
 msgstr "Pořadí"
 
+#: plugins/antispam/src/Manage.php:212 plugins/antispam/src/Manage.php:243
 msgid "Active"
 msgstr "Aktivní"
 
+#: plugins/antispam/src/Manage.php:213 plugins/antispam/src/Manage.php:251
 msgid "Auto Del."
 msgstr "Auto. mazat"
 
+#: plugins/antispam/src/Manage.php:214
 msgid "Filter name"
 msgstr "Jméno filtru"
 
+#: plugins/antispam/src/Manage.php:224 plugins/antispam/src/Manage.php:225
 msgid "Filter configuration"
 msgstr "Konfigurace filtru"
 
+#: plugins/antispam/src/Manage.php:235 plugins/blogroll/src/Manage.php:272
 msgid "position"
 msgstr "Pozice"
 
+#: plugins/antispam/src/Manage.php:281
 msgid "Syndication"
 msgstr "Odběr"
 
+#: plugins/antispam/src/Manage.php:283
 msgid "Junk comments RSS feed"
 msgstr "Podezřelé komentáře - RSS zdroj"
 
+#: plugins/antispam/src/Manage.php:284
 msgid "Published comments RSS feed"
 msgstr "Publikované komentáře - RSS zdroj"
 
+#: plugins/antispam/src/SpamFilter.php:110
 msgid "No description"
 msgstr "Žádný popis"
 
+#: plugins/antispam/src/SpamFilter.php:163
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtrováno dle %1$s (%2$s)"
 
+#: plugins/antispam/src/SpamFilters.php:152
 msgid "Unknown filter."
 msgstr "Neznámý filtr"
 
+#: plugins/attachments/src/Backend.php:23
 msgid "attachments"
 msgstr "přílohy"
 
+#: plugins/attachments/src/BackendBehaviors.php:51
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Přílohy (%d)"
 
+#: plugins/attachments/src/BackendBehaviors.php:75
 msgid "remove"
 msgstr "odstranit"
 
+#: plugins/attachments/src/BackendBehaviors.php:83
 msgid "No attachment."
 msgstr "Žádná příloha."
 
+#: plugins/attachments/src/BackendBehaviors.php:86
 msgid "Add files to this entry"
 msgstr "Přidat soubory do této položky"
 
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Odkazy"
 
+#: plugins/blogroll/src/Backend.php:37
 msgid "manage blogroll"
 msgstr "spravovat odkazy"
 
+#: plugins/blogroll/src/Blogroll.php:140 plugins/blogroll/src/Blogroll.php:178
 msgid "You must provide a link title"
 msgstr "Musíte vložit název odkazu"
 
+#: plugins/blogroll/src/Blogroll.php:144 plugins/blogroll/src/Blogroll.php:182
 msgid "You must provide a link URL"
 msgstr "Musíte vložit URL odkazu"
 
+#: plugins/blogroll/src/Manage.php:85 plugins/blogroll/src/Manage.php:393
 msgid "Nothing to import"
 msgstr "Není nic k importu"
 
+#: plugins/blogroll/src/Manage.php:108
 msgid "links have been successfully imported."
 msgstr "odkazy byly úspěšně naimportovány."
 
+#: plugins/blogroll/src/Manage.php:115
 msgid "Import operation cancelled."
 msgstr "Import byl zrušen."
 
+#: plugins/blogroll/src/Manage.php:130
 msgid "Link has been successfully created."
 msgstr "Odkaz byl úspěšně vytvořen."
 
+#: plugins/blogroll/src/Manage.php:145
 msgid "category has been successfully created."
 msgstr "kategorie byla úspěšně vytvořena."
 
+#: plugins/blogroll/src/Manage.php:167
 msgid "Items have been successfully removed."
 msgstr "Položky byly úspěšně odstraněny."
 
+#: plugins/blogroll/src/Manage.php:197
 msgid "Items order has been successfully updated"
 msgstr "Položky byly úspěšně upraveny."
 
+#: plugins/blogroll/src/Manage.php:257
 msgid "Lang"
 msgstr "Jazyk"
 
+#: plugins/blogroll/src/Manage.php:279
 msgid "select this link"
 msgstr "vyberte tento odkaz"
 
+#: plugins/blogroll/src/Manage.php:313
 msgid "Are you sure you want to delete selected links?"
 msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
 
+#: plugins/blogroll/src/Manage.php:313
 msgid "Delete selected links"
 msgstr "Smazat vybrané odkazy"
 
+#: plugins/blogroll/src/Manage.php:318
 msgid "The link list is empty."
 msgstr "Seznam odkazů je prázdný."
 
+#: plugins/blogroll/src/Manage.php:326
 msgid "Add a new link"
 msgstr "Přidat nový odkaz"
 
+#: plugins/blogroll/src/Manage.php:356
 msgid "Add a category"
 msgstr "Přidat kategorii"
 
+#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
+#: plugins/blogroll/src/Manage.php:390
 msgid "Import links"
 msgstr "Importovat odkazy"
 
+#: plugins/blogroll/src/Manage.php:379
 msgid "OPML or XBEL File:"
 msgstr "OPML nebo XBEL soubor:"
 
+#: plugins/blogroll/src/Manage.php:383 plugins/blogroll/src/Manage.php:427
+#: plugins/importExport/src/Manage.php:111
+#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFlat.php:222
+#: plugins/importExport/src/ModuleImportFlat.php:260
 msgid "Import"
 msgstr "Importovat"
 
+#: plugins/blogroll/src/ManageEdit.php:46
 msgid "No such link or title"
 msgstr "Žádný takový odkaz nebo název"
 
+#: plugins/blogroll/src/ManageEdit.php:98
 msgid "Link has been successfully updated"
 msgstr "Odkaz byl úspěšně upraven"
 
+#: plugins/blogroll/src/ManageEdit.php:115
 msgid "Category has been successfully updated"
 msgstr "Kategorie byla úspěšně upravena"
 
+#: plugins/blogroll/src/ManageEdit.php:144
 msgid "Return to blogroll"
 msgstr "Zpět na seznam odkazů"
 
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Edit category"
 msgstr "Upravit kategorii"
 
+#: plugins/blogroll/src/ManageEdit.php:168
 msgid "Edit link"
 msgstr "Upravit odkaz"
 
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "XFN information"
 msgstr "XFN informace"
 
+#: plugins/blogroll/src/ManageEdit.php:205
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Více informací na <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">webových stránkách Wikipedie</a>"
 
+#: plugins/blogroll/src/ManageEdit.php:211
 msgid "_xfn_Me"
 msgstr "Já"
 
+#: plugins/blogroll/src/ManageEdit.php:214
 msgid "_xfn_Another link for myself"
 msgstr "moje další webová stránka"
 
+#: plugins/blogroll/src/ManageEdit.php:218
 msgid "_xfn_Friendship"
 msgstr "přítelství"
 
+#: plugins/blogroll/src/ManageEdit.php:224
 msgid "_xfn_Contact"
 msgstr "kontakt"
 
+#: plugins/blogroll/src/ManageEdit.php:229
 msgid "_xfn_Acquaintance"
 msgstr "známý"
 
+#: plugins/blogroll/src/ManageEdit.php:234
 msgid "_xfn_Friend"
 msgstr "přítel"
 
+#: plugins/blogroll/src/ManageEdit.php:240
 msgid "_xfn_Physical"
 msgstr "fyzický"
 
+#: plugins/blogroll/src/ManageEdit.php:246
 msgid "_xfn_Met"
 msgstr "setkali jsme se"
 
+#: plugins/blogroll/src/ManageEdit.php:251
 msgid "_xfn_Professional"
 msgstr "profesně"
 
+#: plugins/blogroll/src/ManageEdit.php:257
 msgid "_xfn_Co-worker"
 msgstr "spolupracovník"
 
+#: plugins/blogroll/src/ManageEdit.php:262
 msgid "_xfn_Colleague"
 msgstr "kolega"
 
+#: plugins/blogroll/src/ManageEdit.php:267
 msgid "_xfn_Geographical"
 msgstr "geograficky"
 
+#: plugins/blogroll/src/ManageEdit.php:273
 msgid "_xfn_Co-resident"
 msgstr "ze sousedství"
 
+#: plugins/blogroll/src/ManageEdit.php:278
 msgid "_xfn_Neighbor"
 msgstr "soused"
 
+#: plugins/blogroll/src/ManageEdit.php:284
 msgid "_xfn_Family"
 msgstr "rodina"
 
+#: plugins/blogroll/src/ManageEdit.php:290
 msgid "_xfn_Child"
 msgstr "dítě"
 
+#: plugins/blogroll/src/ManageEdit.php:295
 msgid "_xfn_Parent"
 msgstr "rodič"
 
+#: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Sibling"
 msgstr "sourozenec"
 
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "_xfn_Spouse"
 msgstr "partner"
 
+#: plugins/blogroll/src/ManageEdit.php:310
 msgid "_xfn_Kin"
 msgstr "příbuzný"
 
+#: plugins/blogroll/src/ManageEdit.php:316
 msgid "_xfn_Romantic"
 msgstr "romantické"
 
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Muse"
 msgstr "múza"
 
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Crush"
 msgstr "touha"
 
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Date"
 msgstr "randí"
 
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Sweetheart"
 msgstr "zlatíčko"
 
+#: plugins/blogroll/src/UtilsImport.php:37
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Musíte nahrát XBEL nebo OPML soubor."
 
+#: plugins/blogroll/src/UtilsImport.php:48
+#: plugins/blogroll/src/UtilsImport.php:83
 msgid "File is not in XML format."
 msgstr "Soubor není v XML formátu."
 
+#: plugins/blogroll/src/Widgets.php:32
 msgid "All categories"
 msgstr "Všechny kategorie"
 
+#: plugins/blogroll/src/Widgets.php:41
 msgid "Links"
 msgstr "Odkazy"
 
+#: plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb"
 msgstr "bubble raider"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:31
 msgid "Enable breadcrumb for this blog"
 msgstr "Povolit breadcrumb pro tento blog"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
 msgstr "{{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} značka by měla být v šabloně přítomna (nebo vložena, pokud nikoli)."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:34
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Nezapouzdřujte droždí do značky &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt;."
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:69
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:85
+#: plugins/breadcrumb/src/FrontendTemplate.php:96
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:113 plugins/simpleMenu/src/Manage.php:224
+#: plugins/widgets/src/Widgets.php:230
 msgid "Home"
 msgstr "Úvod"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
 msgstr "stránka %d"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:251 plugins/widgets/src/Widgets.php:247
 msgid "Archives"
 msgstr "Archívy"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:102 plugins/simpleMenu/src/Manage.php:271
+#: plugins/tags/src/Widgets.php:53
 msgid "All tags"
 msgstr "Všechny štítky"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
 msgstr "404"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Generate fake l10n"
 msgstr "Generovat falešné l10n"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "fake l10n file generated."
 msgstr "generovaný soubor l10n."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "Failed to generate fake l10n file."
 msgstr "Nepodařilo se vygenerovat falešný soubor l10n."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Vygeneruje php soubor, který obsahuje řetězce pro překlad, které nejsou provedeny pomocí základních nástrojů."
 
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:5
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:38
+#: plugins/dcLegacyEditor/src/Backend.php:44
 msgid "HTML"
 msgstr "HTML"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Media chooser"
 msgstr "Výběr médií"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "m"
 msgstr "m"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Link to an entry"
 msgstr "Odkaz na záznam"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Link"
 msgstr "Odkaz"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "l"
 msgstr "l"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "External image"
 msgstr "Externí obrázek"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
 msgstr "Pole URL nemůže být prázdné."
 
+#: plugins/dcCKEditor/src/Manage.php:133
+#: plugins/dcLegacyEditor/src/Manage.php:42
 msgid "The configuration has been updated."
 msgstr "Konfigurace byla aktualizována."
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:244
 msgid "Note(s)"
 msgstr "Poznámky"
 
+#: plugins/dcCKEditor/tpl/index.php:8 plugins/dcLegacyEditor/tpl/index.php:4
 msgid "Settings"
 msgstr "Nastavení"
 
+#: plugins/dcCKEditor/tpl/index.php:13 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
 msgstr "Aktivace pluginu"
 
+#: plugins/dcCKEditor/tpl/index.php:18
 msgid "Enable dcCKEditor plugin"
 msgstr "Povolit dcCKEditor plugin"
 
+#: plugins/dcCKEditor/tpl/index.php:30
 msgid "Add alignment buttons"
 msgstr "Přidat zarovnání tlačítek"
 
+#: plugins/dcCKEditor/tpl/index.php:36
 msgid "Add lists buttons"
 msgstr "Přidat tlačítka seznamů"
 
+#: plugins/dcCKEditor/tpl/index.php:42
 msgid "Add text color button"
 msgstr "Přidat barvu textu"
 
+#: plugins/dcCKEditor/tpl/index.php:48
 msgid "Add background text color button"
 msgstr "Přidat barvu textu na pozadí"
 
+#: plugins/dcCKEditor/tpl/index.php:53
 msgid "Custom colors list:"
 msgstr "Seznam vlastních barev:"
 
+#: plugins/dcCKEditor/tpl/index.php:58
 msgid "Add colors without # separated by a comma."
 msgstr "Přidat barvy bez # oddělené čárkou."
 
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Leave empty to use the default palette:"
 msgstr "Ponechte prázdné pro použití výchozí palety:"
 
+#: plugins/dcCKEditor/tpl/index.php:61
 msgid "Example of custom color list:"
 msgstr "Příklad vlastního seznamu barev:"
 
+#: plugins/dcCKEditor/tpl/index.php:66
 msgid "Colors per row in palette:"
 msgstr "Barvy na řádek v paleletě:"
 
+#: plugins/dcCKEditor/tpl/index.php:71
 msgid "Valid range: 4 to 16"
 msgstr "Platný rozsah: 4 až 16"
 
+#: plugins/dcCKEditor/tpl/index.php:76
 msgid "Add collapse button"
 msgstr "Přidat tlačítko pro sbalení"
 
+#: plugins/dcCKEditor/tpl/index.php:82
 msgid "Add format selection"
 msgstr "Přidat výběr formátu"
 
+#: plugins/dcCKEditor/tpl/index.php:87
 msgid "Custom formats"
 msgstr "Vlastní formáty"
 
+#: plugins/dcCKEditor/tpl/index.php:92
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Výchozí formáty jsou p;h1;h2;h3;h4;h5;h6;pre;adresa"
 
+#: plugins/dcCKEditor/tpl/index.php:97
 msgid "Add table button"
 msgstr "Tlačítko Přidat tabulku"
 
+#: plugins/dcCKEditor/tpl/index.php:103
 msgid "Add clipboard buttons"
 msgstr "Přidat tlačítka schránky"
 
+#: plugins/dcCKEditor/tpl/index.php:107
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopírovat, vložit, vložit text, vložit z slova"
 
+#: plugins/dcCKEditor/tpl/index.php:112
 msgid "Add undo/redo buttons"
 msgstr "Přidat tlačítka Zpět/Zpět"
 
+#: plugins/dcCKEditor/tpl/index.php:118
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Zakáže vestavěnou kontrolu pravopisu, pokud prohlížeč poskytuje"
 
+#: plugins/dcCKEditor/tpl/index.php:126 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/simpleMenu/src/Manage.php:651
 msgid "Save configuration"
 msgstr "Uložit konfiguraci"
 
+#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/tpl/index.php:1
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
+#: plugins/dcLegacyEditor/src/Backend.php:47
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:86
 msgid "visual"
 msgstr "vizuální"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
 msgid "source"
 msgstr "Zdroj"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:88
 msgid "You can use the following shortcuts to format your text."
 msgstr "Můžete použít následující zkratky pro formátování vašeho textu."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
 msgid "Block format"
 msgstr "Formát bloku"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
 msgid "-- none --"
 msgstr "-- žádné --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
 msgid "-- block format --"
 msgstr "-- formát bloku --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
 msgid "Paragraph"
 msgstr "Odstavec"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
 msgid "Level 1 header"
 msgstr "Hlavička úrovně 1"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
 msgid "Level 2 header"
 msgstr "Hlavička úrovně 2"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:98
 msgid "Level 3 header"
 msgstr "Hlavička úrovně 3"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:99
 msgid "Level 4 header"
 msgstr "Hlavička úrovně 4"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
 msgid "Level 5 header"
 msgstr "Hlavička úrovně 5"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
 msgid "Level 6 header"
 msgstr "Hlavička úrovně 6"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "Strong emphasis"
 msgstr "Silný důraz"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "Emphasis"
 msgstr "Důraz"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "Inserted"
 msgstr "Vloženo"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
 msgid "Deleted"
 msgstr "Odstraněno"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
 msgid "Inline quote"
 msgstr "Vložené cenové nabídky"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Code"
 msgstr "Kód"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "Line break"
 msgstr "Přerušení linky"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "Blockquote"
 msgstr "Nabídka blokování"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Preformated text"
 msgstr "Předformátovaný text"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Unordered list"
 msgstr "Neuspořádaný seznam"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Ordered list"
 msgstr "Seřazený seznam"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "URL?"
 msgstr "URL?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "Language?"
 msgstr "Jazyk?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Remove text formating"
 msgstr "Odstranit formátování textu"
 
+#: plugins/dcLegacyEditor/tpl/index.php:11
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Povolit dcLegacyEditor plugin"
 
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:62
 msgid "Checks trackback source for a link to the post"
 msgstr "Zkontroluj zdroj trackbacku, jestli je tam odkaz na článek"
 
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Fair Trackbacks"
 msgstr "Spravedlivé sledování"
 
+#: plugins/importExport/src/Backend.php:25
 msgid "Import / Export"
 msgstr "Import / Export"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:34
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:32
 msgid "Database export"
 msgstr "Export databáze"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
 msgid "Download database of current blog"
 msgstr "Stáhnout databázi aktuálního blogu"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:93
+#: plugins/importExport/src/ModuleExportFlat.php:231
+#: plugins/importExport/src/ModuleExportFlat.php:255
 msgid "Compress file"
 msgstr "Komprimovat soubor"
 
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Download database of all blogs"
 msgstr "Stáhnout databázi všech blogů"
 
+#: plugins/importExport/src/FlatBackup.php:37
 msgid "No file to read."
 msgstr "Žádný soubor pro čtení."
 
+#: plugins/importExport/src/FlatExport.php:35
 msgid "Unable to create output file."
 msgstr "Nelze vytvořit výstupní soubor."
 
+#: plugins/importExport/src/FlatImportV2.php:84
 msgid "File is not a DotClear backup."
 msgstr "Soubor není záloha DotClearu."
 
+#: plugins/importExport/src/FlatImportV2.php:137
 msgid "File is not a single blog export."
 msgstr "Soubor není exporten jednoho blogu."
 
+#: plugins/importExport/src/FlatImportV2.php:272
+#: plugins/importExport/src/FlatImportV2.php:368
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Chyba zvýšena na řádku %s"
 
+#: plugins/importExport/src/FlatImportV2.php:281
 msgid "File is not a full export."
 msgstr "Soubor není kompletním exportem."
 
+#: plugins/importExport/src/FlatImportV2.php:782
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID \"%3$s\" se neshoduje se záznamem \"%1$s\" na řádku %2$s záložního souboru."
 
+#: plugins/importExport/src/Manage.php:81
+#: plugins/maintenance/src/Manage.php:177
 msgid "Please wait..."
 msgstr "Prosím čekejte..."
 
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleExportFlat.php:237
+#: plugins/importExport/src/ModuleExportFlat.php:258
 msgid "Export"
 msgstr "Exportovat"
 
+#: plugins/importExport/src/Manage.php:116
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Exportovat funkce jsou na stránce %s."
 
+#: plugins/importExport/src/Manage.php:118
+#: plugins/maintenance/src/Backend.php:23
+#: plugins/maintenance/src/BackendBehaviors.php:170
 msgid "Maintenance"
 msgstr "Údržba"
 
+#: plugins/importExport/src/Module.php:160
 msgid "Congratulation!"
 msgstr "Blahopřejeme!"
 
+#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "Váš blog byl úspěšně importován. Vítejte v Dotclearu 2!"
 
+#: plugins/importExport/src/Module.php:165
 msgid "Why don't you blog this now?"
 msgstr "Proč o tom nenapsat článek na blog?"
 
+#: plugins/importExport/src/Module.php:170
 msgid "visit your dashboard"
 msgstr "podívejte se na svoji nástěnku"
 
+#: plugins/importExport/src/ModuleExportFlat.php:38
 msgid "Flat file export"
 msgstr "Export do souboru"
 
+#: plugins/importExport/src/ModuleExportFlat.php:39
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Export blogu nebo celé instalace Dotclear do souboru."
 
+#: plugins/importExport/src/ModuleExportFlat.php:169
 msgid "Export file not found."
 msgstr "Soubor exportu nebyl nalezen."
 
+#: plugins/importExport/src/ModuleExportFlat.php:208
 msgid "Failed to compress export file."
 msgstr "Komprimace exportního souboru se nezdařila."
 
+#: plugins/importExport/src/ModuleExportFlat.php:222
+#: plugins/importExport/src/ModuleImportFlat.php:202
 msgid "Single blog"
 msgstr "Jeden blog"
 
+#: plugins/importExport/src/ModuleExportFlat.php:223
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Tímto vytvoříte export vašeho blogu: %s"
 
+#: plugins/importExport/src/ModuleExportFlat.php:235
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Můřete také chtít stáhnout své mediální soubory jako zazipovaný soubor."
 
+#: plugins/importExport/src/ModuleExportFlat.php:246
+#: plugins/importExport/src/ModuleImportFlat.php:229
 msgid "Multiple blogs"
 msgstr "Více blogů"
 
+#: plugins/importExport/src/ModuleExportFlat.php:247
 msgid "This will create an export of all the content of your database."
 msgstr "Tímto se vytvoří export veškerého obsahu vaší databáze."
 
+#: plugins/importExport/src/ModuleImportDc1.php:64
 msgid "Dotclear 1.2 import"
 msgstr "Import Dotclearu 1.2"
 
+#: plugins/importExport/src/ModuleImportDc1.php:65
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importovat Dotclear 1.2 instalaci do vašeho blogu."
 
+#: plugins/importExport/src/ModuleImportDc1.php:194
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importovat obsah blogu Dotclear 1.2 do aktuálního blogu: %s."
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Prosím, vemte na vědomí, že tento proces vyprázdní vaše kategorie, odkazy, články a komentáře v tomto blogu."
 
+#: plugins/importExport/src/ModuleImportDc1.php:201
+#: plugins/importExport/src/ModuleImportWp.php:224
 msgid "General information"
 msgstr "Obecné informace"
 
+#: plugins/importExport/src/ModuleImportDc1.php:201
+#: plugins/importExport/src/ModuleImportWp.php:224
 msgid "Import my blog now"
 msgstr "Nyní naimportuj můj blog"
 
+#: plugins/importExport/src/ModuleImportDc1.php:202
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Nejprve je třeba, abyste poskytl nějaké informace ohledně vaší staré Dotclear 1.2 instalace."
 
+#: plugins/importExport/src/ModuleImportDc1.php:203
 msgid "Database driver:"
 msgstr "Ovladač databáze:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:215
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "Entries import options"
 msgstr "Možnosti importu článků"
 
+#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportWp.php:262
 msgid "Number of entries to import at once:"
 msgstr "Počet článku pro import najednou:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:223
+#: plugins/importExport/src/ModuleImportWp.php:279
 msgid "Importing users"
 msgstr "Importují se uživatelé"
 
+#: plugins/importExport/src/ModuleImportDc1.php:230
+#: plugins/importExport/src/ModuleImportWp.php:286
 msgid "Importing categories"
 msgstr "Importují se kategorie"
 
+#: plugins/importExport/src/ModuleImportDc1.php:237
+#: plugins/importExport/src/ModuleImportWp.php:293
 msgid "Importing blogroll"
 msgstr "Importují se odkazy"
 
+#: plugins/importExport/src/ModuleImportDc1.php:244
+#: plugins/importExport/src/ModuleImportWp.php:300
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importují se článke od %d do %d / %d"
 
+#: plugins/importExport/src/ModuleImportDc1.php:258
 msgid "Please read carefully"
 msgstr "Prosím, čtěte pozorně"
 
+#: plugins/importExport/src/ModuleImportDc1.php:260
+#: plugins/importExport/src/ModuleImportWp.php:314
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Každý nově naimportovaný uživatel obdrží náhodné heslo a bude požádán o vytvoření nového pomocí odkazu \"Zapomněl jsem heslo\". (Jejich registrační email musí být validní.)"
 
+#: plugins/importExport/src/ModuleImportDc1.php:265
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Prosím, vemte na vědomí, že Dotclear 2 má nový tvar URL adres. Nainstalováním a aktivováním pluginu <a href=\"%s\">DC1 redirect</a> se můžete jednoduše vyhnout nefunkčním starým odkazům."
 
+#: plugins/importExport/src/ModuleImportDc1.php:289
+#: plugins/importExport/src/ModuleImportWp.php:335
 msgid "next step"
 msgstr "další krok"
 
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:345
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "V závislosti na velikosti vašeho blogu může tato operace zabrat pár minut."
 
+#: plugins/importExport/src/ModuleImportDc1.php:327
 msgid "Dotclear tables not found"
 msgstr "Tabulky Dotclearu nebyly nalezeny."
 
+#: plugins/importExport/src/ModuleImportFeed.php:117
 msgid "RSS or Atom feed import"
 msgstr "RSS nebo Atom feed import"
 
+#: plugins/importExport/src/ModuleImportFeed.php:118
 msgid "Add a feed content to the blog."
 msgstr "Přidat obsah kanálu do blogu."
 
+#: plugins/importExport/src/ModuleImportFeed.php:145
+#: plugins/importExport/src/ModuleImportFeed.php:151
+#: plugins/importExport/src/ModuleImportFeed.php:160
+#: plugins/importExport/src/ModuleImportFeed.php:165
+#: plugins/importExport/src/ModuleImportFeed.php:171
+#: plugins/importExport/src/ModuleImportFeed.php:178
 msgid "Cannot retrieve feed URL."
 msgstr "Nemůžu číst z URL RSS zdroje."
 
+#: plugins/importExport/src/ModuleImportFeed.php:181
 msgid "No items in feed."
 msgstr "Žádné články v RSS zdroji."
 
+#: plugins/importExport/src/ModuleImportFeed.php:218
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Content successfully imported."
 msgstr "Obsah byl úspěšně importován."
 
+#: plugins/importExport/src/ModuleImportFeed.php:223
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Přidat obsah kanálu do aktuálního blogu: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFeed.php:225
+#: plugins/widgets/src/Widgets.php:106
 msgid "Feed URL:"
 msgstr "URL zdroje:"
 
+#: plugins/importExport/src/ModuleImportFlat.php:40
 msgid "Flat file import"
 msgstr "Import ze souboru"
 
+#: plugins/importExport/src/ModuleImportFlat.php:41
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importovat blog nebo plnou instalaci Dotclearu ze souboru."
 
+#: plugins/importExport/src/ModuleImportFlat.php:181
 msgid "Single blog successfully imported."
 msgstr "Blog byl úspěšně importován."
 
+#: plugins/importExport/src/ModuleImportFlat.php:197
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Jste si jisti, že chtete imporotvat kompletní záložní soubor?"
 
+#: plugins/importExport/src/ModuleImportFlat.php:203
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Tímto naimportujete zálohu jednoho blogu jako nový obsah tohoto blogu: %s."
 
+#: plugins/importExport/src/ModuleImportFlat.php:205
+#: plugins/importExport/src/ModuleImportFlat.php:232
 msgid "Upload a backup file"
 msgstr "Nahrát záložní soubor"
 
+#: plugins/importExport/src/ModuleImportFlat.php:206
+#: plugins/importExport/src/ModuleImportFlat.php:233
 #, php-format
 msgid "maximum size %s"
 msgstr "maximální velikost %s"
 
+#: plugins/importExport/src/ModuleImportFlat.php:212
+#: plugins/importExport/src/ModuleImportFlat.php:239
 msgid "or pick up a local file in your public directory"
 msgstr "nebo vyberte lokální soubor ve svém veřejném adresáři"
 
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "This will reset all the content of your database, except users."
 msgstr "Tímto resetujete veškerý obsah vaší databáze, s výjimkou uživatelů."
 
+#: plugins/importExport/src/ModuleImportFlat.php:351
 msgid "Another file with same name exists."
 msgstr "Existuje jiný soubor se stejným názvem."
 
+#: plugins/importExport/src/ModuleImportFlat.php:359
 msgid "Failed to extract backup file."
 msgstr "Nepodařilo se extrahovat záložní soubor."
 
+#: plugins/importExport/src/ModuleImportFlat.php:371
 msgid "No backup in compressed file."
 msgstr "Žádná záloha v komprimovaném souboru."
 
+#: plugins/importExport/src/ModuleImportWp.php:85
 msgid "WordPress import"
 msgstr "WordPress import"
 
+#: plugins/importExport/src/ModuleImportWp.php:86
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importovat WordPress instalaci do vašeho blogu."
 
+#: plugins/importExport/src/ModuleImportWp.php:217
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Tímto naimportujete váš obsah WordPressu jako nový obsah tohoto blogu: %s."
 
+#: plugins/importExport/src/ModuleImportWp.php:225
 msgid "We first need some information about your old WordPress installation."
 msgstr "Nejdříve potřebujeme nějaké informace ohledně vaší staré instalace WordPressu."
 
+#: plugins/importExport/src/ModuleImportWp.php:241
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress a Dotclear pracují s kategoriemi trohu jinak. Ve WordPressu můžete nastavit jednomu článku více kategorií, kdežto v Dotclearu se snažíme více o systém \"Jedna kategorie, více štítků\". Proto může Dotclear importovat pouze jedno kategorii daného článku a to tu s nejmenším číslem. Pokud si přejete zachovat zařazení do všech kategorií, můžete ty kategorie naimportovat jako štítky s volitelným prefixem."
 
+#: plugins/importExport/src/ModuleImportWp.php:246
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Na druhé straně, ve WordPressu nemůže být příspěvek nekategorizován, a výchozí instalace má označenou první kategorii <i>\"Uncategorized\"</i>. f jste nezměnili tuto kategorii, můžete ji ignorovat při importu svého blogu, Dotclear vám umožní ponechat vaše příspěvky bez kategorie."
 
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Ignore the first category:"
 msgstr "Ignorovat první kategorii"
 
+#: plugins/importExport/src/ModuleImportWp.php:257
 msgid "Import lowest numbered category on posts:"
 msgstr "Importovat kateogrii článku s nejmenším číslem"
 
+#: plugins/importExport/src/ModuleImportWp.php:259
 msgid "Import all categories as tags:"
 msgstr "Importovat všechny kategorie jako štítky:"
 
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "Prefix such tags with:"
 msgstr "Prefixovat takové štítky pomocí:"
 
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Content filters"
 msgstr "Filtry obsahu"
 
+#: plugins/importExport/src/ModuleImportWp.php:269
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Může se vám hodit zpracování článku a/nebo komentářů pomocí následujícíh filtrů."
 
+#: plugins/importExport/src/ModuleImportWp.php:270
 msgid "Post content formatter:"
 msgstr "Formátovač obsahu článků:"
 
+#: plugins/importExport/src/ModuleImportWp.php:272
 msgid "Comment content formatter:"
 msgstr "Formátovač obsahu komentářů:"
 
+#: plugins/importExport/src/ModuleImportWp.php:374
 msgid "WordPress tables not found"
 msgstr "Tabulky WordPressu nebyly nalezeny."
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Servicing"
 msgstr "Údržba"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to maintain the performance of your blogs."
 msgstr "Nástroje pro zachování výkonu vašich blogů."
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Backup"
 msgstr "Záloha"
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Tools to back up your content."
 msgstr "Nástroje pro zálohování vašeho obsahu."
 
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Development"
 msgstr "Rozvoj"
 
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "Nástroje na pomoc při vývoji pluginů, témat a jádra."
 
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Optimize"
 msgstr "Optimalizovat"
 
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Count and index"
 msgstr "Počet a index"
 
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Purge"
 msgstr "Purge"
 
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "Other"
 msgstr "Ostatní"
 
+#: plugins/maintenance/src/BackendBehaviors.php:43
 msgid "Current blog"
 msgstr "Aktuální blog"
 
+#: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "All blogs"
 msgstr "Všechny blogy"
 
+#: plugins/maintenance/src/BackendBehaviors.php:46
 msgid "Maintain translations"
 msgstr "Zachovat překlady"
 
+#: plugins/maintenance/src/BackendBehaviors.php:46
 msgid "Translations"
 msgstr "Překlady"
 
+#: plugins/maintenance/src/BackendBehaviors.php:122
+#: plugins/maintenance/src/Rest.php:84
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
@@ -1130,13 +1597,18 @@ msgstr[1] "%s úkolů ke spuštění"
 msgstr[2] "%s úkolů ke spuštění"
 msgstr[3] "%s úkolů ke spuštění"
 
+#: plugins/maintenance/src/BackendBehaviors.php:153
+#: plugins/maintenance/src/Manage.php:269
 msgid "This task has never been executed."
 msgstr "Tento úkol nebyl nikdy proveden."
 
+#: plugins/maintenance/src/BackendBehaviors.php:156
+#: plugins/maintenance/src/Manage.php:274
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Poslední provedení tohoto úkolu bylo %s."
 
+#: plugins/maintenance/src/BackendBehaviors.php:171
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
@@ -1145,541 +1617,731 @@ msgstr[1] "Je zde %s úloh, které chcete provést."
 msgstr[2] "Je zde %s úloh, které chcete provést."
 msgstr[3] "Je zde %s úloh, které chcete provést."
 
+#: plugins/maintenance/src/BackendBehaviors.php:173
 msgid "Manage tasks"
 msgstr "Spravovat úkoly"
 
+#: plugins/maintenance/src/BackendBehaviors.php:192
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Zobrazit počítadlo úkolů po termínu na ikonu údržby"
 
+#: plugins/maintenance/src/BackendBehaviors.php:196
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Zobrazit seznam úkolů po termínu na položkách hlavního panelu"
 
+#: plugins/maintenance/src/MaintenanceTask.php:161
 msgid "Failed to execute task."
 msgstr "Provedení úkolu se nezdařilo."
 
+#: plugins/maintenance/src/MaintenanceTask.php:164
 msgid "Task successfully executed."
 msgstr "Úkol byl úspěšně proveden."
 
+#: plugins/maintenance/src/Manage.php:118
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Plugin údržby byl úspěšně nakonfigurován."
 
+#: plugins/maintenance/src/Manage.php:136
 msgid "System settings have been saved."
 msgstr "Systémová nastavení byla uložena."
 
+#: plugins/maintenance/src/Manage.php:141
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Všechna nastavení obsahu - Security-Policy blogu byla obnovena na výchozí."
 
+#: plugins/maintenance/src/Manage.php:166
 msgid "Every week"
 msgstr "Každý týden"
 
+#: plugins/maintenance/src/Manage.php:167
 msgid "Every two weeks"
 msgstr "Každé dva týdny"
 
+#: plugins/maintenance/src/Manage.php:168
 msgid "Every month"
 msgstr "Každý měsíc"
 
+#: plugins/maintenance/src/Manage.php:169
 msgid "Every two months"
 msgstr "Každé dva měsíce"
 
+#: plugins/maintenance/src/Manage.php:193
 msgid "You have not sufficient permissions to view this page."
 msgstr "Nemáte dostatečná oprávnění k zobrazení této stránky."
 
+#: plugins/maintenance/src/Manage.php:270
+#: plugins/maintenance/src/Manage.php:278
 msgid "You should execute it now."
 msgstr "Nyní byste jej měli spustit."
 
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:322
 msgid "Execute task"
 msgstr "Spustit úkol"
 
+#: plugins/maintenance/src/Manage.php:304
 msgid "This may take a very long time."
 msgstr "Může to trvat velmi dlouho."
 
+#: plugins/maintenance/src/Manage.php:334
+#: plugins/maintenance/src/Manage.php:335
 msgid "Alert settings"
 msgstr "Nastavení upozornění"
 
+#: plugins/maintenance/src/Manage.php:339
 msgid "Activation"
 msgstr "Aktivace"
 
+#: plugins/maintenance/src/Manage.php:342
 msgid "Display alert messages on late tasks"
 msgstr "Zobrazit upozornění na pozdní úkoly"
 
+#: plugins/maintenance/src/Manage.php:345
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Seznam pozdějších úkolů můžete umístit na %s."
 
+#: plugins/maintenance/src/Manage.php:351
 msgid "Frequency"
 msgstr "Frekvence"
 
+#: plugins/maintenance/src/Manage.php:354
 msgid "Use one recall time for all tasks"
 msgstr "Použít jeden čas vzpomínky pro všechny úkoly"
 
+#: plugins/maintenance/src/Manage.php:356
 msgid "Recall time for all tasks:"
 msgstr "Čas stažení všech úkolů:"
 
+#: plugins/maintenance/src/Manage.php:362
 msgid "Use one recall time per task"
 msgstr "Použij jeden čas vzpomínky na úkol"
 
+#: plugins/maintenance/src/Manage.php:393
 msgid "Content-Security-Policy"
 msgstr "Obsah – bezpečnostní politika"
 
+#: plugins/maintenance/src/Manage.php:398
 msgid "Enable Content-Security-Policy system"
 msgstr "Povolit systém Content-Security-Policy"
 
+#: plugins/maintenance/src/Manage.php:401
 msgid "Enable Content-Security-Policy report only"
 msgstr "Povolit pouze zprávu Content-Security-Policy"
 
+#: plugins/maintenance/src/Manage.php:407
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Ve výchozím nastavení povolit systém Zabezpečení"
 
+#: plugins/maintenance/src/Manage.php:410
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Povolit zprávu Content-Security-Policy pouze ve výchozím nastavení"
 
+#: plugins/maintenance/src/Manage.php:413
 msgid "Also apply these settings to all blogs"
 msgstr "Použij také tato nastavení pro všechny blogy"
 
+#: plugins/maintenance/src/Task/CSP.php:34
 msgid "Delete the Content-Security-Policy report file"
 msgstr "Odstranit soubor zprávy Content-Security-Policy"
 
+#: plugins/maintenance/src/Task/CSP.php:35
 msgid "Content-Security-Policy report file has been deleted."
 msgstr "Soubor zprávy o bezpečnosti byl odstraněn."
 
+#: plugins/maintenance/src/Task/CSP.php:36
 msgid "Failed to delete the Content-Security-Policy report file."
 msgstr "Nepodařilo se odstranit soubor zprávy Content-Security-Policy"
 
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Remove the Content-Security-Policy report file."
 msgstr "Odstranit soubor zprávy Content-Security-Policy"
 
+#: plugins/maintenance/src/Task/Cache.php:35
 msgid "Empty templates cache directory"
 msgstr "Vyprázdnit cahce adresář šablon"
 
+#: plugins/maintenance/src/Task/Cache.php:36
 msgid "Templates cache directory emptied."
 msgstr "Adresář cache šablon byl vyprázdněn."
 
+#: plugins/maintenance/src/Task/Cache.php:37
 msgid "Failed to empty templates cache directory."
 msgstr "Vyprázdnění mezipaměti šablon se nezdařilo."
 
+#: plugins/maintenance/src/Task/Cache.php:39
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Může být užitečné vyprázdnit tuto mezipaměť při úpravě souborů .html nebo .css šablony (nebo při aktualizaci šablony nebo pluginu). Poznámka : s některými hostery nelze vyprázdnit cache šablon s tímto pluginem. Možná budete muset odstranit adresář <strong>%s</strong> přímo na serveru s vaším FTP softwarem."
 
+#: plugins/maintenance/src/Task/CountComments.php:34
 msgid "Count again comments and trackbacks"
 msgstr "Počítat znovu komentáře a trasy"
 
+#: plugins/maintenance/src/Task/CountComments.php:35
 msgid "Comments and trackback counted."
 msgstr "Komentáře a trackabacky byly spočítány."
 
+#: plugins/maintenance/src/Task/CountComments.php:36
 msgid "Failed to count comments and trackbacks."
 msgstr "Nepodařilo se spočítat komentáře a stopy."
 
+#: plugins/maintenance/src/Task/CountComments.php:38
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Počítat znovu komentáře a trasy umožňují zkontrolovat jejich přesná čísla. Tato operace může být užitečná při importu z jiné platformy blogu (nebo při migraci z dotclear 1 do dotclear 2)."
 
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
 msgid "Search engine index"
 msgstr "Index vyhladávacího systému"
 
+#: plugins/maintenance/src/Task/IndexComments.php:58
 msgid "Index all comments for search engine"
 msgstr "Indexovat všechny komentáře pro vyhledávač"
 
+#: plugins/maintenance/src/Task/IndexComments.php:59
+#: plugins/maintenance/src/Task/IndexPosts.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Next"
 msgstr "Další"
 
+#: plugins/maintenance/src/Task/IndexComments.php:60
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Indexování komentářů %d do %d."
 
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Comments index done."
 msgstr "Indexování komentářů dokončeno."
 
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Failed to index comments."
 msgstr "Nepodařilo se indexovat komentáře."
 
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexovat všechny komentáře a stopy do indexu vyhledávačů. Tato operace je nutná, po importu obsahu ve vašem blogu, pro použití interního vyhledávače, na veřejných a soukromých stránkách."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 msgid "Index all entries for search engine"
 msgstr "Indexovat všechny položky pro vyhledávač"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Indexování článů %d do %d."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Entries index done."
 msgstr "Indexování článků dokončeno."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Failed to index entries."
 msgstr "Nepodařilo se indexovat záznamy."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexovat všechny položky v indexu vyhledávačů. Tato operace je nutná, po importu obsahu ve vašem blogu, pro použití interního vyhledávače, na veřejných a soukromých stránkách."
 
+#: plugins/maintenance/src/Task/Logs.php:42
 msgid "Delete all logs"
 msgstr "Smazat všechny logy"
 
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Logs deleted."
 msgstr "Logy smazány."
 
+#: plugins/maintenance/src/Task/Logs.php:44
 msgid "Failed to delete logs."
 msgstr "Odstranění protokolů se nezdařilo."
 
+#: plugins/maintenance/src/Task/Logs.php:46
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Záznamy zaznamenávají veškerou aktivitu a připojení k historii blogu. Pokud nepotřebujete uchovávat tuto historii, zvažte čas od času jejich smazání."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 msgid "Entries metadata"
 msgstr "Metadata záznamů"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Synchronize entries metadata"
 msgstr "Synchronizovat metadata záznamů"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 #, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Synchronizovat položku %d až %d."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Entries metadata synchronize done."
 msgstr "Synchronizace metadat byla dokončena."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Failed to synchronize entries metadata."
 msgstr "Synchronizace metadat záznamů se nezdařila."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Synchronizovat metadata všech položek mohou být užitečná po importu obsahu ve vašem blogu nebo po chybné operaci v databázových tabulkách."
 
+#: plugins/maintenance/src/Task/Vacuum.php:35
 msgid "Optimise database"
 msgstr "Optimalizovat databázi"
 
+#: plugins/maintenance/src/Task/Vacuum.php:36
 msgid "optimize tables"
 msgstr "optimalizovat tabulky"
 
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimization successful."
 msgstr "Optimalizace proběhla úspěšně."
 
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "Failed to optimize tables."
 msgstr "Optimalizace tabulek selhala."
 
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Po četném smazání nebo aktualizaci operace v databázi Dotclearu se roztříští. Optimalizace umožní defragmentovat databázi. Nemá žádný vliv na integritu vašich dat. Je doporučeno optimalizovat před jakýmkoli exportem blogu."
 
+#: plugins/maintenance/src/Task/ZipMedia.php:57
 msgid "Download media folder of current blog"
 msgstr "Stáhnout složku médií aktuálního blogu"
 
+#: plugins/maintenance/src/Task/ZipMedia.php:59
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "Může být užitečné zálohovat složku s médii. Toto komprimuje veškerý obsah složky médií do jednoho souboru zip. Poznámka : s některými hostiteli nelze složku médií komprimovat s tímto pluginem, pokud je příliš velká."
 
+#: plugins/maintenance/src/Task/ZipTheme.php:57
 msgid "Download active theme of current blog"
 msgstr "Stáhnout aktivní motiv aktuálního blogu"
 
+#: plugins/maintenance/src/Task/ZipTheme.php:59
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Může být užitečné zálohovat aktivní motiv před každou změnou nebo aktualizací. Tato komprimace složky motivu do jednoho zip souboru."
 
+#: plugins/pages/src/Backend.php:37
 msgid "manage pages"
 msgstr "spravovat stránky"
 
+#: plugins/pages/src/Backend.php:74
 #, php-format
 msgid "%d page"
 msgstr "%d stránka"
 
+#: plugins/pages/src/Backend.php:74
 #, php-format
 msgid "%d pages"
 msgstr "%d stránek"
 
+#: plugins/pages/src/Backend.php:81 plugins/pages/src/Manage.php:127
+#: plugins/pages/src/ManagePage.php:77 plugins/pages/src/ManagePage.php:658
 msgid "New page"
 msgstr "Nová stránka"
 
+#: plugins/pages/src/BackendActions.php:52
 msgid "Pages actions"
 msgstr "Akce stránek"
 
+#: plugins/pages/src/BackendActions.php:74
 msgid "Back to pages list"
 msgstr "Zpět na seznam stránek"
 
+#: plugins/pages/src/BackendDefaultActions.php:120
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully reordered."
 msgstr "Vybrané stránky byly úspěšně přeřazeny."
 
+#: plugins/pages/src/BackendList.php:36
 msgid "No page"
 msgstr "Žádná stránka"
 
+#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
 msgid "Hidden"
 msgstr "Hidden"
 
+#: plugins/pages/src/BackendList.php:176
 msgid "Select this page"
 msgstr "Vyberte tuto stránku"
 
+#: plugins/pages/src/Frontend.php:35
 msgid "Published on"
 msgstr "Publikováno dne"
 
+#: plugins/pages/src/Frontend.php:36
 msgid "This page's comments feed"
 msgstr "Zdroj komentářů článku"
 
+#: plugins/pages/src/FrontendUrl.php:159
 msgid "You must provide a valid email address."
 msgstr "Musíte vložit validní emailovou adresu."
 
+#: plugins/pages/src/Install.php:48
 msgid "My first page"
 msgstr "Moje první stránka"
 
+#: plugins/pages/src/Install.php:49
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Toto je vaše první stránka. Až budete připraveni blogovat, přihlaste se a upravte nebo smažte."
 
+#: plugins/pages/src/Manage.php:106
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jste si jisti, že chcete smazat vybrané stránky?"
 
+#: plugins/pages/src/Manage.php:120
 msgid "Selected pages have been successfully updated."
 msgstr "Vybrané stránky byly úspěšně aktualizovány."
 
+#: plugins/pages/src/Manage.php:122
 msgid "Selected pages have been successfully deleted."
 msgstr "Vybrané stránky byly úspěšně odstraněny."
 
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages action:"
 msgstr "Vybrané stránky:"
 
+#: plugins/pages/src/Manage.php:150
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Chcete-li změnit pořadí stránek, změňte číslo na začátku řádku, pak klikněte na tlačítko „Uložit pořadí stránek“."
 
+#: plugins/pages/src/Manage.php:152
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Chcete-li změnit uspořádání stránek, přesuňte položky přetažením a pádem, pak klikněte na tlačítko \"Uložit pořadí stránek\"."
 
+#: plugins/pages/src/Manage.php:153
 msgid "Save pages order"
 msgstr "Uložit objednávku stránek"
 
+#: plugins/pages/src/ManagePage.php:134
 msgid "This page does not exist."
 msgstr "Tato stránka neexistuje."
 
+#: plugins/pages/src/ManagePage.php:155 plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:663
 msgid "Edit page"
 msgstr "Upravit stránku"
 
+#: plugins/pages/src/ManagePage.php:428
 msgid "Are you sure you want to delete this page?"
 msgstr "Jste si jisti, že chcete smazat tuto stránku?"
 
+#: plugins/pages/src/ManagePage.php:474
 msgid "Page has been successfully updated."
 msgstr "Stránka byla úspěšně upravena."
 
+#: plugins/pages/src/ManagePage.php:476
 msgid "Page has been successfully created."
 msgstr "Stránka byla úspěšně vytvořena."
 
+#: plugins/pages/src/ManagePage.php:489
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Nezapomeňte ověřit konverzi HTML uložením příspěvku."
 
+#: plugins/pages/src/ManagePage.php:494
 msgid "Go to this page on the site"
 msgstr "Přejít na tuto stránku na webu"
 
+#: plugins/pages/src/ManagePage.php:536
 msgid "Page status"
 msgstr "Stav stránky:"
 
+#: plugins/pages/src/ManagePage.php:549
 msgid "Page language"
 msgstr "Jazyk stránky"
 
+#: plugins/pages/src/ManagePage.php:562 plugins/pages/src/Widgets.php:37
 msgid "Page position"
 msgstr "Pozice stránky"
 
+#: plugins/pages/src/ManagePage.php:589
 msgid "Hide in widget Pages"
 msgstr "Skrýt ve widgetových stránkách"
 
+#: plugins/pages/src/ManagePage.php:599
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Varování: Pokud nastavít url manuálně, může dojít ke konfliktu s jinou stránkou."
 
+#: plugins/pages/src/ManagePage.php:614
 msgid "Introduction to the page."
 msgstr "Úvod na stránku."
 
+#: plugins/pages/src/ManagePage.php:947
 msgid "Select this comment"
 msgstr "Vyberte tento komentář"
 
+#: plugins/pages/src/Widgets.php:36
 msgid "Page title"
 msgstr "Jméno stránky"
 
+#: plugins/pages/src/Widgets.php:38
 msgid "Publication date"
 msgstr "Datum publikování"
 
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:50
 msgid "Pings"
 msgstr "Pingy"
 
+#: plugins/pings/src/Manage.php:60
 msgid "Settings have been successfully updated."
 msgstr "Nastavení bylo úspěšně upraveno."
 
+#: plugins/pings/src/Manage.php:81
 msgid "Pings configuration"
 msgstr "Konfigurace pingů"
 
+#: plugins/pings/src/Manage.php:87
 msgid "Activate pings extension"
 msgstr "Aktivovat pings rozšíření"
 
+#: plugins/pings/src/Manage.php:92 plugins/pings/src/Manage.php:114
 msgid "Service name:"
 msgstr "Jméno služby:"
 
+#: plugins/pings/src/Manage.php:94 plugins/pings/src/Manage.php:116
 msgid "Service URI:"
 msgstr "URI služby:"
 
+#: plugins/pings/src/Manage.php:105
 msgid "Error"
 msgstr "Chyba"
 
+#: plugins/pings/src/Manage.php:122
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Automatické pingování všech služeb při prvním zveřejnění vstupu (pouze aktuální blog)"
 
+#: plugins/pings/src/Manage.php:129
 msgid "Test ping services"
 msgstr "Otestovat pingovací rozšíření"
 
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:45
+#: plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
 msgstr "Jednoduché menu"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "Active page"
 msgstr "Aktivní stránka"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "active page"
 msgstr "aktivní stránka"
 
+#: plugins/simpleMenu/src/Manage.php:68
 msgid "All months"
 msgstr "Všechny měsíce"
 
+#: plugins/simpleMenu/src/Manage.php:126
 msgid "Archive"
 msgstr "Archiv"
 
+#: plugins/simpleMenu/src/Manage.php:129
 msgid "Page"
 msgstr "Stránka"
 
+#: plugins/simpleMenu/src/Manage.php:132 plugins/tags/src/Backend.php:24
 msgid "Tags"
 msgstr "Štítky"
 
+#: plugins/simpleMenu/src/Manage.php:139
 msgid "User defined"
 msgstr "Definováno uživatelem"
 
+#: plugins/simpleMenu/src/Manage.php:180
 msgid "Configuration successfully updated."
 msgstr "Konfigurace úspěšně aktualizována."
 
+#: plugins/simpleMenu/src/Manage.php:219 plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:687
 msgid "Label"
 msgstr "Popisek"
 
+#: plugins/simpleMenu/src/Manage.php:225
 msgid "Home page"
 msgstr "Domovská stránka"
 
+#: plugins/simpleMenu/src/Manage.php:225 plugins/simpleMenu/src/Manage.php:230
+#: plugins/widgets/src/Widgets.php:234 plugins/widgets/src/Widgets.php:241
 msgid "Recent posts"
 msgstr "Nedávné příspěvky"
 
+#: plugins/simpleMenu/src/Manage.php:237
 #, php-format
 msgid "Switch to %s language"
 msgstr "Přepnout do jazyka %s"
 
+#: plugins/simpleMenu/src/Manage.php:244
 msgid "Recent Posts from this category"
 msgstr "Nedávné příspěvky z této kategorie"
 
+#: plugins/simpleMenu/src/Manage.php:256
 #, php-format
 msgid "Posts from %s"
 msgstr "Příspěvky od %s"
 
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Nedávné příspěvky pro značku %s"
 
+#: plugins/simpleMenu/src/Manage.php:336
 msgid "Menu item has been successfully added."
 msgstr "Položka nabídky byla úspěšně přidána."
 
+#: plugins/simpleMenu/src/Manage.php:341
 msgid "Label and URL of menu item are mandatory."
 msgstr "Popisek a URL položky nabídky jsou povinné."
 
+#: plugins/simpleMenu/src/Manage.php:374
 msgid "Menu items have been successfully removed."
 msgstr "Položky nabídky byly úspěšně odstraněny."
 
+#: plugins/simpleMenu/src/Manage.php:377
 msgid "No menu items selected."
 msgstr "Nebyly vybrány žádné položky nabídky."
 
+#: plugins/simpleMenu/src/Manage.php:389
 msgid "Label is mandatory."
 msgstr "Štítek je povinný."
 
+#: plugins/simpleMenu/src/Manage.php:394
 msgid "URL is mandatory."
 msgstr "Adresa URL je povinná."
 
+#: plugins/simpleMenu/src/Manage.php:439
 msgid "Menu items have been successfully updated."
 msgstr "Položky nabídky byly úspěšně aktualizovány."
 
+#: plugins/simpleMenu/src/Manage.php:477
 msgid "Step #1"
 msgstr "Krok č. 1"
 
+#: plugins/simpleMenu/src/Manage.php:482 plugins/simpleMenu/src/Manage.php:490
 msgid "Step #2"
 msgstr "Krok #2"
 
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Step #3"
 msgstr "Krok č. 3"
 
+#: plugins/simpleMenu/src/Manage.php:500
 msgid "Add item"
 msgstr "Přidat položku"
 
+#: plugins/simpleMenu/src/Manage.php:528
 msgid "Select type"
 msgstr "Vyberte typ"
 
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Type of item menu:"
 msgstr "Typ nabídky položky:"
 
+#: plugins/simpleMenu/src/Manage.php:532 plugins/simpleMenu/src/Manage.php:591
 msgid "Continue..."
 msgstr "Pokračovat..."
 
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
 msgstr "Vyberte jazyk:"
 
+#: plugins/simpleMenu/src/Manage.php:556
 msgid "Select category:"
 msgstr "Vyberte kategorii:"
 
+#: plugins/simpleMenu/src/Manage.php:563
 msgid "Select month (if necessary):"
 msgstr "Vyberte měsíc (je-li to nutné):"
 
+#: plugins/simpleMenu/src/Manage.php:570
 msgid "Select page:"
 msgstr "Vyberte stránku:"
 
+#: plugins/simpleMenu/src/Manage.php:577
 msgid "Select tag (if necessary):"
 msgstr "Vyberte štítek (je-li to nutné):"
 
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Label of item menu:"
 msgstr "Označení nabídky položky:"
 
+#: plugins/simpleMenu/src/Manage.php:613
 msgid "Description of item menu:"
 msgstr "Popis nabídky položky:"
 
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "URL of item menu:"
 msgstr "Adresa URL nabídky položky:"
 
+#: plugins/simpleMenu/src/Manage.php:633 plugins/simpleMenu/src/Manage.php:690
 msgid "Open URL on a new tab"
 msgstr "Otevřít URL na nové kartě"
 
+#: plugins/simpleMenu/src/Manage.php:635
 msgid "Add this item"
 msgstr "Přidat tuto položku"
 
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Enable simple menu for this blog"
 msgstr "Povolit jednoduché menu pro tento blog"
 
+#: plugins/simpleMenu/src/Manage.php:662
 msgid "Add an item"
 msgstr "Přidat položku"
 
+#: plugins/simpleMenu/src/Manage.php:676
 msgid "Menu items list"
 msgstr "Seznam položek nabídky"
 
+#: plugins/simpleMenu/src/Manage.php:759
 msgid "Update menu"
 msgstr "Aktualizovat menu"
 
+#: plugins/simpleMenu/src/Manage.php:761
 msgid "Delete selected menu items"
 msgstr "Odstranit vybrané položky nabídky"
 
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Jste si jisti, že chcete odstranit vybrané položky nabídky?"
 
+#: plugins/simpleMenu/src/Manage.php:769
 msgid "No menu items so far."
 msgstr "Zatím žádné položky nabídky."
 
+#: plugins/simpleMenu/src/Widgets.php:31
 msgid "Item description"
 msgstr "Popis položky"
 
+#: plugins/simpleMenu/src/Widgets.php:35
 msgid "Displayed in link"
 msgstr "Zobrazeno v odkazu"
 
+#: plugins/simpleMenu/src/Widgets.php:36
 msgid "Used as link title"
 msgstr "Použito jako název odkazu"
 
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link and used as title"
 msgstr "Zobrazeno v odkazu a použito jako titulek"
 
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Not displayed nor used"
 msgstr "Nezobrazeno ani použito"
 
+#: plugins/tags/src/BackendBehaviors.php:51
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
 msgstr "Štítek"
 
+#: plugins/tags/src/BackendBehaviors.php:198
 msgid "Add tags"
 msgstr "Přidat štítek"
 
+#: plugins/tags/src/BackendBehaviors.php:207
 msgid "Remove tags"
 msgstr "Odstranit štítek"
 
+#: plugins/tags/src/BackendBehaviors.php:243
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Štítek byl úspěšně přidán do vybraných položek"
@@ -1687,36 +2349,55 @@ msgstr[1] "Štítky byly úspěšně přidány do vybraných položek"
 msgstr[2] "Štítky byly úspěšně přidány do vybraných položek"
 msgstr[3] "Štítky byly úspěšně přidány do vybraných položek"
 
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Are you sure you want to remove this tag?"
 msgstr "Jste si jisti, že chcete odstranit tento štítek?"
 
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:399
 msgid "Add a tag to this entry"
 msgstr "Přidat značku k tomuto záznamu"
 
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Choose from list"
 msgstr "Vybrat ze seznamu"
 
+#: plugins/tags/src/BackendBehaviors.php:260
+#: plugins/tags/src/BackendBehaviors.php:401
 msgid "all"
 msgstr "všechny"
 
+#: plugins/tags/src/BackendBehaviors.php:261
+#: plugins/tags/src/BackendBehaviors.php:402
 msgid "Enter tags separated by comma"
 msgstr "Vložte štítky oddělené čárkou"
 
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:406
 msgid "used in %e - frequency %p%"
 msgstr "použito v %e - frekvence %p%"
 
+#: plugins/tags/src/BackendBehaviors.php:266
+#: plugins/tags/src/BackendBehaviors.php:407 plugins/tags/src/Manage.php:94
 msgid "entry"
 msgstr "článek"
 
+#: plugins/tags/src/BackendBehaviors.php:267
+#: plugins/tags/src/BackendBehaviors.php:408 plugins/tags/src/Manage.php:94
 msgid "entries"
 msgstr "články"
 
+#: plugins/tags/src/BackendBehaviors.php:275
 msgid "Add tags to this selection"
 msgstr "Přidat značky k tomuto výběru"
 
+#: plugins/tags/src/BackendBehaviors.php:288
 msgid "Tags to add:"
 msgstr "Štítky k přidání:"
 
+#: plugins/tags/src/BackendBehaviors.php:322
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Tag byl úspěšně odstraněn z vybraných položek"
@@ -1724,392 +2405,524 @@ msgstr[1] "Štítky byly úspěšně odstraněny z vybraných položek"
 msgstr[2] "Štítky byly úspěšně odstraněny z vybraných položek"
 msgstr[3] "Štítky byly úspěšně odstraněny z vybraných položek"
 
+#: plugins/tags/src/BackendBehaviors.php:346
 msgid "No tags for selected entries"
 msgstr "Vybraný článek nemá žádné štítky"
 
+#: plugins/tags/src/BackendBehaviors.php:353
 msgid "Remove selected tags from this selection"
 msgstr "Odstranit vybrané štítky z tohoto výběru"
 
+#: plugins/tags/src/BackendBehaviors.php:362
 msgid "Following tags have been found in selected entries:"
 msgstr "Následující štítky byly nalezeny ve vybraných článcích:"
 
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Short"
 msgstr "Krátký"
 
+#: plugins/tags/src/BackendBehaviors.php:428
 msgid "Extended"
 msgstr "Rozšířené"
 
+#: plugins/tags/src/BackendBehaviors.php:435
 msgid "Tags list format:"
 msgstr "Formát štítků:"
 
+#: plugins/tags/src/FrontendBehaviors.php:28
 msgid "This tag's comments Atom feed"
 msgstr "Atom zdroj komentářů tohoto štítku"
 
+#: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's entries Atom feed"
 msgstr "Atom zdroj článků tohoto štítku"
 
+#: plugins/tags/src/Manage.php:113
 msgid "No tags on this blog."
 msgstr "Tento blog nemá žádné štítky."
 
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
 msgstr "Štítěk byl úspěšně přejmenován"
 
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
 msgstr "Štítek byl úspěšně odstraněn"
 
+#: plugins/tags/src/ManagePosts.php:138
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Jste si jisti, že chcete odstranit tag: „%s“?"
 
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
 msgstr "Zpět na seznam štítků"
 
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
 msgstr "Přejmenovat"
 
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr "Odstranit tento štítek"
 
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
 msgstr "Seznam záznamů se štítkem „%s“"
 
+#: plugins/tags/src/Widgets.php:30
 msgid "Limit (empty means no limit):"
 msgstr "Limit (prázný znamený bez limitu):"
 
+#: plugins/tags/src/Widgets.php:37
 msgid "Tag name"
 msgstr "Jméno štítku"
 
+#: plugins/tags/src/Widgets.php:38
 msgid "Entries count"
 msgstr "Počet článků"
 
+#: plugins/tags/src/Widgets.php:39
 msgid "Newest entry"
 msgstr "Nejnovější položka"
 
+#: plugins/tags/src/Widgets.php:40
 msgid "Oldest entry"
 msgstr "Nejstarší položka"
 
+#: plugins/tags/src/Widgets.php:53
 msgid "Link to all tags:"
 msgstr "Odkaz na všechny štítky:"
 
+#: plugins/themeEditor/src/Backend.php:23
 msgid "themeEditor"
 msgstr "Editor motivů"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:181
 msgid "Edit theme files"
 msgstr "Upravit soubory motivu"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:76
 msgid "Syntax highlighting"
 msgstr "Zvýraznění syntaxe"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:81
 msgid "Syntax highlighting in theme editor"
 msgstr "Zvýraznění syntaxe v editoru témat"
 
+#: plugins/themeEditor/src/Manage.php:88
 msgid "The theme update has been locked."
 msgstr "Aktualizace motivu byla uzamčena."
 
+#: plugins/themeEditor/src/Manage.php:96
 msgid "The theme update has been unocked."
 msgstr "Aktualizace motivu nebyla zadána."
 
+#: plugins/themeEditor/src/Manage.php:119
 msgid "The file has been reset."
 msgstr "Soubor byl resetován."
 
+#: plugins/themeEditor/src/Manage.php:145
 msgid "Unlock update"
 msgstr "Odemknout aktualizaci"
 
+#: plugins/themeEditor/src/Manage.php:146
 msgid "Lock update"
 msgstr "Uzamknout aktualizaci"
 
+#: plugins/themeEditor/src/Manage.php:150
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr "Uzamknout aktualizaci motivu nezabraňuje úpravě jeho souborů, pouze pro aktualizaci globálně."
 
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Saving document..."
 msgstr "Ukládám dokument..."
 
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Document saved"
 msgstr "Dokument uložen"
 
+#: plugins/themeEditor/src/Manage.php:164
 msgid "An error occurred:"
 msgstr "Nastala chyba:"
 
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Are you sure you want to reset this file?"
 msgstr "Jste si jisti, že chcete obnovit tento soubor?"
 
+#: plugins/themeEditor/src/Manage.php:187
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Váš stávající vzhled na blogu je \"%s\"."
 
+#: plugins/themeEditor/src/Manage.php:198
 msgid "Please select a file to edit."
 msgstr "Prosím, vyberte soubor k editaci."
 
+#: plugins/themeEditor/src/Manage.php:203
 msgid "File editor"
 msgstr "Editor souborů"
 
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Editing file %s"
 msgstr "Edituji soubor %s"
 
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Reset"
 msgstr "Reset"
 
+#: plugins/themeEditor/src/Manage.php:220
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Tento soubor není zapisovatelný. Prosím, zkontrolujte práva k souborům vzhledu."
 
+#: plugins/themeEditor/src/Manage.php:247
 msgid "Templates files"
 msgstr "Šablonové soubory"
 
+#: plugins/themeEditor/src/Manage.php:250
 msgid "CSS files"
 msgstr "CSS soubory"
 
+#: plugins/themeEditor/src/Manage.php:253
 msgid "JavaScript files"
 msgstr "JavaScript soubory"
 
+#: plugins/themeEditor/src/Manage.php:256
 msgid "Locales files"
 msgstr "Soubory Locales"
 
+#: plugins/themeEditor/src/Manage.php:259
 msgid "PHP files"
 msgstr "PHP soubory"
 
+#: plugins/themeEditor/src/Manage.php:268
 msgid "You can't edit a distributed theme."
 msgstr "Nemůžete upravovat rozloženou šablonu."
 
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "Žádný soubor"
 
+#: plugins/themeEditor/src/ThemeEditor.php:164
 msgid "From theme:"
 msgstr "Z tématu:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:166
 msgid "From parent:"
 msgstr "Z rodiče:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:171
 msgid "From template set:"
 msgstr "Ze sady šablon:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:206
+#: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:320
 msgid "File does not exist."
 msgstr "Soubor neexistuje."
 
+#: plugins/themeEditor/src/ThemeEditor.php:211
 #, php-format
 msgid "File %s is not readable"
 msgstr "Soubor %s je nečitelný."
 
+#: plugins/themeEditor/src/ThemeEditor.php:268
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nelze zapisovat do souboru %s. Prosím, zkontrolujte práva k souborům a adresáři vzhledu."
 
+#: plugins/themeEditor/src/ThemeEditor.php:333
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Soubor %snelze odstranit. Zkontrolujte oprávnění šablony a složek."
 
+#: plugins/userPref/src/Backend.php:23
 msgid "user:preferences"
 msgstr "Uživatel:preference"
 
+#: plugins/userPref/src/Manage.php:69 plugins/userPref/src/Manage.php:88
 msgid "Preferences successfully updated"
 msgstr "Nastavení bylo úspěšně aktualizováno"
 
+#: plugins/userPref/src/Manage.php:120 plugins/userPref/src/Manage.php:121
 msgid "User preferences"
 msgstr "Uživatelské předvolby"
 
+#: plugins/userPref/src/Manage.php:128 plugins/userPref/src/Manage.php:129
 msgid "Global preferences"
 msgstr "Globální nastavení"
 
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
 msgstr "Widgety"
 
+#: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
 msgstr "Textová pole widgetu"
 
+#: plugins/widgets/src/Install.php:35
 msgid "Unable to initialize default widgets."
 msgstr "Nelze inicializovat výchozí widgety."
 
+#: plugins/widgets/src/Manage.php:55
 msgid "navigation"
 msgstr "nagace"
 
+#: plugins/widgets/src/Manage.php:56
 msgid "extra"
 msgstr "extra"
 
+#: plugins/widgets/src/Manage.php:57
 msgid "custom"
 msgstr "vlastní"
 
+#: plugins/widgets/src/Manage.php:198
 msgid "Sidebars and their widgets have been saved."
 msgstr "Boční panely a jejich widgety byly uloženy."
 
+#: plugins/widgets/src/Manage.php:210
 msgid "Sidebars have been resetting."
 msgstr "Postranní panely byly znovuusídleny."
 
+#: plugins/widgets/src/Manage.php:241
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Jste si jisti, že chcete resetovat panely?"
 
+#: plugins/widgets/src/Manage.php:274
 msgid "Available widgets"
 msgstr "Dostupné widgety"
 
+#: plugins/widgets/src/Manage.php:275
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Přetáhněte widgety z tohoto seznamu na jeden z postranních panelů, které chcete přidat."
 
+#: plugins/widgets/src/Manage.php:285 plugins/widgets/src/Manage.php:403
 msgid "order"
 msgstr "pořadí"
 
+#: plugins/widgets/src/Manage.php:289
 msgid "Append to:"
 msgstr "Přidat za:"
 
+#: plugins/widgets/src/Manage.php:300
 msgid "Add widgets to sidebars"
 msgstr "Přidat widgety do postranních panelů"
 
+#: plugins/widgets/src/Manage.php:307
 msgid "Navigation sidebar"
 msgstr "Navigační panel"
 
+#: plugins/widgets/src/Manage.php:312
 msgid "Extra sidebar"
 msgstr "Extra panel"
 
+#: plugins/widgets/src/Manage.php:317
 msgid "Custom sidebar"
 msgstr "Vlastní postranní panel"
 
+#: plugins/widgets/src/Manage.php:322
 msgid "Update sidebars"
 msgstr "aktualizovat panely"
 
+#: plugins/widgets/src/Manage.php:324
 msgid "Reset sidebars"
 msgstr "resetovat panely"
 
+#: plugins/widgets/src/Manage.php:332
 msgid "Widget ID:"
 msgstr "ID widgetu:"
 
+#: plugins/widgets/src/Manage.php:338
 msgid "No setting for this widget"
 msgstr "Tento widget nemá žádné nastavení."
 
+#: plugins/widgets/src/Manage.php:344
 msgid "boolean"
 msgstr "boolean"
 
+#: plugins/widgets/src/Manage.php:344 plugins/widgets/src/Manage.php:349
 msgid "possible values:"
 msgstr "možné hodnoty:"
 
+#: plugins/widgets/src/Manage.php:348
 msgid "empty string"
 msgstr "prázdný řetězec"
 
+#: plugins/widgets/src/Manage.php:349
 msgid "listitem"
 msgstr "položka seznamu"
 
+#: plugins/widgets/src/Manage.php:355
 msgid "string"
 msgstr "řetězec"
 
+#: plugins/widgets/src/Manage.php:361
 msgid "Setting name:"
 msgstr "Klíč nastavenjí:"
 
+#: plugins/widgets/src/Manage.php:386
 msgid "No widget as far."
 msgstr "Dosud žádný widget."
 
+#: plugins/widgets/src/Manage.php:393 plugins/widgets/src/Manage.php:408
 msgid "Up the widget"
 msgstr "Nahoru widget"
 
+#: plugins/widgets/src/Manage.php:394 plugins/widgets/src/Manage.php:409
 msgid "Down the widget"
 msgstr "Dolů widgetu"
 
+#: plugins/widgets/src/Manage.php:410
 msgid "Remove the widget"
 msgstr "Odstranit widget"
 
+#: plugins/widgets/src/Manage.php:410
 msgid "Remove widget"
 msgstr "Odebrat widget"
 
+#: plugins/widgets/src/Manage.php:422
 msgid "Drag widgets here to remove."
 msgstr "Přetažením widgetů sem odstraníte."
 
+#: plugins/widgets/src/Widgets.php:50
 msgid "Search engine"
 msgstr "Vyhledávání"
 
+#: plugins/widgets/src/Widgets.php:52
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Zástupný symbol (pouze HTML5, volitelný):"
 
+#: plugins/widgets/src/Widgets.php:59
 msgid "Navigation links"
 msgstr "Navigace"
 
+#: plugins/widgets/src/Widgets.php:67
 msgid "Selected entries"
 msgstr "Vybrané články"
 
+#: plugins/widgets/src/Widgets.php:68
 msgid "Best of me"
 msgstr "Mé nejlepší články"
 
+#: plugins/widgets/src/Widgets.php:76
 msgid "Blog languages"
 msgstr "Jazyky blogu"
 
+#: plugins/widgets/src/Widgets.php:86
 msgid "With entries counts"
 msgstr "S počtem článků"
 
+#: plugins/widgets/src/Widgets.php:87
 msgid "Include sub cats in count"
 msgstr "Zahrnout subb kočky do počtu"
 
+#: plugins/widgets/src/Widgets.php:88
 msgid "Include empty categories"
 msgstr "Zahrnout prázdné kategorie"
 
+#: plugins/widgets/src/Widgets.php:95
 msgid "Subscribe links"
 msgstr "Odkazy k odběru"
 
+#: plugins/widgets/src/Widgets.php:96
 msgid "Subscribe"
 msgstr "Odebírat"
 
+#: plugins/widgets/src/Widgets.php:97
 msgid "Feeds type:"
 msgstr "Typ zdrojů:"
 
+#: plugins/widgets/src/Widgets.php:104
 msgid "Feed reader"
 msgstr "Čtečka zdroje"
 
+#: plugins/widgets/src/Widgets.php:105
 msgid "Somewhere else"
 msgstr "někde jinde"
 
+#: plugins/widgets/src/Widgets.php:107 plugins/widgets/src/Widgets.php:135
 msgid "Entries limit:"
 msgstr "Limit článků:"
 
+#: plugins/widgets/src/Widgets.php:114
 msgid "Text"
 msgstr "Text"
 
+#: plugins/widgets/src/Widgets.php:116
 msgid "Text:"
 msgstr "Text:"
 
+#: plugins/widgets/src/Widgets.php:123
 msgid "Uncategorized"
 msgstr "Bez kategorie"
 
+#: plugins/widgets/src/Widgets.php:127 plugins/widgets/src/Widgets.php:129
 msgid "Last entries"
 msgstr "Poslední články"
 
+#: plugins/widgets/src/Widgets.php:132
 msgid "Tag:"
 msgstr "Štítek:"
 
+#: plugins/widgets/src/Widgets.php:143 plugins/widgets/src/Widgets.php:144
 msgid "Last comments"
 msgstr "Poslední komentáře"
 
+#: plugins/widgets/src/Widgets.php:145
 msgid "Comments limit:"
 msgstr "Limit komentářů:"
 
+#: plugins/widgets/src/Widgets.php:424
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "%s zdroj článků tohot blogu."
 
+#: plugins/widgets/src/Widgets.php:425
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "%s zdroj komentářů tohoto blogu"
 
+#: plugins/widgets/src/Widgets.php:433
 msgid "Entries feed"
 msgstr "Zdroj článků"
 
+#: plugins/widgets/src/Widgets.php:439
 msgid "Comments feed"
 msgstr "Zdroj komentářů"
 
+#: plugins/widgets/src/WidgetsElement.php:479
 msgid "Title (optional)"
 msgstr "Název (volitelné)"
 
+#: plugins/widgets/src/WidgetsElement.php:490
 msgid "All pages"
 msgstr "Všechny stránky"
 
+#: plugins/widgets/src/WidgetsElement.php:491
 msgid "Home page only"
 msgstr "Pouze úvodní stránka"
 
+#: plugins/widgets/src/WidgetsElement.php:492
 msgid "Except on home page"
 msgstr "Kromě domovské stránky"
 
+#: plugins/widgets/src/WidgetsElement.php:500
 msgid "Display on:"
 msgstr "Zobrazit na:"
 
+#: plugins/widgets/src/WidgetsElement.php:536
 msgid "Content only"
 msgstr "Pouze obsah"
 
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "CSS class:"
 msgstr "CSS třída:"
 
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Offline"
 msgstr "Offline"
+

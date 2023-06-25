@@ -19,6 +19,7 @@ $(() => {
     $(a).wrap('<p></p>');
 
     $(a).on('click', () => {
+      if (dotclear.servicesOff) return;
       $.get(
         dotclear.servicesUri,
         {

@@ -9,6 +9,7 @@
  * @param      object      options   The options
  */
 dotclear.getEntryContent = (postId, callback, options) => {
+  if (dotclear.servicesOff) return;
   let res = '';
   const opt = $.extend(
     {
@@ -93,6 +94,7 @@ dotclear.getEntryContent = (postId, callback, options) => {
  * @param      object      options    The options
  */
 dotclear.getCommentContent = (commentId, callback, options) => {
+  if (dotclear.servicesOff) return;
   let res = '';
   const opt = $.extend(
     {

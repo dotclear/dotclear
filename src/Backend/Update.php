@@ -268,6 +268,7 @@ class Update extends Process
                 echo
                 '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>' .
                 '<form action="' . dcCore::app()->adminurl->get('admin.update') . '" method="get">' .
+                '<p><input type="hidden" name="process" value="Update" />' .
                 '<p><input type="hidden" name="nocache" value="1" />' .
                 '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
                 '</form>';
@@ -289,6 +290,7 @@ class Update extends Process
                     '<p>' . __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.') . '</p>' .
                     '<form action="' . dcCore::app()->adminurl->get('admin.update') . '" method="get">' .
                     '<p><input type="hidden" name="step" value="check" />' .
+                    '<p><input type="hidden" name="process" value="Update" />' .
                     '<input type="submit" value="' . __('Update Dotclear') . '" /></p>' .
                     '</form>';
                 }

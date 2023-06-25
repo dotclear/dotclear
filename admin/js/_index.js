@@ -2,6 +2,7 @@
 'use strict';
 
 dotclear.dbCommentsCount = (icon) => {
+  if (dotclear.servicesOff) return;
   const params = {
     f: 'getCommentsCount',
     xd_check: dotclear.nonce,
@@ -26,6 +27,7 @@ dotclear.dbCommentsCount = (icon) => {
   });
 };
 dotclear.dbPostsCount = (icon) => {
+  if (dotclear.servicesOff) return;
   const params = {
     f: 'getPostsCount',
     xd_check: dotclear.nonce,
@@ -50,6 +52,7 @@ dotclear.dbPostsCount = (icon) => {
   });
 };
 dotclear.dbStoreUpdate = (store, icon) => {
+  if (dotclear.servicesOff) return;
   const params = {
     f: 'checkStoreUpdate',
     xd_check: dotclear.nonce,
@@ -88,6 +91,7 @@ dotclear.dbStoreUpdate = (store, icon) => {
 };
 $(() => {
   function quickPost(f, status) {
+    if (dotclear.servicesOff) return;
     if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
       dotclear.contentTb.syncContents('iframe');
     }
@@ -176,19 +180,21 @@ $(() => {
   });
 
   // check if core update available
-  let params = {
-    f: 'checkCoreUpdate',
-    xd_check: dotclear.nonce,
-  };
-  $.post(dotclear.servicesUri, params, (data) => {
-    if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
-      // Something has to be displayed
-      const xml = $('rsp>update', data).attr('ret');
-      $('#content h2').after(xml);
-      // manage outgoing links
-      dotclear.outgoingLinks('#ajax-update a');
-    }
-  });
+  if (!dotclear.servicesOff) {
+    let params = {
+      f: 'checkCoreUpdate',
+      xd_check: dotclear.nonce,
+    };
+    $.post(dotclear.servicesUri, params, (data) => {
+      if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
+        // Something has to be displayed
+        const xml = $('rsp>update', data).attr('ret');
+        $('#content h2').after(xml);
+        // manage outgoing links
+        dotclear.outgoingLinks('#ajax-update a');
+      }
+    });
+  }
 
   // check if store update available, if db has icon
   if ($('#dashboard-main #icons p #icon-process-plugins-fav').length) {
@@ -201,27 +207,29 @@ $(() => {
   }
 
   // check if some news are available
-  params = {
-    f: 'checkNewsUpdate',
-    xd_check: dotclear.nonce,
-  };
-  $.post(dotclear.servicesUri, params, (data) => {
-    if ($('rsp[status=failed]', data).length === 0 && $('rsp>news', data).attr('check') == 1) {
-      // Something has to be displayed
-      const xml = $('rsp>news', data).attr('ret');
-      if ($('#dashboard-boxes').length == 0) {
-        // Create the #dashboard-boxes container
-        $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
+  if (!dotclear.servicesOff) {
+    params = {
+      f: 'checkNewsUpdate',
+      xd_check: dotclear.nonce,
+    };
+    $.post(dotclear.servicesUri, params, (data) => {
+      if ($('rsp[status=failed]', data).length === 0 && $('rsp>news', data).attr('check') == 1) {
+        // Something has to be displayed
+        const xml = $('rsp>news', data).attr('ret');
+        if ($('#dashboard-boxes').length == 0) {
+          // Create the #dashboard-boxes container
+          $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
+        }
+        if ($('#dashboard-boxes div.db-items').length == 0) {
+          // Create the #dashboard-boxes div.db-items container
+          $('#dashboard-boxes').prepend('<div class="db-items"></div>');
+        }
+        $('#dashboard-boxes div.db-items').prepend(xml);
+        // manage outgoing links
+        dotclear.outgoingLinks('#ajax-news a');
       }
-      if ($('#dashboard-boxes div.db-items').length == 0) {
-        // Create the #dashboard-boxes div.db-items container
-        $('#dashboard-boxes').prepend('<div class="db-items"></div>');
-      }
-      $('#dashboard-boxes div.db-items').prepend(xml);
-      // manage outgoing links
-      dotclear.outgoingLinks('#ajax-news a');
-    }
-  });
+    });
+  }
 
   // run counters' update on some dashboard icons
   // Comments (including everything)
@@ -244,6 +252,7 @@ $(() => {
   }
 
   if (!dotclear.data.noDragDrop) {
+    if (dotclear.servicesOff) return;
     // Dashboard boxes and their children are sortable
     const set_positions = (sel, id) => {
       const list = $(sel).sortable('toArray').join();

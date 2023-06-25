@@ -243,11 +243,11 @@ class ThemeEditor
                 throw new Exception();
             }
 
-            if ($type == 'tpl' && !is_dir(dirname($dest))) {
+            if ($type === 'tpl' && !is_dir(dirname($dest))) {
                 Files::makeDir(dirname($dest));
             }
 
-            if ($type == 'po' && !is_dir(dirname($dest))) {
+            if ($type === 'po' && !is_dir(dirname($dest))) {
                 Files::makeDir(dirname($dest));
             }
 
@@ -261,6 +261,19 @@ class ThemeEditor
 
             fwrite($fp, $content);
             fclose($fp);
+
+            if ($type === 'po') {
+                // Build PHP file from PO
+                $license_block = <<<EOF
+                    /**
+                     * @package Dotclear
+                     *
+                     * @copyright Olivier Meunier & Association Dotclear
+                     * @copyright GPL-2.0-only
+                     */
+                    EOF;
+                L10n::generatePhpFileFromPo(dirname($dest) . '/' . basename($dest, '.po'), $license_block);
+            }
 
             // Updating inner files list
             $this->updateFileInList($type, $f, $dest);

@@ -236,6 +236,7 @@ class Page
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
         $js['servicesUri']    = dcCore::app()->adminurl->get('admin.rest');
+        $js['servicesOff']    = !dcCore::app()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
@@ -543,6 +544,7 @@ class Page
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
         $js['servicesUri']    = dcCore::app()->adminurl->get('admin.rest');
+        $js['servicesOff']    = !dcCore::app()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
