@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use adminUserPref;
-use dcAdminCombos;
-use dcAdminHelper;
 use dcAuth;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -30,7 +30,7 @@ class UserPreferences extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -110,7 +110,7 @@ class UserPreferences extends Process
         dcCore::app()->admin->user_options      = $user_options;
         dcCore::app()->admin->format_by_editors = $format_by_editors;
         dcCore::app()->admin->available_formats = $available_formats;
-        dcCore::app()->admin->status_combo      = dcAdminCombos::getPostStatusescombo();
+        dcCore::app()->admin->status_combo      = Combos::getPostStatusescombo();
 
         // Themes
         dcCore::app()->admin->theme_combo = [
@@ -133,7 +133,7 @@ class UserPreferences extends Process
         }
 
         // Language codes
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getAdminLangsCombo();
+        dcCore::app()->admin->lang_combo = Combos::getAdminLangsCombo();
 
         // Get 3rd parts HTML editor flags
         $rte = [
@@ -155,10 +155,10 @@ class UserPreferences extends Process
         dcCore::app()->admin->rte = $rte;
 
         // Get default colums (admin lists)
-        dcCore::app()->admin->cols = adminUserPref::getUserColumns();
+        dcCore::app()->admin->cols = UserPref::getUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        dcCore::app()->admin->sorts = adminUserPref::getUserFilters();
+        dcCore::app()->admin->sorts = UserPref::getUserFilters();
 
         dcCore::app()->admin->order_combo = [
             __('Descending') => 'desc',
@@ -227,7 +227,7 @@ class UserPreferences extends Process
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
-                dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
+                Page::addSuccessNotice(__('Personal information has been successfully updated.'));
 
                 dcCore::app()->adminurl->redirect('admin.user.preferences');
             } catch (Exception $e) {
@@ -338,7 +338,7 @@ class UserPreferences extends Process
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
-                dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
+                Page::addSuccessNotice(__('Personal options has been successfully updated.'));
                 dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -365,7 +365,7 @@ class UserPreferences extends Process
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 dcCore::app()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
-                dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+                Page::addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -388,7 +388,7 @@ class UserPreferences extends Process
                 dcCore::app()->favs->setFavoriteIDs($user_favs, false);
 
                 if (!dcCore::app()->error->flag()) {
-                    dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
+                    Page::addSuccessNotice(__('Favorites have been successfully added.'));
                     dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -414,7 +414,7 @@ class UserPreferences extends Process
                 }
                 dcCore::app()->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!dcCore::app()->error->flag()) {
-                    dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
+                    Page::addSuccessNotice(__('Favorites have been successfully removed.'));
                     dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -444,7 +444,7 @@ class UserPreferences extends Process
             }
             dcCore::app()->favs->setFavoriteIDs($order, false);
             if (!dcCore::app()->error->flag()) {
-                dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
+                Page::addSuccessNotice(__('Favorites have been successfully updated.'));
                 dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -456,7 +456,7 @@ class UserPreferences extends Process
             dcCore::app()->favs->setFavoriteIDs($user_favs, true);
 
             if (!dcCore::app()->error->flag()) {
-                dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
+                Page::addSuccessNotice(__('Default favorites have been successfully updated.'));
                 dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -470,7 +470,7 @@ class UserPreferences extends Process
             dcCore::app()->auth->user_prefs->dashboard->drop('boxes_contents_order');
 
             if (!dcCore::app()->error->flag()) {
-                dcPage::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
+                Page::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
                 dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -480,25 +480,25 @@ class UserPreferences extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             dcCore::app()->admin->page_title,
-            (dcCore::app()->admin->user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')) .
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            dcPage::jsJson('pwstrength', [
+            (dcCore::app()->admin->user_acc_nodragdrop ? '' : Page::jsLoad('js/_preferences-dragdrop.js')) .
+            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            Page::jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            dcPage::jsLoad('js/pwstrength.js') .
-            dcPage::jsLoad('js/_preferences.js') .
-            dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
-            dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
-            dcPage::jsAdsBlockCheck() .
+            Page::jsLoad('js/pwstrength.js') .
+            Page::jsLoad('js/_preferences.js') .
+            Page::jsPageTabs(dcCore::app()->admin->default_tab) .
+            Page::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
+            Page::jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminPreferencesHeaders --
             dcCore::app()->callBehavior('adminPreferencesHeaders'),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->auth->userID()) => '',
                     dcCore::app()->admin->page_title                => '',
@@ -814,8 +814,8 @@ class UserPreferences extends Process
 
                 $count++;
 
-                $icon = dcAdminHelper::adminIcon($fav['small-icon']);
-                $zoom = dcAdminHelper::adminIcon($fav['large-icon'], false);
+                $icon = Helper::adminIcon($fav['small-icon']);
+                $zoom = Helper::adminIcon($fav['large-icon'], false);
                 if ($zoom !== '') {
                     $icon .= ' <span class="zoom">' . $zoom . '</span>';
                 }
@@ -894,8 +894,8 @@ class UserPreferences extends Process
             }
 
             $count++;
-            $icon = dcAdminHelper::adminIcon($fav['small-icon']);
-            $zoom = dcAdminHelper::adminIcon($fav['large-icon'], false);
+            $icon = Helper::adminIcon($fav['small-icon']);
+            $zoom = Helper::adminIcon($fav['large-icon'], false);
             if ($zoom !== '') {
                 $icon .= ' <span class="zoom">' . $zoom . '</span>';
             }
@@ -982,7 +982,7 @@ class UserPreferences extends Process
         '</form>' .
         '</div>'; // /multipart-user-favorites
 
-        dcPage::helpBlock('core_user_pref');
-        dcPage::close();
+        Page::helpBlock('core_user_pref');
+        Page::close();
     }
 }

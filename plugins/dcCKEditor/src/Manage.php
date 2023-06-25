@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Exception;
 
@@ -130,8 +130,8 @@ class Manage extends Process
                     dcCore::app()->blog->settings->dcckeditor->put('disable_native_spellchecker', dcCore::app()->admin->editor_cke_disable_native_spellchecker, 'boolean');
                 }
 
-                dcPage::addSuccessNotice(__('The configuration has been updated.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('The configuration has been updated.'));
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -146,10 +146,10 @@ class Manage extends Process
             return;
         }
 
-        dcPage::openModule(My::name());
+        Page::openModule(My::name());
 
         require My::path() . '/tpl/index.php';
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

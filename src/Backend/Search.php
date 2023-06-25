@@ -12,14 +12,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminCommentList;
-use adminPostList;
-use adminUserPref;
-use dcAuth;
-use dcCommentsActions;
 use dcCore;
-use dcPage;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Action\ActionsPosts;
+use Dotclear\Core\Backend\Listing\ListingComments;
+use Dotclear\Core\Backend\Listing\ListingPosts;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -35,9 +34,9 @@ class Search extends Process
 
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+        Page::check(dcCore::app()->auth->makePermissions([
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         dcCore::app()->addBehaviors([
@@ -71,7 +70,7 @@ class Search extends Process
         }
 
         dcCore::app()->admin->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        dcCore::app()->admin->nb   = adminUserPref::getUserFilters('search', 'nb');
+        dcCore::app()->admin->nb   = UserPref::getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             dcCore::app()->admin->nb = (int) $_GET['nb'];
         }
@@ -91,10 +90,10 @@ class Search extends Process
             dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
         }
 
-        dcPage::open(
+        Page::open(
             __('Search'),
             $starting_scripts,
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Search')                                => '',
@@ -127,8 +126,8 @@ class Search extends Process
             echo $res ?: '<p>' . __('No results found') . '</p>';
         }
 
-        dcPage::helpBlock('core_search');
-        dcPage::close();
+        Page::helpBlock('core_search');
+        Page::close();
     }
 
     /**
@@ -143,9 +142,9 @@ class Search extends Process
     public static function pageHead(array $args)
     {
         if ($args['qtype'] == 'p') {
-            return dcPage::jsLoad('js/_posts_list.js');
+            return Page::jsLoad('js/_posts_list.js');
         } elseif ($args['qtype'] == 'c') {
-            return dcPage::jsLoad('js/_comments.js');
+            return Page::jsLoad('js/_comments.js');
         }
     }
 
@@ -164,8 +163,8 @@ class Search extends Process
 
         try {
             self::$count   = (int) dcCore::app()->blog->getPosts($params, true)->f(0);
-            self::$list    = new adminPostList(dcCore::app()->blog->getPosts($params), self::$count);
-            self::$actions = new dcPostsActions(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$list    = new ListingPosts(dcCore::app()->blog->getPosts($params), self::$count);
+            self::$actions = new ActionsPosts(dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
@@ -219,8 +218,8 @@ class Search extends Process
 
         try {
             self::$count   = dcCore::app()->blog->getComments($params, true)->f(0);
-            self::$list    = new adminCommentList(dcCore::app()->blog->getComments($params), self::$count);
-            self::$actions = new dcCommentsActions(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$list    = new ListingComments(dcCore::app()->blog->getComments($params), self::$count);
+            self::$actions = new ActionsComments(dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }

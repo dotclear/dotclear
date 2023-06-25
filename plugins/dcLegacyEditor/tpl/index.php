@@ -1,4 +1,4 @@
-<?php echo dcPage::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . dcPage::notices(); ?>
+<?php echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . \Dotclear\Core\Backend\Page::notices(); ?>
 
 <?php if (dcCore::app()->admin->editor_is_admin): ?>
   <h3 class="hidden-if-js"><?php echo __('Settings'); ?></h3>
@@ -22,4 +22,4 @@
   </form>
 <?php endif;?>
 
-<?php dcPage::helpBlock('dcLegacyEditor');?>
+<?php \Dotclear\Core\Backend\Page::helpBlock('dcLegacyEditor');?>

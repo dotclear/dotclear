@@ -6,14 +6,23 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use ArrayObject;
+use Autoloader;
+use dcCore;
+use dcDeprecated;
+use dcUtils;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use form;
 
-class dcPage
+class Page
 {
     /**
      * Stack of loaded JS
@@ -49,8 +58,8 @@ class dcPage
 
         // Check if dashboard is not the current page et if it is granted for the user
         if (!$home && dcCore::app()->blog && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             // Go back to the dashboard
             Http::redirect(DC_ADMIN_URL);
@@ -72,8 +81,8 @@ class dcPage
         if (!dcCore::app()->auth->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
             if (!$home && dcCore::app()->blog && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_USAGE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 // Go back to the dashboard
                 Http::redirect(DC_ADMIN_URL);
@@ -234,7 +243,7 @@ class dcPage
         $js['debug'] = !!DC_DEBUG;
 
         $js['showIp'] = dcCore::app()->blog && dcCore::app()->blog->id ? dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id) : false;
 
         // Set some JSON data
@@ -299,7 +308,7 @@ class dcPage
         }
 
         // Display notices and errors
-        echo dcAdminNotices::getNotices();
+        echo Notices::getNotices();
     }
 
     /**
@@ -309,7 +318,7 @@ class dcPage
      */
     public static function notices(): string
     {
-        return dcAdminNotices::getNotices();
+        return Notices::getNotices();
     }
 
     /**
@@ -320,7 +329,7 @@ class dcPage
      */
     public static function addMessageNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_MESSAGE, $message, $options);
+        Notices::addNotice(Notices::NOTICE_MESSAGE, $message, $options);
     }
 
     /**
@@ -331,7 +340,7 @@ class dcPage
      */
     public static function addSuccessNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_SUCCESS, $message, $options);
+        Notices::addNotice(Notices::NOTICE_SUCCESS, $message, $options);
     }
 
     /**
@@ -342,7 +351,7 @@ class dcPage
      */
     public static function addWarningNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_WARNING, $message, $options);
+        Notices::addNotice(Notices::NOTICE_WARNING, $message, $options);
     }
 
     /**
@@ -353,7 +362,7 @@ class dcPage
      */
     public static function addErrorNotice(string $message, array $options = [])
     {
-        dcAdminNotices::addNotice(dcAdminNotices::NOTICE_ERROR, $message, $options);
+        Notices::addNotice(Notices::NOTICE_ERROR, $message, $options);
     }
 
     /**
@@ -369,7 +378,7 @@ class dcPage
      */
     public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
     {
-        return dcAdminNotices::message($msg, $timestamp, $div, $echo, $class);
+        return Notices::message($msg, $timestamp, $div, $echo, $class);
     }
 
     /**
@@ -384,7 +393,7 @@ class dcPage
      */
     public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return dcAdminNotices::success($msg, $timestamp, $div, $echo);
+        return Notices::success($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -399,7 +408,7 @@ class dcPage
      */
     public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return dcAdminNotices::warning($msg, $timestamp, $div, $echo);
+        return Notices::warning($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -414,7 +423,7 @@ class dcPage
      */
     public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        return dcAdminNotices::error($msg, $timestamp, $div, $echo);
+        return Notices::error($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -571,7 +580,7 @@ class dcPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo dcAdminNotices::getNotices();
+        echo Notices::getNotices();
     }
 
     /**
@@ -1414,7 +1423,7 @@ class dcPage
     /**
      * return a javascript variable definition line code
      *
-     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
+     * @deprecated 2.15 use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
      * @param      string  $name      variable name
      * @param      mixed   $value      value
@@ -1423,7 +1432,7 @@ class dcPage
      */
     public static function jsVar(string $name, $value): string
     {
-        dcDeprecated::set('dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        dcDeprecated::set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         return $name . " = '" . Html::escapeJS($value) . "';\n";
     }
@@ -1431,7 +1440,7 @@ class dcPage
     /**
      * return a list of javascript variables définitions code
      *
-     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
+     * @deprecated 2.15 use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
      * @param      array  $vars   The variables
      *
@@ -1439,7 +1448,7 @@ class dcPage
      */
     public static function jsVars(array $vars): string
     {
-        dcDeprecated::set('dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        dcDeprecated::set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {

@@ -214,25 +214,25 @@ final class dcCore
     public $admin;
 
     /**
-     * dcAdminURL instance
+     * Backend Url instance
      *
      * May be transfered as property of backend Utility instance in future
      *
-     * @var dcAdminURL|null
+     * @var \Dotclear\Core\Backend\Url|null
      */
     public $adminurl;
 
     /**
-     * dcFavorites instance
+     * Bakcend Favorites instance
      *
      * May be transfered as property of backend Utility instance in future
      *
-     * @var dcFavorites
+     * @var \Dotclear\Core\Backend\Favorites
      */
     public $favs;
 
     /**
-     * Array of several dcMenu instance
+     * Array of several backend Menu instance
      *
      * May be transfered as property of bakcend Utility instance in future
      *

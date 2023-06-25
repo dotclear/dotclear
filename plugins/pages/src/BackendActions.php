@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcCore;
-use dcPage;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-class BackendActions extends dcPostsActions
+class BackendActions extends ActionsPosts
 {
     protected $use_render = true;
 
@@ -45,7 +45,7 @@ class BackendActions extends dcPostsActions
     {
         dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Pages')                                 => $this->getRedirection(true),
@@ -64,9 +64,9 @@ class BackendActions extends dcPostsActions
      */
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
-        dcPage::openModule(
+        Page::openModule(
             __('Pages'),
-            dcPage::jsLoad('js/_posts_actions.js') .
+            Page::jsLoad('js/_posts_actions.js') .
             $head
         );
         echo 
@@ -79,7 +79,7 @@ class BackendActions extends dcPostsActions
      */
     public function endPage(): void
     {
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     /**
@@ -89,7 +89,7 @@ class BackendActions extends dcPostsActions
     {
         // We could have added a behavior here, but we want default action to be setup first
         BackendDefaultActions::adminPagesActionsPage($this);
-        # --BEHAVIOR-- adminPagesActions -- dcActions
+        # --BEHAVIOR-- adminPagesActions -- Actions
         dcCore::app()->callBehavior('adminPagesActions', $this);
     }
 

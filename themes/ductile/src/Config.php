@@ -12,8 +12,8 @@
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
-use dcPage;
-use dcThemeConfig;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -303,26 +303,26 @@ class Config extends Process
                     $ductile_user['alternate_webfont_api']    = $_POST['alternate_webfont_api'];
 
                     $ductile_user['blog_title_w'] = (int) !empty($_POST['blog_title_w']);
-                    $ductile_user['blog_title_s'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s']);
-                    $ductile_user['blog_title_c'] = dcThemeConfig::adjustColor($_POST['blog_title_c']);
+                    $ductile_user['blog_title_s'] = ThemeConfig::adjustFontSize($_POST['blog_title_s']);
+                    $ductile_user['blog_title_c'] = ThemeConfig::adjustColor($_POST['blog_title_c']);
 
                     $ductile_user['post_title_w'] = (int) !empty($_POST['post_title_w']);
-                    $ductile_user['post_title_s'] = dcThemeConfig::adjustFontSize($_POST['post_title_s']);
-                    $ductile_user['post_title_c'] = dcThemeConfig::adjustColor($_POST['post_title_c']);
+                    $ductile_user['post_title_s'] = ThemeConfig::adjustFontSize($_POST['post_title_s']);
+                    $ductile_user['post_title_c'] = ThemeConfig::adjustColor($_POST['post_title_c']);
 
                     $ductile_user['post_link_w']   = (int) !empty($_POST['post_link_w']);
-                    $ductile_user['post_link_v_c'] = dcThemeConfig::adjustColor($_POST['post_link_v_c']);
-                    $ductile_user['post_link_f_c'] = dcThemeConfig::adjustColor($_POST['post_link_f_c']);
+                    $ductile_user['post_link_v_c'] = ThemeConfig::adjustColor($_POST['post_link_v_c']);
+                    $ductile_user['post_link_f_c'] = ThemeConfig::adjustColor($_POST['post_link_f_c']);
 
-                    $ductile_user['post_simple_title_c'] = dcThemeConfig::adjustColor($_POST['post_simple_title_c']);
+                    $ductile_user['post_simple_title_c'] = ThemeConfig::adjustColor($_POST['post_simple_title_c']);
 
                     $ductile_user['blog_title_w_m'] = (int) !empty($_POST['blog_title_w_m']);
-                    $ductile_user['blog_title_s_m'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s_m']);
-                    $ductile_user['blog_title_c_m'] = dcThemeConfig::adjustColor($_POST['blog_title_c_m']);
+                    $ductile_user['blog_title_s_m'] = ThemeConfig::adjustFontSize($_POST['blog_title_s_m']);
+                    $ductile_user['blog_title_c_m'] = ThemeConfig::adjustColor($_POST['blog_title_c_m']);
 
                     $ductile_user['post_title_w_m'] = (int) !empty($_POST['post_title_w_m']);
-                    $ductile_user['post_title_s_m'] = dcThemeConfig::adjustFontSize($_POST['post_title_s_m']);
-                    $ductile_user['post_title_c_m'] = dcThemeConfig::adjustColor($_POST['post_title_c_m']);
+                    $ductile_user['post_title_s_m'] = ThemeConfig::adjustFontSize($_POST['post_title_s_m']);
+                    $ductile_user['post_title_c_m'] = ThemeConfig::adjustColor($_POST['post_title_c_m']);
 
                     dcCore::app()->admin->ductile_user = $ductile_user;
                 }
@@ -338,7 +338,7 @@ class Config extends Process
                 // Template cache reset
                 dcCore::app()->emptyTemplatesCache();
 
-                dcPage::message(__('Theme configuration upgraded.'), true, true);
+                Page::message(__('Theme configuration upgraded.'), true, true);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -533,7 +533,7 @@ class Config extends Process
 
         '<p class="field picker"><label for="blog_title_c">' . __('Color:') . '</label> ' .
         form::color('blog_title_c', ['default' => dcCore::app()->admin->ductile_user['blog_title_c']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['blog_title_c'],
             '#ffffff',
             (!empty(dcCore::app()->admin->ductile_user['blog_title_s']) ? dcCore::app()->admin->ductile_user['blog_title_s'] : '2em'),
@@ -553,7 +553,7 @@ class Config extends Process
 
         '<p class="field picker"><label for="post_title_c">' . __('Color:') . '</label> ' .
         form::color('post_title_c', ['default' => dcCore::app()->admin->ductile_user['post_title_c']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['post_title_c'],
             '#ffffff',
             (!empty(dcCore::app()->admin->ductile_user['post_title_s']) ? dcCore::app()->admin->ductile_user['post_title_s'] : '2.5em'),
@@ -567,7 +567,7 @@ class Config extends Process
         '<h5>' . __('Titles without link') . '</h5>' .
         '<p class="field picker"><label for="post_simple_title_c">' . __('Color:') . '</label> ' .
         form::color('post_simple_title_c', ['default' => dcCore::app()->admin->ductile_user['post_simple_title_c']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['post_simple_title_c'],
             '#ffffff',
             '1.1em', // H5 minimum size
@@ -581,7 +581,7 @@ class Config extends Process
 
         '<p class="field picker"><label for="post_link_v_c">' . __('Normal and visited links color:') . '</label> ' .
         form::color('post_link_v_c', ['default' => dcCore::app()->admin->ductile_user['post_link_v_c']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['post_link_v_c'],
             '#ffffff',
             '1em',
@@ -591,7 +591,7 @@ class Config extends Process
 
         '<p class="field picker"><label for="post_link_f_c">' . __('Active, hover and focus links color:') . '</label> ' .
         form::color('post_link_f_c', ['default' => dcCore::app()->admin->ductile_user['post_link_f_c']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['post_link_f_c'],
             '#ebebee',
             '1em',
@@ -612,7 +612,7 @@ class Config extends Process
 
         '<p class="field picker"><label for="blog_title_c_m">' . __('Color:') . '</label> ' .
         form::color('blog_title_c_m', ['default' => dcCore::app()->admin->ductile_user['blog_title_c_m']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['blog_title_c_m'],
             '#d7d7dc',
             (!empty(dcCore::app()->admin->ductile_user['blog_title_s_m']) ? dcCore::app()->admin->ductile_user['blog_title_s_m'] : '1.8em'),
@@ -631,7 +631,7 @@ class Config extends Process
 
         '<p class="field picker"><label for="post_title_c_m">' . __('Color:') . '</label> ' .
         form::color('post_title_c_m', ['default' => dcCore::app()->admin->ductile_user['post_title_c_m']]) .
-        dcThemeConfig::contrastRatio(
+        ThemeConfig::contrastRatio(
             dcCore::app()->admin->ductile_user['post_title_c_m'],
             '#ffffff',
             (!empty(dcCore::app()->admin->ductile_user['post_title_s_m']) ? dcCore::app()->admin->ductile_user['post_title_s_m'] : '1.5em'),
@@ -648,7 +648,7 @@ class Config extends Process
 
         '</div>'; // Close tab
 
-        dcPage::helpBlock('ductile');
+        Page::helpBlock('ductile');
 
         // Legacy mode
         if (!dcCore::app()->admin->standalone_config) {

@@ -12,14 +12,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminModulesList;
 use ArrayObject;
-use dcAdminCombos;
-use dcAdminHelper;
-use dcAuth;
 use dcBlog;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\ModulesList;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -42,9 +41,9 @@ class Home extends Process
             }
         }
 
-        dcPage::check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+        Page::check(dcCore::app()->auth->makePermissions([
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.home', []))) {
@@ -141,8 +140,8 @@ class Home extends Process
         $admin_post_behavior = '';
         if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                dcCore::app()->auth::PERMISSION_USAGE,
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 $post_format = dcCore::app()->auth->getOption('post_format');
                 $post_editor = dcCore::app()->auth->getOption('editor');
@@ -151,7 +150,7 @@ class Home extends Process
                     $admin_post_behavior = dcCore::app()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
-            $quickentry = dcPage::jsJson('dotclear_quickentry', [
+            $quickentry = Page::jsJson('dotclear_quickentry', [
                 'post_published' => dcBlog::POST_PUBLISHED,
                 'post_pending'   => dcBlog::POST_PENDING,
             ]);
@@ -165,7 +164,7 @@ class Home extends Process
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
             ];
-            $dragndrop_head = dcPage::jsJson('dotclear_dragndrop', $dragndrop_msg);
+            $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
             $dragndrop      = '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
                 '<label for="dragndrop">' .
                 '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
@@ -175,19 +174,19 @@ class Home extends Process
                 '</label>';
         }
 
-        dcPage::open(
+        Page::open(
             __('Dashboard'),
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             $quickentry .
-            dcPage::jsLoad('js/_index.js') .
+            Page::jsLoad('js/_index.js') .
             $dragndrop_head .
             $admin_post_behavior .
-            dcPage::jsAdsBlockCheck() .
+            Page::jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminDashboardHeaders --
             dcCore::app()->callBehavior('adminDashboardHeaders'),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Dashboard') . ' : ' . Html::escapeHTML(dcCore::app()->blog->name) => '',
                 ],
@@ -260,7 +259,7 @@ class Home extends Process
             echo
             '<div class="success">' . __('Following plugins have been installed:') . '<ul>';
             foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
-                $info = implode(' - ', adminModulesList::getSettingsUrls($k, true));
+                $info = implode(' - ', ModulesList::getSettingsUrls($k, true));
                 echo
                 '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
             }
@@ -379,7 +378,7 @@ class Home extends Process
 
             $dashboardIcons = '<div id="icons">';
             foreach ($__dashboard_icons as $k => $i) {
-                $dashboardIcons .= '<p><a href="' . $i[1] . '" id="icon-process-' . $k . '-fav">' . dcAdminHelper::adminIcon($i[2]) .
+                $dashboardIcons .= '<p><a href="' . $i[1] . '" id="icon-process-' . $k . '-fav">' . Helper::adminIcon($i[2]) .
             '<br /><span class="db-icon-title">' . $i[0] . '</span></a></p>';
             }
             $dashboardIcons .= '</div>';
@@ -387,13 +386,13 @@ class Home extends Process
         }
 
         if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_USAGE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             // Quick entry
 
             // Get categories
-            $categories_combo = dcAdminCombos::getCategoriesCombo(
+            $categories_combo = Combos::getCategoriesCombo(
                 dcCore::app()->blog->getCategories([])
             );
 
@@ -414,7 +413,7 @@ class Home extends Process
                 '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
                 form::combo('cat_id', $categories_combo) . '</p>' .
                 (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_CATEGORIES,
+                    dcCore::app()->auth::PERMISSION_CATEGORIES,
                 ]), dcCore::app()->blog->id)
                     ? '<div>' .
                     '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
@@ -428,7 +427,7 @@ class Home extends Process
                     : '') .
                 '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
                 (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_PUBLISH,
+                    dcCore::app()->auth::PERMISSION_PUBLISH,
                 ]), dcCore::app()->blog->id)
                     ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
                     : '') .
@@ -450,7 +449,7 @@ class Home extends Process
 
         echo $dragndrop . '<div id="dashboard-main">' . $dashboardMain . '</div>';
 
-        dcPage::helpBlock('core_dashboard');
-        dcPage::close();
+        Page::helpBlock('core_dashboard');
+        Page::close();
     }
 }

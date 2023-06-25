@@ -16,7 +16,7 @@ use Exception;
 use dcBlog;
 use dcCore;
 use dcMeta;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -215,7 +215,7 @@ class ModuleImportFeed extends Module
     public function gui(): void
     {
         if ($this->status) {
-            dcPage::success(__('Content successfully imported.'));
+            Page::success(__('Content successfully imported.'));
         }
 
         echo

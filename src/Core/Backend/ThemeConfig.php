@@ -10,11 +10,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use dcCore;
+use dcMedia;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Exception;
 
-class dcThemeConfig
+class ThemeConfig
 {
     /**
      * Compute contrast ratio between two colors

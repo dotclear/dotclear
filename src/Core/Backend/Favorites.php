@@ -3,15 +3,19 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * dcFavorites -- Favorites handling facilities
+ * Favorites handling facilities
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\Core\Backend\Utility;
+namespace Dotclear\Core\Backend;
 
-class dcFavorites
+use ArrayObject;
+use dcCore;
+
+class Favorites
 {
     /**
      * List of favorite definitions
@@ -23,7 +27,7 @@ class dcFavorites
     /**
      * Current favorite landing workspace
      *
-     * @var dcWorkspace
+     * @var \dcWorkspace
      */
     protected $workspace;
 
@@ -77,11 +81,11 @@ class dcFavorites
      * Sets up favorites, fetch user favorites (against his permissions)
      * This method is to be called after loading plugins
      */
-    public function setup()
+    public function setup(): void
     {
-        defaultFavorites::initDefaultFavorites($this);
+        $this->initDefaultFavorites();
         $this->legacyFavorites();
-        # --BEHAVIOR-- adminDashboardFavoritesV2 -- dcFavorites
+        # --BEHAVIOR-- adminDashboardFavoritesV2 -- Favorites
         dcCore::app()->callBehavior('adminDashboardFavoritesV2', $this);
         $this->setUserPrefs();
     }
@@ -292,9 +296,9 @@ class dcFavorites
      *
      * @param array|ArrayObject  $menu   admin menu
      */
-    public function appendMenuTitle($menu)
+    public function appendMenuTitle($menu): void
     {
-        $menu[Utility::MENU_FAVORITES]        = new dcMenu('favorites-menu', 'My favorites');
+        $menu[Utility::MENU_FAVORITES]        = new Menu('favorites-menu', 'My favorites');
         $menu[Utility::MENU_FAVORITES]->title = __('My favorites');
     }
 
@@ -304,7 +308,7 @@ class dcFavorites
      *
      * @param array|ArrayObject  $menu   admin menu
      */
-    public function appendMenu($menu)
+    public function appendMenu($menu): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite_menu) {
             $menu[Utility::MENU_FAVORITES]->addItem(
@@ -326,7 +330,7 @@ class dcFavorites
      *
      * @param array|ArrayObject  $icons   dashboard icon list to enrich
      */
-    public function appendDashboardIcons($icons)
+    public function appendDashboardIcons($icons): void
     {
         foreach ($this->user_favorites as $icon_id => $icon_data) {
             if (isset($icon_data['dashboard_cb']) && is_callable($icon_data['dashboard_cb'])) {
@@ -352,9 +356,9 @@ class dcFavorites
      *    'dashboard_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
      *    'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
      *
-     * @return dcFavorites instance
+     * @return Favorites instance
      */
-    public function register(string $favorite_id, array $favorite_data): dcFavorites
+    public function register(string $favorite_id, array $favorite_data): Favorites
     {
         $this->favorites[$favorite_id] = $favorite_data;
 
@@ -367,9 +371,9 @@ class dcFavorites
      * @param array $data an array defining all favorites key is the id, value is the data.
      *  see register method for data format
      *
-     * @return dcFavorites instance
+     * @return Favorites instance
      */
-    public function registerMultiple(array $data): dcFavorites
+    public function registerMultiple(array $data): Favorites
     {
         foreach ($data as $favorite_id => $favorite_data) {
             $this->register($favorite_id, $favorite_data);
@@ -389,21 +393,13 @@ class dcFavorites
     {
         return isset($this->favorites[$id]);
     }
-}
 
-/**
- * defaultFavorites -- default favorites definition
- */
-class defaultFavorites
-{
     /**
      * Initializes the default favorites.
-     *
-     * @param      dcFavorites  $favs   The favorites
      */
-    public static function initDefaultFavorites(dcFavorites $favs)
+    public function initDefaultFavorites(): void
     {
-        $favs->registerMultiple([
+        $this->registerMultiple([
             'prefs' => [
                 'title'      => __('My preferences'),
                 'url'        => dcCore::app()->adminurl->get('admin.user.preferences'),
@@ -415,38 +411,46 @@ class defaultFavorites
                 'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'large-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'active_cb' => ['defaultFavorites', 'newpostActive'], ],
+                'active_cb' => ['defaultFavorites', fn (string $request_uri, array $request_params): bool => 'post.php' === $request_uri && !isset($request_params['id'])], ],
             'posts' => [
                 'title'       => __('Posts'),
                 'url'         => dcCore::app()->adminurl->get('admin.posts'),
                 'small-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'large-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'dashboard_cb' => ['defaultFavorites', 'postsDashboard'], ],
+                'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
+                    $post_count    = dcCore::app()->blog->getPosts([], true)->f(0);
+                    $str_entries   = __('%d post', '%d posts', $post_count);
+                    $icon['title'] = sprintf($str_entries, $post_count);
+                }], ],
             'comments' => [
                 'title'       => __('Comments'),
                 'url'         => dcCore::app()->adminurl->get('admin.comments'),
                 'small-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'large-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'dashboard_cb' => ['defaultFavorites', 'commentsDashboard'], ],
+                'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
+                    $comment_count = dcCore::app()->blog->getComments([], true)->f(0);
+                    $str_comments  = __('%d comment', '%d comments', $comment_count);
+                    $icon['title'] = sprintf($str_comments, $comment_count);
+                }], ],
             'search' => [
                 'title'       => __('Search'),
                 'url'         => dcCore::app()->adminurl->get('admin.search'),
                 'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'large-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]), ],
             'categories' => [
                 'title'       => __('Categories'),
@@ -454,7 +458,7 @@ class defaultFavorites
                 'small-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_CATEGORIES,
+                    dcCore::app()->auth::PERMISSION_CATEGORIES,
                 ]), ],
             'media' => [
                 'title'       => __('Media manager'),
@@ -462,8 +466,8 @@ class defaultFavorites
                 'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'large-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_MEDIA,
-                    dcAuth::PERMISSION_MEDIA_ADMIN,
+                    dcCore::app()->auth::PERMISSION_MEDIA,
+                    dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
                 ]), ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),
@@ -471,7 +475,7 @@ class defaultFavorites
                 'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_ADMIN,
+                    dcCore::app()->auth::PERMISSION_ADMIN,
                 ]), ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
@@ -479,7 +483,7 @@ class defaultFavorites
                 'small-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'large-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_ADMIN,
+                    dcCore::app()->auth::PERMISSION_ADMIN,
                 ]), ],
             'blogs' => [
                 'title'       => __('Blogs'),
@@ -487,8 +491,8 @@ class defaultFavorites
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'permissions' => !dcCore::app()->auth->isSuperAdmin() && dcCore::app()->auth->getBlogCount() > 1 ? dcCore::app()->auth->makePermissions([
-                    dcAuth::PERMISSION_USAGE,
-                    dcAuth::PERMISSION_CONTENT_ADMIN,
+                    dcCore::app()->auth::PERMISSION_USAGE,
+                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]) : null, ],
             'users' => [
                 'title'      => __('Users'),
@@ -511,44 +515,5 @@ class defaultFavorites
                 'small-icon' => 'images/menu/help.svg',
                 'large-icon' => 'images/menu/help.svg', ],
         ]);
-    }
-
-    /**
-     * Helper for posts icon on dashboard
-     *
-     * @param      ArrayObject   $icon      The icon
-     */
-    public static function postsDashboard(ArrayObject $icon)
-    {
-        $post_count    = dcCore::app()->blog->getPosts([], true)->f(0);
-        $str_entries   = __('%d post', '%d posts', $post_count);
-        $icon['title'] = sprintf($str_entries, $post_count);
-    }
-
-    /**
-     * Helper for new post active menu
-     *
-     * Take account of post edition (if id is set)
-     *
-     * @param  string   $request_uri    The URI
-     * @param  array    $request_params The params
-     *
-     * @return boolean                  Active
-     */
-    public static function newpostActive(string $request_uri, array $request_params): bool
-    {
-        return 'post.php' === $request_uri && !isset($request_params['id']);
-    }
-
-    /**
-     * Helper for comments icon on dashboard
-     *
-     * @param      ArrayObject   $icon      The icon
-     */
-    public static function commentsDashboard(ArrayObject $icon)
-    {
-        $comment_count = dcCore::app()->blog->getComments([], true)->f(0);
-        $str_comments  = __('%d comment', '%d comments', $comment_count);
-        $icon['title'] = sprintf($str_comments, $comment_count);
     }
 }

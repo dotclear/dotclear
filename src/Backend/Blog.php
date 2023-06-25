@@ -14,9 +14,9 @@ namespace Dotclear\Backend;
 
 use dcBlog;
 use dcCore;
-use dcPage;
 use dcSettings;
 use Dotclear\App;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -34,7 +34,7 @@ class Blog extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         dcCore::app()->admin->blog_id   = '';
         dcCore::app()->admin->blog_url  = '';
@@ -74,7 +74,7 @@ class Blog extends Process
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
                 dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
-                dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
+                Page::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 dcCore::app()->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -90,10 +90,10 @@ class Blog extends Process
             dcCore::app()->admin->edit_blog_mode = true;
             App::process(BlogPref::class);
         } else {
-            dcPage::open(
+            Page::open(
                 __('New blog'),
-                dcPage::jsConfirmClose('blog-form'),
-                dcPage::breadcrumb(
+                Page::jsConfirmClose('blog-form'),
+                Page::breadcrumb(
                     [
                         __('System')   => '',
                         __('Blogs')    => dcCore::app()->adminurl->get('admin.blogs'),
@@ -193,8 +193,8 @@ class Blog extends Process
 
                 ])->render();
 
-            dcPage::helpBlock('core_blog_new');
-            dcPage::close();
+            Page::helpBlock('core_blog_new');
+            Page::close();
         }
     }
 }

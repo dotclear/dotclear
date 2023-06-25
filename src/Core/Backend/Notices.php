@@ -3,15 +3,19 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * dcAdminNotices -- Backend notices handling facilities
+ * Backend notices handling facilities
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend;
+
+use dcCore;
 use Dotclear\Helper\Date;
 
-class dcAdminNotices
+class Notices
 {
     /* Constants */
     public const NOTICE_SUCCESS = 'success';

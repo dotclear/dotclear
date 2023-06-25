@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminMediaList;
-use adminMediaPage;
-use dcAdminFilter;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Filter\Filter;
+use Dotclear\Core\Backend\Listing\ListingMedia;
+use Dotclear\Core\Backend\MediaPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
@@ -30,12 +30,12 @@ class Media extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_MEDIA,
             dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
         ]));
 
-        dcCore::app()->admin->page = new adminMediaPage();
+        dcCore::app()->admin->page = new MediaPage();
 
         return (static::$init = true);
     }
@@ -83,14 +83,14 @@ class Media extends Process
             if (array_filter(dcCore::app()->admin->page->getDirs('files'), fn ($i) => ($i->basename === $nd))
         || array_filter(dcCore::app()->admin->page->getDirs('dirs'), fn ($i) => ($i->basename === $nd))
             ) {
-                dcPage::addWarningNotice(sprintf(
+                Page::addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
                     Html::escapeHTML($nd)
                 ));
             } else {
                 try {
                     dcCore::app()->media->makeDir($_POST['newdir']);
-                    dcPage::addSuccessNotice(sprintf(
+                    Page::addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
                     ));
@@ -145,7 +145,7 @@ class Media extends Process
 
                 dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
 
-                dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
+                Page::addSuccessNotice(__('Files have been successfully uploaded.'));
                 dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -158,7 +158,7 @@ class Media extends Process
                 foreach ($_POST['medias'] as $media) {
                     dcCore::app()->media->removeItem(rawurldecode($media));
                 }
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     sprintf(
                         __(
                             'Successfully delete one media.',
@@ -192,7 +192,7 @@ class Media extends Process
                     dcCore::app()->admin->page->updateLast(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
                     dcCore::app()->admin->page->updateFav(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
-                dcPage::addSuccessNotice($msg);
+                Page::addSuccessNotice($msg);
                 dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -204,7 +204,7 @@ class Media extends Process
             try {
                 dcCore::app()->media->rebuildThumbnails(dcCore::app()->admin->page->d);
 
-                dcPage::addSuccessNotice(
+                Page::addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully completed.'),
                         Html::escapeHTML(dcCore::app()->admin->page->d)
@@ -311,20 +311,20 @@ class Media extends Process
 
         dcCore::app()->admin->page->openPage(
             dcCore::app()->admin->page->breadcrumb(),
-            dcPage::jsModal() .
+            Page::jsModal() .
             dcCore::app()->admin->page->js(dcCore::app()->adminurl->get('admin.media', array_diff_key(dcCore::app()->admin->page->values(), dcCore::app()->admin->page->values(false, true)), '&')) .
-            dcPage::jsLoad('js/_media.js') .
+            Page::jsLoad('js/_media.js') .
             $starting_scripts .
-            (dcCore::app()->admin->page->mediaWritable() ? dcPage::jsUpload(['d=' . dcCore::app()->admin->page->d]) : '')
+            (dcCore::app()->admin->page->mediaWritable() ? Page::jsUpload(['d=' . dcCore::app()->admin->page->d]) : '')
         );
 
         if (dcCore::app()->admin->page->popup) {
             echo
-            dcPage::notices();
+            Page::notices();
         }
 
         if (!dcCore::app()->admin->page->mediaWritable() && !dcCore::app()->error->flag()) {
-            dcPage::warning(__('You do not have sufficient permissions to write to this folder.'));
+            Page::warning(__('You do not have sufficient permissions to write to this folder.'));
         }
 
         if (!dcCore::app()->admin->page->getDirs()) {
@@ -379,10 +379,10 @@ class Media extends Process
         }
 
         $rs         = dcCore::app()->admin->page->getDirsRecord();
-        $media_list = new adminMediaList($rs, $rs->count());
+        $media_list = new ListingMedia($rs, $rs->count());
 
         // add file mode into the filter box
-        dcCore::app()->admin->page->add((new dcAdminFilter('file_mode'))->value(dcCore::app()->admin->page->file_mode)->html(
+        dcCore::app()->admin->page->add((new Filter('file_mode'))->value(dcCore::app()->admin->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
             '<a href="' . dcCore::app()->adminurl->get('admin.media', array_merge(dcCore::app()->admin->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
             '<img src="images/grid-' . (dcCore::app()->admin->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '" />' .

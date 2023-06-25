@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -105,8 +105,8 @@ class Manage extends Process
                 }
             }
 
-            dcPage::addSuccessNotice(__('links have been successfully imported.'));
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+            Page::addSuccessNotice(__('links have been successfully imported.'));
+            My::redirect();
         }
 
         if (!empty($_POST['cancel_import'])) {
@@ -127,8 +127,8 @@ class Manage extends Process
             try {
                 dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang);
 
-                dcPage::addSuccessNotice(__('Link has been successfully created.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Link has been successfully created.'));
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
                 dcCore::app()->admin->default_tab = 'add-link';
@@ -142,8 +142,8 @@ class Manage extends Process
 
             try {
                 dcCore::app()->admin->blogroll->addCategory(dcCore::app()->admin->cat_title);
-                dcPage::addSuccessNotice(__('category has been successfully created.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('category has been successfully created.'));
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
                 dcCore::app()->admin->default_tab = 'add-cat';
@@ -164,8 +164,8 @@ class Manage extends Process
             }
 
             if (!dcCore::app()->error->flag()) {
-                dcPage::addSuccessNotice(__('Items have been successfully removed.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Items have been successfully removed.'));
+                My::redirect();
             }
         }
 
@@ -194,8 +194,8 @@ class Manage extends Process
             }
 
             if (!dcCore::app()->error->flag()) {
-                dcPage::addSuccessNotice(__('Items order has been successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Items order has been successfully updated'));
+                My::redirect();
             }
         }
 
@@ -223,24 +223,24 @@ class Manage extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        $head = dcPage::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
+        $head = Page::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
-            $head .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('blogroll.js');
         }
-        $head .= dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
+        $head .= Page::jsPageTabs(dcCore::app()->admin->default_tab);
 
-        dcPage::openModule(My::name(), $head);
+        Page::openModule(My::name(), $head);
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => '',
             ]
         ) .
-        dcPage::notices() .
+        Page::notices() .
 
         '<div class="multi-part" id="main-list" title="' . My::name() . '">';
 
@@ -432,8 +432,8 @@ class Manage extends Process
         }
         echo '</div>';
 
-        dcPage::helpBlock(My::id());
+        Page::helpBlock(My::id());
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

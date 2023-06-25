@@ -7,9 +7,10 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Listing\Listing;
 use Dotclear\Database\MetaRecord;
 
-class adminGenericList extends adminGenericListV2
+class adminGenericList extends Listing
 {
     /**
      * Constructs a new instance.

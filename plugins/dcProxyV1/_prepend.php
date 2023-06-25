@@ -180,6 +180,45 @@ dcProxyV1::classAliases([
 
     'dcRecord'    => 'Dotclear\Database\MetaRecord',
     'dcNsProcess' => 'Dotclear\Core\Process',
-    'dcAdmin'     => 'Dotclear\Core\Backend\Utility',
+
+    // Core admin -----------------
+
+    'adminBlogFilter'      => 'Dotclear\Core\Backend\Filter\FilterBlogs',
+    'adminBlogList'        => 'Dotclear\Core\Backend\Listing\ListingBlogs',
+    'adminCommentFilter'   => 'Dotclear\Core\Backend\Filter\FilterComments',
+    'adminCommentList'     => 'Dotclear\Core\Backend\Listing\ListingComments',
+    'adminGenericFilterV2' => 'Dotclear\Core\Backend\Filter\Filters',
+    'adminGenericListV2'   => 'Dotclear\Core\Backend\Listing\Listing',
+    'adminMediaFilter'     => 'Dotclear\Core\Backend\Filter\FilterMedia',
+    'adminMediaList'       => 'Dotclear\Core\Backend\Listing\ListingMedia',
+    'adminMediaPage'       => 'Dotclear\Core\Backend\MediaPage',
+    'adminModulesList'     => 'Dotclear\Core\Backend\ModulesList',
+    'adminPostFilter'      => 'Dotclear\Core\Backend\Filter\FilterPosts',
+    'adminPostList'        => 'Dotclear\Core\Backend\Listing\ListingPosts',
+    'adminPostMiniList'    => 'Dotclear\Core\Backend\Listing\ListingPostsMini',
+    'adminUserFilter'      => 'Dotclear\Core\Backend\Filter\FilterUsers',
+    'adminUserList'        => 'Dotclear\Core\Backend\Listing\ListingUsers',
+    'adminThemesList'      => 'Dotclear\Core\Backend\ThemesList',
+    'adminUserPref'        => 'Dotclear\Core\Backend\UserPref',
+    'dcActions'            => 'Dotclear\Core\Backend\Action\Actions',
+    'dcAdmin'              => 'Dotclear\Core\Backend\Utility',
+    'dcAdminBlogPref'      => 'Dotclear\Core\Backend\BlogPref',
+    'dcAdminCombos'        => 'Dotclear\Core\Backend\Combos',
+    'dcAdminFilter'        => 'Dotclear\Core\Backend\Filter\Filter',
+    'dcAdminFilters'       => 'Dotclear\Core\Backend\Filter\FiltersLibrary',
+    'dcAdminHelper'        => 'Dotclear\Core\Backend\Helper',
+    'dcAdminNotices'       => 'Dotclear\Core\Backend\Notices',
+    'dcAdminURL'           => 'Dotclear\Core\Backend\Url',
+    'dcBlogsActions'       => 'Dotclear\Core\Backend\Action\ActionsBlogs',
+    'dcCommentsActions'    => 'Dotclear\Core\Backend\Action\ActionsComments',
+    'dcPostsActions'       => 'Dotclear\Core\Backend\Action\ActionsPosts',
+    'dcFavorites'          => 'Dotclear\Core\Backend\Favorites',
+    'dcMenu'               => 'Dotclear\Core\Backend\Menu',
+    'dcPage'               => 'Dotclear\Core\Backend\Page',
+    'dcPager'              => 'Dotclear\Core\Backend\Listing\Pager',
+    'dcThemeConfig'        => 'Dotclear\Core\Backend\ThemeConfig',
+
+    // Core public ----------------
+
     'dcPublic'    => 'Dotclear\Core\Frontend\Utility',
 ]);

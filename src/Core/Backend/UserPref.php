@@ -11,7 +11,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class adminUserPref
+declare(strict_types=1);
+
+namespace Dotclear\Core\Backend;
+
+use ArrayObject;
+use dcCore;
+
+class UserPref
 {
     /**
      * Columns preferences
@@ -100,7 +107,7 @@ class adminUserPref
         if (dcCore::app()->auth->isSuperAdmin()) {
             $users = [
                 __('Users'),
-                dcAdminCombos::getUsersSortbyCombo(),
+                Combos::getUsersSortbyCombo(),
                 'user_id',
                 'asc',
                 [__('users per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_users_per_page)],
@@ -110,21 +117,21 @@ class adminUserPref
         return [
             'posts' => [
                 __('Posts'),
-                dcAdminCombos::getPostsSortbyCombo(),
+                Combos::getPostsSortbyCombo(),
                 'post_dt',
                 'desc',
                 [__('entries per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_posts_per_page)],
             ],
             'comments' => [
                 __('Comments'),
-                dcAdminCombos::getCommentsSortbyCombo(),
+                Combos::getCommentsSortbyCombo(),
                 'comment_dt',
                 'desc',
                 [__('comments per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_comments_per_page)],
             ],
             'blogs' => [
                 __('Blogs'),
-                dcAdminCombos::getBlogsSortbyCombo(),
+                Combos::getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
                 [__('blogs per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_blogs_per_page)],

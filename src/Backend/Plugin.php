@@ -12,17 +12,17 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminModulesList;
 use dcCore;
 use dcModules;
-use dcPage;
+use Dotclear\Core\Backend\ModulesList;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
 class Plugin extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -37,11 +37,11 @@ class Plugin extends Process
         $popup  = (int) !empty($_REQUEST['popup']);
 
         if ($popup) {
-            $open_function  = [dcPage::class, 'openPopup'];
-            $close_function = [dcPage::class, 'closePopup'];
+            $open_function  = [Page::class, 'openPopup'];
+            $close_function = [Page::class, 'closePopup'];
         } else {
-            $open_function  = [dcPage::class, 'open'];
-            $close_function = [dcPage::class, 'close'];
+            $open_function  = [Page::class, 'open'];
+            $close_function = [Page::class, 'close'];
         }
 
         $res = '';
@@ -111,7 +111,7 @@ class Plugin extends Process
             echo $p_content;
             if (!$popup) {
                 // Add direct links to plugin settings if any
-                $settings = adminModulesList::getSettingsUrls((string) $plugin, true, false);
+                $settings = ModulesList::getSettingsUrls((string) $plugin, true, false);
                 if (!empty($settings)) {
                     echo '<hr class="clear"/><p class="right modules">' . implode(' - ', $settings) . '</p>';
                 }
@@ -122,7 +122,7 @@ class Plugin extends Process
             $open_function(
                 __('Plugin not found'),
                 '',
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         __('System')           => '',
                         __('Plugin not found') => '',

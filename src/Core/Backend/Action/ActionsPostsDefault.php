@@ -6,146 +6,33 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Backend\Action;
+
+use ArrayObject;
+use dcBlog;
+use dcCategories;
+use dcCore;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Exception;
+use form;
 
-class dcPostsActions extends dcActions
-{
-    /**
-     * Constructs a new instance.
-     *
-     * @param      null|string  $uri            The uri
-     * @param      array        $redirect_args  The redirect arguments
-     */
-    public function __construct(?string $uri, array $redirect_args = [])
-    {
-        parent::__construct($uri, $redirect_args);
-
-        $this->redirect_fields = [
-            'user_id', 'cat_id', 'status', 'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb',
-        ];
-
-        $this->loadDefaults();
-    }
-
-    /**
-     * Set posts actions
-     */
-    protected function loadDefaults()
-    {
-        // We could have added a behavior here, but we want default action to be setup first
-        dcDefaultPostActions::adminPostsActionsPage($this);
-        # --BEHAVIOR-- adminPostsActions -- dcActions
-        dcCore::app()->callBehavior('adminPostsActions', $this);
-    }
-
-    /**
-     * Begins a page.
-     *
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      string  $head        The head
-     */
-    public function beginPage(string $breadcrumb = '', string $head = '')
-    {
-        if ($this->in_plugin) {
-            dcPage::openModule(
-                __('Posts'),
-                dcPage::jsLoad('js/_posts_actions.js') .
-                $head
-            );
-            echo $breadcrumb;
-        } else {
-            dcPage::open(
-                __('Posts'),
-                dcPage::jsLoad('js/_posts_actions.js') .
-                $head,
-                $breadcrumb
-            );
-        }
-        echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to entries list') . '</a></p>';
-    }
-
-    /**
-     * Ends a page.
-     */
-    public function endPage()
-    {
-        if ($this->in_plugin) {
-            dcPage::closeModule();
-        } else {
-            dcPage::close();
-        }
-    }
-
-    /**
-     * Display error page
-     *
-     * @param      Exception  $e
-     */
-    public function error(Exception $e)
-    {
-        dcCore::app()->error->add($e->getMessage());
-        $this->beginPage(
-            dcPage::breadcrumb(
-                [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    $this->getCallerTitle()                     => $this->getRedirection(true),
-                    __('Posts actions')                         => '',
-                ]
-            )
-        );
-        $this->endPage();
-    }
-
-    /**
-     * Fetches entries.
-     *
-     * @param      ArrayObject  $from   The parameters ($_POST)
-     */
-    protected function fetchEntries(ArrayObject $from)
-    {
-        $params = [];
-        if (!empty($from['entries'])) {
-            $entries = $from['entries'];
-
-            foreach ($entries as $k => $v) {
-                $entries[$k] = (int) $v;
-            }
-
-            $params['sql'] = 'AND P.post_id IN(' . implode(',', $entries) . ') ';
-        } else {
-            $params['sql'] = 'AND 1=0 ';
-        }
-
-        if (!isset($from['full_content']) || empty($from['full_content'])) {
-            $params['no_content'] = true;
-        }
-
-        if (isset($from['post_type'])) {
-            $params['post_type'] = $from['post_type'];
-        }
-
-        $rs = dcCore::app()->blog->getPosts($params);
-        while ($rs->fetch()) {
-            $this->entries[$rs->post_id] = $rs->post_title;
-        }
-        $this->rs = $rs;
-    }
-}
-
-class dcDefaultPostActions
+class ActionsPostsDefault
 {
     /**
      * Set posts actions
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      */
-    public static function adminPostsActionsPage(dcPostsActions $ap)
+    public static function adminPostsActionsPage(ActionsPosts $ap)
     {
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_PUBLISH,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Status') => [
@@ -158,8 +45,8 @@ class dcDefaultPostActions
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_PUBLISH,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('First publication') => [
@@ -189,7 +76,7 @@ class dcDefaultPostActions
             [self::class, 'doChangePostLang']
         );
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            dcCore::app()->auth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
@@ -198,8 +85,8 @@ class dcDefaultPostActions
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            dcCore::app()->auth::PERMISSION_DELETE,
+            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
@@ -212,11 +99,11 @@ class dcDefaultPostActions
     /**
      * Does a change post status.
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      *
      * @throws     Exception             (description)
      */
-    public static function doChangePostStatus(dcPostsActions $ap)
+    public static function doChangePostStatus(ActionsPosts $ap)
     {
         switch ($ap->getAction()) {
             case 'unpublish':
@@ -264,7 +151,7 @@ class dcDefaultPostActions
         // Set status of remaining entries
         dcCore::app()->blog->updPostsStatus($ids, $status);
 
-        dcPage::addSuccessNotice(
+        Page::addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully updated to status : "%s"',
@@ -281,11 +168,11 @@ class dcDefaultPostActions
     /**
      * Does a change post status.
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      *
      * @throws     Exception             (description)
      */
-    public static function doChangePostFirstPub(dcPostsActions $ap)
+    public static function doChangePostFirstPub(ActionsPosts $ap)
     {
         $status = null;
         switch ($ap->getAction()) {
@@ -306,7 +193,7 @@ class dcDefaultPostActions
             // Set first publication flag of entries
             dcCore::app()->blog->updPostsFirstPub($ids, $status);
 
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully updated as: "%s"',
@@ -324,11 +211,11 @@ class dcDefaultPostActions
     /**
      * Does an update selected post.
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      *
      * @throws     Exception
      */
-    public static function doUpdateSelectedPost(dcPostsActions $ap)
+    public static function doUpdateSelectedPost(ActionsPosts $ap)
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -338,7 +225,7 @@ class dcDefaultPostActions
         $action = $ap->getAction();
         dcCore::app()->blog->updPostsSelected($ids, $action === 'selected');
         if ($action == 'selected') {
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as selected',
@@ -349,7 +236,7 @@ class dcDefaultPostActions
                 )
             );
         } else {
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as unselected',
@@ -366,11 +253,11 @@ class dcDefaultPostActions
     /**
      * Does a delete post.
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      *
      * @throws     Exception
      */
-    public static function doDeletePost(dcPostsActions $ap)
+    public static function doDeletePost(ActionsPosts $ap)
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -386,7 +273,7 @@ class dcDefaultPostActions
         dcCore::app()->callBehavior('adminBeforePostsDelete', $ids);
 
         dcCore::app()->blog->delPosts($ids);
-        dcPage::addSuccessNotice(
+        Page::addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully deleted',
@@ -403,21 +290,21 @@ class dcDefaultPostActions
     /**
      * Does a change post category.
      *
-     * @param      dcPostsActions       $ap
+     * @param      ActionsPosts       $ap
      * @param      ArrayObject          $post   The parameters ($_POST)
      *
      * @throws     Exception             If no entry selected
      */
-    public static function doChangePostCategory(dcPostsActions $ap, ArrayObject $post)
+    public static function doChangePostCategory(ActionsPosts $ap, ArrayObject $post)
     {
         if (isset($post['new_cat_id'])) {
             $ids = $ap->getIDs();
             if (empty($ids)) {
                 throw new Exception(__('No entry selected'));
             }
-            $new_cat_id = $post['new_cat_id'];
+            $new_cat_id = (int) $post['new_cat_id'];
             if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_CATEGORIES,
+                dcCore::app()->auth::PERMISSION_CATEGORIES,
             ]), dcCore::app()->blog->id)) {
                 $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
                 $cur_cat->cat_title = $post['new_cat_title'];
@@ -429,7 +316,7 @@ class dcDefaultPostActions
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                $new_cat_id = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
+                $new_cat_id = (int) dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
@@ -440,7 +327,7 @@ class dcDefaultPostActions
             if ($new_cat_id) {
                 $title = dcCore::app()->blog->getCategory($new_cat_id)->cat_title;
             }
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully moved to category "%s"',
@@ -455,7 +342,7 @@ class dcDefaultPostActions
             $ap->redirect(true);
         } else {
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
@@ -465,7 +352,7 @@ class dcDefaultPostActions
             );
             # categories list
             # Getting categories
-            $categories_combo = dcAdminCombos::getCategoriesCombo(
+            $categories_combo = Combos::getCategoriesCombo(
                 dcCore::app()->blog->getCategories()
             );
             echo
@@ -475,7 +362,7 @@ class dcDefaultPostActions
             form::combo(['new_cat_id'], $categories_combo);
 
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_CATEGORIES,
+                dcCore::app()->auth::PERMISSION_CATEGORIES,
             ]), dcCore::app()->blog->id)) {
                 echo
                 '<div>' .
@@ -501,15 +388,15 @@ class dcDefaultPostActions
     /**
      * Does a change post author.
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      * @param      ArrayObject           $post   The parameters ($_POST)
      *
      * @throws     Exception             If no entry selected
      */
-    public static function doChangePostAuthor(dcPostsActions $ap, ArrayObject $post)
+    public static function doChangePostAuthor(ActionsPosts $ap, ArrayObject $post)
     {
         if (isset($post['new_auth_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            dcCore::app()->auth::PERMISSION_ADMIN,
         ]), dcCore::app()->blog->id)) {
             $new_user_id = $post['new_auth_id'];
             $ids         = $ap->getIDs();
@@ -523,7 +410,7 @@ class dcDefaultPostActions
             $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->user_id = $new_user_id;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($ids));
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to user "%s"',
@@ -539,7 +426,7 @@ class dcDefaultPostActions
         } else {
             $usersList = [];
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcAuth::PERMISSION_ADMIN,
+                dcCore::app()->auth::PERMISSION_ADMIN,
             ]), dcCore::app()->blog->id)) {
                 $params = [
                     'limit' => 100,
@@ -555,14 +442,14 @@ class dcDefaultPostActions
                 }
             }
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change author for this selection')      => '', ]
                 ),
-                dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-                dcPage::jsJson('users_list', $usersList)
+                Page::jsLoad('js/jquery/jquery.autocomplete.js') .
+                Page::jsJson('users_list', $usersList)
             );
 
             echo
@@ -583,12 +470,12 @@ class dcDefaultPostActions
     /**
      * Does a change post language.
      *
-     * @param      dcPostsActions  $ap
+     * @param      ActionsPosts  $ap
      * @param      ArrayObject           $post   The parameters ($_POST)
      *
      * @throws     Exception             If no entry selected
      */
-    public static function doChangePostLang(dcPostsActions $ap, ArrayObject $post)
+    public static function doChangePostLang(ActionsPosts $ap, ArrayObject $post)
     {
         $post_ids = $ap->getIDs();
         if (empty($post_ids)) {
@@ -599,7 +486,7 @@ class dcDefaultPostActions
             $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->post_lang = $new_lang;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($post_ids));
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to language "%s"',
@@ -613,7 +500,7 @@ class dcDefaultPostActions
             $ap->redirect(true);
         } else {
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),

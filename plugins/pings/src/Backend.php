@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\pings;
 
 use ArrayObject;
 use dcCore;
-use dcFavorites;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Utility;
 use Dotclear\Core\Process;
 
@@ -42,7 +42,7 @@ class Backend extends Process
             'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],
             'adminAfterPostUpdate' => [BackendBehaviors::class, 'doPings'],
 
-            'adminDashboardFavoritesV2' => function (dcFavorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'      => My::name(),
                     'url'        => My::manageUrl(),

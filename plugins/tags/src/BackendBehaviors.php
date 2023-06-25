@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use Dotclear\Database\Cursor;
 use dcCore;
-use dcFavorites;
 use dcMeta;
-use dcPage;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
+use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
@@ -46,7 +46,7 @@ class BackendBehaviors
         if ($editor === 'dcLegacyEditor') {
             // dcLegacyEditor
             return
-            dcPage::jsJson('legacy_editor_tags', [
+            Page::jsJson('legacy_editor_tags', [
                 'tag' => [
                     'title' => __('Tag'),
                     'icon'  => My::fileURL('/img/tag-add.svg'),
@@ -58,7 +58,7 @@ class BackendBehaviors
 
         // dcCKEditor
         return
-        dcPage::jsJson('ck_editor_tags', [
+        Page::jsJson('ck_editor_tags', [
             'tag_title' => __('Tag'),
             'tag_url'   => $tag_url,
         ]);
@@ -97,9 +97,9 @@ class BackendBehaviors
     /**
      * Add tags as dashboard favorites
      *
-     * @param      dcFavorites  $favs   The favs
+     * @param      Favorites  $favs   The favs
      */
-    public static function dashboardFavorites(dcFavorites $favs): void
+    public static function dashboardFavorites(Favorites $favs): void
     {
         $favs->register(My::id(), [
             'title'       => My::name(),
@@ -190,9 +190,9 @@ class BackendBehaviors
     /**
      * Add tags actions
      *
-     * @param      dcPostsActions       $ap     The current action instance
+     * @param      ActionsPosts       $ap     The current action instance
      */
-    public static function adminPostsActions(dcPostsActions $ap): void
+    public static function adminPostsActions(ActionsPosts $ap): void
     {
         $ap->addAction(
             [My::name() => [__('Add tags') => 'tags']],
@@ -213,10 +213,10 @@ class BackendBehaviors
     /**
      * Add tags to an entry
      *
-     * @param      dcPostsActions       $ap     The current action instance
+     * @param      ActionsPosts       $ap     The current action instance
      * @param      ArrayObject          $post   The post
      */
-    public static function adminAddTags(dcPostsActions $ap, ArrayObject $post): void
+    public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
         if (!empty($post['new_tags'])) {
             $meta  = dcCore::app()->meta;
@@ -237,7 +237,7 @@ class BackendBehaviors
                     }
                 }
             }
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         'Tag has been successfully added to selected entries',
@@ -268,17 +268,17 @@ class BackendBehaviors
             ];
 
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
                         __('Entries')                               => $ap->getRedirection(true),
                         __('Add tags to this selection')            => '',
                     ]
                 ),
-                dcPage::jsMetaEditor() .
-                dcPage::jsJson('editor_tags_options', $editor_tags_options) .
-                dcPage::jsJson('editor_tags_msg', $msg) .
-                dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
+                Page::jsMetaEditor() .
+                Page::jsJson('editor_tags_options', $editor_tags_options) .
+                Page::jsJson('editor_tags_msg', $msg) .
+                Page::jsLoad('js/jquery/jquery.autocomplete.js') .
                 My::jsLoad('posts_actions.js') .
                 My::cssLoad('style.css')
             );
@@ -300,10 +300,10 @@ class BackendBehaviors
     /**
      * Remove tags from an entry
      *
-     * @param      dcPostsActions       $ap     The current action instance
+     * @param      ActionsPosts       $ap     The current action instance
      * @param      ArrayObject          $post   The post
      */
-    public static function adminRemoveTags(dcPostsActions $ap, ArrayObject $post): void
+    public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
         if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_DELETE,
@@ -316,7 +316,7 @@ class BackendBehaviors
                     $meta->delPostMeta($posts->post_id, 'tag', $v);
                 }
             }
-            dcPage::addSuccessNotice(
+            Page::addSuccessNotice(
                 sprintf(
                     __(
                         'Tag has been successfully removed from selected entries',
@@ -346,7 +346,7 @@ class BackendBehaviors
                 throw new Exception(__('No tags for selected entries'));
             }
             $ap->beginPage(
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         Html::escapeHTML(dcCore::app()->blog->name)    => '',
                         __('Entries')                                  => dcCore::app()->adminurl->get('admin.posts'),
@@ -409,9 +409,9 @@ class BackendBehaviors
         ];
 
         return
-        dcPage::jsJson('editor_tags_options', $editor_tags_options) .
-        dcPage::jsJson('editor_tags_msg', $msg) .
-        dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
+        Page::jsJson('editor_tags_options', $editor_tags_options) .
+        Page::jsJson('editor_tags_msg', $msg) .
+        Page::jsLoad('js/jquery/jquery.autocomplete.js') .
         My::jsLoad('post.js') .
         My::cssLoad('style.css');
     }

@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -36,8 +36,8 @@ class Prepend extends Process
             echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
             if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
                 echo
-                dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-                dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+                Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
                 echo <<<EOT
                     <script>
                     /*global $ */

@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
-use dcThemeConfig;
+use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\Http;
 use Exception;
@@ -101,62 +101,62 @@ class Blowup
 
     public static function cssPath()
     {
-        return dcThemeConfig::cssPath(self::$css_folder);
+        return ThemeConfig::cssPath(self::$css_folder);
     }
 
     public static function cssURL()
     {
-        return dcThemeConfig::cssURL(self::$css_folder);
+        return ThemeConfig::cssURL(self::$css_folder);
     }
 
     public static function canWriteCss($create = false)
     {
-        return dcThemeConfig::canWriteCss(self::$css_folder, $create);
+        return ThemeConfig::canWriteCss(self::$css_folder, $create);
     }
 
     protected static function backgroundImg(&$css, $selector, $value, $image)
     {
-        dcThemeConfig::backgroundImg(self::$img_folder, $css, $selector, $value, $image);
+        ThemeConfig::backgroundImg(self::$img_folder, $css, $selector, $value, $image);
     }
 
     private static function writeCss($theme, $css)
     {
-        dcThemeConfig::writeCSS(self::$css_folder, $theme, $css);
+        ThemeConfig::writeCSS(self::$css_folder, $theme, $css);
     }
 
     public static function dropCss($theme)
     {
-        dcThemeConfig::dropCss(self::$css_folder, $theme);
+        ThemeConfig::dropCss(self::$css_folder, $theme);
     }
 
     public static function publicCssUrlHelper()
     {
-        return dcThemeConfig::publicCssUrlHelper(self::$css_folder);
+        return ThemeConfig::publicCssUrlHelper(self::$css_folder);
     }
 
     public static function imagesPath()
     {
-        return dcThemeConfig::imagesPath(self::$img_folder);
+        return ThemeConfig::imagesPath(self::$img_folder);
     }
 
     public static function imagesURL()
     {
-        return dcThemeConfig::imagesURL(self::$img_folder);
+        return ThemeConfig::imagesURL(self::$img_folder);
     }
 
     public static function canWriteImages($create = false)
     {
-        return dcThemeConfig::canWriteImages(self::$img_folder, $create);
+        return ThemeConfig::canWriteImages(self::$img_folder, $create);
     }
 
     public static function uploadImage($f)
     {
-        return dcThemeConfig::uploadImage(self::$img_folder, $f, 800);
+        return ThemeConfig::uploadImage(self::$img_folder, $f, 800);
     }
 
     public static function dropImage($img)
     {
-        dcThemeConfig::dropImage(self::$img_folder, $img);
+        ThemeConfig::dropImage(self::$img_folder, $img);
     }
 
     public static function createCss($s)
@@ -177,19 +177,19 @@ class Blowup
 
         /* Properties
         ---------------------------------------------- */
-        dcThemeConfig::prop($css, 'body', 'background-color', $s['body_bg_c']);
+        ThemeConfig::prop($css, 'body', 'background-color', $s['body_bg_c']);
 
-        dcThemeConfig::prop($css, 'body', 'color', $s['body_txt_c']);
-        dcThemeConfig::prop($css, '.post-tags li a:link, .post-tags li a:visited, .post-info-co a:link, .post-info-co a:visited', 'color', $s['body_txt_c']);
-        dcThemeConfig::prop($css, '#page', 'font-size', $s['body_txt_s']);
-        dcThemeConfig::prop($css, 'body', 'font-family', self::fontDef($s['body_txt_f']));
+        ThemeConfig::prop($css, 'body', 'color', $s['body_txt_c']);
+        ThemeConfig::prop($css, '.post-tags li a:link, .post-tags li a:visited, .post-info-co a:link, .post-info-co a:visited', 'color', $s['body_txt_c']);
+        ThemeConfig::prop($css, '#page', 'font-size', $s['body_txt_s']);
+        ThemeConfig::prop($css, 'body', 'font-family', self::fontDef($s['body_txt_f']));
 
-        dcThemeConfig::prop($css, '.post-content, .post-excerpt, #comments dd, #pings dd, dd.comment-preview', 'line-height', $s['body_line_height']);
+        ThemeConfig::prop($css, '.post-content, .post-excerpt, #comments dd, #pings dd, dd.comment-preview', 'line-height', $s['body_line_height']);
 
         if (!$s['blog_title_hide']) {
-            dcThemeConfig::prop($css, '#top h1 a', 'color', $s['blog_title_c']);
-            dcThemeConfig::prop($css, '#top h1', 'font-size', $s['blog_title_s']);
-            dcThemeConfig::prop($css, '#top h1', 'font-family', self::fontDef($s['blog_title_f']));
+            ThemeConfig::prop($css, '#top h1 a', 'color', $s['blog_title_c']);
+            ThemeConfig::prop($css, '#top h1', 'font-size', $s['blog_title_s']);
+            ThemeConfig::prop($css, '#top h1', 'font-family', self::fontDef($s['blog_title_f']));
 
             if ($s['blog_title_a'] == 'right' || $s['blog_title_a'] == 'left') {
                 $css['#top h1'][$s['blog_title_a']] = '0px';
@@ -205,73 +205,73 @@ class Blowup
                 }
             }
         } else {
-            dcThemeConfig::prop($css, '#top h1 span', 'text-indent', '-5000px');
-            dcThemeConfig::prop($css, '#top h1', 'top', '0px');
+            ThemeConfig::prop($css, '#top h1 span', 'text-indent', '-5000px');
+            ThemeConfig::prop($css, '#top h1', 'top', '0px');
             $css['#top h1 a'] = [
                 'display' => 'block',
                 'height'  => $s['top_height'] ? ($s['top_height'] - 10) . 'px' : '120px',
                 'width'   => '800px',
             ];
         }
-        dcThemeConfig::prop($css, '#top', 'height', $s['top_height']);
+        ThemeConfig::prop($css, '#top', 'height', $s['top_height']);
 
-        dcThemeConfig::prop($css, '.day-date', 'color', $s['date_title_c']);
-        dcThemeConfig::prop($css, '.day-date', 'font-family', self::fontDef($s['date_title_f']));
-        dcThemeConfig::prop($css, '.day-date', 'font-size', $s['date_title_s']);
+        ThemeConfig::prop($css, '.day-date', 'color', $s['date_title_c']);
+        ThemeConfig::prop($css, '.day-date', 'font-family', self::fontDef($s['date_title_f']));
+        ThemeConfig::prop($css, '.day-date', 'font-size', $s['date_title_s']);
 
-        dcThemeConfig::prop($css, 'a', 'color', $s['body_link_c']);
-        dcThemeConfig::prop($css, 'a:visited', 'color', $s['body_link_v_c']);
-        dcThemeConfig::prop($css, 'a:hover, a:focus, a:active', 'color', $s['body_link_f_c']);
+        ThemeConfig::prop($css, 'a', 'color', $s['body_link_c']);
+        ThemeConfig::prop($css, 'a:visited', 'color', $s['body_link_v_c']);
+        ThemeConfig::prop($css, 'a:hover, a:focus, a:active', 'color', $s['body_link_f_c']);
 
-        dcThemeConfig::prop($css, '#comment-form input, #comment-form textarea', 'color', $s['body_link_c']);
-        dcThemeConfig::prop($css, '#comment-form input.preview', 'color', $s['body_link_c']);
-        dcThemeConfig::prop($css, '#comment-form input.preview:hover', 'background', $s['body_link_f_c']);
-        dcThemeConfig::prop($css, '#comment-form input.preview:hover', 'border-color', $s['body_link_f_c']);
-        dcThemeConfig::prop($css, '#comment-form input.submit', 'color', $s['body_link_c']);
-        dcThemeConfig::prop($css, '#comment-form input.submit:hover', 'background', $s['body_link_f_c']);
-        dcThemeConfig::prop($css, '#comment-form input.submit:hover', 'border-color', $s['body_link_f_c']);
+        ThemeConfig::prop($css, '#comment-form input, #comment-form textarea', 'color', $s['body_link_c']);
+        ThemeConfig::prop($css, '#comment-form input.preview', 'color', $s['body_link_c']);
+        ThemeConfig::prop($css, '#comment-form input.preview:hover', 'background', $s['body_link_f_c']);
+        ThemeConfig::prop($css, '#comment-form input.preview:hover', 'border-color', $s['body_link_f_c']);
+        ThemeConfig::prop($css, '#comment-form input.submit', 'color', $s['body_link_c']);
+        ThemeConfig::prop($css, '#comment-form input.submit:hover', 'background', $s['body_link_f_c']);
+        ThemeConfig::prop($css, '#comment-form input.submit:hover', 'border-color', $s['body_link_f_c']);
 
-        dcThemeConfig::prop($css, '#sidebar', 'font-family', self::fontDef($s['sidebar_text_f']));
-        dcThemeConfig::prop($css, '#sidebar', 'font-size', $s['sidebar_text_s']);
-        dcThemeConfig::prop($css, '#sidebar', 'color', $s['sidebar_text_c']);
+        ThemeConfig::prop($css, '#sidebar', 'font-family', self::fontDef($s['sidebar_text_f']));
+        ThemeConfig::prop($css, '#sidebar', 'font-size', $s['sidebar_text_s']);
+        ThemeConfig::prop($css, '#sidebar', 'color', $s['sidebar_text_c']);
 
-        dcThemeConfig::prop($css, '#sidebar h2', 'font-family', self::fontDef($s['sidebar_title_f']));
-        dcThemeConfig::prop($css, '#sidebar h2', 'font-size', $s['sidebar_title_s']);
-        dcThemeConfig::prop($css, '#sidebar h2', 'color', $s['sidebar_title_c']);
+        ThemeConfig::prop($css, '#sidebar h2', 'font-family', self::fontDef($s['sidebar_title_f']));
+        ThemeConfig::prop($css, '#sidebar h2', 'font-size', $s['sidebar_title_s']);
+        ThemeConfig::prop($css, '#sidebar h2', 'color', $s['sidebar_title_c']);
 
-        dcThemeConfig::prop($css, '#sidebar h3', 'font-family', self::fontDef($s['sidebar_title2_f']));
-        dcThemeConfig::prop($css, '#sidebar h3', 'font-size', $s['sidebar_title2_s']);
-        dcThemeConfig::prop($css, '#sidebar h3', 'color', $s['sidebar_title2_c']);
+        ThemeConfig::prop($css, '#sidebar h3', 'font-family', self::fontDef($s['sidebar_title2_f']));
+        ThemeConfig::prop($css, '#sidebar h3', 'font-size', $s['sidebar_title2_s']);
+        ThemeConfig::prop($css, '#sidebar h3', 'color', $s['sidebar_title2_c']);
 
-        dcThemeConfig::prop($css, '#sidebar ul', 'border-top-color', $s['sidebar_line_c']);
-        dcThemeConfig::prop($css, '#sidebar li', 'border-bottom-color', $s['sidebar_line_c']);
-        dcThemeConfig::prop($css, '#topnav ul', 'border-bottom-color', $s['sidebar_line_c']);
+        ThemeConfig::prop($css, '#sidebar ul', 'border-top-color', $s['sidebar_line_c']);
+        ThemeConfig::prop($css, '#sidebar li', 'border-bottom-color', $s['sidebar_line_c']);
+        ThemeConfig::prop($css, '#topnav ul', 'border-bottom-color', $s['sidebar_line_c']);
 
-        dcThemeConfig::prop($css, '#sidebar li a', 'color', $s['sidebar_link_c']);
-        dcThemeConfig::prop($css, '#sidebar li a:visited', 'color', $s['sidebar_link_v_c']);
-        dcThemeConfig::prop($css, '#sidebar li a:hover, #sidebar li a:focus, #sidebar li a:active', 'color', $s['sidebar_link_f_c']);
-        dcThemeConfig::prop($css, '#search input', 'color', $s['sidebar_link_c']);
-        dcThemeConfig::prop($css, '#search .submit', 'color', $s['sidebar_link_c']);
-        dcThemeConfig::prop($css, '#search .submit:hover', 'background', $s['sidebar_link_f_c']);
-        dcThemeConfig::prop($css, '#search .submit:hover', 'border-color', $s['sidebar_link_f_c']);
+        ThemeConfig::prop($css, '#sidebar li a', 'color', $s['sidebar_link_c']);
+        ThemeConfig::prop($css, '#sidebar li a:visited', 'color', $s['sidebar_link_v_c']);
+        ThemeConfig::prop($css, '#sidebar li a:hover, #sidebar li a:focus, #sidebar li a:active', 'color', $s['sidebar_link_f_c']);
+        ThemeConfig::prop($css, '#search input', 'color', $s['sidebar_link_c']);
+        ThemeConfig::prop($css, '#search .submit', 'color', $s['sidebar_link_c']);
+        ThemeConfig::prop($css, '#search .submit:hover', 'background', $s['sidebar_link_f_c']);
+        ThemeConfig::prop($css, '#search .submit:hover', 'border-color', $s['sidebar_link_f_c']);
 
-        dcThemeConfig::prop($css, '.post-title', 'color', $s['post_title_c']);
-        dcThemeConfig::prop($css, '.post-title a, .post-title a:visited', 'color', $s['post_title_c']);
-        dcThemeConfig::prop($css, '.post-title', 'font-family', self::fontDef($s['post_title_f']));
-        dcThemeConfig::prop($css, '.post-title', 'font-size', $s['post_title_s']);
+        ThemeConfig::prop($css, '.post-title', 'color', $s['post_title_c']);
+        ThemeConfig::prop($css, '.post-title a, .post-title a:visited', 'color', $s['post_title_c']);
+        ThemeConfig::prop($css, '.post-title', 'font-family', self::fontDef($s['post_title_f']));
+        ThemeConfig::prop($css, '.post-title', 'font-size', $s['post_title_s']);
 
-        dcThemeConfig::prop($css, '#comments dd', 'background-color', $s['post_comment_bg_c']);
-        dcThemeConfig::prop($css, '#comments dd', 'color', $s['post_comment_c']);
-        dcThemeConfig::prop($css, '#comments dd.me', 'background-color', $s['post_commentmy_bg_c']);
-        dcThemeConfig::prop($css, '#comments dd.me', 'color', $s['post_commentmy_c']);
+        ThemeConfig::prop($css, '#comments dd', 'background-color', $s['post_comment_bg_c']);
+        ThemeConfig::prop($css, '#comments dd', 'color', $s['post_comment_c']);
+        ThemeConfig::prop($css, '#comments dd.me', 'background-color', $s['post_commentmy_bg_c']);
+        ThemeConfig::prop($css, '#comments dd.me', 'color', $s['post_commentmy_c']);
 
-        dcThemeConfig::prop($css, '#prelude, #prelude a', 'color', $s['prelude_c']);
+        ThemeConfig::prop($css, '#prelude, #prelude a', 'color', $s['prelude_c']);
 
-        dcThemeConfig::prop($css, '#footer p', 'background-color', $s['footer_bg_c']);
-        dcThemeConfig::prop($css, '#footer p', 'color', $s['footer_c']);
-        dcThemeConfig::prop($css, '#footer p', 'font-size', $s['footer_s']);
-        dcThemeConfig::prop($css, '#footer p', 'font-family', self::fontDef($s['footer_f']));
-        dcThemeConfig::prop($css, '#footer p a', 'color', $s['footer_l_c']);
+        ThemeConfig::prop($css, '#footer p', 'background-color', $s['footer_bg_c']);
+        ThemeConfig::prop($css, '#footer p', 'color', $s['footer_c']);
+        ThemeConfig::prop($css, '#footer p', 'font-size', $s['footer_s']);
+        ThemeConfig::prop($css, '#footer p', 'font-family', self::fontDef($s['footer_f']));
+        ThemeConfig::prop($css, '#footer p a', 'color', $s['footer_l_c']);
 
         /* Images
         ------------------------------------------------------ */
@@ -363,9 +363,9 @@ class Blowup
         self::dropImage(basename($comment_t));
         self::dropImage(basename($comment_b));
 
-        $body_color    = dcThemeConfig::adjustColor($body_color);
-        $prelude_color = dcThemeConfig::adjustColor($prelude_color);
-        $comment_color = dcThemeConfig::adjustColor($comment_color);
+        $body_color    = ThemeConfig::adjustColor($body_color);
+        $prelude_color = ThemeConfig::adjustColor($prelude_color);
+        $comment_color = ThemeConfig::adjustColor($comment_color);
 
         $d_body_bg = false;
 

@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcAuth;
 use dcBlog;
 use dcCore;
-use dcPage;
 use dcPrefs;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -29,7 +29,7 @@ class User extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         dcCore::app()->admin->page_title = __('New user');
 
@@ -51,12 +51,12 @@ class User extends Process
         dcCore::app()->admin->user_profile_urls  = '';
 
         # Formaters combo
-        dcCore::app()->admin->formaters_combo = dcAdminCombos::getFormatersCombo();
+        dcCore::app()->admin->formaters_combo = Combos::getFormatersCombo();
 
-        dcCore::app()->admin->status_combo = dcAdminCombos::getPostStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         # Language codes
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getAdminLangsCombo();
+        dcCore::app()->admin->lang_combo = Combos::getAdminLangsCombo();
 
         # Get user if we have an ID
         if (!empty($_REQUEST['id'])) {
@@ -166,7 +166,7 @@ class User extends Process
                         dcCore::app()->session->destroy();
                     }
 
-                    dcPage::addSuccessNotice(__('User has been successfully updated.'));
+                    Page::addSuccessNotice(__('User has been successfully updated.'));
                     dcCore::app()->adminurl->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
@@ -196,8 +196,8 @@ class User extends Process
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
                     dcCore::app()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
-                    dcPage::addSuccessNotice(__('User has been successfully created.'));
-                    dcPage::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+                    Page::addSuccessNotice(__('User has been successfully created.'));
+                    Page::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     if (!empty($_POST['saveplus'])) {
                         dcCore::app()->adminurl->redirect('admin.user');
                     } else {
@@ -214,19 +214,19 @@ class User extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             dcCore::app()->admin->page_title,
-            dcPage::jsConfirmClose('user-form') .
-            dcPage::jsJson('pwstrength', [
+            Page::jsConfirmClose('user-form') .
+            Page::jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            dcPage::jsLoad('js/pwstrength.js') .
-            dcPage::jsLoad('js/_user.js') .
+            Page::jsLoad('js/pwstrength.js') .
+            Page::jsLoad('js/_user.js') .
             # --BEHAVIOR-- adminUserHeaders --
             dcCore::app()->callBehavior('adminUserHeaders'),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('System')                     => '',
                     __('Users')                      => dcCore::app()->adminurl->get('admin.users'),
@@ -236,11 +236,11 @@ class User extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('User has been successfully updated.'));
+            Page::success(__('User has been successfully updated.'));
         }
 
         if (!empty($_GET['add'])) {
-            dcPage::success(__('User has been successfully created.'));
+            Page::success(__('User has been successfully created.'));
         }
 
         echo
@@ -506,7 +506,7 @@ class User extends Process
             '</div>';
         }
 
-        dcPage::helpBlock('core_user');
-        dcPage::close();
+        Page::helpBlock('core_user');
+        Page::close();
     }
 }

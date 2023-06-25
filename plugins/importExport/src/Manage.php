@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Exception;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -75,23 +75,23 @@ class Manage extends Process
             return;
         }
 
-        dcPage::openModule(
+        Page::openModule(
             My::name(),
             My::cssLoad('style.css') .
-            dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
+            Page::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
             My::jsLoad('script.js')
         );
 
         if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null) {
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins')                                        => '',
                     My::name()                                           => dcCore::app()->admin->getPageURL(),
                     Html::escapeHTML(dcCore::app()->admin->module->name) => '',
                 ]
             ) .
-            dcPage::notices() .
+            Page::notices() .
             '<div id="ie-gui">';
 
             dcCore::app()->admin->module->gui();
@@ -100,13 +100,13 @@ class Manage extends Process
             '</div>';
         } else {
             echo
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     __('Plugins') => '',
                     My::name()    => '',
                 ]
             ) .
-            dcPage::notices() .
+            Page::notices() .
 
             '<h3>' . __('Import') . '</h3>' .
             self::listImportExportModules(dcCore::app()->admin->modules['import']) .
@@ -119,9 +119,9 @@ class Manage extends Process
             ) . '</p>';
         }
 
-        dcPage::helpBlock('import');
+        Page::helpBlock('import');
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     protected static function listImportExportModules($modules)

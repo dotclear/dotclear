@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -110,7 +110,7 @@ class Manage extends Process
                     dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
                     dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                     dcCore::app()->blog->triggerBlog();
-                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                    My::redirect();
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -195,8 +195,8 @@ class Manage extends Process
                 dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                 dcCore::app()->blog->triggerBlog();
 
-                dcPage::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -207,8 +207,8 @@ class Manage extends Process
                 dcCore::app()->blog->settings->widgets->put('widgets_custom', '');
                 dcCore::app()->blog->triggerBlog();
 
-                dcPage::addSuccessNotice(__('Sidebars have been resetting.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Sidebars have been resetting.'));
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -234,9 +234,9 @@ class Manage extends Process
         }
 
         $head = My::cssLoad('style.css') .
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            dcPage::jsJson('widgets', [
+            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            Page::jsJson('widgets', [
                 'widget_noeditor' => ($rte_flag ? 0 : 1),
                 'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
             ]) .
@@ -256,18 +256,18 @@ class Manage extends Process
                 'xhtml'
             );
         }
-        $head .= dcPage::jsConfirmClose('sidebarsWidgets');
+        $head .= Page::jsConfirmClose('sidebarsWidgets');
 
-        dcPage::openModule(My::name(), $head);
+        Page::openModule(My::name(), $head);
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => '',
             ]
         ) .
-        dcPage::notices() .
+        Page::notices() .
 
         # All widgets
         '<form id="listWidgets" action="' . dcCore::app()->admin->getPageURL() . '" method="post"  class="widgets">' .
@@ -368,9 +368,9 @@ class Manage extends Process
         }
         $widget_elements->content .= '</dl></div>';
 
-        dcPage::helpBlock(My::id(), $widget_elements);
+        Page::helpBlock(My::id(), $widget_elements);
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     protected static function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)

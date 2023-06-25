@@ -12,8 +12,8 @@ namespace Dotclear\Backend;
 
 use dcAuth;
 use dcCore;
-use dcPage;
 use dcUtils;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
 class HelpCharte extends Process
@@ -23,7 +23,7 @@ class HelpCharte extends Process
      */
     public static function init(): bool
     {
-        dcPage::check(
+        Page::check(
             dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_USAGE,
                 dcAuth::PERMISSION_CONTENT_ADMIN,
@@ -64,7 +64,7 @@ class HelpCharte extends Process
      */
     public static function render(): void
     {
-?>
+        ?>
 <!DOCTYPE html>
 <html lang="fr" data-theme="<?php echo self::getTheme(); ?>">
 <!-- included by ../_charte.php -->
@@ -76,10 +76,10 @@ class HelpCharte extends Process
   <title>Bibliothèque de styles - Dotclear - 2.7</title>
   <link rel="icon" type="image/png" href="images/favicon96-login.png" />
 <?php
-    echo
-    dcPage::cssLoad('style/default.css') . // Set some JSON data
-    dcUtils::jsJson('dotclear_init', self::getJS());
-?>
+            echo
+            Page::cssLoad('style/default.css') . // Set some JSON data
+            dcUtils::jsJson('dotclear_init', self::getJS());
+        ?>
   <script src="js/jquery/jquery.js"></script>
   <script src="js/jquery/jquery-ui.custom.js"></script>
   <script src="js/jquery/jquery.ui.touch-punch.js"></script>
@@ -316,16 +316,16 @@ class HelpCharte extends Process
         <h4 class="smart-title">Messages système</h4>
         <p>Il existe quatre types de messages système auxquels correspondent des classes CSS : .error, .message, .success, .warning-msg. Ils s'affichent en haut de page, sous le titre/breadcrumb.</p>
         <div class="message">
-          <p>Message simple. Le plus souvent horodaté dcPage::message</p>
+          <p>Message simple. Le plus souvent horodaté Page::message</p>
         </div>
         <div class="success">
-          <p>Message de succès. Le plus souvent horodaté dcPage::success</p>
+          <p>Message de succès. Le plus souvent horodaté Page::success</p>
         </div>
         <div class="warning-msg">
-          <p>Message warning. Non horodaté dcPage::warning</p>
+          <p>Message warning. Non horodaté Page::warning</p>
         </div>
         <div class="error">
-          <p>Message d'erreur. Non horodaté dcPage::error</p>
+          <p>Message d'erreur. Non horodaté Page::error</p>
         </div>
         <p>La classe .static-msg peut être utilisée directement pour affichage en haut de page :</p>
         <div class="static-msg">

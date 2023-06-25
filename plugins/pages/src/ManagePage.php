@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcBlog;
-use dcCommentsActions;
 use dcCore;
 use dcMedia;
-use dcPage;
+use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -44,14 +44,12 @@ class ManagePage extends Process
         }
 
         $params = [];
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
-
-        dcCore::app()->admin->redir_url = dcCore::app()->admin->getPageURL() . '&act=page';
 
         dcCore::app()->admin->post_id            = '';
         dcCore::app()->admin->post_dt            = '';
@@ -88,9 +86,9 @@ class ManagePage extends Process
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_delete = false;
 
-        $post_headlink = '<link rel="%s" title="%s" href="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=%s" />';
+        $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" />';
 
-        dcCore::app()->admin->post_link = '<a href="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=%s" title="%s">%s</a>';
+        dcCore::app()->admin->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
 
         dcCore::app()->admin->next_link = dcCore::app()->admin->prev_link = dcCore::app()->admin->next_headlink = dcCore::app()->admin->prev_headlink = null;
 
@@ -100,7 +98,7 @@ class ManagePage extends Process
         }
 
         // Status combo
-        dcCore::app()->admin->status_combo = dcAdminCombos::getPostStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formaters combo
         $core_formaters    = dcCore::app()->getFormaters();
@@ -113,7 +111,7 @@ class ManagePage extends Process
         dcCore::app()->admin->available_formats = $available_formats;
 
         // Languages combo
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getLangsCombo(
+        dcCore::app()->admin->lang_combo = Combos::getLangsCombo(
             dcCore::app()->blog->getLangs(['order' => 'asc']),
             true
         );
@@ -199,7 +197,7 @@ class ManagePage extends Process
             }
         }
 
-        dcCore::app()->admin->comments_actions_page = new dcCommentsActions(
+        dcCore::app()->admin->comments_actions_page = new ActionsComments(
             dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages']),
             [
                 'act'           => 'page',
@@ -291,7 +289,7 @@ class ManagePage extends Process
                 # --BEHAVIOR-- adminBeforePageDelete -- int
                 dcCore::app()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -341,7 +339,7 @@ class ManagePage extends Process
                     # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
-                    Http::redirect(dcCore::app()->admin->redir_url . '&id=' . dcCore::app()->admin->post_id . '&upd=1');
+                    My::redirect(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'upd' => '1']);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -357,7 +355,7 @@ class ManagePage extends Process
                     # --BEHAVIOR-- adminAfterPageCreate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
-                    Http::redirect(dcCore::app()->admin->redir_url . '&id=' . $return_id . '&crea=1');
+                    My::redirect(['act' => 'page', 'id' => $return_id, 'crea' => '1']);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -422,17 +420,17 @@ class ManagePage extends Process
             }
         }
 
-        dcPage::openModule(
+        Page::openModule(
             dcCore::app()->admin->page_title . ' - ' . My::name(),
-            dcPage::jsModal() .
-            dcPage::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
-            dcPage::jsLoad('js/_post.js') .
+            Page::jsModal() .
+            Page::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
+            Page::jsLoad('js/_post.js') .
             My::jsLoad('page.js') .
             $admin_post_behavior .
-            dcPage::jsConfirmClose('entry-form', 'comment-form') .
+            Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --
             dcCore::app()->callBehavior('adminPageHeaders') .
-            dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
+            Page::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink
         );
 
@@ -462,7 +460,7 @@ class ManagePage extends Process
         } else {
             $edit_entry_title = dcCore::app()->admin->page_title;
         }
-        echo dcPage::breadcrumb(
+        echo Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => dcCore::app()->admin->getPageURL(),
@@ -471,13 +469,13 @@ class ManagePage extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Page has been successfully updated.'));
+            Page::success(__('Page has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            dcPage::success(__('Page has been successfully created.'));
+            Page::success(__('Page has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            dcPage::success(__('File has been successfully attached.'));
+            Page::success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            dcPage::success(__('Attachment has been successfully removed.'));
+            Page::success(__('Attachment has been successfully removed.'));
         }
 
         # HTML conversion
@@ -486,7 +484,7 @@ class ManagePage extends Process
             dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
             dcCore::app()->admin->post_format  = 'xhtml';
 
-            dcPage::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
+            Page::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
@@ -521,7 +519,7 @@ class ManagePage extends Process
 
         # Exit if we cannot view page
         if (!dcCore::app()->admin->can_view_page) {
-            dcPage::closeModule();
+            Page::closeModule();
 
             return;
         }
@@ -554,7 +552,7 @@ class ManagePage extends Process
                         '<p>' . form::combo('post_format', dcCore::app()->admin->available_formats, dcCore::app()->admin->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_wiki">' .
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') .
-                        '" href="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;xconv=1">' .
+                        '" href="' . My::manageUrl(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'xconv' => '1']) . '">' .
                         __('Convert to HTML') . '</a></p></div>', ], ],
                 'metas-box' => [
                     'title' => __('Filing'),
@@ -657,7 +655,7 @@ class ManagePage extends Process
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
             sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
-            '<form action="' . Html::escapeURL(dcCore::app()->admin->redir_url) . '" method="post" id="entry-form">' .
+            '<form action="' . My::manageUrl(['act' => 'page']) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
             '<h3 class="out-of-screen-if-js">' . __('Edit page') . '</h3>';
@@ -795,7 +793,7 @@ class ManagePage extends Process
                 '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', $combo_action) .
-                form::hidden('redir', Html::escapeURL(dcCore::app()->admin->redir_url) . '&amp;id=' . dcCore::app()->admin->post_id . '&amp;co=1') .
+                form::hidden('redir', My::manageUrl(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'co' => '1'])) .
                 form::hidden(['section'], 'comments') .
                 form::hidden(['p'], 'pages') .
                 form::hidden(['act'], 'page') .
@@ -853,9 +851,9 @@ class ManagePage extends Process
             '</div>'; #comments
         }
 
-        dcPage::helpBlock('page', 'core_wiki');
+        Page::helpBlock('page', 'core_wiki');
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     # Controls comments or trakbacks capabilities

@@ -12,16 +12,16 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use adminGenericListV2;
 use ArrayObject;
 use dcBlog;
 use dcCore;
-use dcPager;
+use Dotclear\Core\Backend\Listing\Pager;
+use Dotclear\Core\Backend\Listing\Listing;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use form;
 
-class BackendList extends adminGenericListV2
+class BackendList extends Listing
 {
     /**
      * Display a list of pages
@@ -35,7 +35,7 @@ class BackendList extends adminGenericListV2
         if ($this->rs->isEmpty()) {
             echo '<p><strong>' . __('No page') . '</strong></p>';
         } else {
-            $pager   = new dcPager($page, (int) $this->rs_count, $nb_per_page, 10);
+            $pager   = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
             $entries = [];
             if (isset($_REQUEST['entries'])) {
                 foreach ($_REQUEST['entries'] as $v) {

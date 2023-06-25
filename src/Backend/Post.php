@@ -13,15 +13,15 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use dcAdminCombos;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcCommentsActions;
 use dcCore;
 use dcMedia;
-use dcPage;
 use dcTrackback;
+use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -36,7 +36,7 @@ class Post extends Process
     public static function init(): bool
     {
         $params = [];
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -97,11 +97,11 @@ class Post extends Process
         }
 
         # Getting categories
-        dcCore::app()->admin->categories_combo = dcAdminCombos::getCategoriesCombo(
+        dcCore::app()->admin->categories_combo = Combos::getCategoriesCombo(
             dcCore::app()->blog->getCategories()
         );
 
-        dcCore::app()->admin->status_combo = dcAdminCombos::getPostStatusesCombo();
+        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formats combo
         $core_formaters    = dcCore::app()->getFormaters();
@@ -114,7 +114,7 @@ class Post extends Process
         dcCore::app()->admin->available_formats = $available_formats;
 
         // Languages combo
-        dcCore::app()->admin->lang_combo = dcAdminCombos::getLangsCombo(
+        dcCore::app()->admin->lang_combo = Combos::getLangsCombo(
             dcCore::app()->blog->getLangs(['order' => 'asc']),
             true
         );
@@ -219,7 +219,7 @@ class Post extends Process
             $anchor = 'comments';
         }
 
-        dcCore::app()->admin->comments_actions_page = new dcCommentsActions(
+        dcCore::app()->admin->comments_actions_page = new ActionsComments(
             dcCore::app()->adminurl->get('admin.post'),
             [
                 'id'            => dcCore::app()->admin->post_id,
@@ -272,7 +272,7 @@ class Post extends Process
                 }
 
                 if (!dcCore::app()->error->flag()) {
-                    dcPage::addSuccessNotice(__('All pings sent.'));
+                    Page::addSuccessNotice(__('All pings sent.'));
                     dcCore::app()->adminurl->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id, 'tb' => '1']
@@ -426,7 +426,7 @@ class Post extends Process
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterPostUpdate', $cur, dcCore::app()->admin->post_id);
-                    dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
+                    Page::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     dcCore::app()->adminurl->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id]
@@ -446,7 +446,7 @@ class Post extends Process
                     # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-                    dcPage::addSuccessNotice(__('Entry has been successfully created.'));
+                    Page::addSuccessNotice(__('Entry has been successfully created.'));
                     dcCore::app()->adminurl->redirect(
                         'admin.post',
                         ['id' => $return_id]
@@ -458,7 +458,7 @@ class Post extends Process
         }
 
         // Getting categories (a new category may have been created during process)
-        dcCore::app()->admin->categories_combo = dcAdminCombos::getCategoriesCombo(
+        dcCore::app()->admin->categories_combo = Combos::getCategoriesCombo(
             dcCore::app()->blog->getCategories()
         );
 
@@ -545,18 +545,18 @@ class Post extends Process
             }
         }
 
-        dcPage::open(
+        Page::open(
             dcCore::app()->admin->page_title . ' - ' . __('Posts'),
-            dcPage::jsModal() .
-            dcPage::jsMetaEditor() .
+            Page::jsModal() .
+            Page::jsMetaEditor() .
             $admin_post_behavior .
-            dcPage::jsLoad('js/_post.js') .
-            dcPage::jsConfirmClose('entry-form', 'comment-form') .
+            Page::jsLoad('js/_post.js') .
+            Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPostHeaders --
             dcCore::app()->callBehavior('adminPostHeaders') .
-            dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
+            Page::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink,
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Posts')                                 => dcCore::app()->adminurl->get('admin.posts'),
@@ -571,20 +571,20 @@ class Post extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Entry has been successfully updated.'));
+            Page::success(__('Entry has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            dcPage::success(__('Entry has been successfully created.'));
+            Page::success(__('Entry has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            dcPage::success(__('File has been successfully attached.'));
+            Page::success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            dcPage::success(__('Attachment has been successfully removed.'));
+            Page::success(__('Attachment has been successfully removed.'));
         }
 
         if (!empty($_GET['creaco'])) {
-            dcPage::success(__('Comment has been successfully created.'));
+            Page::success(__('Comment has been successfully created.'));
         }
         if (!empty($_GET['tbsent'])) {
-            dcPage::success(__('All pings sent.'));
+            Page::success(__('All pings sent.'));
         }
 
         // XHTML conversion
@@ -593,7 +593,7 @@ class Post extends Process
             dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
             dcCore::app()->admin->post_format  = 'xhtml';
 
-            dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
+            Page::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
@@ -625,8 +625,8 @@ class Post extends Process
 
         // Exit if we cannot view page
         if (!dcCore::app()->admin->can_view_page) {
-            dcPage::helpBlock('core_post');
-            dcPage::close();
+            Page::helpBlock('core_post');
+            Page::close();
             exit;
         }
 
@@ -1034,8 +1034,8 @@ class Post extends Process
             '</div>'; // Trackbacks
         }
 
-        dcPage::helpBlock('core_post', 'core_trackbacks', 'core_wiki');
-        dcPage::close();
+        Page::helpBlock('core_post', 'core_trackbacks', 'core_wiki');
+        Page::close();
     }
 
     /**

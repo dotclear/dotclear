@@ -14,8 +14,8 @@ namespace Dotclear\Backend;
 
 use dcAuth;
 use dcCore;
-use dcPage;
 use dcUpgrade;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -315,19 +315,19 @@ class Auth extends Process
             '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />';
 
         echo
-        $buffer . dcPage::jsCommon();
+        $buffer . Page::jsCommon();
 
         # --BEHAVIOR-- loginPageHTMLHead --
         dcCore::app()->callBehavior('loginPageHTMLHead');
 
         echo
-        dcPage::jsJson('pwstrength', [
+        Page::jsJson('pwstrength', [
             'min' => sprintf(__('Password strength: %s'), __('weak')),
             'avg' => sprintf(__('Password strength: %s'), __('medium')),
             'max' => sprintf(__('Password strength: %s'), __('strong')),
         ]) .
-        dcPage::jsLoad('js/pwstrength.js') .
-        dcPage::jsLoad('js/_auth.js');
+        Page::jsLoad('js/pwstrength.js') .
+        Page::jsLoad('js/_auth.js');
 
         $action = dcCore::app()->adminurl->get('admin.auth');
         $banner = Html::escapeHTML(DC_VENDOR_NAME);

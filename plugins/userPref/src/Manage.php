@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\userPref;
 
 use Exception;
 use dcCore;
-use dcPage;
 use dcWorkspace;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -46,11 +46,11 @@ class Manage extends Process
 
         // Local navigation
         if (!empty($_POST['gp_nav'])) {
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['gp_nav']);
+            My::redirect([], $_POST['gp_nav']);
             exit;
         }
         if (!empty($_POST['lp_nav'])) {
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['lp_nav']);
+            My::redirect([], $_POST['lp_nav']);
             exit;
         }
 
@@ -66,8 +66,8 @@ class Manage extends Process
                     }
                 }
 
-                dcPage::addSuccessNotice(__('Preferences successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Preferences successfully updated'));
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -85,10 +85,8 @@ class Manage extends Process
                     }
                 }
 
-                dcPage::addSuccessNotice(__('Preferences successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
-                    'part' => 'global',
-                ]);
+                Page::addSuccessNotice(__('Preferences successfully updated'));
+                My::redirect(['part' => 'global']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -102,21 +100,21 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        dcPage::openModule(
+        Page::openModule(
             My::name(),
-            dcPage::jsPageTabs(dcCore::app()->admin->part) .
+            Page::jsPageTabs(dcCore::app()->admin->part) .
             My::jsLoad('index.js')
         );
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 __('System')                                    => '',
                 Html::escapeHTML(dcCore::app()->auth->userID()) => '',
                 My::name()                                      => '',
             ]
         ) .
-        dcPage::notices() .
+        Page::notices() .
         '<div id="local" class="multi-part" title="' . __('User preferences') . '">' .
         '<h3 class="out-of-screen-if-js">' . __('User preferences') . '</h3>';
 
@@ -133,9 +131,9 @@ class Manage extends Process
         echo
         '</div>';
 
-        dcPage::helpBlock(My::id());
+        Page::helpBlock(My::id());
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 
     /**

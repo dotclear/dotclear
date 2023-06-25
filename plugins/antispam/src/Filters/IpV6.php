@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam\Filters;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -144,7 +144,7 @@ class IpV6 extends SpamFilter
                 $global = !empty($_POST['globalip']) && dcCore::app()->auth->isSuperAdmin();
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
-                dcPage::addSuccessNotice(__('IP address has been successfully added.'));
+                Page::addSuccessNotice(__('IP address has been successfully added.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -155,7 +155,7 @@ class IpV6 extends SpamFilter
         if (!empty($_POST['delip']) && is_array($_POST['delip'])) {
             try {
                 $this->removeRule($_POST['delip']);
-                dcPage::addSuccessNotice(__('IP addresses have been successfully removed.'));
+                Page::addSuccessNotice(__('IP addresses have been successfully removed.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

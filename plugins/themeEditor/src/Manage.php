@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\themeEditor;
 
 use ArrayObject;
 use Exception;
-use adminThemesList;
 use dcCore;
-use dcPage;
 use dcThemes;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -51,7 +51,7 @@ class Manage extends Process
         dcCore::app()->admin->user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 
         # Loading themes // deprecated since 2.26
-        adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (!is_a(dcCore::app()->themes, 'dcThemes')) {
             dcCore::app()->themes = new dcThemes();
@@ -85,7 +85,7 @@ class Manage extends Process
                 && is_string(dcCore::app()->admin->theme->get('root'))
             ) {
                 file_put_contents(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED, '');
-                dcPage::addSuccessNotice(__('The theme update has been locked.'));
+                Page::addSuccessNotice(__('The theme update has been locked.'));
             }
             if (dcCore::app()->auth->isSuperAdmin()
                 && !empty($_POST['unlock'])
@@ -93,7 +93,7 @@ class Manage extends Process
                 && file_exists(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED)
             ) {
                 unlink(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED);
-                dcPage::addSuccessNotice(__('The theme update has been unocked.'));
+                Page::addSuccessNotice(__('The theme update has been unocked.'));
             }
 
             if (!empty($_POST['write'])) {
@@ -116,8 +116,8 @@ class Manage extends Process
                     dcCore::app()->admin->file['type'], // @phpstan-ignore-line
                     dcCore::app()->admin->file['f']     // @phpstan-ignore-line
                 );
-                dcPage::addSuccessNotice(__('The file has been reset.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                Page::addSuccessNotice(__('The file has been reset.'));
+                My::redirect([
                     dcCore::app()->admin->file['type'] => dcCore::app()->admin->file['f'],
                 ]);
             }
@@ -156,32 +156,32 @@ class Manage extends Process
 
         $head = '';
         if (dcCore::app()->admin->user_ui_colorsyntax) {
-            $head .= dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => dcCore::app()->admin->user_ui_colorsyntax]);
+            $head .= Page::jsJson('dotclear_colorsyntax', ['colorsyntax' => dcCore::app()->admin->user_ui_colorsyntax]);
         }
-        $head .= dcPage::jsJson('theme_editor_msg', [
+        $head .= Page::jsJson('theme_editor_msg', [
             'saving_document'    => __('Saving document...'),
             'document_saved'     => __('Document saved'),
             'error_occurred'     => __('An error occurred:'),
             'confirm_reset_file' => __('Are you sure you want to reset this file?'),
         ]) .
             My::jsLoad('script.js') .
-            dcPage::jsConfirmClose('file-form');
+            Page::jsConfirmClose('file-form');
         if (dcCore::app()->admin->user_ui_colorsyntax) {
-            $head .= dcPage::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
+            $head .= Page::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
         }
         $head .= My::cssLoad('style.css');
 
-        dcPage::openModule(__('Edit theme files'), $head);
+        Page::openModule(__('Edit theme files'), $head);
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
                 __('Edit theme files')                      => '',
             ]
         ) .
-        dcPage::notices();
+        Page::notices();
 
         echo
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme->get('name'))) . '</strong></p>';
@@ -234,9 +234,9 @@ class Manage extends Process
                                     'php' :
                                     'text/html'))));
                     echo
-                    dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]) .
+                    Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) .
                     My::jsLoad('mode.js') .
-                    dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', dcCore::app()->admin->user_ui_colorsyntax_theme);
+                    Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', dcCore::app()->admin->user_ui_colorsyntax_theme);
                 }
             }
 
@@ -262,7 +262,7 @@ class Manage extends Process
             '</div>' .
             '</div>';
 
-            dcPage::helpBlock(My::id());
+            Page::helpBlock(My::id());
         } else {
             echo
             '<div class="error"><p>' . __("You can't edit a distributed theme.") . '</p></div>';

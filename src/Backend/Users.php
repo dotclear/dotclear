@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use ArrayObject;
-use adminUserFilter;
-use adminUserList;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Filter\FilterUsers;
+use Dotclear\Core\Backend\Listing\ListingUsers;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -31,7 +31,7 @@ class Users extends Process
 {
     public static function init(): bool
     {
-        dcPage::checkSuper();
+        Page::checkSuper();
 
         // Actions
         $combo_action = [
@@ -45,7 +45,7 @@ class Users extends Process
         dcCore::app()->admin->combo_action = $combo_action;
 
         // Filters
-        dcCore::app()->admin->user_filter = new adminUserFilter();
+        dcCore::app()->admin->user_filter = new FilterUsers();
 
         // get list params
         $params = dcCore::app()->admin->user_filter->params();
@@ -83,7 +83,7 @@ class Users extends Process
                 $rsStatic = $rsStatic->toExtStatic();
                 $rsStatic->lexicalSort(dcCore::app()->admin->user_filter->sortby, dcCore::app()->admin->user_filter->order);
             }
-            dcCore::app()->admin->user_list = new adminUserList($rsStatic, $counter->f(0));
+            dcCore::app()->admin->user_list = new ListingUsers($rsStatic, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -93,10 +93,10 @@ class Users extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Users'),
-            dcPage::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->adminurl->get('admin.users')),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->adminurl->get('admin.users')),
+            Page::breadcrumb(
                 [
                     __('System') => '',
                     __('Users')  => '',
@@ -106,10 +106,10 @@ class Users extends Process
 
         if (!dcCore::app()->error->flag()) {
             if (!empty($_GET['del'])) {
-                dcPage::message(__('User has been successfully removed.'));
+                Page::message(__('User has been successfully removed.'));
             }
             if (!empty($_GET['upd'])) {
-                dcPage::message(__('The permissions have been successfully updated.'));
+                Page::message(__('The permissions have been successfully updated.'));
             }
 
             echo '<p class="top-add"><strong><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
@@ -123,7 +123,6 @@ class Users extends Process
             dcCore::app()->admin->user_list->display(
                 dcCore::app()->admin->user_filter->page,
                 dcCore::app()->admin->user_filter->nb,
-
                 (new Form('form-users'))
                     ->action(dcCore::app()->adminurl->get('admin.user.actions'))
                     ->method('post')
@@ -132,31 +131,31 @@ class Users extends Process
                         (new Div())
                             ->class('two-cols')
                              ->items([
-                                (new Para())->class(['col checkboxes-helpers']),
-                                (new Para())->class(['col right'])->items([
-                                    (new Select('action'))
-                                        ->class('online')
-                                        ->title(__('Actions'))
-                                        ->label(
-                                            (new Label(
-                                                __('Selected users action:'),
-                                                Label::OUTSIDE_LABEL_BEFORE
-                                            ))
-                                            ->class('classic')
-                                        )
-                                        ->items(dcCore::app()->admin->combo_action),
-                                    dcCore::app()->formNonce(false),
-                                    (new Submit('do-action'))
-                                        ->value(__('ok')),
-                                    ...dcCore::app()->adminurl->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
-                                ]),
-                            ]),
+                                 (new Para())->class(['col checkboxes-helpers']),
+                                 (new Para())->class(['col right'])->items([
+                                     (new Select('action'))
+                                         ->class('online')
+                                         ->title(__('Actions'))
+                                         ->label(
+                                             (new Label(
+                                                 __('Selected users action:'),
+                                                 Label::OUTSIDE_LABEL_BEFORE
+                                             ))
+                                             ->class('classic')
+                                         )
+                                         ->items(dcCore::app()->admin->combo_action),
+                                     dcCore::app()->formNonce(false),
+                                     (new Submit('do-action'))
+                                         ->value(__('ok')),
+                                     ...dcCore::app()->adminurl->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
+                                 ]),
+                             ]),
                     ])
                     ->render(),
                 dcCore::app()->admin->user_filter->show()
             );
         }
-        dcPage::helpBlock('core_users');
-        dcPage::close();
+        Page::helpBlock('core_users');
+        Page::close();
     }
 }

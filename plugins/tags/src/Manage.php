@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -60,19 +60,19 @@ class Manage extends Process
             return;
         }
 
-        dcPage::openModule(
+        Page::openModule(
             My::name(),
             My::cssLoad('style.css')
         );
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => '',
             ]
         ) .
-        dcPage::notices();
+        Page::notices();
 
         $last_letter = null;
         $cols        = ['', ''];
@@ -113,8 +113,8 @@ class Manage extends Process
             '<p>' . __('No tags on this blog.') . '</p>';
         }
 
-        dcPage::helpBlock(My::id());
+        Page::helpBlock(My::id());
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminThemesList;
 use dcCore;
 use dcModuleDefine;
-use dcPage;
 use dcThemes;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -32,7 +32,7 @@ class BlogTheme extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
         ]));
 
@@ -41,14 +41,14 @@ class BlogTheme extends Process
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 
         // Page helper
-        dcCore::app()->admin->list = new adminThemesList(
+        dcCore::app()->admin->list = new ThemesList(
             dcCore::app()->themes,
             dcCore::app()->blog->themes_path,
             dcCore::app()->blog->settings->system->store_theme_url,
             !empty($_GET['nocache']) ? true : null
         );
         // deprecated since 2.26
-        adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (dcCore::app()->themes->disableDepModules(dcCore::app()->adminurl->get('admin.blog.theme', []))) {
             // A redirection occured, so we should never go further here
@@ -68,13 +68,13 @@ class BlogTheme extends Process
             dcCore::app()->admin->list->getConfiguration();
 
             // Display page
-            dcPage::open(
+            Page::open(
                 __('Blog appearance'),
-                dcPage::jsPageTabs() .
+                Page::jsPageTabs() .
 
                 # --BEHAVIOR-- themesToolsHeaders -- bool
                 dcCore::app()->callBehavior('themesToolsHeadersV2', true),
-                dcPage::breadcrumb(
+                Page::breadcrumb(
                     [
                         // Active links
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -88,8 +88,8 @@ class BlogTheme extends Process
             // Display previously gathered content
             dcCore::app()->admin->list->displayConfiguration();
 
-            dcPage::helpBlock('core_blog_theme_conf');
-            dcPage::close();
+            Page::helpBlock('core_blog_theme_conf');
+            Page::close();
 
             // Stop reading code here
             return (static::$init = false);
@@ -135,18 +135,18 @@ class BlogTheme extends Process
     public static function render(): void
     {
         // Page header
-        dcPage::open(
+        Page::open(
             __('Themes management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                dcPage::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
             ) .
-            dcPage::jsLoad('js/_blog_theme.js') .
-            dcPage::jsPageTabs() .
+            Page::jsLoad('js/_blog_theme.js') .
+            Page::jsPageTabs() .
 
             # --BEHAVIOR-- themesToolsHeaders -- bool
             dcCore::app()->callBehavior('themesToolsHeadersV2', false),
-            dcPage::breadcrumb(
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name)                     => '',
                     '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
@@ -157,7 +157,7 @@ class BlogTheme extends Process
         // Display themes lists --
         if (dcCore::app()->auth->isSuperAdmin()) {
             if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
-                dcPage::success(__('Manual checking of themes update done successfully.'));
+                Page::success(__('Manual checking of themes update done successfully.'));
             }
 
             echo
@@ -312,7 +312,7 @@ class BlogTheme extends Process
             '<p class="warning">' . __('Some functions are disabled, please give write access to your themes directory to enable them.') . '</p>';
         }
 
-        dcPage::helpBlock('core_blog_theme');
-        dcPage::close();
+        Page::helpBlock('core_blog_theme');
+        Page::close();
     }
 }

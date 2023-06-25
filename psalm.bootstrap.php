@@ -65,40 +65,6 @@ $__autoload = [
     // Upgrade
     'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'dbschema', 'upgrade.php']),
 
-    // Admin
-    'dcMenu'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.menu.php']),
-    'dcFavorites'          => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.favorites.php']),
-    'dcPage'               => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.dc.page.php']),
-    'adminGenericListV2'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),             // V2
-    'adminPostList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminPostMiniList'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminCommentList'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminBlogList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminUserList'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'adminMediaList'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'dcPager'              => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.pager.php']),
-    'dcAdminCombos'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.admincombos.php']),
-    'dcAdminFilter'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'dcAdminFilters'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'adminGenericFilterV2' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),      // V2
-    'adminPostFilter'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'adminCommentFilter'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'adminUserFilter'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'adminBlogFilter'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'adminMediaFilter'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminfilters.php']),
-    'adminModulesList'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.moduleslist.php']),
-    'adminThemesList'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.moduleslist.php']),
-    'dcThemeConfig'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.themeconfig.php']),
-    'dcAdminURL'           => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.dc.adminurl.php']),
-    'dcAdminNotices'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.dc.notices.php']),
-    'dcAdminBlogPref'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'class.dc.blog_pref.php']),
-    'adminUserPref'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.adminuserpref.php']),
-    'dcAdminHelper'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'lib.helper.php']),
-    'dcPostsActions'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcactionposts.php']),
-    'dcCommentsActions'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcactioncomments.php']),
-    'dcBlogsActions'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcactionblogs.php']),
-    'dcActions'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'admin', 'actions', 'class.dcaction.php']),
-
     // Public
     'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'class.dc.template.php']),
     'context'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'lib.tpl.context.php']),

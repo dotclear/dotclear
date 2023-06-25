@@ -14,12 +14,12 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dcAdminCombos;
 use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcCore;
 use dcTrackback;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -104,7 +104,7 @@ class ModuleImportWp extends Module
             $this->post_limit = $this->vars['post_limit'];
         }
 
-        $this->formaters = dcAdminCombos::getFormatersCombo();
+        $this->formaters = Combos::getFormatersCombo();
     }
 
     public function resetVars(): void

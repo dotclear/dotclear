@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -57,8 +57,8 @@ class Manage extends Process
                 // Settings for current blog only
                 dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
-                dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                Page::addSuccessNotice(__('Settings have been successfully updated.'));
+                My::redirect();
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
@@ -72,10 +72,10 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        dcPage::openModule(My::name());
+        Page::openModule(My::name());
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 __('Plugins')             => '',
                 __('Pings configuration') => '',
@@ -128,8 +128,8 @@ class Manage extends Process
 
         '<p><a class="button" href="' . dcCore::app()->admin->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
 
-        dcPage::helpBlock(My::id());
+        Page::helpBlock(My::id());
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

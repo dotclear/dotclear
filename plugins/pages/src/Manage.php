@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use adminUserPref;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -46,7 +46,7 @@ class Manage extends Process
         ];
 
         dcCore::app()->admin->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        dcCore::app()->admin->nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
+        dcCore::app()->admin->nb_per_page = UserPref::getUserFilters('pages', 'nb');
 
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             dcCore::app()->admin->nb_per_page = (int) $_GET['nb'];
@@ -99,29 +99,29 @@ class Manage extends Process
             return;
         }
 
-        dcPage::openModule(
+        Page::openModule(
             __('Pages'),
-            dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-            dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
+            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            Page::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
             My::jsLoad('list.js')
         );
 
         echo
-        dcPage::breadcrumb(
+        Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
                 My::name()                                  => '',
             ]
         ) .
-        dcPage::notices();
+        Page::notices();
 
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Selected pages have been successfully updated.'));
+            Page::success(__('Selected pages have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            dcPage::success(__('Selected pages have been successfully deleted.'));
+            Page::success(__('Selected pages have been successfully deleted.'));
         } elseif (!empty($_GET['reo'])) {
-            dcPage::success(__('Selected pages have been successfully reordered.'));
+            Page::success(__('Selected pages have been successfully reordered.'));
         }
         echo
         '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';
@@ -154,8 +154,8 @@ class Manage extends Process
                 '</form>'
             );
         }
-        dcPage::helpBlock(My::id());
+        Page::helpBlock(My::id());
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

@@ -12,6 +12,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Core\Backend\Notices;
+
 class dcError
 {
     /**
@@ -79,7 +82,7 @@ class dcError
 
         if ($this->flag) {
             foreach ($this->errors as $msg) {
-                $res .= dcAdminNotices::error($msg, true, false, false);
+                $res .= Notices::error($msg, true, false, false);
             }
             $this->reset();
         }

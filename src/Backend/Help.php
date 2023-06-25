@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Backend;
 
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -21,7 +21,7 @@ class Help extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -104,23 +104,23 @@ class Help extends Process
         }
 
         if ($content_array['title'] !== '') {
-            $breadcrumb = dcPage::breadcrumb(
+            $breadcrumb = Page::breadcrumb(
                 [
                     __('Global help')       => dcCore::app()->adminurl->get('admin.help'),
                     $content_array['title'] => '',
                 ]
             );
         } else {
-            $breadcrumb = dcPage::breadcrumb(
+            $breadcrumb = Page::breadcrumb(
                 [
                     __('Global help') => '',
                 ]
             );
         }
 
-        dcPage::open(
+        Page::open(
             __('Global help'),
-            dcPage::jsPageTabs('first-step'),
+            Page::jsPageTabs('first-step'),
             $breadcrumb
         );
 
@@ -129,6 +129,6 @@ class Help extends Process
         // Prevents global help link display
         dcCore::app()->resources['ctxhelp'] = true;
 
-        dcPage::close();
+        Page::close();
     }
 }

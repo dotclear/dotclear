@@ -12,14 +12,14 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Exception;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Exception;
 use form;
 
 class ModuleImportFlat extends Module
@@ -178,12 +178,12 @@ class ModuleImportFlat extends Module
     public function gui(): void
     {
         if ($this->status === 'single') {
-            dcPage::success(__('Single blog successfully imported.'));
+            Page::success(__('Single blog successfully imported.'));
 
             return;
         }
         if ($this->status === 'full') {
-            dcPage::success(__('Content successfully imported.'));
+            Page::success(__('Content successfully imported.'));
 
             return;
         }
@@ -192,7 +192,7 @@ class ModuleImportFlat extends Module
         $has_files    = (bool) (count($public_files) - 1);
 
         echo
-        dcPage::jsJson(
+        Page::jsJson(
             'ie_import_flat_msg',
             ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]
         ) .

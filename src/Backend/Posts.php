@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminPostFilter;
-use adminPostList;
 use dcCore;
-use dcPage;
-use dcPostsActions;
+use Dotclear\Core\Backend\Action\ActionsPosts;
+use Dotclear\Core\Backend\Filter\FilterPosts;
+use Dotclear\Core\Backend\Listing\ListingPosts;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -25,21 +25,21 @@ class Posts extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         // Actions
         // -------
-        dcCore::app()->admin->posts_actions_page = new dcPostsActions(dcCore::app()->adminurl->get('admin.posts'));
+        dcCore::app()->admin->posts_actions_page = new ActionsPosts(dcCore::app()->adminurl->get('admin.posts'));
         if (dcCore::app()->admin->posts_actions_page->process()) {
             return (static::$init = false);
         }
 
         // Filters
         // -------
-        dcCore::app()->admin->post_filter = new adminPostFilter();
+        dcCore::app()->admin->post_filter = new FilterPosts();
 
         // get list params
         $params = dcCore::app()->admin->post_filter->params();
@@ -68,7 +68,7 @@ class Posts extends Process
             $posts   = dcCore::app()->blog->getPosts($params);
             $counter = dcCore::app()->blog->getPosts($params, true);
 
-            dcCore::app()->admin->post_list = new adminPostList($posts, $counter->f(0));
+            dcCore::app()->admin->post_list = new ListingPosts($posts, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -78,10 +78,10 @@ class Posts extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('Posts'),
-            dcPage::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(dcCore::app()->adminurl->get('admin.posts')),
+            Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
                     __('Posts')                                 => '',
@@ -89,9 +89,9 @@ class Posts extends Process
             )
         );
         if (!empty($_GET['upd'])) {
-            dcPage::success(__('Selected entries have been successfully updated.'));
+            Page::success(__('Selected entries have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            dcPage::success(__('Selected entries have been successfully deleted.'));
+            Page::success(__('Selected entries have been successfully deleted.'));
         }
         if (!dcCore::app()->error->flag()) {
             echo
@@ -122,7 +122,7 @@ class Posts extends Process
             );
         }
 
-        dcPage::helpBlock('core_posts');
-        dcPage::close();
+        Page::helpBlock('core_posts');
+        Page::close();
     }
 }

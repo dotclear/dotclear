@@ -12,12 +12,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Backend;
 
-use adminBlogFilter;
-use adminBlogList;
 use ArrayObject;
-use dcBlogsActions;
 use dcCore;
-use dcPage;
+use Dotclear\Core\Backend\Action\ActionsBlogs;
+use Dotclear\Core\Backend\Filter\FilterBlogs;
+use Dotclear\Core\Backend\Listing\ListingBlogs;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -34,7 +34,7 @@ class Blogs extends Process
 {
     public static function init(): bool
     {
-        dcPage::check(dcCore::app()->auth->makePermissions([
+        Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -43,7 +43,7 @@ class Blogs extends Process
         -------------------------------------------------------- */
         dcCore::app()->admin->blogs_actions_page = null;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->blogs_actions_page = new dcBlogsActions(dcCore::app()->adminurl->get('admin.blogs'));
+            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->adminurl->get('admin.blogs'));
             if (dcCore::app()->admin->blogs_actions_page->process()) {
                 return false;
             }
@@ -51,7 +51,7 @@ class Blogs extends Process
 
         /* Filters
         -------------------------------------------------------- */
-        dcCore::app()->admin->blog_filter = new adminBlogFilter();
+        dcCore::app()->admin->blog_filter = new FilterBlogs();
 
         // get list params
         $params = dcCore::app()->admin->blog_filter->params();
@@ -75,7 +75,7 @@ class Blogs extends Process
                 $rsStatic = $rsStatic->toExtStatic();
                 $rsStatic->lexicalSort((dcCore::app()->admin->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), dcCore::app()->admin->blog_filter->order);
             }
-            dcCore::app()->admin->blog_list = new adminBlogList($rs, $counter->f(0));
+            dcCore::app()->admin->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -85,10 +85,10 @@ class Blogs extends Process
 
     public static function render(): void
     {
-        dcPage::open(
+        Page::open(
             __('List of blogs'),
-            dcPage::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->adminurl->get('admin.blogs')),
-            dcPage::breadcrumb(
+            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->adminurl->get('admin.blogs')),
+            Page::breadcrumb(
                 [
                     __('System')        => '',
                     __('List of blogs') => '',
@@ -167,7 +167,7 @@ class Blogs extends Process
             );
         }
 
-        dcPage::helpBlock('core_blogs');
-        dcPage::close();
+        Page::helpBlock('core_blogs');
+        Page::close();
     }
 }

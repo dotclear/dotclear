@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -339,7 +340,7 @@ class dcModules
                 __('The following extensions have been disabled :'),
                 join('', $reason)
             );
-            dcPage::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
+            Page::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
             $url = $redirect_url . (strpos($redirect_url, '?') ? '&' : '?') . 'dep=1';
             Http::redirect($url);
 
