@@ -668,14 +668,17 @@ dotclear.services = (
   const service = new URL(dotclear.servicesUri, window.location.origin + window.location.pathname);
   dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
   const init = { method: get ? 'GET' : 'POST' };
+  // Cope with parameters
+  // --------------------
+  // Warning: cope only with single level object (key → value)
+  // Use JSON.stringify to push complex object in Javascript
+  // Use json_decode(, [true]) to decode complex object in PHP (use true as 2nd param if key-array)
   if (get) {
     const data = new URLSearchParams(service.search);
-    // Warning: cope only with single level object (key → value)
     Object.keys(params).forEach((key) => data.append(key, params[key]));
     service.search = data.toString();
   } else {
     const data = new FormData();
-    // Warning: cope only with single level object (key → value)
     Object.keys(params).forEach((key) => data.append(key, params[key]));
     init.body = data;
   }
