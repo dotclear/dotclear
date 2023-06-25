@@ -321,7 +321,7 @@ class ThemeEditor
      *
      * @throws     Exception
      */
-    public function deleteFile($type, $f)
+    public function deleteFile(string $type, string $f)
     {
         if ($type !== 'tpl') {
             // Only tpl files may be deleted

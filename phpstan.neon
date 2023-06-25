@@ -246,6 +246,34 @@ parameters:
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Utility::#'
       path: %currentWorkingDirectory%
 
+    # Dotclear\Core\Backend\MediaPage object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\MediaPage::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\Backend\Filter\Filter
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\Filter::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\Backend\Filter\FilterBlogs
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterBlogs::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\Backend\Filter\FilterComments
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterComments::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\Backend\Filter\FilterPosts
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterPosts::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\Backend\Filter\FilterUsers
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterUsers::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\Backend\Filter\FilterMedia
+    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterMedia::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

@@ -112,7 +112,7 @@ abstract class MyPlugin extends MyModule
      * @param   array<string,string|int>    $params     The URL parameters
      * @param   string                      $suffix     The URL suffix (#)
      *
-     * @return  string
+     * @return  void
      */
     public static function redirect(array $params = [], string $suffix = ''): void
     {

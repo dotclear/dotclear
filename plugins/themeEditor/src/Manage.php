@@ -103,9 +103,9 @@ class Manage extends Process
                 dcCore::app()->admin->file['c'] = $_POST['file_content'];
 
                 dcCore::app()->admin->editor->writeFile(
-                    dcCore::app()->admin->file['type'], // @phpstan-ignore-line
-                    dcCore::app()->admin->file['f'],    // @phpstan-ignore-line
-                    dcCore::app()->admin->file['c']     // @phpstan-ignore-line
+                    (string) dcCore::app()->admin->file['type'],
+                    (string) dcCore::app()->admin->file['f'],
+                    (string) dcCore::app()->admin->file['c']
                 );
             }
 
@@ -113,12 +113,12 @@ class Manage extends Process
                 // Delete file
 
                 dcCore::app()->admin->editor->deleteFile(
-                    dcCore::app()->admin->file['type'], // @phpstan-ignore-line
-                    dcCore::app()->admin->file['f']     // @phpstan-ignore-line
+                    (string) dcCore::app()->admin->file['type'],
+                    (string) dcCore::app()->admin->file['f']
                 );
                 Page::addSuccessNotice(__('The file has been reset.'));
                 My::redirect([
-                    dcCore::app()->admin->file['type'] => dcCore::app()->admin->file['f'],
+                    (string) dcCore::app()->admin->file['type'] => (string) dcCore::app()->admin->file['f'],
                 ]);
             }
         } catch (Exception $e) {

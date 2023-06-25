@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use dcBlog;
 use dcCore;
-use dcDefaultPostActions;
+use Dotclear\Core\Backend\Action\ActionsPostsDefault;
 use Dotclear\Core\Backend\Page;
 use Exception;
 
@@ -39,7 +39,7 @@ class BackendDefaultActions
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending',
                 ]],
-                [dcDefaultPostActions::class, 'doChangePostStatus']
+                [ActionsPostsDefault::class, 'doChangePostStatus']
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -51,7 +51,7 @@ class BackendDefaultActions
                     __('Never published')   => 'never',
                     __('Already published') => 'already',
                 ]],
-                [dcDefaultPostActions::class, 'doChangePostFirstPub']
+                [ActionsPostsDefault::class, 'doChangePostFirstPub']
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -60,7 +60,7 @@ class BackendDefaultActions
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
-                [dcDefaultPostActions::class, 'doChangePostAuthor']
+                [ActionsPostsDefault::class, 'doChangePostAuthor']
             );
         }
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -70,7 +70,7 @@ class BackendDefaultActions
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                [dcDefaultPostActions::class, 'doDeletePost']
+                [ActionsPostsDefault::class, 'doDeletePost']
             );
         }
         $ap->addAction(

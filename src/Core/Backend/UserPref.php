@@ -53,8 +53,8 @@ class UserPref
     /**
      * Gets the user columns.
      *
-     * @param      null|string          $type     The type
-     * @param      array|ArrayObject    $columns  The columns
+     * @param      null|string                          $type     The type
+     * @param      array|ArrayObject<string|string>     $columns  The columns
      *
      * @return     ArrayObject  The user columns.
      */
