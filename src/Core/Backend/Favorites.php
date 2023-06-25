@@ -115,10 +115,11 @@ class Favorites
         }
         $favorite = array_merge(['id' => null, 'class' => null], $favorite);
         if (isset($favorite['permissions'])) {
-            if (is_bool($favorite['permissions']) && !$favorite['permissions']) {
-                return false;
-            }
-            if (!dcCore::app()->auth->check($favorite['permissions'], dcCore::app()->blog->id)) {
+            if (is_bool($favorite['permissions'])) {
+                if (!$favorite['permissions']) {
+                    return false;
+                }
+            } elseif (!dcCore::app()->auth->check($favorite['permissions'], dcCore::app()->blog->id)) {
                 return false;
             }
         } elseif (!dcCore::app()->auth->isSuperAdmin()) {

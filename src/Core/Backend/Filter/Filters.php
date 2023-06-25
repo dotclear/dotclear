@@ -21,7 +21,6 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Select;
-use Dotclear\Helper\Html\Html;
 use form;
 
 class Filters
