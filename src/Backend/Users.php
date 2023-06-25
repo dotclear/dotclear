@@ -112,7 +112,7 @@ class Users extends Process
                 Page::message(__('The permissions have been successfully updated.'));
             }
 
-            echo '<p class="top-add"><strong><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
+            echo '<p class="top-add"><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></p>';
 
             dcCore::app()->admin->user_filter->display('admin.users');
 
