@@ -97,11 +97,27 @@ abstract class MyPlugin extends MyModule
      * Get module backend url.
      *
      * @param   array<string,string|int>    $params     The URL parameters
+     * @param   string                      $separator  The query string separator
      *
      * @return  string
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
         return defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->adminurl) ? dcCore::app()->adminurl->get('admin.plugin.' . static::id(), $params, $separator) : '';
+    }
+
+    /**
+     * Get module backend redirection.
+     *
+     * @param   array<string,string|int>    $params     The URL parameters
+     * @param   string                      $suffix     The URL suffix (#)
+     *
+     * @return  string
+     */
+    public static function redirect(array $params = [], string $suffix = ''): void
+    {
+        if (defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->adminurl)) {
+            dcCore::app()->adminurl->redirect('admin.plugin.' . static::id(), $params, $suffix);
+        }
     }
 }

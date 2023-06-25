@@ -106,7 +106,7 @@ class Manage extends Process
             }
 
             Page::addSuccessNotice(__('links have been successfully imported.'));
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+            My::redirect();
         }
 
         if (!empty($_POST['cancel_import'])) {
@@ -128,7 +128,7 @@ class Manage extends Process
                 dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang);
 
                 Page::addSuccessNotice(__('Link has been successfully created.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
                 dcCore::app()->admin->default_tab = 'add-link';
@@ -143,7 +143,7 @@ class Manage extends Process
             try {
                 dcCore::app()->admin->blogroll->addCategory(dcCore::app()->admin->cat_title);
                 Page::addSuccessNotice(__('category has been successfully created.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
                 dcCore::app()->admin->default_tab = 'add-cat';
@@ -165,7 +165,7 @@ class Manage extends Process
 
             if (!dcCore::app()->error->flag()) {
                 Page::addSuccessNotice(__('Items have been successfully removed.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             }
         }
 
@@ -195,7 +195,7 @@ class Manage extends Process
 
             if (!dcCore::app()->error->flag()) {
                 Page::addSuccessNotice(__('Items order has been successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             }
         }
 

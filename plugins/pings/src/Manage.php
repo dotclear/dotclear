@@ -58,7 +58,7 @@ class Manage extends Process
                 dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
                 Page::addSuccessNotice(__('Settings have been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

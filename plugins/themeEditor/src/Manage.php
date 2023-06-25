@@ -117,7 +117,7 @@ class Manage extends Process
                     dcCore::app()->admin->file['f']     // @phpstan-ignore-line
                 );
                 Page::addSuccessNotice(__('The file has been reset.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                My::redirect([
                     dcCore::app()->admin->file['type'] => dcCore::app()->admin->file['f'],
                 ]);
             }

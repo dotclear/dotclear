@@ -83,7 +83,7 @@ class ManagePosts extends Process
             try {
                 if (dcCore::app()->meta->updateMeta(dcCore::app()->admin->tag, $new_id, 'tag')) {
                     Page::addSuccessNotice(__('Tag has been successfully renamed'));
-                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                    My::redirect([
                         'm'   => 'tag_posts',
                         'tag' => $new_id,
                     ]);
@@ -102,7 +102,7 @@ class ManagePosts extends Process
             try {
                 dcCore::app()->meta->delMeta(dcCore::app()->admin->tag, 'tag');
                 Page::addSuccessNotice(__('Tag has been successfully removed'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                My::redirect([
                     'm' => 'tags',
                 ]);
             } catch (Exception $e) {

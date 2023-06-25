@@ -86,9 +86,9 @@ class ManagePage extends Process
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_delete = false;
 
-        $post_headlink = '<link rel="%s" title="%s" href="' . dcCore::app()->adminurl->get('admin.plugin.' . My::id(), ['act' => 'page', 'id' => '%s']) . '" />';
+        $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" />';
 
-        dcCore::app()->admin->post_link = '<a href="' . dcCore::app()->adminurl->get('admin.plugin.' . My::id(), ['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
+        dcCore::app()->admin->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
 
         dcCore::app()->admin->next_link = dcCore::app()->admin->prev_link = dcCore::app()->admin->next_headlink = dcCore::app()->admin->prev_headlink = null;
 
@@ -289,7 +289,7 @@ class ManagePage extends Process
                 # --BEHAVIOR-- adminBeforePageDelete -- int
                 dcCore::app()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -339,7 +339,7 @@ class ManagePage extends Process
                     # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
-                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'upd' => '1']);
+                    My::redirect(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'upd' => '1']);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -355,7 +355,7 @@ class ManagePage extends Process
                     # --BEHAVIOR-- adminAfterPageCreate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
-                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), ['act' => 'page', 'id' => $return_id, 'crea' => '1']);
+                    My::redirect(['act' => 'page', 'id' => $return_id, 'crea' => '1']);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -552,7 +552,7 @@ class ManagePage extends Process
                         '<p>' . form::combo('post_format', dcCore::app()->admin->available_formats, dcCore::app()->admin->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_wiki">' .
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') .
-                        '" href="' . dcCore::app()->adminurl->get('admin.plugin.' . My::id(), ['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'xconv' => '1']) . '">' .
+                        '" href="' . My::manageUrl(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'xconv' => '1']) . '">' .
                         __('Convert to HTML') . '</a></p></div>', ], ],
                 'metas-box' => [
                     'title' => __('Filing'),
@@ -655,7 +655,7 @@ class ManagePage extends Process
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
             sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
-            '<form action="' . dcCore::app()->adminurl->get('admin.plugin.' . My::id(), ['act' => 'page']) . '" method="post" id="entry-form">' .
+            '<form action="' . My::manageUrl(['act' => 'page']) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
             '<h3 class="out-of-screen-if-js">' . __('Edit page') . '</h3>';
@@ -793,7 +793,7 @@ class ManagePage extends Process
                 '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', $combo_action) .
-                form::hidden('redir', dcCore::app()->adminurl->get('admin.plugin.' . My::id(), ['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'co' => '1'])) .
+                form::hidden('redir', My::manageUrl(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'co' => '1'])) .
                 form::hidden(['section'], 'comments') .
                 form::hidden(['p'], 'pages') .
                 form::hidden(['act'], 'page') .

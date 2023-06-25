@@ -64,7 +64,7 @@ class Manage extends Process
                 Antispam::delAllSpam($ts);
 
                 Page::addSuccessNotice(__('Spam comments have been successfully deleted.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             }
 
             // Update filters
@@ -108,7 +108,7 @@ class Manage extends Process
                 Antispam::$filters->saveFilterOpts($filters_opt);
 
                 Page::addSuccessNotice(__('Filters configuration has been successfully saved.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

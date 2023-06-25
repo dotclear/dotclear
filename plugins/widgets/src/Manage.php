@@ -110,7 +110,7 @@ class Manage extends Process
                     dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
                     dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                     dcCore::app()->blog->triggerBlog();
-                    dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                    My::redirect();
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -196,7 +196,7 @@ class Manage extends Process
                 dcCore::app()->blog->triggerBlog();
 
                 Page::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -208,7 +208,7 @@ class Manage extends Process
                 dcCore::app()->blog->triggerBlog();
 
                 Page::addSuccessNotice(__('Sidebars have been resetting.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

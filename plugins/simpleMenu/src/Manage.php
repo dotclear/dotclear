@@ -178,7 +178,7 @@ class Manage extends Process
 
                 // All done successfully, return to menu items list
                 Page::addSuccessNotice(__('Configuration successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -334,7 +334,7 @@ class Manage extends Process
 
                                 // All done successfully, return to menu items list
                                 Page::addSuccessNotice(__('Menu item has been successfully added.'));
-                                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                                My::redirect();
                             } else {
                                 dcCore::app()->admin->step              = self::STEP_ATTRIBUTES;
                                 dcCore::app()->admin->item_select_label = dcCore::app()->admin->item_label;
@@ -372,7 +372,7 @@ class Manage extends Process
 
                             // All done successfully, return to menu items list
                             Page::addSuccessNotice(__('Menu items have been successfully removed.'));
-                            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                            My::redirect();
                         } else {
                             throw new Exception(__('No menu items selected.'));
                         }
@@ -437,7 +437,7 @@ class Manage extends Process
 
                         // All done successfully, return to menu items list
                         Page::addSuccessNotice(__('Menu items have been successfully updated.'));
-                        dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                        My::redirect();
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
                     }

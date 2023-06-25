@@ -96,7 +96,7 @@ class ManageEdit extends Process
             try {
                 dcCore::app()->admin->blogroll->updateLink(dcCore::app()->admin->id, dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang, trim((string) dcCore::app()->admin->link_xfn));
                 Page::addSuccessNotice(__('Link has been successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                My::redirect([
                     'edit' => 1,
                     'id'   => dcCore::app()->admin->id,
                 ]);
@@ -113,7 +113,7 @@ class ManageEdit extends Process
             try {
                 dcCore::app()->admin->blogroll->updateCategory(dcCore::app()->admin->id, dcCore::app()->admin->link_desc);
                 Page::addSuccessNotice(__('Category has been successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                My::redirect([
                     'edit' => 1,
                     'id'   => dcCore::app()->admin->id,
                 ]);

@@ -47,10 +47,10 @@ class Manage extends Process
 
         // Local navigation
         if (!empty($_POST['gs_nav'])) {
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['gs_nav']);
+            My::redirect([], $_POST['gs_nav']);
         }
         if (!empty($_POST['ls_nav'])) {
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['ls_nav']);
+            My::redirect([], $_POST['ls_nav']);
         }
 
         // Local settings update
@@ -67,7 +67,7 @@ class Manage extends Process
                 }
 
                 Page::addSuccessNotice(__('Configuration successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -87,7 +87,7 @@ class Manage extends Process
                 }
 
                 Page::addSuccessNotice(__('Configuration successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
+                My::redirect([
                     'part' => 'global',
                 ]);
             } catch (Exception $e) {

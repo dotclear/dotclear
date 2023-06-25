@@ -131,7 +131,7 @@ class Manage extends Process
                 }
 
                 Page::addSuccessNotice(__('The configuration has been updated.'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

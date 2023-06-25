@@ -46,11 +46,11 @@ class Manage extends Process
 
         // Local navigation
         if (!empty($_POST['gp_nav'])) {
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['gp_nav']);
+            My::redirect([], $_POST['gp_nav']);
             exit;
         }
         if (!empty($_POST['lp_nav'])) {
-            dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [], $_POST['lp_nav']);
+            My::redirect([], $_POST['lp_nav']);
             exit;
         }
 
@@ -67,7 +67,7 @@ class Manage extends Process
                 }
 
                 Page::addSuccessNotice(__('Preferences successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id());
+                My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -86,9 +86,7 @@ class Manage extends Process
                 }
 
                 Page::addSuccessNotice(__('Preferences successfully updated'));
-                dcCore::app()->adminurl->redirect('admin.plugin.' . My::id(), [
-                    'part' => 'global',
-                ]);
+                My::redirect(['part' => 'global']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
