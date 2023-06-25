@@ -18,12 +18,10 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Html;
-use Exception;
 use form;
 
 class Filters

@@ -14,7 +14,7 @@ namespace Dotclear\Backend;
 
 use dcCore;
 use dcThemes;
-use Dotclear\Core\Backend\Listing\ListingPostsMini:
+use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;

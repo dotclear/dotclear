@@ -260,7 +260,7 @@ class Filter
 
             $this->html($label->render($select->render()), false);
 
-        # form input
+            # form input
         } elseif ($this->form == 'input') {
             # _GET value
             if ($this->value === null) {

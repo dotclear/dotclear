@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
+use dcCore;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Option;
@@ -428,7 +429,7 @@ abstract class Actions
 
     /**
      * Manage error.
-     * 
+     *
      * This method is called on Exception from self::process();
      * Default method does not stop script execution.
      *

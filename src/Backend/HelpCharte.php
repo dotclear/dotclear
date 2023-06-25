@@ -64,7 +64,7 @@ class HelpCharte extends Process
      */
     public static function render(): void
     {
-?>
+        ?>
 <!DOCTYPE html>
 <html lang="fr" data-theme="<?php echo self::getTheme(); ?>">
 <!-- included by ../_charte.php -->
@@ -76,10 +76,10 @@ class HelpCharte extends Process
   <title>Bibliothèque de styles - Dotclear - 2.7</title>
   <link rel="icon" type="image/png" href="images/favicon96-login.png" />
 <?php
-    echo
-    Page::cssLoad('style/default.css') . // Set some JSON data
-    dcUtils::jsJson('dotclear_init', self::getJS());
-?>
+            echo
+            Page::cssLoad('style/default.css') . // Set some JSON data
+            dcUtils::jsJson('dotclear_init', self::getJS());
+        ?>
   <script src="js/jquery/jquery.js"></script>
   <script src="js/jquery/jquery-ui.custom.js"></script>
   <script src="js/jquery/jquery.ui.touch-punch.js"></script>

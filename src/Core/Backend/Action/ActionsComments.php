@@ -15,8 +15,6 @@ use dcCore;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
-use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
 use Exception;
 
 class ActionsComments extends Actions

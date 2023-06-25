@@ -20,13 +20,10 @@ use Autoloader;
 use dcCore;
 use dcModuleDefine;
 use dcModules;
-use Dotclear\Core\Backend\Helper;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
 use Exception;
 use form;
 

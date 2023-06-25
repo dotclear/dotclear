@@ -16,7 +16,6 @@ namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Html\Html;
 
 class FilterMedia extends Filters

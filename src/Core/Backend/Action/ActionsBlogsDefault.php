@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Action;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Html\Html;
 use Exception;
 
 class ActionsBlogsDefault

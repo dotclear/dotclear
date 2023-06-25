@@ -15,7 +15,6 @@ use Autoloader;
 use dcCore;
 use dcDeprecated;
 use dcUtils;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;

@@ -123,7 +123,6 @@ class Users extends Process
             dcCore::app()->admin->user_list->display(
                 dcCore::app()->admin->user_filter->page,
                 dcCore::app()->admin->user_filter->nb,
-
                 (new Form('form-users'))
                     ->action(dcCore::app()->adminurl->get('admin.user.actions'))
                     ->method('post')
@@ -132,25 +131,25 @@ class Users extends Process
                         (new Div())
                             ->class('two-cols')
                              ->items([
-                                (new Para())->class(['col checkboxes-helpers']),
-                                (new Para())->class(['col right'])->items([
-                                    (new Select('action'))
-                                        ->class('online')
-                                        ->title(__('Actions'))
-                                        ->label(
-                                            (new Label(
-                                                __('Selected users action:'),
-                                                Label::OUTSIDE_LABEL_BEFORE
-                                            ))
-                                            ->class('classic')
-                                        )
-                                        ->items(dcCore::app()->admin->combo_action),
-                                    dcCore::app()->formNonce(false),
-                                    (new Submit('do-action'))
-                                        ->value(__('ok')),
-                                    ...dcCore::app()->adminurl->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
-                                ]),
-                            ]),
+                                 (new Para())->class(['col checkboxes-helpers']),
+                                 (new Para())->class(['col right'])->items([
+                                     (new Select('action'))
+                                         ->class('online')
+                                         ->title(__('Actions'))
+                                         ->label(
+                                             (new Label(
+                                                 __('Selected users action:'),
+                                                 Label::OUTSIDE_LABEL_BEFORE
+                                             ))
+                                             ->class('classic')
+                                         )
+                                         ->items(dcCore::app()->admin->combo_action),
+                                     dcCore::app()->formNonce(false),
+                                     (new Submit('do-action'))
+                                         ->value(__('ok')),
+                                     ...dcCore::app()->adminurl->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
+                                 ]),
+                             ]),
                     ])
                     ->render(),
                 dcCore::app()->admin->user_filter->show()
