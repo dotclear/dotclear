@@ -138,8 +138,8 @@ $.fn.toggleWithLegend = function (target, s) {
       $(ctarget).find('label').css('cursor', 'pointer');
     }
     $(ctarget).on('click', (e) => {
-      if (dotclear.servicesOff) return;
       if (p.user_pref && set_user_pref) {
+        if (dotclear.servicesOff) return;
         $.post(
           dotclear.servicesUri,
           {
