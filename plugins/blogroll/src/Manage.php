@@ -26,9 +26,7 @@ class Manage extends Process
 
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::MANAGE);
-
-        if (static::$init) {
+        if (self::status(My::checkContext(My::MANAGE))) {
             dcCore::app()->admin->blogroll = new Blogroll(dcCore::app()->blog);
 
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
@@ -41,16 +39,14 @@ class Manage extends Process
                 dcCore::app()->admin->link_lang   = '';
                 dcCore::app()->admin->cat_title   = '';
             }
-
-            static::$init = true;
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -204,7 +200,7 @@ class Manage extends Process
 
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

@@ -76,12 +76,12 @@ class Install extends Process
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             new Fault('Not found', '', 404);
         }
 
@@ -305,7 +305,7 @@ class Install extends Process
 
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             new Fault('Not found', '', 404);
         }
 

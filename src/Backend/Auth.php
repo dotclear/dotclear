@@ -102,7 +102,7 @@ class Auth extends Process
             dcCore::app()->enableRestServer(true);
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

@@ -92,7 +92,7 @@ class BlogTheme extends Process
             Page::close();
 
             // Stop reading code here
-            return (static::$init = false);
+            return self::status(false);
         }
 
         // Execute actions
@@ -102,7 +102,7 @@ class BlogTheme extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

@@ -36,7 +36,7 @@ class HelpCharte extends Process
             'debug'        => !!DC_DEBUG,
         ];
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     /**

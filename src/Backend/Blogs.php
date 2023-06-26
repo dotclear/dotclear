@@ -80,7 +80,7 @@ class Blogs extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function render(): void

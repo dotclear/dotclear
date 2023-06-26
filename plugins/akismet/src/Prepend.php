@@ -19,17 +19,15 @@ class Prepend extends Process
 {
     public static function init(): bool
     {
-        static::$init = defined('DC_RC_PATH');
-
         // Dead but useful code (for l10n)
         __('Akismet') . __('Akismet interface for Dotclear');
 
-        return static::$init;
+        return self::status(defined('DC_RC_PATH'));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

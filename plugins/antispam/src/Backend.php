@@ -21,7 +21,7 @@ class Backend extends Process
 {
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::BACKEND);
+        self::status(My::checkContext(My::BACKEND));
 
         // Dead but useful code (for l10n)
         __('Antispam') . __('Generic antispam plugin for Dotclear');
@@ -30,12 +30,12 @@ class Backend extends Process
             define('DC_ANTISPAM_CONF_SUPER', false);
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

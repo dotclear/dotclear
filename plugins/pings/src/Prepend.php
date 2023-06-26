@@ -21,12 +21,12 @@ class Prepend extends Process
 {
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::PREPEND));
+        return self::status(My::checkContext(My::PREPEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

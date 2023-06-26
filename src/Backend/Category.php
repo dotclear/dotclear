@@ -106,7 +106,7 @@ class Category extends Process
             dcCore::app()->admin->cat_siblings = $stack;
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

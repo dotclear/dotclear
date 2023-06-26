@@ -23,9 +23,7 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        if (My::checkContext(My::MANAGE)) {
-            static::$init = true;
-        }
+        self::status(My::checkContext(My::MANAGE));
 
         $modules = new ArrayObject(['import' => [], 'export' => []]);
 
@@ -46,12 +44,12 @@ class Manage extends Process
             dcCore::app()->admin->module->init();
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -71,7 +69,7 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

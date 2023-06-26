@@ -22,12 +22,12 @@ class Backend extends Process
         // Dead but useful code (for l10n)
         __('themeEditor') . __('Theme Editor');
 
-        return (static::$init = My::checkContext(My::BACKEND));
+        return self::status(My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (static::$init) {
+        if (self::status()) {
             dcCore::app()->addBehaviors([
                 'adminCurrentThemeDetailsV2'   => [BackendBehaviors::class, 'adminCurrentThemeDetails'],
                 'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'adminBeforeUserUpdate'],
@@ -35,6 +35,6 @@ class Backend extends Process
             ]);
         }
 
-        return static::$init;
+        return self::status();
     }
 }

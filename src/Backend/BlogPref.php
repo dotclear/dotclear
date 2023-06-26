@@ -215,7 +215,7 @@ class BlogPref extends Process
             __('Two years')    => 63_072_000,
         ];
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

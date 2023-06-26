@@ -26,7 +26,7 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::MANAGE));
+        return self::status(false);//My::checkContext(My::MANAGE));
     }
 
     /**
@@ -34,7 +34,7 @@ class Manage extends Process
      */
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -133,7 +133,7 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

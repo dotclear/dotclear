@@ -41,7 +41,7 @@ class Blog extends Process
         dcCore::app()->admin->blog_name = '';
         dcCore::app()->admin->blog_desc = '';
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

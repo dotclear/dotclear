@@ -25,11 +25,9 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        if (!My::checkContext(My::MANAGE)) {
+        if (!self::status(My::checkContext(My::MANAGE))) {
             return false;
         }
-
-        static::$init = true;
 
         // Set env
 
@@ -51,7 +49,7 @@ class Manage extends Process
             dcCore::app()->admin->task->code(dcCore::app()->admin->code);
         }
 
-        return static::$init;
+        return self::status(true);
     }
 
     /**
@@ -59,7 +57,7 @@ class Manage extends Process
      */
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -155,7 +153,7 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

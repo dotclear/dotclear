@@ -22,15 +22,15 @@ class Manage extends Process
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
-            static::$init = ($_REQUEST['m'] ?? 'tags') === 'tag_posts' ? ManagePosts::init() : true;
+            self::status(($_REQUEST['m'] ?? 'tags') === 'tag_posts' ? ManagePosts::init() : true);
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -50,7 +50,7 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

@@ -37,7 +37,7 @@ class Media extends Process
 
         dcCore::app()->admin->page = new MediaPage();
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

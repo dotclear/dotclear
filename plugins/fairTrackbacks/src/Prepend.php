@@ -26,12 +26,12 @@ class Prepend extends Process
             define('DC_FAIRTRACKBACKS_FORCE', false);
         }
 
-        return (static::$init = My::checkContext(My::PREPEND));
+        return self::status(My::checkContext(My::PREPEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

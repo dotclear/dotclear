@@ -21,11 +21,9 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::MANAGE);
+        dcCore::app()->admin->editor_is_admin = self::status(My::checkContext(My::MANAGE));
 
-        dcCore::app()->admin->editor_is_admin = static::$init;
-
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -52,9 +50,7 @@ class Manage extends Process
 
         dcCore::app()->admin->editor_cke_was_actived = dcCore::app()->admin->editor_cke_active;
 
-        static::$init = true;
-
-        return static::$init;
+        return self::status(true);
     }
 
     /**
@@ -62,7 +58,7 @@ class Manage extends Process
      */
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -142,7 +138,7 @@ class Manage extends Process
 
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

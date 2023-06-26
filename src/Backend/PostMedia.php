@@ -42,7 +42,7 @@ class PostMedia extends Process
             exit;
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

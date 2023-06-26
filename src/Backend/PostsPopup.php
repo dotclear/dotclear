@@ -70,7 +70,7 @@ class PostsPopup extends Process
             dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function render(): void

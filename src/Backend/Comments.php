@@ -84,7 +84,7 @@ class Comments extends Process
         dcCore::app()->admin->comments_actions_page = new ActionsComments(dcCore::app()->adminurl->get('admin.comments'));
 
         if (dcCore::app()->admin->comments_actions_page->process()) {
-            return (static::$init = false);
+            return self::status(false);
         }
 
         // List
@@ -100,7 +100,7 @@ class Comments extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function render(): void

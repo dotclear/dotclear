@@ -48,7 +48,7 @@ class Plugins extends Process
             // -- Display module configuration page --
             self::renderConfig();
             // Stop reading code here, rendering will be done before returning (see below)
-            return (static::$init = false);
+            return self::status(false);
         }
 
         Page::checkSuper();
@@ -60,7 +60,7 @@ class Plugins extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

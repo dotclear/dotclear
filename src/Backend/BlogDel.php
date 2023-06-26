@@ -55,7 +55,7 @@ class BlogDel extends Process
             }
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool
