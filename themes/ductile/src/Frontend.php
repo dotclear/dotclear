@@ -13,7 +13,6 @@ namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 
@@ -279,6 +278,13 @@ class Frontend extends Process
         self::ductileWebfontHelper();
     }
 
+    public static function prop(array &$css, string $selector, string $prop, $value)
+    {
+        if ($value) {
+            $css[$selector][$prop] = $value;
+        }
+    }
+
     public static function ductileWebfontHelper()
     {
         $s = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_style');
@@ -294,6 +300,7 @@ class Frontend extends Process
 
         $ret = '';
         $css = [];
+
         $uri = [];
         if (!isset($s['body_font']) || ($s['body_font'] == '') && isset($s['body_webfont_api']) && isset($s['body_webfont_family']) && isset($s['body_webfont_url'])) {
             // See if webfont defined for main font
@@ -310,7 +317,7 @@ class Frontend extends Process
             }
             # Main font
             $selectors = 'body, .supranav li a span, #comments.me, a.comment-number';
-            ThemeConfig::prop($css, $selectors, 'font-family', $s['body_webfont_family']);
+            self::prop($css, $selectors, 'font-family', $s['body_webfont_family']);
         }
         if (!isset($s['alternate_font']) || ($s['alternate_font'] == '') && isset($s['alternate_webfont_api']) && isset($s['alternate_webfont_family']) && isset($s['alternate_webfont_url'])) {
             // See if webfont defined for secondary font
@@ -328,7 +335,7 @@ class Frontend extends Process
             }
             # Secondary font
             $selectors = '#blogdesc, .supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer';
-            ThemeConfig::prop($css, $selectors, 'font-family', $s['alternate_webfont_family']);
+            self::prop($css, $selectors, 'font-family', $s['alternate_webfont_family']);
         }
         # Style directives
         $res = '';
@@ -366,37 +373,37 @@ class Frontend extends Process
         # Blog description
         $selectors = '#blogdesc';
         if (isset($s['subtitle_hidden'])) {
-            ThemeConfig::prop($css, $selectors, 'display', ($s['subtitle_hidden'] ? 'none' : null));
+            self::prop($css, $selectors, 'display', ($s['subtitle_hidden'] ? 'none' : null));
         }
 
         # Main font
         $selectors = 'body, .supranav li a span, #comments.me, a.comment-number';
         if (isset($s['body_font'])) {
-            ThemeConfig::prop($css, $selectors, 'font-family', self::fontDef($s['body_font']));
+            self::prop($css, $selectors, 'font-family', self::fontDef($s['body_font']));
         }
 
         # Secondary font
         $selectors = '#blogdesc, .supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer';
         if (isset($s['alternate_font'])) {
-            ThemeConfig::prop($css, $selectors, 'font-family', self::fontDef($s['alternate_font']));
+            self::prop($css, $selectors, 'font-family', self::fontDef($s['alternate_font']));
         }
 
         # Inside posts links font weight
         $selectors = '.post-excerpt a, .post-content a';
         if (isset($s['post_link_w'])) {
-            ThemeConfig::prop($css, $selectors, 'font-weight', ($s['post_link_w'] ? 'bold' : 'normal'));
+            self::prop($css, $selectors, 'font-weight', ($s['post_link_w'] ? 'bold' : 'normal'));
         }
 
         # Inside posts links colors (normal, visited)
         $selectors = '.post-excerpt a:link, .post-excerpt a:visited, .post-content a:link, .post-content a:visited';
         if (isset($s['post_link_v_c'])) {
-            ThemeConfig::prop($css, $selectors, 'color', $s['post_link_v_c']);
+            self::prop($css, $selectors, 'color', $s['post_link_v_c']);
         }
 
         # Inside posts links colors (hover, active, focus)
         $selectors = '.post-excerpt a:hover, .post-excerpt a:active, .post-excerpt a:focus, .post-content a:hover, .post-content a:active, .post-content a:focus';
         if (isset($s['post_link_f_c'])) {
-            ThemeConfig::prop($css, $selectors, 'color', $s['post_link_f_c']);
+            self::prop($css, $selectors, 'color', $s['post_link_f_c']);
         }
 
         # Style directives
@@ -415,43 +422,43 @@ class Frontend extends Process
         # Blog title font weight
         $selectors = 'h1, h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
         if (isset($s['blog_title_w'])) {
-            ThemeConfig::prop($css_large, $selectors, 'font-weight', ($s['blog_title_w'] ? 'bold' : 'normal'));
+            self::prop($css_large, $selectors, 'font-weight', ($s['blog_title_w'] ? 'bold' : 'normal'));
         }
 
         # Blog title font size
         $selectors = 'h1';
         if (isset($s['blog_title_s'])) {
-            ThemeConfig::prop($css_large, $selectors, 'font-size', $s['blog_title_s']);
+            self::prop($css_large, $selectors, 'font-size', $s['blog_title_s']);
         }
 
         # Blog title color
         $selectors = 'h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
         if (isset($s['blog_title_c'])) {
-            ThemeConfig::prop($css_large, $selectors, 'color', $s['blog_title_c']);
+            self::prop($css_large, $selectors, 'color', $s['blog_title_c']);
         }
 
         # Post title font weight
         $selectors = 'h2.post-title, h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
         if (isset($s['post_title_w'])) {
-            ThemeConfig::prop($css_large, $selectors, 'font-weight', ($s['post_title_w'] ? 'bold' : 'normal'));
+            self::prop($css_large, $selectors, 'font-weight', ($s['post_title_w'] ? 'bold' : 'normal'));
         }
 
         # Post title font size
         $selectors = 'h2.post-title';
         if (isset($s['post_title_s'])) {
-            ThemeConfig::prop($css_large, $selectors, 'font-size', $s['post_title_s']);
+            self::prop($css_large, $selectors, 'font-size', $s['post_title_s']);
         }
 
         # Post title color
         $selectors = 'h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
         if (isset($s['post_title_c'])) {
-            ThemeConfig::prop($css_large, $selectors, 'color', $s['post_title_c']);
+            self::prop($css_large, $selectors, 'color', $s['post_title_c']);
         }
 
         # Simple title color (title without link)
         $selectors = '#content-info h2, .post-title, .post h3, .post h4, .post h5, .post h6, .arch-block h3';
         if (isset($s['post_simple_title_c'])) {
-            ThemeConfig::prop($css_large, $selectors, 'color', $s['post_simple_title_c']);
+            self::prop($css_large, $selectors, 'color', $s['post_simple_title_c']);
         }
 
         # Style directives for large screens
@@ -473,37 +480,37 @@ class Frontend extends Process
         # Blog title font weight
         $selectors = 'h1, h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
         if (isset($s['blog_title_w_m'])) {
-            ThemeConfig::prop($css_small, $selectors, 'font-weight', ($s['blog_title_w_m'] ? 'bold' : 'normal'));
+            self::prop($css_small, $selectors, 'font-weight', ($s['blog_title_w_m'] ? 'bold' : 'normal'));
         }
 
         # Blog title font size
         $selectors = 'h1';
         if (isset($s['blog_title_s_m'])) {
-            ThemeConfig::prop($css_small, $selectors, 'font-size', $s['blog_title_s_m']);
+            self::prop($css_small, $selectors, 'font-size', $s['blog_title_s_m']);
         }
 
         # Blog title color
         $selectors = 'h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
         if (isset($s['blog_title_c_m'])) {
-            ThemeConfig::prop($css_small, $selectors, 'color', $s['blog_title_c_m']);
+            self::prop($css_small, $selectors, 'color', $s['blog_title_c_m']);
         }
 
         # Post title font weight
         $selectors = 'h2.post-title, h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
         if (isset($s['post_title_w_m'])) {
-            ThemeConfig::prop($css_small, $selectors, 'font-weight', ($s['post_title_w_m'] ? 'bold' : 'normal'));
+            self::prop($css_small, $selectors, 'font-weight', ($s['post_title_w_m'] ? 'bold' : 'normal'));
         }
 
         # Post title font size
         $selectors = 'h2.post-title';
         if (isset($s['post_title_s_m'])) {
-            ThemeConfig::prop($css_small, $selectors, 'font-size', $s['post_title_s_m']);
+            self::prop($css_small, $selectors, 'font-size', $s['post_title_s_m']);
         }
 
         # Post title color
         $selectors = 'h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
         if (isset($s['post_title_c_m'])) {
-            ThemeConfig::prop($css_small, $selectors, 'color', $s['post_title_c_m']);
+            self::prop($css_small, $selectors, 'color', $s['post_title_c_m']);
         }
 
         # Style directives for small screens

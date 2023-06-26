@@ -1363,6 +1363,7 @@ class dcUpgrade
                     'admin/install/check.php',
                     'inc/public/class.dc.public.php',
                     'inc/prepend.php',
+                    'themes/ductile/src/Prepend.php',
                 ],
                 // Folders
                 [

@@ -15,11 +15,11 @@ use dcCore;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
-class Prepend extends Process
+class Backend extends Process
 {
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::PREPEND));
+        return (static::$init = My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool

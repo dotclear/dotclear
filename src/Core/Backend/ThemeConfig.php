@@ -239,7 +239,7 @@ class ThemeConfig
     }
 
     /**
-     * Retirn URL of a user defined CSS
+     * Return URL of a user defined CSS
      *
      * @param  string $folder CSS folder
      *
