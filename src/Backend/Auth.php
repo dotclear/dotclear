@@ -14,13 +14,13 @@ namespace Dotclear\Backend;
 
 use dcAuth;
 use dcCore;
-use dcUpgrade;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
+use Dotclear\Upgrade\Upgrade;
 use Exception;
 use form;
 
@@ -69,7 +69,7 @@ class Auth extends Process
             require DC_ROOT . '/inc/dbschema/upgrade.php';
 
             try {
-                if (($changes = dcUpgrade::dotclearUpgrade()) !== false) {
+                if (($changes = Upgrade::dotclearUpgrade()) !== false) {
                     dcCore::app()->admin->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
                 }
             } catch (Exception $e) {
