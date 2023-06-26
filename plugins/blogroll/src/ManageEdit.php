@@ -24,9 +24,9 @@ class ManageEdit extends Process
 {
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']);
+        self::status(My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']));
 
-        if (static::$init) {
+        if (self::status()) {
             dcCore::app()->admin->id = Html::escapeHTML($_REQUEST['id']);
 
             dcCore::app()->admin->rs = null;
@@ -51,11 +51,9 @@ class ManageEdit extends Process
                 dcCore::app()->admin->link_lang  = dcCore::app()->admin->rs->link_lang;
                 dcCore::app()->admin->link_xfn   = dcCore::app()->admin->rs->link_xfn;
             }
-
-            static::$init = true;
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool

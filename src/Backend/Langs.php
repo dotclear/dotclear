@@ -56,7 +56,7 @@ class Langs extends Process
             // Ignore exceptions
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

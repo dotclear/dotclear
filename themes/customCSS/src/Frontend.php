@@ -18,12 +18,12 @@ class Frontend extends Process
 {
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::FRONTEND));
+        return self::status(My::checkContext(My::FRONTEND));
     }
 
     public static function process(): bool
     {
-        if (static::$init) {
+        if (self::status()) {
             dcCore::app()->addBehavior('publicHeadContent', function () {
                 echo 
                 '<link rel="stylesheet" type="text/css" href="' . 
@@ -32,6 +32,6 @@ class Frontend extends Process
             });
         }
 
-        return static::$init;
+        return self::status();
     }
 }

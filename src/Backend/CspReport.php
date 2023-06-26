@@ -34,7 +34,7 @@ class CspReport extends Process
         // Dareboost wants it? Not a problem.
         header('X-Content-Type-Options: "nosniff"');
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

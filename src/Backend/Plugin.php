@@ -27,7 +27,7 @@ class Plugin extends Process
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function render(): void

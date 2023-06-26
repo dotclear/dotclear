@@ -57,7 +57,7 @@ class Search extends Process
         dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
         dcCore::app()->admin->qtype_combo = $qtype_combo;
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

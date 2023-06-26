@@ -19,15 +19,15 @@ class Install extends Process
 {
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::INSTALL));
+        return self::status(My::checkContext(My::INSTALL));
     }
 
     public static function process(): bool
     {
-        if (static::$init) {
+        if (self::status()) {
             dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
         }
 
-        return static::$init;
+        return self::status();
     }
 }

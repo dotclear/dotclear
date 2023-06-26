@@ -28,7 +28,7 @@ class Categories extends Process
             dcCore::app()->auth::PERMISSION_CATEGORIES,
         ]));
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

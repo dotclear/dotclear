@@ -27,9 +27,7 @@ class Config extends Process
     public static function init(): bool
     {
         // limit to backend permissions
-        static::$init = My::checkContext(My::CONFIG);
-
-        if (!static::$init) {
+        if (!self::status(My::checkContext(My::CONFIG))) {
             return false;
         }
 
@@ -219,7 +217,7 @@ class Config extends Process
 
         dcCore::app()->admin->conf_tab = $_POST['conf_tab'] ?? 'html';
 
-        return static::$init;
+        return self::status();
     }
 
     /**
@@ -227,7 +225,7 @@ class Config extends Process
      */
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -352,7 +350,7 @@ class Config extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

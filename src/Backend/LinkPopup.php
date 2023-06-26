@@ -44,7 +44,7 @@ class LinkPopup extends Process
         $rs                              = dcCore::app()->blog->getLangs(['order' => 'asc']);
         dcCore::app()->admin->lang_combo = Combos::getLangsCombo($rs, true);
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function render(): void

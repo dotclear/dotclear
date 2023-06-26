@@ -167,7 +167,7 @@ class UserPreferences extends Process
         // All filters
         dcCore::app()->admin->auto_filter = dcCore::app()->auth->user_prefs->interface->auto_filter;
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

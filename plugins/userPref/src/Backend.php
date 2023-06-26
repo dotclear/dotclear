@@ -22,15 +22,15 @@ class Backend extends Process
         // Dead but useful code (for l10n)
         __('user:preferences') . __('Manage every user preference directive');
 
-        return (static::$init = My::checkContext(My::BACKEND));
+        return self::status(My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (static::$init) {
+        if (self::status()) {
             My::addBackendMenuItem(Utility::MENU_SYSTEM);
         }
 
-        return static::$init;
+        return self::status();
     }
 }

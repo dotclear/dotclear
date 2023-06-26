@@ -31,15 +31,15 @@ class ManagePage extends Process
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
-            static::$init = ($_REQUEST['act'] ?? 'list') === 'page';
+            self::status(($_REQUEST['act'] ?? 'list') === 'page');
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -370,7 +370,7 @@ class ManagePage extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

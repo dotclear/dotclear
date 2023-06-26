@@ -27,13 +27,11 @@ class Manage extends Process
      */
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::MANAGE);
-
-        if (static::$init) {
+        if (self::status(My::checkContext(My::MANAGE))) {
             dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
         }
 
-        return static::$init;
+        return self::status();
     }
 
     /**
@@ -41,7 +39,7 @@ class Manage extends Process
      */
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -103,7 +101,7 @@ class Manage extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

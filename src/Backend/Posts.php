@@ -34,7 +34,7 @@ class Posts extends Process
         // -------
         dcCore::app()->admin->posts_actions_page = new ActionsPosts(dcCore::app()->adminurl->get('admin.posts'));
         if (dcCore::app()->admin->posts_actions_page->process()) {
-            return (static::$init = false);
+            return self::status(false);
         }
 
         // Filters
@@ -73,7 +73,7 @@ class Posts extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function render(): void

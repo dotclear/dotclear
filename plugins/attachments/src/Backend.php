@@ -22,12 +22,12 @@ class Backend extends Process
         // Dead but useful code (for l10n)
         __('attachments') . __('Manage post attachments');
 
-        return (static::$init = My::checkContext(My::BACKEND));
+        return self::status(My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

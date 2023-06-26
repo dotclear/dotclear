@@ -18,11 +18,30 @@ namespace Dotclear\Core;
 abstract class Process
 {
     /**
-     * Class is initialized and ok to be used.
+     * @deprecated since 2.27 Use self::status() 
      *
      * @var bool
      */
     protected static $init = false;
+
+    /** @var    array<string,bool>  All process statuses */
+    private static $statuses = [];
+
+    /**
+     * Get/set process status.
+     *
+     * @param   null|bool   $status     The status or null to read current value
+     *
+     * @return  bool    The process status, true for usable else false
+     */
+    final protected static function status(?bool $status = null): bool
+    {
+        if (is_bool($status)) {
+            self::$statuses[static::class] = $status;
+        }
+
+        return self::$statuses[static::class] ?? false;
+    }
 
     /**
      * Initilise class.
@@ -42,7 +61,7 @@ abstract class Process
      */
     public static function process(): bool
     {
-        return static::$init;
+        return self::status();
     }
 
     /**
@@ -54,7 +73,7 @@ abstract class Process
     public static function render(): void
     {
         /*
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

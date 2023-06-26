@@ -23,12 +23,12 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::MANAGE));
+        return self::status(My::checkContext(My::MANAGE));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

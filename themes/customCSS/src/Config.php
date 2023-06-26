@@ -39,15 +39,15 @@ class Config extends Process
                     )
                 );
             }
-            static::$init = true;
+            self::status(true);
         }
 
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -67,7 +67,7 @@ class Config extends Process
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 

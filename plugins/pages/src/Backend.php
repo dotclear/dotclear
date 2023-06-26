@@ -25,12 +25,12 @@ class Backend extends Process
         // Dead but useful code (for l10n)
         __('Pages') . __('Serve entries as simple web pages');
 
-        return (static::$init = My::checkContext(My::BACKEND));
+        return self::status(My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

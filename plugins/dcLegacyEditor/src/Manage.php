@@ -21,16 +21,14 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::MANAGE);
+        dcCore::app()->admin->editor_std_active = self::status(My::checkContext(My::MANAGE)) && dcCore::app()->blog->settings->dclegacyeditor->active;
 
-        dcCore::app()->admin->editor_std_active = static::$init && dcCore::app()->blog->settings->dclegacyeditor->active;
-
-        return static::$init;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

@@ -24,12 +24,12 @@ class Backend extends Process
         // Dead but useful code (for l10n)
         __('Import / Export') . __('Import and Export your blog');
 
-        return (static::$init = My::checkContext(My::BACKEND));
+        return self::status(My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

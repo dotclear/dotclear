@@ -110,7 +110,7 @@ class Update extends Process
         }
         dcCore::app()->admin->archives = $archives;
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

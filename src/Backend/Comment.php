@@ -54,7 +54,7 @@ class Comment extends Process
         // Status combo
         dcCore::app()->admin->status_combo = Combos::getCommentStatusesCombo();
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

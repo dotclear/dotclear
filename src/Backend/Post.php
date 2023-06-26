@@ -229,10 +229,10 @@ class Post extends Process
         );
 
         if (dcCore::app()->admin->comments_actions_page->process()) {
-            return (static::$init = false);
+            return self::status(false);
         }
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool

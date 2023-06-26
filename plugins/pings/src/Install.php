@@ -23,12 +23,12 @@ class Install extends Process
 
     public static function init(): bool
     {
-        return (static::$init = My::checkContext(My::INSTALL));
+        return self::status(My::checkContext(My::INSTALL));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 

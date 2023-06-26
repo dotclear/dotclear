@@ -56,7 +56,7 @@ class Rest extends Process
         dcCore::app()->rest->addFunction('setDashboardPositions', [self::class, 'setDashboardPositions']);
         dcCore::app()->rest->addFunction('setListsOptions', [self::class, 'setListsOptions']);
 
-        return (static::$init = true);
+        return self::status(true);
     }
 
     public static function process(): bool
