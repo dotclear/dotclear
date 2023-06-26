@@ -480,18 +480,18 @@ class dcModules
         // Context loop
         foreach ($modules as $module) {
             # Load translation and _prepend
-            $ret = '';
+            $ret = true;
 
             // by class name
             $class = $module->namespace . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
             if (!empty($module->namespace) && class_exists($class)) {
-                $ret = $class::init() ? $class::process() : '';
+                $ret = $class::init() ? $class::process() : false;
                 // by file name
             } elseif (file_exists($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
                 $ret = $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND);
             }
 
-            if (is_null($ret)) {
+            if ($ret !== true) {
                 // If _prepend.php file returns null (ie. it has a void return statement)
                 $ignored[] = $module->getId();
 
@@ -506,15 +506,17 @@ class dcModules
             }
         }
 
-        // Give opportunity to do something before loading context (admin,public,xmlrpc) files
-        # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- dcModules, string|null
-        dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
-
         // Load module context
-        foreach ($modules as $module) {
-            if (!in_array($module->getId(), $ignored)) {
-                // Load ns_file
-                $this->loadNsFile($module->getId(), $ns);
+        if (!empty($ns)) {
+            // Give opportunity to do something before loading context (admin,public,xmlrpc) files
+            # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- dcModules, string|null
+            dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
+
+            foreach ($modules as $module) {
+                if (!in_array($module->getId(), $ignored)) {
+                    // Load ns_file
+                    $this->loadNsFile($module->getId(), $ns);
+                }
             }
         }
     }
