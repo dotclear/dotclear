@@ -196,7 +196,7 @@ class Url
         $qs    = array_merge($url['qs'], $params);
         $stack = [];
         foreach ($qs as $field => $value) {
-            $stack[] = new Hidden([$field], $value);
+            $stack[] = new Hidden([$field], (string) $value);
         }
 
         return $stack;
