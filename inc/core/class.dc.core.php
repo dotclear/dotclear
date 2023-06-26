@@ -858,19 +858,24 @@ final class dcCore
     /**
      * Gets the post admin url.
      *
-     * @param      string  $type     The type
-     * @param      mixed   $post_id  The post identifier
-     * @param      bool    $escaped  Escape the URL
+     * @param      string               $type     The type
+     * @param      mixed                $post_id  The post identifier
+     * @param      bool                 $escaped  Escape the URL
+     * @param      array<string,mixed>  $params   The query string parameters (associative array)
      *
      * @return     string    The post admin url.
      */
-    public function getPostAdminURL(string $type, $post_id, bool $escaped = true): string
+    public function getPostAdminURL(string $type, $post_id, bool $escaped = true, array $params = []): string
     {
         if (!isset($this->post_types[$type])) {
             $type = 'post';
         }
 
         $url = sprintf($this->post_types[$type]['admin_url'], $post_id);
+
+        if (!empty($params)) {
+            $url .= (strpos($url, '?') === false ? '?' : '&') . http_build_query($params, '', '&');
+        }
 
         return $escaped ? Html::escapeURL($url) : $url;
     }
