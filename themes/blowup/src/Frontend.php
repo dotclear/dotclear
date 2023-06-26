@@ -11,13 +11,14 @@
 
 namespace Dotclear\Theme\blowup;
 
+use dcCore;
 use Dotclear\Core\Process;
 
-class Prepend extends Process
+class Frontend extends Process
 {
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::PREPEND);
+        static::$init = My::checkContext(My::FRONTEND);
 
         return static::$init;
     }
@@ -27,6 +28,13 @@ class Prepend extends Process
         if (!static::$init) {
             return false;
         }
+
+        dcCore::app()->addBehavior('publicHeadContent', function () {
+            $url = Blowup::publicCssUrlHelper();
+            if ($url) {
+                echo '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+            }
+        });
 
         return true;
     }
