@@ -80,7 +80,7 @@ class Upgrade
 
                 # Database upgrade
                 $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
-                require __DIR__ . '/db-schema.php';
+                require implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'db-schema.php']);
 
                 $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 $changes = $si->synchronize($_s);
