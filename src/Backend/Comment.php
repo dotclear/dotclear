@@ -90,7 +90,7 @@ class Comment extends Process
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
-            Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false) . '&co=1');
+            Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
         }
 
         dcCore::app()->admin->rs         = null;
@@ -192,7 +192,7 @@ class Comment extends Process
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
                     Page::addSuccessNotice(__('Comment has been successfully deleted.'));
-                    Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id) . '&co=1');
+                    Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, true, ['co' => 1]));
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
