@@ -9,6 +9,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
+use Dotclear\Upgrade\Upgrade;
+
 if (!defined('DC_RC_PATH')) {
     return;
 }
@@ -37,7 +40,7 @@ try {
     dcCore::app()->con->begin();
 
     try {
-        $changes = dcUpgrade::dotclearUpgrade();
+        $changes = Upgrade::dotclearUpgrade();
     } catch (Exception $e) {
         dcCore::app()->con->rollback();
 

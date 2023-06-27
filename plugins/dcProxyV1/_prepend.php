@@ -220,5 +220,9 @@ dcProxyV1::classAliases([
 
     // Core public ----------------
 
-    'dcPublic'    => 'Dotclear\Core\Frontend\Utility',
+    'dcPublic' => 'Dotclear\Core\Frontend\Utility',
+
+    // Upgrade --------------------
+
+    'dcUpgrade' => 'Dotclear\Upgrade\Upgrade',
 ]);

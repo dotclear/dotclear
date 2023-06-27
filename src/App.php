@@ -139,9 +139,6 @@ namespace Dotclear {
                 'rsExtUser'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
                 'rsExtBlog'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
 
-                // Upgrade
-                'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'dbschema', 'upgrade.php']),
-
                 // Public
                 'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'class.dc.template.php']),
                 'context'            => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'lib.tpl.context.php']),

@@ -62,9 +62,6 @@ $__autoload = [
     'rsExtUser'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
     'rsExtBlog'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
 
-    // Upgrade
-    'dcUpgrade' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'dbschema', 'upgrade.php']),
-
     // Public
     'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'class.dc.template.php']),
     'context'            => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'lib.tpl.context.php']),
