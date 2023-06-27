@@ -15,6 +15,8 @@ namespace Dotclear\Upgrade;
 use dcCore;
 use dcNamespace;
 use dcWorkspace;
+use Dotclear\Database\Structure;
+use Dotclear\Helper\File\Files;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_0_beta3_3_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_0_beta7_3_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_10_lt;
@@ -40,6 +42,7 @@ use Dotclear\Upgrade\GrowUp\GrowUp_2_25_1_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_25_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_26_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_27_lt;
+use Dotclear\Upgrade\GrowUp\GrowUp_2_28_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_2_alpha1_r3043_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_3_1_lt;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_3_lt;
@@ -50,8 +53,6 @@ use Dotclear\Upgrade\GrowUp\GrowUp_2_7_lt_eq;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_8_1_lt_eq;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_9_1_lt_eq;
 use Dotclear\Upgrade\GrowUp\GrowUp_2_9_lt_eq;
-use Dotclear\Database\Structure;
-use Dotclear\Helper\File\Files;
 use Exception;
 
 class Upgrade
@@ -268,6 +269,10 @@ class Upgrade
 
         if (version_compare($version, '2.27', '<')) {
             $cleanup_sessions = GrowUp_2_27_lt::init($cleanup_sessions);
+        }
+
+        if (version_compare($version, '2.28', '<')) {
+            $cleanup_sessions = GrowUp_2_28_lt::init($cleanup_sessions);
         }
 
         dcCore::app()->setVersion('core', DC_VERSION);
