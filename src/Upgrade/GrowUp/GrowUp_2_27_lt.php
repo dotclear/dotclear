@@ -22,7 +22,7 @@ class GrowUp_2_27_lt
         Upgrade::houseCleaning(
             // Files
             [
-                'plugins/pages/icon-dark-np.svg',
+                'plugins/pages/icon-np-dark.svg',
                 'admin/tpl/_charte.php',
                 'admin/comments_actions.php',
                 'admin/posts_actions.php',
