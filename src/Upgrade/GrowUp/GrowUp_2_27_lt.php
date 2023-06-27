@@ -32,6 +32,7 @@ class GrowUp_2_27_lt
                 'inc/public/class.dc.public.php',
                 'inc/prepend.php',
                 'themes/ductile/src/Prepend.php',
+                'inc/dbschema/upgrade.php',
             ],
             // Folders
             [
