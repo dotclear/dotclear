@@ -17,42 +17,6 @@ use dcNamespace;
 use dcWorkspace;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_0_beta3_3_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_0_beta7_3_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_10_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_11_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_12_2_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_12_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_14_3_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_14_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_15_1_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_15_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_16_1_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_16_9_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_16_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_17_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_19_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_1_6_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_1_alpha2_r2383_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_21_2_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_21_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_23_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_24_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_25_1_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_25_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_26_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_27_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_28_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_2_alpha1_r3043_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_3_1_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_3_lt;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_5_1_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_5_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_6_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_7_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_8_1_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_9_1_lt_eq;
-use Dotclear\Upgrade\GrowUp\GrowUp_2_9_lt_eq;
 use Exception;
 
 class Upgrade
@@ -131,150 +95,58 @@ class Upgrade
          */
         $cleanup_sessions = false;
 
-        if (version_compare($version, '2.0-beta3.3', '<')) {
-            $cleanup_sessions = GrowUp_2_0_beta3_3_lt::init($cleanup_sessions);
+        // Prepare upgrades scan
+        $folder = 'GrowUp';
+        $dir    = implode(DIRECTORY_SEPARATOR, [__DIR__, 'GrowUp', '']);
+        $ns     = implode('\\', [__NAMESPACE__, 'GrowUp', '']);
+
+        // Scan GrowUp folder to find available upgrades
+        $upgrades = [];
+        foreach(Files::scanDir($dir) as $file) {
+            // Need only growup files
+            if (strpos($file, 'GrowUp_') === false || strpos($file, '.php') === false) {
+                continue;
+            }
+
+            // Remove unwanted file name parts and split it by _
+            $parts = explode('_', substr($file, 7, -4));
+
+            $equal = '<';
+            // remove eq or at least lt
+            if (array_pop($parts) == 'eq') {
+                $equal = '<=';
+                // if eq exists remove also lt
+                array_pop($parts);
+            }
+
+            $ver = '';
+            foreach($parts as $part) {
+                // join by . numeric and _ alpha
+                $ver .= (is_numeric($part) ? '.' : '-') . $part;
+            }
+
+            // set growup version info
+            $upgrades[] = [
+                'version' => substr($ver, 1),
+                'equal'   => $equal,
+                'path'    => $dir . $file,
+                'class'   => $ns . substr($file, 0, -4),
+            ];
         }
 
-        if (version_compare($version, '2.0-beta7.3', '<')) {
-            $cleanup_sessions = GrowUp_2_0_beta7_3_lt::init($cleanup_sessions);
+        // Sort growup versions
+        usort($upgrades, fn ($a, $b) => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
+
+        // Check upgrades by version
+        foreach($upgrades as $upgrade) {
+            // current version need upgrade
+            if (version_compare($version, $upgrade['version'], $upgrade['equal'])) {
+                require_once $upgrade['file'];
+                $cleanup_sessions = $upgrade['class']::init($cleanup_sessions);
+            }
         }
 
-        if (version_compare($version, '2.1-alpha2-r2383', '<')) {
-            $cleanup_sessions = GrowUp_2_1_alpha2_r2383_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.1.6', '<=')) {
-            $cleanup_sessions = GrowUp_2_1_6_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.2-alpha1-r3043', '<')) {
-            $cleanup_sessions = GrowUp_2_2_alpha1_r3043_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.3', '<')) {
-            $cleanup_sessions = GrowUp_2_3_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.3.1', '<')) {
-            $cleanup_sessions = GrowUp_2_3_1_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.5', '<=')) {
-            $cleanup_sessions = GrowUp_2_5_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.5.1', '<=')) {
-            $cleanup_sessions = GrowUp_2_5_1_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.6', '<=')) {
-            $cleanup_sessions = GrowUp_2_6_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.7', '<=')) {
-            $cleanup_sessions = GrowUp_2_7_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.8.1', '<=')) {
-            $cleanup_sessions = GrowUp_2_8_1_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.9', '<=')) {
-            $cleanup_sessions = GrowUp_2_9_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.9.1', '<=')) {
-            $cleanup_sessions = GrowUp_2_9_1_lt_eq::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.10', '<')) {
-            $cleanup_sessions = GrowUp_2_10_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.11', '<')) {
-            $cleanup_sessions = GrowUp_2_11_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.12', '<')) {
-            $cleanup_sessions = GrowUp_2_12_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.12.2', '<')) {
-            $cleanup_sessions = GrowUp_2_12_2_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.14', '<')) {
-            $cleanup_sessions = GrowUp_2_14_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.14.3', '<')) {
-            $cleanup_sessions = GrowUp_2_14_3_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.15', '<')) {
-            $cleanup_sessions = GrowUp_2_15_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.15.1', '<')) {
-            $cleanup_sessions = GrowUp_2_15_1_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.16', '<')) {
-            $cleanup_sessions = GrowUp_2_16_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.16.1', '<')) {
-            $cleanup_sessions = GrowUp_2_16_1_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.16.9', '<')) {
-            $cleanup_sessions = GrowUp_2_16_9_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.17', '<')) {
-            $cleanup_sessions = GrowUp_2_17_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.19', '<')) {
-            $cleanup_sessions = GrowUp_2_19_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.21', '<')) {
-            $cleanup_sessions = GrowUp_2_21_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.21.2', '<')) {
-            $cleanup_sessions = GrowUp_2_21_2_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.23', '<')) {
-            $cleanup_sessions = GrowUp_2_23_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.24', '<')) {
-            $cleanup_sessions = GrowUp_2_24_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.25', '<')) {
-            $cleanup_sessions = GrowUp_2_25_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.25.1', '<')) {
-            $cleanup_sessions = GrowUp_2_25_1_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.26', '<')) {
-            $cleanup_sessions = GrowUp_2_26_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.27', '<')) {
-            $cleanup_sessions = GrowUp_2_27_lt::init($cleanup_sessions);
-        }
-
-        if (version_compare($version, '2.28', '<')) {
-            $cleanup_sessions = GrowUp_2_28_lt::init($cleanup_sessions);
-        }
-
+        // set dc version
         dcCore::app()->setVersion('core', DC_VERSION);
         dcCore::app()->blogDefaults();
 
