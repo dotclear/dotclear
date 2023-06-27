@@ -44,7 +44,7 @@ class Upgrade
 
                 # Database upgrade
                 $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
-                require implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'db-schema.php']);
+                require implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'dbschema', 'db-schema.php']);
 
                 $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 $changes = $si->synchronize($_s);
@@ -96,15 +96,15 @@ class Upgrade
         $cleanup_sessions = false;
 
         // Prepare upgrades scan
-        $folder = 'GrowUp';
-        $dir    = implode(DIRECTORY_SEPARATOR, [__DIR__, 'GrowUp', '']);
-        $ns     = implode('\\', [__NAMESPACE__, 'GrowUp', '']);
+        $path = 'GrowUp';
+        $dir    = implode(DIRECTORY_SEPARATOR, [__DIR__, $path, '']);
+        $ns     = implode('\\', [__NAMESPACE__, $path, '']);
 
         // Scan GrowUp folder to find available upgrades
         $upgrades = [];
         foreach(Files::scanDir($dir) as $file) {
             // Need only growup files
-            if (strpos($file, 'GrowUp_') === false || strpos($file, '.php') === false) {
+            if (strpos($file, $path . '_') === false || strpos($file, '.php') === false) {
                 continue;
             }
 
@@ -129,7 +129,7 @@ class Upgrade
             $upgrades[] = [
                 'version' => substr($ver, 1),
                 'equal'   => $equal,
-                'path'    => $dir . $file,
+                'file'    => $dir . $file,
                 'class'   => $ns . substr($file, 0, -4),
             ];
         }

@@ -65,9 +65,7 @@ class Auth extends Process
         dcCore::app()->admin->msg        = null;
 
         // Auto upgrade
-        if ((empty($_GET) && empty($_POST)) || dcCore::app()->admin->safe_mode) {
-            require DC_ROOT . '/inc/dbschema/upgrade.php';
-
+        if ((count($_GET) == 1 && empty($_POST)) || dcCore::app()->admin->safe_mode) {
             try {
                 if (($changes = Upgrade::dotclearUpgrade()) !== false) {
                     dcCore::app()->admin->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
