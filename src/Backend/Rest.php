@@ -69,35 +69,35 @@ class Rest extends Process
     }
 
     /**
-     * Serve method to get number of posts (whatever are their status) for current blog.
+     * REST method to get the posts count (JSON).
+     *
+     * @return     array  The posts count.
      */
     public static function getPostsCount()
     {
         $count = dcCore::app()->blog->getPosts([], true)->f(0);
-        $str   = sprintf(__('%d post', '%d posts', (int) $count), $count);
 
-        $rsp      = new XmlTag('count');
-        $rsp->ret = $str;
-
-        return $rsp;
+        return [
+            'ret' => sprintf(__('%d post', '%d posts', (int) $count), $count),
+        ];
     }
 
     /**
-     * Serve method to get number of comments (whatever are their status) for current blog.
+     * REST method to get the comments count (JSON).
+     *
+     * @return     array  The comments count.
      */
     public static function getCommentsCount()
     {
         $count = dcCore::app()->blog->getComments([], true)->f(0);
-        $str   = sprintf(__('%d comment', '%d comments', (int) $count), $count);
 
-        $rsp      = new XmlTag('count');
-        $rsp->ret = $str;
-
-        return $rsp;
+        return [
+            'ret' => sprintf(__('%d comment', '%d comments', (int) $count), $count),
+        ];
     }
 
     /**
-     * REST method to check Dotclear news
+     * REST method to check Dotclear news (JSON).
      *
      * @throws     Exception
      *
@@ -206,7 +206,7 @@ class Rest extends Process
     }
 
     /**
-     * REST method to check store
+     * REST method to check store (JSON)
      *
      * @param      array     $get    The get
      * @param      array     $post   The post

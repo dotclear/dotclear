@@ -3,51 +3,29 @@
 
 dotclear.dbCommentsCount = (icon) => {
   if (dotclear.servicesOff) return;
-  const params = {
-    f: 'getCommentsCount',
-    xd_check: dotclear.nonce,
-  };
-  $.get(dotclear.servicesUri, params, (data) => {
-    if ($('rsp[status=failed]', data).length > 0) {
-      // For debugging purpose only:
-      // console.log($('rsp',data).attr('message'));
-      window.console.log('Dotclear REST server error');
-    } else {
-      const nb = $('rsp>count', data).attr('ret');
-      if (nb != dotclear.dbCommentsCount_Counter) {
-        // First pass or counter changed
-        const nb_label = icon.children('span.db-icon-title');
-        if (nb_label.length) {
-          nb_label.text(nb);
-        }
-        // Store current counter
-        dotclear.dbCommentsCount_Counter = nb;
+  dotclear.jsonServicesGet('getCommentsCount', (data) => {
+    if (data.ret != dotclear.dbCommentsCount_Counter) {
+      // First pass or counter changed
+      const nb_label = icon.children('span.db-icon-title');
+      if (nb_label.length) {
+        nb_label.text(data.ret);
       }
+      // Store current counter
+      dotclear.dbCommentsCount_Counter = data.ret;
     }
   });
 };
 dotclear.dbPostsCount = (icon) => {
   if (dotclear.servicesOff) return;
-  const params = {
-    f: 'getPostsCount',
-    xd_check: dotclear.nonce,
-  };
-  $.get(dotclear.servicesUri, params, (data) => {
-    if ($('rsp[status=failed]', data).length > 0) {
-      // For debugging purpose only:
-      // console.log($('rsp',data).attr('message'));
-      window.console.log('Dotclear REST server error');
-    } else {
-      const nb = $('rsp>count', data).attr('ret');
-      if (nb != dotclear.dbPostsCount_Counter) {
-        // First pass or counter changed
-        const nb_label = icon.children('span.db-icon-title');
-        if (nb_label.length) {
-          nb_label.text(nb);
-        }
-        // Store current counter
-        dotclear.dbPostsCount_Counter = nb;
+  dotclear.jsonServicesGet('getPostsCount', (data) => {
+    if (data.ret != dotclear.dbPostsCount_Counter) {
+      // First pass or counter changed
+      const nb_label = icon.children('span.db-icon-title');
+      if (nb_label.length) {
+        nb_label.text(data.ret);
       }
+      // Store current counter
+      dotclear.dbPostsCount_Counter = data.ret;
     }
   });
 };
