@@ -96,13 +96,21 @@ class Rest extends Process
         return $rsp;
     }
 
+    /**
+     * REST method to check Dotclear news
+     *
+     * @throws     Exception
+     *
+     * @return     array    returned data
+     */
     public static function checkNewsUpdate()
     {
         # Dotclear news
 
-        $rsp        = new XmlTag('news');
-        $rsp->check = false;
-        $ret        = __('Dotclear news not available');
+        $data = [
+            'check' => false,
+            'ret'   => __('Dotclear news not available'),
+        ];
 
         if (dcCore::app()->auth->user_prefs->dashboard->dcnews) {
             try {
@@ -131,15 +139,17 @@ class Rest extends Process
                         }
                     }
                     $ret .= '</dl></div>';
-                    $rsp->check = true;
+                    $data = [
+                        'check' => true,
+                        'ret'   => $ret,
+                    ];
                 }
             } catch (Exception $e) {
                 // Ignore exceptions
             }
         }
-        $rsp->ret = $ret;
 
-        return $rsp;
+        return $data;
     }
 
     public static function checkCoreUpdate()

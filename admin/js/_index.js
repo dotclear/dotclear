@@ -205,14 +205,9 @@ $(() => {
 
   // check if some news are available
   if (!dotclear.servicesOff) {
-    params = {
-      f: 'checkNewsUpdate',
-      xd_check: dotclear.nonce,
-    };
-    $.post(dotclear.servicesUri, params, (data) => {
-      if ($('rsp[status=failed]', data).length === 0 && $('rsp>news', data).attr('check') == 1) {
+    dotclear.jsonServicesGet('checkNewsUpdate', (data) => {
+      if (data.check) {
         // Something has to be displayed
-        const xml = $('rsp>news', data).attr('ret');
         if ($('#dashboard-boxes').length == 0) {
           // Create the #dashboard-boxes container
           $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
@@ -221,7 +216,7 @@ $(() => {
           // Create the #dashboard-boxes div.db-items container
           $('#dashboard-boxes').prepend('<div class="db-items"></div>');
         }
-        $('#dashboard-boxes div.db-items').prepend(xml);
+        $('#dashboard-boxes div.db-items').prepend(data.ret);
         // manage outgoing links
         dotclear.outgoingLinks('#ajax-news a');
       }
