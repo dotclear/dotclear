@@ -653,6 +653,7 @@ dotclear.passwordHelpers = () => {
 // REST services helper
 dotclear.servicesOff = dotclear.data.servicesOff || false;
 dotclear.servicesUri = dotclear.data.servicesUri || 'index.php?process=Rest';
+
 dotclear.services = (
   fn, // REST method
   onSuccess = (_data) => {
@@ -660,6 +661,7 @@ dotclear.services = (
   },
   onError = (_error) => {
     // Used when fetch failed
+    console.log(_error);
   },
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
@@ -692,24 +694,35 @@ dotclear.services = (
     .then((data) => onSuccess(data))
     .catch((error) => onError(error));
 };
+
 dotclear.servicesGet = (
   fn, // REST method
   onSuccess = (_payload) => {
     // Used when fetch is successful
   },
   params = {}, // Optional parameters
+  onError = (_error) => {
+    // Used when fetch failed
+    console.log(_error);
+  },
 ) => {
-  dotclear.services(fn, onSuccess, (error) => console.log(error), true, params);
+  dotclear.services(fn, onSuccess, onError, true, params);
 };
+
 dotclear.servicesPost = (
   fn, // REST method
   onSuccess = (_payload) => {
     // Used when fetch is successful
   },
   params = {}, // Optional parameters
+  onError = (_error) => {
+    // Used when fetch failed
+    console.log(_error);
+  },
 ) => {
-  dotclear.services(fn, onSuccess, (error) => console.log(error), false, params);
+  dotclear.services(fn, onSuccess, onError, false, params);
 };
+
 // REST services helpers, JSON only aliases
 dotclear.jsonServices = (
   fn, // REST method
@@ -718,6 +731,7 @@ dotclear.jsonServices = (
   },
   onError = (_error) => {
     // Used when fetch failed
+    console.log(_error);
   },
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
@@ -746,23 +760,33 @@ dotclear.jsonServices = (
     params,
   );
 };
+
 dotclear.jsonServicesGet = (
   fn, // REST method
   onSuccess = (_payload) => {
     // Used when fetch is successful
   },
   params = {}, // Optional parameters
+  onError = (_error) => {
+    // Used when fetch failed
+    console.log(_error);
+  },
 ) => {
-  dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), true, params);
+  dotclear.jsonServices(fn, onSuccess, onError, true, params);
 };
+
 dotclear.jsonServicesPost = (
   fn, // REST method
   onSuccess = (_payload) => {
     // Used when fetch is successful
   },
   params = {}, // Optional parameters
+  onError = (_error) => {
+    // Used when fetch failed
+    console.log(_error);
+  },
 ) => {
-  dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), false, params);
+  dotclear.jsonServices(fn, onSuccess, onError, false, params);
 };
 
 /* On document ready
