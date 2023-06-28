@@ -53,41 +53,38 @@ dotclear.dbPostsCount = (icon) => {
 };
 dotclear.dbStoreUpdate = (store, icon) => {
   if (dotclear.servicesOff) return;
-  const params = {
-    f: 'checkStoreUpdate',
-    xd_check: dotclear.nonce,
-    store,
-  };
-  $.post(dotclear.servicesUri, params, (data) => {
-    if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
-      // Something has to be displayed
-      const xml = $('rsp>update', data).attr('ret');
-      // update link to details
-      icon.children('a').attr('href', `${icon.children('a').attr('href')}#update`);
-      // update icon
-      icon
-        .children('a')
-        .children('img')
-        .attr(
-          'src',
-          icon
-            .children('a')
-            .children('img')
-            .attr('src')
-            .replace(/([^\/]+)(\..*)$/g, '$1-update$2'),
-        );
-      // add icon text says there is an update
-      icon.children('a').children('.db-icon-title').append('<br />').append(xml);
-      // Badge (info) on dashboard icon
-      const nb = Number($('rsp>update', data).attr('nb'));
-      dotclear.badge(icon, {
-        id: `mu-${store}`,
-        value: nb,
-        icon: true,
-        type: 'info',
-      });
-    }
-  });
+  dotclear.jsonServicesPost(
+    'checkStoreUpdate',
+    (data) => {
+      if (data.check) {
+        // Something has to be displayed
+        // update link to details
+        icon.children('a').attr('href', `${icon.children('a').attr('href')}#update`);
+        // update icon
+        icon
+          .children('a')
+          .children('img')
+          .attr(
+            'src',
+            icon
+              .children('a')
+              .children('img')
+              .attr('src')
+              .replace(/([^\/]+)(\..*)$/g, '$1-update$2'),
+          );
+        // add icon text says there is an update
+        icon.children('a').children('.db-icon-title').append('<br />').append(data.ret);
+        // Badge (info) on dashboard icon
+        dotclear.badge(icon, {
+          id: `mu-${store}`,
+          value: data.nb,
+          icon: true,
+          type: 'info',
+        });
+      }
+    },
+    { store },
+  );
 };
 $(() => {
   function quickPost(f, status) {

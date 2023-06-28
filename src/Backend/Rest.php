@@ -195,22 +195,33 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function checkStoreUpdate(dcCore $core, $get, $post)
+    /**
+     * REST method to check store
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @throws     Exception
+     *
+     * @return     array    returned data
+     */
+    public static function checkStoreUpdate($get, $post)
     {
         # Dotclear store updates notifications
 
-        $rsp        = new XmlTag('update');
-        $rsp->new   = false;
-        $rsp->check = false;
-        $rsp->nb    = 0;
-        $ret        = __('No updates are available');
-        $mod        = '';
-        $url        = '';
+        $data = [
+            'ret'   => __('No updates are available'),
+            'new'   => false,
+            'check' => false,
+            'nb'    => 0,
+        ];
 
         if (empty($post['store'])) {
             throw new Exception('No store type');
         }
 
+        $mod = '';
+        $url = '';
         if ($post['store'] == 'themes') {
             // load once themes
             if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
@@ -236,16 +247,15 @@ class Rest extends Process
         $repo = new dcStore($mod, $url);
         $upd  = $repo->getDefines(true);
         if (!empty($upd)) {
-            $ret = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));   // @phpstan-ignore-line
-
-            $rsp->new   = $repo->hasNewUdpates();
-            $rsp->check = true;
-            $rsp->nb    = count($upd); // @phpstan-ignore-line
+            $data = [
+                'ret'   => sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd)),
+                'new'   => $repo->hasNewUdpates(),
+                'check' => true,
+                'nb'    => count($upd),
+            ];
         }
 
-        $rsp->ret = $ret;
-
-        return $rsp;
+        return $data;
     }
 
     public static function getPostById(dcCore $core, $get)

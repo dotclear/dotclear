@@ -4,31 +4,23 @@
 dotclear.dbStoreUpdate = (store, url) => {
   if (dotclear.servicesOff) return;
   if (url.length) {
-    const params = {
-      f: 'checkStoreUpdate',
-      xd_check: dotclear.nonce,
-      store,
-    };
-    $.post(dotclear.servicesUri, params, (data) => {
-      if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('new') == 1) {
-        if ($('rsp>update', data).attr('check') == 1) {
-          const nb = Number($('rsp>update', data).attr('nb'));
-          if (nb) {
-            $('#force-checking').replaceWith(
-              '<p class="info"><a href="' +
-                url +
-                '" title="' +
-                $('rsp>update', data).attr('ret') +
-                '">' +
-                $('rsp>update', data).attr('ret') +
-                '</a></p>',
-            );
+    dotclear.jsonServicesPost(
+      'checkStoreUpdate',
+      (data) => {
+        if (data.new) {
+          if (data.check) {
+            if (data.nb) {
+              $('#force-checking').replaceWith(
+                `<p class="info"><a href="${url}" title="${data.ret}">${data.ret}</a></p>`,
+              );
+            }
+          } else {
+            $('#force-checking p').prepend(`<span class="info">${data.ret}</span> `);
           }
-        } else {
-          $('#force-checking p').prepend('<span class="info">' + $('rsp>update', data).attr('ret') + '</span> ');
         }
-      }
-    });
+      },
+      { store },
+    );
   }
 };
 
