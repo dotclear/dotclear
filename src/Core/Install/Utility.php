@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Core\Install;
 
 use Dotclear\App;
-use Dotclear\Install\Install;
-use Dotclear\Install\Wizard;
+use Dotclear\Process\Install\Install;
+use Dotclear\Process\Install\Wizard;
 use Dotclear\Core\Process;
 use Exception;
 

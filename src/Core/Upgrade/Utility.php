@@ -14,7 +14,7 @@ namespace Dotclear\Core\Upgrade;
 
 use DOtclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Upgrade\Cli;
+use Dotclear\Process\Upgrade\Cli;
 use Exception;
 
 class Utility extends Process

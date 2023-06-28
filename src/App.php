@@ -67,7 +67,7 @@ namespace Dotclear {
                     $process = $_REQUEST['process'];
                 }
                 if (!empty($process)) {
-                    self::process('Dotclear\\' . $utility . '\\' . $process);
+                    self::process('Dotclear\\Process\\' . $utility . '\\' . $process);
                 }
             }
         }
