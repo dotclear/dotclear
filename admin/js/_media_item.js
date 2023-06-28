@@ -19,46 +19,37 @@ $(() => {
     $(a).wrap('<p></p>');
 
     $(a).on('click', () => {
-      if (dotclear.servicesOff) return;
-      $.get(
-        dotclear.servicesUri,
-        {
-          f: 'getZipMediaContent',
-          id: mediaId,
-        },
+      dotclear.jsonServicesGet(
+        'getZipMediaContent',
         (data) => {
-          const rsp = $(data).children('rsp')[0];
+          const div = document.createElement('div');
+          const list = document.createElement('ul');
+          let expanded = false;
 
-          if (rsp.attributes[0].value == 'ok') {
-            const div = document.createElement('div');
-            const list = document.createElement('ul');
-            let expanded = false;
+          $(div).css({
+            overflow: 'auto',
+            margin: '1em 0',
+            padding: '1px 0.5em',
+          });
+          $(div).addClass('fieldset');
+          $(div).append(list);
+          This.before(div);
+          $(a).hide();
+          $(div).before(`<h3>${dotclear.msg.zip_file_content}</h3>`);
 
-            $(div).css({
-              overflow: 'auto',
-              margin: '1em 0',
-              padding: '1px 0.5em',
-            });
-            $(div).addClass('fieldset');
-            $(div).append(list);
-            This.before(div);
-            $(a).hide();
-            $(div).before(`<h3>${dotclear.msg.zip_file_content}</h3>`);
-
-            $(rsp)
-              .find('file')
-              .each(function () {
-                $(list).append(`<li>${$(this).text()}</li>`);
-                if ($(div).height() > 200 && !expanded) {
-                  $(div).css({
-                    height: '200px',
-                  });
-                  expanded = true;
-                }
+          for (const elt in data) {
+            $(list).append(`<li>${elt}</li>`);
+            if ($(div).height() > 200 && !expanded) {
+              $(div).css({
+                height: '200px',
               });
-          } else {
-            window.alert($(rsp).find('message').text());
+              expanded = true;
+            }
           }
+        },
+        { id: mediaId },
+        (error) => {
+          window.alert(error);
         },
       );
       return false;

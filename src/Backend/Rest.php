@@ -481,7 +481,17 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function getZipMediaContent(dcCore $core, array $get)
+    /**
+     * REST method to get Zip content list (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @throws     Exception
+     *
+     * @return     array    returned data
+     */
+    public static function getZipMediaContent(array $get): array
     {
         if (empty($get['id'])) {
             throw new Exception('No media ID');
@@ -509,14 +519,14 @@ class Rest extends Process
             throw new Exception('Not a valid file');
         }
 
-        $rsp     = new XmlTag('result');
         $content = dcCore::app()->media->getZipContent($file);
 
+        $data = [];
         foreach ($content as $k => $v) {
-            $rsp->file($k);
+            $data[$k] = $v;
         }
 
-        return $rsp;
+        return $data;
     }
 
     public static function getMeta(dcCore $core, array $get)
