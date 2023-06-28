@@ -20,7 +20,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
-use Dotclear\Upgrade\Upgrade;
+use Dotclear\Core\Upgrade\Upgrade;
 use Exception;
 use form;
 

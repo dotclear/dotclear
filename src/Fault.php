@@ -56,8 +56,9 @@ class Fault
      */
     public function __construct(string $summary, string $message, int $code = 550)
     {
-        if (CLI_MODE) {
-            trigger_error($summary, E_USER_ERROR);
+        if (defined('CLI_MODE') && CLI_MODE) {
+            echo $summary . "\n";
+            exit;
         }
         if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
             include DC_ERRORFILE;

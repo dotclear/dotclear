@@ -10,6 +10,7 @@
 namespace Dotclear\Install;
 
 use Dotclear\Fault;
+use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\AbstractSchema;
@@ -35,8 +36,8 @@ class Wizard extends Process
 
     public static function init(): bool
     {
-        if (!defined('DC_RC_PATH')) {
-            new Fault('Not found', '', 404);
+        if (!self::status(defined('DC_CONTEXT_INSTALL') && defined('DC_RC_PATH'))) {
+            throw new Exception('Not found', 404);
         }
 
         // Loading locales for detected language
@@ -55,12 +56,12 @@ class Wizard extends Process
                 'the documentation</a> to learn how to do this.') . '</p>';
         }
 
-        return true;
+        return self::status();
     }
 
     public static function process(): bool
     {
-        if (!defined('DC_RC_PATH')) {
+        if (!self::status()) {
             new Fault('Not found', '', 404);
         }
 

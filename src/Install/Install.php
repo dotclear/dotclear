@@ -16,6 +16,7 @@ use dcCore;
 use dcSettings;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
@@ -49,6 +50,10 @@ class Install extends Process
 
     public static function init(): bool
     {
+        if (!self::status(defined('DC_CONTEXT_INSTALL'))) {
+            throw new Exception('Not found', 404);
+        }
+
         # Loading locales for detected language
         self::$dlang = Http::getAcceptLanguage();
         if (self::$dlang != 'en') {
@@ -76,7 +81,7 @@ class Install extends Process
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
 
-        return self::status(true);
+        return self::status();
     }
 
     public static function process(): bool
@@ -136,7 +141,7 @@ class Install extends Process
                 $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
 
                 # Fill database structrue
-                DbSchema::process($_s);
+                Utils::dbSchema($_s);
 
                 $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 $changes = $si->synchronize($_s);

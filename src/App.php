@@ -32,6 +32,9 @@ namespace Dotclear {
         /** @var    array<string,mixed>     Dotclear default release config */
         private static $release = [];
 
+        /** @var    bool    Requirements loading done */
+        private static $preloaded = false;
+
         /**
          * App boostrap.
          *
@@ -41,32 +44,24 @@ namespace Dotclear {
          * require_once path/to/App.php
          * Dotclear\App::bootstrap(Utility, Process);
          *
+         * Supported utilities are Backend, Frontend, Install, Upgrade (CLI)
+         *
          * @param   string  $utility    The optionnal app utility (Backend or Frontend)
          * @param   string  $process    The optionnal app utility default process
          */
         public static function bootstrap(string $utility = '', string $process = ''): void
         {
-            // Start tick
-            define('DC_START_TIME', microtime(true));
+            // Preload requirements
+            self::preload();
 
-            // Define app utility
-            if ($utility == 'Backend') {
-                define('DC_CONTEXT_ADMIN', true);
-            } elseif ($utility == 'Frontend') {
-                define('DC_CONTEXT_PUBLIC', true);
-            }
+            // First step app utility loading. If any.
+            $ret = empty($utility) ? false : self::utility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
-            // Load Autoloader file
-            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'Autoloader.php']);
-
-            // Add root folder for namespaced and autoloaded classes
-            Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
-
-            // Instanciate the Application (singleton)
+            // Load the Application
             self::init();
 
-            // Load app utility if any (Limit to Backend, Frontend, none)
-            if (in_array($utility, ['Backend', 'Frontend']) && self::utility('Dotclear\\Core\\' . $utility . '\\Utility')) {
+            // Second step app utility loading. If any.
+            if ($ret && true === self::utility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
                 // Try to load utility process, the _REQUEST process as priority on method process.
                 if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
                     $process = $_REQUEST['process'];
@@ -78,10 +73,77 @@ namespace Dotclear {
         }
 
         /**
-         * Initializes the object.
+         * Preload requirements (namespace, class, constant).
+         *
+         * Called from self::bootstrap() and self::init()
          */
-        public static function init(): void
+        private static function preload(): void
         {
+            // Load once
+            if (self::$preloaded) {
+                return;
+            }
+
+            // Start tick
+            define('DC_START_TIME', microtime(true));
+
+            // Load Autoloader file
+            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'Autoloader.php']);
+
+            // Add root folder for namespaced and autoloaded classes
+            Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+
+            // Load core classes (old way) This will moved to namespace from Autoloader in the near futur
+            $inc = fn (string $folder, string $file) => implode(DIRECTORY_SEPARATOR, [__DIR__, '..',  'inc', $folder, $file]);
+            Clearbricks::lib()->autoload([
+                // Traits
+                'dcTraitDynamicProperties' => $inc('core', 'trait.dc.dynprop.php'),
+
+                // Core
+                'dcCore' => $inc('core', 'class.dc.core.php'),
+
+                'dcAuth'         => $inc('core', 'class.dc.auth.php'),
+                'dcBlog'         => $inc('core', 'class.dc.blog.php'),
+                'dcCategories'   => $inc('core', 'class.dc.categories.php'),
+                'dcError'        => $inc('core', 'class.dc.error.php'),
+                'dcMeta'         => $inc('core', 'class.dc.meta.php'),
+                'dcMedia'        => $inc('core', 'class.dc.media.php'),
+                'dcPostMedia'    => $inc('core', 'class.dc.postmedia.php'),
+                'dcModuleDefine' => $inc('core', 'class.dc.module.define.php'),
+                'dcModules'      => $inc('core', 'class.dc.modules.php'),
+                'dcPlugins'      => $inc('core', 'class.dc.plugins.php'),
+                'dcThemes'       => $inc('core', 'class.dc.themes.php'),
+                'dcRestServer'   => $inc('core', 'class.dc.rest.php'),
+                'dcNamespace'    => $inc('core', 'class.dc.namespace.php'),
+                'dcNotices'      => $inc('core', 'class.dc.notices.php'),
+                'dcSettings'     => $inc('core', 'class.dc.settings.php'),
+                'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
+                'dcUpdate'       => $inc('core', 'class.dc.update.php'),
+                'dcUtils'        => $inc('core', 'class.dc.utils.php'),
+                'dcXmlRpc'       => $inc('core', 'class.dc.xmlrpc.php'),
+                'dcDeprecated'   => $inc('core', 'class.dc.deprecated.php'),
+                'dcLog'          => $inc('core', 'class.dc.log.php'),
+                'rsExtLog'       => $inc('core', 'class.dc.log.php'),
+                'dcWorkspace'    => $inc('core', 'class.dc.workspace.php'),
+                'dcPrefs'        => $inc('core', 'class.dc.prefs.php'),
+                'dcStore'        => $inc('core', 'class.dc.store.php'),
+                'dcStoreReader'  => $inc('core', 'class.dc.store.reader.php'),
+                'dcStoreParser'  => $inc('core', 'class.dc.store.parser.php'),
+                'rsExtPost'      => $inc('core', 'class.dc.rs.extensions.php'),
+                'rsExtComment'   => $inc('core', 'class.dc.rs.extensions.php'),
+                'rsExtDates'     => $inc('core', 'class.dc.rs.extensions.php'),
+                'rsExtUser'      => $inc('core', 'class.dc.rs.extensions.php'),
+                'rsExtBlog'      => $inc('core', 'class.dc.rs.extensions.php'),
+
+                // Public
+                'dcTemplate'         => $inc('public', 'class.dc.template.php'),
+                'context'            => $inc('public', 'lib.tpl.context.php'),
+                'dcUrlHandlers'      => $inc('public', 'lib.urlhandlers.php'),
+                'rsExtendPublic'     => $inc('public', 'rs.extension.php'),
+                'rsExtPostPublic'    => $inc('public', 'rs.extension.php'),
+                'rsExtCommentPublic' => $inc('public', 'rs.extension.php'),
+            ]);
+
             # CLI_MODE, boolean constant that tell if we are in CLI mode
             define('CLI_MODE', PHP_SAPI == 'cli');
 
@@ -98,57 +160,18 @@ namespace Dotclear {
             define('DC_NAME', self::release('release_name'));
             define('DC_ROOT', dirname(__DIR__));
 
-            // Load core classes (old way)
-            Clearbricks::lib()->autoload([
-                // Traits
-                'dcTraitDynamicProperties' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'trait.dc.dynprop.php']),
+            self::$preloaded = true;
+        }
 
-                // Core
-                'dcCore' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.core.php']),
+        /**
+         * Initializes the object.
+         */
+        public static function init(): void
+        {
+            // Preload requirements
+            self::preload();
 
-                'dcAuth'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.auth.php']),
-                'dcBlog'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.blog.php']),
-                'dcCategories'   => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.categories.php']),
-                'dcError'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.error.php']),
-                'dcMeta'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.meta.php']),
-                'dcMedia'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.media.php']),
-                'dcPostMedia'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.postmedia.php']),
-                'dcModuleDefine' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.module.define.php']),
-                'dcModules'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.modules.php']),
-                'dcPlugins'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.plugins.php']),
-                'dcThemes'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.themes.php']),
-                'dcRestServer'   => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rest.php']),
-                'dcNamespace'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.namespace.php']),
-                'dcNotices'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.notices.php']),
-                'dcSettings'     => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.settings.php']),
-                'dcTrackback'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.trackback.php']),
-                'dcUpdate'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.update.php']),
-                'dcUtils'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.utils.php']),
-                'dcXmlRpc'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.xmlrpc.php']),
-                'dcDeprecated'   => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.deprecated.php']),
-                'dcLog'          => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.log.php']),
-                'rsExtLog'       => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.log.php']),
-                'dcWorkspace'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.workspace.php']),
-                'dcPrefs'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.prefs.php']),
-                'dcStore'        => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.store.php']),
-                'dcStoreReader'  => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.store.reader.php']),
-                'dcStoreParser'  => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.store.parser.php']),
-                'rsExtPost'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
-                'rsExtComment'   => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
-                'rsExtDates'     => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
-                'rsExtUser'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
-                'rsExtBlog'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', 'class.dc.rs.extensions.php']),
-
-                // Public
-                'dcTemplate'         => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'class.dc.template.php']),
-                'context'            => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'lib.tpl.context.php']),
-                'dcUrlHandlers'      => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'lib.urlhandlers.php']),
-                'rsExtendPublic'     => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'rs.extension.php']),
-                'rsExtPostPublic'    => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'rs.extension.php']),
-                'rsExtCommentPublic' => implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', 'rs.extension.php']),
-            ]);
-
-            # Disallow every special wrapper
+            // Disallow every special wrapper
             (function () {
                 if (function_exists('stream_wrapper_unregister')) {
                     $special_wrappers = array_intersect([
@@ -186,6 +209,10 @@ namespace Dotclear {
 
             // no config file and not in install process
             if (!is_file(DC_RC_PATH)) {
+                // do not process install on CLI mode
+                if (CLI_MODE) {
+                    new Fault('Dotclear is not installed or failed to load config file.', '', Fault::CONFIG_ISSUE);
+                }
                 if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
                     Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
                 } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
@@ -480,21 +507,30 @@ namespace Dotclear {
          * Instanciate the given utility.
          *
          * @param      string  $utility  The utility
+         * @param      string  $next     Go to process step
          *
          * @return     bool    Result of $utility::init() if exist else true
          */
-        public static function utility(string $utility = ''): bool
+        public static function utility(string $utility = '', $next = false): bool
         {
             // If an utility is provided, call bootstrap method, if exists, then init method if exist.
             if (!empty($utility)) {
-                if (class_exists($utility)) {
-                    // Use bootstrap method else instanciate utility
-                    $instance = method_exists($utility, 'bootstrap') ? $utility::bootstrap() : new $utility();
-
-                    return $instance && method_exists($utility, 'init') ? (bool) $instance->init() : true;
+                if (is_subclass_of($utility, Process::class, true)) {
+                    try {
+                        return $next ? $utility::process() : $utility::init();
+                    } catch(Exception $e) {
+                        if (defined('DC_DEBUG') && DC_DEBUG === true) {
+                            throw $e;
+                        }
+                        new Fault(
+                            sprintf('Unabled to process utility class "%s"', $utility),
+                            $e->getMessage(),
+                            Fault::UNDEFINED_ISSUE
+                        );
+                    }
                 }
                 new Fault(
-                    __('No process found'),
+                    'No process found',
                     sprintf('Unable to find or initialize class %s', $utility),
                     Fault::UNDEFINED_ISSUE
                 );
@@ -521,7 +557,11 @@ namespace Dotclear {
                         if (defined('DC_DEBUG') && DC_DEBUG === true) {
                             throw $e;
                         }
-                        new Fault(__('Process failed'), $e->getMessage(), $e->getCode());
+                        new Fault(
+                            __('Process failed'),
+                            $e->getMessage(),
+                            $e->getCode() ?: Fault::UNDEFINED_ISSUE
+                        );
                     }
                 } else {
                     new Fault(
