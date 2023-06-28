@@ -17,6 +17,7 @@ use dcNamespace;
 use dcWorkspace;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
+use Dotclear\Install\DbSchema;
 use Exception;
 
 class Upgrade
@@ -44,7 +45,9 @@ class Upgrade
 
                 # Database upgrade
                 $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
-                require implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'dbschema', 'db-schema.php']);
+
+                # Fill database structrue
+                DbSchema::process($_s);
 
                 $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 $changes = $si->synchronize($_s);

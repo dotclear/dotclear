@@ -134,7 +134,9 @@ class Install extends Process
 
                 # Create schema
                 $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
-                require implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'inc', 'db-schema.php']);
+
+                # Fill database structrue
+                DbSchema::process($_s);
 
                 $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
                 $changes = $si->synchronize($_s);
