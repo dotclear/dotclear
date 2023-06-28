@@ -661,7 +661,7 @@ dotclear.services = (
   },
   onError = (_error) => {
     // Used when fetch failed
-    console.log(_error);
+    if (dotclear.debug) console.log(_error);
   },
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
@@ -703,7 +703,7 @@ dotclear.servicesGet = (
   params = {}, // Optional parameters
   onError = (_error) => {
     // Used when fetch failed
-    console.log(_error);
+    if (dotclear.debug) console.log(_error);
   },
 ) => {
   dotclear.services(fn, onSuccess, onError, true, params);
@@ -717,7 +717,7 @@ dotclear.servicesPost = (
   params = {}, // Optional parameters
   onError = (_error) => {
     // Used when fetch failed
-    console.log(_error);
+    if (dotclear.debug) console.log(_error);
   },
 ) => {
   dotclear.services(fn, onSuccess, onError, false, params);
@@ -731,7 +731,7 @@ dotclear.jsonServices = (
   },
   onError = (_error) => {
     // Used when fetch failed
-    console.log(_error);
+    if (dotclear.debug) console.log(_error);
   },
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
@@ -745,14 +745,14 @@ dotclear.jsonServices = (
         if (response?.success) {
           onSuccess(response.payload);
         } else {
-          console.log(dotclear.debug && response?.message ? response.message : 'Dotclear REST server error');
+          const msg = dotclear.debug && response?.message ? response.message : 'Dotclear REST server error';
+          if (dotclear.debug) console.log(msg);
+          onError(msg);
           return;
         }
-      } catch (e) {
-        if (dotclear.debug) {
-          console.log(fn, data);
-        }
-        console.log(e);
+      } catch (error) {
+        if (dotclear.debug) console.log(fn, data);
+        onError(error);
       }
     },
     (error) => onError(error),
@@ -769,7 +769,7 @@ dotclear.jsonServicesGet = (
   params = {}, // Optional parameters
   onError = (_error) => {
     // Used when fetch failed
-    console.log(_error);
+    if (dotclear.debug) console.log(_error);
   },
 ) => {
   dotclear.jsonServices(fn, onSuccess, onError, true, params);
@@ -782,8 +782,8 @@ dotclear.jsonServicesPost = (
   },
   params = {}, // Optional parameters
   onError = (_error) => {
-    // Used when fetch failed
-    console.log(_error);
+    // Used when fetch failed (any reason)
+    if (dotclear.debug) console.log(_error);
   },
 ) => {
   dotclear.jsonServices(fn, onSuccess, onError, false, params);
