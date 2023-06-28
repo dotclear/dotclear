@@ -2,7 +2,6 @@
 'use strict';
 
 dotclear.dbStoreUpdate = (store, url) => {
-  if (dotclear.servicesOff) return;
   if (url.length) {
     dotclear.jsonServicesPost(
       'checkStoreUpdate',

@@ -2,7 +2,6 @@
 'use strict';
 
 dotclear.dbCommentsCount = (icon) => {
-  if (dotclear.servicesOff) return;
   dotclear.jsonServicesGet('getCommentsCount', (data) => {
     if (data.ret != dotclear.dbCommentsCount_Counter) {
       // First pass or counter changed
@@ -16,7 +15,6 @@ dotclear.dbCommentsCount = (icon) => {
   });
 };
 dotclear.dbPostsCount = (icon) => {
-  if (dotclear.servicesOff) return;
   dotclear.jsonServicesGet('getPostsCount', (data) => {
     if (data.ret != dotclear.dbPostsCount_Counter) {
       // First pass or counter changed
@@ -30,7 +28,6 @@ dotclear.dbPostsCount = (icon) => {
   });
 };
 dotclear.dbStoreUpdate = (store, icon) => {
-  if (dotclear.servicesOff) return;
   dotclear.jsonServicesPost(
     'checkStoreUpdate',
     (data) => {
@@ -155,16 +152,14 @@ $(() => {
   });
 
   // check if core update available
-  if (!dotclear.servicesOff) {
-    dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
-      if (data.check) {
-        // Something has to be displayed
-        $('#content h2').after(data.ret);
-        // manage outgoing links
-        dotclear.outgoingLinks('#ajax-update a');
-      }
-    });
-  }
+  dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
+    if (data.check) {
+      // Something has to be displayed
+      $('#content h2').after(data.ret);
+      // manage outgoing links
+      dotclear.outgoingLinks('#ajax-update a');
+    }
+  });
 
   // check if store update available, if db has icon
   if ($('#dashboard-main #icons p #icon-process-plugins-fav').length) {
@@ -177,24 +172,22 @@ $(() => {
   }
 
   // check if some news are available
-  if (!dotclear.servicesOff) {
-    dotclear.jsonServicesGet('checkNewsUpdate', (data) => {
-      if (data.check) {
-        // Something has to be displayed
-        if ($('#dashboard-boxes').length == 0) {
-          // Create the #dashboard-boxes container
-          $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
-        }
-        if ($('#dashboard-boxes div.db-items').length == 0) {
-          // Create the #dashboard-boxes div.db-items container
-          $('#dashboard-boxes').prepend('<div class="db-items"></div>');
-        }
-        $('#dashboard-boxes div.db-items').prepend(data.ret);
-        // manage outgoing links
-        dotclear.outgoingLinks('#ajax-news a');
+  dotclear.jsonServicesGet('checkNewsUpdate', (data) => {
+    if (data.check) {
+      // Something has to be displayed
+      if ($('#dashboard-boxes').length == 0) {
+        // Create the #dashboard-boxes container
+        $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
       }
-    });
-  }
+      if ($('#dashboard-boxes div.db-items').length == 0) {
+        // Create the #dashboard-boxes div.db-items container
+        $('#dashboard-boxes').prepend('<div class="db-items"></div>');
+      }
+      $('#dashboard-boxes div.db-items').prepend(data.ret);
+      // manage outgoing links
+      dotclear.outgoingLinks('#ajax-news a');
+    }
+  });
 
   // run counters' update on some dashboard icons
   // Comments (including everything)

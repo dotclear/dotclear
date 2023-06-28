@@ -2,7 +2,6 @@
 'use strict';
 
 dotclear.dbStoreUpdate = (store, url) => {
-  if (dotclear.servicesOff) return;
   if (url.length) {
     dotclear.jsonServicesPost(
       'checkStoreUpdate',
@@ -10,9 +9,7 @@ dotclear.dbStoreUpdate = (store, url) => {
         if (data.new) {
           if (data.check) {
             if (data.nb) {
-              $('#force-checking').replaceWith(
-                `<p class="info"><a href="${url}" title="${data.ret}">${data.ret}</a></p>`,
-              );
+              $('#force-checking').replaceWith(`<p class="info"><a href="${url}" title="${data.ret}">${data.ret}</a></p>`);
             }
           } else {
             $('#force-checking p').prepend(`<span class="info">${data.ret}</span> `);
