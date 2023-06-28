@@ -156,15 +156,10 @@ $(() => {
 
   // check if core update available
   if (!dotclear.servicesOff) {
-    let params = {
-      f: 'checkCoreUpdate',
-      xd_check: dotclear.nonce,
-    };
-    $.post(dotclear.servicesUri, params, (data) => {
-      if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
+    dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
+      if (data.check) {
         // Something has to be displayed
-        const xml = $('rsp>update', data).attr('ret');
-        $('#content h2').after(xml);
+        $('#content h2').after(data.ret);
         // manage outgoing links
         dotclear.outgoingLinks('#ajax-update a');
       }

@@ -152,13 +152,19 @@ class Rest extends Process
         return $data;
     }
 
+    /**
+     * REST method to check Dotclear update (JSON).
+     *
+     * @return     array    returned data
+     */
     public static function checkCoreUpdate()
     {
-        # Dotclear updates notifications
+        // Dotclear updates notifications
 
-        $rsp        = new XmlTag('update');
-        $rsp->check = false;
-        $ret        = __('Dotclear update not available');
+        $data = [
+            'check' => false,
+            'ret'   => __('Dotclear update not available'),
+        ];
 
         if (dcCore::app()->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !dcCore::app()->auth->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
@@ -184,7 +190,10 @@ class Rest extends Process
                     ) .
                         '</p>';
                 }
-                $rsp->check = true;
+                $data = [
+                    'check' => true,
+                    'ret'   => $ret,
+                ];
             } else {
                 if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
                     if (!dcCore::app()->auth->user_prefs->interface->hidemoreinfo) {
@@ -195,14 +204,16 @@ class Rest extends Process
                             phpversion()
                         ) .
                         '</p>';
-                        $rsp->check = true;
+                        $data = [
+                            'check' => true,
+                            'ret'   => $ret,
+                        ];
                     }
                 }
             }
         }
-        $rsp->ret = $ret;
 
-        return $rsp;
+        return $data;
     }
 
     /**
