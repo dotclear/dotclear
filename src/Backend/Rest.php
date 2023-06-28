@@ -699,7 +699,17 @@ class Rest extends Process
         return true;
     }
 
-    public static function setDashboardPositions(dcCore $core, $get, $post)
+    /**
+     * REST method to store dashboard module's positions (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @throws     Exception
+     *
+     * @return     array    returned data
+     */
+    public static function setDashboardPositions($get, $post)
     {
         if (empty($post['id'])) {
             throw new Exception('No zone name');

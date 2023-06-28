@@ -202,18 +202,11 @@ $(() => {
   }
 
   if (!dotclear.data.noDragDrop) {
-    if (dotclear.servicesOff) return;
     // Dashboard boxes and their children are sortable
     const set_positions = (sel, id) => {
       const list = $(sel).sortable('toArray').join();
       // Save positions (via services) for id
-      const params = {
-        f: 'setDashboardPositions',
-        xd_check: dotclear.nonce,
-        id,
-        list,
-      };
-      $.post(dotclear.servicesUri, params, () => {});
+      dotclear.jsonServicesPost('setDashboardPositions', () => {}, { id, list });
     };
     const init_positions = (sel, id) => {
       $(sel).sortable({
