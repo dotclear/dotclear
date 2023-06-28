@@ -386,7 +386,7 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function quickPost(dcCore $core, $get, $post)
+    public static function quickPost($get, $post)
     {
         # Create category
         if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -427,15 +427,13 @@ class Rest extends Process
         # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
         dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-        $rsp     = new XmlTag('post');
-        $rsp->id = $return_id;
-
         $post = dcCore::app()->blog->getPosts(['post_id' => $return_id]);
 
-        $rsp->post_status = $post->post_status;
-        $rsp->post_url    = $post->getURL();
-
-        return $rsp;
+        return [
+            'id'     => $return_id,
+            'status' => $post->post_status,
+            'url'    => $post->getURL(),
+        ];
     }
 
     public static function validatePostMarkup(dcCore $core, $get, $post)

@@ -68,36 +68,15 @@ $(() => {
       dotclear.contentTb.syncContents('iframe');
     }
 
-    const params = {
-      f: 'quickPost',
-      xd_check: dotclear.nonce,
-      post_title: $('#post_title', f).val(),
-      post_content: $('#post_content', f).val(),
-      cat_id: $('#cat_id', f).val(),
-      post_status: status,
-      post_format: $('#post_format', f).val(),
-      post_lang: $('#post_lang', f).val(),
-      new_cat_title: $('#new_cat_title', f).val(),
-      new_cat_parent: $('#new_cat_parent', f).val(),
-    };
+    $('p.info', f).remove();
+    $('p.error', f).remove();
 
-    $('p.qinfo', f).remove();
-
-    $.post(dotclear.servicesUri, params, (data) => {
-      let msg;
-      if ($('rsp[status=failed]', data).length > 0) {
-        msg = `<p class="error"><strong>${dotclear.msg.error}</strong> ${$('rsp', data).text()}</p>`;
-      } else {
-        msg =
-          '<p class="info">' +
-          dotclear.msg.entry_created +
-          ' - <a href="post.php?id=' +
-          $('rsp>post', data).attr('id') +
-          '">' +
-          dotclear.msg.edit_entry +
-          '</a>';
-        if ($('rsp>post', data).attr('post_status') == dotclear.post_published) {
-          msg += ` - <a href="${$('rsp>post', data).attr('post_url')}">${dotclear.msg.view_entry}</a>`;
+    dotclear.jsonServicesPost(
+      'quickPost',
+      (data) => {
+        let msg = `<p class="info">${dotclear.msg.entry_created} - <a href="post.php?id=${data.id}">${dotclear.msg.edit_entry}</a>`;
+        if (data.status == dotclear.post_published) {
+          msg += ` - <a href="${data.url}">${dotclear.msg.view_entry}</a>`;
         }
         msg += '</p>';
         $('#post_title', f).val('');
@@ -109,10 +88,23 @@ $(() => {
         $('#cat_id', f).val('0');
         $('#new_cat_title', f).val('');
         $('#new_cat_parent', f).val('0');
-      }
-
-      f.append(msg);
-    });
+        f.append(msg);
+      },
+      {
+        post_title: $('#post_title', f).val(),
+        post_content: $('#post_content', f).val(),
+        cat_id: $('#cat_id', f).val(),
+        post_status: status,
+        post_format: $('#post_format', f).val(),
+        post_lang: $('#post_lang', f).val(),
+        new_cat_title: $('#new_cat_title', f).val(),
+        new_cat_parent: $('#new_cat_parent', f).val(),
+      },
+      (error) => {
+        const msg = `<p class="error"><strong>${dotclear.msg.error}</strong> ${error}</p>`;
+        f.append(msg);
+      },
+    );
   }
 
   const f = $('#quick-entry');
@@ -143,13 +135,13 @@ $(() => {
       // no cookie on new category as we don't use this every day
       legend_click: true,
     });
-  }
 
-  // allow to hide quick entry div, and remember choice
-  $('#quick h3').toggleWithLegend($('#quick').children().not('h3'), {
-    legend_click: true,
-    user_pref: 'dcx_quick_entry',
-  });
+    // allow to hide quick entry div, and remember choice
+    $('#quick h3').toggleWithLegend($('#quick').children().not('h3'), {
+      legend_click: true,
+      user_pref: 'dcx_quick_entry',
+    });
+  }
 
   // check if core update available
   dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
