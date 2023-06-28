@@ -73,7 +73,7 @@ class Rest extends Process
      *
      * @return     array  The posts count.
      */
-    public static function getPostsCount()
+    public static function getPostsCount(): array
     {
         $count = dcCore::app()->blog->getPosts([], true)->f(0);
 
@@ -87,7 +87,7 @@ class Rest extends Process
      *
      * @return     array  The comments count.
      */
-    public static function getCommentsCount()
+    public static function getCommentsCount(): array
     {
         $count = dcCore::app()->blog->getComments([], true)->f(0);
 
@@ -103,7 +103,7 @@ class Rest extends Process
      *
      * @return     array    returned data
      */
-    public static function checkNewsUpdate()
+    public static function checkNewsUpdate(): array
     {
         # Dotclear news
 
@@ -157,7 +157,7 @@ class Rest extends Process
      *
      * @return     array    returned data
      */
-    public static function checkCoreUpdate()
+    public static function checkCoreUpdate(): array
     {
         // Dotclear updates notifications
 
@@ -226,7 +226,7 @@ class Rest extends Process
      *
      * @return     array    returned data
      */
-    public static function checkStoreUpdate($get, $post)
+    public static function checkStoreUpdate(array $get, array $post): array
     {
         # Dotclear store updates notifications
 
@@ -279,7 +279,7 @@ class Rest extends Process
         return $data;
     }
 
-    public static function getPostById(dcCore $core, $get)
+    public static function getPostById(dcCore $core, array $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No post ID');
@@ -347,7 +347,7 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function getCommentById(dcCore $core, $get)
+    public static function getCommentById(dcCore $core, array $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No comment ID');
@@ -386,7 +386,15 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function quickPost($get, $post)
+    /**
+     * REST method to create a quick post (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @return     array    returned data
+     */
+    public static function quickPost(array $get, array $post): array
     {
         # Create category
         if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -436,7 +444,7 @@ class Rest extends Process
         ];
     }
 
-    public static function validatePostMarkup(dcCore $core, $get, $post)
+    public static function validatePostMarkup(dcCore $core, array $get, array $post)
     {
         if (!isset($post['excerpt'])) {
             throw new Exception('No entry excerpt');
@@ -473,7 +481,7 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function getZipMediaContent(dcCore $core, $get)
+    public static function getZipMediaContent(dcCore $core, array $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No media ID');
@@ -511,7 +519,7 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function getMeta(dcCore $core, $get)
+    public static function getMeta(dcCore $core, array $get)
     {
         $postid   = !empty($get['postId']) ? $get['postId'] : null;
         $limit    = !empty($get['limit']) ? $get['limit'] : null;
@@ -567,7 +575,7 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function setPostMeta(dcCore $core, $get, $post)
+    public static function setPostMeta(dcCore $core, array $get, array $post)
     {
         if (empty($post['postId'])) {
             throw new Exception('No post ID');
@@ -599,7 +607,7 @@ class Rest extends Process
         return true;
     }
 
-    public static function delMeta(dcCore $core, $get, $post)
+    public static function delMeta(dcCore $core, array $get, array $post)
     {
         if (empty($post['postId'])) {
             throw new Exception('No post ID');
@@ -618,7 +626,7 @@ class Rest extends Process
         return true;
     }
 
-    public static function searchMeta(dcCore $core, $get)
+    public static function searchMeta(dcCore $core, array $get)
     {
         $q        = !empty($get['q']) ? $get['q'] : null;
         $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
@@ -670,7 +678,15 @@ class Rest extends Process
         return $rsp;
     }
 
-    public static function setSectionFold(dcCore $core, $get, $post)
+    /**
+     * REST method to store section folding position (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @return     true
+     */
+    public static function setSectionFold(array $get, array $post): bool
     {
         if (empty($post['section'])) {
             throw new Exception('No section name');
@@ -707,9 +723,9 @@ class Rest extends Process
      *
      * @throws     Exception
      *
-     * @return     array    returned data
+     * @return     true
      */
-    public static function setDashboardPositions($get, $post)
+    public static function setDashboardPositions(array $get, array $post): bool
     {
         if (empty($post['id'])) {
             throw new Exception('No zone name');
@@ -726,7 +742,7 @@ class Rest extends Process
         return true;
     }
 
-    public static function setListsOptions(dcCore $core, $get, $post)
+    public static function setListsOptions(dcCore $core, array $get, array $post)
     {
         if (empty($post['id'])) {
             throw new Exception('No list name');
@@ -763,7 +779,7 @@ class Rest extends Process
         return $res;
     }
 
-    public static function getModuleById(dcCore $core, $get)
+    public static function getModuleById(dcCore $core, array $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No module ID');

@@ -139,19 +139,10 @@ $.fn.toggleWithLegend = function (target, s) {
     }
     $(ctarget).on('click', (e) => {
       if (p.user_pref && set_user_pref) {
-        if (dotclear.servicesOff) return;
-        $.post(
-          dotclear.servicesUri,
-          {
-            f: 'setSectionFold',
-            section: p.user_pref,
-            value: p.hide ^ p.reverse_user_pref ? 1 : 0,
-            xd_check: dotclear.nonce,
-          },
-          () => {
-            /* void */
-          },
-        );
+        dotclear.jsonServicesPost('setSectionFold', () => {}, {
+          section: p.user_pref,
+          value: p.hide ^ p.reverse_user_pref ? 1 : 0,
+        });
       }
       toggle(b);
       e.preventDefault();
