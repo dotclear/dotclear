@@ -702,7 +702,6 @@ jsToolBar.prototype.elements.preview = {
   },
   fn: {
     wiki() {
-      if (dotclear.servicesOff) return;
       dotclear.jsonServicesPost(
         'wikiConvert',
         (data) => {
