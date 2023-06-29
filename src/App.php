@@ -507,11 +507,11 @@ namespace Dotclear {
          * Instanciate the given utility.
          *
          * @param      string  $utility  The utility
-         * @param      string  $next     Go to process step
+         * @param      bool    $next     Go to process step
          *
          * @return     bool    Result of $utility::init() if exist else true
          */
-        public static function utility(string $utility = '', $next = false): bool
+        public static function utility(string $utility = '', bool $next = false): bool
         {
             // If an utility is provided, call bootstrap method, if exists, then init method if exist.
             if (!empty($utility)) {

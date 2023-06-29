@@ -12,15 +12,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade;
 
-use DOtclear\App;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Process\Upgrade\Cli;
-use Exception;
 
 class Utility extends Process
 {
-    private static $instance;
-
     public static function init(): bool
     {
         define('DC_CONTEXT_UPGRADE', true);
