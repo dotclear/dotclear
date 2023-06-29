@@ -63,7 +63,6 @@ dotclear.dbStoreUpdate = (store, icon) => {
 };
 $(() => {
   function quickPost(f, status) {
-    if (dotclear.servicesOff) return;
     if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
       dotclear.contentTb.syncContents('iframe');
     }
