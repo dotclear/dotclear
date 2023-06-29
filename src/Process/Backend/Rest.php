@@ -18,11 +18,9 @@ use dcBlog;
 use dcCategories;
 use dcCore;
 use dcMedia;
-use dcModuleDefine;
 use dcStore;
 use dcThemes;
 use dcUpdate;
-use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -50,7 +48,6 @@ class Rest extends Process
         dcCore::app()->rest->addFunction('setPostMeta', [self::class, 'setPostMeta']);
         dcCore::app()->rest->addFunction('searchMeta', [self::class, 'searchMeta']);
         dcCore::app()->rest->addFunction('setSectionFold', [self::class, 'setSectionFold']);
-        dcCore::app()->rest->addFunction('getModuleById', [self::class, 'getModuleById']);
         dcCore::app()->rest->addFunction('setDashboardPositions', [self::class, 'setDashboardPositions']);
         dcCore::app()->rest->addFunction('setListsOptions', [self::class, 'setListsOptions']);
 
@@ -778,51 +775,5 @@ class Rest extends Process
         return [
             'msg' => __('List options saved'),
         ];
-    }
-
-    public static function getModuleById(dcCore $core, array $get)
-    {
-        if (empty($get['id'])) {
-            throw new Exception('No module ID');
-        }
-        if (empty($get['list'])) {
-            throw new Exception('No list ID');
-        }
-
-        $id     = $get['id'];
-        $list   = $get['list'];
-        $define = new dcModuleDefine($id);
-
-        if ($list == 'plugin-activate') {
-            $define = dcCore::app()->plugins->getDefine($id);
-        } elseif ($list == 'plugin-new') {
-            $store = new dcStore(
-                dcCore::app()->plugins,
-                dcCore::app()->blog->settings->system->store_plugin_url
-            );
-            $store->check();
-
-            foreach ($store->getDefines() as $str_define) {
-                if ($str_define->getId() != $id) {
-                    continue;
-                }
-                $define = $str_define;
-            }
-        }
-
-        if (!$define->isDefined() || !$define->get('enabled')) {
-            throw new Exception('Unknown module ID');
-        }
-
-        ModulesList::fillSanitizeModule($define);
-
-        $rsp     = new XmlTag('module');
-        $rsp->id = $id;
-
-        foreach ($define->dump() as $k => $v) {
-            $rsp->{$k}((string) $v);
-        }
-
-        return $rsp;
     }
 }
