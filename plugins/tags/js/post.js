@@ -26,28 +26,29 @@ $(() => {
 
     $('#post_meta_tag_input').autocomplete(mEdit.service_uri, {
       extraParams: {
-        f: 'searchMeta',
+        f: 'searchMetadata',
         metaType: 'tag',
+        json: 1,
       },
       delay: 1000,
       multiple: true,
       multipleSeparator: ', ',
       matchSubset: false,
       matchContains: true,
-      parse(xml) {
+      parse(data) {
         const results = [];
-        $(xml)
-          .find('meta')
-          .each(function () {
+        if (data.success) {
+          for (const elt of data.payload) {
             results[results.length] = {
               data: {
-                id: $(this).text(),
-                count: $(this).attr('count'),
-                percent: $(this).attr('roundpercent'),
+                id: elt.meta_id,
+                count: elt.count,
+                percent: elt.roundpercent,
               },
-              result: $(this).text(),
+              result: elt.meta_id,
             };
-          });
+          }
+        }
         return results;
       },
       formatItem(tag) {

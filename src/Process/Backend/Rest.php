@@ -47,6 +47,7 @@ class Rest extends Process
         dcCore::app()->rest->addFunction('delMeta', [self::class, 'delMeta']);
         dcCore::app()->rest->addFunction('setPostMeta', [self::class, 'setPostMeta']);
         dcCore::app()->rest->addFunction('searchMeta', [self::class, 'searchMeta']);
+        dcCore::app()->rest->addFunction('searchMetadata', [self::class, 'searchMetadata']);
         dcCore::app()->rest->addFunction('setSectionFold', [self::class, 'setSectionFold']);
         dcCore::app()->rest->addFunction('setDashboardPositions', [self::class, 'setDashboardPositions']);
         dcCore::app()->rest->addFunction('setListsOptions', [self::class, 'setListsOptions']);
@@ -509,7 +510,14 @@ class Rest extends Process
         return $data;
     }
 
-    public static function getMeta(dcCore $core, array $get)
+    /**
+     * REST method to get metadata (JSON)
+     *
+     * @param      array     $get    The get
+     *
+     * @return     array    returned data
+     */
+    public static function getMeta(array $get): array
     {
         $postid   = !empty($get['postId']) ? $get['postId'] : null;
         $limit    = !empty($get['limit']) ? $get['limit'] : null;
@@ -548,24 +556,30 @@ class Rest extends Process
 
         $rs->sort($sort, $order);
 
-        $rsp = new XmlTag();
-
+        $data = [];
         while ($rs->fetch()) {
-            $metaTag               = new XmlTag('meta');
-            $metaTag->type         = $rs->meta_type;
-            $metaTag->uri          = rawurlencode($rs->meta_id);
-            $metaTag->count        = $rs->count;
-            $metaTag->percent      = $rs->percent;
-            $metaTag->roundpercent = $rs->roundpercent;
-            $metaTag->CDATA($rs->meta_id);
-
-            $rsp->insertNode($metaTag);
+            $data[] = [
+                'meta_id'      => $rs->meta_id,
+                'type'         => $rs->meta_type,
+                'uri'          => rawurlencode($rs->meta_id),
+                'count'        => $rs->count,
+                'percent'      => $rs->percent,
+                'roundpercent' => $rs->roundpercent,
+            ];
         }
 
-        return $rsp;
+        return $data;
     }
 
-    public static function setPostMeta(dcCore $core, array $get, array $post)
+    /**
+     * REST method to set post metadata (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @return     true
+     */
+    public static function setPostMeta(array $get, array $post): bool
     {
         if (empty($post['postId'])) {
             throw new Exception('No post ID');
@@ -597,7 +611,15 @@ class Rest extends Process
         return true;
     }
 
-    public static function delMeta(dcCore $core, array $get, array $post)
+    /**
+     * REST method to get metadata (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @return     true
+     */
+    public static function delMeta(array $get, array $post): bool
     {
         if (empty($post['postId'])) {
             throw new Exception('No post ID');
@@ -616,7 +638,17 @@ class Rest extends Process
         return true;
     }
 
-    public static function searchMeta(dcCore $core, array $get)
+    /**
+     * REST method to search metadata (XML)
+     *
+     * Used with jquery.autocomplete()
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @return     XmlTag
+     */
+    public static function searchMeta(dcCore $core, array $get): XmlTag
     {
         $q        = !empty($get['q']) ? $get['q'] : null;
         $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
@@ -666,6 +698,67 @@ class Rest extends Process
         }
 
         return $rsp;
+    }
+
+    /**
+     * REST method to search metadata (JSON)
+     *
+     * Used with jquery.autocomplete()
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @return     array
+     */
+    public static function searchMetadata(array $get): array
+    {
+        $q        = !empty($get['q']) ? $get['q'] : null;
+        $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
+
+        $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
+
+        $rs = dcCore::app()->meta->getMetadata(['meta_type' => $metaType]);
+        $rs = dcCore::app()->meta->computeMetaStats($rs);
+
+        $sortby = explode(',', $sortby);
+        $sort   = $sortby[0];
+        $order  = $sortby[1] ?? 'asc';
+
+        switch ($sort) {
+            case 'metaId':
+                $sort = 'meta_id_lower';
+
+                break;
+            case 'count':
+                $sort = 'count';
+
+                break;
+            case 'metaType':
+                $sort = 'meta_type';
+
+                break;
+            default:
+                $sort = 'meta_type';
+        }
+
+        $rs->sort($sort, $order);
+
+        $data = [];
+
+        while ($rs->fetch()) {
+            if (stripos($rs->meta_id, (string) $q) === 0) {
+                $data[] = [
+                    'meta_id'      => $rs->meta_id,
+                    'type'         => $rs->meta_type,
+                    'uri'          => rawurlencode($rs->meta_id),
+                    'count'        => $rs->count,
+                    'percent'      => $rs->percent,
+                    'roundpercent' => $rs->roundpercent,
+                ];
+            }
+        }
+
+        return $data;
     }
 
     /**
