@@ -27,7 +27,6 @@ use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Html\HtmlValidator;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Text;
@@ -45,7 +44,6 @@ class Rest extends Process
         dcCore::app()->rest->addFunction('getPostById', [self::class, 'getPostById']);
         dcCore::app()->rest->addFunction('getCommentById', [self::class, 'getCommentById']);
         dcCore::app()->rest->addFunction('quickPost', [self::class, 'quickPost']);
-        dcCore::app()->rest->addFunction('validatePostMarkup', [self::class, 'validatePostMarkup']);
         dcCore::app()->rest->addFunction('getZipMediaContent', [self::class, 'getZipMediaContent']);
         dcCore::app()->rest->addFunction('getMeta', [self::class, 'getMeta']);
         dcCore::app()->rest->addFunction('delMeta', [self::class, 'delMeta']);
@@ -464,43 +462,6 @@ class Rest extends Process
             'status' => $post->post_status,
             'url'    => $post->getURL(),
         ];
-    }
-
-    public static function validatePostMarkup(dcCore $core, array $get, array $post)
-    {
-        if (!isset($post['excerpt'])) {
-            throw new Exception('No entry excerpt');
-        }
-
-        if (!isset($post['content'])) {
-            throw new Exception('No entry content');
-        }
-
-        if (empty($post['format'])) {
-            throw new Exception('No entry format');
-        }
-
-        if (!isset($post['lang'])) {
-            throw new Exception('No entry lang');
-        }
-
-        $excerpt       = $post['excerpt'];
-        $excerpt_xhtml = '';
-        $content       = $post['content'];
-        $content_xhtml = '';
-        $format        = $post['format'];
-        $lang          = $post['lang'];
-
-        dcCore::app()->blog->setPostContent(0, $format, $lang, $excerpt, $excerpt_xhtml, $content, $content_xhtml);
-
-        $rsp = new XmlTag('result');
-
-        $v = HtmlValidator::validate($excerpt_xhtml . $content_xhtml);
-
-        $rsp->valid($v['valid']);
-        $rsp->errors($v['errors']);
-
-        return $rsp;
     }
 
     /**
