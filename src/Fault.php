@@ -56,7 +56,7 @@ class Fault
      */
     public function __construct(string $summary, string $message, int $code = 550)
     {
-        if (defined('CLI_MODE') && CLI_MODE) {
+        if (PHP_SAPI == 'cli') {
             echo $summary . "\n";
             exit;
         }

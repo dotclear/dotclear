@@ -30,10 +30,13 @@ namespace Dotclear {
         public const RELEASE_FILE = 'release.json';
 
         /** @var    array<string,mixed>     Dotclear default release config */
-        private static $release = [];
+        private static array $release = [];
 
-        /** @var    bool    Requirements loading done */
-        private static $preloaded = false;
+        /** @var    bool    Requirements loaded */
+        private static bool $initialized = false;
+
+        /** @var    bool    Prerequiesites loaded */
+        private static bool $preloaded = false;
 
         /**
          * App boostrap.
@@ -44,6 +47,8 @@ namespace Dotclear {
          * require_once path/to/App.php
          * Dotclear\App::bootstrap(Utility, Process);
          *
+         * utility and process MUST extend Dotclear\Core\Process.
+         *
          * Supported utilities are Backend, Frontend, Install, Upgrade (CLI)
          *
          * @param   string  $utility    The optionnal app utility (Backend or Frontend)
@@ -51,14 +56,20 @@ namespace Dotclear {
          */
         public static function bootstrap(string $utility = '', string $process = ''): void
         {
-            // Preload requirements
+            // Can not run twice the app
+            if (self::$initialized) {
+                exit('Application already in use.');
+            }
+            self::$initialized = true;
+
+            // Load app prerequisites
             self::preload();
 
             // First step app utility loading. If any.
             $ret = empty($utility) ? false : self::utility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
-            // Load the Application
-            self::init();
+            // Load app requirements
+            self::load();
 
             // Second step app utility loading. If any.
             if ($ret && true === self::utility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
@@ -73,9 +84,84 @@ namespace Dotclear {
         }
 
         /**
+         * Processes the given process.
+         *
+         * A process MUST extends Dotclear\Core\Process class.
+         *
+         * @param      string  $process  The process
+         */
+        public static function process(string $process): void
+        {
+            // App::bootstrap() not done
+            if (!self::$initialized) {
+                exit('No application running.');
+            }
+
+            // Call process in 3 steps: init, process, render.
+            if (is_subclass_of($process, Process::class, true)) {
+                try {
+                    if ($process::init() !== false && $process::process() !== false) {
+                        $process::render();
+                    }
+                } catch (Exception $e) {
+                    if (defined('DC_DEBUG') && DC_DEBUG === true) {
+                        throw $e;
+                    }
+                    new Fault(
+                        __('Process failed'),
+                        $e->getMessage(),
+                        $e->getCode() ?: Fault::UNDEFINED_ISSUE
+                    );
+                }
+            } else {
+                new Fault(
+                    __('No process found'),
+                    sprintf('Unable to find class %s', $process),
+                    Fault::UNDEFINED_ISSUE
+                );
+            }
+        }
+
+        /**
+         * Read Dotclear release config.
+         *
+         * This method always returns string,
+         * casting int, bool, array, to string.
+         *
+         * @param   string  $key The release key
+         *
+         * @return  string  The release value
+         */
+        public static function release(string $key): string
+        {
+            // Load once release file
+            if (empty(self::$release)) {
+                $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+                if (!is_file($file) || !is_readable($file)) {
+                    new Fault('Not found', 'Dotclear release file was not found', Fault::SETUP_ISSUE);
+                }
+
+                $release = json_decode((string) file_get_contents($file), true);
+                if (!is_array($release)) {
+                    new Fault('Not found', 'Dotclear release file is not readable', Fault::SETUP_ISSUE);
+                } else {
+                    self::$release = $release;
+                }
+            }
+
+            // Release key not found
+            if (!array_key_exists($key, self::$release)) {
+                new Fault('Not found', sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
+            }
+
+            // Return casted release key value
+            return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
+        }
+
+        /**
          * Preload requirements (namespace, class, constant).
          *
-         * Called from self::bootstrap() and self::init()
+         * Called from self::bootstrap() and self::load()
          */
         private static function preload(): void
         {
@@ -144,7 +230,7 @@ namespace Dotclear {
                 'rsExtCommentPublic' => $inc('public', 'rs.extension.php'),
             ]);
 
-            # CLI_MODE, boolean constant that tell if we are in CLI mode
+            // CLI_MODE, boolean constant that tell if we are in CLI mode
             define('CLI_MODE', PHP_SAPI == 'cli');
 
             mb_internal_encoding('UTF-8');
@@ -164,36 +250,34 @@ namespace Dotclear {
         }
 
         /**
-         * Initializes the object.
+         * load other requirements.
          */
-        public static function init(): void
+        private static function load(): void
         {
             // Preload requirements
             self::preload();
 
             // Disallow every special wrapper
-            (function () {
-                if (function_exists('stream_wrapper_unregister')) {
-                    $special_wrappers = array_intersect([
-                        'http',
-                        'https',
-                        'ftp',
-                        'ftps',
-                        'ssh2.shell',
-                        'ssh2.exec',
-                        'ssh2.tunnel',
-                        'ssh2.sftp',
-                        'ssh2.scp',
-                        'ogg',
-                        'expect',
-                        // 'phar',   // Used by PharData to manage Zip/Tar archive
-                    ], stream_get_wrappers());
-                    foreach ($special_wrappers as $p) {
-                        @stream_wrapper_unregister($p);
-                    }
-                    unset($special_wrappers, $p);
+            if (function_exists('\\stream_wrapper_unregister')) {
+                $special_wrappers = array_intersect([
+                    'http',
+                    'https',
+                    'ftp',
+                    'ftps',
+                    'ssh2.shell',
+                    'ssh2.exec',
+                    'ssh2.tunnel',
+                    'ssh2.sftp',
+                    'ssh2.scp',
+                    'ogg',
+                    'expect',
+                    // 'phar',   // Used by PharData to manage Zip/Tar archive
+                ], stream_get_wrappers());
+                foreach ($special_wrappers as $p) {
+                    @stream_wrapper_unregister($p);
                 }
-            })();
+                unset($special_wrappers, $p);
+            }
 
             if (!isset($_SERVER['PATH_INFO'])) {
                 $_SERVER['PATH_INFO'] = '';
@@ -390,17 +474,17 @@ namespace Dotclear {
                 $core = new dcCore(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPREFIX, DC_DBPERSIST);
             } catch (Exception $e) {
                 // Loading locales for detected language
-                (function () {
-                    $detected_languages = Http::getAcceptLanguages();
-                    foreach ($detected_languages as $language) {
-                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
-                            L10n::lang($language);
+                $detected_languages = Http::getAcceptLanguages();
+                foreach ($detected_languages as $language) {
+                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                        L10n::lang($language);
 
-                            // We stop at first accepted language
-                            break;
-                        }
+                        // We stop at first accepted language
+                        break;
                     }
-                })();
+                }
+                unset($detected_languages);
+
                 if (!defined('DC_CONTEXT_ADMIN')) {
                     new Fault(
                         __('Site temporarily unavailable'),
@@ -435,14 +519,12 @@ namespace Dotclear {
             }
 
             # If we have some __top_behaviors, we load them
-            (function () {
-                if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
-                    foreach ($GLOBALS['__top_behaviors'] as $b) {
-                        dcCore::app()->addBehavior($b[0], $b[1]);
-                    }
-                    unset($GLOBALS['__top_behaviors'], $b);
+            if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
+                foreach ($GLOBALS['__top_behaviors'] as $b) {
+                    dcCore::app()->addBehavior($b[0], $b[1]);
                 }
-            })();
+                unset($GLOBALS['__top_behaviors'], $b);
+            }
 
             Http::trimRequest();
 
@@ -469,15 +551,13 @@ namespace Dotclear {
             dcCore::app()->setPostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
             # Store upload_max_filesize in bytes
-            (function () {
-                $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
-                $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
-                if ($p_max_size < $u_max_size) {
-                    $u_max_size = $p_max_size;
-                }
-                define('DC_MAX_UPLOAD_SIZE', $u_max_size);
-                unset($u_max_size, $p_max_size);
-            })();
+            $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
+            $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
+            if ($p_max_size < $u_max_size) {
+                $u_max_size = $p_max_size;
+            }
+            define('DC_MAX_UPLOAD_SIZE', $u_max_size);
+            unset($u_max_size, $p_max_size);
 
             /*
              * Register local shutdown handler
@@ -506,71 +586,37 @@ namespace Dotclear {
         /**
          * Instanciate the given utility.
          *
+         * An utility MUST extends Dotclear\Core\Process class.
+         *
          * @param      string  $utility  The utility
          * @param      bool    $next     Go to process step
          *
-         * @return     bool    Result of $utility::init() if exist else true
+         * @return     bool    Result of $utility::init() or $utility::process() if exist
          */
-        public static function utility(string $utility = '', bool $next = false): bool
+        private static function utility(string $utility, bool $next = false): bool
         {
-            // If an utility is provided, call bootstrap method, if exists, then init method if exist.
-            if (!empty($utility)) {
-                if (is_subclass_of($utility, Process::class, true)) {
-                    try {
-                        return $next ? $utility::process() : $utility::init();
-                    } catch(Exception $e) {
-                        if (defined('DC_DEBUG') && DC_DEBUG === true) {
-                            throw $e;
-                        }
-                        new Fault(
-                            sprintf('Unabled to process utility class "%s"', $utility),
-                            $e->getMessage(),
-                            Fault::UNDEFINED_ISSUE
-                        );
+            // Call utility init method, if exists, then process method if exist.
+            if (is_subclass_of($utility, Process::class, true)) {
+                try {
+                    return $next ? $utility::process() : $utility::init();
+                } catch(Exception $e) {
+                    if (defined('DC_DEBUG') && DC_DEBUG === true) {
+                        throw $e;
                     }
-                }
-                new Fault(
-                    'No process found',
-                    sprintf('Unable to find or initialize class %s', $utility),
-                    Fault::UNDEFINED_ISSUE
-                );
-            }
-
-            return false;
-        }
-
-        /**
-         * Processes the given process.
-         *
-         * @param      string  $process  The process
-         */
-        public static function process(string $process = ''): void
-        {
-            // If a process is provided, call it in 3 steps: init, process, render.
-            if (!empty($process)) {
-                if (is_subclass_of($process, Process::class, true)) {
-                    try {
-                        if ($process::init() !== false && $process::process() !== false) {
-                            $process::render();
-                        }
-                    } catch (Exception $e) {
-                        if (defined('DC_DEBUG') && DC_DEBUG === true) {
-                            throw $e;
-                        }
-                        new Fault(
-                            __('Process failed'),
-                            $e->getMessage(),
-                            $e->getCode() ?: Fault::UNDEFINED_ISSUE
-                        );
-                    }
-                } else {
                     new Fault(
-                        __('No process found'),
-                        sprintf('Unable to find class %s', $process),
+                        sprintf('Unabled to process utility class "%s"', $utility),
+                        $e->getMessage(),
                         Fault::UNDEFINED_ISSUE
                     );
                 }
             }
+            new Fault(
+                'No process found',
+                sprintf('Unable to find or initialize class %s', $utility),
+                Fault::UNDEFINED_ISSUE
+            );
+
+            return false;
         }
 
         /**
@@ -583,39 +629,6 @@ namespace Dotclear {
         public static function autoload(): Autoloader
         {
             return Autoloader::me();
-        }
-
-        /**
-         * Read Dotclear release config.
-         *
-         * This method always returns string,
-         * casting int, bool, array, to string.
-         *
-         * @param   string  $key The release key
-         *
-         * @return  string  The release value
-         */
-        public static function release(string $key): string
-        {
-            if (empty(self::$release)) {
-                $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
-                if (!is_file($file) || !is_readable($file)) {
-                    new Fault('Not found', 'Dotclear release file was not found', Fault::SETUP_ISSUE);
-                }
-
-                $release = json_decode((string) file_get_contents($file), true);
-                if (!is_array($release)) {
-                    new Fault('Not found', 'Dotclear release file is not readable', Fault::SETUP_ISSUE);
-                } else {
-                    self::$release = $release;
-                }
-            }
-
-            if (!array_key_exists($key, self::$release)) {
-                new Fault('Not found', sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
-            }
-
-            return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
         }
     }
 }
