@@ -3853,7 +3853,8 @@ li.user_admin {
   opacity: 1;
 }
 
-span.module-version::before, span.module-locked::before {
+span.module-version::before,
+span.module-locked::before {
   content: "- ";
 }
 
@@ -3937,6 +3938,14 @@ On adapte largeur et hauteur en fonction
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+}
+.box.current-theme.module-git {
+  background-image: url(git-branch.svg);
+  background-position-x: right;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: 1.5em;
+  background-origin: content-box;
 }
 
 .current-actions {
