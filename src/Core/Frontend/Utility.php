@@ -22,13 +22,14 @@ use dcThemes;
 use dcUrlHandlers;
 use dcUtils;
 use dcTraitDynamicProperties;
+use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use rsExtendPublic;
 
-class Utility
+class Utility extends Process
 {
     use dcTraitDynamicProperties;
 
@@ -90,25 +91,27 @@ class Utility
     }
 
     /**
-     * Instanciate this as a singleton
+     * Prepaepre the context.
      *
-     * @return     self
+     * @return     bool
      */
-    public static function bootstrap(): self
+    public static function init(): bool
+    {
+        define('DC_CONTEXT_PUBLIC', true);
+
+        return true;
+    }
+
+    /**
+     * Instanciate this as a singleton and initializes the context.
+     */
+    public static function process(): bool
     {
         if (!(dcCore::app()->public instanceof self)) {
             // Init singleton
             dcCore::app()->public = new self();
         }
 
-        return dcCore::app()->public;
-    }
-
-    /**
-     * Initializes the context.
-     */
-    public function init(): bool
-    {
         // Loading blog
         if (defined('DC_BLOG_ID')) {
             try {
@@ -220,35 +223,35 @@ class Utility
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
 
         # Defining theme if not defined
-        if (!isset($this->theme)) {
-            $this->theme = dcCore::app()->blog->settings->system->theme;
+        if (!isset(dcCore::app()->public->theme)) {
+            dcCore::app()->public->theme = dcCore::app()->blog->settings->system->theme;
         }
 
-        if (!dcCore::app()->themes->moduleExists($this->theme)) {
-            $this->theme = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
+        if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
+            dcCore::app()->public->theme = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
         }
 
-        $this->parent_theme = dcCore::app()->themes->moduleInfo($this->theme, 'parent');
-        if (is_string($this->parent_theme) && !empty($this->parent_theme) && !dcCore::app()->themes->moduleExists($this->parent_theme)) {
-            $this->theme        = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
-            $this->parent_theme = null;
+        dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
+        if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme) && !dcCore::app()->themes->moduleExists(dcCore::app()->public->parent_theme)) {
+            dcCore::app()->public->theme        = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
+            dcCore::app()->public->parent_theme = null;
         }
 
         # If theme doesn't exist, stop everything
-        if (!dcCore::app()->themes->moduleExists($this->theme)) {
+        if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
             new Fault(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
             'path in your blog configuration. Please check theme_path value in ' .
             'about:config module or reinstall default theme. (' . dcCore::app()->public->theme . ')'), Fault::THEME_ISSUE);
         }
 
         # Loading _public.php file for selected theme
-        dcCore::app()->themes->loadNsFile($this->theme, 'public');
+        dcCore::app()->themes->loadNsFile(dcCore::app()->public->theme, 'public');
 
         # Loading translations for selected theme
-        if (is_string($this->parent_theme) && !empty($this->parent_theme)) {
-            dcCore::app()->themes->loadModuleL10N($this->parent_theme, dcCore::app()->lang, 'main');
+        if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme)) {
+            dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->parent_theme, dcCore::app()->lang, 'main');
         }
-        dcCore::app()->themes->loadModuleL10N($this->theme, dcCore::app()->lang, 'main');
+        dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
 
         # --BEHAVIOR-- publicPrepend --
         dcCore::app()->callBehavior('publicPrependV2');
@@ -272,10 +275,10 @@ class Utility
         $GLOBALS['mod_ts'] = dcCore::app()->cache['mod_ts'];
 
         $tpl_path = [
-            dcCore::app()->blog->themes_path . '/' . $this->theme . '/tpl',
+            dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->theme . '/tpl',
         ];
-        if ($this->parent_theme) {
-            $tpl_path[] = dcCore::app()->blog->themes_path . '/' . $this->parent_theme . '/tpl';
+        if (dcCore::app()->public->parent_theme) {
+            $tpl_path[] = dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->parent_theme . '/tpl';
         }
         $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);

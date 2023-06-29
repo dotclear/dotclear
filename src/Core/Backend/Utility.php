@@ -16,12 +16,13 @@ use ArrayObject;
 use dcCore;
 use dcNotices;
 use dcTraitDynamicProperties;
+use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
-class Utility
+class Utility extends Process
 {
     use dcTraitDynamicProperties;
 
@@ -57,25 +58,26 @@ class Utility
     }
 
     /**
-     * Instanciate this as a singleton
+     * Prepare the context.
      *
-     * @return     self
+     * @return     bool
      */
-    public static function bootstrap(): self
+    public static function init(): bool
     {
-        if (!(dcCore::app()->admin instanceof self)) {
-            // Init singleton
-            dcCore::app()->admin = new self();
-        }
+        define('DC_CONTEXT_ADMIN', true);
 
-        return dcCore::app()->admin;
+        return true;
     }
 
     /**
-     * Initializes the context.
+     * Instanciate this as a singleton and initializes the context.
      */
-    public function init(): bool
+    public static function process(): bool
     {
+        if (!(dcCore::app()->admin instanceof self)) {
+            dcCore::app()->admin = new self();
+        }
+
         // New adminurl instance
         // May be moved to property of dcCore::app()->admin in a near future
         dcCore::app()->adminurl = new Url();

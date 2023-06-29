@@ -224,5 +224,5 @@ dcProxyV1::classAliases([
 
     // Upgrade --------------------
 
-    'dcUpgrade' => 'Dotclear\Upgrade\Upgrade',
+    'dcUpgrade' => 'Dotclear\Core\Upgrade\Upgrade',
 ]);
