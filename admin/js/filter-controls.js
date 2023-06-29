@@ -51,32 +51,21 @@ $(() => {
   });
 
   $('#filter-options-save').on('click', () => {
-    if (dotclear.servicesOff) return;
     // Save list options (via services)
-    const param = {
-      f: 'setListsOptions',
-      xd_check: dotclear.nonce,
-      id: $('#filters-options-id').val(),
-      sort: $('#sortby').val(),
-      order: $('#order').val(),
-      nb: $('#nb').val(),
-    };
-    $.post(dotclear.servicesUri, param)
-      .done((data) => {
-        const rsp = $(data).children('rsp')[0];
-        if (rsp) {
-          const res = $(rsp).find('result')[0];
-          if (res) {
-            window.alert(res.getAttribute('msg'));
-          } else if (rsp.getAttribute('status') !== 'ok') {
-            window.console.log('Dotclear REST server error');
-          }
-        }
-      })
-      .fail((jqXHR, textStatus, errorThrown) => {
-        // No response
-        window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
-        window.alert('Server error');
-      });
+    dotclear.jsonServicesPost(
+      'setListsOptions',
+      (data) => {
+        window.alert(data.msg);
+      },
+      {
+        id: $('#filters-options-id').val(),
+        sort: $('#sortby').val(),
+        order: $('#order').val(),
+        nb: $('#nb').val(),
+      },
+      (error) => {
+        window.alert(error);
+      },
+    );
   });
 });

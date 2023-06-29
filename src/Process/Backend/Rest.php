@@ -752,7 +752,17 @@ class Rest extends Process
         return true;
     }
 
-    public static function setListsOptions(dcCore $core, array $get, array $post)
+    /**
+     * REST method to store dashboard module's positions (JSON)
+     *
+     * @param      array     $get    The get
+     * @param      array     $post   The post
+     *
+     * @throws     Exception
+     *
+     * @return     array
+     */
+    public static function setListsOptions(array $get, array $post): array
     {
         if (empty($post['id'])) {
             throw new Exception('No list name');
@@ -763,8 +773,6 @@ class Rest extends Process
         if (!isset($sorts[$post['id']])) {
             throw new Exception('List name invalid');
         }
-
-        $res = new XmlTag('result');
 
         $su = [];
         foreach ($sorts as $sort_type => $sort_data) {
@@ -784,9 +792,9 @@ class Rest extends Process
 
         dcCore::app()->auth->user_prefs->interface->put('sorts', $su, 'array');
 
-        $res->msg = __('List options saved');
-
-        return $res;
+        return [
+            'msg' => __('List options saved'),
+        ];
     }
 
     public static function getModuleById(dcCore $core, array $get)
