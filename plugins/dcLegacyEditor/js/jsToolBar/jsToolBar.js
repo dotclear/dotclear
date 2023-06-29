@@ -703,43 +703,21 @@ jsToolBar.prototype.elements.preview = {
   fn: {
     wiki() {
       if (dotclear.servicesOff) return;
-      let msg = '';
-      const buffer = this.textarea.value;
-      const params = {
-        xd_check: dotclear.nonce,
-        f: 'wikiConvert',
-        wiki: buffer,
-      };
-      const promise = $.ajax({
-        url: dotclear.servicesUri,
-        method: 'POST',
-        data: params,
-        dataType: 'xml',
-      });
-      promise.done((data) => {
-        if ($('rsp[status=failed]', data).length > 0) {
-          // For debugging purpose only:
-          // console.log($('rsp',data).attr('message'));
-          window.console.log('Dotclear REST server error');
-          return;
-        }
-        // ret -> status (true/false)
-        // msg -> REST method return value
-        const ret = Number($('rsp>wiki', data).attr('ret'));
-        msg = $('rsp>wiki', data).attr('msg');
-        if (!ret && msg !== '') {
-          window.alert(msg);
-          msg = '';
-        } else if (ret && msg !== '') {
-          const src = `<div class="wiki_preview"><div class="wiki_markup">${msg}</div></div>`;
-          $.magnificPopup.open({
-            items: {
-              src,
-              type: 'inline',
-            },
-          });
-        }
-      });
+      dotclear.jsonServicesPost(
+        'wikiConvert',
+        (data) => {
+          if (data.ret && data.msg) {
+            const src = `<div class="wiki_preview"><div class="wiki_markup">${data.msg}</div></div>`;
+            $.magnificPopup.open({
+              items: {
+                src,
+                type: 'inline',
+              },
+            });
+          }
+        },
+        { wiki: this.textarea.value },
+      );
     },
   },
 };

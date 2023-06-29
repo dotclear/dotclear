@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
 use Dotclear\Helper\Html\WikiToHtml;
-use Dotclear\Helper\Html\XmlTag;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -23,19 +22,16 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 class Rest
 {
     /**
-     * Convert wiki to HTML REST service
+     * Convert wiki to HTML REST service (JSON)
      *
-     * @param      dcCore  $core   The core
      * @param      array   $get    The get
      * @param      array   $post   The post
      *
-     * @return     XmlTag  The xml tag.
+     * @return     array
      */
-    public static function convert(dcCore $core, array $get, array $post): XmlTag
+    public static function convert(array $get, array $post): array
     {
         $wiki = $post['wiki'] ?? '';
-        $rsp  = new XmlTag('wiki');
-
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
@@ -58,9 +54,9 @@ class Rest
             }
         }
 
-        $rsp->ret = $ret;
-        $rsp->msg = $html;
-
-        return $rsp;
+        return [
+            'ret' => $ret,
+            'msg' => $html,
+        ];
     }
 }
