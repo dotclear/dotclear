@@ -466,7 +466,6 @@ class Rest extends Process
      * REST method to get Zip content list (JSON)
      *
      * @param      array     $get    The get
-     * @param      array     $post   The post
      *
      * @throws     Exception
      *
@@ -643,8 +642,8 @@ class Rest extends Process
      *
      * Used with jquery.autocomplete()
      *
+     * @param      dcCore    $core   dcCore instance
      * @param      array     $get    The get
-     * @param      array     $post   The post
      *
      * @return     XmlTag
      */
@@ -706,7 +705,6 @@ class Rest extends Process
      * Used with jquery.autocomplete()
      *
      * @param      array     $get    The get
-     * @param      array     $post   The post
      *
      * @return     array
      */

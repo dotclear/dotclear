@@ -67,11 +67,6 @@ class Rest
     /**
      * Serve method to count of expired tasks for maintenance. (JSON)
      *
-     * @param      array      $get    cleaned $_GET
-     * @param      array      $post   cleaned $_POST
-     *
-     * @throws     Exception  (description)
-     *
      * @return     array
      */
     public static function countExpired(): array
