@@ -16,12 +16,9 @@ use Dotclear\App;
 use Dotclear\Process\Install\Install;
 use Dotclear\Process\Install\Wizard;
 use Dotclear\Core\Process;
-use Exception;
 
 class Utility extends Process
 {
-    private static $instance;
-
     public static function init(): bool
     {
         define('DC_CONTEXT_INSTALL', true);

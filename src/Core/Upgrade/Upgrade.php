@@ -100,12 +100,12 @@ class Upgrade
 
         // Prepare upgrades scan
         $path = 'GrowUp';
-        $dir    = implode(DIRECTORY_SEPARATOR, [__DIR__, $path, '']);
-        $ns     = implode('\\', [__NAMESPACE__, $path, '']);
+        $dir  = implode(DIRECTORY_SEPARATOR, [__DIR__, $path, '']);
+        $ns   = implode('\\', [__NAMESPACE__, $path, '']);
 
         // Scan GrowUp folder to find available upgrades
         $upgrades = [];
-        foreach(Files::scanDir($dir) as $file) {
+        foreach (Files::scanDir($dir) as $file) {
             // Need only growup files
             if (strpos($file, $path . '_') === false || strpos($file, '.php') === false) {
                 continue;
@@ -123,7 +123,7 @@ class Upgrade
             }
 
             $ver = '';
-            foreach($parts as $part) {
+            foreach ($parts as $part) {
                 // join by . numeric and _ alpha
                 $ver .= (is_numeric($part) ? '.' : '-') . $part;
             }
@@ -141,7 +141,7 @@ class Upgrade
         usort($upgrades, fn ($a, $b) => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
 
         // Check upgrades by version
-        foreach($upgrades as $upgrade) {
+        foreach ($upgrades as $upgrade) {
             // current version need upgrade
             if (version_compare($version, $upgrade['version'], $upgrade['equal'])) {
                 require_once $upgrade['file'];

@@ -11,6 +11,7 @@ namespace Dotclear\Core\Install;
 
 use dcBlog;
 use Dotclear\App;
+use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Structure;
 
 class Utils
@@ -23,7 +24,7 @@ class Utils
      *
      * @return  bool    False on error
      */
-    public static function check($con, &$err)
+    public static function check(AbstractHandler $con, array &$err)
     {
         $err = [];
 
