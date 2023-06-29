@@ -13,30 +13,29 @@ $(() => {
     dcMaintenanceStep(this, code);
 
     function dcMaintenanceStep(box, code) {
-      if (dotclear.servicesOff) return;
-      const params = {
-        f: 'dcMaintenanceStep',
-        xd_check: dotclear.nonce,
-        task: $(box).attr('id'),
-        code,
-      };
-      $.post(dotclear.servicesUri, params, (data) => {
-        if ($('rsp[status=failed]', data).length > 0) {
-          $('.step-msg', box).text($('rsp', data).text());
+      dotclear.jsonServicesPost(
+        'dcMaintenanceStep',
+        (data) => {
+          $('.step-msg', box).text(data.title);
+          const next = data.code;
+          if (next > 0) {
+            dcMaintenanceStep(box, next);
+            return;
+          }
+          $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));
           $('.step-wait', box).remove();
           $('.step-back', box).show();
-          return;
-        }
-        $('.step-msg', box).text($('rsp>step', data).attr('title'));
-        const next = $('rsp>step', data).attr('code');
-        if (next > 0) {
-          dcMaintenanceStep(box, next);
-          return;
-        }
-        $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));
-        $('.step-wait', box).remove();
-        $('.step-back', box).show();
-      });
+        },
+        {
+          task: $(box).attr('id'),
+          code,
+        },
+        (error) => {
+          $('.step-msg', box).text(error);
+          $('.step-wait', box).remove();
+          $('.step-back', box).show();
+        },
+      );
     }
   });
 });

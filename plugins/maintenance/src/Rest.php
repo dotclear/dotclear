@@ -12,9 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dcCore;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Html\XmlTag;
 use Exception;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
@@ -31,17 +29,16 @@ Serve maintenance methods via Dotclear's rest API
 class Rest
 {
     /**
-     * Serve method to do step by step task for maintenance.
+     * Serve method to do step by step task for maintenance. (JSON)
      *
-     * @param      dcCore     $core   dcCore instance
      * @param      array      $get    cleaned $_GET
      * @param      array      $post   cleaned $_POST
      *
      * @throws     Exception  (description)
      *
-     * @return     XmlTag     XML representation of response.
+     * @return     array
      */
-    public static function step(dcCore $core, array $get, array $post): XmlTag
+    public static function step(array $get, array $post): array
     {
         if (!isset($post['task'])) {
             throw new Exception('No task ID');
@@ -61,13 +58,22 @@ class Rest
             $code = 0;
         }
 
-        $rsp        = new XmlTag('step');
-        $rsp->code  = $code;
-        $rsp->title = Html::escapeHTML($task->success());
-
-        return $rsp;
+        return [
+            'code'  => $code,
+            'title' => Html::escapeHTML($task->success()),
+        ];
     }
 
+    /**
+     * Serve method to count of expired tasks for maintenance. (JSON)
+     *
+     * @param      array      $get    cleaned $_GET
+     * @param      array      $post   cleaned $_POST
+     *
+     * @throws     Exception  (description)
+     *
+     * @return     array
+     */
     public static function countExpired(): array
     {
         // Check expired tasks
