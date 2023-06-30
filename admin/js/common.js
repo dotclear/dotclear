@@ -483,27 +483,29 @@ dotclear.outgoingLinks = (target) => {
  * @param      boolean   [thead=false] True if titles are in thead rather than in the first tr of the body
  */
 dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) => {
-  try {
-    const THarray = [];
-    const ths = table.getElementsByTagName('th');
-    for (const th of ths) {
-      for (let colspan = th.colSpan; colspan > 0; colspan--) {
-        THarray.push(th.innerText.replace('▶', ''));
+  if (table) {
+    try {
+      const THarray = [];
+      const ths = table.getElementsByTagName('th');
+      for (const th of ths) {
+        for (let colspan = th.colSpan; colspan > 0; colspan--) {
+          THarray.push(th.innerText.replace('▶', ''));
+        }
       }
+      const styleElm = document.createElement('style');
+      let styleSheet;
+      document.head.appendChild(styleElm);
+      styleSheet = styleElm.sheet;
+      for (let i = offset; i < THarray.length; i++) {
+        styleSheet.insertRule(
+          `${selector} td:nth-child(${i + 1})::before {content:"${THarray[i]} ";}`,
+          styleSheet.cssRules.length,
+        );
+      }
+      table.className += `${table.className === '' ? '' : ' '}rch${thead ? ' rch-thead' : ''}`;
+    } catch (e) {
+      console.log(`responsiveCellHeaders(): ${e}`);
     }
-    const styleElm = document.createElement('style');
-    let styleSheet;
-    document.head.appendChild(styleElm);
-    styleSheet = styleElm.sheet;
-    for (let i = offset; i < THarray.length; i++) {
-      styleSheet.insertRule(
-        `${selector} td:nth-child(${i + 1})::before {content:"${THarray[i]} ";}`,
-        styleSheet.cssRules.length,
-      );
-    }
-    table.className += `${table.className === '' ? '' : ' '}rch${thead ? ' rch-thead' : ''}`;
-  } catch (e) {
-    console.log(`responsiveCellHeaders(): ${e}`);
   }
 };
 
