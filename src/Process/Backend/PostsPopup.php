@@ -89,7 +89,10 @@ class PostsPopup extends Process
         '<form action="' . dcCore::app()->adminurl->get('admin.posts.popup') . '" method="get">' .
         '<p><label for="type" class="classic">' . __('Entry type:') . '</label> ' . form::combo('type', dcCore::app()->admin->type_combo, dcCore::app()->admin->type) . '' .
         '<noscript><div><input type="submit" value="' . __('Ok') . '" /></div></noscript>' .
-        form::hidden('plugin_id', Html::escapeHTML(dcCore::app()->admin->plugin_id)) . '</p>' .
+        form::hidden('plugin_id', Html::escapeHTML(dcCore::app()->admin->plugin_id)) .
+        form::hidden('popup', 1) .
+        form::hidden('process', 'PostsPopup') .
+        '</p>' .
         '</form>';
 
         echo
@@ -98,6 +101,8 @@ class PostsPopup extends Process
         ' <input type="submit" value="' . __('Search') . '" />' .
         form::hidden('plugin_id', Html::escapeHTML(dcCore::app()->admin->plugin_id)) .
         form::hidden('type', Html::escapeHTML(dcCore::app()->admin->type)) .
+        form::hidden('popup', 1) .
+        form::hidden('process', 'PostsPopup') .
         '</p></form>';
 
         $post_list = null;
