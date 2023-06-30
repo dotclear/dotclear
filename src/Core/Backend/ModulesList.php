@@ -396,6 +396,7 @@ class ModulesList
         '<div class="modules-search">' .
         '<form action="' . $this->getURL() . '" method="get">' .
         '<p><label for="m_search" class="classic">' . __('Search in repository:') . '&nbsp;</label><br />' .
+        form::hidden('process', is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins') .
         form::field('m_search', 30, 255, Html::escapeHTML($query)) .
         '<input type="submit" value="' . __('OK') . '" /> ';
 
