@@ -50,13 +50,16 @@ fieldset {
   legend,
   h3,
   h4 {
-    float: left;
     width: 100%;
     padding: 0;
     margin-bottom: 0.75em;
     color: var(--fieldset-pretty-title-color);
     font-size: 1em;
     font-weight: bold;
+  }
+
+  legend {
+    float: left;
   }
 }
 

@@ -1995,13 +1995,15 @@ fieldset > *:last-child {
 fieldset legend,
 fieldset h3,
 fieldset h4 {
-  float: left;
   width: 100%;
   padding: 0;
   margin-bottom: 0.75em;
   color: var(--fieldset-pretty-title-color);
   font-size: 1em;
   font-weight: bold;
+}
+fieldset legend {
+  float: left;
 }
 
 input[type=text],
@@ -4949,7 +4951,6 @@ img.go_home {
 }
 .fieldset h3,
 .fieldset h4 {
-  float: left;
   width: 100%;
   padding: 0;
   margin-bottom: 0.75em;
