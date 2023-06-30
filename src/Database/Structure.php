@@ -149,6 +149,8 @@ class Structure
      * Synchronize this schema taken from database with $schema.
      *
      * @param      Structure $s Structure to synchronize with
+     *
+     * @return     int
      */
     public function synchronize(Structure $s)
     {
@@ -286,7 +288,7 @@ class Structure
         }
 
         if (!$got_work) {
-            return;
+            return 0;
         }
 
         # Create tables

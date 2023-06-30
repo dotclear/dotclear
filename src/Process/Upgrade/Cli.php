@@ -39,7 +39,7 @@ class Cli extends Process
             dcCore::app()->con->begin();
 
             try {
-                $changes = Upgrade::dotclearUpgrade();
+                $changes = (int) Upgrade::dotclearUpgrade();
             } catch (Exception $e) {
                 dcCore::app()->con->rollback();
 

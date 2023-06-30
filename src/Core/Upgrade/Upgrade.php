@@ -27,7 +27,7 @@ class Upgrade
      *
      * @throws     Exception
      *
-     * @return     bool|Structure|int
+     * @return     bool|int
      */
     public static function dotclearUpgrade()
     {
