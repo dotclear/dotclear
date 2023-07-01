@@ -32,11 +32,11 @@ class BackendBehaviors
      */
     public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar)
     {
-        if (!dcCore::app()->blog->settings->pings->pings_active) {
+        if (!My::settings()?->pings_active) {
             return;
         }
 
-        $pings_uris = dcCore::app()->blog->settings->pings->pings_uris;
+        $pings_uris = My::settings()?->pings_uris;
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }
@@ -67,11 +67,11 @@ class BackendBehaviors
             return;
         }
 
-        if (!dcCore::app()->blog->settings->pings->pings_active) {
+        if (!My::settings()?->pings_active) {
             return;
         }
 
-        $pings_uris = dcCore::app()->blog->settings->pings->pings_uris;
+        $pings_uris = My::settings()?->pings_uris;
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }

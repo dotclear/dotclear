@@ -36,7 +36,7 @@ class BackendBehaviors
      */
     public static function adminCommentsSpamForm(): void
     {
-        $ttl = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
+        $ttl = My::settings()?->antispam_moderation_ttl;
         if ($ttl != null && $ttl >= 0) {
             echo '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl) . ' ' .
             sprintf(__('You can modify this duration in the %s'), '<a href="' . dcCore::app()->adminurl->get('admin.blog.pref') .

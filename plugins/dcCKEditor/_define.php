@@ -12,7 +12,7 @@ $this->registerModule(
     'dcCKEditor',                    // Name
     'dotclear CKEditor integration', // Description
     'dotclear Team',                 // Author
-    '2.0',                           // Version
+    '2.1',                           // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,

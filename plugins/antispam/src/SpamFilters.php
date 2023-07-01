@@ -165,9 +165,9 @@ class SpamFilters
     public function saveFilterOpts(array $opts, bool $global = false): void
     {
         if ($global) {
-            dcCore::app()->blog->settings->antispam->drop('antispam_filters');
+            My::settings()?->drop('antispam_filters');
         }
-        dcCore::app()->blog->settings->antispam->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
+        My::settings()?->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
     }
 
     /**
@@ -175,8 +175,8 @@ class SpamFilters
      */
     private function setFilterOpts(): void
     {
-        if (dcCore::app()->blog->settings->antispam->antispam_filters !== null) {
-            $this->filters_opt = dcCore::app()->blog->settings->antispam->antispam_filters;
+        if (My::settings()?->antispam_filters !== null) {
+            $this->filters_opt = My::settings()?->antispam_filters;
         }
 
         // Create default options if needed

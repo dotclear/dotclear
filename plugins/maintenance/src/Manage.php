@@ -84,7 +84,7 @@ class Manage extends Process
 
         if (!empty($_POST['save_settings'])) {
             try {
-                dcCore::app()->blog->settings->maintenance->put(
+                My::settings()?->put(
                     'plugin_message',
                     !empty($_POST['settings_plugin_message']),
                     'boolean',
@@ -103,7 +103,7 @@ class Manage extends Process
                     } else {
                         $ts = empty($_POST['settings_ts_' . $t->id()]) ? 0 : $_POST['settings_ts_' . $t->id()];
                     }
-                    dcCore::app()->blog->settings->maintenance->put(
+                    My::settings()?->put(
                         'ts_' . $t->id(),
                         abs((int) $ts),
                         'integer',
@@ -261,7 +261,7 @@ class Manage extends Process
 
                         // Expired task alert message
                         $ts = $t->expired();
-                        if (dcCore::app()->blog->settings->maintenance->plugin_message && $ts !== false) {
+                        if (My::settings()?->plugin_message && $ts !== false) {
                             if ($ts === null) {
                                 $res_task .= '<br /> <span class="warn">' .
                                     __('This task has never been executed.') . ' ' .
@@ -336,7 +336,7 @@ class Manage extends Process
             '<div class="fieldset">' .
             '<h4>' . __('Activation') . '</h4>' .
             '<p><label for="settings_plugin_message" class="classic">' .
-            form::checkbox('settings_plugin_message', 1, dcCore::app()->blog->settings->maintenance->plugin_message) .
+            form::checkbox('settings_plugin_message', 1, My::settings()?->plugin_message) .
             __('Display alert messages on late tasks') . '</label></p>' .
 
             '<p class="info">' . sprintf(

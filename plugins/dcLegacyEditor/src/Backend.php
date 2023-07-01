@@ -35,7 +35,7 @@ class Backend extends Process
 
         My::addBackendMenuItem(Utility::MENU_PLUGINS, [], '');
 
-        if (dcCore::app()->blog->settings->dclegacyeditor->active) {
+        if (My::settings()?->active) {
             if (!(dcCore::app()->wiki instanceof WikiToHtml)) {
                 dcCore::app()->initWikiPost();
             }
