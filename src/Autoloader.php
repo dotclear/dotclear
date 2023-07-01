@@ -39,7 +39,7 @@ class Autoloader
     private string $root_base_dir = '';
 
     /**
-     * @var array<string,array> $prefixes
+     * @var array<string,array<int,string>> $prefixes
      *                          Array of registered namespace [prefix=[base dir]]
      */
     private array $prefixes = [];
@@ -59,7 +59,7 @@ class Autoloader
     /**
      * Instance singleton
      */
-    private static ?self $instance = null;
+    private static self $instance;
 
     /**
      * Register loader with SPL autoloader stack.
@@ -70,7 +70,7 @@ class Autoloader
      */
     public function __construct(string $root_prefix = '', string $root_base_dir = '', bool $prepend = false)
     {
-        if (self::$instance) {
+        if (isset(self::$instance)) {
             throw new Exception('Autoloader can not be loaded twice.', 500);
         }
 
@@ -94,7 +94,7 @@ class Autoloader
      */
     public static function me(): self
     {
-        if (!self::$instance) {
+        if (!isset(self::$instance)) {
             // Init singleton
             new self('', '', true);
         }
@@ -198,7 +198,7 @@ class Autoloader
     /**
      * Get list of registered namespace.
      *
-     * @return array List of namesapce prefix / base dir
+     * @return array<string,array<int,string>> List of namesapce prefix / base dir
      */
     public function getNamespaces(): array
     {
