@@ -36,7 +36,7 @@ class BackendBehaviors
             return;
         }
 
-        $pings_uris = My::settings()?->pings_uris;
+        $pings_uris = My::settings()->pings_uris;
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }
@@ -71,7 +71,7 @@ class BackendBehaviors
             return;
         }
 
-        $pings_uris = My::settings()?->pings_uris;
+        $pings_uris = My::settings()->pings_uris;
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }

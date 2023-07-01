@@ -176,7 +176,7 @@ class SpamFilters
     private function setFilterOpts(): void
     {
         if (My::settings()?->antispam_filters !== null) {
-            $this->filters_opt = My::settings()?->antispam_filters;
+            $this->filters_opt = My::settings()->antispam_filters;
         }
 
         // Create default options if needed

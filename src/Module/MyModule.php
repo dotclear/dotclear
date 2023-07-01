@@ -320,8 +320,10 @@ abstract class MyModule
 
     /**
      * Throw exception on breaking script error.
+     *
+     * @return never
      */
-    final protected static function exception(string $msg = ''): never
+    final protected static function exception(string $msg = '')
     {
         $msg = defined('DC_DEV') && DC_DEV && !empty($msg) ? ': ' . $msg : '';
 

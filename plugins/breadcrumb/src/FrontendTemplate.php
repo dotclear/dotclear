@@ -221,7 +221,7 @@ class FrontendTemplate
         }
 
         # Encapsulate breadcrumb in <p>…</p>
-        if (!My::settings()?->breadcrumb_alone) {
+        if (!My::settings()->breadcrumb_alone) {
             $ret = '<p id="breadcrumb">' . $ret . '</p>';
         }
 

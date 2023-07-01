@@ -32,8 +32,8 @@ class Install extends Process
         if (version_compare(dcCore::app()->getVersion(My::id()), '2.0', '<=')
             && dcCore::app()->blog?->settings->exists('dcckeditor')
         ) {
-            dcCore::app()->blog?->settings->delNamespace(My::id());
-            dcCore::app()->blog?->settings->renNamespace('dcckeditor', My::id());
+            dcCore::app()->blog->settings->delNamespace(My::id());
+            dcCore::app()->blog->settings->renNamespace('dcckeditor', My::id());
         }
 
         $s = My::settings();

@@ -32,8 +32,8 @@ class Install extends Process
         if (version_compare(dcCore::app()->getVersion(My::id()), '1.0', '<=')
             && dcCore::app()->blog?->settings->exists('dclegacyeditor')
         ) {
-            dcCore::app()->blog?->settings->delNamespace(My::id());
-            dcCore::app()->blog?->settings->renNamespace('dclegacyeditor', My::id());
+            dcCore::app()->blog->settings->delNamespace(My::id());
+            dcCore::app()->blog->settings->renNamespace('dclegacyeditor', My::id());
         }
 
         My::settings()?->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);
