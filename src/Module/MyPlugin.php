@@ -49,9 +49,9 @@ abstract class MyPlugin extends MyModule
 
         dcCore::app()->menu[$menu]->addItem(
             static::name(),
-            dcCore::app()->adminurl->get('admin.plugin.' . static::id(), $params),
+            static::manageUrl($params, '&'),
             static::icons(),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.' . static::id(), [], '&')) . $scheme . '/', $_SERVER['REQUEST_URI']),
+            preg_match('/' . preg_quote(static::manageUrl([], '&')) . $scheme . '/', (string) $_SERVER['REQUEST_URI']),
             static::checkContext(static::MENU),
             'plugin-' . ($id ?? static::id())
         );
