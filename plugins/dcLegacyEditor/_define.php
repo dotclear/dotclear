@@ -12,7 +12,7 @@ $this->registerModule(
     'dcLegacyEditor',         // Name
     'dotclear legacy editor', // Description
     'dotclear Team',          // Author
-    '1.0',                  // Version
+    '1.1',                  // Version
     [
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,

@@ -37,8 +37,8 @@ class Install extends Process
             ];
             $counter = dcCore::app()->blog->getPosts($params, true);
 
-            if ($counter->f(0) == 0 && dcCore::app()->blog->settings->pages->firstpage == null) {
-                dcCore::app()->blog->settings->pages->put('firstpage', true, 'boolean');
+            if ($counter->f(0) == 0 && My::settings()?->firstpage == null) {
+                My::settings()?->put('firstpage', true, 'boolean');
 
                 $cur                     = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
                 $cur->user_id            = dcCore::app()->auth->userID();

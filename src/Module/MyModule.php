@@ -23,7 +23,9 @@ namespace Dotclear\Module;
 use dcCore;
 use dcModules;
 use dcModuleDefine;
+use dcNamespace;
 use dcUtils;
+use dcWorkspace;
 use Dotclear\Helper\L10n;
 use Exception;
 
@@ -193,6 +195,26 @@ abstract class MyModule
     }
 
     /**
+     * The module settings instance.
+     *
+     * @return  null|dcNamespace    The module settings instance
+     */
+    final public static function settings(): ?dcNamespace
+    {
+        return dcCore::app()->blog?->settings->get(static::id());
+    }
+
+    /**
+     * The module preferences instance.
+     *
+     * @return  null|dcWorkspace    The module preferences instance
+     */
+    final public static function prefs(): ?dcWorkspace
+    {
+        return dcCore::app()->auth?->user_prefs?->get(static::id());
+    }
+
+    /**
      * Set module locales.
      *
      * @param   string  $process    The locales process
@@ -299,7 +321,7 @@ abstract class MyModule
     /**
      * Throw exception on breaking script error.
      */
-    final protected static function exception(string $msg = ''): void
+    final protected static function exception(string $msg = ''): never
     {
         $msg = defined('DC_DEV') && DC_DEV && !empty($msg) ? ': ' . $msg : '';
 

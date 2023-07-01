@@ -35,7 +35,9 @@ class Install extends Process
             throw new Exception(__('Unable to initialize default widgets.'));
         }
 
-        $s = dcCore::app()->blog->settings->get('widgets');
+        if (($s = My::settings()) === null) {
+            return false;
+        }
         if ($s->widgets_nav != null) {
             $s->put('widgets_nav', WidgetsStack::load($s->widgets_nav)->store());
         } else {

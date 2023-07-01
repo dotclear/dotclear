@@ -168,7 +168,7 @@ class Manage extends Process
             # Information
             $spam_count      = Antispam::countSpam();
             $published_count = Antispam::countPublishedComments();
-            $moderationTTL   = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
+            $moderationTTL   = My::settings()?->antispam_moderation_ttl;
 
             echo
             '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post" class="fieldset">' .

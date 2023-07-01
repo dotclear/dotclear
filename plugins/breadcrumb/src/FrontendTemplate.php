@@ -49,7 +49,7 @@ class FrontendTemplate
         $ret = '';
 
         # Check if breadcrumb enabled for the current blog
-        if (!dcCore::app()->blog->settings->breadcrumb->breadcrumb_enabled) {
+        if (!My::settings()?->breadcrumb_enabled) {
             return $ret;
         }
 
@@ -221,7 +221,7 @@ class FrontendTemplate
         }
 
         # Encapsulate breadcrumb in <p>…</p>
-        if (!dcCore::app()->blog->settings->breadcrumb->breadcrumb_alone) {
+        if (!My::settings()?->breadcrumb_alone) {
             $ret = '<p id="breadcrumb">' . $ret . '</p>';
         }
 

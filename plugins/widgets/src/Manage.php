@@ -38,16 +38,16 @@ class Manage extends Process
 
         // Loading navigation, extra widgets and custom widgets
         dcCore::app()->admin->widgets_nav = null;
-        if (dcCore::app()->blog->settings->widgets->widgets_nav) {
-            dcCore::app()->admin->widgets_nav = WidgetsStack::load(dcCore::app()->blog->settings->widgets->widgets_nav);
+        if (My::settings()?->widgets_nav) {
+            dcCore::app()->admin->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
         dcCore::app()->admin->widgets_extra = null;
-        if (dcCore::app()->blog->settings->widgets->widgets_extra) {
-            dcCore::app()->admin->widgets_extra = WidgetsStack::load(dcCore::app()->blog->settings->widgets->widgets_extra);
+        if (My::settings()?->widgets_extra) {
+            dcCore::app()->admin->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
         dcCore::app()->admin->widgets_custom = null;
-        if (dcCore::app()->blog->settings->widgets->widgets_custom) {
-            dcCore::app()->admin->widgets_custom = WidgetsStack::load(dcCore::app()->blog->settings->widgets->widgets_custom);
+        if (My::settings()?->widgets_custom) {
+            dcCore::app()->admin->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 
         dcCore::app()->admin->append_combo = [
@@ -106,9 +106,9 @@ class Manage extends Process
                 }
 
                 try {
-                    dcCore::app()->blog->settings->widgets->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
-                    dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
-                    dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
+                    My::settings()?->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
+                    My::settings()?->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
+                    My::settings()?->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                     dcCore::app()->blog->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
@@ -190,9 +190,9 @@ class Manage extends Process
                 dcCore::app()->admin->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
                 dcCore::app()->admin->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
-                dcCore::app()->blog->settings->widgets->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
-                dcCore::app()->blog->settings->widgets->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
-                dcCore::app()->blog->settings->widgets->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
+                My::settings()?->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
+                My::settings()?->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
+                My::settings()?->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                 dcCore::app()->blog->triggerBlog();
 
                 Page::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
@@ -202,9 +202,9 @@ class Manage extends Process
             }
         } elseif (!empty($_POST['wreset'])) {
             try {
-                dcCore::app()->blog->settings->widgets->put('widgets_nav', '');
-                dcCore::app()->blog->settings->widgets->put('widgets_extra', '');
-                dcCore::app()->blog->settings->widgets->put('widgets_custom', '');
+                My::settings()?->put('widgets_nav', '');
+                My::settings()?->put('widgets_extra', '');
+                My::settings()?->put('widgets_custom', '');
                 dcCore::app()->blog->triggerBlog();
 
                 Page::addSuccessNotice(__('Sidebars have been resetting.'));

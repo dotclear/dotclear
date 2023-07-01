@@ -36,7 +36,7 @@ class Manage extends Process
 
         try {
             // Pings URIs are managed globally (for all blogs)
-            dcCore::app()->admin->pings_uris = dcCore::app()->blog->settings->pings->getGlobal('pings_uris');
+            dcCore::app()->admin->pings_uris = My::settings()?->getGlobal('pings_uris');
             if (!dcCore::app()->admin->pings_uris) {
                 dcCore::app()->admin->pings_uris = [];
             }
@@ -52,10 +52,10 @@ class Manage extends Process
                     }
                 }
                 // Settings for all blogs
-                dcCore::app()->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
-                dcCore::app()->blog->settings->pings->put('pings_uris', $pings_uris, null, null, true, true);
+                My::settings()?->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
+                My::settings()?->put('pings_uris', $pings_uris, null, null, true, true);
                 // Settings for current blog only
-                dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
+                My::settings()?->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
                 Page::addSuccessNotice(__('Settings have been successfully updated.'));
                 My::redirect();
@@ -83,7 +83,7 @@ class Manage extends Process
         ) .
         '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
         '<p><label for="pings_active" class="classic">' .
-        form::checkbox('pings_active', 1, dcCore::app()->blog->settings->pings->pings_active) .
+        form::checkbox('pings_active', 1, My::settings()?->pings_active) .
         __('Activate pings extension') . '</label></p>';
 
         $i = 0;
@@ -118,7 +118,7 @@ class Manage extends Process
         '</p>' .
 
         '<p><label for="pings_auto" class="classic">' .
-        form::checkbox('pings_auto', 1, dcCore::app()->blog->settings->pings->pings_auto) .
+        form::checkbox('pings_auto', 1, My::settings()?->pings_auto) .
         __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
 
         '<p><input type="submit" value="' . __('Save') . '" />' .

@@ -164,9 +164,7 @@ class MaintenanceTask
             $this->success = __('Task successfully executed.');
         }
 
-        $ts = dcCore::app()->blog->settings->maintenance->get('ts_' . $this->id);
-
-        $this->ts = abs((int) $ts);
+        $this->ts = abs((int) My::settings()?->get('ts_' . $this->id));
     }
 
     /**

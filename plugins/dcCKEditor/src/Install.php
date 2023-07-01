@@ -28,7 +28,19 @@ class Install extends Process
             return false;
         }
 
-        $s = dcCore::app()->blog->settings->get('dcckeditor');
+        // Rename settings namespace
+        if (version_compare(dcCore::app()->getVersion(My::id()), '2.0', '<=')
+            && dcCore::app()->blog?->settings->exists('dcckeditor')
+        ) {
+            dcCore::app()->blog?->settings->delNamespace(My::id());
+            dcCore::app()->blog?->settings->renNamespace('dcckeditor', My::id());
+        }
+
+        $s = My::settings();
+
+        if (($s = My::settings()) === null) {
+            return false;
+        }
         $s->put('active', true, 'boolean', 'dcCKEditor plugin activated?', false, true);
         $s->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);
         $s->put('list_buttons', true, 'boolean', 'Add list buttons?', false, true);
