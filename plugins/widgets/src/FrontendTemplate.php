@@ -54,7 +54,7 @@ class FrontendTemplate
     public static function widgetsHandler(string $type, string $disable = '')
     {
         $wtype   = 'widgets_' . $type;
-        $widgets = My::settings()?->get($wtype);
+        $widgets = My::settings()->get($wtype);
 
         if (!$widgets) {
             // If widgets value is empty, get defaults
@@ -124,7 +124,7 @@ class FrontendTemplate
     public static function ifWidgetsHandler(string $type): bool
     {
         $wtype   = 'widgets_' . $type;
-        $widgets = My::settings()?->get($wtype);
+        $widgets = My::settings()->get($wtype);
 
         if (!$widgets) {
             // If widgets value is empty, get defaults

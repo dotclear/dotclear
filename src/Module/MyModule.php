@@ -201,7 +201,7 @@ abstract class MyModule
      */
     final public static function settings(): ?dcNamespace
     {
-        return dcCore::app()->blog?->settings->get(static::id());
+        return dcCore::app()->blog->settings->get(static::id());
     }
 
     /**
@@ -211,7 +211,7 @@ abstract class MyModule
      */
     final public static function prefs(): ?dcWorkspace
     {
-        return dcCore::app()->auth?->user_prefs?->get(static::id());
+        return dcCore::app()->auth->user_prefs->get(static::id());
     }
 
     /**

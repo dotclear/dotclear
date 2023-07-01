@@ -38,15 +38,15 @@ class Manage extends Process
 
         // Loading navigation, extra widgets and custom widgets
         dcCore::app()->admin->widgets_nav = null;
-        if (My::settings()?->widgets_nav) {
+        if (My::settings()->widgets_nav) {
             dcCore::app()->admin->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
         dcCore::app()->admin->widgets_extra = null;
-        if (My::settings()?->widgets_extra) {
+        if (My::settings()->widgets_extra) {
             dcCore::app()->admin->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
         dcCore::app()->admin->widgets_custom = null;
-        if (My::settings()?->widgets_custom) {
+        if (My::settings()->widgets_custom) {
             dcCore::app()->admin->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 
@@ -106,9 +106,9 @@ class Manage extends Process
                 }
 
                 try {
-                    My::settings()?->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
-                    My::settings()?->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
-                    My::settings()?->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
+                    My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
+                    My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
+                    My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                     dcCore::app()->blog->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
@@ -190,9 +190,9 @@ class Manage extends Process
                 dcCore::app()->admin->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
                 dcCore::app()->admin->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
-                My::settings()?->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
-                My::settings()?->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
-                My::settings()?->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
+                My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
+                My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
+                My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                 dcCore::app()->blog->triggerBlog();
 
                 Page::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
@@ -202,9 +202,9 @@ class Manage extends Process
             }
         } elseif (!empty($_POST['wreset'])) {
             try {
-                My::settings()?->put('widgets_nav', '');
-                My::settings()?->put('widgets_extra', '');
-                My::settings()?->put('widgets_custom', '');
+                My::settings()->put('widgets_nav', '');
+                My::settings()->put('widgets_extra', '');
+                My::settings()->put('widgets_custom', '');
                 dcCore::app()->blog->triggerBlog();
 
                 Page::addSuccessNotice(__('Sidebars have been resetting.'));

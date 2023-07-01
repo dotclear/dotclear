@@ -165,9 +165,9 @@ class SpamFilters
     public function saveFilterOpts(array $opts, bool $global = false): void
     {
         if ($global) {
-            My::settings()?->drop('antispam_filters');
+            My::settings()->drop('antispam_filters');
         }
-        My::settings()?->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
+        My::settings()->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
     }
 
     /**
@@ -175,7 +175,7 @@ class SpamFilters
      */
     private function setFilterOpts(): void
     {
-        if (My::settings()?->antispam_filters !== null) {
+        if (My::settings()->antispam_filters !== null) {
             $this->filters_opt = My::settings()->antispam_filters;
         }
 

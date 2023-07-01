@@ -49,7 +49,7 @@ class FrontendTemplate
         $ret = '';
 
         # Check if breadcrumb enabled for the current blog
-        if (!My::settings()?->breadcrumb_enabled) {
+        if (!My::settings()->breadcrumb_enabled) {
             return $ret;
         }
 
