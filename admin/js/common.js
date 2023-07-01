@@ -153,6 +153,51 @@ $.fn.toggleWithLegend = function (target, s) {
   });
 };
 
+$.fn.toggleWithDetails = function (s) {
+  const target = this;
+  const defaults = {
+    unfolded_sections: dotclear.unfolded_sections,
+    hide: true, // Is section unfolded?
+    fn: false, // A function called on first display,
+    user_pref: false,
+    reverse_user_pref: false, // Reverse user pref behavior
+  };
+  const p = $.extend(defaults, s);
+  if (!target) {
+    return this;
+  }
+  const set_user_pref = p.hide ^ p.reverse_user_pref;
+  if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
+    p.hide = p.reverse_user_pref;
+  }
+  const toggle = () => {
+    if (p.hide) {
+      target.attr('open', false);
+    } else {
+      target.attr('open', true);
+      if (p.fn) {
+        p.fn.apply(target);
+        p.fn = false;
+      }
+    }
+    p.hide = !p.hide;
+  };
+  return this.each(() => {
+    $(target).on('click', (e) => {
+      if (p.user_pref && set_user_pref) {
+        dotclear.jsonServicesPost('setSectionFold', () => {}, {
+          section: p.user_pref,
+          value: p.hide ^ p.reverse_user_pref ? 1 : 0,
+        });
+      }
+      toggle();
+      e.preventDefault();
+      return false;
+    });
+    toggle();
+  });
+};
+
 (() => {
   $.expandContent = (opts) => {
     if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
