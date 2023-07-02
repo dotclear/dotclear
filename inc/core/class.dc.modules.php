@@ -479,6 +479,11 @@ class dcModules
 
         // Context loop
         foreach ($modules as $module) {
+            // Do not load anything if module has missing dependencies
+            if (!empty($module->getMissing())) {
+                continue;
+            }
+
             # Load translation and _prepend
             $ret = true;
 
