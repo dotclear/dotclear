@@ -95,7 +95,7 @@ namespace Dotclear {
 
             try {
                 if (!is_subclass_of($process, Process::class, true)) {
-                    throw new Exception(sprintf('Unable to find class %s', $process));
+                    throw new Exception(sprintf(__('Unable to find class %s'), $process));
                 }
 
                 // Call process in 3 steps: init, process, render.
@@ -129,12 +129,12 @@ namespace Dotclear {
                 if (empty(self::$release)) {
                     $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
                     if (!is_file($file) || !is_readable($file)) {
-                        throw new Exception('Dotclear release file was not found', Fault::SETUP_ISSUE);
+                        throw new Exception(__('Dotclear release file was not found'), Fault::SETUP_ISSUE);
                     }
 
                     $release = json_decode((string) file_get_contents($file), true);
                     if (!is_array($release)) {
-                        throw new Exception('Dotclear release file is not readable', Fault::SETUP_ISSUE);
+                        throw new Exception(__('Dotclear release file is not readable'), Fault::SETUP_ISSUE);
                     }
 
                     self::$release = $release;
@@ -142,13 +142,13 @@ namespace Dotclear {
 
                 // Release key not found
                 if (!array_key_exists($key, self::$release)) {
-                    throw new Exception(sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
+                    throw new Exception(sprintf(__('Dotclear release key %s was not found'), $key), Fault::SETUP_ISSUE);
                 }
 
                 // Return casted release key value
                 return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
             } catch(Exception $e) {
-                Fault::throw('Not found', $e);
+                Fault::throw(__('Not found'), $e);
             }
         }
 
@@ -591,7 +591,7 @@ namespace Dotclear {
         {
             try {
                 if (!is_subclass_of($utility, Process::class, true)) {
-                    throw new Exception(sprintf('Unable to find or initialize class %s', $utility));
+                    throw new Exception(sprintf(__('Unable to find or initialize class %s'), $utility));
                 }
 
                 return $next ? $utility::process() : $utility::init();
