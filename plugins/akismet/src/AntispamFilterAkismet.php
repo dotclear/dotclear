@@ -98,7 +98,7 @@ class AntispamFilterAkismet extends SpamFilter
      */
     private function akInit()
     {
-        if (!My::settings()?->ak_key) {
+        if (!My::settings()->ak_key) {
             return false;
         }
 
@@ -195,14 +195,14 @@ class AntispamFilterAkismet extends SpamFilter
      */
     public function gui($url): string
     {
-        $ak_key      = My::settings()?->ak_key;
+        $ak_key      = My::settings()->ak_key;
         $ak_verified = null;
 
         if (isset($_POST['ak_key'])) {
             try {
                 $ak_key = $_POST['ak_key'];
 
-                My::settings()?->put('ak_key', $ak_key, 'string');
+                My::settings()->put('ak_key', $ak_key, 'string');
 
                 Page::addSuccessNotice(__('Filter configuration have been successfully saved.'));
                 Http::redirect($url);
@@ -211,7 +211,7 @@ class AntispamFilterAkismet extends SpamFilter
             }
         }
 
-        if (My::settings()?->ak_key) {
+        if (My::settings()->ak_key) {
             try {
                 $ak          = new Akismet(dcCore::app()->blog->url, My::settings()->ak_key);
                 $ak_verified = $ak->verify();

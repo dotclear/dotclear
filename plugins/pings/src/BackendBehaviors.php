@@ -32,7 +32,7 @@ class BackendBehaviors
      */
     public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar)
     {
-        if (!My::settings()?->pings_active) {
+        if (!My::settings()->pings_active) {
             return;
         }
 
@@ -67,7 +67,7 @@ class BackendBehaviors
             return;
         }
 
-        if (!My::settings()?->pings_active) {
+        if (!My::settings()->pings_active) {
             return;
         }
 

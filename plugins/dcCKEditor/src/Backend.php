@@ -33,7 +33,7 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        if (My::settings()?->active) {
+        if (My::settings()->active) {
             dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
             dcCore::app()->addFormaterName('xhtml', __('HTML'));
 

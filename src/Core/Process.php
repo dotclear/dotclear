@@ -46,12 +46,16 @@ abstract class Process
     /**
      * Initilise class.
      *
+     * This method SHOULD set self::status().
+     *
      * @return bool  true if class can be used
      */
     abstract public static function init(): bool;
 
     /**
      * Performs action and/or prepares render.
+     *
+     * This method SHOULD check self::status().
      *
      * It must return:
      * - true to enable render
@@ -66,6 +70,8 @@ abstract class Process
 
     /**
      * Render process.
+     *
+     * This method SHOULD check self::status().
      *
      * This method is used to render something.
      * (echo something to std ouput, etc...)

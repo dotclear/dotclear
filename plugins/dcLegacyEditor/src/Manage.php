@@ -21,7 +21,7 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        dcCore::app()->admin->editor_std_active = self::status(My::checkContext(My::MANAGE)) && My::settings()?->active;
+        dcCore::app()->admin->editor_std_active = self::status(My::checkContext(My::MANAGE)) && My::settings()->active;
 
         return self::status();
     }
@@ -35,7 +35,7 @@ class Manage extends Process
         if (!empty($_POST['saveconfig'])) {
             try {
                 dcCore::app()->admin->editor_std_active = (empty($_POST['dclegacyeditor_active'])) ? false : true;
-                My::settings()?->put('active', dcCore::app()->admin->editor_std_active, 'boolean');
+                My::settings()->put('active', dcCore::app()->admin->editor_std_active, 'boolean');
 
                 Page::addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();

@@ -164,7 +164,7 @@ class MaintenanceTask
             $this->success = __('Task successfully executed.');
         }
 
-        $this->ts = abs((int) My::settings()?->get('ts_' . $this->id));
+        $this->ts = abs((int) My::settings()->get('ts_' . $this->id));
     }
 
     /**

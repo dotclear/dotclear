@@ -43,7 +43,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function addBackendMenuItem(string $menu = Utility::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->adminurl) || !(dcCore::app()->menu[$menu] instanceof Menu)) {
+        if (!defined('DC_CONTEXT_ADMIN') || !(dcCore::app()->menu[$menu] instanceof Menu)) {
             return;
         }
 
