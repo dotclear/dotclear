@@ -17,6 +17,8 @@ use dcModules;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Network\Http;
+use Exception;
 
 class Plugin extends Process
 {
@@ -46,7 +48,12 @@ class Plugin extends Process
 
         $res = '';
         if (!empty($plugin)) {
-            dcCore::app()->admin->setPageURL(dcCore::app()->adminurl->get('admin.plugin.' . $plugin));
+            try {
+                dcCore::app()->admin->setPageURL(dcCore::app()->adminurl->get('admin.plugin.' . $plugin));
+            } catch (Exception $e) {
+                // Unknown URL handler for plugin, back to dashboard
+                Http::redirect(DC_ADMIN_URL);
+            }
 
             // by class name
             $class = dcCore::app()->plugins->loadNsClass($plugin, dcModules::MODULE_CLASS_MANAGE);
