@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
+use Exception;
+
 /**
  * Dotclear runtime error handler.
  *
@@ -131,5 +133,22 @@ class Fault
     public static function render(string $summary, string $message, int $code): void
     {
         new self($summary, $message, $code);
+    }
+
+    /**
+     * Output error using Exception instance.
+     *
+     * This takes care of DC_DEBUG mode to show Exceptions stack.
+     *
+     * @return never
+     */
+    public static function throw(string $summary, Exception $e)
+    {
+        if (defined('DC_DEBUG') && DC_DEBUG === true) {
+            throw $e;
+        } else {
+            new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
+            exit;
+        }
     }
 }

@@ -35,9 +35,6 @@ namespace Dotclear {
         /** @var    bool    Requirements loaded */
         private static bool $initialized = false;
 
-        /** @var    bool    Prerequiesites loaded */
-        private static bool $preloaded = false;
-
         /**
          * App boostrap.
          *
@@ -60,7 +57,6 @@ namespace Dotclear {
             if (self::$initialized) {
                 exit('Application already in use.');
             }
-            self::$initialized = true;
 
             // Load app prerequisites
             self::preload();
@@ -92,33 +88,22 @@ namespace Dotclear {
          */
         public static function process(string $process): void
         {
-            // App::bootstrap() not done
+            // App::preload() not done
             if (!self::$initialized) {
                 exit('No application running.');
             }
 
-            // Call process in 3 steps: init, process, render.
-            if (is_subclass_of($process, Process::class, true)) {
-                try {
-                    if ($process::init() !== false && $process::process() !== false) {
-                        $process::render();
-                    }
-                } catch (Exception $e) {
-                    if (defined('DC_DEBUG') && DC_DEBUG === true) {
-                        throw $e;
-                    }
-                    new Fault(
-                        __('Process failed'),
-                        $e->getMessage(),
-                        $e->getCode() ?: Fault::UNDEFINED_ISSUE
-                    );
+            try {
+                if (!is_subclass_of($process, Process::class, true)) {
+                    throw new Exception(sprintf('Unable to find class %s', $process));
                 }
-            } else {
-                new Fault(
-                    __('No process found'),
-                    sprintf('Unable to find class %s', $process),
-                    Fault::UNDEFINED_ISSUE
-                );
+
+                // Call process in 3 steps: init, process, render.
+                if ($process::init() !== false && $process::process() !== false) {
+                    $process::render();
+                }
+            } catch (Exception $e) {
+                Fault::throw(__('Process failed'), $e);
             }
         }
 
@@ -134,28 +119,37 @@ namespace Dotclear {
          */
         public static function release(string $key): string
         {
-            // Load once release file
-            if (empty(self::$release)) {
-                $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
-                if (!is_file($file) || !is_readable($file)) {
-                    new Fault('Not found', 'Dotclear release file was not found', Fault::SETUP_ISSUE);
-                }
+            // App::preload() not done
+            if (!self::$initialized) {
+                exit('No application running.');
+            }
 
-                $release = json_decode((string) file_get_contents($file), true);
-                if (!is_array($release)) {
-                    new Fault('Not found', 'Dotclear release file is not readable', Fault::SETUP_ISSUE);
-                } else {
+            try {
+                // Load once release file
+                if (empty(self::$release)) {
+                    $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+                    if (!is_file($file) || !is_readable($file)) {
+                        throw new Exception('Dotclear release file was not found', Fault::SETUP_ISSUE);
+                    }
+
+                    $release = json_decode((string) file_get_contents($file), true);
+                    if (!is_array($release)) {
+                        throw new Exception('Dotclear release file is not readable', Fault::SETUP_ISSUE);
+                    }
+
                     self::$release = $release;
                 }
-            }
 
-            // Release key not found
-            if (!array_key_exists($key, self::$release)) {
-                new Fault('Not found', sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
-            }
+                // Release key not found
+                if (!array_key_exists($key, self::$release)) {
+                    throw new Exception(sprintf('Dotclear release key %s was not found', $key), Fault::SETUP_ISSUE);
+                }
 
-            // Return casted release key value
-            return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
+                // Return casted release key value
+                return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
+            } catch(Exception $e) {
+                Fault::throw('Not found', $e);
+            }
         }
 
         /**
@@ -166,7 +160,7 @@ namespace Dotclear {
         private static function preload(): void
         {
             // Load once
-            if (self::$preloaded) {
+            if (self::$initialized) {
                 return;
             }
 
@@ -241,12 +235,12 @@ namespace Dotclear {
             // We set default timezone to avoid warning
             Date::setTZ('UTC');
 
+            self::$initialized = true;
+
             // DC constants
             define('DC_VERSION', self::release('release_version'));
             define('DC_NAME', self::release('release_name'));
             define('DC_ROOT', dirname(__DIR__));
-
-            self::$preloaded = true;
         }
 
         /**
@@ -595,28 +589,15 @@ namespace Dotclear {
          */
         private static function utility(string $utility, bool $next = false): bool
         {
-            // Call utility init method, if exists, then process method if exist.
-            if (is_subclass_of($utility, Process::class, true)) {
-                try {
-                    return $next ? $utility::process() : $utility::init();
-                } catch(Exception $e) {
-                    if (defined('DC_DEBUG') && DC_DEBUG === true) {
-                        throw $e;
-                    }
-                    new Fault(
-                        sprintf('Unabled to process utility class "%s"', $utility),
-                        $e->getMessage(),
-                        Fault::UNDEFINED_ISSUE
-                    );
+            try {
+                if (!is_subclass_of($utility, Process::class, true)) {
+                    throw new Exception(sprintf('Unable to find or initialize class %s', $utility));
                 }
-            }
-            new Fault(
-                'No process found',
-                sprintf('Unable to find or initialize class %s', $utility),
-                Fault::UNDEFINED_ISSUE
-            );
 
-            return false;
+                return $next ? $utility::process() : $utility::init();
+            } catch(Exception $e) {
+                Fault::throw(__('Process failed'), $e);
+            }
         }
 
         /**
