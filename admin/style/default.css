@@ -4608,6 +4608,10 @@ div.template-upload {
   padding-right: 1em;
 }
 
+#user_options_columns label {
+  margin-left: 1em;
+}
+
 .blog-perm {
   margin-top: 2em;
   padding-top: 2em;

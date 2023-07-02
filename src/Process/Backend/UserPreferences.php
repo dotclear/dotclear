@@ -677,8 +677,8 @@ class UserPreferences extends Process
 
         '</div>' .
 
-        '<div class="fieldset">' .
-        '<h4 id="user_options_columns">' . __('Optional columns displayed in lists') . '</h4>';
+        '<fieldset id="user_options_columns">' .
+        '<legend>' . __('Optional columns displayed in lists') . '</legend>';
         $odd = true;
         foreach (dcCore::app()->admin->cols as $col_type => $col_list) {
             echo
@@ -686,7 +686,7 @@ class UserPreferences extends Process
             '<h5>' . $col_list[0] . '</h5>';
             foreach ($col_list[1] as $col_name => $col_data) {
                 echo
-                '<p><label for="cols_' . $col_type . '-' . $col_name . '" class="classic">' .
+                '<label>' .
                 form::checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_name, $col_data[0]) . $col_data[1] . '</label>';
             }
             echo
@@ -694,7 +694,7 @@ class UserPreferences extends Process
             $odd = !$odd;
         }
         echo
-        '</div>' .
+        '</fieldset>' .
 
         '<div class="fieldset">' .
         '<h4 id="user_options_lists">' . __('Options for lists') . '</h4>' .
