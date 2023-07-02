@@ -1278,7 +1278,20 @@ class dcModules
             }
         }
 
-        return $catch ? $this->requireSilently($________) : require $________;
+        // Do not call self::requireSilently() as we need globals
+        if ($catch) {
+            $ret = null;
+
+            if (file_exists($________)) {
+                ob_start();
+                $ret = require $________;
+                ob_end_clean();
+            }
+
+            return $ret;
+        }
+
+        return require $________;
     }
 
     /**
