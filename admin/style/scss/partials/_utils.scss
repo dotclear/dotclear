@@ -41,8 +41,8 @@ div.ui-sortable-handle {
   background-color: var(--badge-std-background);
   border: 1px solid var(--badge-border);
   vertical-align: top;
-  border-radius: 1em;
-  padding: 0 0.6em;
+  border-radius: 0.25em;
+  padding: 0.1em 0.6em 0;
 }
 
 .badge-icon {
