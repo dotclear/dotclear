@@ -146,9 +146,8 @@ class Fault
     {
         if (defined('DC_DEBUG') && DC_DEBUG === true) {
             throw $e;
-        } else {
-            new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
-            exit;
         }
+        new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
+        exit;
     }
 }
