@@ -38,7 +38,7 @@ class BlogTheme extends Process
 
         // Loading themes
         dcCore::app()->themes = new dcThemes();
-        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
 
         // Page helper
         dcCore::app()->admin->list = new ThemesList(
