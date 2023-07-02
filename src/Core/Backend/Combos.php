@@ -276,9 +276,20 @@ class Combos
             __('Entry date')  => 'post_dt',
             __('Author')      => 'comment_author',
             __('Status')      => 'comment_status',
-            __('IP')          => 'comment_ip',
             __('Spam filter') => 'comment_spam_filter',
         ];
+
+        // IP are available only for super-admin and admin
+        $show_ip = dcCore::app()->auth->check(
+            dcCore::app()->auth->makePermissions([
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            ]),
+            dcCore::app()->blog->id
+        );
+        if ($show_ip) {
+            $sortby_combo[__('IP')] = 'comment_ip';
+        }
+
         # --BEHAVIOR-- adminCommentsSortbyCombo -- array<int,array<string,string>>
         dcCore::app()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 

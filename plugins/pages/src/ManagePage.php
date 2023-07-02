@@ -893,11 +893,24 @@ class ManagePage extends Process
      */
     protected static function showComments($rs, bool $has_action): void
     {
+        // IP are available only for super-admin and admin
+        $show_ip = dcCore::app()->auth->check(
+            dcCore::app()->auth->makePermissions([
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            ]),
+            dcCore::app()->blog->id
+        );
+
         echo
         '<table class="comments-list"><tr>' .
         '<th colspan="2" class="nowrap first">' . __('Author') . '</th>' .
-        '<th>' . __('Date') . '</th>' .
-        '<th class="nowrap">' . __('IP address') . '</th>' .
+        '<th>' . __('Date') . '</th>';
+
+        if ($show_ip) {
+            echo '<th class="nowrap">' . __('IP address') . '</th>';
+        }
+
+        echo
         '<th>' . __('Status') . '</th>' .
         '<th>' . __('Edit') . '</th>' .
         '</tr>';
@@ -948,8 +961,16 @@ class ManagePage extends Process
                 '') .
             '</td>' .
             '<td class="maximal">' . $rs->comment_author . '</td>' .
-            '<td class="nowrap">' . Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
-            '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' .
+            '<td class="nowrap">' . Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>';
+
+            if ($show_ip) {
+                echo
+                '<td class="nowrap">' .
+                '<a href="' . dcCore::app()->adminurl->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a>' .
+                '</td>';
+            }
+
+            echo
             '<td class="nowrap status">' . $img_status . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '">' .
             '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .

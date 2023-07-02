@@ -235,8 +235,16 @@ class Search extends Process
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('one comment found', '%d comments found', self::$count) . '</h3>', self::$count);
+            printf('<h3>' . __('one comment found', '%d comments found', (int) self::$count) . '</h3>', self::$count);
         }
+
+        // IP are available only for super-admin and admin
+        $show_ip = dcCore::app()->auth->check(
+            dcCore::app()->auth->makePermissions([
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            ]),
+            dcCore::app()->blog->id
+        );
 
         self::$list->display(
             $args['page'],
@@ -254,7 +262,10 @@ class Search extends Process
             dcCore::app()->formNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
-            '</form>'
+            '</form>',
+            false,
+            false,
+            $show_ip
         );
     }
 }
