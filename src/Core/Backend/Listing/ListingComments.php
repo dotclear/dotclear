@@ -136,7 +136,7 @@ class ListingComments extends Listing
             echo $blocks[0];
 
             while ($this->rs->fetch()) {
-                echo $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters);
+                echo $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
             }
 
             echo $blocks[1];

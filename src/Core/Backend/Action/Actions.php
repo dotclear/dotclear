@@ -230,7 +230,7 @@ abstract class Actions
     {
         $ret = '';
         foreach ($this->redir_args as $name => $value) {
-            $ret .= (new Hidden([$name], $value))->render();
+            $ret .= (new Hidden([$name], (string) $value))->render();
         }
         if ($with_ids) {
             $ret .= $this->getIDsHidden();

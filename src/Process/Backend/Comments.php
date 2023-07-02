@@ -105,6 +105,14 @@ class Comments extends Process
 
     public static function render(): void
     {
+        // IP are available only for super-admin and admin
+        $show_ip = dcCore::app()->auth->check(
+            dcCore::app()->auth->makePermissions([
+                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            ]),
+            dcCore::app()->blog->id
+        );
+
         Page::open(
             __('Comments and trackbacks'),
             Page::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(dcCore::app()->adminurl->get('admin.comments')),
@@ -182,9 +190,7 @@ class Comments extends Process
                 '</form>',
                 dcCore::app()->admin->comment_filter->show(),
                 (dcCore::app()->admin->comment_filter->show() || (dcCore::app()->admin->comment_filter->status == -2)),
-                dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-                ]), dcCore::app()->blog->id)
+                $show_ip
             );
         }
 
