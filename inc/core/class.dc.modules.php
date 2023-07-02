@@ -504,12 +504,15 @@ class dcModules
             }
             unset($ret);
 
-            $this->loadModuleL10N($module->getId(), $lang, 'main');
-
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
                 dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin'), ['p' => $module->getId()]);
             }
+        }
+
+        // Load main translation of all modules (new loop as it may required Proxy plugin)
+        foreach($this->getDefines() as $module) {
+            $this->loadModuleL10N($module->getId(), $lang, 'main');
         }
 
         // Load module context
@@ -981,7 +984,7 @@ class dcModules
      */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
-        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $module = $this->getDefine($id);//, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
