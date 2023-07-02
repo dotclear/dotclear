@@ -26,7 +26,7 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        return self::status(true);
+        return self::status(My::checkContext(My::MANAGE));
     }
 
     /**

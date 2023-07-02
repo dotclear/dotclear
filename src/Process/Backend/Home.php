@@ -55,6 +55,9 @@ class Home extends Process
 
     public static function process(): bool
     {
+        /**
+         * @deprecated since 2.27 Use dcCore::app()->adminurl->redirect('admin.logout');
+         */
         if (!empty($_GET['logout'])) {
             // Enable REST service if disabled, for next requests
             if (!dcCore::app()->serveRestRequests()) {

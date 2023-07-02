@@ -459,7 +459,7 @@ class dcModules
                     $this->disabled_mode = true;
                 }
 
-                $this->requireSilently($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+                $this->loadModuleFile($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 if (!$module_enabled) {
                     $this->disabled_mode = false;
@@ -493,7 +493,7 @@ class dcModules
                 $ret = $class::init() ? $class::process() : false;
                 // by file name
             } elseif (file_exists($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
-                $ret = $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND);
+                $ret = $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND, true);
             }
 
             if ($ret !== true) {
@@ -504,12 +504,15 @@ class dcModules
             }
             unset($ret);
 
-            $this->loadModuleL10N($module->getId(), $lang, 'main');
-
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
                 dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin'), ['p' => $module->getId()]);
             }
+        }
+
+        // Load main translation of all modules (new loop as it may required Proxy plugin)
+        foreach($this->getDefines() as $module) {
+            $this->loadModuleL10N($module->getId(), $lang, 'main');
         }
 
         // Load module context
@@ -538,7 +541,7 @@ class dcModules
         $this->id = $id;
         if (file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
             $this->loadModuleInit($id, $dir);
-            $this->requireSilently($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+            $this->loadModuleFile($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
         }
         $this->id = null;
     }
@@ -868,7 +871,7 @@ class dcModules
             $install = !empty($this->loadNsClass($id, self::MODULE_CLASS_INSTALL));
             // by file name
             if (!$install) {
-                $install = $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL);
+                $install = $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL, true);
             }
 
             if ($install === true || $install === null) {
@@ -981,7 +984,7 @@ class dcModules
      */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
-        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $module = $this->getDefine($id);//, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
@@ -1001,7 +1004,7 @@ class dcModules
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             if ($file = L10n::getFilePath($module->root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
-                $this->loadModuleFile($file);
+                $this->loadModuleFile($file, true);
             }
         }
     }
@@ -1186,7 +1189,7 @@ class dcModules
         // by class name
         if ($this->loadNsClass($id, $class) === '') {
             // by file name
-            $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . $file);
+            $this->loadModuleFile($module->root . DIRECTORY_SEPARATOR . $file, true);
         }
     }
 
@@ -1249,7 +1252,7 @@ class dcModules
     {
         if (!in_array($id, self::$modules_init) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
             self::$modules_init[] = $id;
-            $this->requireSilently($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
+            $this->loadModuleFile($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
         }
     }
 
@@ -1257,43 +1260,42 @@ class dcModules
      * Loads a module file.
      *
      * @param      string  $________  Module filename
+     * @param      bool    $globals   Should include globals variables
      * @param      bool    $catch     Should catch output to prevent hacked/corrupted modules
      *
      * @return     mixed
      */
-    protected function loadModuleFile(string $________, bool $catch = true)
+    protected function loadModuleFile(string $________, bool $globals = false, bool $catch = true)
     {
         if (!file_exists($________)) {
             return;
         }
 
-        self::$_k = array_keys($GLOBALS);
+        // Add globals
+        if ($globals) {
+            self::$_k = array_keys($GLOBALS);
 
-        foreach (self::$_k as self::$_n) {
-            if (!in_array(self::$_n, self::$superglobals)) {
-                global ${self::$_n};
+            foreach (self::$_k as self::$_n) {
+                if (!in_array(self::$_n, self::$superglobals)) {
+                    global ${self::$_n};
+                }
             }
         }
 
-        return $catch ? $this->requireSilently($________) : require $________;
-    }
+        // Require file catching output
+        if ($catch) {
+            $ret = null;
 
-    /**
-     * Require a php file without output.
-     *
-     * @param   string  $________   The file to require
-     *
-     * @return  mixed   The file return.
-     */
-    protected function requireSilently(string $________)
-    {
-        $ret = null;
-        if (file_exists($________)) {
-            ob_start();
-            $ret = require $________;
-            ob_end_clean();
+            if (file_exists($________)) {
+                ob_start();
+                $ret = require $________;
+                ob_end_clean();
+            }
+
+            return $ret;
         }
 
-        return $ret;
+        // Or just require file
+        return require $________;
     }
 }
