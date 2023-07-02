@@ -1355,7 +1355,7 @@ h1,
   margin-left: 2%;
   float: left;
 }
-.two-cols .col:first-child {
+.two-cols .col:first-of-type {
   margin-left: 0;
   margin-right: 2%;
 }

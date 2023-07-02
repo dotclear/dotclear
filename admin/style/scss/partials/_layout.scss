@@ -152,7 +152,7 @@ h1,
     margin-left: 2%;
     float: left;
 
-    &:first-child {
+    &:first-of-type {
       margin-left: 0;
       margin-right: 2%;
     }
