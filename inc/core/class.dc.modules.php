@@ -461,9 +461,6 @@ class dcModules
 
                 $this->requireSilently($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
-                // Load module main translation file
-                $this->loadModuleL10N($this->id, $lang, 'main');
-
                 if (!$module_enabled) {
                     $this->disabled_mode = false;
                     $this->define->state = $module_disabled ? dcModuleDefine::STATE_HARD_DISABLED : dcModuleDefine::STATE_SOFT_DISABLED;
@@ -506,6 +503,8 @@ class dcModules
                 continue;
             }
             unset($ret);
+
+            $this->loadModuleL10N($module->getId(), $lang, 'main');
 
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
@@ -982,7 +981,7 @@ class dcModules
      */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
-        $module = $this->getDefine($id);
+        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
