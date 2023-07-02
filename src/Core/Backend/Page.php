@@ -1303,7 +1303,7 @@ class Page
     public static function getCodeMirrorThemes(): array
     {
         $themes      = [];
-        $themes_root = __DIR__ . '/../../admin' . '/js/codemirror/theme/';
+        $themes_root = implode(DIRECTORY_SEPARATOR, [__DIR__,  '..', '..', '..', 'admin', 'js','codemirror','theme']);
         if (is_dir($themes_root) && is_readable($themes_root)) {
             if (($d = @dir($themes_root)) !== false) {
                 while (($entry = $d->read()) !== false) {
