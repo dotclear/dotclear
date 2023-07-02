@@ -100,6 +100,20 @@ class Utility extends Process
                 new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
             }
 
+            # Fake process to logout (kill session) and return to auth page.
+            dcCore::app()->adminurl->register('admin.logout', 'Logout');
+            if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout') {
+                // Enable REST service if disabled, for next requests
+                if (!dcCore::app()->serveRestRequests()) {
+                    dcCore::app()->enableRestServer(true);
+                }
+                // Kill admin session
+                dcCore::app()->killAdminSession();
+                // Logout
+                dcCore::app()->adminurl->redirect('admin.auth');
+                exit;
+            }
+
             # Check nonce from POST requests
             if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check']))) {
                 new Fault('Precondition Failed', __('Precondition Failed'), 412);

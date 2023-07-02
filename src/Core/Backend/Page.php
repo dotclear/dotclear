@@ -282,7 +282,7 @@ class Page
         '<ul id="top-info-user">' .
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . dcCore::app()->adminurl->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . dcCore::app()->adminurl->get('admin.home', ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
+        '<li><a href="' . dcCore::app()->adminurl->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
