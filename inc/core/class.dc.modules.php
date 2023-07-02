@@ -461,6 +461,9 @@ class dcModules
 
                 $this->requireSilently($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
+                // Load module main translation file
+                $this->loadModuleL10N($this->id, $lang, 'main');
+
                 if (!$module_enabled) {
                     $this->disabled_mode = false;
                     $this->define->state = $module_disabled ? dcModuleDefine::STATE_HARD_DISABLED : dcModuleDefine::STATE_SOFT_DISABLED;
@@ -479,7 +482,12 @@ class dcModules
 
         // Context loop
         foreach ($modules as $module) {
-            # Load translation and _prepend
+            // Do not load anything if module has missing dependencies
+            if (!empty($module->getMissing())) {
+                continue;
+            }
+
+            // Process _prepend
             $ret = true;
 
             // by class name
@@ -499,7 +507,6 @@ class dcModules
             }
             unset($ret);
 
-            $this->loadModuleL10N($module->getId(), $lang, 'main');
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
                 dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin'), ['p' => $module->getId()]);
@@ -975,7 +982,7 @@ class dcModules
      */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
-        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $module = $this->getDefine($id);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
@@ -1153,7 +1160,7 @@ class dcModules
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
-        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
+        if (!empty($module->getMissing()) || !$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
             return;
         }
 
