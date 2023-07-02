@@ -5104,6 +5104,7 @@ div.ui-sortable-handle {
 
 /* Badge design */
 .badge {
+  font-size: smaller;
   color: var(--badge-color);
   background-color: var(--badge-std-background);
   border: 1px solid var(--badge-border);
@@ -5139,7 +5140,7 @@ div.ui-sortable-handle {
 
 .badge-icon {
   /* Dashboard icon → badge on top right */
-  right: 1.8em;
+  right: 2.4em;
 }
 
 .badge-inline {
