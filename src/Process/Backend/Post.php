@@ -1123,28 +1123,34 @@ class Post extends Process
 
             echo
             '<tr class="line ' . ($rs->comment_status != dcBlog::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '"' .
-            ' id="c' . $rs->comment_id . '">' .
+            ' id="c' . $rs->comment_id . '">';
 
-            '<td class="nowrap">' .
-            ($has_action ?
-                form::checkbox(
+            echo
+            '<td class="nowrap">';
+            if ($has_action) {
+                echo form::checkbox(
                     ['comments[]'],
                     $rs->comment_id,
                     [
                         'checked'    => isset($comments[$rs->comment_id]),
-                        'extra_html' => 'title="' . ($tb ? __('select this trackback') : __('select this comment') . '"'),
+                        'extra_html' => 'title="' . ($tb ? __('select this trackback') : __('select this comment')) . '"',
                     ]
-                ) :
-                '') . '</td>' .
+                );
+            }
+            echo
+            '</td>' .
             '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
             '<td class="nowrap">' .
                 '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
                 '</time>' .
-            '</td>' .
-            ($show_ip ?
-                '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' :
-                '') .
+            '</td>';
+
+            if ($show_ip) {
+                echo
+                '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
+            }
+            echo
             '<td class="nowrap status">' . $img_status . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '">' .
             '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .
