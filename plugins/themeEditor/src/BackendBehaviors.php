@@ -72,8 +72,8 @@ class BackendBehaviors
         }
 
         echo
-        '<div class="fieldset two-cols clearfix">' .
-        '<h5 id="themeEditor_prefs">' . __('Syntax highlighting') . '</h5>';
+        '<fieldset id="themeEditor_prefs" class="two-cols">' .
+        '<legend>' . __('Syntax highlighting') . '</legend>';
         echo
         '<div class="col">' .
         '<p><label for="colorsyntax" class="classic">' .
@@ -117,6 +117,6 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
         Page::jsJson('theme_editor_current', ['theme' => $current_theme]) .
         My::jsLoad('theme.js');
         echo '</div>';
-        echo '</div>';
+        echo '</fieldset>';
     }
 }
