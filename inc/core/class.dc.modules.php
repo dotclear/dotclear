@@ -1153,7 +1153,7 @@ class dcModules
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
-        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
+        if (!empty($module->getMissing()) || !$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
             return;
         }
 
