@@ -295,6 +295,19 @@ class ThemesList extends ModulesList
             if (in_array('select', $actions)) {
                 $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
+            if (in_array('try', $actions)) {
+                $preview_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('try', dcCore::app()->auth->userID() . '/' . Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . $id);
+
+                // Prevent browser caching on preview
+                $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
+
+                $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
+
+                $preview_class  = $blank_preview ? '' : ' modal';
+                $preview_target = $blank_preview ? '' : ' target="_blank"';
+
+                $submits[] = '<a href="' . $preview_url . '" class="button theme-preview' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . '</a>';
+            }
         } else {
             // Currently selected theme
             if ($pos = array_search('delete', $actions, true)) {

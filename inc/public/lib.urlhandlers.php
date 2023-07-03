@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\UrlHandler;
@@ -649,6 +650,83 @@ class dcUrlHandlers extends UrlHandler
                     dcCore::app()->ctx->xframeoption = DC_ADMIN_URL;
                 }
                 self::post($post_url);
+            }
+        }
+    }
+
+    /**
+     * Output the Theme preview page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function try(?string $args): void
+    {
+        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
+            // The specified Preview URL is malformed.
+            self::p404();
+        } else {
+            $user_id  = $m[1];
+            $user_key = $m[2];
+            $theme    = $m[3];
+            if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
+                // The user has no access to the theme preview.
+                self::p404();
+            } else {
+                $current = dcCore::app()->blog->settings->system->theme;
+
+                // Switch to theme to try
+                dcCore::app()->blog->settings->system->set('theme', $theme);
+                dcCore::app()->public->theme = $theme;
+
+                // Simulate Utility\Frontend::process() for theme preview
+                // ------------------------------------------------------
+                dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
+                // Loading _public.php file for selected theme
+                dcCore::app()->themes->loadNsFile(dcCore::app()->public->theme, 'public');
+                // Loading translations for selected theme
+                if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme)) {
+                    dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->parent_theme, dcCore::app()->lang, 'main');
+                }
+                dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
+                // --BEHAVIOR-- publicPrepend --
+                dcCore::app()->callBehavior('publicPrependV2');
+                // Prepare the HTTP cache thing
+                dcCore::app()->cache['mod_files'] = get_included_files();
+                $tpl_path                         = [
+                    dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->theme . '/tpl',
+                ];
+                if (dcCore::app()->public->parent_theme) {
+                    $tpl_path[] = dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->parent_theme . '/tpl';
+                }
+                $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+                $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
+                if (!empty($tplset) && is_dir($dir)) {
+                    dcCore::app()->tpl->setPath(
+                        $tpl_path,
+                        $dir,
+                        dcCore::app()->tpl->getPath()
+                    );
+                } else {
+                    dcCore::app()->tpl->setPath(
+                        $tpl_path,
+                        dcCore::app()->tpl->getPath()
+                    );
+                }
+                // ------------------------------------------------------
+
+                // Don't use template cache
+                dcCore::app()->tpl->use_cache = false;
+                // Reset HTTP cache
+                dcCore::app()->cache['mod_ts'][] = [];
+                if (defined('DC_ADMIN_URL')) {
+                    dcCore::app()->ctx->xframeoption = DC_ADMIN_URL;
+                }
+
+                // Then go to blog home page
+                self::home(null);
+
+                // And finally back to current theme
+                dcCore::app()->blog->settings->system->set('theme', $current);
             }
         }
     }
