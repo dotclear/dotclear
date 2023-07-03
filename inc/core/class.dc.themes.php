@@ -210,6 +210,14 @@ class dcThemes extends dcModules
         }
 
         switch ($ns) {
+            case 'admin':
+                // by class name
+                if ($this->loadNsClass($id, self::MODULE_CLASS_ADMIN) === '') {
+                    // by file name
+                    $this->loadModuleFile($define->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_ADMIN, true);
+                }
+                break;
+
             case 'public':
                 $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
                 if ($parent->isDefined()) {
