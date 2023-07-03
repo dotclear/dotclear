@@ -169,7 +169,7 @@ class BlogTheme extends Process
                     (new Para())
                     ->items([
                         (new Hidden('nocache', '1')),
-                        (new Hidden('process', 'BlogTheme')),
+                        (new Hidden(['process'], 'BlogTheme')),
                         (new Submit('force-checking-update', __('Force checking update of themes'))),
                     ]),
                 ])
