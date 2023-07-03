@@ -163,28 +163,19 @@ $.fn.toggleWithDetails = function (s) {
     reverse_user_pref: false, // Reverse user pref behavior
   };
   const p = $.extend(defaults, s);
-  if (!target) {
-    return this;
-  }
-  const set_user_pref = p.hide ^ p.reverse_user_pref;
   if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
     p.hide = p.reverse_user_pref;
   }
   const toggle = () => {
-    if (p.hide) {
-      target.attr('open', false);
-    } else {
-      target.attr('open', true);
-      if (p.fn) {
-        p.fn.apply(target);
-        p.fn = false;
-      }
+    if (!p.hide && p.fn) {
+      p.fn.apply(target);
+      p.fn = false;
     }
     p.hide = !p.hide;
   };
   return this.each(() => {
-    $(target).on('click', (e) => {
-      if (p.user_pref && set_user_pref) {
+    $(target).on('toggle', (e) => {
+      if (p.user_pref) {
         dotclear.jsonServicesPost('setSectionFold', () => {}, {
           section: p.user_pref,
           value: p.hide ^ p.reverse_user_pref ? 1 : 0,
