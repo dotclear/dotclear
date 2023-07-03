@@ -251,7 +251,7 @@ class BlogTheme extends Process
                     // cols
                     ['sshot', 'name', 'distrib', 'desc', 'author', 'version'],
                     // actions
-                    ['activate', 'delete']
+                    ['activate', 'delete', 'try']
                 );
 
             echo
