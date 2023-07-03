@@ -24,6 +24,18 @@ class dcThemes extends dcModules
     protected $type = 'theme';
 
     /**
+     * Load module context.
+     *
+     * @param      array<int,string>    $ignored     The modules to ignore
+     * @param      null|string          $ns         The namespace (context as 'public', 'admin', ...)
+     * @param      null|string          $lang       The language
+     */
+    protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
+    {
+        // nothing to do here for themes
+    }
+
+    /**
      * This method registers a theme in modules list.
      *
      * <var>$parent</var> is a optional value to indicate them inheritance.
@@ -188,32 +200,38 @@ class dcThemes extends dcModules
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $define = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
-        if (!$define->isDefined()) {
+        if (!$define->isDefined() || !in_array($ns, ['admin', 'public'])) {
             return;
         }
 
+        $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
+
         switch ($ns) {
-            case 'public':
-                $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
-                if ($parent->isDefined()) {
-                    // This is not a real cascade - since we don't call loadNsFile -,
-                    // thus limiting inclusion process.
-                    // TODO : See if we have to change this.
-
-                    // by class name
-                    if ($this->loadNsClass($parent->getId(), self::MODULE_CLASS_PUPLIC) === '') {
-                        // by file name
-                        $this->loadModuleFile((string) $parent->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
-                    }
-                }
-
-                // by class name
-                if ($this->loadNsClass($id, self::MODULE_CLASS_PUPLIC) === '') {
-                    // by file name
-                    $this->loadModuleFile((string) $define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
-                }
+            case 'admin':
+                $class = self::MODULE_CLASS_ADMIN;
+                $file  = self::MODULE_FILE_ADMIN;
 
                 break;
+            case 'public':
+                $class = self::MODULE_CLASS_PUPLIC;
+                $file  = self::MODULE_FILE_PUBLIC;
+
+                break;
+            default:
+                return;
+        }
+
+        if ($parent->isDefined()) {
+            // by class name
+            if ($this->loadNsClass($parent->getId(), $class) === '') {
+                // by file name
+                $this->loadModuleFile((string) $parent->root . DIRECTORY_SEPARATOR . $file, true);
+            }
+        }
+        // by class name
+        if ($this->loadNsClass($id, $class) === '') {
+            // by file name
+            $this->loadModuleFile((string) $define->root . DIRECTORY_SEPARATOR . $file, true);
         }
     }
 }

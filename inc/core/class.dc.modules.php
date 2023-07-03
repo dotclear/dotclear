@@ -477,14 +477,15 @@ class dcModules
 
         $modules = $this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]);
 
-        // Context loop
+        // Prepend loop
         foreach ($modules as $module) {
             // Do not load anything if module has missing dependencies
             if (!empty($module->getMissing())) {
+                $ignored[] = $module->getId();
+
                 continue;
             }
 
-            // Process _prepend
             $ret = true;
 
             // by class name
@@ -502,31 +503,42 @@ class dcModules
 
                 continue;
             }
-            unset($ret);
-
-            if ($ns == 'admin') {
-                $this->loadModuleL10Nresources($module->getId(), $lang);
-                dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin'), ['p' => $module->getId()]);
-            }
         }
 
-        // Load main translation of all modules (new loop as it may required Proxy plugin)
+        // Load all modules main translation (new loop as it may required Proxy plugin)
         foreach($this->getDefines() as $module) {
             $this->loadModuleL10N($module->getId(), $lang, 'main');
         }
 
-        // Load module context
+        // Load modules context
         if (!empty($ns)) {
             // Give opportunity to do something before loading context (admin,public,xmlrpc) files
             # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- dcModules, string|null
             dcCore::app()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
-            foreach ($modules as $module) {
-                if (!in_array($module->getId(), $ignored)) {
-                    // Load ns_file
-                    $this->loadNsFile($module->getId(), $ns);
-                }
+            $this->loadModulesContext($ignored, $ns, $lang);
+        }
+    }
+
+    /**
+     * Load modules context.
+     *
+     * @param      array<int,string>    $ignored    The modules to ignore
+     * @param      null|string          $ns         The namespace (context as 'public', 'admin', ...)
+     * @param      null|string          $lang       The language
+     */
+    protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
+    {
+        foreach ($this->getDefines() as $module) {
+            if (in_array($module->getId(), $ignored)) {
+                continue;
             }
+            if ($ns == 'admin') {
+                $this->loadModuleL10Nresources($module->getId(), $lang);
+                dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin'), ['p' => $module->getId()]);
+            }
+            // Load ns_file
+            $this->loadNsFile($module->getId(), $ns);
         }
     }
 

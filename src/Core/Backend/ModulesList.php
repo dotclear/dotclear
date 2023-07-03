@@ -23,6 +23,7 @@ use dcDeprecated;
 use dcModuleDefine;
 use dcModules;
 use dcStore;
+use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -1687,10 +1688,10 @@ class ModulesList
 
         self::fillSanitizeModule($define);
         $class = $define->get('namespace') . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
-        $class = empty($define->get('namespace')) || !class_exists($class) ? '' : $class;
-        $file  = Path::real($define->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+        $class = is_subclass_of($class, Process::class) ? $class : '';
+        $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
 
-        if (empty($class) && !file_exists($file)) {
+        if (empty($class) && empty($file)) {
             dcCore::app()->error->add(__('This plugin has no configuration file.'));
 
             return false;
@@ -1725,15 +1726,17 @@ class ModulesList
      */
     public function includeConfiguration()
     {
-        if (empty($this->config_class) && !$this->config_file) {
+        if (empty($this->config_class) && empty($this->config_file)) {
             return;
         }
         $this->setRedir($this->getURL() . '#plugins');
 
         ob_start();
 
-        if (!empty($this->config_class) && $this->config_class::init() && $this->config_class::process()) {
-            $this->config_class::render();
+        if (!empty($this->config_class)) {
+            if ($this->config_class::init() && $this->config_class::process()) {
+                $this->config_class::render();
+            }
 
             return null;
         }
