@@ -678,8 +678,8 @@ class dcUrlHandlers extends UrlHandler
                 dcCore::app()->blog->settings->system->set('theme', $theme);
                 dcCore::app()->public->theme = $theme;
 
-                // Simulate Frontend process for theme preview
-                // -------------------------------------------
+                // Simulate Utility\Frontend::process() for theme preview
+                // ------------------------------------------------------
                 dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
                 // Loading _public.php file for selected theme
                 dcCore::app()->themes->loadNsFile(dcCore::app()->public->theme, 'public');
@@ -712,6 +712,7 @@ class dcUrlHandlers extends UrlHandler
                         dcCore::app()->tpl->getPath()
                     );
                 }
+                // ------------------------------------------------------
 
                 // Don't use template cache
                 dcCore::app()->tpl->use_cache = false;

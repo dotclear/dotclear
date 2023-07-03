@@ -116,5 +116,50 @@ $(() => {
     });
   });
 
+  // Theme preview
+  $('.theme-preview').each(function () {
+    const button = this;
+    let preview_url = $(button).attr('href');
+    if (preview_url) {
+      const has_modal = $(button).hasClass('modal');
+
+      // Check if admin and blog have same protocol (ie not mixed-content)
+      if (has_modal && window.location.protocol == preview_url.substring(0, window.location.protocol.length)) {
+        // Open preview in a modal iframe
+        $(button).magnificPopup({
+          type: 'iframe',
+          iframe: {
+            patterns: {
+              dotclear_preview: {
+                index: preview_url,
+                src: preview_url,
+              },
+            },
+          },
+        });
+      } else {
+        // If has not modal class, the preview is cope by direct link with target="blank" in HTML
+        if (has_modal) {
+          // Open preview on antother window
+          $(button).on('click', function (e) {
+            e.preventDefault();
+            window.open($(this).attr('href'));
+          });
+        }
+      }
+    }
+  });
+
+  // Prevent history back if currently previewing Theme (with magnificPopup)
+  history.pushState(null, null);
+  window.addEventListener('popstate', () => {
+    if (document.querySelector('.mfp-ready')) {
+      // Prevent history back
+      history.go(1);
+      // Close current preview
+      $.magnificPopup.close();
+    }
+  });
+
   dotclear.dbStoreUpdate('themes', dotclear.getData('module_update_url'));
 });

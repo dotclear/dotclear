@@ -306,7 +306,7 @@ class ThemesList extends ModulesList
                 $preview_class  = $blank_preview ? '' : ' modal';
                 $preview_target = $blank_preview ? '' : ' target="_blank"';
 
-                $submits[] = '<a name="theme-preview" href="' . $preview_url . '" class="button' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . '</a>';
+                $submits[] = '<a href="' . $preview_url . '" class="button theme-preview' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . '</a>';
             }
         } else {
             // Currently selected theme

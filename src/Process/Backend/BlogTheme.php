@@ -141,6 +141,7 @@ class BlogTheme extends Process
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
                 Page::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
             ) .
+            Page::jsModal() .
             Page::jsLoad('js/_blog_theme.js') .
             Page::jsPageTabs() .
 
