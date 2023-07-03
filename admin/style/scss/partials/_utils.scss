@@ -79,6 +79,9 @@ div.ui-sortable-handle {
 }
 
 @media screen and (max-width: $mobile-screen) {
+  .badge-block {
+    right: -5px;
+  }
   .badge-icon {
     top: 5px;
   }

@@ -5148,6 +5148,9 @@ div.ui-sortable-handle {
 }
 
 @media screen and (max-width: 43em) {
+  .badge-block {
+    right: -5px;
+  }
   .badge-icon {
     top: 5px;
   }
