@@ -523,11 +523,11 @@ class dcModules
     /**
      * Load modules context.
      *
-     * @param      array<int,string>    $module     The modules to ignore
+     * @param      array<int,string>    $ignored    The modules to ignore
      * @param      null|string          $ns         The namespace (context as 'public', 'admin', ...)
      * @param      null|string          $lang       The language
      */
-    protected function loadModulesContext(array $modules, string $ns, ?string $lang): void
+    protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
         foreach ($this->getDefines() as $module) {
             if (in_array($module->getId(), $ignored)) {
