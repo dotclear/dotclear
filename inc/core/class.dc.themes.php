@@ -32,12 +32,7 @@ class dcThemes extends dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        foreach ($this->getDefines() as $module) {
-            if (!in_array($module->getId(), $ignored)) {
-                // Load ns_file
-                $this->loadNsFile($module->getId(), $ns);
-            }
-        }
+        // nothing to do here for themes
     }
 
     /**
@@ -205,40 +200,38 @@ class dcThemes extends dcModules
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $define = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
-        if (!$define->isDefined()) {
+        if (!$define->isDefined() || !in_array($ns, ['admin', 'public'])) {
             return;
         }
 
+        $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
+
         switch ($ns) {
             case 'admin':
-                // by class name
-                if ($this->loadNsClass($id, self::MODULE_CLASS_ADMIN) === '') {
-                    // by file name
-                    $this->loadModuleFile($define->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_ADMIN, true);
-                }
-                break;
+                $class = self::MODULE_CLASS_ADMIN;
+                $file  = self::MODULE_FILE_ADMIN;
 
+                break;
             case 'public':
-                $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
-                if ($parent->isDefined()) {
-                    // This is not a real cascade - since we don't call loadNsFile -,
-                    // thus limiting inclusion process.
-                    // TODO : See if we have to change this.
-
-                    // by class name
-                    if ($this->loadNsClass($parent->getId(), self::MODULE_CLASS_PUPLIC) === '') {
-                        // by file name
-                        $this->loadModuleFile((string) $parent->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
-                    }
-                }
-
-                // by class name
-                if ($this->loadNsClass($id, self::MODULE_CLASS_PUPLIC) === '') {
-                    // by file name
-                    $this->loadModuleFile((string) $define->root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PUBLIC);
-                }
+                $class = self::MODULE_CLASS_PUPLIC;
+                $file  = self::MODULE_FILE_PUBLIC;
 
                 break;
+            default:
+                return;
+        }
+
+        if ($parent->isDefined()) {
+            // by class name
+            if ($this->loadNsClass($parent->getId(), $class) === '') {
+                // by file name
+                $this->loadModuleFile((string) $parent->root . DIRECTORY_SEPARATOR . $file, true);
+            }
+        }
+        // by class name
+        if ($this->loadNsClass($id, $class) === '') {
+            // by file name
+            $this->loadModuleFile((string) $define->root . DIRECTORY_SEPARATOR . $file, true);
         }
     }
 }
