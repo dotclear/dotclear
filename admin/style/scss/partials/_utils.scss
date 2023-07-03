@@ -78,6 +78,12 @@ div.ui-sortable-handle {
   right: 2.4em;
 }
 
+@media screen and (max-width: $mobile-screen) {
+  .badge-icon {
+    top: 5px;
+  }
+}
+
 .badge-inline {
   /* Menu item */
   margin-left: 0.5em;
