@@ -24,6 +24,23 @@ class dcThemes extends dcModules
     protected $type = 'theme';
 
     /**
+     * Load module context.
+     *
+     * @param      array<int,string>    $module     The modules to ignore
+     * @param      null|string          $ns         The namespace (context as 'public', 'admin', ...)
+     * @param      null|string          $lang       The language
+     */
+    protected function loadModulesContext(array $modules, string $ns, ?string $lang): void
+    {
+        foreach ($this->getDefines() as $module) {
+            if (!in_array($module->getId(), $ignored)) {
+                // Load ns_file
+                $this->loadNsFile($module->getId(), $ns);
+            }
+        }
+    }
+
+    /**
      * This method registers a theme in modules list.
      *
      * <var>$parent</var> is a optional value to indicate them inheritance.
