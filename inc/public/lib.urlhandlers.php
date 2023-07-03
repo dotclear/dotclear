@@ -654,6 +654,39 @@ class dcUrlHandlers extends UrlHandler
     }
 
     /**
+     * Output the Theme preview page
+     *
+     * @param      null|string  $args   The arguments
+     */
+    public static function try(?string $args): void
+    {
+        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
+            // The specified Preview URL is malformed.
+            self::p404();
+        } else {
+            $user_id  = $m[1];
+            $user_key = $m[2];
+            $theme    = $m[3];
+            if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
+                // The user has no access to the entry.
+                self::p404();
+            } else {
+                // Switch to theme to try
+                dcCore::app()->blog->settings->system->set('theme', $theme);
+                dcCore::app()->public->theme = $theme;
+                // Don't use template cache
+                dcCore::app()->tpl->use_cache = false;
+                // Reset HTTP cache
+                dcCore::app()->cache['mod_ts'][] = [];
+                if (defined('DC_ADMIN_URL')) {
+                    dcCore::app()->ctx->xframeoption = DC_ADMIN_URL;
+                }
+                self::home(null);
+            }
+        }
+    }
+
+    /**
      * Output the Feed page
      *
      * @param      null|string  $args   The arguments
