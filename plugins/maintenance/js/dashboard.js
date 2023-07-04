@@ -13,6 +13,12 @@ dotclear.dcMaintenanceTaskExpired = () => {
           icon: true,
           type: 'info',
         });
+        dotclear.badge($('#maintenance-expired'), {
+          id: 'dcmte',
+          remove: data.nb == 0,
+          value: data.nb,
+          type: 'info',
+        });
         dotclear.dcMaintenanceTaskExpired_Count = data.nb;
       }
     }
