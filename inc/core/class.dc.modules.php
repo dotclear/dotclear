@@ -610,12 +610,6 @@ class dcModules
 
         $this->define->set('distributed', in_array($this->define->getId(), explode(',', $this->define->type == 'theme' ? DC_DISTRIB_THEMES : DC_DISTRIB_PLUGINS)));
 
-        if ($this->disabled_mode) {
-            $this->defines[] = $this->define;
-
-            return;
-        }
-
         // try to extract dc_min for easy reading
         if (empty($this->define->dc_min) && !empty($this->define->requires)) {
             foreach ($this->define->requires as $dep) {
@@ -625,23 +619,25 @@ class dcModules
             }
         }
 
-        // Check module type
-        if ($this->type !== null && $this->define->type !== $this->type) {
-            $this->errors[] = sprintf(
-                __('Module "%s" has type "%s" that mismatch required module type "%s".'),
-                '<strong>' . Html::escapeHTML($this->define->name) . '</strong>',
-                '<em>' . Html::escapeHTML($this->define->type) . '</em>',
-                '<em>' . Html::escapeHTML($this->type) . '</em>'
-            );
+        if (!$this->disabled_mode) {
+            // Check module type
+            if ($this->type !== null && $this->define->type !== $this->type) {
+                $this->errors[] = sprintf(
+                    __('Module "%s" has type "%s" that mismatch required module type "%s".'),
+                    '<strong>' . Html::escapeHTML($this->define->name) . '</strong>',
+                    '<em>' . Html::escapeHTML($this->define->type) . '</em>',
+                    '<em>' . Html::escapeHTML($this->type) . '</em>'
+                );
 
-            return;
-        }
-
-        // Check module perms on admin side
-        $permissions = $this->define->permissions;
-        if ($this->ns === 'admin') {
-            if (($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) || (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id))) {
                 return;
+            }
+
+            // Check module perms on admin side
+            $permissions = $this->define->permissions;
+            if ($this->ns === 'admin') {
+                if (($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) || (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id))) {
+                    return;
+                }
             }
         }
 
@@ -649,10 +645,8 @@ class dcModules
         if ($this->id) {
             $module_exists    = array_key_exists($this->id, $this->modules_ids);
             $module_overwrite = $module_exists ? version_compare($this->modules_ids[$this->id], $this->define->version, '<') : false;
-            if (!$module_exists || $module_overwrite) {
-                $this->modules_ids[$this->id] = $this->define->version;
-                $this->defines[]              = $this->define;
-            } else {
+            // Module exists => claim that
+            if ($module_exists) {
                 $path1 = Path::real($this->moduleInfo($this->id, 'root') ?? '');
                 $path2 = Path::real($this->mroot ?? '');
 
@@ -662,6 +656,19 @@ class dcModules
                     '<em>' . $path1 . '</em>',
                     '<em>' . $path2 . '</em>'
                 );
+            }
+            // Module is more recent than existing one => delete existing one
+            if ($module_overwrite) {
+                foreach($this->defines as $k => $define) {
+                    if ($define->getId() == $this->id) {
+                        unset($this->defines[$k]);
+                    }
+                }
+            }
+            // Module is unique or more recent => add it
+            if (!$module_exists || $module_overwrite) {
+                $this->modules_ids[$this->id] = $this->define->version;
+                $this->defines[]              = $this->define;
             }
         }
     }
@@ -996,6 +1003,10 @@ class dcModules
      */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
+        if ($this->safe_mode) {
+            return;
+        }
+
         $module = $this->getDefine($id);//, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
@@ -1013,6 +1024,10 @@ class dcModules
      */
     public function loadModuleL10Nresources(string $id, ?string $lang): void
     {
+        if ($this->safe_mode) {
+            return;
+        }
+
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             if ($file = L10n::getFilePath($module->root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
