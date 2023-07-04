@@ -1313,11 +1313,9 @@ class dcModules
         if ($catch) {
             $ret = null;
 
-            if (file_exists($________)) {
-                ob_start();
-                $ret = require $________;
-                ob_end_clean();
-            }
+            ob_start();
+            $ret = require $________;
+            ob_end_clean();
 
             return $ret;
         }
