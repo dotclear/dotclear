@@ -506,7 +506,7 @@ class dcModules
         }
 
         // Load all modules main translation (new loop as it may required Proxy plugin)
-        foreach($this->getDefines() as $module) {
+        foreach ($this->getDefines() as $module) {
             $this->loadModuleL10N($module->getId(), $lang, 'main');
         }
 
@@ -659,7 +659,7 @@ class dcModules
             }
             // Module is more recent than existing one => delete existing one
             if ($module_overwrite) {
-                foreach($this->defines as $k => $define) {
+                foreach ($this->defines as $k => $define) {
                     if ($define->getId() == $this->id) {
                         unset($this->defines[$k]);
                     }
