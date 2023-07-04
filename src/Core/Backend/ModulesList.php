@@ -1461,8 +1461,8 @@ class ModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id);
-                if (!$define->isDefined() || $define->get('state') == dcModuleDefine::STATE_HARD_DISABLED) {
+                $define = $this->modules->getDefine($id, ['state' => '!' . dcModuleDefine::STATE_HARD_DISABLED]);
+                if (!$define->isDefined()) {
                     continue;
                 }
 
