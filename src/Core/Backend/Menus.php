@@ -27,7 +27,7 @@ class Menus extends ArrayObject
      * Prepend menu group.
      *
      * @param 	string 	$section 	The menu section
-     * @param 	string 	$menu 		The menu instance
+     * @param 	Menu 	$menu 		The menu instance
      */
     public function prependSection(string $section, Menu $menu): void
     {
@@ -41,14 +41,17 @@ class Menus extends ArrayObject
      */
     public function setDefaultItems(): void
     {
+        // nullsafe and context
+        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->auth) || is_null(dcCore::app()->blog)) {
+            return;
+        }
+
+        // add menu sections
         $this->offsetSet(self::MENU_BLOG, new Menu('blog-menu', __('Blog')));
         $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', __('System settings')));
         $this->offsetSet(self::MENU_PLUGINS, new Menu('plugins-menu', __('Plugins')));
 
-        if (is_null(dcCore::app()->auth) || is_null(dcCore::app()->blog)) {
-            return;
-        }
-
+        // add menu items
         Helper::addMenuItem(
             self::MENU_BLOG,
             __('Blog appearance'),

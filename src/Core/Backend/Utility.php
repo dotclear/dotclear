@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use ArrayObject;
 use dcCore;
 use dcNotices;
 use dcTraitDynamicProperties;
@@ -92,12 +91,11 @@ class Utility extends Process
             dcCore::app()->admin = new self();
         }
 
-        // New adminurl instance
-        // May be moved to property of dcCore::app()->admin in a near future
+        // New admin url instance
         dcCore::app()->admin->url = new Url();
         dcCore::app()->admin->url->register('admin.auth', 'Auth');
 
-        /** @deprecated since 2.27 Use dcCore::app()->admin->url */
+        /* @deprecated since 2.27, use dcCore::app()->admin->url instead */
         dcCore::app()->adminurl = dcCore::app()->admin->url;
 
         if (dcCore::app()->auth->sessionExists()) {
@@ -254,24 +252,21 @@ class Utility extends Process
 
         $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
-        dcCore::app()->notices = new dcNotices();
-        
-        dcCore::app()->admin->favs    = new Favorites();
+        dcCore::app()->notices     = new dcNotices();
+        dcCore::app()->admin->favs = new Favorites();
+        dcCore::app()->admin->menu = new Menus();
 
-        /** @deprecated since 2.27 Use dcCore::app()->admin->favs */
+        /* @deprecated since 2.27, use dcCore::app()->admin->favs instead */
         dcCore::app()->favs = dcCore::app()->admin->favs;
 
-        # Menus creation
-        dcCore::app()->admin->menu = new Menus();
+        /* @deprecated since 2.27, use dcCore::app()->admin->menu instead */
+        dcCore::app()->menu = dcCore::app()->admin->menu;
+
+        /* @deprecated Since 2.23, use dcCore::app()->admin->menu instead */
+        $GLOBALS['_menu'] = dcCore::app()->admin->menu;
 
         // Set default menu
         dcCore::app()->admin->menu->setDefaultItems();
-
-        /** @deprecated since 2.27, use dcCore::app()->admin->menu instead */
-        dcCore::app()->menu = dcCore::app()->admin->menu;
-
-        /** @deprecated Since 2.23, use dcCore::app()->admin->menu instead */
-        $GLOBALS['_menu'] = dcCore::app()->admin->menu;
 
         if (!$user_ui_nofavmenu) {
             dcCore::app()->admin->favs->appendMenuSection(dcCore::app()->admin->menu);
