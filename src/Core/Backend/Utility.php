@@ -33,6 +33,9 @@ class Utility extends Process
      */
     protected $p_url;
 
+    /** @var    Url     Backend (admin) Url handler instance */
+    public Url $url;
+
     // Constants
 
     // Menu sections
@@ -80,8 +83,11 @@ class Utility extends Process
 
         // New adminurl instance
         // May be moved to property of dcCore::app()->admin in a near future
-        dcCore::app()->adminurl = new Url();
-        dcCore::app()->adminurl->register('admin.auth', 'Auth');
+        dcCore::app()->admin->url = new Url();
+        dcCore::app()->admin->url->register('admin.auth', 'Auth');
+
+        /** @deprecated since 2.27 Use dcCore::app()->admin->url */
+        dcCore::app()->adminurl = dcCore::app()->admin->url;
 
         if (dcCore::app()->auth->sessionExists()) {
             # If we have a session we launch it now
@@ -94,14 +100,14 @@ class Utility extends Process
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    dcCore::app()->adminurl->redirect('admin.auth', $params);
+                    dcCore::app()->admin->url->redirect('admin.auth', $params);
                 }
             } catch (Exception $e) {
                 new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
             }
 
             # Fake process to logout (kill session) and return to auth page.
-            dcCore::app()->adminurl->register('admin.logout', 'Logout');
+            dcCore::app()->admin->url->register('admin.logout', 'Logout');
             if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout') {
                 // Enable REST service if disabled, for next requests
                 if (!dcCore::app()->serveRestRequests()) {
@@ -110,7 +116,7 @@ class Utility extends Process
                 // Kill admin session
                 dcCore::app()->killAdminSession();
                 // Logout
-                dcCore::app()->adminurl->redirect('admin.auth');
+                dcCore::app()->admin->url->redirect('admin.auth');
                 exit;
             }
 
@@ -168,49 +174,49 @@ class Utility extends Process
                 dcCore::app()->setBlog($_SESSION['sess_blog_id']);
             } else {
                 dcCore::app()->session->destroy();
-                dcCore::app()->adminurl->redirect('admin.auth');
+                dcCore::app()->admin->url->redirect('admin.auth');
             }
         }
 
-        dcCore::app()->adminurl->register('admin.posts', 'Posts');
-        dcCore::app()->adminurl->register('admin.popup_posts', 'PostsPopup'); //use admin.posts.popup
-        dcCore::app()->adminurl->register('admin.posts.popup', 'PostsPopup');
-        dcCore::app()->adminurl->register('admin.post', 'Post');
-        dcCore::app()->adminurl->register('admin.post.media', 'PostMedia');
-        dcCore::app()->adminurl->register('admin.blog.theme', 'BlogTheme');
-        dcCore::app()->adminurl->register('admin.blog.pref', 'BlogPref');
-        dcCore::app()->adminurl->register('admin.blog.del', 'BlogDel');
-        dcCore::app()->adminurl->register('admin.blog', 'Blog');
-        dcCore::app()->adminurl->register('admin.blogs', 'Blogs');
-        dcCore::app()->adminurl->register('admin.categories', 'Categories');
-        dcCore::app()->adminurl->register('admin.category', 'Category');
-        dcCore::app()->adminurl->register('admin.comments', 'Comments');
-        dcCore::app()->adminurl->register('admin.comment', 'Comment');
-        dcCore::app()->adminurl->register('admin.help', 'Help');
-        dcCore::app()->adminurl->register('admin.help.charte', 'HelpCharte');
-        dcCore::app()->adminurl->register('admin.home', 'Home');
-        dcCore::app()->adminurl->register('admin.langs', 'Langs');
-        dcCore::app()->adminurl->register('admin.link.popup', 'LinkPopup');
-        dcCore::app()->adminurl->register('admin.media', 'Media');
-        dcCore::app()->adminurl->register('admin.media.item', 'MediaItem');
-        dcCore::app()->adminurl->register('admin.plugins', 'Plugins');
-        dcCore::app()->adminurl->register('admin.plugin', 'Plugin');
-        dcCore::app()->adminurl->register('admin.search', 'Search');
-        dcCore::app()->adminurl->register('admin.user.preferences', 'UserPreferences');
-        dcCore::app()->adminurl->register('admin.user', 'User');
-        dcCore::app()->adminurl->register('admin.user.actions', 'UsersActions');
-        dcCore::app()->adminurl->register('admin.users', 'Users');
-        dcCore::app()->adminurl->register('admin.help', 'Help');
-        dcCore::app()->adminurl->register('admin.update', 'Update');
-        dcCore::app()->adminurl->register('admin.csp.report', 'CspReport');
-        dcCore::app()->adminurl->register('admin.rest', 'Rest');
+        dcCore::app()->admin->url->register('admin.posts', 'Posts');
+        dcCore::app()->admin->url->register('admin.popup_posts', 'PostsPopup'); //use admin.posts.popup
+        dcCore::app()->admin->url->register('admin.posts.popup', 'PostsPopup');
+        dcCore::app()->admin->url->register('admin.post', 'Post');
+        dcCore::app()->admin->url->register('admin.post.media', 'PostMedia');
+        dcCore::app()->admin->url->register('admin.blog.theme', 'BlogTheme');
+        dcCore::app()->admin->url->register('admin.blog.pref', 'BlogPref');
+        dcCore::app()->admin->url->register('admin.blog.del', 'BlogDel');
+        dcCore::app()->admin->url->register('admin.blog', 'Blog');
+        dcCore::app()->admin->url->register('admin.blogs', 'Blogs');
+        dcCore::app()->admin->url->register('admin.categories', 'Categories');
+        dcCore::app()->admin->url->register('admin.category', 'Category');
+        dcCore::app()->admin->url->register('admin.comments', 'Comments');
+        dcCore::app()->admin->url->register('admin.comment', 'Comment');
+        dcCore::app()->admin->url->register('admin.help', 'Help');
+        dcCore::app()->admin->url->register('admin.help.charte', 'HelpCharte');
+        dcCore::app()->admin->url->register('admin.home', 'Home');
+        dcCore::app()->admin->url->register('admin.langs', 'Langs');
+        dcCore::app()->admin->url->register('admin.link.popup', 'LinkPopup');
+        dcCore::app()->admin->url->register('admin.media', 'Media');
+        dcCore::app()->admin->url->register('admin.media.item', 'MediaItem');
+        dcCore::app()->admin->url->register('admin.plugins', 'Plugins');
+        dcCore::app()->admin->url->register('admin.plugin', 'Plugin');
+        dcCore::app()->admin->url->register('admin.search', 'Search');
+        dcCore::app()->admin->url->register('admin.user.preferences', 'UserPreferences');
+        dcCore::app()->admin->url->register('admin.user', 'User');
+        dcCore::app()->admin->url->register('admin.user.actions', 'UsersActions');
+        dcCore::app()->admin->url->register('admin.users', 'Users');
+        dcCore::app()->admin->url->register('admin.help', 'Help');
+        dcCore::app()->admin->url->register('admin.update', 'Update');
+        dcCore::app()->admin->url->register('admin.csp.report', 'CspReport');
+        dcCore::app()->admin->url->register('admin.rest', 'Rest');
 
         // we don't care of admin process for FileServer
-        dcCore::app()->adminurl->register('load.plugin.file', 'index.php', ['pf' => 'dummy.css']);
-        dcCore::app()->adminurl->register('load.var.file', 'index.php', ['vf' => 'dummy.json']);
+        dcCore::app()->admin->url->register('load.plugin.file', 'index.php', ['pf' => 'dummy.css']);
+        dcCore::app()->admin->url->register('load.var.file', 'index.php', ['vf' => 'dummy.json']);
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        dcCore::app()->setPostType('post', urldecode(dcCore::app()->adminurl->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
+        dcCore::app()->setPostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
         if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
             # Loading resources and help files

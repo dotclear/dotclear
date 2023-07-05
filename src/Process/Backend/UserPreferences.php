@@ -229,7 +229,7 @@ class UserPreferences extends Process
 
                 Page::addSuccessNotice(__('Personal information has been successfully updated.'));
 
-                dcCore::app()->adminurl->redirect('admin.user.preferences');
+                dcCore::app()->admin->url->redirect('admin.user.preferences');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -339,7 +339,7 @@ class UserPreferences extends Process
                 dcCore::app()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 Page::addSuccessNotice(__('Personal options has been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-options');
+                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -366,7 +366,7 @@ class UserPreferences extends Process
                 dcCore::app()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
                 Page::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
+                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -389,7 +389,7 @@ class UserPreferences extends Process
 
                 if (!dcCore::app()->error->flag()) {
                     Page::addSuccessNotice(__('Favorites have been successfully added.'));
-                    dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
+                    dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -415,7 +415,7 @@ class UserPreferences extends Process
                 dcCore::app()->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!dcCore::app()->error->flag()) {
                     Page::addSuccessNotice(__('Favorites have been successfully removed.'));
-                    dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
+                    dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -445,7 +445,7 @@ class UserPreferences extends Process
             dcCore::app()->favs->setFavoriteIDs($order, false);
             if (!dcCore::app()->error->flag()) {
                 Page::addSuccessNotice(__('Favorites have been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
+                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
 
@@ -457,7 +457,7 @@ class UserPreferences extends Process
 
             if (!dcCore::app()->error->flag()) {
                 Page::addSuccessNotice(__('Default favorites have been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
+                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
 
@@ -471,7 +471,7 @@ class UserPreferences extends Process
 
             if (!dcCore::app()->error->flag()) {
                 Page::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
-                dcCore::app()->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
+                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
 
@@ -510,7 +510,7 @@ class UserPreferences extends Process
         echo '<div class="multi-part" id="user-profile" title="' . __('My profile') . '">' .
 
         '<h3>' . __('My profile') . '</h3>' .
-        '<form action="' . dcCore::app()->adminurl->get('admin.user.preferences') . '" method="post" id="user-form">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="user-form">' .
 
         '<p><label for="user_name">' . __('Last Name:') . '</label>' .
         form::field('user_name', 20, 255, [
@@ -615,7 +615,7 @@ class UserPreferences extends Process
 
         '<div class="multi-part" id="user-options" title="' . __('My options') . '">' .
 
-        '<form action="' . dcCore::app()->adminurl->get('admin.user.preferences') . '#user-options" method="post" id="opts-forms">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '#user-options" method="post" id="opts-forms">' .
         '<h3>' . __('My options') . '</h3>' .
 
         '<div class="fieldset">' .
@@ -799,7 +799,7 @@ class UserPreferences extends Process
         '<h3>' . __('My dashboard') . '</h3>' .
 
         // Favorites
-        '<form action="' . dcCore::app()->adminurl->get('admin.user.preferences') . '" method="post" id="favs-form" class="two-boxes odd">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="favs-form" class="two-boxes odd">' .
         '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
 
         $count    = 0;
@@ -920,7 +920,7 @@ class UserPreferences extends Process
         '</form>' .
 
         // Dashboard items
-        '<form action="' . dcCore::app()->adminurl->get('admin.user.preferences') . '" method="post" id="db-forms" class="two-boxes even">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="db-forms" class="two-boxes even">' .
 
         '<div class="fieldset">' .
         '<h4>' . __('Menu') . '</h4>' .
@@ -973,7 +973,7 @@ class UserPreferences extends Process
         '</form>' .
 
         // Dashboard items order (reset)
-        '<form action="' . dcCore::app()->adminurl->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">' .
         '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>' .
         '<p>' .
         dcCore::app()->formNonce() .

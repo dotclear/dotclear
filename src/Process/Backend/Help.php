@@ -106,7 +106,7 @@ class Help extends Process
         if ($content_array['title'] !== '') {
             $breadcrumb = Page::breadcrumb(
                 [
-                    __('Global help')       => dcCore::app()->adminurl->get('admin.help'),
+                    __('Global help')       => dcCore::app()->admin->url->get('admin.help'),
                     $content_array['title'] => '',
                 ]
             );

@@ -216,11 +216,11 @@ final class dcCore
     /**
      * Backend Url instance
      *
-     * May be transfered as property of backend Utility instance in future
+     * @deprecated since 2.27, Use dcCore::app()->admin->url
      *
-     * @var \Dotclear\Core\Backend\Url|null
+     * @var \Dotclear\Core\Backend\Url
      */
-    public $adminurl;
+    public \Dotclear\Core\Backend\Url $adminurl;
 
     /**
      * Bakcend Favorites instance

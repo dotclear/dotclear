@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated since 2.27 Use name "admin.blog.pref" on dcCore::app()->adminurl methods
+ * @deprecated since 2.27 Use name "admin.blog.pref" on dcCore::app()->admin->url methods
  *
  * @package Dotclear
  * @subpackage Backend

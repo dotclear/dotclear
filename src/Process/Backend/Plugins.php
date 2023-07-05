@@ -40,7 +40,7 @@ class Plugins extends Process
         // deprecated since 2.26
         ModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
-        if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.plugins', []))) {
+        if (dcCore::app()->plugins->disableDepModules(dcCore::app()->admin->url->get('admin.plugins', []))) {
             exit;
         }
 
@@ -81,7 +81,7 @@ class Plugins extends Process
             __('Plugins management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', dcCore::app()->admin->url->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
             Page::jsLoad('js/_plugins.js') .
             Page::jsPageTabs() .

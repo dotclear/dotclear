@@ -72,7 +72,7 @@ class Media extends Process
         # User last and fav dirs
         if (dcCore::app()->admin->page->showLast()) {
             if (!empty($_GET['fav']) && dcCore::app()->admin->page->updateFav(rtrim((string) dcCore::app()->admin->page->d, '/'), $_GET['fav'] == 'n')) {
-                dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
+                dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             }
             dcCore::app()->admin->page->updateLast(rtrim((string) dcCore::app()->admin->page->d, '/'));
         }
@@ -94,7 +94,7 @@ class Media extends Process
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
                     ));
-                    dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
+                    dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -146,7 +146,7 @@ class Media extends Process
                 dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
 
                 Page::addSuccessNotice(__('Files have been successfully uploaded.'));
-                dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
+                dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -168,7 +168,7 @@ class Media extends Process
                         is_countable($_POST['medias']) ? count($_POST['medias']) : 0
                     )
                 );
-                dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
+                dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -193,7 +193,7 @@ class Media extends Process
                     dcCore::app()->admin->page->updateFav(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
                 Page::addSuccessNotice($msg);
-                dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
+                dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -210,7 +210,7 @@ class Media extends Process
                         Html::escapeHTML(dcCore::app()->admin->page->d)
                     )
                 );
-                dcCore::app()->adminurl->redirect('admin.media', dcCore::app()->admin->page->values());
+                dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -221,14 +221,14 @@ class Media extends Process
             dcCore::app()->admin->page->openPage(dcCore::app()->admin->page->breadcrumb([__('confirm removal') => '']));
 
             echo
-            '<form action="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media')) . '" method="post">' .
+            '<form action="' . Html::escapeURL(dcCore::app()->admin->url->get('admin.media')) . '" method="post">' .
             '<p>' . sprintf(
                 __('Are you sure you want to remove %s?'),
                 Html::escapeHTML($_GET['remove'])
             ) . '</p>' .
             '<p><input type="submit" value="' . __('Cancel') . '" /> ' .
             ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '" />' .
-            dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
+            dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
             dcCore::app()->formNonce() .
             form::hidden('remove', Html::escapeHTML($_GET['remove'])) . '</p>' .
             '</form>';
@@ -256,13 +256,13 @@ class Media extends Process
                 $ld_params      = dcCore::app()->admin->page->values();
                 $ld_params['d'] = $ld;
                 $ld_params['q'] = ''; // Reset search
-                $last_folders_item .= '<option value="' . urldecode(dcCore::app()->adminurl->get('admin.media', $ld_params)) . '"' .
+                $last_folders_item .= '<option value="' . urldecode(dcCore::app()->admin->url->get('admin.media', $ld_params)) . '"' .
             ($ld == rtrim((string) dcCore::app()->admin->page->d, '/') ? ' selected="selected"' : '') . '>' .
             '/' . $ld . '</option>' . "\n";
                 if ($ld == rtrim((string) dcCore::app()->admin->page->d, '/')) {
                     // Current directory is a favorite → button will un-fav
                     $ld_params['fav'] = 'n';
-                    $fav_url          = urldecode(dcCore::app()->adminurl->get('admin.media', $ld_params));
+                    $fav_url          = urldecode(dcCore::app()->admin->url->get('admin.media', $ld_params));
                     unset($ld_params['fav']);
                     $fav_img = 'images/fav-on.png';
                     $fav_alt = __('Remove this folder from your favorites');
@@ -279,13 +279,13 @@ class Media extends Process
                     $ld_params      = dcCore::app()->admin->page->values();
                     $ld_params['d'] = $ld;
                     $ld_params['q'] = ''; // Reset search
-                    $last_folders_item .= '<option value="' . urldecode(dcCore::app()->adminurl->get('admin.media', $ld_params)) . '"' .
+                    $last_folders_item .= '<option value="' . urldecode(dcCore::app()->admin->url->get('admin.media', $ld_params)) . '"' .
                 ($ld == rtrim((string) dcCore::app()->admin->page->d, '/') ? ' selected="selected"' : '') . '>' .
                 '/' . $ld . '</option>' . "\n";
                     if ($ld == rtrim((string) dcCore::app()->admin->page->d, '/')) {
                         // Current directory is not a favorite → button will fav
                         $ld_params['fav'] = 'y';
-                        $fav_url          = urldecode(dcCore::app()->adminurl->get('admin.media', $ld_params));
+                        $fav_url          = urldecode(dcCore::app()->admin->url->get('admin.media', $ld_params));
                         unset($ld_params['fav']);
                         $fav_img = 'images/fav-off.png';
                         $fav_alt = __('Add this folder to your favorites');
@@ -312,7 +312,7 @@ class Media extends Process
         dcCore::app()->admin->page->openPage(
             dcCore::app()->admin->page->breadcrumb(),
             Page::jsModal() .
-            dcCore::app()->admin->page->js(dcCore::app()->adminurl->get('admin.media', array_diff_key(dcCore::app()->admin->page->values(), dcCore::app()->admin->page->values(false, true)), '&')) .
+            dcCore::app()->admin->page->js(dcCore::app()->admin->url->get('admin.media', array_diff_key(dcCore::app()->admin->page->values(), dcCore::app()->admin->page->values(false, true)), '&')) .
             Page::jsLoad('js/_media.js') .
             $starting_scripts .
             (dcCore::app()->admin->page->mediaWritable() ? Page::jsUpload(['d=' . dcCore::app()->admin->page->d]) : '')
@@ -384,21 +384,21 @@ class Media extends Process
         // add file mode into the filter box
         dcCore::app()->admin->page->add((new Filter('file_mode'))->value(dcCore::app()->admin->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
-            '<a href="' . dcCore::app()->adminurl->get('admin.media', array_merge(dcCore::app()->admin->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
+            '<a href="' . dcCore::app()->admin->url->get('admin.media', array_merge(dcCore::app()->admin->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
             '<img src="images/grid-' . (dcCore::app()->admin->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '" />' .
             '</a>' .
-            '<a href="' . dcCore::app()->adminurl->get('admin.media', array_merge(dcCore::app()->admin->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
+            '<a href="' . dcCore::app()->admin->url->get('admin.media', array_merge(dcCore::app()->admin->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
             '<img src="images/list-' . (dcCore::app()->admin->page->file_mode == 'list' ? 'on' : 'off') . '.png" alt="' . __('List display mode') . '" />' .
             '</a>' .
             '</span></p>',
             false
         ));
 
-        $fmt_form_media = '<form action="' . dcCore::app()->adminurl->get('admin.media') . '" method="post" id="form-medias">' .
+        $fmt_form_media = '<form action="' . dcCore::app()->admin->url->get('admin.media') . '" method="post" id="form-medias">' .
             '<div class="files-group">%s</div>' .
             '<p class="hidden">' .
             dcCore::app()->formNonce() .
-            dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
+            dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
             '</p>';
 
         if (!dcCore::app()->admin->page->popup || dcCore::app()->admin->page->select > 1) {
@@ -426,7 +426,7 @@ class Media extends Process
         );
 
         // display filter
-        dcCore::app()->admin->page->display('admin.media', dcCore::app()->adminurl->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
+        dcCore::app()->admin->page->display('admin.media', dcCore::app()->admin->url->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
 
         // display list
         $media_list->display(dcCore::app()->admin->page, $fmt_form_media, dcCore::app()->admin->page->hasQuery());
@@ -447,14 +447,14 @@ class Media extends Process
             // Create directory
             if (dcCore::app()->admin->page->mediaWritable()) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->getBase('admin.media') . '" method="post" class="fieldset">' .
+                '<form action="' . dcCore::app()->admin->url->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<div id="new-dir-f">' .
                 '<h4 class="pretty-title">' . __('Create new directory') . '</h4>' .
                 dcCore::app()->formNonce() .
                 '<p><label for="newdir">' . __('Directory Name:') . '</label>' .
                 form::field('newdir', 35, 255) . '</p>' .
                 '<p><input type="submit" value="' . __('Create') . '" />' .
-                dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
+                dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
                 '</p>' .
                 '</div>' .
                 '</form>';
@@ -463,11 +463,11 @@ class Media extends Process
             // Rebuild directory
             if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->page->popup && dcCore::app()->admin->page->mediaWritable()) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->getBase('admin.media') . '" method="post" class="fieldset">' .
+                '<form action="' . dcCore::app()->admin->url->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .
                 dcCore::app()->formNonce() .
                 '<p><input type="submit" value="' . __('Build') . '" />' .
-                dcCore::app()->adminurl->getHiddenFormFields('admin.media', array_merge(dcCore::app()->admin->page->values(), ['complete' => 1])) .
+                dcCore::app()->admin->url->getHiddenFormFields('admin.media', array_merge(dcCore::app()->admin->page->values(), ['complete' => 1])) .
                 '</p>' .
                 '</form>';
             }
@@ -477,7 +477,7 @@ class Media extends Process
                 echo
                 '<div class="fieldset">' .
                 '<h4 class="pretty-title">' . sprintf(__('Backup content of %s'), (dcCore::app()->admin->page->d == '' ? '“' . __('Media manager') . '”' : '“' . dcCore::app()->admin->page->d . '”')) . '</h4>' .
-                '<p><a class="button submit" href="' . dcCore::app()->adminurl->get(
+                '<p><a class="button submit" href="' . dcCore::app()->admin->url->get(
                     'admin.media',
                     array_merge(dcCore::app()->admin->page->values(), ['zipdl' => 1])
                 ) . '">' . __('Download zip file') . '</a></p>' .
@@ -502,7 +502,7 @@ class Media extends Process
             echo
             '<h4>' . __('Add files') . '</h4>' .
             '<p class="more-info">' . __('Please take care to publish media that you own and that are not protected by copyright.') . '</p>' .
-            '<form id="fileupload" action="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
+            '<form id="fileupload" action="' . Html::escapeURL(dcCore::app()->admin->url->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
             '<p>' . form::hidden(['MAX_FILE_SIZE'], (string) DC_MAX_UPLOAD_SIZE) .
             dcCore::app()->formNonce() . '</p>' .
                 '<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>' .
@@ -511,7 +511,7 @@ class Media extends Process
 
             '<p><label for="upfile">' . '<span class="add-label one-file">' . __('Choose file') . '</span>' . '</label>' .
             '<button class="button choose_files">' . __('Choose files') . '</button>' .
-            '<input type="file" id="upfile" name="upfile[]"' . (dcCore::app()->admin->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" /></p>' .
+            '<input type="file" id="upfile" name="upfile[]"' . (dcCore::app()->admin->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(dcCore::app()->admin->url->get('admin.media', dcCore::app()->admin->page->values())) . '" /></p>' .
 
             '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size((int) DC_MAX_UPLOAD_SIZE) . '</p>' .
 
@@ -522,7 +522,7 @@ class Media extends Process
             if (!dcCore::app()->admin->page->showUploader()) {
                 echo
                 '<p class="one-file form-help info">' . __('To send several files at the same time, you can activate the enhanced uploader in') .
-                ' <a href="' . dcCore::app()->adminurl->get('admin.user.preferences', ['tab' => 'user-options']) . '">' . __('My preferences') . '</a></p>';
+                ' <a href="' . dcCore::app()->admin->url->get('admin.user.preferences', ['tab' => 'user-options']) . '">' . __('My preferences') . '</a></p>';
             }
 
             echo
@@ -533,7 +533,7 @@ class Media extends Process
 
             echo
             '<p style="clear:both;">' .
-            dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
+            dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
             '</p>' .
             '</form>' .
             '</div>' .
@@ -542,10 +542,10 @@ class Media extends Process
 
         # Empty remove form (for javascript actions)
         echo
-        '<form id="media-remove-hide" action="' . Html::escapeURL(dcCore::app()->adminurl->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" class="hidden">' .
+        '<form id="media-remove-hide" action="' . Html::escapeURL(dcCore::app()->admin->url->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" class="hidden">' .
         '<div>' .
         form::hidden('rmyes', 1) .
-        dcCore::app()->adminurl->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
+        dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
         form::hidden('remove', '') .
         dcCore::app()->formNonce() .
         '</div>' .
@@ -560,7 +560,7 @@ class Media extends Process
             echo
             '<p class="info">' . sprintf(
                 __('Current settings for medias and images are defined in %s'),
-                '<a href="' . dcCore::app()->adminurl->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
+                '<a href="' . dcCore::app()->admin->url->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
             ) . '</p>';
 
             // Go back button

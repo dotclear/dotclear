@@ -59,8 +59,8 @@ class BlogPref extends Process
             $da->blog_settings = dcCore::app()->blog->settings;
             $da->blog_url      = dcCore::app()->blog->url;
 
-            $da->action = dcCore::app()->adminurl->get('admin.blog.pref');
-            $da->redir  = dcCore::app()->adminurl->get('admin.blog.pref');
+            $da->action = dcCore::app()->admin->url->get('admin.blog.pref');
+            $da->redir  = dcCore::app()->admin->url->get('admin.blog.pref');
         } else {
             Page::checkSuper();
 
@@ -91,8 +91,8 @@ class BlogPref extends Process
                 dcCore::app()->error->add($e->getMessage());
             }
 
-            $da->action = dcCore::app()->adminurl->get('admin.blog');
-            $da->redir  = dcCore::app()->adminurl->get('admin.blog', ['id' => '%s'], '&', true);
+            $da->action = dcCore::app()->admin->url->get('admin.blog');
+            $da->redir  = dcCore::app()->admin->url->get('admin.blog', ['id' => '%s'], '&', true);
         }
 
         // Language codes
@@ -414,7 +414,7 @@ class BlogPref extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')                                                   => '',
-                    __('Blogs')                                                    => dcCore::app()->adminurl->get('admin.blogs'),
+                    __('Blogs')                                                    => dcCore::app()->admin->url->get('admin.blogs'),
                     __('Blog settings') . ' : ' . Html::escapeHTML($da->blog_name) => '',
                 ]
             );
@@ -907,7 +907,7 @@ class BlogPref extends Process
 
             if (dcCore::app()->auth->isSuperAdmin() && $da->blog_id != dcCore::app()->blog->id) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.blog.del') . '" method="post">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.blog.del') . '" method="post">' .
                 '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
                 form::hidden(['blog_id'], $da->blog_id) .
                 dcCore::app()->formNonce() . '</p>' .
@@ -936,7 +936,7 @@ class BlogPref extends Process
                 echo '<p>' . __('No users') . '</p>';
             } else {
                 if (dcCore::app()->auth->isSuperAdmin()) {
-                    $user_url_p = '<a href="' . dcCore::app()->adminurl->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
+                    $user_url_p = '<a href="' . dcCore::app()->admin->url->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
                 } else {
                     $user_url_p = '%1$s';
                 }
@@ -1010,9 +1010,9 @@ class BlogPref extends Process
 
                         if (!$v['super'] && dcCore::app()->auth->isSuperAdmin()) {
                             echo
-                            '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post">' .
+                            '<form action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post">' .
                             '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                            form::hidden(['redir'], dcCore::app()->adminurl->get('admin.blog.pref', ['id' => $k], '&')) .
+                            form::hidden(['redir'], dcCore::app()->admin->url->get('admin.blog.pref', ['id' => $k], '&')) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], $k) .
                             form::hidden(['blogs[]'], $da->blog_id) .

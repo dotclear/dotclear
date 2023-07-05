@@ -242,7 +242,7 @@ class Manage extends Process
 
         if (!$rs->isEmpty()) {
             echo
-            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="links-form">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="links-form">' .
             '<div class="table-outer">' .
             '<table class="dragable">' .
             '<thead>' .
@@ -318,7 +318,7 @@ class Manage extends Process
         '</div>' .
 
         '<div class="multi-part clear" id="add-link" title="' . __('Add a link') . '">' .
-        '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="add-link-form">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="add-link-form">' .
         '<h3>' . __('Add a new link') . '</h3>' .
         '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
         form::field('link_title', 30, 255, [
@@ -350,7 +350,7 @@ class Manage extends Process
         '</div>' .
 
         '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
-        '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="add-category-form">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="add-category-form">' .
         '<h3>' . __('Add a new category') . '</h3>' .
         '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
         form::field('cat_title', 30, 255, [
@@ -370,7 +370,7 @@ class Manage extends Process
 
         if (!isset(dcCore::app()->admin->imported)) {
             echo
-            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
             '<h3>' . __('Import links') . '</h3>' .
             '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
             '<input type="file" id="links_file" name="links_file" required /></p>' .
@@ -382,7 +382,7 @@ class Manage extends Process
             '</form>';
         } else {
             echo
-            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="import-links-form">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="import-links-form">' .
             '<h3>' . __('Import links') . '</h3>';
             if (empty(dcCore::app()->admin->imported)) {
                 echo

@@ -35,7 +35,7 @@ class Home extends Process
         if (!empty($_GET['default_blog'])) {
             try {
                 dcCore::app()->setUserDefaultBlog(dcCore::app()->auth->userID(), dcCore::app()->blog->id);
-                dcCore::app()->adminurl->redirect('admin.home');
+                dcCore::app()->admin->url->redirect('admin.home');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -46,7 +46,7 @@ class Home extends Process
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.home', []))) {
+        if (dcCore::app()->plugins->disableDepModules(dcCore::app()->admin->url->get('admin.home', []))) {
             exit;
         }
 
@@ -56,7 +56,7 @@ class Home extends Process
     public static function process(): bool
     {
         /**
-         * @deprecated since 2.27 Use dcCore::app()->adminurl->redirect('admin.logout');
+         * @deprecated since 2.27 Use dcCore::app()->admin->url->redirect('admin.logout');
          */
         if (!empty($_GET['logout'])) {
             // Enable REST service if disabled, for next requests
@@ -66,7 +66,7 @@ class Home extends Process
             // Kill admin session
             dcCore::app()->killAdminSession();
             // Logout
-            dcCore::app()->adminurl->redirect('admin.auth');
+            dcCore::app()->admin->url->redirect('admin.auth');
             exit;
         }
 
@@ -199,7 +199,7 @@ class Home extends Process
 
         if (dcCore::app()->auth->getInfo('user_default_blog') != dcCore::app()->blog->id && dcCore::app()->auth->getBlogCount() > 1) {
             echo
-            '<p><a href="' . dcCore::app()->adminurl->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
+            '<p><a href="' . dcCore::app()->admin->url->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
         }
 
         if (dcCore::app()->blog->status == dcBlog::BLOG_OFFLINE) {
@@ -401,7 +401,7 @@ class Home extends Process
 
             $__dashboard_main[] = '<div id="quick">' .
                 '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->auth->getOption('post_format'))) . '</h3>' .
-                '<form id="quick-entry" action="' . dcCore::app()->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
+                '<form id="quick-entry" action="' . dcCore::app()->admin->url->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
                 '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                 form::field('post_title', 20, 255, [

@@ -50,7 +50,7 @@ class BlogTheme extends Process
         // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-        if (dcCore::app()->themes->disableDepModules(dcCore::app()->adminurl->get('admin.blog.theme', []))) {
+        if (dcCore::app()->themes->disableDepModules(dcCore::app()->admin->url->get('admin.blog.theme', []))) {
             // A redirection occured, so we should never go further here
             exit;
         }
@@ -142,7 +142,7 @@ class BlogTheme extends Process
             __('Themes management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', dcCore::app()->adminurl->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', dcCore::app()->admin->url->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
             ) .
             Page::jsModal() .
             Page::jsLoad('js/_blog_theme.js') .

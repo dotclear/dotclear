@@ -69,7 +69,7 @@ class BlogDel extends Process
                     dcCore::app()->delBlog(dcCore::app()->admin->blog_id);
                     Page::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
 
-                    dcCore::app()->adminurl->redirect('admin.blogs');
+                    dcCore::app()->admin->url->redirect('admin.blogs');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -87,7 +87,7 @@ class BlogDel extends Process
             Page::breadcrumb(
                 [
                     __('System')        => '',
-                    __('Blogs')         => dcCore::app()->adminurl->get('admin.blogs'),
+                    __('Blogs')         => dcCore::app()->admin->url->get('admin.blogs'),
                     __('Delete a blog') => '',
                 ]
             )
@@ -108,7 +108,7 @@ class BlogDel extends Process
             ])->render() .
             // Form
             (new Form('form-del'))
-            ->action(dcCore::app()->adminurl->get('admin.blog.del'))
+            ->action(dcCore::app()->admin->url->get('admin.blog.del'))
             ->method('post')
             ->fields([
                 dcCore::app()->formNonce(false),

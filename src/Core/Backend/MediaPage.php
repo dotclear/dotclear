@@ -378,7 +378,7 @@ class MediaPage extends FilterMedia
 
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
-                $bc_url   = dcCore::app()->adminurl->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
+                $bc_url   = dcCore::app()->admin->url->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
                 $bc_media = dcCore::app()->media->breadCrumb($bc_url, '<span class="page-title">%s</span>');
                 if ($bc_media != '') {
                     $element[$bc_media] = '';
@@ -390,7 +390,7 @@ class MediaPage extends FilterMedia
         $elements = [
             Html::escapeHTML(dcCore::app()->blog->name) => '',
             __('Media manager')                         => empty($param) ? '' :
-                dcCore::app()->adminurl->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
+                dcCore::app()->admin->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];
         $options = [
             'home_link' => !$this->popup,

@@ -64,7 +64,7 @@ class ManagePosts extends Process
         }
 
         dcCore::app()->admin->posts_actions_page = new BackendActions(
-            dcCore::app()->adminurl->get('admin.plugin'),
+            dcCore::app()->admin->url->get('admin.plugin'),
             ['p' => My::id(), 'm' => 'tag_posts', 'tag' => dcCore::app()->admin->tag]
         );
 
@@ -186,7 +186,7 @@ class ManagePosts extends Process
             dcCore::app()->admin->post_list->display(
                 dcCore::app()->admin->page,
                 dcCore::app()->admin->nb_per_page,
-                '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="form-entries">' .
                 '%s' .
                 '<div class="two-cols">' .
                 '<p class="col checkboxes-helpers"></p>' .

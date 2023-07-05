@@ -83,8 +83,8 @@ class Post extends Process
         ]), dcCore::app()->blog->id);
         dcCore::app()->admin->can_delete = false;
 
-        $post_headlink                  = '<link rel="%s" title="%s" href="' . dcCore::app()->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
-        dcCore::app()->admin->post_link = '<a href="' . dcCore::app()->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
+        $post_headlink                  = '<link rel="%s" title="%s" href="' . dcCore::app()->admin->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
+        dcCore::app()->admin->post_link = '<a href="' . dcCore::app()->admin->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
 
         dcCore::app()->admin->next_link     = null;
         dcCore::app()->admin->prev_link     = null;
@@ -220,7 +220,7 @@ class Post extends Process
         }
 
         dcCore::app()->admin->comments_actions_page = new ActionsComments(
-            dcCore::app()->adminurl->get('admin.post'),
+            dcCore::app()->admin->url->get('admin.post'),
             [
                 'id'            => dcCore::app()->admin->post_id,
                 'action_anchor' => $anchor,
@@ -273,7 +273,7 @@ class Post extends Process
 
                 if (!dcCore::app()->error->flag()) {
                     Page::addSuccessNotice(__('All pings sent.'));
-                    dcCore::app()->adminurl->redirect(
+                    dcCore::app()->admin->url->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id, 'tb' => '1']
                     );
@@ -358,7 +358,7 @@ class Post extends Process
                 # --BEHAVIOR-- adminBeforePostDelete -- string|int
                 dcCore::app()->callBehavior('adminBeforePostDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
-                dcCore::app()->adminurl->redirect('admin.posts');
+                dcCore::app()->admin->url->redirect('admin.posts');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -427,7 +427,7 @@ class Post extends Process
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterPostUpdate', $cur, dcCore::app()->admin->post_id);
                     Page::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
-                    dcCore::app()->adminurl->redirect(
+                    dcCore::app()->admin->url->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id]
                     );
@@ -447,7 +447,7 @@ class Post extends Process
                     dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
                     Page::addSuccessNotice(__('Entry has been successfully created.'));
-                    dcCore::app()->adminurl->redirect(
+                    dcCore::app()->admin->url->redirect(
                         'admin.post',
                         ['id' => $return_id]
                     );
@@ -559,7 +559,7 @@ class Post extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    __('Posts')                                 => dcCore::app()->adminurl->get('admin.posts'),
+                    __('Posts')                                 => dcCore::app()->admin->url->get('admin.posts'),
                     (dcCore::app()->admin->post_id ?
                         $page_title_edit :
                         dcCore::app()->admin->page_title) => '',
@@ -658,7 +658,7 @@ class Post extends Process
                         '<p>' . form::combo('post_format', dcCore::app()->admin->available_formats, dcCore::app()->admin->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_no_xhtml">' .
                         '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') . '" href="' .
-                        dcCore::app()->adminurl->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'xconv' => '1']) .
+                        dcCore::app()->admin->url->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'xconv' => '1']) .
                         '">' .
                         __('Convert to HTML') . '</a></p></div>',
                     ],
@@ -782,7 +782,7 @@ class Post extends Process
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit post') : __('New post')) .
             sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
-            '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" method="post" id="entry-form">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
             '<h3 class="out-of-screen-if-js">' . __('Edit post') . '</h3>';
@@ -816,7 +816,7 @@ class Post extends Process
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
             } else {
                 echo
-                '<a id="post-cancel" href="' . dcCore::app()->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                '<a id="post-cancel" href="' . dcCore::app()->admin->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
             echo(dcCore::app()->admin->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
@@ -870,7 +870,7 @@ class Post extends Process
 
             if ($has_action) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" id="form-comments" method="post">';
+                '<form action="' . dcCore::app()->admin->url->get('admin.post') . '" id="form-comments" method="post">';
             }
 
             echo
@@ -903,7 +903,7 @@ class Post extends Process
             '<div class="fieldset clear">' .
             '<h3>' . __('Add a comment') . '</h3>' .
 
-            '<form action="' . dcCore::app()->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
@@ -961,7 +961,7 @@ class Post extends Process
             if ($has_action) {
                 // tracbacks actions
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" id="form-trackbacks" method="post">';
+                '<form action="' . dcCore::app()->admin->url->get('admin.post') . '" id="form-trackbacks" method="post">';
             }
 
             echo
@@ -997,7 +997,7 @@ class Post extends Process
 
                 echo
                 '<h3>' . __('Ping blogs') . '</h3>' .
-                '<form action="' . dcCore::app()->adminurl->get('admin.post', ['id' => dcCore::app()->admin->post_id]) . '" id="trackback-form" method="post">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.post', ['id' => dcCore::app()->admin->post_id]) . '" id="trackback-form" method="post">' .
                 '<p><label for="tb_urls" class="area">' . __('URLs to ping:') . '</label>' .
                 form::textarea('tb_urls', 60, 5, dcCore::app()->admin->tb_urls) .
                 '</p>' .
@@ -1008,7 +1008,7 @@ class Post extends Process
                 '<p>' .
                 dcCore::app()->formNonce() .
                 '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
-                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . dcCore::app()->adminurl->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
+                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . dcCore::app()->admin->url->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
                     '') .
                 '</p>' .
                 '</form>';
@@ -1093,7 +1093,7 @@ class Post extends Process
         }
 
         while ($rs->fetch()) {
-            $comment_url = dcCore::app()->adminurl->get('admin.comment', ['id' => $rs->comment_id]);
+            $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $rs->comment_id]);
 
             $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
             $img_status = '';
@@ -1148,7 +1148,7 @@ class Post extends Process
 
             if ($show_ip) {
                 echo
-                '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
+                '<td class="nowrap"><a href="' . dcCore::app()->admin->url->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
             }
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .

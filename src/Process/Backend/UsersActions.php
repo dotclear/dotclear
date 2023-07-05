@@ -63,7 +63,7 @@ class UsersActions extends Process
             if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
                 dcCore::app()->admin->redir = $_POST['redir'];
             } else {
-                dcCore::app()->admin->redir = dcCore::app()->adminurl->get('admin.users', [
+                dcCore::app()->admin->redir = dcCore::app()->admin->url->get('admin.users', [
                     'q'      => $_POST['q']      ?? '',
                     'sortby' => $_POST['sortby'] ?? '',
                     'order'  => $_POST['order']  ?? '',
@@ -142,7 +142,7 @@ class UsersActions extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')      => '',
-                    __('Users')       => dcCore::app()->adminurl->get('admin.users'),
+                    __('Users')       => dcCore::app()->admin->url->get('admin.users'),
                     __('Permissions') => '',
                 ]
             );
@@ -150,7 +150,7 @@ class UsersActions extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')  => '',
-                    __('Users')   => dcCore::app()->adminurl->get('admin.users'),
+                    __('Users')   => dcCore::app()->admin->url->get('admin.users'),
                     __('Actions') => '',
                 ]
             );
@@ -205,7 +205,7 @@ class UsersActions extends Process
 
             $user_list = [];
             foreach (dcCore::app()->admin->users as $u) {
-                $user_list[] = '<a href="' . dcCore::app()->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+                $user_list[] = '<a href="' . dcCore::app()->admin->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -218,7 +218,7 @@ class UsersActions extends Process
                 echo '<p><strong>' . __('No blog') . '</strong></p>';
             } else {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" id="form-blogs">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post" id="form-blogs">' .
                 '<div class="table-outer clear">' .
                 '<table><tr>' .
                 '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
@@ -272,7 +272,7 @@ class UsersActions extends Process
 
             $user_list = [];
             foreach (dcCore::app()->admin->users as $u) {
-                $user_list[] = '<a href="' . dcCore::app()->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+                $user_list[] = '<a href="' . dcCore::app()->admin->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -280,11 +280,11 @@ class UsersActions extends Process
                 __('You are about to change permissions on the following blogs for users %s.'),
                 implode(', ', $user_list)
             ) . '</p>' .
-            '<form id="permissions-form" action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post">';
+            '<form id="permissions-form" action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post">';
 
             foreach (dcCore::app()->admin->blogs as $b) {
                 echo
-                '<h3>' . ('Blog:') . ' <a href="' . dcCore::app()->adminurl->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
+                '<h3>' . ('Blog:') . ' <a href="' . dcCore::app()->admin->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
                 $unknown_perms = $user_perm;
                 foreach (dcCore::app()->auth->getPermissionsTypes() as $perm_id => $perm) {

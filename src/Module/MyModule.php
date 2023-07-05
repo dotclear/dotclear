@@ -241,7 +241,7 @@ abstract class MyModule
             $resource = '/' . $resource;
         }
         if (defined('DC_CONTEXT_ADMIN') && DC_CONTEXT_ADMIN && !$frontend) {
-            return is_null(dcCore::app()->adminurl) ? '' : urldecode(dcCore::app()->adminurl->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
+            return is_null(dcCore::app()->admin->url) ? '' : urldecode(dcCore::app()->admin->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }
 
         return is_null(dcCore::app()->blog) ? '' : urldecode(dcCore::app()->blog->getQmarkURL() . 'pf=' . self::id() . $resource);

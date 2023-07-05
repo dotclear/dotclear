@@ -130,7 +130,7 @@ class ListingMedia extends Listing
 
         if ($file->d) {
             // Folder
-            $link = dcCore::app()->adminurl->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
+            $link = dcCore::app()->admin->url->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
             if ($file->parent) {
                 $display_name = '..';
                 $class .= ' media-folder-up';
@@ -145,7 +145,7 @@ class ListingMedia extends Listing
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
             dcCore::app()->callBehavior('adminMediaURLParams', $params);
 
-            $link = dcCore::app()->adminurl->get('admin.media.item', (array) $params);
+            $link = dcCore::app()->admin->url->get('admin.media.item', (array) $params);
             if ($file->media_priv) {
                 $class .= ' media-private';
             }
@@ -172,7 +172,7 @@ class ListingMedia extends Listing
                 if ($filters->post_id) {
                     // Media attachment button
                     $act .= '<a class="attach-media" title="' . __('Attach this file to entry') . '" href="' .
-                    dcCore::app()->adminurl->get(
+                    dcCore::app()->admin->url->get(
                         'admin.post.media',
                         ['media_id' => $file->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
@@ -196,7 +196,7 @@ class ListingMedia extends Listing
                 }
             } else {
                 $act .= '<a class="media-remove" ' .
-                'href="' . dcCore::app()->adminurl->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
+                'href="' . dcCore::app()->admin->url->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
                 '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
             }
         }

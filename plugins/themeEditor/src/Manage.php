@@ -177,7 +177,7 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name) => '',
-                __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
+                __('Blog appearance')                       => dcCore::app()->admin->url->get('admin.blog.theme'),
                 __('Edit theme files')                      => '',
             ]
         ) .

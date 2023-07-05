@@ -99,7 +99,7 @@ class ActionsComments extends Actions
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    __('Comments')                              => dcCore::app()->adminurl->get('admin.comments'),
+                    __('Comments')                              => dcCore::app()->admin->url->get('admin.comments'),
                     __('Comments actions')                      => '',
                 ]
             )

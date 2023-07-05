@@ -116,7 +116,7 @@ class Langs extends Process
                 }
 
                 Page::addSuccessNotice(__('Language has been successfully deleted.'));
-                dcCore::app()->adminurl->redirect('admin.langs');
+                dcCore::app()->admin->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -157,7 +157,7 @@ class Langs extends Process
                 } else {
                     Page::addSuccessNotice(__('Language has been successfully installed.'));
                 }
-                dcCore::app()->adminurl->redirect('admin.langs');
+                dcCore::app()->admin->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -190,7 +190,7 @@ class Langs extends Process
                 } else {
                     Page::addSuccessNotice(__('Language has been successfully installed.'));
                 }
-                dcCore::app()->adminurl->redirect('admin.langs');
+                dcCore::app()->admin->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -224,8 +224,8 @@ class Langs extends Process
         '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear installation.') . '</p>' .
         '<p>' . sprintf(
             __('You can change your user language in your <a href="%1$s">preferences</a> or change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-            dcCore::app()->adminurl->get('admin.user.preferences'),
-            dcCore::app()->adminurl->get('admin.blog.pref')
+            dcCore::app()->admin->url->get('admin.user.preferences'),
+            dcCore::app()->admin->url->get('admin.blog.pref')
         ) . '</p>';
 
         echo
@@ -263,7 +263,7 @@ class Langs extends Process
 
                 if ($is_deletable) {
                     echo
-                    '<form action="' . dcCore::app()->adminurl->get('admin.langs') . '" method="post">' .
+                    '<form action="' . dcCore::app()->admin->url->get('admin.langs') . '" method="post">' .
                     '<div>' .
                     dcCore::app()->formNonce() .
                     form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
@@ -295,7 +295,7 @@ class Langs extends Process
             }
 
             echo
-            '<form method="post" action="' . dcCore::app()->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+            '<form method="post" action="' . dcCore::app()->admin->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Available languages') . '</h4>' .
             '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
                 'Proposed languages are based on your version: %s.'), '<strong>' . DC_VERSION . '</strong>') . '</p>' .
@@ -319,7 +319,7 @@ class Langs extends Process
         if (dcCore::app()->admin->is_writable) {
             # 'Upload language pack' form
             echo
-            '<form method="post" action="' . dcCore::app()->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+            '<form method="post" action="' . dcCore::app()->admin->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Upload a zip file') . '</h4>' .
             '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
             '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .

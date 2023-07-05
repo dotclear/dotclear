@@ -68,7 +68,7 @@ class Page
         if (session_id()) {
             dcCore::app()->session->destroy();
         }
-        dcCore::app()->adminurl->redirect('admin.auth');
+        dcCore::app()->admin->url->redirect('admin.auth');
     }
 
     /**
@@ -91,7 +91,7 @@ class Page
             if (session_id()) {
                 dcCore::app()->session->destroy();
             }
-            dcCore::app()->adminurl->redirect('admin.auth');
+            dcCore::app()->admin->url->redirect('admin.auth');
         }
     }
 
@@ -113,7 +113,7 @@ class Page
             Html::escapeHTML(dcCore::app()->blog->name) . '</strong>';
 
             if (dcCore::app()->auth->getBlogCount() > 20) {
-                $blog_box .= ' - <a href="' . dcCore::app()->adminurl->get('admin.blogs') . '">' . __('Change blog') . '</a>';
+                $blog_box .= ' - <a href="' . dcCore::app()->admin->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
             }
             $blog_box .= '</p>';
         } else {
@@ -192,7 +192,7 @@ class Page
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.csp.report');
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->admin->url->get('admin.csp.report');
                 $report_only    = (dcCore::app()->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
@@ -235,7 +235,7 @@ class Page
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
-        $js['servicesUri']    = dcCore::app()->adminurl->get('admin.rest');
+        $js['servicesUri']    = dcCore::app()->admin->url->get('admin.rest');
         $js['servicesOff']    = !dcCore::app()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
@@ -271,18 +271,18 @@ class Page
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
-        '<h1><a href="' . dcCore::app()->adminurl->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
+        '<h1><a href="' . dcCore::app()->admin->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
 
         echo
-        '<form action="' . dcCore::app()->adminurl->get('admin.home') . '" method="post" id="top-info-blog">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.home') . '" method="post" id="top-info-blog">' .
         $blog_box .
         '<p><a href="' . dcCore::app()->blog->url . '" class="outgoing" title="' . __('Go to site') .
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
-        '" href="' . dcCore::app()->adminurl->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . dcCore::app()->adminurl->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
+        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->admin->url->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
+        '" href="' . dcCore::app()->admin->url->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
+        '<li><a href="' . dcCore::app()->admin->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
@@ -434,7 +434,7 @@ class Page
         if (!dcCore::app()->resources['ctxhelp']) {
             if (!dcCore::app()->auth->user_prefs->interface->hidehelpbutton) {
                 echo
-                '<p id="help-button"><a href="' . dcCore::app()->adminurl->get('admin.help') . '" class="outgoing" title="' .
+                '<p id="help-button"><a href="' . dcCore::app()->admin->url->get('admin.help') . '" class="outgoing" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
             }
         }
@@ -445,7 +445,7 @@ class Page
 
         '<nav id="main-menu" role="navigation">' . "\n" .
 
-        '<form id="search-menu" action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
+        '<form id="search-menu" action="' . dcCore::app()->admin->url->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
         '<input type="hidden" name="process" value="Search" />' .
         '<input type="submit" value="' . __('OK') . '" /></p>' .
@@ -543,7 +543,7 @@ class Page
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
-        $js['servicesUri']    = dcCore::app()->adminurl->get('admin.rest');
+        $js['servicesUri']    = dcCore::app()->admin->url->get('admin.rest');
         $js['servicesOff']    = !dcCore::app()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
@@ -634,7 +634,7 @@ class Page
 
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2 role="navigation">' . ($with_home_link ?
-            '<a class="go_home" href="' . dcCore::app()->adminurl->get('admin.home') . '">' .
+            '<a class="go_home" href="' . dcCore::app()->admin->url->get('admin.home') . '">' .
             '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '" />' .
             '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '" />' .
             '</a>' :
@@ -801,7 +801,7 @@ class Page
         '</div>' .
         '<div id="helplink"><hr />' .
         '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="' . dcCore::app()->adminurl->get('admin.help') . '">%s</a>', __('the global help'))) .
+        sprintf(__('See also %s'), sprintf('<a href="' . dcCore::app()->admin->url->get('admin.help') . '">%s</a>', __('the global help'))) .
             '.</p>' .
             '</div></div>';
     }
@@ -1327,7 +1327,7 @@ class Page
      */
     public static function getPF(string $file): string
     {
-        return dcCore::app()->adminurl->get('load.plugin.file', ['pf' => $file], '&');
+        return dcCore::app()->admin->url->get('load.plugin.file', ['pf' => $file], '&');
     }
 
     /**
@@ -1339,7 +1339,7 @@ class Page
      */
     public static function getVF(string $file): string
     {
-        return dcCore::app()->adminurl->get('load.var.file', ['vf' => $file], '&');
+        return dcCore::app()->admin->url->get('load.var.file', ['vf' => $file], '&');
     }
 
     /**

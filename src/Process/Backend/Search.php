@@ -102,7 +102,7 @@ class Search extends Process
         );
 
         echo
-        '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.search') . '" method="get" role="search">' .
         '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
         '<p><label for="q">' . __('Query:') . ' </label>' .
         form::field('q', 30, 255, Html::escapeHTML(dcCore::app()->admin->q)) . '</p>' .
@@ -164,7 +164,7 @@ class Search extends Process
         try {
             self::$count   = (int) dcCore::app()->blog->getPosts($params, true)->f(0);
             self::$list    = new ListingPosts(dcCore::app()->blog->getPosts($params), self::$count);
-            self::$actions = new ActionsPosts(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$actions = new ActionsPosts(dcCore::app()->admin->url->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
@@ -186,7 +186,7 @@ class Search extends Process
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="post" id="form-entries">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
 
@@ -219,7 +219,7 @@ class Search extends Process
         try {
             self::$count   = dcCore::app()->blog->getComments($params, true)->f(0);
             self::$list    = new ListingComments(dcCore::app()->blog->getComments($params), self::$count);
-            self::$actions = new ActionsComments(dcCore::app()->adminurl->get('admin.search'), $args);
+            self::$actions = new ActionsComments(dcCore::app()->admin->url->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
@@ -249,7 +249,7 @@ class Search extends Process
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="post" id="form-comments">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
 

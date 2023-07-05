@@ -124,14 +124,14 @@ class Update extends Process
                     if (!@unlink(DC_BACKUP_PATH . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
-                    dcCore::app()->adminurl->redirect('admin.update', ['tab' => 'files']);
+                    dcCore::app()->admin->url->redirect('admin.update', ['tab' => 'files']);
                 }
 
                 if (!empty($_POST['b_revert'])) {
                     $zip = new Unzip(DC_BACKUP_PATH . '/' . $b_file);
                     $zip->unzipAll(DC_BACKUP_PATH . '/');
                     @unlink(DC_BACKUP_PATH . '/' . $b_file);
-                    dcCore::app()->adminurl->redirect('admin.update', ['tab' => 'files']);
+                    dcCore::app()->admin->url->redirect('admin.update', ['tab' => 'files']);
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -146,7 +146,7 @@ class Update extends Process
                 switch (dcCore::app()->admin->step) {
                     case 'check':
                         dcCore::app()->admin->updater->checkIntegrity(DC_ROOT . '/inc/digests', DC_ROOT);
-                        dcCore::app()->adminurl->redirect('admin.update', ['step' => 'download']);
+                        dcCore::app()->admin->url->redirect('admin.update', ['step' => 'download']);
 
                         break;
                     case 'download':
@@ -155,14 +155,14 @@ class Update extends Process
                             throw new Exception(
                                 sprintf(
                                     __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
-                                    'href="' . dcCore::app()->adminurl->get('admin.update', ['step' => 'download']) . '"'
+                                    'href="' . dcCore::app()->admin->url->get('admin.update', ['step' => 'download']) . '"'
                                 ) .
                                 ' ' .
                                 __('If this problem persists try to ' .
                                     '<a href="https://dotclear.org/download">update manually</a>.')
                             );
                         }
-                        dcCore::app()->adminurl->redirect('admin.update', ['step' => 'backup']);
+                        dcCore::app()->admin->url->redirect('admin.update', ['step' => 'backup']);
 
                         break;
                     case 'backup':
@@ -173,7 +173,7 @@ class Update extends Process
                             DC_ROOT . '/inc/digests',
                             DC_BACKUP_PATH . '/backup-' . DC_VERSION . '.zip'
                         );
-                        dcCore::app()->adminurl->redirect('admin.update', ['step' => 'unzip']);
+                        dcCore::app()->admin->url->redirect('admin.update', ['step' => 'unzip']);
 
                         break;
                     case 'unzip':
@@ -267,7 +267,7 @@ class Update extends Process
             if (empty(dcCore::app()->admin->new_v)) {
                 echo
                 '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>' .
-                '<form action="' . dcCore::app()->adminurl->get('admin.update') . '" method="get">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.update') . '" method="get">' .
                 '<p><input type="hidden" name="process" value="Update" />' .
                 '<p><input type="hidden" name="nocache" value="1" />' .
                 '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
@@ -288,7 +288,7 @@ class Update extends Process
                     }
                     echo
                     '<p>' . __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.') . '</p>' .
-                    '<form action="' . dcCore::app()->adminurl->get('admin.update') . '" method="get">' .
+                    '<form action="' . dcCore::app()->admin->url->get('admin.update') . '" method="get">' .
                     '<p><input type="hidden" name="step" value="check" />' .
                     '<p><input type="hidden" name="process" value="Update" />' .
                     '<input type="submit" value="' . __('Update Dotclear') . '" /></p>' .
@@ -308,7 +308,7 @@ class Update extends Process
                 '<p>' . __('The following files are backups of previously updates. You can revert your previous installation or delete theses files.') . '</p>';
 
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.update') . '" method="post">';
+                '<form action="' . dcCore::app()->admin->url->get('admin.update') . '" method="post">';
                 foreach ($archives as $archive) {
                     echo
                     '<p><label class="classic">' . form::radio(['backup_file'], Html::escapeHTML($archive)) . ' ' .
@@ -330,7 +330,7 @@ class Update extends Process
             echo
             '<p class="message">' .
             __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="' . dcCore::app()->adminurl->get('admin.auth', $params) . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
+            ' <strong><a href="' . dcCore::app()->admin->url->get('admin.auth', $params) . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
             '</p>';
         }
 

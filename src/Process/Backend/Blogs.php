@@ -43,7 +43,7 @@ class Blogs extends Process
         -------------------------------------------------------- */
         dcCore::app()->admin->blogs_actions_page = null;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->adminurl->get('admin.blogs'));
+            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->admin->url->get('admin.blogs'));
             if (dcCore::app()->admin->blogs_actions_page->process()) {
                 return false;
             }
@@ -87,7 +87,7 @@ class Blogs extends Process
     {
         Page::open(
             __('List of blogs'),
-            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->adminurl->get('admin.blogs')),
+            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->admin->url->get('admin.blogs')),
             Page::breadcrumb(
                 [
                     __('System')        => '',
@@ -104,7 +104,7 @@ class Blogs extends Process
                     ->items([
                         (new Link())
                             ->class(['button', 'add'])
-                            ->href(dcCore::app()->adminurl->get('admin.blog'))
+                            ->href(dcCore::app()->admin->url->get('admin.blog'))
                             ->text(__('Create a new blog')),
                     ])
                     ->render();
@@ -116,7 +116,7 @@ class Blogs extends Process
             $form = null;
             if (dcCore::app()->auth->isSuperAdmin()) {
                 $form = (new Form('form-blogs'))
-                        ->action(dcCore::app()->adminurl->get('admin.blogs'))
+                        ->action(dcCore::app()->admin->url->get('admin.blogs'))
                         ->method('post')
                         ->fields([
                             // sprintf pattern for blog list
@@ -155,7 +155,7 @@ class Blogs extends Process
                                         ->class('classic')
                                     ),
                             ]),
-                            ...dcCore::app()->adminurl->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
+                            ...dcCore::app()->admin->url->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
                         ]);
             }
 

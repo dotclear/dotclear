@@ -174,9 +174,9 @@ class Manage extends Process
             '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post" class="fieldset">' .
             '<h3>' . __('Information') . '</h3>' .
             '<ul class="spaminfo">' .
-            '<li class="spamcount"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
+            '<li class="spamcount"><a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
             '<strong>' . $spam_count . '</strong></li>' .
-            '<li class="hamcount"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
+            '<li class="hamcount"><a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
                 $published_count . '</li>' .
             '</ul>';
 
@@ -189,7 +189,7 @@ class Manage extends Process
             if ($moderationTTL != null && $moderationTTL >= 0) {
                 echo
                 '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL) . ' ' .
-                sprintf(__('You can modify this duration in the %s'), '<a href="' . dcCore::app()->adminurl->get('admin.blog.pref') .
+                sprintf(__('You can modify this duration in the %s'), '<a href="' . dcCore::app()->admin->url->get('admin.blog.pref') .
                 '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
                 '.</p>';
             }

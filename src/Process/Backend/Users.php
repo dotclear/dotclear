@@ -95,7 +95,7 @@ class Users extends Process
     {
         Page::open(
             __('Users'),
-            Page::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->adminurl->get('admin.users')),
+            Page::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->admin->url->get('admin.users')),
             Page::breadcrumb(
                 [
                     __('System') => '',
@@ -112,7 +112,7 @@ class Users extends Process
                 Page::message(__('The permissions have been successfully updated.'));
             }
 
-            echo '<p class="top-add"><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></p>';
+            echo '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->url->get('admin.user') . '">' . __('New user') . '</a></p>';
 
             dcCore::app()->admin->user_filter->display('admin.users');
 
@@ -124,7 +124,7 @@ class Users extends Process
                 dcCore::app()->admin->user_filter->page,
                 dcCore::app()->admin->user_filter->nb,
                 (new Form('form-users'))
-                    ->action(dcCore::app()->adminurl->get('admin.user.actions'))
+                    ->action(dcCore::app()->admin->url->get('admin.user.actions'))
                     ->method('post')
                     ->fields([
                         new Text('', '%s'),
@@ -147,7 +147,7 @@ class Users extends Process
                                      dcCore::app()->formNonce(false),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
-                                     ...dcCore::app()->adminurl->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
+                                     ...dcCore::app()->admin->url->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
                                  ]),
                              ]),
                     ])

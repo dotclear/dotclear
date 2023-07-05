@@ -89,7 +89,7 @@ class Helper
      */
     public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null)
     {
-        $url     = dcCore::app()->adminurl->get($adminurl);
+        $url     = dcCore::app()->admin->url->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
         dcCore::app()->menu[$section]->prependItem(
             $desc,

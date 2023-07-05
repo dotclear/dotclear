@@ -535,7 +535,7 @@ class dcModules
             }
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
-                dcCore::app()->adminurl->register('admin.plugin.' . $module->getId(), dcCore::app()->adminurl->get('admin.plugin'), ['p' => $module->getId()]);
+                dcCore::app()->admin->url->register('admin.plugin.' . $module->getId(), dcCore::app()->admin->url->get('admin.plugin'), ['p' => $module->getId()]);
             }
             // Load ns_file
             $this->loadNsFile($module->getId(), $ns);

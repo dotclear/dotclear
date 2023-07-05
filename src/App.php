@@ -61,13 +61,13 @@ namespace Dotclear {
             // Load app prerequisites
             self::preload();
 
-            // First step app utility loading. If any.
+            // Init app utility. If any.
             $ret = empty($utility) ? false : self::utility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
             // Load app requirements
             self::load();
 
-            // Second step app utility loading. If any.
+            // Process app utility. If any.
             if ($ret && true === self::utility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
                 // Try to load utility process, the _REQUEST process as priority on method process.
                 if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {

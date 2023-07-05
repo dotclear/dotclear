@@ -224,7 +224,7 @@ class Config extends Process
                 dcCore::app()->admin->blowup_user = $blowup_user;
 
                 Page::addSuccessNotice(__('Theme configuration has been successfully updated.'));
-                dcCore::app()->adminurl->redirect('admin.blog.theme', ['conf' => '1']);
+                dcCore::app()->admin->url->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -245,9 +245,9 @@ class Config extends Process
         }
 
         echo
-        '<p><a class="back" href="' . dcCore::app()->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>' .
+        '<p><a class="back" href="' . dcCore::app()->admin->url->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>' .
 
-        '<form id="theme_config" action="' . dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']) . '" method="post" enctype="multipart/form-data">' .
+        '<form id="theme_config" action="' . dcCore::app()->admin->url->get('admin.blog.theme', ['conf' => '1']) . '" method="post" enctype="multipart/form-data">' .
 
         '<div class="fieldset"><h3>' . __('Customization') . '</h3>' .
         '<h4>' . __('General') . '</h4>';

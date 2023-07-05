@@ -75,7 +75,7 @@ class Blog extends Process
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
                 dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
                 Page::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
-                dcCore::app()->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);
+                dcCore::app()->admin->url->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -96,7 +96,7 @@ class Blog extends Process
                 Page::breadcrumb(
                     [
                         __('System')   => '',
-                        __('Blogs')    => dcCore::app()->adminurl->get('admin.blogs'),
+                        __('Blogs')    => dcCore::app()->admin->url->get('admin.blogs'),
                         __('New blog') => '',
                     ]
                 )
@@ -105,7 +105,7 @@ class Blog extends Process
             echo
             // Form
             (new Form('blog-form'))
-                ->action(dcCore::app()->adminurl->get('admin.blog'))
+                ->action(dcCore::app()->admin->url->get('admin.blog'))
                 ->method('post')
                 ->fields([
                     // Form Nonce

@@ -341,7 +341,7 @@ class Manage extends Process
 
             '<p class="info">' . sprintf(
                 __('You can place list of late tasks on your %s.'),
-                '<a href="' . dcCore::app()->adminurl->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
+                '<a href="' . dcCore::app()->admin->url->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
             ) . '</p>' .
             '</div>' .
 
