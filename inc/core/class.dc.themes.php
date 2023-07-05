@@ -27,10 +27,10 @@ class dcThemes extends dcModules
      * Load module context.
      *
      * @param      array<int,string>    $ignored     The modules to ignore
-     * @param      null|string          $ns          The namespace (context as 'public', 'admin', ...)
+     * @param      string               $ns          The namespace (context as 'public', 'admin', ...)
      * @param      null|string          $lang        The language
      */
-    protected function loadModulesContext(array $ignored, ?string $ns, ?string $lang): void
+    protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
         // nothing to do here for themes
     }
