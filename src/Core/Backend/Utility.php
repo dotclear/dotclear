@@ -36,6 +36,9 @@ class Utility extends Process
     /** @var    Url     Backend (admin) Url handler instance */
     public Url $url;
 
+    /** @var    Favorites   Backend (admin) Favorites handler instance */
+    public Favorites $favs;
+
     // Constants
 
     // Menu sections
@@ -240,9 +243,11 @@ class Utility extends Process
             $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
             dcCore::app()->notices = new dcNotices();
-            dcCore::app()->favs    = new Favorites();
-            # [] : Title, URL, small icon, large icon, permissions, id, class
-            # NB : '*' in permissions means any, null means super admin only
+            
+            dcCore::app()->admin->favs    = new Favorites();
+
+            /** @deprecated since 2.27 Use dcCore::app()->admin->favs */
+            dcCore::app()->favs = dcCore::app()->admin->favs;
 
             # Menus creation
             dcCore::app()->menu = new ArrayObject();
@@ -255,7 +260,7 @@ class Utility extends Process
             $GLOBALS['_menu'] = dcCore::app()->menu;
 
             if (!$user_ui_nofavmenu) {
-                dcCore::app()->favs->appendMenuTitle(dcCore::app()->menu);
+                dcCore::app()->admin->favs->appendMenuTitle(dcCore::app()->menu);
             }
             dcCore::app()->menu[self::MENU_BLOG]    = new Menu('blog-menu', 'Blog');
             dcCore::app()->menu[self::MENU_SYSTEM]  = new Menu('system-menu', 'System');
@@ -263,10 +268,10 @@ class Utility extends Process
 
             # Loading plugins
             dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
-            dcCore::app()->favs->setup();
+            dcCore::app()->admin->favs->setup();
 
             if (!$user_ui_nofavmenu) {
-                dcCore::app()->favs->appendMenu(dcCore::app()->menu);
+                dcCore::app()->admin->favs->appendMenu(dcCore::app()->menu);
             }
 
             # Set menu titles

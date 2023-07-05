@@ -225,11 +225,11 @@ final class dcCore
     /**
      * Bakcend Favorites instance
      *
-     * May be transfered as property of backend Utility instance in future
+     * @deprecated since 2.27, Use dcCore::app()->admin->favs
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
-    public $favs;
+    public \Dotclear\Core\Backend\Favorites $favs;
 
     /**
      * Array of several backend Menu instance

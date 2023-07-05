@@ -111,7 +111,7 @@ class Home extends Process
 
         // Dashboard icons
         $__dashboard_icons = new ArrayObject();
-        dcCore::app()->favs->appendDashboardIcons($__dashboard_icons);
+        dcCore::app()->admin->favs->appendDashboardIcons($__dashboard_icons);
 
         // Dashboard items
         $__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);
