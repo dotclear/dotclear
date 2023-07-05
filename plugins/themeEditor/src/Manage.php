@@ -55,7 +55,7 @@ class Manage extends Process
 
         if (!is_a(dcCore::app()->themes, 'dcThemes')) {
             dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+            dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
         }
 
         dcCore::app()->admin->theme  = dcCore::app()->themes->getDefine(dcCore::app()->blog->settings->system->theme);

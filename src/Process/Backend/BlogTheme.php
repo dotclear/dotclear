@@ -38,7 +38,7 @@ class BlogTheme extends Process
 
         // Loading themes
         dcCore::app()->themes = new dcThemes();
-        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
+        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
 
         // Page helper
         dcCore::app()->admin->list = new ThemesList(
@@ -54,9 +54,6 @@ class BlogTheme extends Process
             // A redirection occured, so we should never go further here
             exit;
         }
-
-        // Load current theme Backend process (and its parent)
-        dcCore::app()->themes->loadNsFile((string) dcCore::app()->blog->settings->system->theme, 'admin');
 
         if (dcCore::app()->admin->list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
             // Display module configuration page

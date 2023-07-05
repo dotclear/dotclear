@@ -34,7 +34,7 @@ abstract class MyTheme extends MyModule
         if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
             dcCore::app()->themes = new dcThemes();
             if (!is_null(dcCore::app()->blog)) {
-                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
             }
         }
 
