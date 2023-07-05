@@ -661,6 +661,11 @@ class dcUrlHandlers extends UrlHandler
      */
     public static function try(?string $args): void
     {
+        $page_number = $args ? self::getPageNumber($args) : dcCore::app()->public->getPageNumber();
+        if ($page_number) {
+            dcCore::app()->public->setPageNumber($page_number);
+        }
+
         if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
             // The specified Preview URL is malformed.
             self::p404();
