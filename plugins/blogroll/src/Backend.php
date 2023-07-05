@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\blogroll;
 
 use dcCore;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Utility;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 use initBlogroll;
 
@@ -56,7 +56,7 @@ class Backend extends Process
             'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
         ]);
 
-        My::addBackendMenuItem(Utility::MENU_BLOG);
+        My::addBackendMenuItem(Menus::MENU_BLOG);
 
         return true;
     }

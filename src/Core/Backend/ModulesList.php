@@ -189,7 +189,7 @@ class ModulesList
         $this->modules = $modules;
         $this->store   = new dcStore($modules, $xml_url, $force);
 
-        $this->page_url = dcCore::app()->adminurl->get('admin.plugins');
+        $this->page_url = dcCore::app()->admin->url->get('admin.plugins');
 
         $this->setPath($modules_root);
         $this->setIndex(__('other'));
@@ -1110,10 +1110,10 @@ class ModulesList
                 if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
                     $params = ['module' => $id, 'conf' => '1'];
                     if (!dcCore::app()->plugins->moduleInfo($id, 'standalone_config') && !$self) {
-                        $params['redir'] = dcCore::app()->adminurl->get('admin.plugin.' . $id);
+                        $params['redir'] = dcCore::app()->admin->url->get('admin.plugin.' . $id);
                     }
                     $settings_urls[] = '<a class="module-config" href="' .
-                    dcCore::app()->adminurl->get('admin.plugins', $params) .
+                    dcCore::app()->admin->url->get('admin.plugins', $params) .
                     '">' . __('Configure plugin') . '</a>';
                 }
             }
@@ -1125,7 +1125,7 @@ class ModulesList
                                 dcAuth::PERMISSION_ADMIN,
                             ]), dcCore::app()->blog->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
-                                dcCore::app()->adminurl->get('admin.blog.pref') . $sv .
+                                dcCore::app()->admin->url->get('admin.blog.pref') . $sv .
                                 '">' . __('Plugin settings (in blog parameters)') . '</a>';
                             }
 
@@ -1136,7 +1136,7 @@ class ModulesList
                                 dcAuth::PERMISSION_CONTENT_ADMIN,
                             ]), dcCore::app()->blog->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
-                                dcCore::app()->adminurl->get('admin.user.preferences') . $sv .
+                                dcCore::app()->admin->url->get('admin.user.preferences') . $sv .
                                 '">' . __('Plugin settings (in user preferences)') . '</a>';
                             }
 
@@ -1145,7 +1145,7 @@ class ModulesList
                             if ($self) {
                                 if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
                                     $settings_urls[] = '<a class="module-config" href="' .
-                                    dcCore::app()->adminurl->get('admin.plugin.' . $id) . $sv .
+                                    dcCore::app()->admin->url->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
                                 }
                                 // No need to use default index.php
@@ -1167,7 +1167,7 @@ class ModulesList
             if ($index && $self) {
                 if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), dcCore::app()->blog->id)) {
                     $settings_urls[] = '<a class="module-config" href="' .
-                    dcCore::app()->adminurl->get('admin.plugin.' . $id) .
+                    dcCore::app()->admin->url->get('admin.plugin.' . $id) .
                     '">' . __('Plugin main page') . '</a>';
                 }
             }

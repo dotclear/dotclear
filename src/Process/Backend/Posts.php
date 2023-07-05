@@ -32,7 +32,7 @@ class Posts extends Process
 
         // Actions
         // -------
-        dcCore::app()->admin->posts_actions_page = new ActionsPosts(dcCore::app()->adminurl->get('admin.posts'));
+        dcCore::app()->admin->posts_actions_page = new ActionsPosts(dcCore::app()->admin->url->get('admin.posts'));
         if (dcCore::app()->admin->posts_actions_page->process()) {
             return self::status(false);
         }
@@ -80,7 +80,7 @@ class Posts extends Process
     {
         Page::open(
             __('Posts'),
-            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(dcCore::app()->adminurl->get('admin.posts')),
+            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(dcCore::app()->admin->url->get('admin.posts')),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -95,7 +95,7 @@ class Posts extends Process
         }
         if (!dcCore::app()->error->flag()) {
             echo
-            '<p class="top-add"><a class="button add" href="' . dcCore::app()->adminurl->get('admin.post') . '">' . __('New post') . '</a></p>';
+            '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->url->get('admin.post') . '">' . __('New post') . '</a></p>';
 
             # filters
             dcCore::app()->admin->post_filter->display('admin.posts');
@@ -104,7 +104,7 @@ class Posts extends Process
             dcCore::app()->admin->post_list->display(
                 dcCore::app()->admin->post_filter->page,
                 dcCore::app()->admin->post_filter->nb,
-                '<form action="' . dcCore::app()->adminurl->get('admin.posts') . '" method="post" id="form-entries">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.posts') . '" method="post" id="form-entries">' .
                 // List
                 '%s' .
 
@@ -114,7 +114,7 @@ class Posts extends Process
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
                 form::combo('action', dcCore::app()->admin->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
-                dcCore::app()->adminurl->getHiddenFormFields('admin.posts', dcCore::app()->admin->post_filter->values()) .
+                dcCore::app()->admin->url->getHiddenFormFields('admin.posts', dcCore::app()->admin->post_filter->values()) .
                 dcCore::app()->formNonce() .
                 '</div>' .
                 '</form>',

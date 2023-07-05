@@ -198,7 +198,7 @@ class ManagePage extends Process
         }
 
         dcCore::app()->admin->comments_actions_page = new ActionsComments(
-            dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages']),
+            dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages']),
             [
                 'act'           => 'page',
                 'id'            => dcCore::app()->admin->post_id,
@@ -694,7 +694,7 @@ class ManagePage extends Process
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
             } else {
                 echo
-                '<a id="post-cancel" href="' . dcCore::app()->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                '<a id="post-cancel" href="' . dcCore::app()->admin->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
             echo(dcCore::app()->admin->can_delete ?
@@ -735,7 +735,7 @@ class ManagePage extends Process
 
             if (dcCore::app()->admin->post_id && !empty(dcCore::app()->admin->post_media)) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.post.media') . '" id="attachment-remove-hide" method="post">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.post.media') . '" id="attachment-remove-hide" method="post">' .
                 '<div>' .
                 form::hidden(['post_id'], dcCore::app()->admin->post_id) .
                 form::hidden(['media_id'], '') .
@@ -766,7 +766,7 @@ class ManagePage extends Process
 
             if ($has_action) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.plugin', ['p' => 'pages']) . '" method="post">';
+                '<form action="' . dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages']) . '" method="post">';
             }
 
             echo
@@ -811,7 +811,7 @@ class ManagePage extends Process
             '<div class="fieldset clear">' .
             '<h3>' . __('Add a comment') . '</h3>' .
 
-            '<form action="' . dcCore::app()->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
@@ -916,7 +916,7 @@ class ManagePage extends Process
         '</tr>';
 
         while ($rs->fetch()) {
-            $comment_url = dcCore::app()->adminurl->get('admin.comment', ['id' => $rs->comment_id]);
+            $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $rs->comment_id]);
 
             $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
             $sts_class = '';
@@ -966,7 +966,7 @@ class ManagePage extends Process
             if ($show_ip) {
                 echo
                 '<td class="nowrap">' .
-                '<a href="' . dcCore::app()->adminurl->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a>' .
+                '<a href="' . dcCore::app()->admin->url->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a>' .
                 '</td>';
             }
 

@@ -297,9 +297,9 @@ class Install extends Process
                 dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', false, true);
 
                 # Add default favorites
-                dcCore::app()->favs = new Favorites();
-                $init_favs          = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
-                dcCore::app()->favs->setFavoriteIDs($init_favs, true);
+                $favs      = new Favorites();
+                $init_favs = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
+                $favs->setFavoriteIDs($init_favs, true);
 
                 self::$step = 1;
             } catch (Exception $e) {

@@ -167,7 +167,7 @@ class User extends Process
                     }
 
                     Page::addSuccessNotice(__('User has been successfully updated.'));
-                    dcCore::app()->adminurl->redirect('admin.user', ['id' => $new_id]);
+                    dcCore::app()->admin->url->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
 
@@ -199,9 +199,9 @@ class User extends Process
                     Page::addSuccessNotice(__('User has been successfully created.'));
                     Page::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     if (!empty($_POST['saveplus'])) {
-                        dcCore::app()->adminurl->redirect('admin.user');
+                        dcCore::app()->admin->url->redirect('admin.user');
                     } else {
-                        dcCore::app()->adminurl->redirect('admin.user', ['id' => $new_id]);
+                        dcCore::app()->admin->url->redirect('admin.user', ['id' => $new_id]);
                     }
                 }
             } catch (Exception $e) {
@@ -229,7 +229,7 @@ class User extends Process
             Page::breadcrumb(
                 [
                     __('System')                     => '',
-                    __('Users')                      => dcCore::app()->adminurl->get('admin.users'),
+                    __('Users')                      => dcCore::app()->admin->url->get('admin.users'),
                     dcCore::app()->admin->page_title => '',
                 ]
             )
@@ -244,7 +244,7 @@ class User extends Process
         }
 
         echo
-        '<form action="' . dcCore::app()->adminurl->get('admin.user') . '" method="post" id="user-form">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.user') . '" method="post" id="user-form">' .
         '<div class="two-cols">' .
 
         '<div class="col">' .
@@ -430,9 +430,9 @@ class User extends Process
 
             if (!dcCore::app()->admin->user_super) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post">' .
                 '<p><input type="submit" value="' . __('Add new permissions') . '" />' .
-                form::hidden(['redir'], dcCore::app()->adminurl->get('admin.user', ['id' => dcCore::app()->admin->user_id])) .
+                form::hidden(['redir'], dcCore::app()->admin->url->get('admin.user', ['id' => dcCore::app()->admin->user_id])) .
                 form::hidden(['action'], 'blogs') .
                 form::hidden(['users[]'], dcCore::app()->admin->user_id) .
                 dcCore::app()->formNonce() .
@@ -449,9 +449,9 @@ class User extends Process
                     foreach ($permissions as $k => $v) {
                         if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                             echo
-                            '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" class="perm-block">' .
+                            '<form action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post" class="perm-block">' .
                             '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                            dcCore::app()->adminurl->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
+                            dcCore::app()->admin->url->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
                             Html::escapeHTML($v['name']) . '</a> (' . Html::escapeHTML($k) . ')</p>';
 
                             echo
@@ -465,7 +465,7 @@ class User extends Process
                             echo
                             '</ul>' .
                             '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                            form::hidden(['redir'], dcCore::app()->adminurl->get('admin.user', ['id' => dcCore::app()->admin->user_id])) .
+                            form::hidden(['redir'], dcCore::app()->admin->url->get('admin.user', ['id' => dcCore::app()->admin->user_id])) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], dcCore::app()->admin->user_id) .
                             form::hidden(['blogs[]'], $k) .
@@ -486,14 +486,14 @@ class User extends Process
             echo
             '<div class="clear fieldset">' .
             '<h3>' . __('Direct links') . '</h3>' .
-            '<p><a href="' . dcCore::app()->adminurl->get(
+            '<p><a href="' . dcCore::app()->admin->url->get(
                 'admin.posts',
                 ['user_id' => dcCore::app()->admin->user_id]
             ) . '">' . __('List of posts') . '</a></p>';
 
             if (dcCore::app()->admin->user_email || dcCore::app()->admin->user_url) {
                 echo
-                '<p><a href="' . dcCore::app()->adminurl->get(
+                '<p><a href="' . dcCore::app()->admin->url->get(
                     'admin.comments',
                     [
                         'email' => dcCore::app()->admin->user_email,

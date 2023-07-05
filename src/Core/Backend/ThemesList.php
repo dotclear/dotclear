@@ -42,7 +42,7 @@ class ThemesList extends ModulesList
     public function __construct(dcModules $modules, string $modules_root, string $xml_url, ?bool $force = false)
     {
         parent::__construct($modules, $modules_root, $xml_url, $force);
-        $this->page_url = dcCore::app()->adminurl->get('admin.blog.theme');
+        $this->page_url = dcCore::app()->admin->url->get('admin.blog.theme');
     }
 
     /**

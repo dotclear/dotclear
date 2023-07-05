@@ -328,7 +328,7 @@ class Filters
         }
 
         echo
-        '<form action="' . dcCore::app()->adminurl->get($adminurl) . $tab . '" method="get" id="filters-form">' .
+        '<form action="' . dcCore::app()->admin->url->get($adminurl) . $tab . '" method="get" id="filters-form">' .
         '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
         '<div class="table">';

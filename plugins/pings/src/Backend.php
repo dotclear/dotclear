@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\pings;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Utility;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -34,7 +34,7 @@ class Backend extends Process
             return false;
         }
 
-        My::addBackendMenuItem(Utility::MENU_BLOG, [], '');
+        My::addBackendMenuItem(Menus::MENU_BLOG, [], '');
 
         dcCore::app()->addBehaviors([
             'adminPostHeaders'     => fn () => My::jsLoad('post.js'),

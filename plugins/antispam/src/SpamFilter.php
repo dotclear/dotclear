@@ -97,8 +97,8 @@ class SpamFilter
             $this->name = $this->id;
         }
 
-        if (isset(dcCore::app()->adminurl)) {
-            $this->gui_url = dcCore::app()->adminurl->get('admin.plugin.antispam', ['f' => $this->id], '&');
+        if (isset(dcCore::app()->admin->url)) {
+            $this->gui_url = dcCore::app()->admin->url->get('admin.plugin.antispam', ['f' => $this->id], '&');
         }
     }
 

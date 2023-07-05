@@ -81,25 +81,25 @@ class ListingComments extends Listing
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_PUBLISHED]),
+                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_spam ?
                     sprintf(
                         __(', <a href="%s">spam</a> (1)', ', <a href="%s">spam</a> (%s)', $nb_spam),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_JUNK]),
+                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_JUNK]),
                         $nb_spam
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_PENDING]),
+                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_UNPUBLISHED]),
+                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -166,13 +166,13 @@ class ListingComments extends Listing
      */
     private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): string
     {
-        $author_url = dcCore::app()->adminurl->get('admin.comments', [
+        $author_url = dcCore::app()->admin->url->get('admin.comments', [
             'author' => $this->rs->comment_author,
         ]);
 
         $post_url = dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id);
 
-        $comment_url = dcCore::app()->adminurl->get('admin.comment', ['id' => $this->rs->comment_id]);
+        $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $this->rs->comment_id]);
 
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -242,7 +242,7 @@ class ListingComments extends Listing
             }
             if ($show_ip) {
                 $cols['ip'] = '<td class="nowrap"><a href="' .
-                    dcCore::app()->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+                    dcCore::app()->admin->url->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
                     $this->rs->comment_ip . '</a></td>';
             }
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';

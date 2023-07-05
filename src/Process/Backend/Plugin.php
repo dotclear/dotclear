@@ -49,7 +49,7 @@ class Plugin extends Process
         $res = '';
         if (!empty($plugin)) {
             try {
-                dcCore::app()->admin->setPageURL(dcCore::app()->adminurl->get('admin.plugin.' . $plugin));
+                dcCore::app()->admin->setPageURL(dcCore::app()->admin->url->get('admin.plugin.' . $plugin));
             } catch (Exception $e) {
                 // Unknown URL handler for plugin, back to dashboard
                 Http::redirect(DC_ADMIN_URL);

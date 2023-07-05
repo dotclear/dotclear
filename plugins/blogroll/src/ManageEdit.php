@@ -160,7 +160,7 @@ class ManageEdit extends Process
                 '</form>';
             } else {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
 
                 '<div class="col30 first-col">' .
                 '<h3>' . __('Edit link') . '</h3>' .

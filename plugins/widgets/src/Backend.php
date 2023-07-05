@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\widgets;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Utility;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -48,7 +48,7 @@ class Backend extends Process
             },
         ]);
 
-        My::addBackendMenuItem(Utility::MENU_BLOG);
+        My::addBackendMenuItem(Menus::MENU_BLOG);
 
         return true;
     }

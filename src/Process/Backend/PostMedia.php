@@ -99,7 +99,7 @@ class PostMedia extends Process
 
                 echo
                 (new Form())
-                ->action(dcCore::app()->adminurl->get('admin.post.media'))
+                ->action(dcCore::app()->admin->url->get('admin.post.media'))
                 ->method('post')
                 ->fields([
                     (new Para())

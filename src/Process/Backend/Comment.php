@@ -176,7 +176,7 @@ class Comment extends Process
                     dcCore::app()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     Page::addSuccessNotice(__('Comment has been successfully updated.'));
-                    dcCore::app()->adminurl->redirect('admin.comment', ['id' => dcCore::app()->admin->comment_id]);
+                    dcCore::app()->admin->url->redirect('admin.comment', ['id' => dcCore::app()->admin->comment_id]);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -246,14 +246,14 @@ class Comment extends Process
             }
 
             echo
-            '<form action="' . dcCore::app()->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . dcCore::app()->admin->url->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="fieldset">' .
             '<h3>' . __('Information collected') . '</h3>';
 
             if (dcCore::app()->admin->show_ip) {
                 echo
                 '<p>' . __('IP address:') . ' ' .
-                '<a href="' . dcCore::app()->adminurl->get('admin.comments', ['ip' => dcCore::app()->admin->comment_ip]) . '">' . dcCore::app()->admin->comment_ip . '</a></p>';
+                '<a href="' . dcCore::app()->admin->url->get('admin.comments', ['ip' => dcCore::app()->admin->comment_ip]) . '">' . dcCore::app()->admin->comment_ip . '</a></p>';
             }
 
             echo

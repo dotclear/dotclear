@@ -118,7 +118,7 @@ class Category extends Process
                 try {
                     dcCore::app()->blog->setCategoryParent(dcCore::app()->admin->cat_id, $new_parent);
                     Page::addSuccessNotice(__('The category has been successfully moved'));
-                    dcCore::app()->adminurl->redirect('admin.categories');
+                    dcCore::app()->admin->url->redirect('admin.categories');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -130,7 +130,7 @@ class Category extends Process
             try {
                 dcCore::app()->blog->setCategoryPosition(dcCore::app()->admin->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
                 Page::addSuccessNotice(__('The category has been successfully moved'));
-                dcCore::app()->adminurl->redirect('admin.categories');
+                dcCore::app()->admin->url->redirect('admin.categories');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -164,7 +164,7 @@ class Category extends Process
 
                     Page::addSuccessNotice(__('The category has been successfully updated.'));
 
-                    dcCore::app()->adminurl->redirect('admin.category', ['id' => $_POST['id']]);
+                    dcCore::app()->admin->url->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
                     // Create category
 
@@ -180,7 +180,7 @@ class Category extends Process
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
-                    dcCore::app()->adminurl->redirect('admin.categories');
+                    dcCore::app()->admin->url->redirect('admin.categories');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -196,11 +196,11 @@ class Category extends Process
 
         $elements = [
             Html::escapeHTML(dcCore::app()->blog->name) => '',
-            __('Categories')                            => dcCore::app()->adminurl->get('admin.categories'),
+            __('Categories')                            => dcCore::app()->admin->url->get('admin.categories'),
         ];
         if (dcCore::app()->admin->cat_id) {
             while (dcCore::app()->admin->cat_parents->fetch()) {
-                $elements[Html::escapeHTML(dcCore::app()->admin->cat_parents->cat_title)] = dcCore::app()->adminurl->get('admin.category', ['id' => dcCore::app()->admin->cat_parents->cat_id]);
+                $elements[Html::escapeHTML(dcCore::app()->admin->cat_parents->cat_title)] = dcCore::app()->admin->url->get('admin.category', ['id' => dcCore::app()->admin->cat_parents->cat_id]);
             }
         }
         $elements[$title] = '';
@@ -226,7 +226,7 @@ class Category extends Process
         }
 
         echo
-        '<form action="' . dcCore::app()->adminurl->get('admin.category') . '" method="post" id="category-form">' .
+        '<form action="' . dcCore::app()->admin->url->get('admin.category') . '" method="post" id="category-form">' .
         '<h3>' . __('Category information') . '</h3>' .
         '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
         \form::field('cat_title', 40, 255, [
@@ -286,7 +286,7 @@ class Category extends Process
                 ->class('col')
                 ->items([
                     (new Form('cat-parent-form'))
-                        ->action(dcCore::app()->adminurl->get('admin.category'))
+                        ->action(dcCore::app()->admin->url->get('admin.category'))
                         ->method('post')
                         ->class('fieldset')
                         ->fields([
@@ -315,7 +315,7 @@ class Category extends Process
                     ->class('col')
                     ->items([
                         (new Form('cat-sibling-form'))
-                            ->action(dcCore::app()->adminurl->get('admin.category'))
+                            ->action(dcCore::app()->admin->url->get('admin.category'))
                             ->method('post')
                             ->class('fieldset')
                             ->fields([

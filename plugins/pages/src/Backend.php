@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Utility;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -36,7 +36,7 @@ class Backend extends Process
 
         dcCore::app()->auth->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
 
-        My::addBackendMenuItem(Utility::MENU_BLOG);
+        My::addBackendMenuItem(Menus::MENU_BLOG);
 
         dcCore::app()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {

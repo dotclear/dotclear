@@ -99,7 +99,7 @@ class ActionsBlogs extends Actions
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    __('Blogs')                                 => dcCore::app()->adminurl->get('admin.blogs'),
+                    __('Blogs')                                 => dcCore::app()->admin->url->get('admin.blogs'),
                     __('Blogs actions')                         => '',
                 ]
             )

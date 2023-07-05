@@ -38,7 +38,7 @@ class Comments extends Process
             try {
                 dcCore::app()->blog->delJunkComments();
                 $_SESSION['comments_del_spam'] = true;
-                dcCore::app()->adminurl->redirect('admin.comments');
+                dcCore::app()->admin->url->redirect('admin.comments');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -81,7 +81,7 @@ class Comments extends Process
             dcCore::app()->admin->default_action = 'delete';
         }
 
-        dcCore::app()->admin->comments_actions_page = new ActionsComments(dcCore::app()->adminurl->get('admin.comments'));
+        dcCore::app()->admin->comments_actions_page = new ActionsComments(dcCore::app()->admin->url->get('admin.comments'));
 
         if (dcCore::app()->admin->comments_actions_page->process()) {
             return self::status(false);
@@ -115,7 +115,7 @@ class Comments extends Process
 
         Page::open(
             __('Comments and trackbacks'),
-            Page::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(dcCore::app()->adminurl->get('admin.comments')),
+            Page::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(dcCore::app()->admin->url->get('admin.comments')),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -138,15 +138,15 @@ class Comments extends Process
             $spam_count = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
             if ($spam_count > 0) {
                 echo
-                '<form action="' . dcCore::app()->adminurl->get('admin.comments') . '" method="post" class="fieldset">';
+                '<form action="' . dcCore::app()->admin->url->get('admin.comments') . '" method="post" class="fieldset">';
 
                 if (!dcCore::app()->admin->comment_filter->show() || (dcCore::app()->admin->comment_filter->status != -2)) {
                     if ($spam_count == 1) {
                         echo '<p>' . sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
+                        '<a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
                     } elseif ($spam_count > 1) {
                         echo '<p>' . sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
+                        '<a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
                     }
                 }
 
@@ -169,7 +169,7 @@ class Comments extends Process
             dcCore::app()->admin->comment_list->display(
                 dcCore::app()->admin->comment_filter->page,
                 dcCore::app()->admin->comment_filter->nb,
-                '<form action="' . dcCore::app()->adminurl->get('admin.comments') . '" method="post" id="form-comments">' .
+                '<form action="' . dcCore::app()->admin->url->get('admin.comments') . '" method="post" id="form-comments">' .
 
                 '%s' .
 
@@ -184,7 +184,7 @@ class Comments extends Process
                 ) .
                 dcCore::app()->formNonce() .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-                dcCore::app()->adminurl->getHiddenFormFields('admin.comments', dcCore::app()->admin->comment_filter->values(true)) .
+                dcCore::app()->admin->url->getHiddenFormFields('admin.comments', dcCore::app()->admin->comment_filter->values(true)) .
                 '</div>' .
 
                 '</form>',

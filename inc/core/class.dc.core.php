@@ -214,31 +214,31 @@ final class dcCore
     public $admin;
 
     /**
-     * Backend Url instance
+     * Backend Url instance.
      *
-     * May be transfered as property of backend Utility instance in future
+     * @deprecated since 2.27, Use dcCore::app()->admin->url
      *
-     * @var \Dotclear\Core\Backend\Url|null
+     * @var \Dotclear\Core\Backend\Url
      */
-    public $adminurl;
+    public \Dotclear\Core\Backend\Url $adminurl;
 
     /**
-     * Bakcend Favorites instance
+     * Bakcend Favorites instance.
      *
-     * May be transfered as property of backend Utility instance in future
+     * @deprecated since 2.27, Use dcCore::app()->admin->favs
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
-    public $favs;
+    public \Dotclear\Core\Backend\Favorites $favs;
 
     /**
-     * Array of several backend Menu instance
+     * Backend Menus instance.
      *
-     * May be transfered as property of bakcend Utility instance in future
+     * @deprecated since 2.27, Use dcCore::app()->admin->menu
      *
-     * @var ArrayObject
+     * @var \Dotclear\Core\Backend\Menus
      */
-    public $menu;
+    public \Dotclear\Core\Backend\Menus $menu;
 
     /**
      * Array of resources

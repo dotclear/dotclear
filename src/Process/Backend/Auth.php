@@ -30,7 +30,7 @@ class Auth extends Process
     {
         // If we have a session cookie, go to index.php
         if (isset($_SESSION['sess_user_id'])) {
-            dcCore::app()->adminurl->redirect('admin.home');
+            dcCore::app()->admin->url->redirect('admin.home');
         }
 
         // Loading locales for detected language
@@ -43,7 +43,7 @@ class Auth extends Process
         }
 
         if (defined('DC_ADMIN_URL')) {
-            dcCore::app()->admin->page_url = DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.auth');
+            dcCore::app()->admin->page_url = DC_ADMIN_URL . dcCore::app()->admin->url->get('admin.auth');
         } else {
             dcCore::app()->admin->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
         }
@@ -201,7 +201,7 @@ class Auth extends Process
                     setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
 
-                dcCore::app()->adminurl->redirect('admin.home');
+                dcCore::app()->admin->url->redirect('admin.home');
             } catch (Exception $e) {
                 dcCore::app()->admin->err = $e->getMessage();
             }
@@ -263,7 +263,7 @@ class Auth extends Process
                     setcookie('dc_admin', $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
 
-                dcCore::app()->adminurl->redirect('admin.home');
+                dcCore::app()->admin->url->redirect('admin.home');
             } else {
                 // User cannot login
 
@@ -327,7 +327,7 @@ class Auth extends Process
         Page::jsLoad('js/pwstrength.js') .
         Page::jsLoad('js/_auth.js');
 
-        $action = dcCore::app()->adminurl->get('admin.auth');
+        $action = dcCore::app()->admin->url->get('admin.auth');
         $banner = Html::escapeHTML(DC_VENDOR_NAME);
         $buffer = '</head>' . "\n" .
             '<body id="dotclear-admin" class="auth">' . "\n" .
@@ -350,7 +350,7 @@ class Auth extends Process
             // Recovery key has been sent
 
             echo
-            '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
+            '<p><a href="' . dcCore::app()->admin->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
         } elseif (dcCore::app()->admin->recover) {
             // User request a new password
 
@@ -384,7 +384,7 @@ class Auth extends Process
 
             '<details open id="issue">' . "\n" .
             '<summary>' . __('Other option') . '</summary>' . "\n" .
-            '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
+            '<p><a href="' . dcCore::app()->admin->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
             '</details>';
         } elseif (dcCore::app()->admin->change_pwd) {
             // User need to change password
@@ -482,16 +482,16 @@ class Auth extends Process
                 if (dcCore::app()->admin->safe_mode) {
                     echo
                     '<summary>' . __('Other option') . '</summary>' . "\n" .
-                    '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
+                    '<p><a href="' . dcCore::app()->admin->url->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
                 } else {
                     echo
                     '<summary>' . __('Connection issue?') . '</summary>' . "\n";
                     if (dcCore::app()->auth->allowPassChange()) {
                         echo
-                        '<p><a href="' . dcCore::app()->adminurl->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
+                        '<p><a href="' . dcCore::app()->admin->url->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
                     }
                     echo
-                    '<p><a href="' . dcCore::app()->adminurl->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
+                    '<p><a href="' . dcCore::app()->admin->url->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
                 }
                 echo
                 '</details>';
