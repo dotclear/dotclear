@@ -16,7 +16,6 @@ use context;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use dcNotices;
 use dcTemplate;
 use dcThemes;
 use dcUrlHandlers;
@@ -153,9 +152,6 @@ class Utility extends Process
          * @deprecated Since 2.24
          */
         $GLOBALS['_page_number'] = 0;
-
-        # Prepare for further notices, if any
-        dcCore::app()->notices = new dcNotices();
 
         # Check blog sleep mode
         dcCore::app()->blog->checkSleepmodeTimeout();

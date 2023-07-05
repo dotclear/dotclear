@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
-use dcNotices;
 use dcTraitDynamicProperties;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
@@ -252,7 +251,6 @@ class Utility extends Process
 
         $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
-        dcCore::app()->notices      = new dcNotices();
         dcCore::app()->admin->favs  = new Favorites();
         dcCore::app()->admin->menus = new Menus();
 

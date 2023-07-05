@@ -400,6 +400,7 @@ final class dcCore
         $this->rest    = new dcRestServer();
         $this->meta    = new dcMeta();
         $this->log     = new dcLog();
+        $this->notices = new dcNotices();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*
