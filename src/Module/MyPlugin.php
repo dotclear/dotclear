@@ -103,7 +103,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
-        return defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->admin->url) ? dcCore::app()->admin->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
+        return defined('DC_CONTEXT_ADMIN') ? dcCore::app()->admin->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
     }
 
     /**
@@ -116,7 +116,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function redirect(array $params = [], string $suffix = ''): void
     {
-        if (defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->admin->url)) {
+        if (defined('DC_CONTEXT_ADMIN')) {
             dcCore::app()->admin->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
         }
     }

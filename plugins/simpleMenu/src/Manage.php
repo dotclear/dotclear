@@ -147,9 +147,9 @@ class Manage extends Process
         dcCore::app()->admin->items_combo = $items_combo;
 
         # Lecture menu existant
-        dcCore::app()->admin->menu = dcCore::app()->blog->settings->system->get('simpleMenu');
-        if (!is_array(dcCore::app()->admin->menu)) {
-            dcCore::app()->admin->menu = [];
+        dcCore::app()->admin->current_menu = dcCore::app()->blog->settings->system->get('simpleMenu');
+        if (!is_array(dcCore::app()->admin->current_menu)) {
+            dcCore::app()->admin->current_menu = [];
         }
 
         # Récupération état d'activation du menu
@@ -167,7 +167,7 @@ class Manage extends Process
         $item_targetBlank = false;
 
         // Get current menu
-        $menu = dcCore::app()->admin->menu;
+        $menu = dcCore::app()->admin->current_menu;
 
         dcCore::app()->admin->step = self::STEP_LIST;
         if (!empty($_POST['saveconfig'])) {
@@ -446,7 +446,7 @@ class Manage extends Process
         }
 
         // Store current menu (used in render)
-        dcCore::app()->admin->menu = $menu;
+        dcCore::app()->admin->current_menu = $menu;
 
         return true;
     }
@@ -663,7 +663,7 @@ class Manage extends Process
             '</form>';
         }
 
-        if (is_countable(dcCore::app()->admin->menu) ? count(dcCore::app()->admin->menu) : 0) {
+        if (count(dcCore::app()->admin->current_menu)) {
             if (dcCore::app()->admin->step === self::STEP_LIST) {
                 echo
                 '<form id="menuitems" action="' . dcCore::app()->admin->getPageURL() . '" method="post">';
@@ -692,7 +692,7 @@ class Manage extends Process
             '</thead>' .
             '<tbody' . (dcCore::app()->admin->step === self::STEP_LIST ? ' id="menuitemslist"' : '') . '>';
             $count = 0;
-            foreach (dcCore::app()->admin->menu as $i => $m) {
+            foreach (dcCore::app()->admin->current_menu as $i => $m) {
                 echo
                 '<tr class="line" id="l_' . $i . '">';
 
@@ -711,7 +711,7 @@ class Manage extends Process
                     '<td class="handle minimal">' .
                     form::number(['order[' . $i . ']'], [
                         'min'        => 1,
-                        'max'        => is_countable(dcCore::app()->admin->menu) ? count(dcCore::app()->admin->menu) : 0,
+                        'max'        => count(dcCore::app()->admin->current_menu),
                         'default'    => $count,
                         'class'      => 'position',
                         'extra_html' => 'title="' . sprintf(__('position of %s'), Html::escapeHTML($m['label'])) . '"',

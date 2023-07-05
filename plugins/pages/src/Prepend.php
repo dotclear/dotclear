@@ -31,7 +31,7 @@ class Prepend extends Process
         dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', [FrontendUrl::class, 'pages']);
         dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', [FrontendUrl::class, 'pagespreview']);
 
-        $admin_url = defined('DC_CONTEXT_ADMIN') && !is_null(dcCore::app()->admin->url) ? urldecode(dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')) : '';
+        $admin_url = defined('DC_CONTEXT_ADMIN') ? urldecode(dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')) : '';
         dcCore::app()->setPostType('page', $admin_url, dcCore::app()->url->getURLFor('pages', '%s'), 'Pages');
 
         return true;
