@@ -37,6 +37,38 @@ class Menus extends ArrayObject
     }
 
     /**
+     * Adds a menu item.
+     *
+     * @param      string  $section   The section
+     * @param      string  $desc      The item description
+     * @param      string  $adminurl  The URL scheme
+     * @param      mixed   $icon      The icon(s)
+     * @param      mixed   $perm      The permission(s)
+     * @param      bool    $pinned    Is pinned at begining
+     * @param      bool    $strict    Strict URL scheme or allow query string parameters
+     * @param      string  $id        The menu item id
+     */
+    public function addItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
+    {
+        if (!defined('DC_CONTEXT_ADMIN') || !$this->offsetExists($section)) {
+            return;
+        }
+
+        $url     = dcCore::app()->admin->url->get($adminurl);
+        $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
+        $this->offsetGet($section)->prependItem(
+            $desc,
+            $url,
+            $icon,
+            preg_match($pattern, (string) $_SERVER['REQUEST_URI']),
+            $perm,
+            $id,
+            null,
+            $pinned
+        );
+    }
+
+    /**
      * Set default menu titles and items.
      */
     public function setDefaultItems(): void
@@ -52,7 +84,7 @@ class Menus extends ArrayObject
         $this->offsetSet(self::MENU_PLUGINS, new Menu('plugins-menu', __('Plugins')));
 
         // add menu items
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Blog appearance'),
             'admin.blog.theme',
@@ -64,7 +96,7 @@ class Menus extends ArrayObject
             false,
             'BlogTheme'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Blog settings'),
             'admin.blog.pref',
@@ -76,7 +108,7 @@ class Menus extends ArrayObject
             false,
             'BlogPref'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Media manager'),
             'admin.media',
@@ -89,7 +121,7 @@ class Menus extends ArrayObject
             false,
             'Media'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Categories'),
             'admin.categories',
@@ -101,7 +133,7 @@ class Menus extends ArrayObject
             false,
             'Categories'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Search'),
             'admin.search',
@@ -114,7 +146,7 @@ class Menus extends ArrayObject
             false,
             'Search'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Comments'),
             'admin.comments',
@@ -127,7 +159,7 @@ class Menus extends ArrayObject
             false,
             'Comments'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('Posts'),
             'admin.posts',
@@ -140,7 +172,7 @@ class Menus extends ArrayObject
             false,
             'Posts'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_BLOG,
             __('New post'),
             'admin.post',
@@ -154,7 +186,7 @@ class Menus extends ArrayObject
             'NewPost'
         );
 
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_SYSTEM,
             __('My preferences'),
             'admin.user.preferences',
@@ -164,7 +196,7 @@ class Menus extends ArrayObject
             false,
             'UserPref'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_SYSTEM,
             __('Update'),
             'admin.update',
@@ -174,7 +206,7 @@ class Menus extends ArrayObject
             false,
             'Update'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_SYSTEM,
             __('Languages'),
             'admin.langs',
@@ -184,7 +216,7 @@ class Menus extends ArrayObject
             false,
             'Langs'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_SYSTEM,
             __('Plugins management'),
             'admin.plugins',
@@ -194,7 +226,7 @@ class Menus extends ArrayObject
             false,
             'Plugins'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_SYSTEM,
             __('Users'),
             'admin.users',
@@ -204,7 +236,7 @@ class Menus extends ArrayObject
             false,
             'Users'
         );
-        Helper::addMenuItem(
+        $this->addItem(
             self::MENU_SYSTEM,
             __('Blogs'),
             'admin.blogs',

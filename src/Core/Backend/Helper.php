@@ -78,6 +78,8 @@ class Helper
     /**
      * Adds a menu item.
      *
+     * @deprecated sicne 2.27, use dcCore::app()->admin->menu->addItem() instead
+     *
      * @param      string  $section   The section
      * @param      string  $desc      The item description
      * @param      string  $adminurl  The URL scheme
@@ -87,19 +89,8 @@ class Helper
      * @param      bool    $strict    Strict URL scheme or allow query string parameters
      * @param      string  $id        The menu item id
      */
-    public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null)
+    public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
-        $url     = dcCore::app()->admin->url->get($adminurl);
-        $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
-        dcCore::app()->admin->menu[$section]->prependItem(
-            $desc,
-            $url,
-            $icon,
-            preg_match($pattern, (string) $_SERVER['REQUEST_URI']),
-            $perm,
-            $id,
-            null,
-            $pinned
-        );
+        dcCore::app()->admin->menu->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
     }
 }

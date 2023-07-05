@@ -53,6 +53,8 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
 /**
  * Adds a menu item.
  *
+ * @deprecated  since 2.21  use dcCore::app()->admin->menu->addItem() instead
+ *
  * @param      string  $section   The section
  * @param      string  $desc      The description
  * @param      string  $adminurl  The adminurl
@@ -60,10 +62,8 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
  * @param      mixed   $perm      The permission
  * @param      bool    $pinned    The pinned
  * @param      bool    $strict    The strict
- *
- * @deprecated  since 2.21  use \Dotclear\Core\Backend\Helper::addMenuItem()
  */
-function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false)
+function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false): void
 {
-    Helper::addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
+    dcCore::app()->admin->menu->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
 }
