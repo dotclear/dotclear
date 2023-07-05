@@ -91,7 +91,7 @@ class Helper
     {
         $url     = dcCore::app()->admin->url->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
-        dcCore::app()->menu[$section]->prependItem(
+        dcCore::app()->admin->menu[$section]->prependItem(
             $desc,
             $url,
             $icon,

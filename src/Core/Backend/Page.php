@@ -451,8 +451,8 @@ class Page
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
-        foreach (array_keys((array) dcCore::app()->menu) as $k) {
-            echo dcCore::app()->menu[$k]->draw();
+        foreach (array_keys((array) dcCore::app()->admin->menu) as $k) {
+            echo dcCore::app()->admin->menu[$k]->draw();
         }
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');

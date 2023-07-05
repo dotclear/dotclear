@@ -19,7 +19,7 @@ namespace Dotclear\Module;
 use dcCore;
 use dcModuleDefine;
 use Dotclear\Core\Backend\Menu;
-use Dotclear\Core\Backend\Utility;
+use Dotclear\Core\Backend\Menus;
 
 /**
  * Plugin module helper.
@@ -41,13 +41,13 @@ abstract class MyPlugin extends MyModule
      * @param   string                  $scheme The URL end scheme
      * @param   string                  $id     The id (if not provided a standard one will be set), will be prefixed by 'plugin-'
      */
-    public static function addBackendMenuItem(string $menu = Utility::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
+    public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!defined('DC_CONTEXT_ADMIN') || !(dcCore::app()->menu[$menu] instanceof Menu)) {
+        if (!defined('DC_CONTEXT_ADMIN') || !(dcCore::app()->admin->menu[$menu] instanceof Menu)) {
             return;
         }
 
-        dcCore::app()->menu[$menu]->addItem(
+        dcCore::app()->admin->menu[$menu]->addItem(
             static::name(),
             static::manageUrl($params, '&'),
             static::icons(),

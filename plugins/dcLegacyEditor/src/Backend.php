@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
-use Dotclear\Core\Backend\Utility;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\WikiToHtml;
 
@@ -33,7 +33,7 @@ class Backend extends Process
             return false;
         }
 
-        My::addBackendMenuItem(Utility::MENU_PLUGINS, [], '');
+        My::addBackendMenuItem(Menus::MENU_PLUGINS, [], '');
 
         if (My::settings()->active) {
             if (!(dcCore::app()->wiki instanceof WikiToHtml)) {

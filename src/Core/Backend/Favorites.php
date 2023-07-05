@@ -295,24 +295,23 @@ class Favorites
      * Adds favorites section title to sidebar menu
      * shall not be called outside backend Utility...
      *
-     * @param array|ArrayObject  $menu   admin menu
+     * @param   Menus   $menu   admin menu
      */
-    public function appendMenuTitle($menu): void
+    public function appendMenuSection(Menus $menu): void
     {
-        $menu[Utility::MENU_FAVORITES]        = new Menu('favorites-menu', 'My favorites');
-        $menu[Utility::MENU_FAVORITES]->title = __('My favorites');
+        $menu->prependSection(Menus::MENU_FAVORITES, new Menu('favorites-menu', __('My favorites')));
     }
 
     /**
      * Adds favorites items title to sidebar menu
      * shall not be called outside backend Utility...
      *
-     * @param array|ArrayObject  $menu   admin menu
+     * @param Menus  $menu   admin menu
      */
-    public function appendMenu($menu): void
+    public function appendMenu(Menus $menu): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite_menu) {
-            $menu[Utility::MENU_FAVORITES]->addItem(
+            $menu[Menus::MENU_FAVORITES]->addItem(
                 $favorite_menu['title'],
                 $favorite_menu['url'],
                 $favorite_menu['small-icon'],
