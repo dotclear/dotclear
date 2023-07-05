@@ -74,9 +74,11 @@ class dcError
     /**
      * Returns errors stack as HTML and reset it.
      *
+     * @param   bool    $reset  True if error stack should be reset
+     *
      * @return string
      */
-    public function toHTML(): string
+    public function toHTML(bool $reset = true): string
     {
         $res = '';
 
@@ -84,7 +86,9 @@ class dcError
             foreach ($this->errors as $msg) {
                 $res .= Notices::error($msg, true, false, false);
             }
-            $this->reset();
+            if ($reset) {
+                $this->reset();
+            }
         }
 
         return $res;
