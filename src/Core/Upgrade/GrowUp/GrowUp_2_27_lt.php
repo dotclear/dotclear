@@ -38,6 +38,7 @@ class GrowUp_2_27_lt
             [
                 'admin/tpl',
                 'inc/admin',
+                'inc/dbschema',
             ]
         );
 
