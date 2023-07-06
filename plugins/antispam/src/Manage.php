@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -63,7 +64,7 @@ class Manage extends Process
 
                 Antispam::delAllSpam($ts);
 
-                Page::addSuccessNotice(__('Spam comments have been successfully deleted.'));
+                Notices::addSuccessNotice(__('Spam comments have been successfully deleted.'));
                 My::redirect();
             }
 
@@ -107,7 +108,7 @@ class Manage extends Process
 
                 Antispam::$filters->saveFilterOpts($filters_opt);
 
-                Page::addSuccessNotice(__('Filters configuration has been successfully saved.'));
+                Notices::addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 My::redirect();
             }
         } catch (Exception $e) {
@@ -147,7 +148,7 @@ class Manage extends Process
                     sprintf(__('%s filter configuration'), dcCore::app()->admin->filter->name) => '',
                 ]
             ) .
-            Page::notices() .
+            Notices::getNotices() .
             '<p><a href="' . dcCore::app()->admin->getPageURL() . '" class="back">' . __('Back to filters list') . '</a></p>' .
 
             dcCore::app()->admin->filter_gui;
@@ -163,7 +164,7 @@ class Manage extends Process
                     dcCore::app()->admin->page_name => '',
                 ]
             ) .
-            Page::notices();
+            Notices::getNotices();
 
             # Information
             $spam_count      = Antispam::countSpam();

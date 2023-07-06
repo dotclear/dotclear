@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -86,7 +87,7 @@ class Comment extends Process
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
                 dcCore::app()->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
 
-                Page::addSuccessNotice(__('Comment has been successfully created.'));
+                Notices::addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -175,7 +176,7 @@ class Comment extends Process
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
-                    Page::addSuccessNotice(__('Comment has been successfully updated.'));
+                    Notices::addSuccessNotice(__('Comment has been successfully updated.'));
                     dcCore::app()->admin->url->redirect('admin.comment', ['id' => dcCore::app()->admin->comment_id]);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
@@ -191,7 +192,7 @@ class Comment extends Process
 
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
-                    Page::addSuccessNotice(__('Comment has been successfully deleted.'));
+                    Notices::addSuccessNotice(__('Comment has been successfully deleted.'));
                     Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -72,7 +73,7 @@ class Manage extends Process
                 if (true === dcCore::app()->admin->code) {
                     dcCore::app()->admin->maintenance->setLog(dcCore::app()->admin->task->id());
 
-                    Page::addSuccessNotice(dcCore::app()->admin->task->success());
+                    Notices::addSuccessNotice(dcCore::app()->admin->task->success());
                     My::redirect(['task' => dcCore::app()->admin->task->id(), 'tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
                 }
             } catch (Exception $e) {
@@ -113,7 +114,7 @@ class Manage extends Process
                     );
                 }
 
-                Page::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
+                Notices::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
                 My::redirect(['tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -131,12 +132,12 @@ class Manage extends Process
                 dcCore::app()->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
                 dcCore::app()->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
 
-                Page::addSuccessNotice(__('System settings have been saved.'));
+                Notices::addSuccessNotice(__('System settings have been saved.'));
 
                 if (!empty($_POST['system_csp_reset'])) {
                     dcCore::app()->blog->settings->system->dropEvery('csp_admin_on');
                     dcCore::app()->blog->settings->system->dropEvery('csp_admin_report_only');
-                    Page::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
+                    Notices::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
                 My::redirect(['tab' => dcCore::app()->admin->tab], '#' . dcCore::app()->admin->tab);
@@ -206,7 +207,7 @@ class Manage extends Process
                     Html::escapeHTML(dcCore::app()->admin->task->name())                          => '',
                 ]
             ) .
-            Page::notices();
+            Notices::getNotices();
 
             // content
             if (substr($res, 0, 1) != '<') {
@@ -240,7 +241,7 @@ class Manage extends Process
                     My::name()    => '',
                 ]
             ) .
-            Page::notices();
+            Notices::getNotices();
 
             // Simple task (with only a button to start it)
 

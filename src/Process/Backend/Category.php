@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCategories;
 use dcCore;
 use dcSettings;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -117,7 +118,7 @@ class Category extends Process
             if (dcCore::app()->admin->cat_parent != $new_parent) {
                 try {
                     dcCore::app()->blog->setCategoryParent(dcCore::app()->admin->cat_id, $new_parent);
-                    Page::addSuccessNotice(__('The category has been successfully moved'));
+                    Notices::addSuccessNotice(__('The category has been successfully moved'));
                     dcCore::app()->admin->url->redirect('admin.categories');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
@@ -129,7 +130,7 @@ class Category extends Process
             // Changing sibling
             try {
                 dcCore::app()->blog->setCategoryPosition(dcCore::app()->admin->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
-                Page::addSuccessNotice(__('The category has been successfully moved'));
+                Notices::addSuccessNotice(__('The category has been successfully moved'));
                 dcCore::app()->admin->url->redirect('admin.categories');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -162,7 +163,7 @@ class Category extends Process
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
-                    Page::addSuccessNotice(__('The category has been successfully updated.'));
+                    Notices::addSuccessNotice(__('The category has been successfully updated.'));
 
                     dcCore::app()->admin->url->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
@@ -176,7 +177,7 @@ class Category extends Process
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
-                    Page::addSuccessNotice(sprintf(
+                    Notices::addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));

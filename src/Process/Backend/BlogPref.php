@@ -18,6 +18,7 @@ use dcMedia;
 use dcSettings;
 use dcUtils;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -382,7 +383,7 @@ class BlogPref extends Process
                 if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
                     $da->blog_settings->system->put('url_scan', $_POST['url_scan']);
                 }
-                Page::addSuccessNotice(__('Blog has been successfully updated.'));
+                Notices::addSuccessNotice(__('Blog has been successfully updated.'));
 
                 Http::redirect(sprintf($da->redir, $da->blog_id));
             } catch (Exception $e) {

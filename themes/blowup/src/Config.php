@@ -12,6 +12,7 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
@@ -223,7 +224,7 @@ class Config extends Process
 
                 dcCore::app()->admin->blowup_user = $blowup_user;
 
-                Page::addSuccessNotice(__('Theme configuration has been successfully updated.'));
+                Notices::addSuccessNotice(__('Theme configuration has been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

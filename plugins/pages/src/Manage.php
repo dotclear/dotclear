@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
@@ -114,7 +115,7 @@ class Manage extends Process
                 My::name()                                  => '',
             ]
         ) .
-        Page::notices();
+        Notices::getNotices();
 
         if (!empty($_GET['upd'])) {
             Page::success(__('Selected pages have been successfully updated.'));

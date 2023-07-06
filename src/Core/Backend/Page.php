@@ -314,6 +314,8 @@ class Page
     /**
      * Get current notices
      *
+     * @deprecated sicne 2.27, use Notices::getNotices() instead
+     *
      * @return     string
      */
     public static function notices(): string
@@ -323,6 +325,8 @@ class Page
 
     /**
      * Adds a message notice.
+     *
+     * @deprecated sicne 2.27, use Notices::addMessageNotice() instead
      *
      * @param      string  $message  The message
      * @param      array   $options  The options
@@ -335,6 +339,8 @@ class Page
     /**
      * Adds a success notice.
      *
+     * @deprecated sicne 2.27, use Notices::addSuccessNotice() instead
+     *
      * @param      string  $message  The message
      * @param      array   $options  The options
      */
@@ -345,6 +351,8 @@ class Page
 
     /**
      * Adds a warning notice.
+     *
+     * @deprecated sicne 2.27, use Notices::addWarningNotice() instead
      *
      * @param      string  $message  The message
      * @param      array   $options  The options
@@ -357,6 +365,8 @@ class Page
     /**
      * Adds an error notice.
      *
+     * @deprecated sicne 2.27, use Notices::addErrorNotice() instead
+     *
      * @param      string  $message  The message
      * @param      array   $options  The options
      */
@@ -366,7 +376,9 @@ class Page
     }
 
     /**
-     * Return/display a notice
+     * Return/display a notice.
+     *
+     * @deprecated sicne 2.27, use Notices::message() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -382,7 +394,9 @@ class Page
     }
 
     /**
-     * Return/display a success notice
+     * Return/display a success notice.
+     *
+     * @deprecated sicne 2.27, use Notices::success() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -397,7 +411,9 @@ class Page
     }
 
     /**
-     * Return/display a warning notice
+     * Return/display a warning notice.
+     *
+     * @deprecated sicne 2.27, use Notices::warning() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -412,7 +428,9 @@ class Page
     }
 
     /**
-     * Return/display a error notice
+     * Return/display a error notice.
+     *
+     * @deprecated sicne 2.27, use Notices::error() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp

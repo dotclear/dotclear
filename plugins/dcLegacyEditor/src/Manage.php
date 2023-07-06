@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Exception;
@@ -37,7 +38,7 @@ class Manage extends Process
                 dcCore::app()->admin->editor_std_active = (empty($_POST['dclegacyeditor_active'])) ? false : true;
                 My::settings()->put('active', dcCore::app()->admin->editor_std_active, 'boolean');
 
-                Page::addSuccessNotice(__('The configuration has been updated.'));
+                Notices::addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

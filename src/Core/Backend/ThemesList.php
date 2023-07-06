@@ -20,6 +20,7 @@ use Autoloader;
 use dcCore;
 use dcModuleDefine;
 use dcModules;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -401,7 +402,7 @@ class ThemesList extends ModulesList
                 dcCore::app()->blog->settings->system->put('theme', $define->getId());
                 dcCore::app()->blog->triggerBlog();
 
-                Page::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
+                Notices::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
                 Http::redirect($this->getURL() . '#themes');
             }
         } else {
@@ -436,7 +437,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     __('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -475,9 +476,9 @@ class ThemesList extends ModulesList
                 }
 
                 if ($failed) {
-                    Page::addWarningNotice(__('Some themes have not been deactivated.'));
+                    Notices::addWarningNotice(__('Some themes have not been deactivated.'));
                 } else {
-                    Page::addSuccessNotice(
+                    Notices::addSuccessNotice(
                         __('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
                     );
                 }
@@ -509,7 +510,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -549,9 +550,9 @@ class ThemesList extends ModulesList
                 } elseif (!$count) {
                     throw new Exception(__('No such theme.'));
                 } elseif ($failed) {
-                    Page::addWarningNotice(__('Some themes have not been delete.'));
+                    Notices::addWarningNotice(__('Some themes have not been delete.'));
                 } else {
-                    Page::addSuccessNotice(
+                    Notices::addSuccessNotice(
                         __('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
                     );
                 }
@@ -584,7 +585,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     __('Theme has been successfully installed.', 'Themes have been successfully installed.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -623,11 +624,11 @@ class ThemesList extends ModulesList
                 $tab = $count == count($defines) ? '#themes' : '#update';   // @phpstan-ignore-line
 
                 if ($count) {
-                    Page::addSuccessNotice(
+                    Notices::addSuccessNotice(
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                     );
                 } elseif (!empty($locked)) {
-                    Page::addWarningNotice(
+                    Notices::addWarningNotice(
                         sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
                     );
                 } else {
@@ -664,7 +665,7 @@ class ThemesList extends ModulesList
                 # --BEHAVIOR-- themeAfterAdd --
                 dcCore::app()->callBehavior('themeAfterAdd', null);
 
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     $ret_code == dcModules::PACKAGE_UPDATED ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')

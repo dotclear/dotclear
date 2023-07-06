@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -195,7 +196,7 @@ class Manage extends Process
                 My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
                 dcCore::app()->blog->triggerBlog();
 
-                Page::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
+                Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -207,7 +208,7 @@ class Manage extends Process
                 My::settings()->put('widgets_custom', '');
                 dcCore::app()->blog->triggerBlog();
 
-                Page::addSuccessNotice(__('Sidebars have been resetting.'));
+                Notices::addSuccessNotice(__('Sidebars have been resetting.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -267,7 +268,7 @@ class Manage extends Process
                 My::name()                                  => '',
             ]
         ) .
-        Page::notices() .
+        Notices::getNotices() .
 
         # All widgets
         '<form id="listWidgets" action="' . dcCore::app()->admin->getPageURL() . '" method="post"  class="widgets">' .

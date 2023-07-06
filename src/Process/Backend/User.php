@@ -18,6 +18,7 @@ use dcBlog;
 use dcCore;
 use dcPrefs;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -166,7 +167,7 @@ class User extends Process
                         dcCore::app()->session->destroy();
                     }
 
-                    Page::addSuccessNotice(__('User has been successfully updated.'));
+                    Notices::addSuccessNotice(__('User has been successfully updated.'));
                     dcCore::app()->admin->url->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
@@ -196,8 +197,8 @@ class User extends Process
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
                     dcCore::app()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
-                    Page::addSuccessNotice(__('User has been successfully created.'));
-                    Page::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+                    Notices::addSuccessNotice(__('User has been successfully created.'));
+                    Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     if (!empty($_POST['saveplus'])) {
                         dcCore::app()->admin->url->redirect('admin.user');
                     } else {

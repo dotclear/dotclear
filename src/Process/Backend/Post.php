@@ -21,6 +21,7 @@ use dcMedia;
 use dcTrackback;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
@@ -272,7 +273,7 @@ class Post extends Process
                 }
 
                 if (!dcCore::app()->error->flag()) {
-                    Page::addSuccessNotice(__('All pings sent.'));
+                    Notices::addSuccessNotice(__('All pings sent.'));
                     dcCore::app()->admin->url->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id, 'tb' => '1']
@@ -426,7 +427,7 @@ class Post extends Process
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterPostUpdate', $cur, dcCore::app()->admin->post_id);
-                    Page::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
+                    Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     dcCore::app()->admin->url->redirect(
                         'admin.post',
                         ['id' => dcCore::app()->admin->post_id]
@@ -446,7 +447,7 @@ class Post extends Process
                     # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
                     dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-                    Page::addSuccessNotice(__('Entry has been successfully created.'));
+                    Notices::addSuccessNotice(__('Entry has been successfully created.'));
                     dcCore::app()->admin->url->redirect(
                         'admin.post',
                         ['id' => $return_id]

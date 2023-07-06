@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -72,7 +73,7 @@ class Manage extends Process
                 My::name()                                  => '',
             ]
         ) .
-        Page::notices();
+        Notices::getNotices();
 
         $last_letter = null;
         $cols        = ['', ''];

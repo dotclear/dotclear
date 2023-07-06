@@ -16,6 +16,7 @@ namespace Dotclear\Process\Backend;
 
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -96,7 +97,7 @@ class UsersActions extends Process
                     }
                 }
                 if (!dcCore::app()->error->flag()) {
-                    Page::addSuccessNotice(__('User has been successfully deleted.'));
+                    Notices::addSuccessNotice(__('User has been successfully deleted.'));
                     Http::redirect(dcCore::app()->admin->redir);
                 }
             }
@@ -127,7 +128,7 @@ class UsersActions extends Process
                     dcCore::app()->error->add($e->getMessage());
                 }
                 if (!dcCore::app()->error->flag()) {
-                    Page::addSuccessNotice(__('User has been successfully updated.'));
+                    Notices::addSuccessNotice(__('User has been successfully updated.'));
                     Http::redirect(dcCore::app()->admin->redir);
                 }
             }

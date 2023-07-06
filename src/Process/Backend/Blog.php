@@ -16,6 +16,7 @@ use dcBlog;
 use dcCore;
 use dcSettings;
 use Dotclear\App;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
@@ -74,7 +75,7 @@ class Blog extends Process
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
                 dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
-                Page::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
+                Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 dcCore::app()->admin->url->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

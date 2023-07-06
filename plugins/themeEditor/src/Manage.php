@@ -16,6 +16,7 @@ use ArrayObject;
 use Exception;
 use dcCore;
 use dcThemes;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
@@ -85,7 +86,7 @@ class Manage extends Process
                 && is_string(dcCore::app()->admin->theme->get('root'))
             ) {
                 file_put_contents(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED, '');
-                Page::addSuccessNotice(__('The theme update has been locked.'));
+                Notices::addSuccessNotice(__('The theme update has been locked.'));
             }
             if (dcCore::app()->auth->isSuperAdmin()
                 && !empty($_POST['unlock'])
@@ -93,7 +94,7 @@ class Manage extends Process
                 && file_exists(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED)
             ) {
                 unlink(dcCore::app()->admin->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED);
-                Page::addSuccessNotice(__('The theme update has been unocked.'));
+                Notices::addSuccessNotice(__('The theme update has been unocked.'));
             }
 
             if (!empty($_POST['write'])) {
@@ -116,7 +117,7 @@ class Manage extends Process
                     (string) dcCore::app()->admin->file['type'],
                     (string) dcCore::app()->admin->file['f']
                 );
-                Page::addSuccessNotice(__('The file has been reset.'));
+                Notices::addSuccessNotice(__('The file has been reset.'));
                 My::redirect([
                     (string) dcCore::app()->admin->file['type'] => (string) dcCore::app()->admin->file['f'],
                 ]);
@@ -181,7 +182,7 @@ class Manage extends Process
                 __('Edit theme files')                      => '',
             ]
         ) .
-        Page::notices();
+        Notices::getNotices();
 
         echo
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(dcCore::app()->admin->theme->get('name'))) . '</strong></p>';

@@ -17,6 +17,7 @@ use dcAuth;
 use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
@@ -227,7 +228,7 @@ class UserPreferences extends Process
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
-                Page::addSuccessNotice(__('Personal information has been successfully updated.'));
+                Notices::addSuccessNotice(__('Personal information has been successfully updated.'));
 
                 dcCore::app()->admin->url->redirect('admin.user.preferences');
             } catch (Exception $e) {
@@ -338,7 +339,7 @@ class UserPreferences extends Process
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 dcCore::app()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
-                Page::addSuccessNotice(__('Personal options has been successfully updated.'));
+                Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -365,7 +366,7 @@ class UserPreferences extends Process
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 dcCore::app()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
-                Page::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+                Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -388,7 +389,7 @@ class UserPreferences extends Process
                 dcCore::app()->admin->favs->setFavoriteIDs($user_favs, false);
 
                 if (!dcCore::app()->error->flag()) {
-                    Page::addSuccessNotice(__('Favorites have been successfully added.'));
+                    Notices::addSuccessNotice(__('Favorites have been successfully added.'));
                     dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -414,7 +415,7 @@ class UserPreferences extends Process
                 }
                 dcCore::app()->admin->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!dcCore::app()->error->flag()) {
-                    Page::addSuccessNotice(__('Favorites have been successfully removed.'));
+                    Notices::addSuccessNotice(__('Favorites have been successfully removed.'));
                     dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -444,7 +445,7 @@ class UserPreferences extends Process
             }
             dcCore::app()->admin->favs->setFavoriteIDs($order, false);
             if (!dcCore::app()->error->flag()) {
-                Page::addSuccessNotice(__('Favorites have been successfully updated.'));
+                Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -456,7 +457,7 @@ class UserPreferences extends Process
             dcCore::app()->admin->favs->setFavoriteIDs($user_favs, true);
 
             if (!dcCore::app()->error->flag()) {
-                Page::addSuccessNotice(__('Default favorites have been successfully updated.'));
+                Notices::addSuccessNotice(__('Default favorites have been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -470,7 +471,7 @@ class UserPreferences extends Process
             dcCore::app()->auth->user_prefs->dashboard->drop('boxes_contents_order');
 
             if (!dcCore::app()->error->flag()) {
-                Page::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
+                Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }

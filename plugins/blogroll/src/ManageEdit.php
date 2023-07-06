@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use Exception;
 use dcCore;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -93,7 +94,7 @@ class ManageEdit extends Process
 
             try {
                 dcCore::app()->admin->blogroll->updateLink(dcCore::app()->admin->id, dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang, trim((string) dcCore::app()->admin->link_xfn));
-                Page::addSuccessNotice(__('Link has been successfully updated'));
+                Notices::addSuccessNotice(__('Link has been successfully updated'));
                 My::redirect([
                     'edit' => 1,
                     'id'   => dcCore::app()->admin->id,
@@ -110,7 +111,7 @@ class ManageEdit extends Process
 
             try {
                 dcCore::app()->admin->blogroll->updateCategory(dcCore::app()->admin->id, dcCore::app()->admin->link_desc);
-                Page::addSuccessNotice(__('Category has been successfully updated'));
+                Notices::addSuccessNotice(__('Category has been successfully updated'));
                 My::redirect([
                     'edit' => 1,
                     'id'   => dcCore::app()->admin->id,
@@ -138,7 +139,7 @@ class ManageEdit extends Process
                 My::name()                                  => dcCore::app()->admin->getPageURL(),
             ]
         ) .
-        Page::notices() .
+        Notices::getNotices() .
         '<p><a class="back" href="' . dcCore::app()->admin->getPageURL() . '">' . __('Return to blogroll') . '</a></p>';
 
         if (isset(dcCore::app()->admin->rs)) {
