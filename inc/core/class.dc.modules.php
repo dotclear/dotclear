@@ -529,13 +529,20 @@ class dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
+        $base   = dcCore::app()->admin->url->getBase('admin.plugin');
+        $params = dcCore::app()->admin->url->getParams('admin.plugin');
+
         foreach ($this->getDefines() as $module) {
             if (in_array($module->getId(), $ignored)) {
                 continue;
             }
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
-                dcCore::app()->admin->url->register('admin.plugin.' . $module->getId(), dcCore::app()->admin->url->get('admin.plugin'), ['p' => $module->getId()]);
+                dcCore::app()->admin->url->register(
+                    'admin.plugin.' . $module->getId(),
+                    $base,
+                    array_merge($params, ['p' => $module->getId()])
+                );
             }
             // Load ns_file
             $this->loadNsFile($module->getId(), $ns);

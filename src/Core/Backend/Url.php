@@ -163,6 +163,24 @@ class Url
     }
 
     /**
+     * Get the URL params (query string).
+     *
+     * @param   string  $name   The name
+     *
+     * @throws  Exception   If unknown URL
+     *
+     * @return  array  The URL params.
+     */
+    public function getParams(string $name): array
+    {
+        if (!isset($this->urls[$name])) {
+            throw new Exception('Unknown URL handler for ' . $name);
+        }
+
+        return $this->urls[$name]['qs'];
+    }
+
+    /**
      * Get the hidden form fields.
      *
      * Forges form hidden fields to pass to a generated <form>. Should be used in combination with
