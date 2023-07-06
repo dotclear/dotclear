@@ -22,14 +22,11 @@ use Exception;
 
 class Utility extends Process
 {
+    /** Allow dynamic properties */
     use dcTraitDynamicProperties;
 
-    /**
-     * Current admin page URL
-     *
-     * @var string
-     */
-    protected $p_url;
+    /** @var    string  Current admin page URL */
+    private string $p_url = '';
 
     /** @var    Url     Backend (admin) Url handler instance */
     public Url $url;
@@ -40,13 +37,17 @@ class Utility extends Process
     /** @var    Menus   Backend (admin) Menus handler instance */
     public Menus $menu;
 
-    // Constants
-
-    /** @deprecated since 2.27, use Menus::MENU_XXX */
+    /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
-    public const MENU_BLOG      = Menus::MENU_BLOG;
-    public const MENU_SYSTEM    = Menus::MENU_SYSTEM;
-    public const MENU_PLUGINS   = Menus::MENU_PLUGINS;
+
+    /** @deprecated since 2.27, use Menus::MENU_BLOG */
+    public const MENU_BLOG = Menus::MENU_BLOG;
+
+    /** @deprecated since 2.27, use Menus::MENU_SYSTEM */
+    public const MENU_SYSTEM = Menus::MENU_SYSTEM;
+
+    /** @deprecated since 2.27, use Menus::MENU_PLUGINS */
+    public const MENU_PLUGINS = Menus::MENU_PLUGINS;
 
     /**
      * Constructs a new instance.
@@ -65,9 +66,7 @@ class Utility extends Process
     }
 
     /**
-     * Prepare the context.
-     *
-     * @return     bool
+     * Initialize application utility.
      */
     public static function init(): bool
     {
@@ -77,31 +76,31 @@ class Utility extends Process
     }
 
     /**
-     * Instanciate this as a singleton and initializes the context.
+     * Process application utility and set up a singleton instance.
      */
     public static function process(): bool
     {
-        // nullsafe php 7.4
+        // Nullsafe php 7.4
         if (is_null(dcCore::app()->auth)) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
+        // Instanciate Backend instance
         if (!(dcCore::app()->admin instanceof self)) {
             dcCore::app()->admin = new self();
         }
 
         // New admin url instance
         dcCore::app()->admin->url = new Url();
-        dcCore::app()->admin->url->register('admin.auth', 'Auth');
 
         /* @deprecated since 2.27, use dcCore::app()->admin->url instead */
         dcCore::app()->adminurl = dcCore::app()->admin->url;
 
         if (dcCore::app()->auth->sessionExists()) {
-            # If we have a session we launch it now
+            // If we have a session we launch it now
             try {
                 if (!dcCore::app()->auth->checkSession()) {
-                    # Avoid loop caused by old cookie
+                    // Avoid loop caused by old cookie
                     $p    = dcCore::app()->session->getCookieParameters(false, -600);
                     $p[3] = '/';
                     setcookie(...$p);
@@ -114,8 +113,7 @@ class Utility extends Process
                 new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
             }
 
-            # Fake process to logout (kill session) and return to auth page.
-            dcCore::app()->admin->url->register('admin.logout', 'Logout');
+            // Fake process to logout (kill session) and return to auth page.
             if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout') {
                 // Enable REST service if disabled, for next requests
                 if (!dcCore::app()->serveRestRequests()) {
@@ -128,19 +126,20 @@ class Utility extends Process
                 exit;
             }
 
-            # Check nonce from POST requests
+            // Check nonce from POST requests
             if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check']))) {
                 new Fault('Precondition Failed', __('Precondition Failed'), 412);
             }
 
+            // Switch blog
             if (!empty($_REQUEST['switchblog']) && dcCore::app()->auth->getPermissions($_REQUEST['switchblog']) !== false) {
                 $_SESSION['sess_blog_id'] = $_REQUEST['switchblog'];
 
                 if (!empty($_REQUEST['redir'])) {
-                    # Keep context as far as possible
+                    // Keep context as far as possible
                     $redir = (string) $_REQUEST['redir'];
                 } else {
-                    # Removing switchblog from URL
+                    // Removing switchblog from URL
                     $redir = (string) $_SERVER['REQUEST_URI'];
                     $redir = (string) preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
                     $redir = (string) preg_replace('/\?$/', '', $redir);
@@ -157,7 +156,7 @@ class Utility extends Process
                 exit;
             }
 
-            # Check blog to use and log out if no result
+            // Check blog to use and log out if no result
             if (isset($_SESSION['sess_blog_id'])) {
                 if (dcCore::app()->auth->getPermissions($_SESSION['sess_blog_id']) === false) {
                     unset($_SESSION['sess_blog_id']);
@@ -169,15 +168,13 @@ class Utility extends Process
                 }
             }
 
-            # Loading locales
+            // Load locales
             Helper::loadLocales();
-            /*
-             * @var        string
-             *
-             * @deprecated Since 2.23, use dcCore::app()->lang instead
-             */
+
+            /* @deprecated Since 2.23, use dcCore::app()->lang instead */
             $GLOBALS['_lang'] = &dcCore::app()->lang;
 
+            // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
                 dcCore::app()->setBlog($_SESSION['sess_blog_id']);
             } else {
@@ -186,42 +183,8 @@ class Utility extends Process
             }
         }
 
-        dcCore::app()->admin->url->register('admin.posts', 'Posts');
-        dcCore::app()->admin->url->register('admin.popup_posts', 'PostsPopup'); //use admin.posts.popup
-        dcCore::app()->admin->url->register('admin.posts.popup', 'PostsPopup');
-        dcCore::app()->admin->url->register('admin.post', 'Post');
-        dcCore::app()->admin->url->register('admin.post.media', 'PostMedia');
-        dcCore::app()->admin->url->register('admin.blog.theme', 'BlogTheme');
-        dcCore::app()->admin->url->register('admin.blog.pref', 'BlogPref');
-        dcCore::app()->admin->url->register('admin.blog.del', 'BlogDel');
-        dcCore::app()->admin->url->register('admin.blog', 'Blog');
-        dcCore::app()->admin->url->register('admin.blogs', 'Blogs');
-        dcCore::app()->admin->url->register('admin.categories', 'Categories');
-        dcCore::app()->admin->url->register('admin.category', 'Category');
-        dcCore::app()->admin->url->register('admin.comments', 'Comments');
-        dcCore::app()->admin->url->register('admin.comment', 'Comment');
-        dcCore::app()->admin->url->register('admin.help', 'Help');
-        dcCore::app()->admin->url->register('admin.help.charte', 'HelpCharte');
-        dcCore::app()->admin->url->register('admin.home', 'Home');
-        dcCore::app()->admin->url->register('admin.langs', 'Langs');
-        dcCore::app()->admin->url->register('admin.link.popup', 'LinkPopup');
-        dcCore::app()->admin->url->register('admin.media', 'Media');
-        dcCore::app()->admin->url->register('admin.media.item', 'MediaItem');
-        dcCore::app()->admin->url->register('admin.plugins', 'Plugins');
-        dcCore::app()->admin->url->register('admin.plugin', 'Plugin');
-        dcCore::app()->admin->url->register('admin.search', 'Search');
-        dcCore::app()->admin->url->register('admin.user.preferences', 'UserPreferences');
-        dcCore::app()->admin->url->register('admin.user', 'User');
-        dcCore::app()->admin->url->register('admin.user.actions', 'UsersActions');
-        dcCore::app()->admin->url->register('admin.users', 'Users');
-        dcCore::app()->admin->url->register('admin.help', 'Help');
-        dcCore::app()->admin->url->register('admin.update', 'Update');
-        dcCore::app()->admin->url->register('admin.csp.report', 'CspReport');
-        dcCore::app()->admin->url->register('admin.rest', 'Rest');
-
-        // we don't care of admin process for FileServer
-        dcCore::app()->admin->url->register('load.plugin.file', 'index.php', ['pf' => 'dummy.css']);
-        dcCore::app()->admin->url->register('load.var.file', 'index.php', ['vf' => 'dummy.json']);
+        // Set default backend URLs
+        dcCore::app()->admin->url->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
         dcCore::app()->setPostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
@@ -231,17 +194,17 @@ class Utility extends Process
             return true;
         }
 
-        # Loading resources and help files
-        require DC_L10N_ROOT . '/en/resources.php';
+        // Load resources and help files
+        require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
         if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/help')) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    dcCore::app()->resources['help'][$m[1]] = DC_L10N_ROOT . '/' . dcCore::app()->lang . '/help/' . $hfile;
+                    dcCore::app()->resources['help'][$m[1]] = implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help', $hfile]);
                 }
             }
         }
@@ -270,7 +233,7 @@ class Utility extends Process
             dcCore::app()->admin->favs->appendMenuSection(dcCore::app()->admin->menus);
         }
 
-        # Loading plugins
+        // Load plugins
         dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
         dcCore::app()->admin->favs->setup();
 
@@ -285,36 +248,32 @@ class Utility extends Process
             dcCore::app()->blog->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
-        # Admin behaviors
+        // Admin behaviors
         dcCore::app()->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
 
         return true;
     }
 
     /**
-     * Sets the admin page URL.
+     * Set the admin page URL.
      *
-     * @param      string  $value  The value
+     * @param   string  $url  The URL
      */
-    public function setPageURL(string $value): void
+    public function setPageURL(string $url): void
     {
-        $this->p_url = $value;
+        $this->p_url = $url;
 
-        /*
-         * @deprecated since 2.24, may be removed in near future
-         *
-         * @var string
-         */
-        $GLOBALS['p_url'] = $value;
+        /* @deprecated since 2.24, may be removed in near future */
+        $GLOBALS['p_url'] = $url;
     }
 
     /**
-     * Gets the admin page URL.
+     * Get the admin page URL.
      *
-     * @return     string   The URL.
+     * @return  string  The URL
      */
     public function getPageURL(): string
     {
-        return (string) $this->p_url;
+        return $this->p_url;
     }
 }
