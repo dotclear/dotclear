@@ -2,7 +2,8 @@
 /**
  * @brief Modules handler
  *
- * Provides an object to handle modules class (themes or plugins).
+ * Provides an object to handle process in three steps:
+ * init ? => process ? => render
  * (Before as modules file in dcModules::loadNsFile)
  *
  * @package Dotclear
@@ -18,9 +19,9 @@ namespace Dotclear\Core;
 abstract class Process
 {
     /**
-     * @deprecated since 2.27 Use self::status() 
+     * @deprecated since 2.27 Use self::status()
      *
-     * @var bool
+     * @var     bool
      */
     protected static $init = false;
 
@@ -44,7 +45,7 @@ abstract class Process
     }
 
     /**
-     * Initilise class.
+     * Initialise class.
      *
      * This method SHOULD set self::status().
      *
