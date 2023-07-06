@@ -78,7 +78,7 @@ class Helper
     /**
      * Adds a menu item.
      *
-     * @deprecated sicne 2.27, use dcCore::app()->admin->menu->addItem() instead
+     * @deprecated sicne 2.27, use dcCore::app()->admin->menus->addItem() instead
      *
      * @param      string  $section   The section
      * @param      string  $desc      The item description
@@ -91,6 +91,6 @@ class Helper
      */
     public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
-        dcCore::app()->admin->menu->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
+        dcCore::app()->admin->menus->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
     }
 }

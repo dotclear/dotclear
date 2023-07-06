@@ -133,7 +133,7 @@ class MediaItem extends Process
             if (dcCore::app()->themes === null) {
                 # -- Loading themes, may be useful for some configurable theme --
                 dcCore::app()->themes = new dcThemes();
-                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());

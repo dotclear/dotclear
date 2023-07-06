@@ -234,7 +234,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.27, Use dcCore::app()->admin->menu
+     * @deprecated since 2.27, Use dcCore::app()->admin->menus
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -400,6 +400,7 @@ final class dcCore
         $this->rest    = new dcRestServer();
         $this->meta    = new dcMeta();
         $this->log     = new dcLog();
+        $this->notices = new dcNotices();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*

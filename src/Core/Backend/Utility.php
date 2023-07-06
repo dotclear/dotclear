@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
-use dcNotices;
 use dcTraitDynamicProperties;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
@@ -252,24 +251,23 @@ class Utility extends Process
 
         $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
-        dcCore::app()->notices     = new dcNotices();
-        dcCore::app()->admin->favs = new Favorites();
-        dcCore::app()->admin->menu = new Menus();
+        dcCore::app()->admin->favs  = new Favorites();
+        dcCore::app()->admin->menus = new Menus();
 
         /* @deprecated since 2.27, use dcCore::app()->admin->favs instead */
         dcCore::app()->favs = dcCore::app()->admin->favs;
 
-        /* @deprecated since 2.27, use dcCore::app()->admin->menu instead */
-        dcCore::app()->menu = dcCore::app()->admin->menu;
+        /* @deprecated since 2.27, use dcCore::app()->admin->menus instead */
+        dcCore::app()->menu = dcCore::app()->admin->menus;
 
-        /* @deprecated Since 2.23, use dcCore::app()->admin->menu instead */
-        $GLOBALS['_menu'] = dcCore::app()->admin->menu;
+        /* @deprecated Since 2.23, use dcCore::app()->admin->menus instead */
+        $GLOBALS['_menu'] = dcCore::app()->admin->menus;
 
         // Set default menu
-        dcCore::app()->admin->menu->setDefaultItems();
+        dcCore::app()->admin->menus->setDefaultItems();
 
         if (!$user_ui_nofavmenu) {
-            dcCore::app()->admin->favs->appendMenuSection(dcCore::app()->admin->menu);
+            dcCore::app()->admin->favs->appendMenuSection(dcCore::app()->admin->menus);
         }
 
         # Loading plugins
@@ -277,7 +275,7 @@ class Utility extends Process
         dcCore::app()->admin->favs->setup();
 
         if (!$user_ui_nofavmenu) {
-            dcCore::app()->admin->favs->appendMenu(dcCore::app()->admin->menu);
+            dcCore::app()->admin->favs->appendMenu(dcCore::app()->admin->menus);
         }
 
         if (empty(dcCore::app()->blog->settings->system->jquery_migrate_mute)) {

@@ -32,7 +32,10 @@ class dcThemes extends dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        // nothing to do here for themes
+        if ($ns == 'admin' && !is_null(dcCore::app()->blog)) {
+            // Load current theme Backend process (and its parent)
+            $this->loadNsFile((string) dcCore::app()->blog->settings->system->theme, 'admin');
+        }
     }
 
     /**
