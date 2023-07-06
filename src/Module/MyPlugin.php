@@ -40,8 +40,9 @@ abstract class MyPlugin extends MyModule
      * @param   array<string,string>    $params The URL params
      * @param   string                  $scheme The URL end scheme
      * @param   string                  $id     The id (if not provided a standard one will be set), will be prefixed by 'plugin-'
+     * @param   bool                    $check  The custom check value (null for default)
      */
-    public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
+    public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null, ?bool $check = null): void
     {
         if (!defined('DC_CONTEXT_ADMIN') || !(dcCore::app()->admin->menus[$menu] instanceof Menu)) {
             return;
@@ -52,7 +53,7 @@ abstract class MyPlugin extends MyModule
             static::manageUrl($params, '&'),
             static::icons(),
             preg_match('/' . preg_quote(static::manageUrl([], '&')) . $scheme . '/', (string) $_SERVER['REQUEST_URI']),
-            static::checkContext(static::MENU),
+            is_null($check) ? static::checkContext(static::MENU) : $check,
             'plugin-' . ($id ?? static::id())
         );
     }
