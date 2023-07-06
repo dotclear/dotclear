@@ -102,10 +102,6 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # dcAdmin  object and auto properties
-    - message: '#Access to an undefined property dcAdmin::#'
-      path: %currentWorkingDirectory%
-
     # dcNamespace  object and auto properties
     - message: '#Access to an undefined property dcNamespace::#'
       path: %currentWorkingDirectory%
@@ -116,22 +112,6 @@ parameters:
 
     # context object and auto properties
     - message: '#Access to an undefined property context::#'
-      path: %currentWorkingDirectory%
-
-    # dcWidgets object and auto properties
-    - message: '#Access to an undefined property dcWidgets::#'
-      path: %currentWorkingDirectory%
-
-    # dcWidgets object methods
-    - message: '#Call to an undefined method dcWidgets::#'
-      path: %currentWorkingDirectory%
-
-    # dcWidget object and auto properties
-    - message: '#Access to an undefined property dcWidget::#'
-      path: %currentWorkingDirectory%
-
-    # dcWidget object methods
-    - message: '#Call to an undefined method dcWidget::#'
       path: %currentWorkingDirectory%
 
     # dcSettings object and auto properties
@@ -146,22 +126,6 @@ parameters:
     - message: '#Call to an undefined method form[a-zA-Z0-9\\_]+::#'
       path: %currentWorkingDirectory%
 
-    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
-    - message: '#Access to an undefined property form[a-zA-Z0-9\\_]+::#'
-      path: %currentWorkingDirectory%
-
-    # form<*>filters
-    - message: '#Access to an undefined property admin[a-zA-Z0-9\\_]+Filter::\$[a-zA-Z0-9\\_]+.#'
-      path: %currentWorkingDirectory%
-
-    # dcAdminfilters
-    - message: '#Access to an undefined property dcAdminFilter::\$[a-zA-Z0-9\\_]+.#'
-      path: %currentWorkingDirectory%
-
-    # adminMediaPage
-    - message: '#Access to an undefined property adminMediaPage::\$[a-zA-Z0-9\\_]+.#'
-      path: %currentWorkingDirectory%
-
     # arrayObject/type
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%
@@ -172,10 +136,6 @@ parameters:
 
     # dcAdmin::$default_widgets user-defined properties
     - message: '#Access to an undefined property dcCore::\$default_widgets.#'
-      path: %currentWorkingDirectory%
-
-    # formXXX
-    - message: '#Access to an undefined property \$this\(form[a-zA-Z0-9\\_]+\)::#'
       path: %currentWorkingDirectory%
 
     # 2.25+
