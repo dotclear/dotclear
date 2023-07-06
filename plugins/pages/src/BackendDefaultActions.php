@@ -16,7 +16,7 @@ use ArrayObject;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Action\ActionsPostsDefault;
-use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\Notices;
 use Exception;
 
 class BackendDefaultActions
@@ -117,7 +117,7 @@ class BackendDefaultActions
             dcCore::app()->blog->triggerBlog();
         }
 
-        Page::addSuccessNotice(__('Selected pages have been successfully reordered.'));
+        Notices::addSuccessNotice(__('Selected pages have been successfully reordered.'));
         $ap->redirect(false);
     }
 }

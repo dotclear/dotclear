@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\userPref;
 use Exception;
 use dcCore;
 use dcWorkspace;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -66,7 +67,7 @@ class Manage extends Process
                     }
                 }
 
-                Page::addSuccessNotice(__('Preferences successfully updated'));
+                Notices::addSuccessNotice(__('Preferences successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -85,7 +86,7 @@ class Manage extends Process
                     }
                 }
 
-                Page::addSuccessNotice(__('Preferences successfully updated'));
+                Notices::addSuccessNotice(__('Preferences successfully updated'));
                 My::redirect(['part' => 'global']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -114,7 +115,7 @@ class Manage extends Process
                 My::name()                                      => '',
             ]
         ) .
-        Page::notices() .
+        Notices::getNotices() .
         '<div id="local" class="multi-part" title="' . __('User preferences') . '">' .
         '<h3 class="out-of-screen-if-js">' . __('User preferences') . '</h3>';
 

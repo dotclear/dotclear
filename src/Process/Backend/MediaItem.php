@@ -17,6 +17,7 @@ use dcCore;
 use dcMedia;
 use dcPostMedia;
 use dcThemes;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -152,7 +153,7 @@ class MediaItem extends Process
                 Files::uploadStatus($_FILES['upfile']);
                 dcCore::app()->media->uploadFile($_FILES['upfile']['tmp_name'], dcCore::app()->admin->file->basename, true, null, false);
 
-                Page::addSuccessNotice(__('File has been successfully updated.'));
+                Notices::addSuccessNotice(__('File has been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -207,7 +208,7 @@ class MediaItem extends Process
             try {
                 dcCore::app()->media->updateFile(dcCore::app()->admin->file, $newFile);
 
-                Page::addSuccessNotice(__('File has been successfully updated.'));
+                Notices::addSuccessNotice(__('File has been successfully updated.'));
                 dcCore::app()->admin->page_url_params = array_merge(
                     dcCore::app()->admin->page_url_params,
                     ['tab' => 'media-details-tab']
@@ -224,7 +225,7 @@ class MediaItem extends Process
             try {
                 dcCore::app()->media->mediaFireRecreateEvent(dcCore::app()->admin->file);
 
-                Page::addSuccessNotice(__('Thumbnails have been successfully updated.'));
+                Notices::addSuccessNotice(__('Thumbnails have been successfully updated.'));
                 dcCore::app()->admin->page_url_params = array_merge(
                     dcCore::app()->admin->page_url_params,
                     ['tab' => 'media-details-tab']
@@ -241,7 +242,7 @@ class MediaItem extends Process
             try {
                 $unzip_dir = dcCore::app()->media->inflateZipFile(dcCore::app()->admin->file, $_POST['inflate_mode'] == 'new');
 
-                Page::addSuccessNotice(__('Zip file has been successfully extracted.'));
+                Notices::addSuccessNotice(__('Zip file has been successfully extracted.'));
                 dcCore::app()->admin->media_page_url_params = array_merge(
                     dcCore::app()->admin->media_page_url_params,
                     ['d' => $unzip_dir]
@@ -271,7 +272,7 @@ class MediaItem extends Process
                 dcCore::app()->blog->settings->system->put('media_img_default_legend', $_POST['pref_legend']);
             }
 
-            Page::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
+            Notices::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
             dcCore::app()->admin->url->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
         }
 
@@ -297,7 +298,7 @@ class MediaItem extends Process
 
             $local = dcCore::app()->media->root . '/' . dirname(dcCore::app()->admin->file->relname) . '/' . '.mediadef.json';
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
-                Page::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
+                Notices::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
             dcCore::app()->admin->url->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
         }
@@ -308,7 +309,7 @@ class MediaItem extends Process
             $local      = dcCore::app()->media->root . '/' . dirname(dcCore::app()->admin->file->relname) . '/' . '.mediadef';
             $local_json = $local . '.json';
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
-                Page::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
+                Notices::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
             }
             dcCore::app()->admin->url->redirect('admin.media.item', dcCore::app()->admin->page_url_params);
         }
@@ -448,7 +449,7 @@ class MediaItem extends Process
 
         if (dcCore::app()->admin->popup) {
             // Display notices
-            echo Page::notices();
+            echo Notices::getNotices();
         }
 
         if (dcCore::app()->admin->file === null) {

@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\aboutConfig;
 use Exception;
 use dcCore;
 use dcNamespace;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -64,7 +65,7 @@ class Manage extends Process
                     dcCore::app()->blog->triggerBlog();
                 }
 
-                Page::addSuccessNotice(__('Configuration successfully updated'));
+                Notices::addSuccessNotice(__('Configuration successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -84,7 +85,7 @@ class Manage extends Process
                     dcCore::app()->blog->triggerBlog();
                 }
 
-                Page::addSuccessNotice(__('Configuration successfully updated'));
+                Notices::addSuccessNotice(__('Configuration successfully updated'));
                 My::redirect([
                     'part' => 'global',
                 ]);
@@ -119,7 +120,7 @@ class Manage extends Process
                 My::name()                                  => '',
             ]
         ) .
-        Page::notices() .
+        Notices::getNotices() .
         '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '">' .
         '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '</h3>';
 

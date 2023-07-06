@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\tags;
 use dcCore;
 use dcMeta;
 use Dotclear\Core\Backend\Listing\ListingPosts;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -82,7 +83,7 @@ class ManagePosts extends Process
 
             try {
                 if (dcCore::app()->meta->updateMeta(dcCore::app()->admin->tag, $new_id, 'tag')) {
-                    Page::addSuccessNotice(__('Tag has been successfully renamed'));
+                    Notices::addSuccessNotice(__('Tag has been successfully renamed'));
                     My::redirect([
                         'm'   => 'tag_posts',
                         'tag' => $new_id,
@@ -101,7 +102,7 @@ class ManagePosts extends Process
 
             try {
                 dcCore::app()->meta->delMeta(dcCore::app()->admin->tag, 'tag');
-                Page::addSuccessNotice(__('Tag has been successfully removed'));
+                Notices::addSuccessNotice(__('Tag has been successfully removed'));
                 My::redirect([
                     'm' => 'tags',
                 ]);
@@ -149,7 +150,7 @@ class ManagePosts extends Process
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(dcCore::app()->admin->tag) . '&rdquo;' => '',
             ]
         ) .
-        Page::notices() .
+        Notices::getNotices() .
         '<p><a class="back" href="' . dcCore::app()->admin->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
         if (!dcCore::app()->error->flag()) {

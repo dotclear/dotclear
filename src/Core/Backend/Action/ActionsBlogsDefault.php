@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use dcBlog;
 use dcCore;
-use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\Notices;
 use Exception;
 
 class ActionsBlogsDefault
@@ -89,7 +89,7 @@ class ActionsBlogsDefault
             dcCore::app()->removeUsersDefaultBlogs($ids);
         }
 
-        Page::addSuccessNotice(__('Selected blogs have been successfully updated.'));
+        Notices::addSuccessNotice(__('Selected blogs have been successfully updated.'));
         $ap->redirect(true);
     }
 
@@ -118,7 +118,7 @@ class ActionsBlogsDefault
         $checked_ids = [];
         foreach ($ids as $id) {
             if ($id === dcCore::app()->blog->id) {
-                Page::addWarningNotice(__('The current blog cannot be deleted.'));
+                Notices::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $checked_ids[] = $id;
             }
@@ -132,7 +132,7 @@ class ActionsBlogsDefault
                 dcCore::app()->delBlog($id);
             }
 
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d blog has been successfully deleted',

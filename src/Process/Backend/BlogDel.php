@@ -67,7 +67,7 @@ class BlogDel extends Process
             } else {
                 try {
                     dcCore::app()->delBlog(dcCore::app()->admin->blog_id);
-                    Page::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
+                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
 
                     dcCore::app()->admin->url->redirect('admin.blogs');
                 } catch (Exception $e) {

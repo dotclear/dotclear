@@ -16,6 +16,7 @@ use dcCore;
 use Dotclear\Core\Backend\Filter\Filter;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\File;
@@ -83,14 +84,14 @@ class Media extends Process
             if (array_filter(dcCore::app()->admin->page->getDirs('files'), fn ($i) => ($i->basename === $nd))
         || array_filter(dcCore::app()->admin->page->getDirs('dirs'), fn ($i) => ($i->basename === $nd))
             ) {
-                Page::addWarningNotice(sprintf(
+                Notices::addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
                     Html::escapeHTML($nd)
                 ));
             } else {
                 try {
                     dcCore::app()->media->makeDir($_POST['newdir']);
-                    Page::addSuccessNotice(sprintf(
+                    Notices::addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
                     ));
@@ -145,7 +146,7 @@ class Media extends Process
 
                 dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
 
-                Page::addSuccessNotice(__('Files have been successfully uploaded.'));
+                Notices::addSuccessNotice(__('Files have been successfully uploaded.'));
                 dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -158,7 +159,7 @@ class Media extends Process
                 foreach ($_POST['medias'] as $media) {
                     dcCore::app()->media->removeItem(rawurldecode($media));
                 }
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     sprintf(
                         __(
                             'Successfully delete one media.',
@@ -192,7 +193,7 @@ class Media extends Process
                     dcCore::app()->admin->page->updateLast(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
                     dcCore::app()->admin->page->updateFav(dcCore::app()->admin->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
-                Page::addSuccessNotice($msg);
+                Notices::addSuccessNotice($msg);
                 dcCore::app()->admin->url->redirect('admin.media', dcCore::app()->admin->page->values());
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -204,7 +205,7 @@ class Media extends Process
             try {
                 dcCore::app()->media->rebuildThumbnails(dcCore::app()->admin->page->d);
 
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully completed.'),
                         Html::escapeHTML(dcCore::app()->admin->page->d)
@@ -320,7 +321,7 @@ class Media extends Process
 
         if (dcCore::app()->admin->page->popup) {
             echo
-            Page::notices();
+            Notices::getNotices();
         }
 
         if (!dcCore::app()->admin->page->mediaWritable() && !dcCore::app()->error->flag()) {

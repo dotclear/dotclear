@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCore;
 use dcMedia;
 use dcPostMedia;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
@@ -86,7 +87,7 @@ class PostMedia extends Process
                 $pm = new dcPostMedia();
                 $pm->removePostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
 
-                Page::addSuccessNotice(__('Attachment has been successfully removed.'));
+                Notices::addSuccessNotice(__('Attachment has been successfully removed.'));
                 Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));
             } elseif (isset($_POST['post_id'])) {
                 Http::redirect(dcCore::app()->getPostAdminURL($rs->post_type, dcCore::app()->admin->post_id, false));

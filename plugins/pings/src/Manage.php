@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -57,7 +58,7 @@ class Manage extends Process
                 // Settings for current blog only
                 My::settings()->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
-                Page::addSuccessNotice(__('Settings have been successfully updated.'));
+                Notices::addSuccessNotice(__('Settings have been successfully updated.'));
                 My::redirect();
             }
         } catch (Exception $e) {

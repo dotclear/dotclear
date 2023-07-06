@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -115,7 +116,7 @@ class Langs extends Process
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
-                Page::addSuccessNotice(__('Language has been successfully deleted.'));
+                Notices::addSuccessNotice(__('Language has been successfully deleted.'));
                 dcCore::app()->admin->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -153,9 +154,9 @@ class Langs extends Process
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    Page::addSuccessNotice(__('Language has been successfully upgraded'));
+                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Page::addSuccessNotice(__('Language has been successfully installed.'));
+                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 dcCore::app()->admin->url->redirect('admin.langs');
             } catch (Exception $e) {
@@ -186,9 +187,9 @@ class Langs extends Process
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    Page::addSuccessNotice(__('Language has been successfully upgraded'));
+                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Page::addSuccessNotice(__('Language has been successfully installed.'));
+                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 dcCore::app()->admin->url->redirect('admin.langs');
             } catch (Exception $e) {

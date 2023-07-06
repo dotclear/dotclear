@@ -2,7 +2,7 @@
 
 use Dotclear\Helper\Html\Html;
 
-echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEditor') => '']) . \Dotclear\Core\Backend\Page::notices(); ?>
+echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
 <?php if (dcCore::app()->admin->editor_is_admin): ?>
 <h3 class="hidden-if-js">
   <?php echo __('Settings'); ?>

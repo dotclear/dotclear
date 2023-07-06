@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\simpleMenu;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -177,7 +178,7 @@ class Manage extends Process
                 dcCore::app()->blog->triggerBlog();
 
                 // All done successfully, return to menu items list
-                Page::addSuccessNotice(__('Configuration successfully updated.'));
+                Notices::addSuccessNotice(__('Configuration successfully updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -333,12 +334,12 @@ class Manage extends Process
                                 dcCore::app()->blog->triggerBlog();
 
                                 // All done successfully, return to menu items list
-                                Page::addSuccessNotice(__('Menu item has been successfully added.'));
+                                Notices::addSuccessNotice(__('Menu item has been successfully added.'));
                                 My::redirect();
                             } else {
                                 dcCore::app()->admin->step              = self::STEP_ATTRIBUTES;
                                 dcCore::app()->admin->item_select_label = dcCore::app()->admin->item_label;
-                                Page::addErrorNotice(__('Label and URL of menu item are mandatory.'));
+                                Notices::addErrorNotice(__('Label and URL of menu item are mandatory.'));
                             }
                         } catch (Exception $e) {
                             dcCore::app()->error->add($e->getMessage());
@@ -371,7 +372,7 @@ class Manage extends Process
                             dcCore::app()->blog->triggerBlog();
 
                             // All done successfully, return to menu items list
-                            Page::addSuccessNotice(__('Menu items have been successfully removed.'));
+                            Notices::addSuccessNotice(__('Menu items have been successfully removed.'));
                             My::redirect();
                         } else {
                             throw new Exception(__('No menu items selected.'));
@@ -436,7 +437,7 @@ class Manage extends Process
                         dcCore::app()->blog->triggerBlog();
 
                         // All done successfully, return to menu items list
-                        Page::addSuccessNotice(__('Menu items have been successfully updated.'));
+                        Notices::addSuccessNotice(__('Menu items have been successfully updated.'));
                         My::redirect();
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
@@ -504,7 +505,7 @@ class Manage extends Process
                     'hl_pos' => -2,
                 ]
             ) .
-            Page::notices();
+            Notices::getNotices();
         } else {
             echo
             Page::breadcrumb(
@@ -513,7 +514,7 @@ class Manage extends Process
                     dcCore::app()->admin->page_title            => '',
                 ]
             ) .
-            Page::notices();
+            Notices::getNotices();
         }
 
         if (dcCore::app()->admin->step !== self::STEP_LIST) {

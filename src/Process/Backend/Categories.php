@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -42,7 +43,7 @@ class Categories extends Process
             // Check if category to delete exists
             $rs = dcCore::app()->blog->getCategory((int) $cat_id);
             if ($rs->isEmpty()) {
-                Page::addErrorNotice(__('This category does not exist.'));
+                Notices::addErrorNotice(__('This category does not exist.'));
                 dcCore::app()->admin->url->redirect('admin.categories');
             } else {
                 $name = $rs->cat_title;
@@ -51,7 +52,7 @@ class Categories extends Process
             try {
                 // Delete category
                 dcCore::app()->blog->delCategory($cat_id);
-                Page::addSuccessNotice(sprintf(
+                Notices::addSuccessNotice(sprintf(
                     __('The category "%s" has been successfully deleted.'),
                     Html::escapeHTML($name)
                 ));
@@ -81,7 +82,7 @@ class Categories extends Process
                 if ($mov_cat != $cat_id) {
                     dcCore::app()->blog->changePostsCategory($cat_id, $mov_cat);
                 }
-                Page::addSuccessNotice(sprintf(
+                Notices::addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
                 ));
@@ -99,7 +100,7 @@ class Categories extends Process
                     dcCore::app()->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
                 }
             }
-            Page::addSuccessNotice(__('Categories have been successfully reordered.'));
+            Notices::addSuccessNotice(__('Categories have been successfully reordered.'));
             dcCore::app()->admin->url->redirect('admin.categories');
         }
 
@@ -107,7 +108,7 @@ class Categories extends Process
             // Reset order
             try {
                 dcCore::app()->blog->resetCategoriesOrder();
-                Page::addSuccessNotice(__('Categories order has been successfully reset.'));
+                Notices::addSuccessNotice(__('Categories order has been successfully reset.'));
                 dcCore::app()->admin->url->redirect('admin.categories');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

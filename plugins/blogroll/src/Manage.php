@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -101,7 +102,7 @@ class Manage extends Process
                 }
             }
 
-            Page::addSuccessNotice(__('links have been successfully imported.'));
+            Notices::addSuccessNotice(__('links have been successfully imported.'));
             My::redirect();
         }
 
@@ -123,7 +124,7 @@ class Manage extends Process
             try {
                 dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang);
 
-                Page::addSuccessNotice(__('Link has been successfully created.'));
+                Notices::addSuccessNotice(__('Link has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -138,7 +139,7 @@ class Manage extends Process
 
             try {
                 dcCore::app()->admin->blogroll->addCategory(dcCore::app()->admin->cat_title);
-                Page::addSuccessNotice(__('category has been successfully created.'));
+                Notices::addSuccessNotice(__('category has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -160,7 +161,7 @@ class Manage extends Process
             }
 
             if (!dcCore::app()->error->flag()) {
-                Page::addSuccessNotice(__('Items have been successfully removed.'));
+                Notices::addSuccessNotice(__('Items have been successfully removed.'));
                 My::redirect();
             }
         }
@@ -190,7 +191,7 @@ class Manage extends Process
             }
 
             if (!dcCore::app()->error->flag()) {
-                Page::addSuccessNotice(__('Items order has been successfully updated'));
+                Notices::addSuccessNotice(__('Items order has been successfully updated'));
                 My::redirect();
             }
         }
@@ -236,7 +237,7 @@ class Manage extends Process
                 My::name()                                  => '',
             ]
         ) .
-        Page::notices() .
+        Notices::getNotices() .
 
         '<div class="multi-part" id="main-list" title="' . My::name() . '">';
 

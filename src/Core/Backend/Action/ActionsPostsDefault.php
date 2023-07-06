@@ -15,6 +15,7 @@ use dcBlog;
 use dcCategories;
 use dcCore;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -151,7 +152,7 @@ class ActionsPostsDefault
         // Set status of remaining entries
         dcCore::app()->blog->updPostsStatus($ids, $status);
 
-        Page::addSuccessNotice(
+        Notices::addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully updated to status : "%s"',
@@ -193,7 +194,7 @@ class ActionsPostsDefault
             // Set first publication flag of entries
             dcCore::app()->blog->updPostsFirstPub($ids, $status);
 
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully updated as: "%s"',
@@ -225,7 +226,7 @@ class ActionsPostsDefault
         $action = $ap->getAction();
         dcCore::app()->blog->updPostsSelected($ids, $action === 'selected');
         if ($action == 'selected') {
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as selected',
@@ -236,7 +237,7 @@ class ActionsPostsDefault
                 )
             );
         } else {
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as unselected',
@@ -273,7 +274,7 @@ class ActionsPostsDefault
         dcCore::app()->callBehavior('adminBeforePostsDelete', $ids);
 
         dcCore::app()->blog->delPosts($ids);
-        Page::addSuccessNotice(
+        Notices::addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully deleted',
@@ -327,7 +328,7 @@ class ActionsPostsDefault
             if ($new_cat_id) {
                 $title = dcCore::app()->blog->getCategory($new_cat_id)->cat_title;
             }
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully moved to category "%s"',
@@ -410,7 +411,7 @@ class ActionsPostsDefault
             $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->user_id = $new_user_id;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($ids));
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to user "%s"',
@@ -486,7 +487,7 @@ class ActionsPostsDefault
             $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
             $cur->post_lang = $new_lang;
             $cur->update('WHERE post_id ' . dcCore::app()->con->in($post_ids));
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to language "%s"',

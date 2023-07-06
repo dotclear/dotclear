@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Exception;
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -89,7 +90,7 @@ class Manage extends Process
                     Html::escapeHTML(dcCore::app()->admin->module->name) => '',
                 ]
             ) .
-            Page::notices() .
+            Notices::getNotices() .
             '<div id="ie-gui">';
 
             dcCore::app()->admin->module->gui();
@@ -104,7 +105,7 @@ class Manage extends Process
                     My::name()    => '',
                 ]
             ) .
-            Page::notices() .
+            Notices::getNotices() .
 
             '<h3>' . __('Import') . '</h3>' .
             self::listImportExportModules(dcCore::app()->admin->modules['import']) .

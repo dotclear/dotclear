@@ -17,6 +17,7 @@ use dcCore;
 use dcMeta;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -237,7 +238,7 @@ class BackendBehaviors
                     }
                 }
             }
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         'Tag has been successfully added to selected entries',
@@ -316,7 +317,7 @@ class BackendBehaviors
                     $meta->delPostMeta($posts->post_id, 'tag', $v);
                 }
             }
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 sprintf(
                     __(
                         'Tag has been successfully removed from selected entries',

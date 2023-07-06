@@ -23,6 +23,7 @@ use dcDeprecated;
 use dcModuleDefine;
 use dcModules;
 use dcStore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -1336,7 +1337,7 @@ class ModulesList
     /**
      * Execute POST action.
      *
-     * Set a notice on success through Page::addSuccessNotice
+     * Set a notice on success through Notices::addSuccessNotice
      *
      * @throws    Exception    Module not find or command failed
      */
@@ -1383,9 +1384,9 @@ class ModulesList
             if (!$count && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
             } elseif ($failed) {
-                Page::addWarningNotice(__('Some plugins have not been delete.'));
+                Notices::addWarningNotice(__('Some plugins have not been delete.'));
             } else {
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
@@ -1418,7 +1419,7 @@ class ModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
             Http::redirect($this->getURL());
@@ -1449,7 +1450,7 @@ class ModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 __('Plugin has been successfully activated.', 'Plugins have been successuflly activated.', $count)
             );
             Http::redirect($this->getURL());
@@ -1488,9 +1489,9 @@ class ModulesList
             }
 
             if ($failed) {
-                Page::addWarningNotice(__('Some plugins have not been deactivated.'));
+                Notices::addWarningNotice(__('Some plugins have not been deactivated.'));
             } else {
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
@@ -1537,11 +1538,11 @@ class ModulesList
             $tab = $count == count($defines) ? '#plugins' : '#update';   // @phpstan-ignore-line
 
             if ($count) {
-                Page::addSuccessNotice(
+                Notices::addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
             } elseif (!empty($locked)) {
-                Page::addWarningNotice(
+                Notices::addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
             } else {
@@ -1578,7 +1579,7 @@ class ModulesList
             # --BEHAVIOR-- moduleAfterAdd --
             dcCore::app()->callBehavior('pluginAfterAdd', null);
 
-            Page::addSuccessNotice(
+            Notices::addSuccessNotice(
                 $ret_code === dcModules::PACKAGE_UPDATED ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')

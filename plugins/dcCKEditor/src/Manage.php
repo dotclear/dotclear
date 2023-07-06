@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Exception;
@@ -126,7 +127,7 @@ class Manage extends Process
                     My::settings()->put('disable_native_spellchecker', dcCore::app()->admin->editor_cke_disable_native_spellchecker, 'boolean');
                 }
 
-                Page::addSuccessNotice(__('The configuration has been updated.'));
+                Notices::addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
