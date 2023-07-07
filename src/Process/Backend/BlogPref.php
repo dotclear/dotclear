@@ -30,6 +30,16 @@ use form;
 
 class BlogPref extends Process
 {
+    /**
+     * Is standalone blog preferences?
+     *
+     * - true: come directly from blog's paramaters menu entry (or link)
+     * - false: come from in blogs management (may be on a different blog ID than current)
+     *
+     * @var        bool
+     */
+    public static $standalone = true;
+
     public static function init(): bool
     {
         /**
@@ -47,8 +57,8 @@ class BlogPref extends Process
          *
          * @var        bool
          */
-        $da->standalone = !(isset($da->edit_blog_mode) && $da->edit_blog_mode);
-        if ($da->standalone) {
+        self::$standalone = !(isset($da->edit_blog_mode) && $da->edit_blog_mode);
+        if (self::$standalone) {
             Page::check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_ADMIN,
             ]));
@@ -404,7 +414,7 @@ class BlogPref extends Process
         $da = dcCore::app()->admin;
 
         // Display
-        if ($da->standalone) {
+        if (self::$standalone) {
             $breadcrumb = Page::breadcrumb(
                 [
                     Html::escapeHTML($da->blog_name) => '',
@@ -902,7 +912,7 @@ class BlogPref extends Process
 
             '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-            (!$da->standalone ? form::hidden('id', $da->blog_id) : '') .
+            (!self::$standalone ? form::hidden('id', $da->blog_id) : '') .
             '</p>' .
             '</form>';
 
