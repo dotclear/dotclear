@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\customCSS;
 
 use dcCore;
-use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -56,7 +56,7 @@ class Config extends Process
             fwrite($fp, $_POST['css']);
             fclose($fp);
 
-            Page::message(__('Style sheet upgraded.'), true, true);
+            Notices::message(__('Style sheet upgraded.'), true, true);
         }
 
         return true;

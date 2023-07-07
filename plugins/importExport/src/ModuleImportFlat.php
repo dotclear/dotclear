@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -178,12 +179,12 @@ class ModuleImportFlat extends Module
     public function gui(): void
     {
         if ($this->status === 'single') {
-            Page::success(__('Single blog successfully imported.'));
+            Notices::success(__('Single blog successfully imported.'));
 
             return;
         }
         if ($this->status === 'full') {
-            Page::success(__('Content successfully imported.'));
+            Notices::success(__('Content successfully imported.'));
 
             return;
         }

@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCore;
 use dcModuleDefine;
 use dcThemes;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
@@ -158,7 +159,7 @@ class BlogTheme extends Process
         // Display themes lists --
         if (dcCore::app()->auth->isSuperAdmin()) {
             if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
-                Page::success(__('Manual checking of themes update done successfully.'));
+                Notices::success(__('Manual checking of themes update done successfully.'));
             }
 
             echo

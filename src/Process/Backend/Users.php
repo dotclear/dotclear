@@ -106,10 +106,10 @@ class Users extends Process
 
         if (!dcCore::app()->error->flag()) {
             if (!empty($_GET['del'])) {
-                Page::message(__('User has been successfully removed.'));
+                Notices::message(__('User has been successfully removed.'));
             }
             if (!empty($_GET['upd'])) {
-                Page::message(__('The permissions have been successfully updated.'));
+                Notices::message(__('The permissions have been successfully updated.'));
             }
 
             echo '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->url->get('admin.user') . '">' . __('New user') . '</a></p>';

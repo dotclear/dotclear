@@ -214,11 +214,11 @@ class Langs extends Process
         );
 
         if (!empty($_GET['removed'])) {
-            Page::success(__('Language has been successfully deleted.'));
+            Notices::success(__('Language has been successfully deleted.'));
         }
 
         if (!empty($_GET['added'])) {
-            Page::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+            Notices::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
         }
 
         echo

@@ -17,6 +17,7 @@ use dcCore;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -124,14 +125,14 @@ class Comments extends Process
             )
         );
         if (!empty($_GET['upd'])) {
-            Page::success(__('Selected comments have been successfully updated.'));
+            Notices::success(__('Selected comments have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Page::success(__('Selected comments have been successfully deleted.'));
+            Notices::success(__('Selected comments have been successfully deleted.'));
         }
 
         if (!dcCore::app()->error->flag()) {
             if (isset($_SESSION['comments_del_spam'])) {
-                Page::message(__('Spam comments have been successfully deleted.'));
+                Notices::message(__('Spam comments have been successfully deleted.'));
                 unset($_SESSION['comments_del_spam']);
             }
 

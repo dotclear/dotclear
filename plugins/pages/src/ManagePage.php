@@ -18,6 +18,7 @@ use dcCore;
 use dcMedia;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -469,13 +470,13 @@ class ManagePage extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            Page::success(__('Page has been successfully updated.'));
+            Notices::success(__('Page has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            Page::success(__('Page has been successfully created.'));
+            Notices::success(__('Page has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            Page::success(__('File has been successfully attached.'));
+            Notices::success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            Page::success(__('Attachment has been successfully removed.'));
+            Notices::success(__('Attachment has been successfully removed.'));
         }
 
         # HTML conversion
@@ -484,7 +485,7 @@ class ManagePage extends Process
             dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
             dcCore::app()->admin->post_format  = 'xhtml';
 
-            Page::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
+            Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {

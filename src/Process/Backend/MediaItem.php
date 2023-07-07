@@ -458,13 +458,13 @@ class MediaItem extends Process
         }
 
         if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
-            Page::success(__('File has been successfully updated.'));
+            Notices::success(__('File has been successfully updated.'));
         }
         if (!empty($_GET['thumbupd'])) {
-            Page::success(__('Thumbnails have been successfully updated.'));
+            Notices::success(__('Thumbnails have been successfully updated.'));
         }
         if (!empty($_GET['blogprefupd'])) {
-            Page::success(__('Default media insertion settings have been successfully updated.'));
+            Notices::success(__('Default media insertion settings have been successfully updated.'));
         }
 
         // Get major file type (first part of mime type)
@@ -651,7 +651,7 @@ class MediaItem extends Process
                 echo
                 '<div class="two-boxes">' .
                 '<h3>' . __('MP3 disposition') . '</h3>';
-                Page::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
+                Notices::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
 
                 $i_align = [
                     'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
@@ -679,7 +679,7 @@ class MediaItem extends Process
             } elseif (dcCore::app()->admin->file_type[0] == 'video') {
                 $media_type = 'flv';
 
-                Page::message(__('Please note that you cannot insert video files with visual editor.'), false);
+                Notices::message(__('Please note that you cannot insert video files with visual editor.'), false);
 
                 echo
                 '<div class="two-boxes">' .

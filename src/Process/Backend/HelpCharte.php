@@ -13,6 +13,7 @@ namespace Dotclear\Process\Backend;
 use dcAuth;
 use dcCore;
 use dcUtils;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
@@ -316,16 +317,16 @@ class HelpCharte extends Process
         <h4 class="smart-title">Messages système</h4>
         <p>Il existe quatre types de messages système auxquels correspondent des classes CSS : .error, .message, .success, .warning-msg. Ils s'affichent en haut de page, sous le titre/breadcrumb.</p>
         <div class="message">
-          <p>Message simple. Le plus souvent horodaté Page::message</p>
+          <p>Message simple. Le plus souvent horodaté Notices::message</p>
         </div>
         <div class="success">
-          <p>Message de succès. Le plus souvent horodaté Page::success</p>
+          <p>Message de succès. Le plus souvent horodaté Notices::success</p>
         </div>
         <div class="warning-msg">
-          <p>Message warning. Non horodaté Page::warning</p>
+          <p>Message warning. Non horodaté Notices::warning</p>
         </div>
         <div class="error">
-          <p>Message d'erreur. Non horodaté Page::error</p>
+          <p>Message d'erreur. Non horodaté Notices::error</p>
         </div>
         <p>La classe .static-msg peut être utilisée directement pour affichage en haut de page :</p>
         <div class="static-msg">

@@ -201,7 +201,7 @@ class Manage extends Process
             '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post" id="filters-list-form">';
 
             if (!empty($_GET['upd'])) {
-                Page::success(__('Filters configuration has been successfully saved.'));
+                Notices::success(__('Filters configuration has been successfully saved.'));
             }
 
             echo

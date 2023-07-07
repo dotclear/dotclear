@@ -572,20 +572,20 @@ class Post extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            Page::success(__('Entry has been successfully updated.'));
+            Notices::success(__('Entry has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            Page::success(__('Entry has been successfully created.'));
+            Notices::success(__('Entry has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            Page::success(__('File has been successfully attached.'));
+            Notices::success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            Page::success(__('Attachment has been successfully removed.'));
+            Notices::success(__('Attachment has been successfully removed.'));
         }
 
         if (!empty($_GET['creaco'])) {
-            Page::success(__('Comment has been successfully created.'));
+            Notices::success(__('Comment has been successfully created.'));
         }
         if (!empty($_GET['tbsent'])) {
-            Page::success(__('All pings sent.'));
+            Notices::success(__('All pings sent.'));
         }
 
         // XHTML conversion
@@ -594,7 +594,7 @@ class Post extends Process
             dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
             dcCore::app()->admin->post_format  = 'xhtml';
 
-            Page::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
+            Notices::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
         if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {

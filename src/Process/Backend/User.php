@@ -237,11 +237,11 @@ class User extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            Page::success(__('User has been successfully updated.'));
+            Notices::success(__('User has been successfully updated.'));
         }
 
         if (!empty($_GET['add'])) {
-            Page::success(__('User has been successfully created.'));
+            Notices::success(__('User has been successfully created.'));
         }
 
         echo

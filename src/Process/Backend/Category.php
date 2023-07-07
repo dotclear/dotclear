@@ -223,7 +223,7 @@ class Category extends Process
         );
 
         if (!empty($_GET['upd'])) {
-            Page::success(__('Category has been successfully updated.'));
+            Notices::success(__('Category has been successfully updated.'));
         }
 
         echo
