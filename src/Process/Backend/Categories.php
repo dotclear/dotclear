@@ -148,13 +148,13 @@ class Categories extends Process
         );
 
         if (!empty($_GET['del'])) {
-            Page::success(__('The category has been successfully removed.'));
+            Notices::success(__('The category has been successfully removed.'));
         }
         if (!empty($_GET['reord'])) {
-            Page::success(__('Categories have been successfully reordered.'));
+            Notices::success(__('Categories have been successfully reordered.'));
         }
         if (!empty($_GET['move'])) {
-            Page::success(__('Entries have been successfully moved to the category you choose.'));
+            Notices::success(__('Entries have been successfully moved to the category you choose.'));
         }
 
         $categories_combo = Combos::getCategoriesCombo($rs);

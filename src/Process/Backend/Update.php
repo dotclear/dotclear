@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use dcUpdate;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -246,7 +247,7 @@ class Update extends Process
         );
 
         if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
-            Page::success(__('Manual checking of update done successfully.'));
+            Notices::success(__('Manual checking of update done successfully.'));
         }
 
         if (!dcCore::app()->admin->step) {

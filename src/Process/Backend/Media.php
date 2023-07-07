@@ -325,7 +325,7 @@ class Media extends Process
         }
 
         if (!dcCore::app()->admin->page->mediaWritable() && !dcCore::app()->error->flag()) {
-            Page::warning(__('You do not have sufficient permissions to write to this folder.'));
+            Notices::warning(__('You do not have sufficient permissions to write to this folder.'));
         }
 
         if (!dcCore::app()->admin->page->getDirs()) {

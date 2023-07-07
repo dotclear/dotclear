@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCore;
 use dcModuleDefine;
 use Dotclear\Core\Backend\ModulesList;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
@@ -126,7 +127,7 @@ class Plugins extends Process
         // -- Display modules lists --
         if (dcCore::app()->auth->isSuperAdmin()) {
             if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
-                Page::success(__('Manual checking of plugins update done successfully.'));
+                Notices::success(__('Manual checking of plugins update done successfully.'));
             }
 
             echo

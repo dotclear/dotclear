@@ -15,6 +15,7 @@ use dcCore;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Listing\ListingPosts;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -89,9 +90,9 @@ class Posts extends Process
             )
         );
         if (!empty($_GET['upd'])) {
-            Page::success(__('Selected entries have been successfully updated.'));
+            Notices::success(__('Selected entries have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Page::success(__('Selected entries have been successfully deleted.'));
+            Notices::success(__('Selected entries have been successfully deleted.'));
         }
         if (!dcCore::app()->error->flag()) {
             echo

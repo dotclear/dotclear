@@ -12,6 +12,7 @@
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
@@ -336,7 +337,7 @@ class Config extends Process
                 // Template cache reset
                 dcCore::app()->emptyTemplatesCache();
 
-                Page::message(__('Theme configuration upgraded.'), true, true);
+                Notices::message(__('Theme configuration upgraded.'), true, true);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }

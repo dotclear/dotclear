@@ -448,11 +448,11 @@ class BlogPref extends Process
 
         if ($da->blog_id) {
             if (!empty($_GET['add'])) {
-                Page::success(__('Blog has been successfully created.'));
+                Notices::success(__('Blog has been successfully created.'));
             }
 
             if (!empty($_GET['upd'])) {
-                Page::success(__('Blog has been successfully updated.'));
+                Notices::success(__('Blog has been successfully updated.'));
             }
 
             echo

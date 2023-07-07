@@ -118,11 +118,11 @@ class Manage extends Process
         Notices::getNotices();
 
         if (!empty($_GET['upd'])) {
-            Page::success(__('Selected pages have been successfully updated.'));
+            Notices::success(__('Selected pages have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Page::success(__('Selected pages have been successfully deleted.'));
+            Notices::success(__('Selected pages have been successfully deleted.'));
         } elseif (!empty($_GET['reo'])) {
-            Page::success(__('Selected pages have been successfully reordered.'));
+            Notices::success(__('Selected pages have been successfully reordered.'));
         }
         echo
         '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';

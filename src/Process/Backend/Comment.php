@@ -236,7 +236,7 @@ class Comment extends Process
 
         if (dcCore::app()->admin->comment_id) {
             if (!empty($_GET['upd'])) {
-                Page::success(__('Comment has been successfully updated.'));
+                Notices::success(__('Comment has been successfully updated.'));
             }
 
             $comment_mailto = '';
