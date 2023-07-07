@@ -529,14 +529,16 @@ class dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        $base   = dcCore::app()->admin->url->getBase('admin.plugin');
-        $params = dcCore::app()->admin->url->getParams('admin.plugin');
+        if ($ns === 'admin') {
+            $base   = dcCore::app()->admin->url->getBase('admin.plugin');
+            $params = dcCore::app()->admin->url->getParams('admin.plugin');
+        }
 
         foreach ($this->getDefines() as $module) {
             if (in_array($module->getId(), $ignored)) {
                 continue;
             }
-            if ($ns == 'admin') {
+            if ($ns === 'admin') {
                 $this->loadModuleL10Nresources($module->getId(), $lang);
                 dcCore::app()->admin->url->register(
                     'admin.plugin.' . $module->getId(),
