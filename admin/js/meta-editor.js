@@ -210,7 +210,7 @@ class metaEditor {
     }
 
     dotclear.jsonServicesPost(
-      'setPostMetaJSON',
+      'setPostMeta',
       (data) => {
         this.meta_dialog.val('');
         this.displayMetaList();

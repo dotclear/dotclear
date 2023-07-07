@@ -119,7 +119,7 @@ $(() => {
   // Theme preview
   $('.theme-preview').each(function () {
     const button = this;
-    let preview_url = $(button).attr('href');
+    const preview_url = $(button).attr('href');
     if (preview_url) {
       const has_modal = $(button).hasClass('modal');
 
