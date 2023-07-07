@@ -57,7 +57,6 @@ class BlogPref extends Process
          *
          * @var        bool
          */
-        self::$standalone = !(isset($da->edit_blog_mode) && $da->edit_blog_mode);
         if (self::$standalone) {
             Page::check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_ADMIN,
