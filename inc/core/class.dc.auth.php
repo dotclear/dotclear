@@ -630,7 +630,7 @@ class dcAuth
     /**
      * Returns current user ID
      *
-     * @return null|mixed
+     * @return null|string
      */
     public function userID()
     {

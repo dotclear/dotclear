@@ -29,12 +29,12 @@ use Exception;
 
 class BlogDel extends Process
 {
+    private static string $blog_id = '';
+    private static string $blog_name = '';
+
     public static function init(): bool
     {
         Page::checkSuper();
-
-        dcCore::app()->admin->blog_id   = '';
-        dcCore::app()->admin->blog_name = '';
 
         if (!empty($_POST['blog_id'])) {
             $rs = null;
@@ -49,8 +49,8 @@ class BlogDel extends Process
                 if ($rs->isEmpty()) {
                     dcCore::app()->error->add(__('No such blog ID'));
                 } else {
-                    dcCore::app()->admin->blog_id   = $rs->blog_id;
-                    dcCore::app()->admin->blog_name = $rs->blog_name;
+                    self::$blog_id   = $rs->blog_id;
+                    self::$blog_name = $rs->blog_name;
                 }
             }
         }
@@ -60,14 +60,14 @@ class BlogDel extends Process
 
     public static function process(): bool
     {
-        if (!dcCore::app()->error->flag() && dcCore::app()->admin->blog_id && !empty($_POST['del'])) {
+        if (!dcCore::app()->error->flag() && self::$blog_id && !empty($_POST['del'])) {
             // Delete the blog
-            if (!dcCore::app()->auth->checkPassword($_POST['pwd'])) {
+            if (is_null(dcCore::app()->auth) || !dcCore::app()->auth->checkPassword($_POST['pwd'])) {
                 dcCore::app()->error->add(__('Password verification failed'));
             } else {
                 try {
-                    dcCore::app()->delBlog(dcCore::app()->admin->blog_id);
-                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
+                    dcCore::app()->delBlog(self::$blog_id);
+                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(self::$blog_name)));
 
                     dcCore::app()->admin->url->redirect('admin.blogs');
                 } catch (Exception $e) {
@@ -96,7 +96,7 @@ class BlogDel extends Process
         if (!dcCore::app()->error->flag()) {
             $msg = '<strong>' . __('Warning') . '</strong></p><p>' . sprintf(
                 __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
-                '<strong>' . dcCore::app()->admin->blog_id . ' (' . dcCore::app()->admin->blog_name . ')</strong>'
+                '<strong>' . self::$blog_id . ' (' . self::$blog_name . ')</strong>'
             );
             Notices::warning($msg, false, true);
 
@@ -133,7 +133,7 @@ class BlogDel extends Process
                             ->class(['go-back', 'reset', 'hidden-if-no-js'])
                             ->value(__('Cancel')),
                     ]),
-                (new Hidden('blog_id', dcCore::app()->admin->blog_id)),
+                (new Hidden('blog_id', self::$blog_id)),
             ])->render();
         }
 
