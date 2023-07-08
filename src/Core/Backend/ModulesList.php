@@ -23,7 +23,6 @@ use dcDeprecated;
 use dcModuleDefine;
 use dcModules;
 use dcStore;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
