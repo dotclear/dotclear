@@ -542,8 +542,8 @@ class dcModules
                 $this->loadModuleL10Nresources($module->getId(), $lang);
                 dcCore::app()->admin->url->register(
                     'admin.plugin.' . $module->getId(),
-                    $base,
-                    array_merge($params, ['p' => $module->getId()])
+                    $base,                                  // @phpstan-ignore-line
+                    [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
                 );
             }
             // Load ns_file

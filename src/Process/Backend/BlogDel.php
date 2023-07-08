@@ -29,7 +29,7 @@ use Exception;
 
 class BlogDel extends Process
 {
-    private static string $blog_id = '';
+    private static string $blog_id   = '';
     private static string $blog_name = '';
 
     public static function init(): bool
