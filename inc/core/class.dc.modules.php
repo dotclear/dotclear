@@ -543,7 +543,8 @@ class dcModules
                 dcCore::app()->admin->url->register(
                     'admin.plugin.' . $module->getId(),
                     $base,                                  // @phpstan-ignore-line
-                    [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
+                    // [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
+                    array_merge($params, ['p' => $module->getId()])   // @phpstan-ignore-line
                 );
             }
             // Load ns_file
