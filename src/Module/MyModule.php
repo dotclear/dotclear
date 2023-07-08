@@ -111,14 +111,12 @@ abstract class MyModule
         switch ($context) {
             case self::INSTALL: // Installation of module
                 return defined('DC_CONTEXT_ADMIN')
-                    && !is_null(dcCore::app()->auth)
                     && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
                     && dcCore::app()->newVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version'))
                 ;
 
             case self::UNINSTALL: // Uninstallation of module
                 return defined('DC_RC_PATH')
-                    && !is_null(dcCore::app()->auth)
                     && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
                 ;
 
@@ -130,7 +128,6 @@ abstract class MyModule
             case self::BACKEND: // Backend context
                 return defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(dcCore::app()->auth)
                     && !is_null(dcCore::app()->blog)
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_USAGE,
@@ -143,7 +140,6 @@ abstract class MyModule
             case self::WIDGETS: // Main page of module, Admin menu, Blog widgets
                 return defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(dcCore::app()->auth)
                     && !is_null(dcCore::app()->blog)
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,  // Admin+
@@ -152,7 +148,6 @@ abstract class MyModule
 
             case self::CONFIG: // Config page of module
                 return defined('DC_CONTEXT_ADMIN')
-                    && !is_null(dcCore::app()->auth)
                     && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
                 ;
         }
@@ -201,7 +196,7 @@ abstract class MyModule
      */
     final public static function settings(): ?dcNamespace
     {
-        return dcCore::app()->blog->settings->get(static::id());
+        return is_null(dcCore::app()->blog) ? null : dcCore::app()->blog->settings->get(static::id());
     }
 
     /**

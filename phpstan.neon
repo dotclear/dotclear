@@ -118,10 +118,6 @@ parameters:
     - message : '#Access to an undefined property dcSettings::#'
       path: %currentWorkingDirectory%
 
-    # dcPrefs object and auto properties
-    - message : '#Access to an undefined property dcPrefs::#'
-      path: %currentWorkingDirectory%
-
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
     - message: '#Call to an undefined method form[a-zA-Z0-9\\_]+::#'
       path: %currentWorkingDirectory%

@@ -84,9 +84,9 @@ final class dcCore
     /**
      * dcAuth instance
      *
-     * @var dcAuth|null
+     * @var dcAuth
      */
-    public $auth;
+    public dcAuth $auth;
 
     /**
      * Session in database instance

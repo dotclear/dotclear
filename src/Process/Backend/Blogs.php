@@ -38,11 +38,6 @@ class Blogs extends Process
 
     public static function init(): bool
     {
-        // Nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
-            throw new Exception('Application is not in administrative context.', 500);
-        }
-
         // Check user permissions
         Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
@@ -86,8 +81,8 @@ class Blogs extends Process
 
     public static function render(): void
     {
-        // Nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
+        // Nullsafe before header sent
+        if (!isset(dcCore::app()->auth)) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 

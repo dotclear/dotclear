@@ -149,9 +149,9 @@ class dcAuth
     /**
      * dcPrefs (user preferences) object
      *
-     * @var dcPrefs|null
+     * @var dcPrefs
      */
-    public $user_prefs;
+    public dcPrefs $user_prefs;
 
     /**
      * Class constructor. Takes dcCore object as single argument.

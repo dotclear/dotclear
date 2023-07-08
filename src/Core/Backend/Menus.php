@@ -74,7 +74,7 @@ class Menus extends ArrayObject
     public function setDefaultItems(): void
     {
         // nullsafe and context
-        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->auth) || is_null(dcCore::app()->blog)) {
+        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->blog)) {
             return;
         }
 

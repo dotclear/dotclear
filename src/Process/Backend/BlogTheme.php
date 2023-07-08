@@ -35,11 +35,6 @@ class BlogTheme extends Process
 
     public static function init(): bool
     {
-        // nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
-            throw new Exception('Application is not in administrative context.', 500);
-        }
-
         Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
         ]));
