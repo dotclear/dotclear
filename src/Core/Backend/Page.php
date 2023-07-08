@@ -1058,7 +1058,7 @@ class Page
         $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true);
         if ($adblockcheck) {
             // May not be set (auth page for example)
-            if (dcCore::app()->auth->user_prefs) {
+            if (isset(dcCore::app()->auth->user_prefs)) {
                 $adblockcheck = dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;
