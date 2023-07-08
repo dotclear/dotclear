@@ -31,8 +31,15 @@ use Exception;
 
 class BlogTheme extends Process
 {
+    private static ThemesList $list;
+
     public static function init(): bool
     {
+        // nullsafe php 7.4
+        if (is_null(dcCore::app()->auth)) {
+            throw new Exception('Application is not in administrative context.', 500);
+        }
+
         Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
         ]));
@@ -42,7 +49,7 @@ class BlogTheme extends Process
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
 
         // Page helper
-        dcCore::app()->admin->list = new ThemesList(
+        self::$list = new ThemesList(
             dcCore::app()->themes,
             dcCore::app()->blog->themes_path,
             dcCore::app()->blog->settings->system->store_theme_url,
@@ -56,17 +63,17 @@ class BlogTheme extends Process
             exit;
         }
 
-        if (dcCore::app()->admin->list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
+        if (self::$list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
             // Display module configuration page
 
             // Get content before page headers
-            $include = dcCore::app()->admin->list->includeConfiguration();
+            $include = self::$list->includeConfiguration();
             if ($include) {
                 include $include;
             }
 
             // Gather content
-            dcCore::app()->admin->list->getConfiguration();
+            self::$list->getConfiguration();
 
             // Display page
             Page::open(
@@ -79,7 +86,7 @@ class BlogTheme extends Process
                     [
                         // Active links
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
-                        __('Blog appearance')                       => dcCore::app()->admin->list->getURL('', false),
+                        __('Blog appearance')                       => self::$list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
                     ]
@@ -87,7 +94,7 @@ class BlogTheme extends Process
             );
 
             // Display previously gathered content
-            dcCore::app()->admin->list->displayConfiguration();
+            self::$list->displayConfiguration();
 
             Page::helpBlock('core_blog_theme_conf');
             Page::close();
@@ -98,7 +105,7 @@ class BlogTheme extends Process
 
         // Execute actions
         try {
-            dcCore::app()->admin->list->doActions();
+            self::$list->doActions();
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -116,7 +123,7 @@ class BlogTheme extends Process
                 dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
-            if (!file_exists($filename)) {
+            if (!$filename || !file_exists($filename)) {
                 $filename = __DIR__ . '/images/noscreenshot.png';
             }
 
@@ -164,7 +171,7 @@ class BlogTheme extends Process
 
             echo
             (new Form('force-checking'))
-                ->action(dcCore::app()->admin->list->getURL('', false))
+                ->action(self::$list->getURL('', false))
                 ->method('get')
                 ->fields([
                     (new Para())
@@ -177,7 +184,7 @@ class BlogTheme extends Process
                 ->render();
 
             // Updated themes from repo
-            $defines = dcCore::app()->admin->list->store->getDefines(true);
+            $defines = self::$list->store->getDefines(true);
             if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
@@ -187,7 +194,7 @@ class BlogTheme extends Process
                     count($defines)
                 ) . '</p>';
 
-                dcCore::app()->admin->list
+                self::$list
                     ->setList('theme-update')
                     ->setTab('themes')
                     ->setDefines($defines)
@@ -209,19 +216,19 @@ class BlogTheme extends Process
         }
 
         // Activated themes
-        $defines = dcCore::app()->admin->list->modules->getDefines(
-            ['state' => dcCore::app()->admin->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+        $defines = self::$list->modules->getDefines(
+            ['state' => self::$list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
             echo
             '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
             '<h3>' .
             (dcCore::app()->auth->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
-            (dcCore::app()->admin->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
+            (self::$list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed themes from this list.') . '</p>';
 
-            dcCore::app()->admin->list
+            self::$list
                 ->setList('theme-activate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -237,14 +244,14 @@ class BlogTheme extends Process
         }
 
         // Deactivated modules
-        $defines = dcCore::app()->admin->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+        $defines = self::$list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
         if (!empty($defines)) {
             echo
             '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .
             '<h3>' . __('Deactivated themes') . '</h3>' .
             '<p class="more-info">' . __('Deactivated themes are installed but not usable. You can activate them from here.') . '</p>';
 
-            dcCore::app()->admin->list
+            self::$list
                 ->setList('theme-deactivate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -259,17 +266,17 @@ class BlogTheme extends Process
             '</div>';
         }
 
-        if (dcCore::app()->auth->isSuperAdmin() && dcCore::app()->admin->list->isWritablePath()) {
+        if (dcCore::app()->auth->isSuperAdmin() && self::$list->isWritablePath()) {
             // New modules from repo
-            $search  = dcCore::app()->admin->list->getSearch();
-            $defines = $search ? dcCore::app()->admin->list->store->searchDefines($search) : dcCore::app()->admin->list->store->getDefines();
+            $search  = self::$list->getSearch();
+            $defines = is_string($search) ? self::$list->store->searchDefines($search) : self::$list->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add themes') . '">' .
                 '<h3>' . __('Add themes from repository') . '</h3>';
 
-                dcCore::app()->admin->list
+                self::$list
                     ->setList('theme-new')
                     ->setTab('new')
                     ->setDefines($defines)
@@ -299,7 +306,7 @@ class BlogTheme extends Process
             '<h3>' . __('Add themes from a package') . '</h3>' .
             '<p class="more-info">' . __('You can install themes by uploading or downloading zip files.') . '</p>';
 
-            dcCore::app()->admin->list->displayManualForm();
+            self::$list->displayManualForm();
 
             echo
             '</div>';
@@ -309,7 +316,7 @@ class BlogTheme extends Process
         dcCore::app()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin
-        if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->list->isWritablePath()) {
+        if (dcCore::app()->auth->isSuperAdmin() && !self::$list->isWritablePath()) {
             echo
             '<p class="warning">' . __('Some functions are disabled, please give write access to your themes directory to enable them.') . '</p>';
         }
