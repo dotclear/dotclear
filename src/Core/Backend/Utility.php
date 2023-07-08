@@ -80,11 +80,6 @@ class Utility extends Process
      */
     public static function process(): bool
     {
-        // Nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
-            throw new Exception('Application is not in administrative context.', 500);
-        }
-
         // Instanciate Backend instance
         if (!(dcCore::app()->admin instanceof self)) {
             dcCore::app()->admin = new self();
@@ -190,7 +185,7 @@ class Utility extends Process
         dcCore::app()->setPostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
         // No user nor blog, do not load more stuff
-        if (is_null(dcCore::app()->auth) || !(dcCore::app()->auth->userID() && dcCore::app()->blog !== null)) {
+        if (!(dcCore::app()->auth->userID() && dcCore::app()->blog !== null)) {
             return true;
         }
 

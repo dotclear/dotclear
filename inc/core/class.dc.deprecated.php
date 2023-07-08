@@ -72,7 +72,7 @@ class dcDeprecated extends Deprecated
         $cursor = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
-        $cursor->setField('user_id', is_null(dcCore::app()->auth) ? 'unknown' : dcCore::app()->auth->userID());
+        $cursor->setField('user_id', isset(dcCore::app()->auth) ? dcCore::app()->auth->userID() : 'unknown');
         $log->addLog($cursor);
     }
 
@@ -101,7 +101,7 @@ class dcDeprecated extends Deprecated
 
             if (!$all) {
                 $sql_dt = new SelectStatement();
-                $rs = $sql_dt->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
+                $rs     = $sql_dt->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
                     ->column('log_dt')
                     ->where('log_table = ' . $sql_dt->quote(self::DEPRECATED_LOG_TABLE))
                     ->order('log_dt DESC')

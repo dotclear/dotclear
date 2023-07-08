@@ -23,7 +23,6 @@ class My extends MyPlugin
     {
         // allways limit to super admin
         return defined('DC_CONTEXT_ADMIN')
-            && !is_null(dcCore::app()->auth)
             && dcCore::app()->auth->isSuperAdmin();
     }
 }

@@ -23,7 +23,6 @@ class My extends MyPlugin
     {
         return in_array($context, [self::MANAGE, self::MENU]) ? 
             defined('DC_CONTEXT_ADMIN')
-            && !is_null(dcCore::app()->auth)
             && !is_null(dcCore::app()->blog)
             && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 Blogroll::PERMISSION_BLOGROLL,

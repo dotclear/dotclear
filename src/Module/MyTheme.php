@@ -49,7 +49,6 @@ abstract class MyTheme extends MyModule
             case self::CONFIG: // Config page of module
                 return defined('DC_CONTEXT_ADMIN')
                     // Check specific permission, allowed to blog admin for themes
-                    && !is_null(dcCore::app()->auth)
                     && !is_null(dcCore::app()->blog)
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,

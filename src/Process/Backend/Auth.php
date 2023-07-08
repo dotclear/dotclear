@@ -42,11 +42,6 @@ class Auth extends Process
 
     public static function init(): bool
     {
-        // nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
-            throw new Exception('Application is not in administrative context.', 500);
-        }
-
         // If we have a session cookie, go to index.php
         if (isset($_SESSION['sess_user_id'])) {
             dcCore::app()->admin->url->redirect('admin.home');
@@ -115,11 +110,6 @@ class Auth extends Process
 
     public static function process(): bool
     {
-        // nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
-            throw new Exception('Application is not in administrative context.', 500);
-        }
-
         $headers = [];
         if (self::$recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
             self::$user_id    = $_POST['user_id'];
@@ -307,8 +297,8 @@ class Auth extends Process
 
     public static function render(): void
     {
-        // nullsafe php 7.4
-        if (is_null(dcCore::app()->auth)) {
+        // nullsafe before header sent
+        if (!isset(dcCore::app()->auth)) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
