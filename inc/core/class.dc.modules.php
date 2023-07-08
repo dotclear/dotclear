@@ -290,6 +290,7 @@ class dcModules
         }
         // Check modules that cannot be disabled
         foreach ($modules as $module) {
+            // Add dependencies to modules that use current module
             if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
                 foreach ($module->getImplies() as $im) {
                     if (isset($optionnals[$im][$module->getId()])) {
@@ -302,6 +303,10 @@ class dcModules
                     }
                 }
             }
+            // Move in soft disabled state module with missing requirements
+            if (!$this->safe_mode && !empty($module->getMissing()) && $module->state == dcModuleDefine::STATE_ENABLED) {
+                $module->set('state', dcModuleDefine::STATE_SOFT_DISABLED);
+            }
         }
     }
 
@@ -310,6 +315,8 @@ class dcModules
      */
     /**
      * Disables the dep modules.
+     *
+     * If module has missing dep and is not yet in hard disbaled state (_disabled) goes in.
      *
      * @param  string $redirect_url URL to redirect if modules are to disable
      *
@@ -323,7 +330,7 @@ class dcModules
         }
         $reason = [];
         foreach ($this->getDefines() as $module) {
-            if (empty($module->getMissing()) || $module->state != dcModuleDefine::STATE_ENABLED) {
+            if (empty($module->getMissing()) || !in_array($module->state, [dcModuleDefine::STATE_ENABLED, dcModuleDefine::STATE_SOFT_DISABLED])) {
                 continue;
             }
 
@@ -479,13 +486,6 @@ class dcModules
 
         // Prepend loop
         foreach ($modules as $module) {
-            // Do not load anything if module has missing dependencies
-            if (!empty($module->getMissing())) {
-                $ignored[] = $module->getId();
-
-                continue;
-            }
-
             $ret = true;
 
             // by class name
@@ -534,7 +534,7 @@ class dcModules
             $params = dcCore::app()->admin->url->getParams('admin.plugin');
         }
 
-        foreach ($this->getDefines() as $module) {
+        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
             if (in_array($module->getId(), $ignored)) {
                 continue;
             }
@@ -953,13 +953,13 @@ class dcModules
      */
     public function deactivateModule(string $id): void
     {
-        $module = $this->getDefine($id, ['state' => $this->safe_mode ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]);
+        $module = $this->getDefine($id);
 
         if (!$module->isDefined()) {
             throw new Exception(__('No such module.'));
         }
 
-        if (!$module->root_writable) {
+        if (!$module->root_writable || !in_array($module->state, [dcModuleDefine::STATE_SOFT_DISABLED, dcModuleDefine::STATE_ENABLED])) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
@@ -1199,7 +1199,7 @@ class dcModules
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
-        if (!empty($module->getMissing()) || !$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
+        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
             return;
         }
 

@@ -934,7 +934,7 @@ class ModulesList
                         join(',', $define->getUsing())
                     ) . '</span></p>';
                 }
-                if (!empty($define->getMissing()) && $define->get('state') != dcModuleDefine::STATE_ENABLED) {
+                if (!empty($define->getMissing())) {
                     $note .= '<p><span class="info">' .
                     __('This module cannot be enabled, because of the following reasons :') . '<ul>';
                     foreach ($define->getMissing() as $reason) {
