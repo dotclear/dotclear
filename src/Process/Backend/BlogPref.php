@@ -238,7 +238,7 @@ class BlogPref extends Process
         ];
 
         // jQuery available versions
-        $jquery_root = __DIR__ . '/../inc/js/jquery';
+        $jquery_root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'inc', 'js', 'jquery']);
         $stack       = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => ''];
         if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root)) !== false) {
             while (($entry = $d->read()) !== false) {

@@ -39,6 +39,7 @@ class GrowUp_2_27_lt
                 'admin/tpl',
                 'inc/admin',
                 'inc/dbschema',
+                'inc/js/jquery/3.6.0',
             ]
         );
 

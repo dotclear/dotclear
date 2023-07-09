@@ -17,7 +17,7 @@
 
   "default_theme": "berlin",
   "default_tplset": "mustek",
-  "default_jquery": "3.6.0",
+  "default_jquery": "3.7.0",
 
   "distributed_plugins": [
     "aboutConfig",
