@@ -11,14 +11,12 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
-use Dotclear\Helper\Network\Http;
 
 class dcModules
 {
@@ -318,43 +316,30 @@ class dcModules
      *
      * If module has missing dep and is not yet in hard disbaled state (_disabled) goes in.
      *
-     * @param  string $redirect_url URL to redirect if modules are to disable
-     *
-     * @return bool  true if a redirection has been performed
+     * @return  array<int,string>  The reasons to disable modules
      */
-    public function disableDepModules(string $redirect_url): bool
+    public function disableDepModules(): array
     {
-        if (isset($_GET['dep'])) {
-            // Avoid infinite redirects
+        if (isset($_GET['dep']) || $this->safe_mode) {
+            // Avoid infinite redirects and do not hard disabled modules in safe_mode
             return false;
         }
+
         $reason = [];
-        foreach ($this->getDefines() as $module) {
+        foreach ($this->defines as $module) {
             if (empty($module->getMissing()) || !in_array($module->state, [dcModuleDefine::STATE_ENABLED, dcModuleDefine::STATE_SOFT_DISABLED])) {
                 continue;
             }
 
             try {
                 $this->deactivateModule($module->getId());
-                $reason[] = sprintf('<li>%s : %s</li>', $module->name, join(',', $module->getMissing()));
+                $reason[] = sprintf('%s : %s', $module->name, join(',', $module->getMissing()));
             } catch (Exception $e) {
                 // Ignore exceptions
             }
         }
-        if (count($reason)) {
-            $message = sprintf(
-                '<p>%s</p><ul>%s</ul>',
-                __('The following extensions have been disabled :'),
-                join('', $reason)
-            );
-            Notices::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
-            $url = $redirect_url . (strpos($redirect_url, '?') ? '&' : '?') . 'dep=1';
-            Http::redirect($url);
 
-            return true;
-        }
-
-        return false;
+        return $reason;
     }
 
     /**
