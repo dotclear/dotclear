@@ -158,6 +158,10 @@ class BlogTheme extends Process
 
         // Display themes lists --
         if (dcCore::app()->auth->isSuperAdmin()) {
+            if (null == dcCore::app()->blog->settings->system->store_theme_url) {
+                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
+            }
+
             if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
                 Notices::success(__('Manual checking of themes update done successfully.'));
             }
