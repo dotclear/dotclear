@@ -99,29 +99,32 @@ class Plugins extends Process
 
         // -- Plugins install messages --
         if (!empty(dcCore::app()->admin->plugins_install['success'])) {
-            echo
-            '<div class="static-msg">' . __('Following plugins have been installed:') . '<ul>';
-
+            $success = [];
             foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
                 $info = implode(' - ', dcCore::app()->admin->list->getSettingsUrls($k, true));
-                echo
-                '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
+                $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
-
-            echo
-            '</ul></div>';
+            Notices::success(
+                __('Following plugins have been installed:') .
+                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>',
+                false,
+                true
+            );
+            unset($success);
         }
         if (!empty(dcCore::app()->admin->plugins_install['failure'])) {
-            echo
-            '<div class="error">' . __('Following plugins have not been installed:') . '<ul>';
-
+            $failure = [];
             foreach (dcCore::app()->admin->plugins_install['failure'] as $k => $v) {
-                echo
-                '<li>' . $k . ' (' . $v . ')</li>';
+                $failure[] = $k . ' (' . $v . ')';
             }
 
-            echo
-            '</ul></div>';
+            Notices::error(
+                __('Following plugins have not been installed:') .
+                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>',
+                false,
+                true
+            );
+            unset($failure);
         }
 
         // -- Display modules lists --

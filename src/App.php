@@ -54,9 +54,7 @@ namespace Dotclear {
         public static function bootstrap(string $utility = '', string $process = ''): void
         {
             // Can not run twice the app
-            if (self::$initialized) {
-                exit('Application already in use.');
-            }
+            self::initialized(true);
 
             // Load app prerequisites
             self::preload();
@@ -89,9 +87,7 @@ namespace Dotclear {
         public static function process(string $process): void
         {
             // App::preload() not done
-            if (!self::$initialized) {
-                exit('No application running.');
-            }
+            self::initialized();
 
             try {
                 if (!is_subclass_of($process, Process::class, true)) {
@@ -120,14 +116,12 @@ namespace Dotclear {
         public static function release(string $key): string
         {
             // App::preload() not done
-            if (!self::$initialized) {
-                exit('No application running.');
-            }
+            self::initialized();
 
             try {
                 // Load once release file
                 if (empty(self::$release)) {
-                    $file = dirname(__DIR__) . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+                    $file = DC_ROOT . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
                     if (!is_file($file) || !is_readable($file)) {
                         throw new Exception(__('Dotclear release file was not found'), Fault::SETUP_ISSUE);
                     }
@@ -167,14 +161,17 @@ namespace Dotclear {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
+            // Dotclear root path
+            define('DC_ROOT', dirname(__DIR__));
+
             // Load Autoloader file
-            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'Autoloader.php']);
+            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
 
             // Add root folder for namespaced and autoloaded classes
-            Autoloader::me()->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src']));
+            Autoloader::me()->addNamespace('Dotclear', __DIR__);
 
             // Load core classes (old way) This will moved to namespace from Autoloader in the near futur
-            $inc = fn (string $folder, string $file) => implode(DIRECTORY_SEPARATOR, [__DIR__, '..',  'inc', $folder, $file]);
+            $inc = fn (string $folder, string $file) => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', $folder, $file]);
             Clearbricks::lib()->autoload([
                 // Traits
                 'dcTraitDynamicProperties' => $inc('core', 'trait.dc.dynprop.php'),
@@ -235,12 +232,12 @@ namespace Dotclear {
             // We set default timezone to avoid warning
             Date::setTZ('UTC');
 
+            // Say app is initialized (before querying self::release)
             self::$initialized = true;
 
-            // DC constants
+            // Release constants
             define('DC_VERSION', self::release('release_version'));
             define('DC_NAME', self::release('release_name'));
-            define('DC_ROOT', dirname(__DIR__));
         }
 
         /**
@@ -598,6 +595,23 @@ namespace Dotclear {
                 return $next ? $utility::process() : $utility::init();
             } catch(Exception $e) {
                 Fault::throw(__('Process failed'), $e);
+            }
+        }
+
+        /**
+         * Check if app is initialized.
+         *
+         * @param   bool    $is     true to exit if it is initialized
+         *
+         * @return  void
+         */
+        private static function initialized(bool $is = false): void
+        {
+            if ($is === self::$initialized) {
+                // autoloader may not be loaded
+                require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Fault.php']);
+                new Fault($is ? 'Application already in use.' : 'No application running.', '', Fault::SETUP_ISSUE);
+                exit;
             }
         }
 
