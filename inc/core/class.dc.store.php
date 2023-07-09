@@ -48,9 +48,9 @@ class dcStore
     /**
      * XML feed URL
      *
-     * @var    string
+     * @var    null|string
      */
-    protected $xml_url;
+    protected $xml_url = null;
 
     /**
      * Array of new/update modules from repository
@@ -86,7 +86,7 @@ class dcStore
      * @param    string         $xml_url        XML feed URL
      * @param    null|bool      $force          Force query repository
      */
-    public function __construct(dcModules $modules, string $xml_url, ?bool $force = false)
+    public function __construct(dcModules $modules, ?string $xml_url, ?bool $force = false)
     {
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;

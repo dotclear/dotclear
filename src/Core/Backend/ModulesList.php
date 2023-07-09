@@ -179,12 +179,12 @@ class ModulesList
      *
      * Note that this creates dcStore instance.
      *
-     * @param    dcModules    $modules        dcModules instance
-     * @param    string       $modules_root   Modules root directories
-     * @param    string       $xml_url        URL of modules feed from repository
-     * @param    null|bool    $force          Force query repository
+     * @param    dcModules      $modules        dcModules instance
+     * @param    string         $modules_root   Modules root directories
+     * @param    null|string    $xml_url        URL of modules feed from repository
+     * @param    null|bool      $force          Force query repository
      */
-    public function __construct(dcModules $modules, string $modules_root, string $xml_url, ?bool $force = false)
+    public function __construct(dcModules $modules, string $modules_root, ?string $xml_url, ?bool $force = false)
     {
         $this->modules = $modules;
         $this->store   = new dcStore($modules, $xml_url, $force);
