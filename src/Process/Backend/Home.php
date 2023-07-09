@@ -18,6 +18,7 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -203,27 +204,25 @@ class Home extends Process
         }
 
         if (dcCore::app()->blog->status == dcBlog::BLOG_OFFLINE) {
-            echo
-            '<p class="static-msg">' . __('This blog is offline') . '.</p>';
+            Notices::message(__('This blog is offline'), false);
         } elseif (dcCore::app()->blog->status == dcBlog::BLOG_REMOVED) {
-            echo
-            '<p class="static-msg">' . __('This blog is removed') . '.</p>';
+            Notices::message(__('This blog is removed'), false);
         }
 
         if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
-            echo
-            '<p class="static-msg">' .
-            sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') .
-            ' ' . __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.') .
-            '</p>';
+            Notices::message(
+                sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
+                __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
+                false
+            );
         }
 
         if (!defined('DC_ADMIN_MAILFROM') || !strpos(DC_ADMIN_MAILFROM, '@')) {
-            echo
-            '<p class="static-msg">' .
-            sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') .
-            ' ' . __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.') .
-            '</p>';
+            Notices::message(
+                sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
+                __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
+                false
+            );
         }
 
         $err = [];
@@ -231,62 +230,77 @@ class Home extends Process
         // Check cache directory
         if (dcCore::app()->auth->isSuperAdmin()) {
             if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
-                $err[] = '<p>' . __('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.') . '</p>';
+                $err[] = __('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.');
             }
         } else {
             if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
-                $err[] = '<p>' . __('The cache directory does not exist or is not writable. You should contact your administrator.') . '</p>';
+                $err[] = __('The cache directory does not exist or is not writable. You should contact your administrator.');
             }
         }
 
         // Check public directory
         if (dcCore::app()->auth->isSuperAdmin()) {
             if (!is_dir(dcCore::app()->blog->public_path) || !is_writable(dcCore::app()->blog->public_path)) {
-                $err[] = '<p>' . __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).') . '</p>';
+                $err[] = __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).');
             }
         } else {
             if (!is_dir(dcCore::app()->blog->public_path) || !is_writable(dcCore::app()->blog->public_path)) {
-                $err[] = '<p>' . __('There is no writable root directory for the media manager. You should contact your administrator.') . '</p>';
+                $err[] = __('There is no writable root directory for the media manager. You should contact your administrator.');
             }
         }
 
         // Error list
         if (count($err)) {
-            echo
-            '<div class="error"><p><strong>' . __('Error:') . '</strong></p>' .
-            '<ul><li>' . implode('</li><li>', $err) . '</li></ul></div>';
+            Notices::error(
+                __('Error:') .
+                '<ul><li>' . implode("</li>\n<li>", $err) . '</li></ul>',
+                false,
+                true
+            );
+            unset($err);
         }
 
         // Plugins install messages
         if (!empty(dcCore::app()->admin->plugins_install['success'])) {
-            echo
-            '<div class="success">' . __('Following plugins have been installed:') . '<ul>';
+            $success = [];
             foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
                 $info = implode(' - ', ModulesList::getSettingsUrls($k, true));
-                echo
-                '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
+                $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
-            echo
-            '</ul></div>';
+
+            Notices::success(
+                __('Following plugins have been installed:') .
+                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>',
+                false,
+                true
+            );
+            unset($success);
         }
         if (!empty(dcCore::app()->admin->plugins_install['failure'])) {
-            echo
-            '<div class="error">' . __('Following plugins have not been installed:') . '<ul>';
+            $failure = [];
             foreach (dcCore::app()->admin->plugins_install['failure'] as $k => $v) {
-                echo
-                '<li>' . $k . ' (' . $v . ')</li>';
+                $failure[] = $k . ' (' . $v . ')';
             }
-            echo
-            '</ul></div>';
+
+            Notices::error(
+                __('Following plugins have not been installed:') .
+                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>',
+                false,
+                true
+            );
+            unset($failure);
         }
 
         // Errors modules notifications
         if (dcCore::app()->auth->isSuperAdmin()) {
             $list = dcCore::app()->plugins->getErrors();
             if (!empty($list)) {
-                echo
-                '<div class="error" id="module-errors" class="error"><p>' . __('Errors have occured with following plugins:') . '</p> ' .
-                '<ul><li>' . implode("</li>\n<li>", $list) . '</li></ul></div>';
+                Notices::error(
+                    __('Errors have occured with following plugins:') . 
+                    '<ul><li>' . implode("</li>\n<li>", $list) . '</li></ul>',
+                    false,
+                    true
+                );
             }
         }
 
