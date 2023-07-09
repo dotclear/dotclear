@@ -121,8 +121,7 @@ other files.
   border-bottom: 1px solid #b6b6b6;
   padding: 6px 8px 2px;
   white-space: normal;
-  background: #cfd1cf;
-  background-image: linear-gradient(to bottom, #f5f5f5, #cfd1cf);
+  background: var(--entry-sb-background);
 }
 
 .cke_float .cke_top {
@@ -134,8 +133,7 @@ other files.
   padding: 6px 8px 2px;
   position: relative;
   border-top: 1px solid #bfbfbf;
-  background: #cfd1cf;
-  background-image: linear-gradient(to bottom, #ebebeb, #cfd1cf);
+  background: var(--entry-sb-background);
 }
 
 .cke_browser_ios .cke_contents {
@@ -290,7 +288,6 @@ other files.
   border-bottom: 1px solid #b6b6b6;
   border-radius: 2px 2px 0 0;
   background: #cfd1cf;
-  background-image: linear-gradient(to bottom, #f5f5f5, #cfd1cf);
 }
 
 .cke_panel_listItem p,
@@ -382,8 +379,7 @@ a:active.cke_colormore {
   border: 1px solid #a6a6a6;
   border-bottom-color: #979797;
   border-radius: 3px;
-  background: #e4e4e4;
-  background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
+  background: #fff;
 }
 
 .cke_hc .cke_toolgroup {
@@ -429,7 +425,6 @@ a.cke_button {
 
 a.cke_button_on {
   background: #b5b5b5;
-  background-image: linear-gradient(to bottom, #aaa, #cacaca);
 }
 
 .cke_hc .cke_button_on,
@@ -458,7 +453,6 @@ a.cke_button_disabled:hover,
 a.cke_button_disabled:focus,
 a.cke_button_disabled:active {
   background: #ccc;
-  background-image: linear-gradient(to bottom, #f2f2f2, #ccc);
 }
 
 .cke_button_icon {
@@ -565,12 +559,10 @@ a.cke_toolbox_collapser {
   border-bottom-color: #979797;
   border-radius: 3px;
   background: #e4e4e4;
-  background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
 }
 
 .cke_toolbox_collapser:hover {
   background: #ccc;
-  background-image: linear-gradient(to bottom, #f2f2f2, #ccc);
 }
 
 .cke_toolbox_collapser.cke_toolbox_collapser_min {
@@ -763,14 +755,12 @@ a.cke_combo_button {
   border: 1px solid #a6a6a6;
   border-bottom-color: #979797;
   border-radius: 3px;
-  background: #e4e4e4;
-  background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
+  background: #fff;
 }
 
 .cke_combo_off a.cke_combo_button:hover,
 .cke_combo_off a.cke_combo_button:focus {
   background: #ccc;
-  background-image: linear-gradient(to bottom, #f2f2f2, #ccc);
   outline: none;
 }
 
@@ -778,7 +768,6 @@ a.cke_combo_button {
 .cke_combo_on a.cke_combo_button {
   border: 1px solid #777;
   background: #b5b5b5;
-  background-image: linear-gradient(to bottom, #aaa, #cacaca);
 }
 
 .cke_rtl .cke_combo_button {
