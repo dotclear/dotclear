@@ -26,20 +26,6 @@ use form;
 
 class Auth extends Process
 {
-    private static string $dlang;
-    private static bool $change_pwd;
-    private static string $login_data;
-    private static bool $recover;
-    private static string $akey;
-    private static bool $safe_mode;
-
-    private static ?string $user_id    = null;
-    private static ?string $user_pwd   = null;
-    private static ?string $user_key   = null;
-    private static ?string $user_email = null;
-    private static ?string $err        = null;
-    private static ?string $msg        = null;
-
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
@@ -47,57 +33,66 @@ class Auth extends Process
             dcCore::app()->admin->url->redirect('admin.home');
         }
 
-        // Set page URL
-        dcCore::app()->admin->setPageURL(
-            defined('DC_ADMIN_URL') ?
-            DC_ADMIN_URL . dcCore::app()->admin->url->get('admin.auth') :
-            Http::getHost() . $_SERVER['REQUEST_URI']
-        );
-
         // Loading locales for detected language
         // That's a tricky hack but it works ;)
-        self::$dlang = Http::getAcceptLanguage();
-        self::$dlang = (self::$dlang === '' ? 'en' : self::$dlang);
-        if (self::$dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
-            L10n::lang(self::$dlang);
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/main');
+        dcCore::app()->admin->dlang = Http::getAcceptLanguage();
+        dcCore::app()->admin->dlang = (dcCore::app()->admin->dlang === '' ? 'en' : dcCore::app()->admin->dlang);
+        if (dcCore::app()->admin->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->admin->dlang)) {
+            L10n::lang(dcCore::app()->admin->dlang);
+            L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->admin->dlang . '/main');
         }
 
-        self::$change_pwd = dcCore::app()->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
-        self::$login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : '';
-        self::$recover    = dcCore::app()->auth->allowPassChange() && !empty($_REQUEST['recover']);
-        self::$akey       = dcCore::app()->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : '';
-        self::$safe_mode  = !empty($_REQUEST['safe_mode']);
+        if (defined('DC_ADMIN_URL')) {
+            dcCore::app()->admin->page_url = DC_ADMIN_URL . dcCore::app()->admin->url->get('admin.auth');
+        } else {
+            dcCore::app()->admin->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
+        }
+
+        dcCore::app()->admin->change_pwd = dcCore::app()->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
+
+        dcCore::app()->admin->login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : null;
+
+        dcCore::app()->admin->recover = dcCore::app()->auth->allowPassChange() && !empty($_REQUEST['recover']);
+        dcCore::app()->admin->akey    = dcCore::app()->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
+
+        dcCore::app()->admin->safe_mode = !empty($_REQUEST['safe_mode']);
+
+        dcCore::app()->admin->user_id    = null;
+        dcCore::app()->admin->user_pwd   = null;
+        dcCore::app()->admin->user_key   = null;
+        dcCore::app()->admin->user_email = null;
+        dcCore::app()->admin->err        = null;
+        dcCore::app()->admin->msg        = null;
 
         // Auto upgrade
-        if ((count($_GET) == 1 && empty($_POST)) || self::$safe_mode) {
+        if ((count($_GET) == 1 && empty($_POST)) || dcCore::app()->admin->safe_mode) {
             try {
                 if (($changes = Upgrade::dotclearUpgrade()) !== false) {
-                    self::$msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
+                    dcCore::app()->admin->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
                 }
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                dcCore::app()->admin->err = $e->getMessage();
             }
         }
 
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
             // If we have POST login informations, go throug auth process
 
-            self::$user_id  = $_POST['user_id'];
-            self::$user_pwd = $_POST['user_pwd'];
+            dcCore::app()->admin->user_id  = $_POST['user_id'];
+            dcCore::app()->admin->user_pwd = $_POST['user_pwd'];
         } elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
             // If we have a remember cookie, go through auth process with user_key
 
             $user_id = substr($_COOKIE['dc_admin'], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
-                $user_id        = trim((string) $user_id[1]);
-                self::$user_key = substr($_COOKIE['dc_admin'], 0, 40);
-                self::$user_pwd = null;
+                $user_id                       = trim((string) $user_id[1]);
+                dcCore::app()->admin->user_key = substr($_COOKIE['dc_admin'], 0, 40);
+                dcCore::app()->admin->user_pwd = null;
             } else {
                 $user_id = null;
             }
-            self::$user_id = $user_id;
+            dcCore::app()->admin->user_id = $user_id;
         }
 
         // Enable REST service if disabled
@@ -111,43 +106,43 @@ class Auth extends Process
     public static function process(): bool
     {
         $headers = [];
-        if (self::$recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
-            self::$user_id    = $_POST['user_id'];
-            self::$user_email = Html::escapeHTML($_POST['user_email']);
+        if (dcCore::app()->admin->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
+            dcCore::app()->admin->user_id    = $_POST['user_id'];
+            dcCore::app()->admin->user_email = Html::escapeHTML($_POST['user_email']);
 
             // Recover password
 
             try {
-                $recover_key = dcCore::app()->auth->setRecoverKey(self::$user_id, self::$user_email);
+                $recover_key = dcCore::app()->auth->setRecoverKey(dcCore::app()->admin->user_id, dcCore::app()->admin->user_email);
 
                 $subject = mail::B64Header('Dotclear ' . __('Password reset'));
-                $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . dcCore::app()->admin->getPageURL() . "\n" . __('Username:') . ' ' . self::$user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . dcCore::app()->admin->getPageURL() . '?akey=' . $recover_key;
+                $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . dcCore::app()->admin->page_url . "\n" . __('Username:') . ' ' . dcCore::app()->admin->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . dcCore::app()->admin->page_url . '?akey=' . $recover_key;
 
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                mail::sendMail(self::$user_email, $subject, $message, $headers);
-                self::$msg = sprintf(__('The e-mail was sent successfully to %s.'), self::$user_email);
+                mail::sendMail(dcCore::app()->admin->user_email, $subject, $message, $headers);
+                dcCore::app()->admin->msg = sprintf(__('The e-mail was sent successfully to %s.'), dcCore::app()->admin->user_email);
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                dcCore::app()->admin->err = $e->getMessage();
             }
-        } elseif (!empty(self::$akey)) {
+        } elseif (dcCore::app()->admin->akey) {
             // Send new password
 
             try {
-                $recover_res = dcCore::app()->auth->recoverUserPassword(self::$akey);
+                $recover_res = dcCore::app()->auth->recoverUserPassword(dcCore::app()->admin->akey);
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
-                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) dcCore::app()->admin->getPageURL());
+                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) dcCore::app()->admin->page_url);
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
-                self::$msg = __('Your new password is in your mailbox.');
+                dcCore::app()->admin->msg = __('Your new password is in your mailbox.');
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                dcCore::app()->admin->err = $e->getMessage();
             }
-        } elseif (self::$change_pwd) {
+        } elseif (dcCore::app()->admin->change_pwd) {
             // Change password and retry to log
 
             try {
@@ -170,17 +165,17 @@ class Auth extends Process
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
-                        $user_id        = trim((string) $data['user_id']);
-                        self::$user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user     = dcCore::app()->auth->checkUser($user_id, null, self::$user_key) === true;
+                        $user_id                       = trim((string) $data['user_id']);
+                        dcCore::app()->admin->user_key = substr($data['cookie_admin'], 0, 40);
+                        $check_user                    = dcCore::app()->auth->checkUser($user_id, null, dcCore::app()->admin->user_key) === true;
                     } else {
                         $user_id = trim((string) $user_id);
                     }
-                    self::$user_id = $user_id;
+                    dcCore::app()->admin->user_id = $user_id;
                 }
 
                 if (!dcCore::app()->auth->allowPassChange() || !$check_user) {
-                    self::$change_pwd = false;
+                    dcCore::app()->admin->change_pwd = false;
 
                     throw new Exception();
                 }
@@ -189,17 +184,17 @@ class Auth extends Process
                     throw new Exception(__("Passwords don't match"));
                 }
 
-                if (dcCore::app()->auth->checkUser((string) self::$user_id, $_POST['new_pwd']) === true) {
+                if (dcCore::app()->auth->checkUser(dcCore::app()->admin->user_id, $_POST['new_pwd']) === true) {
                     throw new Exception(__("You didn't change your password."));
                 }
 
                 $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
-                dcCore::app()->updUser((string) dcCore::app()->auth->userID(), $cur);
+                dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
 
                 dcCore::app()->session->start();
-                $_SESSION['sess_user_id']     = self::$user_id;
+                $_SESSION['sess_user_id']     = dcCore::app()->admin->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
 
                 if ($data['user_remember']) {
@@ -208,16 +203,16 @@ class Auth extends Process
 
                 dcCore::app()->admin->url->redirect('admin.home');
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                dcCore::app()->admin->err = $e->getMessage();
             }
-        } elseif (self::$user_id !== null && (self::$user_pwd !== null || self::$user_key !== null)) {
+        } elseif (dcCore::app()->admin->user_id !== null && (dcCore::app()->admin->user_pwd !== null || dcCore::app()->admin->user_key !== null)) {
             // Try to log
 
             // We check the user
             $check_user = dcCore::app()->auth->checkUser(
-                self::$user_id,
-                self::$user_pwd,
-                self::$user_key,
+                dcCore::app()->admin->user_id,
+                dcCore::app()->admin->user_pwd,
+                dcCore::app()->admin->user_key,
                 false
             ) === true;
 
@@ -228,39 +223,39 @@ class Auth extends Process
                 $check_perms = false;
             }
 
-            $cookie_admin = Http::browserUID(DC_MASTER_KEY . self::$user_id . dcCore::app()->auth->cryptLegacy(self::$user_id)) . bin2hex(pack('a32', self::$user_id));
+            $cookie_admin = Http::browserUID(DC_MASTER_KEY . dcCore::app()->admin->user_id . dcCore::app()->auth->cryptLegacy(dcCore::app()->admin->user_id)) . bin2hex(pack('a32', dcCore::app()->admin->user_id));
 
             if ($check_perms && dcCore::app()->auth->mustChangePassword()) {
                 // User need to change password
 
-                self::$login_data = join('/', [
-                    base64_encode(self::$user_id),
+                dcCore::app()->admin->login_data = join('/', [
+                    base64_encode(dcCore::app()->admin->user_id),
                     $cookie_admin,
                     empty($_POST['user_remember']) ? '0' : '1',
                 ]);
 
                 if (!dcCore::app()->auth->allowPassChange()) {
-                    self::$err = __('You have to change your password before you can login.');
+                    dcCore::app()->admin->err = __('You have to change your password before you can login.');
                 } else {
-                    self::$err        = __('In order to login, you have to change your password now.');
-                    self::$change_pwd = true;
+                    dcCore::app()->admin->err        = __('In order to login, you have to change your password now.');
+                    dcCore::app()->admin->change_pwd = true;
                 }
-            } elseif ($check_perms && self::$safe_mode && !dcCore::app()->auth->isSuperAdmin()) {
+            } elseif ($check_perms && dcCore::app()->admin->safe_mode && !dcCore::app()->auth->isSuperAdmin()) {
                 // Non super-admin user cannot use safe mode
 
-                self::$err = __('Safe Mode can only be used for super administrators.');
+                dcCore::app()->admin->err = __('Safe Mode can only be used for super administrators.');
             } elseif ($check_perms) {
                 // User may log-in
 
                 dcCore::app()->session->start();
-                $_SESSION['sess_user_id']     = self::$user_id;
+                $_SESSION['sess_user_id']     = dcCore::app()->admin->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
 
                 if (!empty($_POST['blog'])) {
                     $_SESSION['sess_blog_id'] = $_POST['blog'];
                 }
 
-                if (self::$safe_mode && dcCore::app()->auth->isSuperAdmin()) {
+                if (dcCore::app()->admin->safe_mode && dcCore::app()->auth->isSuperAdmin()) {
                     $_SESSION['sess_safe_mode'] = true;
                 }
 
@@ -275,11 +270,11 @@ class Auth extends Process
                 if ($check_user) {
                     // Insufficient permissions
 
-                    self::$err = __('Insufficient permissions');
+                    dcCore::app()->admin->err = __('Insufficient permissions');
                 } else {
                     // Session expired
 
-                    self::$err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
+                    dcCore::app()->admin->err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
                 }
                 if (isset($_COOKIE['dc_admin'])) {
                     unset($_COOKIE['dc_admin']);
@@ -289,7 +284,7 @@ class Auth extends Process
         }
 
         if (isset($_GET['user'])) {
-            self::$user_id = $_GET['user'];
+            dcCore::app()->admin->user_id = $_GET['user'];
         }
 
         return true;
@@ -305,7 +300,7 @@ class Auth extends Process
         header('Content-Type: text/html; charset=UTF-8');
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
-        $dlang  = self::$dlang;
+        $dlang  = dcCore::app()->admin->dlang;
         $vendor = Html::escapeHTML(DC_VENDOR_NAME);
         $buffer = '<!DOCTYPE html>' . "\n" .
             '<html lang="' . $dlang . '">' . "\n" .
@@ -347,21 +342,21 @@ class Auth extends Process
         echo
         $buffer;
 
-        if (self::$err) {
+        if (dcCore::app()->admin->err) {
             echo
-            '<div class="' . (self::$change_pwd ? 'info' : 'error') . '" role="alert">' . self::$err . '</div>';
+            '<div class="' . (dcCore::app()->admin->change_pwd ? 'info' : 'error') . '" role="alert">' . dcCore::app()->admin->err . '</div>';
         }
-        if (self::$msg) {
+        if (dcCore::app()->admin->msg) {
             echo
-            '<p class="success" role="alert">' . self::$msg . '</p>';
+            '<p class="success" role="alert">' . dcCore::app()->admin->msg . '</p>';
         }
 
-        if (!empty(self::$akey)) {
+        if (dcCore::app()->admin->akey) {
             // Recovery key has been sent
 
             echo
             '<p><a href="' . dcCore::app()->admin->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
-        } elseif (self::$recover) {
+        } elseif (dcCore::app()->admin->recover) {
             // User request a new password
 
             echo
@@ -372,7 +367,7 @@ class Auth extends Process
                 20,
                 32,
                 [
-                    'default'      => Html::escapeHTML(self::$user_id),
+                    'default'      => Html::escapeHTML(dcCore::app()->admin->user_id),
                     'autocomplete' => 'username',
                 ]
             ) .
@@ -382,7 +377,7 @@ class Auth extends Process
             form::email(
                 'user_email',
                 [
-                    'default'      => Html::escapeHTML(self::$user_email),
+                    'default'      => Html::escapeHTML(dcCore::app()->admin->user_email),
                     'autocomplete' => 'email',
                 ]
             ) .
@@ -396,7 +391,7 @@ class Auth extends Process
             '<summary>' . __('Other option') . '</summary>' . "\n" .
             '<p><a href="' . dcCore::app()->admin->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
             '</details>';
-        } elseif (self::$change_pwd) {
+        } elseif (dcCore::app()->admin->change_pwd) {
             // User need to change password
 
             echo
@@ -422,7 +417,7 @@ class Auth extends Process
                 ]
             ) . '</p>' .
             '<p><input type="submit" value="' . __('change') . '" />' .
-            form::hidden('login_data', self::$login_data) . '</p>' .
+            form::hidden('login_data', dcCore::app()->admin->login_data) . '</p>' .
             '</div>';
         } else {
             // Authentication
@@ -430,11 +425,11 @@ class Auth extends Process
             if (is_callable([dcCore::app()->auth, 'authForm'])) {
                 // User-defined authentication form
 
-                echo dcCore::app()->auth->authForm(self::$user_id);
+                echo dcCore::app()->auth->authForm(dcCore::app()->admin->user_id);
             } else {
                 // Standard authentication form
 
-                if (self::$safe_mode) {
+                if (dcCore::app()->admin->safe_mode) {
                     echo
                     '<div class="fieldset" role="main">' .
                     '<h2>' . __('Safe mode login') . '</h2>' .
@@ -454,7 +449,7 @@ class Auth extends Process
                     20,
                     32,
                     [
-                        'default'      => Html::escapeHTML(self::$user_id),
+                        'default'      => Html::escapeHTML(dcCore::app()->admin->user_id),
                         'autocomplete' => 'username',
                     ]
                 ) . '</p>' .
@@ -476,7 +471,7 @@ class Auth extends Process
                     echo
                     form::hidden('blog', Html::escapeHTML($_REQUEST['blog']));
                 }
-                if (self::$safe_mode) {
+                if (dcCore::app()->admin->safe_mode) {
                     echo
                     form::hidden('safe_mode', 1) .
                     '</div>';
@@ -488,8 +483,8 @@ class Auth extends Process
                 '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>';
 
                 echo
-                '<details ' . (self::$safe_mode ? 'open ' : '') . 'id="issue">' . "\n";
-                if (self::$safe_mode) {
+                '<details ' . (dcCore::app()->admin->safe_mode ? 'open ' : '') . 'id="issue">' . "\n";
+                if (dcCore::app()->admin->safe_mode) {
                     echo
                     '<summary>' . __('Other option') . '</summary>' . "\n" .
                     '<p><a href="' . dcCore::app()->admin->url->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';

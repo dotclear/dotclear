@@ -32,46 +32,50 @@ use Exception;
 
 class Blogs extends Process
 {
-    private static ActionsBlogs $blogs_actions_page;
-    private static FilterBlogs $blog_filter;
-    private static ListingBlogs $blog_list;
-
     public static function init(): bool
     {
-        // Check user permissions
         Page::check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        // Check and process blogs action
+        /* Actions
+        -------------------------------------------------------- */
+        dcCore::app()->admin->blogs_actions_page = null;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            self::$blogs_actions_page = new ActionsBlogs(dcCore::app()->admin->url->get('admin.blogs'));
-            if (self::$blogs_actions_page->process()) {
+            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->admin->url->get('admin.blogs'));
+            if (dcCore::app()->admin->blogs_actions_page->process()) {
                 return false;
             }
         }
 
-        // Instanciate blogs list filters
-        self::$blog_filter = new FilterBlogs();
+        /* Filters
+        -------------------------------------------------------- */
+        dcCore::app()->admin->blog_filter = new FilterBlogs();
 
-        // Get records and set list
+        // get list params
+        $params = dcCore::app()->admin->blog_filter->params();
+
+        /* List
+        -------------------------------------------------------- */
+        dcCore::app()->admin->blog_list = null;
+
         try {
-            $params = new ArrayObject(self::$blog_filter->params());
-
+            # --BEHAVIOR-- adminGetBlogs
+            $params = new ArrayObject($params);
             # --BEHAVIOR-- adminGetBlogs -- ArrayObject
             dcCore::app()->callBehavior('adminGetBlogs', $params);
 
             $counter  = dcCore::app()->getBlogs($params, true);
             $rs       = dcCore::app()->getBlogs($params);
             $rsStatic = $rs->toStatic();
-            if ((self::$blog_filter->sortby != 'blog_upddt') && (self::$blog_filter->sortby != 'blog_status')) {
+            if ((dcCore::app()->admin->blog_filter->sortby != 'blog_upddt') && (dcCore::app()->admin->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
                 $rsStatic->extend('rsExtUser');
                 $rsStatic = $rsStatic->toExtStatic();
-                $rsStatic->lexicalSort((self::$blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), self::$blog_filter->order);
+                $rsStatic->lexicalSort((dcCore::app()->admin->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), dcCore::app()->admin->blog_filter->order);
             }
-            self::$blog_list = new ListingBlogs($rs, $counter->f(0));
+            dcCore::app()->admin->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -88,7 +92,7 @@ class Blogs extends Process
 
         Page::open(
             __('List of blogs'),
-            Page::jsLoad('js/_blogs.js') . self::$blog_filter->js(dcCore::app()->admin->url->get('admin.blogs')),
+            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->admin->url->get('admin.blogs')),
             Page::breadcrumb(
                 [
                     __('System')        => '',
@@ -111,7 +115,7 @@ class Blogs extends Process
                     ->render();
             }
 
-            self::$blog_filter->display('admin.blogs');
+            dcCore::app()->admin->blog_filter->display('admin.blogs');
 
             // Show blogs
             $form = null;
@@ -137,7 +141,7 @@ class Blogs extends Process
                                                 ))
                                                 ->class('classic')
                                             )
-                                            ->items(self::$blogs_actions_page->getCombo()),
+                                            ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
                                         dcCore::app()->formNonce(false),
                                         (new Submit('do-action'))
                                             ->value(__('ok')),
@@ -156,15 +160,15 @@ class Blogs extends Process
                                         ->class('classic')
                                     ),
                             ]),
-                            ...dcCore::app()->admin->url->hiddenFormFields('admin.blogs', self::$blog_filter->values(true)),
+                            ...dcCore::app()->admin->url->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
                         ]);
             }
 
-            self::$blog_list->display(
-                self::$blog_filter->page,
-                self::$blog_filter->nb,
+            dcCore::app()->admin->blog_list->display(
+                dcCore::app()->admin->blog_filter->page,
+                dcCore::app()->admin->blog_filter->nb,
                 dcCore::app()->auth->isSuperAdmin() ? $form->render() : '%s',
-                self::$blog_filter->show()
+                dcCore::app()->admin->blog_filter->show()
             );
         }
 
