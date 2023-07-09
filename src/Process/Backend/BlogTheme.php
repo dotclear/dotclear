@@ -31,8 +31,6 @@ use Exception;
 
 class BlogTheme extends Process
 {
-    private static ThemesList $list;
-
     public static function init(): bool
     {
         Page::check(dcCore::app()->auth->makePermissions([
@@ -44,7 +42,7 @@ class BlogTheme extends Process
         dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
 
         // Page helper
-        self::$list = new ThemesList(
+        dcCore::app()->admin->list = new ThemesList(
             dcCore::app()->themes,
             dcCore::app()->blog->themes_path,
             dcCore::app()->blog->settings->system->store_theme_url,
@@ -58,17 +56,17 @@ class BlogTheme extends Process
             exit;
         }
 
-        if (self::$list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
+        if (dcCore::app()->admin->list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
             // Display module configuration page
 
             // Get content before page headers
-            $include = self::$list->includeConfiguration();
+            $include = dcCore::app()->admin->list->includeConfiguration();
             if ($include) {
                 include $include;
             }
 
             // Gather content
-            self::$list->getConfiguration();
+            dcCore::app()->admin->list->getConfiguration();
 
             // Display page
             Page::open(
@@ -81,7 +79,7 @@ class BlogTheme extends Process
                     [
                         // Active links
                         Html::escapeHTML(dcCore::app()->blog->name) => '',
-                        __('Blog appearance')                       => self::$list->getURL('', false),
+                        __('Blog appearance')                       => dcCore::app()->admin->list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
                     ]
@@ -89,7 +87,7 @@ class BlogTheme extends Process
             );
 
             // Display previously gathered content
-            self::$list->displayConfiguration();
+            dcCore::app()->admin->list->displayConfiguration();
 
             Page::helpBlock('core_blog_theme_conf');
             Page::close();
@@ -100,7 +98,7 @@ class BlogTheme extends Process
 
         // Execute actions
         try {
-            self::$list->doActions();
+            dcCore::app()->admin->list->doActions();
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -118,7 +116,7 @@ class BlogTheme extends Process
                 dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
-            if (!$filename || !file_exists($filename)) {
+            if (!file_exists($filename)) {
                 $filename = __DIR__ . '/images/noscreenshot.png';
             }
 
@@ -166,7 +164,7 @@ class BlogTheme extends Process
 
             echo
             (new Form('force-checking'))
-                ->action(self::$list->getURL('', false))
+                ->action(dcCore::app()->admin->list->getURL('', false))
                 ->method('get')
                 ->fields([
                     (new Para())
@@ -179,7 +177,7 @@ class BlogTheme extends Process
                 ->render();
 
             // Updated themes from repo
-            $defines = self::$list->store->getDefines(true);
+            $defines = dcCore::app()->admin->list->store->getDefines(true);
             if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
@@ -189,7 +187,7 @@ class BlogTheme extends Process
                     count($defines)
                 ) . '</p>';
 
-                self::$list
+                dcCore::app()->admin->list
                     ->setList('theme-update')
                     ->setTab('themes')
                     ->setDefines($defines)
@@ -211,19 +209,19 @@ class BlogTheme extends Process
         }
 
         // Activated themes
-        $defines = self::$list->modules->getDefines(
-            ['state' => self::$list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+        $defines = dcCore::app()->admin->list->modules->getDefines(
+            ['state' => dcCore::app()->admin->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
             echo
             '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
             '<h3>' .
             (dcCore::app()->auth->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
-            (self::$list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
+            (dcCore::app()->admin->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed themes from this list.') . '</p>';
 
-            self::$list
+            dcCore::app()->admin->list
                 ->setList('theme-activate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -239,14 +237,14 @@ class BlogTheme extends Process
         }
 
         // Deactivated modules
-        $defines = self::$list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+        $defines = dcCore::app()->admin->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
         if (!empty($defines)) {
             echo
             '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .
             '<h3>' . __('Deactivated themes') . '</h3>' .
             '<p class="more-info">' . __('Deactivated themes are installed but not usable. You can activate them from here.') . '</p>';
 
-            self::$list
+            dcCore::app()->admin->list
                 ->setList('theme-deactivate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -261,17 +259,17 @@ class BlogTheme extends Process
             '</div>';
         }
 
-        if (dcCore::app()->auth->isSuperAdmin() && self::$list->isWritablePath()) {
+        if (dcCore::app()->auth->isSuperAdmin() && dcCore::app()->admin->list->isWritablePath()) {
             // New modules from repo
-            $search  = self::$list->getSearch();
-            $defines = is_string($search) ? self::$list->store->searchDefines($search) : self::$list->store->getDefines();
+            $search  = dcCore::app()->admin->list->getSearch();
+            $defines = $search ? dcCore::app()->admin->list->store->searchDefines($search) : dcCore::app()->admin->list->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add themes') . '">' .
                 '<h3>' . __('Add themes from repository') . '</h3>';
 
-                self::$list
+                dcCore::app()->admin->list
                     ->setList('theme-new')
                     ->setTab('new')
                     ->setDefines($defines)
@@ -301,7 +299,7 @@ class BlogTheme extends Process
             '<h3>' . __('Add themes from a package') . '</h3>' .
             '<p class="more-info">' . __('You can install themes by uploading or downloading zip files.') . '</p>';
 
-            self::$list->displayManualForm();
+            dcCore::app()->admin->list->displayManualForm();
 
             echo
             '</div>';
@@ -311,7 +309,7 @@ class BlogTheme extends Process
         dcCore::app()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin
-        if (dcCore::app()->auth->isSuperAdmin() && !self::$list->isWritablePath()) {
+        if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->list->isWritablePath()) {
             echo
             '<p class="warning">' . __('Some functions are disabled, please give write access to your themes directory to enable them.') . '</p>';
         }
