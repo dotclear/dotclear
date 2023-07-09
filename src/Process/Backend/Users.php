@@ -16,6 +16,7 @@ use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Filter\FilterUsers;
 use Dotclear\Core\Backend\Listing\ListingUsers;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;

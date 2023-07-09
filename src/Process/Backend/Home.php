@@ -264,7 +264,7 @@ class Home extends Process
         if (!empty(dcCore::app()->admin->plugins_install['success'])) {
             $success = [];
             foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
-                $info = implode(' - ', ModulesList::getSettingsUrls($k, true));
+                $info      = implode(' - ', ModulesList::getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
 
@@ -296,7 +296,7 @@ class Home extends Process
             $list = dcCore::app()->plugins->getErrors();
             if (!empty($list)) {
                 Notices::error(
-                    __('Errors have occured with following plugins:') . 
+                    __('Errors have occured with following plugins:') .
                     '<ul><li>' . implode("</li>\n<li>", $list) . '</li></ul>',
                     false,
                     true

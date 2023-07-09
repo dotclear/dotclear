@@ -101,7 +101,7 @@ class Plugins extends Process
         if (!empty(dcCore::app()->admin->plugins_install['success'])) {
             $success = [];
             foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
-                $info = implode(' - ', dcCore::app()->admin->list->getSettingsUrls($k, true));
+                $info      = implode(' - ', dcCore::app()->admin->list->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
             Notices::success(
