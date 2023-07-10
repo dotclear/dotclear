@@ -54,7 +54,7 @@ class BlogTheme extends Process
         $disabled = dcCore::app()->themes->disableDepModules();
         if (count($disabled)) {
             Notices::addWarningNotice(
-                __('The following themes have been disabled :'),
+                __('The following themes have been disabled :') .
                 '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
                 ['divtag' => true, 'with_ts' => false]
             );
