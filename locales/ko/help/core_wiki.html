@@ -5,7 +5,7 @@
 
 <body>
 
-<h3>위키 구문규칙 참조</h3>
+<h4>위키 구문 참조</h4>
 
 <p>위키 구문규칙은, (제목, 문단, 인용, 목록 등) 문서에 필요한 기본적인 형태들을 최소한의 태그조합을 이용해 성취할 수 있도록 만들어진 규칙입니다.</p>
 
@@ -19,16 +19,23 @@
   또는 <code>! 제목</code> 의 형식으로 작성합니다. 제목은 세 가지 등급으로 구분해 쓸 수 있습니다.</li>
   <li><strong>가로선</strong>: <code>----</code></li>
   <li><strong>목록</strong>: 각 행을 <code>*</code>로 시작하면 순서없는 목록, <code>#</code>로 시작하면 순서있는 목록이 됩니다. 목록 속에 또 다른 목록이 들어가도록 하려면 아래와 같이 합니다.
-<pre>
-* 요소 1
+  <pre>
+    <code>*</code> * 요소 1
 ** 요소 1.1
 * 요소 2
 *# 요소 2.1
 ...
-</pre>
+  </pre>
   </li>
-  <li><strong>문형유지</strong>: 각 행이 빈칸 하나로 시작해야 합니다.</li>
+  <li><strong>정의 목록:</strong> 각 줄의 시작은 정의할 용어의 경우 <code>=</code> , 용어의 정의는 <code>:</code> 으로 시작합니다.
+  <pre>
+  <code>=</code> 용어
+  <code>:</code> 용어 설명
+  </pre>
+  </li>
   <li><strong>블록인용</strong>: 각 행이  세미콜론(<code>&gt;</code>)으로 시작해야 합니다.</li>
+  <li><strong>블록 견적:</strong> 각 줄은 <code>&gt;</code>로 시작해야 합니다.</li>
+  <li><strong>사이드 블록:</strong> 각 줄은 <code>)</code>로 시작해야 합니다.</li>
 </ul>
 </dd>
 
@@ -36,9 +43,9 @@
 <dd>
 <ul>
   <li><strong>기울인 글씨</strong>: <code>''text''</code> (양쪽에 민따옴표 두 개)</li>
-  <li><strong>굵은 글씨</strong>: <code>__text__</code> (양쪽에 밑줄 두 개) </li>
+  <li><strong>굵은 글씨</strong>: <code>__text__</code> (양쪽에 밑줄 두 개)</li>
   <li><strong>줄바꿈</strong>: <code>%%%</code> (퍼센트 세 개 연속)</li>
-  <li><strong>밑줄친 글씨</strong>: <code>++text++</code> (양쪽에 덧셈표 두 개)</li>
+  <li><strong>밑줄친 글씨</strong>: <code>++text++</code> (양쪽에 덧셈표 두 개) <code>%%%</code></li>
   <li><strong>중간줄친 글씨</strong>: <code>--text--</code> (양쪽에 뺄셈표 두 개)</li>
   <li><strong>링크</strong>: <code>[url]</code>, <code>[이름|url]</code>,
     <code>[이름|url|언어]</code> or <code>[이름|url|언어|제목]</code></li>
@@ -53,6 +60,10 @@
     <code>{{인용문|언어}}</code> or <code>{{인용문|언어|url}}</code></li>
   <li><strong>코드</strong>: <code>@@코드문@@</code></li>
   <li><strong>각주</strong>: <code>$$각주문$$</code></li>
+  <li><strong>Code:</strong> <code>코드: @@코드@@</code></li>
+  <li><strong>각주:</strong> <code>$footnote$$</code></li>
+  <li><strong>위 첨자</strong>&nbsp;: <code>위 첨자^</code></li>
+  <li><strong>구독</strong>&nbsp;: <code>,,구독,,</code></li>
 </ul>
 </dd>
 
@@ -71,7 +82,6 @@
 </pre>
 </dd>
 </dl>
-
 
 </body>
 </html>
