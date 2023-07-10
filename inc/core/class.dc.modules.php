@@ -11,14 +11,12 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
-use Dotclear\Helper\Network\Http;
 
 class dcModules
 {
@@ -241,10 +239,9 @@ class dcModules
             'php'  => phpversion(),
         ];
 
-        $modules    = $this->getDefines();
         $optionnals = [];
 
-        foreach ($modules as $module) {
+        foreach ($this->defines as $module) {
             // module has required modules
             if (!empty($module->requires)) {
                 foreach ($module->requires as $dep) {
@@ -289,7 +286,7 @@ class dcModules
             }
         }
         // Check modules that cannot be disabled
-        foreach ($modules as $module) {
+        foreach ($this->defines as $module) {
             // Add dependencies to modules that use current module
             if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
                 foreach ($module->getImplies() as $im) {
@@ -318,43 +315,30 @@ class dcModules
      *
      * If module has missing dep and is not yet in hard disbaled state (_disabled) goes in.
      *
-     * @param  string $redirect_url URL to redirect if modules are to disable
-     *
-     * @return bool  true if a redirection has been performed
+     * @return  array<int,string>  The reasons to disable modules
      */
-    public function disableDepModules(string $redirect_url): bool
+    public function disableDepModules(): array
     {
-        if (isset($_GET['dep'])) {
-            // Avoid infinite redirects
-            return false;
+        if (isset($_GET['dep']) || $this->safe_mode) {
+            // Avoid infinite redirects and do not hard disabled modules in safe_mode
+            return [];
         }
+
         $reason = [];
-        foreach ($this->getDefines() as $module) {
+        foreach ($this->defines as $module) {
             if (empty($module->getMissing()) || !in_array($module->state, [dcModuleDefine::STATE_ENABLED, dcModuleDefine::STATE_SOFT_DISABLED])) {
                 continue;
             }
 
             try {
                 $this->deactivateModule($module->getId());
-                $reason[] = sprintf('<li>%s : %s</li>', $module->name, join(',', $module->getMissing()));
+                $reason[] = sprintf('%s : %s', $module->name, join(',', $module->getMissing()));
             } catch (Exception $e) {
                 // Ignore exceptions
             }
         }
-        if (count($reason)) {
-            $message = sprintf(
-                '<p>%s</p><ul>%s</ul>',
-                __('The following extensions have been disabled :'),
-                join('', $reason)
-            );
-            Notices::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
-            $url = $redirect_url . (strpos($redirect_url, '?') ? '&' : '?') . 'dep=1';
-            Http::redirect($url);
 
-            return true;
-        }
-
-        return false;
+        return $reason;
     }
 
     /**
@@ -374,39 +358,40 @@ class dcModules
     }
 
     /**
-     * Get list of modules in a directory
+     * Get list of modules root path by directories.
      *
-     * @param      string  $root   The root modules directory to parse
+     * This keep track of previously scanned directories and return all of them.
      *
-     * @return     array<int,string>    List of modules, may be an empty array
+     * @param   array<int,string>   $paths  The modules directories to parse
+     *
+     * @return  array<string,array<int,string>>   List of modules by paths, if any
      */
-    protected function parsePathModules(string $root): array
+    protected function parsePathModules(array $paths): array
     {
-        // already scan
-        if (isset($this->modules_paths[$root])) {
-            return $this->modules_paths[$root];
-        }
+        foreach ($paths as $path) {
+            $root = Path::real(rtrim($path, DIRECTORY_SEPARATOR), false) . DIRECTORY_SEPARATOR;
 
-        if (!is_dir($root) || !is_readable($root)) {
-            return [];
-        }
-
-        $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
-        if (($d = @dir($root)) === false) {
-            return [];
-        }
-
-        // Dir cache
-        $this->modules_paths[$root] = [];
-        while (($entry = $d->read()) !== false) {
-            $full_entry = $root . $entry;
-            if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
-                $this->modules_paths[$root][] = $entry;
+            // already scan
+            if (isset($this->modules_paths[$root])) {
+                continue;
             }
-        }
-        $d->close();
 
-        return $this->modules_paths[$root];
+            if (!is_dir($root) || !is_readable($root) || ($d = @dir($root)) === false) {
+                continue;
+            }
+
+            // Dir cache
+            $this->modules_paths[$root] = [];
+            while (($entry = $d->read()) !== false) {
+                $full_entry = $root . $entry;
+                if ($entry !== '.' && $entry !== '..' && is_dir($full_entry) && file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
+                    $this->modules_paths[$root][] = $entry;
+                }
+            }
+            $d->close();
+        }
+
+        return $this->modules_paths;
     }
 
     /**
@@ -435,22 +420,16 @@ class dcModules
         $ignored = [];
 
         // First loop to init
-        foreach ($this->path as $root) {
-            $stack = $this->parsePathModules($root);
-
+        foreach ($this->parsePathModules($this->path) as $root => $stack) {
             // Init loop
-            $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
                 $this->loadModuleInit($entry, $root . $entry);
             }
         }
 
         // Second loop to register
-        foreach ($this->path as $root) {
-            $stack = $this->parsePathModules($root);
-
+        foreach ($this->parsePathModules($this->path) as $root => $stack) {
             // Register loop
-            $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             foreach ($stack as $entry) {
                 $full_entry  = $root . $entry;
                 $this->id    = $entry;
@@ -460,12 +439,14 @@ class dcModules
                 $this->namespace = implode(Autoloader::NS_SEP, ['', 'Dotclear', ucfirst($this->type ?? dcModuleDefine::DEFAULT_TYPE), $this->id]);
                 Autoloader::me()->addNamespace($this->namespace, $this->mroot . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR);
 
+                // Module is marked as disabled (with _disabled file)
                 $module_disabled = file_exists($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
                 $module_enabled  = !$module_disabled && !$this->safe_mode;
                 if (!$module_enabled) {
                     $this->disabled_mode = true;
                 }
 
+                // Load module define
                 $this->loadModuleFile($full_entry . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 if (!$module_enabled) {
@@ -477,15 +458,19 @@ class dcModules
                 $this->namespace = null;
             }
         }
+
+        // Check modules dependencies
         $this->checkDependencies();
 
-        // Sort plugins by priority
+        // Sort modules by priority
         uasort($this->defines, fn ($a, $b) => $a->get('priority') <=> $b->get('priority'));
 
-        $modules = $this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]);
-
         // Prepend loop
-        foreach ($modules as $module) {
+        foreach ($this->defines as $module) {
+            // Only on enabled modules
+            if ($module->state != dcModuleDefine::STATE_ENABLED) {
+                continue;
+            }
             $ret = true;
 
             // by class name
@@ -506,7 +491,7 @@ class dcModules
         }
 
         // Load all modules main translation (new loop as it may required Proxy plugin)
-        foreach ($this->getDefines() as $module) {
+        foreach ($this->defines as $module) {
             $this->loadModuleL10N($module->getId(), $lang, 'main');
         }
 
@@ -534,8 +519,9 @@ class dcModules
             $params = dcCore::app()->admin->url->getParams('admin.plugin');
         }
 
-        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
-            if (in_array($module->getId(), $ignored)) {
+        foreach ($this->defines as $module) {
+            // only enabled modules
+            if ($module->state != dcModuleDefine::STATE_ENABLED || in_array($module->getId(), $ignored)) {
                 continue;
             }
             if ($ns === 'admin') {
@@ -579,6 +565,10 @@ class dcModules
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = [])
     {
+        if (!$this->id) {
+            return;
+        }
+
         $define = new dcModuleDefine($this->id);
 
         $define
@@ -863,7 +853,10 @@ class dcModules
             'failure' => [],
         ];
         $msg = '';
-        foreach ($this->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $module) {
+        foreach ($this->defines as $module) {
+            if ($module->state != dcModuleDefine::STATE_ENABLED) {
+                continue;
+            }
             $ret = $this->installModule($module->getId(), $msg);
             if ($ret === true) {
                 $res['success'][$module->getId()] = true;
@@ -889,9 +882,9 @@ class dcModules
      */
     public function installModule(string $id, string &$msg)
     {
-        $module = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $module = $this->getDefine($id);
 
-        if (!$module->isDefined()) {
+        if (!$module->isDefined() || $module->state != dcModuleDefine::STATE_ENABLED) {
             return;
         }
 

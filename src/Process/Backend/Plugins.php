@@ -41,7 +41,15 @@ class Plugins extends Process
         // deprecated since 2.26
         ModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
-        if (dcCore::app()->plugins->disableDepModules(dcCore::app()->admin->url->get('admin.plugins', []))) {
+        $disabled = dcCore::app()->plugins->disableDepModules();
+        if (count($disabled)) {
+            Notices::addWarningNotice(
+                __('The following plugins have been disabled :') .
+                '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
+                ['divtag' => true, 'with_ts' => false]
+            );
+
+            dcCore::app()->admin->url->redirect('admin.plugins');
             exit;
         }
 

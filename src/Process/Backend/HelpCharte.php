@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 use dcAuth;
 use dcCore;
 use dcUtils;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 

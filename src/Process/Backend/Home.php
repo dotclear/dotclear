@@ -47,7 +47,15 @@ class Home extends Process
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        if (dcCore::app()->plugins->disableDepModules(dcCore::app()->admin->url->get('admin.home', []))) {
+        $disabled = dcCore::app()->plugins->disableDepModules();
+        if (count($disabled)) {
+            Notices::addWarningNotice(
+                __('The following plugins have been disabled :') .
+                '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
+                ['divtag' => true, 'with_ts' => false]
+            );
+
+            dcCore::app()->admin->url->redirect('admin.home');
             exit;
         }
 

@@ -51,8 +51,15 @@ class BlogTheme extends Process
         // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-        if (dcCore::app()->themes->disableDepModules(dcCore::app()->admin->url->get('admin.blog.theme', []))) {
-            // A redirection occured, so we should never go further here
+        $disabled = dcCore::app()->themes->disableDepModules();
+        if (count($disabled)) {
+            Notices::addWarningNotice(
+                __('The following themes have been disabled :'),
+                '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
+                ['divtag' => true, 'with_ts' => false]
+            );
+
+            dcCore::app()->admin->url->redirect('admin.blog.theme');
             exit;
         }
 
