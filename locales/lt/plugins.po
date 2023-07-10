@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2016,14 +2016,6 @@ msgstr "Failas neegzistuoja"
 msgid "File %s is not readable"
 msgstr "Failas %s yra neperskaitomas"
 
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
-
 msgid "user:preferences"
 msgstr ""
 
@@ -2253,6 +2245,14 @@ msgstr "CSS failai"
 
 msgid "Offline"
 msgstr ""
+
+#, php-format
+#~ msgid "Unable to write file %s. Please check your theme files and folders permissions."
+#~ msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
+
+#, fuzzy, php-format
+#~ msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+#~ msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
 
 #~ msgid "Presentation widgets"
 #~ msgstr "Vaizdavimo valdikliai"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2020-12-27 20:20\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -1896,14 +1896,6 @@ msgstr "Tiedostoja ei ole."
 msgid "File %s is not readable"
 msgstr "Tiedosto %s ei ole luettavissa"
 
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "Tiedostoa %s ei saatu kirjoitettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
-
-#, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "Tiedostoa %s ei saatu poistettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
-
 msgid "user:preferences"
 msgstr "user:preferences"
 
@@ -2118,6 +2110,14 @@ msgstr "Lisä-CSS-luokka ympäröivää laatikkoa varten:"
 
 msgid "Offline"
 msgstr "Ei verkossa"
+
+#, php-format
+#~ msgid "Unable to write file %s. Please check your theme files and folders permissions."
+#~ msgstr "Tiedostoa %s ei saatu kirjoitettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
+
+#, php-format
+#~ msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+#~ msgstr "Tiedostoa %s ei saatu poistettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
 
 #~ msgid "Presentation widgets"
 #~ msgstr "Esitysvimpaimet"

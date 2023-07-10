@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2023,14 +2023,6 @@ msgstr "파일이 존재하지 않습니다."
 msgid "File %s is not readable"
 msgstr "%s 파일을 읽을 수 없습니다."
 
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
-
-#, fuzzy, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
-
 #, fuzzy
 msgid "user:preferences"
 msgstr "글로벌 설정"
@@ -2261,6 +2253,14 @@ msgstr "CSS 파일들"
 
 msgid "Offline"
 msgstr ""
+
+#, php-format
+#~ msgid "Unable to write file %s. Please check your theme files and folders permissions."
+#~ msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
+
+#, fuzzy, php-format
+#~ msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+#~ msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
 
 #~ msgid "Presentation widgets"
 #~ msgstr "화면구성 위젯"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:33\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Τίτλος"
+msgid "medium"
+msgstr "μέτρια"
+
+msgid "small"
+msgstr "μικρό"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "square"
+msgstr "τετράγωνο"
 
 msgid "Posts"
 msgstr "Αναρτήσεις"
+
+msgid "Pages"
+msgstr "Σελίδες"
+
+msgid "administrator"
+msgstr "διαχειριστής"
+
+msgid "manage all entries and comments"
+msgstr "διαχείριση όλων των καταχωρήσεων και σχολίων"
+
+msgid "manage their own entries and comments"
+msgstr "διαχείριση των δικών τους καταχωρήσεων και σχολίων"
+
+msgid "publish entries and comments"
+msgstr "δημοσίευση καταχωρήσεων και σχολίων"
+
+msgid "delete entries and comments"
+msgstr "διαγραφή καταχωρήσεων και σχολίων"
+
+msgid "manage categories"
+msgstr "διαχείριση κατηγοριών"
+
+msgid "manage all media items"
+msgstr "διαχείριση όλων των στοιχείων πολυμέσων"
+
+msgid "manage their own media items"
+msgstr "διαχείριση των δικών τους στοιχείων πολυμέσων"
+
+msgid "That user does not exist in the database."
+msgstr "Αυτός ο χρήστης δεν υπάρχει στη βάση δεδομένων."
+
+msgid "That key does not exist in the database."
+msgstr "Αυτό το κλειδί δεν υπάρχει στη βάση δεδομένων."
+
+msgid "Pending"
+msgstr "Εκκρεμεί"
+
+msgid "Scheduled"
+msgstr "Προγραμματισμένο"
+
+msgid "Unpublished"
+msgstr "Αδημοσίευτο"
+
+msgid "Published"
+msgstr "Δημοσιεύθηκε"
+
+msgid "Junk"
+msgstr "Ανεπιθύμητα"
+
+msgid "You are not allowed to add categories"
+msgstr "Δεν επιτρέπεται να προσθέσετε κατηγορίες"
+
+msgid "You are not allowed to update categories"
+msgstr "Δεν επιτρέπεται να ενημερώσετε τις κατηγορίες"
+
+msgid "You are not allowed to delete categories"
+msgstr "Δεν σας επιτρέπεται να διαγράψετε κατηγορίες"
+
+msgid "This category is not empty."
+msgstr "Αυτή η κατηγορία δεν είναι κενή."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Δεν σας επιτρέπεται να επαναφέρετε την παραγγελία κατηγοριών"
+
+msgid "Empty category URL"
+msgstr "Κενό URL κατηγορίας"
+
+msgid "You must provide a category title"
+msgstr "Πρέπει να δώσετε έναν τίτλο κατηγορίας"
+
+msgid "You must provide a category URL"
+msgstr "Πρέπει να δώσετε μια διεύθυνση URL κατηγορίας"
+
+msgid "You are not allowed to create an entry"
+msgstr "Δεν επιτρέπεται να δημιουργήσετε μια καταχώρηση"
+
+msgid "You are not allowed to update entries"
+msgstr "Δεν επιτρέπεται η ενημέρωση καταχωρήσεων"
+
+msgid "No such entry ID"
+msgstr "Δεν υπάρχει τέτοιο ID καταχώρησης"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Δεν επιτρέπεται να επεξεργαστείτε αυτήν την καταχώρηση"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Δεν επιτρέπεται να αλλάξετε αυτήν την κατάσταση εισόδου"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Δεν επιτρέπεται να αλλάξετε αυτήν την κατηγορία καταχώρησης"
+
+msgid "You are not allowed to change entries category"
+msgstr "Δεν επιτρέπεται να αλλάξετε την κατηγορία καταχωρήσεων"
+
+msgid "You are not allowed to delete entries"
+msgstr "Δεν επιτρέπεται να διαγράψετε καταχωρήσεις"
+
+msgid "No entry title"
+msgstr "Χωρίς τίτλο καταχώρησης"
+
+msgid "No entry content"
+msgstr "Χωρίς περιεχόμενο καταχώρησης"
+
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgid "Note"
+msgstr "Σημείωση"
+
+msgid "Empty entry URL"
+msgstr "Κενή καταχώρηση URL"
+
+msgid "You are not allowed to update comments"
+msgstr "Δεν επιτρέπεται να ενημερώσετε σχόλια"
+
+msgid "No such comment ID"
+msgstr "Δεν υπάρχει τέτοιο ID σχολίου"
+
+msgid "You are not allowed to update this comment"
+msgstr "Δεν επιτρέπεται να ενημερώσετε αυτό το σχόλιο"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Δεν επιτρέπεται να αλλάξετε την κατάσταση αυτού του σχολίου"
+
+msgid "You are not allowed to delete comments"
+msgstr "Δεν επιτρέπεται να διαγράψετε σχόλια"
+
+msgid "You must provide a comment"
+msgstr "Πρέπει να δώσετε ένα σχόλιο"
+
+msgid "You must provide an author name"
+msgstr "Πρέπει να δώσετε ένα όνομα συγγραφέα"
+
+msgid "Email address is not valid."
+msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν είναι έγκυρη."
+
+msgid "online"
+msgstr "Συνδεδεμένος"
+
+msgid "offline"
+msgstr "χωρίς σύνδεση"
+
+msgid "removed"
+msgstr "αφαιρέθηκε"
+
+msgid "You are not an administrator"
+msgstr "Δεν είστε διαχειριστής"
+
+msgid "No user ID given"
+msgstr "Δεν δόθηκε ID χρήστη"
+
+msgid "No password given"
+msgstr "Δεν δόθηκε κωδικός πρόσβασης"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Το αναγνωριστικό χρήστη πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες χρησιμοποιώντας γράμματα, αριθμούς ή σύμβολα."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες."
+
+msgid "Invalid user language code"
+msgstr "Μη έγκυρος κωδικός γλώσσας χρήστη"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Το Blog ID πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες χρησιμοποιώντας γράμματα, αριθμούς ή σύμβολα."
+
+msgid "No blog name"
+msgstr "Χωρίς όνομα ιστολογίου"
+
+msgid "No blog URL"
+msgstr "Χωρίς URL ιστολογίου"
+
+msgid "No log message"
+msgstr "Κανένα μήνυμα καταγραφής"
+
+msgid "unknown"
+msgstr "άγνωστο"
+
+msgid "No blog defined."
+msgstr "Δεν ορίστηκε ιστολόγιο."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Δεν υπάρχει εγγράψιμος κατάλογος /public/ στην τοποθεσία που έχει οριστεί σε about:config \"public_path\". Πρέπει να δημιουργήσετε αυτόν τον κατάλογο με επαρκή δικαιώματα (ή να αλλάξετε αυτήν τη ρύθμιση)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Δεν υπάρχει εγγράψιμος ριζικός κατάλογος για τον διαχειριστή πολυμέσων. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
+
+msgid "You are not a super administrator."
+msgstr "Δεν είστε σούπερ διαχειριστής."
+
+msgid "Permission denied."
+msgstr "Άρνηση άδειας."
+
+msgid "You are not the file owner."
+msgstr "Δεν είστε ο ιδιοκτήτης αρχείου."
+
+msgid "This file is not allowed."
+msgstr "Αυτό το αρχείο δεν επιτρέπεται."
+
+msgid "New file already exists."
+msgstr "Υπάρχει ήδη νέο αρχείο."
+
+msgid "File does not exist in the database."
+msgstr "Το αρχείο δεν υπάρχει στη βάση δεδομένων."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "Ο κατάλογος προορισμού εξαγωγής %s υπάρχει ήδη."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Απαιτεί %s πρόσθετο που δεν είναι εγκατεστημένο"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Απαιτεί %s έκδοση %s, αλλά η έκδοση %s είναι εγκατεστημένη"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Απαιτεί %s module που είναι απενεργοποιημένο"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "Module \"%s\" έχει πληκτρολογήσει\"%s\" που απαιτείται ασυμφωνία τύπου ενότητας \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "Module \"%s\" έχει εγκατασταθεί δύο φορές στο \"%s\" και \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Άδειο αρχείο zip module."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "Το αρχείο zip δεν φαίνεται να είναι ένα έγκυρο πρόσθετο Dotclear."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Αδυναμία αναβάθμισης του \"%s\". (ενημέρωση κλειδωμένη)"
+
+msgid "An error occurred during module deletion."
+msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή του module."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "Δεν είναι δυνατή η αναβάθμιση του \"%s\". (παλαιότερη ή ίδια έκδοση)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "Αδυναμία ανάγνωσης νέου %s αρχείου"
+
+msgid "Cannot deactivate plugin."
+msgstr "Αδυναμία απενεργοποίησης του plugin."
+
+msgid "No such module."
+msgstr "Δεν υπάρχει τέτοια ενότητα."
+
+msgid "Cannot remove module files"
+msgstr "Αδυναμία αφαίρεσης αρχείων module"
+
+msgid "Cannot activate plugin."
+msgstr "Αδύνατη η ενεργοποίηση του πρόσθετου."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Μη έγκυρη ρύθμιση dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Αδυναμία ανάκτησης ρυθμίσεων:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s δεν είναι έγκυρο αναγνωριστικό ρύθμισης"
+
+msgid "No namespace specified"
+msgstr "Δεν καθορίστηκε χώρος ονομάτων"
+
+msgid "No notice message"
+msgstr "Δεν υπάρχει μήνυμα ειδοποίησης"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "Αδύνατη η ανάκτηση χώρων εργασίας:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Μη έγκυρο dcWorkspace: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "Αδύνατη η ανάκτηση χώρων ονομάτων:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Μη έγκυρη ρύθμιση χώρου ονομάτων: %s"
+
+msgid "Wrong data feed"
+msgstr "Λάθος ροή δεδομένων"
+
+msgid "An error occurred while downloading the file."
+msgstr "Παρουσιάστηκε σφάλμα κατά τη λήψη του αρχείου."
+
+msgid "Themes folder unreachable"
+msgstr "Μη προσπελάσιμος φάκελος θεμάτων"
+
+msgid "Themes folder unreadable"
+msgstr "Μη αναγνώσιμος φάκελος θεμάτων"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (αντιγραφή #%s)"
+
+msgid " (copy)"
+msgstr " (αντίγραφο)"
+
+msgid "Unable to modify _define.php"
+msgstr "Αδυναμία τροποποίησης _define.php"
+
+msgid "Destination folder already exist"
+msgstr "Ο φάκελος προορισμού υπάρχει ήδη"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s έχει ακόμα χτυπηθεί"
+
+msgid "Unable to ping URL"
+msgstr "Αδυναμία ping URL"
+
+msgid "Bad server response code"
+msgstr "Εσφαλμένος κωδικός απάντησης διακομιστή"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s δεν είναι ένα ping URL"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, σφάλμα ping :"
+
+msgid "Don't repeat yourself, please."
+msgstr "Μην επαναλάβετε τον εαυτό σας, παρακαλώ."
+
+msgid "Where's your title?"
+msgstr "Που είναι ο τίτλος σας?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Λυπούμαστε, παρουσιάστηκε ένα εσωτερικό πρόβλημα."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Ευχαριστούμε, σύντροφος. Ήταν μια χαρά."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "Οποιαδήποτε ευκαιρία που ping ένα από τα περιεχόμενά μου? Όχι? Πραγματικά?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Συγγνώμη, αλλά δεν μπορείτε να ping αυτό το είδος περιεχομένου."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Ωχ. Kinda \"δεν βρέθηκε\" πράγματα. Παρακαλώ ελέγξτε το URL προορισμού δύο φορές."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Λυπούμαστε, διπλό. Αυτή η καταχώρηση δεν δέχεται pingback αυτή τη στιγμή."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "Το URL προέλευσης δεν μοιάζει με έναν υποστηριζόμενο τύπο περιεχομένου. Λυπούμαστε. Χάρι, αντίο!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "Δεν παρέχεται έγκυρο URL πηγής? Δοκιμάστε ξανά!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "Δεν υπάρχει έγκυρο URL προορισμού? Δοκιμάστε ξανά!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "Δε βρέθηκε σύνοψη αρχείου."
+
+msgid "No file to download"
+msgstr "Δεν υπάρχει αρχείο για λήψη"
+
+msgid "Root directory is not writable."
+msgstr "Ο ριζικός κατάλογος δεν είναι εγγράψιμος."
+
+msgid "An error occurred while downloading archive."
+msgstr "Παρουσιάστηκε σφάλμα κατά τη λήψη της αρχειοθήκης."
+
+msgid "Archive not found."
+msgstr "Η αρχειοθέτηση δεν βρέθηκε."
+
+msgid "Unable to read current digests file."
+msgstr "Αδύνατη η ανάγνωση του τρέχοντος αρχείου ψηφίων."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Το ληφθέν αρχείο δεν φαίνεται να είναι έγκυρο αρχείο."
+
+msgid "Incomplete archive."
+msgstr "Μη ολοκληρωμένη αρχειοθήκη."
+
+msgid "Unable to read digests file."
+msgstr "Αδύνατη η ανάγνωση του αρχείου ψηφίων."
+
+msgid "Invalid digests file."
+msgstr "Μη έγκυρος αριθμός ψηφίων."
+
+msgid "Unable to retrieve prefs:"
+msgstr "Αδύνατη η ανάκτηση prefs:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s δεν είναι ένα έγκυρο αναγνωριστικό pref"
+
+msgid "No workspace specified"
+msgstr "Δεν καθορίστηκε χώρος εργασίας"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "Δεν είναι δυνατή η διαγραφή του αρχείου %s"
+
+msgid "Process failed"
+msgstr "Η διαδικασία απέτυχε"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Δε βρέθηκε σύνοψη αρχείου."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Dotclear νέα δεν είναι διαθέσιμα"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+msgid "Site temporarily unavailable"
+msgstr "Ιστοσελίδα προσωρινά μη διαθέσιμη"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Ζητούμε συγγνώμη για αυτή την προσωρινή μη διαθεσιμότητα.<br />Σας ευχαριστούμε για την κατανόησή σας.</p>"
+
+msgid "Unable to connect to database"
+msgstr "Αδυναμία σύνδεσης στη βάση δεδομένων"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Αυτό σημαίνει ότι το όνομα χρήστη και οι πληροφορίες κωδικού πρόσβασης στο config <strong>σας. hp</strong> το αρχείο είναι λανθασμένο ή δεν μπορούμε να επικοινωνήσουμε με το διακομιστή της βάσης δεδομένων στο \"<em>%s</em>\". Αυτό μπορεί να σημαίνει ότι ο διακομιστής βάσης δεδομένων του υπολογιστή σας είναι κάτω.</p> <ul><li>Είστε σίγουροι ότι έχετε το σωστό όνομα χρήστη και κωδικό πρόσβασης?</li><li>Είστε βέβαιοι ότι έχετε πληκτρολογήσει το σωστό όνομα υπολογιστή?</li><li>Είστε βέβαιοι ότι ο διακομιστής βάσης δεδομένων εκτελείται?</li></ul><p>Αν δεν είστε σίγουροι τι σημαίνουν αυτοί οι όροι θα πρέπει πιθανώς να επικοινωνήσετε με τον πάροχο φιλοξενίας σας. Αν εξακολουθείτε να χρειάζεστε βοήθεια, μπορείτε πάντα να επισκεφθείτε τα <a href=\"https://forum.dotclear.net/\">Dotclear Φόρουμ Υποστήριξης</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "Προέκυψε το ακόλουθο σφάλμα κατά την προσπάθεια ανάγνωσης της βάσης δεδομένων:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Τίτλος"
 
 msgid "Blogs"
 msgstr "Blogs"
@@ -254,75 +720,6 @@ msgstr "Τα περισσότερα χρησιμοποιημένα"
 msgid "Entry language:"
 msgstr "Γλώσσα εισόδου:"
 
-msgid "Database error"
-msgstr "Σφάλμα βάσης δεδομένων"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Φαίνεται να μην υπάρχει πίνακας συνεδρίας στη βάση δεδομένων σας. Είναι Dotclear πλήρως εγκατεστημένο?"
-
-msgid "Precondition Failed"
-msgstr "Η Προσυνθήκη Απέτυχε"
-
-msgid "System settings"
-msgstr "Ρυθμίσεις συστήματος"
-
-msgid "Blog"
-msgstr "Ιστολόγιο"
-
-msgid "Plugins"
-msgstr "Πρόσθετα"
-
-msgid "Blog appearance"
-msgstr "Εμφάνιση ιστολογίου"
-
-msgid "Blog settings"
-msgstr "Ρυθμίσεις ιστολογίου"
-
-msgid "Media manager"
-msgstr "Διαχειριστής πολυμέσων"
-
-msgid "Categories"
-msgstr "Κατηγορίες"
-
-msgid "Search"
-msgstr "Αναζήτηση"
-
-msgid "New post"
-msgstr "Νέα δημοσίευση"
-
-msgid "My preferences"
-msgstr "Οι προτιμήσεις μου"
-
-msgid "Update"
-msgstr "Ενημέρωση"
-
-msgid "Languages"
-msgstr "Γλώσσες"
-
-msgid "Plugins management"
-msgstr "Διαχείριση προσθέτων"
-
-msgid "Users"
-msgstr "Χρήστες"
-
-msgid "My favorites"
-msgstr "Τα αγαπημένα μου"
-
-msgid "Global help"
-msgstr "Παγκόσμια βοήθεια"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d δημοσίευση"
-msgstr[1] "%d δημοσιεύσεις"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d σχόλιο"
-msgstr[1] "%d σχόλια"
-
 msgid "Descending"
 msgstr "Φθίνουσα"
 
@@ -350,11 +747,11 @@ msgstr "Τίτλος καταχώρισης"
 msgid "Entry date"
 msgstr "Ημερομηνία εισόδου"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "Φίλτρο Spam"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "Τελευταία ενημέρωση"
@@ -377,35 +774,92 @@ msgstr "Εμφανιζόμενο όνομα"
 msgid "Number of entries"
 msgstr "Αριθμός καταχωρήσεων"
 
-msgid "Show filters and display options"
-msgstr "Εμφάνιση επιλογών φίλτρων και προβολής"
+msgid "My favorites"
+msgstr "Τα αγαπημένα μου"
 
-msgid "Filters"
-msgstr "Φίλτρα"
+msgid "My preferences"
+msgstr "Οι προτιμήσεις μου"
 
-msgid "Display options"
-msgstr "Επιλογές προβολής"
+msgid "New post"
+msgstr "Νέα δημοσίευση"
 
-msgid "Order by:"
-msgstr "Ταξινόμηση κατά:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d δημοσίευση"
+msgstr[1] "%d δημοσιεύσεις"
 
-msgid "Sort:"
-msgstr "Ταξινόμιση:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d σχόλιο"
+msgstr[1] "%d σχόλια"
 
-msgid "Show"
-msgstr "Εμφάνιση"
+msgid "Search"
+msgstr "Αναζήτηση"
 
-msgid "Save current options"
-msgstr "Αποθήκευση τρεχουσών επιλογών"
+msgid "Categories"
+msgstr "Κατηγορίες"
 
-msgid "Apply filters and display options"
-msgstr "Εφαρμογή επιλογών φίλτρων και προβολής"
+msgid "Media manager"
+msgstr "Διαχειριστής πολυμέσων"
+
+msgid "Blog settings"
+msgstr "Ρυθμίσεις ιστολογίου"
+
+msgid "Blog appearance"
+msgstr "Εμφάνιση ιστολογίου"
+
+msgid "Users"
+msgstr "Χρήστες"
+
+msgid "Plugins management"
+msgstr "Διαχείριση προσθέτων"
+
+msgid "Languages"
+msgstr "Γλώσσες"
+
+msgid "Global help"
+msgstr "Παγκόσμια βοήθεια"
+
+msgid "Status:"
+msgstr "Κατάσταση:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Web site:"
+msgstr "Web site:"
 
 msgid "Author:"
 msgstr "Συγγραφέας:"
 
-msgid "Status:"
-msgstr "Κατάσταση:"
+msgid "Type:"
+msgstr "Τύπος:"
+
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgid "Trackback"
+msgstr "Παρακολούθηση"
+
+msgid "IP address:"
+msgstr "Διεύθυνση IP:"
+
+msgid "Media type:"
+msgstr "Τύπος μέσου:"
+
+msgid "image"
+msgstr "εικόνα"
+
+msgid "text"
+msgstr "κείμενο"
+
+msgid "audio"
+msgstr "ήχος"
+
+msgid "video"
+msgstr "βίντεο"
 
 msgid "Format:"
 msgstr "Μορφή:"
@@ -452,56 +906,155 @@ msgstr "Κλειστό"
 msgid "Trackbacks:"
 msgstr "Ανίχνευση:"
 
-msgid "Email:"
-msgstr "Email:"
+msgid "Show filters and display options"
+msgstr "Εμφάνιση επιλογών φίλτρων και προβολής"
 
-msgid "Web site:"
-msgstr "Web site:"
+msgid "Filters"
+msgstr "Φίλτρα"
 
-msgid "Type:"
-msgstr "Τύπος:"
+msgid "Display options"
+msgstr "Επιλογές προβολής"
 
-msgid "Comment"
-msgstr "Σχόλιο"
+msgid "Order by:"
+msgstr "Ταξινόμηση κατά:"
 
-msgid "Trackback"
-msgstr "Παρακολούθηση"
+msgid "Sort:"
+msgstr "Ταξινόμιση:"
 
-msgid "IP address:"
-msgstr "Διεύθυνση IP:"
+msgid "Show"
+msgstr "Εμφάνιση"
 
-msgid "Media type:"
-msgstr "Τύπος μέσου:"
+msgid "Save current options"
+msgstr "Αποθήκευση τρεχουσών επιλογών"
 
-msgid "image"
-msgstr "εικόνα"
-
-msgid "text"
-msgstr "κείμενο"
-
-msgid "audio"
-msgstr "ήχος"
-
-msgid "video"
-msgstr "βίντεο"
+msgid "Apply filters and display options"
+msgstr "Εφαρμογή επιλογών φίλτρων και προβολής"
 
 msgid "Search:"
 msgstr "Αναζήτηση:"
 
-msgid "Trackbacks"
-msgstr "Κομμάτια"
+msgid "&#171; prev."
+msgstr "&#171; prev."
 
-msgid "users per page"
-msgstr "χρήστες ανά σελίδα"
+msgid "next &#187;"
+msgstr "επόμενο &#187;"
 
-msgid "entries per page"
-msgstr "καταχωρήσεις ανά σελίδα"
+msgid "No blog matches the filter"
+msgstr "Κανένα ιστολόγιο δεν ταιριάζει με το φίλτρο"
 
-msgid "comments per page"
-msgstr "σχόλια ανά σελίδα"
+msgid "No blog"
+msgstr "Χωρίς ιστολόγιο"
 
-msgid "blogs per page"
-msgstr "blogs ανά σελίδα"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "Καταχωρήσεις (όλοι οι τύποι)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d ιστολόγιο ταιριάζει με το φίλτρο."
+msgstr[1] "%d ιστολόγια ταιριάζουν με το φίλτρο."
+
+msgid "Blogs list"
+msgstr "Λίστα ιστολογίων"
+
+msgid "Legend: "
+msgstr "Υπόμνημα: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Επεξεργασία ρυθμίσεων ιστολογίου για %s"
+
+msgid "Edit blog settings"
+msgstr "Επεξεργασία ρυθμίσεων ιστολογίου"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Μετάβαση στο ιστολόγιο %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Κανένα σχόλιο ή trackbacks δεν ταιριάζει με το φίλτρο"
+
+msgid "No comments"
+msgstr "Δεν υπάρχουν σχόλια"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Σχόλιο ή trackback που ταιριάζει με το φίλτρο."
+msgstr[1] "Λίστα με %s σχόλια ή ίχνη που ταιριάζουν με το φίλτρο."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Λίστα σχολίων και ιχνηλασιών (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">δημοσιεύθηκε</a> (1)"
+msgstr[1] ", <a href=\"%s\">δημοσίευσε</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">spam</a> (1)"
+msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">pending</a> (1)"
+msgstr[1] ", <a href=\"%s\">σε εκκρεμότητα</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">αδημοσίευτο</a> (1)"
+msgstr[1] ", <a href=\"%s\">αδημοσίευτο</a> (%s)"
+
+msgid "Type"
+msgstr "Τύπος"
+
+msgid "Entry"
+msgstr "Καταχώρηση"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Επεξεργαστείτε το %1$s από %2$s"
+
+msgid "comment"
+msgstr "σχόλιο"
+
+msgid "trackback"
+msgstr "trackback"
+
+msgid "Type and author"
+msgstr "Πληκτρολογήστε και δημιουργός"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "No file matches the filter"
+msgstr "Κανένα αρχείο δεν ταιριάζει με το φίλτρο"
+
+msgid "No file."
+msgstr "Κανένα αρχείο."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d αρχείο ταιριάζει με το φίλτρο."
+msgstr[1] "%d αρχεία ταιριάζουν με το φίλτρο."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb αντικειμένων: %d → %d φάκελος(οι) + %d αρχείο(α)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb των αντικειμένων: %d"
 
 msgid "Name"
 msgstr "Όνομα"
@@ -509,11 +1062,356 @@ msgstr "Όνομα"
 msgid "Size"
 msgstr "Μέγεθος"
 
-msgid "media per page"
-msgstr "πολυμέσα ανά σελίδα"
+msgid "Select this file"
+msgstr "Επιλέξτε αυτό το αρχείο"
 
-msgid "results per page"
-msgstr "αποτελέσματα ανά σελίδα"
+msgid "Attach this file to entry"
+msgstr "Επισύναψη αυτού του αρχείου στην καταχώρηση"
+
+msgid "Insert this file into entry"
+msgstr "Εισάγετε αυτό το αρχείο στην καταχώρηση"
+
+msgid "delete"
+msgstr "διαγραφή"
+
+msgid "private media"
+msgstr "ιδιωτικά πολυμέσα"
+
+msgid "open"
+msgstr "ανοιχτό"
+
+msgid "No entry matches the filter"
+msgstr "Καμία καταχώρηση δεν ταιριάζει με το φίλτρο"
+
+msgid "No entry"
+msgstr "Καμία καταχώρηση"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Λίστα %s καταχωρήσεων που ταιριάζουν με το φίλτρο."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Κατάλογος καταχωρήσεων (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">προγραμματίστηκε</a> (1)"
+msgstr[1] ", <a href=\"%s\">προγραμματίστηκε</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Κομμάτια"
+
+msgid "Protected"
+msgstr "Προστατευμένο"
+
+msgid "Attachments"
+msgstr "Συνημμένα"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d συνημμένο"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d συνημμένα"
+
+msgid "Entries list"
+msgstr "Λίστα καταχωρήσεων"
+
+msgid "No user matches the filter"
+msgstr "Κανένας χρήστης δεν ταιριάζει με το φίλτρο"
+
+msgid "No user"
+msgstr "Κανένας χρήστης"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Λίστα με %s χρήστες ταιριάζουν με το φίλτρο."
+
+msgid "Users list"
+msgstr "Λίστα χρηστών"
+
+msgid "admin"
+msgstr "διαχειριστής"
+
+msgid "superadmin"
+msgstr "υπερδιαχειριστής"
+
+msgid "First page"
+msgstr "Πρώτη σελίδα"
+
+msgid "Previous page"
+msgstr "Προηγούμενη σελίδα"
+
+msgid "Next page"
+msgstr "Επόμενη σελίδα"
+
+msgid "Last page"
+msgstr "Τελευταία σελίδα"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Σελίδα %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Σελίδα άμεσης πρόσβασης %s"
+
+msgid "ok"
+msgstr "εντάξει"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s αρχείο βρέθηκε"
+msgstr[1] "%s αρχεία βρέθηκαν"
+
+msgid "Blog"
+msgstr "Ιστολόγιο"
+
+msgid "System settings"
+msgstr "Ρυθμίσεις συστήματος"
+
+msgid "Plugins"
+msgstr "Πρόσθετα"
+
+msgid "Update"
+msgstr "Ενημέρωση"
+
+msgid "other"
+msgstr "Έτερα"
+
+msgid "Search in repository:"
+msgstr "Αναζήτηση στο αποθετήριο:"
+
+msgid "OK"
+msgstr "Εντάξει"
+
+msgid "Reset search"
+msgstr "Επαναφορά αναζήτησης"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "Η αναζήτηση επιτρέπεται με πολλαπλούς όρους περισσότερους από 2 χαρακτήρες, οι όροι πρέπει να διαχωρίζονται με κενό."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "Βρέθηκαν %d αποτελέσματα για αναζήτηση \"%s\":"
+msgstr[1] "Βρέθηκαν %d αποτελέσματα αναζήτησης \"%s\":"
+
+msgid "current selection"
+msgstr "τρέχουσα επιλογή"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d αποτέλεσμα"
+msgstr[1] "%d αποτελέσματα"
+
+msgid "no results"
+msgstr "κανένα αποτέλεσμα"
+
+msgid "Browse index:"
+msgstr "Αναζήτηση ευρετηρίου:"
+
+msgid "Plugins list"
+msgstr "Λίστα πρόσθετων"
+
+msgid "Score"
+msgstr "Βαθμολογία"
+
+msgid "Version"
+msgstr "Έκδοση"
+
+msgid "Current version"
+msgstr "Τρέχουσα έκδοση"
+
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+msgid "Repository"
+msgstr "Αποθετήριο"
+
+msgid "Action"
+msgstr "Ενέργεια"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Αυτό το πρόσθετο δεν μπορεί να απενεργοποιηθεί ούτε να διαγραφεί, δεδομένου ότι τα ακόλουθα πρόσθετα είναι επίσης ενεργοποιημένα: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Αυτό το module δεν μπορεί να ενεργοποιηθεί, λόγω των ακόλουθων λόγων:"
+
+msgid "Official repository"
+msgstr "Επίσημο αποθετήριο"
+
+msgid "Third-party repository"
+msgstr "Αποθετήριο τρίτων"
+
+msgid "Plugin from official distribution"
+msgstr "Πρόσθετο από επίσημη διανομή"
+
+msgid "Plugin in development"
+msgstr "Πρόσθετο σε ανάπτυξη"
+
+msgid "Support"
+msgstr "Υποστήριξη"
+
+msgid "update locked"
+msgstr "η ενημέρωση κλειδώθηκε"
+
+msgid "Section:"
+msgstr "Ενότητα:"
+
+msgid "Tags:"
+msgstr "Ετικέτες:"
+
+msgid "No plugins matched your search."
+msgstr "Δεν υπάρχουν πρόσθετα που να ταιριάζουν στην αναζήτησή σας."
+
+msgid "Configure plugin"
+msgstr "Ρύθμιση αρθρώματος"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Ρυθμίσεις προσθέτων (σε παραμέτρους ιστολογίου)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Ρυθμίσεις αρθρώματος (στις προτιμήσεις χρήστη)"
+
+msgid "Plugin settings"
+msgstr "Ρυθμίσεις προσθέτων"
+
+msgid "Plugin main page"
+msgstr "Αρχική σελίδα πρόσθετου"
+
+msgid "Activate"
+msgstr "Ενεργοποίηση"
+
+msgid "Deactivate"
+msgstr "Απενεργοποίηση"
+
+msgid "Clone"
+msgstr "Κλωνοποίηση"
+
+msgid "Install"
+msgstr "Εγκατάσταση"
+
+msgid "Activate selected plugins"
+msgstr "Ενεργοποίηση των επιλεγμένων πρόσθετων"
+
+msgid "Activate all plugins from this list"
+msgstr "Ενεργοποίηση όλων των πρόσθετων από αυτήν τη λίστα"
+
+msgid "Deactivate selected plugins"
+msgstr "Απενεργοποίηση επιλεγμένων πρόσθετων"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Απενεργοποίηση όλων των πρόσθετων από αυτήν τη λίστα"
+
+msgid "Update selected plugins"
+msgstr "Ενημέρωση επιλεγμένων πρόσθετων"
+
+msgid "Update all plugins from this list"
+msgstr "Ενημέρωση όλων των προσθέτων από αυτήν τη λίστα"
+
+msgid "No such plugin."
+msgstr "Δεν υπάρχει τέτοιο πρόσθετο."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Δεν έχετε δικαιώματα για να διαγράψετε αυτό το plugin."
+
+msgid "Some plugins have not been delete."
+msgstr "Κάποια πρόσθετα δεν έχουν διαγραφεί."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Το πρόσθετο έχει διαγραφεί επιτυχώς."
+msgstr[1] "Τα πρόσθετα διαγράφηκαν επιτυχώς."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "Το πρόσθετο εγκαταστάθηκε με επιτυχία."
+msgstr[1] "Τα πρόσθετα εγκαταστάθηκαν με επιτυχία."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Το πρόσθετο έχει ενεργοποιηθεί επιτυχώς."
+msgstr[1] "Τα πρόσθετα έχουν ενεργοποιηθεί επιτυχώς."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Μερικά πρόσθετα δεν έχουν απενεργοποιηθεί."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Το πρόσθετο απενεργοποιήθηκε επιτυχώς."
+msgstr[1] "Τα πρόσθετα έχουν ενεργοποιηθεί επιτυχώς."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Το πρόσθετο έχει ενημερωθεί με επιτυχία."
+msgstr[1] "Τα πρόσθετα έχουν ενημερωθεί με επιτυχία."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Οι παρακάτω ενημερώσεις προσθέτων είναι κλειδωμένες: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "Αδύνατη η μετακίνηση του μεταφορτωμένου αρχείου."
+
+msgid "The plugin has been successfully updated."
+msgstr "Το πρόσθετο έχει ενημερωθεί με επιτυχία."
+
+msgid "The plugin has been successfully installed."
+msgstr "Το πρόσθετο έχει εγκατασταθεί με επιτυχία."
+
+msgid "Upload a zip file"
+msgstr "Ανεβάστε ένα αρχείο zip"
+
+msgid "Required field"
+msgstr "Απαιτούμενο πεδίο"
+
+msgid "Zip file path:"
+msgstr "Διαδρομή αρχείου zip:"
+
+msgid "Your password:"
+msgstr "Ο κωδικός πρόσβασης:"
+
+msgid "Password"
+msgstr "Κωδικός"
+
+msgid "Upload"
+msgstr "Ανέβασμα"
+
+msgid "Download a zip file"
+msgstr "Κατεβάστε ένα αρχείο zip"
+
+msgid "Zip file URL:"
+msgstr "Url αρχείου zip:"
+
+msgid "Download"
+msgstr "Λήψη"
+
+msgid "Unknown plugin ID"
+msgstr "Άγνωστο ID πρόσθετου"
+
+msgid "This plugin has no configuration file."
+msgstr "Αυτό το πρόσθετο δεν έχει αρχείο ρυθμίσεων."
+
+msgid "Insufficient permissions"
+msgstr "Ανεπαρκή δικαιώματα"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Ρύθμιση παραμέτρων \"%s\""
+
+msgid "Back"
+msgstr "Πίσω"
 
 msgid "Error:"
 msgstr "Σφάλμα:"
@@ -532,9 +1430,6 @@ msgstr "Αλλαγή ιστολογίου"
 
 msgid "Blogs:"
 msgstr "Blogs:"
-
-msgid "ok"
-msgstr "εντάξει"
 
 msgid "Go to the content"
 msgstr "Μεταβείτε στο περιεχόμενο"
@@ -566,9 +1461,6 @@ msgstr "Ασφαλής λειτουργία"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Είστε σε ασφαλή λειτουργία. Όλα τα πρόσθετα έχουν προσωρινά απενεργοποιηθεί. Υπενθυμίστε να αποσυνδεθείτε και συνδεθείτε ξανά για να επιστρέψετε όλες τις λειτουργίες"
-
-msgid "OK"
-msgstr "Εντάξει"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -741,20 +1633,8 @@ msgstr "Προειδοποίηση: η αλλαγή μορφής δεν θα μ�
 msgid "Loading enhanced uploader, please wait."
 msgstr "Φόρτωση ενισχυμένου uploader, παρακαλώ περιμένετε."
 
-msgid "Details"
-msgstr "Λεπτομέρειες"
-
-msgid "Support"
-msgstr "Υποστήριξη"
-
 msgid "Help:"
 msgstr "Βοήθεια:"
-
-msgid "Section:"
-msgstr "Ενότητα:"
-
-msgid "Tags:"
-msgstr "Ετικέτες:"
 
 msgid "Hide this notice"
 msgstr "Απόκρυψη αυτής της ειδοποίησης"
@@ -807,9 +1687,6 @@ msgstr "Ακύρωση"
 msgid "Clean"
 msgstr "Καθαρισμός"
 
-msgid "Upload"
-msgstr "Ανέβασμα"
-
 msgid "Send"
 msgstr "Αποστολή"
 
@@ -833,228 +1710,35 @@ msgid "Cancel filters and display options"
 msgstr "Ακύρωση φίλτρων και επιλογών εμφάνισης"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s αρχείο βρέθηκε"
-msgstr[1] "%s αρχεία βρέθηκαν"
-
-msgid "other"
-msgstr "Έτερα"
-
-msgid "Search in repository:"
-msgstr "Αναζήτηση στο αποθετήριο:"
-
-msgid "Reset search"
-msgstr "Επαναφορά αναζήτησης"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "Η αναζήτηση επιτρέπεται με πολλαπλούς όρους περισσότερους από 2 χαρακτήρες, οι όροι πρέπει να διαχωρίζονται με κενό."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Βρέθηκαν %d αποτελέσματα για αναζήτηση \"%s\":"
-msgstr[1] "Βρέθηκαν %d αποτελέσματα αναζήτησης \"%s\":"
+msgid "ratio %.1f"
+msgstr "αναλογία %.1f"
 
-msgid "current selection"
-msgstr "τρέχουσα επιλογή"
+msgid "The 'public' directory does not exist."
+msgstr "Ο κατάλογος 'δημόσιο' δεν υπάρχει."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d αποτέλεσμα"
-msgstr[1] "%d αποτελέσματα"
+msgid "The '%s' directory cannot be modified."
+msgstr "Ο κατάλογος '%s' δεν μπορεί να τροποποιηθεί."
 
-msgid "no results"
-msgstr "κανένα αποτέλεσμα"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Τουλάχιστον μία από τις ακόλουθες λειτουργίες δεν είναι διαθέσιμη: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "Αναζήτηση ευρετηρίου:"
+msgid "Unable to create images."
+msgstr "Δεν είναι δυνατή η δημιουργία εικόνων."
 
-msgid "Plugins list"
-msgstr "Λίστα πρόσθετων"
+msgid "Invalid file type."
+msgstr "Μη έγκυρος τύπος αρχείου."
 
-msgid "Score"
-msgstr "Βαθμολογία"
-
-msgid "Version"
-msgstr "Έκδοση"
-
-msgid "Current version"
-msgstr "Τρέχουσα έκδοση"
-
-msgid "Repository"
-msgstr "Αποθετήριο"
-
-msgid "Action"
-msgstr "Ενέργεια"
+msgid "An error occurred while writing the file."
+msgstr "Παρουσιάστηκε σφάλμα κατά την εγγραφή του αρχείου."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Αυτό το πρόσθετο δεν μπορεί να απενεργοποιηθεί ούτε να διαγραφεί, δεδομένου ότι τα ακόλουθα πρόσθετα είναι επίσης ενεργοποιημένα: %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Αυτό το module δεν μπορεί να ενεργοποιηθεί, λόγω των ακόλουθων λόγων:"
-
-msgid "Official repository"
-msgstr "Επίσημο αποθετήριο"
-
-msgid "Third-party repository"
-msgstr "Αποθετήριο τρίτων"
-
-msgid "Plugin from official distribution"
-msgstr "Πρόσθετο από επίσημη διανομή"
-
-msgid "Plugin in development"
-msgstr "Πρόσθετο σε ανάπτυξη"
-
-msgid "update locked"
-msgstr "η ενημέρωση κλειδώθηκε"
-
-msgid "No plugins matched your search."
-msgstr "Δεν υπάρχουν πρόσθετα που να ταιριάζουν στην αναζήτησή σας."
-
-msgid "Configure plugin"
-msgstr "Ρύθμιση αρθρώματος"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Ρυθμίσεις προσθέτων (σε παραμέτρους ιστολογίου)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Ρυθμίσεις αρθρώματος (στις προτιμήσεις χρήστη)"
-
-msgid "Plugin settings"
-msgstr "Ρυθμίσεις προσθέτων"
-
-msgid "Plugin main page"
-msgstr "Αρχική σελίδα πρόσθετου"
-
-msgid "Activate"
-msgstr "Ενεργοποίηση"
-
-msgid "Deactivate"
-msgstr "Απενεργοποίηση"
-
-msgid "Clone"
-msgstr "Κλωνοποίηση"
-
-msgid "Install"
-msgstr "Εγκατάσταση"
-
-msgid "Activate selected plugins"
-msgstr "Ενεργοποίηση των επιλεγμένων πρόσθετων"
-
-msgid "Activate all plugins from this list"
-msgstr "Ενεργοποίηση όλων των πρόσθετων από αυτήν τη λίστα"
-
-msgid "Deactivate selected plugins"
-msgstr "Απενεργοποίηση επιλεγμένων πρόσθετων"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Απενεργοποίηση όλων των πρόσθετων από αυτήν τη λίστα"
-
-msgid "Update selected plugins"
-msgstr "Ενημέρωση επιλεγμένων πρόσθετων"
-
-msgid "Update all plugins from this list"
-msgstr "Ενημέρωση όλων των προσθέτων από αυτήν τη λίστα"
-
-msgid "No such plugin."
-msgstr "Δεν υπάρχει τέτοιο πρόσθετο."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Δεν έχετε δικαιώματα για να διαγράψετε αυτό το plugin."
-
-msgid "Some plugins have not been delete."
-msgstr "Κάποια πρόσθετα δεν έχουν διαγραφεί."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Το πρόσθετο έχει διαγραφεί επιτυχώς."
-msgstr[1] "Τα πρόσθετα διαγράφηκαν επιτυχώς."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Το πρόσθετο εγκαταστάθηκε με επιτυχία."
-msgstr[1] "Τα πρόσθετα εγκαταστάθηκαν με επιτυχία."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Το πρόσθετο έχει ενεργοποιηθεί επιτυχώς."
-msgstr[1] "Τα πρόσθετα έχουν ενεργοποιηθεί επιτυχώς."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Μερικά πρόσθετα δεν έχουν απενεργοποιηθεί."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Το πρόσθετο απενεργοποιήθηκε επιτυχώς."
-msgstr[1] "Τα πρόσθετα έχουν ενεργοποιηθεί επιτυχώς."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Το πρόσθετο έχει ενημερωθεί με επιτυχία."
-msgstr[1] "Τα πρόσθετα έχουν ενημερωθεί με επιτυχία."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Οι παρακάτω ενημερώσεις προσθέτων είναι κλειδωμένες: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "Αδύνατη η μετακίνηση του μεταφορτωμένου αρχείου."
-
-msgid "The plugin has been successfully updated."
-msgstr "Το πρόσθετο έχει ενημερωθεί με επιτυχία."
-
-msgid "The plugin has been successfully installed."
-msgstr "Το πρόσθετο έχει εγκατασταθεί με επιτυχία."
-
-msgid "Upload a zip file"
-msgstr "Ανεβάστε ένα αρχείο zip"
-
-msgid "Required field"
-msgstr "Απαιτούμενο πεδίο"
-
-msgid "Zip file path:"
-msgstr "Διαδρομή αρχείου zip:"
-
-msgid "Your password:"
-msgstr "Ο κωδικός πρόσβασης:"
-
-msgid "Password"
-msgstr "Κωδικός"
-
-msgid "Download a zip file"
-msgstr "Κατεβάστε ένα αρχείο zip"
-
-msgid "Zip file URL:"
-msgstr "Url αρχείου zip:"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "Λήψη"
-
-msgid "Unknown plugin ID"
-msgstr "Άγνωστο ID πρόσθετου"
-
-msgid "This plugin has no configuration file."
-msgstr "Αυτό το πρόσθετο δεν έχει αρχείο ρυθμίσεων."
-
-msgid "Insufficient permissions"
-msgstr "Ανεπαρκή δικαιώματα"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Ρύθμιση παραμέτρων \"%s\""
-
-msgid "Back"
-msgstr "Πίσω"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Η φορτώθηκε εικόνα δεν είναι %s pixels πλάτος."
 
 #, php-format
 msgid "Score: %s"
@@ -1095,6 +1779,9 @@ msgstr "Δεν βρέθηκαν θέματα που ταιριάζουν στη�
 
 msgid "Use this one"
 msgstr "Χρησιμοποιήστε αυτό το ένα"
+
+msgid "Preview"
+msgstr "Προεπισκόπηση"
 
 msgid "Update selected themes"
 msgstr "Ενημέρωση επιλεγμένων θεμάτων"
@@ -1158,701 +1845,281 @@ msgstr "Το θέμα έχει ενημερωθεί με επιτυχία."
 msgid "The theme has been successfully installed."
 msgstr "Το θέμα εγκαταστάθηκε με επιτυχία."
 
-msgid "First page"
-msgstr "Πρώτη σελίδα"
+msgid "users per page"
+msgstr "χρήστες ανά σελίδα"
 
-msgid "Previous page"
-msgstr "Προηγούμενη σελίδα"
+msgid "entries per page"
+msgstr "καταχωρήσεις ανά σελίδα"
 
-msgid "Next page"
-msgstr "Επόμενη σελίδα"
+msgid "comments per page"
+msgstr "σχόλια ανά σελίδα"
 
-msgid "Last page"
-msgstr "Τελευταία σελίδα"
+msgid "blogs per page"
+msgstr "blogs ανά σελίδα"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "Σελίδα %s / %s"
+msgid "media per page"
+msgstr "πολυμέσα ανά σελίδα"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "Σελίδα άμεσης πρόσβασης %s"
+msgid "results per page"
+msgstr "αποτελέσματα ανά σελίδα"
 
-msgid "&#171; prev."
-msgstr "&#171; prev."
+msgid "Database error"
+msgstr "Σφάλμα βάσης δεδομένων"
 
-msgid "next &#187;"
-msgstr "επόμενο &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Φαίνεται να μην υπάρχει πίνακας συνεδρίας στη βάση δεδομένων σας. Είναι Dotclear πλήρως εγκατεστημένο?"
 
-msgid "No entry matches the filter"
-msgstr "Καμία καταχώρηση δεν ταιριάζει με το φίλτρο"
+msgid "Precondition Failed"
+msgstr "Η Προσυνθήκη Απέτυχε"
 
-msgid "No entry"
-msgstr "Καμία καταχώρηση"
+#, fuzzy
+msgid "Database problem"
+msgstr "Σφάλμα βάσης δεδομένων"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Λίστα %s καταχωρήσεων που ταιριάζουν με το φίλτρο."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "Προέκυψε το ακόλουθο σφάλμα κατά την προσπάθεια ανάγνωσης της βάσης δεδομένων:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Κατάλογος καταχωρήσεων (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">δημοσιεύθηκε</a> (1)"
-msgstr[1] ", <a href=\"%s\">δημοσίευσε</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">pending</a> (1)"
-msgstr[1] ", <a href=\"%s\">σε εκκρεμότητα</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">προγραμματίστηκε</a> (1)"
-msgstr[1] ", <a href=\"%s\">προγραμματίστηκε</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">αδημοσίευτο</a> (1)"
-msgstr[1] ", <a href=\"%s\">αδημοσίευτο</a> (%s)"
-
-msgid "Legend: "
-msgstr "Υπόμνημα: "
-
-msgid "Published"
-msgstr "Δημοσιεύθηκε"
-
-msgid "Unpublished"
-msgstr "Αδημοσίευτο"
-
-msgid "Scheduled"
-msgstr "Προγραμματισμένο"
-
-msgid "Pending"
-msgstr "Εκκρεμεί"
-
-msgid "Protected"
-msgstr "Προστατευμένο"
-
-msgid "Attachments"
-msgstr "Συνημμένα"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d συνημμένο"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d συνημμένα"
-
-msgid "Entries list"
-msgstr "Λίστα καταχωρήσεων"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Κανένα σχόλιο ή trackbacks δεν ταιριάζει με το φίλτρο"
-
-msgid "No comments"
-msgstr "Δεν υπάρχουν σχόλια"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Σχόλιο ή trackback που ταιριάζει με το φίλτρο."
-msgstr[1] "Λίστα με %s σχόλια ή ίχνη που ταιριάζουν με το φίλτρο."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Λίστα σχολίων και ιχνηλασιών (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
-
-msgid "Type"
-msgstr "Τύπος"
-
-msgid "Entry"
-msgstr "Καταχώρηση"
-
-msgid "Junk"
-msgstr "Ανεπιθύμητα"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Επεξεργαστείτε το %1$s από %2$s"
-
-msgid "comment"
-msgstr "σχόλιο"
-
-msgid "trackback"
-msgstr "trackback"
-
-msgid "Type and author"
-msgstr "Πληκτρολογήστε και δημιουργός"
-
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-msgid "No blog matches the filter"
-msgstr "Κανένα ιστολόγιο δεν ταιριάζει με το φίλτρο"
-
-msgid "No blog"
-msgstr "Χωρίς ιστολόγιο"
-
-msgid "Entries (all types)"
-msgstr "Καταχωρήσεις (όλοι οι τύποι)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d ιστολόγιο ταιριάζει με το φίλτρο."
-msgstr[1] "%d ιστολόγια ταιριάζουν με το φίλτρο."
-
-msgid "Blogs list"
-msgstr "Λίστα ιστολογίων"
-
-msgid "online"
-msgstr "Συνδεδεμένος"
-
-msgid "offline"
-msgstr "χωρίς σύνδεση"
-
-msgid "removed"
-msgstr "αφαιρέθηκε"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Επεξεργασία ρυθμίσεων ιστολογίου για %s"
-
-msgid "Edit blog settings"
-msgstr "Επεξεργασία ρυθμίσεων ιστολογίου"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Μετάβαση στο ιστολόγιο %s"
-
-msgid "No user matches the filter"
-msgstr "Κανένας χρήστης δεν ταιριάζει με το φίλτρο"
-
-msgid "No user"
-msgstr "Κανένας χρήστης"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Λίστα με %s χρήστες ταιριάζουν με το φίλτρο."
-
-msgid "Users list"
-msgstr "Λίστα χρηστών"
-
-msgid "admin"
-msgstr "διαχειριστής"
-
-msgid "superadmin"
-msgstr "υπερδιαχειριστής"
-
-msgid "No file matches the filter"
-msgstr "Κανένα αρχείο δεν ταιριάζει με το φίλτρο"
-
-msgid "No file."
-msgstr "Κανένα αρχείο."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d αρχείο ταιριάζει με το φίλτρο."
-msgstr[1] "%d αρχεία ταιριάζουν με το φίλτρο."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb αντικειμένων: %d → %d φάκελος(οι) + %d αρχείο(α)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Nb των αντικειμένων: %d"
-
-msgid "Select this file"
-msgstr "Επιλέξτε αυτό το αρχείο"
-
-msgid "Attach this file to entry"
-msgstr "Επισύναψη αυτού του αρχείου στην καταχώρηση"
-
-msgid "Insert this file into entry"
-msgstr "Εισάγετε αυτό το αρχείο στην καταχώρηση"
-
-msgid "delete"
-msgstr "διαγραφή"
-
-msgid "private media"
-msgstr "ιδιωτικά πολυμέσα"
-
-msgid "open"
-msgstr "ανοιχτό"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "αναλογία %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "Ο κατάλογος 'δημόσιο' δεν υπάρχει."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Ο κατάλογος '%s' δεν μπορεί να τροποποιηθεί."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Τουλάχιστον μία από τις ακόλουθες λειτουργίες δεν είναι διαθέσιμη: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "Δεν είναι δυνατή η δημιουργία εικόνων."
-
-msgid "Invalid file type."
-msgstr "Μη έγκυρος τύπος αρχείου."
-
-msgid "An error occurred while writing the file."
-msgstr "Παρουσιάστηκε σφάλμα κατά την εγγραφή του αρχείου."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "Η φορτώθηκε εικόνα δεν είναι %s pixels πλάτος."
-
-msgid "medium"
-msgstr "μέτρια"
-
-msgid "small"
-msgstr "μικρό"
-
-msgid "thumbnail"
-msgstr "thumbnail"
-
-msgid "square"
-msgstr "τετράγωνο"
-
-msgid "Pages"
-msgstr "Σελίδες"
-
-msgid "administrator"
-msgstr "διαχειριστής"
-
-msgid "manage all entries and comments"
-msgstr "διαχείριση όλων των καταχωρήσεων και σχολίων"
-
-msgid "manage their own entries and comments"
-msgstr "διαχείριση των δικών τους καταχωρήσεων και σχολίων"
-
-msgid "publish entries and comments"
-msgstr "δημοσίευση καταχωρήσεων και σχολίων"
-
-msgid "delete entries and comments"
-msgstr "διαγραφή καταχωρήσεων και σχολίων"
-
-msgid "manage categories"
-msgstr "διαχείριση κατηγοριών"
-
-msgid "manage all media items"
-msgstr "διαχείριση όλων των στοιχείων πολυμέσων"
-
-msgid "manage their own media items"
-msgstr "διαχείριση των δικών τους στοιχείων πολυμέσων"
-
-msgid "That user does not exist in the database."
-msgstr "Αυτός ο χρήστης δεν υπάρχει στη βάση δεδομένων."
-
-msgid "That key does not exist in the database."
-msgstr "Αυτό το κλειδί δεν υπάρχει στη βάση δεδομένων."
-
-msgid "You are not allowed to add categories"
-msgstr "Δεν επιτρέπεται να προσθέσετε κατηγορίες"
-
-msgid "You are not allowed to update categories"
-msgstr "Δεν επιτρέπεται να ενημερώσετε τις κατηγορίες"
-
-msgid "You are not allowed to delete categories"
-msgstr "Δεν σας επιτρέπεται να διαγράψετε κατηγορίες"
-
-msgid "This category is not empty."
-msgstr "Αυτή η κατηγορία δεν είναι κενή."
-
-msgid "You are not allowed to reset categories order"
-msgstr "Δεν σας επιτρέπεται να επαναφέρετε την παραγγελία κατηγοριών"
-
-msgid "Empty category URL"
-msgstr "Κενό URL κατηγορίας"
-
-msgid "You must provide a category title"
-msgstr "Πρέπει να δώσετε έναν τίτλο κατηγορίας"
-
-msgid "You must provide a category URL"
-msgstr "Πρέπει να δώσετε μια διεύθυνση URL κατηγορίας"
-
-msgid "You are not allowed to create an entry"
-msgstr "Δεν επιτρέπεται να δημιουργήσετε μια καταχώρηση"
-
-msgid "You are not allowed to update entries"
-msgstr "Δεν επιτρέπεται η ενημέρωση καταχωρήσεων"
-
-msgid "No such entry ID"
-msgstr "Δεν υπάρχει τέτοιο ID καταχώρησης"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Δεν επιτρέπεται να επεξεργαστείτε αυτήν την καταχώρηση"
-
-msgid "You are not allowed to change this entry status"
-msgstr "Δεν επιτρέπεται να αλλάξετε αυτήν την κατάσταση εισόδου"
-
-msgid "You are not allowed to change this entry category"
-msgstr "Δεν επιτρέπεται να αλλάξετε αυτήν την κατηγορία καταχώρησης"
-
-msgid "You are not allowed to change entries category"
-msgstr "Δεν επιτρέπεται να αλλάξετε την κατηγορία καταχωρήσεων"
-
-msgid "You are not allowed to delete entries"
-msgstr "Δεν επιτρέπεται να διαγράψετε καταχωρήσεις"
-
-msgid "No entry title"
-msgstr "Χωρίς τίτλο καταχώρησης"
-
-msgid "No entry content"
-msgstr "Χωρίς περιεχόμενο καταχώρησης"
-
-msgid "Notes"
-msgstr "Σημειώσεις"
-
-msgid "Note"
-msgstr "Σημείωση"
-
-msgid "Empty entry URL"
-msgstr "Κενή καταχώρηση URL"
-
-msgid "You are not allowed to update comments"
-msgstr "Δεν επιτρέπεται να ενημερώσετε σχόλια"
-
-msgid "No such comment ID"
-msgstr "Δεν υπάρχει τέτοιο ID σχολίου"
-
-msgid "You are not allowed to update this comment"
-msgstr "Δεν επιτρέπεται να ενημερώσετε αυτό το σχόλιο"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Δεν επιτρέπεται να αλλάξετε την κατάσταση αυτού του σχολίου"
-
-msgid "You are not allowed to delete comments"
-msgstr "Δεν επιτρέπεται να διαγράψετε σχόλια"
-
-msgid "You must provide a comment"
-msgstr "Πρέπει να δώσετε ένα σχόλιο"
-
-msgid "You must provide an author name"
-msgstr "Πρέπει να δώσετε ένα όνομα συγγραφέα"
-
-msgid "Email address is not valid."
-msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν είναι έγκυρη."
-
-msgid "You are not an administrator"
-msgstr "Δεν είστε διαχειριστής"
-
-msgid "No user ID given"
-msgstr "Δεν δόθηκε ID χρήστη"
-
-msgid "No password given"
-msgstr "Δεν δόθηκε κωδικός πρόσβασης"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Το αναγνωριστικό χρήστη πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες χρησιμοποιώντας γράμματα, αριθμούς ή σύμβολα."
-
-msgid "Password must contain at least 6 characters."
-msgstr "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες."
-
-msgid "Invalid user language code"
-msgstr "Μη έγκυρος κωδικός γλώσσας χρήστη"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Το Blog ID πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες χρησιμοποιώντας γράμματα, αριθμούς ή σύμβολα."
-
-msgid "No blog name"
-msgstr "Χωρίς όνομα ιστολογίου"
-
-msgid "No blog URL"
-msgstr "Χωρίς URL ιστολογίου"
-
-msgid "No log message"
-msgstr "Κανένα μήνυμα καταγραφής"
-
-msgid "unknown"
-msgstr "άγνωστο"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "Δεν ορίστηκε ιστολόγιο."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "Δεν υπάρχει εγγράψιμος κατάλογος /public/ στην τοποθεσία που έχει οριστεί σε about:config \"public_path\". Πρέπει να δημιουργήσετε αυτόν τον κατάλογο με επαρκή δικαιώματα (ή να αλλάξετε αυτήν τη ρύθμιση)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Δεν υπάρχει εγγράψιμος ριζικός κατάλογος για τον διαχειριστή πολυμέσων. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "Αυτό το ιστολόγιο είναι εκτός σύνδεσης"
 
-msgid "You are not a super administrator."
-msgstr "Δεν είστε σούπερ διαχειριστής."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Αυτό το ιστολόγιο είναι εκτός σύνδεσης"
 
-msgid "Permission denied."
-msgstr "Άρνηση άδειας."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Αδυναμία δημιουργίας αρχείου"
 
-msgid "You are not the file owner."
-msgstr "Δεν είστε ο ιδιοκτήτης αρχείου."
-
-msgid "This file is not allowed."
-msgstr "Αυτό το αρχείο δεν επιτρέπεται."
-
-msgid "New file already exists."
-msgstr "Υπάρχει ήδη νέο αρχείο."
-
-msgid "File does not exist in the database."
-msgstr "Το αρχείο δεν υπάρχει στη βάση δεδομένων."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "Ο κατάλογος προορισμού εξαγωγής %s υπάρχει ήδη."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Απαιτεί %s πρόσθετο που δεν είναι εγκατεστημένο"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Απαιτεί %s έκδοση %s, αλλά η έκδοση %s είναι εγκατεστημένη"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Απαιτεί %s module που είναι απενεργοποιημένο"
-
-msgid "The following extensions have been disabled :"
-msgstr "Οι ακόλουθες επεκτάσεις έχουν απενεργοποιηθεί :"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Module \"%s\" έχει πληκτρολογήσει\"%s\" που απαιτείται ασυμφωνία τύπου ενότητας \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Module \"%s\" έχει εγκατασταθεί δύο φορές στο \"%s\" και \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Άδειο αρχείο zip module."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "Το αρχείο zip δεν φαίνεται να είναι ένα έγκυρο πρόσθετο Dotclear."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "Αδυναμία αναβάθμισης του \"%s\". (ενημέρωση κλειδωμένη)"
-
-msgid "An error occurred during module deletion."
-msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή του module."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "Δεν είναι δυνατή η αναβάθμιση του \"%s\". (παλαιότερη ή ίδια έκδοση)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "Αδυναμία ανάγνωσης νέου %s αρχείου"
-
-msgid "Cannot deactivate plugin."
-msgstr "Αδυναμία απενεργοποίησης του plugin."
-
-msgid "No such module."
-msgstr "Δεν υπάρχει τέτοια ενότητα."
-
-msgid "Cannot remove module files"
-msgstr "Αδυναμία αφαίρεσης αρχείων module"
-
-msgid "Cannot activate plugin."
-msgstr "Αδύνατη η ενεργοποίηση του πρόσθετου."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Μη έγκυρη ρύθμιση dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "Αδυναμία ανάκτησης ρυθμίσεων:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s δεν είναι έγκυρο αναγνωριστικό ρύθμισης"
-
-msgid "No namespace specified"
-msgstr "Δεν καθορίστηκε χώρος ονομάτων"
-
-msgid "No notice message"
-msgstr "Δεν υπάρχει μήνυμα ειδοποίησης"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "Αδύνατη η ανάκτηση χώρων εργασίας:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Μη έγκυρο dcWorkspace: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "Αδύνατη η ανάκτηση χώρων ονομάτων:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Μη έγκυρη ρύθμιση χώρου ονομάτων: %s"
-
-msgid "Wrong data feed"
-msgstr "Λάθος ροή δεδομένων"
-
-msgid "An error occurred while downloading the file."
-msgstr "Παρουσιάστηκε σφάλμα κατά τη λήψη του αρχείου."
-
-msgid "Themes folder unreachable"
-msgstr "Μη προσπελάσιμος φάκελος θεμάτων"
-
-msgid "Themes folder unreadable"
-msgstr "Μη αναγνώσιμος φάκελος θεμάτων"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (αντιγραφή #%s)"
-
-msgid " (copy)"
-msgstr " (αντίγραφο)"
-
-msgid "Unable to modify _define.php"
-msgstr "Αδυναμία τροποποίησης _define.php"
-
-msgid "Destination folder already exist"
-msgstr "Ο φάκελος προορισμού υπάρχει ήδη"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s έχει ακόμα χτυπηθεί"
-
-msgid "Unable to ping URL"
-msgstr "Αδυναμία ping URL"
-
-msgid "Bad server response code"
-msgstr "Εσφαλμένος κωδικός απάντησης διακομιστή"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s δεν είναι ένα ping URL"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, σφάλμα ping :"
-
-msgid "Don't repeat yourself, please."
-msgstr "Μην επαναλάβετε τον εαυτό σας, παρακαλώ."
-
-msgid "Where's your title?"
-msgstr "Που είναι ο τίτλος σας?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Λυπούμαστε, παρουσιάστηκε ένα εσωτερικό πρόβλημα."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Ευχαριστούμε, σύντροφος. Ήταν μια χαρά."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "Οποιαδήποτε ευκαιρία που ping ένα από τα περιεχόμενά μου? Όχι? Πραγματικά?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Συγγνώμη, αλλά δεν μπορείτε να ping αυτό το είδος περιεχομένου."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Ωχ. Kinda \"δεν βρέθηκε\" πράγματα. Παρακαλώ ελέγξτε το URL προορισμού δύο φορές."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Λυπούμαστε, διπλό. Αυτή η καταχώρηση δεν δέχεται pingback αυτή τη στιγμή."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "Το URL προέλευσης δεν μοιάζει με έναν υποστηριζόμενο τύπο περιεχομένου. Λυπούμαστε. Χάρι, αντίο!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Δεν παρέχεται έγκυρο URL πηγής? Δοκιμάστε ξανά!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Δεν υπάρχει έγκυρο URL προορισμού? Δοκιμάστε ξανά!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Δε βρέθηκε σύνοψη αρχείου."
 
-msgid "No file to download"
-msgstr "Δεν υπάρχει αρχείο για λήψη"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "Ο ριζικός κατάλογος δεν είναι εγγράψιμος."
-
-msgid "An error occurred while downloading archive."
-msgstr "Παρουσιάστηκε σφάλμα κατά τη λήψη της αρχειοθήκης."
-
-msgid "Archive not found."
-msgstr "Η αρχειοθέτηση δεν βρέθηκε."
-
-msgid "Unable to read current digests file."
-msgstr "Αδύνατη η ανάγνωση του τρέχοντος αρχείου ψηφίων."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Το ληφθέν αρχείο δεν φαίνεται να είναι έγκυρο αρχείο."
-
-msgid "Incomplete archive."
-msgstr "Μη ολοκληρωμένη αρχειοθήκη."
-
-msgid "Unable to read digests file."
-msgstr "Αδύνατη η ανάγνωση του αρχείου ψηφίων."
-
-msgid "Invalid digests file."
-msgstr "Μη έγκυρος αριθμός ψηφίων."
-
-msgid "Unable to retrieve prefs:"
-msgstr "Αδύνατη η ανάκτηση prefs:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s δεν είναι ένα έγκυρο αναγνωριστικό pref"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "Η PHP έκδοση είναι %s (%s ή παλαιότερη απαιτείται)."
 
-msgid "No workspace specified"
-msgstr "Δεν καθορίστηκε χώρος εργασίας"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Multibyte string module (mbstring) δεν είναι διαθέσιμο."
+
+msgid "Iconv module is not available."
+msgstr "Το module Iconv δεν είναι διαθέσιμο."
+
+msgid "Output control functions are not available."
+msgstr "Οι λειτουργίες ελέγχου εξόδου δεν είναι διαθέσιμες."
+
+msgid "SimpleXML module is not available."
+msgstr "Το SimpleXML module δεν είναι διαθέσιμο."
+
+msgid "DOM XML module is not available."
+msgstr "Το άρθρωμα XML DOM δεν είναι διαθέσιμο."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "Ο κινητήρας PCRE δεν υποστηρίζει συμβολοσειρές UTF-8."
+
+msgid "SPL module is not available."
+msgstr "Η μονάδα SPL δεν είναι διαθέσιμη."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "Η έκδοση MySQL είναι %s (4.1 ή παλαιότερη απαιτείται)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "Η μηχανή MySQL InnoDB δεν είναι διαθέσιμη."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "Η έκδοση PostgreSQL είναι %s (8.0 ή παλαιότερη απαιτείται)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Κάτι πήγε στραβά με την αυτόματη αναβάθμιση:"
 
-msgid "Site temporarily unavailable"
-msgstr "Ιστοσελίδα προσωρινά μη διαθέσιμη"
+msgid "SQL DELETE requires a FROM source"
+msgstr "Η SQL DELETE απαιτεί πηγή FROM"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Ζητούμε συγγνώμη για αυτή την προσωρινή μη διαθεσιμότητα.<br />Σας ευχαριστούμε για την κατανόησή σας.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "Ο ΠΙΝΑΚΑΣ SQL απαιτεί πηγή FROM"
 
-msgid "Unable to connect to database"
-msgstr "Αδυναμία σύνδεσης στη βάση δεδομένων"
+msgid "SQL INSERT requires an INTO source"
+msgstr "Το SQL INSERT απαιτεί μια πηγή INTO"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "Το SQL JOIN απαιτεί πηγή FROM"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "Το SQL SELECT απαιτεί πηγή FROM"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "Ο ΠΙΝΑΚΑΣ SQL TRUNCATE απαιτεί πηγή ΑΠΟ"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "Η SQL UPDATE απαιτεί πηγή από FROM"
+
+msgid "Bad range"
+msgstr "Bad range"
+
+msgid "Invalid range"
+msgstr "Invalid range"
+
+msgid "Invalid line number"
+msgstr "Μη έγκυρος αριθμός γραμμής"
+
+msgid "Chunk is out of range"
+msgstr "Το τμήμα είναι εκτός εμβέλειας"
+
+msgid "Bad context"
+msgstr "Κακό πλαίσιο"
+
+msgid "Bad context (in deletion)"
+msgstr "Εσφαλμένο πλαίσιο (σε διαγραφή)"
+
+msgid "Invalid diff format"
+msgstr "Μη έγκυρη μορφή diff"
+
+msgid "Unable to open directory."
+msgstr "Αδυναμία ανοίγματος καταλόγου."
+
+msgid "Unable to create directory."
+msgstr "Δεν είναι δυνατή η δημιουργία καταλόγου."
+
+msgid "File is not writable."
+msgstr "Το αρχείο δεν είναι εγγράψιμο."
+
+msgid "Unable to open file."
+msgstr "Αδυναμία ανοίγματος αρχείου."
+
+msgid "Not an uploaded file."
+msgstr "Δεν είναι μεταφορτωμένο αρχείο."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Το μεταφορτωμένο αρχείο υπερβαίνει το μέγιστο επιτρεπόμενο μέγεθος αρχείου."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Το αρχείο μεταφορτώθηκε μόνο εν μέρει."
+
+msgid "No file was uploaded."
+msgstr "Δεν μεταφορτώθηκε αρχείο."
+
+msgid "Missing a temporary folder."
+msgstr "Λείπει ένας προσωρινός φάκελος."
+
+msgid "Failed to write file to disk."
+msgstr "Αποτυχία εγγραφής αρχείου στο δίσκο."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "Μια επέκταση PHP σταμάτησε τη μεταφόρτωση αρχείου."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Αυτό σημαίνει ότι το όνομα χρήστη και οι πληροφορίες κωδικού πρόσβασης στο config <strong>σας. hp</strong> το αρχείο είναι λανθασμένο ή δεν μπορούμε να επικοινωνήσουμε με το διακομιστή της βάσης δεδομένων στο \"<em>%s</em>\". Αυτό μπορεί να σημαίνει ότι ο διακομιστής βάσης δεδομένων του υπολογιστή σας είναι κάτω.</p> <ul><li>Είστε σίγουροι ότι έχετε το σωστό όνομα χρήστη και κωδικό πρόσβασης?</li><li>Είστε βέβαιοι ότι έχετε πληκτρολογήσει το σωστό όνομα υπολογιστή?</li><li>Είστε βέβαιοι ότι ο διακομιστής βάσης δεδομένων εκτελείται?</li></ul><p>Αν δεν είστε σίγουροι τι σημαίνουν αυτοί οι όροι θα πρέπει πιθανώς να επικοινωνήσετε με τον πάροχο φιλοξενίας σας. Αν εξακολουθείτε να χρειάζεστε βοήθεια, μπορείτε πάντα να επισκεφθείτε τα <a href=\"https://forum.dotclear.net/\">Dotclear Φόρουμ Υποστήριξης</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s δεν είναι κατάλογος."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "Προέκυψε το ακόλουθο σφάλμα κατά την προσπάθεια ανάγνωσης της βάσης δεδομένων:"
+msgid "Can't get file path"
+msgstr "Αδυναμία λήψης διαδρομής αρχείου"
 
-msgid "No process found"
-msgstr "Δεν βρέθηκε διεργασία"
+msgid "Can't lock a directory"
+msgstr "Αδυναμία κλειδώματος φακέλου"
 
-msgid "Process failed"
-msgstr "Η διαδικασία απέτυχε"
+msgid "Can't call php function named flock"
+msgstr "Αδυναμία κλήσης php συνάρτησης που ονομάζεται σμήνος"
+
+msgid "Can't create file"
+msgstr "Αδυναμία δημιουργίας αρχείου"
+
+msgid "Can't open file"
+msgstr "Αδυναμία ανοίγματος αρχείου"
+
+msgid "Can't lock file"
+msgstr "Αδυναμία κλειδώματος αρχείου"
+
+msgid "File cannot be removed."
+msgstr "Το αρχείο δεν μπορεί να αφαιρεθεί."
+
+msgid "Not enough memory to open image."
+msgstr "Δεν υπάρχει αρκετή μνήμη για άνοιγμα εικόνας."
+
+msgid "Uploading this file is not allowed."
+msgstr "Η μεταφόρτωση αυτού του αρχείου δεν επιτρέπεται."
+
+msgid "Destination directory is not in jail."
+msgstr "Ο κατάλογος προορισμού δεν είναι στη φυλακή."
+
+msgid "File already exists."
+msgstr "Το αρχείο υπάρχει ήδη."
+
+msgid "Cannot write in this directory."
+msgstr "Αδυναμία εγγραφής σε αυτόν τον κατάλογο."
+
+msgid "Source file does not exist."
+msgstr "Το αρχείο προέλευσης δεν υπάρχει."
+
+msgid "File is not in jail."
+msgstr "Το αρχείο δεν είναι στη φυλακή."
+
+msgid "Destination directory is not writable."
+msgstr "Ο κατάλογος προορισμού δεν είναι εγγράψιμος."
+
+msgid "Unable to rename file."
+msgstr "Αδυναμία μετονομασίας αρχείου."
+
+msgid "Directory is not in jail."
+msgstr "Ο κατάλογος δεν είναι στη φυλακή."
+
+msgid "Directory cannot be removed."
+msgstr "Ο κατάλογος δεν μπορεί να αφαιρεθεί."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Το αρχείο %s δεν συμπιέζεται στο φερμουάρ."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Προσπαθώντας να αποσυμπιέσετε ένα όνομα φακέλου %s"
+
+msgid "Unable to write destination file."
+msgstr "Αδυναμία εγγραφής αρχείου προορισμού."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Δεν είναι δυνατή η εγγραφή στον κατάλογο προορισμού, η άδεια απορρίπτεται."
+
+msgid "Not enough memory to open file."
+msgstr "Δεν υπάρχει αρκετή μνήμη για άνοιγμα αρχείου."
+
+msgid "File does not exist"
+msgstr "Το αρχείο δεν υπάρχει"
+
+msgid "Cannot read file"
+msgstr "Αδυναμία ανάγνωσης αρχείου"
+
+msgid "Directory does not exist"
+msgstr "Ο κατάλογος δεν υπάρχει"
+
+msgid "Cannot read directory"
+msgstr "Αδυναμία ανάγνωσης καταλόγου"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Δεν βρέθηκε ετικέτα κλεισίματος για το μπλοκ <tpl:%s>. Το περιεχόμενο έχει αγνοηθεί."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Βρέθηκε μη αναμενόμενη ετικέτα κλεισίματος </tpl:%s>."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κατά την ανάλυση του αρχείου προτύπου έχουν βρεθεί τα ακόλουθα λάθη:"
 
 msgid "Dotclear has been upgraded."
 msgstr "Το Dotclear έχει αναβαθμιστεί."
@@ -2394,11 +2661,18 @@ msgstr "Όλα τα δικαιώματα σε αυτό το blog."
 msgid "Change permissions"
 msgstr "Αλλαγή δικαιωμάτων"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Οι ακόλουθες επεκτάσεις έχουν απενεργοποιηθεί :"
+
 msgid "Theme configuration"
 msgstr "Διαμόρφωση θέματος"
 
 msgid "Themes management"
 msgstr "Διαχείριση θεμάτων"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "Ο χειροκίνητος έλεγχος των ενημερώσεων θεμάτων ολοκληρώθηκε επιτυχώς."
@@ -2654,6 +2928,10 @@ msgstr "Διαγραφή όλων των ανεπιθύμητων μηνυμάτ
 
 msgid "Selected comments action:"
 msgstr "Επιλεγμένη ενέργεια σχολίων:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Οι ακόλουθες επεκτάσεις έχουν απενεργοποιηθεί :"
 
 msgid "Documentation and support"
 msgstr "Τεκμηρίωση και υποστήριξη"
@@ -3303,9 +3581,6 @@ msgstr "Προσωπικές σημειώσεις:"
 msgid "Unpublished notes."
 msgstr "Μη δημοσιευμένες σημειώσεις."
 
-msgid "Preview"
-msgstr "Προεπισκόπηση"
-
 msgid "Add a comment"
 msgstr "Προσθέστε ένα σχόλιο"
 
@@ -3501,10 +3776,6 @@ msgstr "Εξαναγκασμός ελέγχου ενημερώσεων Dotclear"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s είναι διαθέσιμο."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "Η PHP έκδοση είναι %s (%s ή παλαιότερη απαιτείται)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Για να αναβαθμίσετε την εγκατάσταση Dotclear απλά κάντε κλικ στο παρακάτω κουμπί. Ένα αρχείο αντιγράφου ασφαλείας της τρέχουσας εγκατάστασής σας θα δημιουργηθεί στον ριζικό σας κατάλογο."
@@ -3912,179 +4183,6 @@ msgstr "Πρόκειται να αλλάξετε τα δικαιώματα στ�
 msgid "Validate permissions"
 msgstr "Επικύρωση δικαιωμάτων"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "Η SQL DELETE απαιτεί πηγή FROM"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "Ο ΠΙΝΑΚΑΣ SQL απαιτεί πηγή FROM"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "Το SQL INSERT απαιτεί μια πηγή INTO"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "Το SQL JOIN απαιτεί πηγή FROM"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "Το SQL SELECT απαιτεί πηγή FROM"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "Ο ΠΙΝΑΚΑΣ SQL TRUNCATE απαιτεί πηγή ΑΠΟ"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "Η SQL UPDATE απαιτεί πηγή από FROM"
-
-msgid "Bad range"
-msgstr "Bad range"
-
-msgid "Invalid range"
-msgstr "Invalid range"
-
-msgid "Invalid line number"
-msgstr "Μη έγκυρος αριθμός γραμμής"
-
-msgid "Chunk is out of range"
-msgstr "Το τμήμα είναι εκτός εμβέλειας"
-
-msgid "Bad context"
-msgstr "Κακό πλαίσιο"
-
-msgid "Bad context (in deletion)"
-msgstr "Εσφαλμένο πλαίσιο (σε διαγραφή)"
-
-msgid "Invalid diff format"
-msgstr "Μη έγκυρη μορφή diff"
-
-msgid "Unable to open directory."
-msgstr "Αδυναμία ανοίγματος καταλόγου."
-
-msgid "Unable to create directory."
-msgstr "Δεν είναι δυνατή η δημιουργία καταλόγου."
-
-msgid "File is not writable."
-msgstr "Το αρχείο δεν είναι εγγράψιμο."
-
-msgid "Unable to open file."
-msgstr "Αδυναμία ανοίγματος αρχείου."
-
-msgid "Not an uploaded file."
-msgstr "Δεν είναι μεταφορτωμένο αρχείο."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Το μεταφορτωμένο αρχείο υπερβαίνει το μέγιστο επιτρεπόμενο μέγεθος αρχείου."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Το αρχείο μεταφορτώθηκε μόνο εν μέρει."
-
-msgid "No file was uploaded."
-msgstr "Δεν μεταφορτώθηκε αρχείο."
-
-msgid "Missing a temporary folder."
-msgstr "Λείπει ένας προσωρινός φάκελος."
-
-msgid "Failed to write file to disk."
-msgstr "Αποτυχία εγγραφής αρχείου στο δίσκο."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "Μια επέκταση PHP σταμάτησε τη μεταφόρτωση αρχείου."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s δεν είναι κατάλογος."
-
-msgid "Can't get file path"
-msgstr "Αδυναμία λήψης διαδρομής αρχείου"
-
-msgid "Can't lock a directory"
-msgstr "Αδυναμία κλειδώματος φακέλου"
-
-msgid "Can't call php function named flock"
-msgstr "Αδυναμία κλήσης php συνάρτησης που ονομάζεται σμήνος"
-
-msgid "Can't create file"
-msgstr "Αδυναμία δημιουργίας αρχείου"
-
-msgid "Can't open file"
-msgstr "Αδυναμία ανοίγματος αρχείου"
-
-msgid "Can't lock file"
-msgstr "Αδυναμία κλειδώματος αρχείου"
-
-msgid "File cannot be removed."
-msgstr "Το αρχείο δεν μπορεί να αφαιρεθεί."
-
-msgid "Not enough memory to open image."
-msgstr "Δεν υπάρχει αρκετή μνήμη για άνοιγμα εικόνας."
-
-msgid "Uploading this file is not allowed."
-msgstr "Η μεταφόρτωση αυτού του αρχείου δεν επιτρέπεται."
-
-msgid "Destination directory is not in jail."
-msgstr "Ο κατάλογος προορισμού δεν είναι στη φυλακή."
-
-msgid "File already exists."
-msgstr "Το αρχείο υπάρχει ήδη."
-
-msgid "Cannot write in this directory."
-msgstr "Αδυναμία εγγραφής σε αυτόν τον κατάλογο."
-
-msgid "Source file does not exist."
-msgstr "Το αρχείο προέλευσης δεν υπάρχει."
-
-msgid "File is not in jail."
-msgstr "Το αρχείο δεν είναι στη φυλακή."
-
-msgid "Destination directory is not writable."
-msgstr "Ο κατάλογος προορισμού δεν είναι εγγράψιμος."
-
-msgid "Unable to rename file."
-msgstr "Αδυναμία μετονομασίας αρχείου."
-
-msgid "Directory is not in jail."
-msgstr "Ο κατάλογος δεν είναι στη φυλακή."
-
-msgid "Directory cannot be removed."
-msgstr "Ο κατάλογος δεν μπορεί να αφαιρεθεί."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Το αρχείο %s δεν συμπιέζεται στο φερμουάρ."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Προσπαθώντας να αποσυμπιέσετε ένα όνομα φακέλου %s"
-
-msgid "Unable to write destination file."
-msgstr "Αδυναμία εγγραφής αρχείου προορισμού."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Δεν είναι δυνατή η εγγραφή στον κατάλογο προορισμού, η άδεια απορρίπτεται."
-
-msgid "Not enough memory to open file."
-msgstr "Δεν υπάρχει αρκετή μνήμη για άνοιγμα αρχείου."
-
-msgid "File does not exist"
-msgstr "Το αρχείο δεν υπάρχει"
-
-msgid "Cannot read file"
-msgstr "Αδυναμία ανάγνωσης αρχείου"
-
-msgid "Directory does not exist"
-msgstr "Ο κατάλογος δεν υπάρχει"
-
-msgid "Cannot read directory"
-msgstr "Αδυναμία ανάγνωσης καταλόγου"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "Δεν βρέθηκε ετικέτα κλεισίματος για το μπλοκ <tpl:%s>. Το περιεχόμενο έχει αγνοηθεί."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Βρέθηκε μη αναμενόμενη ετικέτα κλεισίματος </tpl:%s>."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κατά την ανάλυση του αρχείου προτύπου έχουν βρεθεί τα ακόλουθα λάθη:"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Παρακαλώ ορίστε ένα κύριο κλειδί (DC_MASTER_KEY) στο αρχείο ρυθμίσεων."
 
@@ -4171,38 +4269,6 @@ msgstr "Η εγκατάσταση δεν μπορεί να ολοκληρωθε�
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Για τους λόγους που προανέφερα, το Dotclear δεν μπορεί να εγκατασταθεί. Παρακαλούμε ανατρέξτε στην <a href=\"https://dotclear.org/documentation/2.0/admin/install\">τεκμηρίωση</a> για να μάθετε πώς να διορθώνετε το πρόβλημα."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Multibyte string module (mbstring) δεν είναι διαθέσιμο."
-
-msgid "Iconv module is not available."
-msgstr "Το module Iconv δεν είναι διαθέσιμο."
-
-msgid "Output control functions are not available."
-msgstr "Οι λειτουργίες ελέγχου εξόδου δεν είναι διαθέσιμες."
-
-msgid "SimpleXML module is not available."
-msgstr "Το SimpleXML module δεν είναι διαθέσιμο."
-
-msgid "DOM XML module is not available."
-msgstr "Το άρθρωμα XML DOM δεν είναι διαθέσιμο."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "Ο κινητήρας PCRE δεν υποστηρίζει συμβολοσειρές UTF-8."
-
-msgid "SPL module is not available."
-msgstr "Η μονάδα SPL δεν είναι διαθέσιμη."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "Η έκδοση MySQL είναι %s (4.1 ή παλαιότερη απαιτείται)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "Η μηχανή MySQL InnoDB δεν είναι διαθέσιμη."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "Η έκδοση PostgreSQL είναι %s (8.0 ή παλαιότερη απαιτείται)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Η διαδρομή <strong>%s</strong> δεν είναι εγγράψιμη."
@@ -4287,6 +4353,9 @@ msgstr "Κύριο Email: (χρησιμοποιείται ως αποστολέ�
 
 msgid "Continue"
 msgstr "Συνέχεια"
+
+#~ msgid "No process found"
+#~ msgstr "Δεν βρέθηκε διεργασία"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

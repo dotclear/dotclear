@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:34\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Назва"
+msgid "medium"
+msgstr "середній"
+
+msgid "small"
+msgstr "невеликий"
+
+msgid "thumbnail"
+msgstr "мініатюра"
+
+msgid "square"
+msgstr "площа"
 
 msgid "Posts"
 msgstr "Пости"
+
+msgid "Pages"
+msgstr "Сторінки"
+
+msgid "administrator"
+msgstr "адміністратор"
+
+msgid "manage all entries and comments"
+msgstr "керувати всіма записами та коментарями"
+
+msgid "manage their own entries and comments"
+msgstr "керувати власними записами та коментарями"
+
+msgid "publish entries and comments"
+msgstr "публікувати записи та коментарі"
+
+msgid "delete entries and comments"
+msgstr "видаляти записи та коментарі"
+
+msgid "manage categories"
+msgstr "керувати категоріями"
+
+msgid "manage all media items"
+msgstr "керувати всіма елементами медіа"
+
+msgid "manage their own media items"
+msgstr "керувати власними медіаматеріалами"
+
+msgid "That user does not exist in the database."
+msgstr "Такого користувача не існує в базі даних."
+
+msgid "That key does not exist in the database."
+msgstr "Такого ключа не існує в базі даних."
+
+msgid "Pending"
+msgstr "На розгляді"
+
+msgid "Scheduled"
+msgstr "Заплановано"
+
+msgid "Unpublished"
+msgstr "Неопублікований"
+
+msgid "Published"
+msgstr "Опубліковано"
+
+msgid "Junk"
+msgstr "Мотлох."
+
+msgid "You are not allowed to add categories"
+msgstr "Ви не маєте права додавати категорії"
+
+msgid "You are not allowed to update categories"
+msgstr "Ви не маєте права оновлювати категорії"
+
+msgid "You are not allowed to delete categories"
+msgstr "Ви не маєте права видаляти категорії"
+
+msgid "This category is not empty."
+msgstr "Ця категорія не порожня."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Ви не маєте права скидати порядок категорій"
+
+msgid "Empty category URL"
+msgstr "Порожня URL-адреса категорії"
+
+msgid "You must provide a category title"
+msgstr "Ви повинні вказати назву категорії"
+
+msgid "You must provide a category URL"
+msgstr "Ви повинні вказати URL-адресу категорії"
+
+msgid "You are not allowed to create an entry"
+msgstr "Ви не маєте права створювати записи"
+
+msgid "You are not allowed to update entries"
+msgstr "Ви не маєте права оновлювати записи"
+
+msgid "No such entry ID"
+msgstr "Немає такого ідентифікатора запису"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Ви не маєте права редагувати цей запис"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Ви не маєте права змінювати цей статус запису"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Ви не маєте права змінювати цю категорію заявок"
+
+msgid "You are not allowed to change entries category"
+msgstr "Ви не маєте права змінювати категорію заявки"
+
+msgid "You are not allowed to delete entries"
+msgstr "Ви не маєте права видаляти записи"
+
+msgid "No entry title"
+msgstr "Немає назви запису"
+
+msgid "No entry content"
+msgstr "Немає вмісту для входу"
+
+msgid "Notes"
+msgstr "Примітки"
+
+msgid "Note"
+msgstr "Примітка"
+
+msgid "Empty entry URL"
+msgstr "Порожня URL-адреса запису"
+
+msgid "You are not allowed to update comments"
+msgstr "Ви не маєте права оновлювати коментарі"
+
+msgid "No such comment ID"
+msgstr "Немає такого ідентифікатора коментаря"
+
+msgid "You are not allowed to update this comment"
+msgstr "Ви не маєте права оновлювати цей коментар"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Ви не маєте права змінювати статус цього коментаря"
+
+msgid "You are not allowed to delete comments"
+msgstr "Ви не маєте права видаляти коментарі"
+
+msgid "You must provide a comment"
+msgstr "Ви повинні надати коментар"
+
+msgid "You must provide an author name"
+msgstr "Ви повинні вказати ім'я автора"
+
+msgid "Email address is not valid."
+msgstr "Адреса електронної пошти не є дійсною."
+
+msgid "online"
+msgstr "онлайн"
+
+msgid "offline"
+msgstr "в автономному режимі"
+
+msgid "removed"
+msgstr "видалено"
+
+msgid "You are not an administrator"
+msgstr "Ви не є адміністратором"
+
+msgid "No user ID given"
+msgstr "Ідентифікатор користувача не вказано"
+
+msgid "No password given"
+msgstr "Пароль не вказано"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Ідентифікатор користувача повинен містити щонайменше 2 символи, використовуючи літери, цифри або символи."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Пароль повинен містити щонайменше 6 символів."
+
+msgid "Invalid user language code"
+msgstr "Неправильний код мови користувача"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Ідентифікатор блогу повинен містити щонайменше 2 символи, використовуючи літери, цифри або символи."
+
+msgid "No blog name"
+msgstr "Немає назви блогу"
+
+msgid "No blog URL"
+msgstr "Немає URL-адреси блогу"
+
+msgid "No log message"
+msgstr "Немає повідомлення в журналі"
+
+msgid "unknown"
+msgstr "невідомо"
+
+msgid "No blog defined."
+msgstr "Блог не визначено."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "За адресою, вказаною у параметрі about:config \"public_path\", немає каталогу /public/, доступного для запису. Ви повинні створити цей каталог з достатніми правами (або змінити цей параметр)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Для медіаменеджера немає кореневого каталогу, доступного для запису. Зверніться до вашого адміністратора."
+
+msgid "You are not a super administrator."
+msgstr "Ви не супер-адміністратор."
+
+msgid "Permission denied."
+msgstr "У дозволі відмовлено."
+
+msgid "You are not the file owner."
+msgstr "Ви не є власником файлу."
+
+msgid "This file is not allowed."
+msgstr "Цей файл не дозволено."
+
+msgid "New file already exists."
+msgstr "Новий файл вже існує."
+
+msgid "File does not exist in the database."
+msgstr "Файл не існує в базі даних."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "Каталог призначення розпакування %s вже існує."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Потрібен модуль %s , який не встановлено"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Потрібна %s версія %s, але встановлено версію %s"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Потрібен модуль %s , який відключено"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "Модуль \"%s\" має тип \"%s\", що не відповідає необхідному типу модуля \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "Модуль \"%s\" встановлюється двічі в \"%s\" та \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Порожній zip-файл модуля."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "Здається, що zip-файл не є дійсним модулем Dotclear."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Неможливо оновити \"%s\". (Оновлення заблоковано)"
+
+msgid "An error occurred during module deletion."
+msgstr "Під час видалення модуля сталася помилка."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "Неможливо оновити \"%s\". (старішу або таку саму версію)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "Не вдалося прочитати новий файл %s"
+
+msgid "Cannot deactivate plugin."
+msgstr "Не вдається деактивувати плагін."
+
+msgid "No such module."
+msgstr "Такого модуля немає."
+
+msgid "Cannot remove module files"
+msgstr "Не вдається видалити файли модулів"
+
+msgid "Cannot activate plugin."
+msgstr "Не вдається активувати плагін."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Неправильне значення простору імен dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Не вдається отримати налаштування:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s не є коректним ідентифікатором параметра"
+
+msgid "No namespace specified"
+msgstr "Не вказано простір імен"
+
+msgid "No notice message"
+msgstr "Немає повідомлення"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "Не вдається отримати робочі простори:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Неправильний dcWorkspace: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "Не вдається отримати простори імен:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Неправильний простір імен параметрів: %s"
+
+msgid "Wrong data feed"
+msgstr "Неправильна подача даних"
+
+msgid "An error occurred while downloading the file."
+msgstr "Під час завантаження файлу сталася помилка."
+
+msgid "Themes folder unreachable"
+msgstr "Папка з темами недоступна"
+
+msgid "Themes folder unreadable"
+msgstr "Папка з темами нечитабельна"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (копія #%s)"
+
+msgid " (copy)"
+msgstr " (копія)"
+
+msgid "Unable to modify _define.php"
+msgstr "Не вдається змінити _define.php"
+
+msgid "Destination folder already exist"
+msgstr "Папка призначення вже існує"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s все ще пінгується"
+
+msgid "Unable to ping URL"
+msgstr "Не вдається пінгувати URL-адресу"
+
+msgid "Bad server response code"
+msgstr "Поганий код відповіді сервера"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s не є URL-адресою для пінгу"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%sпомилка пінгу:"
+
+msgid "Don't repeat yourself, please."
+msgstr "Не повторюйся, будь ласка."
+
+msgid "Where's your title?"
+msgstr "Де твій титул?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Вибачте, виникла внутрішня проблема."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Дякую, друже. Було дуже приємно."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "Є шанс, що ти пропінгуєш щось з мого вмісту? Ні? Справді?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Вибачте, але ви не можете пінгувати цей тип контенту."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Упс. Щось типу \"не знайдено\". Будь ласка, перевірте цільову URL-адресу двічі."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Вибач, чувак. Цей запис наразі не підтримує зворотний зв'язок."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "Ваша URL-адреса джерела не схожа на підтримуваний тип вмісту. Вибачте. Бувайте, бувайте!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "Не вказано правильну URL-адресу джерела? Спробуйте ще раз!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "Не вказано правильну цільову URL-адресу? Спробуйте ще раз!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "Файл дайджесту не знайдено."
+
+msgid "No file to download"
+msgstr "Немає файлу для завантаження"
+
+msgid "Root directory is not writable."
+msgstr "Кореневий каталог є недоступним для запису."
+
+msgid "An error occurred while downloading archive."
+msgstr "Під час завантаження архіву сталася помилка."
+
+msgid "Archive not found."
+msgstr "Архів не знайдено."
+
+msgid "Unable to read current digests file."
+msgstr "Не вдалося прочитати поточний файл дайджестів."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Завантажений файл, схоже, не є дійсним архівом."
+
+msgid "Incomplete archive."
+msgstr "Неповний архів."
+
+msgid "Unable to read digests file."
+msgstr "Неможливо прочитати файл дайджестів."
+
+msgid "Invalid digests file."
+msgstr "Неправильний файл дайджесту."
+
+msgid "Unable to retrieve prefs:"
+msgstr "Не вдається отримати префікси:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s не є коректним префіксом"
+
+msgid "No workspace specified"
+msgstr "Не вказано робочий простір"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "Не вдається видалити файл %s"
+
+msgid "Process failed"
+msgstr "Процес завершився невдало"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Файл дайджесту не знайдено."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Чітких новин немає"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "Не знайдено жодного результату"
+
+msgid "Site temporarily unavailable"
+msgstr "Сайт тимчасово недоступний"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Просимо вибачення за тимчасову недоступність.<br />Дякуємо за розуміння.</p>"
+
+msgid "Unable to connect to database"
+msgstr "Не вдається підключитися до бази даних"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Це означає, що інформація про ім'я користувача та пароль у вашому файлі <strong>config.php</strong> невірна, або ми не можемо зв'язатися з сервером бази даних за адресою \"<em>%s</em>\". Це може означати, що сервер бази даних вашого хостера не працює.</p> <ul><li>Ви впевнені, що у вас правильні ім'я користувача та пароль?</li><li>Ви впевнені, що ввели правильне ім'я хоста?</li><li>Ви впевнені, що сервер бази даних працює?</li></ul><p>Якщо ви не знаєте, що означають ці терміни, вам слід звернутися до вашого хостера. Якщо вам все ще потрібна допомога, ви завжди можете відвідати форуми підтримки Dotclear <a href=\"https://forum.dotclear.net/\">та</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "При спробі прочитати базу даних виникла наступна помилка:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Назва"
 
 msgid "Blogs"
 msgstr "Блоги"
@@ -272,79 +738,6 @@ msgstr "Найбільш вживані"
 msgid "Entry language:"
 msgstr "Мова входу:"
 
-msgid "Database error"
-msgstr "Помилка в базі даних"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Здається, у вашій базі даних відсутня таблиця Session. Чи повністю встановлено Dotclear?"
-
-msgid "Precondition Failed"
-msgstr "Передумова не виконана"
-
-msgid "System settings"
-msgstr "Налаштування системи"
-
-msgid "Blog"
-msgstr "Блог"
-
-msgid "Plugins"
-msgstr "Плагіни"
-
-msgid "Blog appearance"
-msgstr "Зовнішній вигляд блогу"
-
-msgid "Blog settings"
-msgstr "Налаштування блогу"
-
-msgid "Media manager"
-msgstr "Медіа-менеджер"
-
-msgid "Categories"
-msgstr "Категорії"
-
-msgid "Search"
-msgstr "Пошук"
-
-msgid "New post"
-msgstr "Нова публікація"
-
-msgid "My preferences"
-msgstr "Мої уподобання"
-
-msgid "Update"
-msgstr "Оновлення"
-
-msgid "Languages"
-msgstr "Мови"
-
-msgid "Plugins management"
-msgstr "Керування плагінами"
-
-msgid "Users"
-msgstr "Користувачі"
-
-msgid "My favorites"
-msgstr "Мої улюблені."
-
-msgid "Global help"
-msgstr "Глобальна допомога"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d пост"
-msgstr[1] "%d пости"
-msgstr[2] "%d пости"
-msgstr[3] "%d пости"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d коментар"
-msgstr[1] "%d коментарі"
-msgstr[2] "%d коментарі"
-msgstr[3] "%d коментарі"
-
 msgid "Descending"
 msgstr "Спадний"
 
@@ -372,11 +765,11 @@ msgstr "Назва роботи"
 msgid "Entry date"
 msgstr "Дата вступу"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "Фільтр спаму"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "Останнє оновлення"
@@ -399,35 +792,96 @@ msgstr "Відображати ім'я"
 msgid "Number of entries"
 msgstr "Кількість конкурсних робіт"
 
-msgid "Show filters and display options"
-msgstr "Показати фільтри та параметри відображення"
+msgid "My favorites"
+msgstr "Мої улюблені."
 
-msgid "Filters"
-msgstr "Фільтри"
+msgid "My preferences"
+msgstr "Мої уподобання"
 
-msgid "Display options"
-msgstr "Параметри відображення"
+msgid "New post"
+msgstr "Нова публікація"
 
-msgid "Order by:"
-msgstr "Замовляйте:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d пост"
+msgstr[1] "%d пости"
+msgstr[2] "%d пости"
+msgstr[3] "%d пости"
 
-msgid "Sort:"
-msgstr "Сорт:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d коментар"
+msgstr[1] "%d коментарі"
+msgstr[2] "%d коментарі"
+msgstr[3] "%d коментарі"
 
-msgid "Show"
-msgstr "Показати"
+msgid "Search"
+msgstr "Пошук"
 
-msgid "Save current options"
-msgstr "Зберегти поточні параметри"
+msgid "Categories"
+msgstr "Категорії"
 
-msgid "Apply filters and display options"
-msgstr "Застосувати фільтри та параметри відображення"
+msgid "Media manager"
+msgstr "Медіа-менеджер"
+
+msgid "Blog settings"
+msgstr "Налаштування блогу"
+
+msgid "Blog appearance"
+msgstr "Зовнішній вигляд блогу"
+
+msgid "Users"
+msgstr "Користувачі"
+
+msgid "Plugins management"
+msgstr "Керування плагінами"
+
+msgid "Languages"
+msgstr "Мови"
+
+msgid "Global help"
+msgstr "Глобальна допомога"
+
+msgid "Status:"
+msgstr "Статус:"
+
+msgid "Email:"
+msgstr "Електронна пошта:"
+
+msgid "Web site:"
+msgstr "Веб-сайт:"
 
 msgid "Author:"
 msgstr "Автор:"
 
-msgid "Status:"
-msgstr "Статус:"
+msgid "Type:"
+msgstr "Друкуй:"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Trackback"
+msgstr "Зворотній зв'язок"
+
+msgid "IP address:"
+msgstr "IP-адреса:"
+
+msgid "Media type:"
+msgstr "Тип носія:"
+
+msgid "image"
+msgstr "зображення"
+
+msgid "text"
+msgstr "текст"
+
+msgid "audio"
+msgstr "аудіо"
+
+msgid "video"
+msgstr "відео"
 
 msgid "Format:"
 msgstr "Формат:"
@@ -474,56 +928,169 @@ msgstr "Закрито."
 msgid "Trackbacks:"
 msgstr "Відслідковування:"
 
-msgid "Email:"
-msgstr "Електронна пошта:"
+msgid "Show filters and display options"
+msgstr "Показати фільтри та параметри відображення"
 
-msgid "Web site:"
-msgstr "Веб-сайт:"
+msgid "Filters"
+msgstr "Фільтри"
 
-msgid "Type:"
-msgstr "Друкуй:"
+msgid "Display options"
+msgstr "Параметри відображення"
 
-msgid "Comment"
-msgstr "Коментар"
+msgid "Order by:"
+msgstr "Замовляйте:"
 
-msgid "Trackback"
-msgstr "Зворотній зв'язок"
+msgid "Sort:"
+msgstr "Сорт:"
 
-msgid "IP address:"
-msgstr "IP-адреса:"
+msgid "Show"
+msgstr "Показати"
 
-msgid "Media type:"
-msgstr "Тип носія:"
+msgid "Save current options"
+msgstr "Зберегти поточні параметри"
 
-msgid "image"
-msgstr "зображення"
-
-msgid "text"
-msgstr "текст"
-
-msgid "audio"
-msgstr "аудіо"
-
-msgid "video"
-msgstr "відео"
+msgid "Apply filters and display options"
+msgstr "Застосувати фільтри та параметри відображення"
 
 msgid "Search:"
 msgstr "Шукай:"
 
-msgid "Trackbacks"
-msgstr "Зворотний зв'язок"
+msgid "&#171; prev."
+msgstr "&#171; Превелебний."
 
-msgid "users per page"
-msgstr "користувачів на сторінку"
+msgid "next &#187;"
+msgstr "наступний &#187;"
 
-msgid "entries per page"
-msgstr "записів на сторінці"
+msgid "No blog matches the filter"
+msgstr "Жоден блог не відповідає фільтру"
 
-msgid "comments per page"
-msgstr "коментарів на сторінку"
+msgid "No blog"
+msgstr "Немає блогу"
 
-msgid "blogs per page"
-msgstr "блогів на сторінку"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "Конкурсні роботи (всі типи)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d блог відповідає фільтру."
+msgstr[1] "%d блоги відповідають фільтру."
+msgstr[2] "%d блоги відповідають фільтру."
+msgstr[3] "%d блоги відповідають фільтру."
+
+msgid "Blogs list"
+msgstr "Список блогів"
+
+msgid "Legend: "
+msgstr "Легенда: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Відредагуйте налаштування блогу для %s"
+
+msgid "Edit blog settings"
+msgstr "Редагування налаштувань блогу"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Перейдіть на блог %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Немає коментарів або трекбеків, що відповідають фільтру"
+
+msgid "No comments"
+msgstr "Без коментарів"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Коментар або трекбек, що відповідає фільтру."
+msgstr[1] "Список коментарів або трекбеків %s , які відповідають фільтру."
+msgstr[2] "Список коментарів або трекбеків %s , які відповідають фільтру."
+msgstr[3] "Список коментарів або трекбеків %s , які відповідають фільтру."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Список коментарів та трекбеків (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">опублікував</a> (1)"
+msgstr[1] ", <a href=\"%s\">опублікував</a> (%s)"
+msgstr[2] ", <a href=\"%s\">опублікував</a> (%s)"
+msgstr[3] ", <a href=\"%s\">опублікував</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">спам</a> (1)"
+msgstr[1] ", <a href=\"%s\">спам</a> (%s)"
+msgstr[2] ", <a href=\"%s\">спам</a> (%s)"
+msgstr[3] ", <a href=\"%s\">спам</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">на розгляді</a> (1)"
+msgstr[1] ", <a href=\"%s\">в очікуванні</a> (%s)"
+msgstr[2] ", <a href=\"%s\">в очікуванні</a> (%s)"
+msgstr[3] ", <a href=\"%s\">в очікуванні</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">неопубліковані</a> (1)"
+msgstr[1] ", <a href=\"%s\">неопублікований</a> (%s)"
+msgstr[2] ", <a href=\"%s\">неопублікований</a> (%s)"
+msgstr[3] ", <a href=\"%s\">неопублікований</a> (%s)"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Entry"
+msgstr "Вступ"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Відредагуйте %1$s з %2$s"
+
+msgid "comment"
+msgstr "коментар"
+
+msgid "trackback"
+msgstr "зворотній зв'язок"
+
+msgid "Type and author"
+msgstr "Тип і автор"
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "No file matches the filter"
+msgstr "Жоден файл не відповідає фільтру"
+
+msgid "No file."
+msgstr "Файлу немає."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d файл відповідає фільтру."
+msgstr[1] "%d файли відповідають фільтру."
+msgstr[2] "%d файли відповідають фільтру."
+msgstr[3] "%d файли відповідають фільтру."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb елементів: %d → %d папка(и) + %d файл(и)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb предметів: %d"
 
 msgid "Name"
 msgstr "Ім'я"
@@ -531,11 +1098,374 @@ msgstr "Ім'я"
 msgid "Size"
 msgstr "Розмір"
 
-msgid "media per page"
-msgstr "медіа на сторінку"
+msgid "Select this file"
+msgstr "Виберіть цей файл"
 
-msgid "results per page"
-msgstr "результатів на сторінці"
+msgid "Attach this file to entry"
+msgstr "Прикріпіть цей файл до запису"
+
+msgid "Insert this file into entry"
+msgstr "Вставте цей файл до запису"
+
+msgid "delete"
+msgstr "видалити"
+
+msgid "private media"
+msgstr "приватні ЗМІ"
+
+msgid "open"
+msgstr "відкрито"
+
+msgid "No entry matches the filter"
+msgstr "Жоден запис не відповідає фільтру"
+
+msgid "No entry"
+msgstr "Вхід заборонено"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Список записів %s , що відповідають фільтру."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Список робіт (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">запрограмовано</a> (1)"
+msgstr[1] ", <a href=\"%s\">запрограмований</a> (%s)"
+msgstr[2] ", <a href=\"%s\">запрограмований</a> (%s)"
+msgstr[3] ", <a href=\"%s\">запрограмований</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Зворотний зв'язок"
+
+msgid "Protected"
+msgstr "Захищено"
+
+msgid "Attachments"
+msgstr "Вкладення"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d прикріплення"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d вкладення"
+
+msgid "Entries list"
+msgstr "Список заявок на участь"
+
+msgid "No user matches the filter"
+msgstr "Жоден користувач не відповідає фільтру"
+
+msgid "No user"
+msgstr "Немає користувача"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Список користувачів %s відповідає фільтру."
+
+msgid "Users list"
+msgstr "Список користувачів"
+
+msgid "admin"
+msgstr "адміністратор"
+
+msgid "superadmin"
+msgstr "superadmin"
+
+msgid "First page"
+msgstr "Перша сторінка"
+
+msgid "Previous page"
+msgstr "Попередня сторінка"
+
+msgid "Next page"
+msgstr "Наступна сторінка"
+
+msgid "Last page"
+msgstr "Остання сторінка"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Сторінка %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Сторінка прямого доступу %s"
+
+msgid "ok"
+msgstr "Гаразд."
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s файл знайдено"
+msgstr[1] "%s знайдено файлів"
+msgstr[2] "%s знайдено файлів"
+msgstr[3] "%s знайдено файлів"
+
+msgid "Blog"
+msgstr "Блог"
+
+msgid "System settings"
+msgstr "Налаштування системи"
+
+msgid "Plugins"
+msgstr "Плагіни"
+
+msgid "Update"
+msgstr "Оновлення"
+
+msgid "other"
+msgstr "інший"
+
+msgid "Search in repository:"
+msgstr "Пошук у репозиторії:"
+
+msgid "OK"
+msgstr "ГАРАЗД."
+
+msgid "Reset search"
+msgstr "Скинути пошук"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "Допускається пошук за кількома термінами довжиною більше 2 символів, терміни повинні бути відокремлені пробілом."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "Знайдено %d результат для пошуку \"%s\":"
+msgstr[1] "Знайдено %d результатів для пошуку \"%s\":"
+msgstr[2] "Знайдено %d результатів для пошуку \"%s\":"
+msgstr[3] "Знайдено %d результатів для пошуку \"%s\":"
+
+msgid "current selection"
+msgstr "поточний вибір"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d результат"
+msgstr[1] "%d результати"
+msgstr[2] "%d результати"
+msgstr[3] "%d результати"
+
+msgid "no results"
+msgstr "немає результатів"
+
+msgid "Browse index:"
+msgstr "Переглянути індекс:"
+
+msgid "Plugins list"
+msgstr "Список плагінів"
+
+msgid "Score"
+msgstr "Оцінка"
+
+msgid "Version"
+msgstr "Версія"
+
+msgid "Current version"
+msgstr "Поточна версія"
+
+msgid "Details"
+msgstr "Деталі"
+
+msgid "Repository"
+msgstr "Репозиторій"
+
+msgid "Action"
+msgstr "Дія"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Цей модуль не можна вимкнути або видалити, оскільки також увімкнені наступні модулі: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Цей модуль не може бути ввімкнений з наступних причин :"
+
+msgid "Official repository"
+msgstr "Офіційний репозиторій"
+
+msgid "Third-party repository"
+msgstr "Сторонній репозиторій"
+
+msgid "Plugin from official distribution"
+msgstr "Плагін з офіційного дистрибутиву"
+
+msgid "Plugin in development"
+msgstr "Плагін у розробці"
+
+msgid "Support"
+msgstr "Підтримка"
+
+msgid "update locked"
+msgstr "оновлення заблоковано"
+
+msgid "Section:"
+msgstr "Секція:"
+
+msgid "Tags:"
+msgstr "Мітки:"
+
+msgid "No plugins matched your search."
+msgstr "За вашим запитом не знайдено жодного плагіна."
+
+msgid "Configure plugin"
+msgstr "Налаштувати плагін"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Налаштування плагіна (в параметрах блогу)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Налаштування плагіна (у налаштуваннях користувача)"
+
+msgid "Plugin settings"
+msgstr "Налаштування плагіна"
+
+msgid "Plugin main page"
+msgstr "Головна сторінка плагіна"
+
+msgid "Activate"
+msgstr "Активувати"
+
+msgid "Deactivate"
+msgstr "Деактивувати"
+
+msgid "Clone"
+msgstr "Клон"
+
+msgid "Install"
+msgstr "Встановити"
+
+msgid "Activate selected plugins"
+msgstr "Активуйте вибрані плагіни"
+
+msgid "Activate all plugins from this list"
+msgstr "Активуйте всі плагіни з цього списку"
+
+msgid "Deactivate selected plugins"
+msgstr "Деактивуйте вибрані плагіни"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Деактивуйте всі плагіни з цього списку"
+
+msgid "Update selected plugins"
+msgstr "Оновлення вибраних плагінів"
+
+msgid "Update all plugins from this list"
+msgstr "Оновити всі плагіни з цього списку"
+
+msgid "No such plugin."
+msgstr "Такого плагіна немає."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "У вас немає прав на видалення цього плагіна."
+
+msgid "Some plugins have not been delete."
+msgstr "Деякі плагіни не було видалено."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Плагін успішно видалено."
+msgstr[1] "Плагіни було послідовно видалено."
+msgstr[2] "Плагіни було послідовно видалено."
+msgstr[3] "Плагіни було послідовно видалено."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "Плагін успішно встановлено."
+msgstr[1] "Плагіни успішно встановлено."
+msgstr[2] "Плагіни успішно встановлено."
+msgstr[3] "Плагіни успішно встановлено."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Плагін успішно активовано."
+msgstr[1] "Плагіни були послідовно активовані."
+msgstr[2] "Плагіни були послідовно активовані."
+msgstr[3] "Плагіни були послідовно активовані."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Деякі плагіни не були деактивовані."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Плагін успішно деактивовано."
+msgstr[1] "Плагіни були послідовно деактивовані."
+msgstr[2] "Плагіни були послідовно деактивовані."
+msgstr[3] "Плагіни були послідовно деактивовані."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Плагін успішно оновлено."
+msgstr[1] "Плагіни успішно оновлено."
+msgstr[2] "Плагіни успішно оновлено."
+msgstr[3] "Плагіни успішно оновлено."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Заблоковано оновлення таких плагінів: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "Неможливо перемістити завантажений файл."
+
+msgid "The plugin has been successfully updated."
+msgstr "Плагін успішно оновлено."
+
+msgid "The plugin has been successfully installed."
+msgstr "Плагін успішно встановлено."
+
+msgid "Upload a zip file"
+msgstr "Завантажте zip-файл"
+
+msgid "Required field"
+msgstr "Обов'язкове поле"
+
+msgid "Zip file path:"
+msgstr "Шлях до архіву:"
+
+msgid "Your password:"
+msgstr "Ваш пароль:"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Upload"
+msgstr "Завантажити"
+
+msgid "Download a zip file"
+msgstr "Завантажити zip-файл"
+
+msgid "Zip file URL:"
+msgstr "URL-адреса Zip-файлу:"
+
+msgid "Download"
+msgstr "Завантажити"
+
+msgid "Unknown plugin ID"
+msgstr "Невідомий ідентифікатор плагіна"
+
+msgid "This plugin has no configuration file."
+msgstr "Цей плагін не має конфігураційного файлу."
+
+msgid "Insufficient permissions"
+msgstr "Недостатньо дозволів"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Налаштуйте \"%s\""
+
+msgid "Back"
+msgstr "Назад"
 
 msgid "Error:"
 msgstr "Помилка:"
@@ -554,9 +1484,6 @@ msgstr "Блог змін"
 
 msgid "Blogs:"
 msgstr "Блоги:"
-
-msgid "ok"
-msgstr "Гаразд."
 
 msgid "Go to the content"
 msgstr "Перейти до змісту"
@@ -588,9 +1515,6 @@ msgstr "Безпечний режим"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Ви перебуваєте у безпечному режимі. Всі плагіни тимчасово вимкнено. Не забудьте вийти з системи, а потім увійти знову, щоб повернути всі функції"
-
-msgid "OK"
-msgstr "ГАРАЗД."
 
 #, php-format
 msgid "Thank you for using %s."
@@ -763,20 +1687,8 @@ msgstr "Попередження: зміна формату публікації
 msgid "Loading enhanced uploader, please wait."
 msgstr "Завантажується покращений завантажувач, будь ласка, зачекайте."
 
-msgid "Details"
-msgstr "Деталі"
-
-msgid "Support"
-msgstr "Підтримка"
-
 msgid "Help:"
 msgstr "Допоможіть:"
-
-msgid "Section:"
-msgstr "Секція:"
-
-msgid "Tags:"
-msgstr "Мітки:"
 
 msgid "Hide this notice"
 msgstr "Приховати це повідомлення"
@@ -829,9 +1741,6 @@ msgstr "Скасувати"
 msgid "Clean"
 msgstr "Чистий"
 
-msgid "Upload"
-msgstr "Завантажити"
-
 msgid "Send"
 msgstr "Надіслати"
 
@@ -855,244 +1764,35 @@ msgid "Cancel filters and display options"
 msgstr "Скасування фільтрів і параметрів відображення"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s файл знайдено"
-msgstr[1] "%s знайдено файлів"
-msgstr[2] "%s знайдено файлів"
-msgstr[3] "%s знайдено файлів"
-
-msgid "other"
-msgstr "інший"
-
-msgid "Search in repository:"
-msgstr "Пошук у репозиторії:"
-
-msgid "Reset search"
-msgstr "Скинути пошук"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "Допускається пошук за кількома термінами довжиною більше 2 символів, терміни повинні бути відокремлені пробілом."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Знайдено %d результат для пошуку \"%s\":"
-msgstr[1] "Знайдено %d результатів для пошуку \"%s\":"
-msgstr[2] "Знайдено %d результатів для пошуку \"%s\":"
-msgstr[3] "Знайдено %d результатів для пошуку \"%s\":"
+msgid "ratio %.1f"
+msgstr "співвідношення %.1f"
 
-msgid "current selection"
-msgstr "поточний вибір"
+msgid "The 'public' directory does not exist."
+msgstr "Директорії \"public\" не існує."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d результат"
-msgstr[1] "%d результати"
-msgstr[2] "%d результати"
-msgstr[3] "%d результати"
+msgid "The '%s' directory cannot be modified."
+msgstr "Каталог '%s' не може бути змінено."
 
-msgid "no results"
-msgstr "немає результатів"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Принаймні одна з наступних функцій недоступна: imagecreatetruecolor, imagepng та imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "Переглянути індекс:"
+msgid "Unable to create images."
+msgstr "Неможливо створити зображення."
 
-msgid "Plugins list"
-msgstr "Список плагінів"
+msgid "Invalid file type."
+msgstr "Неправильний тип файлу."
 
-msgid "Score"
-msgstr "Оцінка"
-
-msgid "Version"
-msgstr "Версія"
-
-msgid "Current version"
-msgstr "Поточна версія"
-
-msgid "Repository"
-msgstr "Репозиторій"
-
-msgid "Action"
-msgstr "Дія"
+msgid "An error occurred while writing the file."
+msgstr "Під час запису файлу сталася помилка."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Цей модуль не можна вимкнути або видалити, оскільки також увімкнені наступні модулі: %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Цей модуль не може бути ввімкнений з наступних причин :"
-
-msgid "Official repository"
-msgstr "Офіційний репозиторій"
-
-msgid "Third-party repository"
-msgstr "Сторонній репозиторій"
-
-msgid "Plugin from official distribution"
-msgstr "Плагін з офіційного дистрибутиву"
-
-msgid "Plugin in development"
-msgstr "Плагін у розробці"
-
-msgid "update locked"
-msgstr "оновлення заблоковано"
-
-msgid "No plugins matched your search."
-msgstr "За вашим запитом не знайдено жодного плагіна."
-
-msgid "Configure plugin"
-msgstr "Налаштувати плагін"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Налаштування плагіна (в параметрах блогу)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Налаштування плагіна (у налаштуваннях користувача)"
-
-msgid "Plugin settings"
-msgstr "Налаштування плагіна"
-
-msgid "Plugin main page"
-msgstr "Головна сторінка плагіна"
-
-msgid "Activate"
-msgstr "Активувати"
-
-msgid "Deactivate"
-msgstr "Деактивувати"
-
-msgid "Clone"
-msgstr "Клон"
-
-msgid "Install"
-msgstr "Встановити"
-
-msgid "Activate selected plugins"
-msgstr "Активуйте вибрані плагіни"
-
-msgid "Activate all plugins from this list"
-msgstr "Активуйте всі плагіни з цього списку"
-
-msgid "Deactivate selected plugins"
-msgstr "Деактивуйте вибрані плагіни"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Деактивуйте всі плагіни з цього списку"
-
-msgid "Update selected plugins"
-msgstr "Оновлення вибраних плагінів"
-
-msgid "Update all plugins from this list"
-msgstr "Оновити всі плагіни з цього списку"
-
-msgid "No such plugin."
-msgstr "Такого плагіна немає."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "У вас немає прав на видалення цього плагіна."
-
-msgid "Some plugins have not been delete."
-msgstr "Деякі плагіни не було видалено."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Плагін успішно видалено."
-msgstr[1] "Плагіни було послідовно видалено."
-msgstr[2] "Плагіни було послідовно видалено."
-msgstr[3] "Плагіни було послідовно видалено."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Плагін успішно встановлено."
-msgstr[1] "Плагіни успішно встановлено."
-msgstr[2] "Плагіни успішно встановлено."
-msgstr[3] "Плагіни успішно встановлено."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Плагін успішно активовано."
-msgstr[1] "Плагіни були послідовно активовані."
-msgstr[2] "Плагіни були послідовно активовані."
-msgstr[3] "Плагіни були послідовно активовані."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Деякі плагіни не були деактивовані."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Плагін успішно деактивовано."
-msgstr[1] "Плагіни були послідовно деактивовані."
-msgstr[2] "Плагіни були послідовно деактивовані."
-msgstr[3] "Плагіни були послідовно деактивовані."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Плагін успішно оновлено."
-msgstr[1] "Плагіни успішно оновлено."
-msgstr[2] "Плагіни успішно оновлено."
-msgstr[3] "Плагіни успішно оновлено."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Заблоковано оновлення таких плагінів: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "Неможливо перемістити завантажений файл."
-
-msgid "The plugin has been successfully updated."
-msgstr "Плагін успішно оновлено."
-
-msgid "The plugin has been successfully installed."
-msgstr "Плагін успішно встановлено."
-
-msgid "Upload a zip file"
-msgstr "Завантажте zip-файл"
-
-msgid "Required field"
-msgstr "Обов'язкове поле"
-
-msgid "Zip file path:"
-msgstr "Шлях до архіву:"
-
-msgid "Your password:"
-msgstr "Ваш пароль:"
-
-msgid "Password"
-msgstr "Пароль"
-
-msgid "Download a zip file"
-msgstr "Завантажити zip-файл"
-
-msgid "Zip file URL:"
-msgstr "URL-адреса Zip-файлу:"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "Завантажити"
-
-msgid "Unknown plugin ID"
-msgstr "Невідомий ідентифікатор плагіна"
-
-msgid "This plugin has no configuration file."
-msgstr "Цей плагін не має конфігураційного файлу."
-
-msgid "Insufficient permissions"
-msgstr "Недостатньо дозволів"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Налаштуйте \"%s\""
-
-msgid "Back"
-msgstr "Назад"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Завантажене зображення не має %s пікселів у ширину."
 
 #, php-format
 msgid "Score: %s"
@@ -1133,6 +1833,9 @@ msgstr "Нічого не знайдено за вашим запитом."
 
 msgid "Use this one"
 msgstr "Використовуйте цей"
+
+msgid "Preview"
+msgstr "Попередній перегляд"
 
 msgid "Update selected themes"
 msgstr "Оновлення вибраних тем"
@@ -1208,717 +1911,281 @@ msgstr "Тему успішно оновлено."
 msgid "The theme has been successfully installed."
 msgstr "Тему успішно встановлено."
 
-msgid "First page"
-msgstr "Перша сторінка"
+msgid "users per page"
+msgstr "користувачів на сторінку"
 
-msgid "Previous page"
-msgstr "Попередня сторінка"
+msgid "entries per page"
+msgstr "записів на сторінці"
 
-msgid "Next page"
-msgstr "Наступна сторінка"
+msgid "comments per page"
+msgstr "коментарів на сторінку"
 
-msgid "Last page"
-msgstr "Остання сторінка"
+msgid "blogs per page"
+msgstr "блогів на сторінку"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "Сторінка %s / %s"
+msgid "media per page"
+msgstr "медіа на сторінку"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "Сторінка прямого доступу %s"
+msgid "results per page"
+msgstr "результатів на сторінці"
 
-msgid "&#171; prev."
-msgstr "&#171; Превелебний."
+msgid "Database error"
+msgstr "Помилка в базі даних"
 
-msgid "next &#187;"
-msgstr "наступний &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Здається, у вашій базі даних відсутня таблиця Session. Чи повністю встановлено Dotclear?"
 
-msgid "No entry matches the filter"
-msgstr "Жоден запис не відповідає фільтру"
+msgid "Precondition Failed"
+msgstr "Передумова не виконана"
 
-msgid "No entry"
-msgstr "Вхід заборонено"
+#, fuzzy
+msgid "Database problem"
+msgstr "Помилка в базі даних"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Список записів %s , що відповідають фільтру."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "При спробі прочитати базу даних виникла наступна помилка:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Список робіт (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">опублікував</a> (1)"
-msgstr[1] ", <a href=\"%s\">опублікував</a> (%s)"
-msgstr[2] ", <a href=\"%s\">опублікував</a> (%s)"
-msgstr[3] ", <a href=\"%s\">опублікував</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">на розгляді</a> (1)"
-msgstr[1] ", <a href=\"%s\">в очікуванні</a> (%s)"
-msgstr[2] ", <a href=\"%s\">в очікуванні</a> (%s)"
-msgstr[3] ", <a href=\"%s\">в очікуванні</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">запрограмовано</a> (1)"
-msgstr[1] ", <a href=\"%s\">запрограмований</a> (%s)"
-msgstr[2] ", <a href=\"%s\">запрограмований</a> (%s)"
-msgstr[3] ", <a href=\"%s\">запрограмований</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">неопубліковані</a> (1)"
-msgstr[1] ", <a href=\"%s\">неопублікований</a> (%s)"
-msgstr[2] ", <a href=\"%s\">неопублікований</a> (%s)"
-msgstr[3] ", <a href=\"%s\">неопублікований</a> (%s)"
-
-msgid "Legend: "
-msgstr "Легенда: "
-
-msgid "Published"
-msgstr "Опубліковано"
-
-msgid "Unpublished"
-msgstr "Неопублікований"
-
-msgid "Scheduled"
-msgstr "Заплановано"
-
-msgid "Pending"
-msgstr "На розгляді"
-
-msgid "Protected"
-msgstr "Захищено"
-
-msgid "Attachments"
-msgstr "Вкладення"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d прикріплення"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d вкладення"
-
-msgid "Entries list"
-msgstr "Список заявок на участь"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Немає коментарів або трекбеків, що відповідають фільтру"
-
-msgid "No comments"
-msgstr "Без коментарів"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Коментар або трекбек, що відповідає фільтру."
-msgstr[1] "Список коментарів або трекбеків %s , які відповідають фільтру."
-msgstr[2] "Список коментарів або трекбеків %s , які відповідають фільтру."
-msgstr[3] "Список коментарів або трекбеків %s , які відповідають фільтру."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Список коментарів та трекбеків (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">спам</a> (1)"
-msgstr[1] ", <a href=\"%s\">спам</a> (%s)"
-msgstr[2] ", <a href=\"%s\">спам</a> (%s)"
-msgstr[3] ", <a href=\"%s\">спам</a> (%s)"
-
-msgid "Type"
-msgstr "Тип"
-
-msgid "Entry"
-msgstr "Вступ"
-
-msgid "Junk"
-msgstr "Мотлох."
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Відредагуйте %1$s з %2$s"
-
-msgid "comment"
-msgstr "коментар"
-
-msgid "trackback"
-msgstr "зворотній зв'язок"
-
-msgid "Type and author"
-msgstr "Тип і автор"
-
-msgid "Edit"
-msgstr "Редагувати"
-
-msgid "No blog matches the filter"
-msgstr "Жоден блог не відповідає фільтру"
-
-msgid "No blog"
-msgstr "Немає блогу"
-
-msgid "Entries (all types)"
-msgstr "Конкурсні роботи (всі типи)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d блог відповідає фільтру."
-msgstr[1] "%d блоги відповідають фільтру."
-msgstr[2] "%d блоги відповідають фільтру."
-msgstr[3] "%d блоги відповідають фільтру."
-
-msgid "Blogs list"
-msgstr "Список блогів"
-
-msgid "online"
-msgstr "онлайн"
-
-msgid "offline"
-msgstr "в автономному режимі"
-
-msgid "removed"
-msgstr "видалено"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Відредагуйте налаштування блогу для %s"
-
-msgid "Edit blog settings"
-msgstr "Редагування налаштувань блогу"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Перейдіть на блог %s"
-
-msgid "No user matches the filter"
-msgstr "Жоден користувач не відповідає фільтру"
-
-msgid "No user"
-msgstr "Немає користувача"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Список користувачів %s відповідає фільтру."
-
-msgid "Users list"
-msgstr "Список користувачів"
-
-msgid "admin"
-msgstr "адміністратор"
-
-msgid "superadmin"
-msgstr "superadmin"
-
-msgid "No file matches the filter"
-msgstr "Жоден файл не відповідає фільтру"
-
-msgid "No file."
-msgstr "Файлу немає."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d файл відповідає фільтру."
-msgstr[1] "%d файли відповідають фільтру."
-msgstr[2] "%d файли відповідають фільтру."
-msgstr[3] "%d файли відповідають фільтру."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb елементів: %d → %d папка(и) + %d файл(и)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Nb предметів: %d"
-
-msgid "Select this file"
-msgstr "Виберіть цей файл"
-
-msgid "Attach this file to entry"
-msgstr "Прикріпіть цей файл до запису"
-
-msgid "Insert this file into entry"
-msgstr "Вставте цей файл до запису"
-
-msgid "delete"
-msgstr "видалити"
-
-msgid "private media"
-msgstr "приватні ЗМІ"
-
-msgid "open"
-msgstr "відкрито"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "співвідношення %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "Директорії \"public\" не існує."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Каталог '%s' не може бути змінено."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Принаймні одна з наступних функцій недоступна: imagecreatetruecolor, imagepng та imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "Неможливо створити зображення."
-
-msgid "Invalid file type."
-msgstr "Неправильний тип файлу."
-
-msgid "An error occurred while writing the file."
-msgstr "Під час запису файлу сталася помилка."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "Завантажене зображення не має %s пікселів у ширину."
-
-msgid "medium"
-msgstr "середній"
-
-msgid "small"
-msgstr "невеликий"
-
-msgid "thumbnail"
-msgstr "мініатюра"
-
-msgid "square"
-msgstr "площа"
-
-msgid "Pages"
-msgstr "Сторінки"
-
-msgid "administrator"
-msgstr "адміністратор"
-
-msgid "manage all entries and comments"
-msgstr "керувати всіма записами та коментарями"
-
-msgid "manage their own entries and comments"
-msgstr "керувати власними записами та коментарями"
-
-msgid "publish entries and comments"
-msgstr "публікувати записи та коментарі"
-
-msgid "delete entries and comments"
-msgstr "видаляти записи та коментарі"
-
-msgid "manage categories"
-msgstr "керувати категоріями"
-
-msgid "manage all media items"
-msgstr "керувати всіма елементами медіа"
-
-msgid "manage their own media items"
-msgstr "керувати власними медіаматеріалами"
-
-msgid "That user does not exist in the database."
-msgstr "Такого користувача не існує в базі даних."
-
-msgid "That key does not exist in the database."
-msgstr "Такого ключа не існує в базі даних."
-
-msgid "You are not allowed to add categories"
-msgstr "Ви не маєте права додавати категорії"
-
-msgid "You are not allowed to update categories"
-msgstr "Ви не маєте права оновлювати категорії"
-
-msgid "You are not allowed to delete categories"
-msgstr "Ви не маєте права видаляти категорії"
-
-msgid "This category is not empty."
-msgstr "Ця категорія не порожня."
-
-msgid "You are not allowed to reset categories order"
-msgstr "Ви не маєте права скидати порядок категорій"
-
-msgid "Empty category URL"
-msgstr "Порожня URL-адреса категорії"
-
-msgid "You must provide a category title"
-msgstr "Ви повинні вказати назву категорії"
-
-msgid "You must provide a category URL"
-msgstr "Ви повинні вказати URL-адресу категорії"
-
-msgid "You are not allowed to create an entry"
-msgstr "Ви не маєте права створювати записи"
-
-msgid "You are not allowed to update entries"
-msgstr "Ви не маєте права оновлювати записи"
-
-msgid "No such entry ID"
-msgstr "Немає такого ідентифікатора запису"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Ви не маєте права редагувати цей запис"
-
-msgid "You are not allowed to change this entry status"
-msgstr "Ви не маєте права змінювати цей статус запису"
-
-msgid "You are not allowed to change this entry category"
-msgstr "Ви не маєте права змінювати цю категорію заявок"
-
-msgid "You are not allowed to change entries category"
-msgstr "Ви не маєте права змінювати категорію заявки"
-
-msgid "You are not allowed to delete entries"
-msgstr "Ви не маєте права видаляти записи"
-
-msgid "No entry title"
-msgstr "Немає назви запису"
-
-msgid "No entry content"
-msgstr "Немає вмісту для входу"
-
-msgid "Notes"
-msgstr "Примітки"
-
-msgid "Note"
-msgstr "Примітка"
-
-msgid "Empty entry URL"
-msgstr "Порожня URL-адреса запису"
-
-msgid "You are not allowed to update comments"
-msgstr "Ви не маєте права оновлювати коментарі"
-
-msgid "No such comment ID"
-msgstr "Немає такого ідентифікатора коментаря"
-
-msgid "You are not allowed to update this comment"
-msgstr "Ви не маєте права оновлювати цей коментар"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Ви не маєте права змінювати статус цього коментаря"
-
-msgid "You are not allowed to delete comments"
-msgstr "Ви не маєте права видаляти коментарі"
-
-msgid "You must provide a comment"
-msgstr "Ви повинні надати коментар"
-
-msgid "You must provide an author name"
-msgstr "Ви повинні вказати ім'я автора"
-
-msgid "Email address is not valid."
-msgstr "Адреса електронної пошти не є дійсною."
-
-msgid "You are not an administrator"
-msgstr "Ви не є адміністратором"
-
-msgid "No user ID given"
-msgstr "Ідентифікатор користувача не вказано"
-
-msgid "No password given"
-msgstr "Пароль не вказано"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Ідентифікатор користувача повинен містити щонайменше 2 символи, використовуючи літери, цифри або символи."
-
-msgid "Password must contain at least 6 characters."
-msgstr "Пароль повинен містити щонайменше 6 символів."
-
-msgid "Invalid user language code"
-msgstr "Неправильний код мови користувача"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Ідентифікатор блогу повинен містити щонайменше 2 символи, використовуючи літери, цифри або символи."
-
-msgid "No blog name"
-msgstr "Немає назви блогу"
-
-msgid "No blog URL"
-msgstr "Немає URL-адреси блогу"
-
-msgid "No log message"
-msgstr "Немає повідомлення в журналі"
-
-msgid "unknown"
-msgstr "невідомо"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "Блог не визначено."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "За адресою, вказаною у параметрі about:config \"public_path\", немає каталогу /public/, доступного для запису. Ви повинні створити цей каталог з достатніми правами (або змінити цей параметр)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Для медіаменеджера немає кореневого каталогу, доступного для запису. Зверніться до вашого адміністратора."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "Цей блог не працює в режимі офлайн"
 
-msgid "You are not a super administrator."
-msgstr "Ви не супер-адміністратор."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Цей блог не працює в режимі офлайн"
 
-msgid "Permission denied."
-msgstr "У дозволі відмовлено."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Не вдається створити файл"
 
-msgid "You are not the file owner."
-msgstr "Ви не є власником файлу."
-
-msgid "This file is not allowed."
-msgstr "Цей файл не дозволено."
-
-msgid "New file already exists."
-msgstr "Новий файл вже існує."
-
-msgid "File does not exist in the database."
-msgstr "Файл не існує в базі даних."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "Каталог призначення розпакування %s вже існує."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Потрібен модуль %s , який не встановлено"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Потрібна %s версія %s, але встановлено версію %s"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Потрібен модуль %s , який відключено"
-
-msgid "The following extensions have been disabled :"
-msgstr "Наступні розширення були відключені :"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Модуль \"%s\" має тип \"%s\", що не відповідає необхідному типу модуля \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Модуль \"%s\" встановлюється двічі в \"%s\" та \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Порожній zip-файл модуля."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "Здається, що zip-файл не є дійсним модулем Dotclear."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "Неможливо оновити \"%s\". (Оновлення заблоковано)"
-
-msgid "An error occurred during module deletion."
-msgstr "Під час видалення модуля сталася помилка."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "Неможливо оновити \"%s\". (старішу або таку саму версію)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "Не вдалося прочитати новий файл %s"
-
-msgid "Cannot deactivate plugin."
-msgstr "Не вдається деактивувати плагін."
-
-msgid "No such module."
-msgstr "Такого модуля немає."
-
-msgid "Cannot remove module files"
-msgstr "Не вдається видалити файли модулів"
-
-msgid "Cannot activate plugin."
-msgstr "Не вдається активувати плагін."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Неправильне значення простору імен dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "Не вдається отримати налаштування:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s не є коректним ідентифікатором параметра"
-
-msgid "No namespace specified"
-msgstr "Не вказано простір імен"
-
-msgid "No notice message"
-msgstr "Немає повідомлення"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "Не вдається отримати робочі простори:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Неправильний dcWorkspace: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "Не вдається отримати простори імен:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Неправильний простір імен параметрів: %s"
-
-msgid "Wrong data feed"
-msgstr "Неправильна подача даних"
-
-msgid "An error occurred while downloading the file."
-msgstr "Під час завантаження файлу сталася помилка."
-
-msgid "Themes folder unreachable"
-msgstr "Папка з темами недоступна"
-
-msgid "Themes folder unreadable"
-msgstr "Папка з темами нечитабельна"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (копія #%s)"
-
-msgid " (copy)"
-msgstr " (копія)"
-
-msgid "Unable to modify _define.php"
-msgstr "Не вдається змінити _define.php"
-
-msgid "Destination folder already exist"
-msgstr "Папка призначення вже існує"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s все ще пінгується"
-
-msgid "Unable to ping URL"
-msgstr "Не вдається пінгувати URL-адресу"
-
-msgid "Bad server response code"
-msgstr "Поганий код відповіді сервера"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s не є URL-адресою для пінгу"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%sпомилка пінгу:"
-
-msgid "Don't repeat yourself, please."
-msgstr "Не повторюйся, будь ласка."
-
-msgid "Where's your title?"
-msgstr "Де твій титул?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Вибачте, виникла внутрішня проблема."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Дякую, друже. Було дуже приємно."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "Є шанс, що ти пропінгуєш щось з мого вмісту? Ні? Справді?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Вибачте, але ви не можете пінгувати цей тип контенту."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Упс. Щось типу \"не знайдено\". Будь ласка, перевірте цільову URL-адресу двічі."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Вибач, чувак. Цей запис наразі не підтримує зворотний зв'язок."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "Ваша URL-адреса джерела не схожа на підтримуваний тип вмісту. Вибачте. Бувайте, бувайте!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Не вказано правильну URL-адресу джерела? Спробуйте ще раз!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Не вказано правильну цільову URL-адресу? Спробуйте ще раз!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Файл дайджесту не знайдено."
 
-msgid "No file to download"
-msgstr "Немає файлу для завантаження"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "Кореневий каталог є недоступним для запису."
-
-msgid "An error occurred while downloading archive."
-msgstr "Під час завантаження архіву сталася помилка."
-
-msgid "Archive not found."
-msgstr "Архів не знайдено."
-
-msgid "Unable to read current digests file."
-msgstr "Не вдалося прочитати поточний файл дайджестів."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Завантажений файл, схоже, не є дійсним архівом."
-
-msgid "Incomplete archive."
-msgstr "Неповний архів."
-
-msgid "Unable to read digests file."
-msgstr "Неможливо прочитати файл дайджестів."
-
-msgid "Invalid digests file."
-msgstr "Неправильний файл дайджесту."
-
-msgid "Unable to retrieve prefs:"
-msgstr "Не вдається отримати префікси:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s не є коректним префіксом"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "Версія PHP: %s (потрібна версія%s або більш рання)."
 
-msgid "No workspace specified"
-msgstr "Не вказано робочий простір"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Модуль багатобайтових рядків (mbstring) недоступний."
+
+msgid "Iconv module is not available."
+msgstr "Модуль Iconv недоступний."
+
+msgid "Output control functions are not available."
+msgstr "Функції керування виходом недоступні."
+
+msgid "SimpleXML module is not available."
+msgstr "Модуль SimpleXML недоступний."
+
+msgid "DOM XML module is not available."
+msgstr "Модуль DOM XML недоступний."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "Рушій PCRE не підтримує рядки UTF-8."
+
+msgid "SPL module is not available."
+msgstr "Модуль SPL недоступний."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "Версія MySQL: %s (потрібна версія 4.1 або новіша)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "Движок MySQL InnoDB недоступний."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "Версія PostgreSQL: %s (потрібна версія 8.0 або новіша)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Щось пішло не так з автоматичним оновленням:"
 
-msgid "Site temporarily unavailable"
-msgstr "Сайт тимчасово недоступний"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE вимагає джерела FROM"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Просимо вибачення за тимчасову недоступність.<br />Дякуємо за розуміння.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP TABLE вимагає джерела FROM"
 
-msgid "Unable to connect to database"
-msgstr "Не вдається підключитися до бази даних"
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT вимагає джерела INTO"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL JOIN вимагає джерела FROM"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT вимагає джерела FROM"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL TRUNCATE TABLE вимагає джерела FROM"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL UPDATE вимагає джерела FROM"
+
+msgid "Bad range"
+msgstr "Поганий діапазон"
+
+msgid "Invalid range"
+msgstr "Неправильний діапазон"
+
+msgid "Invalid line number"
+msgstr "Неправильний номер рядка"
+
+msgid "Chunk is out of range"
+msgstr "Chunk знаходиться поза зоною досяжності"
+
+msgid "Bad context"
+msgstr "Поганий контекст"
+
+msgid "Bad context (in deletion)"
+msgstr "Поганий контекст (видаляється)"
+
+msgid "Invalid diff format"
+msgstr "Неправильний формат різниці"
+
+msgid "Unable to open directory."
+msgstr "Не вдалося відкрити каталог."
+
+msgid "Unable to create directory."
+msgstr "Не вдалося створити каталог."
+
+msgid "File is not writable."
+msgstr "Файл недоступний для запису."
+
+msgid "Unable to open file."
+msgstr "Неможливо відкрити файл."
+
+msgid "Not an uploaded file."
+msgstr "Не завантажений файл."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Завантажений файл перевищує максимально допустимий розмір."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Завантажений файл було завантажено лише частково."
+
+msgid "No file was uploaded."
+msgstr "Файл не було завантажено."
+
+msgid "Missing a temporary folder."
+msgstr "Відсутня тимчасова папка."
+
+msgid "Failed to write file to disk."
+msgstr "Не вдалося записати файл на диск."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "Розширення PHP зупинило завантаження файлу."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Це означає, що інформація про ім'я користувача та пароль у вашому файлі <strong>config.php</strong> невірна, або ми не можемо зв'язатися з сервером бази даних за адресою \"<em>%s</em>\". Це може означати, що сервер бази даних вашого хостера не працює.</p> <ul><li>Ви впевнені, що у вас правильні ім'я користувача та пароль?</li><li>Ви впевнені, що ввели правильне ім'я хоста?</li><li>Ви впевнені, що сервер бази даних працює?</li></ul><p>Якщо ви не знаєте, що означають ці терміни, вам слід звернутися до вашого хостера. Якщо вам все ще потрібна допомога, ви завжди можете відвідати форуми підтримки Dotclear <a href=\"https://forum.dotclear.net/\">та</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s це не каталог."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "При спробі прочитати базу даних виникла наступна помилка:"
+msgid "Can't get file path"
+msgstr "Не вдається отримати шлях до файлу"
 
-msgid "No process found"
-msgstr "Процес не знайдено"
+msgid "Can't lock a directory"
+msgstr "Не вдається заблокувати каталог"
 
-msgid "Process failed"
-msgstr "Процес завершився невдало"
+msgid "Can't call php function named flock"
+msgstr "Не вдається викликати php-функцію з іменем flock"
+
+msgid "Can't create file"
+msgstr "Не вдається створити файл"
+
+msgid "Can't open file"
+msgstr "Не вдається відкрити файл"
+
+msgid "Can't lock file"
+msgstr "Не вдається заблокувати файл"
+
+msgid "File cannot be removed."
+msgstr "Файл не може бути видалений."
+
+msgid "Not enough memory to open image."
+msgstr "Недостатньо пам'яті для відкриття зображення."
+
+msgid "Uploading this file is not allowed."
+msgstr "Завантаження цього файлу заборонено."
+
+msgid "Destination directory is not in jail."
+msgstr "Каталог призначення не у в'язниці."
+
+msgid "File already exists."
+msgstr "Файл вже існує."
+
+msgid "Cannot write in this directory."
+msgstr "Не можна писати в цей каталог."
+
+msgid "Source file does not exist."
+msgstr "Вихідного файлу не існує."
+
+msgid "File is not in jail."
+msgstr "Справа не перебуває у в'язниці."
+
+msgid "Destination directory is not writable."
+msgstr "Каталог призначення недоступний для запису."
+
+msgid "Unable to rename file."
+msgstr "Неможливо перейменувати файл."
+
+msgid "Directory is not in jail."
+msgstr "Директор не у в'язниці."
+
+msgid "Directory cannot be removed."
+msgstr "Каталог не можна видалити."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Файл %s не стискається в zip-архів."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Спроба розархівування теки з назвою %s"
+
+msgid "Unable to write destination file."
+msgstr "Не вдалося записати файл призначення."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Неможливо записати до цільового каталогу, відмовлено у дозволі."
+
+msgid "Not enough memory to open file."
+msgstr "Недостатньо пам'яті для відкриття файлу."
+
+msgid "File does not exist"
+msgstr "Файл не існує"
+
+msgid "Cannot read file"
+msgstr "Не вдається прочитати файл"
+
+msgid "Directory does not exist"
+msgstr "Каталогу не існує"
+
+msgid "Cannot read directory"
+msgstr "Не вдається прочитати каталог"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Не знайдено закриваючого тега для блоку <tpl:%s>. Вміст було проігноровано."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Знайдено несподіваний закриваючий тег </tpl:%s> ."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "ПОПЕРЕДЖЕННЯ: при розборі файлу шаблону :"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear було оновлено."
@@ -2460,11 +2727,18 @@ msgstr "Всі права на цей блог належать мені."
 msgid "Change permissions"
 msgstr "Дозволи на зміну"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Наступні розширення були відключені :"
+
 msgid "Theme configuration"
 msgstr "Конфігурація теми"
 
 msgid "Themes management"
 msgstr "Керування темами"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "Ручна перевірка оновлення тем виконана успішно."
@@ -2722,6 +2996,10 @@ msgstr "Видаліть весь спам"
 
 msgid "Selected comments action:"
 msgstr "Дія вибраних коментарів:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Наступні розширення були відключені :"
 
 msgid "Documentation and support"
 msgstr "Документація та підтримка"
@@ -3375,9 +3653,6 @@ msgstr "Особисті нотатки:"
 msgid "Unpublished notes."
 msgstr "Неопубліковані нотатки."
 
-msgid "Preview"
-msgstr "Попередній перегляд"
-
 msgid "Add a comment"
 msgstr "Додати коментар"
 
@@ -3579,10 +3854,6 @@ msgstr "Примусова перевірка оновлення Dotclear"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s доступний."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "Версія PHP: %s (потрібна версія%s або більш рання)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Щоб оновити вашу інсталяцію Dotclear, просто натисніть на наступну кнопку. Файл резервної копії вашої поточної інсталяції буде створено у вашому кореневому каталозі."
@@ -3990,179 +4261,6 @@ msgstr "Ви збираєтеся змінити права доступу до 
 msgid "Validate permissions"
 msgstr "Перевірка дозволів"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE вимагає джерела FROM"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL DROP TABLE вимагає джерела FROM"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT вимагає джерела INTO"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL JOIN вимагає джерела FROM"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT вимагає джерела FROM"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL TRUNCATE TABLE вимагає джерела FROM"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "SQL UPDATE вимагає джерела FROM"
-
-msgid "Bad range"
-msgstr "Поганий діапазон"
-
-msgid "Invalid range"
-msgstr "Неправильний діапазон"
-
-msgid "Invalid line number"
-msgstr "Неправильний номер рядка"
-
-msgid "Chunk is out of range"
-msgstr "Chunk знаходиться поза зоною досяжності"
-
-msgid "Bad context"
-msgstr "Поганий контекст"
-
-msgid "Bad context (in deletion)"
-msgstr "Поганий контекст (видаляється)"
-
-msgid "Invalid diff format"
-msgstr "Неправильний формат різниці"
-
-msgid "Unable to open directory."
-msgstr "Не вдалося відкрити каталог."
-
-msgid "Unable to create directory."
-msgstr "Не вдалося створити каталог."
-
-msgid "File is not writable."
-msgstr "Файл недоступний для запису."
-
-msgid "Unable to open file."
-msgstr "Неможливо відкрити файл."
-
-msgid "Not an uploaded file."
-msgstr "Не завантажений файл."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Завантажений файл перевищує максимально допустимий розмір."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Завантажений файл було завантажено лише частково."
-
-msgid "No file was uploaded."
-msgstr "Файл не було завантажено."
-
-msgid "Missing a temporary folder."
-msgstr "Відсутня тимчасова папка."
-
-msgid "Failed to write file to disk."
-msgstr "Не вдалося записати файл на диск."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "Розширення PHP зупинило завантаження файлу."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s це не каталог."
-
-msgid "Can't get file path"
-msgstr "Не вдається отримати шлях до файлу"
-
-msgid "Can't lock a directory"
-msgstr "Не вдається заблокувати каталог"
-
-msgid "Can't call php function named flock"
-msgstr "Не вдається викликати php-функцію з іменем flock"
-
-msgid "Can't create file"
-msgstr "Не вдається створити файл"
-
-msgid "Can't open file"
-msgstr "Не вдається відкрити файл"
-
-msgid "Can't lock file"
-msgstr "Не вдається заблокувати файл"
-
-msgid "File cannot be removed."
-msgstr "Файл не може бути видалений."
-
-msgid "Not enough memory to open image."
-msgstr "Недостатньо пам'яті для відкриття зображення."
-
-msgid "Uploading this file is not allowed."
-msgstr "Завантаження цього файлу заборонено."
-
-msgid "Destination directory is not in jail."
-msgstr "Каталог призначення не у в'язниці."
-
-msgid "File already exists."
-msgstr "Файл вже існує."
-
-msgid "Cannot write in this directory."
-msgstr "Не можна писати в цей каталог."
-
-msgid "Source file does not exist."
-msgstr "Вихідного файлу не існує."
-
-msgid "File is not in jail."
-msgstr "Справа не перебуває у в'язниці."
-
-msgid "Destination directory is not writable."
-msgstr "Каталог призначення недоступний для запису."
-
-msgid "Unable to rename file."
-msgstr "Неможливо перейменувати файл."
-
-msgid "Directory is not in jail."
-msgstr "Директор не у в'язниці."
-
-msgid "Directory cannot be removed."
-msgstr "Каталог не можна видалити."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Файл %s не стискається в zip-архів."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Спроба розархівування теки з назвою %s"
-
-msgid "Unable to write destination file."
-msgstr "Не вдалося записати файл призначення."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Неможливо записати до цільового каталогу, відмовлено у дозволі."
-
-msgid "Not enough memory to open file."
-msgstr "Недостатньо пам'яті для відкриття файлу."
-
-msgid "File does not exist"
-msgstr "Файл не існує"
-
-msgid "Cannot read file"
-msgstr "Не вдається прочитати файл"
-
-msgid "Directory does not exist"
-msgstr "Каталогу не існує"
-
-msgid "Cannot read directory"
-msgstr "Не вдається прочитати каталог"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "Не знайдено закриваючого тега для блоку <tpl:%s>. Вміст було проігноровано."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Знайдено несподіваний закриваючий тег </tpl:%s> ."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ПОПЕРЕДЖЕННЯ: при розборі файлу шаблону :"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Будь ласка, встановіть головний ключ (DC_MASTER_KEY) у файлі конфігурації."
 
@@ -4249,38 +4347,6 @@ msgstr "Інсталяцію не вдається завершити"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Із зазначених причин Dotclear не може бути встановлений. Будь ласка, зверніться до документації <a href=\"https://dotclear.org/documentation/2.0/admin/install\">та</a> , щоб дізнатися, як виправити цю проблему."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Модуль багатобайтових рядків (mbstring) недоступний."
-
-msgid "Iconv module is not available."
-msgstr "Модуль Iconv недоступний."
-
-msgid "Output control functions are not available."
-msgstr "Функції керування виходом недоступні."
-
-msgid "SimpleXML module is not available."
-msgstr "Модуль SimpleXML недоступний."
-
-msgid "DOM XML module is not available."
-msgstr "Модуль DOM XML недоступний."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "Рушій PCRE не підтримує рядки UTF-8."
-
-msgid "SPL module is not available."
-msgstr "Модуль SPL недоступний."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "Версія MySQL: %s (потрібна версія 4.1 або новіша)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "Движок MySQL InnoDB недоступний."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "Версія PostgreSQL: %s (потрібна версія 8.0 або новіша)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Шлях <strong>%s</strong> недоступний для запису."
@@ -4365,6 +4431,9 @@ msgstr "Основна адреса електронної пошти: (вико
 
 msgid "Continue"
 msgstr "Продовжуйте"
+
+#~ msgid "No process found"
+#~ msgstr "Процес не знайдено"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

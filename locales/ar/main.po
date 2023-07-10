@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:46\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "العنوان"
+msgid "medium"
+msgstr "متوسطه"
+
+msgid "small"
+msgstr "صغير"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "square"
+msgstr "مربع"
 
 msgid "Posts"
 msgstr "المشاركات"
+
+msgid "Pages"
+msgstr "الصفحات"
+
+msgid "administrator"
+msgstr "مسؤول"
+
+msgid "manage all entries and comments"
+msgstr "إدارة جميع المدخلات والتعليقات"
+
+msgid "manage their own entries and comments"
+msgstr "إدارة المواد والتعليقات الخاصة بهم"
+
+msgid "publish entries and comments"
+msgstr "نشر المواد والتعليقات"
+
+msgid "delete entries and comments"
+msgstr "حذف المواد والتعليقات"
+
+msgid "manage categories"
+msgstr "إدارة الفئات"
+
+msgid "manage all media items"
+msgstr "إدارة جميع عناصر الوسائط"
+
+msgid "manage their own media items"
+msgstr "إدارة عناصر وسائل الإعلام الخاصة بهم"
+
+msgid "That user does not exist in the database."
+msgstr "هذا المستخدم غير موجود في قاعدة البيانات."
+
+msgid "That key does not exist in the database."
+msgstr "وهذا المفتاح غير موجود في قاعدة البيانات."
+
+msgid "Pending"
+msgstr "معلق"
+
+msgid "Scheduled"
+msgstr "مجدولة"
+
+msgid "Unpublished"
+msgstr "غير منشورة"
+
+msgid "Published"
+msgstr "نُشرت"
+
+msgid "Junk"
+msgstr "مزعج"
+
+msgid "You are not allowed to add categories"
+msgstr "غير مسموح لك بإضافة فئات"
+
+msgid "You are not allowed to update categories"
+msgstr "غير مسموح لك بتحديث الفئات"
+
+msgid "You are not allowed to delete categories"
+msgstr "غير مسموح لك بحذف الفئات"
+
+msgid "This category is not empty."
+msgstr "هذه الفئة ليست فارغة."
+
+msgid "You are not allowed to reset categories order"
+msgstr "غير مسموح لك بإعادة تعيين ترتيب الفئات"
+
+msgid "Empty category URL"
+msgstr "رابط التصنيف فارغ"
+
+msgid "You must provide a category title"
+msgstr "يجب عليك تقديم عنوان الفئة"
+
+msgid "You must provide a category URL"
+msgstr "يجب عليك تقديم عنوان URL للفئة"
+
+msgid "You are not allowed to create an entry"
+msgstr "غير مسموح لك بإنشاء إدخال"
+
+msgid "You are not allowed to update entries"
+msgstr "غير مسموح لك بتحديث المواد"
+
+msgid "No such entry ID"
+msgstr "لا يوجد معرف من هذا القبيل"
+
+msgid "You are not allowed to edit this entry"
+msgstr "غير مسموح لك بتعديل هذا الإدخال"
+
+msgid "You are not allowed to change this entry status"
+msgstr "غير مسموح لك بتغيير حالة الإدخال هذه"
+
+msgid "You are not allowed to change this entry category"
+msgstr "غير مسموح لك بتغيير فئة الإدخال هذه"
+
+msgid "You are not allowed to change entries category"
+msgstr "غير مسموح لك بتغيير فئة المواد"
+
+msgid "You are not allowed to delete entries"
+msgstr "غير مسموح لك بحذف المواد"
+
+msgid "No entry title"
+msgstr "لا يوجد عنوان إدخال"
+
+msgid "No entry content"
+msgstr "لا يوجد محتوى للدخول"
+
+msgid "Notes"
+msgstr "الحواشي"
+
+msgid "Note"
+msgstr "ملاحظة"
+
+msgid "Empty entry URL"
+msgstr "رابط إدخال فارغ"
+
+msgid "You are not allowed to update comments"
+msgstr "غير مسموح لك بتحديث التعليقات"
+
+msgid "No such comment ID"
+msgstr "لا يوجد معرف مثل هذا التعليق"
+
+msgid "You are not allowed to update this comment"
+msgstr "غير مسموح لك بتحديث هذا التعليق"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "غير مسموح لك بتغيير حالة هذا التعليق"
+
+msgid "You are not allowed to delete comments"
+msgstr "غير مسموح لك بحذف التعليقات"
+
+msgid "You must provide a comment"
+msgstr "يجب عليك تقديم تعليق"
+
+msgid "You must provide an author name"
+msgstr "يجب عليك تقديم اسم المؤلف"
+
+msgid "Email address is not valid."
+msgstr "عنوان البريد الإلكتروني غير صالح."
+
+msgid "online"
+msgstr "متصل"
+
+msgid "offline"
+msgstr "غير متصل"
+
+msgid "removed"
+msgstr "إزالة"
+
+msgid "You are not an administrator"
+msgstr "أنت لست مسؤول"
+
+msgid "No user ID given"
+msgstr "لا يوجد معرف مستخدم"
+
+msgid "No password given"
+msgstr "لم يتم إعطاء كلمة مرور"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "يجب أن يحتوي معرف المستخدم على حرفين على الأقل باستخدام الأحرف أو الأرقام أو الرموز."
+
+msgid "Password must contain at least 6 characters."
+msgstr "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل."
+
+msgid "Invalid user language code"
+msgstr "رمز لغة المستخدم غير صالح"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "يجب أن يحتوي معرف المدونة على حرفين على الأقل باستخدام الأحرف أو الأرقام أو الرموز."
+
+msgid "No blog name"
+msgstr "لا يوجد اسم مدونة"
+
+msgid "No blog URL"
+msgstr "لا يوجد رابط مدونة"
+
+msgid "No log message"
+msgstr "لا توجد رسالة تسجيل"
+
+msgid "unknown"
+msgstr "غير معروف"
+
+msgid "No blog defined."
+msgstr "لم يتم تعريف المدونة."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "لا يوجد دليل /public/ قابل للكتابة في الموقع المحدد في about:config \"public_path\". يجب عليك إنشاء هذا الدليل مع حقوق كافية (أو تغيير هذا الإعداد)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "لا يوجد دليل جذر قابل للكتابة لمدير الوسائط. يجب عليك الاتصال بالمسؤول."
+
+msgid "You are not a super administrator."
+msgstr "أنت لست المسؤول الكبير."
+
+msgid "Permission denied."
+msgstr "تم رفض الإذن."
+
+msgid "You are not the file owner."
+msgstr "أنت لست مالك الملف."
+
+msgid "This file is not allowed."
+msgstr "هذا الملف غير مسموح به."
+
+msgid "New file already exists."
+msgstr "الملف الجديد موجود مسبقاً."
+
+msgid "File does not exist in the database."
+msgstr "الملف غير موجود في قاعدة البيانات."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "استخراج دليل الوجهة %s موجود بالفعل."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "يتطلب %s وحدة لم يتم تثبيتها"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "يتطلب %s إصدار %s، ولكن الإصدار %s مثبت"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "يتطلب %s وحدة معطلة"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "الوحدة \"%s\" يحتوي على نوع \"%s\" الذي لا يتطابق مع نوع الوحدة المطلوبة \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "الوحدة النمطية \"%s\" مثبت مرتين في \"%s\" و \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "ملف مضغوط لوحدة فارغة."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "لا يبدو أن ملف zip وحدة دوتمسح صالحة."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "غير قادر على ترقية \"%s\". (التحديث مقفل)"
+
+msgid "An error occurred during module deletion."
+msgstr "حدث خطأ أثناء حذف الوحدة."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "غير قادر على ترقية \"%s\". (الإصدار القديم أو نفسه)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "غير قادر على قراءة ملف %s جديد"
+
+msgid "Cannot deactivate plugin."
+msgstr "لا يمكن تعطيل الإضافة."
+
+msgid "No such module."
+msgstr "لا توجد وحدة من هذا القبيل."
+
+msgid "Cannot remove module files"
+msgstr "لا يمكن إزالة ملفات الوحدة"
+
+msgid "Cannot activate plugin."
+msgstr "لا يمكن تنشيط الإضافة."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "إعداد dcNamespace: %s غير صالح"
+
+msgid "Unable to retrieve settings:"
+msgstr "غير قادر على استرداد الإعدادات:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s ليس معرف إعداد صالح"
+
+msgid "No namespace specified"
+msgstr "لا توجد مساحة أسماء محددة"
+
+msgid "No notice message"
+msgstr "لا توجد رسالة إشعار"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "غير قادر على استرداد مساحات العمل:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "مساحة عمل غير صالحة: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "غير قادر على استرداد فضاءات الأسماء:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "مساحة اسم الإعدادات غير صالحة: %s"
+
+msgid "Wrong data feed"
+msgstr "تغذية البيانات خاطئة"
+
+msgid "An error occurred while downloading the file."
+msgstr "حدث خطأ أثناء تحميل الملف."
+
+msgid "Themes folder unreachable"
+msgstr "مجلد السمات غير قابل للوصول"
+
+msgid "Themes folder unreadable"
+msgstr "مجلد السمات غير قابل للقراءة"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (نسخة #%s)"
+
+msgid " (copy)"
+msgstr " (نسخة)"
+
+msgid "Unable to modify _define.php"
+msgstr "غير قادر على تعديل _define.php"
+
+msgid "Destination folder already exist"
+msgstr "مجلد الوجهة موجود بالفعل"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s لا يزال قيد البحث"
+
+msgid "Unable to ping URL"
+msgstr "غير قادر على تنقية الرابط"
+
+msgid "Bad server response code"
+msgstr "رمز استجابة الخادم سيء"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s ليس عنوان بينغ"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s، خطأ في البند:"
+
+msgid "Don't repeat yourself, please."
+msgstr "لا تكرروا نفسك، من فضلك."
+
+msgid "Where's your title?"
+msgstr "أين العنوان الخاص بك؟"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "عذراً، حدثت مشكلة داخلية."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "شكرًا، زميل. كان من دواعي سرور."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "هل لديك أي فرصة لبن أحد محتوياتي؟ لا؟ حقاً؟"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "آسف ولكن لا يمكنك ربط هذا النوع من المحتوى."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "عفواً. \"لم يتم العثور على أشياء\". يرجى التحقق من عنوان URL الهدف مرتين."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "عذراً، الواجب. لا يقبل هذا الإدخال العودة في الوقت الراهن."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "عنوان URL المصدر الخاص بك لا يبدو وكأنه نوع محتوى مدعوم. عذراً. نعم، نعم!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "لم يتم توفير عنوان URL صالح للمصدر؟ حاول مرة أخرى!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "لم يتم توفير عنوان URL مستهدف صالح؟ حاول مرة أخرى!"
+
+msgid "LOL!"
+msgstr "جميل!"
+
+msgid "Digests file not found."
+msgstr "ملف الملخصات غير موجود."
+
+msgid "No file to download"
+msgstr "لا يوجد ملف للتحميل"
+
+msgid "Root directory is not writable."
+msgstr "الدليل الجذر غير قابل للكتابة."
+
+msgid "An error occurred while downloading archive."
+msgstr "حدث خطأ أثناء تحميل الأرشيف."
+
+msgid "Archive not found."
+msgstr "الأرشيف غير موجود."
+
+msgid "Unable to read current digests file."
+msgstr "غير قادر على قراءة ملف الخلاصات الحالية."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "لا يبدو أن الملف الذي تم تنزيله هو أرشيف صالح."
+
+msgid "Incomplete archive."
+msgstr "أرشيف غير مكتمل."
+
+msgid "Unable to read digests file."
+msgstr "غير قادر على قراءة ملف الخلاصات."
+
+msgid "Invalid digests file."
+msgstr "ملف الخلاصات غير صالح."
+
+msgid "Unable to retrieve prefs:"
+msgstr "غير قادر على استرداد التفضيل:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s ليس معرف بادئة صالح"
+
+msgid "No workspace specified"
+msgstr "لا توجد مساحة عمل محددة"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "غير قادر على حذف الملف %s"
+
+msgid "Process failed"
+msgstr "فشلت العملية"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "ملف الملخصات غير موجود."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "أخبار Dotclear غير متوفرة"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "لم يتم العثور على نتائج"
+
+msgid "Site temporarily unavailable"
+msgstr "الموقع غير متوفر مؤقتاً"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>نحن نعتذر عن هذا عدم التوافر المؤقت.<br />شكرا لك على تفهمك.</p>"
+
+msgid "Unable to connect to database"
+msgstr "غير قادر على الاتصال بقاعدة البيانات"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>هذا يعني إما أن معلومات اسم المستخدم وكلمة المرور في إعدادات <strong>الخاصة بك. hp</strong> ملف غير صحيح أو لا يمكننا الاتصال بخادم قاعدة البيانات على \"<em>%s</em>\". قد يعني هذا أن خادم قاعدة بيانات المضيف الخاص بك معطل.</p> <ul><li>هل أنت متأكد من أن لديك اسم المستخدم وكلمة المرور الصحيحة؟</li><li>هل أنت متأكد من أنك كتبت اسم المضيف الصحيح؟</li><li>هل أنت متأكد من تشغيل خادم قاعدة البيانات؟</li></ul><p>إذا كنت غير متأكد مما تعنيه هذه المصطلحات، فمن المحتمل أن تتصل بمضيف الخاص بك. إذا كنت لا تزال بحاجة إلى مساعدة، يمكنك دائماً زيارة <a href=\"https://forum.dotclear.net/\">منتديات دعم Dotclear</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "حدث خطأ أثناء محاولة قراءة قاعدة البيانات:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "العنوان"
 
 msgid "Blogs"
 msgstr "المدوّنات"
@@ -290,83 +756,6 @@ msgstr "الأكثر استخداما"
 msgid "Entry language:"
 msgstr "لغة الإدخال:"
 
-msgid "Database error"
-msgstr "خطأ في قاعدة البيانات"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "يبدو أنه لا يوجد جدول جلسة في قاعدة البيانات الخاصة بك. هل تم تثبيت Dotclear تمامًا؟"
-
-msgid "Precondition Failed"
-msgstr "فشل الشرط المسبق"
-
-msgid "System settings"
-msgstr "إعدادات النظام"
-
-msgid "Blog"
-msgstr "المدونة"
-
-msgid "Plugins"
-msgstr "الإضافات"
-
-msgid "Blog appearance"
-msgstr "مظهر المدونة"
-
-msgid "Blog settings"
-msgstr "إعدادات المدونة"
-
-msgid "Media manager"
-msgstr "مدير الوسائط"
-
-msgid "Categories"
-msgstr "الفئات"
-
-msgid "Search"
-msgstr "البحث"
-
-msgid "New post"
-msgstr "مشاركة جديدة"
-
-msgid "My preferences"
-msgstr "تفضيلاتي"
-
-msgid "Update"
-msgstr "تحديث"
-
-msgid "Languages"
-msgstr "اللغات"
-
-msgid "Plugins management"
-msgstr "إدارة الإضافات"
-
-msgid "Users"
-msgstr "المستخدمون"
-
-msgid "My favorites"
-msgstr "مفضلاتي"
-
-msgid "Global help"
-msgstr "المساعدة العالمية"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d مشاركات"
-msgstr[1] "%d منشور"
-msgstr[2] "%d مشاركات"
-msgstr[3] "%d مشاركات"
-msgstr[4] "%d مشاركات"
-msgstr[5] "%d مشاركات"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d تعليق"
-msgstr[1] "%d تعليق"
-msgstr[2] "%d تعليق"
-msgstr[3] "%d تعليق"
-msgstr[4] "%d تعليق"
-msgstr[5] "%d تعليق"
-
 msgid "Descending"
 msgstr "تنازلي"
 
@@ -394,11 +783,11 @@ msgstr "عنوان الإدخال"
 msgid "Entry date"
 msgstr "تاريخ الإدخال"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "فلتر البريد المزعج"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "آخر تحديث"
@@ -421,35 +810,100 @@ msgstr "اسم العرض"
 msgid "Number of entries"
 msgstr "عدد المواد"
 
-msgid "Show filters and display options"
-msgstr "إظهار الفلاتر وخيارات العرض"
+msgid "My favorites"
+msgstr "مفضلاتي"
 
-msgid "Filters"
-msgstr "فلاتر"
+msgid "My preferences"
+msgstr "تفضيلاتي"
 
-msgid "Display options"
-msgstr "عرض الخيارات"
+msgid "New post"
+msgstr "مشاركة جديدة"
 
-msgid "Order by:"
-msgstr "ترتيب بواسطة:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d مشاركات"
+msgstr[1] "%d منشور"
+msgstr[2] "%d مشاركات"
+msgstr[3] "%d مشاركات"
+msgstr[4] "%d مشاركات"
+msgstr[5] "%d مشاركات"
 
-msgid "Sort:"
-msgstr "الفرز:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d تعليق"
+msgstr[1] "%d تعليق"
+msgstr[2] "%d تعليق"
+msgstr[3] "%d تعليق"
+msgstr[4] "%d تعليق"
+msgstr[5] "%d تعليق"
 
-msgid "Show"
-msgstr "إظهار"
+msgid "Search"
+msgstr "البحث"
 
-msgid "Save current options"
-msgstr "حفظ الخيارات الحالية"
+msgid "Categories"
+msgstr "الفئات"
 
-msgid "Apply filters and display options"
-msgstr "تطبيق الفلاتر وخيارات العرض"
+msgid "Media manager"
+msgstr "مدير الوسائط"
+
+msgid "Blog settings"
+msgstr "إعدادات المدونة"
+
+msgid "Blog appearance"
+msgstr "مظهر المدونة"
+
+msgid "Users"
+msgstr "المستخدمون"
+
+msgid "Plugins management"
+msgstr "إدارة الإضافات"
+
+msgid "Languages"
+msgstr "اللغات"
+
+msgid "Global help"
+msgstr "المساعدة العالمية"
+
+msgid "Status:"
+msgstr "الحالة:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Web site:"
+msgstr "Web site:"
 
 msgid "Author:"
 msgstr "المؤلف:"
 
-msgid "Status:"
-msgstr "الحالة:"
+msgid "Type:"
+msgstr "النوع:"
+
+msgid "Comment"
+msgstr "تعليق"
+
+msgid "Trackback"
+msgstr "المسار"
+
+msgid "IP address:"
+msgstr "عنوان IP:"
+
+msgid "Media type:"
+msgstr "نوع الوسائط:"
+
+msgid "image"
+msgstr "صورة"
+
+msgid "text"
+msgstr "نص"
+
+msgid "audio"
+msgstr "صوت"
+
+msgid "video"
+msgstr "فيديو"
 
 msgid "Format:"
 msgstr "التنسيق:"
@@ -496,56 +950,183 @@ msgstr "مغلق"
 msgid "Trackbacks:"
 msgstr "المسار:"
 
-msgid "Email:"
-msgstr "Email:"
+msgid "Show filters and display options"
+msgstr "إظهار الفلاتر وخيارات العرض"
 
-msgid "Web site:"
-msgstr "Web site:"
+msgid "Filters"
+msgstr "فلاتر"
 
-msgid "Type:"
-msgstr "النوع:"
+msgid "Display options"
+msgstr "عرض الخيارات"
 
-msgid "Comment"
-msgstr "تعليق"
+msgid "Order by:"
+msgstr "ترتيب بواسطة:"
 
-msgid "Trackback"
-msgstr "المسار"
+msgid "Sort:"
+msgstr "الفرز:"
 
-msgid "IP address:"
-msgstr "عنوان IP:"
+msgid "Show"
+msgstr "إظهار"
 
-msgid "Media type:"
-msgstr "نوع الوسائط:"
+msgid "Save current options"
+msgstr "حفظ الخيارات الحالية"
 
-msgid "image"
-msgstr "صورة"
-
-msgid "text"
-msgstr "نص"
-
-msgid "audio"
-msgstr "صوت"
-
-msgid "video"
-msgstr "فيديو"
+msgid "Apply filters and display options"
+msgstr "تطبيق الفلاتر وخيارات العرض"
 
 msgid "Search:"
 msgstr "البحث:"
 
-msgid "Trackbacks"
-msgstr "التتبع"
+msgid "&#171; prev."
+msgstr "&#171; مراوغة."
 
-msgid "users per page"
-msgstr "المستخدمين في كل صفحة"
+msgid "next &#187;"
+msgstr "التالي &#187;"
 
-msgid "entries per page"
-msgstr "الإدخالات لكل صفحة"
+msgid "No blog matches the filter"
+msgstr "لا توجد مدونة تطابق عامل التصفية"
 
-msgid "comments per page"
-msgstr "تعليقات لكل صفحة"
+msgid "No blog"
+msgstr "لا توجد مدونة"
 
-msgid "blogs per page"
-msgstr "مدونات لكل صفحة"
+msgid "URL"
+msgstr "الرابط"
+
+msgid "Entries (all types)"
+msgstr "الإدخالات (جميع الأنواع)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d مدونات تطابق عامل التصفية."
+msgstr[1] "%d مدونة تطابق عامل التصفية."
+msgstr[2] "%d مدونات تطابق عامل التصفية."
+msgstr[3] "%d مدونات تطابق عامل التصفية."
+msgstr[4] "%d مدونات تطابق عامل التصفية."
+msgstr[5] "%d مدونات تطابق عامل التصفية."
+
+msgid "Blogs list"
+msgstr "قائمة المدوّنات"
+
+msgid "Legend: "
+msgstr "اسطوري: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "تعديل إعدادات المدونة لـ %s"
+
+msgid "Edit blog settings"
+msgstr "تعديل إعدادات المدونة"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "التبديل إلى المدونة %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "لا توجد تعليقات أو ردود متطابقة مع عامل التصفية"
+
+msgid "No comments"
+msgstr "لا توجد تعليقات"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
+msgstr[1] "التعليق أو المسار الذي يطابق عامل التصفية."
+msgstr[2] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
+msgstr[3] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
+msgstr[4] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
+msgstr[5] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "قائمة بالتعليقات والمتابعات (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">نشرت</a> (%s)"
+msgstr[1] ", <a href=\"%s\">نشرت</a> (1)"
+msgstr[2] ", <a href=\"%s\">نشرت</a> (%s)"
+msgstr[3] ", <a href=\"%s\">نشرت</a> (%s)"
+msgstr[4] ", <a href=\"%s\">نشرت</a> (%s)"
+msgstr[5] ", <a href=\"%s\">نشرت</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">البريد المزعج</a> (%s)"
+msgstr[1] ", <a href=\"%s\">البريد المزعج</a> (1)"
+msgstr[2] ", <a href=\"%s\">البريد المزعج</a> (%s)"
+msgstr[3] ", <a href=\"%s\">البريد المزعج</a> (%s)"
+msgstr[4] ", <a href=\"%s\">البريد المزعج</a> (%s)"
+msgstr[5] ", <a href=\"%s\">البريد المزعج</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">معلق</a> (%s)"
+msgstr[1] ", <a href=\"%s\">pending</a> (1)"
+msgstr[2] ", <a href=\"%s\">معلق</a> (%s)"
+msgstr[3] ", <a href=\"%s\">معلق</a> (%s)"
+msgstr[4] ", <a href=\"%s\">معلق</a> (%s)"
+msgstr[5] ", <a href=\"%s\">معلق</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">لم تنشر</a> (%s)"
+msgstr[1] ", <a href=\"%s\">غير منشورة</a> (1)"
+msgstr[2] ", <a href=\"%s\">لم تنشر</a> (%s)"
+msgstr[3] ", <a href=\"%s\">لم تنشر</a> (%s)"
+msgstr[4] ", <a href=\"%s\">لم تنشر</a> (%s)"
+msgstr[5] ", <a href=\"%s\">لم تنشر</a> (%s)"
+
+msgid "Type"
+msgstr "نوع"
+
+msgid "Entry"
+msgstr "مدخل"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "تحرير %1$s من %2$s"
+
+msgid "comment"
+msgstr "تعليق"
+
+msgid "trackback"
+msgstr "تعقب"
+
+msgid "Type and author"
+msgstr "النوع والمؤلف"
+
+msgid "Edit"
+msgstr "تحرير"
+
+msgid "No file matches the filter"
+msgstr "لا يوجد ملف يطابق الفلتر"
+
+msgid "No file."
+msgstr "لا يوجد ملف."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d ملفات تطابق عامل التصفية."
+msgstr[1] "%d ملف يطابق عامل التصفية."
+msgstr[2] "%d ملفات تطابق عامل التصفية."
+msgstr[3] "%d ملفات تطابق عامل التصفية."
+msgstr[4] "%d ملفات تطابق عامل التصفية."
+msgstr[5] "%d ملفات تطابق عامل التصفية."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "لا نب من العناصر: %d → %d مجلد (مجلدات) + %d ملف (ملفات)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb من العناصر: %d"
 
 msgid "Name"
 msgstr "الاسم"
@@ -553,11 +1134,392 @@ msgstr "الاسم"
 msgid "Size"
 msgstr "الحجم"
 
-msgid "media per page"
-msgstr "الوسائط لكل صفحة"
+msgid "Select this file"
+msgstr "حدد هذا الملف"
 
-msgid "results per page"
-msgstr "النتائج لكل صفحة"
+msgid "Attach this file to entry"
+msgstr "إرفاق هذا الملف للإدخال"
+
+msgid "Insert this file into entry"
+msgstr "إدراج هذا الملف في الإدخال"
+
+msgid "delete"
+msgstr "حذف"
+
+msgid "private media"
+msgstr "الوسائط الخاصة"
+
+msgid "open"
+msgstr "فتح"
+
+msgid "No entry matches the filter"
+msgstr "لا يوجد إدخال يطابق عامل التصفية"
+
+msgid "No entry"
+msgstr "لا يوجد إدخال"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "قائمة من %s إدخالات مطابقة للفلتر."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "قائمة المواد (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">مبرمجة</a> (%s)"
+msgstr[1] ", <a href=\"%s\">مبرمجة</a> (1)"
+msgstr[2] ", <a href=\"%s\">مبرمجة</a> (%s)"
+msgstr[3] ", <a href=\"%s\">مبرمجة</a> (%s)"
+msgstr[4] ", <a href=\"%s\">مبرمجة</a> (%s)"
+msgstr[5] ", <a href=\"%s\">مبرمجة</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "التتبع"
+
+msgid "Protected"
+msgstr "محمي"
+
+msgid "Attachments"
+msgstr "المرفقات"
+
+#, php-format
+msgid "%d attachment"
+msgstr "مرفقات %d"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d مرفقات"
+
+msgid "Entries list"
+msgstr "قائمة المدخلات"
+
+msgid "No user matches the filter"
+msgstr "لا يوجد مستخدم يطابق عامل التصفية"
+
+msgid "No user"
+msgstr "لا يوجد مستخدم"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "قائمة المستخدمين %s تطابق عامل التصفية."
+
+msgid "Users list"
+msgstr "قائمة المستخدمين"
+
+msgid "admin"
+msgstr "المشرف"
+
+msgid "superadmin"
+msgstr "سوبردمين"
+
+msgid "First page"
+msgstr "الصفحة الأولى"
+
+msgid "Previous page"
+msgstr "الصفحة السابقة"
+
+msgid "Next page"
+msgstr "الصفحة التالية"
+
+msgid "Last page"
+msgstr "الصفحة الأخيرة"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "الصفحة %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "صفحة الوصول المباشر %s"
+
+msgid "ok"
+msgstr "حسنًا"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s ملفات وجدت"
+msgstr[1] "%s ملف موجود"
+msgstr[2] "%s ملفات وجدت"
+msgstr[3] "%s ملفات وجدت"
+msgstr[4] "%s ملفات وجدت"
+msgstr[5] "%s ملفات وجدت"
+
+msgid "Blog"
+msgstr "المدونة"
+
+msgid "System settings"
+msgstr "إعدادات النظام"
+
+msgid "Plugins"
+msgstr "الإضافات"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "other"
+msgstr "اخرى"
+
+msgid "Search in repository:"
+msgstr "البحث في المستودع:"
+
+msgid "OK"
+msgstr "حسناً"
+
+msgid "Reset search"
+msgstr "إعادة تعيين البحث"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "البحث مسموح به على عدة مصطلحات أطول من 2 حرف، يجب فصل المصطلحات عن طريق المساحة."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "تم العثور على %d نتائج للبحث \"%s\":"
+msgstr[1] "تم العثور على %d نتيجة للبحث \"%s\":"
+msgstr[2] "تم العثور على %d نتائج للبحث \"%s\":"
+msgstr[3] "تم العثور على %d نتائج للبحث \"%s\":"
+msgstr[4] "تم العثور على %d نتائج للبحث \"%s\":"
+msgstr[5] "تم العثور على %d نتائج للبحث \"%s\":"
+
+msgid "current selection"
+msgstr "التحديد الحالي"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d نتائج"
+msgstr[1] "%d نتيجة"
+msgstr[2] "%d نتائج"
+msgstr[3] "%d نتائج"
+msgstr[4] "%d نتائج"
+msgstr[5] "%d نتائج"
+
+msgid "no results"
+msgstr "لا توجد نتائج"
+
+msgid "Browse index:"
+msgstr "فهرس التصفح:"
+
+msgid "Plugins list"
+msgstr "قائمة الإضافات"
+
+msgid "Score"
+msgstr "نقاط"
+
+msgid "Version"
+msgstr "الإصدار"
+
+msgid "Current version"
+msgstr "الإصدار الحالي"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Repository"
+msgstr "المستودع"
+
+msgid "Action"
+msgstr "اجراء"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "لا يمكن تعطيل هذه الوحدة النمطية أو حذفها، لأن الوحدات التالية مفعلة أيضا: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "لا يمكن تمكين هذه الوحدة النمطية بسبب الأسباب التالية:"
+
+msgid "Official repository"
+msgstr "المستودع الرسمي"
+
+msgid "Third-party repository"
+msgstr "مستودع طرف ثالث"
+
+msgid "Plugin from official distribution"
+msgstr "إضافة من التوزيع الرسمي"
+
+msgid "Plugin in development"
+msgstr "إضافة في التطوير"
+
+msgid "Support"
+msgstr "الدعم"
+
+msgid "update locked"
+msgstr "التحديث مقفل"
+
+msgid "Section:"
+msgstr "القسم:"
+
+msgid "Tags:"
+msgstr "العلامات:"
+
+msgid "No plugins matched your search."
+msgstr "لا توجد إضافات تطابق بحثك."
+
+msgid "Configure plugin"
+msgstr "تكوين الملحق"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "إعدادات الإضافة (في معلمات المدونة)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "إعدادات الإضافة (في تفضيلات المستخدم)"
+
+msgid "Plugin settings"
+msgstr "إعدادات الإضافة"
+
+msgid "Plugin main page"
+msgstr "الصفحة الرئيسية للملحق"
+
+msgid "Activate"
+msgstr "تفعيل"
+
+msgid "Deactivate"
+msgstr "تعطيل"
+
+msgid "Clone"
+msgstr "استنساخ"
+
+msgid "Install"
+msgstr "تثبيت"
+
+msgid "Activate selected plugins"
+msgstr "تفعيل الإضافات المحددة"
+
+msgid "Activate all plugins from this list"
+msgstr "تفعيل جميع الإضافات من هذه القائمة"
+
+msgid "Deactivate selected plugins"
+msgstr "إلغاء تنشيط الإضافات المحددة"
+
+msgid "Deactivate all plugins from this list"
+msgstr "إلغاء تنشيط جميع الإضافات من هذه القائمة"
+
+msgid "Update selected plugins"
+msgstr "تحديث الإضافات المحددة"
+
+msgid "Update all plugins from this list"
+msgstr "تحديث جميع الإضافات من هذه القائمة"
+
+msgid "No such plugin."
+msgstr "لا يوجد مثل هذه الإضافة."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "ليس لديك أذونات لحذف هذه الإضافة."
+
+msgid "Some plugins have not been delete."
+msgstr "بعض الإضافات لم يتم حذفها."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "تم حذف الإضافات بنجاح"
+msgstr[1] "تم حذف الإضافة بنجاح."
+msgstr[2] "تم حذف الإضافات بنجاح"
+msgstr[3] "تم حذف الإضافات بنجاح"
+msgstr[4] "تم حذف الإضافات بنجاح"
+msgstr[5] "تم حذف الإضافات بنجاح"
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "تم تثبيت الإضافات بنجاح."
+msgstr[1] "تم تثبيت الإضافة بنجاح."
+msgstr[2] "تم تثبيت الإضافات بنجاح."
+msgstr[3] "تم تثبيت الإضافات بنجاح."
+msgstr[4] "تم تثبيت الإضافات بنجاح."
+msgstr[5] "تم تثبيت الإضافات بنجاح."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "تم تفعيل الإضافات بنجاح."
+msgstr[1] "تم تفعيل الإضافة بنجاح."
+msgstr[2] "تم تفعيل الإضافات بنجاح."
+msgstr[3] "تم تفعيل الإضافات بنجاح."
+msgstr[4] "تم تفعيل الإضافات بنجاح."
+msgstr[5] "تم تفعيل الإضافات بنجاح."
+
+msgid "Some plugins have not been deactivated."
+msgstr "لم يتم تعطيل بعض الإضافات."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "تم تعطيل الإضافات بنجاح."
+msgstr[1] "تم تعطيل الإضافة بنجاح."
+msgstr[2] "تم تعطيل الإضافات بنجاح."
+msgstr[3] "تم تعطيل الإضافات بنجاح."
+msgstr[4] "تم تعطيل الإضافات بنجاح."
+msgstr[5] "تم تعطيل الإضافات بنجاح."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "تم تحديث الإضافات بنجاح."
+msgstr[1] "تم تحديث الإضافة بنجاح."
+msgstr[2] "تم تحديث الإضافات بنجاح."
+msgstr[3] "تم تحديث الإضافات بنجاح."
+msgstr[4] "تم تحديث الإضافات بنجاح."
+msgstr[5] "تم تحديث الإضافات بنجاح."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "تحديثات الإضافات التالية مقفلة: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "غير قادر على نقل الملف الذي تم تحميله."
+
+msgid "The plugin has been successfully updated."
+msgstr "تم تحديث الإضافة بنجاح."
+
+msgid "The plugin has been successfully installed."
+msgstr "تم تثبيت الإضافة بنجاح."
+
+msgid "Upload a zip file"
+msgstr "تحميل ملف مضغوط"
+
+msgid "Required field"
+msgstr "الحقل المطلوب"
+
+msgid "Zip file path:"
+msgstr "مسار الملف المضغوط:"
+
+msgid "Your password:"
+msgstr "كلمة المرور الخاصة بك:"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Upload"
+msgstr "تحميل"
+
+msgid "Download a zip file"
+msgstr "تحميل ملف مضغوط"
+
+msgid "Zip file URL:"
+msgstr "رابط الملف المضغوط:"
+
+msgid "Download"
+msgstr "تنزيل"
+
+msgid "Unknown plugin ID"
+msgstr "معرف البرنامج المساعد غير معروف"
+
+msgid "This plugin has no configuration file."
+msgstr "هذه الإضافة لا تحتوي على ملف الإعدادات."
+
+msgid "Insufficient permissions"
+msgstr "أذونات غير كافية"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "تكوين \"%s\""
+
+msgid "Back"
+msgstr "الرجوع"
 
 msgid "Error:"
 msgstr "خطأ:"
@@ -576,9 +1538,6 @@ msgstr "تغيير المدونة"
 
 msgid "Blogs:"
 msgstr "المدونة:"
-
-msgid "ok"
-msgstr "حسنًا"
 
 msgid "Go to the content"
 msgstr "الذهاب إلى المحتوى"
@@ -610,9 +1569,6 @@ msgstr "الوضع الآمن"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "أنت في وضع آمن. تم تعطيل جميع الإضافات مؤقتا. تذكر بتسجيل الخروج ثم قم بتسجيل الدخول مرة أخرى عادة لاستعادة جميع الوظائف"
-
-msgid "OK"
-msgstr "حسناً"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -785,20 +1741,8 @@ msgstr "تحذير: تغيير تنسيق المشاركة لن يقوم بتح�
 msgid "Loading enhanced uploader, please wait."
 msgstr "تحميل التحميل المحسن، الرجاء الانتظار."
 
-msgid "Details"
-msgstr "التفاصيل"
-
-msgid "Support"
-msgstr "الدعم"
-
 msgid "Help:"
 msgstr "المساعدة:"
-
-msgid "Section:"
-msgstr "القسم:"
-
-msgid "Tags:"
-msgstr "العلامات:"
 
 msgid "Hide this notice"
 msgstr "إخفاء هذا الإشعار"
@@ -851,9 +1795,6 @@ msgstr "إلغاء"
 msgid "Clean"
 msgstr "تنظيف"
 
-msgid "Upload"
-msgstr "تحميل"
-
 msgid "Send"
 msgstr "إرسال"
 
@@ -877,260 +1818,35 @@ msgid "Cancel filters and display options"
 msgstr "إلغاء الفلاتر وخيارات العرض"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s ملفات وجدت"
-msgstr[1] "%s ملف موجود"
-msgstr[2] "%s ملفات وجدت"
-msgstr[3] "%s ملفات وجدت"
-msgstr[4] "%s ملفات وجدت"
-msgstr[5] "%s ملفات وجدت"
-
-msgid "other"
-msgstr "اخرى"
-
-msgid "Search in repository:"
-msgstr "البحث في المستودع:"
-
-msgid "Reset search"
-msgstr "إعادة تعيين البحث"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "البحث مسموح به على عدة مصطلحات أطول من 2 حرف، يجب فصل المصطلحات عن طريق المساحة."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "تم العثور على %d نتائج للبحث \"%s\":"
-msgstr[1] "تم العثور على %d نتيجة للبحث \"%s\":"
-msgstr[2] "تم العثور على %d نتائج للبحث \"%s\":"
-msgstr[3] "تم العثور على %d نتائج للبحث \"%s\":"
-msgstr[4] "تم العثور على %d نتائج للبحث \"%s\":"
-msgstr[5] "تم العثور على %d نتائج للبحث \"%s\":"
+msgid "ratio %.1f"
+msgstr "النسبة %.1f"
 
-msgid "current selection"
-msgstr "التحديد الحالي"
+msgid "The 'public' directory does not exist."
+msgstr "الدليل 'العام' غير موجود."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d نتائج"
-msgstr[1] "%d نتيجة"
-msgstr[2] "%d نتائج"
-msgstr[3] "%d نتائج"
-msgstr[4] "%d نتائج"
-msgstr[5] "%d نتائج"
+msgid "The '%s' directory cannot be modified."
+msgstr "لا يمكن تعديل الدليل '%s'."
 
-msgid "no results"
-msgstr "لا توجد نتائج"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "واحدة على الأقل من الدوال التالية غير متوفرة: imagecretruecolor, imagepng & imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "فهرس التصفح:"
+msgid "Unable to create images."
+msgstr "غير قادر على إنشاء الصور."
 
-msgid "Plugins list"
-msgstr "قائمة الإضافات"
+msgid "Invalid file type."
+msgstr "نوع الملف غير صالح."
 
-msgid "Score"
-msgstr "نقاط"
-
-msgid "Version"
-msgstr "الإصدار"
-
-msgid "Current version"
-msgstr "الإصدار الحالي"
-
-msgid "Repository"
-msgstr "المستودع"
-
-msgid "Action"
-msgstr "اجراء"
+msgid "An error occurred while writing the file."
+msgstr "حدث خطأ أثناء كتابة الملف."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "لا يمكن تعطيل هذه الوحدة النمطية أو حذفها، لأن الوحدات التالية مفعلة أيضا: %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "لا يمكن تمكين هذه الوحدة النمطية بسبب الأسباب التالية:"
-
-msgid "Official repository"
-msgstr "المستودع الرسمي"
-
-msgid "Third-party repository"
-msgstr "مستودع طرف ثالث"
-
-msgid "Plugin from official distribution"
-msgstr "إضافة من التوزيع الرسمي"
-
-msgid "Plugin in development"
-msgstr "إضافة في التطوير"
-
-msgid "update locked"
-msgstr "التحديث مقفل"
-
-msgid "No plugins matched your search."
-msgstr "لا توجد إضافات تطابق بحثك."
-
-msgid "Configure plugin"
-msgstr "تكوين الملحق"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "إعدادات الإضافة (في معلمات المدونة)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "إعدادات الإضافة (في تفضيلات المستخدم)"
-
-msgid "Plugin settings"
-msgstr "إعدادات الإضافة"
-
-msgid "Plugin main page"
-msgstr "الصفحة الرئيسية للملحق"
-
-msgid "Activate"
-msgstr "تفعيل"
-
-msgid "Deactivate"
-msgstr "تعطيل"
-
-msgid "Clone"
-msgstr "استنساخ"
-
-msgid "Install"
-msgstr "تثبيت"
-
-msgid "Activate selected plugins"
-msgstr "تفعيل الإضافات المحددة"
-
-msgid "Activate all plugins from this list"
-msgstr "تفعيل جميع الإضافات من هذه القائمة"
-
-msgid "Deactivate selected plugins"
-msgstr "إلغاء تنشيط الإضافات المحددة"
-
-msgid "Deactivate all plugins from this list"
-msgstr "إلغاء تنشيط جميع الإضافات من هذه القائمة"
-
-msgid "Update selected plugins"
-msgstr "تحديث الإضافات المحددة"
-
-msgid "Update all plugins from this list"
-msgstr "تحديث جميع الإضافات من هذه القائمة"
-
-msgid "No such plugin."
-msgstr "لا يوجد مثل هذه الإضافة."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "ليس لديك أذونات لحذف هذه الإضافة."
-
-msgid "Some plugins have not been delete."
-msgstr "بعض الإضافات لم يتم حذفها."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "تم حذف الإضافات بنجاح"
-msgstr[1] "تم حذف الإضافة بنجاح."
-msgstr[2] "تم حذف الإضافات بنجاح"
-msgstr[3] "تم حذف الإضافات بنجاح"
-msgstr[4] "تم حذف الإضافات بنجاح"
-msgstr[5] "تم حذف الإضافات بنجاح"
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "تم تثبيت الإضافات بنجاح."
-msgstr[1] "تم تثبيت الإضافة بنجاح."
-msgstr[2] "تم تثبيت الإضافات بنجاح."
-msgstr[3] "تم تثبيت الإضافات بنجاح."
-msgstr[4] "تم تثبيت الإضافات بنجاح."
-msgstr[5] "تم تثبيت الإضافات بنجاح."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "تم تفعيل الإضافات بنجاح."
-msgstr[1] "تم تفعيل الإضافة بنجاح."
-msgstr[2] "تم تفعيل الإضافات بنجاح."
-msgstr[3] "تم تفعيل الإضافات بنجاح."
-msgstr[4] "تم تفعيل الإضافات بنجاح."
-msgstr[5] "تم تفعيل الإضافات بنجاح."
-
-msgid "Some plugins have not been deactivated."
-msgstr "لم يتم تعطيل بعض الإضافات."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "تم تعطيل الإضافات بنجاح."
-msgstr[1] "تم تعطيل الإضافة بنجاح."
-msgstr[2] "تم تعطيل الإضافات بنجاح."
-msgstr[3] "تم تعطيل الإضافات بنجاح."
-msgstr[4] "تم تعطيل الإضافات بنجاح."
-msgstr[5] "تم تعطيل الإضافات بنجاح."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "تم تحديث الإضافات بنجاح."
-msgstr[1] "تم تحديث الإضافة بنجاح."
-msgstr[2] "تم تحديث الإضافات بنجاح."
-msgstr[3] "تم تحديث الإضافات بنجاح."
-msgstr[4] "تم تحديث الإضافات بنجاح."
-msgstr[5] "تم تحديث الإضافات بنجاح."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "تحديثات الإضافات التالية مقفلة: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "غير قادر على نقل الملف الذي تم تحميله."
-
-msgid "The plugin has been successfully updated."
-msgstr "تم تحديث الإضافة بنجاح."
-
-msgid "The plugin has been successfully installed."
-msgstr "تم تثبيت الإضافة بنجاح."
-
-msgid "Upload a zip file"
-msgstr "تحميل ملف مضغوط"
-
-msgid "Required field"
-msgstr "الحقل المطلوب"
-
-msgid "Zip file path:"
-msgstr "مسار الملف المضغوط:"
-
-msgid "Your password:"
-msgstr "كلمة المرور الخاصة بك:"
-
-msgid "Password"
-msgstr "كلمة المرور"
-
-msgid "Download a zip file"
-msgstr "تحميل ملف مضغوط"
-
-msgid "Zip file URL:"
-msgstr "رابط الملف المضغوط:"
-
-msgid "URL"
-msgstr "الرابط"
-
-msgid "Download"
-msgstr "تنزيل"
-
-msgid "Unknown plugin ID"
-msgstr "معرف البرنامج المساعد غير معروف"
-
-msgid "This plugin has no configuration file."
-msgstr "هذه الإضافة لا تحتوي على ملف الإعدادات."
-
-msgid "Insufficient permissions"
-msgstr "أذونات غير كافية"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "تكوين \"%s\""
-
-msgid "Back"
-msgstr "الرجوع"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "الصورة التي تم تحميلها ليست عرض %s بكسل."
 
 #, php-format
 msgid "Score: %s"
@@ -1171,6 +1887,9 @@ msgstr "لا توجد سمات تطابق بحثك."
 
 msgid "Use this one"
 msgstr "استخدم هذا"
+
+msgid "Preview"
+msgstr "معاينة"
 
 msgid "Update selected themes"
 msgstr "تحديث السمات المحددة"
@@ -1258,733 +1977,281 @@ msgstr "تم تحديث السمة بنجاح."
 msgid "The theme has been successfully installed."
 msgstr "تم تثبيت السمة بنجاح."
 
-msgid "First page"
-msgstr "الصفحة الأولى"
+msgid "users per page"
+msgstr "المستخدمين في كل صفحة"
 
-msgid "Previous page"
-msgstr "الصفحة السابقة"
+msgid "entries per page"
+msgstr "الإدخالات لكل صفحة"
 
-msgid "Next page"
-msgstr "الصفحة التالية"
+msgid "comments per page"
+msgstr "تعليقات لكل صفحة"
 
-msgid "Last page"
-msgstr "الصفحة الأخيرة"
+msgid "blogs per page"
+msgstr "مدونات لكل صفحة"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "الصفحة %s / %s"
+msgid "media per page"
+msgstr "الوسائط لكل صفحة"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "صفحة الوصول المباشر %s"
+msgid "results per page"
+msgstr "النتائج لكل صفحة"
 
-msgid "&#171; prev."
-msgstr "&#171; مراوغة."
+msgid "Database error"
+msgstr "خطأ في قاعدة البيانات"
 
-msgid "next &#187;"
-msgstr "التالي &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "يبدو أنه لا يوجد جدول جلسة في قاعدة البيانات الخاصة بك. هل تم تثبيت Dotclear تمامًا؟"
 
-msgid "No entry matches the filter"
-msgstr "لا يوجد إدخال يطابق عامل التصفية"
+msgid "Precondition Failed"
+msgstr "فشل الشرط المسبق"
 
-msgid "No entry"
-msgstr "لا يوجد إدخال"
+#, fuzzy
+msgid "Database problem"
+msgstr "خطأ في قاعدة البيانات"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "قائمة من %s إدخالات مطابقة للفلتر."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "حدث خطأ أثناء محاولة قراءة قاعدة البيانات:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "قائمة المواد (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">نشرت</a> (%s)"
-msgstr[1] ", <a href=\"%s\">نشرت</a> (1)"
-msgstr[2] ", <a href=\"%s\">نشرت</a> (%s)"
-msgstr[3] ", <a href=\"%s\">نشرت</a> (%s)"
-msgstr[4] ", <a href=\"%s\">نشرت</a> (%s)"
-msgstr[5] ", <a href=\"%s\">نشرت</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">معلق</a> (%s)"
-msgstr[1] ", <a href=\"%s\">pending</a> (1)"
-msgstr[2] ", <a href=\"%s\">معلق</a> (%s)"
-msgstr[3] ", <a href=\"%s\">معلق</a> (%s)"
-msgstr[4] ", <a href=\"%s\">معلق</a> (%s)"
-msgstr[5] ", <a href=\"%s\">معلق</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">مبرمجة</a> (%s)"
-msgstr[1] ", <a href=\"%s\">مبرمجة</a> (1)"
-msgstr[2] ", <a href=\"%s\">مبرمجة</a> (%s)"
-msgstr[3] ", <a href=\"%s\">مبرمجة</a> (%s)"
-msgstr[4] ", <a href=\"%s\">مبرمجة</a> (%s)"
-msgstr[5] ", <a href=\"%s\">مبرمجة</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">لم تنشر</a> (%s)"
-msgstr[1] ", <a href=\"%s\">غير منشورة</a> (1)"
-msgstr[2] ", <a href=\"%s\">لم تنشر</a> (%s)"
-msgstr[3] ", <a href=\"%s\">لم تنشر</a> (%s)"
-msgstr[4] ", <a href=\"%s\">لم تنشر</a> (%s)"
-msgstr[5] ", <a href=\"%s\">لم تنشر</a> (%s)"
-
-msgid "Legend: "
-msgstr "اسطوري: "
-
-msgid "Published"
-msgstr "نُشرت"
-
-msgid "Unpublished"
-msgstr "غير منشورة"
-
-msgid "Scheduled"
-msgstr "مجدولة"
-
-msgid "Pending"
-msgstr "معلق"
-
-msgid "Protected"
-msgstr "محمي"
-
-msgid "Attachments"
-msgstr "المرفقات"
-
-#, php-format
-msgid "%d attachment"
-msgstr "مرفقات %d"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d مرفقات"
-
-msgid "Entries list"
-msgstr "قائمة المدخلات"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "لا توجد تعليقات أو ردود متطابقة مع عامل التصفية"
-
-msgid "No comments"
-msgstr "لا توجد تعليقات"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
-msgstr[1] "التعليق أو المسار الذي يطابق عامل التصفية."
-msgstr[2] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
-msgstr[3] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
-msgstr[4] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
-msgstr[5] "قائمة بالتعليقات %s أو التتبع التي تطابق عامل التصفية."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "قائمة بالتعليقات والمتابعات (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">البريد المزعج</a> (%s)"
-msgstr[1] ", <a href=\"%s\">البريد المزعج</a> (1)"
-msgstr[2] ", <a href=\"%s\">البريد المزعج</a> (%s)"
-msgstr[3] ", <a href=\"%s\">البريد المزعج</a> (%s)"
-msgstr[4] ", <a href=\"%s\">البريد المزعج</a> (%s)"
-msgstr[5] ", <a href=\"%s\">البريد المزعج</a> (%s)"
-
-msgid "Type"
-msgstr "نوع"
-
-msgid "Entry"
-msgstr "مدخل"
-
-msgid "Junk"
-msgstr "مزعج"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "تحرير %1$s من %2$s"
-
-msgid "comment"
-msgstr "تعليق"
-
-msgid "trackback"
-msgstr "تعقب"
-
-msgid "Type and author"
-msgstr "النوع والمؤلف"
-
-msgid "Edit"
-msgstr "تحرير"
-
-msgid "No blog matches the filter"
-msgstr "لا توجد مدونة تطابق عامل التصفية"
-
-msgid "No blog"
-msgstr "لا توجد مدونة"
-
-msgid "Entries (all types)"
-msgstr "الإدخالات (جميع الأنواع)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d مدونات تطابق عامل التصفية."
-msgstr[1] "%d مدونة تطابق عامل التصفية."
-msgstr[2] "%d مدونات تطابق عامل التصفية."
-msgstr[3] "%d مدونات تطابق عامل التصفية."
-msgstr[4] "%d مدونات تطابق عامل التصفية."
-msgstr[5] "%d مدونات تطابق عامل التصفية."
-
-msgid "Blogs list"
-msgstr "قائمة المدوّنات"
-
-msgid "online"
-msgstr "متصل"
-
-msgid "offline"
-msgstr "غير متصل"
-
-msgid "removed"
-msgstr "إزالة"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "تعديل إعدادات المدونة لـ %s"
-
-msgid "Edit blog settings"
-msgstr "تعديل إعدادات المدونة"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "التبديل إلى المدونة %s"
-
-msgid "No user matches the filter"
-msgstr "لا يوجد مستخدم يطابق عامل التصفية"
-
-msgid "No user"
-msgstr "لا يوجد مستخدم"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "قائمة المستخدمين %s تطابق عامل التصفية."
-
-msgid "Users list"
-msgstr "قائمة المستخدمين"
-
-msgid "admin"
-msgstr "المشرف"
-
-msgid "superadmin"
-msgstr "سوبردمين"
-
-msgid "No file matches the filter"
-msgstr "لا يوجد ملف يطابق الفلتر"
-
-msgid "No file."
-msgstr "لا يوجد ملف."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d ملفات تطابق عامل التصفية."
-msgstr[1] "%d ملف يطابق عامل التصفية."
-msgstr[2] "%d ملفات تطابق عامل التصفية."
-msgstr[3] "%d ملفات تطابق عامل التصفية."
-msgstr[4] "%d ملفات تطابق عامل التصفية."
-msgstr[5] "%d ملفات تطابق عامل التصفية."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "لا نب من العناصر: %d → %d مجلد (مجلدات) + %d ملف (ملفات)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Nb من العناصر: %d"
-
-msgid "Select this file"
-msgstr "حدد هذا الملف"
-
-msgid "Attach this file to entry"
-msgstr "إرفاق هذا الملف للإدخال"
-
-msgid "Insert this file into entry"
-msgstr "إدراج هذا الملف في الإدخال"
-
-msgid "delete"
-msgstr "حذف"
-
-msgid "private media"
-msgstr "الوسائط الخاصة"
-
-msgid "open"
-msgstr "فتح"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "النسبة %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "الدليل 'العام' غير موجود."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "لا يمكن تعديل الدليل '%s'."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "واحدة على الأقل من الدوال التالية غير متوفرة: imagecretruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "غير قادر على إنشاء الصور."
-
-msgid "Invalid file type."
-msgstr "نوع الملف غير صالح."
-
-msgid "An error occurred while writing the file."
-msgstr "حدث خطأ أثناء كتابة الملف."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "الصورة التي تم تحميلها ليست عرض %s بكسل."
-
-msgid "medium"
-msgstr "متوسطه"
-
-msgid "small"
-msgstr "صغير"
-
-msgid "thumbnail"
-msgstr "thumbnail"
-
-msgid "square"
-msgstr "مربع"
-
-msgid "Pages"
-msgstr "الصفحات"
-
-msgid "administrator"
-msgstr "مسؤول"
-
-msgid "manage all entries and comments"
-msgstr "إدارة جميع المدخلات والتعليقات"
-
-msgid "manage their own entries and comments"
-msgstr "إدارة المواد والتعليقات الخاصة بهم"
-
-msgid "publish entries and comments"
-msgstr "نشر المواد والتعليقات"
-
-msgid "delete entries and comments"
-msgstr "حذف المواد والتعليقات"
-
-msgid "manage categories"
-msgstr "إدارة الفئات"
-
-msgid "manage all media items"
-msgstr "إدارة جميع عناصر الوسائط"
-
-msgid "manage their own media items"
-msgstr "إدارة عناصر وسائل الإعلام الخاصة بهم"
-
-msgid "That user does not exist in the database."
-msgstr "هذا المستخدم غير موجود في قاعدة البيانات."
-
-msgid "That key does not exist in the database."
-msgstr "وهذا المفتاح غير موجود في قاعدة البيانات."
-
-msgid "You are not allowed to add categories"
-msgstr "غير مسموح لك بإضافة فئات"
-
-msgid "You are not allowed to update categories"
-msgstr "غير مسموح لك بتحديث الفئات"
-
-msgid "You are not allowed to delete categories"
-msgstr "غير مسموح لك بحذف الفئات"
-
-msgid "This category is not empty."
-msgstr "هذه الفئة ليست فارغة."
-
-msgid "You are not allowed to reset categories order"
-msgstr "غير مسموح لك بإعادة تعيين ترتيب الفئات"
-
-msgid "Empty category URL"
-msgstr "رابط التصنيف فارغ"
-
-msgid "You must provide a category title"
-msgstr "يجب عليك تقديم عنوان الفئة"
-
-msgid "You must provide a category URL"
-msgstr "يجب عليك تقديم عنوان URL للفئة"
-
-msgid "You are not allowed to create an entry"
-msgstr "غير مسموح لك بإنشاء إدخال"
-
-msgid "You are not allowed to update entries"
-msgstr "غير مسموح لك بتحديث المواد"
-
-msgid "No such entry ID"
-msgstr "لا يوجد معرف من هذا القبيل"
-
-msgid "You are not allowed to edit this entry"
-msgstr "غير مسموح لك بتعديل هذا الإدخال"
-
-msgid "You are not allowed to change this entry status"
-msgstr "غير مسموح لك بتغيير حالة الإدخال هذه"
-
-msgid "You are not allowed to change this entry category"
-msgstr "غير مسموح لك بتغيير فئة الإدخال هذه"
-
-msgid "You are not allowed to change entries category"
-msgstr "غير مسموح لك بتغيير فئة المواد"
-
-msgid "You are not allowed to delete entries"
-msgstr "غير مسموح لك بحذف المواد"
-
-msgid "No entry title"
-msgstr "لا يوجد عنوان إدخال"
-
-msgid "No entry content"
-msgstr "لا يوجد محتوى للدخول"
-
-msgid "Notes"
-msgstr "الحواشي"
-
-msgid "Note"
-msgstr "ملاحظة"
-
-msgid "Empty entry URL"
-msgstr "رابط إدخال فارغ"
-
-msgid "You are not allowed to update comments"
-msgstr "غير مسموح لك بتحديث التعليقات"
-
-msgid "No such comment ID"
-msgstr "لا يوجد معرف مثل هذا التعليق"
-
-msgid "You are not allowed to update this comment"
-msgstr "غير مسموح لك بتحديث هذا التعليق"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "غير مسموح لك بتغيير حالة هذا التعليق"
-
-msgid "You are not allowed to delete comments"
-msgstr "غير مسموح لك بحذف التعليقات"
-
-msgid "You must provide a comment"
-msgstr "يجب عليك تقديم تعليق"
-
-msgid "You must provide an author name"
-msgstr "يجب عليك تقديم اسم المؤلف"
-
-msgid "Email address is not valid."
-msgstr "عنوان البريد الإلكتروني غير صالح."
-
-msgid "You are not an administrator"
-msgstr "أنت لست مسؤول"
-
-msgid "No user ID given"
-msgstr "لا يوجد معرف مستخدم"
-
-msgid "No password given"
-msgstr "لم يتم إعطاء كلمة مرور"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "يجب أن يحتوي معرف المستخدم على حرفين على الأقل باستخدام الأحرف أو الأرقام أو الرموز."
-
-msgid "Password must contain at least 6 characters."
-msgstr "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل."
-
-msgid "Invalid user language code"
-msgstr "رمز لغة المستخدم غير صالح"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "يجب أن يحتوي معرف المدونة على حرفين على الأقل باستخدام الأحرف أو الأرقام أو الرموز."
-
-msgid "No blog name"
-msgstr "لا يوجد اسم مدونة"
-
-msgid "No blog URL"
-msgstr "لا يوجد رابط مدونة"
-
-msgid "No log message"
-msgstr "لا توجد رسالة تسجيل"
-
-msgid "unknown"
-msgstr "غير معروف"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "لم يتم تعريف المدونة."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "لا يوجد دليل /public/ قابل للكتابة في الموقع المحدد في about:config \"public_path\". يجب عليك إنشاء هذا الدليل مع حقوق كافية (أو تغيير هذا الإعداد)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "لا يوجد دليل جذر قابل للكتابة لمدير الوسائط. يجب عليك الاتصال بالمسؤول."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "هذه المدونة غير متصل"
 
-msgid "You are not a super administrator."
-msgstr "أنت لست المسؤول الكبير."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "هذه المدونة غير متصل"
 
-msgid "Permission denied."
-msgstr "تم رفض الإذن."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "لا يمكن إنشاء ملف"
 
-msgid "You are not the file owner."
-msgstr "أنت لست مالك الملف."
-
-msgid "This file is not allowed."
-msgstr "هذا الملف غير مسموح به."
-
-msgid "New file already exists."
-msgstr "الملف الجديد موجود مسبقاً."
-
-msgid "File does not exist in the database."
-msgstr "الملف غير موجود في قاعدة البيانات."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "استخراج دليل الوجهة %s موجود بالفعل."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "يتطلب %s وحدة لم يتم تثبيتها"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "يتطلب %s إصدار %s، ولكن الإصدار %s مثبت"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "يتطلب %s وحدة معطلة"
-
-msgid "The following extensions have been disabled :"
-msgstr "تم تعطيل الإضافات التالية:"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "الوحدة \"%s\" يحتوي على نوع \"%s\" الذي لا يتطابق مع نوع الوحدة المطلوبة \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "الوحدة النمطية \"%s\" مثبت مرتين في \"%s\" و \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "ملف مضغوط لوحدة فارغة."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "لا يبدو أن ملف zip وحدة دوتمسح صالحة."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "غير قادر على ترقية \"%s\". (التحديث مقفل)"
-
-msgid "An error occurred during module deletion."
-msgstr "حدث خطأ أثناء حذف الوحدة."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "غير قادر على ترقية \"%s\". (الإصدار القديم أو نفسه)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "غير قادر على قراءة ملف %s جديد"
-
-msgid "Cannot deactivate plugin."
-msgstr "لا يمكن تعطيل الإضافة."
-
-msgid "No such module."
-msgstr "لا توجد وحدة من هذا القبيل."
-
-msgid "Cannot remove module files"
-msgstr "لا يمكن إزالة ملفات الوحدة"
-
-msgid "Cannot activate plugin."
-msgstr "لا يمكن تنشيط الإضافة."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "إعداد dcNamespace: %s غير صالح"
-
-msgid "Unable to retrieve settings:"
-msgstr "غير قادر على استرداد الإعدادات:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s ليس معرف إعداد صالح"
-
-msgid "No namespace specified"
-msgstr "لا توجد مساحة أسماء محددة"
-
-msgid "No notice message"
-msgstr "لا توجد رسالة إشعار"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "غير قادر على استرداد مساحات العمل:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "مساحة عمل غير صالحة: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "غير قادر على استرداد فضاءات الأسماء:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "مساحة اسم الإعدادات غير صالحة: %s"
-
-msgid "Wrong data feed"
-msgstr "تغذية البيانات خاطئة"
-
-msgid "An error occurred while downloading the file."
-msgstr "حدث خطأ أثناء تحميل الملف."
-
-msgid "Themes folder unreachable"
-msgstr "مجلد السمات غير قابل للوصول"
-
-msgid "Themes folder unreadable"
-msgstr "مجلد السمات غير قابل للقراءة"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (نسخة #%s)"
-
-msgid " (copy)"
-msgstr " (نسخة)"
-
-msgid "Unable to modify _define.php"
-msgstr "غير قادر على تعديل _define.php"
-
-msgid "Destination folder already exist"
-msgstr "مجلد الوجهة موجود بالفعل"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s لا يزال قيد البحث"
-
-msgid "Unable to ping URL"
-msgstr "غير قادر على تنقية الرابط"
-
-msgid "Bad server response code"
-msgstr "رمز استجابة الخادم سيء"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s ليس عنوان بينغ"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s، خطأ في البند:"
-
-msgid "Don't repeat yourself, please."
-msgstr "لا تكرروا نفسك، من فضلك."
-
-msgid "Where's your title?"
-msgstr "أين العنوان الخاص بك؟"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "عذراً، حدثت مشكلة داخلية."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "شكرًا، زميل. كان من دواعي سرور."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "هل لديك أي فرصة لبن أحد محتوياتي؟ لا؟ حقاً؟"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "آسف ولكن لا يمكنك ربط هذا النوع من المحتوى."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "عفواً. \"لم يتم العثور على أشياء\". يرجى التحقق من عنوان URL الهدف مرتين."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "عذراً، الواجب. لا يقبل هذا الإدخال العودة في الوقت الراهن."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "عنوان URL المصدر الخاص بك لا يبدو وكأنه نوع محتوى مدعوم. عذراً. نعم، نعم!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "لم يتم توفير عنوان URL صالح للمصدر؟ حاول مرة أخرى!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "لم يتم توفير عنوان URL مستهدف صالح؟ حاول مرة أخرى!"
-
-msgid "LOL!"
-msgstr "جميل!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "ملف الملخصات غير موجود."
 
-msgid "No file to download"
-msgstr "لا يوجد ملف للتحميل"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "الدليل الجذر غير قابل للكتابة."
-
-msgid "An error occurred while downloading archive."
-msgstr "حدث خطأ أثناء تحميل الأرشيف."
-
-msgid "Archive not found."
-msgstr "الأرشيف غير موجود."
-
-msgid "Unable to read current digests file."
-msgstr "غير قادر على قراءة ملف الخلاصات الحالية."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "لا يبدو أن الملف الذي تم تنزيله هو أرشيف صالح."
-
-msgid "Incomplete archive."
-msgstr "أرشيف غير مكتمل."
-
-msgid "Unable to read digests file."
-msgstr "غير قادر على قراءة ملف الخلاصات."
-
-msgid "Invalid digests file."
-msgstr "ملف الخلاصات غير صالح."
-
-msgid "Unable to retrieve prefs:"
-msgstr "غير قادر على استرداد التفضيل:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s ليس معرف بادئة صالح"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "إصدار PHP هو %s (%s أو قبل ذلك)."
 
-msgid "No workspace specified"
-msgstr "لا توجد مساحة عمل محددة"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "وحدة سلسلة متعددة البايت (mbstring) غير متوفرة."
+
+msgid "Iconv module is not available."
+msgstr "وحدة أيكونف غير متوفرة."
+
+msgid "Output control functions are not available."
+msgstr "وظائف مراقبة النواتج غير متوفرة."
+
+msgid "SimpleXML module is not available."
+msgstr "وحدة SimpleXML غير متوفرة."
+
+msgid "DOM XML module is not available."
+msgstr "وحدة DOM XML غير متاحة."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "محرك PCRE لا يدعم سلاسل UTF-8."
+
+msgid "SPL module is not available."
+msgstr "وحدة SPL غير متوفرة."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "إصدار MySQL هو %s (4.1 أو سابقاً)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "محرك MySQL InnoDB غير متوفر."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "إصدار PostgreSQL هو %s (8.0 أو قبل ذلك)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "حدث خطأ ما في الترقية التلقائية:"
 
-msgid "Site temporarily unavailable"
-msgstr "الموقع غير متوفر مؤقتاً"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DLETE يتطلب مصدر من"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>نحن نعتذر عن هذا عدم التوافر المؤقت.<br />شكرا لك على تفهمك.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP يتطلب مصدر من"
 
-msgid "Unable to connect to database"
-msgstr "غير قادر على الاتصال بقاعدة البيانات"
+msgid "SQL INSERT requires an INTO source"
+msgstr "رمز SQL يتطلب مصدر INTO"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL JOIN يتطلب مصدر من"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "تحديد SQL يتطلب مصدر من"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL TRUNCATT TABLE يتطلب مصدر من المصدر"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "تحديث SQL يتطلب مصدر من"
+
+msgid "Bad range"
+msgstr "Bad range"
+
+msgid "Invalid range"
+msgstr "Invalid range"
+
+msgid "Invalid line number"
+msgstr "رقم السطر غير صالح"
+
+msgid "Chunk is out of range"
+msgstr "القطعة خارج النطاق"
+
+msgid "Bad context"
+msgstr "السياق السيئ"
+
+msgid "Bad context (in deletion)"
+msgstr "السياق السيئ (في حذف)"
+
+msgid "Invalid diff format"
+msgstr "تنسيق غير صالح"
+
+msgid "Unable to open directory."
+msgstr "غير قادر على فتح الدليل."
+
+msgid "Unable to create directory."
+msgstr "غير قادر على إنشاء الدليل."
+
+msgid "File is not writable."
+msgstr "الملف غير قابل للكتابة."
+
+msgid "Unable to open file."
+msgstr "غير قادر على فتح الملف."
+
+msgid "Not an uploaded file."
+msgstr "ليس ملف تم تحميله."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "الملف الذي تم تحميله يتجاوز الحد الأقصى لحجم الملف المسموح به."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "تم تحميل الملف بشكل جزئي فقط."
+
+msgid "No file was uploaded."
+msgstr "لم يتم تحميل أي ملف."
+
+msgid "Missing a temporary folder."
+msgstr "مجلد مؤقت مفقود."
+
+msgid "Failed to write file to disk."
+msgstr "فشل في كتابة الملف على القرص."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "إيقاف ملحق PHP تحميل الملف."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>هذا يعني إما أن معلومات اسم المستخدم وكلمة المرور في إعدادات <strong>الخاصة بك. hp</strong> ملف غير صحيح أو لا يمكننا الاتصال بخادم قاعدة البيانات على \"<em>%s</em>\". قد يعني هذا أن خادم قاعدة بيانات المضيف الخاص بك معطل.</p> <ul><li>هل أنت متأكد من أن لديك اسم المستخدم وكلمة المرور الصحيحة؟</li><li>هل أنت متأكد من أنك كتبت اسم المضيف الصحيح؟</li><li>هل أنت متأكد من تشغيل خادم قاعدة البيانات؟</li></ul><p>إذا كنت غير متأكد مما تعنيه هذه المصطلحات، فمن المحتمل أن تتصل بمضيف الخاص بك. إذا كنت لا تزال بحاجة إلى مساعدة، يمكنك دائماً زيارة <a href=\"https://forum.dotclear.net/\">منتديات دعم Dotclear</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s ليس دليلاً."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "حدث خطأ أثناء محاولة قراءة قاعدة البيانات:"
+msgid "Can't get file path"
+msgstr "لا يمكن الحصول على مسار الملف"
 
-msgid "No process found"
-msgstr "لم يتم العثور على عملية"
+msgid "Can't lock a directory"
+msgstr "لا يمكن قفل الدليل"
 
-msgid "Process failed"
-msgstr "فشلت العملية"
+msgid "Can't call php function named flock"
+msgstr "لا يمكن استدعاء دالة php المسماة flock"
+
+msgid "Can't create file"
+msgstr "لا يمكن إنشاء ملف"
+
+msgid "Can't open file"
+msgstr "لا يمكن فتح الملف"
+
+msgid "Can't lock file"
+msgstr "لا يمكن تأمين الملف"
+
+msgid "File cannot be removed."
+msgstr "لا يمكن إزالة الملف."
+
+msgid "Not enough memory to open image."
+msgstr "الذاكرة غير كافية لفتح الصورة."
+
+msgid "Uploading this file is not allowed."
+msgstr "تحميل هذا الملف غير مسموح به."
+
+msgid "Destination directory is not in jail."
+msgstr "دليل الوجهة ليس في السجن."
+
+msgid "File already exists."
+msgstr "الملف موجود مسبقاً."
+
+msgid "Cannot write in this directory."
+msgstr "لا يمكن الكتابة في هذا الدليل."
+
+msgid "Source file does not exist."
+msgstr "الملف المصدر غير موجود."
+
+msgid "File is not in jail."
+msgstr "الملف ليس في السجن."
+
+msgid "Destination directory is not writable."
+msgstr "دليل الوجهة غير قابل للكتابة."
+
+msgid "Unable to rename file."
+msgstr "غير قادر على إعادة تسمية الملف."
+
+msgid "Directory is not in jail."
+msgstr "الدليل ليس في السجن."
+
+msgid "Directory cannot be removed."
+msgstr "لا يمكن إزالة الدليل."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "الملف %s غير مضغوط في الرمز البريدي."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "محاولة فك ضغط اسم المجلد %s"
+
+msgid "Unable to write destination file."
+msgstr "غير قادر على كتابة ملف الوجهة."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "غير قادر على الكتابة في الدليل الهدف, تم رفض الإذن."
+
+msgid "Not enough memory to open file."
+msgstr "الذاكرة غير كافية لفتح الملف."
+
+msgid "File does not exist"
+msgstr "الملف غير موجود"
+
+msgid "Cannot read file"
+msgstr "لا يمكن قراءة الملف"
+
+msgid "Directory does not exist"
+msgstr "الدليل غير موجود"
+
+msgid "Cannot read directory"
+msgstr "لا يمكن قراءة الدليل"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "لم تجد علامة الإغلاق للكتلة <tpl:%s>. تم تجاهل المحتوى."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "تم العثور على علامة إغلاق غير متوقعة </tpl:%s>"
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "تحذير: تم العثور على الأخطاء التالية أثناء تحليل ملف القالب:"
 
 msgid "Dotclear has been upgraded."
 msgstr "تم ترقية Dotclear."
@@ -2526,11 +2793,18 @@ msgstr "جميع الحقوق في هذه المدونة."
 msgid "Change permissions"
 msgstr "تغيير الأذونات"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "تم تعطيل الإضافات التالية:"
+
 msgid "Theme configuration"
 msgstr "تكوين السمة"
 
 msgid "Themes management"
 msgstr "إدارة المواضيع"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "التحقق اليدوي من تحديث المواضيع تم بنجاح."
@@ -2790,6 +3064,10 @@ msgstr "حذف جميع الرسائل غير المرغوب فيها"
 
 msgid "Selected comments action:"
 msgstr "إجراءات التعليقات المختارة:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "تم تعطيل الإضافات التالية:"
 
 msgid "Documentation and support"
 msgstr "الوثائق والدعم"
@@ -3447,9 +3725,6 @@ msgstr "ملاحظات شخصية:"
 msgid "Unpublished notes."
 msgstr "ملاحظات غير منشورة."
 
-msgid "Preview"
-msgstr "معاينة"
-
 msgid "Add a comment"
 msgstr "إضافة تعليق"
 
@@ -3657,10 +3932,6 @@ msgstr "فرض التحقق من التحديث نقطة واضحة"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "النقطة %s متوفرة."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "إصدار PHP هو %s (%s أو قبل ذلك)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "لترقية تثبيت Dotclear الخاص بك ببساطة انقر على الزر التالي. سيتم إنشاء ملف نسخة احتياطية من التثبيت الحالي في الدليل الجذر الخاص بك."
@@ -4068,179 +4339,6 @@ msgstr "أنت على وشك تغيير الأذونات على المدونات
 msgid "Validate permissions"
 msgstr "التحقق من الصلاحيات"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DLETE يتطلب مصدر من"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL DROP يتطلب مصدر من"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "رمز SQL يتطلب مصدر INTO"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL JOIN يتطلب مصدر من"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "تحديد SQL يتطلب مصدر من"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL TRUNCATT TABLE يتطلب مصدر من المصدر"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "تحديث SQL يتطلب مصدر من"
-
-msgid "Bad range"
-msgstr "Bad range"
-
-msgid "Invalid range"
-msgstr "Invalid range"
-
-msgid "Invalid line number"
-msgstr "رقم السطر غير صالح"
-
-msgid "Chunk is out of range"
-msgstr "القطعة خارج النطاق"
-
-msgid "Bad context"
-msgstr "السياق السيئ"
-
-msgid "Bad context (in deletion)"
-msgstr "السياق السيئ (في حذف)"
-
-msgid "Invalid diff format"
-msgstr "تنسيق غير صالح"
-
-msgid "Unable to open directory."
-msgstr "غير قادر على فتح الدليل."
-
-msgid "Unable to create directory."
-msgstr "غير قادر على إنشاء الدليل."
-
-msgid "File is not writable."
-msgstr "الملف غير قابل للكتابة."
-
-msgid "Unable to open file."
-msgstr "غير قادر على فتح الملف."
-
-msgid "Not an uploaded file."
-msgstr "ليس ملف تم تحميله."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "الملف الذي تم تحميله يتجاوز الحد الأقصى لحجم الملف المسموح به."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "تم تحميل الملف بشكل جزئي فقط."
-
-msgid "No file was uploaded."
-msgstr "لم يتم تحميل أي ملف."
-
-msgid "Missing a temporary folder."
-msgstr "مجلد مؤقت مفقود."
-
-msgid "Failed to write file to disk."
-msgstr "فشل في كتابة الملف على القرص."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "إيقاف ملحق PHP تحميل الملف."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s ليس دليلاً."
-
-msgid "Can't get file path"
-msgstr "لا يمكن الحصول على مسار الملف"
-
-msgid "Can't lock a directory"
-msgstr "لا يمكن قفل الدليل"
-
-msgid "Can't call php function named flock"
-msgstr "لا يمكن استدعاء دالة php المسماة flock"
-
-msgid "Can't create file"
-msgstr "لا يمكن إنشاء ملف"
-
-msgid "Can't open file"
-msgstr "لا يمكن فتح الملف"
-
-msgid "Can't lock file"
-msgstr "لا يمكن تأمين الملف"
-
-msgid "File cannot be removed."
-msgstr "لا يمكن إزالة الملف."
-
-msgid "Not enough memory to open image."
-msgstr "الذاكرة غير كافية لفتح الصورة."
-
-msgid "Uploading this file is not allowed."
-msgstr "تحميل هذا الملف غير مسموح به."
-
-msgid "Destination directory is not in jail."
-msgstr "دليل الوجهة ليس في السجن."
-
-msgid "File already exists."
-msgstr "الملف موجود مسبقاً."
-
-msgid "Cannot write in this directory."
-msgstr "لا يمكن الكتابة في هذا الدليل."
-
-msgid "Source file does not exist."
-msgstr "الملف المصدر غير موجود."
-
-msgid "File is not in jail."
-msgstr "الملف ليس في السجن."
-
-msgid "Destination directory is not writable."
-msgstr "دليل الوجهة غير قابل للكتابة."
-
-msgid "Unable to rename file."
-msgstr "غير قادر على إعادة تسمية الملف."
-
-msgid "Directory is not in jail."
-msgstr "الدليل ليس في السجن."
-
-msgid "Directory cannot be removed."
-msgstr "لا يمكن إزالة الدليل."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "الملف %s غير مضغوط في الرمز البريدي."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "محاولة فك ضغط اسم المجلد %s"
-
-msgid "Unable to write destination file."
-msgstr "غير قادر على كتابة ملف الوجهة."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "غير قادر على الكتابة في الدليل الهدف, تم رفض الإذن."
-
-msgid "Not enough memory to open file."
-msgstr "الذاكرة غير كافية لفتح الملف."
-
-msgid "File does not exist"
-msgstr "الملف غير موجود"
-
-msgid "Cannot read file"
-msgstr "لا يمكن قراءة الملف"
-
-msgid "Directory does not exist"
-msgstr "الدليل غير موجود"
-
-msgid "Cannot read directory"
-msgstr "لا يمكن قراءة الدليل"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "لم تجد علامة الإغلاق للكتلة <tpl:%s>. تم تجاهل المحتوى."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "تم العثور على علامة إغلاق غير متوقعة </tpl:%s>"
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "تحذير: تم العثور على الأخطاء التالية أثناء تحليل ملف القالب:"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "الرجاء تعيين مفتاح رئيسي (DC_MASTER_KEY) في ملف الإعداد."
 
@@ -4327,38 +4425,6 @@ msgstr "لا يمكن إكمال التثبيت"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "للأسباب المذكورة، لا يمكن تثبيت Dotclear. يرجى الرجوع إلى <a href=\"https://dotclear.org/documentation/2.0/admin/install\">الوثائق</a> لمعرفة كيفية تصحيح المشكلة."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "وحدة سلسلة متعددة البايت (mbstring) غير متوفرة."
-
-msgid "Iconv module is not available."
-msgstr "وحدة أيكونف غير متوفرة."
-
-msgid "Output control functions are not available."
-msgstr "وظائف مراقبة النواتج غير متوفرة."
-
-msgid "SimpleXML module is not available."
-msgstr "وحدة SimpleXML غير متوفرة."
-
-msgid "DOM XML module is not available."
-msgstr "وحدة DOM XML غير متاحة."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "محرك PCRE لا يدعم سلاسل UTF-8."
-
-msgid "SPL module is not available."
-msgstr "وحدة SPL غير متوفرة."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "إصدار MySQL هو %s (4.1 أو سابقاً)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "محرك MySQL InnoDB غير متوفر."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "إصدار PostgreSQL هو %s (8.0 أو قبل ذلك)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "المسار <strong>%s</strong> غير قابل للكتابة."
@@ -4443,6 +4509,9 @@ msgstr "البريد الإلكتروني الرئيسي: (يستخدم كمرس
 
 msgid "Continue"
 msgstr "متابعة"
+
+#~ msgid "No process found"
+#~ msgstr "لم يتم العثور على عملية"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

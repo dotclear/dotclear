@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:33\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Titlu"
+msgid "medium"
+msgstr "medie"
+
+msgid "small"
+msgstr "mic"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "square"
+msgstr "pătrat"
 
 msgid "Posts"
 msgstr "Mesaje"
+
+msgid "Pages"
+msgstr "Pagini"
+
+msgid "administrator"
+msgstr "administrator"
+
+msgid "manage all entries and comments"
+msgstr "gestionează toate intrările și comentariile"
+
+msgid "manage their own entries and comments"
+msgstr "gestionează propriile intrări și comentarii"
+
+msgid "publish entries and comments"
+msgstr "publică intrările şi comentariile"
+
+msgid "delete entries and comments"
+msgstr "şterge intrările şi comentariile"
+
+msgid "manage categories"
+msgstr "gestionează categorii"
+
+msgid "manage all media items"
+msgstr "gestionează toate elementele media"
+
+msgid "manage their own media items"
+msgstr "gestionează propriile articole media"
+
+msgid "That user does not exist in the database."
+msgstr "Acel utilizator nu exista in baza de date."
+
+msgid "That key does not exist in the database."
+msgstr "Acea cheie nu există în baza de date."
+
+msgid "Pending"
+msgstr "In asteptare"
+
+msgid "Scheduled"
+msgstr "Programat"
+
+msgid "Unpublished"
+msgstr "Nepublicat"
+
+msgid "Published"
+msgstr "Publicat"
+
+msgid "Junk"
+msgstr "Junc"
+
+msgid "You are not allowed to add categories"
+msgstr "Nu aveţi permisiunea de a adăuga categorii"
+
+msgid "You are not allowed to update categories"
+msgstr "Nu ai permisiunea de a actualiza categoriile"
+
+msgid "You are not allowed to delete categories"
+msgstr "Nu aveţi permisiunea de a şterge categorii"
+
+msgid "This category is not empty."
+msgstr "Această categorie nu este goală."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Nu ai permisiunea de a reseta ordinea categoriilor"
+
+msgid "Empty category URL"
+msgstr "URL categorie goală"
+
+msgid "You must provide a category title"
+msgstr "Trebuie să furnizați un titlu al categoriei"
+
+msgid "You must provide a category URL"
+msgstr "Trebuie să furnizați o adresă URL a categoriei"
+
+msgid "You are not allowed to create an entry"
+msgstr "Nu aveţi permisiunea de a crea o intrare"
+
+msgid "You are not allowed to update entries"
+msgstr "Nu aveţi permisiunea de a actualiza intrările"
+
+msgid "No such entry ID"
+msgstr "Nu există acest ID de intrare"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Nu aveţi permisiunea de a edita această intrare"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Nu aveţi permisiunea de a modifica această stare a intrării"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Nu aveţi permisiunea să schimbaţi această categorie de intrări"
+
+msgid "You are not allowed to change entries category"
+msgstr "Nu aveţi permisiunea să modificaţi categoria intrărilor"
+
+msgid "You are not allowed to delete entries"
+msgstr "Nu aveţi permisiunea de a şterge intrările"
+
+msgid "No entry title"
+msgstr "Niciun titlu de intrare"
+
+msgid "No entry content"
+msgstr "Nici un conţinut de intrare"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Note"
+msgstr "Notă"
+
+msgid "Empty entry URL"
+msgstr "URL intrare goală"
+
+msgid "You are not allowed to update comments"
+msgstr "Nu ai permisiunea să actualizezi comentarii"
+
+msgid "No such comment ID"
+msgstr "Niciun astfel de comentariu ID"
+
+msgid "You are not allowed to update this comment"
+msgstr "Nu ai permisiunea să actualizezi acest comentariu"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Nu aveţi permisiunea de a modifica starea acestui comentariu"
+
+msgid "You are not allowed to delete comments"
+msgstr "Nu aveţi permisiunea de a şterge comentarii"
+
+msgid "You must provide a comment"
+msgstr "Trebuie să furnizați un comentariu"
+
+msgid "You must provide an author name"
+msgstr "Trebuie să furnizați un nume de autor"
+
+msgid "Email address is not valid."
+msgstr "Adresa de e-mail nu este validă."
+
+msgid "online"
+msgstr "online"
+
+msgid "offline"
+msgstr "deconectat"
+
+msgid "removed"
+msgstr "eliminat"
+
+msgid "You are not an administrator"
+msgstr "Nu sunteți administrator"
+
+msgid "No user ID given"
+msgstr "Nici un utilizator ID dat"
+
+msgid "No password given"
+msgstr "Nicio parolă dată"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "ID-ul utilizatorului trebuie să conţină cel puţin 2 caractere folosind litere, numere sau simboluri."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Parola trebuie să conțină cel puțin 6 caractere."
+
+msgid "Invalid user language code"
+msgstr "Cod limbă utilizator nevalid"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "ID-ul blogului trebuie să conțină cel puțin 2 caractere folosind litere, numere sau simboluri."
+
+msgid "No blog name"
+msgstr "Nici un nume de blog"
+
+msgid "No blog URL"
+msgstr "Nici un URL de blog"
+
+msgid "No log message"
+msgstr "Niciun mesaj de jurnal"
+
+msgid "unknown"
+msgstr "necunoscut"
+
+msgid "No blog defined."
+msgstr "Nici un blog definit."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Nu există nici un director de scriere /public/ în locația setată în despre:config \"public_path\". Trebuie să creați acest director cu suficiente drepturi (sau să modificați această setare)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Nu există nici un director rădăcină inscriptibil pentru managerul media. Contactează administratorul."
+
+msgid "You are not a super administrator."
+msgstr "Nu sunteţi un super administrator."
+
+msgid "Permission denied."
+msgstr "Permisiune refuzată."
+
+msgid "You are not the file owner."
+msgstr "Nu sunteți proprietarul fișierului."
+
+msgid "This file is not allowed."
+msgstr "Acest fișier nu este permis."
+
+msgid "New file already exists."
+msgstr "Fișierul nou există deja."
+
+msgid "File does not exist in the database."
+msgstr "Fişierul nu există în baza de date."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "Directorul de destinaţie %s există deja."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Necesită %s modul care nu este instalat"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Necesită %s versiunea %s, dar versiunea %s este instalată"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Necesită %s modul care este dezactivat"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "Modulul \"%s\" are tipul \"%s\" că nepotrivirea este necesară pentru tipul de modul \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "Modulul \"%s\" este instalat de două ori în \"%s\" şi \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Fișier zip al modulului gol."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "Fișierul zip nu pare a fi un modul Dotclear valid."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Imposibil de actualizat \"%s\". (actualizare blocată)"
+
+msgid "An error occurred during module deletion."
+msgstr "A aparut o eroare la stergerea modulului."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "Imposibil de actualizat \"%s\". (veche sau aceeași versiune)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "Imposibil de citit fișierul nou %s"
+
+msgid "Cannot deactivate plugin."
+msgstr "Nu se poate dezactiva pluginul."
+
+msgid "No such module."
+msgstr "Nici un astfel de modul."
+
+msgid "Cannot remove module files"
+msgstr "Nu se pot sterge fisierele modulului"
+
+msgid "Cannot activate plugin."
+msgstr "Nu se poate activa pluginul."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Setări invalide dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Imposibil de recuperat setările:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s nu este un ID de setare valid"
+
+msgid "No namespace specified"
+msgstr "Niciun spațiu de nume specificat"
+
+msgid "No notice message"
+msgstr "Niciun mesaj de notificare"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "Imposibil de preluat spațiul de lucru:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Spațiu de lucru invalid: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "Nu s-au putut prelua spațiile de nume:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Spațiu de nume de setare invalid: %s"
+
+msgid "Wrong data feed"
+msgstr "Flux de date greșit"
+
+msgid "An error occurred while downloading the file."
+msgstr "A apărut o eroare la descărcarea fișierului."
+
+msgid "Themes folder unreachable"
+msgstr "Dosar teme inaccesibil"
+
+msgid "Themes folder unreadable"
+msgstr "Dosarul temelor nu poate fi citit"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (copie #%s)"
+
+msgid " (copy)"
+msgstr " (copiere)"
+
+msgid "Unable to modify _define.php"
+msgstr "Nu se poate modifica _define.php"
+
+msgid "Destination folder already exist"
+msgstr "Dosarul destinației există deja"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s a fost fixat în continuare"
+
+msgid "Unable to ping URL"
+msgstr "Imposibil de ping URL-ul"
+
+msgid "Bad server response code"
+msgstr "Cod de răspuns al serverului greșit"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s nu este un URL ping"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, eroare ping:"
+
+msgid "Don't repeat yourself, please."
+msgstr "Nu te repeta, te rog."
+
+msgid "Where's your title?"
+msgstr "Unde este titlul tău?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Ne pare rău, a apărut o problemă internă."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Mulţumesc, partener. A fost o plăcere."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "Ai vreo șansă să păstrezi unul din conținutul meu? Nu? Serios?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Ne pare rău, dar nu puteți accesa acest tip de conținut."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Ups. Kinda lucruri \"negăsite\". Vă rugăm să verificaţi URL-ul ţintă de două ori."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Ne pare rău, terminat. Această intrare nu acceptă pingback în acest moment."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "URL-ul sursă nu arată ca un tip de conținut suportat. Ne pare rău. La revedere, după!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "Nu există un URL sursă valid furnizat? Încercați din nou!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "Nu este furnizat un URL valid pentru tinta? Incearca din nou!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "Fișierul Digests nu a fost găsit."
+
+msgid "No file to download"
+msgstr "Niciun fișier de descărcat"
+
+msgid "Root directory is not writable."
+msgstr "Directorul rădăcină nu permite scrierea."
+
+msgid "An error occurred while downloading archive."
+msgstr "A apărut o eroare la descărcarea arhivei."
+
+msgid "Archive not found."
+msgstr "Arhiva nu a fost găsită."
+
+msgid "Unable to read current digests file."
+msgstr "Imposibil de citit fișierul curent al cifrelor."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Fișierul descărcat nu pare a fi o arhivă validă."
+
+msgid "Incomplete archive."
+msgstr "Arhivă incompletă."
+
+msgid "Unable to read digests file."
+msgstr "Imposibil de citit fișierul cu cifre."
+
+msgid "Invalid digests file."
+msgstr "Fișier de cifre nevalid."
+
+msgid "Unable to retrieve prefs:"
+msgstr "Imposibil de recuperat prada:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s nu este un id pref valid"
+
+msgid "No workspace specified"
+msgstr "Niciun spațiu de lucru specificat"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "Imposibil de șters fișierul %s"
+
+msgid "Process failed"
+msgstr "Proces eșuat"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Fișierul Digests nu a fost găsit."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Ştirile Dotclear nu sunt disponibile"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "Nici un rezultat găsit"
+
+msgid "Site temporarily unavailable"
+msgstr "Site temporar indisponibil"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Ne cerem scuze pentru această indisponibilitate temporară.<br />Vă mulțumim pentru înțelegere.</p>"
+
+msgid "Unable to connect to database"
+msgstr "Nu se poate conecta la baza de date"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Acest lucru înseamnă fie că numele de utilizator și parola sunt în configurația <strong>. hp</strong> fișier este incorect sau nu putem contacta serverul bazei de date la \"<em>%s</em>\". Acest lucru ar putea însemna că serverul de baze de date al gazdei nu funcționează.</p> <ul><li>Sunteți sigur că aveți numele de utilizator și parola corecte?</li><li>Ești sigur că ai tastat numele corect al gazdei?</li><li>Sunteți sigur că serverul rulează baza de date?</li></ul><p>Dacă nu ești sigur ce înseamnă acești termeni ar trebui probabil să contactezi gazda ta. Dacă încă aveţi nevoie de ajutor, puteţi întotdeauna să vizitaţi forumurile <a href=\"https://forum.dotclear.net/\">de suport Dotclear</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "S-a întâmpinat următoarea eroare în timp ce se încerca citirea bazei de date:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Titlu"
 
 msgid "Blogs"
 msgstr "Bloguri"
@@ -263,77 +729,6 @@ msgstr "Cele mai utilizate"
 msgid "Entry language:"
 msgstr "Limba de intrare:"
 
-msgid "Database error"
-msgstr "Eroare bază de date"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Se pare că nu există niciun tabel de sesiune în baza de date. Este Dotclear complet instalat?"
-
-msgid "Precondition Failed"
-msgstr "Precondiție Eșuată"
-
-msgid "System settings"
-msgstr "Setări de sistem"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Extensii"
-
-msgid "Blog appearance"
-msgstr "Aspect blog"
-
-msgid "Blog settings"
-msgstr "Setări blog"
-
-msgid "Media manager"
-msgstr "Manager media"
-
-msgid "Categories"
-msgstr "Categorii"
-
-msgid "Search"
-msgstr "Caută"
-
-msgid "New post"
-msgstr "Postare nouă"
-
-msgid "My preferences"
-msgstr "Preferințele mele"
-
-msgid "Update"
-msgstr "Actualizare"
-
-msgid "Languages"
-msgstr "Limbi"
-
-msgid "Plugins management"
-msgstr "Gestionare plugin-uri"
-
-msgid "Users"
-msgstr "Utilizatori"
-
-msgid "My favorites"
-msgstr "Favoritele mele"
-
-msgid "Global help"
-msgstr "Ajutor global"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d postare"
-msgstr[1] "%d postări"
-msgstr[2] "%d postări"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d comentariu"
-msgstr[1] "%d comentarii"
-msgstr[2] "%d comentarii"
-
 msgid "Descending"
 msgstr "Descrescător"
 
@@ -361,11 +756,11 @@ msgstr "Titlul intrării"
 msgid "Entry date"
 msgstr "Data intrării"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "Filtru de spam"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "Ultima actualizare"
@@ -388,35 +783,94 @@ msgstr "Nume afișat"
 msgid "Number of entries"
 msgstr "Număr de intrări"
 
-msgid "Show filters and display options"
-msgstr "Arată filtrele și opțiunile de afișare"
+msgid "My favorites"
+msgstr "Favoritele mele"
 
-msgid "Filters"
-msgstr "Filtre"
+msgid "My preferences"
+msgstr "Preferințele mele"
 
-msgid "Display options"
-msgstr "Opțiuni de afișare"
+msgid "New post"
+msgstr "Postare nouă"
 
-msgid "Order by:"
-msgstr "Ordonare după:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d postare"
+msgstr[1] "%d postări"
+msgstr[2] "%d postări"
 
-msgid "Sort:"
-msgstr "Sortare:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d comentariu"
+msgstr[1] "%d comentarii"
+msgstr[2] "%d comentarii"
 
-msgid "Show"
-msgstr "Afișare"
+msgid "Search"
+msgstr "Caută"
 
-msgid "Save current options"
-msgstr "Salvează opțiunile curente"
+msgid "Categories"
+msgstr "Categorii"
 
-msgid "Apply filters and display options"
-msgstr "Aplică filtrele și opțiunile de afișare"
+msgid "Media manager"
+msgstr "Manager media"
+
+msgid "Blog settings"
+msgstr "Setări blog"
+
+msgid "Blog appearance"
+msgstr "Aspect blog"
+
+msgid "Users"
+msgstr "Utilizatori"
+
+msgid "Plugins management"
+msgstr "Gestionare plugin-uri"
+
+msgid "Languages"
+msgstr "Limbi"
+
+msgid "Global help"
+msgstr "Ajutor global"
+
+msgid "Status:"
+msgstr "Stare:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Web site:"
+msgstr "Web site:"
 
 msgid "Author:"
 msgstr "Autor:"
 
-msgid "Status:"
-msgstr "Stare:"
+msgid "Type:"
+msgstr "Tip:"
+
+msgid "Comment"
+msgstr "Comentariu"
+
+msgid "Trackback"
+msgstr "Urmărire"
+
+msgid "IP address:"
+msgstr "Adresa IP:"
+
+msgid "Media type:"
+msgstr "Tip media:"
+
+msgid "image"
+msgstr "imagine"
+
+msgid "text"
+msgstr "text"
+
+msgid "audio"
+msgstr "audio"
+
+msgid "video"
+msgstr "videoclip"
 
 msgid "Format:"
 msgstr "Format:"
@@ -463,56 +917,162 @@ msgstr "Închis"
 msgid "Trackbacks:"
 msgstr "Urmăriri:"
 
-msgid "Email:"
-msgstr "Email:"
+msgid "Show filters and display options"
+msgstr "Arată filtrele și opțiunile de afișare"
 
-msgid "Web site:"
-msgstr "Web site:"
+msgid "Filters"
+msgstr "Filtre"
 
-msgid "Type:"
-msgstr "Tip:"
+msgid "Display options"
+msgstr "Opțiuni de afișare"
 
-msgid "Comment"
-msgstr "Comentariu"
+msgid "Order by:"
+msgstr "Ordonare după:"
 
-msgid "Trackback"
-msgstr "Urmărire"
+msgid "Sort:"
+msgstr "Sortare:"
 
-msgid "IP address:"
-msgstr "Adresa IP:"
+msgid "Show"
+msgstr "Afișare"
 
-msgid "Media type:"
-msgstr "Tip media:"
+msgid "Save current options"
+msgstr "Salvează opțiunile curente"
 
-msgid "image"
-msgstr "imagine"
-
-msgid "text"
-msgstr "text"
-
-msgid "audio"
-msgstr "audio"
-
-msgid "video"
-msgstr "videoclip"
+msgid "Apply filters and display options"
+msgstr "Aplică filtrele și opțiunile de afișare"
 
 msgid "Search:"
 msgstr "Căutare:"
 
-msgid "Trackbacks"
-msgstr "Trackback-uri"
+msgid "&#171; prev."
+msgstr "&#171; preda."
 
-msgid "users per page"
-msgstr "utilizatori pe pagină"
+msgid "next &#187;"
+msgstr "mai departe &#187;"
 
-msgid "entries per page"
-msgstr "intrări pe pagină"
+msgid "No blog matches the filter"
+msgstr "Niciun blog nu se potrivește cu filtrul"
 
-msgid "comments per page"
-msgstr "Comentarii per pagină"
+msgid "No blog"
+msgstr "Niciun blog"
 
-msgid "blogs per page"
-msgstr "bloguri pe pagină"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "Intrări (toate tipurile)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "Blogul %d se potrivește cu filtrul."
+msgstr[1] "%d bloguri se potrivesc cu filtrul."
+msgstr[2] "%d bloguri se potrivesc cu filtrul."
+
+msgid "Blogs list"
+msgstr "Listă de bloguri"
+
+msgid "Legend: "
+msgstr "Legendă: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Editează setările de blog pentru %s"
+
+msgid "Edit blog settings"
+msgstr "Editare setări blog"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Comutați la blogul %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Nici un comentariu sau trackback-uri nu corespund filtrului"
+
+msgid "No comments"
+msgstr "Nici un comentariu"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Comentează sau trackback-ul care se potrivește cu filtrul."
+msgstr[1] "Lista de %s comentarii sau trackback-uri care se potrivesc filtrului."
+msgstr[2] "Lista de %s comentarii sau trackback-uri care se potrivesc filtrului."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Lista comentariilor și a trackback-urilor (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">publicat</a> (1)"
+msgstr[1] ", <a href=\"%s\">publicat</a> (%s)"
+msgstr[2] ", <a href=\"%s\">publicat</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">spam</a> (1)"
+msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
+msgstr[2] ", <a href=\"%s\">spam</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">pending</a> (1)"
+msgstr[1] ", <a href=\"%s\">în așteptare</a> (%s)"
+msgstr[2] ", <a href=\"%s\">în așteptare</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">nepublicat</a> (1)"
+msgstr[1] ", <a href=\"%s\">nepublicat</a> (%s)"
+msgstr[2] ", <a href=\"%s\">nepublicat</a> (%s)"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Entry"
+msgstr "Intrare"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Editează %1$s de la %2$s"
+
+msgid "comment"
+msgstr "comentariu"
+
+msgid "trackback"
+msgstr "urmărire"
+
+msgid "Type and author"
+msgstr "Tip și autor"
+
+msgid "Edit"
+msgstr "Editare"
+
+msgid "No file matches the filter"
+msgstr "Niciun fișier nu se potrivește cu filtrul"
+
+msgid "No file."
+msgstr "Niciun fișier."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d fișier se potrivește cu filtrul."
+msgstr[1] "%d fișiere se potrivesc cu filtrul."
+msgstr[2] "%d fișiere se potrivesc cu filtrul."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb de articole: %d → %d dosar + %d fișier(e)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb de articole: %d"
 
 msgid "Name"
 msgstr "Nume"
@@ -520,11 +1080,365 @@ msgstr "Nume"
 msgid "Size"
 msgstr "Dimensiune"
 
-msgid "media per page"
-msgstr "media pe pagină"
+msgid "Select this file"
+msgstr "Selectează acest fișier"
 
-msgid "results per page"
-msgstr "rezultate pe pagină"
+msgid "Attach this file to entry"
+msgstr "Ataşează acest fişier la intrare"
+
+msgid "Insert this file into entry"
+msgstr "Introduceți acest fișier în intrare"
+
+msgid "delete"
+msgstr "şterge"
+
+msgid "private media"
+msgstr "media privată"
+
+msgid "open"
+msgstr "deschis"
+
+msgid "No entry matches the filter"
+msgstr "Nicio intrare nu corespunde filtrului"
+
+msgid "No entry"
+msgstr "Nici o intrare"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Lista %s intrări care se potrivesc cu filtrul."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Lista intrărilor (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">programat</a> (1)"
+msgstr[1] ", <a href=\"%s\">programat</a> (%s)"
+msgstr[2] ", <a href=\"%s\">programat</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Trackback-uri"
+
+msgid "Protected"
+msgstr "Protejat"
+
+msgid "Attachments"
+msgstr "Atașamente"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d atașament"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d atașamente"
+
+msgid "Entries list"
+msgstr "Lista intrărilor"
+
+msgid "No user matches the filter"
+msgstr "Niciun utilizator nu se potrivește cu filtrul"
+
+msgid "No user"
+msgstr "Niciun utilizator"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Lista de utilizatori %s se potrivește cu filtrul."
+
+msgid "Users list"
+msgstr "Lista de utilizatori"
+
+msgid "admin"
+msgstr "admin"
+
+msgid "superadmin"
+msgstr "superadmin"
+
+msgid "First page"
+msgstr "Prima pagină"
+
+msgid "Previous page"
+msgstr "Pagina precedentă"
+
+msgid "Next page"
+msgstr "Pagina următoare"
+
+msgid "Last page"
+msgstr "Ultima pagină"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Pagina %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Pagina de acces direct %s"
+
+msgid "ok"
+msgstr "ok"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "Fișier %s găsit"
+msgstr[1] "%s fișiere găsite"
+msgstr[2] "%s fișiere găsite"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "System settings"
+msgstr "Setări de sistem"
+
+msgid "Plugins"
+msgstr "Extensii"
+
+msgid "Update"
+msgstr "Actualizare"
+
+msgid "other"
+msgstr "altul"
+
+msgid "Search in repository:"
+msgstr "Căutare în repo:"
+
+msgid "OK"
+msgstr "Ok"
+
+msgid "Reset search"
+msgstr "Resetare căutare"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "Căutarea este permisă în termeni multipli cu mai mult de 2 caractere, termenii trebuie separați prin spațiu."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "A fost găsit %d rezultat pentru căutarea \"%s\":"
+msgstr[1] "S-au găsit %d rezultate pentru căutarea \"%s\":"
+msgstr[2] "S-au găsit %d rezultate pentru căutarea \"%s\":"
+
+msgid "current selection"
+msgstr "selecţia curentă"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d rezultat"
+msgstr[1] "%d rezultate"
+msgstr[2] "%d rezultate"
+
+msgid "no results"
+msgstr "niciun rezultat"
+
+msgid "Browse index:"
+msgstr "Răsfoire index:"
+
+msgid "Plugins list"
+msgstr "Lista de plugin-uri"
+
+msgid "Score"
+msgstr "Scor"
+
+msgid "Version"
+msgstr "Versiune"
+
+msgid "Current version"
+msgstr "Versiunea curentă"
+
+msgid "Details"
+msgstr "Detalii"
+
+msgid "Repository"
+msgstr "Depozit"
+
+msgid "Action"
+msgstr "Acțiune"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Acest modul nu poate fi dezactivat sau șters, deoarece următoarele module sunt de asemenea activate: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Acest modul nu poate fi activat, din următoarele motive:"
+
+msgid "Official repository"
+msgstr "Repo oficial"
+
+msgid "Third-party repository"
+msgstr "Depozit terț"
+
+msgid "Plugin from official distribution"
+msgstr "Plugin de la distribuția oficială"
+
+msgid "Plugin in development"
+msgstr "Plugin în dezvoltare"
+
+msgid "Support"
+msgstr "Suport"
+
+msgid "update locked"
+msgstr "actualizare blocată"
+
+msgid "Section:"
+msgstr "Secțiune:"
+
+msgid "Tags:"
+msgstr "Etichete:"
+
+msgid "No plugins matched your search."
+msgstr "Nici un plugin nu corespunde căutării tale."
+
+msgid "Configure plugin"
+msgstr "Configurare plugin"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Setări plugin (în parametrii blog)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Setări plugin (în preferințele utilizatorului)"
+
+msgid "Plugin settings"
+msgstr "Setări plugin"
+
+msgid "Plugin main page"
+msgstr "Pagina principală a plugin-ului"
+
+msgid "Activate"
+msgstr "Activare"
+
+msgid "Deactivate"
+msgstr "Dezactivați"
+
+msgid "Clone"
+msgstr "Clonează"
+
+msgid "Install"
+msgstr "Instalează"
+
+msgid "Activate selected plugins"
+msgstr "Activare plugin-uri selectate"
+
+msgid "Activate all plugins from this list"
+msgstr "Activați toate plugin-urile din această listă"
+
+msgid "Deactivate selected plugins"
+msgstr "Dezactivați plugin-urile selectate"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Dezactivați toate plugin-urile din această listă"
+
+msgid "Update selected plugins"
+msgstr "Actualizați plugin-urile selectate"
+
+msgid "Update all plugins from this list"
+msgstr "Actualizează toate plugin-urile din această listă"
+
+msgid "No such plugin."
+msgstr "Niciun astfel de plugin."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Nu aveţi permisiunea de a şterge acest plugin."
+
+msgid "Some plugins have not been delete."
+msgstr "Unele plugin-uri nu au fost şterse."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Plugin-ul a fost șters cu succes."
+msgstr[1] "Plugin-urile au fost șterse cu succes."
+msgstr[2] "Plugin-urile au fost șterse cu succes."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "Plugin-ul a fost instalat cu succes."
+msgstr[1] "Plugin-urile au fost instalate cu succes."
+msgstr[2] "Plugin-urile au fost instalate cu succes."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Plugin-ul a fost activat cu succes."
+msgstr[1] "Plugin-urile au fost activate cu succes."
+msgstr[2] "Plugin-urile au fost activate cu succes."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Unele plugin-uri nu au fost dezactivate."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Plugin-ul a fost dezactivat cu succes."
+msgstr[1] "Plugin-urile au fost dezactivate cu succes."
+msgstr[2] "Plugin-urile au fost dezactivate cu succes."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Plugin-ul a fost actualizat cu succes."
+msgstr[1] "Plugin-urile au fost actualizate cu succes."
+msgstr[2] "Plugin-urile au fost actualizate cu succes."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Următoarele plugin-uri sunt blocate: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "Imposibil de mutat fișierul încărcat."
+
+msgid "The plugin has been successfully updated."
+msgstr "Plugin-ul a fost actualizat cu succes."
+
+msgid "The plugin has been successfully installed."
+msgstr "Plugin-ul a fost instalat cu succes."
+
+msgid "Upload a zip file"
+msgstr "Incarca un fisier zip"
+
+msgid "Required field"
+msgstr "Câmp obligatoriu"
+
+msgid "Zip file path:"
+msgstr "Calea fişierului zip:"
+
+msgid "Your password:"
+msgstr "Parola dumneavoastră:"
+
+msgid "Password"
+msgstr "Parolă"
+
+msgid "Upload"
+msgstr "Incarca"
+
+msgid "Download a zip file"
+msgstr "Descarcă un fişier zip"
+
+msgid "Zip file URL:"
+msgstr "URL-ul fișierului poștal:"
+
+msgid "Download"
+msgstr "Descărcare"
+
+msgid "Unknown plugin ID"
+msgstr "ID plugin necunoscut"
+
+msgid "This plugin has no configuration file."
+msgstr "Acest plugin nu are niciun fișier de configurare."
+
+msgid "Insufficient permissions"
+msgstr "Permisiuni insuficiente"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Configurare \"%s\""
+
+msgid "Back"
+msgstr "Înapoi"
 
 msgid "Error:"
 msgstr "Eroare:"
@@ -543,9 +1457,6 @@ msgstr "Schimbă blog-ul"
 
 msgid "Blogs:"
 msgstr "Bloguri:"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Go to the content"
 msgstr "Mergeți la conținut"
@@ -577,9 +1488,6 @@ msgstr "Mod sigur"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Ești în modul sigur. Toate plugin-urile au fost dezactivate temporar. Nu uita să te deconectezi și apoi autentifică-te din nou în mod normal pentru a primi înapoi toate funcționalitățile"
-
-msgid "OK"
-msgstr "Ok"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -752,20 +1660,8 @@ msgstr "Avertisment: modificarea formatului postării nu va converti conținutul
 msgid "Loading enhanced uploader, please wait."
 msgstr "Încărcarea încărcării îmbunătățite, vă rugăm așteptați."
 
-msgid "Details"
-msgstr "Detalii"
-
-msgid "Support"
-msgstr "Suport"
-
 msgid "Help:"
 msgstr "Ajutor:"
-
-msgid "Section:"
-msgstr "Secțiune:"
-
-msgid "Tags:"
-msgstr "Etichete:"
 
 msgid "Hide this notice"
 msgstr "Ascunde această notificare"
@@ -818,9 +1714,6 @@ msgstr "Anulează"
 msgid "Clean"
 msgstr "Curăță"
 
-msgid "Upload"
-msgstr "Incarca"
-
 msgid "Send"
 msgstr "Trimite"
 
@@ -844,236 +1737,35 @@ msgid "Cancel filters and display options"
 msgstr "Anulează filtrele și opțiunile de afișare"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "Fișier %s găsit"
-msgstr[1] "%s fișiere găsite"
-msgstr[2] "%s fișiere găsite"
-
-msgid "other"
-msgstr "altul"
-
-msgid "Search in repository:"
-msgstr "Căutare în repo:"
-
-msgid "Reset search"
-msgstr "Resetare căutare"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "Căutarea este permisă în termeni multipli cu mai mult de 2 caractere, termenii trebuie separați prin spațiu."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "A fost găsit %d rezultat pentru căutarea \"%s\":"
-msgstr[1] "S-au găsit %d rezultate pentru căutarea \"%s\":"
-msgstr[2] "S-au găsit %d rezultate pentru căutarea \"%s\":"
+msgid "ratio %.1f"
+msgstr "raport %.1f"
 
-msgid "current selection"
-msgstr "selecţia curentă"
+msgid "The 'public' directory does not exist."
+msgstr "Directorul \"public\" nu există."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d rezultat"
-msgstr[1] "%d rezultate"
-msgstr[2] "%d rezultate"
+msgid "The '%s' directory cannot be modified."
+msgstr "Directorul '%snu poate fi modificat."
 
-msgid "no results"
-msgstr "niciun rezultat"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Cel puțin una dintre următoarele funcții nu este disponibilă: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "Răsfoire index:"
+msgid "Unable to create images."
+msgstr "Imposibil de creat imagini."
 
-msgid "Plugins list"
-msgstr "Lista de plugin-uri"
+msgid "Invalid file type."
+msgstr "Tip de fișier invalid."
 
-msgid "Score"
-msgstr "Scor"
-
-msgid "Version"
-msgstr "Versiune"
-
-msgid "Current version"
-msgstr "Versiunea curentă"
-
-msgid "Repository"
-msgstr "Depozit"
-
-msgid "Action"
-msgstr "Acțiune"
+msgid "An error occurred while writing the file."
+msgstr "A aparut o eroare la scrierea fisierului."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Acest modul nu poate fi dezactivat sau șters, deoarece următoarele module sunt de asemenea activate: %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Acest modul nu poate fi activat, din următoarele motive:"
-
-msgid "Official repository"
-msgstr "Repo oficial"
-
-msgid "Third-party repository"
-msgstr "Depozit terț"
-
-msgid "Plugin from official distribution"
-msgstr "Plugin de la distribuția oficială"
-
-msgid "Plugin in development"
-msgstr "Plugin în dezvoltare"
-
-msgid "update locked"
-msgstr "actualizare blocată"
-
-msgid "No plugins matched your search."
-msgstr "Nici un plugin nu corespunde căutării tale."
-
-msgid "Configure plugin"
-msgstr "Configurare plugin"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Setări plugin (în parametrii blog)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Setări plugin (în preferințele utilizatorului)"
-
-msgid "Plugin settings"
-msgstr "Setări plugin"
-
-msgid "Plugin main page"
-msgstr "Pagina principală a plugin-ului"
-
-msgid "Activate"
-msgstr "Activare"
-
-msgid "Deactivate"
-msgstr "Dezactivați"
-
-msgid "Clone"
-msgstr "Clonează"
-
-msgid "Install"
-msgstr "Instalează"
-
-msgid "Activate selected plugins"
-msgstr "Activare plugin-uri selectate"
-
-msgid "Activate all plugins from this list"
-msgstr "Activați toate plugin-urile din această listă"
-
-msgid "Deactivate selected plugins"
-msgstr "Dezactivați plugin-urile selectate"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Dezactivați toate plugin-urile din această listă"
-
-msgid "Update selected plugins"
-msgstr "Actualizați plugin-urile selectate"
-
-msgid "Update all plugins from this list"
-msgstr "Actualizează toate plugin-urile din această listă"
-
-msgid "No such plugin."
-msgstr "Niciun astfel de plugin."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Nu aveţi permisiunea de a şterge acest plugin."
-
-msgid "Some plugins have not been delete."
-msgstr "Unele plugin-uri nu au fost şterse."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Plugin-ul a fost șters cu succes."
-msgstr[1] "Plugin-urile au fost șterse cu succes."
-msgstr[2] "Plugin-urile au fost șterse cu succes."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Plugin-ul a fost instalat cu succes."
-msgstr[1] "Plugin-urile au fost instalate cu succes."
-msgstr[2] "Plugin-urile au fost instalate cu succes."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Plugin-ul a fost activat cu succes."
-msgstr[1] "Plugin-urile au fost activate cu succes."
-msgstr[2] "Plugin-urile au fost activate cu succes."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Unele plugin-uri nu au fost dezactivate."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Plugin-ul a fost dezactivat cu succes."
-msgstr[1] "Plugin-urile au fost dezactivate cu succes."
-msgstr[2] "Plugin-urile au fost dezactivate cu succes."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Plugin-ul a fost actualizat cu succes."
-msgstr[1] "Plugin-urile au fost actualizate cu succes."
-msgstr[2] "Plugin-urile au fost actualizate cu succes."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Următoarele plugin-uri sunt blocate: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "Imposibil de mutat fișierul încărcat."
-
-msgid "The plugin has been successfully updated."
-msgstr "Plugin-ul a fost actualizat cu succes."
-
-msgid "The plugin has been successfully installed."
-msgstr "Plugin-ul a fost instalat cu succes."
-
-msgid "Upload a zip file"
-msgstr "Incarca un fisier zip"
-
-msgid "Required field"
-msgstr "Câmp obligatoriu"
-
-msgid "Zip file path:"
-msgstr "Calea fişierului zip:"
-
-msgid "Your password:"
-msgstr "Parola dumneavoastră:"
-
-msgid "Password"
-msgstr "Parolă"
-
-msgid "Download a zip file"
-msgstr "Descarcă un fişier zip"
-
-msgid "Zip file URL:"
-msgstr "URL-ul fișierului poștal:"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "Descărcare"
-
-msgid "Unknown plugin ID"
-msgstr "ID plugin necunoscut"
-
-msgid "This plugin has no configuration file."
-msgstr "Acest plugin nu are niciun fișier de configurare."
-
-msgid "Insufficient permissions"
-msgstr "Permisiuni insuficiente"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Configurare \"%s\""
-
-msgid "Back"
-msgstr "Înapoi"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Imaginea încărcată nu este de %s pixeli lăţime."
 
 #, php-format
 msgid "Score: %s"
@@ -1114,6 +1806,9 @@ msgstr "Nicio temă nu corespunde căutării tale."
 
 msgid "Use this one"
 msgstr "Foloseste aceasta"
+
+msgid "Preview"
+msgstr "Previzualizare"
 
 msgid "Update selected themes"
 msgstr "Actualizează temele selectate"
@@ -1183,709 +1878,281 @@ msgstr "Tema a fost actualizata cu succes."
 msgid "The theme has been successfully installed."
 msgstr "Tema a fost instalata cu succes."
 
-msgid "First page"
-msgstr "Prima pagină"
+msgid "users per page"
+msgstr "utilizatori pe pagină"
 
-msgid "Previous page"
-msgstr "Pagina precedentă"
+msgid "entries per page"
+msgstr "intrări pe pagină"
 
-msgid "Next page"
-msgstr "Pagina următoare"
+msgid "comments per page"
+msgstr "Comentarii per pagină"
 
-msgid "Last page"
-msgstr "Ultima pagină"
+msgid "blogs per page"
+msgstr "bloguri pe pagină"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "Pagina %s / %s"
+msgid "media per page"
+msgstr "media pe pagină"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "Pagina de acces direct %s"
+msgid "results per page"
+msgstr "rezultate pe pagină"
 
-msgid "&#171; prev."
-msgstr "&#171; preda."
+msgid "Database error"
+msgstr "Eroare bază de date"
 
-msgid "next &#187;"
-msgstr "mai departe &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Se pare că nu există niciun tabel de sesiune în baza de date. Este Dotclear complet instalat?"
 
-msgid "No entry matches the filter"
-msgstr "Nicio intrare nu corespunde filtrului"
+msgid "Precondition Failed"
+msgstr "Precondiție Eșuată"
 
-msgid "No entry"
-msgstr "Nici o intrare"
+#, fuzzy
+msgid "Database problem"
+msgstr "Eroare bază de date"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Lista %s intrări care se potrivesc cu filtrul."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "S-a întâmpinat următoarea eroare în timp ce se încerca citirea bazei de date:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Lista intrărilor (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">publicat</a> (1)"
-msgstr[1] ", <a href=\"%s\">publicat</a> (%s)"
-msgstr[2] ", <a href=\"%s\">publicat</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">pending</a> (1)"
-msgstr[1] ", <a href=\"%s\">în așteptare</a> (%s)"
-msgstr[2] ", <a href=\"%s\">în așteptare</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">programat</a> (1)"
-msgstr[1] ", <a href=\"%s\">programat</a> (%s)"
-msgstr[2] ", <a href=\"%s\">programat</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">nepublicat</a> (1)"
-msgstr[1] ", <a href=\"%s\">nepublicat</a> (%s)"
-msgstr[2] ", <a href=\"%s\">nepublicat</a> (%s)"
-
-msgid "Legend: "
-msgstr "Legendă: "
-
-msgid "Published"
-msgstr "Publicat"
-
-msgid "Unpublished"
-msgstr "Nepublicat"
-
-msgid "Scheduled"
-msgstr "Programat"
-
-msgid "Pending"
-msgstr "In asteptare"
-
-msgid "Protected"
-msgstr "Protejat"
-
-msgid "Attachments"
-msgstr "Atașamente"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d atașament"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d atașamente"
-
-msgid "Entries list"
-msgstr "Lista intrărilor"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Nici un comentariu sau trackback-uri nu corespund filtrului"
-
-msgid "No comments"
-msgstr "Nici un comentariu"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Comentează sau trackback-ul care se potrivește cu filtrul."
-msgstr[1] "Lista de %s comentarii sau trackback-uri care se potrivesc filtrului."
-msgstr[2] "Lista de %s comentarii sau trackback-uri care se potrivesc filtrului."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Lista comentariilor și a trackback-urilor (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
-msgstr[2] ", <a href=\"%s\">spam</a> (%s)"
-
-msgid "Type"
-msgstr "Tip"
-
-msgid "Entry"
-msgstr "Intrare"
-
-msgid "Junk"
-msgstr "Junc"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Editează %1$s de la %2$s"
-
-msgid "comment"
-msgstr "comentariu"
-
-msgid "trackback"
-msgstr "urmărire"
-
-msgid "Type and author"
-msgstr "Tip și autor"
-
-msgid "Edit"
-msgstr "Editare"
-
-msgid "No blog matches the filter"
-msgstr "Niciun blog nu se potrivește cu filtrul"
-
-msgid "No blog"
-msgstr "Niciun blog"
-
-msgid "Entries (all types)"
-msgstr "Intrări (toate tipurile)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "Blogul %d se potrivește cu filtrul."
-msgstr[1] "%d bloguri se potrivesc cu filtrul."
-msgstr[2] "%d bloguri se potrivesc cu filtrul."
-
-msgid "Blogs list"
-msgstr "Listă de bloguri"
-
-msgid "online"
-msgstr "online"
-
-msgid "offline"
-msgstr "deconectat"
-
-msgid "removed"
-msgstr "eliminat"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Editează setările de blog pentru %s"
-
-msgid "Edit blog settings"
-msgstr "Editare setări blog"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Comutați la blogul %s"
-
-msgid "No user matches the filter"
-msgstr "Niciun utilizator nu se potrivește cu filtrul"
-
-msgid "No user"
-msgstr "Niciun utilizator"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Lista de utilizatori %s se potrivește cu filtrul."
-
-msgid "Users list"
-msgstr "Lista de utilizatori"
-
-msgid "admin"
-msgstr "admin"
-
-msgid "superadmin"
-msgstr "superadmin"
-
-msgid "No file matches the filter"
-msgstr "Niciun fișier nu se potrivește cu filtrul"
-
-msgid "No file."
-msgstr "Niciun fișier."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d fișier se potrivește cu filtrul."
-msgstr[1] "%d fișiere se potrivesc cu filtrul."
-msgstr[2] "%d fișiere se potrivesc cu filtrul."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb de articole: %d → %d dosar + %d fișier(e)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Nb de articole: %d"
-
-msgid "Select this file"
-msgstr "Selectează acest fișier"
-
-msgid "Attach this file to entry"
-msgstr "Ataşează acest fişier la intrare"
-
-msgid "Insert this file into entry"
-msgstr "Introduceți acest fișier în intrare"
-
-msgid "delete"
-msgstr "şterge"
-
-msgid "private media"
-msgstr "media privată"
-
-msgid "open"
-msgstr "deschis"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "raport %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "Directorul \"public\" nu există."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Directorul '%snu poate fi modificat."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Cel puțin una dintre următoarele funcții nu este disponibilă: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "Imposibil de creat imagini."
-
-msgid "Invalid file type."
-msgstr "Tip de fișier invalid."
-
-msgid "An error occurred while writing the file."
-msgstr "A aparut o eroare la scrierea fisierului."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "Imaginea încărcată nu este de %s pixeli lăţime."
-
-msgid "medium"
-msgstr "medie"
-
-msgid "small"
-msgstr "mic"
-
-msgid "thumbnail"
-msgstr "thumbnail"
-
-msgid "square"
-msgstr "pătrat"
-
-msgid "Pages"
-msgstr "Pagini"
-
-msgid "administrator"
-msgstr "administrator"
-
-msgid "manage all entries and comments"
-msgstr "gestionează toate intrările și comentariile"
-
-msgid "manage their own entries and comments"
-msgstr "gestionează propriile intrări și comentarii"
-
-msgid "publish entries and comments"
-msgstr "publică intrările şi comentariile"
-
-msgid "delete entries and comments"
-msgstr "şterge intrările şi comentariile"
-
-msgid "manage categories"
-msgstr "gestionează categorii"
-
-msgid "manage all media items"
-msgstr "gestionează toate elementele media"
-
-msgid "manage their own media items"
-msgstr "gestionează propriile articole media"
-
-msgid "That user does not exist in the database."
-msgstr "Acel utilizator nu exista in baza de date."
-
-msgid "That key does not exist in the database."
-msgstr "Acea cheie nu există în baza de date."
-
-msgid "You are not allowed to add categories"
-msgstr "Nu aveţi permisiunea de a adăuga categorii"
-
-msgid "You are not allowed to update categories"
-msgstr "Nu ai permisiunea de a actualiza categoriile"
-
-msgid "You are not allowed to delete categories"
-msgstr "Nu aveţi permisiunea de a şterge categorii"
-
-msgid "This category is not empty."
-msgstr "Această categorie nu este goală."
-
-msgid "You are not allowed to reset categories order"
-msgstr "Nu ai permisiunea de a reseta ordinea categoriilor"
-
-msgid "Empty category URL"
-msgstr "URL categorie goală"
-
-msgid "You must provide a category title"
-msgstr "Trebuie să furnizați un titlu al categoriei"
-
-msgid "You must provide a category URL"
-msgstr "Trebuie să furnizați o adresă URL a categoriei"
-
-msgid "You are not allowed to create an entry"
-msgstr "Nu aveţi permisiunea de a crea o intrare"
-
-msgid "You are not allowed to update entries"
-msgstr "Nu aveţi permisiunea de a actualiza intrările"
-
-msgid "No such entry ID"
-msgstr "Nu există acest ID de intrare"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Nu aveţi permisiunea de a edita această intrare"
-
-msgid "You are not allowed to change this entry status"
-msgstr "Nu aveţi permisiunea de a modifica această stare a intrării"
-
-msgid "You are not allowed to change this entry category"
-msgstr "Nu aveţi permisiunea să schimbaţi această categorie de intrări"
-
-msgid "You are not allowed to change entries category"
-msgstr "Nu aveţi permisiunea să modificaţi categoria intrărilor"
-
-msgid "You are not allowed to delete entries"
-msgstr "Nu aveţi permisiunea de a şterge intrările"
-
-msgid "No entry title"
-msgstr "Niciun titlu de intrare"
-
-msgid "No entry content"
-msgstr "Nici un conţinut de intrare"
-
-msgid "Notes"
-msgstr "Note"
-
-msgid "Note"
-msgstr "Notă"
-
-msgid "Empty entry URL"
-msgstr "URL intrare goală"
-
-msgid "You are not allowed to update comments"
-msgstr "Nu ai permisiunea să actualizezi comentarii"
-
-msgid "No such comment ID"
-msgstr "Niciun astfel de comentariu ID"
-
-msgid "You are not allowed to update this comment"
-msgstr "Nu ai permisiunea să actualizezi acest comentariu"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Nu aveţi permisiunea de a modifica starea acestui comentariu"
-
-msgid "You are not allowed to delete comments"
-msgstr "Nu aveţi permisiunea de a şterge comentarii"
-
-msgid "You must provide a comment"
-msgstr "Trebuie să furnizați un comentariu"
-
-msgid "You must provide an author name"
-msgstr "Trebuie să furnizați un nume de autor"
-
-msgid "Email address is not valid."
-msgstr "Adresa de e-mail nu este validă."
-
-msgid "You are not an administrator"
-msgstr "Nu sunteți administrator"
-
-msgid "No user ID given"
-msgstr "Nici un utilizator ID dat"
-
-msgid "No password given"
-msgstr "Nicio parolă dată"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "ID-ul utilizatorului trebuie să conţină cel puţin 2 caractere folosind litere, numere sau simboluri."
-
-msgid "Password must contain at least 6 characters."
-msgstr "Parola trebuie să conțină cel puțin 6 caractere."
-
-msgid "Invalid user language code"
-msgstr "Cod limbă utilizator nevalid"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "ID-ul blogului trebuie să conțină cel puțin 2 caractere folosind litere, numere sau simboluri."
-
-msgid "No blog name"
-msgstr "Nici un nume de blog"
-
-msgid "No blog URL"
-msgstr "Nici un URL de blog"
-
-msgid "No log message"
-msgstr "Niciun mesaj de jurnal"
-
-msgid "unknown"
-msgstr "necunoscut"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "Nici un blog definit."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "Nu există nici un director de scriere /public/ în locația setată în despre:config \"public_path\". Trebuie să creați acest director cu suficiente drepturi (sau să modificați această setare)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Nu există nici un director rădăcină inscriptibil pentru managerul media. Contactează administratorul."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "Acest blog este offline"
 
-msgid "You are not a super administrator."
-msgstr "Nu sunteţi un super administrator."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Acest blog este offline"
 
-msgid "Permission denied."
-msgstr "Permisiune refuzată."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Nu se poate crea fișierul"
 
-msgid "You are not the file owner."
-msgstr "Nu sunteți proprietarul fișierului."
-
-msgid "This file is not allowed."
-msgstr "Acest fișier nu este permis."
-
-msgid "New file already exists."
-msgstr "Fișierul nou există deja."
-
-msgid "File does not exist in the database."
-msgstr "Fişierul nu există în baza de date."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "Directorul de destinaţie %s există deja."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Necesită %s modul care nu este instalat"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Necesită %s versiunea %s, dar versiunea %s este instalată"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Necesită %s modul care este dezactivat"
-
-msgid "The following extensions have been disabled :"
-msgstr "Următoarele extensii au fost dezactivate:"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Modulul \"%s\" are tipul \"%s\" că nepotrivirea este necesară pentru tipul de modul \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Modulul \"%s\" este instalat de două ori în \"%s\" şi \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Fișier zip al modulului gol."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "Fișierul zip nu pare a fi un modul Dotclear valid."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "Imposibil de actualizat \"%s\". (actualizare blocată)"
-
-msgid "An error occurred during module deletion."
-msgstr "A aparut o eroare la stergerea modulului."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "Imposibil de actualizat \"%s\". (veche sau aceeași versiune)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "Imposibil de citit fișierul nou %s"
-
-msgid "Cannot deactivate plugin."
-msgstr "Nu se poate dezactiva pluginul."
-
-msgid "No such module."
-msgstr "Nici un astfel de modul."
-
-msgid "Cannot remove module files"
-msgstr "Nu se pot sterge fisierele modulului"
-
-msgid "Cannot activate plugin."
-msgstr "Nu se poate activa pluginul."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Setări invalide dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "Imposibil de recuperat setările:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s nu este un ID de setare valid"
-
-msgid "No namespace specified"
-msgstr "Niciun spațiu de nume specificat"
-
-msgid "No notice message"
-msgstr "Niciun mesaj de notificare"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "Imposibil de preluat spațiul de lucru:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Spațiu de lucru invalid: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "Nu s-au putut prelua spațiile de nume:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Spațiu de nume de setare invalid: %s"
-
-msgid "Wrong data feed"
-msgstr "Flux de date greșit"
-
-msgid "An error occurred while downloading the file."
-msgstr "A apărut o eroare la descărcarea fișierului."
-
-msgid "Themes folder unreachable"
-msgstr "Dosar teme inaccesibil"
-
-msgid "Themes folder unreadable"
-msgstr "Dosarul temelor nu poate fi citit"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (copie #%s)"
-
-msgid " (copy)"
-msgstr " (copiere)"
-
-msgid "Unable to modify _define.php"
-msgstr "Nu se poate modifica _define.php"
-
-msgid "Destination folder already exist"
-msgstr "Dosarul destinației există deja"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s a fost fixat în continuare"
-
-msgid "Unable to ping URL"
-msgstr "Imposibil de ping URL-ul"
-
-msgid "Bad server response code"
-msgstr "Cod de răspuns al serverului greșit"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s nu este un URL ping"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, eroare ping:"
-
-msgid "Don't repeat yourself, please."
-msgstr "Nu te repeta, te rog."
-
-msgid "Where's your title?"
-msgstr "Unde este titlul tău?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Ne pare rău, a apărut o problemă internă."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Mulţumesc, partener. A fost o plăcere."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "Ai vreo șansă să păstrezi unul din conținutul meu? Nu? Serios?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Ne pare rău, dar nu puteți accesa acest tip de conținut."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Ups. Kinda lucruri \"negăsite\". Vă rugăm să verificaţi URL-ul ţintă de două ori."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Ne pare rău, terminat. Această intrare nu acceptă pingback în acest moment."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "URL-ul sursă nu arată ca un tip de conținut suportat. Ne pare rău. La revedere, după!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Nu există un URL sursă valid furnizat? Încercați din nou!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Nu este furnizat un URL valid pentru tinta? Incearca din nou!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Fișierul Digests nu a fost găsit."
 
-msgid "No file to download"
-msgstr "Niciun fișier de descărcat"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "Directorul rădăcină nu permite scrierea."
-
-msgid "An error occurred while downloading archive."
-msgstr "A apărut o eroare la descărcarea arhivei."
-
-msgid "Archive not found."
-msgstr "Arhiva nu a fost găsită."
-
-msgid "Unable to read current digests file."
-msgstr "Imposibil de citit fișierul curent al cifrelor."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Fișierul descărcat nu pare a fi o arhivă validă."
-
-msgid "Incomplete archive."
-msgstr "Arhivă incompletă."
-
-msgid "Unable to read digests file."
-msgstr "Imposibil de citit fișierul cu cifre."
-
-msgid "Invalid digests file."
-msgstr "Fișier de cifre nevalid."
-
-msgid "Unable to retrieve prefs:"
-msgstr "Imposibil de recuperat prada:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s nu este un id pref valid"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "Versiunea PHP este %s (%s sau mai vechi)."
 
-msgid "No workspace specified"
-msgstr "Niciun spațiu de lucru specificat"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Modulul multi-byte (mbstring) nu este disponibil."
+
+msgid "Iconv module is not available."
+msgstr "Modulul Iconv nu este disponibil."
+
+msgid "Output control functions are not available."
+msgstr "Funcțiile de control al ieșirilor nu sunt disponibile."
+
+msgid "SimpleXML module is not available."
+msgstr "Modulul SimpleXML nu este disponibil."
+
+msgid "DOM XML module is not available."
+msgstr "Modulul DOM XML nu este disponibil."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "Motorul PCRE nu suportă șiruri UTF-8."
+
+msgid "SPL module is not available."
+msgstr "Modulul SPL nu este disponibil."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "Versiunea MySQL este %s (4.1 sau mai vechi)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "Motorul MySQL InnoDB nu este disponibil."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "Versiunea PostgreSQL este %s (8.0 sau mai vechi)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Ceva nu a mers bine cu actualizarea automată:"
 
-msgid "Site temporarily unavailable"
-msgstr "Site temporar indisponibil"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL şterge necesită de la sursă"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Ne cerem scuze pentru această indisponibilitate temporară.<br />Vă mulțumim pentru înțelegere.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "TABEL SQL DROP necesită de la sursă"
 
-msgid "Unable to connect to database"
-msgstr "Nu se poate conecta la baza de date"
+msgid "SQL INSERT requires an INTO source"
+msgstr "INTRODUCEREA SQL necesită o sursă INTO"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "JOIN-ul SQL necesită de la sursă"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SELECTUL SQL necesită DE LA sursă"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "TABELUL DE TRUNCATE SQL necesită de la sursă"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "ACTUALIZAREA SQL necesită DE LA sursă"
+
+msgid "Bad range"
+msgstr "Bad range"
+
+msgid "Invalid range"
+msgstr "Invalid range"
+
+msgid "Invalid line number"
+msgstr "Număr linie nevalid"
+
+msgid "Chunk is out of range"
+msgstr "Chunk-ul este în afara razei"
+
+msgid "Bad context"
+msgstr "Context greșit"
+
+msgid "Bad context (in deletion)"
+msgstr "Context greșit (în ștergere)"
+
+msgid "Invalid diff format"
+msgstr "Format diff invalid"
+
+msgid "Unable to open directory."
+msgstr "Nu se poate deschide directorul."
+
+msgid "Unable to create directory."
+msgstr "Nu se poate crea directorul."
+
+msgid "File is not writable."
+msgstr "Fișierul nu poate fi scris."
+
+msgid "Unable to open file."
+msgstr "Imposibil de deschis fișierul."
+
+msgid "Not an uploaded file."
+msgstr "Nu este un fișier încărcat."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Fișierul încărcat depășește dimensiunea maximă permisă a fișierului."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Fișierul încărcat a fost încărcat doar parțial."
+
+msgid "No file was uploaded."
+msgstr "Nu a fost incarcat nici un fisier."
+
+msgid "Missing a temporary folder."
+msgstr "Lipsește un dosar temporar."
+
+msgid "Failed to write file to disk."
+msgstr "Scrierea fișierului pe disc a eșuat."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "Încărcarea fişierului a fost oprită de o extensie PHP."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Acest lucru înseamnă fie că numele de utilizator și parola sunt în configurația <strong>. hp</strong> fișier este incorect sau nu putem contacta serverul bazei de date la \"<em>%s</em>\". Acest lucru ar putea însemna că serverul de baze de date al gazdei nu funcționează.</p> <ul><li>Sunteți sigur că aveți numele de utilizator și parola corecte?</li><li>Ești sigur că ai tastat numele corect al gazdei?</li><li>Sunteți sigur că serverul rulează baza de date?</li></ul><p>Dacă nu ești sigur ce înseamnă acești termeni ar trebui probabil să contactezi gazda ta. Dacă încă aveţi nevoie de ajutor, puteţi întotdeauna să vizitaţi forumurile <a href=\"https://forum.dotclear.net/\">de suport Dotclear</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s nu este un director."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "S-a întâmpinat următoarea eroare în timp ce se încerca citirea bazei de date:"
+msgid "Can't get file path"
+msgstr "Nu se poate obține calea fișierului"
 
-msgid "No process found"
-msgstr "Nici un proces găsit"
+msgid "Can't lock a directory"
+msgstr "Nu se poate bloca un director"
 
-msgid "Process failed"
-msgstr "Proces eșuat"
+msgid "Can't call php function named flock"
+msgstr "Nu se poate apela funcţia php numit efectiv"
+
+msgid "Can't create file"
+msgstr "Nu se poate crea fișierul"
+
+msgid "Can't open file"
+msgstr "Fișierul nu poate fi deschis"
+
+msgid "Can't lock file"
+msgstr "Fișierul nu poate fi blocat"
+
+msgid "File cannot be removed."
+msgstr "Fișierul nu poate fi șters."
+
+msgid "Not enough memory to open image."
+msgstr "Nu este suficientă memorie pentru a deschide imaginea."
+
+msgid "Uploading this file is not allowed."
+msgstr "Încărcarea acestui fișier nu este permisă."
+
+msgid "Destination directory is not in jail."
+msgstr "Directorul de destinație nu este în închisoare."
+
+msgid "File already exists."
+msgstr "Fişierul există deja."
+
+msgid "Cannot write in this directory."
+msgstr "Nu se poate scrie în acest director."
+
+msgid "Source file does not exist."
+msgstr "Fișierul sursă nu există."
+
+msgid "File is not in jail."
+msgstr "Fișierul nu este în închisoare."
+
+msgid "Destination directory is not writable."
+msgstr "Directorul de destinație nu permite scrierea."
+
+msgid "Unable to rename file."
+msgstr "Imposibil de redenumit fișierul."
+
+msgid "Directory is not in jail."
+msgstr "Directorul nu este în închisoare."
+
+msgid "Directory cannot be removed."
+msgstr "Directorul nu poate fi șters."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Fișierul %s nu este comprimat în arhivă."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Se încearcă dezarhivarea numelui unui folder %s"
+
+msgid "Unable to write destination file."
+msgstr "Imposibil de scris fișierul de destinație."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nu se poate scrie în directorul țintă, permisiunea a fost refuzată."
+
+msgid "Not enough memory to open file."
+msgstr "Nu este suficientă memorie pentru a deschide fișierul."
+
+msgid "File does not exist"
+msgstr "Fișierul nu există"
+
+msgid "Cannot read file"
+msgstr "Fișierul nu poate fi citit"
+
+msgid "Directory does not exist"
+msgstr "Directorul nu există"
+
+msgid "Cannot read directory"
+msgstr "Directorul nu poate fi citit"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Nu a găsit eticheta de închidere pentru blocul <tpl:%s>. Conţinutul a fost ignorat."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Eticheta de închidere </tpl:%s> neașteptată a fost găsită."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "AVERTISMENT: următoarele erori au fost găsite în timpul analizării fişierului şablon:"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a fost actualizat."
@@ -2427,11 +2694,18 @@ msgstr "Toate drepturile de pe acest blog."
 msgid "Change permissions"
 msgstr "Schimbă permisiunile"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Următoarele extensii au fost dezactivate:"
+
 msgid "Theme configuration"
 msgstr "Configurare temă"
 
 msgid "Themes management"
 msgstr "Gestionare teme"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "Verificarea manuala a temelor actualizata cu succes."
@@ -2688,6 +2962,10 @@ msgstr "Şterge toate spam-urile"
 
 msgid "Selected comments action:"
 msgstr "Acțiune comentarii selectate:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Următoarele extensii au fost dezactivate:"
 
 msgid "Documentation and support"
 msgstr "Documentație și suport"
@@ -3339,9 +3617,6 @@ msgstr "Note personale:"
 msgid "Unpublished notes."
 msgstr "Note nepublicate."
 
-msgid "Preview"
-msgstr "Previzualizare"
-
 msgid "Add a comment"
 msgstr "Adaugă un comentariu"
 
@@ -3540,10 +3815,6 @@ msgstr "Forțează verificarea Dotclear a actualizării"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s este disponibil."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "Versiunea PHP este %s (%s sau mai vechi)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Pentru a upgrada instalarea Dotclear faceţi doar clic pe următorul buton. Un fişier de rezervă al instalării curente va fi creat în directorul rădăcină."
@@ -3951,179 +4222,6 @@ msgstr "Sunteți pe cale să modificați permisiunile pentru următoarele blogur
 msgid "Validate permissions"
 msgstr "Validare permisiuni"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL şterge necesită de la sursă"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "TABEL SQL DROP necesită de la sursă"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "INTRODUCEREA SQL necesită o sursă INTO"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "JOIN-ul SQL necesită de la sursă"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SELECTUL SQL necesită DE LA sursă"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "TABELUL DE TRUNCATE SQL necesită de la sursă"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "ACTUALIZAREA SQL necesită DE LA sursă"
-
-msgid "Bad range"
-msgstr "Bad range"
-
-msgid "Invalid range"
-msgstr "Invalid range"
-
-msgid "Invalid line number"
-msgstr "Număr linie nevalid"
-
-msgid "Chunk is out of range"
-msgstr "Chunk-ul este în afara razei"
-
-msgid "Bad context"
-msgstr "Context greșit"
-
-msgid "Bad context (in deletion)"
-msgstr "Context greșit (în ștergere)"
-
-msgid "Invalid diff format"
-msgstr "Format diff invalid"
-
-msgid "Unable to open directory."
-msgstr "Nu se poate deschide directorul."
-
-msgid "Unable to create directory."
-msgstr "Nu se poate crea directorul."
-
-msgid "File is not writable."
-msgstr "Fișierul nu poate fi scris."
-
-msgid "Unable to open file."
-msgstr "Imposibil de deschis fișierul."
-
-msgid "Not an uploaded file."
-msgstr "Nu este un fișier încărcat."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Fișierul încărcat depășește dimensiunea maximă permisă a fișierului."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Fișierul încărcat a fost încărcat doar parțial."
-
-msgid "No file was uploaded."
-msgstr "Nu a fost incarcat nici un fisier."
-
-msgid "Missing a temporary folder."
-msgstr "Lipsește un dosar temporar."
-
-msgid "Failed to write file to disk."
-msgstr "Scrierea fișierului pe disc a eșuat."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "Încărcarea fişierului a fost oprită de o extensie PHP."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s nu este un director."
-
-msgid "Can't get file path"
-msgstr "Nu se poate obține calea fișierului"
-
-msgid "Can't lock a directory"
-msgstr "Nu se poate bloca un director"
-
-msgid "Can't call php function named flock"
-msgstr "Nu se poate apela funcţia php numit efectiv"
-
-msgid "Can't create file"
-msgstr "Nu se poate crea fișierul"
-
-msgid "Can't open file"
-msgstr "Fișierul nu poate fi deschis"
-
-msgid "Can't lock file"
-msgstr "Fișierul nu poate fi blocat"
-
-msgid "File cannot be removed."
-msgstr "Fișierul nu poate fi șters."
-
-msgid "Not enough memory to open image."
-msgstr "Nu este suficientă memorie pentru a deschide imaginea."
-
-msgid "Uploading this file is not allowed."
-msgstr "Încărcarea acestui fișier nu este permisă."
-
-msgid "Destination directory is not in jail."
-msgstr "Directorul de destinație nu este în închisoare."
-
-msgid "File already exists."
-msgstr "Fişierul există deja."
-
-msgid "Cannot write in this directory."
-msgstr "Nu se poate scrie în acest director."
-
-msgid "Source file does not exist."
-msgstr "Fișierul sursă nu există."
-
-msgid "File is not in jail."
-msgstr "Fișierul nu este în închisoare."
-
-msgid "Destination directory is not writable."
-msgstr "Directorul de destinație nu permite scrierea."
-
-msgid "Unable to rename file."
-msgstr "Imposibil de redenumit fișierul."
-
-msgid "Directory is not in jail."
-msgstr "Directorul nu este în închisoare."
-
-msgid "Directory cannot be removed."
-msgstr "Directorul nu poate fi șters."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Fișierul %s nu este comprimat în arhivă."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Se încearcă dezarhivarea numelui unui folder %s"
-
-msgid "Unable to write destination file."
-msgstr "Imposibil de scris fișierul de destinație."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Nu se poate scrie în directorul țintă, permisiunea a fost refuzată."
-
-msgid "Not enough memory to open file."
-msgstr "Nu este suficientă memorie pentru a deschide fișierul."
-
-msgid "File does not exist"
-msgstr "Fișierul nu există"
-
-msgid "Cannot read file"
-msgstr "Fișierul nu poate fi citit"
-
-msgid "Directory does not exist"
-msgstr "Directorul nu există"
-
-msgid "Cannot read directory"
-msgstr "Directorul nu poate fi citit"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "Nu a găsit eticheta de închidere pentru blocul <tpl:%s>. Conţinutul a fost ignorat."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Eticheta de închidere </tpl:%s> neașteptată a fost găsită."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "AVERTISMENT: următoarele erori au fost găsite în timpul analizării fişierului şablon:"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Vă rugăm să setați o cheie principală (DC_MASTER_KEY) în fișierul de configurare."
 
@@ -4210,38 +4308,6 @@ msgstr "Instalarea nu poate fi finalizată"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Din motivele menţionate, Dotclear nu poate fi instalat. Vă rugăm să consultaţi <a href=\"https://dotclear.org/documentation/2.0/admin/install\">documentaţia</a> pentru a învăţa cum să corectaţi problema."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Modulul multi-byte (mbstring) nu este disponibil."
-
-msgid "Iconv module is not available."
-msgstr "Modulul Iconv nu este disponibil."
-
-msgid "Output control functions are not available."
-msgstr "Funcțiile de control al ieșirilor nu sunt disponibile."
-
-msgid "SimpleXML module is not available."
-msgstr "Modulul SimpleXML nu este disponibil."
-
-msgid "DOM XML module is not available."
-msgstr "Modulul DOM XML nu este disponibil."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "Motorul PCRE nu suportă șiruri UTF-8."
-
-msgid "SPL module is not available."
-msgstr "Modulul SPL nu este disponibil."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "Versiunea MySQL este %s (4.1 sau mai vechi)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "Motorul MySQL InnoDB nu este disponibil."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "Versiunea PostgreSQL este %s (8.0 sau mai vechi)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Calea <strong>%s</strong> nu poate fi scrisă."
@@ -4326,6 +4392,9 @@ msgstr "Master Email: (folosit ca expeditor pentru recuperarea parolei)"
 
 msgid "Continue"
 msgstr "Continuă"
+
+#~ msgid "No process found"
+#~ msgstr "Nici un proces găsit"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

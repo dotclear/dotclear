@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -17,11 +17,478 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Otsikko"
+msgid "medium"
+msgstr "keskikoko"
+
+msgid "small"
+msgstr "pieni"
+
+msgid "thumbnail"
+msgstr "pikkukuva"
+
+msgid "square"
+msgstr "neliö"
 
 msgid "Posts"
 msgstr "Blogimerkinnät"
+
+msgid "Pages"
+msgstr "Sivut"
+
+msgid "administrator"
+msgstr "järjestelmänvalvoja"
+
+msgid "manage all entries and comments"
+msgstr "hallita kaikkia merkintöjä ja kommentteja"
+
+msgid "manage their own entries and comments"
+msgstr "hallita omia blogimerkintöjään ja kommenttejaan"
+
+msgid "publish entries and comments"
+msgstr "julkaista merkintöjä ja kommentteja"
+
+msgid "delete entries and comments"
+msgstr "poistaa merkintöjä ja kommentteja"
+
+msgid "manage categories"
+msgstr "hallita luokkia"
+
+msgid "manage all media items"
+msgstr "hallita kaikkia media-aineistoja"
+
+msgid "manage their own media items"
+msgstr "hallita omia media-aineistojaan"
+
+msgid "That user does not exist in the database."
+msgstr "Käyttäjää ei ole tietokannassa."
+
+msgid "That key does not exist in the database."
+msgstr "Avainta ei ole tietokannassa."
+
+msgid "Pending"
+msgstr "Odottaa"
+
+msgid "Scheduled"
+msgstr "Ajastettu"
+
+msgid "Unpublished"
+msgstr "Julkaisematon"
+
+msgid "Published"
+msgstr "Julkaistu"
+
+msgid "Junk"
+msgstr "Roska"
+
+msgid "You are not allowed to add categories"
+msgstr "Sinulla ei ole oikeutta lisätä luokkia"
+
+msgid "You are not allowed to update categories"
+msgstr "Sinulla ei ole oikeutta päivittää luokkia"
+
+msgid "You are not allowed to delete categories"
+msgstr "Sinulla ei ole oikeutta poistaa luokkia"
+
+msgid "This category is not empty."
+msgstr "Luokka ei ole tyhjä."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Sinulla ei ole oikeutta palauttaa luokkien järjestystä oletusarvoon"
+
+msgid "Empty category URL"
+msgstr "Tyhjän luokan verkko-osoite"
+
+msgid "You must provide a category title"
+msgstr "Luokalle täytyy antaa otsikko"
+
+msgid "You must provide a category URL"
+msgstr "Luokalle täytyy antaa verkko-osoite"
+
+msgid "You are not allowed to create an entry"
+msgstr "Sinulla ei ole oikeutta luoda blogimerkintöjä"
+
+msgid "You are not allowed to update entries"
+msgstr "Sinulla ei ole oikeutta päivittää blogimerkintöjä"
+
+msgid "No such entry ID"
+msgstr "Tuntematon merkinnän tunniste"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Sinulla ei ole oikeutta muokata tätä merkintää"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän tilaa"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän luokkaa"
+
+msgid "You are not allowed to change entries category"
+msgstr "Sinulla ei ole oikeutta muuttaa blogimerkintöjen luokkaa"
+
+msgid "You are not allowed to delete entries"
+msgstr "Sinulla ei ole oikeutta poistaa blogimerkintöjä"
+
+msgid "No entry title"
+msgstr "Merkinnällä ei otsikkoa"
+
+msgid "No entry content"
+msgstr "Merkinnällä ei sisältöä"
+
+msgid "Notes"
+msgstr "Huomautuksia"
+
+msgid "Note"
+msgstr "Huomautus"
+
+msgid "Empty entry URL"
+msgstr "Tyhjä merkinnän verkko-osoite"
+
+msgid "You are not allowed to update comments"
+msgstr "Sinulla ei ole oikeutta päivittää kommentteja"
+
+msgid "No such comment ID"
+msgstr "Tuntematon kommentin tunniste"
+
+msgid "You are not allowed to update this comment"
+msgstr "Sinulla ei ole oikeutta päivittää tätä kommenttia"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Sinulla ei ole oikeutta muuttaa tämän kommentin tilaa "
+
+msgid "You are not allowed to delete comments"
+msgstr "Sinulla ei ole oikeutta poistaa kommentteja "
+
+msgid "You must provide a comment"
+msgstr "Kirjoita kommentti"
+
+msgid "You must provide an author name"
+msgstr "Anna kirjoittajan nimi"
+
+msgid "Email address is not valid."
+msgstr "Sähköpostiosoite ei kelpaa."
+
+msgid "online"
+msgstr "verkossa"
+
+msgid "offline"
+msgstr "ei verkossa"
+
+msgid "removed"
+msgstr "poistettu"
+
+msgid "You are not an administrator"
+msgstr "Et ole järjestelmänvalvoja"
+
+msgid "No user ID given"
+msgstr "Ei käyttäjän tunnistetta"
+
+msgid "No password given"
+msgstr "Salasanaa ei ole annettu"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Käyttäjän tunnisteen tulee sisältää ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Salasanan tulee käsittää ainakin 6 merkkiä."
+
+msgid "Invalid user language code"
+msgstr "Käyttäjän kielikoodi ei kelpaa"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Blogin tunnisteessa tulee olla ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
+
+msgid "No blog name"
+msgstr "Blogilla ei nimeä"
+
+msgid "No blog URL"
+msgstr "Blogilla ei verkko-osoitetta"
+
+msgid "No log message"
+msgstr "Lokissa ei viestejä"
+
+msgid "unknown"
+msgstr "tuntematon"
+
+msgid "No blog defined."
+msgstr "Ei määriteltyä blogia."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Kirjoitusoikeuksilla varustettua hakemistoa /public/ ei ole siellä, mihin \"public_path\" viittaa kohdassa about:config. Kyseinen hakemisto on luotava riittävin oikeuksin (tai muutettava  \"public_path\" -asetusta)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Medianhallintaa varten ei ole kirjoitettavaa hakemistoa. Ota yhteys järjestelmänvalvojaan."
+
+msgid "You are not a super administrator."
+msgstr "Et ole superjärjestelmänvalvoja."
+
+msgid "Permission denied."
+msgstr "Lupa evätty."
+
+msgid "You are not the file owner."
+msgstr "Et ole tiedoston omistaja."
+
+msgid "This file is not allowed."
+msgstr "Luvaton tiedosto."
+
+msgid "New file already exists."
+msgstr "Uusi tiedosto on jo."
+
+msgid "File does not exist in the database."
+msgstr "Tiedostoa ei ole tietokannassa."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "Purkamisen kohdehakemisto %s on jo olemassa."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Edellyttää moduulia %s, jota ei ole asennettu"
+
+#, fuzzy, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Vaatii moduulin %s versiota %s (versio %s on asennettuna)"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Vaatii moduulia %s, joka ei ole käytössä"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "Moduuli \"%s\" on tyyppia \"%s\", joka ei vastaa vaadittua moduulityyppiä \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "Moduuli \"%s\" on asennettu kahdesti sijainteihin \"%s\" ja \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Tyhjä moduulin zip-tiedosto."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "Zip-tiedosto ei tunnu oleva kelvollinen Dotclear-moduuli."
+
+#, fuzzy, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "\"%s\" ei voitu päivittää (vanhempi tai sama versio)."
+
+msgid "An error occurred during module deletion."
+msgstr "Moduulia poistettaessa tapahtui virhe."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "\"%s\" ei voitu päivittää (vanhempi tai sama versio)."
+
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+msgid "Cannot deactivate plugin."
+msgstr "Liitännäistä ei voi poistaa käytöstä."
+
+msgid "No such module."
+msgstr "Moduulia ei ole."
+
+msgid "Cannot remove module files"
+msgstr "Moduuliin kuuluvia tiedostoja ei voi poistaa"
+
+msgid "Cannot activate plugin."
+msgstr "Liitännäistä ei voi ottaa käyttöön."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Virheellinen dcNamespace-asetus: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Asetuksia ei saatu luettua:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s ei ole kelvollinen asetuksen tunniste"
+
+msgid "No namespace specified"
+msgstr "Ei määriteltyä nimiavaruutta"
+
+msgid "No notice message"
+msgstr "Ei ilmoitusviestejä"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "Työavaruuksia ei saatu luettua:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "dcWorkspace ei kelpaa: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "Nimiavaruuksia ei saatu luettua:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Nimiavaruus, asetus ei kelpaa: %s"
+
+msgid "Wrong data feed"
+msgstr "Väärä tietosyöte"
+
+msgid "An error occurred while downloading the file."
+msgstr "Virhe tiedostoa koneelle ladattaessa."
+
+msgid "Themes folder unreachable"
+msgstr "Teemakansioon ei pääsyä"
+
+msgid "Themes folder unreadable"
+msgstr "Teemakansio ei luettavissa"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (kopio %s)"
+
+msgid " (copy)"
+msgstr " (kopio)"
+
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "_config.php-tiedostoa ei voi muokata"
+
+msgid "Destination folder already exist"
+msgstr "Kohdehakemisto on jo olemassa"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "Kohteeseen %s on kohdistettu jo ping"
+
+msgid "Unable to ping URL"
+msgstr "URLin ping ei onnistu"
+
+msgid "Bad server response code"
+msgstr "Palvelin vastaa väärin"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s ei ole ping-URL"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, ping-virhe:"
+
+msgid "Don't repeat yourself, please."
+msgstr "Turha jankata. Asia on loppuun käsitelty."
+
+msgid "Where's your title?"
+msgstr "Otsikko puuttuu?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Valitan, sisäinen ongelma."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Kiitos. Ilo on minun puolellani."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "Etkö haluaisi takaisinviitata sisältöihini? Eikö tosiaankaan?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Valitan, tämäntyyppistä sisältöä ei voi takaisinviitata."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Oho, ei löytynyt. Tarkista kohdeverkko-osoite uudestaan."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Valitan, tähän blogimerkintään ei voi tällä hetkellä takaisinviitata."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "Lähdeverkko-osoitteesi ei tunnu olevan tuettua tyyppiä. Ei mahda mitään!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "Ei kelvollista lähdeverkko-osoitetta? Yritä uudestaan!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "Ei kelvollista kohdeverkko-osoitetta? Yritä uudestaan!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "Ei tiivistelmätiedostoa."
+
+msgid "No file to download"
+msgstr "Ei ladattavaa tiedostoa"
+
+msgid "Root directory is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+msgid "An error occurred while downloading archive."
+msgstr "Arkistoa koneelle ladattaessa sattui virhe."
+
+msgid "Archive not found."
+msgstr "Arkistoa ei löydy."
+
+msgid "Unable to read current digests file."
+msgstr "Nykytiivistelmätiedostoa ei voitu lukea."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Ladattu tiedosto ei tunnu olevan kelvollinen arkisto."
+
+msgid "Incomplete archive."
+msgstr "Puutteellinen arkisto."
+
+msgid "Unable to read digests file."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+msgid "Invalid digests file."
+msgstr "Tiivistelmätiedosto ei kelpaa."
+
+msgid "Unable to retrieve prefs:"
+msgstr "Käyttäjän asetuksia (prefs) ei saatu luettua:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s ei ole käypä pref-tunniste"
+
+msgid "No workspace specified"
+msgstr "Ei määriteltyä työavaruutta"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "Tiedostoa %s ei voi poistaa"
+
+msgid "Process failed"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Ei tiivistelmätiedostoa."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Dotclear news ei ole saatavana"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "ei tuloksia"
+
+msgid "Site temporarily unavailable"
+msgstr "Sivusto väliaikaisesti saavuttamattomissa"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Valitamme tätä tilapäistä häiriötä.<br />Kiitos, että ymmärrätte tilanteen.</p>"
+
+msgid "Unable to connect to database"
+msgstr "Tietokantaan ei saada yhteyttä"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatietonne <strong>config.php-tiedostossanne</strong> ovat virheellisiä, tai että tietokantapalvelimeen ei saada yhteyttä osoitteessa \"<em>%s</em>\". Tämä voi merkitä sitä, että palvelun isäntäkoneen tietokantapalvelin on kaatunut.</p> <ul><li>Oletko varma, että käyttäjänimesi ja salasanasi ovat oikein?</li> <li>Oletko varma, että olet syöttänyt oikean isäntäkoneen nimen?</li> <li>Oletko varma, että tietokantapalvelin on toiminnassa?</li></ul> <p>Jos olet epävarma näistä seikoista, kannattaa ottaa yhteys isäntäkoneen ylläpitäjään tai palveluntarjoajaasi. Apua on myös tarjolla <a href=\"https://forum.dotclear.net/\">Dotclearin tukipalstoilta</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Otsikko"
 
 msgid "Blogs"
 msgstr "Blogit"
@@ -254,75 +721,6 @@ msgstr "Eniten käytetty"
 msgid "Entry language:"
 msgstr "Merkinnän kieli:"
 
-msgid "Database error"
-msgstr "Tietokantavirhe"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
-
-msgid "Precondition Failed"
-msgstr ""
-
-msgid "System settings"
-msgstr "Järjestelmän asetukset"
-
-msgid "Blog"
-msgstr "Blogi"
-
-msgid "Plugins"
-msgstr "Liitännäiset"
-
-msgid "Blog appearance"
-msgstr "Blogin ulkoasu"
-
-msgid "Blog settings"
-msgstr "Blogin asetukset"
-
-msgid "Media manager"
-msgstr "Medianhallinta"
-
-msgid "Categories"
-msgstr "Luokat"
-
-msgid "Search"
-msgstr "Haku"
-
-msgid "New post"
-msgstr "Uusi merkintä"
-
-msgid "My preferences"
-msgstr "Asetukset"
-
-msgid "Update"
-msgstr "Päivitä"
-
-msgid "Languages"
-msgstr "Kielet"
-
-msgid "Plugins management"
-msgstr "Liitännäisten hallinta"
-
-msgid "Users"
-msgstr "Käyttäjät"
-
-msgid "My favorites"
-msgstr "Suosikit"
-
-msgid "Global help"
-msgstr "Yleisohje"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d merkintä"
-msgstr[1] "%d merkintää"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d kommentti"
-msgstr[1] "%d kommenttia"
-
 msgid "Descending"
 msgstr "Laskeva"
 
@@ -350,11 +748,11 @@ msgstr "Blogimerkinnän otsikko"
 msgid "Entry date"
 msgstr "Blogimerkinnän otsikko"
 
-msgid "IP"
-msgstr "P"
-
 msgid "Spam filter"
 msgstr "Spämmisuodatin"
+
+msgid "IP"
+msgstr "P"
 
 msgid "Last update"
 msgstr "Viimeisin päivitys"
@@ -377,35 +775,93 @@ msgstr "Näytettävä nimi"
 msgid "Number of entries"
 msgstr "Blogimerkintöjen määrä"
 
-msgid "Show filters and display options"
-msgstr "Näytä suodattimet ja näyttövaihtoehdot"
+msgid "My favorites"
+msgstr "Suosikit"
 
-msgid "Filters"
-msgstr "Suodattimet"
+msgid "My preferences"
+msgstr "Asetukset"
 
-msgid "Display options"
-msgstr "Näyttövaihtoehdot"
+msgid "New post"
+msgstr "Uusi merkintä"
 
-msgid "Order by:"
-msgstr "Millä perusteella järjestetään:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d merkintä"
+msgstr[1] "%d merkintää"
 
-msgid "Sort:"
-msgstr "Lajittelu:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d kommentti"
+msgstr[1] "%d kommenttia"
 
-msgid "Show"
-msgstr "Näytä"
+msgid "Search"
+msgstr "Haku"
 
-msgid "Save current options"
-msgstr "Tallenna asetukseni"
+msgid "Categories"
+msgstr "Luokat"
 
-msgid "Apply filters and display options"
-msgstr "Käytä näitä suodattimia ja näyttövaihtoehtoja"
+msgid "Media manager"
+msgstr "Medianhallinta"
+
+msgid "Blog settings"
+msgstr "Blogin asetukset"
+
+msgid "Blog appearance"
+msgstr "Blogin ulkoasu"
+
+msgid "Users"
+msgstr "Käyttäjät"
+
+msgid "Plugins management"
+msgstr "Liitännäisten hallinta"
+
+msgid "Languages"
+msgstr "Kielet"
+
+msgid "Global help"
+msgstr "Yleisohje"
+
+msgid "Status:"
+msgstr "Tila:"
+
+msgid "Email:"
+msgstr "Sähköposti:"
+
+msgid "Web site:"
+msgstr "Sivusto:"
 
 msgid "Author:"
 msgstr "Kirjoittanut:"
 
-msgid "Status:"
-msgstr "Tila:"
+msgid "Type:"
+msgstr "Tyyppi:"
+
+msgid "Comment"
+msgstr "Kommentti"
+
+msgid "Trackback"
+msgstr "Takaisinviittaus"
+
+msgid "IP address:"
+msgstr "IP-osoite:"
+
+#, fuzzy
+msgid "Media type:"
+msgstr "Tiedostotyyppi:"
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
+msgstr ""
 
 msgid "Format:"
 msgstr "Muoto:"
@@ -452,57 +908,156 @@ msgstr "Kiinni"
 msgid "Trackbacks:"
 msgstr "Takaisinviittaukset"
 
-msgid "Email:"
-msgstr "Sähköposti:"
+msgid "Show filters and display options"
+msgstr "Näytä suodattimet ja näyttövaihtoehdot"
 
-msgid "Web site:"
-msgstr "Sivusto:"
+msgid "Filters"
+msgstr "Suodattimet"
 
-msgid "Type:"
-msgstr "Tyyppi:"
+msgid "Display options"
+msgstr "Näyttövaihtoehdot"
 
-msgid "Comment"
-msgstr "Kommentti"
+msgid "Order by:"
+msgstr "Millä perusteella järjestetään:"
 
-msgid "Trackback"
-msgstr "Takaisinviittaus"
+msgid "Sort:"
+msgstr "Lajittelu:"
 
-msgid "IP address:"
-msgstr "IP-osoite:"
+msgid "Show"
+msgstr "Näytä"
 
-#, fuzzy
-msgid "Media type:"
-msgstr "Tiedostotyyppi:"
+msgid "Save current options"
+msgstr "Tallenna asetukseni"
 
-msgid "image"
-msgstr ""
-
-msgid "text"
-msgstr ""
-
-msgid "audio"
-msgstr ""
-
-msgid "video"
-msgstr ""
+msgid "Apply filters and display options"
+msgstr "Käytä näitä suodattimia ja näyttövaihtoehtoja"
 
 msgid "Search:"
 msgstr "Haku:"
 
-msgid "Trackbacks"
-msgstr "Takaisinviittaukset"
+msgid "&#171; prev."
+msgstr "&#171; ed."
 
-msgid "users per page"
-msgstr "käyttäjää sivua kohti"
+msgid "next &#187;"
+msgstr "seur. &#187;"
 
-msgid "entries per page"
-msgstr "merkintää sivua kohti"
+msgid "No blog matches the filter"
+msgstr "Mikään blogi ei vastaa suodatinta"
 
-msgid "comments per page"
-msgstr "kommenttia sivua kohti"
+msgid "No blog"
+msgstr "Ei blogia"
 
-msgid "blogs per page"
-msgstr "blogia sivua kohti"
+msgid "URL"
+msgstr "URL:"
+
+msgid "Entries (all types)"
+msgstr "Merkinnät (kaikki lajit)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blogi vastaa suodatinta."
+msgstr[1] "%d blogia vastaa suodatinta."
+
+msgid "Blogs list"
+msgstr "Blogien luettelo"
+
+msgid "Legend: "
+msgstr "Teksti:"
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Muuta %s-blogin asetuksia"
+
+msgid "Edit blog settings"
+msgstr "Muuta blogin asetuksia"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Siirry blogiin %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Suodatinta ei vastaa mikään kommentti tai takaisinviittaus"
+
+msgid "No comments"
+msgstr "Ei kommentteja"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Suodatinta vastaava kommentti tai takaisinviittaus"
+msgstr[1] "Luettelo suodatinta vastaavista %s kommenteista tai takaisinviittauksista"
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Kommenttien ja takaisinviitausten luettelo (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">julkaistu</a> (1)"
+msgstr[1] ", <a href=\"%s\">julkaistut</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">roskaviesti</a> (1)"
+msgstr[1] ", <a href=\"%s\">roskaviestit</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">odottava</a> (1)"
+msgstr[1] ", <a href=\"%s\">odottavat</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">julkaisematon</a> (1)"
+msgstr[1] ", <a href=\"%s\">julkaisemattomat</a> (%s)"
+
+msgid "Type"
+msgstr "Tyyppi"
+
+msgid "Entry"
+msgstr "Merkintä"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Muokkaa %1$s (%2$s)"
+
+msgid "comment"
+msgstr "kommentti"
+
+msgid "trackback"
+msgstr "takaisinviittaus"
+
+msgid "Type and author"
+msgstr "Tyyppi ja kirjoittaja"
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "Mikään blogi ei vastaa suodatinta"
+
+msgid "No file."
+msgstr "Ei tiedostoa."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d blogi vastaa suodatinta."
+msgstr[1] "%d blogia vastaa suodatinta."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Kohteiden määrä: %d → %d kansio(ta) + %d tiedosto(a)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Kohteiden määrä: %d"
 
 msgid "Name"
 msgstr "Nimi"
@@ -510,13 +1065,366 @@ msgstr "Nimi"
 msgid "Size"
 msgstr "Koko"
 
-#, fuzzy
-msgid "media per page"
-msgstr "merkintää sivua kohti"
+msgid "Select this file"
+msgstr "Poista tämä blogi"
+
+msgid "Attach this file to entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "Insert this file into entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "delete"
+msgstr "poista"
+
+msgid "private media"
+msgstr "Yksityinen"
+
+msgid "open"
+msgstr "avaa"
+
+msgid "No entry matches the filter"
+msgstr "Suodatinta ei vastaa mikään merkintä"
+
+msgid "No entry"
+msgstr "Ei merkintöjä"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Suodatinta vastaavan %s merkinnän luettelo"
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Blogimerkintöjen (%s) luettelo"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">ajastettu</a> (1)"
+msgstr[1] ", <a href=\"%s\">ajastetut</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Takaisinviittaukset"
+
+msgid "Protected"
+msgstr "Suojattu"
+
+msgid "Attachments"
+msgstr "Liitteet:"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d liite"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d liitettä"
+
+msgid "Entries list"
+msgstr "Blogimerkintöjen luettelo"
+
+msgid "No user matches the filter"
+msgstr "Suodatinta ei vastaa mikään käyttäjä"
+
+msgid "No user"
+msgstr "Ei käyttäjiä"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Suodatinta vastaa %s käyttäjän luettelo."
+
+msgid "Users list"
+msgstr "Käyttäjäluettelo"
+
+msgid "admin"
+msgstr "järjestelmänvalvoja"
+
+msgid "superadmin"
+msgstr "superjärjestelmänvalvoja"
+
+msgid "First page"
+msgstr "Ensimmäinen sivu"
+
+msgid "Previous page"
+msgstr "Edellinen sivu"
+
+msgid "Next page"
+msgstr "Seuraava sivu"
+
+msgid "Last page"
+msgstr "Viimeinen sivu"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Sivu %s/%s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Suoraan sivulle %s"
+
+msgid "ok"
+msgstr "ok"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s löydetty tiedosto"
+msgstr[1] "%s löydettya tiedostoa"
+
+msgid "Blog"
+msgstr "Blogi"
+
+msgid "System settings"
+msgstr "Järjestelmän asetukset"
+
+msgid "Plugins"
+msgstr "Liitännäiset"
+
+msgid "Update"
+msgstr "Päivitä"
+
+msgid "other"
+msgstr "muut"
+
+msgid "Search in repository:"
+msgstr "Etsi säilöstä:"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Reset search"
+msgstr "Nollaa haku"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "Useampia, 2 merkkiä pidempiä, välilyönnillä eroteltuja, termejä voi hakea hakutoiminnolla."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "Löydetty %d tulos haulla \"%s\":"
+msgstr[1] "Löydetty %d tulosta haulla \"%s\":"
+
+msgid "current selection"
+msgstr "nykyvalinta"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d tulos"
+msgstr[1] "%d tulosta"
+
+msgid "no results"
+msgstr "ei tuloksia"
+
+msgid "Browse index:"
+msgstr "Hakemiston selaus:"
+
+msgid "Plugins list"
+msgstr "Liitännäisten luettelo"
+
+msgid "Score"
+msgstr "Pistemäärä"
+
+msgid "Version"
+msgstr "Versio"
+
+msgid "Current version"
+msgstr "Nykyversio"
+
+msgid "Details"
+msgstr "Tiedot"
 
 #, fuzzy
-msgid "results per page"
-msgstr "merkintää sivua kohti"
+msgid "Repository"
+msgstr "paikka:"
+
+msgid "Action"
+msgstr "Toimenpide"
+
+#, php-format
+msgid " (%s)"
+msgstr "(%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Tätä moduulia ei voi poistaa käytöstä, koska seuraavat moduulit ovat käytössä: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Tätä moduulia ei voi ottaa käyttöön seuraavista syistä:"
+
+#, fuzzy
+msgid "Official repository"
+msgstr "Etsi säilöstä:"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "Etsi säilöstä:"
+
+msgid "Plugin from official distribution"
+msgstr "Viralliseen jakeluun kuuluva liitännäinen"
+
+#, fuzzy
+msgid "Plugin in development"
+msgstr "Liitännäisten hallinta"
+
+msgid "Support"
+msgstr "Tuki"
+
+#, fuzzy
+msgid "update locked"
+msgstr "Päivitä Dotclear"
+
+msgid "Section:"
+msgstr "Osa:"
+
+msgid "Tags:"
+msgstr "Avainsanat:"
+
+msgid "No plugins matched your search."
+msgstr "Mikään liitännäinen ei vastaa hakuasi."
+
+msgid "Configure plugin"
+msgstr "Määritä liitännäisen asetukset"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Liitännäisen asetukset (blogin parametreissä)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Liitännäisen asetukset (käyttäjän valitsemissa asetuksissa)"
+
+msgid "Plugin settings"
+msgstr "Liitännäisen asetukset"
+
+#, fuzzy
+msgid "Plugin main page"
+msgstr "Liitännäisten hallinta"
+
+msgid "Activate"
+msgstr "Ota käyttöön"
+
+msgid "Deactivate"
+msgstr "Poista käytöstä"
+
+msgid "Clone"
+msgstr "Kloonaa"
+
+msgid "Install"
+msgstr "Asenna"
+
+msgid "Activate selected plugins"
+msgstr "Ota valitut liitännäiset käyttöön"
+
+msgid "Activate all plugins from this list"
+msgstr "Ota kaikki luettelon liitännäiset käyttöön"
+
+msgid "Deactivate selected plugins"
+msgstr "Poista valitut liitännäiset käytöstä"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Poista kaikki luettelon liitännäiset käytöstä"
+
+msgid "Update selected plugins"
+msgstr "Päivitä valitut liitännäiset"
+
+msgid "Update all plugins from this list"
+msgstr "Päivitä kaikki luettelon liitännäiset"
+
+msgid "No such plugin."
+msgstr "Kyseistä liitännäistä ei ole."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Käyttöoikeutesi eivät riitä tämän liitännäisen poistamiseen."
+
+msgid "Some plugins have not been delete."
+msgstr "Joitain liitännäisiä ei voitu poistaa."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Tämä liitännäinen on poistettu."
+msgstr[1] "Nämä liitännäiset on poistettu."
+
+#, fuzzy
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "Tämä liitännäinen on asennettu."
+msgstr[1] "Nämä liitännäiset on asennettu."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Tämä liitännäinen on otettu käyttöön."
+msgstr[1] "Nämä liitännäiset on otettu käyttöön."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Joitain liitännäisiä ei saatu pois käytöstä."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Tämä liitännäinen on saatu pois käytöstä."
+msgstr[1] "Nämä liitännäiset on saatu pois käytöstä."
+
+#, fuzzy
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Tämä liitännäinen on päivitetty."
+msgstr[1] "Nämä liitännäiset on päivitetty."
+
+#, fuzzy, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Seuraavat liitännäiset on asennettu:"
+
+msgid "Unable to move uploaded file."
+msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Tämä liitännäinen on päivitetty."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "Tämä liitännäinen on asennettu."
+
+msgid "Upload a zip file"
+msgstr "Lataa zip-tiedosto palvelimelle"
+
+msgid "Required field"
+msgstr "Vaadittu kenttä"
+
+msgid "Zip file path:"
+msgstr "Zip-tiedoston polku:"
+
+msgid "Your password:"
+msgstr "Salasanasi:"
+
+msgid "Password"
+msgstr "Salasana"
+
+msgid "Upload"
+msgstr "Lähetä palvelimelle"
+
+msgid "Download a zip file"
+msgstr "Lataa zip-tiedosto"
+
+msgid "Zip file URL:"
+msgstr "Zip-tiedoston verkko-osoite:"
+
+msgid "Download"
+msgstr "Lataa"
+
+msgid "Unknown plugin ID"
+msgstr "Tuntematon liitännäisen tunniste"
+
+msgid "This plugin has no configuration file."
+msgstr "Tällä liitännäisellä ei ole asetustiedostoa."
+
+msgid "Insufficient permissions"
+msgstr "Oikeudet eivät riitä"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Määritä \"%s\""
+
+msgid "Back"
+msgstr "Takaisin"
 
 msgid "Error:"
 msgstr "Virhe:"
@@ -535,9 +1443,6 @@ msgstr "Vaihda blogia"
 
 msgid "Blogs:"
 msgstr "Blogit:"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Go to the content"
 msgstr "Sisältöön"
@@ -569,9 +1474,6 @@ msgstr "Vikasietotila"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Olet vikasietotilassa. Kaikki liitännäiset on tilapäisesti poistettu käytöstä. Muista ensin kirjautua ulos ja sitten sisään normaalisti, jotta saat kaikki toiminnot käyttöön."
-
-msgid "OK"
-msgstr "OK"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -747,20 +1649,8 @@ msgstr "Varoitus: muutettaessa blogimerkinnän muotoa olemassaoleva sisältö ei
 msgid "Loading enhanced uploader, please wait."
 msgstr "Ladataan parannetun tiedostonlatauksen moduuli, odota..."
 
-msgid "Details"
-msgstr "Tiedot"
-
-msgid "Support"
-msgstr "Tuki"
-
 msgid "Help:"
 msgstr "Ohje:"
-
-msgid "Section:"
-msgstr "Osa:"
-
-msgid "Tags:"
-msgstr "Avainsanat:"
 
 msgid "Hide this notice"
 msgstr "Piilota tämä ilmoitus"
@@ -813,9 +1703,6 @@ msgstr "Peruuta"
 msgid "Clean"
 msgstr "Puhdista"
 
-msgid "Upload"
-msgstr "Lähetä palvelimelle"
-
 msgid "Send"
 msgstr "Lähetä"
 
@@ -839,238 +1726,35 @@ msgid "Cancel filters and display options"
 msgstr "Peru suodattimet ja näyttövaihtoehdot"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s löydetty tiedosto"
-msgstr[1] "%s löydettya tiedostoa"
-
-msgid "other"
-msgstr "muut"
-
-msgid "Search in repository:"
-msgstr "Etsi säilöstä:"
-
-msgid "Reset search"
-msgstr "Nollaa haku"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "Useampia, 2 merkkiä pidempiä, välilyönnillä eroteltuja, termejä voi hakea hakutoiminnolla."
-
-#, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Löydetty %d tulos haulla \"%s\":"
-msgstr[1] "Löydetty %d tulosta haulla \"%s\":"
-
-msgid "current selection"
-msgstr "nykyvalinta"
-
-#, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d tulos"
-msgstr[1] "%d tulosta"
-
-msgid "no results"
-msgstr "ei tuloksia"
-
-msgid "Browse index:"
-msgstr "Hakemiston selaus:"
-
-msgid "Plugins list"
-msgstr "Liitännäisten luettelo"
-
-msgid "Score"
-msgstr "Pistemäärä"
-
-msgid "Version"
-msgstr "Versio"
-
-msgid "Current version"
-msgstr "Nykyversio"
-
-#, fuzzy
-msgid "Repository"
-msgstr "paikka:"
-
-msgid "Action"
-msgstr "Toimenpide"
-
-#, php-format
-msgid " (%s)"
+msgid "(%s)"
 msgstr "(%s)"
 
 #, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Tätä moduulia ei voi poistaa käytöstä, koska seuraavat moduulit ovat käytössä: %s"
+msgid "ratio %.1f"
+msgstr "suhde %.1f"
 
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Tätä moduulia ei voi ottaa käyttöön seuraavista syistä:"
-
-#, fuzzy
-msgid "Official repository"
-msgstr "Etsi säilöstä:"
-
-#, fuzzy
-msgid "Third-party repository"
-msgstr "Etsi säilöstä:"
-
-msgid "Plugin from official distribution"
-msgstr "Viralliseen jakeluun kuuluva liitännäinen"
-
-#, fuzzy
-msgid "Plugin in development"
-msgstr "Liitännäisten hallinta"
-
-#, fuzzy
-msgid "update locked"
-msgstr "Päivitä Dotclear"
-
-msgid "No plugins matched your search."
-msgstr "Mikään liitännäinen ei vastaa hakuasi."
-
-msgid "Configure plugin"
-msgstr "Määritä liitännäisen asetukset"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Liitännäisen asetukset (blogin parametreissä)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Liitännäisen asetukset (käyttäjän valitsemissa asetuksissa)"
-
-msgid "Plugin settings"
-msgstr "Liitännäisen asetukset"
-
-#, fuzzy
-msgid "Plugin main page"
-msgstr "Liitännäisten hallinta"
-
-msgid "Activate"
-msgstr "Ota käyttöön"
-
-msgid "Deactivate"
-msgstr "Poista käytöstä"
-
-msgid "Clone"
-msgstr "Kloonaa"
-
-msgid "Install"
-msgstr "Asenna"
-
-msgid "Activate selected plugins"
-msgstr "Ota valitut liitännäiset käyttöön"
-
-msgid "Activate all plugins from this list"
-msgstr "Ota kaikki luettelon liitännäiset käyttöön"
-
-msgid "Deactivate selected plugins"
-msgstr "Poista valitut liitännäiset käytöstä"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Poista kaikki luettelon liitännäiset käytöstä"
-
-msgid "Update selected plugins"
-msgstr "Päivitä valitut liitännäiset"
-
-msgid "Update all plugins from this list"
-msgstr "Päivitä kaikki luettelon liitännäiset"
-
-msgid "No such plugin."
-msgstr "Kyseistä liitännäistä ei ole."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Käyttöoikeutesi eivät riitä tämän liitännäisen poistamiseen."
-
-msgid "Some plugins have not been delete."
-msgstr "Joitain liitännäisiä ei voitu poistaa."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Tämä liitännäinen on poistettu."
-msgstr[1] "Nämä liitännäiset on poistettu."
-
-#, fuzzy
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Tämä liitännäinen on asennettu."
-msgstr[1] "Nämä liitännäiset on asennettu."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Tämä liitännäinen on otettu käyttöön."
-msgstr[1] "Nämä liitännäiset on otettu käyttöön."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Joitain liitännäisiä ei saatu pois käytöstä."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Tämä liitännäinen on saatu pois käytöstä."
-msgstr[1] "Nämä liitännäiset on saatu pois käytöstä."
-
-#, fuzzy
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Tämä liitännäinen on päivitetty."
-msgstr[1] "Nämä liitännäiset on päivitetty."
-
-#, fuzzy, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Seuraavat liitännäiset on asennettu:"
-
-msgid "Unable to move uploaded file."
-msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
-
-#, fuzzy
-msgid "The plugin has been successfully updated."
-msgstr "Tämä liitännäinen on päivitetty."
-
-#, fuzzy
-msgid "The plugin has been successfully installed."
-msgstr "Tämä liitännäinen on asennettu."
-
-msgid "Upload a zip file"
-msgstr "Lataa zip-tiedosto palvelimelle"
-
-msgid "Required field"
-msgstr "Vaadittu kenttä"
-
-msgid "Zip file path:"
-msgstr "Zip-tiedoston polku:"
-
-msgid "Your password:"
-msgstr "Salasanasi:"
-
-msgid "Password"
-msgstr "Salasana"
-
-msgid "Download a zip file"
-msgstr "Lataa zip-tiedosto"
-
-msgid "Zip file URL:"
-msgstr "Zip-tiedoston verkko-osoite:"
-
-msgid "URL"
-msgstr "URL:"
-
-msgid "Download"
-msgstr "Lataa"
-
-msgid "Unknown plugin ID"
-msgstr "Tuntematon liitännäisen tunniste"
-
-msgid "This plugin has no configuration file."
-msgstr "Tällä liitännäisellä ei ole asetustiedostoa."
-
-msgid "Insufficient permissions"
-msgstr "Oikeudet eivät riitä"
+msgid "The 'public' directory does not exist."
+msgstr "Hakemistoa \"public\" ei ole."
 
 #, php-format
-msgid "Configure \"%s\""
-msgstr "Määritä \"%s\""
+msgid "The '%s' directory cannot be modified."
+msgstr "Hakemistoa \"%s\" ei voi muokata."
 
-msgid "Back"
-msgstr "Takaisin"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Ainakin yksi seuraavista toiminnoista ei ole käytettävissä: imagecreatetruecolor, imagepng & imagecreatefrompng."
+
+msgid "Unable to create images."
+msgstr "Kuvien luonti ei onnistu."
+
+msgid "Invalid file type."
+msgstr "Virheellinen tiedostotyyppi."
+
+msgid "An error occurred while writing the file."
+msgstr "Virhe tiedostoa kirjoitettaessa."
+
+#, php-format
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
 
 #, php-format
 msgid "Score: %s"
@@ -1111,6 +1795,9 @@ msgstr "Mikään teema ei vastannut hakuasi."
 
 msgid "Use this one"
 msgstr "Käytä tätä"
+
+msgid "Preview"
+msgstr "Esikatsele"
 
 msgid "Update selected themes"
 msgstr "Päivitä valitut teemat"
@@ -1178,704 +1865,319 @@ msgstr "Tämä teema on päivitetty."
 msgid "The theme has been successfully installed."
 msgstr "Tämä teema on asennettu."
 
-msgid "First page"
-msgstr "Ensimmäinen sivu"
+msgid "users per page"
+msgstr "käyttäjää sivua kohti"
 
-msgid "Previous page"
-msgstr "Edellinen sivu"
+msgid "entries per page"
+msgstr "merkintää sivua kohti"
 
-msgid "Next page"
-msgstr "Seuraava sivu"
+msgid "comments per page"
+msgstr "kommenttia sivua kohti"
 
-msgid "Last page"
-msgstr "Viimeinen sivu"
-
-#, php-format
-msgid "Page %s / %s"
-msgstr "Sivu %s/%s"
-
-#, php-format
-msgid "Direct access page %s"
-msgstr "Suoraan sivulle %s"
-
-msgid "&#171; prev."
-msgstr "&#171; ed."
-
-msgid "next &#187;"
-msgstr "seur. &#187;"
-
-msgid "No entry matches the filter"
-msgstr "Suodatinta ei vastaa mikään merkintä"
-
-msgid "No entry"
-msgstr "Ei merkintöjä"
-
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Suodatinta vastaavan %s merkinnän luettelo"
-
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Blogimerkintöjen (%s) luettelo"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">julkaistu</a> (1)"
-msgstr[1] ", <a href=\"%s\">julkaistut</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">odottava</a> (1)"
-msgstr[1] ", <a href=\"%s\">odottavat</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">ajastettu</a> (1)"
-msgstr[1] ", <a href=\"%s\">ajastetut</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">julkaisematon</a> (1)"
-msgstr[1] ", <a href=\"%s\">julkaisemattomat</a> (%s)"
-
-msgid "Legend: "
-msgstr "Teksti:"
-
-msgid "Published"
-msgstr "Julkaistu"
-
-msgid "Unpublished"
-msgstr "Julkaisematon"
-
-msgid "Scheduled"
-msgstr "Ajastettu"
-
-msgid "Pending"
-msgstr "Odottaa"
-
-msgid "Protected"
-msgstr "Suojattu"
-
-msgid "Attachments"
-msgstr "Liitteet:"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d liite"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d liitettä"
-
-msgid "Entries list"
-msgstr "Blogimerkintöjen luettelo"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Suodatinta ei vastaa mikään kommentti tai takaisinviittaus"
-
-msgid "No comments"
-msgstr "Ei kommentteja"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Suodatinta vastaava kommentti tai takaisinviittaus"
-msgstr[1] "Luettelo suodatinta vastaavista %s kommenteista tai takaisinviittauksista"
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Kommenttien ja takaisinviitausten luettelo (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">roskaviesti</a> (1)"
-msgstr[1] ", <a href=\"%s\">roskaviestit</a> (%s)"
-
-msgid "Type"
-msgstr "Tyyppi"
-
-msgid "Entry"
-msgstr "Merkintä"
-
-msgid "Junk"
-msgstr "Roska"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Muokkaa %1$s (%2$s)"
-
-msgid "comment"
-msgstr "kommentti"
-
-msgid "trackback"
-msgstr "takaisinviittaus"
-
-msgid "Type and author"
-msgstr "Tyyppi ja kirjoittaja"
-
-msgid "Edit"
-msgstr "Muokkaa"
-
-msgid "No blog matches the filter"
-msgstr "Mikään blogi ei vastaa suodatinta"
-
-msgid "No blog"
-msgstr "Ei blogia"
-
-msgid "Entries (all types)"
-msgstr "Merkinnät (kaikki lajit)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d blogi vastaa suodatinta."
-msgstr[1] "%d blogia vastaa suodatinta."
-
-msgid "Blogs list"
-msgstr "Blogien luettelo"
-
-msgid "online"
-msgstr "verkossa"
-
-msgid "offline"
-msgstr "ei verkossa"
-
-msgid "removed"
-msgstr "poistettu"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Muuta %s-blogin asetuksia"
-
-msgid "Edit blog settings"
-msgstr "Muuta blogin asetuksia"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Siirry blogiin %s"
-
-msgid "No user matches the filter"
-msgstr "Suodatinta ei vastaa mikään käyttäjä"
-
-msgid "No user"
-msgstr "Ei käyttäjiä"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Suodatinta vastaa %s käyttäjän luettelo."
-
-msgid "Users list"
-msgstr "Käyttäjäluettelo"
-
-msgid "admin"
-msgstr "järjestelmänvalvoja"
-
-msgid "superadmin"
-msgstr "superjärjestelmänvalvoja"
+msgid "blogs per page"
+msgstr "blogia sivua kohti"
 
 #, fuzzy
-msgid "No file matches the filter"
-msgstr "Mikään blogi ei vastaa suodatinta"
+msgid "media per page"
+msgstr "merkintää sivua kohti"
 
-msgid "No file."
-msgstr "Ei tiedostoa."
+#, fuzzy
+msgid "results per page"
+msgstr "merkintää sivua kohti"
 
-#, fuzzy, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d blogi vastaa suodatinta."
-msgstr[1] "%d blogia vastaa suodatinta."
+msgid "Database error"
+msgstr "Tietokantavirhe"
 
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Kohteiden määrä: %d → %d kansio(ta) + %d tiedosto(a)"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
 
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Kohteiden määrä: %d"
+msgid "Precondition Failed"
+msgstr ""
 
-msgid "Select this file"
-msgstr "Poista tämä blogi"
+#, fuzzy
+msgid "Database problem"
+msgstr "Tietokantavirhe"
 
-msgid "Attach this file to entry"
-msgstr "Liitä tämä tiedosto merkintään"
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
-msgid "Insert this file into entry"
-msgstr "Liitä tämä tiedosto merkintään"
-
-msgid "delete"
-msgstr "poista"
-
-msgid "private media"
-msgstr "Yksityinen"
-
-msgid "open"
-msgstr "avaa"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "suhde %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "Hakemistoa \"public\" ei ole."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Hakemistoa \"%s\" ei voi muokata."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Ainakin yksi seuraavista toiminnoista ei ole käytettävissä: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "Kuvien luonti ei onnistu."
-
-msgid "Invalid file type."
-msgstr "Virheellinen tiedostotyyppi."
-
-msgid "An error occurred while writing the file."
-msgstr "Virhe tiedostoa kirjoitettaessa."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
-
-msgid "medium"
-msgstr "keskikoko"
-
-msgid "small"
-msgstr "pieni"
-
-msgid "thumbnail"
-msgstr "pikkukuva"
-
-msgid "square"
-msgstr "neliö"
-
-msgid "Pages"
-msgstr "Sivut"
-
-msgid "administrator"
-msgstr "järjestelmänvalvoja"
-
-msgid "manage all entries and comments"
-msgstr "hallita kaikkia merkintöjä ja kommentteja"
-
-msgid "manage their own entries and comments"
-msgstr "hallita omia blogimerkintöjään ja kommenttejaan"
-
-msgid "publish entries and comments"
-msgstr "julkaista merkintöjä ja kommentteja"
-
-msgid "delete entries and comments"
-msgstr "poistaa merkintöjä ja kommentteja"
-
-msgid "manage categories"
-msgstr "hallita luokkia"
-
-msgid "manage all media items"
-msgstr "hallita kaikkia media-aineistoja"
-
-msgid "manage their own media items"
-msgstr "hallita omia media-aineistojaan"
-
-msgid "That user does not exist in the database."
-msgstr "Käyttäjää ei ole tietokannassa."
-
-msgid "That key does not exist in the database."
-msgstr "Avainta ei ole tietokannassa."
-
-msgid "You are not allowed to add categories"
-msgstr "Sinulla ei ole oikeutta lisätä luokkia"
-
-msgid "You are not allowed to update categories"
-msgstr "Sinulla ei ole oikeutta päivittää luokkia"
-
-msgid "You are not allowed to delete categories"
-msgstr "Sinulla ei ole oikeutta poistaa luokkia"
-
-msgid "This category is not empty."
-msgstr "Luokka ei ole tyhjä."
-
-msgid "You are not allowed to reset categories order"
-msgstr "Sinulla ei ole oikeutta palauttaa luokkien järjestystä oletusarvoon"
-
-msgid "Empty category URL"
-msgstr "Tyhjän luokan verkko-osoite"
-
-msgid "You must provide a category title"
-msgstr "Luokalle täytyy antaa otsikko"
-
-msgid "You must provide a category URL"
-msgstr "Luokalle täytyy antaa verkko-osoite"
-
-msgid "You are not allowed to create an entry"
-msgstr "Sinulla ei ole oikeutta luoda blogimerkintöjä"
-
-msgid "You are not allowed to update entries"
-msgstr "Sinulla ei ole oikeutta päivittää blogimerkintöjä"
-
-msgid "No such entry ID"
-msgstr "Tuntematon merkinnän tunniste"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Sinulla ei ole oikeutta muokata tätä merkintää"
-
-msgid "You are not allowed to change this entry status"
-msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän tilaa"
-
-msgid "You are not allowed to change this entry category"
-msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän luokkaa"
-
-msgid "You are not allowed to change entries category"
-msgstr "Sinulla ei ole oikeutta muuttaa blogimerkintöjen luokkaa"
-
-msgid "You are not allowed to delete entries"
-msgstr "Sinulla ei ole oikeutta poistaa blogimerkintöjä"
-
-msgid "No entry title"
-msgstr "Merkinnällä ei otsikkoa"
-
-msgid "No entry content"
-msgstr "Merkinnällä ei sisältöä"
-
-msgid "Notes"
-msgstr "Huomautuksia"
-
-msgid "Note"
-msgstr "Huomautus"
-
-msgid "Empty entry URL"
-msgstr "Tyhjä merkinnän verkko-osoite"
-
-msgid "You are not allowed to update comments"
-msgstr "Sinulla ei ole oikeutta päivittää kommentteja"
-
-msgid "No such comment ID"
-msgstr "Tuntematon kommentin tunniste"
-
-msgid "You are not allowed to update this comment"
-msgstr "Sinulla ei ole oikeutta päivittää tätä kommenttia"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Sinulla ei ole oikeutta muuttaa tämän kommentin tilaa "
-
-msgid "You are not allowed to delete comments"
-msgstr "Sinulla ei ole oikeutta poistaa kommentteja "
-
-msgid "You must provide a comment"
-msgstr "Kirjoita kommentti"
-
-msgid "You must provide an author name"
-msgstr "Anna kirjoittajan nimi"
-
-msgid "Email address is not valid."
-msgstr "Sähköpostiosoite ei kelpaa."
-
-msgid "You are not an administrator"
-msgstr "Et ole järjestelmänvalvoja"
-
-msgid "No user ID given"
-msgstr "Ei käyttäjän tunnistetta"
-
-msgid "No password given"
-msgstr "Salasanaa ei ole annettu"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Käyttäjän tunnisteen tulee sisältää ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
-
-msgid "Password must contain at least 6 characters."
-msgstr "Salasanan tulee käsittää ainakin 6 merkkiä."
-
-msgid "Invalid user language code"
-msgstr "Käyttäjän kielikoodi ei kelpaa"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Blogin tunnisteessa tulee olla ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
-
-msgid "No blog name"
-msgstr "Blogilla ei nimeä"
-
-msgid "No blog URL"
-msgstr "Blogilla ei verkko-osoitetta"
-
-msgid "No log message"
-msgstr "Lokissa ei viestejä"
-
-msgid "unknown"
-msgstr "tuntematon"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "Ei määriteltyä blogia."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "Kirjoitusoikeuksilla varustettua hakemistoa /public/ ei ole siellä, mihin \"public_path\" viittaa kohdassa about:config. Kyseinen hakemisto on luotava riittävin oikeuksin (tai muutettava  \"public_path\" -asetusta)."
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Medianhallintaa varten ei ole kirjoitettavaa hakemistoa. Ota yhteys järjestelmänvalvojaan."
-
-msgid "You are not a super administrator."
-msgstr "Et ole superjärjestelmänvalvoja."
-
-msgid "Permission denied."
-msgstr "Lupa evätty."
-
-msgid "You are not the file owner."
-msgstr "Et ole tiedoston omistaja."
-
-msgid "This file is not allowed."
-msgstr "Luvaton tiedosto."
-
-msgid "New file already exists."
-msgstr "Uusi tiedosto on jo."
-
-msgid "File does not exist in the database."
-msgstr "Tiedostoa ei ole tietokannassa."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "Purkamisen kohdehakemisto %s on jo olemassa."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Edellyttää moduulia %s, jota ei ole asennettu"
-
-#, fuzzy, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Vaatii moduulin %s versiota %s (versio %s on asennettuna)"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Vaatii moduulia %s, joka ei ole käytössä"
-
-msgid "The following extensions have been disabled :"
-msgstr "Seuraavat liitännäiset on poistettu käytöstä:"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Moduuli \"%s\" on tyyppia \"%s\", joka ei vastaa vaadittua moduulityyppiä \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Moduuli \"%s\" on asennettu kahdesti sijainteihin \"%s\" ja \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Tyhjä moduulin zip-tiedosto."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "Zip-tiedosto ei tunnu oleva kelvollinen Dotclear-moduuli."
-
-#, fuzzy, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "\"%s\" ei voitu päivittää (vanhempi tai sama versio)."
-
-msgid "An error occurred during module deletion."
-msgstr "Moduulia poistettaessa tapahtui virhe."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "\"%s\" ei voitu päivittää (vanhempi tai sama versio)."
-
-#, fuzzy, php-format
-msgid "Unable to read new %s file"
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-msgid "Cannot deactivate plugin."
-msgstr "Liitännäistä ei voi poistaa käytöstä."
-
-msgid "No such module."
-msgstr "Moduulia ei ole."
-
-msgid "Cannot remove module files"
-msgstr "Moduuliin kuuluvia tiedostoja ei voi poistaa"
-
-msgid "Cannot activate plugin."
-msgstr "Liitännäistä ei voi ottaa käyttöön."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Virheellinen dcNamespace-asetus: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "Asetuksia ei saatu luettua:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s ei ole kelvollinen asetuksen tunniste"
-
-msgid "No namespace specified"
-msgstr "Ei määriteltyä nimiavaruutta"
-
-msgid "No notice message"
-msgstr "Ei ilmoitusviestejä"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "Työavaruuksia ei saatu luettua:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "dcWorkspace ei kelpaa: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "Nimiavaruuksia ei saatu luettua:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Nimiavaruus, asetus ei kelpaa: %s"
-
-msgid "Wrong data feed"
-msgstr "Väärä tietosyöte"
-
-msgid "An error occurred while downloading the file."
-msgstr "Virhe tiedostoa koneelle ladattaessa."
-
-msgid "Themes folder unreachable"
-msgstr "Teemakansioon ei pääsyä"
-
-msgid "Themes folder unreadable"
-msgstr "Teemakansio ei luettavissa"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (kopio %s)"
-
-msgid " (copy)"
-msgstr " (kopio)"
+msgid "Did you change your Blog ID?"
+msgstr ""
 
 #, fuzzy
-msgid "Unable to modify _define.php"
-msgstr "_config.php-tiedostoa ei voi muokata"
+msgid "Blog is offline."
+msgstr "Tämä blogi ei näy nyt verkossa"
 
-msgid "Destination folder already exist"
-msgstr "Kohdehakemisto on jo olemassa"
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Tämä blogi ei näy nyt verkossa"
 
-#, php-format
-msgid "%s has still been pinged"
-msgstr "Kohteeseen %s on kohdistettu jo ping"
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Tiedostoa %s ei saatu luotua."
 
-msgid "Unable to ping URL"
-msgstr "URLin ping ei onnistu"
-
-msgid "Bad server response code"
-msgstr "Palvelin vastaa väärin"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s ei ole ping-URL"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, ping-virhe:"
-
-msgid "Don't repeat yourself, please."
-msgstr "Turha jankata. Asia on loppuun käsitelty."
-
-msgid "Where's your title?"
-msgstr "Otsikko puuttuu?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Valitan, sisäinen ongelma."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Kiitos. Ilo on minun puolellani."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "Etkö haluaisi takaisinviitata sisältöihini? Eikö tosiaankaan?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Valitan, tämäntyyppistä sisältöä ei voi takaisinviitata."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Oho, ei löytynyt. Tarkista kohdeverkko-osoite uudestaan."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Valitan, tähän blogimerkintään ei voi tällä hetkellä takaisinviitata."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "Lähdeverkko-osoitteesi ei tunnu olevan tuettua tyyppiä. Ei mahda mitään!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Ei kelvollista lähdeverkko-osoitetta? Yritä uudestaan!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Ei kelvollista kohdeverkko-osoitetta? Yritä uudestaan!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Ei tiivistelmätiedostoa."
 
-msgid "No file to download"
-msgstr "Ei ladattavaa tiedostoa"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-msgid "An error occurred while downloading archive."
-msgstr "Arkistoa koneelle ladattaessa sattui virhe."
-
-msgid "Archive not found."
-msgstr "Arkistoa ei löydy."
-
-msgid "Unable to read current digests file."
-msgstr "Nykytiivistelmätiedostoa ei voitu lukea."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Ladattu tiedosto ei tunnu olevan kelvollinen arkisto."
-
-msgid "Incomplete archive."
-msgstr "Puutteellinen arkisto."
-
-msgid "Unable to read digests file."
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-msgid "Invalid digests file."
-msgstr "Tiivistelmätiedosto ei kelpaa."
-
-msgid "Unable to retrieve prefs:"
-msgstr "Käyttäjän asetuksia (prefs) ei saatu luettua:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s ei ole käypä pref-tunniste"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP-versiosi on %s (tarvitaan %s tai uudempi)."
 
-msgid "No workspace specified"
-msgstr "Ei määriteltyä työavaruutta"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Monitavumerkkijonomoduulia (mbstring) ei löydy."
+
+msgid "Iconv module is not available."
+msgstr "Iconv-moduulia ei löydy."
+
+msgid "Output control functions are not available."
+msgstr "PHP-tulostuksenhallintafunktioita ei löydy."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML-moduulia ei löydy."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML -moduulia ei löydy."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE-moottori ei hyväksy UTF-8-merkkijonoja."
+
+msgid "SPL module is not available."
+msgstr "SPL-moduulia ei löydy."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL-versio on %s (tarvitaan 4.1 tai uudempi)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB-tallennusmoottoria ei löydy."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL-versio on %s (vaaditaan 8.0 tai uudempi)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
 
-msgid "Site temporarily unavailable"
-msgstr "Sivusto väliaikaisesti saavuttamattomissa"
-
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Valitamme tätä tilapäistä häiriötä.<br />Kiitos, että ymmärrätte tilanteen.</p>"
-
-msgid "Unable to connect to database"
-msgstr "Tietokantaan ei saada yhteyttä"
-
-#, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatietonne <strong>config.php-tiedostossanne</strong> ovat virheellisiä, tai että tietokantapalvelimeen ei saada yhteyttä osoitteessa \"<em>%s</em>\". Tämä voi merkitä sitä, että palvelun isäntäkoneen tietokantapalvelin on kaatunut.</p> <ul><li>Oletko varma, että käyttäjänimesi ja salasanasi ovat oikein?</li> <li>Oletko varma, että olet syöttänyt oikean isäntäkoneen nimen?</li> <li>Oletko varma, että tietokantapalvelin on toiminnassa?</li></ul> <p>Jos olet epävarma näistä seikoista, kannattaa ottaa yhteys isäntäkoneen ylläpitäjään tai palveluntarjoajaasi. Apua on myös tarjolla <a href=\"https://forum.dotclear.net/\">Dotclearin tukipalstoilta</a>.</p>"
-
-msgid "The following error was encountered while trying to read the database:"
-msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE vaatii FROM-lähteen"
 
 #, fuzzy
-msgid "No process found"
-msgstr "ei tuloksia"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL UPDATE vaatii INTO-lähteen"
 
-msgid "Process failed"
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT vaatii INTO-lähteen"
+
+#, fuzzy
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL INSERT vaatii INTO-lähteen"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT vaatii FROM-lähteen"
+
+#, fuzzy
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL UPDATE vaatii INTO-lähteen"
+
+#, fuzzy
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL DELETE vaatii FROM-lähteen"
+
+msgid "Bad range"
 msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Virheellinen kielikoodi"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Virheellinen kielikoodi"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Tiivistelmätiedosto ei kelpaa."
+
+#, fuzzy
+msgid "Unable to open directory."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+#, fuzzy
+msgid "Unable to create directory."
+msgstr "Kuvien luonti ei onnistu."
+
+#, fuzzy
+msgid "File is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Unable to open file."
+msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
+
+#, fuzzy
+msgid "Not an uploaded file."
+msgstr "Kelpaamaton tiedosto"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#, fuzzy
+msgid "No file was uploaded."
+msgstr "Ei ladattavaa tiedostoa"
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to write file to disk."
+msgstr "Tiedostoa %s ei voi poistaa"
+
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a directory."
+msgstr "Kelpaamaton tiedosto"
+
+#, fuzzy
+msgid "Can't get file path"
+msgstr "Vaihda tiedosto"
+
+#, fuzzy
+msgid "Can't lock a directory"
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+msgid "Can't call php function named flock"
+msgstr ""
+
+#, fuzzy
+msgid "Can't create file"
+msgstr "Tiedostoa %s ei saatu luotua."
+
+#, fuzzy
+msgid "Can't open file"
+msgstr "Tiedostoa %s ei saatu luotua."
+
+#, fuzzy
+msgid "Can't lock file"
+msgstr "Tiedostoa %s ei saatu luotua."
+
+#, fuzzy
+msgid "File cannot be removed."
+msgstr "Tiedosto on poistettu."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, fuzzy
+msgid "Uploading this file is not allowed."
+msgstr "Luvaton tiedosto."
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Uusi tiedosto on jo."
+
+#, fuzzy
+msgid "Cannot write in this directory."
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Source file does not exist."
+msgstr "Tiedostoa %s ei ole."
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "Luvaton tiedosto."
+
+#, fuzzy
+msgid "Destination directory is not writable."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Unable to rename file."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "Juurihakemistoon ei voi kirjoittaa."
+
+#, fuzzy
+msgid "Directory cannot be removed."
+msgstr "Hakemistoa \"%s\" ei voi muokata."
+
+#, fuzzy, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Tiedostoa ei ole tietokannassa."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to write destination file."
+msgstr "Tiivistelmätiedostoa ei saatu luettua."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+#, fuzzy
+msgid "File does not exist"
+msgstr "Tiedostoa %s ei ole."
+
+#, fuzzy
+msgid "Cannot read file"
+msgstr "Tiedostoa %s ei saatu luotua."
+
+#, fuzzy
+msgid "Directory does not exist"
+msgstr "Varmistushakemistoa ei ole"
+
+#, fuzzy
+msgid "Cannot read directory"
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+#, fuzzy
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear on päivitetty."
@@ -2419,11 +2721,18 @@ msgstr "Kaikki tämän blogin käyttöoikeudet."
 msgid "Change permissions"
 msgstr "Muuta käyttöoikeuksia"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Seuraavat liitännäiset on poistettu käytöstä:"
+
 msgid "Theme configuration"
 msgstr "Teeman asetukset"
 
 msgid "Themes management"
 msgstr "Teemojen hallinta"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
@@ -2680,6 +2989,10 @@ msgstr "Poista kaikki spämmit"
 
 msgid "Selected comments action:"
 msgstr "Tee valituille kommenteille:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Seuraavat liitännäiset on poistettu käytöstä:"
 
 msgid "Documentation and support"
 msgstr "Dokumentaatio ja tuki"
@@ -3334,9 +3647,6 @@ msgstr "Yksityisiä merkintöjä:"
 msgid "Unpublished notes."
 msgstr "Huomautuksia, joita ei ole tarkoitettu julkaistavaksi."
 
-msgid "Preview"
-msgstr "Esikatsele"
-
 msgid "Add a comment"
 msgstr "Lisää kommentti"
 
@@ -3535,10 +3845,6 @@ msgstr "Pakota Dotclearin päivityksen tarkistus"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s on saatavilla."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP-versiosi on %s (tarvitaan %s tai uudempi)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Dotclear-asennuksesi päivittämiseksi paina seuraavaa nappia. Nykyinen asennuksesi varmistetaan juurihakemistoosi luotavaan tiedostoon."
@@ -3946,215 +4252,6 @@ msgstr "Olet muuttamassa käyttäjien %s käyttöoikeuksia näiden blogien suhte
 msgid "Validate permissions"
 msgstr "Käyttöoikeuksien tarkistus"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE vaatii FROM-lähteen"
-
-#, fuzzy
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL UPDATE vaatii INTO-lähteen"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT vaatii INTO-lähteen"
-
-#, fuzzy
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL INSERT vaatii INTO-lähteen"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT vaatii FROM-lähteen"
-
-#, fuzzy
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL UPDATE vaatii INTO-lähteen"
-
-#, fuzzy
-msgid "SQL UPDATE requires a FROM source"
-msgstr "SQL DELETE vaatii FROM-lähteen"
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Virheellinen kielikoodi"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Virheellinen kielikoodi"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "Tiivistelmätiedosto ei kelpaa."
-
-#, fuzzy
-msgid "Unable to open directory."
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-#, fuzzy
-msgid "Unable to create directory."
-msgstr "Kuvien luonti ei onnistu."
-
-#, fuzzy
-msgid "File is not writable."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Unable to open file."
-msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
-
-#, fuzzy
-msgid "Not an uploaded file."
-msgstr "Kelpaamaton tiedosto"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#, fuzzy
-msgid "No file was uploaded."
-msgstr "Ei ladattavaa tiedostoa"
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-#, fuzzy
-msgid "Failed to write file to disk."
-msgstr "Tiedostoa %s ei voi poistaa"
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "%s is not a directory."
-msgstr "Kelpaamaton tiedosto"
-
-#, fuzzy
-msgid "Can't get file path"
-msgstr "Vaihda tiedosto"
-
-#, fuzzy
-msgid "Can't lock a directory"
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
-msgid "Can't call php function named flock"
-msgstr ""
-
-#, fuzzy
-msgid "Can't create file"
-msgstr "Tiedostoa %s ei saatu luotua."
-
-#, fuzzy
-msgid "Can't open file"
-msgstr "Tiedostoa %s ei saatu luotua."
-
-#, fuzzy
-msgid "Can't lock file"
-msgstr "Tiedostoa %s ei saatu luotua."
-
-#, fuzzy
-msgid "File cannot be removed."
-msgstr "Tiedosto on poistettu."
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, fuzzy
-msgid "Uploading this file is not allowed."
-msgstr "Luvaton tiedosto."
-
-#, fuzzy
-msgid "Destination directory is not in jail."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Uusi tiedosto on jo."
-
-#, fuzzy
-msgid "Cannot write in this directory."
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Source file does not exist."
-msgstr "Tiedostoa %s ei ole."
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "Luvaton tiedosto."
-
-#, fuzzy
-msgid "Destination directory is not writable."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Unable to rename file."
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-#, fuzzy
-msgid "Directory is not in jail."
-msgstr "Juurihakemistoon ei voi kirjoittaa."
-
-#, fuzzy
-msgid "Directory cannot be removed."
-msgstr "Hakemistoa \"%s\" ei voi muokata."
-
-#, fuzzy, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Tiedostoa ei ole tietokannassa."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-#, fuzzy
-msgid "Unable to write destination file."
-msgstr "Tiivistelmätiedostoa ei saatu luettua."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-#, fuzzy
-msgid "File does not exist"
-msgstr "Tiedostoa %s ei ole."
-
-#, fuzzy
-msgid "Cannot read file"
-msgstr "Tiedostoa %s ei saatu luotua."
-
-#, fuzzy
-msgid "Directory does not exist"
-msgstr "Varmistushakemistoa ei ole"
-
-#, fuzzy
-msgid "Cannot read directory"
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Aseta pääavain (DC_MASTER_KEY) asetustiedostossa."
 
@@ -4241,38 +4338,6 @@ msgstr "Asennusta ei voi saada päätökseen"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Yllämainituista syistä Dotclearia ei saatu asennettua. Katso <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka ongelma ratkaistaan."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Monitavumerkkijonomoduulia (mbstring) ei löydy."
-
-msgid "Iconv module is not available."
-msgstr "Iconv-moduulia ei löydy."
-
-msgid "Output control functions are not available."
-msgstr "PHP-tulostuksenhallintafunktioita ei löydy."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML-moduulia ei löydy."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML -moduulia ei löydy."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE-moottori ei hyväksy UTF-8-merkkijonoja."
-
-msgid "SPL module is not available."
-msgstr "SPL-moduulia ei löydy."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "MySQL-versio on %s (tarvitaan 4.1 tai uudempi)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB-tallennusmoottoria ei löydy."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL-versio on %s (vaaditaan 8.0 tai uudempi)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Polkuun <strong>%s</strong> ei voida kirjoittaa."
@@ -4357,6 +4422,10 @@ msgstr "Mastersähköposti: (käytetään lähettäjänä salasanan palautuksess
 
 msgid "Continue"
 msgstr "Jatka"
+
+#, fuzzy
+#~ msgid "No process found"
+#~ msgstr "ei tuloksia"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

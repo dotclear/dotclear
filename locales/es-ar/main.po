@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:34\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Título"
+msgid "medium"
+msgstr "medio"
+
+msgid "small"
+msgstr "pequeño"
+
+msgid "thumbnail"
+msgstr "miniatura"
+
+msgid "square"
+msgstr "cuadrado"
 
 msgid "Posts"
 msgstr "Puestos"
+
+msgid "Pages"
+msgstr "Páginas"
+
+msgid "administrator"
+msgstr "administrador"
+
+msgid "manage all entries and comments"
+msgstr "administrar todas las entradas y comentarios"
+
+msgid "manage their own entries and comments"
+msgstr "administrar sus propias entradas y comentarios"
+
+msgid "publish entries and comments"
+msgstr "publicar entradas y comentarios"
+
+msgid "delete entries and comments"
+msgstr "eliminar entradas y comentarios"
+
+msgid "manage categories"
+msgstr "administrar las categorías"
+
+msgid "manage all media items"
+msgstr "administrar todos los medios"
+
+msgid "manage their own media items"
+msgstr "administrar sus medios"
+
+msgid "That user does not exist in the database."
+msgstr "Ese usuario no existe en la base de datos."
+
+msgid "That key does not exist in the database."
+msgstr "Esta clave no existe en la base de datos."
+
+msgid "Pending"
+msgstr "Pendiente"
+
+msgid "Scheduled"
+msgstr "Programado"
+
+msgid "Unpublished"
+msgstr "Sin publicar"
+
+msgid "Published"
+msgstr "Publicado en"
+
+msgid "Junk"
+msgstr "Basura"
+
+msgid "You are not allowed to add categories"
+msgstr "No está autorizado a crear categorías"
+
+msgid "You are not allowed to update categories"
+msgstr "No está autorizado a modificar categorías"
+
+msgid "You are not allowed to delete categories"
+msgstr "No está autorizado a eliminar categorías"
+
+msgid "This category is not empty."
+msgstr "Esta categoría no está vacía."
+
+msgid "You are not allowed to reset categories order"
+msgstr "No está permitido restablecer el orden de las categorías"
+
+msgid "Empty category URL"
+msgstr "URL de categoría vacía"
+
+msgid "You must provide a category title"
+msgstr "Debes indicar un título para la categoría"
+
+msgid "You must provide a category URL"
+msgstr "Debe indicar una URL para la categoría"
+
+msgid "You are not allowed to create an entry"
+msgstr "No está autorizado a crear entradas"
+
+msgid "You are not allowed to update entries"
+msgstr "No está autorizado a modificar las entradas"
+
+msgid "No such entry ID"
+msgstr "ID de entrada desconocida"
+
+msgid "You are not allowed to edit this entry"
+msgstr "No está autorizado a editar esta entrada"
+
+msgid "You are not allowed to change this entry status"
+msgstr "No está autorizado a modificar el estado de esta entrada"
+
+msgid "You are not allowed to change this entry category"
+msgstr "No está autorizado a modificar la categoría de esta entrada"
+
+msgid "You are not allowed to change entries category"
+msgstr "No está permitido cambiar la categoría de las entradas"
+
+msgid "You are not allowed to delete entries"
+msgstr "No está autorizado a eliminar entradas"
+
+msgid "No entry title"
+msgstr "La entrada no tiene título"
+
+msgid "No entry content"
+msgstr "Entrada sin contenido"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Empty entry URL"
+msgstr "URL de entrada vacío."
+
+msgid "You are not allowed to update comments"
+msgstr "No está autorizado a modificar los comentarios"
+
+msgid "No such comment ID"
+msgstr "ID del comentario desconocida"
+
+msgid "You are not allowed to update this comment"
+msgstr "No está autorizado para modificar este comentario"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "No está autorizado para cambiar el estado de este comentario"
+
+msgid "You are not allowed to delete comments"
+msgstr "No está autorizado para eliminar comentarios"
+
+msgid "You must provide a comment"
+msgstr "Debe escribir un comentario"
+
+msgid "You must provide an author name"
+msgstr "Debe indicar un nombre de autor"
+
+msgid "Email address is not valid."
+msgstr "Dirección e-mail invalida."
+
+msgid "online"
+msgstr "conectado"
+
+msgid "offline"
+msgstr "no conectado"
+
+msgid "removed"
+msgstr "eliminado"
+
+msgid "You are not an administrator"
+msgstr "Usted no es el administrador"
+
+msgid "No user ID given"
+msgstr "El ID de usuario no ha sido especificado"
+
+msgid "No password given"
+msgstr "La contraseña no ha sido especificada"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "El ID del usuario debe contener al menos 2 caracteres compuestos por letras, cifras o símbolos."
+
+msgid "Password must contain at least 6 characters."
+msgstr "La contraseña debe tener al menos 6 caracteres."
+
+msgid "Invalid user language code"
+msgstr "Código de idioma de usuario invalido"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "El ID de blog debe tener al menos 2 caracteres compuestos por letras, números o símbolos."
+
+msgid "No blog name"
+msgstr "Blog sin nombre"
+
+msgid "No blog URL"
+msgstr "El blog no tiene URL"
+
+msgid "No log message"
+msgstr "No hay mensaje de registro"
+
+msgid "unknown"
+msgstr "desconocido"
+
+msgid "No blog defined."
+msgstr "No hay blog definido."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "No existe un directorio /public/ con permisos de escritura en la ubicación establecida en about:config \"public_path\". Debe crear este directorio con derechos suficientes (o cambiar esta configuración)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "No existe un directorio raíz con permisos de escritura para el gestor multimedia. Debe ponerse en contacto con su administrador."
+
+msgid "You are not a super administrator."
+msgstr "Usted no es super administrador."
+
+msgid "Permission denied."
+msgstr "Permiso denegado."
+
+msgid "You are not the file owner."
+msgstr "Usted no es el propietario de este fichero."
+
+msgid "This file is not allowed."
+msgstr "Este archivo no está permitido."
+
+msgid "New file already exists."
+msgstr "El nuevo fichero ya existe."
+
+msgid "File does not exist in the database."
+msgstr "Este archivo no existe en la base de datos"
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "El directorio de extracción %s ya existe."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Requiere el módulo %s que no está instalado"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Requiere %s versión %s, pero la versión %s está instalada"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Requiere el módulo %s que está desactivado"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "El módulo \"%s\" tiene el tipo \"%s\" que no coincide con el tipo de módulo requerido \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "El módulo \"%s\" se instala dos veces en \"%s\" y \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Archivo zip de modulo vacío."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "Eñ archivo zip no aparenta ser un modulo valido de Dotclear."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "No se puede actualizar \"%s\". (actualización bloqueada)"
+
+msgid "An error occurred during module deletion."
+msgstr "Ha ocurrido un error durante la eliminación del modulo."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "No se puede actualizar a \"%s\". (misma versión)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "No se puede leer el nuevo archivo %s"
+
+msgid "Cannot deactivate plugin."
+msgstr "No se puede desactivar el agregado."
+
+msgid "No such module."
+msgstr "No existe el modulo."
+
+msgid "Cannot remove module files"
+msgstr "No se pueden eliminar los archivos del modulo"
+
+msgid "Cannot activate plugin."
+msgstr "No se puede activar el agregado."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Configuración no válida dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "No se pueden obtener los parámetros:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s no es un ID de parámetro válido."
+
+msgid "No namespace specified"
+msgstr "No se ha especificado el nombre de espacio"
+
+msgid "No notice message"
+msgstr "Ningún mensaje de aviso"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "No se pueden recuperar los espacios de trabajo:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "dcWorkspace no válido: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "No se han podido recuperar los espacios de nombres:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Parámetros de nombre de espacio inválidos: %s"
+
+msgid "Wrong data feed"
+msgstr "Alimentación de datos errónea"
+
+msgid "An error occurred while downloading the file."
+msgstr "Ocurrió un error durante la descarga del archivo."
+
+msgid "Themes folder unreachable"
+msgstr "Carpeta de temas inaccesible"
+
+msgid "Themes folder unreadable"
+msgstr "Carpeta de temas ilegible"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (copia #%s)"
+
+msgid " (copy)"
+msgstr " (copia)"
+
+msgid "Unable to modify _define.php"
+msgstr "No se puede modificar _define.php"
+
+msgid "Destination folder already exist"
+msgstr "La carpeta de destino ya existe"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s ha sido pingueado"
+
+msgid "Unable to ping URL"
+msgstr "No se puede pinguear el URL"
+
+msgid "Bad server response code"
+msgstr "Código de respuesta del servidor incorrecto"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s no es una URL de ping"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, error de ping:"
+
+msgid "Don't repeat yourself, please."
+msgstr "No te repitas, por favor."
+
+msgid "Where's your title?"
+msgstr "¿Dónde está tu título?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Lo sentimos, se ha producido un problema interno."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Gracias, amigo. Ha sido un placer."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "¿Alguna posibilidad de que hagas ping a uno de mis contenidos? ¿No? ¿De verdad?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Lo sentimos, pero no se puede hacer ping a este tipo de contenido."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Ups. Algo así como \"no encontrado\". Por favor, compruebe la URL de destino dos veces."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Lo siento, amigo. Esta entrada no acepta pingback por el momento."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "Su URL de origen no parece un tipo de contenido compatible. Lo sentimos. Adiós."
+
+msgid "No valid source URL provided? Try again!"
+msgstr "¿No se ha proporcionado una URL de origen válida? Inténtelo de nuevo."
+
+msgid "No valid target URL provided? Try again!"
+msgstr "¿No se ha proporcionado una URL de destino válida? Inténtelo de nuevo."
+
+msgid "LOL!"
+msgstr "¡LOL!"
+
+msgid "Digests file not found."
+msgstr "Resumen de archivo no encontrado."
+
+msgid "No file to download"
+msgstr "No hay archivos para descargar"
+
+msgid "Root directory is not writable."
+msgstr "El directorio base no es escribible."
+
+msgid "An error occurred while downloading archive."
+msgstr "Ha ocurrido un error durante la descarga del archivo."
+
+msgid "Archive not found."
+msgstr "Archivo no encontrado."
+
+msgid "Unable to read current digests file."
+msgstr "No se puede leer el resumen del archivo"
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "El archivo descargado no parece ser un archivo válido."
+
+msgid "Incomplete archive."
+msgstr "Archivo incompleto."
+
+msgid "Unable to read digests file."
+msgstr "No se puede leer el resumen de archivo."
+
+msgid "Invalid digests file."
+msgstr "Resumen de archivo invalido."
+
+msgid "Unable to retrieve prefs:"
+msgstr "No se pueden recuperar los prefijos:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s no es un pref id válido"
+
+msgid "No workspace specified"
+msgstr "No se ha especificado ningún espacio de trabajo"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "No se puede eliminar el archivo %s"
+
+msgid "Process failed"
+msgstr "Proceso fallido"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Resumen de archivo no encontrado."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Noticias de Dotclear no disponibles"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "No se han encontrado resultados"
+
+msgid "Site temporarily unavailable"
+msgstr "Sitio temporalmente no disponible"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Le pedimos disculpas por esta indisponibilidad temporal.<br />Gracias por su comprensión.</p>"
+
+msgid "Unable to connect to database"
+msgstr "No se puede conectar a la base de datos"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Esto significa que la información sobre el nombre de usuario y la contraseña en su archivo <strong>config.php</strong> es incorrecta o que no podemos contactar con el servidor de la base de datos en \"<em>%s</em>\". Esto podría significar que el servidor de base de datos de su host no funciona.</p> <ul><li>¿Está seguro de que tiene el nombre de usuario y la contraseña correctos?</li><li>¿Está seguro de que ha escrito el nombre de host correcto?</li><li>¿Estás seguro de que el servidor de base de datos está funcionando?</li></ul><p>Si no estás seguro de lo que significan estos términos, probablemente deberías ponerte en contacto con tu proveedor de alojamiento. Si sigues necesitando ayuda, siempre puedes visitar los foros de soporte de <a href=\"https://forum.dotclear.net/\">Dotclear</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "Se ha producido el siguiente error al intentar leer la base de datos:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Título"
 
 msgid "Blogs"
 msgstr "Blogs"
@@ -254,75 +720,6 @@ msgstr "Mas usado"
 msgid "Entry language:"
 msgstr "Idioma de entrada:"
 
-msgid "Database error"
-msgstr "Error de base de datos"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Parece que no hay tabla Session en su base de datos. ¿Está Dotclear completamente instalado?"
-
-msgid "Precondition Failed"
-msgstr "Condición previa fallida"
-
-msgid "System settings"
-msgstr "Configuración del sistema"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Agregados"
-
-msgid "Blog appearance"
-msgstr "Aspecto del blog"
-
-msgid "Blog settings"
-msgstr "Parámetros del blog"
-
-msgid "Media manager"
-msgstr "Gestor de medios"
-
-msgid "Categories"
-msgstr "Categorías"
-
-msgid "Search"
-msgstr "Búsqueda"
-
-msgid "New post"
-msgstr "Nueva entrada"
-
-msgid "My preferences"
-msgstr "Mis preferencias"
-
-msgid "Update"
-msgstr "Actualizaciones"
-
-msgid "Languages"
-msgstr "Idioma"
-
-msgid "Plugins management"
-msgstr "Gestor de agregados"
-
-msgid "Users"
-msgstr "Usuarios"
-
-msgid "My favorites"
-msgstr "Mis favoritos"
-
-msgid "Global help"
-msgstr "Ayuda global"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d Correo electrónico:"
-msgstr[1] "%d puestos"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d comentario"
-msgstr[1] "%d comentarios"
-
 msgid "Descending"
 msgstr "Descendente"
 
@@ -350,11 +747,11 @@ msgstr "Título de la entrada"
 msgid "Entry date"
 msgstr "Fecha de entrada"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "Filtro de spam"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "Última actualización"
@@ -377,35 +774,92 @@ msgstr "Nombre mostrado"
 msgid "Number of entries"
 msgstr "Número de entradas"
 
-msgid "Show filters and display options"
-msgstr "Mostrar filtros y opciones de visualización"
+msgid "My favorites"
+msgstr "Mis favoritos"
 
-msgid "Filters"
-msgstr "Filtros"
+msgid "My preferences"
+msgstr "Mis preferencias"
 
-msgid "Display options"
-msgstr "Opciones de visualización"
+msgid "New post"
+msgstr "Nueva entrada"
 
-msgid "Order by:"
-msgstr "Ordenar por:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d Correo electrónico:"
+msgstr[1] "%d puestos"
 
-msgid "Sort:"
-msgstr "Clasificar:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d comentario"
+msgstr[1] "%d comentarios"
 
-msgid "Show"
-msgstr "Mostrar"
+msgid "Search"
+msgstr "Búsqueda"
 
-msgid "Save current options"
-msgstr "Guardar opciones actuales"
+msgid "Categories"
+msgstr "Categorías"
 
-msgid "Apply filters and display options"
-msgstr "Aplicar filtros y opciones de visualización"
+msgid "Media manager"
+msgstr "Gestor de medios"
+
+msgid "Blog settings"
+msgstr "Parámetros del blog"
+
+msgid "Blog appearance"
+msgstr "Aspecto del blog"
+
+msgid "Users"
+msgstr "Usuarios"
+
+msgid "Plugins management"
+msgstr "Gestor de agregados"
+
+msgid "Languages"
+msgstr "Idioma"
+
+msgid "Global help"
+msgstr "Ayuda global"
+
+msgid "Status:"
+msgstr "Estado:"
+
+msgid "Email:"
+msgstr "Correo electrónico:"
+
+msgid "Web site:"
+msgstr "Sitio web:"
 
 msgid "Author:"
 msgstr "Autor:"
 
-msgid "Status:"
-msgstr "Estado:"
+msgid "Type:"
+msgstr "Tipo:"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Trackback"
+msgstr "Trackback"
+
+msgid "IP address:"
+msgstr "Dirección IP:"
+
+msgid "Media type:"
+msgstr "Tipo de soporte:"
+
+msgid "image"
+msgstr "imagen"
+
+msgid "text"
+msgstr "texto"
+
+msgid "audio"
+msgstr "audio"
+
+msgid "video"
+msgstr "vídeo"
 
 msgid "Format:"
 msgstr "Formato:"
@@ -452,56 +906,155 @@ msgstr "Cerrado"
 msgid "Trackbacks:"
 msgstr "Enlaces inversos:"
 
-msgid "Email:"
-msgstr "Correo electrónico:"
+msgid "Show filters and display options"
+msgstr "Mostrar filtros y opciones de visualización"
 
-msgid "Web site:"
-msgstr "Sitio web:"
+msgid "Filters"
+msgstr "Filtros"
 
-msgid "Type:"
-msgstr "Tipo:"
+msgid "Display options"
+msgstr "Opciones de visualización"
 
-msgid "Comment"
-msgstr "Comentario"
+msgid "Order by:"
+msgstr "Ordenar por:"
 
-msgid "Trackback"
-msgstr "Trackback"
+msgid "Sort:"
+msgstr "Clasificar:"
 
-msgid "IP address:"
-msgstr "Dirección IP:"
+msgid "Show"
+msgstr "Mostrar"
 
-msgid "Media type:"
-msgstr "Tipo de soporte:"
+msgid "Save current options"
+msgstr "Guardar opciones actuales"
 
-msgid "image"
-msgstr "imagen"
-
-msgid "text"
-msgstr "texto"
-
-msgid "audio"
-msgstr "audio"
-
-msgid "video"
-msgstr "vídeo"
+msgid "Apply filters and display options"
+msgstr "Aplicar filtros y opciones de visualización"
 
 msgid "Search:"
 msgstr "Buscar:"
 
-msgid "Trackbacks"
-msgstr "Enlaces inversos"
+msgid "&#171; prev."
+msgstr "&#171; anterior."
 
-msgid "users per page"
-msgstr "usuarios por página"
+msgid "next &#187;"
+msgstr "siguiente &#187;"
 
-msgid "entries per page"
-msgstr "entradas por página"
+msgid "No blog matches the filter"
+msgstr "Ningún blog coincide con el filtro"
 
-msgid "comments per page"
-msgstr "comentarios por página"
+msgid "No blog"
+msgstr "No hay blog"
 
-msgid "blogs per page"
-msgstr "blogs por página"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "Entradas (todos los tipos)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blog coincide con el filtro."
+msgstr[1] "%d blogs coinciden con el filtro."
+
+msgid "Blogs list"
+msgstr "Lista de blogs"
+
+msgid "Legend: "
+msgstr "Leyenda: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Editar la configuración del blog para %s"
+
+msgid "Edit blog settings"
+msgstr "Editar la configuración del blog"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Cambiar al blog %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Ningún comentario o trackback coincide con el filtro"
+
+msgid "No comments"
+msgstr "Ningún comentario"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Comentario o trackback que coincide con el filtro."
+msgstr[1] "Lista de comentarios o trackbacks de %s que coinciden con el filtro."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Lista de comentarios y trackbacks (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">publicado</a> (1)"
+msgstr[1] ", <a href=\"%s\">publicado</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">spam</a> (1)"
+msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">pendiente</a> (1)"
+msgstr[1] ", <a href=\"%s\">pendiente</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">inédito</a> (1)"
+msgstr[1] ", <a href=\"%s\">inédito</a> (%s)"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Entry"
+msgstr "Entrada"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Edite la página %1$s desde %2$s"
+
+msgid "comment"
+msgstr "comentario"
+
+msgid "trackback"
+msgstr "enlace inverso"
+
+msgid "Type and author"
+msgstr "Tipo y autor"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "No file matches the filter"
+msgstr "Ningún archivo coincide con el filtro"
+
+msgid "No file."
+msgstr "Ningún archivo."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d coincide con el filtro."
+msgstr[1] "%d archivos coinciden con el filtro."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb de artículos: %d → %d carpeta(s) + %d archivo(s)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Número de artículos: %d"
 
 msgid "Name"
 msgstr "Nombre"
@@ -509,11 +1062,356 @@ msgstr "Nombre"
 msgid "Size"
 msgstr "Talla"
 
-msgid "media per page"
-msgstr "soportes por página"
+msgid "Select this file"
+msgstr "Seleccione este archivo"
 
-msgid "results per page"
-msgstr "resultados por página"
+msgid "Attach this file to entry"
+msgstr "Adjuntar el archivo a la entrada"
+
+msgid "Insert this file into entry"
+msgstr "Insertar este archivo en la entrada"
+
+msgid "delete"
+msgstr "eliminar"
+
+msgid "private media"
+msgstr "medios privados"
+
+msgid "open"
+msgstr "abrir"
+
+msgid "No entry matches the filter"
+msgstr "Ninguna entrada coincide con el filtro"
+
+msgid "No entry"
+msgstr "No hay entrada"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Lista de entradas de %s que coinciden con el filtro."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Lista de entradas (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">programado</a> (1)"
+msgstr[1] ", <a href=\"%s\">programado</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Enlaces inversos"
+
+msgid "Protected"
+msgstr "Protegido"
+
+msgid "Attachments"
+msgstr "Archivos adjuntos"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d adjunto"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d adjuntos"
+
+msgid "Entries list"
+msgstr "Lista de entradas"
+
+msgid "No user matches the filter"
+msgstr "Ningún usuario coincide con el filtro"
+
+msgid "No user"
+msgstr "No hay usuario"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Lista de usuarios de %s que coinciden con el filtro."
+
+msgid "Users list"
+msgstr "Lista de usuarios"
+
+msgid "admin"
+msgstr "admin"
+
+msgid "superadmin"
+msgstr "superadmin"
+
+msgid "First page"
+msgstr "Primera página"
+
+msgid "Previous page"
+msgstr "Página anterior"
+
+msgid "Next page"
+msgstr "Página siguiente"
+
+msgid "Last page"
+msgstr "Última página"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Página %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Página de acceso directo %s"
+
+msgid "ok"
+msgstr "aceptar"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s archivo encontrado"
+msgstr[1] "%s archivos encontrados"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "System settings"
+msgstr "Configuración del sistema"
+
+msgid "Plugins"
+msgstr "Agregados"
+
+msgid "Update"
+msgstr "Actualizaciones"
+
+msgid "other"
+msgstr "otros"
+
+msgid "Search in repository:"
+msgstr "Buscar en repositorio:"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Reset search"
+msgstr "Restablecer búsqueda"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "La búsqueda está permitida en términos múltiples de más de 2 caracteres, los términos deben estar separados por espacios."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "Encontrado %d resultado para la búsqueda \"%s\":"
+msgstr[1] "Se han encontrado %d resultados para la búsqueda \"%s\":"
+
+msgid "current selection"
+msgstr "selección actual"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d resultado"
+msgstr[1] "%d resultados"
+
+msgid "no results"
+msgstr "sin resultados"
+
+msgid "Browse index:"
+msgstr "Examinar índice:"
+
+msgid "Plugins list"
+msgstr "Lista de plugins"
+
+msgid "Score"
+msgstr "Puntuación"
+
+msgid "Version"
+msgstr "Versión"
+
+msgid "Current version"
+msgstr "Versión actual"
+
+msgid "Details"
+msgstr "Detalles"
+
+msgid "Repository"
+msgstr "Repositorio"
+
+msgid "Action"
+msgstr "Acción"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Este módulo no puede desactivarse ni borrarse, ya que los siguientes módulos también están activados : %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Este módulo no puede activarse por las siguientes razones :"
+
+msgid "Official repository"
+msgstr "Depósito oficial"
+
+msgid "Third-party repository"
+msgstr "Repositorio de terceros"
+
+msgid "Plugin from official distribution"
+msgstr "Plugin de distribución oficial"
+
+msgid "Plugin in development"
+msgstr "Plugin en desarrollo"
+
+msgid "Support"
+msgstr "Ayuda"
+
+msgid "update locked"
+msgstr "actualización bloqueada"
+
+msgid "Section:"
+msgstr "Sección:"
+
+msgid "Tags:"
+msgstr "Etiquetas:"
+
+msgid "No plugins matched your search."
+msgstr "No hay plugins que coincidan con su búsqueda."
+
+msgid "Configure plugin"
+msgstr "Configurar plugin"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Configuración del plugin (en los parámetros del blog)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Configuración del plugin (en las preferencias del usuario)"
+
+msgid "Plugin settings"
+msgstr "Configuración del plugin"
+
+msgid "Plugin main page"
+msgstr "Página principal del plugin"
+
+msgid "Activate"
+msgstr "Activar"
+
+msgid "Deactivate"
+msgstr "Desactivar"
+
+msgid "Clone"
+msgstr "Clon"
+
+msgid "Install"
+msgstr "Instale"
+
+msgid "Activate selected plugins"
+msgstr "Activar los plugins seleccionados"
+
+msgid "Activate all plugins from this list"
+msgstr "Activar todos los plugins de esta lista"
+
+msgid "Deactivate selected plugins"
+msgstr "Desactivar los plugins seleccionados"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Desactivar todos los plugins de esta lista"
+
+msgid "Update selected plugins"
+msgstr "Actualizar los plugins seleccionados"
+
+msgid "Update all plugins from this list"
+msgstr "Actualice todos los plugins de esta lista"
+
+msgid "No such plugin."
+msgstr "Ningún agregado."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "No tiene permisos para eliminar este agregado."
+
+msgid "Some plugins have not been delete."
+msgstr "Algunos plugins no se han eliminado."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "El plugin se ha eliminado correctamente."
+msgstr[1] "Los plugins se han eliminado correctamente."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "El plugin se ha instalado correctamente."
+msgstr[1] "Los plugins se han instalado correctamente."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "El plugin se ha activado correctamente."
+msgstr[1] "Los plugins se han activado correctamente."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Algunos plugins no se han desactivado."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "El plugin se ha desactivado correctamente."
+msgstr[1] "Los plugins se han desactivado correctamente."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "El plugin se ha actualizado correctamente."
+msgstr[1] "Los plugins se han actualizado correctamente."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Las siguientes actualizaciones de plugins están bloqueadas: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "Imposible mover el archivo subido."
+
+msgid "The plugin has been successfully updated."
+msgstr "El plugin se ha actualizado correctamente."
+
+msgid "The plugin has been successfully installed."
+msgstr "El plugin se ha instalado correctamente."
+
+msgid "Upload a zip file"
+msgstr "Subir un archivo zip"
+
+msgid "Required field"
+msgstr "Campo obligatorio"
+
+msgid "Zip file path:"
+msgstr "Ruta del archivo zip:"
+
+msgid "Your password:"
+msgstr "Su contraseña:"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Upload"
+msgstr "Subir"
+
+msgid "Download a zip file"
+msgstr "Descargar archivo zip"
+
+msgid "Zip file URL:"
+msgstr "URL del archivo zip:"
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Unknown plugin ID"
+msgstr "ID de plugin desconocido"
+
+msgid "This plugin has no configuration file."
+msgstr "Este plugin no tiene archivo de configuración."
+
+msgid "Insufficient permissions"
+msgstr "Permisos insuficientes"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Configurar \"%s\""
+
+msgid "Back"
+msgstr "Volver"
 
 msgid "Error:"
 msgstr "Error:"
@@ -532,9 +1430,6 @@ msgstr "Cambiar el blog"
 
 msgid "Blogs:"
 msgstr "Blogs:"
-
-msgid "ok"
-msgstr "aceptar"
 
 msgid "Go to the content"
 msgstr "Ir al contenido"
@@ -566,9 +1461,6 @@ msgstr "Modo seguro"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Se encuentra en modo seguro. Todos los plugins han sido desactivados temporalmente. Recuerde cerrar la sesión y volver a iniciarla normalmente para recuperar todas las funcionalidades."
-
-msgid "OK"
-msgstr "OK"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -741,20 +1633,8 @@ msgstr "Advertencia: el cambio de formato no convertirá el contenido existente.
 msgid "Loading enhanced uploader, please wait."
 msgstr "Cargando uploader mejorado, por favor espere."
 
-msgid "Details"
-msgstr "Detalles"
-
-msgid "Support"
-msgstr "Ayuda"
-
 msgid "Help:"
 msgstr "Ayuda:"
-
-msgid "Section:"
-msgstr "Sección:"
-
-msgid "Tags:"
-msgstr "Etiquetas:"
 
 msgid "Hide this notice"
 msgstr "Ocultar este aviso"
@@ -807,9 +1687,6 @@ msgstr "cancelar"
 msgid "Clean"
 msgstr "Limpiar"
 
-msgid "Upload"
-msgstr "Subir"
-
 msgid "Send"
 msgstr "Enviar"
 
@@ -833,228 +1710,35 @@ msgid "Cancel filters and display options"
 msgstr "Anular filtros y opciones de visualización"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s archivo encontrado"
-msgstr[1] "%s archivos encontrados"
-
-msgid "other"
-msgstr "otros"
-
-msgid "Search in repository:"
-msgstr "Buscar en repositorio:"
-
-msgid "Reset search"
-msgstr "Restablecer búsqueda"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "La búsqueda está permitida en términos múltiples de más de 2 caracteres, los términos deben estar separados por espacios."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Encontrado %d resultado para la búsqueda \"%s\":"
-msgstr[1] "Se han encontrado %d resultados para la búsqueda \"%s\":"
+msgid "ratio %.1f"
+msgstr "relación %.1f"
 
-msgid "current selection"
-msgstr "selección actual"
+msgid "The 'public' directory does not exist."
+msgstr "El directorio 'public' no existe."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d resultado"
-msgstr[1] "%d resultados"
+msgid "The '%s' directory cannot be modified."
+msgstr "El directorio '%s' no puede ser modificado."
 
-msgid "no results"
-msgstr "sin resultados"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Al menos una de las siguientes funciones no está disponible: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "Examinar índice:"
+msgid "Unable to create images."
+msgstr "No se pueden crear imágenes."
 
-msgid "Plugins list"
-msgstr "Lista de plugins"
+msgid "Invalid file type."
+msgstr "Tipo de archivo no válido."
 
-msgid "Score"
-msgstr "Puntuación"
-
-msgid "Version"
-msgstr "Versión"
-
-msgid "Current version"
-msgstr "Versión actual"
-
-msgid "Repository"
-msgstr "Repositorio"
-
-msgid "Action"
-msgstr "Acción"
+msgid "An error occurred while writing the file."
+msgstr "Se ha producido un error durante la escritura del archivo."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Este módulo no puede desactivarse ni borrarse, ya que los siguientes módulos también están activados : %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Este módulo no puede activarse por las siguientes razones :"
-
-msgid "Official repository"
-msgstr "Depósito oficial"
-
-msgid "Third-party repository"
-msgstr "Repositorio de terceros"
-
-msgid "Plugin from official distribution"
-msgstr "Plugin de distribución oficial"
-
-msgid "Plugin in development"
-msgstr "Plugin en desarrollo"
-
-msgid "update locked"
-msgstr "actualización bloqueada"
-
-msgid "No plugins matched your search."
-msgstr "No hay plugins que coincidan con su búsqueda."
-
-msgid "Configure plugin"
-msgstr "Configurar plugin"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Configuración del plugin (en los parámetros del blog)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Configuración del plugin (en las preferencias del usuario)"
-
-msgid "Plugin settings"
-msgstr "Configuración del plugin"
-
-msgid "Plugin main page"
-msgstr "Página principal del plugin"
-
-msgid "Activate"
-msgstr "Activar"
-
-msgid "Deactivate"
-msgstr "Desactivar"
-
-msgid "Clone"
-msgstr "Clon"
-
-msgid "Install"
-msgstr "Instale"
-
-msgid "Activate selected plugins"
-msgstr "Activar los plugins seleccionados"
-
-msgid "Activate all plugins from this list"
-msgstr "Activar todos los plugins de esta lista"
-
-msgid "Deactivate selected plugins"
-msgstr "Desactivar los plugins seleccionados"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Desactivar todos los plugins de esta lista"
-
-msgid "Update selected plugins"
-msgstr "Actualizar los plugins seleccionados"
-
-msgid "Update all plugins from this list"
-msgstr "Actualice todos los plugins de esta lista"
-
-msgid "No such plugin."
-msgstr "Ningún agregado."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "No tiene permisos para eliminar este agregado."
-
-msgid "Some plugins have not been delete."
-msgstr "Algunos plugins no se han eliminado."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "El plugin se ha eliminado correctamente."
-msgstr[1] "Los plugins se han eliminado correctamente."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "El plugin se ha instalado correctamente."
-msgstr[1] "Los plugins se han instalado correctamente."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "El plugin se ha activado correctamente."
-msgstr[1] "Los plugins se han activado correctamente."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Algunos plugins no se han desactivado."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "El plugin se ha desactivado correctamente."
-msgstr[1] "Los plugins se han desactivado correctamente."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "El plugin se ha actualizado correctamente."
-msgstr[1] "Los plugins se han actualizado correctamente."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Las siguientes actualizaciones de plugins están bloqueadas: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "Imposible mover el archivo subido."
-
-msgid "The plugin has been successfully updated."
-msgstr "El plugin se ha actualizado correctamente."
-
-msgid "The plugin has been successfully installed."
-msgstr "El plugin se ha instalado correctamente."
-
-msgid "Upload a zip file"
-msgstr "Subir un archivo zip"
-
-msgid "Required field"
-msgstr "Campo obligatorio"
-
-msgid "Zip file path:"
-msgstr "Ruta del archivo zip:"
-
-msgid "Your password:"
-msgstr "Su contraseña:"
-
-msgid "Password"
-msgstr "Contraseña"
-
-msgid "Download a zip file"
-msgstr "Descargar archivo zip"
-
-msgid "Zip file URL:"
-msgstr "URL del archivo zip:"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "Descargar"
-
-msgid "Unknown plugin ID"
-msgstr "ID de plugin desconocido"
-
-msgid "This plugin has no configuration file."
-msgstr "Este plugin no tiene archivo de configuración."
-
-msgid "Insufficient permissions"
-msgstr "Permisos insuficientes"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Configurar \"%s\""
-
-msgid "Back"
-msgstr "Volver"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "La imagen cargada no tiene %s píxeles de ancho."
 
 #, php-format
 msgid "Score: %s"
@@ -1095,6 +1779,9 @@ msgstr "No hay temas que coincidan con su búsqueda."
 
 msgid "Use this one"
 msgstr "Usa este"
+
+msgid "Preview"
+msgstr "Vista previa"
 
 msgid "Update selected themes"
 msgstr "Actualizar los temas seleccionados"
@@ -1158,701 +1845,281 @@ msgstr "El tema se ha actualizado correctamente."
 msgid "The theme has been successfully installed."
 msgstr "El tema se ha instalado correctamente."
 
-msgid "First page"
-msgstr "Primera página"
+msgid "users per page"
+msgstr "usuarios por página"
 
-msgid "Previous page"
-msgstr "Página anterior"
+msgid "entries per page"
+msgstr "entradas por página"
 
-msgid "Next page"
-msgstr "Página siguiente"
+msgid "comments per page"
+msgstr "comentarios por página"
 
-msgid "Last page"
-msgstr "Última página"
+msgid "blogs per page"
+msgstr "blogs por página"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "Página %s / %s"
+msgid "media per page"
+msgstr "soportes por página"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "Página de acceso directo %s"
+msgid "results per page"
+msgstr "resultados por página"
 
-msgid "&#171; prev."
-msgstr "&#171; anterior."
+msgid "Database error"
+msgstr "Error de base de datos"
 
-msgid "next &#187;"
-msgstr "siguiente &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Parece que no hay tabla Session en su base de datos. ¿Está Dotclear completamente instalado?"
 
-msgid "No entry matches the filter"
-msgstr "Ninguna entrada coincide con el filtro"
+msgid "Precondition Failed"
+msgstr "Condición previa fallida"
 
-msgid "No entry"
-msgstr "No hay entrada"
+#, fuzzy
+msgid "Database problem"
+msgstr "Error de base de datos"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Lista de entradas de %s que coinciden con el filtro."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "Se ha producido el siguiente error al intentar leer la base de datos:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Lista de entradas (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">publicado</a> (1)"
-msgstr[1] ", <a href=\"%s\">publicado</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">pendiente</a> (1)"
-msgstr[1] ", <a href=\"%s\">pendiente</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">programado</a> (1)"
-msgstr[1] ", <a href=\"%s\">programado</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">inédito</a> (1)"
-msgstr[1] ", <a href=\"%s\">inédito</a> (%s)"
-
-msgid "Legend: "
-msgstr "Leyenda: "
-
-msgid "Published"
-msgstr "Publicado en"
-
-msgid "Unpublished"
-msgstr "Sin publicar"
-
-msgid "Scheduled"
-msgstr "Programado"
-
-msgid "Pending"
-msgstr "Pendiente"
-
-msgid "Protected"
-msgstr "Protegido"
-
-msgid "Attachments"
-msgstr "Archivos adjuntos"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d adjunto"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d adjuntos"
-
-msgid "Entries list"
-msgstr "Lista de entradas"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Ningún comentario o trackback coincide con el filtro"
-
-msgid "No comments"
-msgstr "Ningún comentario"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Comentario o trackback que coincide con el filtro."
-msgstr[1] "Lista de comentarios o trackbacks de %s que coinciden con el filtro."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Lista de comentarios y trackbacks (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
-
-msgid "Type"
-msgstr "Tipo"
-
-msgid "Entry"
-msgstr "Entrada"
-
-msgid "Junk"
-msgstr "Basura"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Edite la página %1$s desde %2$s"
-
-msgid "comment"
-msgstr "comentario"
-
-msgid "trackback"
-msgstr "enlace inverso"
-
-msgid "Type and author"
-msgstr "Tipo y autor"
-
-msgid "Edit"
-msgstr "Editar"
-
-msgid "No blog matches the filter"
-msgstr "Ningún blog coincide con el filtro"
-
-msgid "No blog"
-msgstr "No hay blog"
-
-msgid "Entries (all types)"
-msgstr "Entradas (todos los tipos)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d blog coincide con el filtro."
-msgstr[1] "%d blogs coinciden con el filtro."
-
-msgid "Blogs list"
-msgstr "Lista de blogs"
-
-msgid "online"
-msgstr "conectado"
-
-msgid "offline"
-msgstr "no conectado"
-
-msgid "removed"
-msgstr "eliminado"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Editar la configuración del blog para %s"
-
-msgid "Edit blog settings"
-msgstr "Editar la configuración del blog"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Cambiar al blog %s"
-
-msgid "No user matches the filter"
-msgstr "Ningún usuario coincide con el filtro"
-
-msgid "No user"
-msgstr "No hay usuario"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Lista de usuarios de %s que coinciden con el filtro."
-
-msgid "Users list"
-msgstr "Lista de usuarios"
-
-msgid "admin"
-msgstr "admin"
-
-msgid "superadmin"
-msgstr "superadmin"
-
-msgid "No file matches the filter"
-msgstr "Ningún archivo coincide con el filtro"
-
-msgid "No file."
-msgstr "Ningún archivo."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d coincide con el filtro."
-msgstr[1] "%d archivos coinciden con el filtro."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb de artículos: %d → %d carpeta(s) + %d archivo(s)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Número de artículos: %d"
-
-msgid "Select this file"
-msgstr "Seleccione este archivo"
-
-msgid "Attach this file to entry"
-msgstr "Adjuntar el archivo a la entrada"
-
-msgid "Insert this file into entry"
-msgstr "Insertar este archivo en la entrada"
-
-msgid "delete"
-msgstr "eliminar"
-
-msgid "private media"
-msgstr "medios privados"
-
-msgid "open"
-msgstr "abrir"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "relación %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "El directorio 'public' no existe."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "El directorio '%s' no puede ser modificado."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Al menos una de las siguientes funciones no está disponible: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "No se pueden crear imágenes."
-
-msgid "Invalid file type."
-msgstr "Tipo de archivo no válido."
-
-msgid "An error occurred while writing the file."
-msgstr "Se ha producido un error durante la escritura del archivo."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "La imagen cargada no tiene %s píxeles de ancho."
-
-msgid "medium"
-msgstr "medio"
-
-msgid "small"
-msgstr "pequeño"
-
-msgid "thumbnail"
-msgstr "miniatura"
-
-msgid "square"
-msgstr "cuadrado"
-
-msgid "Pages"
-msgstr "Páginas"
-
-msgid "administrator"
-msgstr "administrador"
-
-msgid "manage all entries and comments"
-msgstr "administrar todas las entradas y comentarios"
-
-msgid "manage their own entries and comments"
-msgstr "administrar sus propias entradas y comentarios"
-
-msgid "publish entries and comments"
-msgstr "publicar entradas y comentarios"
-
-msgid "delete entries and comments"
-msgstr "eliminar entradas y comentarios"
-
-msgid "manage categories"
-msgstr "administrar las categorías"
-
-msgid "manage all media items"
-msgstr "administrar todos los medios"
-
-msgid "manage their own media items"
-msgstr "administrar sus medios"
-
-msgid "That user does not exist in the database."
-msgstr "Ese usuario no existe en la base de datos."
-
-msgid "That key does not exist in the database."
-msgstr "Esta clave no existe en la base de datos."
-
-msgid "You are not allowed to add categories"
-msgstr "No está autorizado a crear categorías"
-
-msgid "You are not allowed to update categories"
-msgstr "No está autorizado a modificar categorías"
-
-msgid "You are not allowed to delete categories"
-msgstr "No está autorizado a eliminar categorías"
-
-msgid "This category is not empty."
-msgstr "Esta categoría no está vacía."
-
-msgid "You are not allowed to reset categories order"
-msgstr "No está permitido restablecer el orden de las categorías"
-
-msgid "Empty category URL"
-msgstr "URL de categoría vacía"
-
-msgid "You must provide a category title"
-msgstr "Debes indicar un título para la categoría"
-
-msgid "You must provide a category URL"
-msgstr "Debe indicar una URL para la categoría"
-
-msgid "You are not allowed to create an entry"
-msgstr "No está autorizado a crear entradas"
-
-msgid "You are not allowed to update entries"
-msgstr "No está autorizado a modificar las entradas"
-
-msgid "No such entry ID"
-msgstr "ID de entrada desconocida"
-
-msgid "You are not allowed to edit this entry"
-msgstr "No está autorizado a editar esta entrada"
-
-msgid "You are not allowed to change this entry status"
-msgstr "No está autorizado a modificar el estado de esta entrada"
-
-msgid "You are not allowed to change this entry category"
-msgstr "No está autorizado a modificar la categoría de esta entrada"
-
-msgid "You are not allowed to change entries category"
-msgstr "No está permitido cambiar la categoría de las entradas"
-
-msgid "You are not allowed to delete entries"
-msgstr "No está autorizado a eliminar entradas"
-
-msgid "No entry title"
-msgstr "La entrada no tiene título"
-
-msgid "No entry content"
-msgstr "Entrada sin contenido"
-
-msgid "Notes"
-msgstr "Notas"
-
-msgid "Note"
-msgstr "Nota"
-
-msgid "Empty entry URL"
-msgstr "URL de entrada vacío."
-
-msgid "You are not allowed to update comments"
-msgstr "No está autorizado a modificar los comentarios"
-
-msgid "No such comment ID"
-msgstr "ID del comentario desconocida"
-
-msgid "You are not allowed to update this comment"
-msgstr "No está autorizado para modificar este comentario"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "No está autorizado para cambiar el estado de este comentario"
-
-msgid "You are not allowed to delete comments"
-msgstr "No está autorizado para eliminar comentarios"
-
-msgid "You must provide a comment"
-msgstr "Debe escribir un comentario"
-
-msgid "You must provide an author name"
-msgstr "Debe indicar un nombre de autor"
-
-msgid "Email address is not valid."
-msgstr "Dirección e-mail invalida."
-
-msgid "You are not an administrator"
-msgstr "Usted no es el administrador"
-
-msgid "No user ID given"
-msgstr "El ID de usuario no ha sido especificado"
-
-msgid "No password given"
-msgstr "La contraseña no ha sido especificada"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "El ID del usuario debe contener al menos 2 caracteres compuestos por letras, cifras o símbolos."
-
-msgid "Password must contain at least 6 characters."
-msgstr "La contraseña debe tener al menos 6 caracteres."
-
-msgid "Invalid user language code"
-msgstr "Código de idioma de usuario invalido"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "El ID de blog debe tener al menos 2 caracteres compuestos por letras, números o símbolos."
-
-msgid "No blog name"
-msgstr "Blog sin nombre"
-
-msgid "No blog URL"
-msgstr "El blog no tiene URL"
-
-msgid "No log message"
-msgstr "No hay mensaje de registro"
-
-msgid "unknown"
-msgstr "desconocido"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "No hay blog definido."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "No existe un directorio /public/ con permisos de escritura en la ubicación establecida en about:config \"public_path\". Debe crear este directorio con derechos suficientes (o cambiar esta configuración)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "No existe un directorio raíz con permisos de escritura para el gestor multimedia. Debe ponerse en contacto con su administrador."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "Este blog está fuera de linea"
 
-msgid "You are not a super administrator."
-msgstr "Usted no es super administrador."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Este blog está fuera de linea"
 
-msgid "Permission denied."
-msgstr "Permiso denegado."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "No se puede crear el archivo"
 
-msgid "You are not the file owner."
-msgstr "Usted no es el propietario de este fichero."
-
-msgid "This file is not allowed."
-msgstr "Este archivo no está permitido."
-
-msgid "New file already exists."
-msgstr "El nuevo fichero ya existe."
-
-msgid "File does not exist in the database."
-msgstr "Este archivo no existe en la base de datos"
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "El directorio de extracción %s ya existe."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Requiere el módulo %s que no está instalado"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Requiere %s versión %s, pero la versión %s está instalada"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Requiere el módulo %s que está desactivado"
-
-msgid "The following extensions have been disabled :"
-msgstr "Se han desactivado las siguientes extensiones :"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "El módulo \"%s\" tiene el tipo \"%s\" que no coincide con el tipo de módulo requerido \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "El módulo \"%s\" se instala dos veces en \"%s\" y \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Archivo zip de modulo vacío."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "Eñ archivo zip no aparenta ser un modulo valido de Dotclear."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "No se puede actualizar \"%s\". (actualización bloqueada)"
-
-msgid "An error occurred during module deletion."
-msgstr "Ha ocurrido un error durante la eliminación del modulo."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "No se puede actualizar a \"%s\". (misma versión)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "No se puede leer el nuevo archivo %s"
-
-msgid "Cannot deactivate plugin."
-msgstr "No se puede desactivar el agregado."
-
-msgid "No such module."
-msgstr "No existe el modulo."
-
-msgid "Cannot remove module files"
-msgstr "No se pueden eliminar los archivos del modulo"
-
-msgid "Cannot activate plugin."
-msgstr "No se puede activar el agregado."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Configuración no válida dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "No se pueden obtener los parámetros:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s no es un ID de parámetro válido."
-
-msgid "No namespace specified"
-msgstr "No se ha especificado el nombre de espacio"
-
-msgid "No notice message"
-msgstr "Ningún mensaje de aviso"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "No se pueden recuperar los espacios de trabajo:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "dcWorkspace no válido: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "No se han podido recuperar los espacios de nombres:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Parámetros de nombre de espacio inválidos: %s"
-
-msgid "Wrong data feed"
-msgstr "Alimentación de datos errónea"
-
-msgid "An error occurred while downloading the file."
-msgstr "Ocurrió un error durante la descarga del archivo."
-
-msgid "Themes folder unreachable"
-msgstr "Carpeta de temas inaccesible"
-
-msgid "Themes folder unreadable"
-msgstr "Carpeta de temas ilegible"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (copia #%s)"
-
-msgid " (copy)"
-msgstr " (copia)"
-
-msgid "Unable to modify _define.php"
-msgstr "No se puede modificar _define.php"
-
-msgid "Destination folder already exist"
-msgstr "La carpeta de destino ya existe"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s ha sido pingueado"
-
-msgid "Unable to ping URL"
-msgstr "No se puede pinguear el URL"
-
-msgid "Bad server response code"
-msgstr "Código de respuesta del servidor incorrecto"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s no es una URL de ping"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, error de ping:"
-
-msgid "Don't repeat yourself, please."
-msgstr "No te repitas, por favor."
-
-msgid "Where's your title?"
-msgstr "¿Dónde está tu título?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Lo sentimos, se ha producido un problema interno."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Gracias, amigo. Ha sido un placer."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "¿Alguna posibilidad de que hagas ping a uno de mis contenidos? ¿No? ¿De verdad?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Lo sentimos, pero no se puede hacer ping a este tipo de contenido."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Ups. Algo así como \"no encontrado\". Por favor, compruebe la URL de destino dos veces."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Lo siento, amigo. Esta entrada no acepta pingback por el momento."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "Su URL de origen no parece un tipo de contenido compatible. Lo sentimos. Adiós."
-
-msgid "No valid source URL provided? Try again!"
-msgstr "¿No se ha proporcionado una URL de origen válida? Inténtelo de nuevo."
-
-msgid "No valid target URL provided? Try again!"
-msgstr "¿No se ha proporcionado una URL de destino válida? Inténtelo de nuevo."
-
-msgid "LOL!"
-msgstr "¡LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Resumen de archivo no encontrado."
 
-msgid "No file to download"
-msgstr "No hay archivos para descargar"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "El directorio base no es escribible."
-
-msgid "An error occurred while downloading archive."
-msgstr "Ha ocurrido un error durante la descarga del archivo."
-
-msgid "Archive not found."
-msgstr "Archivo no encontrado."
-
-msgid "Unable to read current digests file."
-msgstr "No se puede leer el resumen del archivo"
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "El archivo descargado no parece ser un archivo válido."
-
-msgid "Incomplete archive."
-msgstr "Archivo incompleto."
-
-msgid "Unable to read digests file."
-msgstr "No se puede leer el resumen de archivo."
-
-msgid "Invalid digests file."
-msgstr "Resumen de archivo invalido."
-
-msgid "Unable to retrieve prefs:"
-msgstr "No se pueden recuperar los prefijos:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s no es un pref id válido"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "La versión de PHP es %s ( se necesita%s o anterior)."
 
-msgid "No workspace specified"
-msgstr "No se ha especificado ningún espacio de trabajo"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "El soporte de multibyte (mbstring) no está disponible."
+
+msgid "Iconv module is not available."
+msgstr "El módulo Iconv no está disponible."
+
+msgid "Output control functions are not available."
+msgstr "Las funciones de control de salida no están disponibles."
+
+msgid "SimpleXML module is not available."
+msgstr "El módulo SimpleXML no está disponible."
+
+msgid "DOM XML module is not available."
+msgstr "El módulo DOM XML no está disponible."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "El motor de expresiones racionales PCRE no gestiona las cadenas UTF-8."
+
+msgid "SPL module is not available."
+msgstr "El módulo SPL no está disponible."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "La versión de MySQL es %s (4.1 o más reciente es necesaria)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "El sistema de almacenaje InnoDB de MySQL no está disponible."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "La versión de PostgreSQL es %s (8.0 o más reciente es necesaria)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Algo ha sido erróneo con la actualización automática:"
 
-msgid "Site temporarily unavailable"
-msgstr "Sitio temporalmente no disponible"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE requiere un origen FROM"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Le pedimos disculpas por esta indisponibilidad temporal.<br />Gracias por su comprensión.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP TABLE requiere un origen FROM"
 
-msgid "Unable to connect to database"
-msgstr "No se puede conectar a la base de datos"
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT requiere una fuente INTO"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL JOIN requiere un origen FROM"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT requiere un origen FROM"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL TRUNCATE TABLE requiere una fuente FROM"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL UPDATE requiere un origen FROM"
+
+msgid "Bad range"
+msgstr "Rango malo"
+
+msgid "Invalid range"
+msgstr "Intervalo no válido"
+
+msgid "Invalid line number"
+msgstr "Número de línea no válido"
+
+msgid "Chunk is out of range"
+msgstr "Chunk está fuera de rango"
+
+msgid "Bad context"
+msgstr "Mal contexto"
+
+msgid "Bad context (in deletion)"
+msgstr "Mal contexto (en la supresión)"
+
+msgid "Invalid diff format"
+msgstr "Formato diff no válido"
+
+msgid "Unable to open directory."
+msgstr "No se puede abrir el directorio."
+
+msgid "Unable to create directory."
+msgstr "No se puede crear el directorio."
+
+msgid "File is not writable."
+msgstr "El archivo no es escribible."
+
+msgid "Unable to open file."
+msgstr "No se puede abrir el archivo."
+
+msgid "Not an uploaded file."
+msgstr "No es un archivo subido."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "El archivo excede el tamaño máximo permitido."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "El archivo sólo se ha subido parcialmente."
+
+msgid "No file was uploaded."
+msgstr "No se ha subido el archivo."
+
+msgid "Missing a temporary folder."
+msgstr "Falta una carpeta temporal"
+
+msgid "Failed to write file to disk."
+msgstr "Imposible escribir el archivo en disco."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "Una extensión PHP detuvo la carga del archivo."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Esto significa que la información sobre el nombre de usuario y la contraseña en su archivo <strong>config.php</strong> es incorrecta o que no podemos contactar con el servidor de la base de datos en \"<em>%s</em>\". Esto podría significar que el servidor de base de datos de su host no funciona.</p> <ul><li>¿Está seguro de que tiene el nombre de usuario y la contraseña correctos?</li><li>¿Está seguro de que ha escrito el nombre de host correcto?</li><li>¿Estás seguro de que el servidor de base de datos está funcionando?</li></ul><p>Si no estás seguro de lo que significan estos términos, probablemente deberías ponerte en contacto con tu proveedor de alojamiento. Si sigues necesitando ayuda, siempre puedes visitar los foros de soporte de <a href=\"https://forum.dotclear.net/\">Dotclear</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s no es un directorio."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "Se ha producido el siguiente error al intentar leer la base de datos:"
+msgid "Can't get file path"
+msgstr "No se puede obtener la ruta del archivo"
 
-msgid "No process found"
-msgstr "No se ha encontrado ningún proceso"
+msgid "Can't lock a directory"
+msgstr "No se puede bloquear un directorio"
 
-msgid "Process failed"
-msgstr "Proceso fallido"
+msgid "Can't call php function named flock"
+msgstr "No se puede llamar a la función php llamada flock"
+
+msgid "Can't create file"
+msgstr "No se puede crear el archivo"
+
+msgid "Can't open file"
+msgstr "No se puede abrir el archivo"
+
+msgid "Can't lock file"
+msgstr "No se puede bloquear el archivo"
+
+msgid "File cannot be removed."
+msgstr "Este archivo no puede ser eliminado."
+
+msgid "Not enough memory to open image."
+msgstr "No hay suficiente memoria para abrir esta imagen."
+
+msgid "Uploading this file is not allowed."
+msgstr "No se permite subir este tipo de archivo."
+
+msgid "Destination directory is not in jail."
+msgstr "El directorio de destino no esta disponible."
+
+msgid "File already exists."
+msgstr "El archivo ya existe."
+
+msgid "Cannot write in this directory."
+msgstr "No se puede escribir en este directorio."
+
+msgid "Source file does not exist."
+msgstr "El archivo fuente no existe."
+
+msgid "File is not in jail."
+msgstr "El archivo no está disponible"
+
+msgid "Destination directory is not writable."
+msgstr "El directorio de destino no es escribible."
+
+msgid "Unable to rename file."
+msgstr "No se puede cambiar el nombre del archivo."
+
+msgid "Directory is not in jail."
+msgstr "El directorio no está disponible"
+
+msgid "Directory cannot be removed."
+msgstr "Este directorio no puede ser eliminado."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Archivo %s no esta empaquetado como zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Tratando de desempaquetar en la carpeta %s"
+
+msgid "Unable to write destination file."
+msgstr "No se puede escribir el archivo de destino."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "No se puede escribir en el directorio de destino, permiso denegado."
+
+msgid "Not enough memory to open file."
+msgstr "No hay suficiente memoria para abrir el archivo."
+
+msgid "File does not exist"
+msgstr "El archivo no existe."
+
+msgid "Cannot read file"
+msgstr "No se puede leer el archivo"
+
+msgid "Directory does not exist"
+msgstr "El directorio no existe"
+
+msgid "Cannot read directory"
+msgstr "No se puede leer el directorio"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "No se ha encontrado la etiqueta de cierre del bloque <tpl:%s>. Se ha ignorado el contenido."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Se ha encontrado una etiqueta de cierre inesperada </tpl:%s> ."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "ADVERTENCIA: se han encontrado los siguientes errores al analizar el archivo de plantilla :"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear ha sido actualizado."
@@ -2394,11 +2661,18 @@ msgstr "Todos los derechos en este blog."
 msgid "Change permissions"
 msgstr "cambiar permisos"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Se han desactivado las siguientes extensiones :"
+
 msgid "Theme configuration"
 msgstr "Configuración del tema"
 
 msgid "Themes management"
 msgstr "Gestión de temas"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "La comprobación manual de la actualización de temas se ha realizado correctamente."
@@ -2654,6 +2928,10 @@ msgstr "Eliminar todos los spams"
 
 msgid "Selected comments action:"
 msgstr "Acción de los comentarios seleccionados:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Se han desactivado las siguientes extensiones :"
 
 msgid "Documentation and support"
 msgstr "Documentación y asistencia"
@@ -3303,9 +3581,6 @@ msgstr "Notas personales:"
 msgid "Unpublished notes."
 msgstr "Notas inéditas."
 
-msgid "Preview"
-msgstr "Vista previa"
-
 msgid "Add a comment"
 msgstr "Añadir un comentario"
 
@@ -3501,10 +3776,6 @@ msgstr "Forzar actualización de comprobación Dotclear"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s está disponible."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "La versión de PHP es %s ( se necesita%s o anterior)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Para actualizar su instalación de Dotclear, simplemente haga click en el siguiente botón. Se creará una copia de resguardo de su actual instalación en el directorio base."
@@ -3912,179 +4183,6 @@ msgstr "Usted esta a punto de cambiar los permisos de los usuarios %s para estos
 msgid "Validate permissions"
 msgstr "Validar permisos"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE requiere un origen FROM"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL DROP TABLE requiere un origen FROM"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT requiere una fuente INTO"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL JOIN requiere un origen FROM"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT requiere un origen FROM"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL TRUNCATE TABLE requiere una fuente FROM"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "SQL UPDATE requiere un origen FROM"
-
-msgid "Bad range"
-msgstr "Rango malo"
-
-msgid "Invalid range"
-msgstr "Intervalo no válido"
-
-msgid "Invalid line number"
-msgstr "Número de línea no válido"
-
-msgid "Chunk is out of range"
-msgstr "Chunk está fuera de rango"
-
-msgid "Bad context"
-msgstr "Mal contexto"
-
-msgid "Bad context (in deletion)"
-msgstr "Mal contexto (en la supresión)"
-
-msgid "Invalid diff format"
-msgstr "Formato diff no válido"
-
-msgid "Unable to open directory."
-msgstr "No se puede abrir el directorio."
-
-msgid "Unable to create directory."
-msgstr "No se puede crear el directorio."
-
-msgid "File is not writable."
-msgstr "El archivo no es escribible."
-
-msgid "Unable to open file."
-msgstr "No se puede abrir el archivo."
-
-msgid "Not an uploaded file."
-msgstr "No es un archivo subido."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "El archivo excede el tamaño máximo permitido."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "El archivo sólo se ha subido parcialmente."
-
-msgid "No file was uploaded."
-msgstr "No se ha subido el archivo."
-
-msgid "Missing a temporary folder."
-msgstr "Falta una carpeta temporal"
-
-msgid "Failed to write file to disk."
-msgstr "Imposible escribir el archivo en disco."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "Una extensión PHP detuvo la carga del archivo."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s no es un directorio."
-
-msgid "Can't get file path"
-msgstr "No se puede obtener la ruta del archivo"
-
-msgid "Can't lock a directory"
-msgstr "No se puede bloquear un directorio"
-
-msgid "Can't call php function named flock"
-msgstr "No se puede llamar a la función php llamada flock"
-
-msgid "Can't create file"
-msgstr "No se puede crear el archivo"
-
-msgid "Can't open file"
-msgstr "No se puede abrir el archivo"
-
-msgid "Can't lock file"
-msgstr "No se puede bloquear el archivo"
-
-msgid "File cannot be removed."
-msgstr "Este archivo no puede ser eliminado."
-
-msgid "Not enough memory to open image."
-msgstr "No hay suficiente memoria para abrir esta imagen."
-
-msgid "Uploading this file is not allowed."
-msgstr "No se permite subir este tipo de archivo."
-
-msgid "Destination directory is not in jail."
-msgstr "El directorio de destino no esta disponible."
-
-msgid "File already exists."
-msgstr "El archivo ya existe."
-
-msgid "Cannot write in this directory."
-msgstr "No se puede escribir en este directorio."
-
-msgid "Source file does not exist."
-msgstr "El archivo fuente no existe."
-
-msgid "File is not in jail."
-msgstr "El archivo no está disponible"
-
-msgid "Destination directory is not writable."
-msgstr "El directorio de destino no es escribible."
-
-msgid "Unable to rename file."
-msgstr "No se puede cambiar el nombre del archivo."
-
-msgid "Directory is not in jail."
-msgstr "El directorio no está disponible"
-
-msgid "Directory cannot be removed."
-msgstr "Este directorio no puede ser eliminado."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Archivo %s no esta empaquetado como zip."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Tratando de desempaquetar en la carpeta %s"
-
-msgid "Unable to write destination file."
-msgstr "No se puede escribir el archivo de destino."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "No se puede escribir en el directorio de destino, permiso denegado."
-
-msgid "Not enough memory to open file."
-msgstr "No hay suficiente memoria para abrir el archivo."
-
-msgid "File does not exist"
-msgstr "El archivo no existe."
-
-msgid "Cannot read file"
-msgstr "No se puede leer el archivo"
-
-msgid "Directory does not exist"
-msgstr "El directorio no existe"
-
-msgid "Cannot read directory"
-msgstr "No se puede leer el directorio"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "No se ha encontrado la etiqueta de cierre del bloque <tpl:%s>. Se ha ignorado el contenido."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Se ha encontrado una etiqueta de cierre inesperada </tpl:%s> ."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ADVERTENCIA: se han encontrado los siguientes errores al analizar el archivo de plantilla :"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Indique una clave de referencia (DC_MASTER_KEY) en el archivo de configuración."
 
@@ -4171,38 +4269,6 @@ msgstr "No se puede completar la instalación"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Por dichas razones, Dotclear no puede instalarse. Consulte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">la documentación</a> para saber cómo corregir el problema."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "El soporte de multibyte (mbstring) no está disponible."
-
-msgid "Iconv module is not available."
-msgstr "El módulo Iconv no está disponible."
-
-msgid "Output control functions are not available."
-msgstr "Las funciones de control de salida no están disponibles."
-
-msgid "SimpleXML module is not available."
-msgstr "El módulo SimpleXML no está disponible."
-
-msgid "DOM XML module is not available."
-msgstr "El módulo DOM XML no está disponible."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "El motor de expresiones racionales PCRE no gestiona las cadenas UTF-8."
-
-msgid "SPL module is not available."
-msgstr "El módulo SPL no está disponible."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "La versión de MySQL es %s (4.1 o más reciente es necesaria)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "El sistema de almacenaje InnoDB de MySQL no está disponible."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "La versión de PostgreSQL es %s (8.0 o más reciente es necesaria)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "La ruta <strong>%s</strong> no es escribible."
@@ -4287,6 +4353,9 @@ msgstr "Correo electrónico principal: (utilizado como remitente para recuperar 
 
 msgid "Continue"
 msgstr "Continuar"
+
+#~ msgid "No process found"
+#~ msgstr "No se ha encontrado ningún proceso"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

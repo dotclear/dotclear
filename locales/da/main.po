@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:33\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Titel"
+msgid "medium"
+msgstr "medium"
+
+msgid "small"
+msgstr "lille"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "square"
+msgstr "firkant"
 
 msgid "Posts"
 msgstr "Indlæg"
+
+msgid "Pages"
+msgstr "Sider"
+
+msgid "administrator"
+msgstr "administrator"
+
+msgid "manage all entries and comments"
+msgstr "administrere alle poster og kommentarer"
+
+msgid "manage their own entries and comments"
+msgstr "administrere deres egne poster og kommentarer"
+
+msgid "publish entries and comments"
+msgstr "publicer poster og kommentarer"
+
+msgid "delete entries and comments"
+msgstr "slet poster og kommentarer"
+
+msgid "manage categories"
+msgstr "administrer kategorier"
+
+msgid "manage all media items"
+msgstr "administrer alle medieelementer"
+
+msgid "manage their own media items"
+msgstr "administrere deres egne medieelementer"
+
+msgid "That user does not exist in the database."
+msgstr "Denne bruger findes ikke i databasen."
+
+msgid "That key does not exist in the database."
+msgstr "Denne nøgle findes ikke i databasen."
+
+msgid "Pending"
+msgstr "Afventer"
+
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgid "Unpublished"
+msgstr "Afpubliceret"
+
+msgid "Published"
+msgstr "Publiceret"
+
+msgid "Junk"
+msgstr "Junk"
+
+msgid "You are not allowed to add categories"
+msgstr "Du har ikke tilladelse til at tilføje kategorier"
+
+msgid "You are not allowed to update categories"
+msgstr "Du har ikke tilladelse til at opdatere kategorier"
+
+msgid "You are not allowed to delete categories"
+msgstr "Du har ikke tilladelse til at slette kategorier"
+
+msgid "This category is not empty."
+msgstr "Denne kategori er ikke tom."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Du har ikke tilladelse til at nulstille varegruppe ordre"
+
+msgid "Empty category URL"
+msgstr "Tom kategori URL"
+
+msgid "You must provide a category title"
+msgstr "Du skal angive en kategori titel"
+
+msgid "You must provide a category URL"
+msgstr "Du skal angive en kategori URL"
+
+msgid "You are not allowed to create an entry"
+msgstr "Du har ikke tilladelse til at oprette en post"
+
+msgid "You are not allowed to update entries"
+msgstr "Du har ikke tilladelse til at opdatere poster"
+
+msgid "No such entry ID"
+msgstr "Intet sådant indgangs-ID"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Du har ikke tilladelse til at redigere dette element"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Du har ikke tilladelse til at ændre denne post status"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Du har ikke tilladelse til at ændre denne post kategori"
+
+msgid "You are not allowed to change entries category"
+msgstr "Du har ikke tilladelse til at ændre poster kategori"
+
+msgid "You are not allowed to delete entries"
+msgstr "Du har ikke tilladelse til at slette poster"
+
+msgid "No entry title"
+msgstr "Ingen indgangs titel"
+
+msgid "No entry content"
+msgstr "Intet indhold"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Note"
+msgstr "Bemærkning"
+
+msgid "Empty entry URL"
+msgstr "Tom post URL"
+
+msgid "You are not allowed to update comments"
+msgstr "Du har ikke tilladelse til at opdatere kommentarer"
+
+msgid "No such comment ID"
+msgstr "Ingen sådan kommentar ID"
+
+msgid "You are not allowed to update this comment"
+msgstr "Du har ikke tilladelse til at opdatere denne kommentar"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Du har ikke tilladelse til at ændre status for denne kommentar"
+
+msgid "You are not allowed to delete comments"
+msgstr "Du har ikke tilladelse til at slette kommentarer"
+
+msgid "You must provide a comment"
+msgstr "Du skal angive en kommentar"
+
+msgid "You must provide an author name"
+msgstr "Du skal angive et forfatternavn"
+
+msgid "Email address is not valid."
+msgstr "E-mailadressen er ikke gyldig."
+
+msgid "online"
+msgstr "online"
+
+msgid "offline"
+msgstr "offline"
+
+msgid "removed"
+msgstr "fjernet"
+
+msgid "You are not an administrator"
+msgstr "Du er ikke administrator"
+
+msgid "No user ID given"
+msgstr "Intet bruger ID givet"
+
+msgid "No password given"
+msgstr "Intet kodeord givet"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Bruger ID skal indeholde mindst 2 karakterer indeholdende bogstaver, numre eller symboler."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Kodeordet skal indeholde mindst 6 karakterer."
+
+msgid "Invalid user language code"
+msgstr "Ugyldig bruger sprogkode"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Blog ID skal indeholde mindst 2 tegn ved brug af bogstaver, tal eller symboler."
+
+msgid "No blog name"
+msgstr "Intet blognavn"
+
+msgid "No blog URL"
+msgstr "Ingen blog URL"
+
+msgid "No log message"
+msgstr "Ingen logbesked"
+
+msgid "unknown"
+msgstr "ukendt"
+
+msgid "No blog defined."
+msgstr "Ingen blog defineret."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Der er ingen skrivbar mappe /public/ på placeringen sat i about:config \"public_path\". Du skal oprette denne mappe med tilstrækkelige rettigheder (eller ændre denne indstilling)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Der er ingen skrivbar rodmappe for mediehåndteringen. Du bør kontakte din administrator."
+
+msgid "You are not a super administrator."
+msgstr "Du er ikke en super administrator."
+
+msgid "Permission denied."
+msgstr "Tilladelse nægtet."
+
+msgid "You are not the file owner."
+msgstr "Du er ikke filens ejer."
+
+msgid "This file is not allowed."
+msgstr "Denne fil er ikke tilladt."
+
+msgid "New file already exists."
+msgstr "Ny fil findes allerede."
+
+msgid "File does not exist in the database."
+msgstr "Filen findes ikke i databasen."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "Udpak destinationsmappen %s findes allerede."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Kræver %s modul, som ikke er installeret"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Kræver %s version %s, men version %s er installeret"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Kræver %s modul som er deaktiveret"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "Modul \"%s\" har type \"%s\", der ikke matcher krævet modultype \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "Modul \"%s\" er installeret to gange i \"%s\" og \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Tomt modul zip-fil."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "zip-filen ser ikke ud til at være et gyldigt Dotclear modul."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Kan ikke opgradere \"%s\". (opdater låst)"
+
+msgid "An error occurred during module deletion."
+msgstr "Der opstod en fejl under sletning af moduler."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "Kan ikke opgradere \"%s\". (ældre eller samme version)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "Kan ikke læse ny %s fil"
+
+msgid "Cannot deactivate plugin."
+msgstr "Kan ikke deaktivere plugin."
+
+msgid "No such module."
+msgstr "Intet sådant modul."
+
+msgid "Cannot remove module files"
+msgstr "Kan ikke fjerne modulfiler"
+
+msgid "Cannot activate plugin."
+msgstr "Kan ikke aktivere plugin."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Ugyldig indstilling dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Kan ikke hente indstillinger:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s er ikke et gyldigt indstillings-id"
+
+msgid "No namespace specified"
+msgstr "Intet navneområde angivet"
+
+msgid "No notice message"
+msgstr "Ingen meddelelse"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "Kan ikke hente arbejdsområder:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Ugyldigt dcWorkspace: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "Kan ikke hente navneområder:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Ugyldig indstillings navnerum: %s"
+
+msgid "Wrong data feed"
+msgstr "Forkert datafeed"
+
+msgid "An error occurred while downloading the file."
+msgstr "Der skete en fejl ved download af filen."
+
+msgid "Themes folder unreachable"
+msgstr "Temaer mappe utilgængelig"
+
+msgid "Themes folder unreadable"
+msgstr "Temaer mappe ulæselig"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (kopi #%s)"
+
+msgid " (copy)"
+msgstr " (kopi)"
+
+msgid "Unable to modify _define.php"
+msgstr "Kan ikke ændre _define.php"
+
+msgid "Destination folder already exist"
+msgstr "Destinationsmappe findes allerede"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s er stadig blevet pinged"
+
+msgid "Unable to ping URL"
+msgstr "Kan ikke ping URL"
+
+msgid "Bad server response code"
+msgstr "Forkert serversvar kode"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s er ikke en ping URL"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, pingfejl:"
+
+msgid "Don't repeat yourself, please."
+msgstr "Lad være med at gentage dig selv."
+
+msgid "Where's your title?"
+msgstr "Hvor er din titel?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Beklager, der er opstået et internt problem."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Tak, mat. Det var en fornøjelse."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "Nogen chance du ping et af mit indhold? Nej? Virkelig?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Beklager, men du kan ikke ping denne type indhold."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Ups. Kinda \"not found\" ting. Tjek venligst mål- URLen to gange."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Desværre, dude. Denne post accepterer ikke pingback i øjeblikket."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "Din kilde URL ser ikke ud som en understøttet indholdstype. Undskyld, bye, bye!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "Ingen gyldig kilde URL angivet? Prøv igen!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "Ingen gyldig mål-URL angivet? Prøv igen!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "Digests fil ikke fundet."
+
+msgid "No file to download"
+msgstr "Ingen fil at downloade"
+
+msgid "Root directory is not writable."
+msgstr "Rodmappen er ikke skrivbar."
+
+msgid "An error occurred while downloading archive."
+msgstr "Der opstod en fejl under download af arkiv."
+
+msgid "Archive not found."
+msgstr "Arkiv ikke fundet."
+
+msgid "Unable to read current digests file."
+msgstr "Kan ikke læse den aktuelle fordøjelsesfil."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Downloadet fil synes ikke at være et gyldigt arkiv."
+
+msgid "Incomplete archive."
+msgstr "Ufuldstændigt arkiv."
+
+msgid "Unable to read digests file."
+msgstr "Kan ikke læse fordøjelsesfilen."
+
+msgid "Invalid digests file."
+msgstr "Ugyldig fordøjelsesfil."
+
+msgid "Unable to retrieve prefs:"
+msgstr "Kan ikke hente prefs:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s er ikke et gyldigt pref id"
+
+msgid "No workspace specified"
+msgstr "Intet arbejdsområde angivet"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "Kan ikke slette filen %s"
+
+msgid "Process failed"
+msgstr "Processen mislykkedes"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Digests fil ikke fundet."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Dotclear nyheder ikke tilgængelig"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "Ingen resultater fundet"
+
+msgid "Site temporarily unavailable"
+msgstr "Websted midlertidigt utilgængeligt"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Vi undskylder for denne midlertidige utilgængelighed.<br />Tak for din forståelse.</p>"
+
+msgid "Unable to connect to database"
+msgstr "Kan ikke forbinde til database"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Dette betyder enten, at brugernavn og adgangskodeinformation i din <strong>konfiguration. hp</strong> filen er forkert eller vi kan ikke kontakte databaseserveren på \"<em>%s</em>\". Dette kunne betyde din værts database server er nede.</p> <ul><li>Er du sikker på, at du har det korrekte brugernavn og adgangskode?</li><li>Er du sikker på, at du har skrevet det korrekte værtsnavn?</li><li>Er du sikker på, at databaseserveren kører?</li></ul><p>Hvis du er usikker på, hvad disse vilkår betyder, bør du sandsynligvis kontakte din vært. Hvis du stadig har brug for hjælp, kan du altid besøge <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "Følgende fejl opstod under forsøget på at læse databasen:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Titel"
 
 msgid "Blogs"
 msgstr "Blogs"
@@ -254,75 +720,6 @@ msgstr "Mest anvendte"
 msgid "Entry language:"
 msgstr "Indtastnings sprog:"
 
-msgid "Database error"
-msgstr "Database fejl"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Der synes ikke at være nogen sessionstabel i din database. Er Dotclear fuldstændigt installeret?"
-
-msgid "Precondition Failed"
-msgstr "Forudsætning Mislykkedes"
-
-msgid "System settings"
-msgstr "System indstillinger"
-
-msgid "Blog"
-msgstr "Blog"
-
-msgid "Plugins"
-msgstr "Plugins"
-
-msgid "Blog appearance"
-msgstr "Blog aspekt"
-
-msgid "Blog settings"
-msgstr "Blog indstillinger"
-
-msgid "Media manager"
-msgstr "Medie manager"
-
-msgid "Categories"
-msgstr "Kategorier"
-
-msgid "Search"
-msgstr "Søg"
-
-msgid "New post"
-msgstr "Nyt indlæg"
-
-msgid "My preferences"
-msgstr "Mine præferencer"
-
-msgid "Update"
-msgstr "Opdater"
-
-msgid "Languages"
-msgstr "Sprog"
-
-msgid "Plugins management"
-msgstr "Håndtering af plugins"
-
-msgid "Users"
-msgstr "Brugere"
-
-msgid "My favorites"
-msgstr "Mine favoritter"
-
-msgid "Global help"
-msgstr "Global hjælp"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d indlæg"
-msgstr[1] "%d indlæg"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d kommentar"
-msgstr[1] "%d kommentarer"
-
 msgid "Descending"
 msgstr "Faldende"
 
@@ -350,11 +747,11 @@ msgstr "Indlæg titel"
 msgid "Entry date"
 msgstr "Dato for indrejse"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "Spam filter"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "Sidste opdatering"
@@ -377,35 +774,92 @@ msgstr "Vis navn"
 msgid "Number of entries"
 msgstr "Antal poster"
 
-msgid "Show filters and display options"
-msgstr "Vis filtre og visningsindstillinger"
+msgid "My favorites"
+msgstr "Mine favoritter"
 
-msgid "Filters"
-msgstr "Filtre"
+msgid "My preferences"
+msgstr "Mine præferencer"
 
-msgid "Display options"
-msgstr "Indstillinger for visning"
+msgid "New post"
+msgstr "Nyt indlæg"
 
-msgid "Order by:"
-msgstr "Sorter via:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d indlæg"
+msgstr[1] "%d indlæg"
 
-msgid "Sort:"
-msgstr "Sorter:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d kommentar"
+msgstr[1] "%d kommentarer"
 
-msgid "Show"
-msgstr "Vis"
+msgid "Search"
+msgstr "Søg"
 
-msgid "Save current options"
-msgstr "Gem aktuelle indstillinger"
+msgid "Categories"
+msgstr "Kategorier"
 
-msgid "Apply filters and display options"
-msgstr "Anvend filtre og visningsindstillinger"
+msgid "Media manager"
+msgstr "Medie manager"
+
+msgid "Blog settings"
+msgstr "Blog indstillinger"
+
+msgid "Blog appearance"
+msgstr "Blog aspekt"
+
+msgid "Users"
+msgstr "Brugere"
+
+msgid "Plugins management"
+msgstr "Håndtering af plugins"
+
+msgid "Languages"
+msgstr "Sprog"
+
+msgid "Global help"
+msgstr "Global hjælp"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Web site:"
+msgstr "Hjemmeside:"
 
 msgid "Author:"
 msgstr "Ejer:"
 
-msgid "Status:"
-msgstr "Status:"
+msgid "Type:"
+msgstr "Type:"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Trackback"
+msgstr "Trackback"
+
+msgid "IP address:"
+msgstr "IP addresse:"
+
+msgid "Media type:"
+msgstr "Medietype:"
+
+msgid "image"
+msgstr "billede"
+
+msgid "text"
+msgstr "tekst"
+
+msgid "audio"
+msgstr "lyd"
+
+msgid "video"
+msgstr "video"
 
 msgid "Format:"
 msgstr "Format:"
@@ -452,56 +906,155 @@ msgstr "Lukket"
 msgid "Trackbacks:"
 msgstr "Trackbacks:"
 
-msgid "Email:"
-msgstr "Email:"
+msgid "Show filters and display options"
+msgstr "Vis filtre og visningsindstillinger"
 
-msgid "Web site:"
-msgstr "Hjemmeside:"
+msgid "Filters"
+msgstr "Filtre"
 
-msgid "Type:"
-msgstr "Type:"
+msgid "Display options"
+msgstr "Indstillinger for visning"
 
-msgid "Comment"
-msgstr "Kommentar"
+msgid "Order by:"
+msgstr "Sorter via:"
 
-msgid "Trackback"
-msgstr "Trackback"
+msgid "Sort:"
+msgstr "Sorter:"
 
-msgid "IP address:"
-msgstr "IP addresse:"
+msgid "Show"
+msgstr "Vis"
 
-msgid "Media type:"
-msgstr "Medietype:"
+msgid "Save current options"
+msgstr "Gem aktuelle indstillinger"
 
-msgid "image"
-msgstr "billede"
-
-msgid "text"
-msgstr "tekst"
-
-msgid "audio"
-msgstr "lyd"
-
-msgid "video"
-msgstr "video"
+msgid "Apply filters and display options"
+msgstr "Anvend filtre og visningsindstillinger"
 
 msgid "Search:"
 msgstr "Søg:"
 
-msgid "Trackbacks"
-msgstr "Trackbacks"
+msgid "&#171; prev."
+msgstr "&#171; Forrige"
 
-msgid "users per page"
-msgstr "brugere pr. side"
+msgid "next &#187;"
+msgstr "næste &#187;"
 
-msgid "entries per page"
-msgstr "poster pr. side"
+msgid "No blog matches the filter"
+msgstr "Ingen blog matcher filteret"
 
-msgid "comments per page"
-msgstr "kommentarer pr. side"
+msgid "No blog"
+msgstr "Ingen blog"
 
-msgid "blogs per page"
-msgstr "blogs pr. side"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "Indgange (alle typer)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blog matcher filteret."
+msgstr[1] "%d blogs matcher filteret."
+
+msgid "Blogs list"
+msgstr "Blogs liste"
+
+msgid "Legend: "
+msgstr "Forklaring: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Rediger blogindstillinger for %s"
+
+msgid "Edit blog settings"
+msgstr "Rediger blogindstillinger"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Skift til bloggen %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Ingen kommentarer eller trackbacks matcher filteret"
+
+msgid "No comments"
+msgstr "Ingen kommentar"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Kommentar eller trackback der matcher filteret."
+msgstr[1] "Liste over %s kommentarer eller trackbacks, der matcher filteret."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Liste over kommentarer og trackbacks (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">offentliggjort</a> (1)"
+msgstr[1] ", <a href=\"%s\">publiceret</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">spam</a> (1)"
+msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">pending</a> (1)"
+msgstr[1] ", <a href=\"%s\">afventer</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">ikke offentliggjort</a> (1)"
+msgstr[1] ", <a href=\"%s\">afpubliceret</a> (%s)"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Entry"
+msgstr "Post"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Rediger %1$s fra %2$s"
+
+msgid "comment"
+msgstr "kommentar"
+
+msgid "trackback"
+msgstr "trackback"
+
+msgid "Type and author"
+msgstr "Skriv og forfatter"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "No file matches the filter"
+msgstr "Ingen fil matcher filteret"
+
+msgid "No file."
+msgstr "Ingen fil."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d fil matcher filteret."
+msgstr[1] "%d filer matcher filteret."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb af emner: %d → %d mappe(r) + %d fil(er)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb af elementer: %d"
 
 msgid "Name"
 msgstr "Navn"
@@ -509,11 +1062,356 @@ msgstr "Navn"
 msgid "Size"
 msgstr "Størrelse"
 
-msgid "media per page"
-msgstr "medie pr. side"
+msgid "Select this file"
+msgstr "Vælg denne fil"
 
-msgid "results per page"
-msgstr "resultater pr. side"
+msgid "Attach this file to entry"
+msgstr "Vedhæft denne fil til posten"
+
+msgid "Insert this file into entry"
+msgstr "Indsæt denne fil i indgangen"
+
+msgid "delete"
+msgstr "slet"
+
+msgid "private media"
+msgstr "private medier"
+
+msgid "open"
+msgstr "åben"
+
+msgid "No entry matches the filter"
+msgstr "Ingen post matcher filteret"
+
+msgid "No entry"
+msgstr "Ingen post"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Liste over %s poster der matcher filteret."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Liste over poster (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">programmeret</a> (1)"
+msgstr[1] ", <a href=\"%s\">programmeret</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+msgid "Protected"
+msgstr "Beskyttet"
+
+msgid "Attachments"
+msgstr "Vedhæftninger"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d vedhæftet fil"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d vedhæftede filer"
+
+msgid "Entries list"
+msgstr "Post liste"
+
+msgid "No user matches the filter"
+msgstr "Ingen bruger matcher filteret"
+
+msgid "No user"
+msgstr "Ingen bruger"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Liste over %s brugere matcher filteret."
+
+msgid "Users list"
+msgstr "Brugere liste"
+
+msgid "admin"
+msgstr "Administrator"
+
+msgid "superadmin"
+msgstr "superadmin"
+
+msgid "First page"
+msgstr "Første side"
+
+msgid "Previous page"
+msgstr "Forrige side"
+
+msgid "Next page"
+msgstr "Næste side"
+
+msgid "Last page"
+msgstr "Sidste side"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Side %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Direkte adgang side %s"
+
+msgid "ok"
+msgstr "ok"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s fil fundet"
+msgstr[1] "%s filer fundet"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "System settings"
+msgstr "System indstillinger"
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Update"
+msgstr "Opdater"
+
+msgid "other"
+msgstr "andet"
+
+msgid "Search in repository:"
+msgstr "Søg i repository:"
+
+msgid "OK"
+msgstr "Ok"
+
+msgid "Reset search"
+msgstr "Nulstil søgning"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "Søgningen er tilladt på flere termer længere end 2 tegn, termerne skal være adskilt af mellemrum."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "Fundet %d resultat for søgning \"%s\":"
+msgstr[1] "Fundet %d resultater for søgning \"%s\":"
+
+msgid "current selection"
+msgstr "nuværende valg"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d resultat"
+msgstr[1] "%d resultater"
+
+msgid "no results"
+msgstr "ingen resultater"
+
+msgid "Browse index:"
+msgstr "Gennemse indeks:"
+
+msgid "Plugins list"
+msgstr "Plugins liste"
+
+msgid "Score"
+msgstr "Score"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Current version"
+msgstr "Nuværende version"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Repository"
+msgstr "Lagre"
+
+msgid "Action"
+msgstr "Handling"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Dette modul kan ikke deaktiveres eller slettes, da følgende moduler også er aktiveret: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Dette modul kan ikke aktiveres på grund af følgende grunde:"
+
+msgid "Official repository"
+msgstr "Officielt depot"
+
+msgid "Third-party repository"
+msgstr "Tredjepartsarkiv"
+
+msgid "Plugin from official distribution"
+msgstr "Plugin fra officiel distribution"
+
+msgid "Plugin in development"
+msgstr "Plugin i udvikling"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "update locked"
+msgstr "opdater låst"
+
+msgid "Section:"
+msgstr "Afsnit:"
+
+msgid "Tags:"
+msgstr "Mærker:"
+
+msgid "No plugins matched your search."
+msgstr "Ingen plugins matchede din søgning."
+
+msgid "Configure plugin"
+msgstr "Indstil plugin"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Plugin indstillinger (i blogparametre)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Plugin indstillinger (i brugerindstillinger)"
+
+msgid "Plugin settings"
+msgstr "Plugin indstillinger"
+
+msgid "Plugin main page"
+msgstr "Plugin hovedside"
+
+msgid "Activate"
+msgstr "Aktivér"
+
+msgid "Deactivate"
+msgstr "Deaktiver"
+
+msgid "Clone"
+msgstr "Klon"
+
+msgid "Install"
+msgstr "Installér"
+
+msgid "Activate selected plugins"
+msgstr "Aktiver valgte plugins"
+
+msgid "Activate all plugins from this list"
+msgstr "Aktivér alle plugins fra denne liste"
+
+msgid "Deactivate selected plugins"
+msgstr "Deaktiver valgte plugins"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Deaktiver alle plugins fra denne liste"
+
+msgid "Update selected plugins"
+msgstr "Opdater valgte plugins"
+
+msgid "Update all plugins from this list"
+msgstr "Opdater alle plugins fra denne liste"
+
+msgid "No such plugin."
+msgstr "Intet sådant plugin."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Du har ikke rettigheder til at slette dette plugin."
+
+msgid "Some plugins have not been delete."
+msgstr "Nogle plugins er ikke blevet slettet."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Plugin er blevet slettet."
+msgstr[1] "Plugins er blevet slettet."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "Plugin er blevet installeret."
+msgstr[1] "Plugins er blevet installeret."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Plugin er blevet aktiveret."
+msgstr[1] "Plugins er blevet aktiveret succesfuldt."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Nogle plugins er ikke blevet deaktiveret."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Plugin er blevet deaktiveret."
+msgstr[1] "Plugins er blevet deaktiveret."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Plugin er blevet opdateret."
+msgstr[1] "Plugin er blevet opdateret."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Følgende plugins opdateringer er låst: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "Det er ikke muligt at flytte den oploadede fil."
+
+msgid "The plugin has been successfully updated."
+msgstr "Plugin er blevet opdateret."
+
+msgid "The plugin has been successfully installed."
+msgstr "Plugin er blevet installeret."
+
+msgid "Upload a zip file"
+msgstr "Opload en zip fil"
+
+msgid "Required field"
+msgstr "Påkrævet felt"
+
+msgid "Zip file path:"
+msgstr "Sti til zip-fil:"
+
+msgid "Your password:"
+msgstr "Dit kodeord:"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Download a zip file"
+msgstr "Download en zip fil"
+
+msgid "Zip file URL:"
+msgstr "Zip fil URL:"
+
+msgid "Download"
+msgstr "Hent"
+
+msgid "Unknown plugin ID"
+msgstr "Ukendt plugin ID"
+
+msgid "This plugin has no configuration file."
+msgstr "Dette plugin har ingen konfigurationsfil."
+
+msgid "Insufficient permissions"
+msgstr "Utilstrækkelige tilladelser"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Konfigurer \"%s\""
+
+msgid "Back"
+msgstr "Tilbage"
 
 msgid "Error:"
 msgstr "Fejl:"
@@ -532,9 +1430,6 @@ msgstr "Skift blog"
 
 msgid "Blogs:"
 msgstr "Blogs:"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Go to the content"
 msgstr "Gå til indholdet"
@@ -566,9 +1461,6 @@ msgstr "Sikker tilstand"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Du er i sikker tilstand. Alle plugins er midlertidigt deaktiveret. Påmind at logge ud og derefter logge ind igen normalt for at komme tilbage alle funktionaliteter"
-
-msgid "OK"
-msgstr "Ok"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -741,20 +1633,8 @@ msgstr "Advarsel: ændring af indlægsformat vil ikke konvertere eksisterende in
 msgid "Loading enhanced uploader, please wait."
 msgstr "Indlæser forbedret uploader, vent venligst."
 
-msgid "Details"
-msgstr "Detaljer"
-
-msgid "Support"
-msgstr "Support"
-
 msgid "Help:"
 msgstr "Hjælp:"
-
-msgid "Section:"
-msgstr "Afsnit:"
-
-msgid "Tags:"
-msgstr "Mærker:"
 
 msgid "Hide this notice"
 msgstr "Skjul denne meddelelse"
@@ -807,9 +1687,6 @@ msgstr "Annuller"
 msgid "Clean"
 msgstr "Rens"
 
-msgid "Upload"
-msgstr "Upload"
-
 msgid "Send"
 msgstr "Send"
 
@@ -833,228 +1710,35 @@ msgid "Cancel filters and display options"
 msgstr "Annuller filtre og visningsindstillinger"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s fil fundet"
-msgstr[1] "%s filer fundet"
-
-msgid "other"
-msgstr "andet"
-
-msgid "Search in repository:"
-msgstr "Søg i repository:"
-
-msgid "Reset search"
-msgstr "Nulstil søgning"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "Søgningen er tilladt på flere termer længere end 2 tegn, termerne skal være adskilt af mellemrum."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Fundet %d resultat for søgning \"%s\":"
-msgstr[1] "Fundet %d resultater for søgning \"%s\":"
+msgid "ratio %.1f"
+msgstr "forhold %.1f"
 
-msgid "current selection"
-msgstr "nuværende valg"
+msgid "The 'public' directory does not exist."
+msgstr "Mappen 'public' findes ikke."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d resultat"
-msgstr[1] "%d resultater"
+msgid "The '%s' directory cannot be modified."
+msgstr "Mappen '%s' kan ikke ændres."
 
-msgid "no results"
-msgstr "ingen resultater"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Mindst en af følgende funktioner er ikke tilgængelig: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "Gennemse indeks:"
+msgid "Unable to create images."
+msgstr "Kan ikke oprette billeder."
 
-msgid "Plugins list"
-msgstr "Plugins liste"
+msgid "Invalid file type."
+msgstr "Ugyldig filtype."
 
-msgid "Score"
-msgstr "Score"
-
-msgid "Version"
-msgstr "Version"
-
-msgid "Current version"
-msgstr "Nuværende version"
-
-msgid "Repository"
-msgstr "Lagre"
-
-msgid "Action"
-msgstr "Handling"
+msgid "An error occurred while writing the file."
+msgstr "Der opstod en fejl under skrivning af filen."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Dette modul kan ikke deaktiveres eller slettes, da følgende moduler også er aktiveret: %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Dette modul kan ikke aktiveres på grund af følgende grunde:"
-
-msgid "Official repository"
-msgstr "Officielt depot"
-
-msgid "Third-party repository"
-msgstr "Tredjepartsarkiv"
-
-msgid "Plugin from official distribution"
-msgstr "Plugin fra officiel distribution"
-
-msgid "Plugin in development"
-msgstr "Plugin i udvikling"
-
-msgid "update locked"
-msgstr "opdater låst"
-
-msgid "No plugins matched your search."
-msgstr "Ingen plugins matchede din søgning."
-
-msgid "Configure plugin"
-msgstr "Indstil plugin"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Plugin indstillinger (i blogparametre)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Plugin indstillinger (i brugerindstillinger)"
-
-msgid "Plugin settings"
-msgstr "Plugin indstillinger"
-
-msgid "Plugin main page"
-msgstr "Plugin hovedside"
-
-msgid "Activate"
-msgstr "Aktivér"
-
-msgid "Deactivate"
-msgstr "Deaktiver"
-
-msgid "Clone"
-msgstr "Klon"
-
-msgid "Install"
-msgstr "Installér"
-
-msgid "Activate selected plugins"
-msgstr "Aktiver valgte plugins"
-
-msgid "Activate all plugins from this list"
-msgstr "Aktivér alle plugins fra denne liste"
-
-msgid "Deactivate selected plugins"
-msgstr "Deaktiver valgte plugins"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Deaktiver alle plugins fra denne liste"
-
-msgid "Update selected plugins"
-msgstr "Opdater valgte plugins"
-
-msgid "Update all plugins from this list"
-msgstr "Opdater alle plugins fra denne liste"
-
-msgid "No such plugin."
-msgstr "Intet sådant plugin."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Du har ikke rettigheder til at slette dette plugin."
-
-msgid "Some plugins have not been delete."
-msgstr "Nogle plugins er ikke blevet slettet."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Plugin er blevet slettet."
-msgstr[1] "Plugins er blevet slettet."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Plugin er blevet installeret."
-msgstr[1] "Plugins er blevet installeret."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Plugin er blevet aktiveret."
-msgstr[1] "Plugins er blevet aktiveret succesfuldt."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Nogle plugins er ikke blevet deaktiveret."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Plugin er blevet deaktiveret."
-msgstr[1] "Plugins er blevet deaktiveret."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Plugin er blevet opdateret."
-msgstr[1] "Plugin er blevet opdateret."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Følgende plugins opdateringer er låst: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "Det er ikke muligt at flytte den oploadede fil."
-
-msgid "The plugin has been successfully updated."
-msgstr "Plugin er blevet opdateret."
-
-msgid "The plugin has been successfully installed."
-msgstr "Plugin er blevet installeret."
-
-msgid "Upload a zip file"
-msgstr "Opload en zip fil"
-
-msgid "Required field"
-msgstr "Påkrævet felt"
-
-msgid "Zip file path:"
-msgstr "Sti til zip-fil:"
-
-msgid "Your password:"
-msgstr "Dit kodeord:"
-
-msgid "Password"
-msgstr "Adgangskode"
-
-msgid "Download a zip file"
-msgstr "Download en zip fil"
-
-msgid "Zip file URL:"
-msgstr "Zip fil URL:"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "Hent"
-
-msgid "Unknown plugin ID"
-msgstr "Ukendt plugin ID"
-
-msgid "This plugin has no configuration file."
-msgstr "Dette plugin har ingen konfigurationsfil."
-
-msgid "Insufficient permissions"
-msgstr "Utilstrækkelige tilladelser"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Konfigurer \"%s\""
-
-msgid "Back"
-msgstr "Tilbage"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Uploadet billede er ikke %s pixels bredt."
 
 #, php-format
 msgid "Score: %s"
@@ -1095,6 +1779,9 @@ msgstr "Ingen temaer matchede din søgning."
 
 msgid "Use this one"
 msgstr "Brug denne"
+
+msgid "Preview"
+msgstr "Eksempelvisning"
 
 msgid "Update selected themes"
 msgstr "Opdater valgte temaer"
@@ -1158,701 +1845,281 @@ msgstr "Temaet er blevet opdateret."
 msgid "The theme has been successfully installed."
 msgstr "Temaet er blevet installeret."
 
-msgid "First page"
-msgstr "Første side"
+msgid "users per page"
+msgstr "brugere pr. side"
 
-msgid "Previous page"
-msgstr "Forrige side"
+msgid "entries per page"
+msgstr "poster pr. side"
 
-msgid "Next page"
-msgstr "Næste side"
+msgid "comments per page"
+msgstr "kommentarer pr. side"
 
-msgid "Last page"
-msgstr "Sidste side"
+msgid "blogs per page"
+msgstr "blogs pr. side"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "Side %s / %s"
+msgid "media per page"
+msgstr "medie pr. side"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "Direkte adgang side %s"
+msgid "results per page"
+msgstr "resultater pr. side"
 
-msgid "&#171; prev."
-msgstr "&#171; Forrige"
+msgid "Database error"
+msgstr "Database fejl"
 
-msgid "next &#187;"
-msgstr "næste &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Der synes ikke at være nogen sessionstabel i din database. Er Dotclear fuldstændigt installeret?"
 
-msgid "No entry matches the filter"
-msgstr "Ingen post matcher filteret"
+msgid "Precondition Failed"
+msgstr "Forudsætning Mislykkedes"
 
-msgid "No entry"
-msgstr "Ingen post"
+#, fuzzy
+msgid "Database problem"
+msgstr "Database fejl"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Liste over %s poster der matcher filteret."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "Følgende fejl opstod under forsøget på at læse databasen:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Liste over poster (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">offentliggjort</a> (1)"
-msgstr[1] ", <a href=\"%s\">publiceret</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">pending</a> (1)"
-msgstr[1] ", <a href=\"%s\">afventer</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">programmeret</a> (1)"
-msgstr[1] ", <a href=\"%s\">programmeret</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">ikke offentliggjort</a> (1)"
-msgstr[1] ", <a href=\"%s\">afpubliceret</a> (%s)"
-
-msgid "Legend: "
-msgstr "Forklaring: "
-
-msgid "Published"
-msgstr "Publiceret"
-
-msgid "Unpublished"
-msgstr "Afpubliceret"
-
-msgid "Scheduled"
-msgstr "Planlagt"
-
-msgid "Pending"
-msgstr "Afventer"
-
-msgid "Protected"
-msgstr "Beskyttet"
-
-msgid "Attachments"
-msgstr "Vedhæftninger"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d vedhæftet fil"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d vedhæftede filer"
-
-msgid "Entries list"
-msgstr "Post liste"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Ingen kommentarer eller trackbacks matcher filteret"
-
-msgid "No comments"
-msgstr "Ingen kommentar"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Kommentar eller trackback der matcher filteret."
-msgstr[1] "Liste over %s kommentarer eller trackbacks, der matcher filteret."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Liste over kommentarer og trackbacks (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
-
-msgid "Type"
-msgstr "Type"
-
-msgid "Entry"
-msgstr "Post"
-
-msgid "Junk"
-msgstr "Junk"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Rediger %1$s fra %2$s"
-
-msgid "comment"
-msgstr "kommentar"
-
-msgid "trackback"
-msgstr "trackback"
-
-msgid "Type and author"
-msgstr "Skriv og forfatter"
-
-msgid "Edit"
-msgstr "Rediger"
-
-msgid "No blog matches the filter"
-msgstr "Ingen blog matcher filteret"
-
-msgid "No blog"
-msgstr "Ingen blog"
-
-msgid "Entries (all types)"
-msgstr "Indgange (alle typer)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d blog matcher filteret."
-msgstr[1] "%d blogs matcher filteret."
-
-msgid "Blogs list"
-msgstr "Blogs liste"
-
-msgid "online"
-msgstr "online"
-
-msgid "offline"
-msgstr "offline"
-
-msgid "removed"
-msgstr "fjernet"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Rediger blogindstillinger for %s"
-
-msgid "Edit blog settings"
-msgstr "Rediger blogindstillinger"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Skift til bloggen %s"
-
-msgid "No user matches the filter"
-msgstr "Ingen bruger matcher filteret"
-
-msgid "No user"
-msgstr "Ingen bruger"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Liste over %s brugere matcher filteret."
-
-msgid "Users list"
-msgstr "Brugere liste"
-
-msgid "admin"
-msgstr "Administrator"
-
-msgid "superadmin"
-msgstr "superadmin"
-
-msgid "No file matches the filter"
-msgstr "Ingen fil matcher filteret"
-
-msgid "No file."
-msgstr "Ingen fil."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d fil matcher filteret."
-msgstr[1] "%d filer matcher filteret."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb af emner: %d → %d mappe(r) + %d fil(er)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Nb af elementer: %d"
-
-msgid "Select this file"
-msgstr "Vælg denne fil"
-
-msgid "Attach this file to entry"
-msgstr "Vedhæft denne fil til posten"
-
-msgid "Insert this file into entry"
-msgstr "Indsæt denne fil i indgangen"
-
-msgid "delete"
-msgstr "slet"
-
-msgid "private media"
-msgstr "private medier"
-
-msgid "open"
-msgstr "åben"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "forhold %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "Mappen 'public' findes ikke."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Mappen '%s' kan ikke ændres."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Mindst en af følgende funktioner er ikke tilgængelig: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "Kan ikke oprette billeder."
-
-msgid "Invalid file type."
-msgstr "Ugyldig filtype."
-
-msgid "An error occurred while writing the file."
-msgstr "Der opstod en fejl under skrivning af filen."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "Uploadet billede er ikke %s pixels bredt."
-
-msgid "medium"
-msgstr "medium"
-
-msgid "small"
-msgstr "lille"
-
-msgid "thumbnail"
-msgstr "thumbnail"
-
-msgid "square"
-msgstr "firkant"
-
-msgid "Pages"
-msgstr "Sider"
-
-msgid "administrator"
-msgstr "administrator"
-
-msgid "manage all entries and comments"
-msgstr "administrere alle poster og kommentarer"
-
-msgid "manage their own entries and comments"
-msgstr "administrere deres egne poster og kommentarer"
-
-msgid "publish entries and comments"
-msgstr "publicer poster og kommentarer"
-
-msgid "delete entries and comments"
-msgstr "slet poster og kommentarer"
-
-msgid "manage categories"
-msgstr "administrer kategorier"
-
-msgid "manage all media items"
-msgstr "administrer alle medieelementer"
-
-msgid "manage their own media items"
-msgstr "administrere deres egne medieelementer"
-
-msgid "That user does not exist in the database."
-msgstr "Denne bruger findes ikke i databasen."
-
-msgid "That key does not exist in the database."
-msgstr "Denne nøgle findes ikke i databasen."
-
-msgid "You are not allowed to add categories"
-msgstr "Du har ikke tilladelse til at tilføje kategorier"
-
-msgid "You are not allowed to update categories"
-msgstr "Du har ikke tilladelse til at opdatere kategorier"
-
-msgid "You are not allowed to delete categories"
-msgstr "Du har ikke tilladelse til at slette kategorier"
-
-msgid "This category is not empty."
-msgstr "Denne kategori er ikke tom."
-
-msgid "You are not allowed to reset categories order"
-msgstr "Du har ikke tilladelse til at nulstille varegruppe ordre"
-
-msgid "Empty category URL"
-msgstr "Tom kategori URL"
-
-msgid "You must provide a category title"
-msgstr "Du skal angive en kategori titel"
-
-msgid "You must provide a category URL"
-msgstr "Du skal angive en kategori URL"
-
-msgid "You are not allowed to create an entry"
-msgstr "Du har ikke tilladelse til at oprette en post"
-
-msgid "You are not allowed to update entries"
-msgstr "Du har ikke tilladelse til at opdatere poster"
-
-msgid "No such entry ID"
-msgstr "Intet sådant indgangs-ID"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Du har ikke tilladelse til at redigere dette element"
-
-msgid "You are not allowed to change this entry status"
-msgstr "Du har ikke tilladelse til at ændre denne post status"
-
-msgid "You are not allowed to change this entry category"
-msgstr "Du har ikke tilladelse til at ændre denne post kategori"
-
-msgid "You are not allowed to change entries category"
-msgstr "Du har ikke tilladelse til at ændre poster kategori"
-
-msgid "You are not allowed to delete entries"
-msgstr "Du har ikke tilladelse til at slette poster"
-
-msgid "No entry title"
-msgstr "Ingen indgangs titel"
-
-msgid "No entry content"
-msgstr "Intet indhold"
-
-msgid "Notes"
-msgstr "Noter"
-
-msgid "Note"
-msgstr "Bemærkning"
-
-msgid "Empty entry URL"
-msgstr "Tom post URL"
-
-msgid "You are not allowed to update comments"
-msgstr "Du har ikke tilladelse til at opdatere kommentarer"
-
-msgid "No such comment ID"
-msgstr "Ingen sådan kommentar ID"
-
-msgid "You are not allowed to update this comment"
-msgstr "Du har ikke tilladelse til at opdatere denne kommentar"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Du har ikke tilladelse til at ændre status for denne kommentar"
-
-msgid "You are not allowed to delete comments"
-msgstr "Du har ikke tilladelse til at slette kommentarer"
-
-msgid "You must provide a comment"
-msgstr "Du skal angive en kommentar"
-
-msgid "You must provide an author name"
-msgstr "Du skal angive et forfatternavn"
-
-msgid "Email address is not valid."
-msgstr "E-mailadressen er ikke gyldig."
-
-msgid "You are not an administrator"
-msgstr "Du er ikke administrator"
-
-msgid "No user ID given"
-msgstr "Intet bruger ID givet"
-
-msgid "No password given"
-msgstr "Intet kodeord givet"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Bruger ID skal indeholde mindst 2 karakterer indeholdende bogstaver, numre eller symboler."
-
-msgid "Password must contain at least 6 characters."
-msgstr "Kodeordet skal indeholde mindst 6 karakterer."
-
-msgid "Invalid user language code"
-msgstr "Ugyldig bruger sprogkode"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Blog ID skal indeholde mindst 2 tegn ved brug af bogstaver, tal eller symboler."
-
-msgid "No blog name"
-msgstr "Intet blognavn"
-
-msgid "No blog URL"
-msgstr "Ingen blog URL"
-
-msgid "No log message"
-msgstr "Ingen logbesked"
-
-msgid "unknown"
-msgstr "ukendt"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "Ingen blog defineret."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "Der er ingen skrivbar mappe /public/ på placeringen sat i about:config \"public_path\". Du skal oprette denne mappe med tilstrækkelige rettigheder (eller ændre denne indstilling)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Der er ingen skrivbar rodmappe for mediehåndteringen. Du bør kontakte din administrator."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "Denne blog er offline"
 
-msgid "You are not a super administrator."
-msgstr "Du er ikke en super administrator."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Denne blog er offline"
 
-msgid "Permission denied."
-msgstr "Tilladelse nægtet."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Kan ikke oprette fil"
 
-msgid "You are not the file owner."
-msgstr "Du er ikke filens ejer."
-
-msgid "This file is not allowed."
-msgstr "Denne fil er ikke tilladt."
-
-msgid "New file already exists."
-msgstr "Ny fil findes allerede."
-
-msgid "File does not exist in the database."
-msgstr "Filen findes ikke i databasen."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "Udpak destinationsmappen %s findes allerede."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Kræver %s modul, som ikke er installeret"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Kræver %s version %s, men version %s er installeret"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Kræver %s modul som er deaktiveret"
-
-msgid "The following extensions have been disabled :"
-msgstr "Følgende udvidelser er blevet deaktiveret :"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Modul \"%s\" har type \"%s\", der ikke matcher krævet modultype \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Modul \"%s\" er installeret to gange i \"%s\" og \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Tomt modul zip-fil."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "zip-filen ser ikke ud til at være et gyldigt Dotclear modul."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "Kan ikke opgradere \"%s\". (opdater låst)"
-
-msgid "An error occurred during module deletion."
-msgstr "Der opstod en fejl under sletning af moduler."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "Kan ikke opgradere \"%s\". (ældre eller samme version)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "Kan ikke læse ny %s fil"
-
-msgid "Cannot deactivate plugin."
-msgstr "Kan ikke deaktivere plugin."
-
-msgid "No such module."
-msgstr "Intet sådant modul."
-
-msgid "Cannot remove module files"
-msgstr "Kan ikke fjerne modulfiler"
-
-msgid "Cannot activate plugin."
-msgstr "Kan ikke aktivere plugin."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Ugyldig indstilling dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "Kan ikke hente indstillinger:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s er ikke et gyldigt indstillings-id"
-
-msgid "No namespace specified"
-msgstr "Intet navneområde angivet"
-
-msgid "No notice message"
-msgstr "Ingen meddelelse"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "Kan ikke hente arbejdsområder:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Ugyldigt dcWorkspace: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "Kan ikke hente navneområder:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Ugyldig indstillings navnerum: %s"
-
-msgid "Wrong data feed"
-msgstr "Forkert datafeed"
-
-msgid "An error occurred while downloading the file."
-msgstr "Der skete en fejl ved download af filen."
-
-msgid "Themes folder unreachable"
-msgstr "Temaer mappe utilgængelig"
-
-msgid "Themes folder unreadable"
-msgstr "Temaer mappe ulæselig"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (kopi #%s)"
-
-msgid " (copy)"
-msgstr " (kopi)"
-
-msgid "Unable to modify _define.php"
-msgstr "Kan ikke ændre _define.php"
-
-msgid "Destination folder already exist"
-msgstr "Destinationsmappe findes allerede"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s er stadig blevet pinged"
-
-msgid "Unable to ping URL"
-msgstr "Kan ikke ping URL"
-
-msgid "Bad server response code"
-msgstr "Forkert serversvar kode"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s er ikke en ping URL"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, pingfejl:"
-
-msgid "Don't repeat yourself, please."
-msgstr "Lad være med at gentage dig selv."
-
-msgid "Where's your title?"
-msgstr "Hvor er din titel?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Beklager, der er opstået et internt problem."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Tak, mat. Det var en fornøjelse."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "Nogen chance du ping et af mit indhold? Nej? Virkelig?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Beklager, men du kan ikke ping denne type indhold."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Ups. Kinda \"not found\" ting. Tjek venligst mål- URLen to gange."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Desværre, dude. Denne post accepterer ikke pingback i øjeblikket."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "Din kilde URL ser ikke ud som en understøttet indholdstype. Undskyld, bye, bye!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Ingen gyldig kilde URL angivet? Prøv igen!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Ingen gyldig mål-URL angivet? Prøv igen!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Digests fil ikke fundet."
 
-msgid "No file to download"
-msgstr "Ingen fil at downloade"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "Rodmappen er ikke skrivbar."
-
-msgid "An error occurred while downloading archive."
-msgstr "Der opstod en fejl under download af arkiv."
-
-msgid "Archive not found."
-msgstr "Arkiv ikke fundet."
-
-msgid "Unable to read current digests file."
-msgstr "Kan ikke læse den aktuelle fordøjelsesfil."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Downloadet fil synes ikke at være et gyldigt arkiv."
-
-msgid "Incomplete archive."
-msgstr "Ufuldstændigt arkiv."
-
-msgid "Unable to read digests file."
-msgstr "Kan ikke læse fordøjelsesfilen."
-
-msgid "Invalid digests file."
-msgstr "Ugyldig fordøjelsesfil."
-
-msgid "Unable to retrieve prefs:"
-msgstr "Kan ikke hente prefs:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s er ikke et gyldigt pref id"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP version er %s (%s eller tidligere nødvendig)."
 
-msgid "No workspace specified"
-msgstr "Intet arbejdsområde angivet"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Multibyte string modul (mbstring) er ikke tilgængelig."
+
+msgid "Iconv module is not available."
+msgstr "Iconv module er ikke tilgængelig."
+
+msgid "Output control functions are not available."
+msgstr "Output kontrol funktioner er ikke tilgængelige."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML modul er ikke tilgængeligt."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML modul er ikke tilgængeligt."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE engine understøtter ikke UTF-8 strings."
+
+msgid "SPL module is not available."
+msgstr "SPL modul er ikke tilgængelig."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL version er %s (4.1 eller tidligere behøves)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB engine er ikke tilgængelig."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL version er %s (8.0 eller tidligere behøves)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Noget gik galt med automatisk opgradering:"
 
-msgid "Site temporarily unavailable"
-msgstr "Websted midlertidigt utilgængeligt"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE kræver en FROM kilde"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Vi undskylder for denne midlertidige utilgængelighed.<br />Tak for din forståelse.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP TABLE kræver en FROM kilde"
 
-msgid "Unable to connect to database"
-msgstr "Kan ikke forbinde til database"
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT kræver en INTO kilde"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL JOIN kræver en FROM kilde"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT kræver en FROM kilde"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL TRUNCATE TABLE kræver en FROM kilde"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL UPDATE kræver en FROM kilde"
+
+msgid "Bad range"
+msgstr "Bad range"
+
+msgid "Invalid range"
+msgstr "Invalid range"
+
+msgid "Invalid line number"
+msgstr "Ugyldigt linjenummer"
+
+msgid "Chunk is out of range"
+msgstr "Chunk er uden for rækkevidde"
+
+msgid "Bad context"
+msgstr "Dårlig kontekst"
+
+msgid "Bad context (in deletion)"
+msgstr "Dårlig kontekst (i sletning)"
+
+msgid "Invalid diff format"
+msgstr "Ugyldigt diff- format"
+
+msgid "Unable to open directory."
+msgstr "Kan ikke åbne mappe."
+
+msgid "Unable to create directory."
+msgstr "Kan ikke oprette mappe."
+
+msgid "File is not writable."
+msgstr "Filen er ikke skrivbar."
+
+msgid "Unable to open file."
+msgstr "Kan ikke åbne fil."
+
+msgid "Not an uploaded file."
+msgstr "Ikke en uploadet fil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Den uploadede fil overstiger den maksimale tilladte filstørrelse."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Den uploadede fil blev kun delvist uploadet."
+
+msgid "No file was uploaded."
+msgstr "Ingen fil blev uploadet."
+
+msgid "Missing a temporary folder."
+msgstr "Mangler en midlertidig mappe."
+
+msgid "Failed to write file to disk."
+msgstr "Kunne ikke skrive fil til disk."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "En PHP udvidelse stoppede filen upload."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Dette betyder enten, at brugernavn og adgangskodeinformation i din <strong>konfiguration. hp</strong> filen er forkert eller vi kan ikke kontakte databaseserveren på \"<em>%s</em>\". Dette kunne betyde din værts database server er nede.</p> <ul><li>Er du sikker på, at du har det korrekte brugernavn og adgangskode?</li><li>Er du sikker på, at du har skrevet det korrekte værtsnavn?</li><li>Er du sikker på, at databaseserveren kører?</li></ul><p>Hvis du er usikker på, hvad disse vilkår betyder, bør du sandsynligvis kontakte din vært. Hvis du stadig har brug for hjælp, kan du altid besøge <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s er ikke en mappe."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "Følgende fejl opstod under forsøget på at læse databasen:"
+msgid "Can't get file path"
+msgstr "Kan ikke hente filsti"
 
-msgid "No process found"
-msgstr "Ingen proces fundet"
+msgid "Can't lock a directory"
+msgstr "Kan ikke låse en mappe"
 
-msgid "Process failed"
-msgstr "Processen mislykkedes"
+msgid "Can't call php function named flock"
+msgstr "Kan ikke ringe til php funktion opkaldt flok"
+
+msgid "Can't create file"
+msgstr "Kan ikke oprette fil"
+
+msgid "Can't open file"
+msgstr "Filen kan ikke åbnes"
+
+msgid "Can't lock file"
+msgstr "Kan ikke låse fil"
+
+msgid "File cannot be removed."
+msgstr "Filen kan ikke fjernes."
+
+msgid "Not enough memory to open image."
+msgstr "Ikke nok hukommelse til at åbne billedet."
+
+msgid "Uploading this file is not allowed."
+msgstr "Upload af denne fil er ikke tilladt."
+
+msgid "Destination directory is not in jail."
+msgstr "Destinationsmappen er ikke i fængsel."
+
+msgid "File already exists."
+msgstr "Filen findes allerede."
+
+msgid "Cannot write in this directory."
+msgstr "Kan ikke skrive i denne mappe."
+
+msgid "Source file does not exist."
+msgstr "Kildefil findes ikke."
+
+msgid "File is not in jail."
+msgstr "Filen er ikke i fængsel."
+
+msgid "Destination directory is not writable."
+msgstr "Destinationsmappen er ikke skrivbar."
+
+msgid "Unable to rename file."
+msgstr "Kan ikke omdøbe fil."
+
+msgid "Directory is not in jail."
+msgstr "Mappen er ikke i fængsel."
+
+msgid "Directory cannot be removed."
+msgstr "Mappen kan ikke fjernes."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Filen %s er ikke komprimeret i zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Prøver at udpakke et mappenavn %s"
+
+msgid "Unable to write destination file."
+msgstr "Kan ikke skrive destinationsfil."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Kan ikke skrive i målmappen, tilladelse nægtet."
+
+msgid "Not enough memory to open file."
+msgstr "Ikke nok hukommelse til at åbne filen."
+
+msgid "File does not exist"
+msgstr "Filen findes ikke"
+
+msgid "Cannot read file"
+msgstr "Kan ikke læse filen"
+
+msgid "Directory does not exist"
+msgstr "Mappen findes ikke"
+
+msgid "Cannot read directory"
+msgstr "Kan ikke læse mappe"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Kunne ikke finde lukning tag for blok <tpl:%s>. Indhold er blevet ignoreret."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Uventet afslutnings tag </tpl:%s> fundet."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "ADVARSEL: Følgende fejl er fundet under parsing template file :"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear er blevet opgraderet."
@@ -2394,11 +2661,18 @@ msgstr "Alle rettigheder på denne blog."
 msgid "Change permissions"
 msgstr "Skift rettigheder"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Følgende udvidelser er blevet deaktiveret :"
+
 msgid "Theme configuration"
 msgstr "Tema konfiguration"
 
 msgid "Themes management"
 msgstr "Håndtering af temaer"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "Manuel kontrol af temaer opdatering udført."
@@ -2654,6 +2928,10 @@ msgstr "Slet alle spams"
 
 msgid "Selected comments action:"
 msgstr "Valgte kommentarers handling:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Følgende udvidelser er blevet deaktiveret :"
 
 msgid "Documentation and support"
 msgstr "Dokumentation og støtte"
@@ -3303,9 +3581,6 @@ msgstr "Personlige bemærkninger:"
 msgid "Unpublished notes."
 msgstr "Ikke-offentliggjorte noter."
 
-msgid "Preview"
-msgstr "Eksempelvisning"
-
 msgid "Add a comment"
 msgstr "Tilføj en kommentar"
 
@@ -3501,10 +3776,6 @@ msgstr "Gennemtving kontrol af opdatering Dotclear"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s er tilgængelig."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP version er %s (%s eller tidligere nødvendig)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "For at opgradere din Dotclear installation skal du blot klikke på følgende knap. En backup fil af din nuværende installation vil blive oprettet i din root-mappe."
@@ -3912,179 +4183,6 @@ msgstr "Du er ved at ændre tilladelser på følgende blogs for brugere %s."
 msgid "Validate permissions"
 msgstr "Validér tilladelser"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE kræver en FROM kilde"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL DROP TABLE kræver en FROM kilde"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT kræver en INTO kilde"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL JOIN kræver en FROM kilde"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT kræver en FROM kilde"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL TRUNCATE TABLE kræver en FROM kilde"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "SQL UPDATE kræver en FROM kilde"
-
-msgid "Bad range"
-msgstr "Bad range"
-
-msgid "Invalid range"
-msgstr "Invalid range"
-
-msgid "Invalid line number"
-msgstr "Ugyldigt linjenummer"
-
-msgid "Chunk is out of range"
-msgstr "Chunk er uden for rækkevidde"
-
-msgid "Bad context"
-msgstr "Dårlig kontekst"
-
-msgid "Bad context (in deletion)"
-msgstr "Dårlig kontekst (i sletning)"
-
-msgid "Invalid diff format"
-msgstr "Ugyldigt diff- format"
-
-msgid "Unable to open directory."
-msgstr "Kan ikke åbne mappe."
-
-msgid "Unable to create directory."
-msgstr "Kan ikke oprette mappe."
-
-msgid "File is not writable."
-msgstr "Filen er ikke skrivbar."
-
-msgid "Unable to open file."
-msgstr "Kan ikke åbne fil."
-
-msgid "Not an uploaded file."
-msgstr "Ikke en uploadet fil."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Den uploadede fil overstiger den maksimale tilladte filstørrelse."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Den uploadede fil blev kun delvist uploadet."
-
-msgid "No file was uploaded."
-msgstr "Ingen fil blev uploadet."
-
-msgid "Missing a temporary folder."
-msgstr "Mangler en midlertidig mappe."
-
-msgid "Failed to write file to disk."
-msgstr "Kunne ikke skrive fil til disk."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "En PHP udvidelse stoppede filen upload."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s er ikke en mappe."
-
-msgid "Can't get file path"
-msgstr "Kan ikke hente filsti"
-
-msgid "Can't lock a directory"
-msgstr "Kan ikke låse en mappe"
-
-msgid "Can't call php function named flock"
-msgstr "Kan ikke ringe til php funktion opkaldt flok"
-
-msgid "Can't create file"
-msgstr "Kan ikke oprette fil"
-
-msgid "Can't open file"
-msgstr "Filen kan ikke åbnes"
-
-msgid "Can't lock file"
-msgstr "Kan ikke låse fil"
-
-msgid "File cannot be removed."
-msgstr "Filen kan ikke fjernes."
-
-msgid "Not enough memory to open image."
-msgstr "Ikke nok hukommelse til at åbne billedet."
-
-msgid "Uploading this file is not allowed."
-msgstr "Upload af denne fil er ikke tilladt."
-
-msgid "Destination directory is not in jail."
-msgstr "Destinationsmappen er ikke i fængsel."
-
-msgid "File already exists."
-msgstr "Filen findes allerede."
-
-msgid "Cannot write in this directory."
-msgstr "Kan ikke skrive i denne mappe."
-
-msgid "Source file does not exist."
-msgstr "Kildefil findes ikke."
-
-msgid "File is not in jail."
-msgstr "Filen er ikke i fængsel."
-
-msgid "Destination directory is not writable."
-msgstr "Destinationsmappen er ikke skrivbar."
-
-msgid "Unable to rename file."
-msgstr "Kan ikke omdøbe fil."
-
-msgid "Directory is not in jail."
-msgstr "Mappen er ikke i fængsel."
-
-msgid "Directory cannot be removed."
-msgstr "Mappen kan ikke fjernes."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Filen %s er ikke komprimeret i zip."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Prøver at udpakke et mappenavn %s"
-
-msgid "Unable to write destination file."
-msgstr "Kan ikke skrive destinationsfil."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Kan ikke skrive i målmappen, tilladelse nægtet."
-
-msgid "Not enough memory to open file."
-msgstr "Ikke nok hukommelse til at åbne filen."
-
-msgid "File does not exist"
-msgstr "Filen findes ikke"
-
-msgid "Cannot read file"
-msgstr "Kan ikke læse filen"
-
-msgid "Directory does not exist"
-msgstr "Mappen findes ikke"
-
-msgid "Cannot read directory"
-msgstr "Kan ikke læse mappe"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "Kunne ikke finde lukning tag for blok <tpl:%s>. Indhold er blevet ignoreret."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Uventet afslutnings tag </tpl:%s> fundet."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ADVARSEL: Følgende fejl er fundet under parsing template file :"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Venligst sæt en master key (DC_MASTER_KEY) i konfigurations filen."
 
@@ -4171,38 +4269,6 @@ msgstr "Installationen kan ikke fuldføres"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Af de nævnte grunde kan Dotclear ikke installeres. Se venligst <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> for at lære at rette problemet."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Multibyte string modul (mbstring) er ikke tilgængelig."
-
-msgid "Iconv module is not available."
-msgstr "Iconv module er ikke tilgængelig."
-
-msgid "Output control functions are not available."
-msgstr "Output kontrol funktioner er ikke tilgængelige."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML modul er ikke tilgængeligt."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML modul er ikke tilgængeligt."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE engine understøtter ikke UTF-8 strings."
-
-msgid "SPL module is not available."
-msgstr "SPL modul er ikke tilgængelig."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "MySQL version er %s (4.1 eller tidligere behøves)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB engine er ikke tilgængelig."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL version er %s (8.0 eller tidligere behøves)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Sti <strong>%s</strong> er ikke skrivbar."
@@ -4287,6 +4353,9 @@ msgstr "Master Email: (bruges som afsender til password recovery)"
 
 msgid "Continue"
 msgstr "Fortsæt"
+
+#~ msgid "No process found"
+#~ msgstr "Ingen proces fundet"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

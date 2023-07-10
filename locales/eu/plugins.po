@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1881,14 +1881,6 @@ msgstr ""
 
 #, php-format
 msgid "File %s is not readable"
-msgstr ""
-
-#, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr ""
-
-#, php-format
-msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
 msgid "user:preferences"

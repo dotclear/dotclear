@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:34\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "标题"
+msgid "medium"
+msgstr "介质"
+
+msgid "small"
+msgstr "小"
+
+msgid "thumbnail"
+msgstr "缩略图"
+
+msgid "square"
+msgstr "正方形"
 
 msgid "Posts"
 msgstr "岗位"
+
+msgid "Pages"
+msgstr "页数"
+
+msgid "administrator"
+msgstr "管理员"
+
+msgid "manage all entries and comments"
+msgstr "管理所有文章和评论"
+
+msgid "manage their own entries and comments"
+msgstr "管理他们自己的文章和评论"
+
+msgid "publish entries and comments"
+msgstr "发布文章和评论"
+
+msgid "delete entries and comments"
+msgstr "删除文章和评论"
+
+msgid "manage categories"
+msgstr "管理分类目录"
+
+msgid "manage all media items"
+msgstr "管理全部媒体条目"
+
+msgid "manage their own media items"
+msgstr "管理他们自己的媒体条目"
+
+msgid "That user does not exist in the database."
+msgstr "用户在数据库中不存在。"
+
+msgid "That key does not exist in the database."
+msgstr "该键在数据库中不存在。"
+
+msgid "Pending"
+msgstr "待定"
+
+msgid "Scheduled"
+msgstr "预定的"
+
+msgid "Unpublished"
+msgstr "未发表"
+
+msgid "Published"
+msgstr "已出版"
+
+msgid "Junk"
+msgstr "垃圾"
+
+msgid "You are not allowed to add categories"
+msgstr "您不被允许添加分类目录"
+
+msgid "You are not allowed to update categories"
+msgstr "您不被允许更新分类目录"
+
+msgid "You are not allowed to delete categories"
+msgstr "您不被允许删除分类目录"
+
+msgid "This category is not empty."
+msgstr "这个分类目录非空。"
+
+msgid "You are not allowed to reset categories order"
+msgstr "你不允许重新设置类别订单"
+
+msgid "Empty category URL"
+msgstr "空的类别URL"
+
+msgid "You must provide a category title"
+msgstr "您必须提供一个分类目录标题"
+
+msgid "You must provide a category URL"
+msgstr "您必须提供一个分类目录 URL"
+
+msgid "You are not allowed to create an entry"
+msgstr "您不被允许创建一篇文章"
+
+msgid "You are not allowed to update entries"
+msgstr "您不被允许更新文章"
+
+msgid "No such entry ID"
+msgstr "没有这样的文章 ID"
+
+msgid "You are not allowed to edit this entry"
+msgstr "您不被允许编辑这篇文章"
+
+msgid "You are not allowed to change this entry status"
+msgstr "您不被允许更改这篇文章的状态"
+
+msgid "You are not allowed to change this entry category"
+msgstr "您不被允许更改这篇文章的分类目录"
+
+msgid "You are not allowed to change entries category"
+msgstr "你不允许更改参赛项目类别"
+
+msgid "You are not allowed to delete entries"
+msgstr "您不被允许删除文章"
+
+msgid "No entry title"
+msgstr "没有文章标题"
+
+msgid "No entry content"
+msgstr "没有文章内容"
+
+msgid "Notes"
+msgstr "笔记"
+
+msgid "Note"
+msgstr "注意事项"
+
+msgid "Empty entry URL"
+msgstr "空的文章 URL"
+
+msgid "You are not allowed to update comments"
+msgstr "您不被允许更新评论"
+
+msgid "No such comment ID"
+msgstr "没有这样的评论 ID"
+
+msgid "You are not allowed to update this comment"
+msgstr "您不被允许更新这个评论"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "您不被允许更改这个评论的状态"
+
+msgid "You are not allowed to delete comments"
+msgstr "您不被允许删除评论"
+
+msgid "You must provide a comment"
+msgstr "您必须提供一个评论"
+
+msgid "You must provide an author name"
+msgstr "您必需提供一个作者姓名"
+
+msgid "Email address is not valid."
+msgstr "邮箱地址无效。"
+
+msgid "online"
+msgstr "在线"
+
+msgid "offline"
+msgstr "不在线"
+
+msgid "removed"
+msgstr "已移除"
+
+msgid "You are not an administrator"
+msgstr "您不是管理员"
+
+msgid "No user ID given"
+msgstr "没有指定用户 ID"
+
+msgid "No password given"
+msgstr "没有指定密码"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "用户 ID 必须包含至少 2 个字符，使用字母、数字或者符号。"
+
+msgid "Password must contain at least 6 characters."
+msgstr "密码必须包含不少于 6 个字符。"
+
+msgid "Invalid user language code"
+msgstr "无效的用户语言代码"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "博客 ID 必须包含至少2个字符，使用字母、数字或符号。"
+
+msgid "No blog name"
+msgstr "没有博客名称"
+
+msgid "No blog URL"
+msgstr "没有博客 URL"
+
+msgid "No log message"
+msgstr "没有日志信息"
+
+msgid "unknown"
+msgstr "未知"
+
+msgid "No blog defined."
+msgstr "没有博客被定义。"
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "在about:config \"public_path \"中设置的位置没有可写目录/public/。你必须以足够的权限创建这个目录（或者改变这个设置）。"
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "媒体管理器没有可写的根目录。你应该联系你的管理员。"
+
+msgid "You are not a super administrator."
+msgstr "您不是超级管理员。"
+
+msgid "Permission denied."
+msgstr "权限被拒绝。"
+
+msgid "You are not the file owner."
+msgstr "您不是文件的所有者。"
+
+msgid "This file is not allowed."
+msgstr "这个文件是不允许的。"
+
+msgid "New file already exists."
+msgstr "新文件已经存在。"
+
+msgid "File does not exist in the database."
+msgstr "文件在数据库中不存在。"
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "解压缩目标目录 %s 已经存在。"
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "需要 %s ，该模块尚未安装"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "需要 %s 版本 %s，但已安装了 %s 版本"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "需要 %s ，该模块已被禁用。"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "模块 \"%s\" 的类型 \"%s\" 与需要的模块类型 \"%s\" 不匹配。"
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "模块 \"%s\" 被安装在 \"%s\" 和 \"%s\" 中两次。"
+
+msgid "Empty module zip file."
+msgstr "空的模块 zip 文件。"
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "这个 zip 文件似乎不是一个有效的 Dotclear 模块。"
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "无法升级 \"%s\"。（更新被锁定）"
+
+msgid "An error occurred during module deletion."
+msgstr "模块删除时出现错误。"
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "无法升级到“%s”。（版本相同）"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "无法读取新的 %s 文件"
+
+msgid "Cannot deactivate plugin."
+msgstr "无法禁用插件。"
+
+msgid "No such module."
+msgstr "没有这样的模块。"
+
+msgid "Cannot remove module files"
+msgstr "无法移除模块文件"
+
+msgid "Cannot activate plugin."
+msgstr "无法激活插件。"
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "无效设置dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "无法检索设置："
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s 不是一个有效的设置 ID"
+
+msgid "No namespace specified"
+msgstr "没有指定命名空间"
+
+msgid "No notice message"
+msgstr "没有通知信息"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "无法检索工作空间："
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "无效的dcWorkspace: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "无法检索命名空间："
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "无效的设置命名空间：%s"
+
+msgid "Wrong data feed"
+msgstr "错误的数据输入"
+
+msgid "An error occurred while downloading the file."
+msgstr "当下载这个文件时产生错误。"
+
+msgid "Themes folder unreachable"
+msgstr "主题文件夹无法访问"
+
+msgid "Themes folder unreadable"
+msgstr "主题文件夹无法读取"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (副本 #%s)"
+
+msgid " (copy)"
+msgstr " (副本)"
+
+msgid "Unable to modify _define.php"
+msgstr "无法修改_define.php"
+
+msgid "Destination folder already exist"
+msgstr "目标文件夹已经存在"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s 已经被 ping"
+
+msgid "Unable to ping URL"
+msgstr "无法 ping URL"
+
+msgid "Bad server response code"
+msgstr "错误的服务器响应代码"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s 不是一个 ping URL"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s，ping 错误："
+
+msgid "Don't repeat yourself, please."
+msgstr "请不要重复自己的观点。"
+
+msgid "Where's your title?"
+msgstr "你的头衔在哪里？"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "对不起，发生了一个内部问题。"
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "谢谢你，伙计。这是我的荣幸。"
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "你能不能呼唤一下我的一个内容？没有吗？真的吗？"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "很抱歉，你不能平移这种类型的内容。"
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "哎呀。有点像 \"未找到 \"的东西。请检查目标URL两次。"
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "对不起，老兄。此条目目前不接受pingback。"
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "你的源URL看起来不像是一个支持的内容类型。对不起。拜拜！拜拜！拜拜"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "没有提供有效的源网址？请再试一次!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "没有提供有效的目标URL？再试一次!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "摘要文件未找到。"
+
+msgid "No file to download"
+msgstr "没有要下载的文件"
+
+msgid "Root directory is not writable."
+msgstr "根目录不可写。"
+
+msgid "An error occurred while downloading archive."
+msgstr "下载压缩文件时产生错误。"
+
+msgid "Archive not found."
+msgstr "压缩文件未找到。"
+
+msgid "Unable to read current digests file."
+msgstr "无法读取现有的摘要文件。"
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "下载的文件似乎不是一个有效的存档。"
+
+msgid "Incomplete archive."
+msgstr "压缩文件不完整。"
+
+msgid "Unable to read digests file."
+msgstr "无法读取摘要文件。"
+
+msgid "Invalid digests file."
+msgstr "无效的摘要文件。"
+
+msgid "Unable to retrieve prefs:"
+msgstr "无法检索prefs："
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s 不是一个有效的pref id"
+
+msgid "No workspace specified"
+msgstr "没有指定工作区"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "无法删除文件 %s"
+
+msgid "Process failed"
+msgstr "过程失败"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "摘要文件未找到。"
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "没有Dotclear的新闻"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "没有发现结果"
+
+msgid "Site temporarily unavailable"
+msgstr "网站暂时无法使用"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>我们对这种暂时性的无法使用表示歉意。<br />谢谢你的理解。</p>"
+
+msgid "Unable to connect to database"
+msgstr "无法连接到数据库"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>这要么意味着你的 <strong>config.php</strong> 文件中的用户名和密码信息不正确，要么我们无法联系数据库服务器 \"<em>%s</em>\"。这可能意味着你的主机的数据库服务器发生了故障。</p> <ul><li>你确定你有正确的用户名和密码吗？</li><li>你确定你输入的是正确的主机名吗？</li><li>你确定数据库服务器正在运行吗？</li></ul><p>如果你不确定这些术语的含义，你可能应该联系你的主机。如果你仍然需要帮助，你可以随时访问 <a href=\"https://forum.dotclear.net/\">Dotclear支持论坛</a>。</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "在试图读取数据库时，遇到了以下错误："
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "标题"
 
 msgid "Blogs"
 msgstr "博客"
@@ -245,73 +711,6 @@ msgstr "最多使用"
 msgid "Entry language:"
 msgstr "入境语言："
 
-msgid "Database error"
-msgstr "数据库错误"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "你的数据库中似乎没有会话表。Dotclear是否已经完全安装？"
-
-msgid "Precondition Failed"
-msgstr "前提条件失败"
-
-msgid "System settings"
-msgstr "系统设置"
-
-msgid "Blog"
-msgstr "博客"
-
-msgid "Plugins"
-msgstr "插件"
-
-msgid "Blog appearance"
-msgstr "博客外观"
-
-msgid "Blog settings"
-msgstr "博客设置"
-
-msgid "Media manager"
-msgstr "媒体管理中心"
-
-msgid "Categories"
-msgstr "分类目录"
-
-msgid "Search"
-msgstr "搜索"
-
-msgid "New post"
-msgstr "新文章"
-
-msgid "My preferences"
-msgstr "我的偏好"
-
-msgid "Update"
-msgstr "更新"
-
-msgid "Languages"
-msgstr "语言"
-
-msgid "Plugins management"
-msgstr "插件管理"
-
-msgid "Users"
-msgstr "用户"
-
-msgid "My favorites"
-msgstr "我的最爱"
-
-msgid "Global help"
-msgstr "全球帮助"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d 帖子"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d 个评论"
-
 msgid "Descending"
 msgstr "降序"
 
@@ -339,11 +738,11 @@ msgstr "文章标题"
 msgid "Entry date"
 msgstr "进入日期"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "垃圾邮件过滤器"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "最后更新"
@@ -366,35 +765,90 @@ msgstr "显示的名字"
 msgid "Number of entries"
 msgstr "文章数目"
 
-msgid "Show filters and display options"
-msgstr "显示过滤器和显示选项"
+msgid "My favorites"
+msgstr "我的最爱"
 
-msgid "Filters"
-msgstr "过滤器"
+msgid "My preferences"
+msgstr "我的偏好"
 
-msgid "Display options"
-msgstr "显示选项"
+msgid "New post"
+msgstr "新文章"
 
-msgid "Order by:"
-msgstr "排序依据："
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d 帖子"
 
-msgid "Sort:"
-msgstr "排序："
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d 个评论"
 
-msgid "Show"
-msgstr "显示"
+msgid "Search"
+msgstr "搜索"
 
-msgid "Save current options"
-msgstr "保存当前选项"
+msgid "Categories"
+msgstr "分类目录"
 
-msgid "Apply filters and display options"
-msgstr "应用过滤器和显示选项"
+msgid "Media manager"
+msgstr "媒体管理中心"
+
+msgid "Blog settings"
+msgstr "博客设置"
+
+msgid "Blog appearance"
+msgstr "博客外观"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Plugins management"
+msgstr "插件管理"
+
+msgid "Languages"
+msgstr "语言"
+
+msgid "Global help"
+msgstr "全球帮助"
+
+msgid "Status:"
+msgstr "状态："
+
+msgid "Email:"
+msgstr "邮箱："
+
+msgid "Web site:"
+msgstr "网站："
 
 msgid "Author:"
 msgstr "作者："
 
-msgid "Status:"
-msgstr "状态："
+msgid "Type:"
+msgstr "类型："
+
+msgid "Comment"
+msgstr "评论"
+
+msgid "Trackback"
+msgstr "回溯"
+
+msgid "IP address:"
+msgstr "IP 地址："
+
+msgid "Media type:"
+msgstr "媒体类型："
+
+msgid "image"
+msgstr "形象"
+
+msgid "text"
+msgstr "文本"
+
+msgid "audio"
+msgstr "音频"
+
+msgid "video"
+msgstr "视频"
 
 msgid "Format:"
 msgstr "格式："
@@ -441,56 +895,148 @@ msgstr "关闭"
 msgid "Trackbacks:"
 msgstr "个 trackback:"
 
-msgid "Email:"
-msgstr "邮箱："
+msgid "Show filters and display options"
+msgstr "显示过滤器和显示选项"
 
-msgid "Web site:"
-msgstr "网站："
+msgid "Filters"
+msgstr "过滤器"
 
-msgid "Type:"
-msgstr "类型："
+msgid "Display options"
+msgstr "显示选项"
 
-msgid "Comment"
-msgstr "评论"
+msgid "Order by:"
+msgstr "排序依据："
 
-msgid "Trackback"
-msgstr "回溯"
+msgid "Sort:"
+msgstr "排序："
 
-msgid "IP address:"
-msgstr "IP 地址："
+msgid "Show"
+msgstr "显示"
 
-msgid "Media type:"
-msgstr "媒体类型："
+msgid "Save current options"
+msgstr "保存当前选项"
 
-msgid "image"
-msgstr "形象"
-
-msgid "text"
-msgstr "文本"
-
-msgid "audio"
-msgstr "音频"
-
-msgid "video"
-msgstr "视频"
+msgid "Apply filters and display options"
+msgstr "应用过滤器和显示选项"
 
 msgid "Search:"
 msgstr "搜索："
 
-msgid "Trackbacks"
-msgstr "个 trackback"
+msgid "&#171; prev."
+msgstr "&#171; 上一个。"
 
-msgid "users per page"
-msgstr "每页用户数"
+msgid "next &#187;"
+msgstr "下一页 &#187;"
 
-msgid "entries per page"
-msgstr "每页的条目"
+msgid "No blog matches the filter"
+msgstr "没有符合过滤器的博客"
 
-msgid "comments per page"
-msgstr "每页的评论"
+msgid "No blog"
+msgstr "没有博客"
 
-msgid "blogs per page"
-msgstr "每页的博客"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "参赛作品（所有类型）"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d 博客与过滤器相匹配。"
+
+msgid "Blogs list"
+msgstr "博客列表"
+
+msgid "Legend: "
+msgstr "传说： "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "编辑博客设置， %s"
+
+msgid "Edit blog settings"
+msgstr "编辑博客设置"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "切换到博客 %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "没有符合过滤器的评论或回帖"
+
+msgid "No comments"
+msgstr "没有评论"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "%s 匹配过滤器的评论或回溯的列表。"
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "评论和回帖列表 (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">发表</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">spam</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">等待</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">未发表</a> (%s)"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Entry"
+msgstr "入职"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "编辑 %1$s ，从 %2$s"
+
+msgid "comment"
+msgstr "评论"
+
+msgid "trackback"
+msgstr "回轨"
+
+msgid "Type and author"
+msgstr "类型和作者"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "No file matches the filter"
+msgstr "没有符合过滤器的文件"
+
+msgid "No file."
+msgstr "没有文件。"
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d 文件符合过滤器的要求。"
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "项目的数量： %d → %d folder(s) + %d file(s)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "项目的数量： %d"
 
 msgid "Name"
 msgstr "命名"
@@ -498,11 +1044,347 @@ msgstr "命名"
 msgid "Size"
 msgstr "尺寸"
 
-msgid "media per page"
-msgstr "每页的媒体"
+msgid "Select this file"
+msgstr "选择该文件"
 
-msgid "results per page"
-msgstr "每页的结果"
+msgid "Attach this file to entry"
+msgstr "附加这个文件到文章"
+
+msgid "Insert this file into entry"
+msgstr "插入这个文件到文章中"
+
+msgid "delete"
+msgstr "删除"
+
+msgid "private media"
+msgstr "私人媒体"
+
+msgid "open"
+msgstr "打开"
+
+msgid "No entry matches the filter"
+msgstr "没有符合过滤器的条目"
+
+msgid "No entry"
+msgstr "没有文章"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "匹配过滤器的 %s 条目列表。"
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "条目列表 (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">编程</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "个 trackback"
+
+msgid "Protected"
+msgstr "受保护的"
+
+msgid "Attachments"
+msgstr "附件"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d 个附件"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d 个附件"
+
+msgid "Entries list"
+msgstr "参赛作品列表"
+
+msgid "No user matches the filter"
+msgstr "没有符合过滤器的用户"
+
+msgid "No user"
+msgstr "没有用户"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "%s 用户的列表，符合过滤器。"
+
+msgid "Users list"
+msgstr "用户列表"
+
+msgid "admin"
+msgstr "管理员"
+
+msgid "superadmin"
+msgstr "超级管理员"
+
+msgid "First page"
+msgstr "第一页"
+
+msgid "Previous page"
+msgstr "上一页"
+
+msgid "Next page"
+msgstr "下一页"
+
+msgid "Last page"
+msgstr "最后一页"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "页码 %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "直接访问页面 %s"
+
+msgid "ok"
+msgstr "确定"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s 找到的文件"
+
+msgid "Blog"
+msgstr "博客"
+
+msgid "System settings"
+msgstr "系统设置"
+
+msgid "Plugins"
+msgstr "插件"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "other"
+msgstr "其他"
+
+msgid "Search in repository:"
+msgstr "在存储库中搜索："
+
+msgid "OK"
+msgstr "认可"
+
+msgid "Reset search"
+msgstr "重置搜索"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "允许对超过2个字符的多个术语进行搜索，术语之间必须用空格分隔。"
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "找到 %d 搜索结果 \"%s\"："
+
+msgid "current selection"
+msgstr "当前选择"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d 结果"
+
+msgid "no results"
+msgstr "没有结果"
+
+msgid "Browse index:"
+msgstr "浏览索引："
+
+msgid "Plugins list"
+msgstr "插件列表"
+
+msgid "Score"
+msgstr "分数"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Current version"
+msgstr "当前版本"
+
+msgid "Details"
+msgstr "详情"
+
+msgid "Repository"
+msgstr "存储库"
+
+msgid "Action"
+msgstr "动作"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "该模块不能被禁用，也不能被删除，因为以下模块也被启用： %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "由于以下原因，该模块不能被启用："
+
+msgid "Official repository"
+msgstr "官方储存库"
+
+msgid "Third-party repository"
+msgstr "第三方资源库"
+
+msgid "Plugin from official distribution"
+msgstr "来自官方发布的插件"
+
+msgid "Plugin in development"
+msgstr "开发中的插件"
+
+msgid "Support"
+msgstr "支持"
+
+msgid "update locked"
+msgstr "更新锁定"
+
+msgid "Section:"
+msgstr "节："
+
+msgid "Tags:"
+msgstr "标签:"
+
+msgid "No plugins matched your search."
+msgstr "没有符合您搜索的插件。"
+
+msgid "Configure plugin"
+msgstr "配置插件"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "插件设置（在博客参数中）"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "插件设置（在用户首选项中）"
+
+msgid "Plugin settings"
+msgstr "插件设置"
+
+msgid "Plugin main page"
+msgstr "插件主页面"
+
+msgid "Activate"
+msgstr "激活"
+
+msgid "Deactivate"
+msgstr "禁用"
+
+msgid "Clone"
+msgstr "克隆"
+
+msgid "Install"
+msgstr "安装"
+
+msgid "Activate selected plugins"
+msgstr "激活选定的插件"
+
+msgid "Activate all plugins from this list"
+msgstr "激活此列表中的所有插件"
+
+msgid "Deactivate selected plugins"
+msgstr "停用选定的插件"
+
+msgid "Deactivate all plugins from this list"
+msgstr "停用此列表中的所有插件"
+
+msgid "Update selected plugins"
+msgstr "更新选定的插件"
+
+msgid "Update all plugins from this list"
+msgstr "更新此列表中的所有插件"
+
+msgid "No such plugin."
+msgstr "没有这样的插件。"
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "您没有删除这个插件的权限。"
+
+msgid "Some plugins have not been delete."
+msgstr "一些插件还没有被删除。"
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "插件已被成功删除。"
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "插件已成功安装。"
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "插件已被成功激活。"
+
+msgid "Some plugins have not been deactivated."
+msgstr "一些插件还没有被停用。"
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "插件已被成功地停用。"
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "插件已成功更新。"
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "以下插件的更新被锁定: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "无法移动上传的文件。"
+
+msgid "The plugin has been successfully updated."
+msgstr "该插件已被成功更新。"
+
+msgid "The plugin has been successfully installed."
+msgstr "该插件已成功安装。"
+
+msgid "Upload a zip file"
+msgstr "上传一个 zip 文件"
+
+msgid "Required field"
+msgstr "必添字段"
+
+msgid "Zip file path:"
+msgstr "Zip文件路径："
+
+msgid "Your password:"
+msgstr "您的密码："
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Download a zip file"
+msgstr "下载一个 zip 文件"
+
+msgid "Zip file URL:"
+msgstr "Zip文件的URL："
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Unknown plugin ID"
+msgstr "未知的插件ID"
+
+msgid "This plugin has no configuration file."
+msgstr "这个插件没有配置文件。"
+
+msgid "Insufficient permissions"
+msgstr "许可证不充分"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "配置 \"%s\""
+
+msgid "Back"
+msgstr "溯源"
 
 msgid "Error:"
 msgstr "错误："
@@ -521,9 +1403,6 @@ msgstr "改变博客"
 
 msgid "Blogs:"
 msgstr "博客："
-
-msgid "ok"
-msgstr "确定"
 
 msgid "Go to the content"
 msgstr "转到内容"
@@ -555,9 +1434,6 @@ msgstr "安全模式"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "您现在处于安全模式。所有的插件已被暂时禁用。提醒您先退出，然后再正常登录，以恢复所有功能。"
-
-msgid "OK"
-msgstr "认可"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -730,20 +1606,8 @@ msgstr "警告：帖子格式的改变将不会转换现有的内容。你将需
 msgid "Loading enhanced uploader, please wait."
 msgstr "正在加载增强的上传程序，请等待。"
 
-msgid "Details"
-msgstr "详情"
-
-msgid "Support"
-msgstr "支持"
-
 msgid "Help:"
 msgstr "帮助："
-
-msgid "Section:"
-msgstr "节："
-
-msgid "Tags:"
-msgstr "标签:"
 
 msgid "Hide this notice"
 msgstr "隐藏此通知"
@@ -796,9 +1660,6 @@ msgstr "取消"
 msgid "Clean"
 msgstr "清除"
 
-msgid "Upload"
-msgstr "上传"
-
 msgid "Send"
 msgstr "发送"
 
@@ -822,220 +1683,35 @@ msgid "Cancel filters and display options"
 msgstr "取消过滤器和显示选项"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s 找到的文件"
-
-msgid "other"
-msgstr "其他"
-
-msgid "Search in repository:"
-msgstr "在存储库中搜索："
-
-msgid "Reset search"
-msgstr "重置搜索"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "允许对超过2个字符的多个术语进行搜索，术语之间必须用空格分隔。"
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "找到 %d 搜索结果 \"%s\"："
+msgid "ratio %.1f"
+msgstr "比率 %.1f"
 
-msgid "current selection"
-msgstr "当前选择"
-
-#, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d 结果"
-
-msgid "no results"
-msgstr "没有结果"
-
-msgid "Browse index:"
-msgstr "浏览索引："
-
-msgid "Plugins list"
-msgstr "插件列表"
-
-msgid "Score"
-msgstr "分数"
-
-msgid "Version"
-msgstr "版本"
-
-msgid "Current version"
-msgstr "当前版本"
-
-msgid "Repository"
-msgstr "存储库"
-
-msgid "Action"
-msgstr "动作"
+msgid "The 'public' directory does not exist."
+msgstr "公共 \"目录不存在。"
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
+msgid "The '%s' directory cannot be modified."
+msgstr "'%s'目录不能被修改。"
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "以下函数中至少有一个不可用：imagecreatetruecolor, imagepng & imagecreatefrompng。"
+
+msgid "Unable to create images."
+msgstr "无法创建图像。"
+
+msgid "Invalid file type."
+msgstr "无效的文件类型。"
+
+msgid "An error occurred while writing the file."
+msgstr "写入文件时出现错误。"
 
 #, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "该模块不能被禁用，也不能被删除，因为以下模块也被启用： %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "由于以下原因，该模块不能被启用："
-
-msgid "Official repository"
-msgstr "官方储存库"
-
-msgid "Third-party repository"
-msgstr "第三方资源库"
-
-msgid "Plugin from official distribution"
-msgstr "来自官方发布的插件"
-
-msgid "Plugin in development"
-msgstr "开发中的插件"
-
-msgid "update locked"
-msgstr "更新锁定"
-
-msgid "No plugins matched your search."
-msgstr "没有符合您搜索的插件。"
-
-msgid "Configure plugin"
-msgstr "配置插件"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "插件设置（在博客参数中）"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "插件设置（在用户首选项中）"
-
-msgid "Plugin settings"
-msgstr "插件设置"
-
-msgid "Plugin main page"
-msgstr "插件主页面"
-
-msgid "Activate"
-msgstr "激活"
-
-msgid "Deactivate"
-msgstr "禁用"
-
-msgid "Clone"
-msgstr "克隆"
-
-msgid "Install"
-msgstr "安装"
-
-msgid "Activate selected plugins"
-msgstr "激活选定的插件"
-
-msgid "Activate all plugins from this list"
-msgstr "激活此列表中的所有插件"
-
-msgid "Deactivate selected plugins"
-msgstr "停用选定的插件"
-
-msgid "Deactivate all plugins from this list"
-msgstr "停用此列表中的所有插件"
-
-msgid "Update selected plugins"
-msgstr "更新选定的插件"
-
-msgid "Update all plugins from this list"
-msgstr "更新此列表中的所有插件"
-
-msgid "No such plugin."
-msgstr "没有这样的插件。"
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "您没有删除这个插件的权限。"
-
-msgid "Some plugins have not been delete."
-msgstr "一些插件还没有被删除。"
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "插件已被成功删除。"
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "插件已成功安装。"
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "插件已被成功激活。"
-
-msgid "Some plugins have not been deactivated."
-msgstr "一些插件还没有被停用。"
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "插件已被成功地停用。"
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "插件已成功更新。"
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "以下插件的更新被锁定: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "无法移动上传的文件。"
-
-msgid "The plugin has been successfully updated."
-msgstr "该插件已被成功更新。"
-
-msgid "The plugin has been successfully installed."
-msgstr "该插件已成功安装。"
-
-msgid "Upload a zip file"
-msgstr "上传一个 zip 文件"
-
-msgid "Required field"
-msgstr "必添字段"
-
-msgid "Zip file path:"
-msgstr "Zip文件路径："
-
-msgid "Your password:"
-msgstr "您的密码："
-
-msgid "Password"
-msgstr "密码"
-
-msgid "Download a zip file"
-msgstr "下载一个 zip 文件"
-
-msgid "Zip file URL:"
-msgstr "Zip文件的URL："
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "下载"
-
-msgid "Unknown plugin ID"
-msgstr "未知的插件ID"
-
-msgid "This plugin has no configuration file."
-msgstr "这个插件没有配置文件。"
-
-msgid "Insufficient permissions"
-msgstr "许可证不充分"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "配置 \"%s\""
-
-msgid "Back"
-msgstr "溯源"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "上传的图片没有 %s 像素宽。"
 
 #, php-format
 msgid "Score: %s"
@@ -1076,6 +1752,9 @@ msgstr "没有符合您搜索的主题。"
 
 msgid "Use this one"
 msgstr "使用这个"
+
+msgid "Preview"
+msgstr "预览"
 
 msgid "Update selected themes"
 msgstr "更新选定的主题"
@@ -1133,693 +1812,281 @@ msgstr "该主题已成功更新。"
 msgid "The theme has been successfully installed."
 msgstr "该主题已成功安装。"
 
-msgid "First page"
-msgstr "第一页"
+msgid "users per page"
+msgstr "每页用户数"
 
-msgid "Previous page"
-msgstr "上一页"
+msgid "entries per page"
+msgstr "每页的条目"
 
-msgid "Next page"
-msgstr "下一页"
+msgid "comments per page"
+msgstr "每页的评论"
 
-msgid "Last page"
-msgstr "最后一页"
+msgid "blogs per page"
+msgstr "每页的博客"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "页码 %s / %s"
+msgid "media per page"
+msgstr "每页的媒体"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "直接访问页面 %s"
+msgid "results per page"
+msgstr "每页的结果"
 
-msgid "&#171; prev."
-msgstr "&#171; 上一个。"
+msgid "Database error"
+msgstr "数据库错误"
 
-msgid "next &#187;"
-msgstr "下一页 &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "你的数据库中似乎没有会话表。Dotclear是否已经完全安装？"
 
-msgid "No entry matches the filter"
-msgstr "没有符合过滤器的条目"
+msgid "Precondition Failed"
+msgstr "前提条件失败"
 
-msgid "No entry"
-msgstr "没有文章"
+#, fuzzy
+msgid "Database problem"
+msgstr "数据库错误"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "匹配过滤器的 %s 条目列表。"
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "在试图读取数据库时，遇到了以下错误："
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "条目列表 (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">发表</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">等待</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">编程</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">未发表</a> (%s)"
-
-msgid "Legend: "
-msgstr "传说： "
-
-msgid "Published"
-msgstr "已出版"
-
-msgid "Unpublished"
-msgstr "未发表"
-
-msgid "Scheduled"
-msgstr "预定的"
-
-msgid "Pending"
-msgstr "待定"
-
-msgid "Protected"
-msgstr "受保护的"
-
-msgid "Attachments"
-msgstr "附件"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d 个附件"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d 个附件"
-
-msgid "Entries list"
-msgstr "参赛作品列表"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "没有符合过滤器的评论或回帖"
-
-msgid "No comments"
-msgstr "没有评论"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "%s 匹配过滤器的评论或回溯的列表。"
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "评论和回帖列表 (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (%s)"
-
-msgid "Type"
-msgstr "类型"
-
-msgid "Entry"
-msgstr "入职"
-
-msgid "Junk"
-msgstr "垃圾"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "编辑 %1$s ，从 %2$s"
-
-msgid "comment"
-msgstr "评论"
-
-msgid "trackback"
-msgstr "回轨"
-
-msgid "Type and author"
-msgstr "类型和作者"
-
-msgid "Edit"
-msgstr "编辑"
-
-msgid "No blog matches the filter"
-msgstr "没有符合过滤器的博客"
-
-msgid "No blog"
-msgstr "没有博客"
-
-msgid "Entries (all types)"
-msgstr "参赛作品（所有类型）"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d 博客与过滤器相匹配。"
-
-msgid "Blogs list"
-msgstr "博客列表"
-
-msgid "online"
-msgstr "在线"
-
-msgid "offline"
-msgstr "不在线"
-
-msgid "removed"
-msgstr "已移除"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "编辑博客设置， %s"
-
-msgid "Edit blog settings"
-msgstr "编辑博客设置"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "切换到博客 %s"
-
-msgid "No user matches the filter"
-msgstr "没有符合过滤器的用户"
-
-msgid "No user"
-msgstr "没有用户"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "%s 用户的列表，符合过滤器。"
-
-msgid "Users list"
-msgstr "用户列表"
-
-msgid "admin"
-msgstr "管理员"
-
-msgid "superadmin"
-msgstr "超级管理员"
-
-msgid "No file matches the filter"
-msgstr "没有符合过滤器的文件"
-
-msgid "No file."
-msgstr "没有文件。"
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d 文件符合过滤器的要求。"
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "项目的数量： %d → %d folder(s) + %d file(s)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "项目的数量： %d"
-
-msgid "Select this file"
-msgstr "选择该文件"
-
-msgid "Attach this file to entry"
-msgstr "附加这个文件到文章"
-
-msgid "Insert this file into entry"
-msgstr "插入这个文件到文章中"
-
-msgid "delete"
-msgstr "删除"
-
-msgid "private media"
-msgstr "私人媒体"
-
-msgid "open"
-msgstr "打开"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "比率 %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "公共 \"目录不存在。"
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "'%s'目录不能被修改。"
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "以下函数中至少有一个不可用：imagecreatetruecolor, imagepng & imagecreatefrompng。"
-
-msgid "Unable to create images."
-msgstr "无法创建图像。"
-
-msgid "Invalid file type."
-msgstr "无效的文件类型。"
-
-msgid "An error occurred while writing the file."
-msgstr "写入文件时出现错误。"
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "上传的图片没有 %s 像素宽。"
-
-msgid "medium"
-msgstr "介质"
-
-msgid "small"
-msgstr "小"
-
-msgid "thumbnail"
-msgstr "缩略图"
-
-msgid "square"
-msgstr "正方形"
-
-msgid "Pages"
-msgstr "页数"
-
-msgid "administrator"
-msgstr "管理员"
-
-msgid "manage all entries and comments"
-msgstr "管理所有文章和评论"
-
-msgid "manage their own entries and comments"
-msgstr "管理他们自己的文章和评论"
-
-msgid "publish entries and comments"
-msgstr "发布文章和评论"
-
-msgid "delete entries and comments"
-msgstr "删除文章和评论"
-
-msgid "manage categories"
-msgstr "管理分类目录"
-
-msgid "manage all media items"
-msgstr "管理全部媒体条目"
-
-msgid "manage their own media items"
-msgstr "管理他们自己的媒体条目"
-
-msgid "That user does not exist in the database."
-msgstr "用户在数据库中不存在。"
-
-msgid "That key does not exist in the database."
-msgstr "该键在数据库中不存在。"
-
-msgid "You are not allowed to add categories"
-msgstr "您不被允许添加分类目录"
-
-msgid "You are not allowed to update categories"
-msgstr "您不被允许更新分类目录"
-
-msgid "You are not allowed to delete categories"
-msgstr "您不被允许删除分类目录"
-
-msgid "This category is not empty."
-msgstr "这个分类目录非空。"
-
-msgid "You are not allowed to reset categories order"
-msgstr "你不允许重新设置类别订单"
-
-msgid "Empty category URL"
-msgstr "空的类别URL"
-
-msgid "You must provide a category title"
-msgstr "您必须提供一个分类目录标题"
-
-msgid "You must provide a category URL"
-msgstr "您必须提供一个分类目录 URL"
-
-msgid "You are not allowed to create an entry"
-msgstr "您不被允许创建一篇文章"
-
-msgid "You are not allowed to update entries"
-msgstr "您不被允许更新文章"
-
-msgid "No such entry ID"
-msgstr "没有这样的文章 ID"
-
-msgid "You are not allowed to edit this entry"
-msgstr "您不被允许编辑这篇文章"
-
-msgid "You are not allowed to change this entry status"
-msgstr "您不被允许更改这篇文章的状态"
-
-msgid "You are not allowed to change this entry category"
-msgstr "您不被允许更改这篇文章的分类目录"
-
-msgid "You are not allowed to change entries category"
-msgstr "你不允许更改参赛项目类别"
-
-msgid "You are not allowed to delete entries"
-msgstr "您不被允许删除文章"
-
-msgid "No entry title"
-msgstr "没有文章标题"
-
-msgid "No entry content"
-msgstr "没有文章内容"
-
-msgid "Notes"
-msgstr "笔记"
-
-msgid "Note"
-msgstr "注意事项"
-
-msgid "Empty entry URL"
-msgstr "空的文章 URL"
-
-msgid "You are not allowed to update comments"
-msgstr "您不被允许更新评论"
-
-msgid "No such comment ID"
-msgstr "没有这样的评论 ID"
-
-msgid "You are not allowed to update this comment"
-msgstr "您不被允许更新这个评论"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "您不被允许更改这个评论的状态"
-
-msgid "You are not allowed to delete comments"
-msgstr "您不被允许删除评论"
-
-msgid "You must provide a comment"
-msgstr "您必须提供一个评论"
-
-msgid "You must provide an author name"
-msgstr "您必需提供一个作者姓名"
-
-msgid "Email address is not valid."
-msgstr "邮箱地址无效。"
-
-msgid "You are not an administrator"
-msgstr "您不是管理员"
-
-msgid "No user ID given"
-msgstr "没有指定用户 ID"
-
-msgid "No password given"
-msgstr "没有指定密码"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "用户 ID 必须包含至少 2 个字符，使用字母、数字或者符号。"
-
-msgid "Password must contain at least 6 characters."
-msgstr "密码必须包含不少于 6 个字符。"
-
-msgid "Invalid user language code"
-msgstr "无效的用户语言代码"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "博客 ID 必须包含至少2个字符，使用字母、数字或符号。"
-
-msgid "No blog name"
-msgstr "没有博客名称"
-
-msgid "No blog URL"
-msgstr "没有博客 URL"
-
-msgid "No log message"
-msgstr "没有日志信息"
-
-msgid "unknown"
-msgstr "未知"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "没有博客被定义。"
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "在about:config \"public_path \"中设置的位置没有可写目录/public/。你必须以足够的权限创建这个目录（或者改变这个设置）。"
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "媒体管理器没有可写的根目录。你应该联系你的管理员。"
+#, fuzzy
+msgid "Blog is offline."
+msgstr "这个博客不在线"
 
-msgid "You are not a super administrator."
-msgstr "您不是超级管理员。"
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "这个博客不在线"
 
-msgid "Permission denied."
-msgstr "权限被拒绝。"
+#, fuzzy
+msgid "Can't create template files."
+msgstr "不能创建文件"
 
-msgid "You are not the file owner."
-msgstr "您不是文件的所有者。"
-
-msgid "This file is not allowed."
-msgstr "这个文件是不允许的。"
-
-msgid "New file already exists."
-msgstr "新文件已经存在。"
-
-msgid "File does not exist in the database."
-msgstr "文件在数据库中不存在。"
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "解压缩目标目录 %s 已经存在。"
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "需要 %s ，该模块尚未安装"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "需要 %s 版本 %s，但已安装了 %s 版本"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "需要 %s ，该模块已被禁用。"
-
-msgid "The following extensions have been disabled :"
-msgstr "以下扩展功能已被禁用："
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "模块 \"%s\" 的类型 \"%s\" 与需要的模块类型 \"%s\" 不匹配。"
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "模块 \"%s\" 被安装在 \"%s\" 和 \"%s\" 中两次。"
-
-msgid "Empty module zip file."
-msgstr "空的模块 zip 文件。"
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "这个 zip 文件似乎不是一个有效的 Dotclear 模块。"
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "无法升级 \"%s\"。（更新被锁定）"
-
-msgid "An error occurred during module deletion."
-msgstr "模块删除时出现错误。"
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "无法升级到“%s”。（版本相同）"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "无法读取新的 %s 文件"
-
-msgid "Cannot deactivate plugin."
-msgstr "无法禁用插件。"
-
-msgid "No such module."
-msgstr "没有这样的模块。"
-
-msgid "Cannot remove module files"
-msgstr "无法移除模块文件"
-
-msgid "Cannot activate plugin."
-msgstr "无法激活插件。"
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "无效设置dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "无法检索设置："
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s 不是一个有效的设置 ID"
-
-msgid "No namespace specified"
-msgstr "没有指定命名空间"
-
-msgid "No notice message"
-msgstr "没有通知信息"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "无法检索工作空间："
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "无效的dcWorkspace: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "无法检索命名空间："
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "无效的设置命名空间：%s"
-
-msgid "Wrong data feed"
-msgstr "错误的数据输入"
-
-msgid "An error occurred while downloading the file."
-msgstr "当下载这个文件时产生错误。"
-
-msgid "Themes folder unreachable"
-msgstr "主题文件夹无法访问"
-
-msgid "Themes folder unreadable"
-msgstr "主题文件夹无法读取"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (副本 #%s)"
-
-msgid " (copy)"
-msgstr " (副本)"
-
-msgid "Unable to modify _define.php"
-msgstr "无法修改_define.php"
-
-msgid "Destination folder already exist"
-msgstr "目标文件夹已经存在"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s 已经被 ping"
-
-msgid "Unable to ping URL"
-msgstr "无法 ping URL"
-
-msgid "Bad server response code"
-msgstr "错误的服务器响应代码"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s 不是一个 ping URL"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s，ping 错误："
-
-msgid "Don't repeat yourself, please."
-msgstr "请不要重复自己的观点。"
-
-msgid "Where's your title?"
-msgstr "你的头衔在哪里？"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "对不起，发生了一个内部问题。"
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "谢谢你，伙计。这是我的荣幸。"
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "你能不能呼唤一下我的一个内容？没有吗？真的吗？"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "很抱歉，你不能平移这种类型的内容。"
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "哎呀。有点像 \"未找到 \"的东西。请检查目标URL两次。"
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "对不起，老兄。此条目目前不接受pingback。"
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "你的源URL看起来不像是一个支持的内容类型。对不起。拜拜！拜拜！拜拜"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "没有提供有效的源网址？请再试一次!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "没有提供有效的目标URL？再试一次!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "摘要文件未找到。"
 
-msgid "No file to download"
-msgstr "没有要下载的文件"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "根目录不可写。"
-
-msgid "An error occurred while downloading archive."
-msgstr "下载压缩文件时产生错误。"
-
-msgid "Archive not found."
-msgstr "压缩文件未找到。"
-
-msgid "Unable to read current digests file."
-msgstr "无法读取现有的摘要文件。"
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "下载的文件似乎不是一个有效的存档。"
-
-msgid "Incomplete archive."
-msgstr "压缩文件不完整。"
-
-msgid "Unable to read digests file."
-msgstr "无法读取摘要文件。"
-
-msgid "Invalid digests file."
-msgstr "无效的摘要文件。"
-
-msgid "Unable to retrieve prefs:"
-msgstr "无法检索prefs："
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s 不是一个有效的pref id"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP版本是 %s （需要%s 或更早）。"
 
-msgid "No workspace specified"
-msgstr "没有指定工作区"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "多字节字符串模块(mbstring)不可用。"
+
+msgid "Iconv module is not available."
+msgstr "Iconv 模块不可用。"
+
+msgid "Output control functions are not available."
+msgstr "输出控制功能不可用。"
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML 模块不可用。"
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML 模块不可用。"
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE 引擎不支持 UTF-8 字符串。"
+
+msgid "SPL module is not available."
+msgstr "SPL 模块不可用。"
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL 版本是 %s (需要 4.1 或者更早)。"
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB 引擎不可用。"
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL 版本是 %s (需要 8.0 或者更早)。"
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "自动升级时出现错误："
 
-msgid "Site temporarily unavailable"
-msgstr "网站暂时无法使用"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE需要一个FROM源"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>我们对这种暂时性的无法使用表示歉意。<br />谢谢你的理解。</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP TABLE需要一个FROM源"
 
-msgid "Unable to connect to database"
-msgstr "无法连接到数据库"
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT需要一个INTO源"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL JOIN需要一个FROM源"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT需要一个FROM源"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL TRUNCATE TABLE需要一个FROM源"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL UPDATE需要一个FROM源"
+
+msgid "Bad range"
+msgstr "坏的范围"
+
+msgid "Invalid range"
+msgstr "无效范围"
+
+msgid "Invalid line number"
+msgstr "无效的行号"
+
+msgid "Chunk is out of range"
+msgstr "Chunk不在范围内"
+
+msgid "Bad context"
+msgstr "不好的背景"
+
+msgid "Bad context (in deletion)"
+msgstr "坏的背景（在删除中）"
+
+msgid "Invalid diff format"
+msgstr "无效的差异格式"
+
+msgid "Unable to open directory."
+msgstr "无法打开目录。"
+
+msgid "Unable to create directory."
+msgstr "无法创建目录。"
+
+msgid "File is not writable."
+msgstr "文件不可写。"
+
+msgid "Unable to open file."
+msgstr "无法打开文件。"
+
+msgid "Not an uploaded file."
+msgstr "不是一个上传的文件。"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "上传的文件超过了最大允许的文件大小。"
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "上传的文件仅被部分上传。"
+
+msgid "No file was uploaded."
+msgstr "没有文件被上传。"
+
+msgid "Missing a temporary folder."
+msgstr "忽略了一个临时文件夹。"
+
+msgid "Failed to write file to disk."
+msgstr "写入文件到磁盘失败。"
+
+msgid "A PHP extension stopped the file upload."
+msgstr "一个PHP扩展阻止了文件的上传。"
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>这要么意味着你的 <strong>config.php</strong> 文件中的用户名和密码信息不正确，要么我们无法联系数据库服务器 \"<em>%s</em>\"。这可能意味着你的主机的数据库服务器发生了故障。</p> <ul><li>你确定你有正确的用户名和密码吗？</li><li>你确定你输入的是正确的主机名吗？</li><li>你确定数据库服务器正在运行吗？</li></ul><p>如果你不确定这些术语的含义，你可能应该联系你的主机。如果你仍然需要帮助，你可以随时访问 <a href=\"https://forum.dotclear.net/\">Dotclear支持论坛</a>。</p>"
+msgid "%s is not a directory."
+msgstr "%s 不是一个目录。"
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "在试图读取数据库时，遇到了以下错误："
+msgid "Can't get file path"
+msgstr "无法获得文件路径"
 
-msgid "No process found"
-msgstr "没有发现进程"
+msgid "Can't lock a directory"
+msgstr "不能锁定一个目录"
 
-msgid "Process failed"
-msgstr "过程失败"
+msgid "Can't call php function named flock"
+msgstr "无法调用名为flock的php函数"
+
+msgid "Can't create file"
+msgstr "不能创建文件"
+
+msgid "Can't open file"
+msgstr "无法打开文件"
+
+msgid "Can't lock file"
+msgstr "无法锁定文件"
+
+msgid "File cannot be removed."
+msgstr "文件无法被移除。"
+
+msgid "Not enough memory to open image."
+msgstr "没有足够的空间打开图片。"
+
+msgid "Uploading this file is not allowed."
+msgstr "上传此文件是不允许的。"
+
+msgid "Destination directory is not in jail."
+msgstr "目的地目录不在监狱里。"
+
+msgid "File already exists."
+msgstr "文件已存在。"
+
+msgid "Cannot write in this directory."
+msgstr "无法在这个目录写入。"
+
+msgid "Source file does not exist."
+msgstr "源文件不存在。"
+
+msgid "File is not in jail."
+msgstr "文件不在监狱里。"
+
+msgid "Destination directory is not writable."
+msgstr "目标目录不可写。"
+
+msgid "Unable to rename file."
+msgstr "无法重命名文件。"
+
+msgid "Directory is not in jail."
+msgstr "目录不在监狱里。"
+
+msgid "Directory cannot be removed."
+msgstr "目录无法被移除。"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "文件 %s 没有压缩到 zip 中。"
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "尝试解压缩一个目录 %s"
+
+msgid "Unable to write destination file."
+msgstr "无法写入目标文件。"
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "无法写入目标目录，权限被拒绝。"
+
+msgid "Not enough memory to open file."
+msgstr "没有足够空间打开文件。"
+
+msgid "File does not exist"
+msgstr "文件不存在"
+
+msgid "Cannot read file"
+msgstr "无法读取文件"
+
+msgid "Directory does not exist"
+msgstr "目录不存在"
+
+msgid "Cannot read directory"
+msgstr "无法读取目录"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "没有找到block的关闭标签 <tpl:%s>。内容被忽略了。"
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "发现意外的关闭标签 </tpl:%s>。"
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "警告：在解析模板文件时发现以下错误："
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear 己被升级。"
@@ -2361,11 +2628,18 @@ msgstr "本博客的所有权利。"
 msgid "Change permissions"
 msgstr "改变权限"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "以下扩展功能已被禁用："
+
 msgid "Theme configuration"
 msgstr "主题配置"
 
 msgid "Themes management"
 msgstr "主题管理"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "手动检查主题更新成功完成。"
@@ -2620,6 +2894,10 @@ msgstr "删除所有垃圾邮件"
 
 msgid "Selected comments action:"
 msgstr "选择的评论动作："
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "以下扩展功能已被禁用："
 
 msgid "Documentation and support"
 msgstr "文件和支持"
@@ -3267,9 +3545,6 @@ msgstr "个人说明："
 msgid "Unpublished notes."
 msgstr "未发表的笔记。"
 
-msgid "Preview"
-msgstr "预览"
-
 msgid "Add a comment"
 msgstr "添加一个评论"
 
@@ -3462,10 +3737,6 @@ msgstr "强制检查更新Dotclear"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s 可用。"
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP版本是 %s （需要%s 或更早）。"
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "要升级您的 Dotclear，只需点击下列按钮。一个您现有安装的备份文件将在您的根目录生成。"
@@ -3873,179 +4144,6 @@ msgstr "您将为用户 %s 改变在下列博客的权限。"
 msgid "Validate permissions"
 msgstr "验证权限"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE需要一个FROM源"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL DROP TABLE需要一个FROM源"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT需要一个INTO源"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL JOIN需要一个FROM源"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT需要一个FROM源"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL TRUNCATE TABLE需要一个FROM源"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "SQL UPDATE需要一个FROM源"
-
-msgid "Bad range"
-msgstr "坏的范围"
-
-msgid "Invalid range"
-msgstr "无效范围"
-
-msgid "Invalid line number"
-msgstr "无效的行号"
-
-msgid "Chunk is out of range"
-msgstr "Chunk不在范围内"
-
-msgid "Bad context"
-msgstr "不好的背景"
-
-msgid "Bad context (in deletion)"
-msgstr "坏的背景（在删除中）"
-
-msgid "Invalid diff format"
-msgstr "无效的差异格式"
-
-msgid "Unable to open directory."
-msgstr "无法打开目录。"
-
-msgid "Unable to create directory."
-msgstr "无法创建目录。"
-
-msgid "File is not writable."
-msgstr "文件不可写。"
-
-msgid "Unable to open file."
-msgstr "无法打开文件。"
-
-msgid "Not an uploaded file."
-msgstr "不是一个上传的文件。"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "上传的文件超过了最大允许的文件大小。"
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "上传的文件仅被部分上传。"
-
-msgid "No file was uploaded."
-msgstr "没有文件被上传。"
-
-msgid "Missing a temporary folder."
-msgstr "忽略了一个临时文件夹。"
-
-msgid "Failed to write file to disk."
-msgstr "写入文件到磁盘失败。"
-
-msgid "A PHP extension stopped the file upload."
-msgstr "一个PHP扩展阻止了文件的上传。"
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s 不是一个目录。"
-
-msgid "Can't get file path"
-msgstr "无法获得文件路径"
-
-msgid "Can't lock a directory"
-msgstr "不能锁定一个目录"
-
-msgid "Can't call php function named flock"
-msgstr "无法调用名为flock的php函数"
-
-msgid "Can't create file"
-msgstr "不能创建文件"
-
-msgid "Can't open file"
-msgstr "无法打开文件"
-
-msgid "Can't lock file"
-msgstr "无法锁定文件"
-
-msgid "File cannot be removed."
-msgstr "文件无法被移除。"
-
-msgid "Not enough memory to open image."
-msgstr "没有足够的空间打开图片。"
-
-msgid "Uploading this file is not allowed."
-msgstr "上传此文件是不允许的。"
-
-msgid "Destination directory is not in jail."
-msgstr "目的地目录不在监狱里。"
-
-msgid "File already exists."
-msgstr "文件已存在。"
-
-msgid "Cannot write in this directory."
-msgstr "无法在这个目录写入。"
-
-msgid "Source file does not exist."
-msgstr "源文件不存在。"
-
-msgid "File is not in jail."
-msgstr "文件不在监狱里。"
-
-msgid "Destination directory is not writable."
-msgstr "目标目录不可写。"
-
-msgid "Unable to rename file."
-msgstr "无法重命名文件。"
-
-msgid "Directory is not in jail."
-msgstr "目录不在监狱里。"
-
-msgid "Directory cannot be removed."
-msgstr "目录无法被移除。"
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "文件 %s 没有压缩到 zip 中。"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "尝试解压缩一个目录 %s"
-
-msgid "Unable to write destination file."
-msgstr "无法写入目标文件。"
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "无法写入目标目录，权限被拒绝。"
-
-msgid "Not enough memory to open file."
-msgstr "没有足够空间打开文件。"
-
-msgid "File does not exist"
-msgstr "文件不存在"
-
-msgid "Cannot read file"
-msgstr "无法读取文件"
-
-msgid "Directory does not exist"
-msgstr "目录不存在"
-
-msgid "Cannot read directory"
-msgstr "无法读取目录"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "没有找到block的关闭标签 <tpl:%s>。内容被忽略了。"
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "发现意外的关闭标签 </tpl:%s>。"
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "警告：在解析模板文件时发现以下错误："
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "请在配置文件中设置一个管理者钥匙(DC_MASTER_KEY)。"
 
@@ -4132,38 +4230,6 @@ msgstr "无法完成安装"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "由于上述原因，Dotclear不能被安装。请参考 <a href=\"https://dotclear.org/documentation/2.0/admin/install\">文档</a> ，了解如何纠正这个问题。"
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "多字节字符串模块(mbstring)不可用。"
-
-msgid "Iconv module is not available."
-msgstr "Iconv 模块不可用。"
-
-msgid "Output control functions are not available."
-msgstr "输出控制功能不可用。"
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML 模块不可用。"
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML 模块不可用。"
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE 引擎不支持 UTF-8 字符串。"
-
-msgid "SPL module is not available."
-msgstr "SPL 模块不可用。"
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "MySQL 版本是 %s (需要 4.1 或者更早)。"
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB 引擎不可用。"
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL 版本是 %s (需要 8.0 或者更早)。"
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "路径 <strong>%s</strong> 是不可写的。"
@@ -4248,6 +4314,9 @@ msgstr "主电子邮件：(作为密码恢复的发件人)"
 
 msgid "Continue"
 msgstr "继续"
+
+#~ msgid "No process found"
+#~ msgstr "没有发现进程"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,473 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-msgid "Title"
+msgid "medium"
+msgstr ""
+
+msgid "small"
+msgstr ""
+
+msgid "thumbnail"
+msgstr ""
+
+msgid "square"
 msgstr ""
 
 msgid "Posts"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "administrator"
+msgstr ""
+
+msgid "manage all entries and comments"
+msgstr ""
+
+msgid "manage their own entries and comments"
+msgstr ""
+
+msgid "publish entries and comments"
+msgstr ""
+
+msgid "delete entries and comments"
+msgstr ""
+
+msgid "manage categories"
+msgstr ""
+
+msgid "manage all media items"
+msgstr ""
+
+msgid "manage their own media items"
+msgstr ""
+
+msgid "That user does not exist in the database."
+msgstr ""
+
+msgid "That key does not exist in the database."
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+msgid "You are not allowed to add categories"
+msgstr ""
+
+msgid "You are not allowed to update categories"
+msgstr ""
+
+msgid "You are not allowed to delete categories"
+msgstr ""
+
+msgid "This category is not empty."
+msgstr ""
+
+msgid "You are not allowed to reset categories order"
+msgstr ""
+
+msgid "Empty category URL"
+msgstr ""
+
+msgid "You must provide a category title"
+msgstr ""
+
+msgid "You must provide a category URL"
+msgstr ""
+
+msgid "You are not allowed to create an entry"
+msgstr ""
+
+msgid "You are not allowed to update entries"
+msgstr ""
+
+msgid "No such entry ID"
+msgstr ""
+
+msgid "You are not allowed to edit this entry"
+msgstr ""
+
+msgid "You are not allowed to change this entry status"
+msgstr ""
+
+msgid "You are not allowed to change this entry category"
+msgstr ""
+
+msgid "You are not allowed to change entries category"
+msgstr ""
+
+msgid "You are not allowed to delete entries"
+msgstr ""
+
+msgid "No entry title"
+msgstr ""
+
+msgid "No entry content"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Empty entry URL"
+msgstr ""
+
+msgid "You are not allowed to update comments"
+msgstr ""
+
+msgid "No such comment ID"
+msgstr ""
+
+msgid "You are not allowed to update this comment"
+msgstr ""
+
+msgid "You are not allowed to change this comment's status"
+msgstr ""
+
+msgid "You are not allowed to delete comments"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "Email address is not valid."
+msgstr ""
+
+msgid "online"
+msgstr ""
+
+msgid "offline"
+msgstr ""
+
+msgid "removed"
+msgstr ""
+
+msgid "You are not an administrator"
+msgstr ""
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "No password given"
+msgstr ""
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Password must contain at least 6 characters."
+msgstr ""
+
+msgid "Invalid user language code"
+msgstr ""
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "No blog name"
+msgstr ""
+
+msgid "No blog URL"
+msgstr ""
+
+msgid "No log message"
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "No blog defined."
+msgstr ""
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+msgid "You are not a super administrator."
+msgstr ""
+
+msgid "Permission denied."
+msgstr ""
+
+msgid "You are not the file owner."
+msgstr ""
+
+msgid "This file is not allowed."
+msgstr ""
+
+msgid "New file already exists."
+msgstr ""
+
+msgid "File does not exist in the database."
+msgstr ""
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr ""
+
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr ""
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr ""
+
+msgid "Cannot deactivate plugin."
+msgstr ""
+
+msgid "No such module."
+msgstr ""
+
+msgid "Cannot remove module files"
+msgstr ""
+
+msgid "Cannot activate plugin."
+msgstr ""
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr ""
+
+msgid "Unable to retrieve settings:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr ""
+
+msgid "No namespace specified"
+msgstr ""
+
+msgid "No notice message"
+msgstr ""
+
+msgid "Unable to retrieve workspaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
+msgid "Unable to retrieve namespaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr ""
+
+msgid "Wrong data feed"
+msgstr ""
+
+msgid "An error occurred while downloading the file."
+msgstr ""
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+msgid "Unable to modify _define.php"
+msgstr ""
+
+msgid "Destination folder already exist"
+msgstr ""
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr ""
+
+msgid "Unable to ping URL"
+msgstr ""
+
+msgid "Bad server response code"
+msgstr ""
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr ""
+
+#, php-format
+msgid "%s, ping error:"
+msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+msgid "LOL!"
+msgstr ""
+
+msgid "Digests file not found."
+msgstr ""
+
+msgid "No file to download"
+msgstr ""
+
+msgid "Root directory is not writable."
+msgstr ""
+
+msgid "An error occurred while downloading archive."
+msgstr ""
+
+msgid "Archive not found."
+msgstr ""
+
+msgid "Unable to read current digests file."
+msgstr ""
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr ""
+
+msgid "Incomplete archive."
+msgstr ""
+
+msgid "Unable to read digests file."
+msgstr ""
+
+msgid "Invalid digests file."
+msgstr ""
+
+msgid "Unable to retrieve prefs:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr ""
+
+msgid "No workspace specified"
+msgstr ""
+
+#, php-format
+msgid "Unable to find class %s"
+msgstr ""
+
+msgid "Process failed"
+msgstr ""
+
+msgid "Dotclear release file was not found"
+msgstr ""
+
+msgid "Dotclear release file is not readable"
+msgstr ""
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+msgid "Not found"
+msgstr ""
+
+msgid "Site temporarily unavailable"
+msgstr ""
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr ""
+
+msgid "Unable to connect to database"
+msgstr ""
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr ""
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr ""
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
 msgstr ""
 
 msgid "Blogs"
@@ -252,75 +715,6 @@ msgstr ""
 msgid "Entry language:"
 msgstr ""
 
-msgid "Database error"
-msgstr ""
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
-
-msgid "Precondition Failed"
-msgstr ""
-
-msgid "System settings"
-msgstr ""
-
-msgid "Blog"
-msgstr ""
-
-msgid "Plugins"
-msgstr ""
-
-msgid "Blog appearance"
-msgstr ""
-
-msgid "Blog settings"
-msgstr ""
-
-msgid "Media manager"
-msgstr ""
-
-msgid "Categories"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-msgid "New post"
-msgstr ""
-
-msgid "My preferences"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Languages"
-msgstr ""
-
-msgid "Plugins management"
-msgstr ""
-
-msgid "Users"
-msgstr ""
-
-msgid "My favorites"
-msgstr ""
-
-msgid "Global help"
-msgstr ""
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
-
 msgid "Descending"
 msgstr ""
 
@@ -348,10 +742,10 @@ msgstr ""
 msgid "Entry date"
 msgstr ""
 
-msgid "IP"
+msgid "Spam filter"
 msgstr ""
 
-msgid "Spam filter"
+msgid "IP"
 msgstr ""
 
 msgid "Last update"
@@ -375,34 +769,91 @@ msgstr ""
 msgid "Number of entries"
 msgstr ""
 
-msgid "Show filters and display options"
+msgid "My favorites"
 msgstr ""
 
-msgid "Filters"
+msgid "My preferences"
 msgstr ""
 
-msgid "Display options"
+msgid "New post"
 msgstr ""
 
-msgid "Order by:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Search"
 msgstr ""
 
-msgid "Sort:"
+msgid "Categories"
 msgstr ""
 
-msgid "Show"
+msgid "Media manager"
 msgstr ""
 
-msgid "Save current options"
+msgid "Blog settings"
 msgstr ""
 
-msgid "Apply filters and display options"
+msgid "Blog appearance"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Plugins management"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Global help"
+msgstr ""
+
+msgid "Status:"
+msgstr ""
+
+msgid "Email:"
+msgstr ""
+
+msgid "Web site:"
 msgstr ""
 
 msgid "Author:"
 msgstr ""
 
-msgid "Status:"
+msgid "Type:"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Trackback"
+msgstr ""
+
+msgid "IP address:"
+msgstr ""
+
+msgid "Media type:"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "video"
 msgstr ""
 
 msgid "Format:"
@@ -450,55 +901,155 @@ msgstr ""
 msgid "Trackbacks:"
 msgstr ""
 
-msgid "Email:"
+msgid "Show filters and display options"
 msgstr ""
 
-msgid "Web site:"
+msgid "Filters"
 msgstr ""
 
-msgid "Type:"
+msgid "Display options"
 msgstr ""
 
-msgid "Comment"
+msgid "Order by:"
 msgstr ""
 
-msgid "Trackback"
+msgid "Sort:"
 msgstr ""
 
-msgid "IP address:"
+msgid "Show"
 msgstr ""
 
-msgid "Media type:"
+msgid "Save current options"
 msgstr ""
 
-msgid "image"
-msgstr ""
-
-msgid "text"
-msgstr ""
-
-msgid "audio"
-msgstr ""
-
-msgid "video"
+msgid "Apply filters and display options"
 msgstr ""
 
 msgid "Search:"
 msgstr ""
 
-msgid "Trackbacks"
+msgid "&#171; prev."
 msgstr ""
 
-msgid "users per page"
+msgid "next &#187;"
 msgstr ""
 
-msgid "entries per page"
+msgid "No blog matches the filter"
 msgstr ""
 
-msgid "comments per page"
+msgid "No blog"
 msgstr ""
 
-msgid "blogs per page"
+msgid "URL"
+msgstr ""
+
+msgid "Entries (all types)"
+msgstr ""
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Blogs list"
+msgstr ""
+
+msgid "Legend: "
+msgstr ""
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr ""
+
+msgid "Edit blog settings"
+msgstr ""
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr ""
+
+msgid "No comments or trackbacks matches the filter"
+msgstr ""
+
+msgid "No comments"
+msgstr ""
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr ""
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Entry"
+msgstr ""
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr ""
+
+msgid "comment"
+msgstr ""
+
+msgid "trackback"
+msgstr ""
+
+msgid "Type and author"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "No file matches the filter"
+msgstr ""
+
+msgid "No file."
+msgstr ""
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 msgid "Name"
@@ -507,10 +1058,355 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-msgid "media per page"
+msgid "Select this file"
 msgstr ""
 
-msgid "results per page"
+msgid "Attach this file to entry"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "private media"
+msgstr ""
+
+msgid "open"
+msgstr ""
+
+msgid "No entry matches the filter"
+msgstr ""
+
+msgid "No entry"
+msgstr ""
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr ""
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Trackbacks"
+msgstr ""
+
+msgid "Protected"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+#, php-format
+msgid "%d attachment"
+msgstr ""
+
+#, php-format
+msgid "%d attachments"
+msgstr ""
+
+msgid "Entries list"
+msgstr ""
+
+msgid "No user matches the filter"
+msgstr ""
+
+msgid "No user"
+msgstr ""
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr ""
+
+msgid "Users list"
+msgstr ""
+
+msgid "admin"
+msgstr ""
+
+msgid "superadmin"
+msgstr ""
+
+msgid "First page"
+msgstr ""
+
+msgid "Previous page"
+msgstr ""
+
+msgid "Next page"
+msgstr ""
+
+msgid "Last page"
+msgstr ""
+
+#, php-format
+msgid "Page %s / %s"
+msgstr ""
+
+#, php-format
+msgid "Direct access page %s"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Blog"
+msgstr ""
+
+msgid "System settings"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "other"
+msgstr ""
+
+msgid "Search in repository:"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Reset search"
+msgstr ""
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr ""
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "current selection"
+msgstr ""
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "no results"
+msgstr ""
+
+msgid "Browse index:"
+msgstr ""
+
+msgid "Plugins list"
+msgstr ""
+
+msgid "Score"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Current version"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Repository"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+#, php-format
+msgid " (%s)"
+msgstr ""
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
+
+msgid "Official repository"
+msgstr ""
+
+msgid "Third-party repository"
+msgstr ""
+
+msgid "Plugin from official distribution"
+msgstr ""
+
+msgid "Plugin in development"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "update locked"
+msgstr ""
+
+msgid "Section:"
+msgstr ""
+
+msgid "Tags:"
+msgstr ""
+
+msgid "No plugins matched your search."
+msgstr ""
+
+msgid "Configure plugin"
+msgstr ""
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+msgid "Plugin settings"
+msgstr ""
+
+msgid "Plugin main page"
+msgstr ""
+
+msgid "Activate"
+msgstr ""
+
+msgid "Deactivate"
+msgstr ""
+
+msgid "Clone"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Activate selected plugins"
+msgstr ""
+
+msgid "Activate all plugins from this list"
+msgstr ""
+
+msgid "Deactivate selected plugins"
+msgstr ""
+
+msgid "Deactivate all plugins from this list"
+msgstr ""
+
+msgid "Update selected plugins"
+msgstr ""
+
+msgid "Update all plugins from this list"
+msgstr ""
+
+msgid "No such plugin."
+msgstr ""
+
+msgid "You don't have permissions to delete this plugin."
+msgstr ""
+
+msgid "Some plugins have not been delete."
+msgstr ""
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Some plugins have not been deactivated."
+msgstr ""
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr ""
+
+msgid "Unable to move uploaded file."
+msgstr ""
+
+msgid "The plugin has been successfully updated."
+msgstr ""
+
+msgid "The plugin has been successfully installed."
+msgstr ""
+
+msgid "Upload a zip file"
+msgstr ""
+
+msgid "Required field"
+msgstr ""
+
+msgid "Zip file path:"
+msgstr ""
+
+msgid "Your password:"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Download a zip file"
+msgstr ""
+
+msgid "Zip file URL:"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Unknown plugin ID"
+msgstr ""
+
+msgid "This plugin has no configuration file."
+msgstr ""
+
+msgid "Insufficient permissions"
+msgstr ""
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr ""
+
+msgid "Back"
 msgstr ""
 
 msgid "Error:"
@@ -529,9 +1425,6 @@ msgid "Change blog"
 msgstr ""
 
 msgid "Blogs:"
-msgstr ""
-
-msgid "ok"
 msgstr ""
 
 msgid "Go to the content"
@@ -563,9 +1456,6 @@ msgid "Safe mode"
 msgstr ""
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
-msgstr ""
-
-msgid "OK"
 msgstr ""
 
 #, php-format
@@ -739,19 +1629,7 @@ msgstr ""
 msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
-msgid "Details"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
 msgid "Help:"
-msgstr ""
-
-msgid "Section:"
-msgstr ""
-
-msgid "Tags:"
 msgstr ""
 
 msgid "Hide this notice"
@@ -805,9 +1683,6 @@ msgstr ""
 msgid "Clean"
 msgstr ""
 
-msgid "Upload"
-msgstr ""
-
 msgid "Send"
 msgstr ""
 
@@ -831,227 +1706,34 @@ msgid "Cancel filters and display options"
 msgstr ""
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "other"
-msgstr ""
-
-msgid "Search in repository:"
-msgstr ""
-
-msgid "Reset search"
-msgstr ""
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgid "(%s)"
 msgstr ""
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] ""
-msgstr[1] ""
+msgid "ratio %.1f"
+msgstr ""
 
-msgid "current selection"
+msgid "The 'public' directory does not exist."
 msgstr ""
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "no results"
+msgid "The '%s' directory cannot be modified."
 msgstr ""
 
-msgid "Browse index:"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr ""
 
-msgid "Plugins list"
+msgid "Unable to create images."
 msgstr ""
 
-msgid "Score"
+msgid "Invalid file type."
 msgstr ""
 
-msgid "Version"
-msgstr ""
-
-msgid "Current version"
-msgstr ""
-
-msgid "Repository"
-msgstr ""
-
-msgid "Action"
+msgid "An error occurred while writing the file."
 msgstr ""
 
 #, php-format
-msgid " (%s)"
-msgstr ""
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr ""
-
-msgid "Official repository"
-msgstr ""
-
-msgid "Third-party repository"
-msgstr ""
-
-msgid "Plugin from official distribution"
-msgstr ""
-
-msgid "Plugin in development"
-msgstr ""
-
-msgid "update locked"
-msgstr ""
-
-msgid "No plugins matched your search."
-msgstr ""
-
-msgid "Configure plugin"
-msgstr ""
-
-msgid "Plugin settings (in blog parameters)"
-msgstr ""
-
-msgid "Plugin settings (in user preferences)"
-msgstr ""
-
-msgid "Plugin settings"
-msgstr ""
-
-msgid "Plugin main page"
-msgstr ""
-
-msgid "Activate"
-msgstr ""
-
-msgid "Deactivate"
-msgstr ""
-
-msgid "Clone"
-msgstr ""
-
-msgid "Install"
-msgstr ""
-
-msgid "Activate selected plugins"
-msgstr ""
-
-msgid "Activate all plugins from this list"
-msgstr ""
-
-msgid "Deactivate selected plugins"
-msgstr ""
-
-msgid "Deactivate all plugins from this list"
-msgstr ""
-
-msgid "Update selected plugins"
-msgstr ""
-
-msgid "Update all plugins from this list"
-msgstr ""
-
-msgid "No such plugin."
-msgstr ""
-
-msgid "You don't have permissions to delete this plugin."
-msgstr ""
-
-msgid "Some plugins have not been delete."
-msgstr ""
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Some plugins have not been deactivated."
-msgstr ""
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr ""
-
-msgid "Unable to move uploaded file."
-msgstr ""
-
-msgid "The plugin has been successfully updated."
-msgstr ""
-
-msgid "The plugin has been successfully installed."
-msgstr ""
-
-msgid "Upload a zip file"
-msgstr ""
-
-msgid "Required field"
-msgstr ""
-
-msgid "Zip file path:"
-msgstr ""
-
-msgid "Your password:"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Download a zip file"
-msgstr ""
-
-msgid "Zip file URL:"
-msgstr ""
-
-msgid "URL"
-msgstr ""
-
-msgid "Download"
-msgstr ""
-
-msgid "Unknown plugin ID"
-msgstr ""
-
-msgid "This plugin has no configuration file."
-msgstr ""
-
-msgid "Insufficient permissions"
-msgstr ""
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr ""
-
-msgid "Back"
+msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
 #, php-format
@@ -1092,6 +1774,9 @@ msgid "No themes matched your search."
 msgstr ""
 
 msgid "Use this one"
+msgstr ""
+
+msgid "Preview"
 msgstr ""
 
 msgid "Update selected themes"
@@ -1157,701 +1842,273 @@ msgstr ""
 msgid "The theme has been successfully installed."
 msgstr ""
 
-msgid "First page"
+msgid "users per page"
 msgstr ""
 
-msgid "Previous page"
+msgid "entries per page"
 msgstr ""
 
-msgid "Next page"
+msgid "comments per page"
 msgstr ""
 
-msgid "Last page"
+msgid "blogs per page"
 msgstr ""
 
-#, php-format
-msgid "Page %s / %s"
+msgid "media per page"
 msgstr ""
 
-#, php-format
-msgid "Direct access page %s"
+msgid "results per page"
 msgstr ""
 
-msgid "&#171; prev."
+msgid "Database error"
 msgstr ""
 
-msgid "next &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "No entry matches the filter"
+msgid "Precondition Failed"
 msgstr ""
 
-msgid "No entry"
+msgid "Database problem"
 msgstr ""
 
-#, php-format
-msgid "List of %s entries matching the filter."
+msgid "Something went wrong while trying to read the database."
 msgstr ""
 
-#, php-format
-msgid "List of entries (%s)"
+msgid "Blog is not defined."
 msgstr ""
 
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Legend: "
+msgid "Did you change your Blog ID?"
 msgstr ""
 
-msgid "Published"
+msgid "Blog is offline."
 msgstr ""
 
-msgid "Unpublished"
+msgid "This blog is offline. Please try again later."
 msgstr ""
 
-msgid "Scheduled"
+msgid "Can't create template files."
 msgstr ""
 
-msgid "Pending"
+msgid "Default theme not found."
 msgstr ""
 
-msgid "Protected"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr ""
 
-msgid "Attachments"
+msgid "Something went wrong while loading template file for your blog."
 msgstr ""
 
 #, php-format
-msgid "%d attachment"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
 msgstr ""
 
 #, php-format
-msgid "%d attachments"
+msgid "MySQL version is %s (%s or earlier needed)."
 msgstr ""
 
-msgid "Entries list"
-msgstr ""
-
-msgid "No comments or trackbacks matches the filter"
-msgstr ""
-
-msgid "No comments"
+msgid "MySQL InnoDB engine is not available."
 msgstr ""
 
 #, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr ""
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Type"
-msgstr ""
-
-msgid "Entry"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr ""
-
-msgid "comment"
-msgstr ""
-
-msgid "trackback"
-msgstr ""
-
-msgid "Type and author"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr ""
-
-msgid "Entries (all types)"
-msgstr ""
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Blogs list"
-msgstr ""
-
-msgid "online"
-msgstr ""
-
-msgid "offline"
-msgstr ""
-
-msgid "removed"
-msgstr ""
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr ""
-
-msgid "Edit blog settings"
-msgstr ""
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr ""
-
-msgid "No user matches the filter"
-msgstr ""
-
-msgid "No user"
-msgstr ""
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr ""
-
-msgid "Users list"
-msgstr ""
-
-msgid "admin"
-msgstr ""
-
-msgid "superadmin"
-msgstr ""
-
-msgid "No file matches the filter"
-msgstr ""
-
-msgid "No file."
-msgstr ""
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
-
-msgid "Select this file"
-msgstr ""
-
-msgid "Attach this file to entry"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr ""
-
-msgid "delete"
-msgstr ""
-
-msgid "private media"
-msgstr ""
-
-msgid "open"
-msgstr ""
-
-#, php-format
-msgid "(%s)"
-msgstr ""
-
-#, php-format
-msgid "ratio %.1f"
-msgstr ""
-
-msgid "The 'public' directory does not exist."
-msgstr ""
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr ""
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
-
-msgid "Unable to create images."
-msgstr ""
-
-msgid "Invalid file type."
-msgstr ""
-
-msgid "An error occurred while writing the file."
-msgstr ""
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr ""
-
-msgid "medium"
-msgstr ""
-
-msgid "small"
-msgstr ""
-
-msgid "thumbnail"
-msgstr ""
-
-msgid "square"
-msgstr ""
-
-msgid "Pages"
-msgstr ""
-
-msgid "administrator"
-msgstr ""
-
-msgid "manage all entries and comments"
-msgstr ""
-
-msgid "manage their own entries and comments"
-msgstr ""
-
-msgid "publish entries and comments"
-msgstr ""
-
-msgid "delete entries and comments"
-msgstr ""
-
-msgid "manage categories"
-msgstr ""
-
-msgid "manage all media items"
-msgstr ""
-
-msgid "manage their own media items"
-msgstr ""
-
-msgid "That user does not exist in the database."
-msgstr ""
-
-msgid "That key does not exist in the database."
-msgstr ""
-
-msgid "You are not allowed to add categories"
-msgstr ""
-
-msgid "You are not allowed to update categories"
-msgstr ""
-
-msgid "You are not allowed to delete categories"
-msgstr ""
-
-msgid "This category is not empty."
-msgstr ""
-
-msgid "You are not allowed to reset categories order"
-msgstr ""
-
-msgid "Empty category URL"
-msgstr ""
-
-msgid "You must provide a category title"
-msgstr ""
-
-msgid "You must provide a category URL"
-msgstr ""
-
-msgid "You are not allowed to create an entry"
-msgstr ""
-
-msgid "You are not allowed to update entries"
-msgstr ""
-
-msgid "No such entry ID"
-msgstr ""
-
-msgid "You are not allowed to edit this entry"
-msgstr ""
-
-msgid "You are not allowed to change this entry status"
-msgstr ""
-
-msgid "You are not allowed to change this entry category"
-msgstr ""
-
-msgid "You are not allowed to change entries category"
-msgstr ""
-
-msgid "You are not allowed to delete entries"
-msgstr ""
-
-msgid "No entry title"
-msgstr ""
-
-msgid "No entry content"
-msgstr ""
-
-msgid "Notes"
-msgstr ""
-
-msgid "Note"
-msgstr ""
-
-msgid "Empty entry URL"
-msgstr ""
-
-msgid "You are not allowed to update comments"
-msgstr ""
-
-msgid "No such comment ID"
-msgstr ""
-
-msgid "You are not allowed to update this comment"
-msgstr ""
-
-msgid "You are not allowed to change this comment's status"
-msgstr ""
-
-msgid "You are not allowed to delete comments"
-msgstr ""
-
-msgid "You must provide a comment"
-msgstr ""
-
-msgid "You must provide an author name"
-msgstr ""
-
-msgid "Email address is not valid."
-msgstr ""
-
-msgid "You are not an administrator"
-msgstr ""
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "No password given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Password must contain at least 6 characters."
-msgstr ""
-
-msgid "Invalid user language code"
-msgstr ""
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "No blog name"
-msgstr ""
-
-msgid "No blog URL"
-msgstr ""
-
-msgid "No log message"
-msgstr ""
-
-msgid "unknown"
-msgstr ""
-
-msgid "No blog defined."
-msgstr ""
-
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
-
-msgid "You are not a super administrator."
-msgstr ""
-
-msgid "Permission denied."
-msgstr ""
-
-msgid "You are not the file owner."
-msgstr ""
-
-msgid "This file is not allowed."
-msgstr ""
-
-msgid "New file already exists."
-msgstr ""
-
-msgid "File does not exist in the database."
-msgstr ""
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr ""
-
-msgid "The following extensions have been disabled :"
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
-
-msgid "Empty module zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr ""
-
-msgid "An error occurred during module deletion."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
-msgstr ""
-
-msgid "No such module."
-msgstr ""
-
-msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot activate plugin."
-msgstr ""
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr ""
-
-msgid "Unable to retrieve settings:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr ""
-
-msgid "No namespace specified"
-msgstr ""
-
-msgid "No notice message"
-msgstr ""
-
-msgid "Unable to retrieve workspaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr ""
-
-msgid "Unable to retrieve namespaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr ""
-
-msgid "Wrong data feed"
-msgstr ""
-
-msgid "An error occurred while downloading the file."
-msgstr ""
-
-msgid "Themes folder unreachable"
-msgstr ""
-
-msgid "Themes folder unreadable"
-msgstr ""
-
-#, php-format
-msgid " (copy #%s)"
-msgstr ""
-
-msgid " (copy)"
-msgstr ""
-
-msgid "Unable to modify _define.php"
-msgstr ""
-
-msgid "Destination folder already exist"
-msgstr ""
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr ""
-
-msgid "Unable to ping URL"
-msgstr ""
-
-msgid "Bad server response code"
-msgstr ""
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr ""
-
-#, php-format
-msgid "%s, ping error:"
-msgstr ""
-
-msgid "Don't repeat yourself, please."
-msgstr ""
-
-msgid "Where's your title?"
-msgstr ""
-
-msgid "Sorry, an internal problem has occured."
-msgstr ""
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
-
-msgid "Sorry but you can not ping this type of content."
-msgstr ""
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
-
-msgid "Digests file not found."
-msgstr ""
-
-msgid "No file to download"
-msgstr ""
-
-msgid "Root directory is not writable."
-msgstr ""
-
-msgid "An error occurred while downloading archive."
-msgstr ""
-
-msgid "Archive not found."
-msgstr ""
-
-msgid "Unable to read current digests file."
-msgstr ""
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr ""
-
-msgid "Incomplete archive."
-msgstr ""
-
-msgid "Unable to read digests file."
-msgstr ""
-
-msgid "Invalid digests file."
-msgstr ""
-
-msgid "Unable to retrieve prefs:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid pref id"
-msgstr ""
-
-msgid "No workspace specified"
+msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-msgid "Site temporarily unavailable"
+msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
 msgstr ""
 
-msgid "Unable to connect to database"
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL JOIN requires a FROM source"
+msgstr ""
+
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr ""
+
+msgid "Bad range"
+msgstr ""
+
+msgid "Invalid range"
+msgstr ""
+
+msgid "Invalid line number"
+msgstr ""
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+msgid "Invalid diff format"
+msgstr ""
+
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to create directory."
+msgstr ""
+
+msgid "File is not writable."
+msgstr ""
+
+msgid "Unable to open file."
+msgstr ""
+
+msgid "Not an uploaded file."
+msgstr ""
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
 msgstr ""
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "%s is not a directory."
 msgstr ""
 
-msgid "The following error was encountered while trying to read the database:"
+msgid "Can't get file path"
 msgstr ""
 
-msgid "No process found"
+msgid "Can't lock a directory"
 msgstr ""
 
-msgid "Process failed"
+msgid "Can't call php function named flock"
+msgstr ""
+
+msgid "Can't create file"
+msgstr ""
+
+msgid "Can't open file"
+msgstr ""
+
+msgid "Can't lock file"
+msgstr ""
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+msgid "File already exists."
+msgstr ""
+
+msgid "Cannot write in this directory."
+msgstr ""
+
+msgid "Source file does not exist."
+msgstr ""
+
+msgid "File is not in jail."
+msgstr ""
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+msgid "Unable to rename file."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr ""
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+msgid "Unable to write destination file."
+msgstr ""
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+msgid "File does not exist"
+msgstr ""
+
+msgid "Cannot read file"
+msgstr ""
+
+msgid "Directory does not exist"
+msgstr ""
+
+msgid "Cannot read directory"
+msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
 
 msgid "Dotclear has been upgraded."
@@ -2394,10 +2651,16 @@ msgstr ""
 msgid "Change permissions"
 msgstr ""
 
+msgid "The following themes have been disabled :"
+msgstr ""
+
 msgid "Theme configuration"
 msgstr ""
 
 msgid "Themes management"
+msgstr ""
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr ""
 
 msgid "Manual checking of themes update done successfully."
@@ -2647,6 +2910,9 @@ msgid "Delete all spams"
 msgstr ""
 
 msgid "Selected comments action:"
+msgstr ""
+
+msgid "The following plugins have been disabled :"
 msgstr ""
 
 msgid "Documentation and support"
@@ -3297,9 +3563,6 @@ msgstr ""
 msgid "Unpublished notes."
 msgstr ""
 
-msgid "Preview"
-msgstr ""
-
 msgid "Add a comment"
 msgstr ""
 
@@ -3496,10 +3759,6 @@ msgstr ""
 
 #, php-format
 msgid "Dotclear %s is available."
-msgstr ""
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
 msgstr ""
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
@@ -3908,179 +4167,6 @@ msgstr ""
 msgid "Validate permissions"
 msgstr ""
 
-msgid "SQL DELETE requires a FROM source"
-msgstr ""
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr ""
-
-msgid "SQL INSERT requires an INTO source"
-msgstr ""
-
-msgid "SQL JOIN requires a FROM source"
-msgstr ""
-
-msgid "SQL SELECT requires a FROM source"
-msgstr ""
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr ""
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr ""
-
-msgid "Bad range"
-msgstr ""
-
-msgid "Invalid range"
-msgstr ""
-
-msgid "Invalid line number"
-msgstr ""
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-msgid "Invalid diff format"
-msgstr ""
-
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to create directory."
-msgstr ""
-
-msgid "File is not writable."
-msgstr ""
-
-msgid "Unable to open file."
-msgstr ""
-
-msgid "Not an uploaded file."
-msgstr ""
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr ""
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Can't get file path"
-msgstr ""
-
-msgid "Can't lock a directory"
-msgstr ""
-
-msgid "Can't call php function named flock"
-msgstr ""
-
-msgid "Can't create file"
-msgstr ""
-
-msgid "Can't open file"
-msgstr ""
-
-msgid "Can't lock file"
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-msgid "File already exists."
-msgstr ""
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr ""
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr ""
-
-msgid "Cannot read file"
-msgstr ""
-
-msgid "Directory does not exist"
-msgstr ""
-
-msgid "Cannot read directory"
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr ""
 
@@ -4163,38 +4249,6 @@ msgid "Installation can not be completed"
 msgstr ""
 
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
-
-msgid "Multibyte string module (mbstring) is not available."
-msgstr ""
-
-msgid "Iconv module is not available."
-msgstr ""
-
-msgid "Output control functions are not available."
-msgstr ""
-
-msgid "SimpleXML module is not available."
-msgstr ""
-
-msgid "DOM XML module is not available."
-msgstr ""
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr ""
-
-msgid "SPL module is not available."
-msgstr ""
-
-#, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr ""
-
-msgid "MySQL InnoDB engine is not available."
-msgstr ""
-
-#, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr ""
 
 #, php-format

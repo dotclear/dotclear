@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 12:14+0200\n"
+"POT-Creation-Date: 2023-07-10 09:00+0200\n"
 "PO-Revision-Date: 2023-06-22 16:34\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
@@ -17,11 +17,477 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-msgid "Title"
-msgstr "Titel"
+msgid "medium"
+msgstr "medium"
+
+msgid "small"
+msgstr "liten"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "square"
+msgstr "kvadrat"
 
 msgid "Posts"
 msgstr "Inlägg"
+
+msgid "Pages"
+msgstr "Sidor"
+
+msgid "administrator"
+msgstr "administratör"
+
+msgid "manage all entries and comments"
+msgstr "hantera alla poster och kommentarer"
+
+msgid "manage their own entries and comments"
+msgstr "hantera sina egna inlägg och kommentarer"
+
+msgid "publish entries and comments"
+msgstr "publicera poster och kommentarer"
+
+msgid "delete entries and comments"
+msgstr "ta bort poster och kommentarer"
+
+msgid "manage categories"
+msgstr "hantera kategorier"
+
+msgid "manage all media items"
+msgstr "hantera alla medieobjekt"
+
+msgid "manage their own media items"
+msgstr "hantera sina egna medieobjekt"
+
+msgid "That user does not exist in the database."
+msgstr "Den användaren finns inte i databasen."
+
+msgid "That key does not exist in the database."
+msgstr "Den nyckeln finns inte i databasen."
+
+msgid "Pending"
+msgstr "Väntande"
+
+msgid "Scheduled"
+msgstr "Schemalagda"
+
+msgid "Unpublished"
+msgstr "Opublicerad"
+
+msgid "Published"
+msgstr "Publicerad"
+
+msgid "Junk"
+msgstr "Skräp"
+
+msgid "You are not allowed to add categories"
+msgstr "Du har inte behörighet att lägga till kategorier"
+
+msgid "You are not allowed to update categories"
+msgstr "Du har inte behörighet att uppdatera kategorier"
+
+msgid "You are not allowed to delete categories"
+msgstr "Du får inte ta bort kategorier"
+
+msgid "This category is not empty."
+msgstr "Denna kategori är inte tom."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Du har inte tillåtelse att återställa kategoriordningen"
+
+msgid "Empty category URL"
+msgstr "Tom kategori-URL"
+
+msgid "You must provide a category title"
+msgstr "Du måste ange en kategorititel"
+
+msgid "You must provide a category URL"
+msgstr "Du måste ange en kategori-URL"
+
+msgid "You are not allowed to create an entry"
+msgstr "Du har inte behörighet att skapa en post"
+
+msgid "You are not allowed to update entries"
+msgstr "Du har inte behörighet att uppdatera poster"
+
+msgid "No such entry ID"
+msgstr "Inget sådant post-ID"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Du har inte behörighet att redigera denna post"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Du har inte behörighet att ändra denna poststatus"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Du har inte behörighet att ändra denna postkategori"
+
+msgid "You are not allowed to change entries category"
+msgstr "Du har inte behörighet att ändra postkategori"
+
+msgid "You are not allowed to delete entries"
+msgstr "Du har inte behörighet att ta bort poster"
+
+msgid "No entry title"
+msgstr "Ingen post titel"
+
+msgid "No entry content"
+msgstr "Inget postinnehåll"
+
+msgid "Notes"
+msgstr "Anteckningar"
+
+msgid "Note"
+msgstr "Anteckning"
+
+msgid "Empty entry URL"
+msgstr "Tom post-URL"
+
+msgid "You are not allowed to update comments"
+msgstr "Du har inte behörighet att uppdatera kommentarer"
+
+msgid "No such comment ID"
+msgstr "Inget sådant kommentars-ID"
+
+msgid "You are not allowed to update this comment"
+msgstr "Du har inte behörighet att uppdatera denna kommentar"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Du har inte behörighet att ändra denna kommentarens status"
+
+msgid "You are not allowed to delete comments"
+msgstr "Du har inte behörighet att ta bort kommentarer"
+
+msgid "You must provide a comment"
+msgstr "Du måste ange en kommentar"
+
+msgid "You must provide an author name"
+msgstr "Du måste ange ett författarnamn"
+
+msgid "Email address is not valid."
+msgstr "E-postadressen är inte giltig."
+
+msgid "online"
+msgstr "online"
+
+msgid "offline"
+msgstr "offline"
+
+msgid "removed"
+msgstr "borttagen"
+
+msgid "You are not an administrator"
+msgstr "Du är inte administratör"
+
+msgid "No user ID given"
+msgstr "Inget användar-ID angivet"
+
+msgid "No password given"
+msgstr "Inget lösenord angivet"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Användar-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
+
+msgid "Password must contain at least 6 characters."
+msgstr "Lösenordet måste innehålla minst 6 tecken."
+
+msgid "Invalid user language code"
+msgstr "Ogiltig språkkod"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "Blogg-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
+
+msgid "No blog name"
+msgstr "Inget bloggnamn"
+
+msgid "No blog URL"
+msgstr "Ingen blogg-URL"
+
+msgid "No log message"
+msgstr "Inget loggmeddelande"
+
+msgid "unknown"
+msgstr "okänd"
+
+msgid "No blog defined."
+msgstr "Ingen blogg angiven."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Det finns ingen skrivbar katalog /public/ på den plats som anges i about:config \"public_path\". Du måste skapa denna katalog med tillräckliga rättigheter (eller ändra denna inställning)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Det finns ingen skrivbar rotkatalog för mediehanteraren. Du bör kontakta administratören."
+
+msgid "You are not a super administrator."
+msgstr "Du är inte en superadministratör."
+
+msgid "Permission denied."
+msgstr "Åtkomst nekad."
+
+msgid "You are not the file owner."
+msgstr "Du är inte filägaren."
+
+msgid "This file is not allowed."
+msgstr "Denna fil är inte tillåten."
+
+msgid "New file already exists."
+msgstr "Ny fil finns redan."
+
+msgid "File does not exist in the database."
+msgstr "Filen finns inte i databasen."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "Destinationskatalog %s finns redan."
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Kräver %s modul som inte är installerad"
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr "Kräver %s version %smen version %s är installerad"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Kräver %s modul som är inaktiverad"
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr "Modulen \"%s\" har typ \"%s\" som inte matchar obligatorisk modultyp \"%s\"."
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr "Modul \"%s\" installeras två gånger i \"%s\" och \"%s\"."
+
+msgid "Empty module zip file."
+msgstr "Tom modul zip-fil."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "zip-filen verkar inte vara en giltig Dotclear modul."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Det går inte att uppgradera \"%s\". (uppdateringen låst)"
+
+msgid "An error occurred during module deletion."
+msgstr "Ett fel inträffade under modulborttagning."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr "Det går inte att uppgradera \"%s\". (äldre eller samma version)"
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr "Det går inte att läsa ny %s fil"
+
+msgid "Cannot deactivate plugin."
+msgstr "Kan inte inaktivera plugin."
+
+msgid "No such module."
+msgstr "Ingen sådan modul."
+
+msgid "Cannot remove module files"
+msgstr "Kan inte ta bort modulfiler"
+
+msgid "Cannot activate plugin."
+msgstr "Kan inte aktivera plugin."
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Ogiltig inställning dcNamespace: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Det gick inte att hämta inställningar:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s är inte ett giltigt inställnings-id"
+
+msgid "No namespace specified"
+msgstr "Ingen namnrymd angiven"
+
+msgid "No notice message"
+msgstr "Inget meddelande"
+
+msgid "Unable to retrieve workspaces:"
+msgstr "Det gick inte att hämta arbetsytor:"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Ogiltig dcWorkspace: %s"
+
+msgid "Unable to retrieve namespaces:"
+msgstr "Det gick inte att hämta namnrymder:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Ogiltig namnrymd: %s"
+
+msgid "Wrong data feed"
+msgstr "Fel dataflöde"
+
+msgid "An error occurred while downloading the file."
+msgstr "Ett fel inträffade när filen skulle hämtas."
+
+msgid "Themes folder unreachable"
+msgstr "Temamappen kan inte nås"
+
+msgid "Themes folder unreadable"
+msgstr "Temamapp oläsbar"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (kopiera #%s)"
+
+msgid " (copy)"
+msgstr " (kopiera)"
+
+msgid "Unable to modify _define.php"
+msgstr "Det gick inte att ändra _define.php"
+
+msgid "Destination folder already exist"
+msgstr "Målmappen finns redan"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s har fortfarande pingats"
+
+msgid "Unable to ping URL"
+msgstr "Det går inte att pinga URL"
+
+msgid "Bad server response code"
+msgstr "Felaktig svarskod för servern"
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s är inte en ping-URL"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, ping fel:"
+
+msgid "Don't repeat yourself, please."
+msgstr "Upprepa inte dig själv, tack."
+
+msgid "Where's your title?"
+msgstr "Var är din titel?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Tyvärr, ett internt problem har uppstått."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Tack, kompis. Det var ett nöje."
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr "Någon chans att du ping en av mina innehåll? Nej? Verkligen?"
+
+msgid "Sorry but you can not ping this type of content."
+msgstr "Ledsen men du kan inte pinga denna typ av innehåll."
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr "Hoppsan. Kinda \"kunde inte hittas\". Kontrollera mål-URL två gånger."
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr "Tyvärr, dude. Denna artikel accepterar inte pingback för tillfället."
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr "Din käll-URL ser inte ut som en innehållstyp som stöds. Förlåt. Hej då!"
+
+msgid "No valid source URL provided? Try again!"
+msgstr "Ingen giltig käll-URL angiven? Försök igen!"
+
+msgid "No valid target URL provided? Try again!"
+msgstr "Ingen giltig mål-URL angiven? Försök igen!"
+
+msgid "LOL!"
+msgstr "LOL!"
+
+msgid "Digests file not found."
+msgstr "Kan inte hitta en summeringsfil."
+
+msgid "No file to download"
+msgstr "Ingen fil att ladda ner"
+
+msgid "Root directory is not writable."
+msgstr "Rotkatalogen är inte skrivbar."
+
+msgid "An error occurred while downloading archive."
+msgstr "Ett fel uppstod när du laddade ner arkivet."
+
+msgid "Archive not found."
+msgstr "Arkiv hittades inte."
+
+msgid "Unable to read current digests file."
+msgstr "Det går inte att läsa aktuell digest-fil."
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Den nedladdade filen verkar inte vara ett giltigt arkiv."
+
+msgid "Incomplete archive."
+msgstr "Ofullständigt arkiv."
+
+msgid "Unable to read digests file."
+msgstr "Det går inte att läsa digests fil."
+
+msgid "Invalid digests file."
+msgstr "Ogiltig digest-fil."
+
+msgid "Unable to retrieve prefs:"
+msgstr "Kunde inte hämta prefs:"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s är inte ett giltigt pref id"
+
+msgid "No workspace specified"
+msgstr "Ingen arbetsyta angiven"
+
+#, fuzzy, php-format
+msgid "Unable to find class %s"
+msgstr "Det går inte att ta bort filen %s"
+
+msgid "Process failed"
+msgstr "Processen misslyckades"
+
+#, fuzzy
+msgid "Dotclear release file was not found"
+msgstr "Kan inte hitta en summeringsfil."
+
+#, fuzzy
+msgid "Dotclear release file is not readable"
+msgstr "Dotclear nyheter är inte tillgängliga"
+
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr ""
+
+#, fuzzy
+msgid "Not found"
+msgstr "Inga resultat hittades"
+
+msgid "Site temporarily unavailable"
+msgstr "Webbplatsen är tillfälligt otillgänglig"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Vi ber om ursäkt för denna tillfälliga otillgänglighet.<br />Tack för din förståelse.</p>"
+
+msgid "Unable to connect to database"
+msgstr "Det går inte att ansluta till databasen"
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Detta innebär antingen att användarnamnet och lösenordsinformationen i din <strong>konfiguration. HK</strong> filen är felaktig eller så kan vi inte kontakta databasservern på \"<em>%s</em>\". Detta kan betyda att din värds databasserver är nere.</p> <ul><li>Är du säker på att du har rätt användarnamn och lösenord?</li><li>Är du säker på att du har skrivit rätt värdnamn?</li><li>Är du säker på att databasservern körs?</li></ul><p>Om du är osäker på vad dessa termer innebär bör du förmodligen kontakta din värd. Om du fortfarande behöver hjälp kan du alltid besöka <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr "Följande fel uppstod när databasen skulle läsas:"
+
+#, php-format
+msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "Title"
+msgstr "Titel"
 
 msgid "Blogs"
 msgstr "Bloggar"
@@ -254,75 +720,6 @@ msgstr "Mest använda"
 msgid "Entry language:"
 msgstr "Postspråk:"
 
-msgid "Database error"
-msgstr "Databas fel"
-
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Det verkar inte finnas någon sessionstabell i din databas. Är Dotclear helt installerat?"
-
-msgid "Precondition Failed"
-msgstr "Förutsättningen misslyckades"
-
-msgid "System settings"
-msgstr "Systeminställningar"
-
-msgid "Blog"
-msgstr "Blogg"
-
-msgid "Plugins"
-msgstr "Tillägg"
-
-msgid "Blog appearance"
-msgstr "Blogg utseende"
-
-msgid "Blog settings"
-msgstr "Inställningar för blogg"
-
-msgid "Media manager"
-msgstr "Media Manager"
-
-msgid "Categories"
-msgstr "Kategorier"
-
-msgid "Search"
-msgstr "Sök"
-
-msgid "New post"
-msgstr "Nytt inlägg"
-
-msgid "My preferences"
-msgstr "Mina inställningar"
-
-msgid "Update"
-msgstr "Uppdatera"
-
-msgid "Languages"
-msgstr "Språk"
-
-msgid "Plugins management"
-msgstr "Hantering av plugins"
-
-msgid "Users"
-msgstr "Användare"
-
-msgid "My favorites"
-msgstr "Mina favoriter"
-
-msgid "Global help"
-msgstr "Global hjälp"
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d inlägg"
-msgstr[1] "%d inlägg"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d kommentar"
-msgstr[1] "%d kommentarer"
-
 msgid "Descending"
 msgstr "Fallande"
 
@@ -350,11 +747,11 @@ msgstr "Postens titel"
 msgid "Entry date"
 msgstr "Inläggets datum"
 
-msgid "IP"
-msgstr "IP"
-
 msgid "Spam filter"
 msgstr "Filtrera skräppost"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "Last update"
 msgstr "Senast uppdaterad"
@@ -377,35 +774,92 @@ msgstr "Visa namn"
 msgid "Number of entries"
 msgstr "Antal poster"
 
-msgid "Show filters and display options"
-msgstr "Visa filter och visningsalternativ"
+msgid "My favorites"
+msgstr "Mina favoriter"
 
-msgid "Filters"
-msgstr "Filter"
+msgid "My preferences"
+msgstr "Mina inställningar"
 
-msgid "Display options"
-msgstr "Visa alternativ"
+msgid "New post"
+msgstr "Nytt inlägg"
 
-msgid "Order by:"
-msgstr "Ordna efter:"
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d inlägg"
+msgstr[1] "%d inlägg"
 
-msgid "Sort:"
-msgstr "Sortera:"
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d kommentar"
+msgstr[1] "%d kommentarer"
 
-msgid "Show"
-msgstr "Visa"
+msgid "Search"
+msgstr "Sök"
 
-msgid "Save current options"
-msgstr "Spara aktuella alternativ"
+msgid "Categories"
+msgstr "Kategorier"
 
-msgid "Apply filters and display options"
-msgstr "Tillämpa filter och visningsalternativ"
+msgid "Media manager"
+msgstr "Media Manager"
+
+msgid "Blog settings"
+msgstr "Inställningar för blogg"
+
+msgid "Blog appearance"
+msgstr "Blogg utseende"
+
+msgid "Users"
+msgstr "Användare"
+
+msgid "Plugins management"
+msgstr "Hantering av plugins"
+
+msgid "Languages"
+msgstr "Språk"
+
+msgid "Global help"
+msgstr "Global hjälp"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Web site:"
+msgstr "Web site:"
 
 msgid "Author:"
 msgstr "Författare:"
 
-msgid "Status:"
-msgstr "Status:"
+msgid "Type:"
+msgstr "Typ:"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Trackback"
+msgstr "Spårning"
+
+msgid "IP address:"
+msgstr "IP-adress:"
+
+msgid "Media type:"
+msgstr "Typ av media:"
+
+msgid "image"
+msgstr "bild"
+
+msgid "text"
+msgstr "text"
+
+msgid "audio"
+msgstr "ljud"
+
+msgid "video"
+msgstr "video"
 
 msgid "Format:"
 msgstr "Format:"
@@ -452,56 +906,155 @@ msgstr "Stängd"
 msgid "Trackbacks:"
 msgstr "Trackbacks:"
 
-msgid "Email:"
-msgstr "Email:"
+msgid "Show filters and display options"
+msgstr "Visa filter och visningsalternativ"
 
-msgid "Web site:"
-msgstr "Web site:"
+msgid "Filters"
+msgstr "Filter"
 
-msgid "Type:"
-msgstr "Typ:"
+msgid "Display options"
+msgstr "Visa alternativ"
 
-msgid "Comment"
-msgstr "Kommentar"
+msgid "Order by:"
+msgstr "Ordna efter:"
 
-msgid "Trackback"
-msgstr "Spårning"
+msgid "Sort:"
+msgstr "Sortera:"
 
-msgid "IP address:"
-msgstr "IP-adress:"
+msgid "Show"
+msgstr "Visa"
 
-msgid "Media type:"
-msgstr "Typ av media:"
+msgid "Save current options"
+msgstr "Spara aktuella alternativ"
 
-msgid "image"
-msgstr "bild"
-
-msgid "text"
-msgstr "text"
-
-msgid "audio"
-msgstr "ljud"
-
-msgid "video"
-msgstr "video"
+msgid "Apply filters and display options"
+msgstr "Tillämpa filter och visningsalternativ"
 
 msgid "Search:"
 msgstr "Sök:"
 
-msgid "Trackbacks"
-msgstr "Trackbacks"
+msgid "&#171; prev."
+msgstr "&#171; föreg."
 
-msgid "users per page"
-msgstr "användare per sida"
+msgid "next &#187;"
+msgstr "nästa &#187;"
 
-msgid "entries per page"
-msgstr "poster per sida"
+msgid "No blog matches the filter"
+msgstr "Ingen blogg matchar filtret"
 
-msgid "comments per page"
-msgstr "kommentarer per sida"
+msgid "No blog"
+msgstr "Ingen blogg"
 
-msgid "blogs per page"
-msgstr "bloggar per sida"
+msgid "URL"
+msgstr "URL"
+
+msgid "Entries (all types)"
+msgstr "Poster (alla typer)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blogg matchar filtret."
+msgstr[1] "%d bloggar matchar filtret."
+
+msgid "Blogs list"
+msgstr "Bloggar lista"
+
+msgid "Legend: "
+msgstr "Förklaring: "
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Redigera blogginställningar för %s"
+
+msgid "Edit blog settings"
+msgstr "Redigera blogginställningar"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Växla till blogg %s"
+
+msgid "No comments or trackbacks matches the filter"
+msgstr "Inga kommentarer eller trackbacks matchar filtret"
+
+msgid "No comments"
+msgstr "Inga kommentarer"
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Kommentera eller trackback som matchar filtret."
+msgstr[1] "Lista över %s kommentarer eller trackbacks som matchar filtret."
+
+#, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Lista över kommentarer och trackbacks (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">publicerade</a> (1)"
+msgstr[1] ", <a href=\"%s\">publicerade</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">spam</a> (1)"
+msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">pending</a> (1)"
+msgstr[1] ", <a href=\"%s\">väntande</a> (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">opublicerade</a> (1)"
+msgstr[1] ", <a href=\"%s\">opublicerade</a> (%s)"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Entry"
+msgstr "Inlägg"
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr "Redigera %1$s från %2$s"
+
+msgid "comment"
+msgstr "kommentar"
+
+msgid "trackback"
+msgstr "trackback"
+
+msgid "Type and author"
+msgstr "Skriv och författare"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "No file matches the filter"
+msgstr "Ingen fil matchar filtret"
+
+msgid "No file."
+msgstr "Ingen fil."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d fil matchar filtret."
+msgstr[1] "%d filer matchar filtret."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb av objekt: %d → %d mappar + %d fil(er)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb av objekt: %d"
 
 msgid "Name"
 msgstr "Namn"
@@ -509,11 +1062,356 @@ msgstr "Namn"
 msgid "Size"
 msgstr "Storlek"
 
-msgid "media per page"
-msgstr "media per sida"
+msgid "Select this file"
+msgstr "Välj denna fil"
 
-msgid "results per page"
-msgstr "resultat per sida"
+msgid "Attach this file to entry"
+msgstr "Bifoga denna fil till post"
+
+msgid "Insert this file into entry"
+msgstr "Infoga denna fil i post"
+
+msgid "delete"
+msgstr "radera"
+
+msgid "private media"
+msgstr "privat media"
+
+msgid "open"
+msgstr "öppen"
+
+msgid "No entry matches the filter"
+msgstr "Ingen post matchar filtret"
+
+msgid "No entry"
+msgstr "Ingen post"
+
+#, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Lista över %s poster som matchar filtret."
+
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Lista över poster (%s)"
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">programmerade</a> (1)"
+msgstr[1] ", <a href=\"%s\">programmerade</a> (%s)"
+
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+msgid "Protected"
+msgstr "Skyddad"
+
+msgid "Attachments"
+msgstr "Bilagor"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d bilaga"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d bilagor"
+
+msgid "Entries list"
+msgstr "Poster lista"
+
+msgid "No user matches the filter"
+msgstr "Ingen användare matchar filtret"
+
+msgid "No user"
+msgstr "Ingen användare"
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr "Lista över %s användare matchar filtret."
+
+msgid "Users list"
+msgstr "Lista över användare"
+
+msgid "admin"
+msgstr "administratör"
+
+msgid "superadmin"
+msgstr "superadministratör"
+
+msgid "First page"
+msgstr "Första sidan"
+
+msgid "Previous page"
+msgstr "Föregående sida"
+
+msgid "Next page"
+msgstr "Nästa sida"
+
+msgid "Last page"
+msgstr "Sista sidan"
+
+#, php-format
+msgid "Page %s / %s"
+msgstr "Sida %s / %s"
+
+#, php-format
+msgid "Direct access page %s"
+msgstr "Direkt åtkomstsida %s"
+
+msgid "ok"
+msgstr "Ok"
+
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s fil hittades"
+msgstr[1] "%s filer hittades"
+
+msgid "Blog"
+msgstr "Blogg"
+
+msgid "System settings"
+msgstr "Systeminställningar"
+
+msgid "Plugins"
+msgstr "Tillägg"
+
+msgid "Update"
+msgstr "Uppdatera"
+
+msgid "other"
+msgstr "Annat"
+
+msgid "Search in repository:"
+msgstr "Sök i utvecklingskatalog:"
+
+msgid "OK"
+msgstr "Ok"
+
+msgid "Reset search"
+msgstr "Återställ sökning"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "Sökning är tillåten på flera villkor längre än 2 tecken, termer måste separeras med mellanslag."
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "Hittade %d resultat för sökning \"%s\":"
+msgstr[1] "Hittade %d resultat för sökning \"%s\":"
+
+msgid "current selection"
+msgstr "aktuellt val"
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d resultat"
+msgstr[1] "%d resultat"
+
+msgid "no results"
+msgstr "inga resultat"
+
+msgid "Browse index:"
+msgstr "Bläddra index:"
+
+msgid "Plugins list"
+msgstr "Lista över plugins"
+
+msgid "Score"
+msgstr "Poäng"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Current version"
+msgstr "Nuvarande version"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Repository"
+msgstr "Utveckling"
+
+msgid "Action"
+msgstr "Åtgärd"
+
+#, php-format
+msgid " (%s)"
+msgstr " (%s)"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Modulen kan inte inaktiveras eller tas bort eftersom följande moduler också är aktiverade: %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Modulen kan inte aktiveras på grund av följande skäl:"
+
+msgid "Official repository"
+msgstr "Officiell utvecklingskatalog"
+
+msgid "Third-party repository"
+msgstr "Tredjeparts utvecklingskatalog"
+
+msgid "Plugin from official distribution"
+msgstr "Plugin från officiell distribution"
+
+msgid "Plugin in development"
+msgstr "Plugin i utveckling"
+
+msgid "Support"
+msgstr "Stöd"
+
+msgid "update locked"
+msgstr "uppdatering låst"
+
+msgid "Section:"
+msgstr "Sektion:"
+
+msgid "Tags:"
+msgstr "Taggar:"
+
+msgid "No plugins matched your search."
+msgstr "Inga plugins matchade din sökning."
+
+msgid "Configure plugin"
+msgstr "Konfigurera plugin"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr "Plugin-inställningar (i bloggparametrar)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Inställningar för tillägg (i användarinställningar)"
+
+msgid "Plugin settings"
+msgstr "Inställningar för tillägg"
+
+msgid "Plugin main page"
+msgstr "Huvudsida för plugin"
+
+msgid "Activate"
+msgstr "Aktivera"
+
+msgid "Deactivate"
+msgstr "Inaktivera"
+
+msgid "Clone"
+msgstr "Klona"
+
+msgid "Install"
+msgstr "Installera"
+
+msgid "Activate selected plugins"
+msgstr "Aktivera valda plugins"
+
+msgid "Activate all plugins from this list"
+msgstr "Aktivera alla plugins från denna lista"
+
+msgid "Deactivate selected plugins"
+msgstr "Inaktivera valda plugins"
+
+msgid "Deactivate all plugins from this list"
+msgstr "Inaktivera alla plugins från denna lista"
+
+msgid "Update selected plugins"
+msgstr "Uppdatera valda plugins"
+
+msgid "Update all plugins from this list"
+msgstr "Uppdatera alla plugins från denna lista"
+
+msgid "No such plugin."
+msgstr "Ingen sådan plugin."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Du har inte behörighet att ta bort denna plugin."
+
+msgid "Some plugins have not been delete."
+msgstr "Vissa plugins har inte tagits bort."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Plugin togs framgångsrikt bort."
+msgstr[1] "Tillägg har tagits bort."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] "Plugin installerades framgångsrikt"
+msgstr[1] "Plugins har installerats framgångsrikt."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Plugin har aktiverats framgångsrikt."
+msgstr[1] "Plugins har aktiverats framgångsrikt."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Vissa plugins har inte inaktiverats."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Plugin avaktiverades framgångsrikt"
+msgstr[1] "Plugin har avaktiverats med lyckade resultat."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] "Plugin uppdaterades framgångsrikt."
+msgstr[1] "Tillägg har uppdaterats framgångsrikt."
+
+#, php-format
+msgid "Following plugins updates are locked: %s"
+msgstr "Följande tilläggsuppdateringar är låsta: %s"
+
+msgid "Unable to move uploaded file."
+msgstr "Det går inte att flytta uppladdad fil."
+
+msgid "The plugin has been successfully updated."
+msgstr "Tillägget har uppdaterats."
+
+msgid "The plugin has been successfully installed."
+msgstr "Tillägget har installerats."
+
+msgid "Upload a zip file"
+msgstr "Ladda upp en zip-fil"
+
+msgid "Required field"
+msgstr "Obligatoriskt fält"
+
+msgid "Zip file path:"
+msgstr "Sökväg till zip-fil:"
+
+msgid "Your password:"
+msgstr "Ditt lösenord:"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Upload"
+msgstr "Ladda upp"
+
+msgid "Download a zip file"
+msgstr "Ladda ner en zip-fil"
+
+msgid "Zip file URL:"
+msgstr "URL för zip-fil:"
+
+msgid "Download"
+msgstr "Hämta"
+
+msgid "Unknown plugin ID"
+msgstr "Okänt plugin-ID"
+
+msgid "This plugin has no configuration file."
+msgstr "Denna plugin har ingen konfigurationsfil."
+
+msgid "Insufficient permissions"
+msgstr "Otillräckliga behörigheter"
+
+#, php-format
+msgid "Configure \"%s\""
+msgstr "Konfigurera \"%s\""
+
+msgid "Back"
+msgstr "Tillbaka"
 
 msgid "Error:"
 msgstr "Fel:"
@@ -532,9 +1430,6 @@ msgstr "Ändra blogg"
 
 msgid "Blogs:"
 msgstr "Bloggar:"
-
-msgid "ok"
-msgstr "Ok"
 
 msgid "Go to the content"
 msgstr "Gå till innehållet"
@@ -566,9 +1461,6 @@ msgstr "Säkert läge"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Du är i felsäkert läge. Alla plugins har tillfälligt inaktiverats. Påminn om att logga ut och logga in igen normalt för att få tillbaka alla funktioner"
-
-msgid "OK"
-msgstr "Ok"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -741,20 +1633,8 @@ msgstr "Varning: Ändring av postformat konverterar inte befintligt innehåll. D
 msgid "Loading enhanced uploader, please wait."
 msgstr "Laddar förbättrad uppladdare, var god vänta."
 
-msgid "Details"
-msgstr "Detaljer"
-
-msgid "Support"
-msgstr "Stöd"
-
 msgid "Help:"
 msgstr "Hjälp:"
-
-msgid "Section:"
-msgstr "Sektion:"
-
-msgid "Tags:"
-msgstr "Taggar:"
 
 msgid "Hide this notice"
 msgstr "Dölj detta meddelande"
@@ -807,9 +1687,6 @@ msgstr "Avbryt"
 msgid "Clean"
 msgstr "Rensa"
 
-msgid "Upload"
-msgstr "Ladda upp"
-
 msgid "Send"
 msgstr "Skicka"
 
@@ -833,228 +1710,35 @@ msgid "Cancel filters and display options"
 msgstr "Avbryt filter och visa alternativ"
 
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s fil hittades"
-msgstr[1] "%s filer hittades"
-
-msgid "other"
-msgstr "Annat"
-
-msgid "Search in repository:"
-msgstr "Sök i utvecklingskatalog:"
-
-msgid "Reset search"
-msgstr "Återställ sökning"
-
-msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr "Sökning är tillåten på flera villkor längre än 2 tecken, termer måste separeras med mellanslag."
+msgid "(%s)"
+msgstr "(%s)"
 
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Hittade %d resultat för sökning \"%s\":"
-msgstr[1] "Hittade %d resultat för sökning \"%s\":"
+msgid "ratio %.1f"
+msgstr "förhållande %.1f"
 
-msgid "current selection"
-msgstr "aktuellt val"
+msgid "The 'public' directory does not exist."
+msgstr "Katalogen \"offentlig\" finns inte."
 
 #, php-format
-msgid "%d result"
-msgid_plural "%d results"
-msgstr[0] "%d resultat"
-msgstr[1] "%d resultat"
+msgid "The '%s' directory cannot be modified."
+msgstr "Katalogen '%s' kan inte ändras."
 
-msgid "no results"
-msgstr "inga resultat"
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Åtminstone en av följande funktioner är inte tillgänglig: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-msgid "Browse index:"
-msgstr "Bläddra index:"
+msgid "Unable to create images."
+msgstr "Det gick inte att skapa bilder."
 
-msgid "Plugins list"
-msgstr "Lista över plugins"
+msgid "Invalid file type."
+msgstr "Ogiltig filtyp."
 
-msgid "Score"
-msgstr "Poäng"
-
-msgid "Version"
-msgstr "Version"
-
-msgid "Current version"
-msgstr "Nuvarande version"
-
-msgid "Repository"
-msgstr "Utveckling"
-
-msgid "Action"
-msgstr "Åtgärd"
+msgid "An error occurred while writing the file."
+msgstr "Ett fel inträffade när filen skulle skrivas."
 
 #, php-format
-msgid " (%s)"
-msgstr " (%s)"
-
-#, php-format
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Modulen kan inte inaktiveras eller tas bort eftersom följande moduler också är aktiverade: %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Modulen kan inte aktiveras på grund av följande skäl:"
-
-msgid "Official repository"
-msgstr "Officiell utvecklingskatalog"
-
-msgid "Third-party repository"
-msgstr "Tredjeparts utvecklingskatalog"
-
-msgid "Plugin from official distribution"
-msgstr "Plugin från officiell distribution"
-
-msgid "Plugin in development"
-msgstr "Plugin i utveckling"
-
-msgid "update locked"
-msgstr "uppdatering låst"
-
-msgid "No plugins matched your search."
-msgstr "Inga plugins matchade din sökning."
-
-msgid "Configure plugin"
-msgstr "Konfigurera plugin"
-
-msgid "Plugin settings (in blog parameters)"
-msgstr "Plugin-inställningar (i bloggparametrar)"
-
-msgid "Plugin settings (in user preferences)"
-msgstr "Inställningar för tillägg (i användarinställningar)"
-
-msgid "Plugin settings"
-msgstr "Inställningar för tillägg"
-
-msgid "Plugin main page"
-msgstr "Huvudsida för plugin"
-
-msgid "Activate"
-msgstr "Aktivera"
-
-msgid "Deactivate"
-msgstr "Inaktivera"
-
-msgid "Clone"
-msgstr "Klona"
-
-msgid "Install"
-msgstr "Installera"
-
-msgid "Activate selected plugins"
-msgstr "Aktivera valda plugins"
-
-msgid "Activate all plugins from this list"
-msgstr "Aktivera alla plugins från denna lista"
-
-msgid "Deactivate selected plugins"
-msgstr "Inaktivera valda plugins"
-
-msgid "Deactivate all plugins from this list"
-msgstr "Inaktivera alla plugins från denna lista"
-
-msgid "Update selected plugins"
-msgstr "Uppdatera valda plugins"
-
-msgid "Update all plugins from this list"
-msgstr "Uppdatera alla plugins från denna lista"
-
-msgid "No such plugin."
-msgstr "Ingen sådan plugin."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Du har inte behörighet att ta bort denna plugin."
-
-msgid "Some plugins have not been delete."
-msgstr "Vissa plugins har inte tagits bort."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Plugin togs framgångsrikt bort."
-msgstr[1] "Tillägg har tagits bort."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Plugin installerades framgångsrikt"
-msgstr[1] "Plugins har installerats framgångsrikt."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Plugin har aktiverats framgångsrikt."
-msgstr[1] "Plugins har aktiverats framgångsrikt."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Vissa plugins har inte inaktiverats."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Plugin avaktiverades framgångsrikt"
-msgstr[1] "Plugin har avaktiverats med lyckade resultat."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Plugin uppdaterades framgångsrikt."
-msgstr[1] "Tillägg har uppdaterats framgångsrikt."
-
-#, php-format
-msgid "Following plugins updates are locked: %s"
-msgstr "Följande tilläggsuppdateringar är låsta: %s"
-
-msgid "Unable to move uploaded file."
-msgstr "Det går inte att flytta uppladdad fil."
-
-msgid "The plugin has been successfully updated."
-msgstr "Tillägget har uppdaterats."
-
-msgid "The plugin has been successfully installed."
-msgstr "Tillägget har installerats."
-
-msgid "Upload a zip file"
-msgstr "Ladda upp en zip-fil"
-
-msgid "Required field"
-msgstr "Obligatoriskt fält"
-
-msgid "Zip file path:"
-msgstr "Sökväg till zip-fil:"
-
-msgid "Your password:"
-msgstr "Ditt lösenord:"
-
-msgid "Password"
-msgstr "Lösenord"
-
-msgid "Download a zip file"
-msgstr "Ladda ner en zip-fil"
-
-msgid "Zip file URL:"
-msgstr "URL för zip-fil:"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Download"
-msgstr "Hämta"
-
-msgid "Unknown plugin ID"
-msgstr "Okänt plugin-ID"
-
-msgid "This plugin has no configuration file."
-msgstr "Denna plugin har ingen konfigurationsfil."
-
-msgid "Insufficient permissions"
-msgstr "Otillräckliga behörigheter"
-
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Konfigurera \"%s\""
-
-msgid "Back"
-msgstr "Tillbaka"
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Den uppladdade bilden är inte %s pixlar bred."
 
 #, php-format
 msgid "Score: %s"
@@ -1095,6 +1779,9 @@ msgstr "Inga teman motsvarade din sökning."
 
 msgid "Use this one"
 msgstr "Använd den här"
+
+msgid "Preview"
+msgstr "Förhandsgranska"
 
 msgid "Update selected themes"
 msgstr "Uppdatera valda teman"
@@ -1158,701 +1845,281 @@ msgstr "Temat har uppdaterats."
 msgid "The theme has been successfully installed."
 msgstr "Temat har installerats."
 
-msgid "First page"
-msgstr "Första sidan"
+msgid "users per page"
+msgstr "användare per sida"
 
-msgid "Previous page"
-msgstr "Föregående sida"
+msgid "entries per page"
+msgstr "poster per sida"
 
-msgid "Next page"
-msgstr "Nästa sida"
+msgid "comments per page"
+msgstr "kommentarer per sida"
 
-msgid "Last page"
-msgstr "Sista sidan"
+msgid "blogs per page"
+msgstr "bloggar per sida"
 
-#, php-format
-msgid "Page %s / %s"
-msgstr "Sida %s / %s"
+msgid "media per page"
+msgstr "media per sida"
 
-#, php-format
-msgid "Direct access page %s"
-msgstr "Direkt åtkomstsida %s"
+msgid "results per page"
+msgstr "resultat per sida"
 
-msgid "&#171; prev."
-msgstr "&#171; föreg."
+msgid "Database error"
+msgstr "Databas fel"
 
-msgid "next &#187;"
-msgstr "nästa &#187;"
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr "Det verkar inte finnas någon sessionstabell i din databas. Är Dotclear helt installerat?"
 
-msgid "No entry matches the filter"
-msgstr "Ingen post matchar filtret"
+msgid "Precondition Failed"
+msgstr "Förutsättningen misslyckades"
 
-msgid "No entry"
-msgstr "Ingen post"
+#, fuzzy
+msgid "Database problem"
+msgstr "Databas fel"
 
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Lista över %s poster som matchar filtret."
+#, fuzzy
+msgid "Something went wrong while trying to read the database."
+msgstr "Följande fel uppstod när databasen skulle läsas:"
 
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Lista över poster (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">publicerade</a> (1)"
-msgstr[1] ", <a href=\"%s\">publicerade</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">pending</a> (1)"
-msgstr[1] ", <a href=\"%s\">väntande</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">programmerade</a> (1)"
-msgstr[1] ", <a href=\"%s\">programmerade</a> (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">opublicerade</a> (1)"
-msgstr[1] ", <a href=\"%s\">opublicerade</a> (%s)"
-
-msgid "Legend: "
-msgstr "Förklaring: "
-
-msgid "Published"
-msgstr "Publicerad"
-
-msgid "Unpublished"
-msgstr "Opublicerad"
-
-msgid "Scheduled"
-msgstr "Schemalagda"
-
-msgid "Pending"
-msgstr "Väntande"
-
-msgid "Protected"
-msgstr "Skyddad"
-
-msgid "Attachments"
-msgstr "Bilagor"
-
-#, php-format
-msgid "%d attachment"
-msgstr "%d bilaga"
-
-#, php-format
-msgid "%d attachments"
-msgstr "%d bilagor"
-
-msgid "Entries list"
-msgstr "Poster lista"
-
-msgid "No comments or trackbacks matches the filter"
-msgstr "Inga kommentarer eller trackbacks matchar filtret"
-
-msgid "No comments"
-msgstr "Inga kommentarer"
-
-#, php-format
-msgid "Comment or trackback matching the filter."
-msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] "Kommentera eller trackback som matchar filtret."
-msgstr[1] "Lista över %s kommentarer eller trackbacks som matchar filtret."
-
-#, php-format
-msgid "List of comments and trackbacks (%s)"
-msgstr "Lista över kommentarer och trackbacks (%s)"
-
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
-
-msgid "Type"
-msgstr "Typ"
-
-msgid "Entry"
-msgstr "Inlägg"
-
-msgid "Junk"
-msgstr "Skräp"
-
-#, php-format
-msgid "Edit the %1$s from %2$s"
-msgstr "Redigera %1$s från %2$s"
-
-msgid "comment"
-msgstr "kommentar"
-
-msgid "trackback"
-msgstr "trackback"
-
-msgid "Type and author"
-msgstr "Skriv och författare"
-
-msgid "Edit"
-msgstr "Redigera"
-
-msgid "No blog matches the filter"
-msgstr "Ingen blogg matchar filtret"
-
-msgid "No blog"
-msgstr "Ingen blogg"
-
-msgid "Entries (all types)"
-msgstr "Poster (alla typer)"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d blogg matchar filtret."
-msgstr[1] "%d bloggar matchar filtret."
-
-msgid "Blogs list"
-msgstr "Bloggar lista"
-
-msgid "online"
-msgstr "online"
-
-msgid "offline"
-msgstr "offline"
-
-msgid "removed"
-msgstr "borttagen"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Redigera blogginställningar för %s"
-
-msgid "Edit blog settings"
-msgstr "Redigera blogginställningar"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Växla till blogg %s"
-
-msgid "No user matches the filter"
-msgstr "Ingen användare matchar filtret"
-
-msgid "No user"
-msgstr "Ingen användare"
-
-#, php-format
-msgid "List of %s users match the filter."
-msgstr "Lista över %s användare matchar filtret."
-
-msgid "Users list"
-msgstr "Lista över användare"
-
-msgid "admin"
-msgstr "administratör"
-
-msgid "superadmin"
-msgstr "superadministratör"
-
-msgid "No file matches the filter"
-msgstr "Ingen fil matchar filtret"
-
-msgid "No file."
-msgstr "Ingen fil."
-
-#, php-format
-msgid "%d file matches the filter."
-msgid_plural "%d files match the filter."
-msgstr[0] "%d fil matchar filtret."
-msgstr[1] "%d filer matchar filtret."
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb av objekt: %d → %d mappar + %d fil(er)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Nb av objekt: %d"
-
-msgid "Select this file"
-msgstr "Välj denna fil"
-
-msgid "Attach this file to entry"
-msgstr "Bifoga denna fil till post"
-
-msgid "Insert this file into entry"
-msgstr "Infoga denna fil i post"
-
-msgid "delete"
-msgstr "radera"
-
-msgid "private media"
-msgstr "privat media"
-
-msgid "open"
-msgstr "öppen"
-
-#, php-format
-msgid "(%s)"
-msgstr "(%s)"
-
-#, php-format
-msgid "ratio %.1f"
-msgstr "förhållande %.1f"
-
-msgid "The 'public' directory does not exist."
-msgstr "Katalogen \"offentlig\" finns inte."
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Katalogen '%s' kan inte ändras."
-
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Åtminstone en av följande funktioner är inte tillgänglig: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "Unable to create images."
-msgstr "Det gick inte att skapa bilder."
-
-msgid "Invalid file type."
-msgstr "Ogiltig filtyp."
-
-msgid "An error occurred while writing the file."
-msgstr "Ett fel inträffade när filen skulle skrivas."
-
-#, php-format
-msgid "Uploaded image is not %s pixels wide."
-msgstr "Den uppladdade bilden är inte %s pixlar bred."
-
-msgid "medium"
-msgstr "medium"
-
-msgid "small"
-msgstr "liten"
-
-msgid "thumbnail"
-msgstr "thumbnail"
-
-msgid "square"
-msgstr "kvadrat"
-
-msgid "Pages"
-msgstr "Sidor"
-
-msgid "administrator"
-msgstr "administratör"
-
-msgid "manage all entries and comments"
-msgstr "hantera alla poster och kommentarer"
-
-msgid "manage their own entries and comments"
-msgstr "hantera sina egna inlägg och kommentarer"
-
-msgid "publish entries and comments"
-msgstr "publicera poster och kommentarer"
-
-msgid "delete entries and comments"
-msgstr "ta bort poster och kommentarer"
-
-msgid "manage categories"
-msgstr "hantera kategorier"
-
-msgid "manage all media items"
-msgstr "hantera alla medieobjekt"
-
-msgid "manage their own media items"
-msgstr "hantera sina egna medieobjekt"
-
-msgid "That user does not exist in the database."
-msgstr "Den användaren finns inte i databasen."
-
-msgid "That key does not exist in the database."
-msgstr "Den nyckeln finns inte i databasen."
-
-msgid "You are not allowed to add categories"
-msgstr "Du har inte behörighet att lägga till kategorier"
-
-msgid "You are not allowed to update categories"
-msgstr "Du har inte behörighet att uppdatera kategorier"
-
-msgid "You are not allowed to delete categories"
-msgstr "Du får inte ta bort kategorier"
-
-msgid "This category is not empty."
-msgstr "Denna kategori är inte tom."
-
-msgid "You are not allowed to reset categories order"
-msgstr "Du har inte tillåtelse att återställa kategoriordningen"
-
-msgid "Empty category URL"
-msgstr "Tom kategori-URL"
-
-msgid "You must provide a category title"
-msgstr "Du måste ange en kategorititel"
-
-msgid "You must provide a category URL"
-msgstr "Du måste ange en kategori-URL"
-
-msgid "You are not allowed to create an entry"
-msgstr "Du har inte behörighet att skapa en post"
-
-msgid "You are not allowed to update entries"
-msgstr "Du har inte behörighet att uppdatera poster"
-
-msgid "No such entry ID"
-msgstr "Inget sådant post-ID"
-
-msgid "You are not allowed to edit this entry"
-msgstr "Du har inte behörighet att redigera denna post"
-
-msgid "You are not allowed to change this entry status"
-msgstr "Du har inte behörighet att ändra denna poststatus"
-
-msgid "You are not allowed to change this entry category"
-msgstr "Du har inte behörighet att ändra denna postkategori"
-
-msgid "You are not allowed to change entries category"
-msgstr "Du har inte behörighet att ändra postkategori"
-
-msgid "You are not allowed to delete entries"
-msgstr "Du har inte behörighet att ta bort poster"
-
-msgid "No entry title"
-msgstr "Ingen post titel"
-
-msgid "No entry content"
-msgstr "Inget postinnehåll"
-
-msgid "Notes"
-msgstr "Anteckningar"
-
-msgid "Note"
-msgstr "Anteckning"
-
-msgid "Empty entry URL"
-msgstr "Tom post-URL"
-
-msgid "You are not allowed to update comments"
-msgstr "Du har inte behörighet att uppdatera kommentarer"
-
-msgid "No such comment ID"
-msgstr "Inget sådant kommentars-ID"
-
-msgid "You are not allowed to update this comment"
-msgstr "Du har inte behörighet att uppdatera denna kommentar"
-
-msgid "You are not allowed to change this comment's status"
-msgstr "Du har inte behörighet att ändra denna kommentarens status"
-
-msgid "You are not allowed to delete comments"
-msgstr "Du har inte behörighet att ta bort kommentarer"
-
-msgid "You must provide a comment"
-msgstr "Du måste ange en kommentar"
-
-msgid "You must provide an author name"
-msgstr "Du måste ange ett författarnamn"
-
-msgid "Email address is not valid."
-msgstr "E-postadressen är inte giltig."
-
-msgid "You are not an administrator"
-msgstr "Du är inte administratör"
-
-msgid "No user ID given"
-msgstr "Inget användar-ID angivet"
-
-msgid "No password given"
-msgstr "Inget lösenord angivet"
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Användar-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
-
-msgid "Password must contain at least 6 characters."
-msgstr "Lösenordet måste innehålla minst 6 tecken."
-
-msgid "Invalid user language code"
-msgstr "Ogiltig språkkod"
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "Blogg-ID måste innehålla minst 2 tecken med bokstäver, siffror eller symboler."
-
-msgid "No blog name"
-msgstr "Inget bloggnamn"
-
-msgid "No blog URL"
-msgstr "Ingen blogg-URL"
-
-msgid "No log message"
-msgstr "Inget loggmeddelande"
-
-msgid "unknown"
-msgstr "okänd"
-
-msgid "No blog defined."
+#, fuzzy
+msgid "Blog is not defined."
 msgstr "Ingen blogg angiven."
 
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "Det finns ingen skrivbar katalog /public/ på den plats som anges i about:config \"public_path\". Du måste skapa denna katalog med tillräckliga rättigheter (eller ändra denna inställning)."
+msgid "Did you change your Blog ID?"
+msgstr ""
 
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Det finns ingen skrivbar rotkatalog för mediehanteraren. Du bör kontakta administratören."
+#, fuzzy
+msgid "Blog is offline."
+msgstr "Den här bloggen är offline"
 
-msgid "You are not a super administrator."
-msgstr "Du är inte en superadministratör."
+#, fuzzy
+msgid "This blog is offline. Please try again later."
+msgstr "Den här bloggen är offline"
 
-msgid "Permission denied."
-msgstr "Åtkomst nekad."
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Kan inte skapa fil"
 
-msgid "You are not the file owner."
-msgstr "Du är inte filägaren."
-
-msgid "This file is not allowed."
-msgstr "Denna fil är inte tillåten."
-
-msgid "New file already exists."
-msgstr "Ny fil finns redan."
-
-msgid "File does not exist in the database."
-msgstr "Filen finns inte i databasen."
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr "Destinationskatalog %s finns redan."
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Kräver %s modul som inte är installerad"
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Kräver %s version %smen version %s är installerad"
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Kräver %s modul som är inaktiverad"
-
-msgid "The following extensions have been disabled :"
-msgstr "Följande tillägg har inaktiverats :"
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Modulen \"%s\" har typ \"%s\" som inte matchar obligatorisk modultyp \"%s\"."
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Modul \"%s\" installeras två gånger i \"%s\" och \"%s\"."
-
-msgid "Empty module zip file."
-msgstr "Tom modul zip-fil."
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "zip-filen verkar inte vara en giltig Dotclear modul."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "Det går inte att uppgradera \"%s\". (uppdateringen låst)"
-
-msgid "An error occurred during module deletion."
-msgstr "Ett fel inträffade under modulborttagning."
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr "Det går inte att uppgradera \"%s\". (äldre eller samma version)"
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr "Det går inte att läsa ny %s fil"
-
-msgid "Cannot deactivate plugin."
-msgstr "Kan inte inaktivera plugin."
-
-msgid "No such module."
-msgstr "Ingen sådan modul."
-
-msgid "Cannot remove module files"
-msgstr "Kan inte ta bort modulfiler"
-
-msgid "Cannot activate plugin."
-msgstr "Kan inte aktivera plugin."
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr "Ogiltig inställning dcNamespace: %s"
-
-msgid "Unable to retrieve settings:"
-msgstr "Det gick inte att hämta inställningar:"
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr "%s är inte ett giltigt inställnings-id"
-
-msgid "No namespace specified"
-msgstr "Ingen namnrymd angiven"
-
-msgid "No notice message"
-msgstr "Inget meddelande"
-
-msgid "Unable to retrieve workspaces:"
-msgstr "Det gick inte att hämta arbetsytor:"
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Ogiltig dcWorkspace: %s"
-
-msgid "Unable to retrieve namespaces:"
-msgstr "Det gick inte att hämta namnrymder:"
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr "Ogiltig namnrymd: %s"
-
-msgid "Wrong data feed"
-msgstr "Fel dataflöde"
-
-msgid "An error occurred while downloading the file."
-msgstr "Ett fel inträffade när filen skulle hämtas."
-
-msgid "Themes folder unreachable"
-msgstr "Temamappen kan inte nås"
-
-msgid "Themes folder unreadable"
-msgstr "Temamapp oläsbar"
-
-#, php-format
-msgid " (copy #%s)"
-msgstr " (kopiera #%s)"
-
-msgid " (copy)"
-msgstr " (kopiera)"
-
-msgid "Unable to modify _define.php"
-msgstr "Det gick inte att ändra _define.php"
-
-msgid "Destination folder already exist"
-msgstr "Målmappen finns redan"
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr "%s har fortfarande pingats"
-
-msgid "Unable to ping URL"
-msgstr "Det går inte att pinga URL"
-
-msgid "Bad server response code"
-msgstr "Felaktig svarskod för servern"
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr "%s är inte en ping-URL"
-
-#, php-format
-msgid "%s, ping error:"
-msgstr "%s, ping fel:"
-
-msgid "Don't repeat yourself, please."
-msgstr "Upprepa inte dig själv, tack."
-
-msgid "Where's your title?"
-msgstr "Var är din titel?"
-
-msgid "Sorry, an internal problem has occured."
-msgstr "Tyvärr, ett internt problem har uppstått."
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Tack, kompis. Det var ett nöje."
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr "Någon chans att du ping en av mina innehåll? Nej? Verkligen?"
-
-msgid "Sorry but you can not ping this type of content."
-msgstr "Ledsen men du kan inte pinga denna typ av innehåll."
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr "Hoppsan. Kinda \"kunde inte hittas\". Kontrollera mål-URL två gånger."
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Tyvärr, dude. Denna artikel accepterar inte pingback för tillfället."
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr "Din käll-URL ser inte ut som en innehållstyp som stöds. Förlåt. Hej då!"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Ingen giltig käll-URL angiven? Försök igen!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Ingen giltig mål-URL angiven? Försök igen!"
-
-msgid "LOL!"
-msgstr "LOL!"
-
-msgid "Digests file not found."
+#, fuzzy
+msgid "Default theme not found."
 msgstr "Kan inte hitta en summeringsfil."
 
-msgid "No file to download"
-msgstr "Ingen fil att ladda ner"
+msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
+msgstr ""
 
-msgid "Root directory is not writable."
-msgstr "Rotkatalogen är inte skrivbar."
-
-msgid "An error occurred while downloading archive."
-msgstr "Ett fel uppstod när du laddade ner arkivet."
-
-msgid "Archive not found."
-msgstr "Arkiv hittades inte."
-
-msgid "Unable to read current digests file."
-msgstr "Det går inte att läsa aktuell digest-fil."
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Den nedladdade filen verkar inte vara ett giltigt arkiv."
-
-msgid "Incomplete archive."
-msgstr "Ofullständigt arkiv."
-
-msgid "Unable to read digests file."
-msgstr "Det går inte att läsa digests fil."
-
-msgid "Invalid digests file."
-msgstr "Ogiltig digest-fil."
-
-msgid "Unable to retrieve prefs:"
-msgstr "Kunde inte hämta prefs:"
+msgid "Something went wrong while loading template file for your blog."
+msgstr ""
 
 #, php-format
-msgid "%s is not a valid pref id"
-msgstr "%s är inte ett giltigt pref id"
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP-versionen är %s (%s eller tidigare behövs)."
 
-msgid "No workspace specified"
-msgstr "Ingen arbetsyta angiven"
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Multibyte strängmodul (mbstring) är inte tillgänglig."
+
+msgid "Iconv module is not available."
+msgstr "Iconv modul är inte tillgänglig."
+
+msgid "Output control functions are not available."
+msgstr "Det finns inga funktioner för utmatningskontroll."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML-modulen är inte tillgänglig."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML-modul är inte tillgänglig."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PCRE-motorn stöder inte UTF-8-strängar."
+
+msgid "SPL module is not available."
+msgstr "SPL-modulen är inte tillgänglig."
+
+#, fuzzy, php-format
+msgid "MySQL version is %s (%s or earlier needed)."
+msgstr "MySQL-versionen är %s (4,1 eller tidigare behövs)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB motor är inte tillgänglig."
+
+#, fuzzy, php-format
+msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgstr "PostgreSQL-versionen är %s (8.0 eller tidigare behövs)."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Något gick fel med automatisk uppgradering:"
 
-msgid "Site temporarily unavailable"
-msgstr "Webbplatsen är tillfälligt otillgänglig"
+msgid "SQL DELETE requires a FROM source"
+msgstr "SQL DELETE kräver en FROM-källa"
 
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Vi ber om ursäkt för denna tillfälliga otillgänglighet.<br />Tack för din förståelse.</p>"
+msgid "SQL DROP TABLE requires a FROM source"
+msgstr "SQL DROP TABLE kräver en FROM-källa"
 
-msgid "Unable to connect to database"
-msgstr "Det går inte att ansluta till databasen"
+msgid "SQL INSERT requires an INTO source"
+msgstr "SQL INSERT kräver en INTO-källa"
+
+msgid "SQL JOIN requires a FROM source"
+msgstr "SQL JOIN kräver en FROM-källa"
+
+msgid "SQL SELECT requires a FROM source"
+msgstr "SQL SELECT kräver en FROM-källa"
+
+msgid "SQL TRUNCATE TABLE requires a FROM source"
+msgstr "SQL TRUNCATE TABLE kräver en FROM-källa"
+
+msgid "SQL UPDATE requires a FROM source"
+msgstr "SQL UPDATE kräver en FROM-källa"
+
+msgid "Bad range"
+msgstr "Bad range"
+
+msgid "Invalid range"
+msgstr "Invalid range"
+
+msgid "Invalid line number"
+msgstr "Ogiltigt radnummer"
+
+msgid "Chunk is out of range"
+msgstr "Chunk är utanför giltigt intervall"
+
+msgid "Bad context"
+msgstr "Felaktig kontext"
+
+msgid "Bad context (in deletion)"
+msgstr "Dålig kontext (i radering)"
+
+msgid "Invalid diff format"
+msgstr "Ogiltigt diff-format"
+
+msgid "Unable to open directory."
+msgstr "Det går inte att öppna katalogen."
+
+msgid "Unable to create directory."
+msgstr "Kunde inte skapa katalog."
+
+msgid "File is not writable."
+msgstr "Filen är inte skrivbar."
+
+msgid "Unable to open file."
+msgstr "Kunde inte öppna filen."
+
+msgid "Not an uploaded file."
+msgstr "Inte en uppladdad fil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Den uppladdade filen överskrider den tillåtna maximala filstorleken."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Den uppladdade filen laddades bara delvis upp."
+
+msgid "No file was uploaded."
+msgstr "Ingen fil laddades upp."
+
+msgid "Missing a temporary folder."
+msgstr "Saknar en temporär mapp."
+
+msgid "Failed to write file to disk."
+msgstr "Det gick inte att skriva filen till disken."
+
+msgid "A PHP extension stopped the file upload."
+msgstr "Ett PHP-tillägg stoppade filuppladdningen."
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Detta innebär antingen att användarnamnet och lösenordsinformationen i din <strong>konfiguration. HK</strong> filen är felaktig eller så kan vi inte kontakta databasservern på \"<em>%s</em>\". Detta kan betyda att din värds databasserver är nere.</p> <ul><li>Är du säker på att du har rätt användarnamn och lösenord?</li><li>Är du säker på att du har skrivit rätt värdnamn?</li><li>Är du säker på att databasservern körs?</li></ul><p>Om du är osäker på vad dessa termer innebär bör du förmodligen kontakta din värd. Om du fortfarande behöver hjälp kan du alltid besöka <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "%s is not a directory."
+msgstr "%s är inte en katalog."
 
-msgid "The following error was encountered while trying to read the database:"
-msgstr "Följande fel uppstod när databasen skulle läsas:"
+msgid "Can't get file path"
+msgstr "Kan inte hämta sökväg"
 
-msgid "No process found"
-msgstr "Ingen process hittades"
+msgid "Can't lock a directory"
+msgstr "Kan inte låsa en katalog"
 
-msgid "Process failed"
-msgstr "Processen misslyckades"
+msgid "Can't call php function named flock"
+msgstr "Kan inte anropa php-funktionen som heter flock"
+
+msgid "Can't create file"
+msgstr "Kan inte skapa fil"
+
+msgid "Can't open file"
+msgstr "Kan inte öppna fil"
+
+msgid "Can't lock file"
+msgstr "Kan inte låsa fil"
+
+msgid "File cannot be removed."
+msgstr "Filen kan inte tas bort."
+
+msgid "Not enough memory to open image."
+msgstr "Inte tillräckligt med minne för att öppna bilden."
+
+msgid "Uploading this file is not allowed."
+msgstr "Det är inte tillåtet att ladda upp denna fil."
+
+msgid "Destination directory is not in jail."
+msgstr "Destinationskatalogen är inte i fängelse."
+
+msgid "File already exists."
+msgstr "Filen finns redan."
+
+msgid "Cannot write in this directory."
+msgstr "Kan inte skriva i denna katalog."
+
+msgid "Source file does not exist."
+msgstr "Källfilen finns inte."
+
+msgid "File is not in jail."
+msgstr "Filen är inte i fängelse."
+
+msgid "Destination directory is not writable."
+msgstr "Destinationskatalogen är inte skrivbar."
+
+msgid "Unable to rename file."
+msgstr "Det går inte att byta namn på fil."
+
+msgid "Directory is not in jail."
+msgstr "Katalogen är inte i fängelse."
+
+msgid "Directory cannot be removed."
+msgstr "Katalogen kan inte tas bort."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Filen %s komprimeras inte i zipet."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Försöker att packa upp ett mappnamn %s"
+
+msgid "Unable to write destination file."
+msgstr "Det går inte att skriva målfilen."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Det går inte att skriva i målkatalogen, behörighet nekad."
+
+msgid "Not enough memory to open file."
+msgstr "Inte tillräckligt med minne för att öppna filen."
+
+msgid "File does not exist"
+msgstr "Filen finns inte"
+
+msgid "Cannot read file"
+msgstr "Kan inte läsa fil"
+
+msgid "Directory does not exist"
+msgstr "Katalogen finns inte"
+
+msgid "Cannot read directory"
+msgstr "Kan inte läsa katalog"
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Hittade inte avslutande tagg för block <tpl:%s>. Innehållet har ignorerats."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Oväntad avslutande tagg </tpl:%s> hittad."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "VARNING: följande fel har hittats vid tolkning av mallfil :"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear har uppgraderats."
@@ -2394,11 +2661,18 @@ msgstr "Alla rättigheter på denna blogg."
 msgid "Change permissions"
 msgstr "Ändra behörigheter"
 
+#, fuzzy
+msgid "The following themes have been disabled :"
+msgstr "Följande tillägg har inaktiverats :"
+
 msgid "Theme configuration"
 msgstr "Tema konfiguration"
 
 msgid "Themes management"
 msgstr "Hantering av teman"
+
+msgid "Official repository could not be updated as there is no URL set in configuration."
+msgstr ""
 
 msgid "Manual checking of themes update done successfully."
 msgstr "Manuell kontroll av teman uppdateringen har utförts."
@@ -2654,6 +2928,10 @@ msgstr "Ta bort alla spammar"
 
 msgid "Selected comments action:"
 msgstr "Valda kommentarer:"
+
+#, fuzzy
+msgid "The following plugins have been disabled :"
+msgstr "Följande tillägg har inaktiverats :"
 
 msgid "Documentation and support"
 msgstr "Dokumentation och support"
@@ -3303,9 +3581,6 @@ msgstr "Personliga anteckningar:"
 msgid "Unpublished notes."
 msgstr "Opublicerade anteckningar."
 
-msgid "Preview"
-msgstr "Förhandsgranska"
-
 msgid "Add a comment"
 msgstr "Lägg till en kommentar"
 
@@ -3501,10 +3776,6 @@ msgstr "Tvinga kontroll uppdatering Dotclear"
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s är tillgänglig."
-
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP-versionen är %s (%s eller tidigare behövs)."
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "För att uppgradera din Dotclear installation klickar du bara på följande knapp. En säkerhetskopieringsfil för din nuvarande installation kommer att skapas i din rotkatalog."
@@ -3912,179 +4183,6 @@ msgstr "Du håller på att ändra behörigheter på följande bloggar för anvä
 msgid "Validate permissions"
 msgstr "Validera behörigheter"
 
-msgid "SQL DELETE requires a FROM source"
-msgstr "SQL DELETE kräver en FROM-källa"
-
-msgid "SQL DROP TABLE requires a FROM source"
-msgstr "SQL DROP TABLE kräver en FROM-källa"
-
-msgid "SQL INSERT requires an INTO source"
-msgstr "SQL INSERT kräver en INTO-källa"
-
-msgid "SQL JOIN requires a FROM source"
-msgstr "SQL JOIN kräver en FROM-källa"
-
-msgid "SQL SELECT requires a FROM source"
-msgstr "SQL SELECT kräver en FROM-källa"
-
-msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr "SQL TRUNCATE TABLE kräver en FROM-källa"
-
-msgid "SQL UPDATE requires a FROM source"
-msgstr "SQL UPDATE kräver en FROM-källa"
-
-msgid "Bad range"
-msgstr "Bad range"
-
-msgid "Invalid range"
-msgstr "Invalid range"
-
-msgid "Invalid line number"
-msgstr "Ogiltigt radnummer"
-
-msgid "Chunk is out of range"
-msgstr "Chunk är utanför giltigt intervall"
-
-msgid "Bad context"
-msgstr "Felaktig kontext"
-
-msgid "Bad context (in deletion)"
-msgstr "Dålig kontext (i radering)"
-
-msgid "Invalid diff format"
-msgstr "Ogiltigt diff-format"
-
-msgid "Unable to open directory."
-msgstr "Det går inte att öppna katalogen."
-
-msgid "Unable to create directory."
-msgstr "Kunde inte skapa katalog."
-
-msgid "File is not writable."
-msgstr "Filen är inte skrivbar."
-
-msgid "Unable to open file."
-msgstr "Kunde inte öppna filen."
-
-msgid "Not an uploaded file."
-msgstr "Inte en uppladdad fil."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Den uppladdade filen överskrider den tillåtna maximala filstorleken."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Den uppladdade filen laddades bara delvis upp."
-
-msgid "No file was uploaded."
-msgstr "Ingen fil laddades upp."
-
-msgid "Missing a temporary folder."
-msgstr "Saknar en temporär mapp."
-
-msgid "Failed to write file to disk."
-msgstr "Det gick inte att skriva filen till disken."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "Ett PHP-tillägg stoppade filuppladdningen."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s är inte en katalog."
-
-msgid "Can't get file path"
-msgstr "Kan inte hämta sökväg"
-
-msgid "Can't lock a directory"
-msgstr "Kan inte låsa en katalog"
-
-msgid "Can't call php function named flock"
-msgstr "Kan inte anropa php-funktionen som heter flock"
-
-msgid "Can't create file"
-msgstr "Kan inte skapa fil"
-
-msgid "Can't open file"
-msgstr "Kan inte öppna fil"
-
-msgid "Can't lock file"
-msgstr "Kan inte låsa fil"
-
-msgid "File cannot be removed."
-msgstr "Filen kan inte tas bort."
-
-msgid "Not enough memory to open image."
-msgstr "Inte tillräckligt med minne för att öppna bilden."
-
-msgid "Uploading this file is not allowed."
-msgstr "Det är inte tillåtet att ladda upp denna fil."
-
-msgid "Destination directory is not in jail."
-msgstr "Destinationskatalogen är inte i fängelse."
-
-msgid "File already exists."
-msgstr "Filen finns redan."
-
-msgid "Cannot write in this directory."
-msgstr "Kan inte skriva i denna katalog."
-
-msgid "Source file does not exist."
-msgstr "Källfilen finns inte."
-
-msgid "File is not in jail."
-msgstr "Filen är inte i fängelse."
-
-msgid "Destination directory is not writable."
-msgstr "Destinationskatalogen är inte skrivbar."
-
-msgid "Unable to rename file."
-msgstr "Det går inte att byta namn på fil."
-
-msgid "Directory is not in jail."
-msgstr "Katalogen är inte i fängelse."
-
-msgid "Directory cannot be removed."
-msgstr "Katalogen kan inte tas bort."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Filen %s komprimeras inte i zipet."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Försöker att packa upp ett mappnamn %s"
-
-msgid "Unable to write destination file."
-msgstr "Det går inte att skriva målfilen."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Det går inte att skriva i målkatalogen, behörighet nekad."
-
-msgid "Not enough memory to open file."
-msgstr "Inte tillräckligt med minne för att öppna filen."
-
-msgid "File does not exist"
-msgstr "Filen finns inte"
-
-msgid "Cannot read file"
-msgstr "Kan inte läsa fil"
-
-msgid "Directory does not exist"
-msgstr "Katalogen finns inte"
-
-msgid "Cannot read directory"
-msgstr "Kan inte läsa katalog"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "Hittade inte avslutande tagg för block <tpl:%s>. Innehållet har ignorerats."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Oväntad avslutande tagg </tpl:%s> hittad."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "VARNING: följande fel har hittats vid tolkning av mallfil :"
-
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Ange en huvudnyckel (DC_MASTER_KEY) i konfigurationsfilen."
 
@@ -4171,38 +4269,6 @@ msgstr "Installationen kan inte slutföras"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Av de nämnda skälen kan Dotclear inte installeras. Se <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentationen</a> för att lära dig att rätta till problemet."
 
-msgid "Multibyte string module (mbstring) is not available."
-msgstr "Multibyte strängmodul (mbstring) är inte tillgänglig."
-
-msgid "Iconv module is not available."
-msgstr "Iconv modul är inte tillgänglig."
-
-msgid "Output control functions are not available."
-msgstr "Det finns inga funktioner för utmatningskontroll."
-
-msgid "SimpleXML module is not available."
-msgstr "SimpleXML-modulen är inte tillgänglig."
-
-msgid "DOM XML module is not available."
-msgstr "DOM XML-modul är inte tillgänglig."
-
-msgid "PCRE engine does not support UTF-8 strings."
-msgstr "PCRE-motorn stöder inte UTF-8-strängar."
-
-msgid "SPL module is not available."
-msgstr "SPL-modulen är inte tillgänglig."
-
-#, fuzzy, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "MySQL-versionen är %s (4,1 eller tidigare behövs)."
-
-msgid "MySQL InnoDB engine is not available."
-msgstr "MySQL InnoDB motor är inte tillgänglig."
-
-#, fuzzy, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL-versionen är %s (8.0 eller tidigare behövs)."
-
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Sökväg <strong>%s</strong> är inte skrivbar."
@@ -4287,6 +4353,9 @@ msgstr "Master Email: (används som avsändare för lösenordsåterställning)"
 
 msgid "Continue"
 msgstr "Fortsätt"
+
+#~ msgid "No process found"
+#~ msgstr "Ingen process hittades"
 
 #, php-format
 #~ msgid "PHP version is %s (7.4 or earlier needed)."
