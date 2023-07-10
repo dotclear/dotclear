@@ -1,97 +1,158 @@
 <html>
 <head>
-  <title>Blog settings</title>
+  <title>Blog ayarları</title>
 </head>
 
 <body>
-
-<h3>Blog details</h3>
+<h4>Blog detayları</h4>
 <dl>
-  <dt>Blog ID</dt>
-  <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-  
-  <dt>Blog name</dt>
+  <dt>Blog Kimliği</dt>
+  <dd>Blogun benzersiz kimliği. Zorunludur, yalnızca bir süper yönetici tarafından değiştirilebilir.</dd>
+
+  <dt>Blog adı</dt>
   <dd>Name of the blog, mandatory.</dd>
-  
-  <dt>Blog URL</dt>
+
+  <dt>Blog URL'si</dt>
   <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-  
+
   <dt>Blog status</dt>
+  <dd>URL'nin okunma şeklini tanımlar. PATH_INFO önerilir, PATH_INFO çalışmazsa QUERY_STRING kullanılmalıdır. PATH_INFO modu kullanıldığında, blog URL'si bir "/" ile bitmelidir ve QUERY_STRING kullanıldığında, bir "?" ile bitmelidir.</dd>
+
+  <dt>Blog description</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: blog open to visitors</li>
-      <li><strong>offline</strong>: blog closed to visitors
-      but open to writers.</li>
-      <li><strong>removed</strong>: blog closed to both visitors and writers.</li>
+      <li><strong>Çevrimiçi:</strong> Blog ziyaretçilere açık.</li>
+      <li><strong>Çevrimdışı:</strong> Blog ziyaretçilere kapalı ancak yazarlara açık.</li>
+      <li><strong>Kaldırıldı:</strong> Blog hem ziyaretçilere hem de yazarlara kapalı, sadece süper yöneticilere açık.</li>
     </ul>
   </dd>
-  
-  <dt>Blog description</dt>
-  <dd>Here you can put any description you want for your blog. This is a
-  simple text, without formatting.</dd>
+
+  <dt>Blog açıklaması</dt>
+  <dd>Buraya blogunuz için istediğiniz açıklamayı koyabilirsiniz. Bu, herhangi bir biçimlendirme içermeyen basit bir metindir.</dd>
 </dl>
 
-<h3>Blog configuration</h3>
+<h4>Blog yapılandırması</h4>
 <dl>
-  <dt>Blog editor's name</dt>
+  <dt>Blog editörünün adı</dt>
   <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-  
+
   <dt>Copyright notice</dt>
   <dd>Note about the reproduction rights for the blog.</dd>
-  
+
   <dt>Default language</dt>
   <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-  
+
   <dt>Blog timezone</dt>
   <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-  
+
   <dt>Date formats</dt>
   <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Time format</dt>
   <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Display .. entries per page</dt>
   <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-  
-  <dt>Leave comments open during .. days</dt>
-  <dd>The number of days during wich comments and trackbacks will be open 
-  after the post publication. When empty, the comments will be kept open
-  indefinitly.</dd>
-  
-  <dt>Display smilies on entries and comments </dt>
-  <dd>Display sequences of characters as :-) or ;-) as images.</dd>
-  
-  <dt>Accept comments</dt>
-  <dd>Globally accepts comments on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Accept trackbacks</dt>
-  <dd>Globally accepts trackbacks on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Moderate comments and trackbacks</dt>
-  <dd>With such an option, comments and trackbacks will be published after
-  editor agreement.</dd>
-  
-  <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-  <dd>Adds an attribut on the links in comments and trackbacks, instructing the
-  search bots not to follow those links. This antispam features has yet to
-  prove its value.</dd>
-  
-  <dt>Wiki syntax for comments </dt>
-  <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
 </dl>
 
-<h3>Format reference</h3>
+<h4>Yorumlar ve geri izlemeler</h4>
+<dl>
+  <dt>Yorumları kabul et</dt>
+  <dd>Blogdaki yorumları global olarak kabul eder. Yazı başına ayarına göre önceliklidir.</dd>
+
+  <dt>Orta düzeyde yorumlar</dt>
+  <dd>Bu seçenekle, yorumlar yalnızca editörün onayından sonra yayınlanacaktır.</dd>
+
+  <dt>Yorumları X gün boyunca açık bırakın</dt>
+  <dd>Gönderi yayınlandıktan sonra yorumların açık kalacağı gün sayısı. Boş olduğunda, yorumlar süresiz olarak açık tutulacaktır.</dd>
+
+  <dt>Yorumlar için Wiki sözdizimi</dt>
+  <dd>Yorumlarda viki sözdiziminin bir alt kümesinin kullanılmasına izin verir.</dd>
+
+  <dt>Geri izlemeleri kabul et</dt>
+  <dd>Blogdaki geri izlemeleri global olarak kabul eder. Yazı başına ayarına göre önceliklidir.</dd>
+
+  <dt>Orta düzeyde geri izleme</dt>
+  <dd>Bu seçenekle, geri izlemeler yalnızca editörün onayından sonra yayınlanacaktır.</dd>
+
+  <dt>Geri izlemeleri X gün boyunca açık bırakın</dt>
+  <dd>Gönderinin yayınlanmasından sonra geri izlemelerin açık kalacağı gün sayısı. Boş olduğunda, geri izlemeler süresiz olarak açık tutulacaktır.</dd>
+
+  <dt>Yorumlara ve geri izleme bağlantılarına "nofollow" ilişkisi ekleyin</dt>
+  <dd>Yorumlardaki ve geri izlemelerdeki bağlantılara bir nitelik ekleyerek arama botlarına bunları takip etmemeleri talimatını verir. Bu antispam özelliği henüz değerini kanıtlamadı.</dd>
+</dl>
+
+<h4>Blog sunumu</h4>
+<dl>
+  <dt>Tarih biçimi</dt>
+  <dd>Blog gönderileri için tarih biçimini tanımlar. Daha fazla bilgi için aşağıdaki "Biçim referansı" bölümüne bakın. Önceden var olan bir kalıbı hızlıca seçmek için açılır listeyi kullanabilirsiniz.</dd>
+
+  <dt>Zaman formatı</dt>
+  <dd>Blog gönderileri için zaman biçimini tanımlar. Daha fazla bilgi için aşağıdaki "Biçim referansı" bölümüne bakın. Önceden var olan bir kalıbı hızlıca seçmek için açılır listeyi kullanabilirsiniz.</dd>
+
+  <dt>Girdilerde ve yorumlarda ifadeleri görüntüleme</dt>
+  <dd>:-) veya ;-) gibi bazı dizeleri resimlere dönüştürür.</dd>
+
+  <dt>Sayfa başına X girişi görüntüle</dt>
+  <dd>X girdilerini blog ana sayfasında ve farklı kategorilerde görüntüleyecektir.</dd>
+
+  <dt>Besleme başına X girişi görüntüle</dt>
+  <dd>Blog beslemelerinde X girişlerini görüntüler.</dd>
+
+  <dt>Besleme başına X yorum görüntüle</dt>
+  <dd>Blog yorumları beslemelerinde X yorumlarını görüntüler.</dd>
+
+  <dt>Beslemeleri kes</dt>
+  <dd>Bu seçenek yalnızca beslemelerdeki blog gönderilerinden bir özet sağlayacaktır.</dd>
+
+  <dt>Kategori sayfasına ve kategori gönderileri akışına alt kategoriler ekleyin</dt>
+  <dd>Bu seçenek etkinleştirildiğinde, alt kategorilerdeki gönderiler üst kategorilerin sayfalarında ve beslemelerinde görüntülenecektir.</dd>
+</dl>
+
+<h4>Medya ve görüntüler</h4>
+<dl>
+  <dt>Oluşturulan görüntü boyutları (piksel cinsinden)</dt>
+  <dd>Medya yöneticisine bir görüntü eklediğinizde, diğer boyutlar otomatik olarak oluşturulur. Burada, oluşturulan her görüntü türünün en uzun boyutunun (genişlik veya yükseklik) boyutunu tanımlayabilirsiniz. Bir alanı boş bırakırsanız, medya yöneticisi ilgili minyatürü oluşturmayacaktır.</dd>
+
+  <dt>Varsayılan görüntü ekleme nitelikleri</dt>
+  <dd>Seçilen ayarlar medya yöneticisine eklenen tüm yeni görüntülere uygulanacaktır.</dd>
+
+  <dt>Eklenen resim başlığı</dt>
+  <dd>Resimlerinize uygulanan "başlık" etiketlerinin biçimini, resimlerin meta verilerinden alınan bilgilere göre seçin.</dd>
+
+  <dt>Mümkünse orijinal medya tarihini kullanın</dt>
+  <dd>Bu seçenek etkinleştirildiğinde, görüntü meta verileri bir tarih içeriyorsa, bu tarih kullanılır. Aksi takdirde, yükleme tarihi kullanılır.</dd>
+
+  <dt>Eklenen görüntünün boyutu</dt>
+  <dd>Bir blog gönderisine resim eklerken kullanılan varsayılan boyutu tanımlar.</dd>
+
+  <dt>Görüntü hizalama</dt>
+  <dd>Bir blog gönderisine resim eklerken kullanılan varsayılan hizalamayı tanımlar.</dd>
+
+  <dt>Orijinal resme bir bağlantı ekleyin</dt>
+  <dd>Bu seçenek etkinleştirildiğinde, bir blog gönderisine eklenen resimler tıklanabilir olacak ve orijinal boyutlu resme işaret edecektir.</dd>
+
+</dl>
+
+<h4>Arama motorları robot politikası</h4>
 <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
+
+<h4>Antispam</h4>
+<p>Önemsiz yorumların kaç gün sonra otomatik olarak silinmesini istediğinizi ayarlayabilirsiniz. Bu özelliği devre dışı bırakmak için bu alanı boş bırakın (veya 0 yazın).</p>
+
+<h4>Kullanıcılar</h4>
+<p>Bu blogun kullanıcılarını ve izinlerini listeler.</p>
+
+<h3>Blog details</h3>
+<p>Bazı alanlar, tarih ve saati ihtiyaçlarınıza göre biçimlendirmek için yapılandırılabilir.
+İşte bir referans:</p>
 
 <ul>
   <li><strong>%a</strong>: abreviated week day (local).</li>
@@ -141,7 +202,7 @@ Here is a reference:</p>
   <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
   <li><strong>%Y</strong>: the year, four digits</li>
   <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li><strong>%%</strong>: a litteral `%' character</li>
+  <li>: a litteral `%' character</li>
 </ul>
 
 </body>
