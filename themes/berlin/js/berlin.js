@@ -87,27 +87,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   gotop.addEventListener('click', (e) => {
-    function scrollTo(element, to, duration) {
-      const easeInOutQuad = (time, ease_start, ease_change, ease_duration) => {
-        time /= ease_duration / 2;
-        if (time < 1) return (ease_change / 2) * time * time + ease_start;
-        time--;
-        return (-ease_change / 2) * (time * (time - 2) - 1) + ease_start;
-      };
-      let currentTime = 0;
-      const start = element.scrollTop;
-      const change = to - start;
-      const increment = 20;
-      const animateScroll = () => {
-        currentTime += increment;
-        element.scrollTop = easeInOutQuad(currentTime, start, change, duration);
-        if (currentTime < duration) {
-          setTimeout(animateScroll, increment);
-        }
-      };
-      animateScroll();
+    const isReduced =
+      window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+      window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (!!isReduced) {
+      document.querySelector('html').scrollTop = 0;
+    } else {
+      function scrollTo(element, to, duration) {
+        const easeInOutQuad = (time, ease_start, ease_change, ease_duration) => {
+          time /= ease_duration / 2;
+          if (time < 1) return (ease_change / 2) * time * time + ease_start;
+          time--;
+          return (-ease_change / 2) * (time * (time - 2) - 1) + ease_start;
+        };
+        let currentTime = 0;
+        const start = element.scrollTop;
+        const change = to - start;
+        const increment = 20;
+        const animateScroll = () => {
+          currentTime += increment;
+          element.scrollTop = easeInOutQuad(currentTime, start, change, duration);
+          if (currentTime < duration) {
+            setTimeout(animateScroll, increment);
+          }
+        };
+        animateScroll();
+      }
+      scrollTo(document.querySelector('html'), 0, 800);
     }
-    scrollTo(document.querySelector('html'), 0, 800);
     e.preventDefault();
   });
 
