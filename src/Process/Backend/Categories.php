@@ -97,7 +97,7 @@ class Categories extends Process
             $categories = json_decode($_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
             foreach ($categories as $category) {
                 if (!empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
-                    dcCore::app()->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
+                    dcCore::app()->blog->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
                 }
             }
             Notices::addSuccessNotice(__('Categories have been successfully reordered.'));
@@ -240,6 +240,7 @@ class Categories extends Process
 
             echo
             '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '" />' .
+            '<input type="hidden" name="process" value="Categories"/>' .
             dcCore::app()->formNonce() .
             '</p>' .
             '</div></form>';
