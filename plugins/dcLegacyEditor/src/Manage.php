@@ -22,6 +22,7 @@ class Manage extends Process
 {
     public static function init(): bool
     {
+        dcCore::app()->admin->editor_is_admin   = self::status(My::checkContext(My::MANAGE));
         dcCore::app()->admin->editor_std_active = self::status(My::checkContext(My::MANAGE)) && My::settings()->active;
 
         return self::status();
