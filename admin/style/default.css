@@ -345,8 +345,8 @@ h6 {
   --search-outline: #bee74b;
   --footer-background: #fff;
   --footer-border: #caced2;
-  --collapser-focus: #a2cbe9;
-  --collapser-background: #c9c9c9;
+  --collapser-focus: #3a539b;
+  --collapser-background: #a2cbe9;
   --popup-title-color: #fff;
   --popup-title-background: #3a539b;
   --breadcrumb-background: #fff;
@@ -617,7 +617,7 @@ h6 {
   --footer-background: var(--body-background);
   --footer-border: #caced2;
   --collapser-focus: #9ac123;
-  --collapser-background: #565a60;
+  --collapser-background: #9ac123;
   --popup-title-color: var(--body-color);
   --popup-title-background: #565a60;
   --breadcrumb-background: var(--body-background);
@@ -889,7 +889,7 @@ h6 {
     --footer-background: var(--body-background);
     --footer-border: #caced2;
     --collapser-focus: #9ac123;
-    --collapser-background: #565a60;
+    --collapser-background: #9ac123;
     --popup-title-color: var(--body-color);
     --popup-title-background: #565a60;
     --breadcrumb-background: var(--body-background);
@@ -1304,14 +1304,6 @@ h1,
 }
 #collapser:hover, #collapser:focus {
   background: var(--collapser-focus);
-  width: var(--collapser-width-focus);
-}
-.hide-mm #collapser {
-  background: var(--collapser-focus);
-  width: var(--collapser-width);
-}
-.hide-mm #collapser:hover, .hide-mm #collapser:focus {
-  background: var(--collapser-background);
   width: var(--collapser-width-focus);
 }
 

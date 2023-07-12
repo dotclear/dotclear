@@ -89,17 +89,6 @@ h1,
     background: var(--collapser-focus);
     width: var(--collapser-width-focus);
   }
-
-  .hide-mm & {
-    background: var(--collapser-focus);
-    width: var(--collapser-width);
-
-    &:hover,
-    &:focus {
-      background: var(--collapser-background);
-      width: var(--collapser-width-focus);
-    }
-  }
 }
 
 .expand-mm {
