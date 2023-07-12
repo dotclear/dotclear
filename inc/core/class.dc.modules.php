@@ -369,7 +369,7 @@ class dcModules
     protected function parsePathModules(array $paths): array
     {
         foreach ($paths as $path) {
-            $root = Path::real(rtrim($path, DIRECTORY_SEPARATOR), false) . DIRECTORY_SEPARATOR;
+            $root = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
 
             // already scan
             if (isset($this->modules_paths[$root])) {
