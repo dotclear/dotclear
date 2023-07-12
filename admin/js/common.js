@@ -1048,7 +1048,14 @@ $(() => {
     }
   });
   $('#gototop').on('click', (e) => {
-    $('body,html').animate({ scrollTop: 0 }, 800);
+    const isReduced =
+      window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+      window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (!!isReduced) {
+      document.querySelector('html').scrollTop = 0;
+    } else {
+      $('body,html').animate({ scrollTop: 0 }, 800);
+    }
     e.preventDefault();
   });
 
