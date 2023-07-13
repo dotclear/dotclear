@@ -171,10 +171,10 @@ class Manage extends Process
         // Display page
 
         $head = Page::jsPageTabs(dcCore::app()->admin->tab) .
-            My::jsLoad('settings.js');
+            My::jsLoad('settings');
         if (dcCore::app()->admin->task && dcCore::app()->admin->task->ajax()) {
             $head .= Page::jsJson('maintenance', ['wait' => __('Please wait...')]) .
-                My::jsLoad('dc.maintenance.js');
+                My::jsLoad('dc.maintenance');
         }
         $head .= dcCore::app()->admin->maintenance->getHeaders();
 

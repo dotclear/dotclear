@@ -426,7 +426,7 @@ class ManagePage extends Process
             Page::jsModal() .
             Page::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
             Page::jsLoad('js/_post.js') .
-            My::jsLoad('page.js') .
+            My::jsLoad('page') .
             $admin_post_behavior .
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --

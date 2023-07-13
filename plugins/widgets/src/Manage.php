@@ -234,18 +234,18 @@ class Manage extends Process
             $rte_flag = $rte_flags['widgets_text'];
         }
 
-        $head = My::cssLoad('style.css') .
+        $head = My::cssLoad('style') .
             Page::jsLoad('js/jquery/jquery-ui.custom.js') .
             Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             Page::jsJson('widgets', [
                 'widget_noeditor' => ($rte_flag ? 0 : 1),
                 'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
             ]) .
-            My::jsLoad('widgets.js');
+            My::jsLoad('widgets');
 
         $user_dm_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
-            $head .= My::jsLoad('dragdrop.js');
+            $head .= My::jsLoad('dragdrop');
         }
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string

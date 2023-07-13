@@ -224,7 +224,7 @@ class Manage extends Process
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-                My::jsLoad('blogroll.js');
+                My::jsLoad('blogroll');
         }
         $head .= Page::jsPageTabs(dcCore::app()->admin->default_tab);
 

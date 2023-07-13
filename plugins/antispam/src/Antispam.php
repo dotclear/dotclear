@@ -131,7 +131,7 @@ class Antispam extends initAntispam
      */
     public static function dashboardHeaders(): string
     {
-        return My::jsLoad('dashboard.js');
+        return My::jsLoad('dashboard');
     }
 
     /**

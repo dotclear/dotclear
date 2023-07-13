@@ -465,7 +465,7 @@ class Manage extends Process
         if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-                My::jsLoad('simplemenu.js');
+                My::jsLoad('simplemenu');
         }
         $head .= Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 

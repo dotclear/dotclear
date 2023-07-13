@@ -64,9 +64,9 @@ class BackendBehaviors
             'img_title'            => __('External image'),
             'url_cannot_be_empty'  => __('URL field cannot be empty.'),
         ]) .
-        My::jsLoad('_post_editor.js') .
-        My::jsLoad('ckeditor/ckeditor.js') .
-        My::jsLoad('ckeditor/adapters/jquery.js') .
+        My::jsLoad('_post_editor') .
+        My::jsLoad('ckeditor/ckeditor') .
+        My::jsLoad('ckeditor/adapters/jquery') .
         Page::jsLoad(My::manageURL($config_js, '&'));
     }
 
@@ -89,7 +89,7 @@ class BackendBehaviors
             'center' => 'media-center',
             'right'  => 'media-right',
         ]) .
-        My::jsLoad('popup_media.js');
+        My::jsLoad('popup_media');
     }
 
     /**
@@ -105,7 +105,7 @@ class BackendBehaviors
             return '';
         }
 
-        return My::jsLoad('popup_link.js');
+        return My::jsLoad('popup_link');
     }
 
     /**
@@ -121,7 +121,7 @@ class BackendBehaviors
             return '';
         }
 
-        return My::jsLoad('popup_posts.js');
+        return My::jsLoad('popup_posts');
     }
 
     /**

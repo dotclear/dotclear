@@ -246,7 +246,7 @@ abstract class MyModule
      * Return a HTML CSS resource load (usually in HTML head).
      *
      * Resource MUST be in 'css' module subfolder.
-     * or put a / at the beginning to use another path, ex: My::cssLoad('/lib/external.css');
+     * or put a / at the beginning to use another path, ex: My::cssLoad('/lib/external');
      *
      * @param   string          $resource   The resource
      * @param   string          $media      The media
@@ -257,18 +257,16 @@ abstract class MyModule
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
         $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
-        if (strpos($resource, '.css') === false) {
-            $resource .= '.css';
-        }
+        $ext  = strpos($resource, '.js') === false ? '.css' : '';
 
-        return dcUtils::cssLoad(static::fileURL($base . $resource), $media, $version);
+        return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
     }
 
     /**
      * Return a HTML JS resource load (usually in HTML head).
      *
      * Resource MUST be in 'js' module subfolder
-     * or put a / at the beginning to use another path, ex: My::jsLoad('/lib/external.js');
+     * or put a / at the beginning to use another path, ex: My::jsLoad('/lib/external');
      *
      * @param   string          $resource   The resource
      * @param   null|string     $version    The version
@@ -279,11 +277,9 @@ abstract class MyModule
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
         $base = substr($resource, 0, 1) === '/' ? '' : 'js/';
-        if (strpos($resource, '.js') === false) {
-            $resource .= '.js';
-        }
+        $ext  = strpos($resource, '.js') === false ? '.js' : '';
 
-        return dcUtils::jsLoad(static::fileURL($base . $resource), $version, $module);
+        return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
     }
 
     /**

@@ -104,7 +104,7 @@ class Manage extends Process
         Page::openModule(
             My::name(),
             Page::jsPageTabs(dcCore::app()->admin->part) .
-            My::jsLoad('index.js')
+            My::jsLoad('index')
         );
 
         echo
