@@ -508,6 +508,9 @@ class dcModules
     /**
      * Load modules context.
      *
+     * This always creates admin URL as some old plugins _prepend does not return true,
+     * this may change in near futur. (2.27)
+     *
      * @param      array<int,string>    $ignored    The modules to ignore
      * @param      string               $ns         The namespace (context as 'public', 'admin', ...)
      * @param      null|string          $lang       The language
@@ -520,12 +523,17 @@ class dcModules
         }
 
         foreach ($this->defines as $module) {
-            // only enabled modules
-            if ($module->state != dcModuleDefine::STATE_ENABLED || in_array($module->getId(), $ignored)) {
+            // Only enabled modules (in near futur module _prepend must return true too)
+            if ($module->state != dcModuleDefine::STATE_ENABLED){ //} || in_array($module->getId(), $ignored)) {
                 continue;
             }
             if ($ns === 'admin') {
-                $this->loadModuleL10Nresources($module->getId(), $lang);
+                // This check may be removed in near futur
+                if (!in_array($module->getId(), $ignored)) {
+                    // Load module resources files
+                    $this->loadModuleL10Nresources($module->getId(), $lang);
+                }
+                // Create module admin URL
                 dcCore::app()->admin->url->register(
                     'admin.plugin.' . $module->getId(),
                     $base,                                  // @phpstan-ignore-line
@@ -533,8 +541,11 @@ class dcModules
                     array_merge($params, ['p' => $module->getId()])   // @phpstan-ignore-line
                 );
             }
-            // Load ns_file
-            $this->loadNsFile($module->getId(), $ns);
+            // This check may be removed in near futur
+            if (!in_array($module->getId(), $ignored)) {
+                // Load module ns_file
+                $this->loadNsFile($module->getId(), $ns);
+            }
         }
     }
 
