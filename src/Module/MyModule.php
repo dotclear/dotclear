@@ -256,8 +256,8 @@ abstract class MyModule
      */
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
-        $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
-        $ext  = strpos($resource, '.js') === false ? '.css' : '';
+        $base = substr($resource, 0, 1)   === '/' ? '' : 'css/';
+        $ext  = strpos($resource, '.css') === false ? '.css' : '';
 
         return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
     }
@@ -276,7 +276,7 @@ abstract class MyModule
      */
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
-        $base = substr($resource, 0, 1) === '/' ? '' : 'js/';
+        $base = substr($resource, 0, 1)  === '/' ? '' : 'js/';
         $ext  = strpos($resource, '.js') === false ? '.js' : '';
 
         return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
