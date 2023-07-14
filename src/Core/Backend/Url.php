@@ -305,7 +305,6 @@ class Url
         $this->register('admin.user', 'User');
         $this->register('admin.user.actions', 'UsersActions');
         $this->register('admin.users', 'Users');
-        $this->register('admin.help', 'Help');
         $this->register('admin.update', 'Update');
         $this->register('admin.csp.report', 'CspReport');
         $this->register('admin.rest', 'Rest');
