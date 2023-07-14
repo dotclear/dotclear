@@ -257,7 +257,7 @@ abstract class MyModule
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
         $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
-        $ext  = strpos($resource, '.js') === false ? '.css' : '';
+        $ext  = strpos($resource, '.css') === false ? '.css' : '';
 
         return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
     }
