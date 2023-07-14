@@ -165,12 +165,12 @@ class Manage extends Process
             'error_occurred'     => __('An error occurred:'),
             'confirm_reset_file' => __('Are you sure you want to reset this file?'),
         ]) .
-            My::jsLoad('script.js') .
+            My::jsLoad('script') .
             Page::jsConfirmClose('file-form');
         if (dcCore::app()->admin->user_ui_colorsyntax) {
             $head .= Page::jsLoadCodeMirror(dcCore::app()->admin->user_ui_colorsyntax_theme);
         }
-        $head .= My::cssLoad('style.css');
+        $head .= My::cssLoad('style');
 
         Page::openModule(__('Edit theme files'), $head);
 
@@ -236,7 +236,7 @@ class Manage extends Process
                                     'text/html'))));
                     echo
                     Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) .
-                    My::jsLoad('mode.js') .
+                    My::jsLoad('mode') .
                     Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', dcCore::app()->admin->user_ui_colorsyntax_theme);
                 }
             }

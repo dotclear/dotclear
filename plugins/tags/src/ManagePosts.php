@@ -133,12 +133,12 @@ class ManagePosts extends Process
 
         Page::openModule(
             My::name(),
-            My::cssLoad('style.css') .
+            My::cssLoad('style') .
             Page::jsLoad('js/_posts_list.js') .
             Page::jsJson('posts_tags_msg', [
                 'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(dcCore::app()->admin->tag)),
             ]) .
-            My::jsLoad('posts.js') .
+            My::jsLoad('posts') .
             Page::jsConfirmClose('tag_rename')
         );
 

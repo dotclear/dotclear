@@ -134,8 +134,8 @@ class Manage extends Process
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
         $head .= Page::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
-            My::jsLoad('antispam.js') .
-            My::cssLoad('style.css');
+            My::jsLoad('antispam') .
+            My::cssLoad('style');
 
         Page::openModule($title, $head);
 

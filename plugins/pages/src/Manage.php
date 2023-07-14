@@ -105,7 +105,7 @@ class Manage extends Process
             Page::jsLoad('js/jquery/jquery-ui.custom.js') .
             Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             Page::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
-            My::jsLoad('list.js')
+            My::jsLoad('list')
         );
 
         echo

@@ -54,7 +54,7 @@ class BackendBehaviors
                     'url'   => $tag_url,
                 ],
             ]) .
-            My::jsLoad('legacy-post.js');
+            My::jsLoad('legacy-post');
         }
 
         // dcCKEditor
@@ -280,8 +280,8 @@ class BackendBehaviors
                 Page::jsJson('editor_tags_options', $editor_tags_options) .
                 Page::jsJson('editor_tags_msg', $msg) .
                 Page::jsLoad('js/jquery/jquery.autocomplete.js') .
-                My::jsLoad('posts_actions.js') .
-                My::cssLoad('style.css')
+                My::jsLoad('posts_actions') .
+                My::cssLoad('style')
             );
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .
@@ -413,8 +413,8 @@ class BackendBehaviors
         Page::jsJson('editor_tags_options', $editor_tags_options) .
         Page::jsJson('editor_tags_msg', $msg) .
         Page::jsLoad('js/jquery/jquery.autocomplete.js') .
-        My::jsLoad('post.js') .
-        My::cssLoad('style.css');
+        My::jsLoad('post') .
+        My::cssLoad('style');
     }
 
     /**

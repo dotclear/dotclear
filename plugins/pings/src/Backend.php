@@ -37,7 +37,7 @@ class Backend extends Process
         My::addBackendMenuItem(Menus::MENU_BLOG, [], '');
 
         dcCore::app()->addBehaviors([
-            'adminPostHeaders'     => fn () => My::jsLoad('post.js'),
+            'adminPostHeaders'     => fn () => My::jsLoad('post'),
             'adminPostFormItems'   => [BackendBehaviors::class, 'pingsFormItems'],
             'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],
             'adminAfterPostUpdate' => [BackendBehaviors::class, 'doPings'],

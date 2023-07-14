@@ -197,7 +197,7 @@ class ModuleImportFlat extends Module
             'ie_import_flat_msg',
             ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]
         ) .
-        My::jsLoad('import_flat.js');
+        My::jsLoad('import_flat');
         echo
         '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .

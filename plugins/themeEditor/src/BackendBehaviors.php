@@ -115,7 +115,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
 </textarea>';
         echo
         Page::jsJson('theme_editor_current', ['theme' => $current_theme]) .
-        My::jsLoad('theme.js');
+        My::jsLoad('theme');
         echo '</div>';
         echo '</fieldset>';
     }

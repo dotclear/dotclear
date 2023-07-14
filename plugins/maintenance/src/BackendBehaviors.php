@@ -124,7 +124,7 @@ class BackendBehaviors
 
     public static function adminDashboardHeaders()
     {
-        return My::jsLoad('dashboard.js');
+        return My::jsLoad('dashboard');
     }
 
     /**

@@ -48,7 +48,7 @@ class BackendBehaviors
         return
         self::jsToolBar() .
         Page::jsJson('legacy_editor_ctx', $js) .
-        My::jsLoad('_post_editor.js');
+        My::jsLoad('_post_editor');
     }
 
     public static function adminPopupMedia($editor = '')
@@ -57,7 +57,7 @@ class BackendBehaviors
             return;
         }
 
-        return My::jsLoad('jsToolBar/popup_media.js');
+        return My::jsLoad('jsToolBar/popup_media');
     }
 
     public static function adminPopupLink($editor = '')
@@ -66,7 +66,7 @@ class BackendBehaviors
             return;
         }
 
-        return My::jsLoad('jsToolBar/popup_link.js');
+        return My::jsLoad('jsToolBar/popup_link');
     }
 
     public static function adminPopupPosts($editor = '')
@@ -75,7 +75,7 @@ class BackendBehaviors
             return;
         }
 
-        return My::jsLoad('jsToolBar/popup_posts.js');
+        return My::jsLoad('jsToolBar/popup_posts');
     }
 
     protected static function jsToolBar()
@@ -173,15 +173,15 @@ class BackendBehaviors
         }
 
         $res = Page::jsJson('legacy_editor', $js) .
-        My::cssLoad('jsToolBar/jsToolBar.css') .
-        My::jsLoad('jsToolBar/jsToolBar.js');
+        My::cssLoad('jsToolBar/jsToolBars') .
+        My::jsLoad('jsToolBar/jsToolBar');
 
         if (isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('enable_wysiwyg')) {
-            $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg.js');
+            $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 
-        $res .= My::jsLoad('jsToolBar/jsToolBar.dotclear.js') .
-        My::jsLoad('jsToolBar/jsToolBar.config.js');
+        $res .= My::jsLoad('jsToolBar/jsToolBar.dotclear') .
+        My::jsLoad('jsToolBar/jsToolBar.config');
 
         return $res;
     }

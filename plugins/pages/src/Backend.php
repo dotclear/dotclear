@@ -89,7 +89,7 @@ class Backend extends Process
                     'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
                 ]);
             },
-            'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions.js'),
+            'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions'),
             'initWidgets'              => [Widgets::class, 'initWidgets'],
             'initDefaultWidgets'       => [Widgets::class, 'initDefaultWidgets'],
         ]);

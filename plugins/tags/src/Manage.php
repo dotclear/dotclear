@@ -63,7 +63,7 @@ class Manage extends Process
 
         Page::openModule(
             My::name(),
-            My::cssLoad('style.css')
+            My::cssLoad('style')
         );
 
         echo

@@ -34,10 +34,10 @@ class Backend extends Process
         dcCore::app()->addBehaviors([
             'adminPostFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
             'adminPostAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
-            'adminPostHeaders'   => fn () => My::jsLoad('post.js'),
+            'adminPostHeaders'   => fn () => My::jsLoad('post'),
             'adminPageFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
             'adminPageAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
-            'adminPageHeaders'   => fn () => My::jsLoad('post.js'),
+            'adminPageHeaders'   => fn () => My::jsLoad('post'),
             'adminPageHelpBlock' => [BackendBehaviors::class, 'adminPageHelpBlock'],
         ]);
 

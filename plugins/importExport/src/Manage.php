@@ -76,9 +76,9 @@ class Manage extends Process
 
         Page::openModule(
             My::name(),
-            My::cssLoad('style.css') .
+            My::cssLoad('style') .
             Page::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
-            My::jsLoad('script.js')
+            My::jsLoad('script')
         );
 
         if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null) {
