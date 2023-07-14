@@ -305,7 +305,7 @@ class Utility extends Process
         }
 
         // Do not try to execute a process added to the URL.
-        exit;
+        return false;
     }
 
     /**
