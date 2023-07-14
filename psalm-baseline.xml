@@ -1,103 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="dev-master@c059388274a641b0c577c11b845050891fbfbe2c">
-  <file src="admin/install/index.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-      <code>(string) DC_VERSION</code>
-    </RedundantCast>
-    <TypeDoesNotContainType>
-      <code><![CDATA[DC_MASTER_KEY === '']]></code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="admin/install/wizard.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-    </RedundantCast>
-  </file>
-  <file src="inc/admin/class.dc.admin.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-    </RedundantCast>
-  </file>
-  <file src="inc/admin/class.dc.favorites.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-    </RedundantCast>
-  </file>
-  <file src="inc/admin/lib.dc.notices.php">
-    <InvalidGlobal>
-      <code>global $core;</code>
-      <code>global $core;</code>
-    </InvalidGlobal>
-  </file>
-  <file src="inc/admin/lib.dc.page.php">
-    <InvalidArgument>
-      <code><![CDATA['Content-Type: text/html; charset=UTF-8']]></code>
-      <code><![CDATA['content-type']]></code>
-      <code><![CDATA['content-type']]></code>
-    </InvalidArgument>
-    <RedundantCast>
-      <code>(bool) $show</code>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-    </RedundantCast>
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-    </TypeDoesNotContainType>
-    <UndefinedConstant>
-      <code>DC_START_TIME</code>
-    </UndefinedConstant>
-  </file>
-  <file src="inc/admin/lib.helper.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-    </RedundantCast>
-  </file>
-  <file src="inc/admin/lib.mediapage.php">
-    <RedundantCondition>
-      <code>is_countable($rs)</code>
-      <code>is_countable($rs)</code>
-    </RedundantCondition>
-    <UndefinedThisPropertyAssignment>
-      <code><![CDATA[$this->d]]></code>
-      <code><![CDATA[$this->d]]></code>
-      <code><![CDATA[$this->d]]></code>
-    </UndefinedThisPropertyAssignment>
-  </file>
-  <file src="inc/admin/lib.moduleslist.php">
-    <InvalidScalarArgument>
-      <code>$modules[0]</code>
-    </InvalidScalarArgument>
-    <RedundantCondition>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_DEV</code>
-      <code>DC_DEV</code>
-      <code>DC_DEV</code>
-      <code>DC_DEV</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="inc/admin/lib.themeconfig.php">
-    <RedundantCondition>
-      <code><![CDATA[$background !== '']]></code>
-      <code><![CDATA[$color !== '']]></code>
-      <code><![CDATA[$size !== '']]></code>
-    </RedundantCondition>
-  </file>
   <file src="inc/core/class.dc.auth.php">
     <InvalidArrayOffset>
       <code>$_COOKIE[DC_SESSION_NAME]</code>
@@ -132,6 +34,7 @@
       <code>(int) $id</code>
       <code>(int) $id</code>
       <code>(int) $old_cat_id</code>
+      <code>(int) $status</code>
     </RedundantCast>
     <UndefinedPropertyAssignment>
       <code><![CDATA[$rs->_nb_media]]></code>
@@ -330,16 +233,6 @@
     <InvalidDocblock>
       <code>protected array $properties = [];</code>
     </InvalidDocblock>
-  </file>
-  <file src="inc/dbschema/db-schema.php">
-    <UndefinedGlobalVariable>
-      <code>$_s</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="inc/dbschema/upgrade.php">
-    <TypeDoesNotContainType>
-      <code><![CDATA[DC_ROOT === '']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="inc/public/class.dc.template.php">
     <FalsableReturnStatement>
@@ -571,114 +464,132 @@
       <code>DC_FORCE_SCHEME_443</code>
       <code>DC_REVERSE_PROXY</code>
     </TypeDoesNotContainType>
+    <UndefinedConstant>
+      <code>CLI_MODE</code>
+    </UndefinedConstant>
   </file>
   <file src="src/Autoloader.php">
-    <InvalidNullableReturnType>
-      <code>self</code>
-    </InvalidNullableReturnType>
-    <NullableReturnStatement>
-      <code>self::$instance</code>
-    </NullableReturnStatement>
+    <RedundantPropertyInitializationCheck>
+      <code>isset(self::$instance)</code>
+    </RedundantPropertyInitializationCheck>
   </file>
-  <file src="src/Backend/BlogPref.php">
-    <RedundantCondition>
-      <code><![CDATA[$status != '200']]></code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Backend/Blogs.php">
-    <DuplicateArrayKey>
-      <code><![CDATA[dcCore::app()->adminurl->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true))]]></code>
-    </DuplicateArrayKey>
-  </file>
-  <file src="src/Backend/Category.php">
-    <InvalidScalarArgument>
-      <code><![CDATA[$_POST['id']]]></code>
-    </InvalidScalarArgument>
-  </file>
-  <file src="src/Backend/Home.php">
-    <RedundantCondition>
-      <code>!DC_ADMIN_URL</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Backend/Langs.php">
-    <UndefinedConstant>
-      <code>DC_L10N_UPDATE_URL</code>
-    </UndefinedConstant>
-  </file>
-  <file src="src/Backend/Media.php">
+  <file src="src/Core/Backend/Action/ActionsPostsDefault.php">
     <RedundantCast>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+      <code><![CDATA[(int) dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat)]]></code>
     </RedundantCast>
+  </file>
+  <file src="src/Core/Backend/Favorites.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Core/Backend/Listing/Listing.php">
+    <MissingTemplateParam>
+      <code><![CDATA[array|\ArrayObject<string|string>]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Core/Backend/MediaPage.php">
     <RedundantCondition>
-      <code>0</code>
-      <code>0</code>
+      <code>is_countable($rs)</code>
+      <code>is_countable($rs)</code>
+    </RedundantCondition>
+    <UndefinedThisPropertyAssignment>
+      <code><![CDATA[$this->d]]></code>
+      <code><![CDATA[$this->d]]></code>
+      <code><![CDATA[$this->d]]></code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/Core/Backend/Menus.php">
+    <MissingTemplateParam>
+      <code>Menus</code>
+    </MissingTemplateParam>
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Core/Backend/ModulesList.php">
+    <RedundantCondition>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_DEV</code>
+      <code>DC_DEV</code>
+      <code>DC_DEV</code>
     </RedundantCondition>
     <TypeDoesNotContainType>
-      <code><![CDATA[is_array($_FILES['upfile']['error'])]]></code>
-      <code><![CDATA[is_array($_FILES['upfile']['size'])]]></code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Backend/MediaItem.php">
+  <file src="src/Core/Backend/Notices.php">
+    <InvalidGlobal>
+      <code>global $core;</code>
+      <code>global $core;</code>
+    </InvalidGlobal>
+  </file>
+  <file src="src/Core/Backend/Page.php">
+    <InvalidArgument>
+      <code><![CDATA['Content-Type: text/html; charset=UTF-8']]></code>
+      <code><![CDATA['content-type']]></code>
+      <code><![CDATA['content-type']]></code>
+    </InvalidArgument>
     <RedundantCast>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
-      <code>(string) $default</code>
-      <code>(string) $default</code>
+      <code>(bool) $show</code>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
     <RedundantCondition>
-      <code>file_get_contents($local)</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainNull>
-    <UndefinedPropertyFetch>
-      <code><![CDATA[$file->media_dt]]></code>
-      <code><![CDATA[$file->media_meta]]></code>
-      <code><![CDATA[$file->media_meta]]></code>
-      <code><![CDATA[$file->media_title]]></code>
-    </UndefinedPropertyFetch>
-  </file>
-  <file src="src/Backend/Plugins.php">
-    <UndefinedConstant>
-      <code>DC_ALLOW_MULTI_MODULES</code>
-    </UndefinedConstant>
-  </file>
-  <file src="src/Backend/Rest.php">
-    <RedundantCast>
-      <code>(int) $id</code>
-    </RedundantCast>
-    <UndefinedConstant>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-      <code>DC_NOT_UPDATE</code>
-    </UndefinedConstant>
-    <UndefinedPropertyFetch>
-      <code><![CDATA[$file->editable]]></code>
-    </UndefinedPropertyFetch>
-  </file>
-  <file src="src/Backend/Update.php">
-    <UndefinedConstant>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-    </UndefinedConstant>
-  </file>
-  <file src="src/Backend/User.php">
-    <RedundantCondition>
-      <code>is_countable($permissions)</code>
+      <code><![CDATA[dcCore::app()->auth->user_prefs->toggles]]></code>
     </RedundantCondition>
     <TypeDoesNotContainType>
-      <code>0</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
+    </TypeDoesNotContainType>
+    <UndefinedConstant>
+      <code>DC_NAME</code>
+      <code>DC_START_TIME</code>
+    </UndefinedConstant>
+  </file>
+  <file src="src/Core/Backend/ThemeConfig.php">
+    <RedundantCondition>
+      <code><![CDATA[$background !== '']]></code>
+      <code><![CDATA[$color !== '']]></code>
+      <code><![CDATA[$size !== '']]></code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Core/Backend/ThemesList.php">
+    <RedundantCondition>
+      <code>DC_ALLOW_REPOSITORIES</code>
+      <code>DC_DEV</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>DC_DEBUG</code>
+      <code>DC_DEBUG</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Backend/UserPreferences.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$_POST['cols_' . $col_type]]]></code>
-      <code>$ct[$col_name]</code>
-    </InvalidArrayOffset>
+  <file src="src/Core/Backend/Url.php">
     <RedundantCondition>
-      <code>is_countable($user_fav)</code>
+      <code>strval($value) !== false</code>
+      <code>strval($value) !== false</code>
     </RedundantCondition>
+  </file>
+  <file src="src/Core/Backend/UserPref.php">
+    <MissingTemplateParam>
+      <code><![CDATA[array|ArrayObject<string|string>]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Core/Backend/Utility.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Core/Upgrade/Upgrade.php">
     <TypeDoesNotContainType>
-      <code>0</code>
+      <code><![CDATA[DC_ROOT === '']]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Database/AbstractHandler.php">
@@ -797,9 +708,9 @@
     <MissingFile>
       <code>include DC_ERRORFILE</code>
     </MissingFile>
-    <UndefinedConstant>
-      <code>CLI_MODE</code>
-    </UndefinedConstant>
+    <TypeDoesNotContainType>
+      <code>DC_DEBUG === true</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/FileServer.php">
     <TypeDoesNotContainType>
@@ -1029,6 +940,128 @@
     <RedundantCondition>
       <code>DC_DEV</code>
     </RedundantCondition>
+  </file>
+  <file src="src/Module/MyPlugin.php">
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
+  </file>
+  <file src="src/Process/Backend/BlogPref.php">
+    <RedundantCondition>
+      <code><![CDATA[$status != '200']]></code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Process/Backend/Category.php">
+    <InvalidScalarArgument>
+      <code><![CDATA[$_POST['id']]]></code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="src/Process/Backend/Home.php">
+    <RedundantCondition>
+      <code>!DC_ADMIN_URL</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Process/Backend/Langs.php">
+    <UndefinedConstant>
+      <code>DC_L10N_UPDATE_URL</code>
+    </UndefinedConstant>
+  </file>
+  <file src="src/Process/Backend/Media.php">
+    <RedundantCast>
+      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code>0</code>
+      <code>0</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[is_array($_FILES['upfile']['error'])]]></code>
+      <code><![CDATA[is_array($_FILES['upfile']['size'])]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Process/Backend/MediaItem.php">
+    <RedundantCast>
+      <code>(int) DC_MAX_UPLOAD_SIZE</code>
+      <code>(string) $default</code>
+      <code>(string) $default</code>
+    </RedundantCast>
+    <RedundantCondition>
+      <code>file_get_contents($local)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainNull>
+      <code><![CDATA['']]></code>
+    </TypeDoesNotContainNull>
+    <UndefinedPropertyFetch>
+      <code><![CDATA[$file->media_dt]]></code>
+      <code><![CDATA[$file->media_meta]]></code>
+      <code><![CDATA[$file->media_meta]]></code>
+      <code><![CDATA[$file->media_title]]></code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="src/Process/Backend/Plugins.php">
+    <UndefinedConstant>
+      <code>DC_ALLOW_MULTI_MODULES</code>
+    </UndefinedConstant>
+  </file>
+  <file src="src/Process/Backend/Rest.php">
+    <RedundantCast>
+      <code>(int) $id</code>
+    </RedundantCast>
+    <UndefinedConstant>
+      <code>DC_NEXT_REQUIRED_PHP</code>
+      <code>DC_NEXT_REQUIRED_PHP</code>
+      <code>DC_NOT_UPDATE</code>
+    </UndefinedConstant>
+    <UndefinedPropertyFetch>
+      <code><![CDATA[$file->editable]]></code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="src/Process/Backend/Update.php">
+    <UndefinedConstant>
+      <code>DC_NEXT_REQUIRED_PHP</code>
+      <code>DC_NEXT_REQUIRED_PHP</code>
+    </UndefinedConstant>
+  </file>
+  <file src="src/Process/Backend/User.php">
+    <RedundantCondition>
+      <code>is_countable($permissions)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>0</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Process/Backend/UserPreferences.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$_POST['cols_' . $col_type]]]></code>
+      <code>$ct[$col_name]</code>
+    </InvalidArrayOffset>
+    <RedundantCondition>
+      <code>is_countable($user_fav)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>0</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Process/Install/Install.php">
+    <NullReference>
+      <code>$_e</code>
+    </NullReference>
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+      <code>(string) DC_VERSION</code>
+    </RedundantCast>
+    <TypeDoesNotContainType>
+      <code><![CDATA[DC_MASTER_KEY === '']]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Process/Install/Wizard.php">
+    <NullReference>
+      <code>$_e</code>
+    </NullReference>
+    <RedundantCast>
+      <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
+    </RedundantCast>
   </file>
   <file src="themes/blowup/src/Blowup.php">
     <InvalidArrayOffset>
