@@ -173,7 +173,7 @@ class BackendBehaviors
         }
 
         $res = Page::jsJson('legacy_editor', $js) .
-        My::cssLoad('jsToolBar/jsToolBars') .
+        My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 
         if (isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('enable_wysiwyg')) {
