@@ -26,7 +26,7 @@ class Widgets
     {
         $widgets
             ->create('tags', My::name(), [FrontendTemplate::class, 'tagsWidget'], null, 'Tags cloud')
-            ->addTitle(__('Menu'))
+            ->addTitle(__('Tags'))
             ->setting('limit', __('Limit (empty means no limit):'), '20')
             ->setting(
                 'sortby',
