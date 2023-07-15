@@ -304,7 +304,8 @@ class Utility extends Process
             new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
         }
 
-        return true;
+        // Do not try to execute a process added to the URL.
+        return false;
     }
 
     /**
