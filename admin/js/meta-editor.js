@@ -93,7 +93,7 @@ class metaEditor {
       (data) => {
         This.meta_list.empty();
         for (const elt of data) {
-          const meta_id = elt.meta_id;
+          const { meta_id } = elt;
           li = $(`<li><a href="${This.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
           const a_remove = $(
             '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>',
@@ -150,7 +150,7 @@ class metaEditor {
           for (const elt of data) {
             const meta_link = $(`<button type="button" class="metaItem meta-helper">${elt.meta_id}</button>`);
             meta_link.get(0).meta_id = elt.meta_id;
-            meta_link.on('click', function () {
+            meta_link.on('click', () => {
               const v = This.splitMetaValues(`${This.meta_dialog.val()},${elt.meta_id}`);
               This.meta_dialog.val(v.join(','));
               return false;

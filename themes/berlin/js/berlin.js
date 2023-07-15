@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isReduced =
       window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
       window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-    if (!!isReduced) {
+    if (isReduced) {
       document.querySelector('html').scrollTop = 0;
     } else {
       function scrollTo(element, to, duration) {
