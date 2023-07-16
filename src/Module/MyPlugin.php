@@ -20,6 +20,7 @@ use dcCore;
 use dcModuleDefine;
 use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Menus;
+use Dotclear\Helper\Html\Form\Hidden;
 
 /**
  * Plugin module helper.
@@ -104,6 +105,47 @@ abstract class MyPlugin extends MyModule
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
         return defined('DC_CONTEXT_ADMIN') ? dcCore::app()->admin->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
+    }
+
+    /**
+     * Get form hidden fields.
+     *
+     * @param   array<string,string|int>    $params     The additionnal parameters
+     *
+     * @return  array<int,Hidden>
+     */
+    public static function hiddenFields(array $params = []): array
+    {
+        $fields = [];
+        if (defined('DC_CONTEXT_ADMIN')) {
+            $params = array_merge(
+                dcCore::app()->admin->url->getParams('admin.plugin.' . static::id()),
+                $params
+            );
+            foreach ($params as $key => $value) {
+                $fields[] = new Hidden($key, $value);
+            }
+            $fields[] = dcCore::app()->formNonce(false);
+        }
+
+        return $fields;
+    }
+
+    /**
+     * Get rendered form hidden fields.
+     *
+     * @param   array<string,string|int>    $params     The additionnal parameters
+     *
+     * @return  string
+     */
+    public static function parsedHiddenFields(array $params = []): string
+    {
+        $res = '';
+        foreach (self::hiddenFields($params) as $field) {
+            $res .= $field->render();
+        }
+
+        return $res;
     }
 
     /**
