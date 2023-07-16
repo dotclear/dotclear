@@ -123,6 +123,9 @@ class ListingComments extends Listing
             # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
+            // Cope with optional columns
+            $this->userColumns('comments', $cols);
+
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
 
             if ($enclose_block) {

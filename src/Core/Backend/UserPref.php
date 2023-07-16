@@ -41,13 +41,53 @@ class UserPref
      */
     public static function getDefaultColumns(): array
     {
-        return ['posts' => [__('Posts'), [
-            'date'       => [true, __('Date')],
-            'category'   => [true, __('Category')],
-            'author'     => [true, __('Author')],
-            'comments'   => [true, __('Comments')],
-            'trackbacks' => [true, __('Trackbacks')],
-        ]]];
+        $cols = [
+            'posts' => [
+                __('Posts'),
+                [
+                    'date'       => [true, __('Date')],
+                    'category'   => [true, __('Category')],
+                    'author'     => [true, __('Author')],
+                    'comments'   => [true, __('Comments')],
+                    'trackbacks' => [true, __('Trackbacks')],
+                ],
+            ],
+            'comments' => [
+                __('Comments'),
+                [
+                    'date'        => [true, __('Date')],
+                    'author'      => [true, __('Author')],
+                    'status'      => [true, __('Status')],
+                    'ip'          => [true, __('IP')],
+                    'spam_filter' => [true, __('Spam filter')],
+                    'entry'       => [true, __('Entry')],
+                ],
+            ],
+        ];
+
+        if (dcCore::app()->auth->isSuperAdmin()) {
+            $cols['users'] = [
+                __('Users'),
+                [
+                    'first_name'   => [true, __('First Name')],
+                    'last_name'    => [true, __('Last Name')],
+                    'display_name' => [true, __('Display name')],
+                    'entries'      => [true, __('Entries (all types)')],
+                ],
+            ];
+            $cols['blogs'] = [
+                __('Blogs'),
+                [
+                    'name'   => [true, __('Blog name')],
+                    'url'    => [true,  __('URL')],
+                    'posts'  => [true,  __('Entries (all types)')],
+                    'upddt'  => [true,  __('Last update')],
+                    'status' => [true,  __('Status')],
+                ],
+            ];
+        }
+
+        return $cols;
     }
 
     /**

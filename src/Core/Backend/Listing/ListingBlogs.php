@@ -58,8 +58,12 @@ class ListingBlogs extends Listing
             ];
 
             $cols = new ArrayObject($cols);
+
             # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
+
+            // Cope with optional columns
+            $this->userColumns('blogs', $cols);
 
             $html_block = '<div class="table-outer"><table>' .
             (

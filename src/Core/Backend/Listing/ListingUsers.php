@@ -55,8 +55,12 @@ class ListingUsers extends Listing
             ];
 
             $cols = new ArrayObject($cols);
+
             # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject
             dcCore::app()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
+
+            // Cope with optional columns
+            $this->userColumns('users', $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
             if ($enclose_block) {
