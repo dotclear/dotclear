@@ -45,11 +45,6 @@ class Td extends Component
         if ($this->text) {
             $buffer .= $this->text;
         }
-        if (isset($this->items) && is_array($this->items)) {
-            foreach ($this->items as $item) {
-                $buffer .= $item->render() . "\n";
-            }
-        }
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
 
         return $buffer;
