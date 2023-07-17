@@ -33,9 +33,11 @@ class Form extends Component
     /**
      * Renders the HTML component.
      *
+     * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
+     *
      * @return     string
      */
-    public function render(?string $fieldFormat = null): string
+    public function render(?string $format = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
             return '';
@@ -46,9 +48,29 @@ class Form extends Component
             (isset($this->method) ? ' method="' . $this->method . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
+        $first = true;
+        $format ??= ($this->format ?? '%s');
+
+        // Cope with fields
         if (isset($this->fields) && is_array($this->fields)) {
             foreach ($this->fields as $field) {
-                $buffer .= sprintf(($fieldFormat ?: '%s'), $field->render());
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $field->render());
+                $first = false;
+            }
+        }
+
+        // Cope with items
+        if (isset($this->items) && is_array($this->items)) {
+            $first = true;
+            foreach ($this->items as $item) {
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $item->render());
+                $first = false;
             }
         }
 

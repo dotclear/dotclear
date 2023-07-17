@@ -33,16 +33,28 @@ class Tr extends Component
     /**
      * Renders the HTML component.
      *
+     * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
+     *
      * @return     string
      */
-    public function render(): string
+    public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             $this->renderCommonAttributes() . '>';
 
+        $format ??= ($this->format ?? '%s');
+
+        // Cope with cols
         if (isset($this->cols) && is_array($this->cols)) {
             foreach ($this->cols as $col) {
                 $buffer .= sprintf(($this->format ?: '%s'), $col->render());   // @phpstan-ignore-line
+            }
+        }
+
+        // Cope with items (as cols)
+        if (isset($this->items) && is_array($this->items)) {
+            foreach ($this->items as $item) {
+                $buffer .= sprintf($format, $item->render());
             }
         }
 
