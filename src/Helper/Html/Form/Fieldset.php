@@ -57,9 +57,11 @@ class Fieldset extends Component
     /**
      * Renders the HTML component (including the associated legend if any).
      *
+     * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
+     *
      * @return     string
      */
-    public function render(): string
+    public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
 
@@ -67,13 +69,36 @@ class Fieldset extends Component
             $buffer .= $this->legend->render();
         }
 
+        $first = true;
+        $format ??= ($this->format ?? '%s');
+
+        // Cope with fields
         if (isset($this->fields) && is_array($this->fields)) {
             foreach ($this->fields as $field) {
                 if (isset($this->legend) && $field->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
-                $buffer .= $field->render() . "\n";
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $field->render());
+                $first = false;
+            }
+        }
+
+        // Cope with items
+        if (isset($this->items) && is_array($this->items)) {
+            foreach ($this->items as $item) {
+                if (isset($this->legend) && $item->getDefaultElement() === 'legend') {
+                    // Do not put more than one legend in fieldset
+                    continue;
+                }
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $item->render());   // @phpstan-ignore-line
+                $first = false;
             }
         }
 

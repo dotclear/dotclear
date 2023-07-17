@@ -33,9 +33,11 @@ class Th extends Component
     /**
      * Renders the HTML component.
      *
+     * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
+     *
      * @return     string
      */
-    public function render(): string
+    public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             (isset($this->colspan) ? ' colspan=' . strval((int) $this->colspan) : '') .
@@ -44,9 +46,26 @@ class Th extends Component
             (isset($this->scope) ? ' scope="' . $this->scope . '"' : '') .
             (isset($this->abbr) ? ' abbr="' . $this->abbr . '"' : '') .
             $this->renderCommonAttributes() . '>';
+
         if ($this->text) {
             $buffer .= $this->text;
         }
+
+        $first = true;
+        $format ??= ($this->format ?? '%s');
+
+        // Cope with items
+        if (isset($this->items) && is_array($this->items)) {
+            $first = true;
+            foreach ($this->items as $item) {
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $item->render());
+                $first = false;
+            }
+        }
+
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
 
         return $buffer;
