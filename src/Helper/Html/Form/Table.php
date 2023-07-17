@@ -33,7 +33,7 @@ class Table extends Component
     /**
      * Attaches the caption to this table.
      *
-     * @param      Caption|null  $legend  The legend
+     * @param      Caption|null  $caption  The legend
      */
     public function attachCaption(?Caption $caption)
     {

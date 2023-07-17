@@ -38,7 +38,7 @@ class Li extends Component
     public function render(): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->type) ? ' type="' . $this->headers . '"' : '') .
+            (isset($this->type) ? ' type="' . $this->type . '"' : '') .
             $this->renderCommonAttributes() . '>';
         if ($this->text) {
             $buffer .= $this->text;
