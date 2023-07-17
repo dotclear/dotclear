@@ -121,6 +121,12 @@ For PHP static analysis, run:
 bin/phpstan analyse --memory-limit=-1
 ```
 
+And also:
+
+```sh
+bin/psalm
+```
+
 ### PHP Unit tests
 
 Run `composer install` if necessary, from root directory
