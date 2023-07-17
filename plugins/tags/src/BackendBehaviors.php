@@ -239,12 +239,10 @@ class BackendBehaviors
                 }
             }
             Notices::addSuccessNotice(
-                sprintf(
-                    __(
-                        'Tag has been successfully added to selected entries',
-                        'Tags have been successfully added to selected entries',
-                        is_countable($tags) ? count($tags) : 0  // @phpstan-ignore-line
-                    )
+                __(
+                    'Tag has been successfully added to selected entries',
+                    'Tags have been successfully added to selected entries',
+                    is_countable($tags) ? count($tags) : 0  // @phpstan-ignore-line
                 )
             );
             $ap->redirect(true);
@@ -318,12 +316,10 @@ class BackendBehaviors
                 }
             }
             Notices::addSuccessNotice(
-                sprintf(
-                    __(
-                        'Tag has been successfully removed from selected entries',
-                        'Tags have been successfully removed from selected entries',
-                        is_countable($_POST['meta_id']) ? count($_POST['meta_id']) : 0
-                    )
+                __(
+                    'Tag has been successfully removed from selected entries',
+                    'Tags have been successfully removed from selected entries',
+                    is_countable($_POST['meta_id']) ? count($_POST['meta_id']) : 0
                 )
             );
             $ap->redirect(true);
