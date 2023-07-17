@@ -35,7 +35,7 @@ class Utility extends Process
     public Favorites $favs;
 
     /** @var    Menus   Backend (admin) Menus handler instance */
-    public Menus $menu;
+    public Menus $menus;
 
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
