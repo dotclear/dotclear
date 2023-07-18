@@ -2,6 +2,10 @@
 'use strict';
 
 $(() => {
+  $('#user_options_columns div').sortable({
+    cursor: 'move',
+    items: '> label',
+  });
   $('#my-favs ul').sortable({
     cursor: 'move',
   });
