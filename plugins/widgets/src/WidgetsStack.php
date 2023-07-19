@@ -23,18 +23,23 @@ class WidgetsStack
     private array $widgets = [];
 
     /**
-     * Load widgets from string setting (base64 encoded)
+     * Load widgets from settings
      *
-     * @param      string  $s      Setting
+     * @param      mixed  $s      Settings
      *
      * @return     self
      */
     public static function load($s): self
     {
-        $o = @unserialize(base64_decode($s));
+        if (!is_array($s)) {
+            // Cope with old way to store widgets settings
+            $o = @unserialize(base64_decode($s));
 
-        if ($o instanceof self) {
-            return $o;
+            if ($o instanceof self) {
+                return $o;
+            }
+        } else {
+            $o = $s;
         }
 
         return self::loadArray($o, dcCore::app()->widgets);
@@ -43,16 +48,16 @@ class WidgetsStack
     /**
      * Return encoded widgets
      *
-     * @return     string
+     * @return     array
      */
-    public function store()
+    public function store(): array
     {
         $serialized = [];
         foreach ($this->widgets as $pos => $w) {
             $serialized[] = ($w->serialize($pos));
         }
 
-        return base64_encode(serialize($serialized));
+        return $serialized;
     }
 
     /**

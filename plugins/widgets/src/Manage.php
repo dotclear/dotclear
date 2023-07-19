@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use dcCore;
+use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -107,9 +108,9 @@ class Manage extends Process
                 }
 
                 try {
-                    My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
-                    My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
-                    My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
+                    My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store(), dcNamespace::NS_ARRAY);
                     dcCore::app()->blog->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
@@ -191,9 +192,9 @@ class Manage extends Process
                 dcCore::app()->admin->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
                 dcCore::app()->admin->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
-                My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store());
-                My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store());
-                My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store());
+                My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store(), dcNamespace::NS_ARRAY);
                 dcCore::app()->blog->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
