@@ -117,9 +117,6 @@ class Users extends Process
 
             dcCore::app()->admin->user_filter->display('admin.users');
 
-            // form process is different from filter process
-            dcCore::app()->admin->user_filter->add('process', 'UsersActions');
-
             // Show users
             dcCore::app()->admin->user_list->display(
                 dcCore::app()->admin->user_filter->page,
