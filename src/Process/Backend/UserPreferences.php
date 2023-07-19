@@ -298,6 +298,12 @@ class UserPreferences extends Process
                         $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true) ? true : false;
                     }
                     if (count($ct)) {
+                        if (isset($_POST['cols_' . $col_type])) {
+                            // Sort resulting list
+                            $order = array_values($_POST['cols_' . $col_type]);
+                            $order = array_unique(array_merge($order, array_keys($ct)));
+                            uksort($ct, fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                        }
                         $cu[$col_type] = $ct;
                     }
                 }

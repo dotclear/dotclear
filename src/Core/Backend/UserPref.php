@@ -107,15 +107,30 @@ class UserPref
         # --BEHAVIOR-- adminColumnsLists -- ArrayObject
         dcCore::app()->callBehavior('adminColumnsListsV2', $cols);
 
-        # Load user settings
+        // Load user settings
         $cols_user = @dcCore::app()->auth->user_prefs->interface->cols;
         if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
+            /*
+             * $ct = type (blogs, users, posts, …)
+             * $cv = columns for this type
+            */
             foreach ($cols_user as $ct => $cv) {
+                // Sort corresponding $cols columns
+                $order = array_keys($cv);
+                uksort($cols[$ct][1], fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                if (!empty($type) && !empty($columns) && $ct == $type) {
+                    // Sort also corresponding $columns columns
+                    $columns->uksort(fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                }
+                /*
+                 * $cn = column id
+                 * $cd = column flag (false/true)
+                 */
                 foreach ($cv as $cn => $cd) {
                     if (isset($cols[$ct][1][$cn])) {
                         $cols[$ct][1][$cn][0] = $cd;
 
-                        # remove unselected columns if type is given
+                        // remove unselected columns if type is given
                         if (!$cd && !empty($type) && !empty($columns) && $ct == $type && isset($columns[$cn])) {
                             unset($columns[$cn]);
                         }
