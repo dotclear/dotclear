@@ -62,8 +62,6 @@ class Filters
     {
         $this->type = $type;
 
-        $this->add('process', $_REQUEST['process'] ?? '');
-
         $this->parseOptions();
     }
 
@@ -327,6 +325,11 @@ class Filters
             $adminurl = $adminurl[0];
         }
 
+        $hiddens = '';
+        foreach (dcCore::app()->admin->url->getParams($adminurl) as $key => $value) {
+            $hiddens .= form::hidden($key, $value);
+        }
+
         echo
         '<form action="' . dcCore::app()->admin->url->get($adminurl) . $tab . '" method="get" id="filters-form">' .
         '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
@@ -413,8 +416,7 @@ class Filters
         '</div>' .
         '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
 
-        $extra .
-        (empty($this->value('process')) ? '' : form::hidden('process', $this->value('process'))) .
+        $extra . $hiddens .
 
         '<br class="clear" /></p>' . //Opera sucks
         '</form>';

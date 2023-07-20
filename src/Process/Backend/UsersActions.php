@@ -70,7 +70,7 @@ class UsersActions extends Process
                     'order'  => $_POST['order']  ?? '',
                     'page'   => $_POST['page']   ?? '',
                     'nb'     => $_POST['nb']     ?? '',
-                ]);
+                ], '&');
             }
 
             if (empty(dcCore::app()->admin->users)) {
