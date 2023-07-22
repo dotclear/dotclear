@@ -37,9 +37,9 @@ class UserPref
     /**
      * Gets the default columns.
      *
-     * @return     array  The default columns.
+     * @return     ArrayObject  The default columns.
      */
-    public static function getDefaultColumns(): array
+    public static function getDefaultColumns(): ArrayObject
     {
         $cols = [
             'posts' => [
@@ -87,6 +87,11 @@ class UserPref
             ];
         }
 
+        $cols = new ArrayObject($cols);
+
+        # --BEHAVIOR-- adminColumnsLists -- ArrayObject
+        dcCore::app()->callBehavior('adminColumnsListsDefault', $cols);
+
         return $cols;
     }
 
@@ -102,7 +107,6 @@ class UserPref
     {
         # Get default colums (admin lists)
         $cols = self::getDefaultColumns();
-        $cols = new ArrayObject($cols);
 
         # --BEHAVIOR-- adminColumnsLists -- ArrayObject
         dcCore::app()->callBehavior('adminColumnsListsV2', $cols);
