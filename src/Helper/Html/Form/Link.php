@@ -33,16 +33,34 @@ class Link extends Component
     /**
      * Renders the HTML component.
      *
+     * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
+     *
      * @return     string
      */
-    public function render(): string
+    public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             (isset($this->href) ? ' href="' . $this->href . '"' : '') .
             $this->renderCommonAttributes() . '>';
+
+        $first = true;
+        $format ??= ($this->format ?? '%s');
+
+        // Cope with items
+        if (isset($this->items) && is_array($this->items)) {
+            foreach ($this->items as $item) {
+                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $item->render());   // @phpstan-ignore-line
+                $first = false;
+            }
+        }
+
         if ($this->text) {
             $buffer .= $this->text;
         }
+
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
         return $buffer;
