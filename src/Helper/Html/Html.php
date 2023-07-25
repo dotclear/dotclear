@@ -127,7 +127,7 @@ class Html
      */
     public static function sanitizeURL(?string $str): string
     {
-        return str_replace('%2F', '/', rawurlencode($str));
+        return str_replace('%2F', '/', rawurlencode((string) $str));
     }
 
     /**

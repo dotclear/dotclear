@@ -205,7 +205,7 @@ class rsExtPost
     public static function getURL(MetaRecord $rs): string
     {
         return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
-            $rs->post_type,
+            $rs->post_type ?? 'post',
             Html::sanitizeURL($rs->post_url)
         );
     }
