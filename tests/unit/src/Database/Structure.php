@@ -214,8 +214,8 @@ class Structure extends atoum
         }
 
         $this
-            ->variable($current_str->synchronize($update_str))
-            ->isNull()
+            ->integer($current_str->synchronize($update_str))
+            ->isEqualTo(0)
         ;
 
         // Add some stuff to update structure, then run synchronize and test execute queries
