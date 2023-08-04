@@ -1,3 +1,30 @@
+Dotclear 2.27 - 2023-08-13
+===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0/8.1/8.2 compliance
+* 📣 Warning: Next major release (2.28) will require PHP 8.1
+* Fix: Apply settings rename in global and local arrays
+* Fix: Cope with antispam check without link to an entry
+* Core: All admin/install/helper/db code is now PHP namespaced, public code will be with next release
+* Admin: Reduce threshold for wide screens (1920px to 1760px on 16px based browser)
+* Admin: Add ability to lock a module (plugin/theme) update
+* Admin: Theme editor UI reviewed
+* Admin: CSS reviewed for badges
+* Admin: XMLRPC is not more an entry point (functionality removed)
+* Admin: Add an action to set as Never published/Already published a selection of entries (posts/pages)
+* Admin: Do not float left fieldset/.fieldset h3/h4, keep it only for legend
+* Admin: Don't show comment IP in backend if not blog admin or superadmin
+* Admin: Add theme preview inside admin (paginated home only)
+* Admin: Reduce scrolling animation if necessary (a11y) for admin Go-Top button
+* Admin: Add optional columns settings for blogs, comments and users lists
+* Admin: Optional columns are now sortable (JS only)
+* Lib: Update jQuery to 3.7.0 (from 3.6.0), upgrade jQuery Migrate to 3.4.1 (from 3.3.2)
+* i18n: Various translation have been added (using DeepL engine), they should be reviewed
+* i18n: Add arabic and hebrew languages
+* Public/Editors: Use CSS classes rather than inline style for media alignments (classes: media-left, media-center and media-right)
+* Theme: Reduce scrolling animation if necessary (a11y) for Berlin Go-Top button
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.26.1 - 2023-06-04
 ===========================================================
 * Fix: Rename of namespaces/workspaces (respectively for settings/preferences)
