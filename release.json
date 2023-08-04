@@ -9,7 +9,7 @@
 
   "l10n_update_url": "https://services.dotclear.net/dc2.l10n/?version=%s",
 
-  "php_min": "8.1",
+  "php_min": "7.4",
   "mysql_min": "4.1",
   "pgsql_min": "8.0",
 

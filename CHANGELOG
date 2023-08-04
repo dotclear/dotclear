@@ -4,7 +4,7 @@ Dotclear 2.27 - 2023-08-13
 * 📣 Warning: Next major release (2.28) will require PHP 8.1
 * Fix: Apply settings rename in global and local arrays
 * Fix: Cope with antispam check without link to an entry
-* Core: All admin/install/helper/db code is now PHP namespaced, public code will be with next release
+* Core: All admin/install/helper/db code is now PHP namespaced, public code will be on next release (2.28)
 * Admin: Reduce threshold for wide screens (1920px to 1760px on 16px based browser)
 * Admin: Add ability to lock a module (plugin/theme) update
 * Admin: Theme editor UI reviewed
