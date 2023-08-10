@@ -877,6 +877,9 @@ $(() => {
     attributeFilter: ['data-theme'],
   });
 
+  const canvas = document.getElementById('canvas-layer');
+  canvas.width = 0;
+  canvas.height = 0;
   if (dotclear.debug) {
     // debug mode: double click on header switch current theme
     const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
@@ -888,6 +891,11 @@ $(() => {
       }
       // Set new theme, the application will be cope by the mutation observer (see above)
       elt.dataset.theme = theme === 'dark' ? 'light' : 'dark';
+    });
+  } else {
+    const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
+    header.addEventListener('dblclick', (_e) => {
+      dotclear.easter();
     });
   }
 

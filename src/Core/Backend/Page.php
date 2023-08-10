@@ -264,6 +264,7 @@ class Page
         ($safe_mode ? ' safe-mode' : '') .
         (DC_DEBUG ? ' debug-mode' : '') .
         '">' . "\n" .
+        '<canvas id="canvas-layer"></canvas>' .
 
         '<ul id="prelude">' .
         '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
@@ -586,6 +587,7 @@ class Page
             ($safe_mode ? ' safe-mode' : '') .
             (DC_DEBUG ? ' debug-mode' : '') .
             '">' . "\n" .
+            '<canvas id="canvas-layer"></canvas>' .
 
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
 
@@ -1044,6 +1046,7 @@ class Page
         self::jsJson('dotclear_msg', $js_msg) .
 
         self::jsLoad('js/common.js') .
+        self::jsLoad('js/easter.js') .
         self::jsLoad('js/services.js') .
         self::jsLoad('js/prelude.js');
     }
