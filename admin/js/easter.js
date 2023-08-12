@@ -6,6 +6,8 @@ dotclear.easter = () => {
 
   const particlesArray = [];
   const canvas = document.getElementById('canvas-layer');
+  if (!canvas) return;
+
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;

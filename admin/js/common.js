@@ -877,9 +877,6 @@ $(() => {
     attributeFilter: ['data-theme'],
   });
 
-  const canvas = document.getElementById('canvas-layer');
-  canvas.width = 0;
-  canvas.height = 0;
   if (dotclear.debug) {
     // debug mode: double click on header switch current theme
     const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
@@ -893,6 +890,13 @@ $(() => {
       elt.dataset.theme = theme === 'dark' ? 'light' : 'dark';
     });
   } else {
+    // create canvas element (as sibling before #prelude if exist else before h1)
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('id', 'canvas-layer');
+    canvas.width = 0;
+    canvas.height = 0;
+    const sibling = document.querySelector('#prelude') ? document.querySelector('#prelude') : document.querySelector('h1');
+    sibling.before(canvas);
     const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
     header.addEventListener('dblclick', (_e) => {
       dotclear.easter();
