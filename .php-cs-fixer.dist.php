@@ -12,7 +12,7 @@ $config = new PhpCsFixer\Config();
 return $config
     ->setRules([
         '@PSR12'                 => true,
-        '@PHP74Migration'        => true,
+        '@PHP81Migration'        => true,
         'array_indentation'      => true,
         'binary_operator_spaces' => [
             'default'   => 'align_single_space_minimal',
