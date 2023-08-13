@@ -2,14 +2,14 @@
   "about": "Dotclear default release configuration",
   "note": "This file is required by Dotclear application. Do not edit nor delete it.",
 
-  "release_version": "2.27-dev",
+  "release_version": "2.28-dev",
   "release_name": "So far so good",
   "release_update_url": "https://download.dotclear.org/versions.xml",
   "release_update_canal": "stable",
 
   "l10n_update_url": "https://services.dotclear.net/dc2.l10n/?version=%s",
 
-  "php_min": "7.4",
+  "php_min": "8.1",
   "mysql_min": "4.1",
   "pgsql_min": "8.0",
 
