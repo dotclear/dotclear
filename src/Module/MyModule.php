@@ -259,6 +259,10 @@ abstract class MyModule
         $base = substr($resource, 0, 1)   === '/' ? '' : 'css/';
         $ext  = strpos($resource, '.css') === false ? '.css' : '';
 
+        if (is_null($version) || $version === '') {
+            $version = dcCore::app()->getVersion(self::id());
+        }
+
         return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
     }
 
@@ -278,6 +282,10 @@ abstract class MyModule
     {
         $base = substr($resource, 0, 1)  === '/' ? '' : 'js/';
         $ext  = strpos($resource, '.js') === false ? '.js' : '';
+
+        if (is_null($version) || $version === '') {
+            $version = dcCore::app()->getVersion(self::id());
+        }
 
         return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
     }
