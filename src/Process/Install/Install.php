@@ -76,6 +76,7 @@ class Install extends Process
         }
 
         # Check system capabilites
+        $_e = [];
         if (!Utils::check(dcCore::app()->con, $_e)) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
