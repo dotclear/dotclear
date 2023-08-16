@@ -121,7 +121,9 @@ class UserPref
             foreach ($cols_user as $ct => $cv) {
                 // Sort corresponding $cols columns
                 $order = array_keys($cv);
-                uksort($cols[$ct][1], fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                if (isset($cols[$ct][1])) {
+                    uksort($cols[$ct][1], fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                }
                 if (!empty($type) && !empty($columns) && $ct == $type) {
                     // Sort also corresponding $columns columns
                     $columns->uksort(fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
