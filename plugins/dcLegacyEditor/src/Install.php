@@ -29,7 +29,7 @@ class Install extends Process
         }
 
         // Rename settings namespace
-        if (version_compare(dcCore::app()->getVersion(My::id()), '1.0', '<=')
+        if (version_compare((string) dcCore::app()->getVersion(My::id()), '1.0', '<=')
             && dcCore::app()->blog->settings->exists('dclegacyeditor')
         ) {
             dcCore::app()->blog->settings->delNamespace(My::id());
