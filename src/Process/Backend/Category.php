@@ -158,7 +158,7 @@ class Category extends Process
                     # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminBeforeCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
-                    dcCore::app()->blog->updCategory($_POST['id'], $cur);
+                    dcCore::app()->blog->updCategory((int) $_POST['id'], $cur);
 
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
                     dcCore::app()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
