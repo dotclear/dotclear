@@ -260,7 +260,7 @@ class dcModules
                     if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
                         // module not present, nor php or dotclear, nor optionnal
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is not installed'), $dep[0]));
-                    } elseif ((count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
+                    } elseif ($found->isDefined() && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
                         // module present, but version missing
                         if ($dep[0] == 'php') {
                             $dep[0] = 'PHP';
@@ -277,7 +277,7 @@ class dcModules
                             $dep[1],
                             $dep_v
                         ));
-                    } elseif (!isset($special[$dep[0]]) && $found->state != dcModuleDefine::STATE_ENABLED) {
+                    } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->state != dcModuleDefine::STATE_ENABLED) {
                         // module disabled
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is disabled'), $dep[0]));
                     }
