@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcAntispam;
 use dcAuth;
 use dcBlog;
 use dcCategories;
@@ -28,6 +27,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Text;
+use Dotclear\Plugin\antispam\Antispam;
 use Exception;
 
 class Rest extends Process
@@ -398,7 +398,7 @@ class Rest extends Process
 
             'comment_ip'        => dcCore::app()->auth->userID() ? $rs->comment_ip : '',
             'comment_email'     => dcCore::app()->auth->userID() ? $rs->comment_email : '',
-            'comment_spam_disp' => dcCore::app()->auth->userID() ? dcAntispam::statusMessage($rs) : '',
+            'comment_spam_disp' => dcCore::app()->auth->userID() ? Antispam::statusMessage($rs) : '',
         ];
 
         return $data;
