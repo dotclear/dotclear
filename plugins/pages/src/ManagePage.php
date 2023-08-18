@@ -16,7 +16,6 @@ use ArrayObject;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -198,8 +197,8 @@ class ManagePage extends Process
             }
         }
 
-        dcCore::app()->admin->comments_actions_page = new ActionsComments(
-            dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages']),
+        dcCore::app()->admin->comments_actions_page = new BackendActionsComments(
+            My::manageUrl([], '&'),
             [
                 'act'           => 'page',
                 'id'            => dcCore::app()->admin->post_id,
@@ -208,7 +207,10 @@ class ManagePage extends Process
             ]
         );
 
+        dcCore::app()->admin->comments_actions_page_rendered = null;
         if (dcCore::app()->admin->comments_actions_page->process()) {
+            dcCore::app()->admin->comments_actions_page_rendered = true;
+
             return true;
         }
 
@@ -372,6 +374,12 @@ class ManagePage extends Process
     public static function render(): void
     {
         if (!self::status()) {
+            return;
+        }
+
+        if (dcCore::app()->admin->comments_actions_page_rendered) {
+            dcCore::app()->admin->comments_actions_page->render();
+
             return;
         }
 
@@ -767,7 +775,7 @@ class ManagePage extends Process
 
             if ($has_action) {
                 echo
-                '<form action="' . dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages']) . '" method="post">';
+                '<form action="' . My::manageUrl() . '" method="post">';
             }
 
             echo
@@ -794,13 +802,17 @@ class ManagePage extends Process
                 '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', $combo_action) .
-                form::hidden('redir', My::manageUrl(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'co' => '1'])) .
-                form::hidden(['section'], 'comments') .
-                form::hidden(['p'], 'pages') .
-                form::hidden(['act'], 'page') .
-                form::hidden(['id'], dcCore::app()->admin->post_id) .
-                form::hidden(['co'], '1') .
-                dcCore::app()->formNonce() .
+                My::parsedHiddenFields([
+                    'act'     => 'page',
+                    'id'      => dcCore::app()->admin->post_id,
+                    'co'      => '1',
+                    'section' => 'comments',
+                    'redir'   => My::manageUrl([
+                        'act' => 'page',
+                        'id'  => dcCore::app()->admin->post_id,
+                        'co'  => '1'
+                    ]),
+                ]) .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
