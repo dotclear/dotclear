@@ -1,0 +1,20 @@
+<?php
+/**
+ * @brief pages, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\pages;
+
+use Dotclear\Core\Backend\Action\ActionsComments;
+
+class BackendActionsComments extends ActionsComments
+{
+    protected $use_render = true;
+}
