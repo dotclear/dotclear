@@ -108,51 +108,49 @@ abstract class MyModule
         }
 
         // else default permissions
-        switch ($context) {
-            case self::INSTALL: // Installation of module
-                return defined('DC_CONTEXT_ADMIN')
-                    && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
-                    && dcCore::app()->newVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version'))
-                ;
+        return match ($context) {
+            // Installation of module
+            self::INSTALL => defined('DC_CONTEXT_ADMIN')
+                    // Manageable only by super-admin
+                    && dcCore::app()->auth->isSuperAdmin()
+                    // And only if new version of module
+                    && dcCore::app()->newVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version')),
 
-            case self::UNINSTALL: // Uninstallation of module
-                return defined('DC_RC_PATH')
-                    && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
-                ;
+            // Uninstallation of module
+            self::UNINSTALL => defined('DC_RC_PATH')
+                    // Manageable only by super-admin
+                    && dcCore::app()->auth->isSuperAdmin(),
 
-            case self::PREPEND:
-            case self::FRONTEND: // Prpend and Frontend context
-                return defined('DC_RC_PATH')
-                ;
+            // Prepend and Frontend context
+            self::PREPEND,
+            self::FRONTEND => defined('DC_RC_PATH'),
 
-            case self::BACKEND: // Backend context
-                return defined('DC_CONTEXT_ADMIN')
+            // Backend context
+            self::BACKEND => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
                     && !is_null(dcCore::app()->blog)
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_USAGE,
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-                    ]), dcCore::app()->blog->id)
-                ;
+                    ]), dcCore::app()->blog->id),
 
-            case self::MANAGE:
-            case self::MENU:
-            case self::WIDGETS: // Main page of module, Admin menu, Blog widgets
-                return defined('DC_CONTEXT_ADMIN')
+            // Main page of module, Admin menu, Blog widgets
+            self::MANAGE,
+            self::MENU,
+            self::WIDGETS => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
                     && !is_null(dcCore::app()->blog)
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,  // Admin+
-                    ]), dcCore::app()->blog->id)
-                ;
+                    ]), dcCore::app()->blog->id),
 
-            case self::CONFIG: // Config page of module
-                return defined('DC_CONTEXT_ADMIN')
-                    && dcCore::app()->auth->isSuperAdmin()   // Manageable only by super-admin
-                ;
-        }
+            // Config page of module
+            self::CONFIG => defined('DC_CONTEXT_ADMIN')
+                    // Manageable only by super-admin
+                    && dcCore::app()->auth->isSuperAdmin(),
 
-        return false;
+            default => false,
+        };
     }
 
     /**
