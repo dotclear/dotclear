@@ -91,7 +91,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 ## CONTRIBUTING
 
-Dotclear is an open source project. If you'd like to contribute, please read the [CONTRIBUTING file](CONTRIBUTING.md).
+Dotclear is an open source project. If you'd like to contribute, please read the [CONTRIBUTING file](/CONTRIBUTING.md).
 You can submit a pull request, or feel free to use any other way you'd prefer.
 
 ### Repositories
