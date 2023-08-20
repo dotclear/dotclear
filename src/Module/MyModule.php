@@ -282,6 +282,9 @@ abstract class MyModule
     {
         $base = substr($resource, 0, 1)  === '/' ? '' : 'js/';
         $ext  = strpos($resource, '.js') === false ? '.js' : '';
+        if ($module && strpos($resource, '.js') === false) {
+            $ext = strpos($resource, '.mjs') === false ? '.mjs' : '';
+        }
 
         if (is_null($version) || $version === '') {
             $version = dcCore::app()->getVersion(self::id());
