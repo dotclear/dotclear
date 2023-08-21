@@ -45,7 +45,7 @@ class Td extends Component
             (isset($this->headers) ? ' headers="' . $this->headers . '"' : '') .
             $this->renderCommonAttributes() . '>';
 
-        if ($this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 

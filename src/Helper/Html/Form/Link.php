@@ -57,7 +57,7 @@ class Link extends Component
             }
         }
 
-        if ($this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 

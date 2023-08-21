@@ -172,9 +172,14 @@ $.fn.toggleWithDetails = function (s) {
       p.fn = false;
     }
     p.hide = !p.hide;
+    if (p.hide && target.attr('open')) {
+      target.removeAttr('open');
+    } else if (!p.hide && !target.attr('open')) {
+      target.attr('open', 'open');
+    }
   };
   return this.each(() => {
-    $(target).on('toggle', (e) => {
+    $(target).on('click', (e) => {
       if (p.user_pref) {
         dotclear.jsonServicesPost('setSectionFold', () => {}, {
           section: p.user_pref,

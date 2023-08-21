@@ -40,7 +40,7 @@ class Note extends Component
     public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>';
-        if ($this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 

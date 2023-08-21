@@ -43,7 +43,7 @@ class Li extends Component
             (isset($this->type) ? ' type="' . $this->type . '"' : '') .
             $this->renderCommonAttributes() . '>';
 
-        if ($this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 

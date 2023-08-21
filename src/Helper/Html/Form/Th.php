@@ -47,7 +47,7 @@ class Th extends Component
             (isset($this->abbr) ? ' abbr="' . $this->abbr . '"' : '') .
             $this->renderCommonAttributes() . '>';
 
-        if ($this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 
