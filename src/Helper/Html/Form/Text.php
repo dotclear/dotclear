@@ -50,7 +50,7 @@ class Text extends Component
             $buffer .= '<' . $element . $render_ca . '>';
         }
 
-        if (isset($this->text) && $this->text) {
+        if (isset($this->text)) {
             $buffer .= $this->text;
         }
 
