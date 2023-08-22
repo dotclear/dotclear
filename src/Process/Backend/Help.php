@@ -50,7 +50,7 @@ class Help extends Process
                 return $ret;
             }
 
-            if (empty(dcCore::app()->resources['help'])) {
+            if (empty(dcCore::app()->admin->resources->entries('help'))) {
                 // No available help
                 return $ret;
             }
@@ -64,11 +64,8 @@ class Help extends Process
                     continue;
                 }
 
-                if (!isset(dcCore::app()->resources['help'][$v])) {
-                    continue;
-                }
-                $f = dcCore::app()->resources['help'][$v];
-                if (!file_exists($f) || !is_readable($f)) {
+                $f = dcCore::app()->admin->resources->entry('help', $v);
+                if (empty($f) || !file_exists($f) || !is_readable($f)) {
                     continue;
                 }
 
@@ -127,7 +124,7 @@ class Help extends Process
         echo $content_array['content'];
 
         // Prevents global help link display
-        dcCore::app()->resources['ctxhelp'] = true;
+        dcCore::app()->admin->resources->context(true);
 
         Page::close();
     }

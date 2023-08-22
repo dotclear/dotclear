@@ -245,7 +245,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * May be transfered as property of backend Utility instance in future
+     * @deprecated since 2.28, Use dcCore::app()->admin->resources instance
      *
      * @var array
      */

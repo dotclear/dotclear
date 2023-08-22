@@ -113,14 +113,14 @@ class Rest extends Process
 
         if (dcCore::app()->auth->user_prefs->dashboard->dcnews) {
             try {
-                if (empty(dcCore::app()->resources['rss_news'])) {
+                if ('' == ($rss_news = dcCore::app()->admin->resources->entry('rss_news', 'Dotclear'))) {
                     throw new Exception();
                 }
                 $feed_reader = new Reader();
                 $feed_reader->setCacheDir(DC_TPL_CACHE);
                 $feed_reader->setTimeout(2);
                 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
-                $feed = $feed_reader->parse(dcCore::app()->resources['rss_news']);
+                $feed = $feed_reader->parse($rss_news);
                 if ($feed) {
                     $ret = '<div class="box medium dc-box" id="ajax-news"><h3>' . __('Dotclear news') . '</h3><dl id="news">';
                     $i   = 1;
