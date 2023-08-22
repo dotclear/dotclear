@@ -127,10 +127,10 @@ class Home extends Process
         $dashboardItem     = 0;
 
         // Documentation links
-        if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(dcCore::app()->resources['doc'])) {
+        if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(dcCore::app()->admin->resources->entries('doc'))) {
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
-            foreach (dcCore::app()->resources['doc'] as $k => $v) {
+            foreach (dcCore::app()->admin->resources->entries('doc') as $k => $v) {
                 $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
             }
 

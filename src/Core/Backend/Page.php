@@ -448,7 +448,7 @@ class Page
      */
     public static function close()
     {
-        if (!dcCore::app()->resources['ctxhelp']) {
+        if (!dcCore::app()->admin->resources->context()) {
             if (!dcCore::app()->auth->user_prefs->interface->hidehelpbutton) {
                 echo
                 '<p id="help-button"><a href="' . dcCore::app()->admin->url->get('admin.help') . '" class="outgoing" title="' .
@@ -776,7 +776,7 @@ class Page
             return;
         }
 
-        if (empty(dcCore::app()->resources['help'])) {
+        if (empty(dcCore::app()->admin->resources->entries('help'))) {
             return;
         }
 
@@ -788,11 +788,8 @@ class Page
                 continue;
             }
 
-            if (!isset(dcCore::app()->resources['help'][$arg])) {
-                continue;
-            }
-            $file = dcCore::app()->resources['help'][$arg];
-            if (!file_exists($file) || !is_readable($file)) {
+            $file = dcCore::app()->admin->resources->entry('help', $arg);
+            if (empty($file) || !file_exists($file) || !is_readable($file)) {
                 continue;
             }
 
@@ -809,7 +806,7 @@ class Page
         }
 
         // Set contextual help global flag
-        dcCore::app()->resources['ctxhelp'] = true;
+        dcCore::app()->admin->resources->context(true);
 
         echo
         '<div id="help"><hr /><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .

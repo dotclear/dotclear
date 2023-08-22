@@ -37,6 +37,9 @@ class Utility extends Process
     /** @var    Menus   Backend (admin) Menus handler instance */
     public Menus $menus;
 
+    /** @var    Resources   Backend help resources instance */
+    public Resources $resources;
+
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
 
@@ -190,6 +193,8 @@ class Utility extends Process
         }
 
         // Load resources and help files
+        dcCore::app()->admin->resources = new Resources();
+
         require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
         if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
             require $f;
@@ -199,13 +204,13 @@ class Utility extends Process
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    dcCore::app()->resources['help'][$m[1]] = implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help', $hfile]);
+                    dcCore::app()->admin->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help', $hfile]));
                 }
             }
         }
         unset($hfiles);
         // Contextual help flag
-        dcCore::app()->resources['ctxhelp'] = false;
+        dcCore::app()->admin->resources->context(false);
 
         $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
