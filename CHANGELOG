@@ -1,3 +1,15 @@
+Dotclear 2.27.2 - 2023-08-22
+===========================================================
+* Fix: Cope with new plugin installation
+* Fix: Install (with or without wizard) was buggy
+* Fix: Optionnal dependencies (modules)
+* Fix: Category modification
+* Fix: Comments actions
+* Fix: Regression on .mjs extension (js module) loading
+* Fix: Open/close HTML details management (admin)
+* Fix: Cope "0", "", … as existing text for text property (Form)
+* Fix: User options settings (super-admin on other users)
+
 Dotclear 2.27.1 - 2023-08-14
 ===========================================================
 * Fix: Production mode was not enabled on build
