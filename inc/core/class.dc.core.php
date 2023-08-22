@@ -211,7 +211,7 @@ final class dcCore
     /**
      * Backend Utility instance
      *
-     * @var Dotclear\Core\Backend\Utility
+     * @var \Dotclear\Core\Backend\Utility
      */
     public Backend $admin;
 
@@ -254,11 +254,11 @@ final class dcCore
     // Public context
 
     /**
-     * Fonrtend Utility instance
+     * Frontend Utility instance
      *
-     * @var Dotclear\Core\Frontend\Utility
+     * @var \Dotclear\Core\Frontend\Utility
      */
-    public Dotclear\Core\Frontend\Utility $public;
+    public Frontend $public;
 
     /**
      * dcTemplate instance
