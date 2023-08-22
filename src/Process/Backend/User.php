@@ -130,12 +130,16 @@ class User extends Process
                     $cur->user_pwd = $_POST['new_pwd'];
                 }
 
-                dcCore::app()->admin->user_options['post_format'] = Html::escapeHTML($_POST['user_post_format']);
-                dcCore::app()->admin->user_options['edit_size']   = (int) $_POST['user_edit_size'];
+                $user_options = dcCore::app()->admin->user_options;
 
-                if (dcCore::app()->admin->user_options['edit_size'] < 1) {
-                    dcCore::app()->admin->user_options['edit_size'] = 10;
+                $user_options['post_format'] = Html::escapeHTML($_POST['user_post_format']);
+                $user_options['edit_size']   = (int) $_POST['user_edit_size'];
+
+                if ($user_options['edit_size'] < 1) {
+                    $user_options['edit_size'] = 10;
                 }
+
+                dcCore::app()->admin->user_options = $user_options;
 
                 $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
 
