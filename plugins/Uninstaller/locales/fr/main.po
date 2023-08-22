@@ -1,0 +1,380 @@
+# Language: Français
+# Module: Uninstaller - 0.4
+# Date: 2023-04-23 15:51:03
+# Author: , contact@jcdenis.fr
+# Translated with translater 2023.03.19
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: Uninstaller 0.4\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2023-04-23T15:51:03+00:00\n"
+"Last-Translator: Jean-Christian Denis\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/Backend.php:50
+msgid "Uninstall"
+msgstr "Désinstaller"
+
+#: src/Backend.php:89
+msgid "Plugin has been successfully uninstalled."
+msgstr "Plugin désinstallé avec succès"
+
+#: src/Cleaner/Caches.php:32
+msgid "Folders from cache directory"
+msgstr "Dossiers du répertoire de cache"
+
+#: src/Cleaner/Caches.php:41
+msgid "delete selected cache directories"
+msgstr "effacer les répertoires de cache sélectionnés"
+
+#: src/Cleaner/Caches.php:42
+msgid "delete \"%s\" cache directory"
+msgstr "supprimer le répertoire de cache \"%s\""
+
+#: src/Cleaner/Caches.php:43
+msgid "\"%s\" cache directory deleted"
+msgstr "répertoire de cache \"%s\" supprimé"
+
+#: src/Cleaner/Caches.php:44
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "Impossible de supprimer le répertoire de cache \"%s\""
+
+#: src/Cleaner/Caches.php:48
+msgid "empty selected cache directories"
+msgstr "vider les répertoires de cache séletionnés"
+
+#: src/Cleaner/Caches.php:49
+msgid "empty \"%s\" cache directory"
+msgstr "vider le répertoire de cache \"%s\""
+
+#: src/Cleaner/Caches.php:50
+msgid "\"%s\" cache directory emptied"
+msgstr "répertoire de cache \"%s\" vidé"
+
+#: src/Cleaner/Caches.php:51
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "Impossible de vider le répertoire de cache \"ùs\""
+
+#: src/Cleaner/Logs.php:35
+msgid "Logs in Dotclear logs table"
+msgstr "Enregistrements dans le table de logs de Dotclear"
+
+#: src/Cleaner/Logs.php:44
+msgid "delete selected logs tables"
+msgstr "supprimer les tables de logs sélectionnées"
+
+#: src/Cleaner/Logs.php:45
+msgid "delete \"%s\" logs table"
+msgstr "supprimer la table de logs \"%S\""
+
+#: src/Cleaner/Logs.php:46
+msgid "\"%s\" logs table deleted"
+msgstr "table de logs \"%s\" supprimée"
+
+#: src/Cleaner/Logs.php:47
+msgid "Failed to delete \"%s\" logs table"
+msgstr "Impossible de supprimer la table de logs \"%s\""
+
+#: src/Cleaner/Plugins.php:32
+msgid "Folders from plugins directories"
+msgstr "Dossiers des répertoires des plugins"
+
+#: src/Cleaner/Plugins.php:41
+msgid "delete selected plugins files and directories"
+msgstr "effacer le fichiers et répertoires des plugins sélectionnés"
+
+#: src/Cleaner/Plugins.php:42
+msgid "delete \"%s\" plugin files and directories"
+msgstr "effacer les fichiers et répertoires du plugin \"%s\""
+
+#: src/Cleaner/Plugins.php:43
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "fichiers et répertoires du plugin \"%s\" effacés"
+
+#: src/Cleaner/Plugins.php:44
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "Impossible d'effacer les fichiers et répertoires du plugin \"%s\""
+
+#: src/Cleaner/Preferences.php:40
+msgid "Preferences"
+msgstr "Préférences"
+
+#: src/Cleaner/Preferences.php:41
+msgid "Users preferences workspaces"
+msgstr "Préférences utilisateurs (workspaces)"
+
+#: src/Cleaner/Preferences.php:50
+msgid "delete selected global preferences workspaces"
+msgstr "effacer les préférences globales"
+
+#: src/Cleaner/Preferences.php:51
+msgid "delete \"%s\" global preferences workspace"
+msgstr "effacer les préférences globales \"%s\""
+
+#: src/Cleaner/Preferences.php:52
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "préférences globales \"%s\" effacées"
+
+#: src/Cleaner/Preferences.php:53
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "Impossible d'effacer les préférences globales \"%s\""
+
+#: src/Cleaner/Preferences.php:57
+msgid "delete selected users preferences workspaces"
+msgstr "effacer les préférences utilisateurs sélectionnées"
+
+#: src/Cleaner/Preferences.php:58
+msgid "delete \"%s\" users preferences workspace"
+msgstr "effacer les préférences utilisateurs \"%s\""
+
+#: src/Cleaner/Preferences.php:59
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "préférences utilistateurs \"%s\" effacées"
+
+#: src/Cleaner/Preferences.php:60
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "Impossible d'effacer les préférences utilisateurs \"%s\""
+
+#: src/Cleaner/Preferences.php:64
+msgid "delete selected preferences workspaces"
+msgstr "effacer les préférences selectionnées"
+
+#: src/Cleaner/Preferences.php:65
+msgid "delete \"%s\" preferences workspace"
+msgstr "effacer les préférences \"%s\""
+
+#: src/Cleaner/Preferences.php:66
+msgid "\"%s\" preferences workspace deleted"
+msgstr "préférences \"%s\" effacées"
+
+#: src/Cleaner/Preferences.php:67
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "Impossible d'effacer les préférences \"%s\""
+
+#: src/Cleaner/Preferences.php:72
+msgid "delete related preferences"
+msgstr "effacer les préférences associées"
+
+#: src/Cleaner/Preferences.php:73
+msgid "related preferences deleted"
+msgstr "préférences associées effacées"
+
+#: src/Cleaner/Preferences.php:74
+msgid "Failed to delete related preferences"
+msgstr "Impossible d'effacer les préférences associées"
+
+#: src/Cleaner/Settings.php:41
+msgid "Namespaces registered in dcSettings"
+msgstr "Espaces de nom (namespaces) enregistrés dans dcSettings"
+
+#: src/Cleaner/Settings.php:50
+msgid "delete selected global settings namespaces"
+msgstr "effacer les espaces de noms de paramètres globaux sélectionnés"
+
+#: src/Cleaner/Settings.php:51
+msgid "delete \"%s\" global settings namespace"
+msgstr "effacer l'espace de nom de paramètres global \"%s\""
+
+#: src/Cleaner/Settings.php:52
+msgid "\"%s\" global settings namespace deleted"
+msgstr "espace de nom de paramètres global \"%s\" effacé"
+
+#: src/Cleaner/Settings.php:53
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "Impossible d'effacer l'espace de nom de paramètre global \"%s\""
+
+#: src/Cleaner/Settings.php:57
+msgid "delete selected blog settings namespaces"
+msgstr "effacer les espace de noms de paramètre de blog sélectionnés"
+
+#: src/Cleaner/Settings.php:58
+msgid "delete \"%s\" blog settings namespace"
+msgstr "effacer l'espace de nom de paramètre de blog \"%s\""
+
+#: src/Cleaner/Settings.php:59
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "espace de nom de paramètre de blog \"%s\" effacé"
+
+#: src/Cleaner/Settings.php:60
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "Impossible d'effacer l'espace de nom de paramètres de blog \"%s\""
+
+#: src/Cleaner/Settings.php:64
+msgid "delete selected settings namespaces"
+msgstr "effacer les espaces de noms de paramètres sélectionnés"
+
+#: src/Cleaner/Settings.php:65
+msgid "delete \"%s\" settings namespace"
+msgstr "effacer l'espace de nom de paramètres \"%s\""
+
+#: src/Cleaner/Settings.php:66
+msgid "\"%s\" settings namespace deleted"
+msgstr "espace de nom de paramètres \"%s\" effacé"
+
+#: src/Cleaner/Settings.php:67
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "Impossible d'effacer l'espace de nom de paramètres \"%s\""
+
+#: src/Cleaner/Settings.php:72
+msgid "delete related settings"
+msgstr "effacer les paramètres relatifs"
+
+#: src/Cleaner/Settings.php:73
+msgid "related settings deleted"
+msgstr "paramètres relatifs effacer"
+
+#: src/Cleaner/Settings.php:74
+msgid "Failed to delete related settings"
+msgstr "Impossible d'effacer les paramètres relatifs"
+
+#: src/Cleaner/Tables.php:37
+msgid "All database tables of Dotclear"
+msgstr "Toutes les tables Dotclear de la base de données"
+
+#: src/Cleaner/Tables.php:46
+msgid "delete selected tables"
+msgstr "effacer les tables sélectionnées"
+
+#: src/Cleaner/Tables.php:47
+msgid "delete \"%s\" table"
+msgstr "Supprimer la table \"%s\""
+
+#: src/Cleaner/Tables.php:48
+msgid "\"%s\" table deleted"
+msgstr "table \"%s\" supprimée"
+
+#: src/Cleaner/Tables.php:49
+msgid "Failed to delete \"%s\" table"
+msgstr "Impossible de supprimer la table \"%s\""
+
+#: src/Cleaner/Tables.php:53
+msgid "empty selected tables"
+msgstr "vider les tables selectionnées"
+
+#: src/Cleaner/Tables.php:54
+msgid "empty \"%s\" table"
+msgstr "vider la table \"%s\""
+
+#: src/Cleaner/Tables.php:55
+msgid "\"%s\" table emptied"
+msgstr "table \"%s\" vidée"
+
+#: src/Cleaner/Tables.php:56
+msgid "Failed to empty \"%s\" table"
+msgstr "Impossible de vider la table \"%s\""
+
+#: src/Cleaner/Themes.php:33
+msgid "Folders from blog themes directory"
+msgstr "Dossiers du répertoire des thèmes du blog"
+
+#: src/Cleaner/Themes.php:42
+msgid "delete selected themes files and directories"
+msgstr "effacer les fichiers et répertoires des thèmes selectionnés"
+
+#: src/Cleaner/Themes.php:43
+msgid "delete \"%s\" theme files and directories"
+msgstr "effacer les fichiers et répertoires du thème \"%s\""
+
+#: src/Cleaner/Themes.php:44
+msgid "\"%s\" theme files and directories deleted"
+msgstr "fichiers et répertoires du thème \"%s\" effacés"
+
+#: src/Cleaner/Themes.php:45
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "Impossible d'effacer les fichiers et répertoires du thème \"%s\""
+
+#: src/Cleaner/Vars.php:32
+msgid "Folders from Dotclear VAR directory"
+msgstr "Dossiers du répertoire VAR de Dotclear"
+
+#: src/Cleaner/Vars.php:41
+msgid "delete selected var directories"
+msgstr "effacer les répertoires var sélectionnés"
+
+#: src/Cleaner/Vars.php:42
+msgid "delete \"%s\" var directory"
+msgstr "Supprimer le répertoire var \"%s\""
+
+#: src/Cleaner/Vars.php:43
+msgid "\"%s\" var directory deleted"
+msgstr "répertoire var \"%s\" supprimé"
+
+#: src/Cleaner/Vars.php:44
+msgid "Failed to delete \"%s\" var directory"
+msgstr "Impossible de supprimer le répertoire var \"%s\""
+
+#: src/Cleaner/Versions.php:30
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "Versions enregistrées dans la table \"version\" de Dotclear"
+
+#: src/Cleaner/Versions.php:39
+msgid "delete selected versions numbers"
+msgstr "effacer les numéros de versions sélectionnés"
+
+#: src/Cleaner/Versions.php:40
+msgid "delete \"%s\" version number"
+msgstr "supprimer le numéro de version de \"%s\""
+
+#: src/Cleaner/Versions.php:41
+msgid "\"%s\" version number deleted"
+msgstr "numéro de version de \"%s\" supprimé"
+
+#: src/Cleaner/Versions.php:42
+msgid "Failed to delete \"%s\" version number"
+msgstr "Impossible de supprimer le numéro de version de \"%s\""
+
+#: src/Cleaners.php:87
+msgid "Unknown cleaner \"%s\""
+msgstr "Nettoyeur \"%s\" inconnu"
+
+#: src/Cleaners.php:90
+msgid "Unsintaller can't remove itself"
+msgstr "Le désinstalleur ne peut pas se supprimer lui-même"
+
+#: src/Manage.php:65
+msgid "Unknown module id to uninstall"
+msgstr "Module a désinstaller inconnu"
+
+#: src/Manage.php:73
+msgid "There are no uninstall actions for this module"
+msgstr "Il n'y a aucune action pour ce module"
+
+#: src/Manage.php:98
+msgid "Uninstall action successfuly excecuted"
+msgstr "Actions de désinstallation exécutées avec succès"
+
+#: src/Manage.php:101
+msgid "No uninstall action done"
+msgstr "Aucune action de désinstallation exécutée"
+
+#: src/Manage.php:129
+msgid "Are you sure you perform these ations?"
+msgstr "Êtes-vous sûre de vouloir effectuer ces actions ?"
+
+#: src/Manage.php:158
+msgid "Perform selected actions"
+msgstr "Effectuer les actions sélectionnées"
+
+#: src/Manage.php:164
+msgid "Uninstall theme \"%s\""
+msgstr "Désinstaller le thème \"%s\""
+
+#: src/Manage.php:164
+msgid "Uninstall plugin \"%s\""
+msgstr "Désinstaller le plugin \"%s\""
+
+#: src/Manage.php:165
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr "Le module \"%s %s\" propose un processus de désinstallation avancée :"
+
+msgid "Uninstaller"
+msgstr "Désinstalleur"
+
+msgid "Uninstall cleanly plugins and themes"
+msgstr "Désinstalle proprement les plugins et thèmes"
+
