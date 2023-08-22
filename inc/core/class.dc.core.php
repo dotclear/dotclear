@@ -12,6 +12,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
@@ -211,7 +213,7 @@ final class dcCore
      *
      * @var Dotclear\Core\Backend\Utility
      */
-    public $admin;
+    public Backend $admin;
 
     /**
      * Backend Url instance.
@@ -256,7 +258,7 @@ final class dcCore
      *
      * @var Dotclear\Core\Frontend\Utility
      */
-    public $public;
+    public Dotclear\Core\Frontend\Utility $public;
 
     /**
      * dcTemplate instance

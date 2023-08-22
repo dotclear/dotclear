@@ -106,7 +106,7 @@ class Utility extends Process
      */
     public static function process(): bool
     {
-        if (!(dcCore::app()->public instanceof self)) {
+        if (!isset(dcCore::app()->public)) {
             // Init singleton
             dcCore::app()->public = new self();
         }
