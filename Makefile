@@ -56,6 +56,7 @@ config: clean config-stamp
 	./plugins/simpleMenu \
 	./plugins/tags \
 	./plugins/themeEditor \
+	./plugins/Uninstaller \
 	./plugins/userPref \
 	./plugins/widgets \
 	./$(DC)/plugins/

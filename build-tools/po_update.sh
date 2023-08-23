@@ -35,6 +35,7 @@ pings
 simpleMenu
 tags
 themeEditor
+Uninstaller
 userPref
 widgets
 _fake_plugin
