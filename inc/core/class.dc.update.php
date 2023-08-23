@@ -59,7 +59,7 @@ class dcUpdate
         'href'     => null,
         'checksum' => null,
         'info'     => null,
-        'php'      => '7.4',
+        'php'      => '8.1',
         'warning'  => false,
         'notify'   => true,
     ];
