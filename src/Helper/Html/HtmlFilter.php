@@ -17,16 +17,16 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
+use XMLParser;
+
 class HtmlFilter
 {
     /**
      * Parser handle
      *
-     * Should be (PHP 8.0+): private \XMLParser $parser;
-     *
-     * @var mixed   resource|\XMLParser
+     * @var XMLParser
      */
-    private $parser;
+    private XMLParser $parser;
 
     /**
      * HTML content

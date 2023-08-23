@@ -51,10 +51,6 @@ class Date
      */
     public static function strftime(string $format, $timestamp = null, ?string $locale = null): string
     {
-        if (version_compare(PHP_VERSION, '8.1', '<')) {
-            return @strftime($format, $timestamp);
-        }
-
         if (!($timestamp instanceof DateTimeInterface)) {
             $timestamp = is_int($timestamp) ? '@' . $timestamp : (string) $timestamp;
 
