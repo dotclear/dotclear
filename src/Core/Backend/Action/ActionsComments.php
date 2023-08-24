@@ -129,7 +129,7 @@ class ActionsComments extends Actions
     {
         $items = [];
         foreach ($this->entries as $id => $description) {
-            $ret .= (new Tr())
+            $items[] = (new Tr())
                 ->items([
                     (new Td())
                         ->class('minimal')

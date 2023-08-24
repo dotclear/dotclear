@@ -129,7 +129,7 @@ class ActionsBlogs extends Actions
     {
         $items = [];
         foreach ($this->entries as $id => $res) {
-            $ret .= (new Tr())
+            $items[] = (new Tr())
                 ->items([
                     (new Td())
                         ->class('minimal')
