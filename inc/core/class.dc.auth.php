@@ -154,6 +154,32 @@ class dcAuth
     public dcPrefs $user_prefs;
 
     /**
+     * Create a new instance of authentication class (user-defined or default)
+     *
+     * @throws     Exception
+     *
+     * @param      dcCore   dcCore instance (maybe used be third party auth class ?)
+     *
+     * @return     dcAuth
+     */
+    public static function init(dcCore $core): dcAuth
+    {
+        // You can set DC_AUTH_CLASS to whatever you want.
+        // Your new class *should* inherits dcAuth.
+        $class = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : self::class;
+
+        if (!class_exists($class)) {
+            throw new Exception('Authentication class ' . $class . ' does not exist.');
+        }
+
+        if ($class !== self::class && !is_subclass_of($class, self::class)) {
+            throw new Exception('Authentication class ' . $class . ' does not inherit dcAuth.');
+        }
+
+        return new $class($core);
+    }
+
+    /**
      * Class constructor. Takes dcCore object as single argument.
      */
     public function __construct()
