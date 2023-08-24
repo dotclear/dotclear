@@ -13,9 +13,15 @@ namespace Dotclear\Core\Backend\Action;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 class ActionsBlogs extends Actions
 {
@@ -72,7 +78,14 @@ class ActionsBlogs extends Actions
                 $breadcrumb
             );
         }
-        echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to blogs list') . '</a></p>';
+        echo (new Para())
+            ->items([
+                (new Link())
+                    ->class('back')
+                    ->href($this->getRedirection(true))
+                    ->text(__('Back to blogs list')),
+            ])
+            ->render();
     }
 
     /**
@@ -108,32 +121,42 @@ class ActionsBlogs extends Actions
     }
 
     /**
-     * Returns HTML code for selected blogs as a table containing blogs checkboxes
+     * Returns Table elments code for selected blogs as a table containing blogs checkboxes
      *
-     * @return string the HTML code for checkboxes
+     * @return Table The Table elements code for checkboxes
      */
-    public function getCheckboxes(): string
+    public function checkboxes(): Table
     {
-        $ret = '';
+        $items = [];
         foreach ($this->entries as $id => $res) {
-            $ret .= '<tr>' .
-            '<td class="minimal">' . form::checkbox(
-                [$this->field_entries . '[]'],
-                $id,
-                [
-                    'checked' => true,
-                ]
-            ) .
-                '</td>' .
-                '<td>' . $res['blog'] . '</td>' .
-                '<td>' . $res['name'] . '</td>' .
-                '</tr>';
+            $items[] = (new Tr())
+                ->items([
+                    (new Td())
+                        ->class('minimal')
+                        ->items([
+                            (new Checkbox([$this->field_entries . '[]'], true))
+                                ->value($id),
+                        ]),
+                    (new Td())
+                        ->text(Html::escapeHTML($res['blog'])),
+                    (new Td())
+                        ->text(Html::escapeHTML($res['name'])),
+                ]);
         }
 
-        return
-        '<table class="blogs-list"><tr>' .
-        '<th colspan="2">' . __('Blog id') . '</th><th>' . __('Blog name') . '</th>' .
-            '</tr>' . $ret . '</table>';
+        return (new Table())
+            ->class('blogs-list')
+            ->items([
+                (new Tr())
+                    ->items([
+                        (new Th())
+                            ->colspan(2)
+                            ->text(__('Blog id')),
+                        (new Th())
+                            ->text(__('Blog name')),
+                    ]),
+                ... $items,
+            ]);
     }
 
     /**

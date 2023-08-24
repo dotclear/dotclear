@@ -13,6 +13,8 @@ namespace Dotclear\Core\Backend\Action;
 use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -69,7 +71,14 @@ class ActionsPosts extends Actions
                 $breadcrumb
             );
         }
-        echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to entries list') . '</a></p>';
+        echo (new Para())
+            ->items([
+                (new Link())
+                    ->class('back')
+                    ->href($this->getRedirection(true))
+                    ->text(__('Back to entries list')),
+            ])
+            ->render();
     }
 
     /**
