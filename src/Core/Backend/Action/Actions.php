@@ -15,8 +15,14 @@ namespace Dotclear\Core\Backend\Action;
 use ArrayObject;
 use dcCore;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
@@ -250,7 +256,7 @@ abstract class Actions
     {
         $ret = [];
         foreach ($this->redir_args as $name => $value) {
-            $ret[] = (new Hidden([$name], $value));
+            $ret[] = (new Hidden([$name], (string) $value));
         }
         if ($with_ids) {
             $ret = array_merge($ret, $this->IDsHidden());
@@ -411,20 +417,42 @@ abstract class Actions
      */
     public function getCheckboxes(): string
     {
-        $ret = '<table class="posts-list"><tr>' .
-        '<th colspan="2">' . $this->cb_title . '</th>' .
-            '</tr>';
-        foreach ($this->entries as $id => $title) {
-            $ret .= '<tr><td class="minimal">' .
-            form::checkbox([$this->field_entries . '[]'], $id, [
-                'checked' => true,
-            ]) .
-                '</td>' .
-                '<td>' . $title . '</td></tr>';
-        }
-        $ret .= '</table>';
+        return $this->checkboxes()->render();
+    }
 
-        return $ret;
+    /**
+     * Returns Form code for selected entries as a table containing entries checkboxes
+     *
+     * @return Table    The Table elements code for checkboxes
+     */
+    public function checkboxes(): Table
+    {
+        $items = [];
+        foreach ($this->entries as $id => $title) {
+            $items[] = (new Tr())
+                ->items([
+                    (new Td())
+                        ->class('minimal')
+                        ->items([
+                            (new Checkbox([$this->field_entries . '[]'], true))
+                                ->value($id),
+                        ]),
+                    (new Td())
+                        ->text(Html::escapeHTML($title)),
+                ]);
+        }
+
+        return (new Table())
+            ->class('posts-list')
+            ->items([
+                (new Tr())
+                    ->items([
+                        (new Th())
+                            ->colspan(2)
+                            ->text($this->cb_title),
+                    ]),
+                ... $items,
+            ]);
     }
 
     /**
