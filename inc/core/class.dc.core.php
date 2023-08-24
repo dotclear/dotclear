@@ -395,7 +395,7 @@ final class dcCore
         }
 
         $this->error   = new dcError();
-        $this->auth    = dcAuth::init($this);
+        $this->auth    = dcAuth::init();
         $this->session = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
         $this->url     = new dcUrlHandlers();
         $this->plugins = new dcPlugins();

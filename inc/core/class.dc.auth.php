@@ -158,11 +158,9 @@ class dcAuth
      *
      * @throws     Exception
      *
-     * @param      dcCore   dcCore instance (maybe used be third party auth class ?)
-     *
      * @return     dcAuth
      */
-    public static function init(dcCore $core): dcAuth
+    public static function init(): dcAuth
     {
         // You can set DC_AUTH_CLASS to whatever you want.
         // Your new class *should* inherits dcAuth.
@@ -176,7 +174,7 @@ class dcAuth
             throw new Exception('Authentication class ' . $class . ' does not inherit dcAuth.');
         }
 
-        return new $class($core);
+        return new $class(dcCore::app());
     }
 
     /**
