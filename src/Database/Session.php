@@ -98,6 +98,10 @@ class Session
         $this->cookie_domain = $cookie_domain;
         $this->cookie_secure = $cookie_secure;
         if (!is_null($ttl)) {
+            if (!str_starts_with(trim((string) $ttl), '-')) {
+                // Clearbricks requires negative session TTL
+                $ttl = '-' . trim((string) $ttl);
+            }
             $this->ttl = $ttl;
         }
         $this->transient = $transient;

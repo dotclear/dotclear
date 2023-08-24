@@ -462,7 +462,7 @@ namespace Dotclear {
                  *
                  * @deprecated since 2.23, use dcCore::app() instead
                  */
-                $core = new dcCore(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPREFIX, DC_DBPERSIST);
+                $core = new dcCore();
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
                 // Loading locales for detected language
