@@ -78,7 +78,7 @@ final class dcCore
     /**
      * dcBlog instance
      *
-     * @var dcBlog
+     * @var dcBlog|null
      */
     public $blog;
 
