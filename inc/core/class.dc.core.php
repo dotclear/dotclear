@@ -46,7 +46,7 @@ final class dcCore
 
     /**
      * Versions table name
-     * 
+     *
      * @deprecated since 2.28, use Version::VERSION_TABLE_NAME
      *
      * @var string
@@ -873,7 +873,7 @@ final class dcCore
     //@{
     /**
      * Gets the version of a module.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->version->getVersion() instead
      *
      * @param      string  $module  The module
@@ -890,19 +890,19 @@ final class dcCore
 
     /**
      * Gets all known versions.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->version->getVersions() instead
      *
      * @return     array
      */
     public function getVersions(): array
     {
-        return $this->getVersions();
+        return $this->version->getVersions();
     }
 
     /**
      * Sets the version of a module.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->version->setVersion() instead
      *
      * @param      string  $module   The module
@@ -910,12 +910,12 @@ final class dcCore
      */
     public function setVersion(string $module, string $version)
     {
-        $this->setvesion($module, $version);
+        $this->version->setVersion($module, $version);
     }
 
     /**
      * Compare the given version of a module with the registered one.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->version->compareVersion() instead
      *
      * @param      string  $module   The module
@@ -925,12 +925,12 @@ final class dcCore
      */
     public function testVersion(string $module, string $version): int
     {
-        return $this->compareVersion($module, $version);
+        return $this->version->compareVersion($module, $version);
     }
 
     /**
      * Test if a version is a new one.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->version->newerVersion() instead
      *
      * @param      string  $module   The module
@@ -945,7 +945,7 @@ final class dcCore
 
     /**
      * Remove a module version entry
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->version->unsetVersion() instead
      *
      * @param      string  $module  The module
