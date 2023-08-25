@@ -54,7 +54,7 @@ class Install extends Process
         (new Structure(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
 
         // Creating default wordslist
-        if (dcCore::app()->getVersion(My::id()) === null) {
+        if (dcCore::app()->version->getVersion(My::id()) === '') {
             (new Filters\Words())->defaultWordsList();
         }
 

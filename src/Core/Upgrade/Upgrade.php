@@ -31,9 +31,9 @@ class Upgrade
      */
     public static function dotclearUpgrade()
     {
-        $version = dcCore::app()->getVersion('core');
+        $version = dcCore::app()->version->getVersion('core');
 
-        if ($version === null) {
+        if ($version === '') {
             return false;
         }
 
@@ -87,7 +87,7 @@ class Upgrade
      */
     public static function growUp(?string $version): bool
     {
-        if ($version === null) {
+        if ($version === '') {
             return false;
         }
 
@@ -150,7 +150,7 @@ class Upgrade
         }
 
         // set dc version
-        dcCore::app()->setVersion('core', DC_VERSION);
+        dcCore::app()->version->setVersion('core', DC_VERSION);
         dcCore::app()->blogDefaults();
 
         return $cleanup_sessions;

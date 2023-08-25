@@ -29,7 +29,7 @@ class Install extends Process
         }
 
         // Rename settings namespace
-        if (version_compare((string) dcCore::app()->getVersion(My::id()), '2.0', '<=')
+        if (version_compare(dcCore::app()->version->getVersion(My::id()), '2.0', '<=')
             && dcCore::app()->blog->settings->exists('dcckeditor')
         ) {
             dcCore::app()->blog->settings->delNamespace(My::id());

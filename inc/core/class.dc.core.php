@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Database\AbstractHandler;
@@ -45,10 +46,12 @@ final class dcCore
 
     /**
      * Versions table name
+     * 
+     * @deprecated since 2.28, use Version::VERSION_TABLE_NAME
      *
      * @var string
      */
-    public const VERSION_TABLE_NAME = 'version';
+    public const VERSION_TABLE_NAME = Version::VERSION_TABLE_NAME;
 
     // Properties
 
@@ -301,11 +304,11 @@ final class dcCore
     // Private
 
     /**
-     * Stack of registered versions (core, modules)
+     * Versions registration management instance.
      *
-     * @var       array|null
+     * @var       Version
      */
-    private $versions = null;
+    public readonly Version $version;
 
     /**
      * Stack of registered content formaters
@@ -355,6 +358,7 @@ final class dcCore
         $this->error   = new dcError();
         $this->auth    = dcAuth::init();
         $this->session = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
+        $this->version = new Version();
         $this->url     = new dcUrlHandlers();
         $this->plugins = new dcPlugins();
         $this->rest    = new dcRestServer();
@@ -869,105 +873,65 @@ final class dcCore
     //@{
     /**
      * Gets the version of a module.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->version->getVersion() instead
      *
      * @param      string  $module  The module
      *
-     * @return     mixed  The version.
+     * @return     mixed
      */
     public function getVersion(string $module = 'core')
     {
-        # Fetch versions if needed
-        if (!is_array($this->versions)) {
-            $rs = (new SelectStatement())
-                ->columns([
-                    'module',
-                    'version',
-                ])
-                ->from($this->prefix . self::VERSION_TABLE_NAME)
-                ->select();
+        $v = $this->version->getVersion($module);
 
-            while ($rs->fetch()) {
-                $this->versions[$rs->module] = $rs->version;
-            }
-        }
-
-        if (isset($this->versions[$module])) {
-            return $this->versions[$module];
-        }
+        // keep compatibility with old return type
+        return $v === '' ? null : $v;
     }
 
     /**
-     * Gets all known versions
+     * Gets all known versions.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->version->getVersions() instead
      *
-     * @return     array  The versions.
+     * @return     array
      */
     public function getVersions(): array
     {
-        // Fetch versions if needed
-        if (!is_array($this->versions)) {
-            $rs = (new SelectStatement())
-                ->columns([
-                    'module',
-                    'version',
-                ])
-                ->from($this->prefix . self::VERSION_TABLE_NAME)
-                ->select();
-
-            while ($rs->fetch()) {
-                $this->versions[$rs->module] = $rs->version;
-            }
-        }
-
-        return $this->versions;
+        return $this->getVersions();
     }
 
     /**
      * Sets the version of a module.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->version->setVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
      */
     public function setVersion(string $module, string $version)
     {
-        $cur_version = $this->getVersion($module);
-
-        $cur          = $this->con->openCursor($this->prefix . self::VERSION_TABLE_NAME);
-        $cur->module  = $module;
-        $cur->version = $version;
-
-        if ($cur_version === null) {
-            $cur->insert();
-        } else {
-            $sql = new UpdateStatement();
-            $sql->where('module = ' . $sql->quote($module));
-
-            $sql->update($cur);
-        }
-
-        $this->versions[$module] = $version;
+        $this->setvesion($module, $version);
     }
 
     /**
-     * Compare the given version of a module with the registered one
-     *
-     * Returned values:
-     *
-     * -1 : newer version already installed
-     * 0 : same version installed
-     * 1 : older version is installed
+     * Compare the given version of a module with the registered one.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->version->compareVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
      *
-     * @return     int  return the result of the test
+     * @return     int
      */
     public function testVersion(string $module, string $version): int
     {
-        return version_compare($version, (string) $this->getVersion($module));
+        return $this->compareVersion($module, $version);
     }
 
     /**
-     * Test if a version is a new one
+     * Test if a version is a new one.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->version->newerVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
@@ -976,26 +940,19 @@ final class dcCore
      */
     public function newVersion(string $module, string $version): bool
     {
-        return $this->testVersion($module, $version) === 1;
+        return $this->version->newerVersion($module, $version);
     }
 
     /**
      * Remove a module version entry
+     * 
+     * @deprecated since 2.28, use dcCore::app()->version->unsetVersion() instead
      *
      * @param      string  $module  The module
      */
     public function delVersion(string $module)
     {
-        $sql = new DeleteStatement();
-        $sql
-            ->from($this->prefix . self::VERSION_TABLE_NAME)
-            ->where('module = ' . $sql->quote($module));
-
-        $sql->delete();
-
-        if (is_array($this->versions)) {
-            unset($this->versions[$module]);
-        }
+        $this->version->unsetVersion($module);
     }
     //@}
 
