@@ -410,7 +410,7 @@ class dcTemplate extends Template
                 if (!is_array($v)) {
                     $alias[$k] = [];
                 }
-                if (!isset($default_alias[$k]) || !is_array($default_alias[$k])) {
+                if (!isset($default_alias[$k])) {
                     $default_alias[$k] = [];
                 }
                 $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);

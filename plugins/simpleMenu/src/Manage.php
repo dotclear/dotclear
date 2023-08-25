@@ -117,10 +117,10 @@ class Manage extends Process
             $items['posts'] = new ArrayObject([__('Posts'), false]);
         }
 
-        if ((is_countable(dcCore::app()->admin->langs_combo) ? count(dcCore::app()->admin->langs_combo) : 0) > 1) {
+        if (count(dcCore::app()->admin->langs_combo) > 1) {
             $items['lang'] = new ArrayObject([__('Language'), true]);
         }
-        if (is_countable(dcCore::app()->admin->categories_combo) ? count(dcCore::app()->admin->categories_combo) : 0) {
+        if (count(dcCore::app()->admin->categories_combo)) {
             $items['category'] = new ArrayObject([__('Category'), true]);
         }
         if (count(dcCore::app()->admin->months_combo) > 1) {

@@ -80,7 +80,7 @@ abstract class Component
     {
         $this->properties[$property] = $value;
 
-        return $this;
+        return $this;   // @phpstan-ignore-line
     }
 
     /**

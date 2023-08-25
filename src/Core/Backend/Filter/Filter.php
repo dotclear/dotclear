@@ -94,7 +94,7 @@ class Filter
      */
     public function __set(string $property, $value)
     {
-        return $this->set($property, $value);
+        return $this->set($property, $value);   // @phpstan-ignore-line
     }
 
     /**

@@ -643,7 +643,7 @@ class context
      */
     public static function addSmilies(string $str): string
     {
-        if (!isset(dcCore::app()->public->smilies) || !is_array(dcCore::app()->public->smilies)) {
+        if (!isset(dcCore::app()->public->smilies)) {
             return $str;
         }
 

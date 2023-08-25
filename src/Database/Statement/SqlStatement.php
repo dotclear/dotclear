@@ -120,10 +120,10 @@ class SqlStatement
     /**
      * Magic setter method
      *
-     * @param      string  $property  The property
-     * @param      mixed   $value     The value
+     * @param       string  $property  The property
+     * @param       mixed   $value     The value
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return      mixed    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function __set(string $property, $value)
@@ -134,7 +134,7 @@ class SqlStatement
             trigger_error('Unknown property ' . $property, E_USER_ERROR);
         }
 
-        return $this;
+        return $this;   // @phpstan-ignore-line
     }
 
     /**
