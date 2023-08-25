@@ -55,7 +55,7 @@ final class dcCore
     /**
      * dcCore singleton instance
      *
-     * @var dcCore|null
+     * @var dcCore
      */
     private static dcCore $instance;
 
@@ -78,7 +78,7 @@ final class dcCore
     /**
      * dcBlog instance
      *
-     * @var dcBlog|null
+     * @var dcBlog
      */
     public $blog;
 

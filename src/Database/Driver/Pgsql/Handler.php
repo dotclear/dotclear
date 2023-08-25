@@ -182,8 +182,8 @@ class Handler extends AbstractHandler
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
             $searchpath = explode('.', $path, 2);
             if (count($searchpath) > 1) {
-                $path = $searchpath[1];
-                $query    = 'SET search_path TO ' . $searchpath[0] . ',public;';
+                $path  = $searchpath[1];
+                $query = 'SET search_path TO ' . $searchpath[0] . ',public;';
                 @pg_query($handle, $query);
             }
         }
