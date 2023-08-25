@@ -66,7 +66,7 @@ class FrontendTemplate
             # --BEHAVIOR-- publicBreadcrumb -- string, string
             $special = dcCore::app()->behavior->callBehavior('publicBreadcrumb', dcCore::app()->url->type, $separator);
 
-            $ret = $special ?? '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
+            $ret = $special ?: '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
         } else {
             switch (dcCore::app()->url->type) {
                 case 'static':
