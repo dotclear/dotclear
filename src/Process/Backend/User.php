@@ -147,7 +147,7 @@ class User extends Process
                     // Update user
 
                     # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
-                    dcCore::app()->callBehavior('adminBeforeUserUpdate', $cur, dcCore::app()->admin->user_id);
+                    dcCore::app()->behavior->callBehavior('adminBeforeUserUpdate', $cur, dcCore::app()->admin->user_id);
 
                     $new_id = dcCore::app()->updUser(dcCore::app()->admin->user_id, $cur);
 
@@ -165,7 +165,7 @@ class User extends Process
                     $user_prefs->profile->put('urls', $urls, 'string');
 
                     # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
-                    dcCore::app()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
+                    dcCore::app()->behavior->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
                     if (dcCore::app()->admin->user_id == dcCore::app()->auth->userID() && dcCore::app()->admin->user_id != $new_id) {
                         dcCore::app()->session->destroy();
@@ -181,7 +181,7 @@ class User extends Process
                     }
 
                     # --BEHAVIOR-- adminBeforeUserCreate -- Cursor
-                    dcCore::app()->callBehavior('adminBeforeUserCreate', $cur);
+                    dcCore::app()->behavior->callBehavior('adminBeforeUserCreate', $cur);
 
                     $new_id = dcCore::app()->addUser($cur);
 
@@ -199,7 +199,7 @@ class User extends Process
                     $user_prefs->profile->put('urls', $urls, 'string');
 
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
-                    dcCore::app()->callBehavior('adminAfterUserCreate', $cur, $new_id);
+                    dcCore::app()->behavior->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
                     Notices::addSuccessNotice(__('User has been successfully created.'));
                     Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
@@ -230,7 +230,7 @@ class User extends Process
             Page::jsLoad('js/pwstrength.js') .
             Page::jsLoad('js/_user.js') .
             # --BEHAVIOR-- adminUserHeaders --
-            dcCore::app()->callBehavior('adminUserHeaders'),
+            dcCore::app()->behavior->callBehavior('adminUserHeaders'),
             Page::breadcrumb(
                 [
                     __('System')                     => '',
@@ -401,7 +401,7 @@ class User extends Process
         '</p>';
 
         # --BEHAVIOR-- adminUserForm -- MetaRecord|null
-        dcCore::app()->callBehavior('adminUserForm', dcCore::app()->admin->rs ?? null);
+        dcCore::app()->behavior->callBehavior('adminUserForm', dcCore::app()->admin->rs ?? null);
 
         echo
         '</div>' .

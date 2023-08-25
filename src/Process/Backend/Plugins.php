@@ -96,7 +96,7 @@ class Plugins extends Process
             Page::jsPageTabs() .
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
-            dcCore::app()->callBehavior('pluginsToolsHeadersV2', false),
+            dcCore::app()->behavior->callBehavior('pluginsToolsHeadersV2', false),
             Page::breadcrumb(
                 [
                     __('System')             => '',
@@ -291,7 +291,7 @@ class Plugins extends Process
         }
 
         # --BEHAVIOR-- pluginsToolsTabs --
-        dcCore::app()->callBehavior('pluginsToolsTabsV2');
+        dcCore::app()->behavior->callBehavior('pluginsToolsTabsV2');
 
         # -- Notice for super admin --
         if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->list->isWritablePath()) {
@@ -322,7 +322,7 @@ class Plugins extends Process
             __('Plugins management'),
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
-            dcCore::app()->callBehavior('pluginsToolsHeadersV2', true),
+            dcCore::app()->behavior->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name)                          => '',

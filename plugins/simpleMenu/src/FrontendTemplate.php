@@ -180,7 +180,7 @@ class FrontendTemplate
                 ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
-                dcCore::app()->callBehavior('publicSimpleMenuItem', $i, $item);
+                dcCore::app()->behavior->callBehavior('publicSimpleMenuItem', $i, $item);
 
                 $ret .= '<li class="li' . ($i + 1) .
                     ($item['active'] ? ' active' : '') .

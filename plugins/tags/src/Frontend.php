@@ -54,7 +54,7 @@ class Frontend extends Process
         dcCore::app()->tpl->addBlock('EntryMetaData', [FrontendTemplate::class, 'EntryTags']);
         */
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'publicPrependV2'        => [FrontendBehaviors::class, 'publicPrepend'],
             'templateBeforeBlockV2'  => [FrontendBehaviors::class, 'templateBeforeBlock'],
             'publicBeforeDocumentV2' => [FrontendBehaviors::class, 'addTplPath'],

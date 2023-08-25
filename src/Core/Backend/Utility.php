@@ -249,7 +249,7 @@ class Utility extends Process
         }
 
         // Admin behaviors
-        dcCore::app()->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
+        dcCore::app()->behavior->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
 
         return true;
     }

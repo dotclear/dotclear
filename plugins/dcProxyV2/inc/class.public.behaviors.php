@@ -16,59 +16,59 @@ class dcProxyV2PublicBehaviors
 
     public static function publicAfterContentFilter($tag, $args)
     {
-        return dcCore::app()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
+        return dcCore::app()->behavior->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
     }
     public static function publicAfterDocument()
     {
-        return dcCore::app()->callBehavior('publicAfterDocument', dcCore::app());
+        return dcCore::app()->behavior->callBehavior('publicAfterDocument', dcCore::app());
     }
     public static function publicBeforeContentFilter($tag, $args)
     {
-        return dcCore::app()->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
+        return dcCore::app()->behavior->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
     }
     public static function publicBeforeDocument()
     {
-        return dcCore::app()->callBehavior('publicBeforeDocument', dcCore::app());
+        return dcCore::app()->behavior->callBehavior('publicBeforeDocument', dcCore::app());
     }
     public static function publicBeforeReceiveTrackback($args)
     {
-        return dcCore::app()->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
+        return dcCore::app()->behavior->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
     }
     public static function publicContentFilter($tag, $args, $filter)
     {
-        return dcCore::app()->callBehavior('publicContentFilter', dcCore::app(), $tag, $args, $filter);
+        return dcCore::app()->behavior->callBehavior('publicContentFilter', dcCore::app(), $tag, $args, $filter);
     }
     public static function publicPrepend()
     {
-        return dcCore::app()->callBehavior('publicPrepend', dcCore::app());
+        return dcCore::app()->behavior->callBehavior('publicPrepend', dcCore::app());
     }
 
     public static function templateAfterBlock($current_tag, $attr)
     {
-        return dcCore::app()->callBehavior('templateAfterBlock', dcCore::app(), $current_tag, $attr);
+        return dcCore::app()->behavior->callBehavior('templateAfterBlock', dcCore::app(), $current_tag, $attr);
     }
     public static function templateAfterValue($current_tag, $attr)
     {
-        return dcCore::app()->callBehavior('templateAfterValue', dcCore::app(), $current_tag, $attr);
+        return dcCore::app()->behavior->callBehavior('templateAfterValue', dcCore::app(), $current_tag, $attr);
     }
     public static function templateBeforeBlock($current_tag, $attr)
     {
-        return dcCore::app()->callBehavior('templateBeforeBlock', dcCore::app(), $current_tag, $attr);
+        return dcCore::app()->behavior->callBehavior('templateBeforeBlock', dcCore::app(), $current_tag, $attr);
     }
     public static function templateBeforeValue($current_tag, $attr)
     {
-        return dcCore::app()->callBehavior('templateBeforeValue', dcCore::app(), $current_tag, $attr);
+        return dcCore::app()->behavior->callBehavior('templateBeforeValue', dcCore::app(), $current_tag, $attr);
     }
     public static function templateInsideBlock($current_tag, $attr, $array_content)
     {
-        return dcCore::app()->callBehavior('templateInsideBlock', dcCore::app(), $current_tag, $attr, $array_content);
+        return dcCore::app()->behavior->callBehavior('templateInsideBlock', dcCore::app(), $current_tag, $attr, $array_content);
     }
     public static function tplAfterData($_r)
     {
-        return dcCore::app()->callBehavior('tplAfterData', dcCore::app(), $_r);
+        return dcCore::app()->behavior->callBehavior('tplAfterData', dcCore::app(), $_r);
     }
     public static function tplBeforeData()
     {
-        return dcCore::app()->callBehavior('tplBeforeData', dcCore::app());
+        return dcCore::app()->behavior->callBehavior('tplBeforeData', dcCore::app());
     }
 }

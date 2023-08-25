@@ -504,12 +504,12 @@ class dcTrackback
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
-        dcCore::app()->callBehavior('publicBeforeTrackbackCreate', $cur);
+        dcCore::app()->behavior->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id) {
             $comment_id = dcCore::app()->blog->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
-            dcCore::app()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
+            dcCore::app()->behavior->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
         }
     }
 

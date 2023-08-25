@@ -78,7 +78,7 @@ class UsersActions extends Process
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
-            dcCore::app()->callBehavior('adminUsersActions', dcCore::app()->admin->users, dcCore::app()->admin->blogs, dcCore::app()->admin->action, dcCore::app()->admin->redir);
+            dcCore::app()->behavior->callBehavior('adminUsersActions', dcCore::app()->admin->users, dcCore::app()->admin->blogs, dcCore::app()->admin->action, dcCore::app()->admin->redir);
 
             if (dcCore::app()->admin->action == 'deleteuser' && !empty(dcCore::app()->admin->users)) {
                 // Delete users
@@ -89,7 +89,7 @@ class UsersActions extends Process
                         }
 
                         # --BEHAVIOR-- adminBeforeUserDelete -- string
-                        dcCore::app()->callBehavior('adminBeforeUserDelete', $u);
+                        dcCore::app()->behavior->callBehavior('adminBeforeUserDelete', $u);
 
                         dcCore::app()->delUser($u);
                     } catch (Exception $e) {
@@ -161,7 +161,7 @@ class UsersActions extends Process
             __('Users'),
             Page::jsLoad('js/_users_actions.js') .
             # --BEHAVIOR-- adminUsersActionsHeaders --
-            dcCore::app()->callBehavior('adminUsersActionsHeaders'),
+            dcCore::app()->behavior->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
         );
 
@@ -189,7 +189,7 @@ class UsersActions extends Process
         '<p><a class="back" href="' . Html::escapeURL(dcCore::app()->admin->redir) . '">' . __('Back to user profile') . '</a></p>';
 
         # --BEHAVIOR-- adminUsersActionsContent -- string, string
-        dcCore::app()->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
+        dcCore::app()->behavior->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
 
         if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {
             // Blog list where to set permissions

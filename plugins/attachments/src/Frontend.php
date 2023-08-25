@@ -43,7 +43,7 @@ class Frontend extends Process
 
         dcCore::app()->tpl->addValue('EntryAttachmentCount', [FrontendTemplate::class, 'EntryAttachmentCount']);
 
-        dcCore::app()->addBehavior('tplIfConditions', [FrontendBehaviors::class, 'tplIfConditions']);
+        dcCore::app()->behavior->addBehavior('tplIfConditions', [FrontendBehaviors::class, 'tplIfConditions']);
 
         return true;
     }

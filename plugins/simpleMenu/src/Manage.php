@@ -135,7 +135,7 @@ class Manage extends Process
 
         # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject
         # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
-        dcCore::app()->callBehavior('adminSimpleMenuAddType', $items);
+        dcCore::app()->behavior->callBehavior('adminSimpleMenuAddType', $items);
 
         $items['special'] = new ArrayObject([__('User defined'), false]);
 
@@ -293,7 +293,7 @@ class Manage extends Process
                                     dcCore::app()->admin->item_label,
                                     dcCore::app()->admin->item_select_label,
                                 ];
-                                dcCore::app()->callBehavior(
+                                dcCore::app()->behavior->callBehavior(
                                     'adminSimpleMenuBeforeEdit',
                                     dcCore::app()->admin->item_type,
                                     dcCore::app()->admin->item_select,
@@ -563,7 +563,7 @@ class Manage extends Process
                                 '</p>',
                             default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
                                 # Optional step once dcCore::app()->admin->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
-                                dcCore::app()->callBehavior('adminSimpleMenuSelect', dcCore::app()->admin->item_type, 'item_select'),
+                                dcCore::app()->behavior->callBehavior('adminSimpleMenuSelect', dcCore::app()->admin->item_type, 'item_select'),
                         };
 
                         echo

@@ -35,7 +35,7 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'       => My::name(),

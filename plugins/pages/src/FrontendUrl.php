@@ -43,7 +43,7 @@ class FrontendUrl extends dcUrlHandlers
                 'post_url'  => $args, ]);
 
             # --BEHAVIOR-- publicPagesBeforeGetPosts -- ArrayObject, string
-            dcCore::app()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
+            dcCore::app()->behavior->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
             dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
@@ -114,7 +114,7 @@ class FrontendUrl extends dcUrlHandlers
 
                     if ($content != '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
-                        $buffer = dcCore::app()->callBehavior('publicBeforeCommentTransform', $content);
+                        $buffer = dcCore::app()->behavior->callBehavior('publicBeforeCommentTransform', $content);
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
@@ -136,7 +136,7 @@ class FrontendUrl extends dcUrlHandlers
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
-                        dcCore::app()->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
+                        dcCore::app()->behavior->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
 
                         dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
@@ -160,12 +160,12 @@ class FrontendUrl extends dcUrlHandlers
                             }
 
                             # --BEHAVIOR-- publicBeforeCommentCreate -- Cursor
-                            dcCore::app()->callBehavior('publicBeforeCommentCreate', $cur);
+                            dcCore::app()->behavior->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
                                 $comment_id = dcCore::app()->blog->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate -- Cursor, int
-                                dcCore::app()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
+                                dcCore::app()->behavior->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
                             if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {

@@ -96,7 +96,7 @@ class ListingPosts extends Listing
             ];
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
+            dcCore::app()->behavior->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -235,7 +235,7 @@ class ListingPosts extends Listing
         ];
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPostListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->callBehavior('adminPostListValueV2', $this->rs, $cols);
+        dcCore::app()->behavior->callBehavior('adminPostListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);

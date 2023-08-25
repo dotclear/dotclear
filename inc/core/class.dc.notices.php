@@ -148,7 +148,7 @@ class dcNotices
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, Cursor
-            dcCore::app()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            dcCore::app()->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
             dcCore::app()->con->unlock();
@@ -159,7 +159,7 @@ class dcNotices
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, Cursor
-        dcCore::app()->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        dcCore::app()->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }

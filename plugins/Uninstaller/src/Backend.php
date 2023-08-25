@@ -32,7 +32,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             // add "unsinstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, dcModuleDefine $define): string {
                 // do not unsintall current theme

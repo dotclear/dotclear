@@ -228,7 +228,7 @@ class ThemesList extends ModulesList
                 }
 
                 # --BEHAVIOR-- adminCurrentThemeDetails -- string, dcModuleDefine
-                $line .= dcCore::app()->callBehavior('adminCurrentThemeDetailsV2', $define->getId(), $define);
+                $line .= dcCore::app()->behavior->callBehavior('adminCurrentThemeDetailsV2', $define->getId(), $define);
 
                 $line .= '</div>';
             }
@@ -363,7 +363,7 @@ class ThemesList extends ModulesList
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetGlobalActions -- ModulesList
-                    $tmp = dcCore::app()->callBehavior('adminModulesListGetGlobalActions', $this);
+                    $tmp = dcCore::app()->behavior->callBehavior('adminModulesListGetGlobalActions', $this);
 
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
@@ -423,12 +423,12 @@ class ThemesList extends ModulesList
                     }
 
                     # --BEHAVIOR-- themeBeforeActivate -- string
-                    dcCore::app()->callBehavior('themeBeforeActivate', $define->getId());
+                    dcCore::app()->behavior->callBehavior('themeBeforeActivate', $define->getId());
 
                     $this->modules->activateModule($define->getId());
 
                     # --BEHAVIOR-- themeAfterActivate -- string
-                    dcCore::app()->callBehavior('themeAfterActivate', $define->getId());
+                    dcCore::app()->behavior->callBehavior('themeAfterActivate', $define->getId());
 
                     $count++;
                 }
@@ -461,12 +461,12 @@ class ThemesList extends ModulesList
                     }
 
                     # --BEHAVIOR-- themeBeforeDeactivate -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeBeforeDeactivateV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeBeforeDeactivateV2', $define);
 
                     $this->modules->deactivateModule($define->getId());
 
                     # --BEHAVIOR-- themeAfterDeactivate -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeAfterDeactivateV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeAfterDeactivateV2', $define);
 
                     $count++;
                 }
@@ -496,12 +496,12 @@ class ThemesList extends ModulesList
                     }
 
                     # --BEHAVIOR-- themeBeforeClone -- string
-                    dcCore::app()->callBehavior('themeBeforeClone', $define->getId());
+                    dcCore::app()->behavior->callBehavior('themeBeforeClone', $define->getId());
 
                     $this->modules->cloneModule($define->getId());
 
                     # --BEHAVIOR-- themeAfterClone -- string
-                    dcCore::app()->callBehavior('themeAfterClone', $define->getId());
+                    dcCore::app()->behavior->callBehavior('themeAfterClone', $define->getId());
 
                     $count++;
                 }
@@ -535,12 +535,12 @@ class ThemesList extends ModulesList
                     }
 
                     # --BEHAVIOR-- themeBeforeDelete -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeBeforeDeleteV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeBeforeDeleteV2', $define);
 
                     $this->modules->deleteModule($define->getId(), $disabled);
 
                     # --BEHAVIOR-- themeAfterDelete -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeAfterDeleteV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeAfterDeleteV2', $define);
 
                     $count++;
                 }
@@ -571,12 +571,12 @@ class ThemesList extends ModulesList
                     $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
 
                     # --BEHAVIOR-- themeBeforeAdd -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeBeforeAddV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeBeforeAddV2', $define);
 
                     $this->store->process($define->get('file'), $dest);
 
                     # --BEHAVIOR-- themeAfterAdd -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeAfterAddV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeAfterAddV2', $define);
 
                     $count++;
                 }
@@ -611,12 +611,12 @@ class ThemesList extends ModulesList
                     $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
 
                     # --BEHAVIOR-- themeBeforeUpdate -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeBeforeUpdateV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeBeforeUpdateV2', $define);
 
                     $this->store->process($define->get('file'), $dest);
 
                     # --BEHAVIOR-- themeAfterUpdate -- dcModuleDefine
-                    dcCore::app()->callBehavior('themeAfterUpdateV2', $define);
+                    dcCore::app()->behavior->callBehavior('themeAfterUpdateV2', $define);
 
                     $count++;
                 }
@@ -658,12 +658,12 @@ class ThemesList extends ModulesList
                 }
 
                 # --BEHAVIOR-- themeBeforeAdd --
-                dcCore::app()->callBehavior('themeBeforeAdd', null);
+                dcCore::app()->behavior->callBehavior('themeBeforeAdd', null);
 
                 $ret_code = $this->store->install($dest);
 
                 # --BEHAVIOR-- themeAfterAdd --
-                dcCore::app()->callBehavior('themeAfterAdd', null);
+                dcCore::app()->behavior->callBehavior('themeAfterAdd', null);
 
                 Notices::addSuccessNotice(
                     $ret_code == dcModules::PACKAGE_UPDATED ?
@@ -673,7 +673,7 @@ class ThemesList extends ModulesList
                 Http::redirect($this->getURL() . '#themes');
             } else {
                 # --BEHAVIOR-- adminModulesListDoActions -- ModulesList, array<int,string>, string
-                dcCore::app()->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
+                dcCore::app()->behavior->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
             }
         }
     }

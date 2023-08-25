@@ -35,7 +35,7 @@ class CleanersStack implements Countable, Iterator
     public function __construct()
     {
         # --BEHAVIOR-- UninstallerCleanersConstruct: CleanersStack
-        dcCore::app()->callBehavior('UninstallerCleanersConstruct', $this);
+        dcCore::app()->behavior->callBehavior('UninstallerCleanersConstruct', $this);
     }
 
     public function exists(string $offset): bool
@@ -122,7 +122,7 @@ class CleanersStack implements Countable, Iterator
         }
 
         # --BEHAVIOR-- UninstallerBeforeAction: string, string, string
-        dcCore::app()->callBehavior('UninstallerBeforeAction', $id, $action, $ns);
+        dcCore::app()->behavior->callBehavior('UninstallerBeforeAction', $id, $action, $ns);
 
         return $this->stack[$id]->execute($action, $ns);
     }

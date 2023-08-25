@@ -21,7 +21,7 @@ class dcProxyV2
 
         $reflectionCore = new ReflectionClass($class);
         foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-            dcCore::app()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
+            dcCore::app()->behavior->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
         }
     }
 

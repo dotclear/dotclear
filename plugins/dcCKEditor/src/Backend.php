@@ -37,7 +37,7 @@ class Backend extends Process
             dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
             dcCore::app()->addFormaterName('xhtml', __('HTML'));
 
-            dcCore::app()->addBehaviors([
+            dcCore::app()->behavior->addBehaviors([
                 'adminPostEditor'        => [BackendBehaviors::class, 'adminPostEditor'],
                 'adminPopupMedia'        => [BackendBehaviors::class, 'adminPopupMedia'],
                 'adminPopupLink'         => [BackendBehaviors::class, 'adminPopupLink'],

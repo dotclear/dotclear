@@ -31,7 +31,7 @@ class FilterBlogs extends Filters
         ]);
 
         # --BEHAVIOR-- adminBlogFilter -- ArrayObject
-        dcCore::app()->callBehavior('adminBlogFilterV2', $filters);
+        dcCore::app()->behavior->callBehavior('adminBlogFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

@@ -193,7 +193,7 @@ class dcXmlRpc extends IntrospectionServer
         $this->setBlog();
 
         # --BEHAVIOR-- publicBeforeReceiveTrackback -- array<string,string>
-        dcCore::app()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
+        dcCore::app()->behavior->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
         return (new dcTrackback())->receivePingback($from_url, $to_url);
     }

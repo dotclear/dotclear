@@ -43,7 +43,7 @@ class ActionsComments extends Actions
 
         $this->loadDefaults();
         # --BEHAVIOR-- adminCommentsActions -- Actions
-        dcCore::app()->callBehavior('adminCommentsActions', $this);
+        dcCore::app()->behavior->callBehavior('adminCommentsActions', $this);
     }
 
     /**

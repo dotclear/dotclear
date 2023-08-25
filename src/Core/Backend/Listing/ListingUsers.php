@@ -57,7 +57,7 @@ class ListingUsers extends Listing
             $cols = new ArrayObject($cols);
 
             # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
+            dcCore::app()->behavior->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('users', $cols);
@@ -128,7 +128,7 @@ class ListingUsers extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->callBehavior('adminUserListValueV2', $this->rs, $cols);
+        dcCore::app()->behavior->callBehavior('adminUserListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('users', $cols);

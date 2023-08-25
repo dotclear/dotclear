@@ -1252,7 +1252,7 @@ class ModulesList
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetActions -- ModulesList, dcModuleDefine
-                    $tmp = dcCore::app()->callBehavior('adminModulesListGetActionsV2', $this, $define);
+                    $tmp = dcCore::app()->behavior->callBehavior('adminModulesListGetActionsV2', $this, $define);
 
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
@@ -1320,7 +1320,7 @@ class ModulesList
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetGlobalActions -- ModulesList, bool
-                    $tmp = dcCore::app()->callBehavior('adminModulesListGetGlobalActions', $this, $with_selection);
+                    $tmp = dcCore::app()->behavior->callBehavior('adminModulesListGetGlobalActions', $this, $with_selection);
 
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
@@ -1370,12 +1370,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeDelete -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginBeforeDeleteV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginBeforeDeleteV2', $define);
 
                 $this->modules->deleteModule($define->getId(), $disabled);
 
                 # --BEHAVIOR-- moduleAfterDelete -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginAfterDeleteV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginAfterDeleteV2', $define);
 
                 $count++;
             }
@@ -1404,12 +1404,12 @@ class ModulesList
                 $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
 
                 # --BEHAVIOR-- moduleBeforeAdd -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginBeforeAddV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginBeforeAddV2', $define);
 
                 $this->store->process($define->get('file'), $dest);
 
                 # --BEHAVIOR-- moduleAfterAdd -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginAfterAddV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginAfterAddV2', $define);
 
                 $count++;
             }
@@ -1435,12 +1435,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeActivate -- string
-                dcCore::app()->callBehavior('pluginBeforeActivate', $define->getId());
+                dcCore::app()->behavior->callBehavior('pluginBeforeActivate', $define->getId());
 
                 $this->modules->activateModule($define->getId());
 
                 # --BEHAVIOR-- moduleAfterActivate -- string
-                dcCore::app()->callBehavior('pluginAfterActivate', $define->getId());
+                dcCore::app()->behavior->callBehavior('pluginAfterActivate', $define->getId());
 
                 $count++;
             }
@@ -1473,12 +1473,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeDeactivate -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginBeforeDeactivateV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginBeforeDeactivateV2', $define);
 
                 $this->modules->deactivateModule($define->getId());
 
                 # --BEHAVIOR-- moduleAfterDeactivate -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginAfterDeactivateV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginAfterDeactivateV2', $define);
 
                 $count++;
             }
@@ -1524,12 +1524,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeUpdate -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginBeforeUpdateV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginBeforeUpdateV2', $define);
 
                 $this->store->process($define->get('file'), $dest);
 
                 # --BEHAVIOR-- moduleAfterUpdate -- dcModuleDefine
-                dcCore::app()->callBehavior('pluginAfterUpdateV2', $define);
+                dcCore::app()->behavior->callBehavior('pluginAfterUpdateV2', $define);
 
                 $count++;
             }
@@ -1571,12 +1571,12 @@ class ModulesList
             }
 
             # --BEHAVIOR-- moduleBeforeAdd --
-            dcCore::app()->callBehavior('pluginBeforeAdd', null);
+            dcCore::app()->behavior->callBehavior('pluginBeforeAdd', null);
 
             $ret_code = $this->store->install($dest);
 
             # --BEHAVIOR-- moduleAfterAdd --
-            dcCore::app()->callBehavior('pluginAfterAdd', null);
+            dcCore::app()->behavior->callBehavior('pluginAfterAdd', null);
 
             Notices::addSuccessNotice(
                 $ret_code === dcModules::PACKAGE_UPDATED ?
@@ -1586,7 +1586,7 @@ class ModulesList
             Http::redirect($this->getURL() . '#plugins');
         } else {
             # --BEHAVIOR-- adminModulesListDoActions -- ModulesList, array<int,string>, string
-            dcCore::app()->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
+            dcCore::app()->behavior->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
         }
     }
 

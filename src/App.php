@@ -513,7 +513,7 @@ namespace Dotclear {
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    dcCore::app()->addBehavior($b[0], $b[1]);
+                    dcCore::app()->behavior->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }

@@ -45,7 +45,7 @@ class ActionsPosts extends Actions
         // We could have added a behavior here, but we want default action to be setup first
         ActionsPostsDefault::adminPostsActionsPage($this);
         # --BEHAVIOR-- adminPostsActions -- Actions
-        dcCore::app()->callBehavior('adminPostsActions', $this);
+        dcCore::app()->behavior->callBehavior('adminPostsActions', $this);
     }
 
     /**

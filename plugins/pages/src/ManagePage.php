@@ -290,7 +290,7 @@ class ManagePage extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforePageDelete -- int
-                dcCore::app()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
+                dcCore::app()->behavior->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
                 My::redirect();
             } catch (Exception $e) {
@@ -335,12 +335,12 @@ class ManagePage extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforePageUpdate -- Cursor, int
-                    dcCore::app()->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
+                    dcCore::app()->behavior->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
                     # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
-                    dcCore::app()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
+                    dcCore::app()->behavior->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     My::redirect(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'upd' => '1']);
                 } catch (Exception $e) {
@@ -351,12 +351,12 @@ class ManagePage extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforePageCreate -- Cursor
-                    dcCore::app()->callBehavior('adminBeforePageCreate', $cur);
+                    dcCore::app()->behavior->callBehavior('adminBeforePageCreate', $cur);
 
                     $return_id = dcCore::app()->blog->addPost($cur);
 
                     # --BEHAVIOR-- adminAfterPageCreate -- Cursor, int
-                    dcCore::app()->callBehavior('adminAfterPageCreate', $cur, $return_id);
+                    dcCore::app()->behavior->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
                     My::redirect(['act' => 'page', 'id' => $return_id, 'crea' => '1']);
                 } catch (Exception $e) {
@@ -402,7 +402,7 @@ class ManagePage extends Process
             }
             if ($p_edit == $c_edit) {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->callBehavior(
+                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'page',
@@ -411,7 +411,7 @@ class ManagePage extends Process
                 );
             } else {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->callBehavior(
+                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'page',
@@ -419,7 +419,7 @@ class ManagePage extends Process
                     dcCore::app()->admin->post_format
                 );
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->callBehavior(
+                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
                     'adminPostEditor',
                     $c_edit,
                     'comment',
@@ -438,7 +438,7 @@ class ManagePage extends Process
             $admin_post_behavior .
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --
-            dcCore::app()->callBehavior('adminPageHeaders') .
+            dcCore::app()->behavior->callBehavior('adminPageHeaders') .
             Page::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink
         );
@@ -508,7 +508,7 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageNavLinks -- MetaRecord|null
-            dcCore::app()->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
+            dcCore::app()->behavior->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
 
             echo
             '</p>';
@@ -647,7 +647,7 @@ class ManagePage extends Process
             );
 
             # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null
-            dcCore::app()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
+            dcCore::app()->behavior->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
 
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
@@ -662,7 +662,7 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageForm -- MetaRecord|null
-            dcCore::app()->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
+            dcCore::app()->behavior->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
 
             echo
             '<p class="border-top">' .
@@ -718,14 +718,14 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageFormSidebar -- MetaRecord|null
-            dcCore::app()->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
+            dcCore::app()->behavior->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
             # --BEHAVIOR-- adminPostForm -- MetaRecord|null
-            dcCore::app()->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
+            dcCore::app()->behavior->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
 
             echo
             '</div>'; // End

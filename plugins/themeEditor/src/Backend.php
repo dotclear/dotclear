@@ -28,7 +28,7 @@ class Backend extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            dcCore::app()->addBehaviors([
+            dcCore::app()->behavior->addBehaviors([
                 'adminCurrentThemeDetailsV2'   => [BackendBehaviors::class, 'adminCurrentThemeDetails'],
                 'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'adminBeforeUserUpdate'],
                 'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminPreferencesForm'],

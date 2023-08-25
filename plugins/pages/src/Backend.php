@@ -38,7 +38,7 @@ class Backend extends Process
 
         My::addBackendMenuItem(Menus::MENU_BLOG);
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {
                 $cols['pages'] = [My::name(), [
                     'date'       => [true, __('Date')],

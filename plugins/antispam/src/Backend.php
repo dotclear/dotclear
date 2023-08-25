@@ -41,7 +41,7 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'coreAfterCommentUpdate'    => [Antispam::class, 'trainFilters'],
             'adminAfterCommentDesc'     => [Antispam::class, 'statusMessage'],
             'adminDashboardHeaders'     => [Antispam::class, 'dashboardHeaders'],
@@ -71,7 +71,7 @@ class Backend extends Process
         ]);
 
         if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->addBehaviors([
+            dcCore::app()->behavior->addBehaviors([
                 'adminBlogPreferencesFormV2'    => [BackendBehaviors::class, 'adminBlogPreferencesForm'],
                 'adminBeforeBlogSettingsUpdate' => [BackendBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
                 'adminCommentsSpamFormV2'       => [BackendBehaviors::class, 'adminCommentsSpamForm'],

@@ -43,7 +43,7 @@ class ActionsBlogs extends Actions
 
         $this->loadDefaults();
         # --BEHAVIOR-- adminBlogsActions -- Actions
-        dcCore::app()->callBehavior('adminBlogsActions', $this);
+        dcCore::app()->behavior->callBehavior('adminBlogsActions', $this);
     }
 
     /**

@@ -36,7 +36,7 @@ class Backend extends Process
 
         dcCore::app()->auth->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'       => My::name(),

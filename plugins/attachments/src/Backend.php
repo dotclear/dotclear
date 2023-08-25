@@ -31,7 +31,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'adminPostFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
             'adminPostAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
             'adminPostHeaders'   => fn () => My::jsLoad('post'),

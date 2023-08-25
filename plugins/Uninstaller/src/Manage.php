@@ -160,7 +160,7 @@ class Manage extends Process
             My::jsLoad('manage') .
 
             # --BEHAVIOR-- UninstallerHeader
-            dcCore::app()->callBehavior('UninstallerHeader')
+            dcCore::app()->behavior->callBehavior('UninstallerHeader')
         );
 
         echo

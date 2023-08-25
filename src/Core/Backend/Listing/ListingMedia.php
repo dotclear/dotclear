@@ -143,7 +143,7 @@ class ListingMedia extends Listing
             unset($params['process']); // move to media item
 
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
-            dcCore::app()->callBehavior('adminMediaURLParams', $params);
+            dcCore::app()->behavior->callBehavior('adminMediaURLParams', $params);
 
             $link = dcCore::app()->admin->url->get('admin.media.item', (array) $params);
             if ($file->media_priv) {

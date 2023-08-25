@@ -35,7 +35,7 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         // Admin behaviors
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'dcMaintenanceInit'                => [BackendBehaviors::class, 'dcMaintenanceInit'],
             'adminDashboardFavoritesV2'        => [BackendBehaviors::class, 'adminDashboardFavorites'],
             'adminDashboardHeaders'            => [BackendBehaviors::class, 'adminDashboardHeaders'],

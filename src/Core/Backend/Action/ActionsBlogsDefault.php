@@ -113,7 +113,7 @@ class ActionsBlogsDefault
 
         if (!empty($checked_ids)) {
             # --BEHAVIOR-- adminBeforeBlogsDelete -- array<int,string>
-            dcCore::app()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
+            dcCore::app()->behavior->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 
             foreach ($checked_ids as $id) {
                 dcCore::app()->delBlog($id);

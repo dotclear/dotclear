@@ -64,7 +64,7 @@ class Blogs extends Process
             # --BEHAVIOR-- adminGetBlogs
             $params = new ArrayObject($params);
             # --BEHAVIOR-- adminGetBlogs -- ArrayObject
-            dcCore::app()->callBehavior('adminGetBlogs', $params);
+            dcCore::app()->behavior->callBehavior('adminGetBlogs', $params);
 
             $counter  = dcCore::app()->getBlogs($params, true);
             $rs       = dcCore::app()->getBlogs($params);

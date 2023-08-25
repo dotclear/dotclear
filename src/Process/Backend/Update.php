@@ -212,7 +212,7 @@ class Update extends Process
                 dcCore::app()->error->add($msg);
 
                 # --BEHAVIOR-- adminDCUpdateException -- Exception
-                dcCore::app()->callBehavior('adminDCUpdateException', $e);
+                dcCore::app()->behavior->callBehavior('adminDCUpdateException', $e);
             }
         }
 

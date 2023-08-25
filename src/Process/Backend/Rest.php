@@ -257,7 +257,7 @@ class Rest extends Process
             $url = dcCore::app()->blog->settings->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
-            dcCore::app()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
+            dcCore::app()->behavior->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
                 throw new Exception('Unknown store type');
@@ -425,12 +425,12 @@ class Rest extends Process
             $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
             # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-            dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+            dcCore::app()->behavior->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
             $post['cat_id'] = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
             # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
-            dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
+            dcCore::app()->behavior->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
@@ -446,12 +446,12 @@ class Rest extends Process
         $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor
-        dcCore::app()->callBehavior('adminBeforePostCreate', $cur);
+        dcCore::app()->behavior->callBehavior('adminBeforePostCreate', $cur);
 
         $return_id = dcCore::app()->blog->addPost($cur);
 
         # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
-        dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
+        dcCore::app()->behavior->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
         $post = dcCore::app()->blog->getPosts(['post_id' => $return_id]);
 

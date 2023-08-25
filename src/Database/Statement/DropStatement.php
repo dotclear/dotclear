@@ -26,7 +26,7 @@ class DropStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeDropStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreBeforeDropStatement', $this);
+            dcCore::app()->behavior->callBehavior('coreBeforeDropStatement', $this);
         }
 
         // Check if source given
@@ -46,7 +46,7 @@ class DropStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertDropStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreAfterDropStatement', $this, $query);
+            dcCore::app()->behavior->callBehavior('coreAfterDropStatement', $this, $query);
         }
 
         return $query;

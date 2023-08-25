@@ -36,7 +36,7 @@ class FilterComments extends Filters
         ]);
 
         # --BEHAVIOR-- adminCommentFilter -- ArrayObject
-        dcCore::app()->callBehavior('adminCommentFilterV2', $filters);
+        dcCore::app()->behavior->callBehavior('adminCommentFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

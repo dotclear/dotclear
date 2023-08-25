@@ -241,7 +241,7 @@ class Manage extends Process
         }
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            $head .= dcCore::app()->callBehavior(
+            $head .= dcCore::app()->behavior->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],
                 'widget',

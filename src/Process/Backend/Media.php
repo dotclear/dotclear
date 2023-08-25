@@ -307,7 +307,7 @@ class Media extends Process
         $starting_scripts = '';
         if (dcCore::app()->admin->page->popup && (dcCore::app()->admin->page->plugin_id !== '')) {
             # --BEHAVIOR-- adminPopupMediaManager -- string
-            $starting_scripts .= dcCore::app()->callBehavior('adminPopupMediaManager', dcCore::app()->admin->page->plugin_id);
+            $starting_scripts .= dcCore::app()->behavior->callBehavior('adminPopupMediaManager', dcCore::app()->admin->page->plugin_id);
         }
 
         dcCore::app()->admin->page->openPage(

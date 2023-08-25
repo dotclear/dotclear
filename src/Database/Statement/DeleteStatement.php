@@ -26,7 +26,7 @@ class DeleteStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeDeleteStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreBeforeDeleteStatement', $this);
+            dcCore::app()->behavior->callBehavior('coreBeforeDeleteStatement', $this);
         }
 
         // Check if source given
@@ -65,7 +65,7 @@ class DeleteStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertDeleteStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreAfterDeleteStatement', $this, $query);
+            dcCore::app()->behavior->callBehavior('coreAfterDeleteStatement', $this, $query);
         }
 
         return $query;
