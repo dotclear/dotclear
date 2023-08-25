@@ -57,14 +57,14 @@ final class dcCore
      *
      * @var dcCore|null
      */
-    private static $instance = null;
+    private static dcCore $instance;
 
     /**
      * Database connection
      *
      * @var AbstractHandler
      */
-    public $con;
+    public readonly AbstractHandler $con;
 
     /**
      * Database tables prefix
@@ -73,7 +73,7 @@ final class dcCore
      *
      * @var string
      */
-    public $prefix;
+    public readonly string $prefix;
 
     /**
      * dcBlog instance
@@ -87,28 +87,28 @@ final class dcCore
      *
      * @var dcAuth
      */
-    public dcAuth $auth;
+    public readonly dcAuth $auth;
 
     /**
      * Session in database instance
      *
      * @var Session
      */
-    public $session;
+    public readonly Session $session;
 
     /**
      * dcUrlHandlers instance
      *
      * @var dcUrlHandlers
      */
-    public $url;
+    public readonly dcUrlHandlers $url;
 
     /**
      * dcRestServer instance
      *
      * @var dcRestServer
      */
-    public $rest;
+    public readonly dcRestServer $rest;
 
     /**
      * WikiToHtml instance
@@ -131,7 +131,7 @@ final class dcCore
      *
      * @var dcPlugins
      */
-    public $plugins;
+    public readonly dcPlugins $plugins;
 
     /**
      * Themes
@@ -159,35 +159,35 @@ final class dcCore
      *
      * @var dcMeta
      */
-    public $meta;
+    public readonly dcMeta $meta;
 
     /**
      * dcError instance
      *
      * @var dcError
      */
-    public $error;
+    public readonly dcError $error;
 
     /**
      * dcNotices instance
      *
      * @var dcNotices
      */
-    public $notices;
+    public readonly dcNotices $notices;
 
     /**
      * dcLog instance
      *
      * @var dcLog
      */
-    public $log;
+    public readonly dcLog $log;
 
     /**
      * Starting time
      *
      * @var float
      */
-    public $stime;
+    public readonly float $stime;
 
     /**
      * Current language
@@ -341,7 +341,7 @@ final class dcCore
     public function __construct()
     {
         // Singleton mode
-        if (self::$instance) {
+        if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
         self::$instance = $this;
