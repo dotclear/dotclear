@@ -124,6 +124,19 @@ class Handler extends AbstractHandler
     }
 
     /**
+     * Parse database tables path
+     *
+     * @param   mixed   $handle     The handle
+     * @param   string  $path       The tables path
+     *
+     * @return  string
+     */
+    public function db_search_path($handle, $path): string
+    {
+        return $path;
+    }
+
+    /**
      * Get query data in a StaticRecord
      *
      * There is no other way than get all selected data in a StaticRecord with SQlite

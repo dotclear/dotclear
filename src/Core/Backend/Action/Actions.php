@@ -25,7 +25,6 @@ use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 use formSelectOption;
 
 abstract class Actions

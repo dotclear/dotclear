@@ -44,6 +44,13 @@ abstract class AbstractHandler implements InterfaceHandler
     protected $__link;
 
     /**
+     * Database tables prefix.
+     *
+     * @var string
+     */
+    protected $__prefix = '';
+
+    /**
      * Last result resource link
      *
      * @var mixed
@@ -69,10 +76,11 @@ abstract class AbstractHandler implements InterfaceHandler
      * @param string    $user           User ID
      * @param string    $password       Password
      * @param bool      $persistent     Persistent connection
+     * @param string    $prefix         Database tables prefix
      *
      * @return AbstractHandler
      */
-    public static function init(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false)
+    public static function init(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
     {
         // PHP 7.0 mysql driver is obsolete, map to mysqli
         if ($driver === 'mysql') {
@@ -92,7 +100,7 @@ abstract class AbstractHandler implements InterfaceHandler
             exit(1);
         }
 
-        return new $class($host, $database, $user, $password, $persistent);
+        return new $class($host, $database, $user, $password, $persistent, $prefix);
     }
 
     /**
@@ -102,7 +110,7 @@ abstract class AbstractHandler implements InterfaceHandler
      * @param string    $password    Password
      * @param bool      $persistent  Persistent connection
      */
-    public function __construct(string $host, string $database, string $user = '', string $password = '', bool $persistent = false)
+    public function __construct(string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
     {
         if ($persistent) {
             /* @phpstan-ignore-next-line */
@@ -115,6 +123,11 @@ abstract class AbstractHandler implements InterfaceHandler
         /* @phpstan-ignore-next-line */
         $this->__version  = $this->db_version($this->__link);
         $this->__database = $database;
+
+        /* @phpstan-ignore-next-line */
+        if ($prefix != '') {
+            $this->__prefix = $this->db_search_path($this->__link, $prefix);
+        }
     }
 
     /**
@@ -154,6 +167,16 @@ abstract class AbstractHandler implements InterfaceHandler
     public function version(): string
     {
         return $this->__version;
+    }
+
+    /**
+     * Returns database table prefix
+     *
+     * @return  string
+     */
+    public function prefix(): string
+    {
+        return $this->__prefix;
     }
 
     /**

@@ -15,6 +15,7 @@ define('DC_DBDRIVER', '');
 define('DC_DBHOST', '');
 define('DC_DBNAME', '');
 define('DC_DBPASSWORD', '');
+define('DC_DBPERSIST', false);
 define('DC_DBPREFIX', '');
 define('DC_DBUSER', '');
 define('DC_DEBUG', false);

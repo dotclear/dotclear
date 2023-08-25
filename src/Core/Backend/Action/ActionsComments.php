@@ -121,7 +121,7 @@ class ActionsComments extends Actions
     }
 
     /**
-     * Returns Tabale elments code for selected blogs as a table containing blogs checkboxes
+     * Returns Table elments code for selected comments as a table containing comments checkboxes
      *
      * @return Table The Table elements code for checkboxes
      */

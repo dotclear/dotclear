@@ -16,9 +16,6 @@ use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
-use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
-use Dotclear\Database\Driver\Mysqlimb4\Handler as Mysqlimb4Handler;
-use Dotclear\Database\Driver\Pgsql\Handler as PgsqlHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Session;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -71,6 +68,8 @@ final class dcCore
 
     /**
      * Database tables prefix
+     *
+     * May be deprecated as 2.28 con->prefix() method
      *
      * @var string
      */
@@ -337,18 +336,9 @@ final class dcCore
     private $post_types = [];
 
     /**
-     * dcCore constructor inits everything related to Dotclear. It takes arguments
-     * to init database connection.
-     *
-     * @param      string  $driver    The db driver
-     * @param      string  $host      The db host
-     * @param      string  $db        The db name
-     * @param      string  $user      The db user
-     * @param      string  $password  The db password
-     * @param      string  $prefix    The tables prefix
-     * @param      bool    $persist   Persistent database connection
+     * dcCore constructor inits everything related to Dotclear.
      */
-    public function __construct(string $driver, string $host, string $db, string $user, string $password, string $prefix, bool $persist)
+    public function __construct()
     {
         // Singleton mode
         if (self::$instance) {
@@ -356,47 +346,15 @@ final class dcCore
         }
         self::$instance = $this;
 
-        if (defined('DC_START_TIME')) {
-            $this->stime = DC_START_TIME;
-        } else {
-            $this->stime = microtime(true);
-        }
-
         // Deprecated since 2.26
         $this->autoload = Autoloader::me();
 
-        $this->con = AbstractHandler::init($driver, $host, $db, $user, $password, $persist);
-
-        // Define weak_locks for mysql
-        if ($this->con instanceof Mysqlimb4Handler) {
-            Mysqlimb4Handler::$weak_locks = true;
-        } elseif ($this->con instanceof MysqliHandler) {
-            MysqliHandler::$weak_locks = true;
-        }
-
-        # define searchpath for postgresql
-        if ($this->con instanceof PgsqlHandler) {
-            $searchpath = explode('.', $prefix, 2);
-            if (count($searchpath) > 1) {
-                $prefix = $searchpath[1];
-                $sql    = 'SET search_path TO ' . $searchpath[0] . ',public;';
-                $this->con->execute($sql);
-            }
-        }
-
-        $this->prefix = $prefix;
-
-        $ttl = DC_SESSION_TTL;
-        if (!is_null($ttl)) {
-            if (substr(trim((string) $ttl), 0, 1) != '-') {
-                // Clearbricks requires negative session TTL
-                $ttl = '-' . trim((string) $ttl);
-            }
-        }
-
+        $this->stime   = defined('DC_START_TIME') ? DC_START_TIME : microtime(true);
+        $this->con     = AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
+        $this->prefix  = $this->con->prefix();
         $this->error   = new dcError();
         $this->auth    = $this->authInstance();
-        $this->session = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, $ttl);
+        $this->session = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
         $this->url     = new dcUrlHandlers();
         $this->plugins = new dcPlugins();
         $this->rest    = new dcRestServer();

@@ -64,6 +64,18 @@ interface InterfaceHandler
     public function db_version($handle): string;
 
     /**
+     * Database tables prefix
+     *
+     * This method should return database tables parsed prefix.
+     *
+     * @param   mixed   $handle     The handle
+     * @param   string  $path       The tables path
+     *
+     * @return  string
+     */
+    public function db_search_path($handle, $path): string;
+
+    /**
      * Database query
      *
      * This method should run an SQL query and return a resource result.
