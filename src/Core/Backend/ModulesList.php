@@ -901,7 +901,7 @@ class ModulesList
                 form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id));
             }
             echo
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</td>';
 
             # Display score only for debug purpose
@@ -1618,7 +1618,7 @@ class ModulesList
             ]
         ) . '</p>' .
         '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '" />' .
-        dcCore::app()->formNonce() . '</p>' .
+        dcCore::app()->nonce->getFormNonce() . '</p>' .
             '</form>';
 
         # 'Fetch module' form
@@ -1641,7 +1641,7 @@ class ModulesList
             ]
         ) . '</p>' .
         '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '" />' .
-        dcCore::app()->formNonce() . '</p>' .
+        dcCore::app()->nonce->getFormNonce() . '</p>' .
             '</form>';
 
         return $this;
@@ -1786,7 +1786,7 @@ class ModulesList
                 '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '" />' .
                 form::hidden('module', $this->config_define->getId()) .
                 form::hidden('redir', $this->getRedir()) .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                     '</form>';
             }
         }

@@ -125,7 +125,7 @@ abstract class MyPlugin extends MyModule
             foreach ($params as $key => $value) {
                 $fields[] = new Hidden([$key], (string) $value);
             }
-            $fields[] = dcCore::app()->formNonce(false);
+            $fields[] = dcCore::app()->nonce->formNonce();
         }
 
         return $fields;

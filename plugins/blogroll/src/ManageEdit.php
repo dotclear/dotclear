@@ -156,7 +156,7 @@ class ManageEdit extends Process
 
                 form::hidden('edit', 1) .
                 form::hidden('id', dcCore::app()->admin->id) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '<input type="submit" name="edit_cat" value="' . __('Save') . '"/></p>' .
                 '</form>';
             } else {
@@ -342,7 +342,7 @@ class ManageEdit extends Process
                 '<p class="clear">' . form::hidden('p', My::id()) .
                 form::hidden('edit', 1) .
                 form::hidden('id', dcCore::app()->admin->id) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '<input type="submit" name="edit_link" value="' . __('Save') . '"/></p>' .
                 '</form>';
             }

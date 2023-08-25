@@ -236,7 +236,7 @@ class ModuleExportFlat extends Module
 
         '<p><input type="submit" value="' . __('Export') . '" />' .
         form::hidden(['do'], 'export_blog') .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '</p>' .
         '</form>';
 
@@ -257,7 +257,7 @@ class ModuleExportFlat extends Module
 
             '<p><input type="submit" value="' . __('Export') . '" />' .
             form::hidden(['do'], 'export_all') .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p>' .
             '</form>';
         }

@@ -104,7 +104,7 @@ class BackendBehaviors
             form::hidden(['media_id'], '') .
             form::hidden(['link_type'], 'attachment') .
             form::hidden(['remove'], 1) .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</div>' .
             '</form>';
         }

@@ -183,7 +183,7 @@ class Manage extends Process
 
             if ($spam_count > 0) {
                 echo
-                '<p>' . dcCore::app()->formNonce() .
+                '<p>' . dcCore::app()->nonce->getFormNonce() .
                 form::hidden('ts', time()) .
                 '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
             }
@@ -261,7 +261,7 @@ class Manage extends Process
             echo
             '</tbody></table></div>' .
             '<p>' . form::hidden('filters_order', '') .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '<input type="submit" name="filters_upd" value="' . __('Save') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .

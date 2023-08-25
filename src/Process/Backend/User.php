@@ -423,7 +423,7 @@ class User extends Process
         (dcCore::app()->admin->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
         (dcCore::app()->admin->user_id != '' ? form::hidden('id', dcCore::app()->admin->user_id) : '') .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '</p>' .
 
         '</form>';
@@ -440,7 +440,7 @@ class User extends Process
                 form::hidden(['redir'], dcCore::app()->admin->url->get('admin.user', ['id' => dcCore::app()->admin->user_id])) .
                 form::hidden(['action'], 'blogs') .
                 form::hidden(['users[]'], dcCore::app()->admin->user_id) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '</p>' .
                 '</form>';
 
@@ -474,7 +474,7 @@ class User extends Process
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], dcCore::app()->admin->user_id) .
                             form::hidden(['blogs[]'], $k) .
-                            dcCore::app()->formNonce() .
+                            dcCore::app()->nonce->getFormNonce() .
                             '</p>' .
                             '</form>';
                         }

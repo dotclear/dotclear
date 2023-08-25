@@ -116,7 +116,7 @@ class Posts extends Process
                 form::combo('action', dcCore::app()->admin->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.posts', dcCore::app()->admin->post_filter->values()) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '</div>' .
                 '</form>',
                 dcCore::app()->admin->post_filter->show()

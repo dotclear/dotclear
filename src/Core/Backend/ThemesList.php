@@ -102,7 +102,7 @@ class ThemesList extends ModulesList
                     Html::escapeHTML($define->get('name'));
                 }
 
-                $line .= dcCore::app()->formNonce() .
+                $line .= dcCore::app()->nonce->getFormNonce() .
                 '</h4>';
             }
 
@@ -354,7 +354,7 @@ class ThemesList extends ModulesList
                             $with_selection ?
                             __('Update selected themes') :
                             __('Update all themes from this list')
-                        ) . '" />' . dcCore::app()->formNonce();
+                        ) . '" />' . dcCore::app()->nonce->getFormNonce();
                     }
 
                     break;

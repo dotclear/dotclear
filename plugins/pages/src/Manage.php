@@ -145,7 +145,7 @@ class Manage extends Process
                 form::hidden(['post_type'], 'page') .
                 form::hidden(['p'], My::id()) .
                 form::hidden(['act'], 'list') .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '</p></div>' .
                 '<p class="clear form-note hidden-if-js">' .
                 __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .

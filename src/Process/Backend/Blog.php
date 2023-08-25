@@ -110,7 +110,7 @@ class Blog extends Process
                 ->method('post')
                 ->fields([
                     // Form Nonce
-                    dcCore::app()->formNonce(false),
+                    dcCore::app()->nonce->formNonce(),
                     // Blog ID
                     (new Para())
                         ->items([

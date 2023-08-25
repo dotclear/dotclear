@@ -390,7 +390,7 @@ class ActionsPostsDefault
 
             $items[] = (new Para())
                 ->items([
-                    dcCore::app()->formNonce(false),
+                    dcCore::app()->nonce->formNonce(),
                     ... $ap->hiddenFields(),
                     (new Hidden('action', 'category')),
                     (new Submit('save'))
@@ -490,7 +490,7 @@ class ActionsPostsDefault
                         ]),
                     (new Para())
                         ->items([
-                            dcCore::app()->formNonce(false),
+                            dcCore::app()->nonce->formNonce(),
                             ... $ap->hiddenFields(),
                             (new Hidden('action', 'author')),
                             (new Submit('save'))
@@ -575,7 +575,7 @@ class ActionsPostsDefault
                         ]),
                     (new Para())
                         ->items([
-                            dcCore::app()->formNonce(false),
+                            dcCore::app()->nonce->formNonce(),
                             ... $ap->hiddenFields(),
                             (new Hidden('action', 'lang')),
                             (new Submit('save'))

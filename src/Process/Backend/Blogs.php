@@ -142,7 +142,7 @@ class Blogs extends Process
                                                 ->class('classic')
                                             )
                                             ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
-                                        dcCore::app()->formNonce(false),
+                                        dcCore::app()->nonce->formNonce(),
                                         (new Submit('do-action'))
                                             ->value(__('ok')),
                                     ]),

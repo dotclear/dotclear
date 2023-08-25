@@ -241,7 +241,7 @@ class Categories extends Process
             echo
             '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '" />' .
             '<input type="hidden" name="process" value="Categories"/>' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p>' .
             '</div></form>';
         }

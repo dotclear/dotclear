@@ -321,7 +321,7 @@ class Update extends Process
                 sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)) . '</p>' .
                 '<p><input type="submit" class="delete" name="b_del" value="' . __('Delete selected file') . '" /> ' .
                 '<input type="submit" name="b_revert" value="' . __('Revert to selected file') . '" />' .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                 '</form></div>';
             }
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {

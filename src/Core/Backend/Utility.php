@@ -125,7 +125,7 @@ class Utility extends Process
             }
 
             // Check nonce from POST requests
-            if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check']))) {
+            if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->nonce->checkNonce($_POST['xd_check']))) {
                 new Fault('Precondition Failed', __('Precondition Failed'), 412);
             }
 

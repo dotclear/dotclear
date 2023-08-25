@@ -460,7 +460,7 @@ class BlogPref extends Process
             '<div id="standard-pref"><h3>' . __('Blog parameters') . '</h3>' .
             '<form action="' . $da->action . '" method="post" id="blog-form">' .
             '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '<p><label for="blog_name" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label>' .
             form::field(
                 'blog_name',
@@ -911,7 +911,7 @@ class BlogPref extends Process
                 '<form action="' . dcCore::app()->admin->url->get('admin.blog.del') . '" method="post">' .
                 '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
                 form::hidden(['blog_id'], $da->blog_id) .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                 '</form>';
             } else {
                 if ($da->blog_id == dcCore::app()->blog->id) {
@@ -1017,7 +1017,7 @@ class BlogPref extends Process
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], $k) .
                             form::hidden(['blogs[]'], $da->blog_id) .
-                            dcCore::app()->formNonce() .
+                            dcCore::app()->nonce->getFormNonce() .
                             '</p>' .
                             '</form>';
                         }

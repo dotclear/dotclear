@@ -470,7 +470,7 @@ class Config extends Process
         '</div>' .
 
         '<p class="clear"><input type="submit" value="' . __('Save') . '" />' .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '</p>' .
         '</form>';
 

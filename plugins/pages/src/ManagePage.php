@@ -697,7 +697,7 @@ class ManagePage extends Process
             echo(dcCore::app()->admin->can_delete ?
                 ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' :
                 '') .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p>';
 
             echo
@@ -737,7 +737,7 @@ class ManagePage extends Process
                 form::hidden(['post_id'], dcCore::app()->admin->post_id) .
                 form::hidden(['media_id'], '') .
                 form::hidden(['remove'], 1) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '</div>' .
                 '</form>';
             }
@@ -843,7 +843,7 @@ class ManagePage extends Process
             '</p>' .
 
             '<p>' . form::hidden('post_id', dcCore::app()->admin->post_id) .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
             '</div>' . #constrained
 

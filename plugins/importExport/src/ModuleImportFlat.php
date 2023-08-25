@@ -217,7 +217,7 @@ class ModuleImportFlat extends Module
 
         echo
         '<p>' .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         form::hidden(['do'], 1) .
         form::hidden(['MAX_FILE_SIZE'], (int) DC_MAX_UPLOAD_SIZE) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
@@ -255,7 +255,7 @@ class ModuleImportFlat extends Module
             ) . '</p>' .
 
             '<p>' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             form::hidden(['do'], 1) .
             form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
             '<input type="submit" value="' . __('Import') . '" /></p>' .
