@@ -235,53 +235,35 @@ class Manage extends Process
      */
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
     {
-        switch ($s['type']) {
-            case dcWorkspace::WS_BOOLEAN:
-            case dcWorkspace::WS_BOOL:
-                $field = form::combo(
-                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                    [__('yes') => 1, __('no') => 0],
-                    $s['value'] ? 1 : 0
-                );
+        $field = match ($s['type']) {
+            dcWorkspace::WS_BOOLEAN, dcWorkspace::WS_BOOL => form::combo(
+                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                [__('yes') => 1, __('no') => 0],
+                $s['value'] ? 1 : 0
+            ),
 
-                break;
+            dcWorkspace::WS_ARRAY => form::field(
+                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                40,
+                null,
+                Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
+            ),
 
-            case dcWorkspace::WS_ARRAY:
-                $field = form::field(
-                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                    40,
-                    null,
-                    Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
-                );
+            dcWorkspace::WS_INTEGER, dcWorkspace::WS_INT, dcWorkspace::WS_FLOAT, 'integer', 'float' => form::number(
+                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                null,
+                null,
+                Html::escapeHTML((string) $s['value'])
+            ),
 
-                break;
-
-            case dcWorkspace::WS_INTEGER:
-            case dcWorkspace::WS_INT:
-            case dcWorkspace::WS_FLOAT:
-            case 'integer':
-            case 'float':
-                $field = form::number(
-                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                    null,
-                    null,
-                    Html::escapeHTML((string) $s['value'])
-                );
-
-                break;
-
-            case dcWorkspace::WS_STRING:
-            case dcWorkspace::WS_TEXT:
-            default:
-                $field = form::field(
-                    [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                    40,
-                    null,
-                    Html::escapeHTML($s['value'])
-                );
-
-                break;
-        }
+            //dcWorkspace::WS_STRING, dcWorkspace::WS_TEXT,
+            default => form::field(
+                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+                40,
+                null,
+                Html::escapeHTML($s['value'])
+            ),
+        };
 
         $type = form::hidden(
             [$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],

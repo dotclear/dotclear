@@ -360,15 +360,11 @@ class dcTemplate extends Template
      */
     public static function getOperator(string $op): string
     {
-        switch (strtolower($op)) {
-            case 'or':
-            case '||':
-                return '||';
-            case 'and':
-            case '&&':
-            default:
-                return '&&';
-        }
+        return match (strtolower($op)) {
+            'or', '||' => '||',
+            //'and', '&&',
+            default => '&&',
+        };
     }
 
     /**

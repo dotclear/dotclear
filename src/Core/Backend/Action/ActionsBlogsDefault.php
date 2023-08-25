@@ -61,24 +61,11 @@ class ActionsBlogsDefault
             throw new Exception(__('No blog selected'));
         }
 
-        switch ($ap->getAction()) {
-            case 'online':
-                $status = 1;
-
-                break;
-            case 'offline':
-                $status = 0;
-
-                break;
-            case 'remove':
-                $status = -1;
-
-                break;
-            default:
-                $status = 1;
-
-                break;
-        }
+        $status = match ($ap->getAction()) {
+            'offline' => dcBlog::BLOG_OFFLINE,
+            'remove'  => dcBlog::BLOG_REMOVED,
+            default   => dcBlog::BLOG_ONLINE,
+        };
 
         $cur              = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
         $cur->blog_status = $status;

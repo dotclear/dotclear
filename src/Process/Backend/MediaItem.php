@@ -920,25 +920,14 @@ class MediaItem extends Process
                 '<ul>';
                 while ($rs->fetch()) {
                     $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
-                    $img_status = '';
-                    switch ($rs->post_status) {
-                        case dcBlog::POST_PUBLISHED:
-                            $img_status = sprintf($img, __('published'), 'check-on.png');
+                    $img_status = match ((int) $rs->post_status) {
+                        dcBlog::POST_PUBLISHED   => sprintf($img, __('published'), 'check-on.png'),
+                        dcBlog::POST_UNPUBLISHED => sprintf($img, __('unpublished'), 'check-off.png'),
+                        dcBlog::POST_SCHEDULED   => sprintf($img, __('scheduled'), 'scheduled.png'),
+                        dcBlog::POST_PENDING     => sprintf($img, __('pending'), 'check-wrn.png'),
+                        default                  => '',
+                    };
 
-                            break;
-                        case dcBlog::POST_UNPUBLISHED:
-                            $img_status = sprintf($img, __('unpublished'), 'check-off.png');
-
-                            break;
-                        case dcBlog::POST_SCHEDULED:
-                            $img_status = sprintf($img, __('scheduled'), 'scheduled.png');
-
-                            break;
-                        case dcBlog::POST_PENDING:
-                            $img_status = sprintf($img, __('pending'), 'check-wrn.png');
-
-                            break;
-                    }
                     echo
                     '<li>' . $img_status . ' ' . '<a href="' . dcCore::app()->getPostAdminURL($rs->post_type, $rs->post_id) . '">' .
                     $rs->post_title . '</a>' .

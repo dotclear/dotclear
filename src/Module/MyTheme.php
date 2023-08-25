@@ -44,18 +44,15 @@ abstract class MyTheme extends MyModule
     protected static function checkCustomContext(int $context): ?bool
     {
         // themes specific context permissions
-        switch ($context) {
-            case self::BACKEND: // Backend context
-            case self::CONFIG: // Config page of module
-                return defined('DC_CONTEXT_ADMIN')
+        return match ($context) {
+            self::BACKEND, self::CONFIG => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission, allowed to blog admin for themes
                     && !is_null(dcCore::app()->blog)
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,
-                    ]), dcCore::app()->blog->id);
-        }
-
-        return null;
+                    ]), dcCore::app()->blog->id),
+            default => null,
+        };
     }
 
     /**
@@ -79,7 +76,7 @@ abstract class MyTheme extends MyModule
         }
 
         $base = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
-            Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . self::id()) : 
+            Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . self::id()) :
             Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . self::id());
 
         return  $base . $resource;

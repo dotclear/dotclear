@@ -544,48 +544,28 @@ class Manage extends Process
                         '<form id="additem" action="' . dcCore::app()->admin->getPageURL() .
                         '&amp;add=' . trim((string) self::STEP_ATTRIBUTES) . '" method="post">' .
                         '<fieldset><legend>' . dcCore::app()->admin->item_type_label . '</legend>';
-                        switch (dcCore::app()->admin->item_type) {
-                            case 'lang':
-                                echo
-                                '<p class="field"><label for="item_select" class="classic">' . __('Select language:') . '</label>' .
+
+                        echo match (dcCore::app()->admin->item_type) {
+                            'lang' => '<p class="field"><label for="item_select" class="classic">' . __('Select language:') . '</label>' .
                                 form::combo('item_select', dcCore::app()->admin->langs_combo) .
-                                '</p>';
-
-                                break;
-                            case 'category':
-                                echo
-                                '<p class="field"><label for="item_select" class="classic">' . __('Select category:') . '</label>' .
+                                '</p>',
+                            'category' => '<p class="field"><label for="item_select" class="classic">' . __('Select category:') . '</label>' .
                                 form::combo('item_select', dcCore::app()->admin->categories_combo) .
-                                '</p>';
-
-                                break;
-                            case 'archive':
-                                echo
-                                '<p class="field"><label for="item_select" class="classic">' . __('Select month (if necessary):') . '</label>' .
+                                '</p>',
+                            'archive' => '<p class="field"><label for="item_select" class="classic">' . __('Select month (if necessary):') . '</label>' .
                                 form::combo('item_select', dcCore::app()->admin->months_combo) .
-                                '</p>';
-
-                                break;
-                            case 'pages':
-                                echo
-                                '<p class="field"><label for="item_select" class="classic">' . __('Select page:') . '</label>' .
+                                '</p>',
+                            'pages' => '<p class="field"><label for="item_select" class="classic">' . __('Select page:') . '</label>' .
                                 form::combo('item_select', dcCore::app()->admin->pages_combo) .
-                                '</p>';
-
-                                break;
-                            case 'tags':
-                                echo
-                                '<p class="field"><label for="item_select" class="classic">' . __('Select tag (if necessary):') . '</label>' .
+                                '</p>',
+                            'tags' => '<p class="field"><label for="item_select" class="classic">' . __('Select tag (if necessary):') . '</label>' .
                                 form::combo('item_select', dcCore::app()->admin->tags_combo) .
-                                '</p>';
-
-                                break;
-                            default:
-                                echo
-                                # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
+                                '</p>',
+                            default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
                                 # Optional step once dcCore::app()->admin->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
-                                dcCore::app()->callBehavior('adminSimpleMenuSelect', dcCore::app()->admin->item_type, 'item_select');
-                        }
+                                dcCore::app()->callBehavior('adminSimpleMenuSelect', dcCore::app()->admin->item_type, 'item_select'),
+                        };
+
                         echo
                         form::hidden('item_type', dcCore::app()->admin->item_type) .
                         '<p>' . dcCore::app()->formNonce() .

@@ -226,20 +226,11 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
 ?>
     ],
 <?php // footnotes related
-switch (dcCore::app()->blog->settings->system->note_title_tag) {
-    case 1:
-        $tag = 'h3';
-
-        break;
-    case 2:
-        $tag = 'p';
-
-        break;
-    default:
-        $tag = 'h4';
-
-        break;
-}
+$tag = match (dcCore::app()->blog->settings->system->note_title_tag) {
+    1       => 'h3',
+    2       => 'p',
+    default => 'h4',
+};
 $notes_tag   = sprintf("['<%s>', '</%s>']", $tag, $tag);
 $notes_title = sprintf('"%s"', __('Note(s)'));
 ?>

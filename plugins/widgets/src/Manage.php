@@ -90,20 +90,11 @@ class Manage extends Process
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
-                        switch ($v) {
-                            case Widgets::WIDGETS_NAV:
-                                dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k});
-
-                                break;
-                            case Widgets::WIDGETS_EXTRA:
-                                dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k});
-
-                                break;
-                            case Widgets::WIDGETS_CUSTOM:
-                                dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k});
-
-                                break;
-                        }
+                        match ($v) {
+                            Widgets::WIDGETS_NAV    => dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k}),
+                            Widgets::WIDGETS_EXTRA  => dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k}),
+                            Widgets::WIDGETS_CUSTOM => dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k}),
+                        };
                     }
                 }
 

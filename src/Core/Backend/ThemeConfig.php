@@ -75,34 +75,15 @@ class ThemeConfig
                 if (empty($matches[2])) {
                     $matches[2] = 'em';
                 }
-                switch ($matches[2]) {
-                    case '%':
-                        $absolute_size = (float) $matches[1] / 100;
+                $absolute_size = match ($matches[2]) {
+                    '%'  => (float) $matches[1] / 100,
+                    'pt' => (float) $matches[1] / 12,
+                    'px' => (float) $matches[1] / 16,
+                    'rem', 'em' => (float) $matches[1],
+                    'ex', 'ch' => (float) $matches[1] / 2,
+                    default => 0,
+                };
 
-                        break;
-                    case 'pt':
-                        $absolute_size = (float) $matches[1] / 12;
-
-                        break;
-                    case 'px':
-                        $absolute_size = (float) $matches[1] / 16;
-
-                        break;
-                    case 'rem':
-                    case 'em':
-                        $absolute_size = (float) $matches[1];
-
-                        break;
-                    case 'ex':
-                    case 'ch':
-                        $absolute_size = (float) $matches[1] / 2;
-
-                        break;
-                    default:
-                        $absolute_size = 0;
-
-                        break;
-                }
                 if ($absolute_size) {
                     $large = ((($absolute_size > 1.5) && (!$bold)) || (($absolute_size > 1.2) && ($bold)));
 

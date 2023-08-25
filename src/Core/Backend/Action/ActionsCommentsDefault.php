@@ -88,24 +88,12 @@ class ActionsCommentsDefault
             throw new Exception(__('No comment selected'));
         }
 
-        switch ($ap->getAction()) {
-            case 'unpublish':
-                $status = dcBlog::COMMENT_UNPUBLISHED;
-
-                break;
-            case 'pending':
-                $status = dcBlog::COMMENT_PENDING;
-
-                break;
-            case 'junk':
-                $status = dcBlog::COMMENT_JUNK;
-
-                break;
-            default:
-                $status = dcBlog::COMMENT_PUBLISHED;
-
-                break;
-        }
+        $status = match ($ap->getAction()) {
+            'unpublish' => dcBlog::COMMENT_UNPUBLISHED,
+            'pending'   => dcBlog::COMMENT_PENDING,
+            'junk'      => dcBlog::COMMENT_JUNK,
+            default     => dcBlog::COMMENT_PUBLISHED,
+        };
 
         dcCore::app()->blog->updCommentsStatus($ids, $status);
 

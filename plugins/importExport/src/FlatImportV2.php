@@ -219,40 +219,16 @@ class FlatImportV2 extends FlatBackup
                     $last_line_name = $line->__name;
                 }
 
-                switch ($line->__name) {
-                    case 'category':
-                        $this->insertCategorySingle($line);
-
-                        break;
-                    case 'link':
-                        $this->insertLinkSingle($line);
-
-                        break;
-                    case 'post':
-                        $this->insertPostSingle($line);
-
-                        break;
-                    case 'meta':
-                        $this->insertMetaSingle($line);
-
-                        break;
-                    case 'media':
-                        $this->insertMediaSingle($line);
-
-                        break;
-                    case 'post_media':
-                        $this->insertPostMediaSingle($line);
-
-                        break;
-                    case 'ping':
-                        $this->insertPingSingle($line);
-
-                        break;
-                    case 'comment':
-                        $this->insertCommentSingle($line);
-
-                        break;
-                }
+                match ($line->__name) {
+                    'category'   => $this->insertCategorySingle($line),
+                    'link'       => $this->insertLinkSingle($line),
+                    'post'       => $this->insertPostSingle($line),
+                    'meta'       => $this->insertMetaSingle($line),
+                    'media'      => $this->insertMediaSingle($line),
+                    'post_media' => $this->insertPostMediaSingle($line),
+                    'ping'       => $this->insertPingSingle($line),
+                    'comment'    => $this->insertCommentSingle($line),
+                };
 
                 # --BEHAVIOR-- importSingle -- string, FlatBackup
                 dcCore::app()->callBehavior('importSingleV2', $line, $this);
@@ -296,68 +272,23 @@ class FlatImportV2 extends FlatBackup
 
         try {
             while (($line = $this->getLine()) !== false) {
-                switch ($line->__name) {
-                    case 'blog':
-                        $this->insertBlog($line);
-
-                        break;
-                    case 'category':
-                        $this->insertCategory($line);
-
-                        break;
-                    case 'link':
-                        $this->insertLink($line);
-
-                        break;
-                    case 'setting':
-                        $this->insertSetting($line);
-
-                        break;
-                    case 'user':
-                        $this->insertUser($line);
-
-                        break;
-                    case 'pref':
-                        $this->insertPref($line);
-
-                        break;
-                    case 'permissions':
-                        $this->insertPermissions($line);
-
-                        break;
-                    case 'post':
-                        $this->insertPost($line);
-
-                        break;
-                    case 'meta':
-                        $this->insertMeta($line);
-
-                        break;
-                    case 'media':
-                        $this->insertMedia($line);
-
-                        break;
-                    case 'post_media':
-                        $this->insertPostMedia($line);
-
-                        break;
-                    case 'log':
-                        $this->insertLog($line);
-
-                        break;
-                    case 'ping':
-                        $this->insertPing($line);
-
-                        break;
-                    case 'comment':
-                        $this->insertComment($line);
-
-                        break;
-                    case 'spamrule':
-                        $this->insertSpamRule($line);
-
-                        break;
-                }
+                match ($line->__name) {
+                    'blog'        => $this->insertBlog($line),
+                    'category'    => $this->insertCategory($line),
+                    'link'        => $this->insertLink($line),
+                    'setting'     => $this->insertSetting($line),
+                    'user'        => $this->insertUser($line),
+                    'pref'        => $this->insertPref($line),
+                    'permissions' => $this->insertPermissions($line),
+                    'post'        => $this->insertPost($line),
+                    'meta'        => $this->insertMeta($line),
+                    'media'       => $this->insertMedia($line),
+                    'post_media'  => $this->insertPostMedia($line),
+                    'log'         => $this->insertLog($line),
+                    'ping'        => $this->insertPing($line),
+                    'comment'     => $this->insertComment($line),
+                    'spamrule'    => $this->insertSpamRule($line),
+                };
                 # --BEHAVIOR-- importFull -- line, FlatBackup
                 dcCore::app()->callBehavior('importFullV2', $line, $this);
             }

@@ -397,20 +397,14 @@ class ThemeEditor
      */
     protected function getFilesFromType(string $type): array
     {
-        switch ($type) {
-            case 'tpl':
-                return $this->tpl;
-            case 'css':
-                return $this->css;
-            case 'js':
-                return $this->js;
-            case 'po':
-                return $this->po;
-            case 'php':
-                return $this->php;
-            default:
-                return [];
-        }
+        return match ($type) {
+            'tpl'   => $this->tpl,
+            'css'   => $this->css,
+            'js'    => $this->js,
+            'po'    => $this->po,
+            'php'   => $this->php,
+            default => [],
+        };
     }
 
     /**

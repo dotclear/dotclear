@@ -2303,20 +2303,11 @@ class dcBlog
         if ($format == 'wiki') {
             dcCore::app()->initWikiPost();
             dcCore::app()->wiki->setOpt('note_prefix', 'pnote-' . $post_id);
-            switch ($this->settings->system->note_title_tag) {
-                case 1:
-                    $tag = 'h3';
-
-                    break;
-                case 2:
-                    $tag = 'p';
-
-                    break;
-                default:
-                    $tag = 'h4';
-
-                    break;
-            }
+            $tag = match ($this->settings->system->note_title_tag) {
+                1       => 'h3',
+                2       => 'p',
+                default => 'h4',
+            };
             dcCore::app()->wiki->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Notes') . '</' . $tag . '>%s</div>');
             dcCore::app()->wiki->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
