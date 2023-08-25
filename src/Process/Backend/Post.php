@@ -105,11 +105,11 @@ class Post extends Process
         dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formats combo
-        $core_formaters    = dcCore::app()->getFormaters();
+        $core_formaters    = dcCore::app()->formater->getFormaters();
         $available_formats = ['' => ''];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[dcCore::app()->getFormaterName($format)] = $format;
+                $available_formats[dcCore::app()->formater->getFormaterName($format)] = $format;
             }
         }
         dcCore::app()->admin->available_formats = $available_formats;
@@ -770,7 +770,7 @@ class Post extends Process
 
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit post') : __('New post')) .
-            sprintf(' &rsaquo; %s', dcCore::app()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
+            sprintf(' &rsaquo; %s', dcCore::app()->formater->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
             '<form action="' . dcCore::app()->admin->url->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .

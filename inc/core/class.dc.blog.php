@@ -2318,14 +2318,14 @@ class dcBlog
         }
 
         if ($excerpt) {
-            $excerpt_xhtml = dcCore::app()->callFormater($format, $excerpt);
+            $excerpt_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $format, $excerpt);
             $excerpt_xhtml = dcCore::app()->HTMLfilter($excerpt_xhtml);
         } else {
             $excerpt_xhtml = '';
         }
 
         if ($content) {
-            $content_xhtml = dcCore::app()->callFormater($format, $content);
+            $content_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $format, $content);
             $content_xhtml = dcCore::app()->HTMLfilter($content_xhtml);
         } else {
             $content_xhtml = '';

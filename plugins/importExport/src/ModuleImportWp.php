@@ -722,8 +722,8 @@ class ModuleImportWp extends Module
             $cur->post_content = Text::cleanStr(array_shift($_post_content));
         }
 
-        $cur->post_content_xhtml = dcCore::app()->callFormater($this->vars['post_formater'], $cur->post_content);
-        $cur->post_excerpt_xhtml = dcCore::app()->callFormater($this->vars['post_formater'], $cur->post_excerpt);
+        $cur->post_content_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
+        $cur->post_excerpt_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
 
         switch ($rs->post_status) {
             case 'publish':
@@ -796,7 +796,7 @@ class ModuleImportWp extends Module
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
             $cur->comment_email     = Text::cleanStr($rs->comment_author_email);
-            $cur->comment_content   = dcCore::app()->callFormater($this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
+            $cur->comment_content   = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
             $cur->comment_site      = substr(Text::cleanStr($rs->comment_author_url), 0, 255);
