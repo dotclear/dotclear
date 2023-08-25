@@ -17,10 +17,18 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Exception;
-use form;
 
 class ActionsPostsDefault
 {
@@ -356,32 +364,61 @@ class ActionsPostsDefault
             $categories_combo = Combos::getCategoriesCombo(
                 dcCore::app()->blog->getCategories()
             );
-            echo
-            '<form action="' . $ap->getURI() . '" method="post">' .
-            $ap->getCheckboxes() .
-            '<p><label for="new_cat_id" class="classic">' . __('Category:') . '</label> ' .
-            form::combo(['new_cat_id'], $categories_combo);
+
+            $items = [
+                $ap->checkboxes(),
+                (new Para())
+                    ->items([
+                        (new Label(__('Category:'), Label::OUTSIDE_LABEL_BEFORE))
+                            ->for('new_cat_id'),
+                        (new Select('new_cat_id'))
+                            ->items($categories_combo)
+                            ->default(''),
+                    ]),
+            ];
 
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CATEGORIES,
             ]), dcCore::app()->blog->id)) {
-                echo
-                '<div>' .
-                '<p id="new_cat">' . __('Create a new category for the post(s)') . '</p>' .
-                '<p><label for="new_cat_title">' . __('Title:') . '</label> ' .
-                form::field('new_cat_title', 30, 255) . '</p>' .
-                '<p><label for="new_cat_parent">' . __('Parent:') . '</label> ' .
-                form::combo('new_cat_parent', $categories_combo) .
-                    '</p>' .
-                    '</div>';
+                $items[] = (new Div())
+                    ->items([
+                        (new Text('p', __('Create a new category for the post(s)')))
+                            ->id('new_cat'),
+                        (new Para())
+                            ->items([
+                                (new Label(__('Title:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->for('new_cat_title'),
+                                (new Input('new_cat_title'))
+                                    ->size(30)
+                                    ->maxlenght(255)
+                                    ->value(''),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Label(__('Parent:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->for('new_cat_parent'),
+                                (new Select('new_cat_parent'))
+                                    ->items($categories_combo)
+                                    ->default(''),
+                            ]),
+                    ]);
             }
 
-            echo
-            dcCore::app()->formNonce() .
-            $ap->getHiddenFields() .
-            form::hidden(['action'], 'category') .
-            '<input type="submit" value="' . __('Save') . '" /></p>' .
-                '</form>';
+            $items[] = (new Para())
+                ->items([
+                    dcCore::app()->formNonce(false),
+                    ... $ap->hiddenFields(),
+                    (new Hidden('action', 'category')),
+                    (new Submit('save'))
+                        ->value(__('Save')),
+                ]);
+
+            echo (new Form('dochangepostcategory'))
+                ->method('post')
+                ->action($ap->getURI())
+                ->fields($items)
+                ->render();
+
             $ap->endPage();
         }
     }
@@ -453,17 +490,32 @@ class ActionsPostsDefault
                 Page::jsJson('users_list', $usersList)
             );
 
-            echo
-            '<form action="' . $ap->getURI() . '" method="post">' .
-            $ap->getCheckboxes() .
-            '<p><label for="new_auth_id" class="classic">' . __('New author (author ID):') . '</label> ' .
-            form::field('new_auth_id', 20, 255);
+            echo (new Form('dochangepostauthor'))
+                ->method('post')
+                ->action($ap->getURI())
+                ->fields([
+                    $ap->checkboxes(),
+                    (new Para())
+                        ->items([
+                            (new Label(__('New author (author ID):'), Label::OUTSIDE_LABEL_BEFORE))
+                                ->for('new_auth_id'),
+                            (new Input('new_auth_id'))
+                                ->size(20)
+                                ->maxlenght(255)
+                                ->value(''),
+                        ]),
+                    (new Para())
+                        ->items([
+                            dcCore::app()->formNonce(false),
+                            ... $ap->hiddenFields(),
+                            (new Hidden('action', 'author')),
+                            (new Submit('save'))
+                                ->value(__('Save')),
 
-            echo
-            dcCore::app()->formNonce() . $ap->getHiddenFields() .
-            form::hidden(['action'], 'author') .
-            '<input type="submit" value="' . __('Save') . '" /></p>' .
-                '</form>';
+                        ]),
+                ])
+                ->render();
+
             $ap->endPage();
         }
     }
@@ -524,18 +576,31 @@ class ActionsPostsDefault
             }
             unset($all_langs, $rs);
 
-            echo
-            '<form action="' . $ap->getURI() . '" method="post">' .
-            $ap->getCheckboxes() .
+            echo (new Form('dochangepostlang'))
+                ->method('post')
+                ->action($ap->getURI())
+                ->fields([
+                    $ap->checkboxes(),
+                    (new Para())
+                        ->items([
+                            (new Label(__('Entry language:'), Label::OUTSIDE_LABEL_BEFORE))
+                                ->for('new_lang'),
+                            (new Select('new_lang'))
+                                ->items($lang_combo)
+                                ->default(''),
+                        ]),
+                    (new Para())
+                        ->items([
+                            dcCore::app()->formNonce(false),
+                            ... $ap->hiddenFields(),
+                            (new Hidden('action', 'lang')),
+                            (new Submit('save'))
+                                ->value(__('Save')),
 
-            '<p><label for="new_lang" class="classic">' . __('Entry language:') . '</label> ' .
-            form::combo('new_lang', $lang_combo);
+                        ]),
+                ])
+                ->render();
 
-            echo
-            dcCore::app()->formNonce() . $ap->getHiddenFields() .
-            form::hidden(['action'], 'lang') .
-            '<input type="submit" value="' . __('Save') . '" /></p>' .
-                '</form>';
             $ap->endPage();
         }
     }
