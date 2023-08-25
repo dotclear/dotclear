@@ -32,7 +32,7 @@ class Prepend extends Process
         dcCore::app()->url->register('tags', 'tags', '^tags$', [FrontendUrl::class, 'tags']);
         dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', [FrontendUrl::class, 'tagFeed']);
 
-        dcCore::app()->addBehavior('coreInitWikiPost', [BackendBehaviors::class, 'coreInitWikiPost']);
+        dcCore::app()->behavior->addBehavior('coreInitWikiPost', [BackendBehaviors::class, 'coreInitWikiPost']);
 
         return true;
     }

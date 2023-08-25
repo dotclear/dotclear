@@ -121,7 +121,7 @@ class ListingComments extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
+            dcCore::app()->behavior->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('comments', $cols);
@@ -255,7 +255,7 @@ class ListingComments extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
+        dcCore::app()->behavior->callBehavior('adminCommentListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('comments', $cols);

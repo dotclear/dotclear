@@ -29,7 +29,7 @@ class Prepend extends Process
         }
 
         // Add default cleaners to Uninstaller
-        dcCore::app()->addBehavior('UninstallerCleanersConstruct', function (CleanersStack $cleaners): void {
+        dcCore::app()->behavior->addBehavior('UninstallerCleanersConstruct', function (CleanersStack $cleaners): void {
             $cleaners
                 ->set(new Cleaner\Settings())
                 ->set(new Cleaner\Preferences())

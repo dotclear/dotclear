@@ -80,12 +80,12 @@ class Comment extends Process
                 $cur->post_id         = (int) $_POST['post_id'];
 
                 # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
-                dcCore::app()->callBehavior('adminBeforeCommentCreate', $cur);
+                dcCore::app()->behavior->callBehavior('adminBeforeCommentCreate', $cur);
 
                 dcCore::app()->admin->comment_id = dcCore::app()->blog->addComment($cur);
 
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
-                dcCore::app()->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
+                dcCore::app()->behavior->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
 
                 Notices::addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
@@ -169,12 +169,12 @@ class Comment extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentUpdate -- Cursor
-                    dcCore::app()->callBehavior('adminBeforeCommentUpdate', $cur, dcCore::app()->admin->comment_id);
+                    dcCore::app()->behavior->callBehavior('adminBeforeCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->updComment(dcCore::app()->admin->comment_id, $cur);
 
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
-                    dcCore::app()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
+                    dcCore::app()->behavior->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully updated.'));
                     dcCore::app()->admin->url->redirect('admin.comment', ['id' => dcCore::app()->admin->comment_id]);
@@ -188,7 +188,7 @@ class Comment extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentDelete -- string|int
-                    dcCore::app()->callBehavior('adminBeforeCommentDelete', dcCore::app()->admin->comment_id);
+                    dcCore::app()->behavior->callBehavior('adminBeforeCommentDelete', dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
@@ -228,9 +228,9 @@ class Comment extends Process
             Page::jsConfirmClose('comment-form') .
             Page::jsLoad('js/_comment.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-            dcCore::app()->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
+            dcCore::app()->behavior->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders --
-            dcCore::app()->callBehavior('adminCommentHeaders'),
+            dcCore::app()->behavior->callBehavior('adminCommentHeaders'),
             Page::breadcrumb($breadcrumb)
         );
 
@@ -288,7 +288,7 @@ class Comment extends Process
             '</p>' .
 
             # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
-            dcCore::app()->callBehavior('adminAfterCommentDesc', dcCore::app()->admin->rs) .
+            dcCore::app()->behavior->callBehavior('adminAfterCommentDesc', dcCore::app()->admin->rs) .
 
             '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .
             form::textarea(

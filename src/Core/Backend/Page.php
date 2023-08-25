@@ -182,7 +182,7 @@ class Page
             $csp['frame-src'] = '*';
 
             # --BEHAVIOR-- adminPageHTTPHeaderCSP -- ArrayObject
-            dcCore::app()->callBehavior('adminPageHTTPHeaderCSP', $csp);
+            dcCore::app()->behavior->callBehavior('adminPageHTTPHeaderCSP', $csp);
 
             // Construct CSP header
             $directives = [];
@@ -199,7 +199,7 @@ class Page
         }
 
         # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject
-        dcCore::app()->callBehavior('adminPageHTTPHeaders', $headers);
+        dcCore::app()->behavior->callBehavior('adminPageHTTPHeaders', $headers);
         foreach ($headers as $key => $value) {
             header($value);
         }
@@ -255,7 +255,7 @@ class Page
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead
-        dcCore::app()->callBehavior('adminPageHTMLHead');
+        dcCore::app()->behavior->callBehavior('adminPageHTMLHead');
 
         echo
         "</head>\n" .
@@ -475,7 +475,7 @@ class Page
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');
 
         # --BEHAVIOR-- adminPageFooter --
-        $textAlt = dcCore::app()->callBehavior('adminPageFooterV2', $text);
+        $textAlt = dcCore::app()->behavior->callBehavior('adminPageFooterV2', $text);
         if ($textAlt != '') {
             $text = $textAlt;
         }
@@ -576,7 +576,7 @@ class Page
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead --
-        dcCore::app()->callBehavior('adminPageHTMLHead');
+        dcCore::app()->behavior->callBehavior('adminPageHTMLHead');
 
         echo
             "</head>\n" .
@@ -770,7 +770,7 @@ class Page
         $args = new ArrayObject($params);
 
         # --BEHAVIOR-- adminPageHelpBlock -- ArrayObject
-        dcCore::app()->callBehavior('adminPageHelpBlock', $args);
+        dcCore::app()->behavior->callBehavior('adminPageHelpBlock', $args);
 
         if (!count($args)) {
             return;
@@ -1231,7 +1231,7 @@ class Page
          */
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminLoadCodeMirror -- array
-        dcCore::app()->callBehavior('adminLoadCodeMirror', $alt);
+        dcCore::app()->behavior->callBehavior('adminLoadCodeMirror', $alt);
         foreach ($alt as $item) {
             if (!in_array($item, $modes)) {
                 $modes[] = $item;
@@ -1294,7 +1294,7 @@ class Page
          */
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminRunCodeMirror -- array
-        dcCore::app()->callBehavior('adminRunCodeMirror', $alt);
+        dcCore::app()->behavior->callBehavior('adminRunCodeMirror', $alt);
         foreach ($alt as $item) {
             $js[] = [
                 'name'  => $item['name'],

@@ -29,7 +29,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->addBehavior('publicHeadContent', function () {
+        dcCore::app()->behavior->addBehavior('publicHeadContent', function () {
             echo
             dcUtils::jsJson('dotclear_berlin', [
                 'show_menu'  => __('Show menu'),

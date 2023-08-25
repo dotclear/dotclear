@@ -90,7 +90,7 @@ class UserPref
         $cols = new ArrayObject($cols);
 
         # --BEHAVIOR-- adminColumnsLists -- ArrayObject
-        dcCore::app()->callBehavior('adminColumnsListsDefault', $cols);
+        dcCore::app()->behavior->callBehavior('adminColumnsListsDefault', $cols);
 
         return $cols;
     }
@@ -109,7 +109,7 @@ class UserPref
         $cols = self::getDefaultColumns();
 
         # --BEHAVIOR-- adminColumnsLists -- ArrayObject
-        dcCore::app()->callBehavior('adminColumnsListsV2', $cols);
+        dcCore::app()->behavior->callBehavior('adminColumnsListsV2', $cols);
 
         // Load user settings
         $cols_user = @dcCore::app()->auth->user_prefs->interface->cols;
@@ -234,7 +234,7 @@ class UserPref
             $sorts = new ArrayObject($sorts);
 
             # --BEHAVIOR-- adminFiltersLists -- ArrayObject
-            dcCore::app()->callBehavior('adminFiltersListsV2', $sorts);
+            dcCore::app()->behavior->callBehavior('adminFiltersListsV2', $sorts);
 
             $sorts_user = dcCore::app()->auth->user_prefs->interface->sorts;
             if (is_array($sorts_user)) {

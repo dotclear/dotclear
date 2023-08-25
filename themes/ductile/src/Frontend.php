@@ -30,7 +30,7 @@ class Frontend extends Process
         }
 
         # Behaviors
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'publicHeadContent'  => [self::class, 'publicHeadContent'],
             'publicInsideFooter' => [self::class, 'publicInsideFooter'],
         ]);

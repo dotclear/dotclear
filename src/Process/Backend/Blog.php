@@ -58,7 +58,7 @@ class Blog extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string
-                dcCore::app()->callBehavior('adminBeforeBlogCreate', $cur, dcCore::app()->admin->blog_id);
+                dcCore::app()->behavior->callBehavior('adminBeforeBlogCreate', $cur, dcCore::app()->admin->blog_id);
 
                 dcCore::app()->addBlog($cur);
 
@@ -74,7 +74,7 @@ class Blog extends Process
                 }
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
-                dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
+                dcCore::app()->behavior->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
                 Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 dcCore::app()->admin->url->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {

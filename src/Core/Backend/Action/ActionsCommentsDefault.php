@@ -117,11 +117,11 @@ class ActionsCommentsDefault
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforeCommentDelete -- string
-            dcCore::app()->callBehavior('adminBeforeCommentDelete', $id);
+            dcCore::app()->behavior->callBehavior('adminBeforeCommentDelete', $id);
         }
 
         # --BEHAVIOR-- adminBeforeCommentsDelete -- array<int,string>
-        dcCore::app()->callBehavior('adminBeforeCommentsDelete', $ids);
+        dcCore::app()->behavior->callBehavior('adminBeforeCommentsDelete', $ids);
 
         dcCore::app()->blog->delComments($ids);
 

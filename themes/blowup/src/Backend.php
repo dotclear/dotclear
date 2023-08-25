@@ -28,7 +28,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->addBehavior('adminPageHTMLHead', function () {
+        dcCore::app()->behavior->addBehavior('adminPageHTMLHead', function () {
             echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" .
             Page::jsJson('blowup', [
                 'blowup_public_url' => Blowup::imagesURL(),

@@ -112,7 +112,7 @@ class ModuleExportFlat extends Module
                 );
 
                 # --BEHAVIOR-- exportSingle -- FlatExport, string
-                dcCore::app()->callBehavior('exportSingleV2', $exp, $blog_id);
+                dcCore::app()->behavior->callBehavior('exportSingleV2', $exp, $blog_id);
 
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
@@ -150,7 +150,7 @@ class ModuleExportFlat extends Module
                 $exp->exportTable('version');
 
                 # --BEHAVIOR-- exportFull -- FlatExport
-                dcCore::app()->callBehavior('exportFullV2', $exp);
+                dcCore::app()->behavior->callBehavior('exportFullV2', $exp);
 
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];

@@ -42,7 +42,7 @@ class FilterMedia extends Filters
         ]);
 
         # --BEHAVIOR-- adminMediaFilter -- ArrayObject
-        dcCore::app()->callBehavior('adminMediaFilterV2', $filters);
+        dcCore::app()->behavior->callBehavior('adminMediaFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -59,7 +59,7 @@ class FilterMedia extends Filters
         $values = new ArrayObject($this->values());
 
         # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
-        dcCore::app()->callBehavior('adminMediaURLParams', $values);
+        dcCore::app()->behavior->callBehavior('adminMediaURLParams', $values);
 
         foreach ($values->getArrayCopy() as $filter => $new_value) {
             if (isset($this->filters[$filter])) {

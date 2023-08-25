@@ -46,7 +46,7 @@ class Backend extends Process
             dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki, 'transform']);
             dcCore::app()->addFormaterName('wiki', __('Dotclear wiki'));
 
-            dcCore::app()->addBehaviors([
+            dcCore::app()->behavior->addBehaviors([
                 'adminPostEditor' => [BackendBehaviors::class, 'adminPostEditor'],
                 'adminPopupMedia' => [BackendBehaviors::class, 'adminPopupMedia'],
                 'adminPopupLink'  => [BackendBehaviors::class, 'adminPopupLink'],

@@ -18,7 +18,7 @@ $context = $_GET['context'] ?? '';
 
 $__extraPlugins = new ArrayObject();
 # --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject, string
-dcCore::app()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
+dcCore::app()->behavior->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
 $extraPlugins = $__extraPlugins->getArrayCopy();
 
 ?>

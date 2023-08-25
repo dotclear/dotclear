@@ -39,14 +39,14 @@ class Search extends Process
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'adminSearchPageComboV2' => [static::class,'typeCombo'],
             'adminSearchPageHeadV2'  => [static::class,'pageHead'],
             // posts search
             'adminSearchPageProcessV2' => [static::class,'processPosts'],
             'adminSearchPageDisplayV2' => [static::class,'displayPosts'],
         ]);
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             // comments search
             'adminSearchPageProcessV2' => [static::class,'processComments'],
             'adminSearchPageDisplayV2' => [static::class,'displayComments'],
@@ -54,7 +54,7 @@ class Search extends Process
 
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
-        dcCore::app()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
+        dcCore::app()->behavior->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
         dcCore::app()->admin->qtype_combo = $qtype_combo;
 
         return self::status(true);
@@ -83,11 +83,11 @@ class Search extends Process
         $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
 
         # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
-        $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->callBehavior('adminSearchPageHeadV2', $args) : '';
+        $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->behavior->callBehavior('adminSearchPageHeadV2', $args) : '';
 
         if (dcCore::app()->admin->q) {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
-            dcCore::app()->callBehavior('adminSearchPageProcessV2', $args);
+            dcCore::app()->behavior->callBehavior('adminSearchPageProcessV2', $args);
         }
 
         Page::open(
@@ -119,7 +119,7 @@ class Search extends Process
             ob_start();
 
             # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
-            dcCore::app()->callBehavior('adminSearchPageDisplayV2', $args);
+            dcCore::app()->behavior->callBehavior('adminSearchPageDisplayV2', $args);
 
             $res = ob_get_contents();
             ob_end_clean();

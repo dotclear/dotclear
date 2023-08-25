@@ -45,7 +45,7 @@ class ListingPostsMini extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
+            dcCore::app()->behavior->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -140,7 +140,7 @@ class ListingPostsMini extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
+        dcCore::app()->behavior->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);

@@ -121,7 +121,7 @@ class InsertStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeInsertStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreBeforeInsertStatement', $this);
+            dcCore::app()->behavior->callBehavior('coreBeforeInsertStatement', $this);
         }
 
         // Check if source given
@@ -160,7 +160,7 @@ class InsertStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertInsertStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->callBehavior('coreAfterInsertStatement', $this, $query);
+            dcCore::app()->behavior->callBehavior('coreAfterInsertStatement', $this, $query);
         }
 
         return $query;

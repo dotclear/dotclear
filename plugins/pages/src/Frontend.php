@@ -29,7 +29,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'publicPrependV2' => function (): void {
                 // Localized string we find in template
                 __('Published on');

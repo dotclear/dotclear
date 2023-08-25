@@ -51,7 +51,7 @@ class FilterPosts extends Filters
         ]);
 
         # --BEHAVIOR-- adminPostFilter -- ArrayObject
-        dcCore::app()->callBehavior('adminPostFilterV2', $filters);
+        dcCore::app()->behavior->callBehavior('adminPostFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

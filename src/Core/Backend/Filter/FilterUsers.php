@@ -29,7 +29,7 @@ class FilterUsers extends Filters
         ]);
 
         # --BEHAVIOR-- adminUserFilter -- ArrayObject
-        dcCore::app()->callBehavior('adminUserFilterV2', $filters);
+        dcCore::app()->behavior->callBehavior('adminUserFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

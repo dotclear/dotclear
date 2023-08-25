@@ -28,7 +28,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->addBehavior('adminPageHTMLHead', function () {
+        dcCore::app()->behavior->addBehavior('adminPageHTMLHead', function () {
             if (dcCore::app()->blog->settings->system->theme !== My::id()) {
                 return;
             }

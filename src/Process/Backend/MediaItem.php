@@ -420,7 +420,7 @@ class MediaItem extends Process
         $starting_scripts = Page::jsModal() . Page::jsLoad('js/_media_item.js');
         if (dcCore::app()->admin->popup && dcCore::app()->admin->plugin_id !== '') {
             # --BEHAVIOR-- adminPopupMedia -- string
-            $starting_scripts .= dcCore::app()->callBehavior('adminPopupMedia', dcCore::app()->admin->plugin_id);
+            $starting_scripts .= dcCore::app()->behavior->callBehavior('adminPopupMedia', dcCore::app()->admin->plugin_id);
         }
         $temp_params      = dcCore::app()->admin->media_page_url_params;
         $temp_params['d'] = '%s';
@@ -1067,7 +1067,7 @@ class MediaItem extends Process
             }
 
             # --BEHAVIOR-- adminMediaItemForm -- File
-            dcCore::app()->callBehavior('adminMediaItemForm', dcCore::app()->admin->file);
+            dcCore::app()->behavior->callBehavior('adminMediaItemForm', dcCore::app()->admin->file);
         }
 
         echo

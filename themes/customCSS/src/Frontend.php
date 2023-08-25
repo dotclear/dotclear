@@ -24,7 +24,7 @@ class Frontend extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            dcCore::app()->addBehavior('publicHeadContent', function () {
+            dcCore::app()->behavior->addBehavior('publicHeadContent', function () {
                 echo 
                 '<link rel="stylesheet" type="text/css" href="' . 
                 dcCore::app()->blog->settings->system->public_url . 

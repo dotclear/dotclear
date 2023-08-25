@@ -79,7 +79,7 @@ class PostsPopup extends Process
             __('Add a link to an entry'),
             Page::jsLoad('js/_posts_list.js') .
             Page::jsLoad('js/_popup_posts.js') .
-            dcCore::app()->callBehavior('adminPopupPosts', dcCore::app()->admin->plugin_id)
+            dcCore::app()->behavior->callBehavior('adminPopupPosts', dcCore::app()->admin->plugin_id)
         );
 
         echo

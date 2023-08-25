@@ -50,7 +50,7 @@ class LinkPopup extends Process
     public static function render(): void
     {
         # --BEHAVIOR-- adminPopupLink -- string
-        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . dcCore::app()->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
+        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . dcCore::app()->behavior->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
 
         echo '<h2 class="page-title">' . __('Add a link') . '</h2>';
 

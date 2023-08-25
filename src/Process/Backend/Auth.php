@@ -321,7 +321,7 @@ class Auth extends Process
         $buffer . Page::jsCommon();
 
         # --BEHAVIOR-- loginPageHTMLHead --
-        dcCore::app()->callBehavior('loginPageHTMLHead');
+        dcCore::app()->behavior->callBehavior('loginPageHTMLHead');
 
         echo
         Page::jsJson('pwstrength', [

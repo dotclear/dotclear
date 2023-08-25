@@ -17,7 +17,7 @@ class rsExtendPublic
      */
     public static function init()
     {
-        dcCore::app()->addBehaviors([
+        dcCore::app()->behavior->addBehaviors([
             'publicHeadContent'   => [self::class, 'publicHeadContent'],
             'coreBlogGetPosts'    => [self::class, 'coreBlogGetPosts'],
             'coreBlogGetComments' => [self::class, 'coreBlogGetComments'],
