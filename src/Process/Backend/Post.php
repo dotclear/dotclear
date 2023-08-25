@@ -481,26 +481,14 @@ class Post extends Process
         if (dcCore::app()->admin->post_id) {
             $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
-            switch (dcCore::app()->admin->post_status) {
-                case dcBlog::POST_PUBLISHED:
-                    $img_status = sprintf($img_status_pattern, __('Published'), 'check-on.png');
+            $img_status = match ((int) dcCore::app()->admin->post_status) {
+                dcBlog::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
+                dcBlog::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
+                dcBlog::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
+                dcBlog::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
+                default                  => '',
+            };
 
-                    break;
-                case dcBlog::POST_UNPUBLISHED:
-                    $img_status = sprintf($img_status_pattern, __('Unpublished'), 'check-off.png');
-
-                    break;
-                case dcBlog::POST_SCHEDULED:
-                    $img_status = sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png');
-
-                    break;
-                case dcBlog::POST_PENDING:
-                    $img_status = sprintf($img_status_pattern, __('Pending'), 'check-wrn.png');
-
-                    break;
-                default:
-                    $img_status = '';
-            }
             $edit_entry_str  = __('&ldquo;%s&rdquo;');
             $page_title_edit = sprintf($edit_entry_str, Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title)))) . ' ' . $img_status;
         } else {

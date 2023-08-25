@@ -242,51 +242,35 @@ class Manage extends Process
      */
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
     {
-        switch ($s['type']) {
-            case dcNamespace::NS_BOOL:
-            case dcNamespace::NS_BOOLEAN:
-                $field = form::combo(
-                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                    [__('yes') => 1, __('no') => 0],
-                    $s['value'] ? 1 : 0
-                );
+        $field = match ($s['type']) {
+            dcNamespace::NS_BOOL, dcNamespace::NS_BOOLEAN => form::combo(
+                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                [__('yes') => 1, __('no') => 0],
+                $s['value'] ? 1 : 0
+            ),
 
-                break;
+            dcNamespace::NS_ARRAY => form::field(
+                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                40,
+                null,
+                Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
+            ),
 
-            case dcNamespace::NS_ARRAY:
-                $field = form::field(
-                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                    40,
-                    null,
-                    Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
-                );
+            dcNamespace::NS_INTEGER, dcNamespace::NS_INT, dcNamespace::NS_FLOAT => form::number(
+                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                null,
+                null,
+                Html::escapeHTML((string) $s['value'])
+            ),
 
-                break;
-
-            case dcNamespace::NS_INTEGER:
-            case dcNamespace::NS_INT:
-            case dcNamespace::NS_FLOAT:
-                $field = form::number(
-                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                    null,
-                    null,
-                    Html::escapeHTML((string) $s['value'])
-                );
-
-                break;
-
-            case dcNamespace::NS_STRING:
-            case dcNamespace::NS_TEXT:
-            default:
-                $field = form::field(
-                    [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-                    40,
-                    null,
-                    Html::escapeHTML((string) $s['value'])
-                );
-
-                break;
-        }
+            //dcNamespace::NS_STRING, dcNamespace::NS_TEXT,
+            default => form::field(
+                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                40,
+                null,
+                Html::escapeHTML((string) $s['value'])
+            ),
+        };
 
         $type = form::hidden(
             [$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],

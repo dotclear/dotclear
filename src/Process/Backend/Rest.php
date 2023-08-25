@@ -536,22 +536,12 @@ class Rest extends Process
         $sort   = $sortby[0];
         $order  = $sortby[1] ?? 'asc';
 
-        switch ($sort) {
-            case 'metaId':
-                $sort = 'meta_id_lower';
-
-                break;
-            case 'count':
-                $sort = 'count';
-
-                break;
-            case 'metaType':
-                $sort = 'meta_type';
-
-                break;
-            default:
-                $sort = 'meta_type';
-        }
+        $sort = match ($sort) {
+            'metaId'   => 'meta_id_lower',
+            'count'    => 'count',
+            'metaType' => 'meta_type',
+            default    => 'meta_type',
+        };
 
         $rs->sort($sort, $order);
 
@@ -661,22 +651,12 @@ class Rest extends Process
         $sort   = $sortby[0];
         $order  = $sortby[1] ?? 'asc';
 
-        switch ($sort) {
-            case 'metaId':
-                $sort = 'meta_id_lower';
-
-                break;
-            case 'count':
-                $sort = 'count';
-
-                break;
-            case 'metaType':
-                $sort = 'meta_type';
-
-                break;
-            default:
-                $sort = 'meta_type';
-        }
+        $sort = match ($sort) {
+            'metaId'   => 'meta_id_lower',
+            'count'    => 'count',
+            'metaType' => 'meta_type',
+            default    => 'meta_type',
+        };
 
         $rs->sort($sort, $order);
 
@@ -722,22 +702,12 @@ class Rest extends Process
         $sort   = $sortby[0];
         $order  = $sortby[1] ?? 'asc';
 
-        switch ($sort) {
-            case 'metaId':
-                $sort = 'meta_id_lower';
-
-                break;
-            case 'count':
-                $sort = 'count';
-
-                break;
-            case 'metaType':
-                $sort = 'meta_type';
-
-                break;
-            default:
-                $sort = 'meta_type';
-        }
+        $sort = match ($sort) {
+            'metaId'   => 'meta_id_lower',
+            'count'    => 'count',
+            'metaType' => 'meta_type',
+            default    => 'meta_type',
+        };
 
         $rs->sort($sort, $order);
 

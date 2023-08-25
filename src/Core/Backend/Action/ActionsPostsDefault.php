@@ -114,24 +114,12 @@ class ActionsPostsDefault
      */
     public static function doChangePostStatus(ActionsPosts $ap)
     {
-        switch ($ap->getAction()) {
-            case 'unpublish':
-                $status = dcBlog::POST_UNPUBLISHED;
-
-                break;
-            case 'schedule':
-                $status = dcBlog::POST_SCHEDULED;
-
-                break;
-            case 'pending':
-                $status = dcBlog::POST_PENDING;
-
-                break;
-            default:
-                $status = dcBlog::POST_PUBLISHED;
-
-                break;
-        }
+        $status = match ($ap->getAction()) {
+            'unpublish' => dcBlog::POST_UNPUBLISHED,
+            'schedule'  => dcBlog::POST_SCHEDULED,
+            'pending'   => dcBlog::POST_PENDING,
+            default     => dcBlog::POST_PUBLISHED,
+        };
 
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -183,15 +171,11 @@ class ActionsPostsDefault
      */
     public static function doChangePostFirstPub(ActionsPosts $ap)
     {
-        $status = null;
-        switch ($ap->getAction()) {
-            case 'never':
-                $status = 0;
-
-                break;
-            case 'already':
-                $status = 1;
-        }
+        $status = match ($ap->getAction()) {
+            'never'   => 0,
+            'already' => 1,
+            default   => null,
+        };
 
         if (!is_null($status)) {
             $ids = $ap->getIDs();

@@ -177,42 +177,33 @@ class context
      */
     private static function default_filters($filter, string $str, $arg): string
     {
-        switch ($filter) {
-            case 'strip_tags':
-                // Remove HTML tags
-                return self::strip_tags($str);
+        return match ($filter) {
+            // Remove HTML tags
+            'strip_tags' => self::strip_tags($str),
 
-            case 'remove_html':
-                // Remove all HTML from string
-                return (string) preg_replace('/\s+/', ' ', self::remove_html($str));
+            // Remove all HTML from string
+            'remove_html' => (string) preg_replace('/\s+/', ' ', self::remove_html($str)),
 
-            case 'encode_xml':
-            case 'encode_html':
-                // Encode entities
-                return self::encode_xml($str);
+            // Encode entities
+            'encode_xml', 'encode_html' => self::encode_xml($str),
 
-            case 'cut_string':
-                // Cut string to specified length
-                return self::cut_string($str, (int) $arg);
+            // Cut string to specified length
+            'cut_string' => self::cut_string($str, (int) $arg),
 
-            case 'lower_case':
-                // Lowercase string
-                return self::lower_case($str);
+            // Lowercase string
+            'lower_case' => self::lower_case($str),
 
-            case 'capitalize':
-                // Capitalize string
-                return self::capitalize($str);
+            // Capitalize string
+            'capitalize' => self::capitalize($str),
 
-            case 'upper_case':
-                // Uppercase string
-                return self::upper_case($str);
+            // Uppercase string
+            'upper_case' => self::upper_case($str),
 
-            case 'encode_url':
-                // Encode URL in string
-                return self::encode_url($str);
-        }
+            // Encode URL in string
+            'encode_url' => self::encode_url($str),
 
-        return $str;
+            default => $str,
+        };
     }
 
     /**

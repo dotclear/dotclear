@@ -111,22 +111,12 @@ class FileServer
 
         $this->checkEnv();
 
-        switch ($this->type) {
-            case 'plugin':
-                $this->findPluginFile();
-
-                break;
-
-            case 'core':
-                $this->findCoreFile();
-
-                break;
-
-            case 'var':
-                $this->findVarFile();
-
-                break;
-        }
+        match ($this->type) {
+            'plugin' => $this->findPluginFile(),
+            'core'   => $this->findCoreFile(),
+            'var'    => $this->findVarFile(),
+            default  => '',
+        };
 
         $this->readFile();
     }

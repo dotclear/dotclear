@@ -213,17 +213,13 @@ class Date
                 $result = $replace($timestamp, $pattern);   // @phpstan-ignore-line
             }
 
-            switch ($prefix) {
-                case '_':
-                    // replace leading zeros with spaces but keep last char if also zero
-                    return preg_replace('/\G0(?=.)/', ' ', $result);
-                case '#':
-                case '-':
-                    // remove leading zeros but keep last char if also zero
-                    return preg_replace('/^0+(?=.)/', '', $result);
-            }
-
-            return $result;
+            return match ($prefix) {
+                // replace leading zeros with spaces but keep last char if also zero
+                '_' => preg_replace('/\G0(?=.)/', ' ', $result),
+                // remove leading zeros but keep last char if also zero
+                '#', '-' => preg_replace('/^0+(?=.)/', '', $result),
+                default => $result,
+            };
         }, $format);
 
         $out = str_replace('%%', '%', $out);

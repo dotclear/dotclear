@@ -274,16 +274,13 @@ class Handler extends AbstractHandler
     {
         if ($res instanceof PDOStatement) {
             $m = $res->getColumnMeta($position);
-            switch ($m['pdo_type']) {
-                case PDO::PARAM_BOOL:
-                    return 'boolean';
-                case PDO::PARAM_NULL:
-                    return 'null';
-                case PDO::PARAM_INT:
-                    return 'integer';
-                default:
-                    return 'varchar';
-            }
+
+            return match ($m['pdo_type']) {
+                PDO::PARAM_BOOL => 'boolean',
+                PDO::PARAM_NULL => 'null',
+                PDO::PARAM_INT  => 'integer',
+                default         => 'varchar',
+            };
         }
 
         return '';

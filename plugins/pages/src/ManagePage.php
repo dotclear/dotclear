@@ -447,24 +447,12 @@ class ManagePage extends Process
         $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
         if (dcCore::app()->admin->post_id) {
-            switch (dcCore::app()->admin->post_status) {
-                case dcBlog::POST_PUBLISHED:
-                    $img_status = sprintf($img_status_pattern, __('Published'), 'check-on.png');
-
-                    break;
-                case dcBlog::POST_UNPUBLISHED:
-                    $img_status = sprintf($img_status_pattern, __('Unpublished'), 'check-off.png');
-
-                    break;
-                case dcBlog::POST_SCHEDULED:
-                    $img_status = sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png');
-
-                    break;
-                case dcBlog::POST_PENDING:
-                    $img_status = sprintf($img_status_pattern, __('Pending'), 'check-wrn.png');
-
-                    break;
-            }
+            $img_status = match (dcCore::app()->admin->post_status) {
+                dcBlog::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
+                dcBlog::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
+                dcBlog::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
+                dcBlog::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
+            };
             $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title))) . '&rdquo;' . ' ' . $img_status;
         } else {
             $edit_entry_title = dcCore::app()->admin->page_title;
@@ -810,7 +798,7 @@ class ManagePage extends Process
                     'redir'   => My::manageUrl([
                         'act' => 'page',
                         'id'  => dcCore::app()->admin->post_id,
-                        'co'  => '1'
+                        'co'  => '1',
                     ]),
                 ]) .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
