@@ -353,7 +353,7 @@ final class dcCore
         $this->con     = AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
         $this->prefix  = $this->con->prefix();
         $this->error   = new dcError();
-        $this->auth    = $this->authInstance();
+        $this->auth    = dcAuth::init();
         $this->session = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
         $this->url     = new dcUrlHandlers();
         $this->plugins = new dcPlugins();
@@ -378,30 +378,6 @@ final class dcCore
     public static function app(): dcCore
     {
         return self::$instance;
-    }
-
-    /**
-     * Create a new instance of authentication class (user-defined or default)
-     *
-     * @throws     Exception
-     *
-     * @return     dcAuth|mixed
-     */
-    private function authInstance()
-    {
-        // You can set DC_AUTH_CLASS to whatever you want.
-        // Your new class *should* inherits dcAuth.
-        $class = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : dcAuth::class;
-
-        if (!class_exists($class)) {
-            throw new Exception('Authentication class ' . $class . ' does not exist.');
-        }
-
-        if ($class !== dcAuth::class && !is_subclass_of($class, dcAuth::class)) {
-            throw new Exception('Authentication class ' . $class . ' does not inherit dcAuth.');
-        }
-
-        return new $class($this);
     }
 
     /**
