@@ -258,7 +258,7 @@ abstract class MyModule
         $ext  = strpos($resource, '.css') === false ? '.css' : '';
 
         if (is_null($version) || $version === '') {
-            $version = dcCore::app()->getVersion(self::id());
+            $version = dcCore::app()->version->getVersion(self::id());
         }
 
         return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
@@ -285,7 +285,7 @@ abstract class MyModule
         }
 
         if (is_null($version) || $version === '') {
-            $version = dcCore::app()->getVersion(self::id());
+            $version = dcCore::app()->version->getVersion(self::id());
         }
 
         return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);

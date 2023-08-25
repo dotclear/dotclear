@@ -29,7 +29,7 @@ class Install extends Process
             return false;
         }
 
-        if (dcCore::app()->getVersion(My::id()) == null) {
+        if (dcCore::app()->version->getVersion(My::id()) === '') {
             // Create a first pending page, only on a new installation of this plugin
             $params = [
                 'post_type'  => 'page',
