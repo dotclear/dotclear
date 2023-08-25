@@ -524,7 +524,7 @@ class dcModules
 
         foreach ($this->defines as $module) {
             // Only enabled modules (in near futur module _prepend must return true too)
-            if ($module->state != dcModuleDefine::STATE_ENABLED){ //} || in_array($module->getId(), $ignored)) {
+            if ($module->state != dcModuleDefine::STATE_ENABLED) { //} || in_array($module->getId(), $ignored)) {
                 continue;
             }
             if ($ns === 'admin') {
@@ -537,8 +537,7 @@ class dcModules
                 dcCore::app()->admin->url->register(
                     'admin.plugin.' . $module->getId(),
                     $base,                                  // @phpstan-ignore-line
-                    // [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
-                    array_merge($params, ['p' => $module->getId()])   // @phpstan-ignore-line
+                    [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
                 );
             }
             // This check may be removed in near futur
