@@ -14,6 +14,12 @@ use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -72,7 +78,14 @@ class ActionsComments extends Actions
                 $breadcrumb
             );
         }
-        echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to comments list') . '</a></p>';
+        echo (new Para())
+            ->items([
+                (new Link())
+                    ->class('back')
+                    ->href($this->getRedirection(true))
+                    ->text(__('Back to comments list')),
+            ])
+            ->render();
     }
 
     /**
@@ -108,24 +121,42 @@ class ActionsComments extends Actions
     }
 
     /**
-     * Returns HTML code for selected entries as a table containing entries checkboxes
+     * Returns Table elments code for selected comments as a table containing comments checkboxes
      *
-     * @return string the HTML code for checkboxes
+     * @return Table The Table elements code for checkboxes
      */
-    public function getCheckboxes(): string
+    public function checkboxes(): Table
     {
-        $ret = '<table class="posts-list"><tr>' .
-        '<th colspan="2">' . __('Author') . '</th><th>' . __('Title') . '</th>' .
-            '</tr>';
+        $items = [];
         foreach ($this->entries as $id => $description) {
-            $ret .= '<tr><td class="minimal">' .
-            (new Checkbox([$this->field_entries . '[]'], true))->value($id)->render() .
-                '</td>' .
-                '<td>' . $description['author'] . '</td><td>' . $description['title'] . '</td></tr>';
+            $items[] = (new Tr())
+                ->items([
+                    (new Td())
+                        ->class('minimal')
+                        ->items([
+                            (new Checkbox([$this->field_entries . '[]'], true))
+                                ->value($id),
+                        ]),
+                    (new Td())
+                        ->text(Html::escapeHTML($description['author'])),
+                    (new Td())
+                        ->text(Html::escapeHTML($description['title'])),
+                ]);
         }
-        $ret .= '</table>';
 
-        return $ret;
+        return (new Table())
+            ->class('posts-list')
+            ->items([
+                (new Tr())
+                    ->items([
+                        (new Th())
+                            ->colspan(2)
+                            ->text(__('Author')),
+                        (new Th())
+                            ->text(__('Title')),
+                    ]),
+                ... $items,
+            ]);
     }
 
     /**
