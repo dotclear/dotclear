@@ -420,13 +420,13 @@ class Post extends Process
                 // Update post
 
                 try {
-                    # --BEHAVIOR-- adminBeforePostUpdate -- Cursor, string|int
-                    dcCore::app()->behavior->callBehavior('adminBeforePostUpdate', $cur, dcCore::app()->admin->post_id);
+                    # --BEHAVIOR-- adminBeforePostUpdate -- Cursor, int
+                    dcCore::app()->behavior->callBehavior('adminBeforePostUpdate', $cur, (int) dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
-                    # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, string|int
-                    dcCore::app()->behavior->callBehavior('adminAfterPostUpdate', $cur, dcCore::app()->admin->post_id);
+                    # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
+                    dcCore::app()->behavior->callBehavior('adminAfterPostUpdate', $cur, (int) dcCore::app()->admin->post_id);
                     Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     dcCore::app()->admin->url->redirect(
                         'admin.post',
