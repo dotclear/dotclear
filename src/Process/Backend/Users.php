@@ -142,7 +142,7 @@ class Users extends Process
                                              ->class('classic')
                                          )
                                          ->items(dcCore::app()->admin->combo_action),
-                                     dcCore::app()->formNonce(false),
+                                     dcCore::app()->nonce->formNonce(),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
                                      ...dcCore::app()->admin->url->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),

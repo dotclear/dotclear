@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Nonce;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
@@ -312,6 +313,13 @@ final class dcCore
     public readonly Version $version;
 
     /**
+     * Nonce instance.
+     *
+     * @var       Nonce
+     */
+    public readonly Nonce $nonce;
+
+    /**
      * Stack of registered content formaters
      *
      * @var        array
@@ -360,6 +368,7 @@ final class dcCore
         $this->error    = new dcError();
         $this->auth     = dcAuth::init();
         $this->session  = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
+        $this->nonce    = new Nonce();
         $this->version  = new Version();
         $this->url      = new dcUrlHandlers();
         $this->plugins  = new dcPlugins();
@@ -462,16 +471,20 @@ final class dcCore
     //@{
     /**
      * Gets the nonce.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->nonce->getNonce() instead
      *
-     * @return     string  The nonce.
+     * @return     string
      */
     public function getNonce(): string
     {
-        return $this->auth->cryptLegacy(session_id());
+        return $this->nonce->getNonce();
     }
 
     /**
-     * Check the nonce
+     * Check the nonce.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->nonce->checkNonce() instead
      *
      * @param      string  $secret  The nonce
      *
@@ -479,30 +492,21 @@ final class dcCore
      */
     public function checkNonce(string $secret): bool
     {
-        // 40 alphanumeric characters min
-        if (!preg_match('/^([0-9a-f]{40,})$/i', $secret)) {
-            return false;
-        }
-
-        return $secret == $this->auth->cryptLegacy(session_id());
+        return $this->nonce->checkNonce($secret);
     }
 
     /**
-     * Get the nonce HTML code
+     * Get the nonce HTML code.
+     * 
+     * @deprecated since 2.28, use dcCore::app()->nonce->formNonce() or dcCore::app()->nonce->getFormNonce()instead
      *
-     * @param bool  $render     Should render element?
+     * @param      bool     $render     Should render element?
      *
      * @return     mixed
      */
     public function formNonce(bool $render = true)
     {
-        if (!session_id()) {
-            return;
-        }
-
-        $element = new Hidden(['xd_check'], $this->getNonce());
-
-        return $render ? $element->render() : $element;
+        return $render ? $this->nonce->getFormNonce() : $this->nonce->formNonce();
     }
     //@}
 

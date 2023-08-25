@@ -302,7 +302,7 @@ class Manage extends Process
 
             form::hidden('links_order', '') .
             form::hidden(['p'], My::id()) .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
 
             '<input type="submit" name="saveorder" value="' . __('Save order') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
@@ -343,7 +343,7 @@ class Manage extends Process
         form::field('link_lang', 5, 5, dcCore::app()->admin->link_lang) .
         '</p>' .
         '<p>' . form::hidden(['p'], 'blogroll') .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '<input type="submit" name="add_link" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -360,7 +360,7 @@ class Manage extends Process
         ]) .
         '</p>' .
         '<p>' . form::hidden(['p'], My::id()) .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '<input type="submit" name="add_cat" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -376,7 +376,7 @@ class Manage extends Process
             '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
             '<input type="file" id="links_file" name="links_file" required /></p>' .
             '<p>' . form::hidden(['p'], My::id()) .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '<input type="submit" name="import_links" value="' . __('Import') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .
@@ -419,7 +419,7 @@ class Manage extends Process
 
                 '<p class="col right">' .
                 form::hidden(['p'], My::id()) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '<input type="submit" name="cancel_import" value="' . __('Cancel') . '" />&nbsp;' .
                 '<input type="submit" name="import_links_do" value="' . __('Import') . '" /></p>' .
                 '</div>';

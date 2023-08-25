@@ -111,7 +111,7 @@ class BlogDel extends Process
             ->action(dcCore::app()->admin->url->get('admin.blog.del'))
             ->method('post')
             ->fields([
-                dcCore::app()->formNonce(false),
+                dcCore::app()->nonce->formNonce(),
                 (new Para())
                     ->items([
                         (new Password('pwd'))

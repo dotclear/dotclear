@@ -226,7 +226,7 @@ class ModuleImportFeed extends Module
         form::url('feed_url', 50, 300, Html::escapeHTML($this->feed_url)) . '</p>' .
 
         '<p>' .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         form::hidden(['do'], 1) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 

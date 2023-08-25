@@ -468,7 +468,7 @@ class Config extends Process
 
         '<p><input type="hidden" name="conf_tab" value="html" /></p>' .
         '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '" />' .
-        dcCore::app()->formNonce() . '</p>' .
+        dcCore::app()->nonce->getFormNonce() . '</p>' .
 
         '</form>' .
         '</div>'; // Close tab
@@ -642,7 +642,7 @@ class Config extends Process
         '</div>' .
 
         '<p><input type="hidden" name="conf_tab" value="css" /></p>' .
-        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . dcCore::app()->formNonce() . '</p>' .
+        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . dcCore::app()->nonce->getFormNonce() . '</p>' .
         '</form>' .
 
         '</div>'; // Close tab

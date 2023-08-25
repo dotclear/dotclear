@@ -198,7 +198,7 @@ class Manage extends Process
             form::combo($nav_id, $ws_combo, ['class' => 'navigation']) .
             ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
             '<input type="hidden" name="p" value="' . My::id() . '" />' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p></form>';
         }
 
@@ -218,7 +218,7 @@ class Manage extends Process
         '<p><input type="submit" value="' . __('Save') . '" />' .
         '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '<input type="hidden" name="p" value="' . My::id() . '" />' .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '</p></form>';
     }
 

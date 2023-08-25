@@ -266,7 +266,7 @@ class Langs extends Process
                     echo
                     '<form action="' . dcCore::app()->admin->url->get('admin.langs') . '" method="post">' .
                     '<div>' .
-                    dcCore::app()->formNonce() .
+                    dcCore::app()->nonce->getFormNonce() .
                     form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
                     '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
                     '</div>' .
@@ -312,7 +312,7 @@ class Langs extends Process
                     'autocomplete' => 'current-password', ]
             ) . '</p>' .
             '<p><input type="submit" value="' . __('Install language') . '" />' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p>' .
             '</form>';
         }
@@ -335,7 +335,7 @@ class Langs extends Process
                     'autocomplete' => 'current-password', ]
             ) . '</p>' .
             '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p>' .
             '</form>';
         }

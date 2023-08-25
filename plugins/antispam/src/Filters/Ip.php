@@ -193,7 +193,7 @@ class Ip extends SpamFilter
             __('Global IP (used for all blogs)') . '</label> ';
         }
 
-        $res .= dcCore::app()->formNonce() .
+        $res .= dcCore::app()->nonce->getFormNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -249,7 +249,7 @@ class Ip extends SpamFilter
 
             $res .= '</div>' .
             '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             form::hidden(['ip_type'], $type) .
                 '</p>' .
                 '</form>';

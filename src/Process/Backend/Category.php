@@ -274,7 +274,7 @@ class Category extends Process
         '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         (dcCore::app()->admin->cat_id ? \form::hidden('id', dcCore::app()->admin->cat_id) : '') .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '</p>' .
         '</form>';
 
@@ -305,7 +305,7 @@ class Category extends Process
                                     ->accesskey('s')
                                     ->value(__('Save')),
                                 new Hidden('id', (string) dcCore::app()->admin->cat_id),
-                                dcCore::app()->formNonce(false),
+                                dcCore::app()->nonce->formNonce(),
                             ]),
                         ]),
                 ])
@@ -339,7 +339,7 @@ class Category extends Process
                                         ->accesskey('s')
                                         ->value(__('Save')),
                                     new Hidden('id', (string) dcCore::app()->admin->cat_id),
-                                    dcCore::app()->formNonce(false),
+                                    dcCore::app()->nonce->formNonce(),
                                 ]),
                             ]),
                     ])

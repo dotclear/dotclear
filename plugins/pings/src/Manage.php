@@ -124,7 +124,7 @@ class Manage extends Process
 
         '<p><input type="submit" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        dcCore::app()->formNonce() . '</p>' .
+        dcCore::app()->nonce->getFormNonce() . '</p>' .
         '</form>' .
 
         '<p><a class="button" href="' . dcCore::app()->admin->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';

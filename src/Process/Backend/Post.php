@@ -809,7 +809,7 @@ class Post extends Process
             }
 
             echo(dcCore::app()->admin->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '</p>';
 
             echo
@@ -880,7 +880,7 @@ class Post extends Process
                 form::combo('action', $combo_action) .
                 form::hidden(['section'], 'comments') .
                 form::hidden(['id'], dcCore::app()->admin->post_id) .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
@@ -921,7 +921,7 @@ class Post extends Process
 
             '<p>' .
             form::hidden('post_id', dcCore::app()->admin->post_id) .
-            dcCore::app()->formNonce() .
+            dcCore::app()->nonce->getFormNonce() .
             '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
             '</div>' . #constrained
 
@@ -972,7 +972,7 @@ class Post extends Process
                 form::combo('action', $combo_action) .
                 form::hidden('id', dcCore::app()->admin->post_id) .
                 form::hidden(['section'], 'trackbacks') .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
@@ -995,7 +995,7 @@ class Post extends Process
                 form::textarea('tb_excerpt', 60, 5, dcCore::app()->admin->tb_excerpt) . '</p>' .
 
                 '<p>' .
-                dcCore::app()->formNonce() .
+                dcCore::app()->nonce->getFormNonce() .
                 '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
                 (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . dcCore::app()->admin->url->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
                     '') .

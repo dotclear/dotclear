@@ -338,7 +338,7 @@ class ModuleImportWp extends Module
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . dcCore::app()->formNonce() .
+        '<div>' . dcCore::app()->nonce->getFormNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p><input type="submit" value="' . $submit_value . '" /></p>' .

@@ -763,7 +763,7 @@ class MediaItem extends Process
                 form::hidden(['pref_insertion'], '') .
                 form::hidden(['pref_legend'], '') .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.media.item', dcCore::app()->admin->page_url_params) .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                 '</form></div>';
             }
 
@@ -973,7 +973,7 @@ class MediaItem extends Process
                 '<p class="more-info">' . __('This will create or update thumbnails for this image.') . '</p>' .
                 '<p><input type="submit" name="thumbs" value="' . __('Update thumbnails') . '" />' .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.media.item', dcCore::app()->admin->page_url_params) .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                 '</form>';
             }
 
@@ -996,7 +996,7 @@ class MediaItem extends Process
                 form::combo('inflate_mode', $inflate_combo, 'new') .
                 '<input type="submit" name="unzip" value="' . __('Extract') . '" />' .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.media.item', dcCore::app()->admin->page_url_params) .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                 '</form>';
             }
 
@@ -1040,7 +1040,7 @@ class MediaItem extends Process
             form::combo('media_path', dcCore::app()->admin->dirs_combo, dirname(dcCore::app()->admin->file->relname)) . '</p>' .
             '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
             dcCore::app()->admin->url->getHiddenFormFields('admin.media.item', dcCore::app()->admin->page_url_params) .
-            dcCore::app()->formNonce() . '</p>' .
+            dcCore::app()->nonce->getFormNonce() . '</p>' .
             '</form>' .
 
             '<form class="clear fieldset" action="' . dcCore::app()->admin->url->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
@@ -1052,7 +1052,7 @@ class MediaItem extends Process
             '</label></p>' .
             '<p><input type="submit" value="' . __('Send') . '" />' .
             dcCore::app()->admin->url->getHiddenFormFields('admin.media.item', dcCore::app()->admin->page_url_params) .
-            dcCore::app()->formNonce() . '</p>' .
+            dcCore::app()->nonce->getFormNonce() . '</p>' .
             '</form>';
 
             if (dcCore::app()->admin->file->del) {
@@ -1062,7 +1062,7 @@ class MediaItem extends Process
                 form::hidden('remove', rawurlencode(dcCore::app()->admin->file->basename)) .
                 form::hidden('rmyes', 1) .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.media.item', dcCore::app()->admin->media_page_url_params) .
-                dcCore::app()->formNonce() . '</p>' .
+                dcCore::app()->nonce->getFormNonce() . '</p>' .
                 '</form>';
             }
 

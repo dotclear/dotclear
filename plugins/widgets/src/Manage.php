@@ -289,7 +289,7 @@ class Manage extends Process
 
         echo
         '</ul>' .
-        '<p>' . dcCore::app()->formNonce() . '</p>' .
+        '<p>' . dcCore::app()->nonce->getFormNonce() . '</p>' .
         '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
         '</form>' .
 
@@ -311,7 +311,7 @@ class Manage extends Process
         '</div>' .
 
         '<p id="sidebarsControl">' .
-        dcCore::app()->formNonce() .
+        dcCore::app()->nonce->getFormNonce() .
         '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
         '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
         '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .
