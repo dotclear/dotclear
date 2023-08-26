@@ -23,7 +23,7 @@ class PostType
      * @param   string  $type           The post type
      * @param   string  $admin_url      The backend URL representation
      * @param   string  $public_url     The frontend URL representation
-     * @param   string  $label          The type name
+     * @param   string  $label          The post type name (untranslated)
      */
     public function __construct(
         public readonly string $type,
@@ -67,5 +67,16 @@ class PostType
         $url = sprintf($this->public_url, $post_url);
 
         return $escaped ? Html::escapeURL($url) : $url;
+    }
+
+    /**
+     * Get post type properties as array.
+     *
+     * @return  array<string,string> The post type properties
+     */
+    public function dump(): array
+    {
+        /* @phpstan-ignore-next-line */
+        return get_object_vars($this);
     }
 }

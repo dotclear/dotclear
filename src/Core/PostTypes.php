@@ -19,7 +19,7 @@ class PostTypes
     /**
      * Check if post type exists.
      *
-     * @param   string  The post type
+     * @param   string  $type   The post type
      *
      * @return  bool    Ture if it exists
      */
@@ -29,25 +29,24 @@ class PostTypes
     }
 
     /**
-     * Set post type.
+     * Get a post type.
      *
-     * If post type exists, it wil be overwritten
+     * Magic alias of self::get()
      *
-     * @param   PostType    $post_type  The post type descriptor
+     * @param   string  $type   The post type
      *
-     * @return  PostTypes   This instance
+     * @return  PostType    The post type descriptor
      */
-    public function set(PostType $post_type): PostTypes
+    public function __get(string $type): PostType
     {
-        if ('' !== $post_type->type) {
-            $this->stack[$post_type->type] = $post_type;
-        }
-
-        return $this;
+        return $this->get($type);
     }
 
     /**
      * Get a post type.
+     *
+     * This always returns a PostType even if not exists,
+     * use self::exists() to check if it exists.
      *
      * @param   string  $type   The post type
      *
@@ -55,11 +54,29 @@ class PostTypes
      */
     public function get(string $type): PostType
     {
-        if (!isset($this->stack[$type])) {
+        if (!empty($type) && !isset($this->stack[$type])) {
             $type = 'post';
         }
 
-        return $this->stack[$type] ?? new PostType('', '', '', 'unknown');
+        return $this->stack[$type] ?? new PostType('', '', '', 'undefined');
+    }
+
+    /**
+     * Set a post type.
+     *
+     * If post type exists, it wil be overwritten
+     *
+     * @param   PostType    $descriptor  The post type descriptor
+     *
+     * @return  PostTypes   This instance
+     */
+    public function set(PostType $descriptor): PostTypes
+    {
+        if ('' !== $descriptor->type) {
+            $this->stack[$descriptor->type] = $descriptor;
+        }
+
+        return $this;
     }
 
     /**
@@ -76,13 +93,13 @@ class PostTypes
      * Gets the post admin URL, the old way.
      *
      * @param   string                  $type       The type
-     * @param   mixed                   $post_id    The post identifier
+     * @param   int|string              $post_id    The post identifier
      * @param   bool                    $escaped    Escape the URL
      * @param   array<string,mixed>     $params     The query string parameters (associative array)
      *
      * @return  string  The post admin URL.
      */
-    public function getPostAdminURL(string $type, $post_id, bool $escaped = true, array $params = []): string
+    public function getPostAdminURL(string $type, int|string $post_id, bool $escaped = true, array $params = []): string
     {
         return $this->get($type)->adminUrl($post_id, $escaped, $params);
     }
@@ -102,7 +119,7 @@ class PostTypes
     }
 
     /**
-     * Sets the post type, the odl way.
+     * Sets the post type, the old way.
      *
      * @param   string  $type           The type
      * @param   string  $admin_url      The admin URL
@@ -120,7 +137,7 @@ class PostTypes
     }
 
     /**
-     * Gets the post types, the old school way.
+     * Gets the post types, the old way.
      *
      * @return  array<string,array<string,string>>  The post types.
      */
@@ -129,11 +146,7 @@ class PostTypes
         $res = [];
 
         foreach ($this->stack as $desc) {
-            $res[$desc->type] = [
-                'admin_url'  => $desc->admin_url,
-                'public_url' => $desc->public_url,
-                'label'      => $desc->label,
-            ];
+            $res[$desc->type] = $desc->dump();
         }
 
         return $res;

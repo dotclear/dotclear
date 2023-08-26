@@ -219,7 +219,7 @@ class Comment extends Process
         if (dcCore::app()->admin->comment_id) {
             $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
         } else {
-            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type->adminUrl(dcCore::app()->admin->post_id);
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id);
         }
         $breadcrumb[__('Edit comment')] = '';
 
