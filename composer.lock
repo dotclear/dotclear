@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "942359df3990969c5a65b2d02c4bcfc1",
+    "content-hash": "fb8f36fb0439780aada08762365a0814",
     "packages": [],
     "packages-dev": [
         {
@@ -1188,16 +1188,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.x-dev",
+            "version": "1.11.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "869f0c71cb6f1ec6415f4fb5ce29684937bbf213"
+                "reference": "53e8e1811e964ff92e300dd4145bde7df6364e57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/869f0c71cb6f1ec6415f4fb5ce29684937bbf213",
-                "reference": "869f0c71cb6f1ec6415f4fb5ce29684937bbf213",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/53e8e1811e964ff92e300dd4145bde7df6364e57",
+                "reference": "53e8e1811e964ff92e300dd4145bde7df6364e57",
                 "shasum": ""
             },
             "require": {
@@ -1206,6 +1206,7 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
+            "default-branch": true,
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -1246,7 +1247,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-25T12:03:57+00:00"
+            "time": "2023-08-25T22:30:32+00:00"
         },
         {
             "name": "psr/container",
@@ -2372,12 +2373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "0160c469cde26bcdd7170a877536c9246c6c52a8"
+                "reference": "8bfcf473b9c9baa564f32e60d20a6bf93833e5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/0160c469cde26bcdd7170a877536c9246c6c52a8",
-                "reference": "0160c469cde26bcdd7170a877536c9246c6c52a8",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/8bfcf473b9c9baa564f32e60d20a6bf93833e5ad",
+                "reference": "8bfcf473b9c9baa564f32e60d20a6bf93833e5ad",
                 "shasum": ""
             },
             "require": {
@@ -2474,7 +2475,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm/tree/5.x"
             },
-            "time": "2023-08-24T11:25:52+00:00"
+            "time": "2023-08-25T23:44:57+00:00"
         },
         {
             "name": "webmozart/assert",
