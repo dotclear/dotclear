@@ -17,6 +17,7 @@ use Dotclear\Core\Nonce;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
+use Dotclear\Core\Install\Utils;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -1956,271 +1957,82 @@ final class dcCore
     /// @name Maintenance methods
     //@{
     /**
-     * Creates default settings for active blog. Optionnal parameter
-     * <var>defaults</var> replaces default params while needed.
+     * Creates default settings for active blog.
+     *
+     * @deprecated since 2.28, use Dotclear\Core\Install\Utils::blogDefault() instead
      *
      * @param      array  $defaults  The defaults settings
      */
     public function blogDefaults(?array $defaults = null): void
     {
-        if (!is_array($defaults)) {
-            $defaults = [
-                ['allow_comments', dcNamespace::NS_BOOL, true,
-                    'Allow comments on blog', ],
-                ['allow_trackbacks', dcNamespace::NS_BOOL, true,
-                    'Allow trackbacks on blog', ],
-                ['blog_timezone', dcNamespace::NS_STRING, 'Europe/London',
-                    'Blog timezone', ],
-                ['comments_nofollow', dcNamespace::NS_BOOL, true,
-                    'Add rel="nofollow" to comments URLs', ],
-                ['comments_pub', dcNamespace::NS_BOOL, true,
-                    'Publish comments immediately', ],
-                ['comments_ttl', dcNamespace::NS_INT, 0,
-                    'Number of days to keep comments open (0 means no ttl)', ],
-                ['copyright_notice', dcNamespace::NS_STRING, '',
-                    'Copyright notice (simple text)', ],
-                ['date_format', dcNamespace::NS_STRING, '%A, %B %e %Y',
-                    'Date format. See PHP strftime function for patterns', ],
-                ['editor', dcNamespace::NS_STRING, '',
-                    'Person responsible of the content', ],
-                ['enable_html_filter', dcNamespace::NS_BOOL, 0,
-                    'Enable HTML filter', ],
-                ['lang', dcNamespace::NS_STRING, 'en',
-                    'Default blog language', ],
-                ['media_exclusion', dcNamespace::NS_STRING, '/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i',
-                    'File name exclusion pattern in media manager. (PCRE value)', ],
-                ['media_img_m_size', dcNamespace::NS_INT, 448,
-                    'Image medium size in media manager', ],
-                ['media_img_s_size', dcNamespace::NS_INT, 240,
-                    'Image small size in media manager', ],
-                ['media_img_t_size', dcNamespace::NS_INT, 100,
-                    'Image thumbnail size in media manager', ],
-                ['media_img_title_pattern', dcNamespace::NS_STRING, 'Title ;; Date(%b %Y) ;; separator(, )',
-                    'Pattern to set image title when you insert it in a post', ],
-                ['media_video_width', dcNamespace::NS_INT, 400,
-                    'Video width in media manager', ],
-                ['media_video_height', dcNamespace::NS_INT, 300,
-                    'Video height in media manager', ],
-                ['nb_post_for_home', dcNamespace::NS_INT, 20,
-                    'Number of entries on first home page', ],
-                ['nb_post_per_page', dcNamespace::NS_INT, 20,
-                    'Number of entries on home pages and category pages', ],
-                ['nb_post_per_feed', dcNamespace::NS_INT, 20,
-                    'Number of entries on feeds', ],
-                ['nb_comment_per_feed', dcNamespace::NS_INT, 20,
-                    'Number of comments on feeds', ],
-                ['post_url_format', dcNamespace::NS_STRING, '{y}/{m}/{d}/{t}',
-                    'Post URL format. {y}: year, {m}: month, {d}: day, {id}: post id, {t}: entry title', ],
-                ['public_path', dcNamespace::NS_STRING, 'public',
-                    'Path to public directory, begins with a / for a full system path', ],
-                ['public_url', dcNamespace::NS_STRING, '/public',
-                    'URL to public directory', ],
-                ['robots_policy', dcNamespace::NS_STRING, 'INDEX,FOLLOW',
-                    'Search engines robots policy', ],
-                ['short_feed_items', dcNamespace::NS_BOOL, false,
-                    'Display short feed items', ],
-                ['theme', dcNamespace::NS_STRING, DC_DEFAULT_THEME,
-                    'Blog theme', ],
-                ['themes_path', dcNamespace::NS_STRING, 'themes',
-                    'Themes root path', ],
-                ['themes_url', dcNamespace::NS_STRING, '/themes',
-                    'Themes root URL', ],
-                ['time_format', dcNamespace::NS_STRING, '%H:%M',
-                    'Time format. See PHP strftime function for patterns', ],
-                ['tpl_allow_php', dcNamespace::NS_BOOL, false,
-                    'Allow PHP code in templates', ],
-                ['tpl_use_cache', dcNamespace::NS_BOOL, true,
-                    'Use template caching', ],
-                ['trackbacks_pub', dcNamespace::NS_BOOL, true,
-                    'Publish trackbacks immediately', ],
-                ['trackbacks_ttl', dcNamespace::NS_INT, 0,
-                    'Number of days to keep trackbacks open (0 means no ttl)', ],
-                ['url_scan', dcNamespace::NS_STRING, 'query_string',
-                    'URL handle mode (path_info or query_string)', ],
-                ['no_public_css', dcNamespace::NS_BOOL, false,
-                    'Don\'t use generic public.css stylesheet', ],
-                ['use_smilies', dcNamespace::NS_BOOL, false,
-                    'Show smilies on entries and comments', ],
-                ['no_search', dcNamespace::NS_BOOL, false,
-                    'Disable search', ],
-                ['inc_subcats', dcNamespace::NS_BOOL, false,
-                    'Include sub-categories in category page and category posts feed', ],
-                ['wiki_comments', dcNamespace::NS_BOOL, false,
-                    'Allow commenters to use a subset of wiki syntax', ],
-                ['import_feed_url_control', dcNamespace::NS_BOOL, true,
-                    'Control feed URL before import', ],
-                ['import_feed_no_private_ip', dcNamespace::NS_BOOL, true,
-                    'Prevent import feed from private IP', ],
-                ['import_feed_ip_regexp', dcNamespace::NS_STRING, '',
-                    'Authorize import feed only from this IP regexp', ],
-                ['import_feed_port_regexp', dcNamespace::NS_STRING, '/^(80|443)$/',
-                    'Authorize import feed only from this port regexp', ],
-                ['jquery_needed', dcNamespace::NS_BOOL, true,
-                    'Load jQuery library', ],
-                ['sleepmode_timeout', dcNamespace::NS_INT, 31536000,
-                    'Sleep mode timeout', ],
-                ['store_plugin_url', dcNamespace::NS_STRING, 'https://update.dotaddict.org/dc2/plugins.xml',
-                    'Plugins XML feed location', ],
-                ['store_theme_url', dcNamespace::NS_STRING, 'https://update.dotaddict.org/dc2/themes.xml',
-                    'Themes XML feed location', ],
-            ];
-        }
-
-        $settings = new dcSettings(null);
-
-        foreach ($defaults as $v) {
-            $settings->system->put($v[0], $v[2], $v[1], $v[3], false, true);
-        }
+        Utils::blogDefault($defaults);
     }
 
     /**
      * Recreates entries search engine index.
      *
+     * @deprecated since 2.28, permanently moved to plugin maintenance
+     *
      * @param      mixed   $start  The start entry index
      * @param      mixed   $limit  The limit of entry to index
-     *
-     * @return     mixed   sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllPosts($start = null, $limit = null)
     {
-        $strReq = 'SELECT COUNT(post_id) ' .
-        'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME;
-        $rs    = new MetaRecord($this->con->select($strReq));
-        $count = $rs->f(0);
-
-        $strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml ' .
-        'FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' ';
-
-        if ($start !== null && $limit !== null) {
-            $strReq .= $this->con->limit($start, $limit);
-        }
-
-        $rs = new MetaRecord($this->con->select($strReq));
-
-        $cur = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
-
-        while ($rs->fetch()) {
-            $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
-            $rs->post_content_xhtml;
-
-            $cur->post_words = implode(' ', Text::splitWords($words));
-            $cur->update('WHERE post_id = ' . (int) $rs->post_id);
-            $cur->clean();
-        }
-
-        if ($start + $limit > $count) {
-            return;
-        }
-
-        return $start + $limit;
     }
 
     /**
      * Recreates comments search engine index.
      *
+     * @deprecated since 2.28, permanently moved to plugin maintenance
+     *
      * @param      int   $start  The start comment index
      * @param      int   $limit  The limit of comment to index
-     *
-     * @return     mixed   sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllComments(?int $start = null, ?int $limit = null)
     {
-        $strReq = 'SELECT COUNT(comment_id) ' .
-        'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME;
-        $rs    = new MetaRecord($this->con->select($strReq));
-        $count = $rs->f(0);
-
-        $strReq = 'SELECT comment_id, comment_content ' .
-        'FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME . ' ';
-
-        if ($start !== null && $limit !== null) {
-            $strReq .= $this->con->limit($start, $limit);
-        }
-
-        $rs = new MetaRecord($this->con->select($strReq));
-
-        $cur = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
-
-        while ($rs->fetch()) {
-            $cur->comment_words = implode(' ', Text::splitWords($rs->comment_content));
-            $cur->update('WHERE comment_id = ' . (int) $rs->comment_id);
-            $cur->clean();
-        }
-
-        if ($start + $limit > $count) {
-            return;
-        }
-
-        return $start + $limit;
     }
 
     /**
      * Reinits nb_comment and nb_trackback in post table.
+     *
+     * @deprecated since 2.28, permanently moved to plugin maintenance
      */
     public function countAllComments(): void
     {
-        $sql_com = new UpdateStatement();
-        $sql_com
-            ->ref($sql_com->alias($this->prefix . dcBlog::POST_TABLE_NAME, 'P'));
-
-        $sql_tb = clone $sql_com;
-
-        $sql_count_com = new SelectStatement();
-        $sql_count_com
-            ->field($sql_count_com->count('C.comment_id'))
-            ->from($sql_count_com->alias($this->prefix . dcBlog::COMMENT_TABLE_NAME, 'C'))
-            ->where('C.post_id = P.post_id')
-            ->and('C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED);
-
-        $sql_count_tb = clone $sql_count_com;
-
-        $sql_count_com->and('C.comment_trackback <> 1');    // Count comment only
-        $sql_count_tb->and('C.comment_trackback = 1');      // Count trackback only
-
-        $sql_com->set('nb_comment = (' . $sql_count_com->statement() . ')');
-        $sql_com->update();
-
-        $sql_tb->set('nb_trackback = (' . $sql_count_tb->statement() . ')');
-        $sql_tb->update();
     }
 
     /**
-     * Empty templates cache directory
+     * Empty templates cache directory.
+     *
+     * @deprecated since 2.28, use dcUtils::emptyTemplatesCache() instead
      */
     public function emptyTemplatesCache(): void
     {
-        if (is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
-            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER);
-        }
+        dcUtils::emptyTemplatesCache();
     }
 
     /**
-     * Serve or not the REST requests (using a file as token)
+     * Serve or not the REST requests.
+     *
+     * @deprecated since 2.28, use dcCore::app()->rest->enableRestServer() instead
      *
      * @param      bool  $serve  The flag
      */
     public function enableRestServer(bool $serve = true)
     {
-        try {
-            if ($serve && file_exists(DC_UPGRADE)) {
-                // Remove watchdog file
-                unlink(DC_UPGRADE);
-            } elseif (!$serve && !file_exists(DC_UPGRADE)) {
-                // Create watchdog file
-                touch(DC_UPGRADE);
-            }
-        } catch (Exception) {
-        }
+        $this->rest->enableRestServer($serve);
     }
 
     /**
-     * Check if we need to serve REST requests
+     * Check if we need to serve REST requests.
+     *
+     * @deprecated since 2.28, use dcCore::app()->rest->serveRestRequests() instead
      *
      * @return     bool
      */
     public function serveRestRequests(): bool
     {
-        return !file_exists(DC_UPGRADE) && DC_REST_SERVICES;
+        return $this->rest->serveRestRequests();
     }
     //@}
 }

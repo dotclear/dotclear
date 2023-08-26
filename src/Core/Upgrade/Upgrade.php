@@ -14,6 +14,7 @@ namespace Dotclear\Core\Upgrade;
 
 use dcCore;
 use dcNamespace;
+use dcUtils;
 use dcWorkspace;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
@@ -63,7 +64,7 @@ class Upgrade
 
                 # Empty templates cache directory
                 try {
-                    dcCore::app()->emptyTemplatesCache();
+                    dcUtils::emptyTemplatesCache();
                 } catch (Exception $e) {
                 }
 
@@ -151,7 +152,7 @@ class Upgrade
 
         // set dc version
         dcCore::app()->version->setVersion('core', DC_VERSION);
-        dcCore::app()->blogDefaults();
+        Utils::blogDefaults();
 
         return $cleanup_sessions;
     }

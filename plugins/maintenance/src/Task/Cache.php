@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use dcCore;
+use dcUtils;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
@@ -49,7 +50,7 @@ class Cache extends MaintenanceTask
      */
     public function execute()
     {
-        dcCore::app()->emptyTemplatesCache();
+        dcUtils::emptyTemplatesCache();
 
         return true;
     }

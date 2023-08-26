@@ -69,8 +69,8 @@ class Home extends Process
          */
         if (!empty($_GET['logout'])) {
             // Enable REST service if disabled, for next requests
-            if (!dcCore::app()->serveRestRequests()) {
-                dcCore::app()->enableRestServer(true);
+            if (!dcCore::app()->rest->serveRestRequests()) {
+                dcCore::app()->rest->enableRestServer(true);
             }
             // Kill admin session
             dcCore::app()->killAdminSession();
