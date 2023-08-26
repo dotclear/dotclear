@@ -256,12 +256,13 @@ class dcModules
                     }
                     // search required module
                     $found = $this->getDefine($dep[0]);
+
                     // grab missing dependencies
                     if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
-                        // module not present, nor php or dotclear, nor optionnal
+                        // module not present, nor php or core, nor optionnal
                         $module->addMissing($dep[0], sprintf(__('Requires %s module which is not installed'), $dep[0]));
-                    } elseif ($found->isDefined() && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
-                        // module present, but version missing
+                    } elseif (($found->isDefined() || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
+                        // module present or php or core, but version missing
                         if ($dep[0] == 'php') {
                             $dep[0] = 'PHP';
                             $dep_v  = $special['php'];
