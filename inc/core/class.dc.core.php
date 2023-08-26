@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Formater;
 use Dotclear\Core\Nonce;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
@@ -317,14 +318,7 @@ final class dcCore
      *
      * @var        array
      */
-    private $formaters = [];
-
-    /**
-     * Stack of registered content formaters' name
-     *
-     * @var        array
-     */
-    private $formaters_names = [];
+    public readonly Formater $formater;
 
     /**
      * Behaviors registration management instance.
@@ -362,6 +356,7 @@ final class dcCore
         $this->session  = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
         $this->nonce    = new Nonce();
         $this->version  = new Version();
+        $this->formater = new Formater();
         $this->url      = new dcUrlHandlers();
         $this->plugins  = new dcPlugins();
         $this->rest     = new dcRestServer();
@@ -505,9 +500,9 @@ final class dcCore
     /// @name Text Formatters methods
     //@{
     /**
-     * Adds a new text formater which will call the function <var>$func</var> to
-     * transform text. The function must be a valid callback and takes one
-     * argument: the string to transform. It returns the transformed string.
+     * Adds a new text formater.
+     *
+     * @deprecated since 2.28, use dcCore::app()->formater->addEditorFormater() instead
      *
      * @param      string    $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string    $name       The formater name
@@ -515,98 +510,79 @@ final class dcCore
      */
     public function addEditorFormater(string $editor_id, string $name, $func): void
     {
-        if (is_callable($func)) {
-            $this->formaters[$editor_id][$name] = $func;
-        }
+        $this->formater->addEditorFormater($editor_id, $name, $func);
     }
 
     /**
-     * Adds a new dcLegacyEditor text formater which will call the function
-     * <var>$func</var> to transform text. The function must be a valid callback
-     * and takes one argument: the string to transform. It returns the transformed string.
+     * Adds a new dcLegacyEditor text formater.
+     *
+     * @deprecated since 2.28, use dcCore::app()->formater->addEditorFormater('dcLegacyEditor', ...) instead
      *
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
     public function addFormater(string $name, $func): void
     {
-        $this->addEditorFormater('dcLegacyEditor', $name, $func);
+        $this->formater->addEditorFormater('dcLegacyEditor', $name, $func);
     }
 
     /**
      * Adds a formater name.
+     *
+     * @deprecated since 2.28, use dcCore::app()->formater->addFormaterName() instead
      *
      * @param      string  $format  The format
      * @param      string  $name    The name
      */
     public function addFormaterName(string $format, string $name): void
     {
-        $this->formaters_names[$format] = $name;
+        $this->formater->addFormaterName($format, $name);
     }
 
     /**
      * Gets the formater name.
      *
+     * @deprecated since 2.28, use dcCore::app()->formater->getFormaterName() instead
+     *
      * @param      string  $format  The format
      *
-     * @return     string  The formater name.
+     * @return     string
      */
     public function getFormaterName(string $format): string
     {
-        return $this->formaters_names[$format] ?? $format;
+        return $this->formater->getFormaterName($format);
     }
 
     /**
      * Gets the editors list.
      *
-     * @return     array  The editors.
+     * @deprecated since 2.28, use dcCore::app()->formater->getEditors() instead
+     *
+     * @return     array
      */
     public function getEditors(): array
     {
-        $editors = [];
-
-        foreach (array_keys($this->formaters) as $editor_id) {
-            $editors[$editor_id] = $this->plugins->moduleInfo($editor_id, 'name');
-        }
-
-        return $editors;
+        return $this->formater->getEditors();
     }
 
     /**
      * Gets the formaters.
      *
-     * if @param editor_id is empty:
-     * return all formaters sorted by actives editors
-     *
-     * if @param editor_id is not empty
-     * return formaters for an editor if editor is active
-     * return empty() array if editor is not active.
-     * It can happens when a user choose an editor and admin deactivate that editor later
+     * @deprecated since 2.28, use dcCore::app()->formater->getFormaters() or dcCore::app()->formater->getFormater(xxx) instead
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
-     * @return     array   The formaters.
+     * @return     array
      */
     public function getFormaters(string $editor_id = ''): array
     {
-        $formaters_list = [];
-
-        if (!empty($editor_id)) {
-            if (isset($this->formaters[$editor_id])) {
-                $formaters_list = array_keys($this->formaters[$editor_id]);
-            }
-        } else {
-            foreach ($this->formaters as $editor => $formaters) {
-                $formaters_list[$editor] = array_keys($formaters);
-            }
-        }
-
-        return $formaters_list;
+        return empty($editor_id) ? $this->formater->getFormaters() : $this->formater->getFormater($editor_id);
     }
 
     /**
-     * If <var>$name</var> is a valid formater, it returns <var>$str</var>
-     * transformed using that formater.
+     * Call editor formater.
+     *
+     * @deprecated since 2.28, use dcCore::app()->formater->callEditorFormater() instead
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string  $name       The formater name
@@ -616,22 +592,13 @@ final class dcCore
      */
     public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
-        if (isset($this->formaters[$editor_id]) && isset($this->formaters[$editor_id][$name])) {
-            return call_user_func($this->formaters[$editor_id][$name], $str);
-        }
-        // Fallback with another editor if possible
-        foreach ($this->formaters as $editor => $formaters) {
-            if (array_key_exists($name, $formaters)) {
-                return call_user_func($this->formaters[$editor][$name], $str);
-            }
-        }
-
-        return $str;
+        return $this->formater->callEditorFormater($editor_id, $name, $str);
     }
 
     /**
-     * If <var>$name</var> is a valid dcLegacyEditor formater, it returns
-     * <var>$str</var> transformed using that formater.
+     * Call formater.
+     *
+     * @deprecated since 2.28, use dcCore::app()->formater->callEditorFormater('dcLegacyEditor', ...) instead
      *
      * @param      string  $name   The name
      * @param      string  $str    The string
@@ -640,7 +607,7 @@ final class dcCore
      */
     public function callFormater(string $name, string $str): string
     {
-        return $this->callEditorFormater('dcLegacyEditor', $name, $str);
+        return $this->formater->callEditorFormater('dcLegacyEditor', $name, $str);
     }
     //@}
 

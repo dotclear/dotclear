@@ -40,11 +40,11 @@ class Backend extends Process
                 dcCore::app()->initWikiPost();
             }
 
-            dcCore::app()->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
-            dcCore::app()->addFormaterName('xhtml', __('HTML'));
+            dcCore::app()->formater->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            dcCore::app()->formater->addFormaterName('xhtml', __('HTML'));
 
-            dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki, 'transform']);
-            dcCore::app()->addFormaterName('wiki', __('Dotclear wiki'));
+            dcCore::app()->formater->addEditorFormater(My::id(), 'wiki', [dcCore::app()->wiki, 'transform']);
+            dcCore::app()->formater->addFormaterName('wiki', __('Dotclear wiki'));
 
             dcCore::app()->behavior->addBehaviors([
                 'adminPostEditor' => [BackendBehaviors::class, 'adminPostEditor'],

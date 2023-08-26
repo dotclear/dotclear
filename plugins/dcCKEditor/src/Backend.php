@@ -34,8 +34,8 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         if (My::settings()->active) {
-            dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
-            dcCore::app()->addFormaterName('xhtml', __('HTML'));
+            dcCore::app()->formater->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            dcCore::app()->formater->addFormaterName('xhtml', __('HTML'));
 
             dcCore::app()->behavior->addBehaviors([
                 'adminPostEditor'        => [BackendBehaviors::class, 'adminPostEditor'],
