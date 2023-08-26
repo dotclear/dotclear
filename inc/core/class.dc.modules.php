@@ -821,15 +821,6 @@ class dcModules
 
             $new_defines = $sandbox->getDefines();
 
-            pdump(
-                $sandbox->getErrors(),
-                $zip_root_dir,
-                //$sandbox->getDefines(),
-                $sandbox->getDefine($zip_root_dir, ['state' => '!9']),
-                $sandbox->getDefine($zip_root_dir, ['state' => '!9'])->getMissing(),
-                $sandbox->getDefine($zip_root_dir, ['state' => '!9'])->getImplies()
-            );
-
             if (count($new_defines) == 1) {
                 // Check if module is disabled
                 $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
