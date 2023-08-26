@@ -27,10 +27,8 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Behavior;
-use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
-use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Helper\Text;
 
@@ -1965,7 +1963,7 @@ final class dcCore
      */
     public function blogDefaults(?array $defaults = null): void
     {
-        Utils::blogDefault($defaults);
+        Utils::blogDefaults($defaults);
     }
 
     /**

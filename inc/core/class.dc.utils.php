@@ -9,7 +9,9 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Text;
 
 class dcUtils
