@@ -28,6 +28,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
 use initBlogroll;
+use UnhandledMatchError;
 
 class FlatImportV2 extends FlatBackup
 {
@@ -219,16 +220,19 @@ class FlatImportV2 extends FlatBackup
                     $last_line_name = $line->__name;
                 }
 
-                match ($line->__name) {
-                    'category'   => $this->insertCategorySingle($line),
-                    'link'       => $this->insertLinkSingle($line),
-                    'post'       => $this->insertPostSingle($line),
-                    'meta'       => $this->insertMetaSingle($line),
-                    'media'      => $this->insertMediaSingle($line),
-                    'post_media' => $this->insertPostMediaSingle($line),
-                    'ping'       => $this->insertPingSingle($line),
-                    'comment'    => $this->insertCommentSingle($line),
-                };
+                try {
+                    match ($line->__name) {
+                        'category'   => $this->insertCategorySingle($line),
+                        'link'       => $this->insertLinkSingle($line),
+                        'post'       => $this->insertPostSingle($line),
+                        'meta'       => $this->insertMetaSingle($line),
+                        'media'      => $this->insertMediaSingle($line),
+                        'post_media' => $this->insertPostMediaSingle($line),
+                        'ping'       => $this->insertPingSingle($line),
+                        'comment'    => $this->insertCommentSingle($line),
+                    };
+                } catch (UnhandledMatchError) {
+                }
 
                 # --BEHAVIOR-- importSingle -- string, FlatBackup
                 dcCore::app()->behavior->callBehavior('importSingleV2', $line, $this);
@@ -272,23 +276,26 @@ class FlatImportV2 extends FlatBackup
 
         try {
             while (($line = $this->getLine()) !== false) {
-                match ($line->__name) {
-                    'blog'        => $this->insertBlog($line),
-                    'category'    => $this->insertCategory($line),
-                    'link'        => $this->insertLink($line),
-                    'setting'     => $this->insertSetting($line),
-                    'user'        => $this->insertUser($line),
-                    'pref'        => $this->insertPref($line),
-                    'permissions' => $this->insertPermissions($line),
-                    'post'        => $this->insertPost($line),
-                    'meta'        => $this->insertMeta($line),
-                    'media'       => $this->insertMedia($line),
-                    'post_media'  => $this->insertPostMedia($line),
-                    'log'         => $this->insertLog($line),
-                    'ping'        => $this->insertPing($line),
-                    'comment'     => $this->insertComment($line),
-                    'spamrule'    => $this->insertSpamRule($line),
-                };
+                try {
+                    match ($line->__name) {
+                        'blog'        => $this->insertBlog($line),
+                        'category'    => $this->insertCategory($line),
+                        'link'        => $this->insertLink($line),
+                        'setting'     => $this->insertSetting($line),
+                        'user'        => $this->insertUser($line),
+                        'pref'        => $this->insertPref($line),
+                        'permissions' => $this->insertPermissions($line),
+                        'post'        => $this->insertPost($line),
+                        'meta'        => $this->insertMeta($line),
+                        'media'       => $this->insertMedia($line),
+                        'post_media'  => $this->insertPostMedia($line),
+                        'log'         => $this->insertLog($line),
+                        'ping'        => $this->insertPing($line),
+                        'comment'     => $this->insertComment($line),
+                        'spamrule'    => $this->insertSpamRule($line),
+                    };
+                } catch (UnhandledMatchError) {
+                }
                 # --BEHAVIOR-- importFull -- line, FlatBackup
                 dcCore::app()->behavior->callBehavior('importFullV2', $line, $this);
             }
