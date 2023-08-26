@@ -57,7 +57,7 @@ class Filter
      */
     public function wikiTransform(string $str): string
     {
-        if (!($this->wiki instanceof WikiToHtml)) {
+        if (!isset($this->wiki)) {
             $this->initWiki();
         }
 
