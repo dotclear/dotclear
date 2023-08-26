@@ -27,7 +27,6 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Behavior;
 use Dotclear\Helper\File\Files;
-use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\Template\Template;
@@ -323,7 +322,7 @@ final class dcCore
     /**
      * Stack of registered content formaters
      *
-     * @var        array
+     * @var        Formater
      */
     public readonly Formater $formater;
 
@@ -466,7 +465,7 @@ final class dcCore
     //@{
     /**
      * Gets the nonce.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->nonce->getNonce() instead
      *
      * @return     string
@@ -478,7 +477,7 @@ final class dcCore
 
     /**
      * Check the nonce.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->nonce->checkNonce() instead
      *
      * @param      string  $secret  The nonce
@@ -492,7 +491,7 @@ final class dcCore
 
     /**
      * Get the nonce HTML code.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->nonce->formNonce() or dcCore::app()->nonce->getFormNonce()instead
      *
      * @param      bool     $render     Should render element?
@@ -623,7 +622,7 @@ final class dcCore
     //@{
     /**
      * Adds a new behavior to behaviors stack.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->behavior->addBehavior() instead
      *
      * @param      string           $behavior  The behavior
@@ -636,7 +635,7 @@ final class dcCore
 
     /**
      * Adds a behaviour (alias).
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->behavior->addBehavior() instead
      *
      * @param      string           $behaviour  The behaviour
@@ -649,7 +648,7 @@ final class dcCore
 
     /**
      * Adds new behaviors to behaviors stack.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->behavior->addBehaviors() instead
      *
      * @param      array    $behaviors  The behaviors
@@ -661,7 +660,7 @@ final class dcCore
 
     /**
      * Adds behaviours (alias).
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->behavior->addBehaviors() instead
      *
      * @param      array    $behaviours  The behaviours
@@ -673,7 +672,7 @@ final class dcCore
 
     /**
      * Determines if behavior exists in behaviors stack.
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->behavior->hasBehavior() instead
      *
      * @param      string  $behavior  The behavior
@@ -687,7 +686,7 @@ final class dcCore
 
     /**
      * Determines if behaviour exists (alias).
-     * 
+     *
      * @deprecated since 2.28, use dcCore::app()->behavior->hasBehavior() instead
      *
      * @param      string  $behaviour  The behavior
@@ -2218,7 +2217,7 @@ final class dcCore
                 // Create watchdog file
                 touch(DC_UPGRADE);
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
     }
 

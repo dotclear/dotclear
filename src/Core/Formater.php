@@ -25,7 +25,7 @@ class Formater
 
     /**
      * Adds a new text formater.
-     * 
+     *
      * Which will call the function <var>$func</var> to
      * transform text. The function must be a valid callback and takes one
      * argument: the string to transform. It returns the transformed string.
@@ -107,8 +107,6 @@ class Formater
     /**
      * Gets the formaters.
      *
-     * @param   string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
-     *
      * @return  array   The formaters.
      */
     public function getFormaters(): array
@@ -124,7 +122,7 @@ class Formater
 
     /**
      * Call editor formater.
-     * 
+     *
      * If <var>$name</var> is a valid formater, it returns <var>$str</var>
      * transformed using that formater.
      *
@@ -148,5 +146,4 @@ class Formater
 
         return $str;
     }
-
 }
