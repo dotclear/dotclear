@@ -13,7 +13,6 @@
  */
 
 use Dotclear\Helper\RestServer;
-use Exception;
 
 class dcRestServer extends RestServer
 {
