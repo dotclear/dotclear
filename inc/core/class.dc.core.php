@@ -188,13 +188,6 @@ final class dcCore
     public readonly dcLog $log;
 
     /**
-     * Starting time
-     *
-     * @var float
-     */
-    public readonly float $stime;
-
-    /**
      * Current language
      *
      * @var string
@@ -354,7 +347,6 @@ final class dcCore
         // Deprecated since 2.26
         $this->autoload = Autoloader::me();
 
-        $this->stime    = defined('DC_START_TIME') ? DC_START_TIME : microtime(true);
         $this->behavior = new Behavior();
         $this->con      = AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
         $this->prefix   = $this->con->prefix();
@@ -2229,22 +2221,6 @@ final class dcCore
     public function serveRestRequests(): bool
     {
         return !file_exists(DC_UPGRADE) && DC_REST_SERVICES;
-    }
-
-    /**
-     * Return elapsed time since script has been started
-     *
-     * @param      float   $mtime  timestamp (microtime format) to evaluate delta from current time is taken if null
-     *
-     * @return     float   The elapsed time.
-     */
-    public function getElapsedTime(?float $mtime = null): float
-    {
-        if ($mtime !== null) {
-            return $mtime - $this->stime;
-        }
-
-        return microtime(true) - $this->stime;
     }
     //@}
 }
