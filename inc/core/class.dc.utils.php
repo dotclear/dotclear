@@ -346,15 +346,18 @@ class dcUtils
      */
     public static function setLexicalLang(string $namespace = '', string $lang = 'en_US')
     {
-        // Switch to appropriate locale depending on $ns
-        match ($namespace) {
-            // Set locale with user prefs
-            self::ADMIN_LOCALE => setlocale(LC_COLLATE, dcCore::app()->auth->getInfo('user_lang')),
-            // Set locale with blog params
-            self::PUBLIC_LOCALE => setlocale(LC_COLLATE, dcCore::app()->blog->settings->system->lang),
-            // Set locale with arg
-            self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
-        };
+        try {
+            // Switch to appropriate locale depending on $ns
+            match ($namespace) {
+                // Set locale with user prefs
+                self::ADMIN_LOCALE => setlocale(LC_COLLATE, dcCore::app()->auth->getInfo('user_lang')),
+                // Set locale with blog params
+                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, dcCore::app()->blog->settings->system->lang),
+                // Set locale with arg
+                self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
+            };
+        } catch (UnhandledMatchError) {
+        }
     }
 
     /**

@@ -21,6 +21,7 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 use stdClass;
+use UnhandledMatchError;
 
 class Manage extends Process
 {
@@ -90,11 +91,14 @@ class Manage extends Process
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
-                        match ($v) {
-                            Widgets::WIDGETS_NAV    => dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k}),
-                            Widgets::WIDGETS_EXTRA  => dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k}),
-                            Widgets::WIDGETS_CUSTOM => dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k}),
-                        };
+                        try {
+                            match ($v) {
+                                Widgets::WIDGETS_NAV    => dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_EXTRA  => dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_CUSTOM => dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k}),
+                            };
+                        } catch (UnhandledMatchError) {
+                        }
                     }
                 }
 
