@@ -91,7 +91,7 @@ class Comment extends Process
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
-            Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
+            Http::redirect(dcCore::app()->post_types->get(dcCore::app()->admin->rs->post_type)->adminUrl(dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
         }
 
         dcCore::app()->admin->rs         = null;
@@ -193,7 +193,7 @@ class Comment extends Process
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully deleted.'));
-                    Http::redirect(dcCore::app()->getPostAdminURL(dcCore::app()->admin->rs->post_type, dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
+                    Http::redirect(dcCore::app()->post_types->get(dcCore::app()->admin->rs->post_type)->adminUrl(dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -212,14 +212,14 @@ class Comment extends Process
         $breadcrumb = [
             Html::escapeHTML(dcCore::app()->blog->name) => '',
         ];
-        $posts_types = dcCore::app()->getPostTypes();
-        if (array_key_exists(dcCore::app()->admin->post_type, $posts_types)) {
-            $breadcrumb[Html::escapeHTML(__($posts_types[dcCore::app()->admin->post_type]['label']))] = '';
+
+        if (dcCore::app()->post_types->exists(dcCore::app()->admin->post_type)) {
+            $breadcrumb[Html::escapeHTML(__(dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->label))] = '';
         }
         if (dcCore::app()->admin->comment_id) {
-            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
         } else {
-            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->getPostAdminURL(dcCore::app()->admin->post_type, dcCore::app()->admin->post_id);
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type->adminUrl(dcCore::app()->admin->post_id);
         }
         $breadcrumb[__('Edit comment')] = '';
 

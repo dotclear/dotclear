@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use dcCore;
 use dcTraitDynamicProperties;
+use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
@@ -185,7 +186,7 @@ class Utility extends Process
         dcCore::app()->admin->url->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        dcCore::app()->setPostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
+        dcCore::app()->post_types->set(new PostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
         if (!(dcCore::app()->auth->userID() && dcCore::app()->blog !== null)) {

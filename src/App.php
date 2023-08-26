@@ -13,6 +13,7 @@ namespace Dotclear {
     use dcUrlHandlers;
     use dcUtils;
     use Dotclear\Core\Process;
+    use Dotclear\Core\PostType;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
@@ -541,7 +542,7 @@ namespace Dotclear {
             dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            dcCore::app()->setPostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
+            dcCore::app()->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
 
             # Store upload_max_filesize in bytes
             $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));

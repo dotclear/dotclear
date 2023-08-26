@@ -38,7 +38,7 @@ class PostsPopup extends Process
 
         dcCore::app()->admin->type = !empty($_GET['type']) ? $_GET['type'] : null;
 
-        $post_types = dcCore::app()->getPostTypes();
+        $post_types = dcCore::app()->post_types->dump();
         $type_combo = [];
         foreach (array_keys($post_types) as $k) {
             $type_combo[__($k)] = (string) $k;

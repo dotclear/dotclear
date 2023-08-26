@@ -126,7 +126,7 @@ class ListingPostsMini extends Listing
 
         $cols = [
             'title' => '<td scope="row" class="maximal"><a href="' .
-            dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '" ' .
+            dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '" ' .
             'title="' . Html::escapeHTML($this->rs->getURL()) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .

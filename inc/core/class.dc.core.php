@@ -15,6 +15,8 @@
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
 use Dotclear\Core\Nonce;
+use Dotclear\Core\PostType;
+use Dotclear\Core\PostTypes;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
@@ -336,11 +338,11 @@ final class dcCore
     public readonly Behavior $behavior;
 
     /**
-     * List of known post types
+     * PostTypes instance
      *
-     * @var        array
+     * @var        PostTypes
      */
-    private $post_types = [];
+    public readonly PostTypes $post_types;
 
     /**
      * dcCore constructor inits everything related to Dotclear.
@@ -356,22 +358,23 @@ final class dcCore
         // Deprecated since 2.26
         $this->autoload = Autoloader::me();
 
-        $this->behavior = new Behavior();
-        $this->con      = AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
-        $this->prefix   = $this->con->prefix();
-        $this->error    = new dcError();
-        $this->auth     = dcAuth::init();
-        $this->session  = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
-        $this->nonce    = new Nonce();
-        $this->version  = new Version();
-        $this->filter   = new Filter();
-        $this->formater = new Formater();
-        $this->url      = new dcUrlHandlers();
-        $this->plugins  = new dcPlugins();
-        $this->rest     = new dcRestServer();
-        $this->meta     = new dcMeta();
-        $this->log      = new dcLog();
-        $this->notices  = new dcNotices();
+        $this->behavior   = new Behavior();
+        $this->con        = AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
+        $this->prefix     = $this->con->prefix();
+        $this->error      = new dcError();
+        $this->auth       = dcAuth::init();
+        $this->session    = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
+        $this->nonce      = new Nonce();
+        $this->version    = new Version();
+        $this->post_types = new PostTypes();
+        $this->filter     = new Filter();
+        $this->formater   = new Formater();
+        $this->url        = new dcUrlHandlers();
+        $this->plugins    = new dcPlugins();
+        $this->rest       = new dcRestServer();
+        $this->meta       = new dcMeta();
+        $this->log        = new dcLog();
+        $this->notices    = new dcNotices();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*
@@ -766,30 +769,24 @@ final class dcCore
     /**
      * Gets the post admin url.
      *
+     * @deprecated since 2.28, use dcCore::app()->post_types->get($type)->adminUrl() instead
+     *
      * @param      string               $type     The type
-     * @param      mixed                $post_id  The post identifier
+     * @param      int|string           $post_id  The post identifier
      * @param      bool                 $escaped  Escape the URL
      * @param      array<string,mixed>  $params   The query string parameters (associative array)
      *
      * @return     string    The post admin url.
      */
-    public function getPostAdminURL(string $type, $post_id, bool $escaped = true, array $params = []): string
+    public function getPostAdminURL(string $type, int|string $post_id, bool $escaped = true, array $params = []): string
     {
-        if (!isset($this->post_types[$type])) {
-            $type = 'post';
-        }
-
-        $url = sprintf($this->post_types[$type]['admin_url'], $post_id);
-
-        if (!empty($params)) {
-            $url .= (strpos($url, '?') === false ? '?' : '&') . http_build_query($params, '', '&');
-        }
-
-        return $escaped ? Html::escapeURL($url) : $url;
+        return $this->post_types->get($type)->adminUrl($post_id, $escaped, $params);
     }
 
     /**
      * Gets the post public url.
+     *
+     * @deprecated since 2.28, use dcCore::app()->post_types->get($type)->publicUrl() instead
      *
      * @param      string  $type      The type
      * @param      string  $post_url  The post url
@@ -799,40 +796,34 @@ final class dcCore
      */
     public function getPostPublicURL(string $type, string $post_url, bool $escaped = true): string
     {
-        if (!isset($this->post_types[$type])) {
-            $type = 'post';
-        }
-
-        $url = sprintf($this->post_types[$type]['public_url'], $post_url);
-
-        return $escaped ? Html::escapeURL($url) : $url;
+        return $this->post_types->get($type)->publicUrl($post_url, $escaped);
     }
 
     /**
      * Sets the post type.
+     *
+     * @deprecated since 2.28, use dcCore::app()->post_types->set(new PostType()) instead
      *
      * @param      string  $type        The type
      * @param      string  $admin_url   The admin url
      * @param      string  $public_url  The public url
      * @param      string  $label       The label
      */
-    public function setPostType(string $type, string $admin_url, string $public_url, string $label = '')
+    public function setPostType(string $type, string $admin_url, string $public_url, string $label = ''): void
     {
-        $this->post_types[$type] = [
-            'admin_url'  => $admin_url,
-            'public_url' => $public_url,
-            'label'      => ($label !== '' ? $label : $type),
-        ];
+        $this->post_types->set(new PostType($type, $admin_url, $public_url, $label));
     }
 
     /**
      * Gets the post types.
      *
+     * @deprecated since 2.28, use dcCore::app()->post_types->dump() instead
+     *
      * @return     array  The post types.
      */
     public function getPostTypes(): array
     {
-        return $this->post_types;
+        return $this->post_types->getPostTypes();
     }
     //@}
 

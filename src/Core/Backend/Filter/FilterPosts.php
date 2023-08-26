@@ -29,7 +29,7 @@ class FilterPosts extends Filters
     {
         parent::__construct($type);
 
-        if (!empty($post_type) && array_key_exists($post_type, dcCore::app()->getPostTypes())) {
+        if (!empty($post_type) && dcCore::app()->post_types->exits($post_type)) {
             $this->post_type = $post_type;
             $this->add((new Filter('post_type', $post_type))->param('post_type'));
         }

@@ -1288,7 +1288,7 @@ class dcTemplate extends Template
      */
     public function BlogStaticEntryURL(ArrayObject $attr): string
     {
-        $code = "\$params['post_type'] = array_keys(dcCore::app()->getPostTypes());\n";
+        $code = "\$params['post_type'] = array_keys(dcCore::app()->post_types->dump());\n";
         $code .= "\$params['post_url'] = " . sprintf($this->getFilters($attr), 'urldecode(dcCore::app()->blog->settings->system->static_home_url)') . ";\n";
 
         return "<?php\n" . $code . ' ?>';
