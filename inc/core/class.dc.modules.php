@@ -230,8 +230,10 @@ class dcModules
      *  - using : list reasons why module cannot be disabled. Not set if module can be disabled
      *
      *  - implies : reverse dependencies
+     *
+     * @param   bool    $to_error   Add dependencies fails to errors
      */
-    public function checkDependencies(): void
+    public function checkDependencies($to_error = false): void
     {
         // Grab current Dotclear and PHP version
         $special = [
@@ -245,6 +247,7 @@ class dcModules
             // module has required modules
             if (!empty($module->requires)) {
                 foreach ($module->requires as $dep) {
+                    $msg = '';
                     if (!is_array($dep)) {
                         $dep = [$dep];
                     }
@@ -256,12 +259,13 @@ class dcModules
                     }
                     // search required module
                     $found = $this->getDefine($dep[0]);
+
                     // grab missing dependencies
                     if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
-                        // module not present, nor php or dotclear, nor optionnal
-                        $module->addMissing($dep[0], sprintf(__('Requires %s module which is not installed'), $dep[0]));
-                    } elseif ($found->isDefined() && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
-                        // module present, but version missing
+                        // module not present, nor php or core, nor optionnal
+                        $msg = sprintf(__('Requires %s module which is not installed'), $dep[0]);
+                    } elseif (($found->isDefined() || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
+                        // module present or php or core, but version missing
                         if ($dep[0] == 'php') {
                             $dep[0] = 'PHP';
                             $dep_v  = $special['php'];
@@ -271,15 +275,21 @@ class dcModules
                         } else {
                             $dep_v = $found->version;
                         }
-                        $module->addMissing($dep[0], sprintf(
+                        $msg = sprintf(
                             __('Requires %s version %s, but version %s is installed'),
                             $dep[0],
                             $dep[1],
                             $dep_v
-                        ));
+                        );
                     } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->state != dcModuleDefine::STATE_ENABLED) {
                         // module disabled
-                        $module->addMissing($dep[0], sprintf(__('Requires %s module which is disabled'), $dep[0]));
+                        $msg = sprintf(__('Requires %s module which is disabled'), $dep[0]);
+                    }
+                    if (!empty($msg)) {
+                        $module->addMissing($dep[0], $msg);
+                        if ($to_error) {
+                            $this->errors[] = $msg;
+                        }
                     }
                     $found->addImplies($module->getId());
                 }
@@ -758,6 +768,7 @@ class dcModules
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
+                $sandbox->checkDependencies(true);
                 if ($zip->hasFile($init)) {
                     unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
@@ -768,7 +779,7 @@ class dcModules
                 if (!empty($new_errors)) {
                     $new_errors = implode(" \n", $new_errors);
 
-                    throw new Exception($new_errors);
+                    throw new Exception(sprintf(__('Module is not installed: %s'), $new_errors));
                 }
 
                 Files::deltree($destination);
@@ -793,11 +804,19 @@ class dcModules
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
+            $sandbox->checkDependencies(true);
             if ($zip->hasFile($init)) {
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
 
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
+
+            $new_errors = $sandbox->getErrors();
+            if (!empty($new_errors)) {
+                $new_errors = implode(" \n", $new_errors);
+
+                throw new Exception(sprintf(__('Module is not installed: %s'), $new_errors));
+            }
 
             $new_defines = $sandbox->getDefines();
 
