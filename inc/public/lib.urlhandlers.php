@@ -551,13 +551,13 @@ class dcUrlHandlers extends UrlHandler
                             $content = $buffer;
                         } else {
                             if (dcCore::app()->blog->settings->system->wiki_comments) {
-                                dcCore::app()->initWikiComment();
+                                dcCore::app()->filter->initWikiComment();
                             } else {
-                                dcCore::app()->initWikiSimpleComment();
+                                dcCore::app()->filter->initWikiSimpleComment();
                             }
-                            $content = dcCore::app()->wikiTransform($content);
+                            $content = dcCore::app()->filter->wikiTransform($content);
                         }
-                        $content = dcCore::app()->HTMLfilter($content);
+                        $content = dcCore::app()->filter->HTMLfilter($content);
                     }
 
                     dcCore::app()->ctx->comment_preview['content']    = $content;

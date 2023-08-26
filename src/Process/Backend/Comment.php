@@ -76,7 +76,7 @@ class Comment extends Process
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
                 $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = dcCore::app()->HTMLfilter($_POST['comment_content']);
+                $cur->comment_content = dcCore::app()->filter->HTMLfilter($_POST['comment_content']);
                 $cur->post_id         = (int) $_POST['post_id'];
 
                 # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
@@ -161,7 +161,7 @@ class Comment extends Process
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
                 $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = dcCore::app()->HTMLfilter($_POST['comment_content']);
+                $cur->comment_content = dcCore::app()->filter->HTMLfilter($_POST['comment_content']);
 
                 if (isset($_POST['comment_status'])) {
                     $cur->comment_status = (int) $_POST['comment_status'];

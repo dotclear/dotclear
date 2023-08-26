@@ -36,14 +36,14 @@ class Backend extends Process
         My::addBackendMenuItem(Menus::MENU_PLUGINS, [], '');
 
         if (My::settings()->active) {
-            if (!(dcCore::app()->wiki instanceof WikiToHtml)) {
-                dcCore::app()->initWikiPost();
+            if (!isset(dcCore::app()->filter->wiki)) {
+                dcCore::app()->filter->initWikiPost();
             }
 
             dcCore::app()->formater->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
             dcCore::app()->formater->addFormaterName('xhtml', __('HTML'));
 
-            dcCore::app()->formater->addEditorFormater(My::id(), 'wiki', [dcCore::app()->wiki, 'transform']);
+            dcCore::app()->formater->addEditorFormater(My::id(), 'wiki', [dcCore::app()->filter->wiki, 'transform']);
             dcCore::app()->formater->addFormaterName('wiki', __('Dotclear wiki'));
 
             dcCore::app()->behavior->addBehaviors([
