@@ -1010,7 +1010,7 @@ class dcBlog
         $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
 
         if ($cur->cat_desc !== null) {
-            $cur->cat_desc = dcCore::app()->HTMLfilter($cur->cat_desc);
+            $cur->cat_desc = dcCore::app()->filter->HTMLfilter($cur->cat_desc);
         }
     }
 
@@ -2301,32 +2301,32 @@ class dcBlog
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {
         if ($format == 'wiki') {
-            dcCore::app()->initWikiPost();
-            dcCore::app()->wiki->setOpt('note_prefix', 'pnote-' . $post_id);
+            dcCore::app()->filter->initWikiPost();
+            dcCore::app()->filter->wiki->setOpt('note_prefix', 'pnote-' . $post_id);
             $tag = match ($this->settings->system->note_title_tag) {
                 1       => 'h3',
                 2       => 'p',
                 default => 'h4',
             };
-            dcCore::app()->wiki->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+            dcCore::app()->filter->wiki->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Notes') . '</' . $tag . '>%s</div>');
-            dcCore::app()->wiki->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+            dcCore::app()->filter->wiki->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Note') . '</' . $tag . '>%s</div>');
             if (strpos($lang, 'fr') === 0) {
-                dcCore::app()->wiki->setOpt('active_fr_syntax', 1);
+                dcCore::app()->filter->wiki->setOpt('active_fr_syntax', 1);
             }
         }
 
         if ($excerpt) {
             $excerpt_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $format, $excerpt);
-            $excerpt_xhtml = dcCore::app()->HTMLfilter($excerpt_xhtml);
+            $excerpt_xhtml = dcCore::app()->filter->HTMLfilter($excerpt_xhtml);
         } else {
             $excerpt_xhtml = '';
         }
 
         if ($content) {
             $content_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $format, $content);
-            $content_xhtml = dcCore::app()->HTMLfilter($content_xhtml);
+            $content_xhtml = dcCore::app()->filter->HTMLfilter($content_xhtml);
         } else {
             $content_xhtml = '';
         }
