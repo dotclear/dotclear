@@ -293,6 +293,7 @@ namespace Dotclear {
                 } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
                     Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
                 }
+
                 // stop App init here on install wizard
                 return;
             }
@@ -462,7 +463,7 @@ namespace Dotclear {
                  *
                  * @deprecated since 2.23, use dcCore::app() instead
                  */
-                $core = new dcCore();
+                $core            = new dcCore();
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
                 // Loading locales for detected language

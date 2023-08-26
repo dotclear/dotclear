@@ -15,11 +15,20 @@
   h2 {
     padding: 0;
   }
+  fieldset {
+    border: 1px solid var(--login-fieldset-border);
+    padding: 1em 1em 1em 1em;
+    background: var(--login-fieldset-background);
+    margin-top: 1em;
+  }
   .fieldset {
     border: 1px solid var(--login-fieldset-border);
     padding: 1em 1em 0 1em;
     background: var(--login-fieldset-background);
     margin-bottom: 0;
+    margin-top: 1em;
+  }
+  .info {
     margin-top: 1em;
   }
   input[type='text'],
