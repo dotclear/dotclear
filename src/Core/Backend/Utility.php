@@ -114,8 +114,8 @@ class Utility extends Process
             // Fake process to logout (kill session) and return to auth page.
             if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout') {
                 // Enable REST service if disabled, for next requests
-                if (!dcCore::app()->serveRestRequests()) {
-                    dcCore::app()->enableRestServer(true);
+                if (!dcCore::app()->rest->serveRestRequests()) {
+                    dcCore::app()->rest->enableRestServer(true);
                 }
                 // Kill admin session
                 dcCore::app()->killAdminSession();

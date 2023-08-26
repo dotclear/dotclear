@@ -12,7 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
+use dcBlog;
 use dcCore;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Helper\Text;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
 class IndexPosts extends MaintenanceTask
@@ -74,7 +77,7 @@ class IndexPosts extends MaintenanceTask
      */
     public function execute()
     {
-        $this->code = dcCore::app()->indexAllPosts($this->code, $this->limit);
+        $this->code = $this->indexAllPosts((int) $this->code, $this->limit);
 
         return $this->code ?: true;
     }
@@ -100,7 +103,7 @@ class IndexPosts extends MaintenanceTask
      */
     public function step()
     {
-        return $this->code ? sprintf($this->step, $this->code - $this->limit, $this->code) : null;
+        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : null;
     }
 
     /**
@@ -112,6 +115,60 @@ class IndexPosts extends MaintenanceTask
      */
     public function success(): string
     {
-        return $this->code ? sprintf($this->step, $this->code - $this->limit, $this->code) : $this->success;
+        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : $this->success;
+    }
+
+    /**
+     * Recreates entries search engine index.
+     *
+     * @param      null|int   $start  The start entry index
+     * @param      null|int   $limit  The limit of entry to index
+     *
+     * @return     null|int   sum of <var>$start</var> and <var>$limit</var>
+     */
+    public function indexAllPosts(?int $start = null, ?int $limit = null): ?int
+    {
+        $sql   = new SelectStatement();
+        $count = (int) $sql
+            ->column($sql->count('post_id'))
+            ->from(dcCore::app()->con->prefix() . dcBlog::POST_TABLE_NAME)
+            ->select()
+            ->f(0);
+
+        $sql = new SelectStatement();
+        $sql
+            ->columns([
+                'post_id',
+                'post_title',
+                'post_excerpt_xhtml',
+                'post_content_xhtml',
+            ])
+            ->from(dcCore::app()->con->prefix() . dcBlog::POST_TABLE_NAME);
+
+        if ($start !== null && $limit !== null) {
+            $sql->limit([$start, $limit]);
+        }
+
+        $rs = $sql->select();
+
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->con->prefix() . dcBlog::POST_TABLE_NAME);
+
+        while ($rs->fetch()) {
+            $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
+            $rs->post_content_xhtml;
+
+            $cur->post_words = implode(' ', Text::splitWords($words));
+            $cur->update('WHERE post_id = ' . (int) $rs->post_id);
+            $cur->clean();
+        }
+
+        $start = (int) $start;
+        $limit = (int) $limit;
+
+        if ($start + $limit > $count) {
+            return null;
+        }
+
+        return $start + $limit;
     }
 }

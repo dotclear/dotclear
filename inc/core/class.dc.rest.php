@@ -13,6 +13,7 @@
  */
 
 use Dotclear\Helper\RestServer;
+use Exception;
 
 class dcRestServer extends RestServer
 {
@@ -36,5 +37,38 @@ class dcRestServer extends RestServer
 
         // Use dcCore::app() as supplemental parameter to ensure retro-compatibility
         return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
+    }
+
+    /**
+     * Serve or not the REST requests.
+     *
+     * Using a file as token
+     *
+     * @param      bool  $serve  The flag
+     */
+    public function enableRestServer(bool $serve = true): void
+    {
+        if (defined('DC_UPGRADE')) {
+            try {
+                if ($serve && file_exists(DC_UPGRADE)) {
+                    // Remove watchdog file
+                    unlink(DC_UPGRADE);
+                } elseif (!$serve && !file_exists(DC_UPGRADE)) {
+                    // Create watchdog file
+                    touch(DC_UPGRADE);
+                }
+            } catch (Exception) {
+            }
+        }
+    }
+
+    /**
+     * Check if we need to serve REST requests.
+     *
+     * @return     bool
+     */
+    public function serveRestRequests(): bool
+    {
+        return defined('DC_UPGRADE') && defined('DC_REST_SERVICES') && !file_exists(DC_UPGRADE) && DC_REST_SERVICES;
     }
 }

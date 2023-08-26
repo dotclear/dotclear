@@ -57,7 +57,7 @@ class Rest extends Process
 
     public static function process(): bool
     {
-        if (dcCore::app()->serveRestRequests()) {
+        if (dcCore::app()->rest->serveRestRequests()) {
             dcCore::app()->rest->serve();
         }
 

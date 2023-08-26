@@ -391,4 +391,14 @@ class dcUtils
     {
         return Text::removeDiacritics($str);
     }
+
+    /**
+     * Empty templates cache directory
+     */
+    public static function emptyTemplatesCache(): void
+    {
+        if (defined('DC_TPL_CACHE') && is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
+            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER);
+        }
+    }
 }

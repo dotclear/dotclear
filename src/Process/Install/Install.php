@@ -175,7 +175,7 @@ class Install extends Process
                 dcCore::app()->addBlog($cur);
 
                 # Create global blog settings
-                dcCore::app()->blogDefaults();
+                Utils::blogDefaults();
 
                 $blog_settings = new dcSettings('default');
                 $blog_settings->system->put('blog_timezone', $default_tz);
