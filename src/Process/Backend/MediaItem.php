@@ -685,9 +685,9 @@ class MediaItem extends Process
                 '<div class="two-boxes">' .
                 '<h3>' . __('Video size') . '</h3>' .
                 '<p><label for="video_w" class="classic">' . __('Width:') . '</label> ' .
-                form::number('video_w', 0, 9999, dcCore::app()->blog->settings->system->media_video_width) . '  ' .
+                form::number('video_w', 0, 9999, (string) dcCore::app()->blog->settings->system->media_video_width) . '  ' .
                 '<label for="video_h" class="classic">' . __('Height:') . '</label> ' .
-                form::number('video_h', 0, 9999, dcCore::app()->blog->settings->system->media_video_height) .
+                form::number('video_h', 0, 9999, (string) dcCore::app()->blog->settings->system->media_video_height) .
                 '</p>' .
                 '</div>';
 

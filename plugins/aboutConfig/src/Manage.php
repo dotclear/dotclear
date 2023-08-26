@@ -242,7 +242,7 @@ class Manage extends Process
      */
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
     {
-        $field = match ($s['type']) {
+        $field = match ((string) $s['type']) {
             dcNamespace::NS_BOOL, dcNamespace::NS_BOOLEAN => form::combo(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
