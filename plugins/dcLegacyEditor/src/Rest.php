@@ -38,7 +38,7 @@ class Rest
             if (!(dcCore::app()->wiki instanceof WikiToHtml)) {
                 dcCore::app()->initWikiPost();
             }
-            $html = dcCore::app()->callFormater('wiki', $wiki);
+            $html = dcCore::app()->formater->callEditorFormater(My::id(), 'wiki', $wiki);
             $ret  = strlen($html) > 0;
 
             if ($ret) {
