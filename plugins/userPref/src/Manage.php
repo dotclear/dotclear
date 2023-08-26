@@ -235,7 +235,7 @@ class Manage extends Process
      */
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
     {
-        $field = match ($s['type']) {
+        $field = match ((string) $s['type']) {
             dcWorkspace::WS_BOOLEAN, dcWorkspace::WS_BOOL => form::combo(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
