@@ -76,9 +76,9 @@ class BlogPref extends Process
                 if (empty($_REQUEST['id'])) {
                     throw new Exception(__('No given blog id.'));
                 }
-                $rs = dcCore::app()->blogs->getBlog($_REQUEST['id']);
 
-                if (!$rs) {
+                $rs = dcCore::app()->blogs->getBlog($_REQUEST['id']);
+                if (!$rs->count()) {
                     throw new Exception(__('No such blog.'));
                 }
 
@@ -293,8 +293,7 @@ class BlogPref extends Process
             try {
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
                     $rs = dcCore::app()->blogs->getBlog($cur->blog_id);
-
-                    if ($rs) {
+                    if ($rs->count()) {
                         throw new Exception(__('This blog ID is already used.'));
                     }
                 }

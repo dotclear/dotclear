@@ -18,6 +18,7 @@ use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Exception;
@@ -286,7 +287,7 @@ class Blogs
             throw new Exception(__('You are not an administrator'));
         }
 
-        $sql = DeleteStatement();
+        $sql = new DeleteStatement();
         $sql
             ->from($this->con->prefix() . dcBlog::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
