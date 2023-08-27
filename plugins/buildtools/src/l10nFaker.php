@@ -53,10 +53,10 @@ class l10nFaker
             $main .= $this->fake_l10n($v[3]);
         }
 
-        $post_types = dcCore::app()->getPostTypes();
+        $post_types = dcCore::app()->post_types->dump();
         $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
-            $main .= $this->fake_l10n($v['label']);
+            $main .= $this->fake_l10n($v->label);
         }
         file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
 

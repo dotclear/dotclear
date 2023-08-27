@@ -177,7 +177,7 @@ class BackendList extends Listing
                 ]
             ) . '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
-            dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
+            dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
             Html::escapeHTML($this->rs->post_title) . '</a></td>',
             'date' => '<td class="nowrap">' .
                 '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .

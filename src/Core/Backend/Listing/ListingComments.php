@@ -173,7 +173,7 @@ class ListingComments extends Listing
             'author' => $this->rs->comment_author,
         ]);
 
-        $post_url = dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id);
+        $post_url = dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id);
 
         $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $this->rs->comment_id]);
 

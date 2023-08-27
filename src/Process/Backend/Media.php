@@ -354,7 +354,7 @@ class Media extends Process
                 echo
                 '<div class="form-note info"><p>' . sprintf(
                     __('Choose a file to attach to entry %s by clicking on %s'),
-                    '<a href="' . dcCore::app()->getPostAdminURL(dcCore::app()->admin->page->getPostType(), dcCore::app()->admin->page->post_id) . '">' . Html::escapeHTML(dcCore::app()->admin->page->getPostTitle()) . '</a>',
+                    '<a href="' . dcCore::app()->post_types->get(dcCore::app()->admin->page->getPostType())->adminUrl(dcCore::app()->admin->page->post_id) . '">' . Html::escapeHTML(dcCore::app()->admin->page->getPostTitle()) . '</a>',
                     '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
                 );
                 if (dcCore::app()->admin->page->mediaWritable()) {
