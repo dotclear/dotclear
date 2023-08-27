@@ -43,7 +43,7 @@ class UsersActions extends Process
         $blogs = [];
         if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
             foreach ($_POST['blogs'] as $b) {
-                if (dcCore::app()->blogExists($b)) {
+                if (dcCore::app()->blogs->blogExists($b)) {
                     $blogs[] = $b;
                 }
             }
@@ -198,7 +198,7 @@ class UsersActions extends Process
             $nb_blog = 0;
 
             try {
-                $rs      = dcCore::app()->getBlogs();
+                $rs      = dcCore::app()->blogs->getBlogs();
                 $nb_blog = $rs->count();
             } catch (Exception $e) {
                 // Ignore exceptions
@@ -249,7 +249,7 @@ class UsersActions extends Process
                     '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
                     '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
                     ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
-                    '<td class="nowrap">' . dcCore::app()->countBlogPosts($rs->blog_id) . '</td>' .
+                    '<td class="nowrap">' . dcCore::app()->blogs->countBlogPosts($rs->blog_id) . '</td>' .
                     '<td class="status">' . $img_status . '</td>' .
                     '</tr>';
                 }

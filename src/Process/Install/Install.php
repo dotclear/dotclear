@@ -172,7 +172,7 @@ class Install extends Process
                 $cur->blog_id   = 'default';
                 $cur->blog_url  = Http::getHost() . self::$root_url . '/index.php?';
                 $cur->blog_name = __('My first blog');
-                dcCore::app()->addBlog($cur);
+                dcCore::app()->blogs->addBlog($cur);
 
                 # Create global blog settings
                 Utils::blogDefaults();

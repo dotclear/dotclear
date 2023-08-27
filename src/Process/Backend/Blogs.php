@@ -66,8 +66,8 @@ class Blogs extends Process
             # --BEHAVIOR-- adminGetBlogs -- ArrayObject
             dcCore::app()->behavior->callBehavior('adminGetBlogs', $params);
 
-            $counter  = dcCore::app()->getBlogs($params, true);
-            $rs       = dcCore::app()->getBlogs($params);
+            $counter  = dcCore::app()->blogs->getBlogs($params, true);
+            $rs       = dcCore::app()->blogs->getBlogs($params);
             $rsStatic = $rs->toStatic();
             if ((dcCore::app()->admin->blog_filter->sortby != 'blog_upddt') && (dcCore::app()->admin->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary

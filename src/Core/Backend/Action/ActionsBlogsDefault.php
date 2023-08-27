@@ -116,7 +116,7 @@ class ActionsBlogsDefault
             dcCore::app()->behavior->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 
             foreach ($checked_ids as $id) {
-                dcCore::app()->delBlog($id);
+                dcCore::app()->blogs->delBlog($id);
             }
 
             Notices::addSuccessNotice(

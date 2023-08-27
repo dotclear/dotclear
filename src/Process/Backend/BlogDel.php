@@ -40,7 +40,7 @@ class BlogDel extends Process
             $rs = null;
 
             try {
-                $rs = dcCore::app()->getBlog($_POST['blog_id']);
+                $rs = dcCore::app()->blogs->getBlog($_POST['blog_id']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -66,7 +66,7 @@ class BlogDel extends Process
                 dcCore::app()->error->add(__('Password verification failed'));
             } else {
                 try {
-                    dcCore::app()->delBlog(dcCore::app()->admin->blog_id);
+                    dcCore::app()->blogs->delBlog(dcCore::app()->admin->blog_id);
                     Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
 
                     dcCore::app()->admin->url->redirect('admin.blogs');

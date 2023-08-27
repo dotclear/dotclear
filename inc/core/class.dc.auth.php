@@ -590,7 +590,7 @@ class dcAuth
     public function getBlogCount(): int
     {
         if ($this->blog_count === null) {
-            $this->blog_count = (int) dcCore::app()->getBlogs([], true)->f(0);
+            $this->blog_count = (int) dcCore::app()->blogs->getBlogs([], true)->f(0);
         }
 
         return $this->blog_count;
@@ -610,7 +610,7 @@ class dcAuth
             if ($all_status || $this->user_admin) {
                 return $blog_id;
             }
-            $rs = dcCore::app()->getBlog($blog_id);
+            $rs = dcCore::app()->blogs->getBlog($blog_id);
             if ($rs !== false && $rs->blog_status !== dcBlog::BLOG_REMOVED) {
                 return $blog_id;
             }

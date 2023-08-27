@@ -76,7 +76,7 @@ class BlogPref extends Process
                 if (empty($_REQUEST['id'])) {
                     throw new Exception(__('No given blog id.'));
                 }
-                $rs = dcCore::app()->getBlog($_REQUEST['id']);
+                $rs = dcCore::app()->blogs->getBlog($_REQUEST['id']);
 
                 if (!$rs) {
                     throw new Exception(__('No such blog.'));
@@ -292,7 +292,7 @@ class BlogPref extends Process
 
             try {
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
-                    $rs = dcCore::app()->getBlog($cur->blog_id);
+                    $rs = dcCore::app()->blogs->getBlog($cur->blog_id);
 
                     if ($rs) {
                         throw new Exception(__('This blog ID is already used.'));
@@ -306,7 +306,7 @@ class BlogPref extends Process
                     throw new Exception(__('Invalid language code'));
                 }
 
-                dcCore::app()->updBlog($da->blog_id, $cur);
+                dcCore::app()->blogs->updBlog($da->blog_id, $cur);
 
                 if (dcCore::app()->auth->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
                     // Remove this blog from user default blog
@@ -491,7 +491,7 @@ class BlogPref extends Process
                  * Only super admins can change the blog ID and URL, but we need to pass
                  * their values to the POST request via hidden html input values  so as
                  * to allow admins to update other settings.
-                 * Otherwise dcCore::getBlogCursor() throws an exception.
+                 * Otherwise dcCore::app()->blogs->getBlogCursor() throws an exception.
                  */
                 echo
                 form::hidden('blog_id', Html::escapeHTML($da->blog_id)) .
@@ -926,7 +926,7 @@ class BlogPref extends Process
             #
             # Users on the blog (with permissions)
 
-            $da->blog_users = dcCore::app()->getBlogPermissions($da->blog_id, dcCore::app()->auth->isSuperAdmin());
+            $da->blog_users = dcCore::app()->blogs->getBlogPermissions($da->blog_id, dcCore::app()->auth->isSuperAdmin());
             $perm_types     = dcCore::app()->auth->getPermissionsTypes();
 
             echo
