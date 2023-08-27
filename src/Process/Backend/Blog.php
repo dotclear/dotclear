@@ -60,7 +60,7 @@ class Blog extends Process
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string
                 dcCore::app()->behavior->callBehavior('adminBeforeBlogCreate', $cur, dcCore::app()->admin->blog_id);
 
-                dcCore::app()->addBlog($cur);
+                dcCore::app()->blogs->addBlog($cur);
 
                 # Default settings and override some
                 $blog_settings = new dcSettings($cur->blog_id);

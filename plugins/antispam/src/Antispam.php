@@ -231,7 +231,7 @@ class Antispam extends initAntispam
             return false;
         }
 
-        $permissions = dcCore::app()->getBlogPermissions(dcCore::app()->blog->id);
+        $permissions = dcCore::app()->blogs->getBlogPermissions(dcCore::app()->blog->id);
 
         if (empty($permissions[$rs->user_id])) {
             return false;

@@ -171,7 +171,7 @@ class ActionsBlogs extends Actions
             $params['blog_id'] = $from['blogs'];
         }
 
-        $rs = dcCore::app()->getBlogs($params);
+        $rs = dcCore::app()->blogs->getBlogs($params);
         while ($rs->fetch()) {
             $this->entries[$rs->blog_id] = [
                 'blog' => $rs->blog_id,
