@@ -425,7 +425,7 @@ class ActionsPostsDefault
             if (empty($ids)) {
                 throw new Exception(__('No entry selected'));
             }
-            if (dcCore::app()->getUser($new_user_id)->isEmpty()) {
+            if (dcCore::app()->users->getUser($new_user_id)->isEmpty()) {
                 throw new Exception(__('This user does not exist'));
             }
 
@@ -454,7 +454,7 @@ class ActionsPostsDefault
                     'limit' => 100,
                     'order' => 'nb_post DESC',
                 ];
-                $rs       = dcCore::app()->getUsers($params);
+                $rs       = dcCore::app()->users->getUsers($params);
                 $rsStatic = $rs->toStatic();
                 $rsStatic->extend('rsExtUser');
                 $rsStatic = $rsStatic->toExtStatic();

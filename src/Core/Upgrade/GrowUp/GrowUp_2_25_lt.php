@@ -31,7 +31,7 @@ class GrowUp_2_25_lt
             $ids[] = $rs->blog_id;
         }
         if (count($ids)) {
-            dcCore::app()->removeUsersDefaultBlogs($ids);
+            dcCore::app()->users->removeUsersDefaultBlogs($ids);
         }
 
         // A bit of housecleaning for no longer needed folders

@@ -73,7 +73,7 @@ class ActionsBlogsDefault
 
         if ($status === dcBlog::BLOG_REMOVED) {
             // Remove these blogs from user default blog
-            dcCore::app()->removeUsersDefaultBlogs($ids);
+            dcCore::app()->users->removeUsersDefaultBlogs($ids);
         }
 
         Notices::addSuccessNotice(__('Selected blogs have been successfully updated.'));

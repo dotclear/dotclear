@@ -309,7 +309,7 @@ class BlogPref extends Process
 
                 if (dcCore::app()->auth->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
                     // Remove this blog from user default blog
-                    dcCore::app()->removeUsersDefaultBlogs([$cur->blog_id]);
+                    dcCore::app()->users->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
 
                 # --BEHAVIOR-- adminAfterBlogUpdate -- Cursor, string
