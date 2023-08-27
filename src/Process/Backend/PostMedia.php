@@ -90,7 +90,7 @@ class PostMedia extends Process
                 Notices::addSuccessNotice(__('Attachment has been successfully removed.'));
                 Http::redirect(dcCore::app()->post_types->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
             } elseif (isset($_POST['post_id'])) {
-                Http::redirect(dcCore::app()->post_types->get($rs->post_type)->admunUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(dcCore::app()->post_types->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
             }
 
             if (!empty($_GET['remove'])) {
