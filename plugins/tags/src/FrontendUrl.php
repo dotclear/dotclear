@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcCore;
-use dcUrlHandlers;
+use Dotclear\Core\Frontend\Url;
 
-class FrontendUrl extends dcUrlHandlers
+class FrontendUrl extends Url
 {
     /**
      * Output the Tag page

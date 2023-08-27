@@ -10,10 +10,10 @@ declare(strict_types=1);
 namespace Dotclear {
     use Autoloader;
     use dcCore;
-    use dcUrlHandlers;
     use dcUtils;
     use Dotclear\Core\Process;
     use Dotclear\Core\PostType;
+    use Dotclear\Core\Frontend\Url;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
@@ -216,7 +216,6 @@ namespace Dotclear {
                 // Public
                 'dcTemplate'         => $inc('public', 'class.dc.template.php'),
                 'context'            => $inc('public', 'lib.tpl.context.php'),
-                'dcUrlHandlers'      => $inc('public', 'lib.urlhandlers.php'),
                 'rsExtendPublic'     => $inc('public', 'rs.extension.php'),
                 'rsExtPostPublic'    => $inc('public', 'rs.extension.php'),
                 'rsExtCommentPublic' => $inc('public', 'rs.extension.php'),
@@ -522,25 +521,25 @@ namespace Dotclear {
 
             Http::trimRequest();
 
-            dcCore::app()->url->registerDefault([dcUrlHandlers::class, 'home']);
+            dcCore::app()->url->registerDefault([Url::class, 'home']);
 
-            dcCore::app()->url->registerError([dcUrlHandlers::class, 'default404']);
+            dcCore::app()->url->registerError([Url::class, 'default404']);
 
-            dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', [dcUrlHandlers::class, 'lang']);
-            dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', [dcUrlHandlers::class, 'home']);
-            dcCore::app()->url->register('post', 'post', '^post/(.+)$', [dcUrlHandlers::class, 'post']);
-            dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', [dcUrlHandlers::class, 'preview']);
-            dcCore::app()->url->register('category', 'category', '^category/(.+)$', [dcUrlHandlers::class, 'category']);
-            dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', [dcUrlHandlers::class, 'archive']);
-            dcCore::app()->url->register('try', 'try', '^try/(.+)$', [dcUrlHandlers::class, 'try']);
+            dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', [Url::class, 'lang']);
+            dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', [Url::class, 'home']);
+            dcCore::app()->url->register('post', 'post', '^post/(.+)$', [Url::class, 'post']);
+            dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', [Url::class, 'preview']);
+            dcCore::app()->url->register('category', 'category', '^category/(.+)$', [Url::class, 'category']);
+            dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', [Url::class, 'archive']);
+            dcCore::app()->url->register('try', 'try', '^try/(.+)$', [Url::class, 'try']);
 
-            dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', [dcUrlHandlers::class, 'feed']);
-            dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', [dcUrlHandlers::class, 'trackback']);
-            dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', [dcUrlHandlers::class, 'webmention']);
-            dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', [dcUrlHandlers::class, 'xmlrpc']);
+            dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', [Url::class, 'feed']);
+            dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', [Url::class, 'trackback']);
+            dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', [Url::class, 'webmention']);
+            dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', [Url::class, 'xmlrpc']);
 
-            dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
-            dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [dcUrlHandlers::class, 'wpfaker']);
+            dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', [Url::class, 'wpfaker']);
+            dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [Url::class, 'wpfaker']);
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
             dcCore::app()->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));

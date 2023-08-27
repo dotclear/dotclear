@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use dcBlog;
 use dcCore;
-use dcUrlHandlers;
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -23,7 +23,7 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Exception;
 
-class FrontendUrl extends dcUrlHandlers
+class FrontendUrl extends Url
 {
     /**
      * Output the Page page

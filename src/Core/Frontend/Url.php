@@ -1,24 +1,33 @@
 <?php
 /**
  * @package Dotclear
- * @subpackage Public
+ * @subpackage Frontend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\Core\Frontend\Utility;
+namespace Dotclear\Core\Frontend;
+
+use ArrayObject;
+use context;
+use dcBlog;
+use dcCore;
+use dcTrackback;
+use dcXmlRpc;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\UrlHandler;
 use Dotclear\Helper\Text;
+use Exception;
 
-class dcUrlHandlers extends UrlHandler
+class Url extends UrlHandler
 {
     /**
      * URI arguments (depends on URL representation)
      */
-    public $args;
+    public string $args;
 
     /**
      * Gets the home type set for the blog.
@@ -101,7 +110,7 @@ class dcUrlHandlers extends UrlHandler
      *
      * @return     false|int  The page number or false if none found.
      */
-    protected static function getPageNumber(&$args)
+    protected static function getPageNumber(&$args): bool|int
     {
         if (preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
             $n = (int) $m[2];
