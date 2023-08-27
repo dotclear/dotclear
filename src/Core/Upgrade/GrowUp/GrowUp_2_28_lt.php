@@ -23,6 +23,7 @@ class GrowUp_2_28_lt
             // Files
             [
                 'src/Upgrade/dummy.txt',
+                'inc/public/lib.urlhandlers.php',
             ],
             // Folders
             [

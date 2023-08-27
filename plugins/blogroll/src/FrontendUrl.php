@@ -14,11 +14,11 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use dcCore;
-use dcUrlHandlers;
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 
-class FrontendUrl extends dcUrlHandlers
+class FrontendUrl extends Url
 {
     /**
      * Get blogroll XBEL

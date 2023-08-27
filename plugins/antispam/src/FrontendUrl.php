@@ -14,10 +14,10 @@ namespace Dotclear\Plugin\antispam;
 
 use dcBlog;
 use dcCore;
-use dcUrlHandlers;
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
 
-class FrontendUrl extends dcUrlHandlers
+class FrontendUrl extends Url
 {
     /**
      * Generate a ham feed

@@ -18,7 +18,6 @@ use dcCore;
 use dcMedia;
 use dcTemplate;
 use dcThemes;
-use dcUrlHandlers;
 use dcUtils;
 use dcTraitDynamicProperties;
 use Dotclear\Core\Process;
@@ -158,7 +157,7 @@ class Utility extends Process
 
         # Cope with static home page option
         if (dcCore::app()->blog->settings->system->static_home) {
-            dcCore::app()->url->registerDefault([dcUrlHandlers::class, 'static_home']);
+            dcCore::app()->url->registerDefault([Url::class, 'static_home']);
         }
 
         # Loading media

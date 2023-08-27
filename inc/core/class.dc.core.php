@@ -20,6 +20,7 @@ use Dotclear\Core\PostType;
 use Dotclear\Core\PostTypes;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Database\AbstractHandler;
@@ -105,11 +106,11 @@ final class dcCore
     public readonly Session $session;
 
     /**
-     * dcUrlHandlers instance
+     * Url instance
      *
-     * @var dcUrlHandlers
+     * @var Url
      */
-    public readonly dcUrlHandlers $url;
+    public readonly Url $url;
 
     /**
      * dcRestServer instance
@@ -378,7 +379,7 @@ final class dcCore
         $this->post_types = new PostTypes();
         $this->filter     = new Filter();
         $this->formater   = new Formater();
-        $this->url        = new dcUrlHandlers();
+        $this->url        = new Url();
         $this->plugins    = new dcPlugins();
         $this->rest       = new dcRestServer();
         $this->meta       = new dcMeta();
