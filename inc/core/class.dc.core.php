@@ -405,18 +405,13 @@ final class dcCore
     }
 
     /**
-     * Kill admin session helper
+     * Kill admin session helper.
+     *
+     * @deprecated since 2.28, use dcCore::app()->admin->killAdminSession() instead
      */
     public function killAdminSession(): void
     {
-        // Kill session
-        dcCore::app()->session->destroy();
-
-        // Unset cookie if necessary
-        if (isset($_COOKIE['dc_admin'])) {
-            unset($_COOKIE['dc_admin']);
-            setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
-        }
+        $this->admin->killAdminSession();
     }
 
     /// @name Blog init methods
@@ -445,34 +440,27 @@ final class dcCore
     /**
      * Gets all blog status.
      *
-     * @return     array  An array of available blog status codes and names.
+     * @deprecated since 2.28, use dcCore::app()->blogs->getAllBlogStatus() instead
+     *
+     * @return     array
      */
     public function getAllBlogStatus(): array
     {
-        return [
-            dcBlog::BLOG_ONLINE  => __('online'),
-            dcBlog::BLOG_OFFLINE => __('offline'),
-            dcBlog::BLOG_REMOVED => __('removed'),
-        ];
+        return $this->blogs->getAllBlogStatus();
     }
 
     /**
-     * Returns a blog status name given to a code. This is intended to be
-     * human-readable and will be translated, so never use it for tests.
-     * If status code does not exist, returns <i>offline</i>.
+     * Returns a blog status name given to a code.
+     *
+     * @deprecated since 2.28, use dcCore::app()->blogs->getBlogStatus() instead
      *
      * @param      int      $s      Status code
      *
-     * @return     string   The blog status name.
+     * @return     string
      */
     public function getBlogStatus(int $s): string
     {
-        $r = $this->getAllBlogStatus();
-        if (isset($r[$s])) {
-            return $r[$s];
-        }
-
-        return $r[0];
+        $this->blogs->getBlogStatus($s);
     }
     //@}
 

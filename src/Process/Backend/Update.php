@@ -229,7 +229,7 @@ class Update extends Process
 
             // Update done, need to go back to authentication (see below), but we need
             // to kill the admin session before sending any header
-            dcCore::app()->killAdminSession();
+            dcCore::app()->admin->killAdminSession();
         }
 
         Page::open(
