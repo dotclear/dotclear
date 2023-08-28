@@ -62,7 +62,7 @@ class l10nFaker
         file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
 
         $plugin .= "\n// Plugin names\n\n";
-        foreach (dcCore::app()->plugins->getDefines() as $define) {
+        foreach (Core::plugins()->getDefines() as $define) {
             if ($define->get('distributed')) {
                 $plugin .= $this->fake_l10n($define->get('desc'));
             }

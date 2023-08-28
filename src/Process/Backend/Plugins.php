@@ -32,7 +32,7 @@ class Plugins extends Process
     {
         // -- Page helper --
         Core::backend()->list = new ModulesList(
-            dcCore::app()->plugins,
+            Core::plugins(),
             DC_PLUGINS_ROOT,
             Core::blog()->settings->system->store_plugin_url,
             !empty($_GET['nocache']) ? true : null
@@ -42,7 +42,7 @@ class Plugins extends Process
         // deprecated since 2.26
         ModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
-        $disabled = dcCore::app()->plugins->disableDepModules();
+        $disabled = Core::plugins()->disableDepModules();
         if (count($disabled)) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
@@ -78,7 +78,7 @@ class Plugins extends Process
         // -- Plugin install --
         Core::backend()->plugins_install = null;
         if (!Core::error()->flag()) {
-            Core::backend()->plugins_install = dcCore::app()->plugins->installModules();
+            Core::backend()->plugins_install = Core::plugins()->installModules();
         }
 
         return true;

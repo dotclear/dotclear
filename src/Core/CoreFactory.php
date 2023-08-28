@@ -17,6 +17,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
 //
@@ -97,6 +98,11 @@ class CoreFactory implements CoreFactoryInterface
     public function notice(): dcNotices
     {
         return new dcNotices();
+    }
+
+    public function plugins(): dcPlugins
+    {
+        return new dcPlugins();
     }
 
     public function postMedia(): dcPostMedia

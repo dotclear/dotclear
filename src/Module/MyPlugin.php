@@ -32,7 +32,7 @@ abstract class MyPlugin extends MyModule
 {
     protected static function define(): dcModuleDefine
     {
-        return static::getDefineFromNamespace(dcCore::app()->plugins);
+        return static::getDefineFromNamespace(Core::plugins());
     }
 
     /**

@@ -21,9 +21,9 @@ class GrowUp_2_2_alpha1_r3043_lt
     public static function init(bool $cleanup_sessions): bool
     {
         # metadata has been integrated to the core.
-        dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
-        if (dcCore::app()->plugins->moduleExists('metadata')) {
-            dcCore::app()->plugins->deleteModule('metadata');
+        Core::plugins()->loadModules(DC_PLUGINS_ROOT);
+        if (Core::plugins()->moduleExists('metadata')) {
+            Core::plugins()->deleteModule('metadata');
         }
 
         # Tags template class has been renamed

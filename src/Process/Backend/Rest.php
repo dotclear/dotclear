@@ -254,7 +254,7 @@ class Rest extends Process
             $mod = dcCore::app()->themes;
             $url = Core::blog()->settings->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
-            $mod = dcCore::app()->plugins;
+            $mod = Core::plugins();
             $url = Core::blog()->settings->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>

@@ -382,7 +382,7 @@ class Config extends Process
         '<p class="field"><label for="logo_src">' . __('Logo URL:') . '</label> ' .
         form::field('logo_src', 40, 255, Core::backend()->ductile_user['logo_src']) . '</p>';
 
-        if (dcCore::app()->plugins->moduleExists('simpleMenu')) {
+        if (Core::plugins()->moduleExists('simpleMenu')) {
             echo
             '<p>' .
             sprintf(

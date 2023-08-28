@@ -188,7 +188,7 @@ class FrontendUrl extends Url
                 }
 
                 $tplset           = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
-                $default_template = Path::real(dcCore::app()->plugins->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
+                $default_template = Path::real(Core::plugins()->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), $default_template . $tplset);
                 } else {

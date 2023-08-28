@@ -163,7 +163,7 @@ class ModuleImportWp extends Module
             case 'step3':
                 $this->step = 3;
                 $this->importCategories();
-                if (dcCore::app()->plugins->moduleExists('blogroll')) {
+                if (Core::plugins()->moduleExists('blogroll')) {
                     $this->step = 4;
                     echo $this->progressBar(5);
                 } else {

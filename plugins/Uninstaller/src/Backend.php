@@ -83,7 +83,7 @@ class Backend extends Process
             // Do not perform action on disabled module if a duplicate exists.
             if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
                 if (!in_array($define->get('type'), ['plugin', 'theme'])
-                    || $define->get('type') == 'plugin' && 1 < count(dcCore::app()->plugins->getDefines(['id' => $define->getId()]))
+                    || $define->get('type') == 'plugin' && 1 < count(Core::plugins()->getDefines(['id' => $define->getId()]))
                     || $define->get('type') == 'theme'  && 1 < count(dcCore::app()->themes->getDefines(['id' => $define->getId()]))
                 ) {
                     return;

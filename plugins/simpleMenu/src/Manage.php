@@ -127,10 +127,10 @@ class Manage extends Process
         if (count(Core::backend()->months_combo) > 1) {
             $items['archive'] = new ArrayObject([__('Archive'), true]);
         }
-        if (dcCore::app()->plugins->moduleExists('pages') && count(Core::backend()->pages_combo)) {
+        if (Core::plugins()->moduleExists('pages') && count(Core::backend()->pages_combo)) {
             $items['pages'] = new ArrayObject([__('Page'), true]);
         }
-        if (dcCore::app()->plugins->moduleExists('tags') && count(Core::backend()->tags_combo) > 1) {
+        if (Core::plugins()->moduleExists('tags') && count(Core::backend()->tags_combo) > 1) {
             $items['tags'] = new ArrayObject([__('Tags'), true]);
         }
 

@@ -1100,7 +1100,7 @@ class ModulesList
         $config = self::hasFileOrClass($id, dcModules::MODULE_CLASS_CONFIG, dcModules::MODULE_FILE_CONFIG);
         $index  = self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE);
 
-        $settings = dcCore::app()->plugins->moduleInfo($id, 'settings');
+        $settings = Core::plugins()->moduleInfo($id, 'settings');
         if ($self) {
             if (isset($settings['self']) && $settings['self'] === false) {
                 $self = false;
@@ -1108,9 +1108,9 @@ class ModulesList
         }
         if ($config || $index || !empty($settings)) {
             if ($config) {
-                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(Core::plugins()->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                     $params = ['module' => $id, 'conf' => '1'];
-                    if (!dcCore::app()->plugins->moduleInfo($id, 'standalone_config') && !$self) {
+                    if (!Core::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = Core::backend()->url->get('admin.plugin.' . $id);
                     }
                     $settings_urls[] = '<a class="module-config" href="' .
@@ -1144,7 +1144,7 @@ class ModulesList
                             break;
                         case 'self':
                             if ($self) {
-                                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(Core::plugins()->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                                     $settings_urls[] = '<a class="module-config" href="' .
                                     Core::backend()->url->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
@@ -1155,7 +1155,7 @@ class ModulesList
 
                             break;
                         case 'other':
-                            if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                            if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(Core::plugins()->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 $sv .
                                 '">' . __('Plugin settings') . '</a>';
@@ -1166,7 +1166,7 @@ class ModulesList
                 }
             }
             if ($index && $self) {
-                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(Core::plugins()->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                     $settings_urls[] = '<a class="module-config" href="' .
                     Core::backend()->url->get('admin.plugin.' . $id) .
                     '">' . __('Plugin main page') . '</a>';
@@ -1699,7 +1699,7 @@ class ModulesList
         }
 
         if (!Core::auth()->isSuperAdmin()
-            && !Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)
+            && !Core::auth()->check(Core::plugins()->moduleInfo($id, 'permissions'), Core::blog()->id)
         ) {
             Core::error()->add(__('Insufficient permissions'));
 
@@ -1823,13 +1823,13 @@ class ModulesList
     private static function hasFileOrClass(string $id, string $class, string $file): bool
     {
         // by class name
-        $ns    = dcCore::app()->plugins->moduleInfo($id, 'namespace');
+        $ns    = Core::plugins()->moduleInfo($id, 'namespace');
         $class = $ns . Autoloader::NS_SEP . $class;
         if (!empty($ns) && class_exists($class)) {
             $has = $class::init();
             // by file name
         } else {
-            $root = dcCore::app()->plugins->moduleInfo($id, 'root');
+            $root = Core::plugins()->moduleInfo($id, 'root');
             $has  = !empty($root) && file_exists((string) Path::real($root . DIRECTORY_SEPARATOR . $file));
         }
 

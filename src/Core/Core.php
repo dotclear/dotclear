@@ -18,6 +18,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
 //
@@ -153,6 +154,11 @@ final class Core
     public static function notice(): dcNotices
     {
         return self::$instance->get('notice');
+    }
+
+    public static function plugins(): dcPlugins
+    {
+        return self::$instance->get('plugins');
     }
 
     public static function postMedia(): dcPostMedia

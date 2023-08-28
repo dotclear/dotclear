@@ -222,7 +222,7 @@ class Utility extends Process
 
         # Loading plugins
         try {
-            dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'public', dcCore::app()->lang);
+            Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', dcCore::app()->lang);
         } catch (Exception $e) {
             // Ignore
         }

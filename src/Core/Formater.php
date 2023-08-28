@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
+use Dotclear\Core\Core;
 
 class Formater
 {
@@ -73,10 +74,8 @@ class Formater
     {
         $res = [];
 
-        if (isset(dcCore::app()->plugins)) {
-            foreach (array_keys($this->stack) as $editor_id) {
-                $res[$editor_id] = dcCore::app()->plugins->getDefine($editor_id)->get('name');
-            }
+        foreach (array_keys($this->stack) as $editor_id) {
+            $res[$editor_id] = Core::plugins()->getDefine($editor_id)->get('name');
         }
 
         return $res;

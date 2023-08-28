@@ -148,6 +148,8 @@ final class dcCore
     /**
      * Plugins
      *
+     * @deprecated since 2.28, Use Core::plugins() instead
+     *
      * @var dcPlugins
      */
     public readonly dcPlugins $plugins;
@@ -344,7 +346,7 @@ final class dcCore
         $this->auth    = Core::auth();
         $this->session = Core::session();
         $this->url     = new Url();
-        $this->plugins = new dcPlugins();
+        $this->plugins = Core::plugins();
         $this->rest    = Core::rest();
         $this->meta    = Core::meta();
         $this->log     = Core::log();

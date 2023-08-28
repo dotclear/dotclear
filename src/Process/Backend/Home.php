@@ -48,7 +48,7 @@ class Home extends Process
             Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        $disabled = dcCore::app()->plugins->disableDepModules();
+        $disabled = Core::plugins()->disableDepModules();
         if (count($disabled)) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
@@ -81,7 +81,7 @@ class Home extends Process
         }
 
         // Plugin install
-        Core::backend()->plugins_install = dcCore::app()->plugins->installModules();
+        Core::backend()->plugins_install = Core::plugins()->installModules();
 
         return true;
     }
@@ -302,7 +302,7 @@ class Home extends Process
 
         // Errors modules notifications
         if (Core::auth()->isSuperAdmin()) {
-            $list = dcCore::app()->plugins->getErrors();
+            $list = Core::plugins()->getErrors();
             if (!empty($list)) {
                 Notices::error(
                     __('Errors have occured with following plugins:') .

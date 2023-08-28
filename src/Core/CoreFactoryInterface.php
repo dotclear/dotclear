@@ -17,6 +17,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
 //
@@ -37,6 +38,7 @@ interface CoreFactoryInterface
     public function meta(): dcMeta;
     public function nonce(): Nonce;
     public function notice(): dcNotices;
+    public function plugins(): dcPlugins;
     public function postMedia(): dcPostMedia;
     public function postTypes(): PostTypes;
     public function rest(): dcRestServer;

@@ -283,8 +283,8 @@ class Install extends Process
 
                 #  Plugins initialization
                 define('DC_CONTEXT_ADMIN', true);
-                dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
-                self::$plugins_install = dcCore::app()->plugins->installModules();
+                Core::plugins()->loadModules(DC_PLUGINS_ROOT);
+                self::$plugins_install = Core::plugins()->installModules();
 
                 # Add dashboard module options
                 Core::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);

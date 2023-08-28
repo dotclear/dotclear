@@ -234,7 +234,7 @@ class Utility extends Process
         }
 
         // Load plugins
-        dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
+        Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
         Core::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {
